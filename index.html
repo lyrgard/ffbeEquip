@@ -57,6 +57,12 @@
 				font-size: 0.9em;
 				display: none;
 			}
+			.noWrap {
+				white-space:nowrap;
+			}
+			.imageWithText {
+				margin-right : 2px;
+			}
         </style>
         
         <script>
@@ -96,82 +102,90 @@
                 ailments = getSelectedValuesFor("ailments");
                 killers = getSelectedValuesFor("killers");
                 accessToRemove = getSelectedValuesFor("accessToRemove");
-				var result = $("#results tbody");
-				result.empty();
 				$(filters).each(function(index, filter) {
 					$("."+ filter + " .unselectAll").toggle(window[filter].length != 0); 
 				});
-				$(sort(filter())).each(function (index, item){
-					var line = $("<tr></tr>");
-					var name = $("<td></td>").append($("<a></a>").attr("href", toUrl(item.name)).append(item.name)).append($("<div class='detail'></div>").append(getStatDetail(item)));
-					var type = $("<td></td>").append($("<img></img>").attr("src", "img/" + item.type + ".png"));
-					var value = $("<td class='value'></td>");
+				displayItems(sort(filter()))
+            }
+			
+			var displayItems = function(items) {
+				var html;
+				$(items).each(function (index, item){
+					html += "<tr>";
+					
+					// name
+					html += "<td><a href='" + toUrl(item.name) + "'>" + item.name + "</a><div class='detail'>" + getStatDetail(item) + "</div></td>";
+					
+					// type
+					html += "<td><img src='img/" + item.type + ".png'></img></td>";
+					
+					// value
+					html += "<td class='value'>" + item.calculatedValue;
 					if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
-						value.text(item.calculatedValue + '%');
-					} else {
-						value.text(item.calculatedValue);
+						html += '%';
 					}
-					var special = $("<td></td>");
+					html += "</td>";
+					
+					// special
+					html += "<td>";
+					
+					
 					if (item.element) {
-						special
-							.append($("<img class='miniIcon' src='img/sword.png'></img>"))
-							.append($("<img></img>").attr("src", "img/" + item.element + ".png"));
+						html += "<img class='miniIcon' src='img/sword.png'></img><img src='img/" + item.element + ".png'></img>"
 					}
 					if (item.ailments) {
 						$(item.ailments).each(function(index, ailment) {
-							special.append($("<div></div>").attr("style", "white-space:nowrap;")
-								.append($("<img class='miniIcon' src='img/sword.png'></img>"))
-								.append($("<img></img>").attr("src", "img/" + ailment.name + ".png").attr("style", "margin-right:2px;")).append(ailment.percent + "%"));
+							html += "<div class='noWrap'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img>" + ailment.percent + "%</div>";
 						});
 					}
 					if (item.resist) {
 						$(item.resist).each(function(index, resist) {
-							var resistDiv = $("<div></div>").attr("style", "white-space:nowrap;")
-								.append($("<img class='miniIcon' src='img/heavyShield.png'></img>"))
-								.append($("<img></img>").attr("src", "img/" + resist.name + ".png").attr("style", "margin-right:2px;")).append(resist.percent + "%");
-                            if (elementList.includes(resist.name) && elements.length != 0 && !elements.includes(resist.name)) {
-                                resistDiv.addClass("notSelected");
-                            }
-                            if (ailmentList.includes(resist.name) && ailments.length != 0 && !ailments.includes(resist.name)) {
-                                resistDiv.addClass("notSelected");
-                            }
-                            special.append(resistDiv);
+							html += "<div class='noWrap";
+							if ((elementList.includes(resist.name) && elements.length != 0 && !elements.includes(resist.name)) || (ailmentList.includes(resist.name) && ailments.length != 0 && !ailments.includes(resist.name))) {
+								html += " notSelected";
+							}
+							html += "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img>" + resist.percent + "%</div>";
 						});
 					}
-					if (item.evade) {
-						special.append($("<div></div>").append('Evade ' + item.evade + '%'));
-					}
-                    if (item.killers) {
+					
+					if (item.killers) {
 						$(item.killers).each(function(index, killer) {
-                            var killerDiv = $("<div></div>").attr("style", "white-space:nowrap;")
-								.append($("<img></img>").attr("src", "img/killer.png").attr("style", "margin-right:2px;")).append(killer.name + " " + killer.percent + "%");
-                            if (killers.length != 0 && !killers.includes(killer.name)) {
-                                killerDiv.addClass("notSelected");
-                            }
-                            special.append(killerDiv);
+							html += "<div class='noWrap";
+							if (killers.length != 0 && !killers.includes(killer.name)) {
+								html += " notSelected";
+							}
+							html += "'><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.percent + "%</div>";
 						});
 					}
+					
+					if (item.evade) {
+						html += "<div>Evade " + item.evade + "%</div>";
+					}
+					
 					if (item.special) {
 						$(item.special).each(function(index, itemSpecial) {
-							special.append($("<div></div>").append(toHtml(itemSpecial)));
+							html += "<div>" + toHtml(itemSpecial) + "</div>";
 						});
 					}
 					if (item.exclusive) {
-						special.append($("<div></div>").append(toHtml('Only '+ item.exclusive)));
+						html += "<div>" + toHtml('Only '+ item.exclusive) + "</div>";
 					}
-					var access = $("<td></td>");
+					html += "</td>";
+					
+					//access
+					html += "<td>";
 					$(item.access).each(function(index, itemAccess) {
-						var accessDiv = $("<div></div>").text(itemAccess);
+						html += "<div"; 
 						if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
-							accessDiv.addClass("notSelected forbiddenAccess");
+							html += " class='notSelected forbiddenAccess'";
 						}
-						access.append(accessDiv);
+						html += ">" + itemAccess + "</div>"; 
 					});
-					line.append(name).append(value).append(type).append(special).append(access);
-					result.append(line);
+					html += "</td>";
+					html += "</tr>";
 				});
-				
-            }
+				$("#results tbody").html(html);
+			}
             
             var filter = function() {
                 var result = [];
@@ -305,7 +319,7 @@
                     var vWithoutBrace = v.substring(1, v.length - 1); 
                     return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
                 });
-                return $("<span>" + textWithAddedAnchors +"</span>");
+                return "<span>" + textWithAddedAnchors +"</span>";
 			}
             
 			var toUrl = function(name) {
