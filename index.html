@@ -105,8 +105,21 @@
 				$(filters).each(function(index, filter) {
 					$("."+ filter + " .unselectAll").toggle(window[filter].length != 0); 
 				});
-				displayItems(sort(filter()))
+				displayItems(sort(filter()));
+				modifyUrl();
             }
+			
+			var modifyUrl = function() {
+				var state = {
+					"stat" : stat,
+					"types" : types,
+					"elements" : elements,
+					"ailments" : ailments,
+					"killers" : killers,
+					"accessToRemove" : accessToRemove
+				};
+				window.location.hash = '#' + JSON.stringify(state);
+			};
 			
 			var displayItems = function(items) {
 				var html;
@@ -185,7 +198,7 @@
 					html += "</tr>";
 				});
 				$("#results tbody").html(html);
-			}
+			};
             
             var filter = function() {
                 var result = [];
@@ -206,13 +219,13 @@
                     }
                 })
                 return result;
-            }
+            };
             
             var sort = function(items) {
 				return items.sort(function (item1, item2){
 					return item2.calculatedValue - item1.calculatedValue;
 				});
-            }
+            };
             
             var getSelectedValuesFor = function(type) {
                 var values = [];
@@ -220,7 +233,7 @@
                      values.push($(this).val());
                  });
                 return values;
-            }
+            };
             
             var matches = function(array1, array2) {
                 var match = false;
@@ -230,7 +243,7 @@
                     }
                 });
                 return match;
-            }
+            };
             
             var haveAuthorizedAccess = function(forbiddenAccessList, itemAccesses) {
                 var hasAccess = false;
@@ -238,7 +251,7 @@
 					hasAccess |= isAccessAllowed(forbiddenAccessList, itemAccess);
                 });
                 return hasAccess;
-            }
+            };
 			
 			var isAccessAllowed = function(forbiddenAccessList, access) {
 				var accessAllowed = true;
@@ -250,7 +263,7 @@
 					});
 				});
 				return accessAllowed;
-			}
+			};
 			
 			var calculateValue = function(item) {
 				var calculatedValue = 0;
@@ -287,7 +300,7 @@
                     calculatedValue = maxValue;
                 }
 				$(item).attr('calculatedValue', calculatedValue);
-			}
+			};
 			
 			var getStatDetail = function(item) {
 				var detail = "";
@@ -312,7 +325,7 @@
 					}
 				});
 				return detail;
-			}
+			};
 			
             var toHtml = function(text) {
 				var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
@@ -320,11 +333,11 @@
                     return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
                 });
                 return "<span>" + textWithAddedAnchors +"</span>";
-			}
+			};
             
 			var toUrl = function(name) {
 				return wikiBaseUrl + name.replace(' ', '_');
-			}
+			};
             
             function isNumber(evt) {
                 evt = (evt) ? evt : window.event;
@@ -333,7 +346,7 @@
                     return false;
                 }
                 return true;
-            }
+            };
             
 			function unselectAll(type) {
 				$('input[name='+ type +']:checked').each(function(index, checkbox) {
@@ -341,6 +354,26 @@
 					$(checkbox).parent().removeClass('active');
                 });
 				update();
+			};
+			
+			function loadHash() {
+				if (window.location.hash != '') {
+					var state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+					if (state.stat && state.types && state.elements && state.ailments && state.killers && state.accessToRemove) {
+						$('input[name=stat][value='+ state.stat +']').each(function(index, checkbox) {
+							$(checkbox).prop('checked', true);
+							$(checkbox).parent().addClass('active');
+						});
+						$(filters).each(function (index, filter) {
+							$(state[filter]).each(function (index, selectedValue) {
+								$('input[name='+ filter +'][value='+ selectedValue +']').each(function(index, checkbox) {
+									$(checkbox).prop('checked', true);
+									$(checkbox).parent().addClass('active');
+								});
+							}) ;
+						});
+					}
+				}
 			}
 			
             $(function() {
@@ -352,6 +385,7 @@
                 
                 $.get("data.json", function(result) {
                     data = $(result);
+					loadHash();
                     update();
                 }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                     alert( errorThrown );
