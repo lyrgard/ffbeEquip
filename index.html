@@ -1,0 +1,652 @@
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            .btn-default.active {
+                border-color: black;
+                background-color: #337ab7;
+                color: aliceblue;
+            }
+            .btn-default.active.focus {
+                border-color: black;
+                background-color: #337ab7;
+                color: aliceblue;
+            }
+            .btn-default.active:hover {
+                border-color: black;
+                background-color: #438ac7;
+            }
+            #results {
+                margin-bottom: 0;
+            }
+			#results tbody tr td {
+				vertical-align: middle;
+			}
+			
+			#results .value {
+				font-weight: bold;
+			}
+			#results .detail {
+				font-size: 0.8em;
+			}
+			#statTitle {
+				text-transform: uppercase;
+			}
+			.miniIcon {
+				position: absolute;
+				width: 20px;
+				margin-top: 17px;
+				margin-left: 17px;
+				border-radius: 10px;
+			}
+            .detail {
+                text-transform: uppercase;
+            }
+            .notSelected {
+                opacity: 0.5;
+            }
+			.forbiddenAccess {
+				text-decoration:line-through;
+			}
+			.unselectAll {
+				cursor: pointer;
+				margin-left: 10px;
+				font-size: 0.9em;
+				display: none;
+			}
+        </style>
+        
+        <script>
+			var wikiBaseUrl = "http://exvius.gamepedia.com/";
+            var data;
+			var baseStat = 180;
+			var filters = ["types","elements","ailments","killers","accessToRemove"];
+            var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
+            var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
+            
+			var stat;
+			var types;
+            var elements;
+            var ailments;
+            var killers;
+            var accessToRemove;
+			
+            var update = function() {
+                stat = getSelectedValuesFor("stat");
+				if (stat.length == 0) {return;}
+				stat = stat[0];
+                baseStat = parseInt($("#baseStat").val());
+                if (isNaN(baseStat)) {
+                    if (stat == 'hp') {
+                        baseStat=3500;
+                        $("#baseStat").attr("placeholder", 3500);
+                    } else {
+                        baseStat=180;
+                        $("#baseStat").attr("placeholder", 180);
+                    }
+                    
+                }
+				
+				$("#statTitle").text(stat);
+                types = getSelectedValuesFor("types");
+                elements = getSelectedValuesFor("elements");
+                ailments = getSelectedValuesFor("ailments");
+                killers = getSelectedValuesFor("killers");
+                accessToRemove = getSelectedValuesFor("accessToRemove");
+				var result = $("#results tbody");
+				result.empty();
+				$(filters).each(function(index, filter) {
+					$("."+ filter + " .unselectAll").toggle(window[filter].length != 0); 
+				});
+				$(sort(filter())).each(function (index, item){
+					var line = $("<tr></tr>");
+					var name = $("<td></td>").append($("<a></a>").attr("href", toUrl(item.name)).append(item.name)).append($("<div class='detail'></div>").append(getStatDetail(item)));
+					var type = $("<td></td>").append($("<img></img>").attr("src", "img/" + item.type + ".png"));
+					var value = $("<td class='value'></td>");
+					if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
+						value.text(item.calculatedValue + '%');
+					} else {
+						value.text(item.calculatedValue);
+					}
+					var special = $("<td></td>");
+					if (item.element) {
+						special
+							.append($("<img class='miniIcon' src='img/sword.png'></img>"))
+							.append($("<img></img>").attr("src", "img/" + item.element + ".png"));
+					}
+					if (item.ailments) {
+						$(item.ailments).each(function(index, ailment) {
+							special.append($("<div></div>").attr("style", "white-space:nowrap;")
+								.append($("<img class='miniIcon' src='img/sword.png'></img>"))
+								.append($("<img></img>").attr("src", "img/" + ailment.name + ".png").attr("style", "margin-right:2px;")).append(ailment.percent + "%"));
+						});
+					}
+					if (item.resist) {
+						$(item.resist).each(function(index, resist) {
+							var resistDiv = $("<div></div>").attr("style", "white-space:nowrap;")
+								.append($("<img class='miniIcon' src='img/heavyShield.png'></img>"))
+								.append($("<img></img>").attr("src", "img/" + resist.name + ".png").attr("style", "margin-right:2px;")).append(resist.percent + "%");
+                            if (elementList.includes(resist.name) && elements.length != 0 && !elements.includes(resist.name)) {
+                                resistDiv.addClass("notSelected");
+                            }
+                            if (ailmentList.includes(resist.name) && ailments.length != 0 && !ailments.includes(resist.name)) {
+                                resistDiv.addClass("notSelected");
+                            }
+                            special.append(resistDiv);
+						});
+					}
+					if (item.evade) {
+						special.append($("<div></div>").append('Evade ' + item.evade + '%'));
+					}
+                    if (item.killers) {
+						$(item.killers).each(function(index, killer) {
+                            var killerDiv = $("<div></div>").attr("style", "white-space:nowrap;")
+								.append($("<img></img>").attr("src", "img/killer.png").attr("style", "margin-right:2px;")).append(killer.name + " " + killer.percent + "%");
+                            if (killers.length != 0 && !killers.includes(killer.name)) {
+                                killerDiv.addClass("notSelected");
+                            }
+                            special.append(killerDiv);
+						});
+					}
+					if (item.special) {
+						$(item.special).each(function(index, itemSpecial) {
+							special.append($("<div></div>").append(toHtml(itemSpecial)));
+						});
+					}
+					if (item.exclusive) {
+						special.append($("<div></div>").append(toHtml('Only '+ item.exclusive)));
+					}
+					var access = $("<td></td>");
+					$(item.access).each(function(index, itemAccess) {
+						var accessDiv = $("<div></div>").text(itemAccess);
+						if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
+							accessDiv.addClass("notSelected forbiddenAccess");
+						}
+						access.append(accessDiv);
+					});
+					line.append(name).append(value).append(type).append(special).append(access);
+					result.append(line);
+				});
+				
+            }
+            
+            var filter = function() {
+                var result = [];
+                data.each(function(index, item) {
+                    if (types.length == 0 || types.includes(item.type)) {
+                        if (elements.length == 0 || elements.includes(item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
+                            if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
+                                if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
+                                    if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item.access)) {
+								        if (item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist)) {
+									       calculateValue(item, stat, ailments, elements, killers);
+									       result.push(item);
+                                        }
+								    } 
+                                }
+                            }
+                        }
+                    }
+                })
+                return result;
+            }
+            
+            var sort = function(items) {
+				return items.sort(function (item1, item2){
+					return item2.calculatedValue - item1.calculatedValue;
+				});
+            }
+            
+            var getSelectedValuesFor = function(type) {
+                var values = [];
+                 $('input[name='+ type +']:checked').each(function() {
+                     values.push($(this).val());
+                 });
+                return values;
+            }
+            
+            var matches = function(array1, array2) {
+                var match = false;
+                $(array1).each(function(index, value) {
+                    if (array2.includes(value)) {
+                        match = true;
+                    }
+                });
+                return match;
+            }
+            
+            var haveAuthorizedAccess = function(forbiddenAccessList, itemAccesses) {
+                var hasAccess = false;
+				$(itemAccesses).each(function(index, itemAccess) {
+					hasAccess |= isAccessAllowed(forbiddenAccessList, itemAccess);
+                });
+                return hasAccess;
+            }
+			
+			var isAccessAllowed = function(forbiddenAccessList, access) {
+				var accessAllowed = true;
+				$(forbiddenAccessList).each(function (index, accessToSplit) {
+					$(accessToSplit.split('/')).each(function(index, forbiddenAccess) {
+						if (access.startsWith(forbiddenAccess) || access.endsWith(forbiddenAccess)) {
+							accessAllowed = false;
+						}    
+					});
+				});
+				return accessAllowed;
+			}
+			
+			var calculateValue = function(item) {
+				var calculatedValue = 0;
+				if (item[stat]) {
+				    calculatedValue = item[stat];
+				} 
+                if (item[stat + '%']) {
+					calculatedValue += item[stat+'%'] * baseStat / 100;
+				}
+                if (stat == 'inflict' && (item.ailments || item.killers)) {
+                    var maxValue = 0;
+                    $(item.ailments).each(function(index, ailment) {
+                        if ((ailments.length == 0 || ailments.includes(ailment.name)) && ailment.percent > maxValue) {
+                            maxValue = ailment.percent;
+                        }
+                    });
+                    $(item.killers).each(function(index, killer) {
+                        if ((killers.length == 0 || killers.includes(killer.name)) && killer.percent > maxValue) {
+                            maxValue = killer.percent;
+                        }
+                    });
+                    calculatedValue = maxValue;
+                }
+                if (stat == 'resist' && (item.resist)) {
+                    var maxValue = 0;
+                    $(item.resist).each(function(index, res) {
+                        if (ailmentList.includes(res.name) && (ailments.length == 0 || ailments.includes(res.name)) && res.percent > maxValue) {
+                            maxValue = res.percent;
+                        }
+                        if (elementList.includes(res.name) && (elements.length == 0 || elements.includes(res.name)) && res.percent > maxValue) {
+                            maxValue = res.percent;
+                        }
+                    });
+                    calculatedValue = maxValue;
+                }
+				$(item).attr('calculatedValue', calculatedValue);
+			}
+			
+			var getStatDetail = function(item) {
+				var detail = "";
+				var stats = ['hp', 'mp', 'atk', 'def', 'mag', 'spr'];
+				var first = true;
+				$(stats).each(function(index, stat) {
+					if (item[stat]) {
+						if (first) {
+							first = false;
+						} else {
+							detail += ', ';
+						}
+						detail += stat + '+' + item[stat];
+					}
+					if (item[stat+'%']) {
+						if (first) {
+							first = false;
+						} else {
+							detail += ', ';
+						}
+						detail += stat + '+' + item[stat+'%'] + '%';
+					}
+				});
+				return detail;
+			}
+			
+            var toHtml = function(text) {
+				var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
+                    var vWithoutBrace = v.substring(1, v.length - 1); 
+                    return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
+                });
+                return $("<span>" + textWithAddedAnchors +"</span>");
+			}
+            
+			var toUrl = function(name) {
+				return wikiBaseUrl + name.replace(' ', '_');
+			}
+            
+            function isNumber(evt) {
+                evt = (evt) ? evt : window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if ( (charCode > 31 && charCode < 48) || charCode > 57) {
+                    return false;
+                }
+                return true;
+            }
+            
+			function unselectAll(type) {
+				$('input[name='+ type +']:checked').each(function(index, checkbox) {
+					$(checkbox).prop('checked', false);
+					$(checkbox).parent().removeClass('active');
+                });
+				update();
+			}
+			
+            $(function() {
+                $('.choice input').change(function() {
+                    update();
+                });
+                $("#baseStat").on("input", update);
+                
+                
+                $.get("data.json", function(result) {
+                    data = $(result);
+                    update();
+                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                    alert( errorThrown );
+                });
+            });
+        </script>
+        <title>FFBE Equip</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Desired stat</div>
+                    <div class="panel-body">
+                        <div class="col-xs-6">
+                            <div class="btn-group colors choice" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="hp" autocomplete="off">HP
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="mp" autocomplete="off">MP
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="atk" autocomplete="off">ATK
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="def" autocomplete="off">DEF
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="mag" autocomplete="off">MAG
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="spr" autocomplete="off">SPR
+                                </label>
+								<label class="btn btn-default">
+                                    <input type="radio" name="stat" value="evade" autocomplete="off">Evade
+                                </label>
+								<label class="btn btn-default">
+                                    <input type="radio" name="stat" value="inflict" autocomplete="off">Inflict
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="stat" value="resist" autocomplete="off">Resist
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label for="baseStat">Base stat (with pots) :</label>
+                                    <input type="number" class="form-control" id="baseStat" placeholder="180" onkeypress="return isNumber(event)">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-lg-6">
+                <div class="panel panel-default types">
+                    <div class="panel-heading"><span>Equipment types</span><a class="unselectAll" onclick="unselectAll('types')">unselect all</a></div>
+                    <div class="panel-body">
+						<div class="btn-group types choice" data-toggle="buttons">
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="dagger" autocomplete="off"><img src="img/dagger.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="sword" autocomplete="off"><img src="img/sword.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="greatSword" autocomplete="off"><img src="img/greatSword.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="katana" autocomplete="off"><img src="img/katana.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="staff" autocomplete="off"><img src="img/staff.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="rod" autocomplete="off"><img src="img/rod.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="bow" autocomplete="off"><img src="img/bow.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="axe" autocomplete="off"><img src="img/axe.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="hammer" autocomplete="off"><img src="img/hammer.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="spear" autocomplete="off"><img src="img/spear.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="harp" autocomplete="off"><img src="img/harp.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="whip" autocomplete="off"><img src="img/whip.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="throwing" autocomplete="off"><img src="img/throwing.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="gun" autocomplete="off"><img src="img/gun.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="mace" autocomplete="off"><img src="img/mace.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="fist" autocomplete="off"><img src="img/fist.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="lightShield" autocomplete="off"><img src="img/lightShield.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="heavyShield" autocomplete="off"><img src="img/heavyShield.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="hat" autocomplete="off"><img src="img/hat.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="helm" autocomplete="off"><img src="img/helm.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="clothes" autocomplete="off"><img src="img/clothes.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="robe" autocomplete="off"><img src="img/robe.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="lightArmor" autocomplete="off"><img src="img/lightArmor.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="heavyArmor" autocomplete="off"><img src="img/heavyArmor.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="accessory" autocomplete="off"><img src="img/accessory.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="types" value="materia" autocomplete="off"><img src="img/materia.png"/>
+							</label>
+					</div>
+				</div>
+			</div>
+		
+			<div class="panel panel-default elements">
+				<div class="panel-heading"><span>Elements</span><a class="unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+				<div class="panel-body">
+						<div class="btn-group elements choice" data-toggle="buttons">
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="fire" autocomplete="off"><img src="img/fire.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="ice" autocomplete="off"><img src="img/ice.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="lightning" autocomplete="off"><img src="img/lightning.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="water" autocomplete="off"><img src="img/water.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="wind" autocomplete="off"><img src="img/wind.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="earth" autocomplete="off"><img src="img/earth.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="light" autocomplete="off"><img src="img/light.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="elements" value="dark" autocomplete="off"><img src="img/dark.png"/>
+							</label>
+						</div>
+				</div>
+			</div>
+			<div class="panel panel-default ailments">
+				<div class="panel-heading"><span>Status ailment</span><a class="unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+				<div class="panel-body">
+						<div class="btn-group ailments choice" data-toggle="buttons">
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="poison" autocomplete="off"><img src="img/poison.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="blind" autocomplete="off"><img src="img/blind.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="sleep" autocomplete="off"><img src="img/sleep.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="silence" autocomplete="off"><img src="img/silence.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="paralysis" autocomplete="off"><img src="img/paralysis.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="confuse" autocomplete="off"><img src="img/confuse.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="disease" autocomplete="off"><img src="img/disease.png"/>
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="ailments" value="petrification" autocomplete="off"><img src="img/petrification.png"/>
+							</label>
+						</div>
+				</div>
+			</div>
+            <div class="panel panel-default killers">
+				<div class="panel-heading"><span>Killers</span><a class="unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
+				<div class="panel-body">
+						<div class="btn-group elements choice" data-toggle="buttons">
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="aquatic" autocomplete="off">Aquatic
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="beast" autocomplete="off">Beast
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="bird" autocomplete="off">Bird
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="bug" autocomplete="off">Bug
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="killers" value="demon" autocomplete="off">Demon
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="killers" value="dragon" autocomplete="off">Dragon
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="killers" value="human" autocomplete="off">Human
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="machine" autocomplete="off">Machine
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="killers" value="plant" autocomplete="off">Plant
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="killers" value="undead" autocomplete="off">Undead
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="stone" autocomplete="off">Stone
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="killers" value="spirit" autocomplete="off">Spirit
+							</label>
+						</div>
+				</div>
+			</div>
+            <div class="panel panel-default accessToRemove">
+				<div class="panel-heading"><span>Remove Access</span><a class="unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
+				<div class="panel-body">
+						<div class="btn-group elements choice" data-toggle="buttons">
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="shop/chest/quest" autocomplete="off">Story
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="key" autocomplete="off">Key
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="colosseum" autocomplete="off">Colosseum
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="TMR-1*/TMR-2*" autocomplete="off">TMR 1*/2*
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="TMR-3*/TMR-4*" autocomplete="off">TMR 3*/4*
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="TMR-5*" autocomplete="off">TMR 5*
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="event" autocomplete="off">Event
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="recipe" autocomplete="off">Recipe
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="trophy" autocomplete="off">Trophy
+							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="chocobo" autocomplete="off">Chocobo
+							</label>
+							<label class="btn btn-default">
+								<input type="checkbox" name="accessToRemove" value="trial" autocomplete="off">Trial
+							</label>
+						</div>
+				</div>
+			</div>
+        </div>
+        <div  class="col-xs-8 col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">Results</div>
+				<div class="panel-body" style="padding:0;">
+					<table id="results" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th id="statTitle">Value</th>
+								<th>Type</th>
+								<th>Special</th>
+								<th>Access</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div
+			</div>
+		</div>
+    </body>
+</html>
