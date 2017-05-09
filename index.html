@@ -51,11 +51,10 @@
 			.forbiddenAccess {
 				text-decoration:line-through;
 			}
-			.unselectAll {
+			.buttonLink {
 				cursor: pointer;
 				margin-left: 10px;
 				font-size: 0.9em;
-				display: none;
 			}
 			.noWrap {
 				white-space:nowrap;
@@ -103,7 +102,7 @@
                 killers = getSelectedValuesFor("killers");
                 accessToRemove = getSelectedValuesFor("accessToRemove");
 				$(filters).each(function(index, filter) {
-					$("."+ filter + " .unselectAll").toggle(window[filter].length != 0); 
+					$("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
 				});
 				displayItems(sort(filter()));
 				modifyUrl();
@@ -365,16 +364,20 @@
 							$(checkbox).parent().addClass('active');
 						});
 						$(filters).each(function (index, filter) {
-							$(state[filter]).each(function (index, selectedValue) {
-								$('input[name='+ filter +'][value='+ selectedValue +']').each(function(index, checkbox) {
-									$(checkbox).prop('checked', true);
-									$(checkbox).parent().addClass('active');
-								});
-							}) ;
+							select(filter, state[filter]);
 						});
 					}
 				}
-			}
+			};
+			
+			function select(type, values) {
+				$(values).each(function (index, value) {
+					$('input[name='+ type +'][value='+ value +']').each(function(index, checkbox) {
+						$(checkbox).prop('checked', true);
+						$(checkbox).parent().addClass('active');
+					});
+				}) ;
+			};
 			
             $(function() {
                 $('.choice input').change(function() {
@@ -444,7 +447,12 @@
             </div>
             <div class="col-xs-4 col-lg-6">
                 <div class="panel panel-default types">
-                    <div class="panel-heading"><span>Equipment types</span><a class="unselectAll" onclick="unselectAll('types')">unselect all</a></div>
+                    <div class="panel-heading">
+						<span>Equipment types</span>
+						<a class="buttonLink" onclick="select('types', ['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
+						<a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
+						<a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+					</div>
                     <div class="panel-body">
 						<div class="btn-group types choice" data-toggle="buttons">
 							<label class="btn btn-default">
@@ -530,7 +538,7 @@
 			</div>
 		
 			<div class="panel panel-default elements">
-				<div class="panel-heading"><span>Elements</span><a class="unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+				<div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
 				<div class="panel-body">
 						<div class="btn-group elements choice" data-toggle="buttons">
 							<label class="btn btn-default">
@@ -561,7 +569,7 @@
 				</div>
 			</div>
 			<div class="panel panel-default ailments">
-				<div class="panel-heading"><span>Status ailment</span><a class="unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+				<div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
 				<div class="panel-body">
 						<div class="btn-group ailments choice" data-toggle="buttons">
 							<label class="btn btn-default">
@@ -592,7 +600,7 @@
 				</div>
 			</div>
             <div class="panel panel-default killers">
-				<div class="panel-heading"><span>Killers</span><a class="unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
+				<div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
 				<div class="panel-body">
 						<div class="btn-group elements choice" data-toggle="buttons">
                             <label class="btn btn-default">
@@ -635,7 +643,7 @@
 				</div>
 			</div>
             <div class="panel panel-default accessToRemove">
-				<div class="panel-heading"><span>Remove Access</span><a class="unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
+				<div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
 				<div class="panel-body">
 						<div class="btn-group elements choice" data-toggle="buttons">
                             <label class="btn btn-default">
