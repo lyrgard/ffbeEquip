@@ -228,7 +228,7 @@
             
             var getSelectedValuesFor = function(type) {
                 var values = [];
-                 $('input[name='+ type +']:checked').each(function() {
+                 $('.active input[name='+ type +']').each(function() {
                      values.push($(this).val());
                  });
                 return values;
@@ -348,7 +348,7 @@
             };
             
 			function unselectAll(type) {
-				$('input[name='+ type +']:checked').each(function(index, checkbox) {
+				$('.active input[name='+ type +']').each(function(index, checkbox) {
 					$(checkbox).prop('checked', false);
 					$(checkbox).parent().removeClass('active');
                 });
