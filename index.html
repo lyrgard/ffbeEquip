@@ -110,13 +110,13 @@
 			
 			var modifyUrl = function() {
 				var state = {
-					"stat" : stat,
-					"types" : types,
-					"elements" : elements,
-					"ailments" : ailments,
-					"killers" : killers,
-					"accessToRemove" : accessToRemove
-				};
+					"stat" : stat
+				}
+				$(filters).each(function (index, filter) {
+					if (window[filter].length != 0) {
+						state[filter] = window[filter];
+					}
+				});
 				window.location.hash = '#' + JSON.stringify(state);
 			};
 			
@@ -358,21 +358,23 @@
 			function loadHash() {
 				if (window.location.hash != '') {
 					var state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
-					if (state.stat && state.types && state.elements && state.ailments && state.killers && state.accessToRemove) {
-						$('input[name=stat][value='+ state.stat +']').each(function(index, checkbox) {
+					if (state.stat) {
+						$("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
 							$(checkbox).prop('checked', true);
 							$(checkbox).parent().addClass('active');
 						});
-						$(filters).each(function (index, filter) {
-							select(filter, state[filter]);
-						});
 					}
+					$(filters).each(function (index, filter) {
+						if (state[filter]) {
+							select(filter, state[filter]);
+						}
+					});
 				}
 			};
 			
 			function select(type, values) {
 				$(values).each(function (index, value) {
-					$('input[name='+ type +'][value='+ value +']').each(function(index, checkbox) {
+					$("input[name='"+ type +"'][value='"+ value +"']").each(function(index, checkbox) {
 						$(checkbox).prop('checked', true);
 						$(checkbox).parent().addClass('active');
 					});
