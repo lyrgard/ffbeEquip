@@ -128,15 +128,15 @@
 					// name
 					html += "<td><a href='" + toUrl(item.name) + "'>" + item.name + "</a><div class='detail'>" + getStatDetail(item) + "</div></td>";
 					
-					// type
-					html += "<td><img src='img/" + item.type + ".png'></img></td>";
-					
 					// value
 					html += "<td class='value'>" + item.calculatedValue;
 					if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
 						html += '%';
 					}
 					html += "</td>";
+					
+					// type
+					html += "<td><img src='img/" + item.type + ".png'></img></td>";
 					
 					// special
 					html += "<td>";
