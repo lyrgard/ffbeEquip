@@ -111,13 +111,13 @@
 			
 			var modifyUrl = function() {
 				var state = {
-					"stat" : stat,
-					"types" : types,
-					"elements" : elements,
-					"ailments" : ailments,
-					"killers" : killers,
-					"accessToRemove" : accessToRemove
-				};
+					"stat" : stat
+				}
+				$(filters).each(function (index, filter) {
+					if (window[filter].length != 0) {
+						state[filter] = window[filter];
+					}
+				});
 				window.location.hash = '#' + JSON.stringify(state);
 			};
 			
@@ -129,15 +129,15 @@
 					// name
 					html += "<td><a href='" + toUrl(item.name) + "'>" + item.name + "</a><div class='detail'>" + getStatDetail(item) + "</div></td>";
 					
-					// type
-					html += "<td><img src='img/" + item.type + ".png'></img></td>";
-					
 					// value
 					html += "<td class='value'>" + item.calculatedValue;
 					if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
 						html += '%';
 					}
 					html += "</td>";
+					
+					// type
+					html += "<td><img src='img/" + item.type + ".png'></img></td>";
 					
 					// special
 					html += "<td>";
@@ -359,21 +359,23 @@
 			function loadHash() {
 				if (window.location.hash != '') {
 					var state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
-					if (state.stat && state.types && state.elements && state.ailments && state.killers && state.accessToRemove) {
-						$('input[name=stat][value='+ state.stat +']').each(function(index, checkbox) {
+					if (state.stat) {
+						$("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
 							$(checkbox).prop('checked', true);
 							$(checkbox).parent().addClass('active');
 						});
-						$(filters).each(function (index, filter) {
-							select(filter, state[filter]);
-						});
 					}
+					$(filters).each(function (index, filter) {
+						if (state[filter]) {
+							select(filter, state[filter]);
+						}
+					});
 				}
 			};
 			
 			function select(type, values) {
 				$(values).each(function (index, value) {
-					$('input[name='+ type +'][value='+ value +']').each(function(index, checkbox) {
+					$("input[name='"+ type +"'][value='"+ value +"']").each(function(index, checkbox) {
 						$(checkbox).prop('checked', true);
 						$(checkbox).parent().addClass('active');
 					});
@@ -683,7 +685,10 @@
 						</div>
 				</div>
 			</div>
-			<a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+			<div>
+				<a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+			</div>
+			
         </div>
         <div  class="col-xs-8 col-lg-6">
 			<div class="panel panel-default">
@@ -703,7 +708,10 @@
 							
 						</tbody>
 					</table>
-				</div
+				</div>
+			</div>
+			<div>
+				Data updated May 5th, 2017
 			</div>
 		</div>
     </body>
