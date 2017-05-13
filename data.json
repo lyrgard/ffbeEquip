@@ -73,6 +73,8 @@
     {"name":"Ice Rod","type":"rod","atk":14,"mag":26,"element":"ice","special":["[Blizzara]"],"access":["chest", "recipe-chest", "colosseum"]},
     {"name":"Fire Rod","type":"rod","atk":14,"element":"fire","special":["[Fira]"],"access":["recipe-quest", "chest"]},
     {"name":"Iron Rod","type":"rod","atk":10,"mag":18,"access":["shop", "recipe-chest", "chest"]},
+	{"name":"Draco Spike","type":"rod","atk":30,"mag":101,"killers":[{"name":"dragon","percent":75}],"access":["TMR-4*"]},
+	{"name":"Drakesclaw Rod","type":"rod","atk":10,"mag":35,"access":["recipe-event"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":"40", "killers":[{"name":"bird","percent":50}],"access":["TMR-4*"]},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"access":["TMR-4*"]},
@@ -109,6 +111,8 @@
     {"name":"Flame Lance","type":"spear","atk":48,"element":"fire","access":["quest","recipe-chest"]},
     {"name":"Mythril Spear","type":"spear","atk":40 ,"access":["shop","colosseum"]},
     {"name":"Artisan","type":"spear","atk":135,"element":"earth","access":["TMR-5*"]},
+	{"name":"Crimson Blood","type":"spear","atk":128,"killers":[{"name":"dragon","percent":50}],"access":["TMR-5*"]},
+	{"name":"Bahamut's Fang","type":"spear","atk":76,"killers":[{"name":"dragon","percent":50}],"access":["recipe-event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"]},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -142,6 +146,7 @@
     {"name":"Rune Trigger","type":"gun","mp%":15,"atk":52,"access":["event"]},
     {"name":"Ras Algethi","type":"gun","atk":52,"access":["key"]},
     {"name":"Sirius","type":"gun","atk":46,"access":["shop","recipe-chest"]},
+	{"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["[Waking Instinct]"],"access":["shop","recipe-chest"]},
 
     {"name":"Thorned Mace","type":"mace","atk":78,"ailments":[{"name":"poison","percent":70}],"killers":[{"name":"human","percent":50}],"access":["trial"]},
     {"name":"Lunar Pestle","type":"mace","mp":25,"atk":60,"mag":15,"access":["event"]},
@@ -219,6 +224,7 @@
     {"name":"Scholar Robe","type":"clothes","mp":20,"def":13,"spr":10,"access":["shop","chest","recipe-chest"]},
     {"name":"Cupid's Robe","type":"clothes","def":12,"mag":30,"spr":30,"resist":[{"name":"dark","percent":20}],"access":["event"]},
     {"name":"Bard's Tunic","type":"clothes","def":10,"spr":5,"resist":[{"name":"silence","percent":30}],"access":["shop","chest","recipe-quest"]},
+	{"name":"Drakesguard Robe","type":"clothes","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
     
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"]},
     {"name":"Lordly Robe","type":"robe","def":45,"mag":35,"spr":35,"special":["[Auto-Protect]","[Auto-Shell]"],"access":["TMR-3*"]},
@@ -436,6 +442,11 @@
     {"name":"Shard of Genius","type":"materia","def%":20,"exclusive":"if equipped with a robe","access":["TMR-5*"]},
     {"name":"Shard of Genius","type":"materia","spr%":20,"exclusive":"if equipped with a staff","access":["TMR-5*"]},
     {"name":"Symphonic Flair","type":"materia","atk%":40,"mag%":40,"exclusive":"if equipped with a harp","access":["TMR-4*-event"]},
+	{"name":"Magician","type":"materia","mag%":10,"spr%":5,"access":["event"]},
+	{"name":"Fighter","type":"materia","atk%":10,"def%":5,"access":["event"]},
+	{"name":"Seething Cauldron","type":"materia","mp%":10,"mag%":10,"access":["event"]},
+	{"name":"Swelling Power","type":"materia","hp%":10,"atk%":10,"access":["event"]},
+	{"name":"Miracle Step","type":"materia","mp%":20,"mag%":10,"spr%":10,"evade":5,"access":["TMR-4*"]},
     
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
