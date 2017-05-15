@@ -69,18 +69,19 @@
 			var wikiBaseUrl = "http://exvius.gamepedia.com/";
             var data;
 			var baseStat = 180;
-			var filters = ["types","elements","ailments","killers","accessToRemove"];
+			var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
             var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
             var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
-            
-			var stat;
-			var types;
+			
+            var types;
             var elements;
             var ailments;
             var killers;
             var accessToRemove;
-			
+            var additionalStat;
+            
             var update = function() {
+                
                 stat = getSelectedValuesFor("stat");
 				if (stat.length == 0) {return;}
 				stat = stat[0];
@@ -102,9 +103,11 @@
                 ailments = getSelectedValuesFor("ailments");
                 killers = getSelectedValuesFor("killers");
                 accessToRemove = getSelectedValuesFor("accessToRemove");
+                additionalStat = getSelectedValuesFor("additionalStat");
 				$(filters).each(function(index, filter) {
 					$("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
 				});
+        
 				displayItems(sort(filter()));
 				modifyUrl();
             }
@@ -208,9 +211,11 @@
                             if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
                                 if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
                                     if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item.access)) {
-								        if (item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist)) {
-									       calculateValue(item, stat, ailments, elements, killers);
-									       result.push(item);
+                                        if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
+                                            if (item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist)) {
+                                               calculateValue(item, stat, ailments, elements, killers);
+                                               result.push(item);
+                                            }
                                         }
 								    } 
                                 }
@@ -240,6 +245,16 @@
                 $(array1).each(function(index, value) {
                     if (array2.includes(value)) {
                         match = true;
+                    }
+                });
+                return match;
+            };
+            
+            var hasStats = function(additionalStat, item) {
+                var match = true;
+                $(additionalStat).each(function(index, addStat) {
+                    if (!item[addStat] && !item[addStat + '%']) {
+                        match = false;
                     }
                 });
                 return match;
@@ -307,6 +322,10 @@
 				var stats = ['hp', 'mp', 'atk', 'def', 'mag', 'spr'];
 				var first = true;
 				$(stats).each(function(index, stat) {
+                    var statNotSelected = additionalStat.length != 0 && !additionalStat.includes(stat) && stat != window["stat"];
+                    if (statNotSelected) {
+                        detail += "<span class='notSelected'>";
+                    }
 					if (item[stat]) {
 						if (first) {
 							first = false;
@@ -323,6 +342,9 @@
 						}
 						detail += stat + '+' + item[stat+'%'] + '%';
 					}
+                    if (statNotSelected) {
+                        detail += "</span>";
+                    }
 				});
 				return detail;
 			};
@@ -648,43 +670,68 @@
             <div class="panel panel-default accessToRemove">
 				<div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
 				<div class="panel-body">
-						<div class="btn-group elements choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="shop/chest/quest" autocomplete="off">Story
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="key" autocomplete="off">Key
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="colosseum" autocomplete="off">Colosseum
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="TMR-1*/TMR-2*" autocomplete="off">TMR 1*/2*
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="TMR-3*/TMR-4*" autocomplete="off">TMR 3*/4*
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="TMR-5*" autocomplete="off">TMR 5*
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="event" autocomplete="off">Event
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="recipe" autocomplete="off">Recipe
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="trophy" autocomplete="off">Trophy
-							</label>
-                            <label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="chocobo" autocomplete="off">Chocobo
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="accessToRemove" value="trial" autocomplete="off">Trial
-							</label>
-						</div>
+                    <div class="btn-group elements choice" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="shop/chest/quest" autocomplete="off">Story
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="key" autocomplete="off">Key
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="colosseum" autocomplete="off">Colosseum
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="TMR-1*/TMR-2*" autocomplete="off">TMR 1*/2*
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="TMR-3*/TMR-4*" autocomplete="off">TMR 3*/4*
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="TMR-5*" autocomplete="off">TMR 5*
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="event" autocomplete="off">Event
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="recipe" autocomplete="off">Recipe
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="trophy" autocomplete="off">Trophy
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="chocobo" autocomplete="off">Chocobo
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="trial" autocomplete="off">Trial
+                        </label>
+                    </div>
 				</div>
 			</div>
+            <div class="panel panel-default additionalStat">
+				<div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
+				<div class="panel-body">    
+                    <div class="btn-group colors choice" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="hp" autocomplete="off">HP
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="mp" autocomplete="off">MP
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="atk" autocomplete="off">ATK
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="def" autocomplete="off">DEF
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="mag" autocomplete="off">MAG
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="additionalStat" value="spr" autocomplete="off">SPR
+                        </label>
+                    </div>
+                </div>
+            </div>
 			<div>
 				<a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
 			</div>
