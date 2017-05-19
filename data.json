@@ -11,6 +11,8 @@
     {"name":"Sleep Dagger","type":"dagger","atk":22,"ailments":[{"name":"sleep","percent":30}],"access":["chest", "recipe-quest", "colosseum"]},
     {"name":"Mythril Dagger","type":"dagger","atk":20,"access":["shop","recipe-chest","quest"]},
     {"name":"Second Knife","type":"dagger","atk":1,"special":["[Dual Wield]"],"access":["recipe-event"]},
+	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"spr":35,"access":["event"]},
+	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusive":"[Rem]","access":["event"]},
 
     {"name":"Moonblade","type":"sword","atk":118,"element":"dark","access":["TMR-5*"]},
     {"name":"Mana Blade","type":"sword","atk":101,"def":8,"mag":8,"spr":8,"access":["TMR-5*"]},
@@ -113,6 +115,8 @@
     {"name":"Artisan","type":"spear","atk":135,"element":"earth","access":["TMR-5*"]},
 	{"name":"Crimson Blood","type":"spear","atk":128,"killers":[{"name":"dragon","percent":50}],"access":["TMR-5*"]},
 	{"name":"Bahamut's Fang","type":"spear","atk":76,"killers":[{"name":"dragon","percent":50}],"access":["recipe-event"]},
+	{"name":"Lamia's Scythe","type":"spear","atk":51,"mp%":15,"access":["event"]},
+	{"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"]},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -147,6 +151,8 @@
     {"name":"Ras Algethi","type":"gun","atk":52,"access":["key"]},
     {"name":"Sirius","type":"gun","atk":46,"access":["shop","recipe-chest"]},
 	{"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["[Waking Instinct]"],"access":["shop","recipe-chest"]},
+	{"name":"Magnati","type":"gun","atk":42,"access":["event"]},
+	{"name":"Magnati","type":"gun","hp%":15,"atk":42,"atk%":15,"exclusive":"[King]","access":["event"]},
 
     {"name":"Thorned Mace","type":"mace","atk":78,"ailments":[{"name":"poison","percent":70}],"killers":[{"name":"human","percent":50}],"access":["trial"]},
     {"name":"Lunar Pestle","type":"mace","mp":25,"atk":60,"mag":15,"access":["event"]},
@@ -450,6 +456,8 @@
 	{"name":"Seething Cauldron","type":"materia","mp%":10,"mag%":10,"access":["event"]},
 	{"name":"Swelling Power","type":"materia","hp%":10,"atk%":10,"access":["event"]},
 	{"name":"Miracle Step","type":"materia","mp%":20,"mag%":10,"spr%":10,"evade":5,"access":["TMR-4*"]},
+	{"name":"Azure Helm","type":"materia","mp%":10,"spr%":5,"access":["event"]},
+	{"name":"Azure Armor","type":"materia","mp%":5,"spr%":10,"access":["event"]},
     
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
