@@ -13,6 +13,7 @@
     {"name":"Second Knife","type":"dagger","atk":1,"special":["[Dual Wield]"],"access":["recipe-event"]},
 	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"spr":35,"access":["event"]},
 	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusive":"[Rem]","access":["event"]},
+    {"name":"Bowie Knife","type":"dagger","atk":82,"special":["[Dual Wield]"],"access":["TMR-3*"]},
 
     {"name":"Moonblade","type":"sword","atk":118,"element":"dark","access":["TMR-5*"]},
     {"name":"Mana Blade","type":"sword","atk":101,"def":8,"mag":8,"spr":8,"access":["TMR-5*"]},
@@ -153,6 +154,7 @@
 	{"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["[Waking Instinct]"],"access":["shop","recipe-chest"]},
 	{"name":"Magnati","type":"gun","atk":42,"access":["event"]},
 	{"name":"Magnati","type":"gun","hp%":15,"atk":42,"atk%":15,"exclusive":"[King]","access":["event"]},
+    {"name":"Machine Gun+","type":"gun","atk":120,"spacial":["Two-handed weapon"],"access":["TMR-3*"]},
 
     {"name":"Thorned Mace","type":"mace","atk":78,"ailments":[{"name":"poison","percent":70}],"killers":[{"name":"human","percent":50}],"access":["trial"]},
     {"name":"Lunar Pestle","type":"mace","mp":25,"atk":60,"mag":15,"access":["event"]},
@@ -184,6 +186,7 @@
     {"name":"Flame Shield","type":"heavyShield","def":36,"spr":8,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["chest"]},
     {"name":"Ice Shield","type":"heavyShield","def":36,"resist":[{"name":"ice","percent":50},{"name":"fire","percent":-50}],"access":["chest","quest"]},
     {"name":"Mythril Shield","type":"heavyShield","def":35,"access":["recipe-quest","chest","key","event"]},
+    {"name":"Imperial Shield","type":"heavyShield","def":65,"spr":65,"access":["TMR-5*"]},
 
     {"name":"Black Cowl","type":"hat","atk":28,"def":25,"spr":25,"resist":[{"name":"sleep","percent":100}],"access":["TMR-3*"]},
     {"name":"Crown of Justice","type":"hat","def":25,"spr":20,"access":["recipe-event"]},
@@ -367,6 +370,7 @@
     {"name":"Earth Ring","type":"accessory","def":2,"resist":[{"name":"earth","percent":5}],"access":["chest","recipe-chest"]},
     {"name":"Clay Ring","type":"accessory","def":4,"resist":[{"name":"earth","percent":10}],"access":["chest"]},
     {"name":"Quake Ring","type":"accessory","def":6,"resist":[{"name":"earth","percent":15}],"access":["quest"]},
+    {"name":"Magic Amplifier","type":"accessory","mp%":20,"mag%":25,"spr%":25,"access":["TMR-4*"]},
     
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"]},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
