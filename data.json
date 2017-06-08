@@ -11,8 +11,8 @@
     {"name":"Sleep Dagger","type":"dagger","atk":22,"ailments":[{"name":"sleep","percent":30}],"access":["chest", "recipe-quest", "colosseum"]},
     {"name":"Mythril Dagger","type":"dagger","atk":20,"access":["shop","recipe-chest","quest"]},
     {"name":"Second Knife","type":"dagger","atk":1,"special":["[Dual Wield]"],"access":["recipe-event"]},
-	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"spr":35,"access":["event"]},
-	{"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusive":"[Rem]","access":["event"]},
+    {"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"spr":35,"access":["event"]},
+    {"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusive":"[Rem]","access":["event"]},
     {"name":"Bowie Knife","type":"dagger","atk":82,"special":["[Dual Wield]"],"access":["TMR-3*"]},
     {"name":"Platinum Dagger","type":"dagger","atk":42,"access":["chest"]},
 
@@ -33,7 +33,7 @@
     {"name":"Cobalt Winglet","type":"sword","hp%":10,"mp%":10,"atk":28,"def":20,"spr":20,"exclusive":"[Minfilia]","access":["recipe-event"]},
     {"name":"Mythril Sword","type":"sword","atk":26,"access":["shop", "chest", "recipe-chest", "event"]},
     {"name":"Platinum Sword","type":"sword","atk":51,"access":["chest"]},
-	{"name":"Aqua Blade ","type":"sword","atk":90,"element":"water","special":["Dual Wield of swords"],"access":["TMR-3*"]},
+    {"name":"Aqua Blade ","type":"sword","atk":90,"element":"water","special":["Dual Wield of swords"],"access":["TMR-3*"]},
 
     {"name":"Deathbringer","type":"greatSword","atk":120,"element":"dark","killers":[{"name":"human","percent":50}],"access":["TMR-5*"]},
     {"name":"Excalibur","type":"greatSword","atk":120,"element":"light","access":["TMR-3*"]},
@@ -79,10 +79,10 @@
     {"name":"Ice Rod","type":"rod","atk":14,"mag":26,"element":"ice","special":["[Blizzara]"],"access":["chest", "recipe-chest", "colosseum"]},
     {"name":"Fire Rod","type":"rod","atk":14,"element":"fire","special":["[Fira]"],"access":["recipe-quest", "chest"]},
     {"name":"Iron Rod","type":"rod","atk":10,"mag":18,"access":["shop", "recipe-chest", "chest"]},
-	{"name":"Draco Spike","type":"rod","atk":30,"mag":101,"killers":[{"name":"dragon","percent":75}],"access":["TMR-4*"]},
-	{"name":"Drakesclaw Rod","type":"rod","atk":10,"mag":35,"access":["recipe-event"]},
+    {"name":"Draco Spike","type":"rod","atk":30,"mag":101,"killers":[{"name":"dragon","percent":75}],"access":["TMR-4*"]},
+    {"name":"Drakesclaw Rod","type":"rod","atk":10,"mag":35,"access":["recipe-event"]},
     {"name":"Striking Staff","type":"rod","atk":16,"mag":42,"access":["key"]},
-	{"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusive":"[Papalymo]","access":["recipe-event"]},
+    {"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusive":"[Papalymo]","access":["recipe-event"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":"40", "killers":[{"name":"bird","percent":50}],"access":["TMR-4*"]},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"access":["TMR-4*"]},
@@ -120,10 +120,10 @@
     {"name":"Flame Lance","type":"spear","atk":48,"element":"fire","access":["quest","recipe-chest"]},
     {"name":"Mythril Spear","type":"spear","atk":40 ,"access":["shop","colosseum"]},
     {"name":"Artisan","type":"spear","atk":135,"element":"earth","access":["TMR-5*"]},
-	{"name":"Crimson Blood","type":"spear","atk":128,"killers":[{"name":"dragon","percent":50}],"access":["TMR-5*"]},
-	{"name":"Bahamut's Fang","type":"spear","atk":76,"killers":[{"name":"dragon","percent":50}],"access":["recipe-event"]},
-	{"name":"Lamia's Scythe","type":"spear","atk":51,"mp%":15,"access":["event"]},
-	{"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
+    {"name":"Crimson Blood","type":"spear","atk":128,"killers":[{"name":"dragon","percent":50}],"access":["TMR-5*"]},
+    {"name":"Bahamut's Fang","type":"spear","atk":76,"killers":[{"name":"dragon","percent":50}],"access":["recipe-event"]},
+    {"name":"Lamia's Scythe","type":"spear","atk":51,"mp%":15,"access":["event"]},
+    {"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"]},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -157,9 +157,9 @@
     {"name":"Rune Trigger","type":"gun","mp%":15,"atk":52,"access":["event"]},
     {"name":"Ras Algethi","type":"gun","atk":52,"access":["key"]},
     {"name":"Sirius","type":"gun","atk":46,"access":["shop","recipe-chest"]},
-	{"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["[Waking Instinct]"],"access":["shop","recipe-chest"]},
-	{"name":"Magnati","type":"gun","atk":42,"access":["event"]},
-	{"name":"Magnati","type":"gun","hp%":15,"atk":42,"atk%":15,"exclusive":"[King]","access":["event"]},
+    {"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["[Waking Instinct]"],"access":["shop","recipe-chest"]},
+    {"name":"Magnati","type":"gun","atk":42,"access":["event"]},
+    {"name":"Magnati","type":"gun","hp%":15,"atk":42,"atk%":15,"exclusive":"[King]","access":["event"]},
     {"name":"Machine Gun+","type":"gun","atk":120,"spacial":["Two-handed weapon"],"access":["TMR-3*"]},
 
     {"name":"Thorned Mace","type":"mace","atk":78,"ailments":[{"name":"poison","percent":70}],"killers":[{"name":"human","percent":50}],"access":["trial"]},
@@ -177,8 +177,7 @@
     {"name":"Aura Glove","type":"fist","atk":45,"mag":32,"spr":45,"exclusive":"[Primm]","access":["event"]},
     {"name":"Mythril Claws","type":"fist","atk":42,"access":["shop","recipe-chest"]},
     {"name":"Poison Knuckles","type":"fist","atk":40,"ailments":[{"name":"poison","percent":30}],"access":["chest","recipe-chest"]},
-	{"name":"Guts Knuckle","type":"fist","hp%":10,"mp%":10,"atk":88,"exclusive":"[Yda]","access":["recipe-chest"]},
-    
+    {"name":"Guts Knuckle","type":"fist","hp%":10,"mp%":10,"atk":88,"exclusive":"[Yda]","access":["recipe-chest"]},
     {"name":"Snowstorm Shield","type":"lightShield","def":42,"spr":12,"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":-30},{"name":"fire","percent":-30}],"access":["event"]},
     {"name":"Dragon Shield","type":"lightShield","def":38,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
     {"name":"Escutcheon","type":"lightShield","def":36,"killers":[{"name":"undead","percent":50}],"access":["event"]},
@@ -217,8 +216,8 @@
     {"name":"Hypno Crown","type":"hat","def":5,"spr":12,"access":["quest","chest"]},
     {"name":"Tiger Mask","type":"hat","atk":14,"def":3,"access":["quest","recipe-chest"]},
     {"name":"Cat-ear Hood","type":"hat","mag":25,"spr":25,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"light","percent":20}],"access":["chocobo"]},
-	{"name":"Scion Striker's Visor","type":"hat","hp%":5,"mp%":5,"atk":12,"def":25,"spr":15,"exclusive":"[Yda]","access":["recipe-event"]},
-    
+    {"name":"Scion Striker's Visor","type":"hat","hp%":5,"mp%":5,"atk":12,"def":25,"spr":15,"exclusive":"[Yda]","access":["recipe-event"]},
+
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Survivor Helm","type":"helm","def":30,"spr":10,"resist":[{"name":"ice","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}],"access":["colosseum"]},
     {"name":"Golden Helm","type":"helm","def":28,"access":["event"]},
@@ -226,8 +225,8 @@
     {"name":"Mythril Helm","type":"helm","def":20,"access":["shop","recipe-chest","quest"]},
     {"name":"Imperial Helm (Item)","type":"helm","atk":18,"def":15,"resist":[{"name":"fire","percent":15}],"access":["event"]},
     {"name":"Dragon Helm","type":"helm","def":24,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}],"access":["quest"]},
-	{"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrify","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"]},
-    
+    {"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrify","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"]},
+
     {"name":"Brave Suit","type":"clothes","atk%":15,"def":51,"mag%":15,"access":["TMR-5*"]},
     {"name":"Minerva Bustier","type":"clothes","def":47,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"wind","percent":30}],"exclusive":"female","access":["TMR-3*"]},
     {"name":"Black Garb","type":"clothes","atk":5,"def":35,"access":["chocobo"]},
@@ -246,13 +245,12 @@
     {"name":"Scholar Robe","type":"clothes","mp":20,"def":13,"spr":10,"access":["shop","chest","recipe-chest"]},
     {"name":"Cupid's Robe","type":"clothes","def":12,"mag":30,"spr":30,"resist":[{"name":"dark","percent":20}],"access":["event"]},
     {"name":"Bard's Tunic","type":"clothes","def":10,"spr":5,"resist":[{"name":"silence","percent":30}],"access":["shop","chest","recipe-quest"]},
-	{"name":"Drakesguard Robe","type":"clothes","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
+    {"name":"Drakesguard Robe","type":"clothes","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
     {"name":"Red Jacket","type":"clothes","def":38,"resist":[{"name":"fire","percent":30}],"access":["key"]},
-	{"name":"Scion Striker's Attire","type":"clothes","hp%":15,"mp%":15,"atk":24,"def":40,"spr":12,"exclusive":"[Yda]","access":["recipe-event"]},
-	{"name":"Apron Dress","type":"clothes","def":49,"spr":49,"access":["TMR-4*"]},
-	{"name":"Apron Dress","type":"clothes","atk%":30,"def":49,"spr":49,"exclusive":"with a Gun equipped","access":["TMR-4*"]},
-	
-    
+    {"name":"Scion Striker's Attire","type":"clothes","hp%":15,"mp%":15,"atk":24,"def":40,"spr":12,"exclusive":"[Yda]","access":["recipe-event"]},
+    {"name":"Apron Dress","type":"clothes","def":49,"spr":49,"access":["TMR-4*"]},
+    {"name":"Apron Dress","type":"clothes","atk%":30,"def":49,"spr":49,"exclusive":"with a Gun equipped","access":["TMR-4*"]},
+
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"]},
     {"name":"Lordly Robe","type":"robe","def":45,"mag":35,"spr":35,"special":["[Auto-Protect]","[Auto-Shell]"],"access":["TMR-3*"]},
     {"name":"Vestment of Mind","type":"robe","def":40,"spr":35,"special":["[Mind Charge]"],"access":["TMR-3*"]},
@@ -269,7 +267,7 @@
     {"name":"Wizard's Robe","type":"robe","def":18,"mag":12,"access":["shop","chest","recipe-chest"]},
     {"name":"Traveler's Garbs","type":"robe","def":12,"mag":3,"spr":9,"access":["shop","chest","recipe-chest"]},
     {"name":"Silk Robe","type":"robe","def":9,"mag":4,"spr":6,"access":["shop","quest","recipe-chest"]},
-	{"name":"Scion Thaumaturge's Robe","type":"robe","hp%":15,"mp%":15,"def":12,"mag":24,"spr":40,"exclusive":"[Papalymo]","access":["recipe-event"]},
+    {"name":"Scion Thaumaturge's Robe","type":"robe","hp%":15,"mp%":15,"def":12,"mag":24,"spr":40,"exclusive":"[Papalymo]","access":["recipe-event"]},
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"]},
     {"name":"Crimson Slayer","type":"lightArmor","atk%":30,"def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"exclusive":"with Fist weapon","access":["TMR-5*-event"]},
@@ -281,8 +279,8 @@
     {"name":"Silver Cuirass","type":"lightArmor","def":34,"access":["shop","key","recipe-chest"]},
     {"name":"Scion Thief's Tunic","type":"lightArmor","hp%":10,"atk":8,"atk%":10,"def":25,"exclusive":"[Thancred]","access":["recipe-event"]},
     {"name":"Military Plate","type":"lightArmor","def":31,"spr":7,"access":["event"]},
-	{"name":"Assassin Vest","type":"lightArmor","def":40,"spr":20,"evade":10,"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"access":["trial"]},
-    
+    {"name":"Assassin Vest","type":"lightArmor","def":40,"spr":20,"evade":10,"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"access":["trial"]},
+
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"]},
     {"name":"Demon Mail","type":"heavyArmor","atk":10,"def":55,"resist":[{"name":"dark","percent":20}],"access":["trial"]},
     {"name":"Force Armor","type":"heavyArmor","def":51,"spr":13,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["trial"]},
@@ -292,13 +290,12 @@
     {"name":"Flame Mail","type":"heavyArmor","def":45,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["chest","recipe-key"]},
     {"name":"Mythril Armor","type":"heavyArmor","def":38,"access":["shop","recipe-chest","colosseum"]},
     {"name":"Paladin Armor","type":"heavyArmor","def":32,"spr":10,"access":["shop","quest","recipe-key"]},
-    
-    
+
     {"name":"Scion Conjurer's Pattens","type":"accessory","hp%":5,"mp%":5,"def":5,"spr":10,"exclusive":"[Y'shtola]","access":["recipe-event"]},
     {"name":"Evening Glove","type":"accessory","def":3,"mag%":15,"spr%":10,"exclusive":"[Dangerous Ariana]","access":["recipe-event"]},
     {"name":"Meteor Survivor Ring","type":"accessory","hp%":5,"mp%":5,"def":10,"exclusive":"[Minfilia]","access":["recipe-event"]},
     {"name":"Scion Thief's Halfgloves","type":"accessory","hp%":5,"atk":10,"exclusive":"[Thancred]","access":["recipe-event"]},
-	{"name":"Scion Thaumaturge's Monocle","type":"accessory","hp%":5,"mp%":5,"mag":8,"spr":8,"exclusive":"[Papalymo]","access":["recipe-event"]},
+    {"name":"Scion Thaumaturge's Monocle","type":"accessory","hp%":5,"mp%":5,"mag":8,"spr":8,"exclusive":"[Papalymo]","access":["recipe-event"]},
     {"name":"Aurora Scarf","type":"accessory","def":3,"special":["[Two-hit Combo]"],"access":["TMR-5*"]},
     {"name":"Growth Egg","type":"accessory","special":["[EXP x1.5]"],"access":["TMR-3*"]},
     {"name":"Thunder God's Plan","type":"accessory","atk":3,"special":["[Crush Accessory]","[Spirit Blade]","[Ultima Sword]"],"access":["TMR-5*"]},
@@ -392,8 +389,8 @@
     {"name":"Clay Ring","type":"accessory","def":4,"resist":[{"name":"earth","percent":10}],"access":["chest"]},
     {"name":"Quake Ring","type":"accessory","def":6,"resist":[{"name":"earth","percent":15}],"access":["quest"]},
     {"name":"Magic Amplifier","type":"accessory","mp%":20,"mag%":25,"spr%":25,"access":["TMR-4*"]},
-	{"name":"Prodigy's Goggles","type":"accessory","def":15,"spr":15,"special":["[Analyze]","[High Power]"],"access":["TMR-5*-event"]},
-    
+    {"name":"Prodigy's Goggles","type":"accessory","def":15,"spr":15,"special":["[Analyze]","[High Power]"],"access":["TMR-5*-event"]},
+
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"]},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
     {"name":"HP +30%","type":"materia","hp%":30,"access":["TMR-3*"]},
@@ -478,23 +475,23 @@
     {"name":"Shard of Genius","type":"materia","def%":20,"exclusive":"if equipped with a robe","access":["TMR-5*"]},
     {"name":"Shard of Genius","type":"materia","spr%":20,"exclusive":"if equipped with a staff","access":["TMR-5*"]},
     {"name":"Symphonic Flair","type":"materia","atk%":40,"mag%":40,"exclusive":"if equipped with a harp","access":["TMR-4*-event"]},
-	{"name":"Magician","type":"materia","mag%":10,"spr%":5,"access":["event"]},
-	{"name":"Fighter","type":"materia","atk%":10,"def%":5,"access":["event"]},
-	{"name":"Seething Cauldron","type":"materia","mp%":10,"mag%":10,"access":["event"]},
-	{"name":"Swelling Power","type":"materia","hp%":10,"atk%":10,"access":["event"]},
-	{"name":"Miracle Step","type":"materia","mp%":20,"mag%":10,"spr%":10,"evade":5,"access":["TMR-4*"]},
-	{"name":"Azure Helm","type":"materia","mp%":10,"spr%":5,"access":["event"]},
-	{"name":"Azure Armor","type":"materia","mp%":5,"spr%":10,"access":["event"]},
-	{"name":"Healing Hand of Knowledge","type":"materia","spr%":40,"special":["Increase the potency of healing items during battle (100%)"],"access":["TMR-4*"]},
-    
+    {"name":"Magician","type":"materia","mag%":10,"spr%":5,"access":["event"]},
+    {"name":"Fighter","type":"materia","atk%":10,"def%":5,"access":["event"]},
+    {"name":"Seething Cauldron","type":"materia","mp%":10,"mag%":10,"access":["event"]},
+    {"name":"Swelling Power","type":"materia","hp%":10,"atk%":10,"access":["event"]},
+    {"name":"Miracle Step","type":"materia","mp%":20,"mag%":10,"spr%":10,"evade":5,"access":["TMR-4*"]},
+    {"name":"Azure Helm","type":"materia","mp%":10,"spr%":5,"access":["event"]},
+    {"name":"Azure Armor","type":"materia","mp%":5,"spr%":10,"access":["event"]},
+    {"name":"Healing Hand of Knowledge","type":"materia","spr%":40,"special":["Increase the potency of healing items during battle (100%)"],"access":["TMR-4*"]},
+
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
     {"name":"Protection of the Gods","type":"materia","special":["Chance to counter physical attacks (20%) with heal (1000 HP, 3.4x) to all allies"],"exclusive":"[Minfilia]","access":["event"]},
     {"name":"Speed Plus","type":"materia","evade":5,"access":["event"]},
     {"name":"First Strike","type":"materia","evade":5,"special":["Chance to counter attacks (20%)"],"access":["event"]},
-    
+
     {"name":"Cover","type":"materia","special":["Chance to protect one ally (5%)"],"access":["TMR-3*"]},
-    
+
     {"name":"Bio Blade","type":"materia","element":"dark","ailments":[{"name":"poison","percent":30}],"special":["Dark hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Bio Blaster","type":"materia","element":"dark","ailments":[{"name":"poison","percent":50}],"special":["Dark magic damage (1.3x) to all enemies"],"access":["recipe-key"]},
     {"name":"Biora Blade","type":"materia","element":"dark","ailments":[{"name":"poison","percent":30}],"special":["Dark hybrid damage (1.4x) to one enemy"],"access":["recipe-chest"]},
@@ -505,7 +502,7 @@
     {"name":"Silence Dance","type":"materia","ailments":[{"name":"silence","percent":30}],"access":["TMR-1*"]},
     {"name":"Sleep Blade","type":"materia","ailments":[{"name":"sleep","percent":30}],"special":["Hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Sunbeam","type":"materia","ailments":[{"name":"blind","percent":30}],"special":["Magic damage (1.2x) to all enemies"],"access":["TMLR-2*"]},
-    
+
     {"name":"Aero Blade","type":"materia","element":"wind","special":["Wind hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Blizzard Beam","type":"materia","element":"ice","special":["Ice magic damage (1.2x) to one enemy"],"access":["TMR-2*"]},
     {"name":"Blizzard Blade","type":"materia","element":"ice","special":["Ice hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
@@ -535,7 +532,4 @@
     {"name":"Blizzaga","type":"materia","element":"ice","special":["Ice magic damage (1.8x) to all enemies"],"access":["TMR-3*"]},
     {"name":"Firaga","type":"materia","element":"fire","special":["Fire magic damage (1.8x) to all enemies"],"access":["TMR-3*"]},
     {"name":"Thundaga","type":"materia","element":"lightning","special":["Lightning magic damage (1.8x) to all enemies"],"access":["TMR-3*"]}
-    
-    
-    
 ]
