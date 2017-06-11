@@ -33,7 +33,8 @@
     {"name":"Cobalt Winglet","type":"sword","hp%":10,"mp%":10,"atk":28,"def":20,"spr":20,"exclusive":"[Minfilia]","access":["recipe-event"]},
     {"name":"Mythril Sword","type":"sword","atk":26,"access":["shop", "chest", "recipe-chest", "event"]},
     {"name":"Platinum Sword","type":"sword","atk":51,"access":["chest"]},
-    {"name":"Aqua Blade ","type":"sword","atk":90,"element":"water","special":["Dual Wield of swords"],"access":["TMR-3*"]},
+    {"name":"Aqua Blade","type":"sword","atk":90,"element":"water","special":["Dual Wield of swords"],"access":["TMR-3*"]},
+    {"name":"Gaia Blade","type":"sword","atk":60,"element":"earth","access":["event"]},
 
     {"name":"Deathbringer","type":"greatSword","atk":120,"element":"dark","killers":[{"name":"human","percent":50}],"access":["TMR-5*"]},
     {"name":"Excalibur","type":"greatSword","atk":120,"element":"light","access":["TMR-3*"]},
@@ -217,6 +218,7 @@
     {"name":"Tiger Mask","type":"hat","atk":14,"def":3,"access":["quest","recipe-chest"]},
     {"name":"Cat-ear Hood","type":"hat","mag":25,"spr":25,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"light","percent":20}],"access":["chocobo"]},
     {"name":"Scion Striker's Visor","type":"hat","hp%":5,"mp%":5,"atk":12,"def":25,"spr":15,"exclusive":"[Yda]","access":["recipe-event"]},
+    {"name":"Whitebrim","type":"hat","mp%":15,"atk":18,"def":15,"spr":15,"access":["event   "]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Survivor Helm","type":"helm","def":30,"spr":10,"resist":[{"name":"ice","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}],"access":["colosseum"]},
@@ -482,7 +484,9 @@
     {"name":"Miracle Step","type":"materia","mp%":20,"mag%":10,"spr%":10,"evade":5,"access":["TMR-4*"]},
     {"name":"Azure Helm","type":"materia","mp%":10,"spr%":5,"access":["event"]},
     {"name":"Azure Armor","type":"materia","mp%":5,"spr%":10,"access":["event"]},
-    {"name":"Healing Hand of Knowledge","type":"materia","spr%":40,"special":["Increase the potency of healing items during battle (100%)"],"access":["TMR-4*"]},
+    {"name":"Healer's Wisdom","type":"materia","spr%":40,"special":["Increase the potency of healing items during battle (100%)"],"access":["TMR-4*"]},
+    {"name":"Sage's Prajna","type":"materia","hp%":10,"mag%":20,"access":["TMR-4*-event"]},
+    {"name":"Spirit of Freedom","type":"materia","atk%":15,"evade":10,"access":["TMR-4*-event"]},
 
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
