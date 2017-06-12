@@ -227,7 +227,7 @@
     {"name":"Mythril Helm","type":"helm","def":20,"access":["shop","recipe-chest","quest"]},
     {"name":"Imperial Helm (Item)","type":"helm","atk":18,"def":15,"resist":[{"name":"fire","percent":15}],"access":["event"]},
     {"name":"Dragon Helm","type":"helm","def":24,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}],"access":["quest"]},
-    {"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrify","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"]},
+    {"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrification","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"]},
 
     {"name":"Brave Suit","type":"clothes","atk%":15,"def":51,"mag%":15,"access":["TMR-5*"]},
     {"name":"Minerva Bustier","type":"clothes","def":47,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"wind","percent":30}],"exclusive":"female","access":["TMR-3*"]},
@@ -342,7 +342,7 @@
     {"name":"Iron Gloves","type":"accessory","def":5,"access":["shop","chest","recipe-chest"]},
     {"name":"Mythril Gloves","type":"accessory","def":6,"special":["Emergency Protect"],"access":["chest","key","recipe-colosseum"]},
     {"name":"Silver Armlet","type":"accessory","mp":15,"def":3,"access":["shop","quest","recipe-chest"]},
-    {"name":"Gold Armlet","type":"accessory","mp":30,"def":3,"access":["chest","quest"]},
+    {"name":"Gold Armlet","type":"accessory","mp":30,"def":3,"resist":[{"name":"petrification","percent":100}],"access":["chest","quest"]},
     {"name":"Rune Armlet","type":"accessory","mp":50,"def":3,"access":["chocobo"]},
     {"name":"Soul of Thamasa","type":"accessory","mp%":30,"def":12,"spr":12,"special":["Dualcast"],"access":["TMR-5*"]},
     {"name":"Cold Snap","type":"accessory","atk%":15,"mag%":15,"exclusive":"if Heavy Armor equipped","access":["recipe-event"]},
