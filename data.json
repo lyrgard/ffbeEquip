@@ -46,6 +46,7 @@
     {"name":"Giant's Sword","type":"greatSword","atk":41,"access":["colosseum"]},
     {"name":"Buster Sword","type":"greatSword","atk":35,"access":["shop", "recipe-chest", "chest"]},
     {"name":"Rune Blade","type":"greatSword","atk":27,"mag":10,"element":"light","access":["chest"]},
+    {"name":"Dandelga","type":"greatSword","atk":130,"element":"fire","access":["TMR-5*-event"]},
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"]},
@@ -392,6 +393,9 @@
     {"name":"Quake Ring","type":"accessory","def":6,"resist":[{"name":"earth","percent":15}],"access":["quest"]},
     {"name":"Magic Amplifier","type":"accessory","mp%":20,"mag%":25,"spr%":25,"access":["TMR-4*"]},
     {"name":"Prodigy's Goggles","type":"accessory","def":15,"spr":15,"special":["[Analyze]","[High Power]"],"access":["TMR-5*-event"]},
+    {"name":"Demon Horn","type":"accessory","atk%":10,"killers":[{"name":"beast","percent":50}],"access":["event"]},
+    {"name":"Sun Barrette","type":"accessory","atk%":10,"killers":[{"name":"demon","percent":50}],"access":["event"]},
+    {"name":"Lucky Bangles","type":"accessory","def":10,"spr":10,"evade":10,"special":["Chance to evade magic damage taken (10%)"],"access":["event"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"]},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -490,6 +494,7 @@
     {"name":"Love","type":"materia","hp%":30,"mp%":30,"access":["TMR-5*"]},
     {"name":"Resolve","type":"materia","special":["Recover MP(7%) per turn"],"access":["TMR-4*"]},
     {"name":"Persistance","type":"materia","def%":20,"spr%":30,"access":["TMR-3*"]},
+    {"name":"Demonic Life","type":"materia","special":["Increase ATK/DEF/MAG/SPR (40%) when HP drops below 50%"],"access":["event"]},
 
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
