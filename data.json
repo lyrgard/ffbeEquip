@@ -253,6 +253,10 @@
     {"name":"Scion Striker's Attire","type":"clothes","hp%":15,"mp%":15,"atk":24,"def":40,"spr":12,"exclusive":"[Yda]","access":["recipe-event"]},
     {"name":"Apron Dress","type":"clothes","def":49,"spr":49,"access":["TMR-4*"]},
     {"name":"Apron Dress","type":"clothes","atk%":30,"def":49,"spr":49,"exclusive":"with a Gun equipped","access":["TMR-4*"]},
+	{"name":"Dark Fina's Swimsuit","type":"clothes","def":21,"mag":60,"resist":[{"name":"water","percent":50}],"special":["[Auto-Refresh]"],"exclusive":"female","access":["TMR-5*"]},
+	{"name":"Fina's Swimsuit","type":"clothes","def":18,"spr":50,"resist":[{"name":"water","percent":30}],"special":["[Auto-Regen]"],"exclusive":"female","access":["TMR-4*"]},
+	{"name":"Lid's Swimsuit","type":"clothes","def":15,"mag":30,"spr":30,"resist":[{"name":"water","percent":20}],"exclusive":"female","access":["TMR-3*"]},
+	
 
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"]},
     {"name":"Lordly Robe","type":"robe","def":45,"mag":35,"spr":35,"special":["[Auto-Protect]","[Auto-Shell]"],"access":["TMR-3*"]},
