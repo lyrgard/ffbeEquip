@@ -35,6 +35,10 @@
     {"name":"Platinum Sword","type":"sword","atk":51,"access":["chest"]},
     {"name":"Aqua Blade","type":"sword","atk":90,"element":"water","special":["Dual Wield of swords"],"access":["TMR-3*"]},
     {"name":"Gaia Blade","type":"sword","atk":60,"element":"earth","access":["event"]},
+    {"name":"Brotherhood","type":"sword","atk":135,"element":"water","access":["TMR-5*"]},
+    {"name":"Baroque Sword","type":"sword","atk":45,"special":["You won't have it anymore if you crafted [Break Blade]"],"access":["event"]},
+    {"name":"Break Blade","type":"sword","atk":60,"ailments":[{"name":"petrification","percent":30}],"special":["You won't have it anymore if you crafted [Razzmatazz]"],"access":["event"]},
+    {"name":"Razzmatazz","type":"sword","atk":76,"ailments":[{"name":"petrification","percent":30},{"name":"sleep","percent":30}],"access":["event"]},
 
     {"name":"Deathbringer","type":"greatSword","atk":120,"element":"dark","killers":[{"name":"human","percent":50}],"access":["TMR-5*"]},
     {"name":"Excalibur","type":"greatSword","atk":120,"element":"light","access":["TMR-3*"]},
@@ -47,6 +51,7 @@
     {"name":"Buster Sword","type":"greatSword","atk":35,"access":["shop", "recipe-chest", "chest"]},
     {"name":"Rune Blade","type":"greatSword","atk":27,"mag":10,"element":"light","access":["chest"]},
     {"name":"Dandelga","type":"greatSword","atk":130,"element":"fire","access":["TMR-5*-event"]},
+    {"name":"Apocalypse","type":"greatSword","atk":103,"access":["key"]},
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"]},
@@ -85,6 +90,7 @@
     {"name":"Drakesclaw Rod","type":"rod","atk":10,"mag":35,"access":["recipe-event"]},
     {"name":"Striking Staff","type":"rod","atk":16,"mag":42,"access":["key"]},
     {"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusive":"[Papalymo]","access":["recipe-event"]},
+    {"name":"Recovery Rod","type":"rod","atk":18,"mag":51,"spr":18,"special":["[Cura]   "],"access":["key"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":"40", "killers":[{"name":"bird","percent":50}],"access":["TMR-4*"]},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"access":["TMR-4*"]},
@@ -126,6 +132,8 @@
     {"name":"Bahamut's Fang","type":"spear","atk":76,"killers":[{"name":"dragon","percent":50}],"access":["recipe-event"]},
     {"name":"Lamia's Scythe","type":"spear","atk":51,"mp%":15,"access":["event"]},
     {"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
+    {"name":"Moogle Spear","type":"spear","atk":82,"special":["Increase LB gauge (1) per turn"],"access":["event"]},
+    {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusive":"Moogle","access":["event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"]},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -149,6 +157,10 @@
     {"name":"Ninja's Trump","type":"throwing","atk":28,"mag":75,"exclusive":"[Popoi]","access":["event"]},
     {"name":"Moon Ring Blade","type":"throwing","atk":26,"killers":[{"name":"bird","percent":50}],"access":["shop","recipe-chest","quest"]},
     {"name":"Fixed Dice","type":"throwing","atk":1,"special":["1.2x-6.5x damage variance"],"access":["TMR-4*"]},
+    {"name":"Horizon Breaker","type":"throwing","atk":117,"access":["TMR-3*"]},
+    {"name":"Switch Hitter","type":"throwing","atk":35,"special":["You won't have it anymore if you crafted [Hyper Ball]"],"access":["event"]},
+    {"name":"Hyper Ball","type":"throwing","atk":55,"access":["event"]},
+    
 
     {"name":"Sparky","type":"gun","atk":120,"element":"lightning","special":["[Doublehand]"],"access":["TMR-5*"]},
     {"name":"Romandan Pistol","type":"gun","atk":107,"access":["TMR-3*"]},
@@ -180,6 +192,9 @@
     {"name":"Mythril Claws","type":"fist","atk":42,"access":["shop","recipe-chest"]},
     {"name":"Poison Knuckles","type":"fist","atk":40,"ailments":[{"name":"poison","percent":30}],"access":["chest","recipe-chest"]},
     {"name":"Guts Knuckle","type":"fist","hp%":10,"mp%":10,"atk":88,"exclusive":"[Yda]","access":["recipe-chest"]},
+    {"name":"Devastator","type":"fist","atk":35,"special":["You won't have it anymore if you crafted [Override]"],"access":["event"]},
+    {"name":"Override","type":"fist","atk":50,"special":"Increase LB gauge fill rate (100%)","access":["event"]},
+    
     {"name":"Snowstorm Shield","type":"lightShield","def":42,"spr":12,"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":-30},{"name":"fire","percent":-30}],"access":["event"]},
     {"name":"Dragon Shield","type":"lightShield","def":38,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
     {"name":"Escutcheon","type":"lightShield","def":36,"killers":[{"name":"undead","percent":50}],"access":["event"]},
@@ -187,6 +202,7 @@
     {"name":"Stellar Shield","type":"lightShield","mp":10,"def":28,"mag":15,"access":["event"]},
     {"name":"Leather Shield","type":"lightShield","def":10,"resist":[{"name":"lightning","percent":20},{"name":"water","percent":-20}],"access":["shop","recipe-chest","chest"]},
     {"name":"Army Shield","type":"lightShield","def":40,"spr":20,"resist":[{"name":"lightning","percent":20}],"access":["event"]},
+    
 
     {"name":"Aegis Shield","type":"heavyShield","def":53,"spr":25,"resist":[{"name":"petrification","percent":100}],"access":["TMR-3*"]},
     {"name":"Force Shield","type":"heavyShield","def":40,"spr":8,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["chocobo"]},
@@ -219,7 +235,9 @@
     {"name":"Tiger Mask","type":"hat","atk":14,"def":3,"access":["quest","recipe-chest"]},
     {"name":"Cat-ear Hood","type":"hat","mag":25,"spr":25,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"light","percent":20}],"access":["chocobo"]},
     {"name":"Scion Striker's Visor","type":"hat","hp%":5,"mp%":5,"atk":12,"def":25,"spr":15,"exclusive":"[Yda]","access":["recipe-event"]},
-    {"name":"Whitebrim","type":"hat","mp%":15,"atk":18,"def":15,"spr":15,"access":["event   "]},
+    {"name":"Whitebrim","type":"hat","mp%":15,"atk":18,"def":15,"spr":15,"access":["event"]},
+    {"name":"Moogle Crown","type":"hat","def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"access":["event"]},
+    {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusive":"Moogle","access":["event"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Survivor Helm","type":"helm","def":30,"spr":10,"resist":[{"name":"ice","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}],"access":["colosseum"]},
@@ -280,7 +298,7 @@
     {"name":"Crimson Slayer","type":"lightArmor","atk%":30,"def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"exclusive":"with Fist weapon","access":["TMR-5*-event"]},
     {"name":"Carabini Mail","type":"lightArmor","def":47,"special":["[Auto-Regen]"],"access":["chest"]},
     {"name":"Monster Breastplate","type":"lightArmor","atk":12,"def":46,"mag":12,"access":["TMR-3*"]},
-    {"name":"Golden Vest","type":"lightArmor","def":42,"access":["colosseum"]},
+    {"name":"Golden Vest","type":"lightArmor","def":42,"access":["colosseum","recipe-key"]},
     {"name":"Brigandine","type":"lightArmor","def":41,"access":["chest","colosseum","recipe-chest","shop"]},
     {"name":"Ruby Breastplate","type":"lightArmor","def":36,"access":["event"]},
     {"name":"Silver Cuirass","type":"lightArmor","def":34,"access":["shop","key","recipe-chest"]},
@@ -297,6 +315,7 @@
     {"name":"Flame Mail","type":"heavyArmor","def":45,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["chest","recipe-key"]},
     {"name":"Mythril Armor","type":"heavyArmor","def":38,"access":["shop","recipe-chest","colosseum"]},
     {"name":"Paladin Armor","type":"heavyArmor","def":32,"spr":10,"access":["shop","quest","recipe-key"]},
+    {"name":"Dragon Mail","type":"heavyArmor","def":45,"spr":15,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
 
     {"name":"Scion Conjurer's Pattens","type":"accessory","hp%":5,"mp%":5,"def":5,"spr":10,"exclusive":"[Y'shtola]","access":["recipe-event"]},
     {"name":"Evening Glove","type":"accessory","def":3,"mag%":15,"spr%":10,"exclusive":"[Dangerous Ariana]","access":["recipe-event"]},
@@ -388,7 +407,7 @@
     {"name":"Yellow Ring","type":"accessory","def":6,"resist":[{"name":"lightning","percent":15}],"access":["quest"]},
     {"name":"Water Ring","type":"accessory","def":2,"resist":[{"name":"water","percent":5}],"access":["shop","chest","recipe-chest"]},
     {"name":"Tide Ring","type":"accessory","def":4,"resist":[{"name":"water","percent":10}],"access":["chest"]},
-    {"name":"Torrent Ring","type":"accessory","def":6,"resist":[{"name":"water","percent":15}],"access":["quest"]},
+    {"name":"Torrent Ring","type":"accessory","def":6,"resist":[{"name":"water","percent":15}],"access":["quest","recipe-key"]},
     {"name":"Gale Ring","type":"accessory","def":2,"resist":[{"name":"wind","percent":5}],"access":["shop","chest","recipe-chest"]},
     {"name":"Squall Ring","type":"accessory","def":4,"resist":[{"name":"wind","percent":10}],"access":["chest"]},
     {"name":"Tornado Ring","type":"accessory","def":6,"resist":[{"name":"wind","percent":15}],"access":["quest"]},
@@ -400,6 +419,10 @@
     {"name":"Demon Horn","type":"accessory","atk%":10,"killers":[{"name":"beast","percent":50}],"access":["event"]},
     {"name":"Sun Barrette","type":"accessory","atk%":10,"killers":[{"name":"demon","percent":50}],"access":["event"]},
     {"name":"Lucky Bangles","type":"accessory","def":10,"spr":10,"evade":10,"special":["Chance to evade magic damage taken (10%)"],"access":["event"]},
+    {"name":"Dragoon's Gauntlet","type":"accessory","def":10,"special":["[High Jump]"],"access":["key"]},
+    {"name":"Rikku's Pouch","type":"accessory","def":3,"special":["[Chaos Grenade]","[Panacea]", "[Eccentrick]"],"access":["TMR-4*"]},
+    {"name":"Moogle Cape","type":"accessory","hp%":5,"def":6,"spr":6,"special":["Chance to evade magic damage taken (10%)"],"access":["event"]},
+    {"name":"Moogle Cape","type":"accessory","hp%":10,"atk%":10,"def":6,"spr":6,"special":["Chance to evade magic damage taken (10%)"],"exclusive":"[Moogle]","access":["event"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"]},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -470,6 +493,7 @@
     {"name":"Stone Killer","type":"materia","killers":[{"name":"stone","percent":50}],"special":["Not stackable"],"access":["TMR-2*"]},
     {"name":"Undead Killer","type":"materia","killers":[{"name":"undead","percent":50}],"special":["Not stackable"],"access":["key"]},
     {"name":"Beast Killer","type":"materia","killers":[{"name":"beast","percent":50}],"special":["Not stackable"],"access":["key"]},
+    {"name":"Demon Killer","type":"materia","killers":[{"name":"demon","percent":50}],"special":["Not stackable"],"access":["key"]},
     {"name":"Syldra's Protection","type":"materia","killers":[{"name":"aquatic","percent":50},{"name":"dragon","percent":50}],"special":["Not stackable"],"access":["TMR-3*"]},
     {"name":"Poach","type":"materia","killers":[{"name":"beast","percent":15},{"name":"bird","percent":15},{"name":"aquatic","percent":15},{"name":"dragon","percent":15},{"name":"plant","percent":15}],"access":["event"]},
     {"name":"Blade Mastery","type":"materia","atk%":50,"special":["Not stackable"],"exclusive":"if equipped with a katana","access":["TMR-4*"]},
@@ -499,6 +523,9 @@
     {"name":"Resolve","type":"materia","special":["Recover MP(7%) per turn"],"access":["TMR-4*"]},
     {"name":"Persistance","type":"materia","def%":20,"spr%":30,"access":["TMR-3*"]},
     {"name":"Demonic Life","type":"materia","special":["Increase ATK/DEF/MAG/SPR (40%) when HP drops below 50%"],"access":["event"]},
+    {"name":"Mog Wisdom","type":"materia","special":["Increase LB gauge fill rate (50%)"],"access":["TMR-4*-event"]},
+    {"name":"Mog Resist","type":"materia","resist":[{"name":"petrification","percent":100}],"access":["event"]},
+    {"name":"Mog Rise","type":"materia","hp%":20,"mp%":10,"access":["event"]},
 
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"]},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"]},
