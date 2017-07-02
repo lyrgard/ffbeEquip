@@ -4,6 +4,8 @@
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+        <script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <style>
             .btn-default.active {
                 border-color: black;
@@ -31,6 +33,9 @@
 			}
 			#results .detail {
 				font-size: 0.8em;
+			}
+            #results.notSorted .sort {
+				display:none;
 			}
 			#statTitle {
 				text-transform: uppercase;
@@ -63,6 +68,11 @@
 			.imageWithText {
 				margin-right : 2px;
 			}
+            
+            mark {
+                background-color: ;
+                padding: 0;
+            }
         </style>
         
         <script>
@@ -73,18 +83,20 @@
             var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
             var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
 			
-            var types;
-            var elements;
-            var ailments;
-            var killers;
-            var accessToRemove;
-            var additionalStat;
+            var stat = '';
+            var types = [];
+            var elements = [];
+            var ailments = [];
+            var killers = [];
+            var accessToRemove = [];
+            var additionalStat = [];
+            var searchText = '';
             
             var update = function() {
                 
                 stat = getSelectedValuesFor("stat");
-				if (stat.length == 0) {return;}
-				stat = stat[0];
+                searchText = $("#searchText").val();
+				stat = stat[0] || '';
                 baseStat = parseInt($("#baseStat").val());
                 if (isNaN(baseStat)) {
                     if (stat == 'hp') {
@@ -96,8 +108,7 @@
                     }
                     
                 }
-				
-				$("#statTitle").text(stat);
+
                 types = getSelectedValuesFor("types");
                 elements = getSelectedValuesFor("elements");
                 ailments = getSelectedValuesFor("ailments");
@@ -107,20 +118,47 @@
 				$(filters).each(function(index, filter) {
 					$("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
 				});
-        
+                $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
+                
+                if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 00) {
+                    $("#results tbody").html("");
+                    $("#results").addClass("notSorted");
+                    return;
+                }
+                if (stat.length != 0) {
+                    $("#statTitle").text(stat);    
+                    $("#results").removeClass("notSorted");
+                } else {
+                    $("#results").addClass("notSorted");
+                }
+                
 				displayItems(sort(filter()));
 				modifyUrl();
+                $("#results").unmark({
+                    done: function() {
+                        if (searchText && searchText.length != 0) {
+                            searchText.split(" ").forEach(function (token) {
+                                $("#results").mark(token);
+                            });
+                        }
+                    }
+                });
             }
 			
 			var modifyUrl = function() {
 				var state = {
-					"stat" : stat
-				}
+				};
+                if (stat && stat.length != 0) {
+                    state.stat = stat;
+                }
 				$(filters).each(function (index, filter) {
 					if (window[filter].length != 0) {
 						state[filter] = window[filter];
 					}
 				});
+                if (searchText && searchText.length != 0) {
+                    state.search = searchText;
+                }
 				window.location.hash = '#' + JSON.stringify(state);
 			};
 			
@@ -133,7 +171,7 @@
 					html += '<td><a href="' + toUrl(item.name) + '">' + item.name + "</a><div class='detail'>" + getStatDetail(item) + "</div></td>";
 					
 					// value
-					html += "<td class='value'>" + item.calculatedValue;
+					html += "<td class='value sort'>" + item.calculatedValue;
 					if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
 						html += '%';
 					}
@@ -212,9 +250,11 @@
                                 if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
                                     if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item.access)) {
                                         if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
-                                            if (item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist)) {
-                                               calculateValue(item, stat, ailments, elements, killers);
-                                               result.push(item);
+                                            if (searchText.length == 0 || containsText(searchText, item)) {
+                                                if (stat.length == 0 || hasStat(stat, item)) {
+                                                   calculateValue(item, stat, ailments, elements, killers);
+                                                   result.push(item);
+                                                }
                                             }
                                         }
 								    } 
@@ -248,6 +288,51 @@
                     }
                 });
                 return match;
+            };
+            
+            var containsText = function(text, item) {
+                var textToSearch = item["name"] + "|" + getStatDetail(item);
+                if (item["resist"]) {
+                    $(item["resist"]).each(function (index, resist) {
+                        textToSearch += "|" + resist.name;
+                    });
+                }
+                if (item["ailments"]) {
+                    $(item["ailments"]).each(function (index, ailment) {
+                        textToSearch += "|" + ailment.name;
+                    });
+                }
+                if (item["exclusive"]) {
+                    textToSearch += "|" + item["exclusive"]; 
+                }
+                if (item["special"]) {
+                    $(item["special"]).each(function (index, special) {
+                        textToSearch += "|" + special;
+                    });
+                }
+                var result = true;
+                text.split(" ").forEach(function (token) {
+                    result = result && textToSearch.match(new RegExp(escapeRegExp(token),'i'));
+                });
+                return result;
+            };
+            
+            var nameContainsText = function(text, item) {
+                return item["name"].match('/'+ escapeRegExp(text) + '/i');
+            };
+            var specialContainsText = function(text, item) {
+                return string.match('/'+ escapeRegExp(text) + '/i');
+            };
+            var exclusiveContainsText = function(text, item) {
+                return item["eclusive"] && item["eclusive"].match('/'+ escapeRegExp(text) + '/i');
+            };
+            
+            function escapeRegExp(str) {
+                return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+            }
+            
+            var hasStat = function(stat, item) {
+                return item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist);
             };
             
             var hasStats = function(additionalStat, item) {
@@ -387,6 +472,9 @@
 							$(checkbox).parent().addClass('active');
 						});
 					}
+                    if (state.search) {
+                        $("#searchText").val(state.search);
+                    }
 					$(filters).each(function (index, filter) {
 						if (state[filter]) {
 							select(filter, state[filter]);
@@ -409,6 +497,7 @@
                     update();
                 });
                 $("#baseStat").on("input", update);
+                $("#searchText").on("input", $.debounce(300,update));
                 
                 
                 $.get("data.json", function(result) {
@@ -425,8 +514,11 @@
     <body>
         <div class="container">
             <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Desired stat</div>
+                <div class="panel panel-default stat">
+                    <div class="panel-heading">
+                        <span>Desired stat</span>
+                        <a class="buttonLink hidden unselectAll" onclick="unselectAll('stat')">unselect</a>
+                    </div>
                     <div class="panel-body">
                         <div class="col-xs-6">
                             <div class="btn-group colors choice" data-toggle="buttons">
@@ -471,6 +563,13 @@
                 </div>
             </div>
             <div class="col-xs-4 col-lg-6">
+                <div class="panel panel-default search">
+                    <div class="panel-heading">
+						<span>Search</span>
+						<input id="searchText" type="text"/>
+					</div>
+			</div>
+                
                 <div class="panel panel-default types">
                     <div class="panel-heading">
 						<span>Equipment types</span>
@@ -741,11 +840,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Results</div>
 				<div class="panel-body" style="padding:0;">
-					<table id="results" class="table table-hover">
+					<table id="results" class="table table-hover notSorted">
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th id="statTitle">Value</th>
+								<th id="statTitle" class="sort">Value</th>
 								<th>Type</th>
 								<th>Special</th>
 								<th>Access</th>
