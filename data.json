@@ -133,7 +133,7 @@
     {"name":"Lamia's Scythe","type":"spear","atk":51,"mp%":15,"access":["event"]},
     {"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
     {"name":"Moogle Spear","type":"spear","atk":82,"special":["Increase LB gauge (1) per turn"],"access":["event"]},
-    {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusive":"Moogle","access":["event"]},
+    {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusive":"[Moogle]","access":["event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"]},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -193,7 +193,7 @@
     {"name":"Poison Knuckles","type":"fist","atk":40,"ailments":[{"name":"poison","percent":30}],"access":["chest","recipe-chest"]},
     {"name":"Guts Knuckle","type":"fist","hp%":10,"mp%":10,"atk":88,"exclusive":"[Yda]","access":["recipe-chest"]},
     {"name":"Devastator","type":"fist","atk":35,"special":["You won't have it anymore if you crafted [Override]"],"access":["event"]},
-    {"name":"Override","type":"fist","atk":50,"special":"Increase LB gauge fill rate (100%)","access":["event"]},
+    {"name":"Override","type":"fist","atk":50,"special":["Increase LB gauge fill rate (100%)"],"access":["event"]},
     
     {"name":"Snowstorm Shield","type":"lightShield","def":42,"spr":12,"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":-30},{"name":"fire","percent":-30}],"access":["event"]},
     {"name":"Dragon Shield","type":"lightShield","def":38,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
@@ -237,7 +237,7 @@
     {"name":"Scion Striker's Visor","type":"hat","hp%":5,"mp%":5,"atk":12,"def":25,"spr":15,"exclusive":"[Yda]","access":["recipe-event"]},
     {"name":"Whitebrim","type":"hat","mp%":15,"atk":18,"def":15,"spr":15,"access":["event"]},
     {"name":"Moogle Crown","type":"hat","def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"access":["event"]},
-    {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusive":"Moogle","access":["event"]},
+    {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusive":"[Moogle]","access":["event"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Survivor Helm","type":"helm","def":30,"spr":10,"resist":[{"name":"ice","percent":10},{"name":"earth","percent":10},{"name":"dark","percent":10}],"access":["colosseum"]},
@@ -370,7 +370,7 @@
     {"name":"Rune Armlet","type":"accessory","mp":50,"def":3,"access":["chocobo"]},
     {"name":"Soul of Thamasa","type":"accessory","mp%":30,"def":12,"spr":12,"special":["Dualcast"],"access":["TMR-5*"]},
     {"name":"Cold Snap","type":"accessory","atk%":15,"mag%":15,"exclusive":"if Heavy Armor equipped","access":["recipe-event"]},
-    {"name":"Star Pendant","type":"accessory","def":3,"resist":[{"name":"poison ","percent":100}],"access":["chest","chocobo"]},
+    {"name":"Star Pendant","type":"accessory","def":3,"resist":[{"name":"poison","percent":100}],"access":["chest","chocobo"]},
     {"name":"Silver Glasses","type":"accessory","def":3,"resist":[{"name":"blind","percent":100}],"access":["chest","chocobo"]},
     {"name":"Headband","type":"accessory","atk":3,"resist":[{"name":"sleep","percent":100}],"access":["chest","chocobo"]},
     {"name":"White Cape","type":"accessory","def":3,"resist":[{"name":"silence","percent":100}],"access":["chest","chocobo"]},
