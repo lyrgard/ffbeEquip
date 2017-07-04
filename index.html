@@ -236,6 +236,9 @@
 						}
 						html += ">" + itemAccess + "</div>"; 
 					});
+                    if (item.tmrUnit) {
+                        html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
+                    }
 					html += "</td>";
 					html += "</tr>";
 				});
@@ -310,6 +313,9 @@
                     $(item["special"]).each(function (index, special) {
                         textToSearch += "|" + special;
                     });
+                }
+                if (item["tmrUnit"]) {
+                    textToSearch += "|" + item["tmrUnit"]; 
                 }
                 var result = true;
                 text.split(" ").forEach(function (token) {
