@@ -52,6 +52,8 @@
     {"name":"Rune Blade","type":"greatSword","atk":27,"mag":10,"element":"light","access":["chest"]},
     {"name":"Dandelga","type":"greatSword","atk":130,"element":"fire","access":["TMR-5*-event"],"tmrUnit":"Vargas"},
     {"name":"Apocalypse","type":"greatSword","atk":103,"access":["key"]},
+    {"name":"Crimson Saber","type":"greatSword","atk":90,"element":"fire","access":["trial"]},
+    {"name":"Crimson Saber","type":"greatSword","hp%":30,"mp%":30,"atk":90,"element":"fire","exclusive":"[Rain]","access":["trial"]},
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"],"tmrUnit":"Miyuki"},
@@ -62,6 +64,8 @@
     {"name":"Osafune","type":"katana","atk":42,"access":["chest", "recipe-chest"]},
     {"name":"Kazekiri","type":"katana","atk":35,"element":"wind","access":["shop", "recipe-quest", "key", "event"]},
     {"name":"Kiku-ichimonji","type":"katana","atk":30,"access":["shop", "recipe-chest", "quest"]},
+    {"name":"Purple Lightning","type":"katana","atk":92,"access":["trial"]},
+    {"name":"Purple Lightning","type":"katana","atk%":40,"atk":92,"exclusive":"[Lasswell]","access":["trial"]},
 
     {"name":"Magi Staff","type":"staff","atk":25,"mag":12,"spr":70,"access":["TMR-3*"],"tmrUnit":"Lenna"},
     {"name":"Budding Maple Wand","type":"staff","hp%":10,"mp%":10,"atk":12,"mag":30,"spr":68,"exclusive":"[Y'shtola]","access":["recipe-event"]},
@@ -98,6 +102,8 @@
     {"name":"Elven Bow","type":"bow","atk":42,"mag":10,"killers":[{"name":"bird","percent":50}],"access":["event", "quest", "recipe-chest"]},
     {"name":"Mythril Bow","type":"bow","atk":38, "killers":[{"name":"bird","percent":50}],"access":["shop", "recipe-chest", "chest"]},
     {"name":"Rune Bow","type":"bow","atk":48,"killers":[{"name":"bird","percent":50}],"access":["chest"]},
+    {"name":"Reincarnation","type":"bow","atk":48,"spr":68,"killers":[{"name":"bird","percent":50}],"access":["trial"]},
+    {"name":"Reincarnation","type":"bow","mp%":40,"atk":48,"spr":68,"killers":[{"name":"bird","percent":50}],"exclusive":"[Fina]","access":["trial"]},
 
     {"name":"Viking Axe","type":"axe","atk":125,"element":"water","access":["TMR-4*"],"tmrUnit":"Mercedes"},
     {"name":"Gigas Axe","type":"axe","atk":85,"spr":15,"access":["event"]},
@@ -194,6 +200,7 @@
     {"name":"Guts Knuckle","type":"fist","hp%":10,"mp%":10,"atk":88,"exclusive":"[Yda]","access":["recipe-chest"]},
     {"name":"Devastator","type":"fist","atk":35,"special":["You won't have it anymore if you crafted [Override]"],"access":["event"]},
     {"name":"Override","type":"fist","atk":50,"special":["Increase LB gauge fill rate (100%)"],"access":["event"]},
+    {"name":"Wind Drake Talon","type":"fist","atk":58,"element":"fire","access":["chest"]},
     
     {"name":"Snowstorm Shield","type":"lightShield","def":42,"spr":12,"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":-30},{"name":"fire","percent":-30}],"access":["event"]},
     {"name":"Dragon Shield","type":"lightShield","def":38,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
@@ -272,9 +279,9 @@
     {"name":"Scion Striker's Attire","type":"clothes","hp%":15,"mp%":15,"atk":24,"def":40,"spr":12,"exclusive":"[Yda]","access":["recipe-event"]},
     {"name":"Apron Dress","type":"clothes","def":49,"spr":49,"access":["TMR-4*"],"tmrUnit":"Amelia"},
     {"name":"Apron Dress","type":"clothes","atk%":30,"def":49,"spr":49,"exclusive":"with a Gun equipped","access":["TMR-4*"],"tmrUnit":"Amelia"},
-	{"name":"Dark Fina's Swimsuit","type":"clothes","def":21,"mag":60,"resist":[{"name":"water","percent":50}],"special":["Recover MP (5%) per turn"],"exclusive":"female","access":["TMR-5*"],"tmrUnit":"Seabreeze Dark Fina"},
-	{"name":"Fina's Swimsuit","type":"clothes","def":18,"spr":50,"resist":[{"name":"water","percent":30}],"special":["[Auto-Regen]"],"exclusive":"female","access":["TMR-4*"],"tmrUnit":"Beach Time Fina"},
-	{"name":"Lid's Swimsuit","type":"clothes","def":15,"mag":30,"spr":30,"resist":[{"name":"water","percent":20}],"exclusive":"female","access":["TMR-3*"],"tmrUnit":"Summer Lid"},
+    {"name":"Dark Fina's Swimsuit","type":"clothes","def":21,"mag":60,"resist":[{"name":"water","percent":50}],"special":["Recover MP (5%) per turn"],"exclusive":"female","access":["TMR-5*"],"tmrUnit":"Seabreeze Dark Fina"},
+    {"name":"Fina's Swimsuit","type":"clothes","def":18,"spr":50,"resist":[{"name":"water","percent":30}],"special":["[Auto-Regen]"],"exclusive":"female","access":["TMR-4*"],"tmrUnit":"Beach Time Fina"},
+    {"name":"Lid's Swimsuit","type":"clothes","def":15,"mag":30,"spr":30,"resist":[{"name":"water","percent":20}],"exclusive":"female","access":["TMR-3*"],"tmrUnit":"Summer Lid"},
 	
 
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"],"tmrUnit":"Marie"},
@@ -294,6 +301,8 @@
     {"name":"Traveler's Garbs","type":"robe","def":12,"mag":3,"spr":9,"access":["shop","chest","recipe-chest"]},
     {"name":"Silk Robe","type":"robe","def":9,"mag":4,"spr":6,"access":["shop","quest","recipe-chest"]},
     {"name":"Scion Thaumaturge's Robe","type":"robe","hp%":15,"mp%":15,"def":12,"mag":24,"spr":40,"exclusive":"[Papalymo]","access":["recipe-event"]},
+    {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"access":["trial"]},
+    {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}],"exclusive":"[Fina]","access":["trial"]},
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"],"tmrUnit":"Yun"},
     {"name":"Crimson Slayer","type":"lightArmor","atk%":30,"def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"exclusive":"with Fist weapon","access":["TMR-5*-event"],"tmrUnit":"Yun"},
@@ -306,6 +315,10 @@
     {"name":"Scion Thief's Tunic","type":"lightArmor","hp%":10,"atk":8,"atk%":10,"def":25,"exclusive":"[Thancred]","access":["recipe-event"]},
     {"name":"Military Plate","type":"lightArmor","def":31,"spr":7,"access":["event"]},
     {"name":"Assassin Vest","type":"lightArmor","def":40,"spr":20,"evade":10,"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"access":["trial"]},
+    {"name":"Rain's Clothes","type":"lightArmor","mp%":10,"def":38,"spr":12,"access":["trial"]},
+    {"name":"Rain's Clothes","type":"lightArmor","mp%":10,"def":38,"spr":12,"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"exclusive":"[Rain]","access":["trial"]},
+    {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"access":["trial"]},
+    {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"exclusive":"[Lasswell]","access":["trial"]},
 
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"],"tmrUnit":"Vaan"},
     {"name":"Demon Mail","type":"heavyArmor","atk":10,"def":55,"resist":[{"name":"dark","percent":20}],"access":["trial"]},
@@ -424,6 +437,12 @@
     {"name":"Rikku's Pouch","type":"accessory","def":3,"special":["[Chaos Grenade]","[Panacea]", "[Eccentrick]"],"access":["TMR-4*"],"tmrUnit":"Rikku"},
     {"name":"Moogle Cape","type":"accessory","hp%":5,"def":6,"spr":6,"special":["Chance to evade magic damage taken (10%)"],"access":["event"]},
     {"name":"Moogle Cape","type":"accessory","hp%":10,"atk%":10,"def":6,"spr":6,"special":["Chance to evade magic damage taken (10%)"],"exclusive":"[Moogle]","access":["event"]},
+    {"name":"Rain's Insignia","type":"accessory","hp%":15,"def":3,"access":["trial"]},
+    {"name":"Rain's Insignia","type":"accessory","hp%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Rain]","access":["trial"]},
+    {"name":"Lasswell's Insignia","type":"accessory","atk%":15,"def":3,"access":["trial"]},
+    {"name":"Lasswell's Insignia","type":"accessory","atk%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Lasswell]","access":["trial"]},
+    {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"access":["trial"]},
+    {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Fina]","access":["trial"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
