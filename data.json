@@ -163,7 +163,7 @@
     {"name":"Ninja's Trump","type":"throwing","atk":28,"mag":75,"exclusive":"[Popoi]","access":["event"]},
     {"name":"Moon Ring Blade","type":"throwing","atk":26,"killers":[{"name":"bird","percent":50}],"access":["shop","recipe-chest","quest"]},
     {"name":"Fixed Dice","type":"throwing","atk":1,"special":["1.2x-6.5x damage variance"],"access":["TMR-4*"],"tmrUnit":"Setzer"},
-    {"name":"Horizon Breaker","type":"throwing","atk":117,"access":["TMR-3*"]},
+    {"name":"Horizon Breaker","type":"throwing","atk":117,"access":["TMR-3*"],"tmrUnit":"Wakka"},
     {"name":"Switch Hitter","type":"throwing","atk":35,"special":["You won't have it anymore if you crafted [Hyper Ball]"],"access":["event"]},
     {"name":"Hyper Ball","type":"throwing","atk":55,"access":["event"]},
     
@@ -460,7 +460,7 @@
     {"name":"SPR +10%","type":"materia","spr%":10,"access":["colosseum","event","recipe-chest"]},
     {"name":"Tempered Shield","type":"materia","hp%":5,"def%":10,"access":["event"]},
     {"name":"Mana's Blessing","type":"materia","hp%":5,"spr%":10,"access":["event"]},
-    {"name":"Follower's Oath","type":"materia","hp%":10,"atk%":10,"access":["TMR-3*-event"],"tmrUnit":"Tancred"},
+    {"name":"Follower's Oath","type":"materia","hp%":10,"atk%":10,"access":["TMR-3*-event"],"tmrUnit":"Thancred"},
     {"name":"Imperial Helm","type":"materia","hp%":10,"def%":5,"access":["event"]},
     {"name":"Chilling Aura","type":"materia","hp%":13,"mp%":13,"exclusive":"[Demon Rain], [Dracu Lasswell], [White Witch Fina], [Black Cat Lid]","access":["event"]},
     {"name":"Tranquility","type":"materia","hp%":15,"mp%":15,"access":["TMR-3*"],"tmrUnit":"Eight"},
@@ -546,7 +546,8 @@
     {"name":"Mog Wisdom","type":"materia","special":["Increase LB gauge fill rate (50%)"],"access":["TMR-4*-event"],"tmrUnit":"Moogle"},
     {"name":"Mog Resist","type":"materia","resist":[{"name":"petrification","percent":100}],"access":["event"]},
     {"name":"Mog Rise","type":"materia","hp%":20,"mp%":10,"access":["event"]},
-    {"name":"Emperor's Majesty","type":"materia","hp%":20,"atk%":20,"special":["Recover MP (3%) per turn"],"access":["event"]},
+    {"name":"Emperor's Majesty","type":"materia","hp%":20,"atk%":20,"special":["Recover MP (3%) per turn"],"access":["TMR-4*"],"tmrUnit":"Sozhe"},
+    {"name":"Heretic Abyss","type":"materia","mp%":15,"mag%":15,"resist":[{"name":"dark", "percent":20}],"access":["TMR-3*"],"tmrUnit":"Heltich"},
     
     {"name":"Counter","type":"materia","special":["Chance to counter physical attacks (30%)"],"access":["TMR-3*"],"tmrUnit":"Sabin"},
     {"name":"Evade","type":"materia","evade":10,"access":["TMR-3*"],"tmrUnit":"Cyan"},
@@ -556,6 +557,7 @@
     {"name":"Auto-Refresh","type":"materia","special":["Recover MP (5%) per turn"],"access":["chocobo"]},
 
     {"name":"Cover","type":"materia","special":["Chance to protect one ally (5%)"],"access":["TMR-3*"],"tmrUnit":"Clyne"},
+    {"name":"Resuscitate","type":"materia","special":["Increase ATK/DEF/MAG/SPR (60%) when HP drops below 50%"],"access":["TMR-3*"],"tmrUnit":"Ulrica"},
 
     {"name":"Bio Blade","type":"materia","element":"dark","ailments":[{"name":"poison","percent":30}],"special":["Dark hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Bio Blaster","type":"materia","element":"dark","ailments":[{"name":"poison","percent":50}],"special":["Dark magic damage (1.3x) to all enemies"],"access":["recipe-key"]},
@@ -593,7 +595,7 @@
     {"name":"Fira","type":"materia","element":"fire","special":["Fire magic damage (1.4x) to all enemies"],"access":["TMR-1*"],"tmrUnit":"Tronn"},
     {"name":"Thundara","type":"materia","element":"lightning","special":["Lightning magic damage (1.4x) to all enemies"],"access":["recipe-key"]},
     {"name":"Aerora","type":"materia","element":"wind","special":["Wind magic damage (1.4x) to all enemies"],"access":["recipe-chest"]},
-    {"name":"Stonra","type":"materia","element":"earth","special":["Earth magic damage (1.4x) to all enemies"],"access":["TMR-2*"]},
+    {"name":"Stonra","type":"materia","element":"earth","special":["Earth magic damage (1.4x) to all enemies"],"access":["TMR-2*"],"tmrUnit":"Paula"},
     {"name":"Blizzaga","type":"materia","element":"ice","special":["Ice magic damage (1.8x) to all enemies"],"access":["TMR-3*"],"tmrUnit":"Rydia"},
     {"name":"Firaga","type":"materia","element":"fire","special":["Fire magic damage (1.8x) to all enemies"],"access":["TMR-3*"],"tmrUnit":"Vivi"},
     {"name":"Thundaga","type":"materia","element":"lightning","special":["Lightning magic damage (1.8x) to all enemies"],"access":["TMR-3*"],"tmrUnit":"Krile"},
@@ -618,7 +620,21 @@
     {"name":"Auto-Limit","type":"materia","special":["Increase LB gauge (1) per turn"],"access":["TMR-3*"],"tmrUnit":"Clouf of Darkness"},
     {"name":"Barrage","type":"materia","special":["Physical damage combo (4 times, 0.8x each, 3.2x total) to random enemies"],"access":["TMR-3*"],"tmrUnit":"Luna"},
     {"name":"Bladeblitz","type":"materia","special":["Physical damage (1.4x) to all enemies"],"access":["TMR-3*"],"tmrUnit":"Russell"},
-    {"name":"Light's Blessing","type":"materia","special":["[Auto-Bravery]","[Auto-Faith]","[Auto-Regen]"],"access":["TMR-3*"],"tmrUnit":"Warrior of Light"},
-    
-    ,"tmrUnit":""
+    {"name":"Rage - Meteor","type":"materia","special":["Physical damage (2.5x) with ignore DEF (25%) to all enemies"],"access":["TMR-3*"],"tmrUnit":"Gau"},
+    {"name":"Coin Steal","type":"materia","special":["Physical damage (2x) to one enemy","Steal gil from one enemy"],"access":["TMR-4*-event"],"tmrUnit":"Thief"},
+    {"name":"Pilfer","type":"materia","special":["Steal gil from one enemy"],"access":["TMR-1*"],"tmrUnit":"Eldin"},
+    {"name":"Store","type":"materia","special":["Increase ATK (80%, max 160%) for the next normal attack to caster","Increase damage taken (50%) to caster"],"access":["TMR-1*"],"tmrUnit":"Baurg"},
+    {"name":"Aim","type":"materia","special":["Physical damage (1.2x) to one enemy"],"access":["TMR-1*"],"tmrUnit":"Gimlee"},
+    {"name":"Power Shot","type":"materia","special":["Physical damage (1.2x) to one enemy"],"access":["TMR-1*"],"tmrUnit":"Maxell"},
+    {"name":"Escape","type":"materia","special":["Escape battle"],"access":["TMR-2*"],"tmrUnit":"Paul"},
+    {"name":"Regen","type":"materia","special":["Heal (400 HP, 2x) split over 3 turns to one ally"],"access":["TMR-2*"],"tmrUnit":"Anastasis"},
+    {"name":"Paean","type":"materia","special":["Heal (130 HP, 3x) over 3 turns to all allies while singing"],"access":["TMR-2*"],"tmrUnit":"Sarah"},
+    {"name":"Mirror of Equity","type":"materia","special":["Physical damage (1.2x) to one enemy"],"access":["TMR-2*"],"tmrUnit":"Shiki"},
+    {"name":"Deprotect","type":"materia","special":["Decrease DEF (20%) for 3 turns to one enemy"],"access":["TMR-2*"],"tmrUnit":"Mizell"},
+    {"name":"Drain Blade","type":"materia","special":["Hybrid damage (1.4x) to one enemy","Physical damage (0.8x) with HP drain (30%) to one enemy"],"access":["TMR-2*"],"tmrUnit":"Ronaldo"},
+    {"name":"Drink","type":"materia","special":["Allow use of drinkable items"],"access":["TMR-2*"],"tmrUnit":"Mel"},
+    {"name":"Raging Fist","type":"materia","special":["Physical damage (1.2x) with ignore DEF (25%) to one enemy"],"access":["TMR-2*"],"tmrUnit":"Kenyu"},
+    {"name":"Sunbeam","type":"materia","special":["Magic damage (1.2x) to all enemies","Inflict blind (30%) to all enemies"],"access":["TMR-2*"],"tmrUnit":"Carrie"},
+    {"name":"Camouflage","type":"materia","special":["Decrease chance of being targeted (50%)"],"access":["TMR-2*"],"tmrUnit":"Montana"},
+    {"name":"Light's Blessing","type":"materia","special":["[Auto-Bravery]","[Auto-Faith]","[Auto-Regen]"],"access":["TMR-3*"],"tmrUnit":"Warrior of Light"}
 ]
