@@ -15,6 +15,7 @@
     {"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusive":"[Rem]","access":["event"]},
     {"name":"Bowie Knife","type":"dagger","atk":82,"special":["[Dual Wield]"],"access":["TMR-3*"],"tmrUnit":"Abel"},
     {"name":"Platinum Dagger","type":"dagger","atk":42,"access":["chest"]},
+    {"name":"Zwill Crossblade","type":"dagger","atk":73,"element":"wind","evade":5,"access":["event"]},
 
     {"name":"Moonblade","type":"sword","atk":118,"element":"dark","access":["TMR-5*"],"tmrUnit":"Delita"},
     {"name":"Mana Blade","type":"sword","atk":101,"def":8,"mag":8,"spr":8,"access":["TMR-5*"],"tmrUnit":"Randi"},
@@ -95,6 +96,7 @@
     {"name":"Striking Staff","type":"rod","atk":16,"mag":42,"access":["key"]},
     {"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusive":"[Papalymo]","access":["recipe-event"]},
     {"name":"Recovery Rod","type":"rod","atk":18,"mag":51,"spr":18,"special":["[Cura]"],"access":["key"]},
+    {"name":"Holy Rod","type":"rod","mp%":15,"atk":10,"mag":53,"element":"light","access":["event"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":"40", "killers":[{"name":"bird","percent":50}],"access":["TMR-4*"],"tmrUnit":"Rosa"},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"access":["TMR-4*"],"tmrUnit":"White Witch Fina"},
@@ -140,6 +142,7 @@
     {"name":"Lamia's Scythe","type":"spear","atk":51,"atk%":55,"mp%":15,"resist":[{"name":"poison","percent":80}],"exclusive":"[Sice]","access":["event"]},
     {"name":"Moogle Spear","type":"spear","atk":82,"special":["Increase LB gauge (1) per turn"],"access":["event"]},
     {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusive":"[Moogle]","access":["event"]},
+    {"name":"Zodiac Spear","type":"spear","atk":130,"special":["Two-handed weapon"],"access":["event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"access":["TMR-3*"],"tmrUnit":"Gilbert"},
     {"name":"Rune Bell","type":"harp","atk":34,"access":["event"]},
@@ -255,6 +258,7 @@
     {"name":"Imperial Helm (Item)","type":"helm","atk":18,"def":15,"resist":[{"name":"fire","percent":15}],"access":["event"]},
     {"name":"Dragon Helm","type":"helm","def":24,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}],"access":["quest"]},
     {"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrification","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"],"tmrUnit":"Fohlen"},
+    {"name":"Judge Helm","type":"helm","def":35,"spr":20,"resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15}],"access":["TMR-5*"],"tmrUnit":"Zargabaath"},
 
     {"name":"Brave Suit","type":"clothes","atk%":15,"def":51,"mag%":15,"access":["TMR-5*"],"tmrUnit":"Ramza"},
     {"name":"Minerva Bustier","type":"clothes","def":47,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"wind","percent":30}],"exclusive":"female","access":["TMR-3*"],"tmrUnit":"Celes"},
@@ -319,6 +323,8 @@
     {"name":"Rain's Clothes","type":"lightArmor","mp%":10,"def":38,"spr":12,"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"exclusive":"[Rain]","access":["trial"]},
     {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"access":["trial"]},
     {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"exclusive":"[Lasswell]","access":["trial"]},
+    {"name":"Adaman Vest","type":"lightArmor","hp%":10,"def":38,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["event"]},
+    
 
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"],"tmrUnit":"Vaan"},
     {"name":"Demon Mail","type":"heavyArmor","atk":10,"def":55,"resist":[{"name":"dark","percent":20}],"access":["trial"]},
@@ -443,6 +449,7 @@
     {"name":"Lasswell's Insignia","type":"accessory","atk%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Lasswell]","access":["trial"]},
     {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"access":["trial"]},
     {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Fina]","access":["trial"]},
+    {"name":"Ashe's Ring","type":"accessory","mp%":30,"def":3,"mag%":30,"resist":[{"name":"light","percent":50}],"access":["TMR-4*"],"tmrUnit":"Ashe"},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -678,5 +685,8 @@
     {"name":"Bushido - Freedom","type":"materia","special":["Physical damage (1.8x) with ignore DEF (50%) to all enemies","Remove all status effects from all enemies"],"access":["event"]},
     {"name":"Cut Cards","type":"materia","special":["Randomly use:","(25%) Mega Burst - Magic damage (2.5x) with ignore SPR (10%) to all enemies","(25%) Giga Burst - Magic damage (3.2x) with ignore SPR (25%) to all enemies","(25%) Short Burst - Stop (30%) for 1 turn to one enemy","(25%) Long Burst - Stop (30%) for 3 turns to one enemy"],"exclusive":"[Ace]","access":["event"]},
     {"name":"Steal","type":"materia","special":["Steal item from one enemy"],"access":["recipe-key"]},
-    {"name":"Siphon Delta","type":"materia","special":["Magic damage (0.3x) as MP drain (10%) to all enemies"],"exclusif":"[Rem]","access":["event"]}
+    {"name":"Siphon Delta","type":"materia","special":["Magic damage (0.3x) as MP drain (10%) to all enemies"],"exclusif":"[Rem]","access":["event"]},
+    {"name":"Patriotic Recall","type":"materia","hp%":30,"def%":20,"resist":[{"name":"light","percent":30}],"access":["TMR-4*"],"tmrUnit":"Rasler"},
+    {"name":"Warrior Lore","type":"materia","hp%":10,"atk%":5,"def%":5,"access":["event"]},
+    {"name":"Mage's Monograph","type":"materia","hp%":10,"mag%":5,"spr%":5,"access":["event"]}
 ]
