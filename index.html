@@ -212,19 +212,22 @@
 							html += "'><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.percent + "%</div>";
 						});
 					}
-					
+                    var special = "";
 					if (item.evade) {
-						html += "<div>Evade " + item.evade + "%</div>";
+						special += "<li>Evade " + item.evade + "%</li>";
 					}
 					
 					if (item.special) {
 						$(item.special).each(function(index, itemSpecial) {
-							html += "<div>" + toHtml(itemSpecial) + "</div>";
+							special += "<li>" + toHtml(itemSpecial) + "</li>";
 						});
 					}
 					if (item.exclusive) {
-						html += "<div>" + toHtml('Only '+ item.exclusive) + "</div>";
+						special += "<li>" + toHtml('Only '+ item.exclusive) + "</li>";
 					}
+                    if (special.length != 0) {
+                        html += "<ul>" + special + "<ul>";
+                    }
 					html += "</td>";
 					
 					//access
