@@ -224,6 +224,7 @@
     {"name":"Large Shield","type":"heavyShield","def":22,"access":["shop","chest","recipe-chest"]},
     {"name":"Mythril Shield","type":"heavyShield","def":35,"access":["recipe-quest","chest","key","event","shop"]},
     {"name":"Imperial Shield","type":"heavyShield","def":65,"spr":65,"access":["TMR-5*"],"tmrUnit":"Wilhelm"},
+    {"name":"Genji Shieldx","type":"heavyShield","def":50,"spr":25,"access":["chocobo"]},
 
     {"name":"Black Cowl","type":"hat","atk":28,"def":25,"spr":25,"resist":[{"name":"sleep","percent":100}],"access":["TMR-3*"],"tmrUnit":"Hayate"},
     {"name":"Crown of Justice","type":"hat","def":25,"spr":20,"access":["recipe-event"]},
@@ -450,6 +451,7 @@
     {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"access":["trial"]},
     {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Fina]","access":["trial"]},
     {"name":"Ashe's Ring","type":"accessory","mp%":30,"def":3,"mag%":30,"resist":[{"name":"light","percent":50}],"access":["TMR-4*"],"tmrUnit":"Ashe"},
+    {"name":"Wind Drake Horn","type":"accessory","def":3,"special":["Enables use of [Jump]"],"access":["chocobo"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
