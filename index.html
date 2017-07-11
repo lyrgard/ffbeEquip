@@ -78,6 +78,9 @@
                 background-color: #c5c5f5;
                 padding: 0;
             }
+            .exclusive {
+                font-weight: bold;
+            }
         </style>
         
         <script>
@@ -227,9 +230,6 @@
 							special += "<li>" + toHtml(itemSpecial) + "</li>";
 						});
 					}
-					if (item.exclusive) {
-						special += "<li>" + toHtml('Only '+ item.exclusive) + "</li>";
-					}
                     if (special.length != 0) {
                         html += "<ul>" + special + "<ul>";
                     }
@@ -247,6 +247,9 @@
                     if (item.tmrUnit) {
                         html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
                     }
+                    if (item.exclusive) {
+						html += "<div class='exclusive'>" + toHtml('Only '+ item.exclusive) + "</div>";
+					}
 					html += "</td>";
 					html += "</tr>";
 				});
