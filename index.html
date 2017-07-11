@@ -260,7 +260,7 @@
                 var result = [];
                 data.each(function(index, item) {
                     if (types.length == 0 || types.includes(item.type)) {
-                        if (elements.length == 0 || elements.includes(item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
+                        if (elements.length == 0 || elements.includes(item.element) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                             if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
                                 if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
                                     if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item.access)) {
@@ -707,6 +707,9 @@
 							<label class="btn btn-default">
 								<input type="checkbox" name="elements" value="dark" autocomplete="off"><img src="img/dark.png"/>
 							</label>
+                            <label class="btn btn-default">
+								<input type="checkbox" name="elements" value="noElement" autocomplete="off"><img src="img/noElement.png"/>
+							</label>
 						</div>
 				</div>
 			</div>
@@ -789,7 +792,10 @@
 				<div class="panel-body">
                     <div class="btn-group elements choice" data-toggle="buttons">
                         <label class="btn btn-default">
-                            <input type="checkbox" name="accessToRemove" value="shop/chest/quest" autocomplete="off">Story
+                            <input type="checkbox" name="accessToRemove" value="shop" autocomplete="off">Shop
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="accessToRemove" value="chest/quest" autocomplete="off">Story
                         </label>
                         <label class="btn btn-default">
                             <input type="checkbox" name="accessToRemove" value="key" autocomplete="off">Key
