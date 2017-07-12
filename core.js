@@ -103,7 +103,14 @@ var displayItems = function(items) {
         html += "</td>";
         
         // type
-        html += "<td><img src='img/" + item.type + ".png'></img></td>";
+        html += "<td>";
+        if (item.special && item.special.includes("notStackable")) {
+            html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+        }
+        if (item.special && item.special.includes("twoHanded")) {
+            html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+        }
+        html += "<img src='img/" + item.type + ".png'></img></td>";
         
         // special
         html += "<td>";
@@ -143,7 +150,9 @@ var displayItems = function(items) {
         
         if (item.special) {
             $(item.special).each(function(index, itemSpecial) {
-                special += "<li>" + toHtml(itemSpecial) + "</li>";
+                if (itemSpecial != "twoHanded" && itemSpecial != "notStackable") {
+                    special += "<li>" + toHtml(itemSpecial) + "</li>";
+                }
             });
         }
         if (special.length != 0) {
