@@ -69,3 +69,20 @@ mark {
 .exclusive {
     font-weight: bold;
 }
+
+#donateLink {
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#donateLink:hover {
+    text-decoration:underline;
+}
