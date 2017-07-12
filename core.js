@@ -45,6 +45,7 @@ var update = function() {
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 00) {
         $("#results tbody").html("");
         $("#results").addClass("notSorted");
+        $("#resultNumber").html("Add filters to see results");
         modifyUrl();
         return;
     }
@@ -168,6 +169,7 @@ var displayItems = function(items) {
         html += "</tr>";
     });
     $("#results tbody").html(html);
+    $("#resultNumber").html(items.length);
 };
 
 var filter = function() {
