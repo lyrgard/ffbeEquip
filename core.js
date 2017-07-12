@@ -13,6 +13,7 @@ var killers = [];
 var accessToRemove = [];
 var additionalStat = [];
 var searchText = '';
+var defaultFilter = {"accessToRemove":["unitExclusive"]};
 
 var update = function() {
     
@@ -42,7 +43,7 @@ var update = function() {
     });
     $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
     
-    if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 00) {
+    if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && (accessToRemove.length == 0 || accessToRemove.length == 1 && accessToRemove.includes('unitExclusive')) && additionalStat.length == 0) {
         $("#results tbody").html("");
         $("#results").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
@@ -179,7 +180,7 @@ var filter = function() {
             if (elements.length == 0 || elements.includes(item.element) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                 if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
                     if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
-                        if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item.access)) {
+                        if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
                             if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
                                 if (searchText.length == 0 || containsText(searchText, item)) {
                                     if (stat.length == 0 || hasStat(stat, item)) {
@@ -279,9 +280,12 @@ var hasStats = function(additionalStat, item) {
     return match;
 };
 
-var haveAuthorizedAccess = function(forbiddenAccessList, itemAccesses) {
+var haveAuthorizedAccess = function(forbiddenAccessList, item) {
     var hasAccess = false;
-    $(itemAccesses).each(function(index, itemAccess) {
+    if (forbiddenAccessList.includes("unitExclusive") && item.exclusive && item.exclusive.startsWith('[')) {
+        return false;
+    }
+    $(item.access).each(function(index, itemAccess) {
         hasAccess |= isAccessAllowed(forbiddenAccessList, itemAccess);
     });
     return hasAccess;
@@ -398,23 +402,26 @@ function unselectAll(type) {
 };
 
 function loadHash() {
+    var state;
     if (window.location.hash != '') {
-        var state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
-        if (state.stat) {
-            $("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
-                $(checkbox).prop('checked', true);
-                $(checkbox).parent().addClass('active');
-            });
-        }
-        if (state.search) {
-            $("#searchText").val(state.search);
-        }
-        $(filters).each(function (index, filter) {
-            if (state[filter]) {
-                select(filter, state[filter]);
-            }
+        state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+    } else {
+        state = defaultFilter;
+    }
+    if (state.stat) {
+        $("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
+            $(checkbox).prop('checked', true);
+            $(checkbox).parent().addClass('active');
         });
     }
+    if (state.search) {
+        $("#searchText").val(state.search);
+    }
+    $(filters).each(function (index, filter) {
+        if (state[filter]) {
+            select(filter, state[filter]);
+        }
+    });
 };
 
 function select(type, values) {
