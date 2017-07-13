@@ -235,7 +235,7 @@
     {"name":"Creepy Mask","type":"hat","mp":15,"def":15,"mag":30,"special":["[Boo!]"],"access":["event"]},
     {"name":"Bunny Mask","type":"hat","mp":20,"def":12,"mag":25,"exclusive":"[Dangerous Ariana]","access":["recipe-event"]},
     {"name":"Festival Cap","type":"hat","def":12,"mag%":10,"resist":[{"name":"ice","percent":10}],"access":["event"]},
-    {"name":"Circlet","type":"hat","def":10,"mag":15,"spr":7,"access":["chest"]},
+    {"name":"Circlet","type":"hat","def":10,"mag":15,"spr":7,"access":["chest","recipe-chest"]},
     {"name":"Green Beret","type":"hat","hp":50,"atk":10,"def":10,"access":["shop","recipe-key","chest"]},
     {"name":"Beret","type":"hat","mag%":10,"def":10,"spr":10,"access":["event"]},
     {"name":"Celebrant's Miter","type":"hat","def":10,"spr":10,"access":["shop","recipe-chest"]},
@@ -453,6 +453,7 @@
     {"name":"Fina's Insignia","type":"accessory","mp%":15,"def":3,"special":["Recover MP (5%) per turn"],"exclusive":"[Fina]","access":["trial"]},
     {"name":"Ashe's Ring","type":"accessory","mp%":30,"def":3,"mag%":30,"resist":[{"name":"light","percent":50}],"access":["TMR-4*"],"tmrUnit":"Ashe"},
     {"name":"Wind Drake Horn","type":"accessory","def":3,"special":["Enables use of [Jump]"],"access":["chocobo"]},
+    {"name":"Wind-up Titan","type":"accessory","spr":30,"resist":[{"name":"earth","percent":30},{"name":"petrification","percent":100}],"access":["event"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
