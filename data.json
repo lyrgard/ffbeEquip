@@ -67,6 +67,7 @@
     {"name":"Kiku-ichimonji","type":"katana","atk":30,"access":["shop", "recipe-chest", "quest"]},
     {"name":"Purple Lightning","type":"katana","atk":92,"access":["trial"]},
     {"name":"Purple Lightning","type":"katana","atk%":40,"atk":92,"exclusive":"[Lasswell]","access":["trial"]},
+    {"name":"Dwarf's Katana","type":"katana","atk":70,"access":["event"]},
 
     {"name":"Magi Staff","type":"staff","atk":25,"mag":12,"spr":70,"access":["TMR-3*"],"tmrUnit":"Lenna"},
     {"name":"Budding Maple Wand","type":"staff","hp%":10,"mp%":10,"atk":12,"mag":30,"spr":68,"exclusive":"[Y'shtola]","access":["recipe-event"]},
@@ -106,6 +107,7 @@
     {"name":"Rune Bow","type":"bow","atk":48,"killers":[{"name":"bird","percent":50}],"special":["twoHanded"],"access":["chest"]},
     {"name":"Reincarnation","type":"bow","atk":48,"spr":68,"killers":[{"name":"bird","percent":50}],"special":["twoHanded"],"access":["trial"]},
     {"name":"Reincarnation","type":"bow","mp%":40,"atk":48,"spr":68,"killers":[{"name":"bird","percent":50}],"exclusive":"[Fina]","access":["trial"]},
+    {"name":"Elf's Bow","type":"bow","atk":51,"mag":135,"killers":[{"name":"demon","percent":50}],"special":["twoHanded"],"access":["TMR-5*"],"tmrUnit":"Lunera"},
 
     {"name":"Viking Axe","type":"axe","atk":125,"element":"water","access":["TMR-4*"],"tmrUnit":"Mercedes"},
     {"name":"Gigas Axe","type":"axe","atk":85,"spr":15,"access":["event"]},
@@ -121,6 +123,7 @@
     {"name":"War Hammer","type":"hammer","atk":30,"access":["shop","recipe-chest","key"]},
     {"name":"Beast Hammer","type":"hammer","atk":54,"element":"fire","access":["event"]},
     {"name":"Sledgehammer","type":"hammer","atk":50,"ailments":[{"name":"confuse","percent":30}],"access":["chest"]},
+    {"name":"Master's Hammer","type":"hammer","atk":108,"element":"earth","access":["TMR-3*"],"tmrUnit":"Ruggles"},
 
     {"name":"Demon Scythe","type":"spear","atk":120,"element":"dark","access":["TMR-5*"],"tmrUnit":"Elza"},
     {"name":"Gungnir","type":"spear","atk":90 ,"access":["TMR-3*"],"tmrUnit":"Kain"},
@@ -455,6 +458,9 @@
     {"name":"Wind Drake Horn","type":"accessory","def":3,"special":["Enables use of [Jump]"],"access":["chocobo"]},
     {"name":"Wind-up Titan","type":"accessory","spr":30,"resist":[{"name":"earth","percent":30},{"name":"petrification","percent":100}],"access":["event"]},
     {"name":"Black Mask","type":"accessory","def":12,"mag":18,"resist":[{"name":"dark","percent":15}],"access":["quest"]},
+    {"name":"Elven Gloves","type":"accessory","mp%":20,"def":3,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}],"special":["Enables use of [Song of Memories]"],"access":["event"]},
+    {"name":"Mystical Skull","type":"accessory","def":3,"spr":3,"special":["+50% LB Fill Rate","+5% MP Recovery Per Turn"],"access":["TMR-4*"],"tmrUnit":"Helena"},
+    
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -512,6 +518,7 @@
     {"name":"Lightspeed Jab","type":"materia","atk%":40,"def%":-10,"special":["[Last Stand]"],"exclusive":"Eight","access":["event"]},
     {"name":"Dark Resistance +15%","type":"materia","resist":[{"name":"dark","percent":15}],"access":["event"]},
     {"name":"Light Resistance +15%","type":"materia","resist":[{"name":"light","percent":15}],"access":["event"]},
+    {"name":"Earth Resistance +15%","type":"materia","resist":[{"name":"earth","percent":15}],"access":["event"]},
     {"name":"Discernment","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Seven"},
     {"name":"Goddess's Protection","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Tilith"},
     {"name":"Hydaelyn Guard","type":"materia","resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"access":["TMR-4*-event"],"tmrUnit":"Minfilia"},
@@ -735,6 +742,8 @@
     {"name":"Adventurer II","type":"materia","atk%":15,"def%":15,"mag%":15,"spr%":15,"special":["notStackable"],"access":["recipe-expedition"]},
     {"name":"Adventurer III","type":"materia","atk%":20,"def%":20,"mag%":20,"spr%":20,"special":["notStackable"],"access":["recipe-expedition"]},
     {"name":"Adventurer IV","type":"materia","atk%":30,"def%":30,"mag%":30,"spr%":30,"special":["notStackable"],"access":["recipe-expedition"]},
-    {"name":"Adventurer V","type":"materia","atk%":40,"def%":40,"mag%":40,"spr%":40,"special":["notStackable"],"access":["recipe-expedition"]}
+    {"name":"Adventurer V","type":"materia","atk%":40,"def%":40,"mag%":40,"spr%":40,"special":["notStackable"],"access":["recipe-expedition"]},
+    {"name":"Manufacted Nethicite","type":"materia","special":["Nullifies the next spell cast for 1 turn"],"access":["event"]},
+    {"name":"Elven Pride","type":"materia","mp%":30,"atk%":20,"resist":[{"name":"lightning","percent":30}],"access":["TMR-4*"],"tmrUnit":"Bran"}
     
 ]
