@@ -15,6 +15,51 @@
 						<input id="searchText" type="text"/>
 					</div>
                 </div>
+				
+				<div class="panel panel-default unit">
+                    <div class="panel-heading">
+						<span>Target unit stats</span>
+					</div>
+					<div class="panel-body">
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">HP</span>
+								<input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">MP</span>
+								<input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">ATK</span>
+								<input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">DEF</span>
+								<input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">MAG</span>
+								<input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class = "input-group">
+								<span class = "input-group-addon">SPR</span>
+								<input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+							</div>
+						</div>
+						
+					</div>
+                </div>
                 
                 <div class="panel panel-default stat">
                     <div class="panel-heading">
@@ -51,13 +96,6 @@
                                 <input type="radio" name="stat" value="resist" autocomplete="off">Resist
                             </label>
                         </div>
-
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="baseStat">Base stat (with pots) :</label>
-                                <input type="number" class="form-control" id="baseStat" placeholder="180" onkeypress="return isNumber(event)">
-                            </div>
-                        </form>
                     </div>
                 </div>
             

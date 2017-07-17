@@ -1,6 +1,7 @@
 var wikiBaseUrl = "http://exvius.gamepedia.com/";
 var data;
 var baseStat = 180;
+var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
 var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
@@ -20,18 +21,21 @@ var update = function() {
     stat = getSelectedValuesFor("stat");
     searchText = $("#searchText").val();
     stat = stat[0] || '';
-    baseStat = parseInt($("#baseStat").val());
-    if (isNaN(baseStat)) {
-        if (stat == 'hp') {
-            baseStat=3500;
-            $("#baseStat").attr("placeholder", 3500);
-        } else {
-            baseStat=180;
-            $("#baseStat").attr("placeholder", 180);
-        }
-        
-    }
-
+	if (baseStats.includes(stat)) {
+		baseStat = parseInt($("#baseStat_" + stat).val());
+		if (isNaN(baseStat)) {
+			if (stat == 'hp') {
+				baseStat=3500;
+				$("#baseStat").attr("placeholder", 3500);
+			} else {
+				baseStat=180;
+				$("#baseStat").attr("placeholder", 180);
+			}
+		}	
+	} else {
+		baseStat = 0;
+	}
+    
     types = getSelectedValuesFor("types");
     elements = getSelectedValuesFor("elements");
     ailments = getSelectedValuesFor("ailments");
@@ -84,6 +88,15 @@ var modifyUrl = function() {
     if (searchText && searchText.length != 0) {
         state.search = searchText;
     }
+	$(baseStats).each(function (index, value) {
+		var statValue = $("#baseStat_" + value).val();
+		if (statValue) {
+			if (!state.baseStats) {
+				state.baseStats =  {};
+			}
+			state.baseStats[value] = statValue;
+		}
+	});
     window.location.hash = '#' + JSON.stringify(state);
 };
 
@@ -209,7 +222,11 @@ var filter = function() {
 
 var sort = function(items) {
     return items.sort(function (item1, item2){
-        return item2.calculatedValue - item1.calculatedValue;
+		if (item2.calculatedValue == item1.calculatedValue) {
+			return item1.name.localeCompare(item2.name);
+		} else {
+			return item2.calculatedValue - item1.calculatedValue;
+		}
     });
 };
 
@@ -417,6 +434,11 @@ function loadHash() {
     } else {
         state = defaultFilter;
     }
+	if (state.baseStats) {
+		for (var stat in state.baseStats) {
+			$("#baseStat_" + stat).val(state.baseStats[stat]);
+		}
+	}
     if (state.stat) {
         $("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
             $(checkbox).prop('checked', true);
@@ -446,7 +468,9 @@ $(function() {
     $('.choice input').change(function() {
         update();
     });
-    $("#baseStat").on("input", update);
+	$(baseStats).each(function (index, value) {
+			$("#baseStat_" + value).on("input", $.debounce(300,update));
+	});
     $("#searchText").on("input", $.debounce(300,update));
     
     
