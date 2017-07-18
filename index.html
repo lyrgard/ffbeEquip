@@ -11,47 +11,57 @@
                 
                 <div class="panel panel-default search">
                     <div class="panel-heading">
-						<span>Search</span>
-						<input id="searchText" type="text"/>
+                        
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <span>Search</span>
+                                <input type="text" class="form-control" id="searchText">
+                            </div>
+                        </form>
 					</div>
                 </div>
 				
 				<div class="panel panel-default unit">
                     <div class="panel-heading">
-						<span>Target unit stats</span>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <span>Target unit</span>
+                                <select id="unitsSelect" name="units" class="form-control"></select>
+                            </div>
+                        </form>
 					</div>
 					<div class="panel-body">
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">HP</span>
 								<input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">MP</span>
 								<input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">ATK</span>
 								<input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">DEF</span>
 								<input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">MAG</span>
 								<input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<div class = "input-group">
 								<span class = "input-group-addon">SPR</span>
 								<input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
@@ -102,8 +112,10 @@
                 <div class="panel panel-default types">
                     <div class="panel-heading">
 						<span>Equipment types</span>
-						<a class="buttonLink" onclick="select('types', ['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
-						<a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
+						<a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
+						<a class="buttonLink forUnit" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
+                        <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
+						<a class="buttonLink" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
 						<a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
 					</div>
                     <div class="panel-body">

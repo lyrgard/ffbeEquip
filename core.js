@@ -1,5 +1,6 @@
 var wikiBaseUrl = "http://exvius.gamepedia.com/";
 var data;
+var units;
 var baseStat = 180;
 var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
@@ -14,10 +15,11 @@ var killers = [];
 var accessToRemove = [];
 var additionalStat = [];
 var searchText = '';
+var selectedUnit = '';
 var defaultFilter = {"accessToRemove":["unitExclusive"]};
 
 var update = function() {
-    
+    console.log("update");
     stat = getSelectedValuesFor("stat");
     searchText = $("#searchText").val();
     stat = stat[0] || '';
@@ -44,6 +46,7 @@ var update = function() {
     additionalStat = getSelectedValuesFor("additionalStat");
     $(filters).each(function(index, filter) {
         $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
+        $("."+ filter + " .forUnit").toggleClass("hidden", !selectedUnit); 
     });
     $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
     
@@ -87,6 +90,9 @@ var modifyUrl = function() {
     });
     if (searchText && searchText.length != 0) {
         state.search = searchText;
+    }
+    if (selectedUnit) {
+        state.unit = selectedUnit;
     }
 	$(baseStats).each(function (index, value) {
 		var statValue = $("#baseStat_" + value).val();
@@ -419,12 +425,14 @@ function isNumber(evt) {
     return true;
 };
 
-function unselectAll(type) {
+function unselectAll(type, runUpdate = true) {
     $('.active input[name='+ type +']').each(function(index, checkbox) {
         $(checkbox).prop('checked', false);
         $(checkbox).parent().removeClass('active');
     });
-    update();
+    if (runUpdate) {
+        update();
+    }
 };
 
 function loadHash() {
@@ -439,6 +447,10 @@ function loadHash() {
 			$("#baseStat_" + stat).val(state.baseStats[stat]);
 		}
 	}
+    if (state.unit) {
+        $('#unitsSelect option[value="' + state.unit + '"]').prop("selected", "selected");
+        selectedUnit = state.unit;
+    }
     if (state.stat) {
         $("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
             $(checkbox).prop('checked', true);
@@ -464,21 +476,59 @@ function select(type, values) {
     }) ;
 };
 
-$(function() {
-    $('.choice input').change(function() {
+function selectForUnit(values) {
+    var unitEquip = units[selectedUnit].equip;
+    select("types", $.grep(values, function (value) {
+        return unitEquip.includes(value);
+    }));
+};
+
+function populateUnitSelect() {
+    var options = '<option value="custom">Custom</option>';
+    Object.keys(units).sort().forEach(function(value, index) {
+        options += '<option value="'+ value + '">' + value + '</option>';
+    });
+    $("#unitsSelect").html(options);
+    $("#unitsSelect").change(function() {
+        $( "#unitsSelect option:selected" ).each(function() {
+            var selectedUnitData = units[$(this).val()];
+            if (selectedUnitData) {
+                selectedUnit = $(this).val();
+                $(baseStats).each(function (index, stat) {
+                    $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
+		      	});
+                unselectAll("types", false);
+            } else {
+                selectedUnit = '';
+                $(baseStats).each(function (index, stat) {
+                    $("#baseStat_" + stat).val("");
+		      	});
+            }
+        });
         update();
     });
+}
+
+$(function() {
+    $('.choice input').change($.debounce(300,update));
 	$(baseStats).each(function (index, value) {
 			$("#baseStat_" + value).on("input", $.debounce(300,update));
 	});
     $("#searchText").on("input", $.debounce(300,update));
     
-    
     $.get("data.json", function(result) {
         data = $(result);
-        loadHash();
-        update();
+        $.get("units.json", function(result) {
+            units = result;
+            populateUnitSelect();
+            loadHash();
+            update();
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
+    
+    
 });
