@@ -16,7 +16,7 @@ var accessToRemove = [];
 var additionalStat = [];
 var searchText = '';
 var selectedUnit = '';
-var defaultFilter = {"accessToRemove":["unitExclusive"]};
+var defaultFilter = {};
 
 var update = function() {
     console.log("update");
@@ -191,8 +191,24 @@ var displayItems = function(items) {
         if (item.tmrUnit) {
             html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
         }
-        if (item.exclusive) {
-            html += "<div class='exclusive'>" + toHtml('Only '+ item.exclusive) + "</div>";
+        if (item.exclusiveUnits) {
+            html += "<div class='exclusive'>Only ";
+            var first = true;
+            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+                if (first) {
+                    first = false;
+                } else {
+                    html += ", ";
+                }
+                html += '<a href="' + toUrl(exclusiveUnit) + '">' + exclusiveUnit + '</a>';
+            });
+            html += "</div>";
+        }
+        if (item.exclusiveSex) {
+            html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
+        }
+        if (item.condition) {
+            html += "<div class='exclusive'>" + toHtml(item.condition) + "</div>";
         }
         html += "</td>";
         html += "</tr>";
@@ -211,9 +227,11 @@ var filter = function() {
                         if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
                             if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
                                 if (searchText.length == 0 || containsText(searchText, item)) {
-                                    if (stat.length == 0 || hasStat(stat, item)) {
-                                        calculateValue(item, stat, ailments, elements, killers);
-                                        result.push(item);
+                                    if (selectedUnit.length == 0 || !exclusiveForbidAccess(item)) {
+                                        if (stat.length == 0 || hasStat(stat, item)) {
+                                            calculateValue(item, stat, ailments, elements, killers);
+                                            result.push(item);
+                                        }
                                     }
                                 }
                             }
@@ -254,6 +272,16 @@ var matches = function(array1, array2) {
     return match;
 };
 
+var exclusiveForbidAccess = function(item) {
+    if (item.exclusiveSex && units[selectedUnit].sex != item.exclusiveSex) {
+        return true;
+    }
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit)) {
+        return true;
+    }
+    return false;
+}
+
 var containsText = function(text, item) {
     var textToSearch = item["name"] + "|" + getStatDetail(item);
     if (item["evade"]) {
@@ -269,8 +297,23 @@ var containsText = function(text, item) {
             textToSearch += "|" + ailment.name;
         });
     }
-    if (item["exclusive"]) {
-        textToSearch += "|" + item["exclusive"]; 
+    if (item["exclusiveUnits"]) {
+        textToSearch += "|Only ";
+        var first = true;
+        $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+            if (first) {
+                first = false;
+            } else {
+                textToSearch += ", ";
+            }
+            textToSearch += exclusiveUnit;
+        });
+    }
+    if (item["exclusiveSex"]) {
+        textToSearch += "|Only " + item["exclusiveSex"]; 
+    }
+    if (item["condition"]) {
+        textToSearch += "|Only " + item["condition"]; 
     }
     if (item["special"]) {
         $(item["special"]).each(function (index, special) {
@@ -317,7 +360,7 @@ var hasStats = function(additionalStat, item) {
 
 var haveAuthorizedAccess = function(forbiddenAccessList, item) {
     var hasAccess = false;
-    if (forbiddenAccessList.includes("unitExclusive") && item.exclusive && item.exclusive.startsWith('[')) {
+    if (forbiddenAccessList.includes("unitExclusive") && item.exclusiveUnits) {
         return false;
     }
     $(item.access).each(function(index, itemAccess) {
