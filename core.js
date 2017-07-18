@@ -256,6 +256,9 @@ var matches = function(array1, array2) {
 
 var containsText = function(text, item) {
     var textToSearch = item["name"] + "|" + getStatDetail(item);
+    if (item["evade"]) {
+        textToSearch += "|" + "Evade " + item.evade + "%";
+    }
     if (item["resist"]) {
         $(item["resist"]).each(function (index, resist) {
             textToSearch += "|" + resist.name;
