@@ -77,34 +77,7 @@
                         <a class="buttonLink hidden unselectAll" onclick="unselectAll('stat')">unselect</a>
                     </div>
                     <div class="panel-body">
-                        <div class="btn-group colors choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="hp" autocomplete="off">HP
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="mp" autocomplete="off">MP
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="atk" autocomplete="off">ATK
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="def" autocomplete="off">DEF
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="mag" autocomplete="off">MAG
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="spr" autocomplete="off">SPR
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="evade" autocomplete="off">Evade
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="inflict" autocomplete="off">Inflict
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="stat" value="resist" autocomplete="off">Resist
-                            </label>
+                        <div class="btn-group colors choice" data-toggle="buttons" id="stats">
                         </div>
                     </div>
                 </div>
@@ -119,85 +92,7 @@
 						<a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
 					</div>
                     <div class="panel-body">
-						<div class="btn-group types choice" data-toggle="buttons">
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="dagger" autocomplete="off"><img src="img/dagger.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="sword" autocomplete="off"><img src="img/sword.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="greatSword" autocomplete="off"><img src="img/greatSword.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="katana" autocomplete="off"><img src="img/katana.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="staff" autocomplete="off"><img src="img/staff.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="rod" autocomplete="off"><img src="img/rod.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="bow" autocomplete="off"><img src="img/bow.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="axe" autocomplete="off"><img src="img/axe.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="hammer" autocomplete="off"><img src="img/hammer.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="spear" autocomplete="off"><img src="img/spear.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="harp" autocomplete="off"><img src="img/harp.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="whip" autocomplete="off"><img src="img/whip.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="throwing" autocomplete="off"><img src="img/throwing.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="gun" autocomplete="off"><img src="img/gun.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="mace" autocomplete="off"><img src="img/mace.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="fist" autocomplete="off"><img src="img/fist.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="lightShield" autocomplete="off"><img src="img/lightShield.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="heavyShield" autocomplete="off"><img src="img/heavyShield.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="hat" autocomplete="off"><img src="img/hat.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="helm" autocomplete="off"><img src="img/helm.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="clothes" autocomplete="off"><img src="img/clothes.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="robe" autocomplete="off"><img src="img/robe.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="lightArmor" autocomplete="off"><img src="img/lightArmor.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="heavyArmor" autocomplete="off"><img src="img/heavyArmor.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="accessory" autocomplete="off"><img src="img/accessory.png"/>
-							</label>
-							<label class="btn btn-default">
-								<input type="checkbox" name="types" value="materia" autocomplete="off"><img src="img/materia.png"/>
-							</label>
+						<div class="btn-group types choice" data-toggle="buttons" id="types">
                         </div>
                     </div>
                 </div>
@@ -205,34 +100,7 @@
                 <div class="panel panel-default elements">
                     <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
                     <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="fire" autocomplete="off"><img src="img/fire.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="ice" autocomplete="off"><img src="img/ice.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="lightning" autocomplete="off"><img src="img/lightning.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="water" autocomplete="off"><img src="img/water.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="wind" autocomplete="off"><img src="img/wind.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="earth" autocomplete="off"><img src="img/earth.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="light" autocomplete="off"><img src="img/light.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="dark" autocomplete="off"><img src="img/dark.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="elements" value="noElement" autocomplete="off"><img src="img/noElement.png"/>
-                            </label>
+                        <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                         </div>    
                     </div>
                 </div>
@@ -240,31 +108,7 @@
                 <div class="panel panel-default ailments">
                     <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
                     <div class="panel-body">
-                        <div class="btn-group ailments choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="poison" autocomplete="off"><img src="img/poison.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="blind" autocomplete="off"><img src="img/blind.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="sleep" autocomplete="off"><img src="img/sleep.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="silence" autocomplete="off"><img src="img/silence.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="paralysis" autocomplete="off"><img src="img/paralysis.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="confuse" autocomplete="off"><img src="img/confuse.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="disease" autocomplete="off"><img src="img/disease.png"/>
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="ailments" value="petrification" autocomplete="off"><img src="img/petrification.png"/>
-                            </label>
+                        <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
                         </div>
                     </div>
                 </div>
@@ -272,43 +116,7 @@
                 <div class="panel panel-default killers">
                     <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
                     <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="aquatic" autocomplete="off">Aquatic
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="beast" autocomplete="off">Beast
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="bird" autocomplete="off">Bird
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="bug" autocomplete="off">Bug
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="demon" autocomplete="off">Demon
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="dragon" autocomplete="off">Dragon
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="human" autocomplete="off">Human
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="machine" autocomplete="off">Machine
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="plant" autocomplete="off">Plant
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="undead" autocomplete="off">Undead
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="stone" autocomplete="off">Stone
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="killers" value="spirit" autocomplete="off">Spirit
-                            </label>
+                        <div class="btn-group elements choice" data-toggle="buttons" id="killers">
                         </div>
                     </div>
                 </div>
@@ -316,46 +124,7 @@
                 <div class="panel panel-default accessToRemove">
                     <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
                     <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="shop" autocomplete="off">Shop
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="chest/quest" autocomplete="off">Story
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="key" autocomplete="off">Key
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="colosseum" autocomplete="off">Colosseum
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="TMR-1*/TMR-2*" autocomplete="off">TMR 1*/2*
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="TMR-3*/TMR-4*" autocomplete="off">TMR 3*/4*
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="TMR-5*" autocomplete="off">TMR 5*
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="event" autocomplete="off">Event
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="recipe" autocomplete="off">Recipe
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="trophy" autocomplete="off">Trophy
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="chocobo" autocomplete="off">Chocobo
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="trial" autocomplete="off">Trial
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="checkbox" name="accessToRemove" value="unitExclusive" autocomplete="off">Unit exclusive
-                            </label>
+                        <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
                         </div>
                     </div>
                 </div>
@@ -363,25 +132,7 @@
                 <div class="panel panel-default additionalStat">
                     <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
                     <div class="panel-body">    
-                        <div class="btn-group colors choice" data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="hp" autocomplete="off">HP
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="mp" autocomplete="off">MP
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="atk" autocomplete="off">ATK
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="def" autocomplete="off">DEF
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="mag" autocomplete="off">MAG
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="additionalStat" value="spr" autocomplete="off">SPR
-                            </label>
+                        <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
                         </div>
                     </div>
                 </div>
