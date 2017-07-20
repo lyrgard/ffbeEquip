@@ -113,7 +113,11 @@ var displayItems = function(items) {
         html += "<tr>";
         
         // name
-        html += '<td><a href="' + toUrl(item.name) + '">' + item.name + "</a><div class='detail'>" + getStatDetail(item) + "</div></td>";
+        html += '<td><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
+		if (item.outclassedBy) {
+			html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>'
+		}
+		html += "<div class='detail'>" + getStatDetail(item) + "</div></td>";
         
         // value
         html += "<td class='value sort'>" + item.calculatedValue;

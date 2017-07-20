@@ -10,6 +10,8 @@
     {"name":"Main Gauche","type":"dagger","atk":24,"def":10,"access":["key", "recipe-quest"]},
     {"name":"Sleep Dagger","type":"dagger","atk":22,"ailments":[{"name":"sleep","percent":30}],"access":["chest", "recipe-quest", "colosseum"]},
     {"name":"Mythril Dagger","type":"dagger","atk":20,"access":["shop","recipe-chest","quest"]},
+	{"name":"Dagger","type":"dagger","atk":16,"outclassedBy":"Mythril Dagger","access":["shop","recipe-chest","quest"]},
+	{"name":"Bronze Knife","type":"dagger","atk":10,"outclassedBy":"Mythril Dagger","access":["shop","recipe-chest"]},
     {"name":"Second Knife","type":"dagger","atk":1,"special":["[Dual Wield]"],"access":["recipe-event"]},
     {"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"spr":35,"access":["event"]},
     {"name":"Defender's Daggers","type":"dagger","atk":12,"mag":68,"mag%":15,"spr":35,"special":["[Auto-Regen]"],"exclusiveUnits":["Rem"],"access":["event"]},
