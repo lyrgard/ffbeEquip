@@ -575,6 +575,68 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    
-    
 });
+
+// stats block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var stats = { 'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist' };
+    for (var key in stats) {
+        if(stats.hasOwnProperty(key)) {
+            document.getElementById('stats').innerHTML += '<label class="btn btn-default"><input type="radio" name="stat" value="'+stats[key]+'" autocomplete="off">'+key+'</label>';
+        }
+    }
+}, false);
+
+// types block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var types = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
+    for (i = 0; i < types.length; i++) {
+        document.getElementById('types').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="types" value="'+types[i]+'" autocomplete="off"><img src="img/'+types[i]+'.png"/></label>';
+    }
+}, false);
+
+// elements block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"];
+    for (i = 0; i < elements.length; i++) {
+        document.getElementById('elements').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="elements" value="'+elements[i]+'" autocomplete="off"><img src="img/'+elements[i]+'.png"/></label>';
+    }
+}, false);
+
+// ailments block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
+    for (i = 0; i < ailments.length; i++) {
+        document.getElementById('ailments').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="ailments" value="'+ailments[i]+'" autocomplete="off"><img src="img/'+ailments[i]+'.png"/></label>';
+    }
+}, false);
+
+// killers block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var killers = { 'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit' };
+    for (var key in killers) {
+        if(killers.hasOwnProperty(key)) {
+            document.getElementById('killers').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="killers" value="'+killers[key]+'" autocomplete="off">'+key+'</label>';
+        }
+    }
+}, false);
+
+// accessToRemove block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var accessToRemove = { 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' };
+    for (var key in accessToRemove) {
+        if(accessToRemove.hasOwnProperty(key)) {
+            document.getElementById('accessToRemove').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="accessToRemove" value="'+accessToRemove[key]+'" autocomplete="off">'+key+'</label>';
+        }
+    }
+}, false);
+
+// additionalStat block
+document.addEventListener('DOMContentLoaded', function(){ 
+    var additionalStat = { 'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr' };
+    for (var key in additionalStat) {
+        if(additionalStat.hasOwnProperty(key)) {
+            document.getElementById('additionalStat').innerHTML += '<label class="btn btn-default"><input type="radio" name="additionalStat" value="'+additionalStat[key]+'" autocomplete="off">'+key+'</label>';
+        }
+    }
+}, false);
