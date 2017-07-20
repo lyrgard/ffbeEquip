@@ -6,6 +6,7 @@ var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
 var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
+var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
 
 var stat = '';
 var types = [];
@@ -20,7 +21,7 @@ var defaultFilter = {};
 
 var update = function() {
     console.log("update");
-    stat = getSelectedValuesFor("stat");
+    stat = getSelectedValuesFor("stats");
     searchText = $("#searchText").val();
     stat = stat[0] || '';
 	if (baseStats.includes(stat)) {
@@ -556,7 +557,7 @@ function populateUnitSelect() {
 }
 
 $(function() {
-    $('.choice input').change($.debounce(300,update));
+    
 	$(baseStats).each(function (index, value) {
 			$("#baseStat_" + value).on("input", $.debounce(300,update));
 	});
@@ -575,68 +576,43 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
+	// Desired Stats
+	addTextChoicesTo("stats",{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
+	// Item types
+	addImageChoicesTo("types",typeList);
+	// Elements
+	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"]);
+	// Ailments
+	addImageChoicesTo("ailments",ailmentList);
+	// Killers
+	addTextChoicesTo("killers",{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+	// Access to remove
+	addTextChoicesTo("accessToRemove",{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' });
+	// Additional stat filter
+	addTextChoicesTo("additionalStat",{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+	
+	$('.choice input').change($.debounce(300,update));
 });
 
-// stats block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var stats = { 'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist' };
-    for (var key in stats) {
-        if(stats.hasOwnProperty(key)) {
-            document.getElementById('stats').innerHTML += '<label class="btn btn-default"><input type="radio" name="stat" value="'+stats[key]+'" autocomplete="off">'+key+'</label>';
-        }
-    }
-}, false);
+function addTextChoicesTo(targetId, valueMap) {
+	var target = $("#" + targetId);
+	for (var key in valueMap) {
+		addTextChoiceTo(target, targetId, valueMap[key], key);
+	}
+}
 
-// types block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var types = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
-    for (i = 0; i < types.length; i++) {
-        document.getElementById('types').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="types" value="'+types[i]+'" autocomplete="off"><img src="img/'+types[i]+'.png"/></label>';
-    }
-}, false);
+function addImageChoicesTo(targetId, valueList) {
+	var target = $("#" + targetId);
+	for (i = 0; i < valueList.length; i++) {
+		addImageChoiceTo(target, targetId, valueList[i]);
+	}
+}
 
-// elements block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"];
-    for (i = 0; i < elements.length; i++) {
-        document.getElementById('elements').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="elements" value="'+elements[i]+'" autocomplete="off"><img src="img/'+elements[i]+'.png"/></label>';
-    }
-}, false);
+function addTextChoiceTo(target, name, value, label) {
+	target.append('<label class="btn btn-default"><input type="radio" name="' + name + '" value="'+value+'" autocomplete="off">'+label+'</label>');
+}
 
-// ailments block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
-    for (i = 0; i < ailments.length; i++) {
-        document.getElementById('ailments').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="ailments" value="'+ailments[i]+'" autocomplete="off"><img src="img/'+ailments[i]+'.png"/></label>';
-    }
-}, false);
+function addImageChoiceTo(target, name, value) {
+	target.append('<label class="btn btn-default"><input type="checkbox" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+value+'.png"/></label>');
+}
 
-// killers block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var killers = { 'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit' };
-    for (var key in killers) {
-        if(killers.hasOwnProperty(key)) {
-            document.getElementById('killers').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="killers" value="'+killers[key]+'" autocomplete="off">'+key+'</label>';
-        }
-    }
-}, false);
-
-// accessToRemove block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var accessToRemove = { 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' };
-    for (var key in accessToRemove) {
-        if(accessToRemove.hasOwnProperty(key)) {
-            document.getElementById('accessToRemove').innerHTML += '<label class="btn btn-default"><input type="checkbox" name="accessToRemove" value="'+accessToRemove[key]+'" autocomplete="off">'+key+'</label>';
-        }
-    }
-}, false);
-
-// additionalStat block
-document.addEventListener('DOMContentLoaded', function(){ 
-    var additionalStat = { 'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr' };
-    for (var key in additionalStat) {
-        if(additionalStat.hasOwnProperty(key)) {
-            document.getElementById('additionalStat').innerHTML += '<label class="btn btn-default"><input type="radio" name="additionalStat" value="'+additionalStat[key]+'" autocomplete="off">'+key+'</label>';
-        }
-    }
-}, false);
