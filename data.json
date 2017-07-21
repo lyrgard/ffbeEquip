@@ -198,6 +198,7 @@
     {"name":"Werebuster","type":"mace","atk":25,"killers":[{"name":"beast","percent":50}],"access":["shop","recipe-chest","colosseum"]},
     {"name":"Vesper","type":"mace","atk":60,"access":["key"]},
 
+    {"name":"Aigaion Arm","type":"fist","atk":145, "access":["trial"]},
     {"name":"Kaiser Knuckles","type":"fist","atk":101,"element":"wind","access":["TMR-3*"],"tmrUnit":"Xiao"},
     {"name":"Winged Saint","type":"fist","atk":56,"def":44,"access":["recipe-event"]},
     {"name":"Beast Cestus","type":"fist","atk":51,"spr":10,"access":["event"]},
@@ -541,6 +542,7 @@
     {"name":"Poach","type":"materia","killers":[{"name":"beast","percent":15},{"name":"bird","percent":15},{"name":"aquatic","percent":15},{"name":"dragon","percent":15},{"name":"plant","percent":15}],"access":["event"]},
     {"name":"Blade Mastery","type":"materia","atk%":50,"special":["notStackable"],"condition":"If equipped with a katana","access":["TMR-4*"],"tmrUnit":"Chizuru"},
     {"name":"Rod Mastery","type":"materia","mag%":50,"special":["notStackable"],"condition":"If equipped with a rod","access":["trial"]},
+    {"name":"Martial Arts Mastery","type":"materia","atk%":50,"special":["notStackable"],"condition":"If equipped with a fist","access":["trial"]},
     {"name":"Dark Bond","type":"materia","mag%":50,"condition":"If equipped with a rod and a robe","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
     {"name":"Dark Bond","type":"materia","mag%":30,"condition":"If equipped with a rod","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
     {"name":"Dark Bond","type":"materia","mag%":20,"condition":"If equipped with a robe","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
