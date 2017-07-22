@@ -51,11 +51,13 @@ var update = function() {
     });
     $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
     
+    
+    modifyFilterSummary();
+    modifyUrl();
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && (accessToRemove.length == 0 || accessToRemove.length == 1 && accessToRemove.includes('unitExclusive')) && additionalStat.length == 0) {
         $("#results tbody").html("");
         $("#results").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
-        modifyUrl();
         return;
     }
     if (stat.length != 0) {
@@ -66,8 +68,6 @@ var update = function() {
     }
     
     displayItems(sort(filter()));
-    modifyUrl();
-    modifyFilterSummary();
     $("#results").unmark({
         done: function() {
             if (searchText && searchText.length != 0) {
