@@ -67,6 +67,7 @@ var update = function() {
     
     displayItems(sort(filter()));
     modifyUrl();
+    modifyFilterSummary();
     $("#results").unmark({
         done: function() {
             if (searchText && searchText.length != 0) {
@@ -106,6 +107,29 @@ var modifyUrl = function() {
 	});
     window.location.hash = '#' + JSON.stringify(state);
 };
+
+var modifyFilterSummary = function() {
+    var html = "";
+    if (types.length != 0) {
+        for (var index in types) {
+			html += '<img src="img/' + types[index] + '.png"></img>'
+        }
+    }
+    if (elements.length != 0) {
+        for (var index in elements) {
+			html += '<img src="img/' + elements[index] + '.png"></img>'
+        }
+    }
+    if (ailments.length != 0) {
+        for (var index in ailments) {
+			html += '<img src="img/' + ailments[index] + '.png"></img>'
+        }
+    }
+    if (killers.length != 0) {
+        html += '<img src="img/killer.png"></img>'
+    }
+    $("#filterSummary").html(html);
+}
 
 var displayItems = function(items) {
     var html = "";

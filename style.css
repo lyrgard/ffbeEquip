@@ -36,10 +36,10 @@ ul {
 }
 .miniIcon {
     position: absolute;
-    width: 20px;
-    margin-top: 17px;
-    margin-left: 17px;
-    border-radius: 10px;
+    width: 22px;
+    margin-top: 19px;
+    margin-left: 19px;
+    border-radius: 11px;
 }
 .miniIcon.left {
     margin-left: 1px;
@@ -90,7 +90,7 @@ mark {
     text-decoration:underline;
 }
 
-.container {
+body {
     padding-top: 15px;
 }
 
@@ -118,4 +118,40 @@ mark {
 	width: 20px;
 	vertical-align: text-bottom;
 	margin-left: 2px;
+}
+
+#advancedSearch.in,
+#advancedSearch.collapsing {
+    display: block!important;
+}
+
+#hideAdvancedSearchButton {
+    position: fixed;
+    right: -5px;
+    top: 100px;
+    z-index: 10;
+    font-size: 24px;
+}
+
+#filterSummary {
+    position: fixed;
+    right: -5px;
+    top: 160px;
+    z-index: 10;
+}
+#filterSummary img {
+    display: block;
+}
+
+@media (max-width: 991px) {
+    body, span, a, table, label, input, select{font-size: 28px!important; }
+    .form-control {height: 46px;}
+    .choice .btn img {width: 64px;}
+    #results img, #filterSummary img {width: 52px;}
+    #results img.miniIcon {
+        width: 32px;
+        margin-top: 24px;
+        margin-left: 24px;
+        border-radius: 14px;
+    }
 }
