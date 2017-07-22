@@ -6,147 +6,148 @@
         <title>FFBE Equip</title>
     </head>
     <body>
-        <div class="container">
-            <div class="col-xs-4 col-lg-6">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-md-6">
                 
                 <div class="panel panel-default search">
                     <div class="panel-heading">
-                        
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <span>Search</span>
-                                <input type="text" class="form-control" id="searchText">
-                            </div>
-                        </form>
+                        <div class="input-group">
+                            <span class="input-group-addon">Search</span>
+                            <input type="text" class="form-control" id="searchText">
+                            <span class="input-group-btn hidden-md hidden-lg">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#advancedSearch"><span class="glyphicon glyphicon-menu-down"></span>&nbsp;</button>
+                            </span>
+                        </div> 
 					</div>
                 </div>
 				
-				<div class="panel panel-default unit">
-                    <div class="panel-heading">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <span>Target unit</span>
-                                <select id="unitsSelect" name="units" class="form-control"></select>
+                <div id="filterSummary" class="hidden-md hidden-lg">
+                </div>
+                
+                <div id="advancedSearch" class="hidden-xs hidden-sm">
+                    <button id="hideAdvancedSearchButton" class="btn btn-default hidden-md hidden-lg" type="button" data-toggle="collapse" data-target="#advancedSearch" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">
+                        <span class="glyphicon glyphicon-menu-up"></span>&nbsp;
+                    </button>
+                    <div class="panel panel-default unit">
+                        <div class="panel-heading">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <span>Target unit</span>
+                                    <select id="unitsSelect" name="units" class="form-control"></select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">HP</span>
+                                    <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                                </div>
                             </div>
-                        </form>
-					</div>
-					<div class="panel-body">
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">HP</span>
-								<input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">MP</span>
-								<input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">ATK</span>
-								<input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">DEF</span>
-								<input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">MAG</span>
-								<input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<div class = "input-group">
-								<span class = "input-group-addon">SPR</span>
-								<input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-							</div>
-						</div>
-						
-					</div>
-                </div>
-                
-                <div class="panel panel-default stat">
-                    <div class="panel-heading">
-                        <span>Desired stat (filter and sort)</span>
-                        <a class="buttonLink hidden unselectAll" onclick="unselectAll('stat')">unselect</a>
-                    </div>
-                    <div class="panel-body">
-                        <div class="btn-group colors choice" data-toggle="buttons" id="stats">
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">MP</span>
+                                    <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">ATK</span>
+                                    <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">DEF</span>
+                                    <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">MAG</span>
+                                    <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">SPR</span>
+                                    <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            
-                <div class="panel panel-default types">
-                    <div class="panel-heading">
-						<span>Equipment types</span>
-						<a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
-						<a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
-                        <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
-						<a class="buttonLink forUnit" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
-						<a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
-					</div>
-                    <div class="panel-body">
-						<div class="btn-group types choice" data-toggle="buttons" id="types">
+
+                    <div class="panel panel-default stat">
+                        <div class="panel-heading">
+                            <span>Desired stat (filter and sort)</span>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('stat')">unselect</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group colors choice" data-toggle="buttons" id="stats">
+                            </div>
                         </div>
                     </div>
-                </div>
-		
-                <div class="panel panel-default elements">
-                    <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
-                    <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons" id="elements">
-                        </div>    
-                    </div>
-                </div>
-                
-                <div class="panel panel-default ailments">
-                    <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
-                    <div class="panel-body">
-                        <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
+
+                    <div class="panel panel-default types">
+                        <div class="panel-heading">
+                            <span>Equipment types</span>
+                            <a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
+                            <a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
+                            <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
+                            <a class="buttonLink forUnit" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group types choice" data-toggle="buttons" id="types">
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="panel panel-default killers">
-                    <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
-                    <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons" id="killers">
+
+                    <div class="panel panel-default elements">
+                        <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
+                            </div>    
                         </div>
                     </div>
-                </div>
-                
-                <div class="panel panel-default accessToRemove">
-                    <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
-                    <div class="panel-body">
-                        <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
+
+                    <div class="panel panel-default ailments">
+                        <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="panel panel-default additionalStat">
-                    <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
-                    <div class="panel-body">    
-                        <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
+
+                    <div class="panel panel-default killers">
+                        <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="killers">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default accessToRemove">
+                        <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default additionalStat">
+                        <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
+                        <div class="panel-body">    
+                            <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div>
-                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHJwYJKoZIhvcNAQcEoIIHGDCCBxQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYANGUEWmWg5cKquo0bxzy4BvVDQlE8qIP6i7D9oTFAXAvk8IiwQT/tWGOt+922kjBznguqfFLdT6vihO6eoYtNZyEUaU/miRWZ7P8w3s8StZB4aJ4/rBPJk4hy/GrI3POE+eqAS1qeQ3WClktWAbetUfnK7/Jhb4DkTL76ZIssJMjELMAkGBSsOAwIaBQAwgaQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIQ5wN3IPCFoeAgYAXig3FjA3/ccIjue8EEmRSMRWAt78Wku2b/z0NOBhYEP253VRQh9GoaVPCxkMrw7I7pPuzPiAxJSlpaou/9ahpE5JqPlbmVZUIQ18OMu6EcvDVbw9gihcNOlfPnG0PNb4Yoi2y+KsmMrZEFqOEut2ZbbY+hsyJnQ6Uwee870y5qqCCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE3MDcxMjEzNDUyMVowIwYJKoZIhvcNAQkEMRYEFJfj5vUMkn9BVOiIwXSnX8rBzTATMA0GCSqGSIb3DQEBAQUABIGAYg5j3mGZKTBYLEMTm+PzhQrVm2tmaMK9Eln+7aQOVzJqw0vU739GgOS5RCkNYI2Jgn6iGY0HmR36WbiOOrF9msKglvpHBcSEMiMVZYLElWOpJGGc9pTrIwEimZGyliIWAcucKgddXcewxEPsRkq5UtZVeC3LalWz5LYdc3Tzu9g=-----END PKCS7-----">
-                        <input id="donateLink" type="submit" value="Donate">
-                    </form>
-                </div>
+                
             </div>
-            <div  class="col-xs-8 col-lg-6">
+            <div  class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">Results : <span id="resultNumber"></span></div>
                     <div class="panel-body" style="padding:0;">
@@ -168,6 +169,14 @@
                 </div>
                 <div>
                     Data updated July 21th, 2017. Added Aigaion trial items and Pharm part 1 items
+                </div>
+                <div>
+                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                        <input id="donateLink" type="submit" value="Donate">
+                    </form>
                 </div>
             </div>
         </div>
