@@ -14,20 +14,18 @@
                         <div class="input-group">
                             <span class="input-group-addon">Search</span>
                             <input type="text" class="form-control" id="searchText">
-                            <span class="input-group-btn hidden-md hidden-lg">
-                                <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#advancedSearch"><span class="glyphicon glyphicon-menu-down"></span>&nbsp;</button>
-                            </span>
                         </div> 
 					</div>
                 </div>
 				
                 <div id="filterSummary" class="hidden-md hidden-lg">
                 </div>
+                <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg" type="button" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
+                    <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
+                </button>
                 
-                <div id="advancedSearch" class="hidden-xs hidden-sm">
-                    <button id="hideAdvancedSearchButton" class="btn btn-default hidden-md hidden-lg" type="button" data-toggle="collapse" data-target="#advancedSearch" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">
-                        <span class="glyphicon glyphicon-menu-up"></span>&nbsp;
-                    </button>
+                <div id="advancedSearch" class="collapse">
+                    
                     <div class="panel panel-default unit">
                         <div class="panel-heading">
                             <form class="form-inline">
@@ -148,7 +146,7 @@
                 
             </div>
             <div  class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
+                <div id="resultsDiv" class="panel panel-default collapse in">
                     <div class="panel-heading">Results : <span id="resultNumber"></span></div>
                     <div class="panel-body" style="padding:0;">
                         <table id="results" class="table table-hover notSorted">

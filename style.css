@@ -120,17 +120,21 @@ body {
 	margin-left: 2px;
 }
 
-#advancedSearch.in,
-#advancedSearch.collapsing {
-    display: block!important;
-}
-
 #hideAdvancedSearchButton {
     position: fixed;
-    right: -5px;
-    top: 100px;
-    z-index: 10;
-    font-size: 24px;
+    bottom: 50px;
+    right: 50px;
+    z-index: 11;
+    background-color: green;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    outline:none;
+}
+
+#hideAdvancedSearchButton span {
+    font-size: 80px !important;
+    color: white;
 }
 
 #filterSummary {
@@ -153,5 +157,11 @@ body {
         margin-top: 24px;
         margin-left: 24px;
         border-radius: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    #advancedSearch {
+        display: block !important;
     }
 }
