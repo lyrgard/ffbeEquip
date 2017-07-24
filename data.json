@@ -4,7 +4,7 @@
     {"name":"Air Knife","type":"dagger","atk":48,"element":"wind","access":["key"]},
     {"name":"Swordbreaker","type":"dagger","atk":43,"evade":5,"access":["quest"]},
     {"name":"Orichalcum","type":"dagger","atk":42,"killers":[{"name":"aquatic","percent":50}],"access":["event"]},
-    {"name":"Mage Masher","type":"dagger","atk":38,"ailments":[{"name":"silence", "percent":30}],"access":["chest"]},
+    {"name":"Mage Masher","type":"dagger","atk":38,"ailments":[{"name":"silence", "percent":30}],"access":["chest", "recipe-chest"]},
     {"name":"Toxic Dagger","type":"dagger","atk":35,"ailments":[{"name":"poison","percent":15}],"access":["colosseum"]},
     {"name":"Survival Edges","type":"dagger","hp%":10,"atk":35,"element":"wind","access":["event"]},
     {"name":"Main Gauche","type":"dagger","atk":24,"def":10,"access":["key", "recipe-quest"]},
@@ -70,6 +70,7 @@
     {"name":"Purple Lightning","type":"katana","atk":92,"access":["trial"]},
     {"name":"Purple Lightning","type":"katana","atk%":40,"atk":92,"exclusiveUnits":["Lasswell"],"access":["trial"]},
     {"name":"Dwarf's Katana","type":"katana","atk":70,"access":["event"]},
+    {"name":"Raikiri","type":"katana","atk":60,"element":"lightning","access":["recipe-chest"]},
 
     {"name":"Magi Staff","type":"staff","atk":25,"mag":12,"spr":70,"access":["TMR-3*"],"tmrUnit":"Lenna"},
     {"name":"Budding Maple Wand","type":"staff","hp%":10,"mp%":10,"atk":12,"mag":30,"spr":68,"exclusiveUnits":["Y'shtola"],"access":["recipe-event"]},
@@ -83,6 +84,8 @@
     {"name":"White Staff","type":"staff","atk":12,"mag":5,"spr":29,"special":["[Poisona]"],"access":["event"]},
     {"name":"Healing Staff","type":"staff","atk":11,"mag":5,"spr":26,"element":"light","special":["[Cura]"],"access":["chocobo"]},
     {"name":"Cherry Staff","type":"staff","atk":8,"mag":3,"spr":20,"special":["[Aero]"],"access":["shop", "recipe-chest", "chest"]},
+    {"name":"Aura Staff","type":"staff","atk":21,"mag":12,"spr":53,"special":["[Dispel]"],"access":["key"]},
+    {"name":"Cypress Pile","type":"staff","atk":23,"mag":6,"spr":45,"ailments":[{"name":"confuse","percent":30}],"access":["chest"]},
 
     {"name":"Mateus's Malice","type":"rod","hp%":10,"atk":19,"mag":129,"access":["TMR-5*"],"tmrUnit":"Emperor"},
     {"name":"Omnirod","type":"rod","atk":20,"mag":91,"access":["TMR-3*"],"tmrUnit":"Arc"},
@@ -94,7 +97,7 @@
     {"name":"Ice Rod","type":"rod","atk":14,"mag":26,"element":"ice","special":["[Blizzara]"],"access":["chest", "recipe-chest", "colosseum"]},
     {"name":"Fire Rod","type":"rod","atk":14,"mag":26,"element":"fire","special":["[Fira]"],"access":["recipe-quest", "chest"]},
     {"name":"Iron Rod","type":"rod","atk":10,"mag":18,"access":["shop", "recipe-chest", "chest"]},
-    {"name":"Draco Spike","type":"rod","atk":30,"mag":101,"killers":[{"name":"dragon","percent":75}],"access":["TMR-4*"],"tmrUnit":"Zyrus"},
+    {"name":"Draco Spike","type":"rod","atk":30,"mag":101,"killers":[{"name":"dragon","percent":75}],"special":["The 75% dragon killer only works for magic damage"],"access":["TMR-4*"],"tmrUnit":"Zyrus"},
     {"name":"Drakesclaw Rod","type":"rod","atk":10,"mag":35,"access":["recipe-event"]},
     {"name":"Striking Staff","type":"rod","atk":16,"mag":42,"access":["key"]},
     {"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusiveUnits":["Papalymo"],"access":["recipe-event"]},
@@ -118,6 +121,7 @@
     {"name":"Rune Axe","type":"axe","atk":53,"spr":12,"access":["chest"]},
     {"name":"Giant's Axe","type":"axe","atk":50,"access":["recipe-chest","chest","colosseum","event"]},
     {"name":"Mythril Axe","type":"axe","atk":48,"access":["shop", "recipe-chest","chest","event"]},
+    {"name":"Demon Axe","type":"axe","hp%":5,"atk":65,"access":["key"]},
 
     {"name":"Mighty Hammer","type":"hammer","hp%":15,"atk":72,"element":"lightning","access":["event"]},
     {"name":"Blessed Hammer","type":"hammer","atk":44,"mag":6,"spr":28,"access":["key"]},
@@ -148,12 +152,14 @@
     {"name":"Moogle Spear","type":"spear","atk":82,"special":["Increase LB gauge (1) per turn"],"access":["event"]},
     {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusiveUnits":["Moogle"],"access":["event"]},
     {"name":"Zodiac Spear","type":"spear","atk":130,"special":["twoHanded"],"access":["event"]},
+    {"name":"Wyvern Spear","type":"spear","atk":80,"killers":[{"name":"dragon","percent":50}],"access":["key"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"special":["twoHanded"],"access":["TMR-3*"],"tmrUnit":"Gilbert"},
     {"name":"Rune Bell","type":"harp","atk":34,"special":["twoHanded"],"access":["event"]},
     {"name":"Madhura Harp","type":"harp","atk":26,"ailments":[{"name":"confuse","percent":30}],"special":["twoHanded"],"access":["chest","quest"]},
     {"name":"Silver Harp","type":"harp","atk":20,"special":["twoHanded"],"access":["shop","recipe-chest"]},
     {"name":"Microphone","type":"harp","atk":14,"mag":58,"srp":15,"resist":[{"name":"silence","percent":100}],"exclusiveUnits":["Dangerous Ariana"],"access":["event"]},
+    {"name":"Platinum Bell","type":"harp","atk":38,"mag":30,"srp":21,"special":["twoHanded"],"access":["chest"]},
 
     {"name":"Tamer's Whip","type":"whip","atk":65,"killers":[{"name":"beast","percent":50}],"access":["event"]},
     {"name":"Hayate Whip","type":"whip","atk":45,"access":["event"]},
@@ -174,7 +180,7 @@
     {"name":"Horizon Breaker","type":"throwing","atk":117,"access":["TMR-3*"],"tmrUnit":"Wakka"},
     {"name":"Switch Hitter","type":"throwing","atk":35,"special":["You won't have it anymore if you crafted [Hyper Ball]"],"access":["event"]},
     {"name":"Hyper Ball","type":"throwing","atk":55,"access":["event"]},
-    
+    {"name":"Platinum Edge","type":"throwing","atk":42,"killers":[{"name":"bird","percent":50}],"access":["chest"]},
 
     {"name":"Sparky","type":"gun","atk":120,"element":"lightning","special":["Increase equipment ATK (50%) when single wielding"],"access":["TMR-5*"],"tmrUnit":"Olive"},
     {"name":"Romandan Pistol","type":"gun","atk":107,"access":["TMR-3*"],"tmrUnit":"Mustadio"},
@@ -183,7 +189,7 @@
     {"name":"Hyades Magnums","type":"gun","atk":58,"special":["[Cold Blood]","[Heat Blitz]"],"exclusiveUnits":["Sazh"],"access":["event"]},
     {"name":"Betelgeuse","type":"gun","atk":56,"access":["chest"]},
     {"name":"Rune Trigger","type":"gun","mp%":15,"atk":52,"access":["event"]},
-    {"name":"Ras Algethi","type":"gun","atk":52,"special":["twoHanded"],"access":["key"]},
+    {"name":"Ras Algethi","type":"gun","atk":52,"special":["twoHanded"],"access":["key","recipe-quest"]},
     {"name":"Sirius","type":"gun","atk":46,"access":["shop","recipe-chest"]},
     {"name":"Dragon's Roar","type":"gun","atk":78,"killers":[{"name":"dragon","percent":50}],"special":["Increase ATK/DEF/MAG/SPR (40%) when HP drops below 50%"],"access":["shop","recipe-chest"]},
     {"name":"Magnati","type":"gun","atk":42,"access":["event"]},
@@ -198,6 +204,7 @@
     {"name":"Werebuster","type":"mace","atk":25,"killers":[{"name":"beast","percent":50}],"access":["shop","recipe-chest","colosseum"]},
     {"name":"Vesper","type":"mace","atk":60,"access":["key"]},
 
+    {"name":"Aigaion Arm","type":"fist","atk":145, "access":["trial"]},
     {"name":"Kaiser Knuckles","type":"fist","atk":101,"element":"wind","access":["TMR-3*"],"tmrUnit":"Xiao"},
     {"name":"Winged Saint","type":"fist","atk":56,"def":44,"access":["recipe-event"]},
     {"name":"Beast Cestus","type":"fist","atk":51,"spr":10,"access":["event"]},
@@ -219,7 +226,6 @@
     {"name":"Leather Shield","type":"lightShield","def":10,"resist":[{"name":"lightning","percent":20},{"name":"water","percent":-20}],"access":["shop","recipe-chest","chest"]},
     {"name":"Army Shield","type":"lightShield","def":40,"spr":20,"resist":[{"name":"lightning","percent":20}],"access":["event"]},
     
-
     {"name":"Aegis Shield","type":"heavyShield","def":53,"spr":25,"resist":[{"name":"petrification","percent":100}],"access":["TMR-3*"],"tmrUnit":"Leo"},
     {"name":"Force Shield","type":"heavyShield","def":40,"spr":8,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["chocobo"]},
     {"name":"Golden Shield","type":"heavyShield","def":38,"access":["chest","colosseum"]},
@@ -231,6 +237,7 @@
     {"name":"Mythril Shield","type":"heavyShield","def":35,"access":["recipe-quest","chest","key","event","shop"]},
     {"name":"Imperial Shield","type":"heavyShield","def":65,"spr":65,"access":["TMR-5*"],"tmrUnit":"Wilhelm"},
     {"name":"Genji Shield","type":"heavyShield","def":50,"spr":25,"special":["Resist Death (Null)"],"access":["chocobo"]},
+    {"name":"Hero's Shield","type":"heavyShield","def":48,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"access":["trial"]},
 
     {"name":"Black Cowl","type":"hat","atk":28,"def":25,"spr":25,"resist":[{"name":"sleep","percent":100}],"access":["TMR-3*"],"tmrUnit":"Hayate"},
     {"name":"Crown of Justice","type":"hat","def":25,"spr":20,"access":["recipe-event"]},
@@ -255,6 +262,7 @@
     {"name":"Whitebrim","type":"hat","mp%":15,"atk":18,"def":15,"spr":15,"access":["event"]},
     {"name":"Moogle Crown","type":"hat","def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"access":["event"]},
     {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusiveUnits":["Moogle"],"access":["event"]},
+    {"name":"Sage's Hat","type":"hat","def":12,"mag":7,"spr":7,"access":["chest"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Grand Helm","type":"helm","def":45,"def%":20,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"condition":"If equiped with heavy armor","access":["trial"]},
@@ -272,7 +280,7 @@
     {"name":"Black Garb","type":"clothes","atk":5,"def":35,"access":["chocobo"]},
     {"name":"Tabby Suit","type":"clothes","hp%":10,"mp%":10,"def":30,"spr":20,"resist":[{"name":"poison","percent":100}],"access":["event"]},
     {"name":"Antecedent's Attire","type":"clothes","hp%":10,"mp%":10,"def":28,"spr":35,"exclusiveUnits":["Minfilia"],"access":["recipe-event"]},
-    {"name":"Mirage Vest","type":"clothes","def":28,"spr":15,"special":["[Mirage]"],"access":["quest", "key"]},
+    {"name":"Mirage Vest","type":"clothes","def":28,"spr":15,"special":["[Mirage]"],"access":["quest", "key", "chest"]},
     {"name":"Stylish Black Dress","type":"clothes","def":28,"mag":30,"evade":10,"exclusiveUnits":["Dangerous Ariana"],"access":["recipe-event"]},
     {"name":"Black Belt Gi","type":"clothes","atk":8,"def":24,"access":["chest","recipe-quest"]},
     {"name":"Festival Robe","type":"clothes","def":22,"spr%":10,"resist":[{"name":"ice","percent":15}],"access":["event"]},
@@ -331,6 +339,7 @@
     {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"access":["trial"]},
     {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"exclusiveUnits":["Lasswell"],"access":["trial"]},
     {"name":"Adaman Vest","type":"lightArmor","hp%":10,"def":38,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["event"]},
+    {"name":"Platinum Breastplate","type":"lightArmor","def":48,"access":["chest"]},
     
 
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"],"tmrUnit":"Vaan"},
@@ -437,7 +446,7 @@
     {"name":"Torrent Ring","type":"accessory","def":6,"resist":[{"name":"water","percent":15}],"access":["quest","recipe-key"]},
     {"name":"Gale Ring","type":"accessory","def":2,"resist":[{"name":"wind","percent":5}],"access":["shop","chest","recipe-chest"]},
     {"name":"Squall Ring","type":"accessory","def":4,"resist":[{"name":"wind","percent":10}],"access":["chest"]},
-    {"name":"Tornado Ring","type":"accessory","def":6,"resist":[{"name":"wind","percent":15}],"access":["quest"]},
+    {"name":"Tornado Ring","type":"accessory","def":6,"resist":[{"name":"wind","percent":15}],"access":["chest","quest"]},
     {"name":"Earth Ring","type":"accessory","def":2,"resist":[{"name":"earth","percent":5}],"access":["chest","recipe-chest"]},
     {"name":"Clay Ring","type":"accessory","def":4,"resist":[{"name":"earth","percent":10}],"access":["chest"]},
     {"name":"Quake Ring","type":"accessory","def":6,"resist":[{"name":"earth","percent":15}],"access":["quest"]},
@@ -462,6 +471,7 @@
     {"name":"Black Mask","type":"accessory","def":12,"mag":18,"resist":[{"name":"dark","percent":15}],"access":["quest"]},
     {"name":"Elven Gloves","type":"accessory","mp%":20,"def":3,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}],"special":["Enables use of [Song of Memories]"],"access":["event"]},
     {"name":"Mystical Skull","type":"accessory","def":3,"spr":3,"special":["+50% LB Fill Rate","+5% MP Recovery Per Turn"],"access":["TMR-4*"],"tmrUnit":"Helena"},
+    {"name":"Magick Gloves","type":"accessory","hp%":5,"mp%":5,"mag":10,"access":["quest"]},
     
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
@@ -478,6 +488,7 @@
     {"name":"MAG +15%","type":"materia","mag%":15,"access":["event"]},
     {"name":"MAG +30%","type":"materia","mag%":30,"access":["TMR-3*"],"tmrUnit":"Shantotto"},
     {"name":"SPR +10%","type":"materia","spr%":10,"access":["colosseum","event","recipe-chest"]},
+    {"name":"SPR +20%","type":"materia","spr%":20,"access":["chest"]},
     {"name":"EVO MAG +10%","type":"materia","special":["Increase Esper summon damage (10%) "],"access":["recipe-chest"]},
     {"name":"Echidna's Kiss","type":"materia","mag%":30,"access":["trial"]},
     {"name":"Tempered Shield","type":"materia","hp%":5,"def%":10,"access":["event"]},
@@ -541,6 +552,7 @@
     {"name":"Poach","type":"materia","killers":[{"name":"beast","percent":15},{"name":"bird","percent":15},{"name":"aquatic","percent":15},{"name":"dragon","percent":15},{"name":"plant","percent":15}],"access":["event"]},
     {"name":"Blade Mastery","type":"materia","atk%":50,"special":["notStackable"],"condition":"If equipped with a katana","access":["TMR-4*"],"tmrUnit":"Chizuru"},
     {"name":"Rod Mastery","type":"materia","mag%":50,"special":["notStackable"],"condition":"If equipped with a rod","access":["trial"]},
+    {"name":"Martial Arts Mastery","type":"materia","atk%":50,"special":["notStackable"],"condition":"If equipped with a fist","access":["trial"]},
     {"name":"Dark Bond","type":"materia","mag%":50,"condition":"If equipped with a rod and a robe","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
     {"name":"Dark Bond","type":"materia","mag%":30,"condition":"If equipped with a rod","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
     {"name":"Dark Bond","type":"materia","mag%":20,"condition":"If equipped with a robe","special":["notStackable"],"access":["TMR-5*"],"tmrUnit":"Dark Fina"},
@@ -746,6 +758,7 @@
     {"name":"Adventurer IV","type":"materia","atk%":30,"def%":30,"mag%":30,"spr%":30,"special":["notStackable"],"access":["recipe-expedition"]},
     {"name":"Adventurer V","type":"materia","atk%":40,"def%":40,"mag%":40,"spr%":40,"special":["notStackable"],"access":["recipe-expedition"]},
     {"name":"Manufacted Nethicite","type":"materia","special":["Nullifies the next spell cast for 1 turn"],"access":["event"]},
-    {"name":"Elven Pride","type":"materia","mp%":30,"atk%":20,"resist":[{"name":"lightning","percent":30}],"access":["TMR-4*"],"tmrUnit":"Bran"}
+    {"name":"Elven Pride","type":"materia","mp%":30,"atk%":20,"resist":[{"name":"lightning","percent":30}],"access":["TMR-4*"],"tmrUnit":"Bran"},
+    {"name":"World Destroyer","type":"materia","special":["Physical damage (2x) with ignore DEF (50%) to all enemies","Decrease ATK/DEF/MAG/SPR (35%) for 3 turns to all enemies"],"access":["trial"]}
     
 ]

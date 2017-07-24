@@ -51,11 +51,13 @@ var update = function() {
     });
     $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
     
+    
+    modifyFilterSummary();
+    modifyUrl();
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && (accessToRemove.length == 0 || accessToRemove.length == 1 && accessToRemove.includes('unitExclusive')) && additionalStat.length == 0) {
         $("#results tbody").html("");
         $("#results").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
-        modifyUrl();
         return;
     }
     if (stat.length != 0) {
@@ -66,7 +68,6 @@ var update = function() {
     }
     
     displayItems(sort(filter()));
-    modifyUrl();
     $("#results").unmark({
         done: function() {
             if (searchText && searchText.length != 0) {
@@ -106,6 +107,29 @@ var modifyUrl = function() {
 	});
     window.location.hash = '#' + JSON.stringify(state);
 };
+
+var modifyFilterSummary = function() {
+    var html = "";
+    if (types.length != 0) {
+        for (var index in types) {
+			html += '<img src="img/' + types[index] + '.png"></img>'
+        }
+    }
+    if (elements.length != 0) {
+        for (var index in elements) {
+			html += '<img src="img/' + elements[index] + '.png"></img>'
+        }
+    }
+    if (ailments.length != 0) {
+        for (var index in ailments) {
+			html += '<img src="img/' + ailments[index] + '.png"></img>'
+        }
+    }
+    if (killers.length != 0) {
+        html += '<img src="img/killer.png"></img>'
+    }
+    $("#filterSummary").html(html);
+}
 
 var displayItems = function(items) {
     var html = "";
