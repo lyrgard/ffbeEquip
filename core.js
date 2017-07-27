@@ -105,7 +105,7 @@ var modifyUrl = function() {
 			state.baseStats[value] = statValue;
 		}
 	});
-    window.location.hash = '#' + JSON.stringify(state);
+    window.location.hash = '#' + window.btoa(unescape(encodeURIComponent(JSON.stringify(state))));
 };
 
 var modifyFilterSummary = function() {
@@ -516,7 +516,11 @@ function unselectAll(type, runUpdate = true) {
 function loadHash() {
     var state;
     if (window.location.hash != '') {
-        state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+        if (window.location.hash.substring(1).startsWith('{')) {
+            state = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+        } else {
+            state = JSON.parse(decodeURIComponent(escape(window.atob(window.location.hash.substring(1)))));
+        }
     } else {
         state = defaultFilter;
     }
@@ -530,7 +534,7 @@ function loadHash() {
         selectedUnit = state.unit;
     }
     if (state.stat) {
-        $("input[name='stat'][value='"+ state.stat +"']").each(function(index, checkbox) {
+        $("input[name='stats'][value='"+ state.stat +"']").each(function(index, checkbox) {
             $(checkbox).prop('checked', true);
             $(checkbox).parent().addClass('active');
         });
