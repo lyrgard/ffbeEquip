@@ -136,6 +136,16 @@ var displayItems = function(items) {
     $(items).each(function (index, item){
         html += '<div class="tr">';
         
+        // type
+        html += '<div class="td type">';
+        if (item.special && item.special.includes("notStackable")) {
+            html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+        }
+        if (item.special && item.special.includes("twoHanded")) {
+            html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+        }
+        html += "<img src='img/" + item.type + ".png'></img></div>";
+        
         // name
         html += '<div class="td name"><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
 		if (item.outclassedBy) {
@@ -150,48 +160,7 @@ var displayItems = function(items) {
         }
         html += "</div>";
         
-        // type
-        html += '<div class="td type">';
-        if (item.special && item.special.includes("notStackable")) {
-            html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
-        }
-        if (item.special && item.special.includes("twoHanded")) {
-            html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
-        }
-        html += "<img src='img/" + item.type + ".png'></img></div>";
-        
-		//access
-        html += '<div class="td access">';
-        $(item.access).each(function(index, itemAccess) {
-            html += "<div"; 
-            if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
-                html += " class='notSelected forbiddenAccess'";
-            }
-            html += ">" + itemAccess + "</div>"; 
-        });
-        if (item.tmrUnit) {
-            html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
-        }
-        if (item.exclusiveUnits) {
-            html += "<div class='exclusive'>Only ";
-            var first = true;
-            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
-                if (first) {
-                    first = false;
-                } else {
-                    html += ", ";
-                }
-                html += '<a href="' + toUrl(exclusiveUnit) + '">' + exclusiveUnit + '</a>';
-            });
-            html += "</div>";
-        }
-        if (item.exclusiveSex) {
-            html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
-        }
-        if (item.condition) {
-            html += "<div class='exclusive'>" + toHtml(item.condition) + "</div>";
-        }
-        html += "</div>";
+		
 		
         // special
         html += '<div class="td special">';
@@ -240,6 +209,39 @@ var displayItems = function(items) {
         }
         html += "</div>";
         
+        
+        //access
+        html += '<div class="td access">';
+        $(item.access).each(function(index, itemAccess) {
+            html += "<div"; 
+            if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
+                html += " class='notSelected forbiddenAccess'";
+            }
+            html += ">" + itemAccess + "</div>"; 
+        });
+        if (item.tmrUnit) {
+            html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
+        }
+        if (item.exclusiveUnits) {
+            html += "<div class='exclusive'>Only ";
+            var first = true;
+            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+                if (first) {
+                    first = false;
+                } else {
+                    html += ", ";
+                }
+                html += '<a href="' + toUrl(exclusiveUnit) + '">' + exclusiveUnit + '</a>';
+            });
+            html += "</div>";
+        }
+        if (item.exclusiveSex) {
+            html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
+        }
+        if (item.condition) {
+            html += "<div class='exclusive'>" + toHtml(item.condition) + "</div>";
+        }
+        html += "</div>";
         
         html += "</div>";
     });
