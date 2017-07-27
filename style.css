@@ -17,10 +17,37 @@ ul {
     background-color: #438ac7;
 }
 #results {
-    margin-bottom: 0;
+	display: table;
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin-bottom: 0;
+	font-size: 16px;
 }
-#results tbody tr td {
+#results .thead {
+	display: table-header-group;
+}
+#results .thead  .tr .td {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd;
+	padding: 8px;
+	line-height: 1.42857143;
+	text-align: left;
+	font-weight: bold;
+}
+#results .tbody {
+	display: table-row-group;
+}
+#results .tr  {
+	display: table-row;
+}
+#results .tr .td {
+	display: table-cell;
     vertical-align: middle;
+}
+#results .tbody .tr .td, #results {
+	padding: 8px;
+	line-height: 1.42857143;
+	border-top: 1px solid #ddd;
 }
 #results .value {
     font-weight: bold;
@@ -148,7 +175,7 @@ body {
 }
 
 @media (max-width: 991px) {
-    body, span, a, table, label, input, select{font-size: 28px!important; }
+    body, span, a, table, label, input, select, img{font-size: 28px!important; }
     .form-control {height: 46px;}
     .choice .btn img {width: 64px;}
     #results img, #filterSummary img {width: 52px;}
@@ -158,6 +185,38 @@ body {
         margin-left: 24px;
         border-radius: 14px;
     }
+	#results .thead .special{
+		display: none;
+	}
+	#results .name{
+		width: 34%;
+		float: left;
+		display: block;
+	}
+	#results .type{
+		width: 33%;
+		float: left;
+		display: block;
+	}
+	#results .access{
+		width: 33%;
+		float: right;
+		display: block;
+	}
+	#results .tbody .tr .special{
+		width: 66%;
+		float: left;
+		display: block;
+		border-top: none;
+		clear: left;
+	}
+	#results .tbody .tr .special ul li  span, #results .tbody .tr .special ul li  span a{
+		font-size: 20px!important;
+	}
+	#results .tbody .tr .special .specialImg{
+		display: inline;
+		margin-right: 10px;
+	}
 }
 
 @media (min-width: 992px) {

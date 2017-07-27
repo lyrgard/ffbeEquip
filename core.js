@@ -134,82 +134,34 @@ var modifyFilterSummary = function() {
 var displayItems = function(items) {
     var html = "";
     $(items).each(function (index, item){
-        html += "<tr>";
+        html += '<div class="tr">';
         
         // name
-        html += '<td><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
+        html += '<div class="td name"><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
 		if (item.outclassedBy) {
 			html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>'
 		}
-		html += "<div class='detail'>" + getStatDetail(item) + "</div></td>";
+		html += "<div class='detail'>" + getStatDetail(item) + "</div></div>";
         
         // value
-        html += "<td class='value sort'>" + item.calculatedValue;
+        html += '<div class="td value sort">' + item.calculatedValue;
         if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
             html += '%';
         }
-        html += "</td>";
+        html += "</div>";
         
         // type
-        html += "<td>";
+        html += '<div class="td type">';
         if (item.special && item.special.includes("notStackable")) {
             html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
         }
         if (item.special && item.special.includes("twoHanded")) {
             html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
         }
-        html += "<img src='img/" + item.type + ".png'></img></td>";
+        html += "<img src='img/" + item.type + ".png'></img></div>";
         
-        // special
-        html += "<td>";
-        
-        
-        if (item.element) {
-            html += "<img class='miniIcon' src='img/sword.png'></img><img src='img/" + item.element + ".png'></img>"
-        }
-        if (item.ailments) {
-            $(item.ailments).each(function(index, ailment) {
-                html += "<div class='noWrap'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img>" + ailment.percent + "%</div>";
-            });
-        }
-        if (item.resist) {
-            $(item.resist).each(function(index, resist) {
-                html += "<div class='noWrap";
-                if ((elementList.includes(resist.name) && elements.length != 0 && !elements.includes(resist.name)) || (ailmentList.includes(resist.name) && ailments.length != 0 && !ailments.includes(resist.name))) {
-                    html += " notSelected";
-                }
-                html += "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img>" + resist.percent + "%</div>";
-            });
-        }
-        
-        if (item.killers) {
-            $(item.killers).each(function(index, killer) {
-                html += "<div class='noWrap";
-                if (killers.length != 0 && !killers.includes(killer.name)) {
-                    html += " notSelected";
-                }
-                html += "'><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.percent + "%</div>";
-            });
-        }
-        var special = "";
-        if (item.evade) {
-            special += "<li>Evade " + item.evade + "%</li>";
-        }
-        
-        if (item.special) {
-            $(item.special).each(function(index, itemSpecial) {
-                if (itemSpecial != "twoHanded" && itemSpecial != "notStackable") {
-                    special += "<li>" + toHtml(itemSpecial) + "</li>";
-                }
-            });
-        }
-        if (special.length != 0) {
-            html += "<ul>" + special + "<ul>";
-        }
-        html += "</td>";
-        
-        //access
-        html += "<td>";
+		//access
+        html += '<div class="td access">';
         $(item.access).each(function(index, itemAccess) {
             html += "<div"; 
             if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
@@ -239,10 +191,59 @@ var displayItems = function(items) {
         if (item.condition) {
             html += "<div class='exclusive'>" + toHtml(item.condition) + "</div>";
         }
-        html += "</td>";
-        html += "</tr>";
+        html += "</div>";
+		
+        // special
+        html += '<div class="td special">';
+        
+        if (item.element) {
+            html += "<div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + item.element + ".png'></img></div>"
+        }
+        if (item.ailments) {
+            $(item.ailments).each(function(index, ailment) {
+                html += "<div class='specialImg noWrap'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img>" + ailment.percent + "%</div>";
+            });
+        }
+        if (item.resist) {
+            $(item.resist).each(function(index, resist) {
+                html += "<div class='specialImg noWrap";
+                if ((elementList.includes(resist.name) && elements.length != 0 && !elements.includes(resist.name)) || (ailmentList.includes(resist.name) && ailments.length != 0 && !ailments.includes(resist.name))) {
+                    html += " notSelected";
+                }
+                html += "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img>" + resist.percent + "%</div>";
+            });
+        }
+        
+        if (item.killers) {
+            $(item.killers).each(function(index, killer) {
+                html += "<div class='specialImg noWrap";
+                if (killers.length != 0 && !killers.includes(killer.name)) {
+                    html += " notSelected";
+                }
+                html += "'><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.percent + "%</div>";
+            });
+        }
+        var special = "";
+        if (item.evade) {
+            special += "<li>Evade " + item.evade + "%</li>";
+        }
+        
+        if (item.special) {
+            $(item.special).each(function(index, itemSpecial) {
+                if (itemSpecial != "twoHanded" && itemSpecial != "notStackable") {
+                    special += "<li>" + toHtml(itemSpecial) + "</li>";
+                }
+            });
+        }
+        if (special.length != 0) {
+            html += "<ul>" + special + "<ul>";
+        }
+        html += "</div>";
+        
+        
+        html += "</div>";
     });
-    $("#results tbody").html(html);
+    $("#results .tbody").html(html);
     $("#resultNumber").html(items.length);
 };
 
