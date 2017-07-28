@@ -612,7 +612,7 @@ $(function() {
         alert( errorThrown );
     });
 	// Desired Stats
-	addTextChoicesTo("stats",{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
+	addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
 	// Item types
 	addImageChoicesTo("types",typeList);
 	// Elements
@@ -620,19 +620,19 @@ $(function() {
 	// Ailments
 	addImageChoicesTo("ailments",ailmentList);
 	// Killers
-	addTextChoicesTo("killers",{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+	addTextChoicesTo("killers",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
 	// Access to remove
-	addTextChoicesTo("accessToRemove",{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' });
+	addTextChoicesTo("accessToRemove",'checkbox',{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' });
 	// Additional stat filter
-	addTextChoicesTo("additionalStat",{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+	addTextChoicesTo("additionalStat",'checkbox',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
 	
 	$('.choice input').change($.debounce(300,update));
 });
 
-function addTextChoicesTo(targetId, valueMap) {
+function addTextChoicesTo(targetId, type, valueMap) {
 	var target = $("#" + targetId);
 	for (var key in valueMap) {
-		addTextChoiceTo(target, targetId, valueMap[key], key);
+		addTextChoiceTo(target, targetId, type, valueMap[key], key);
 	}
 }
 
@@ -643,8 +643,8 @@ function addImageChoicesTo(targetId, valueList) {
 	}
 }
 
-function addTextChoiceTo(target, name, value, label) {
-	target.append('<label class="btn btn-default"><input type="radio" name="' + name + '" value="'+value+'" autocomplete="off">'+label+'</label>');
+function addTextChoiceTo(target, name, type, value, label) {
+	target.append('<label class="btn btn-default"><input type="' + type +'" name="' + name + '" value="'+value+'" autocomplete="off">'+label+'</label>');
 }
 
 function addImageChoiceTo(target, name, value) {
