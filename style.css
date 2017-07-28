@@ -163,6 +163,8 @@ body {
     height: 150px;
     border-radius: 75px;
     outline:none;
+	border: 1px green;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #hideAdvancedSearchButton span {
@@ -215,12 +217,12 @@ body {
         padding-top: 5px;
     }
     #results .value {
-		width: 80px;
+		width: 100px;
 		float: left;
 		display: block;
 	}
 	#results .tr .td.name{
-		width: calc(100% - 140px);
+		width: calc(100% - 160px);
 		float: left;
 		display: block;
         
