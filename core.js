@@ -521,6 +521,18 @@ var toUrl = function(name) {
     return wikiBaseUrl + name.replace(' ', '_');
 };
 
+// Displays selected unit's rarity by stars
+var displayUnitRarity = function(unit) {
+    var rarityWrapper = $('.unit-rarity');
+    var rarity = unit.max_rarity;
+
+    rarityWrapper.empty()
+
+    for (var i = 0; i < rarity; i++) {
+        rarityWrapper.append('<i class="rarity-star" />');
+    }
+};
+
 // Function used to know if a keyboard key pressed is a number, to prevent non number to be entered
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;
@@ -613,6 +625,7 @@ function populateUnitSelect() {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
 		      	});
                 unselectAll("types", false);
+                displayUnitRarity(selectedUnitData);
             } else {
                 selectedUnit = '';
                 $(baseStats).each(function (index, stat) {
