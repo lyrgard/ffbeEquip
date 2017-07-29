@@ -144,6 +144,19 @@ body {
     padding: 0;
 }
 
+.unit-rarity {
+    display: inline-flex;
+    margin-left: 20px;
+}
+
+.rarity-star {
+    margin-left: 4px;
+    width: 20px;
+    height: 20px;
+    background-image: url('./img/star_icon.svg');
+    background-repeat: no-repeat;
+}
+
 .form-inline {
     margin-bottom: 0;
 }
@@ -180,6 +193,15 @@ body {
 }
 #filterSummary img {
     display: block;
+}
+
+.flex-form-group {
+    display: flex !important;
+    align-items: center;
+}
+
+.flex-form-group > select {
+    margin-left: 4px;
 }
 
 @media (max-width: 991px) {
