@@ -524,12 +524,17 @@ var toUrl = function(name) {
 // Displays selected unit's rarity by stars
 var displayUnitRarity = function(unit) {
     var rarityWrapper = $('.unit-rarity');
-    var rarity = unit.max_rarity;
+    if (unit) {
+        var rarity = unit.max_rarity;
 
-    rarityWrapper.empty()
+        rarityWrapper.show();
+        rarityWrapper.empty();
 
-    for (var i = 0; i < rarity; i++) {
-        rarityWrapper.append('<i class="rarity-star" />');
+        for (var i = 0; i < rarity; i++) {
+            rarityWrapper.append('<i class="rarity-star" />');
+        }
+    } else {
+        rarityWrapper.hide();
     }
 };
 
@@ -574,6 +579,7 @@ function loadHash() {
     if (state.unit) {
         $('#unitsSelect option[value="' + state.unit + '"]').prop("selected", "selected");
         selectedUnit = state.unit;
+        displayUnitRarity(units[selectedUnit]);
     }
     if (state.stat) {
         $("input[name='stats'][value='"+ state.stat +"']").each(function(index, checkbox) {
@@ -625,13 +631,13 @@ function populateUnitSelect() {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
 		      	});
                 unselectAll("types", false);
-                displayUnitRarity(selectedUnitData);
             } else {
                 selectedUnit = '';
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val("");
 		      	});
             }
+            displayUnitRarity(selectedUnitData);
         });
         update();
     });
