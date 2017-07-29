@@ -18,6 +18,8 @@
     {"name":"Bowie Knife","type":"dagger","atk":82,"special":["[Dual Wield]"],"access":["TMR-3*"],"tmrUnit":"Abel"},
     {"name":"Platinum Dagger","type":"dagger","atk":42,"access":["chest"]},
     {"name":"Zwill Crossblade","type":"dagger","atk":73,"element":"wind","evade":5,"access":["event"]},
+    {"name":"Zwill Crossblade (FFT)","type":"dagger","atk":72,"ailments":[{"name":"sleep", "percent":30}],"access":["event"]},
+    
 
     {"name":"Moonblade","type":"sword","atk":118,"element":"dark","access":["TMR-5*"],"tmrUnit":"Delita"},
     {"name":"Mana Blade","type":"sword","atk":101,"def":8,"mag":8,"spr":8,"access":["TMR-5*"],"tmrUnit":"Randi"},
@@ -62,6 +64,8 @@
     {"name":"Crimson Saber","type":"greatSword","hp%":30,"mp%":30,"atk":90,"element":"fire","exclusiveUnits":["Rain"],"access":["trial"]},
 	{"name":"Excalipoor","type":"greatSword","atk":1,"outclassedBy":"Golden Blade","access":["event"]},
 	{"name":"Great Sword","type":"greatSword","atk":27,"outclassedBy":"Golden Blade","access":["shop","recipe-quest"]},
+    {"name":"Defender (FFT)","type":"greatSword","atk":65,"evade":5,"access":["event"]},
+    
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"],"tmrUnit":"Miyuki"},
@@ -356,6 +360,7 @@
     {"name":"Scion Thaumaturge's Robe","type":"robe","hp%":15,"mp%":15,"def":12,"mag":24,"spr":40,"exclusiveUnits":["Papalymo"],"access":["recipe-event"]},
     {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"access":["trial"]},
     {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}],"exclusiveUnits":["Fina"],"access":["trial"]},
+    {"name":"Chain Robe","type":"robe","mp%":15,"def":55,"spr":30,"access":["TMR-4*"],"tmrUnit":"Meliadoul"},
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"],"tmrUnit":"Yun"},
     {"name":"Crimson Slayer","type":"lightArmor","atk%":30,"def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"condition":"If equiped with a fist","access":["TMR-5*-event"],"tmrUnit":"Yun"},
@@ -386,6 +391,7 @@
     {"name":"Mythril Armor","type":"heavyArmor","def":38,"access":["shop","recipe-chest","colosseum"]},
     {"name":"Paladin Armor","type":"heavyArmor","def":32,"spr":10,"access":["shop","quest","recipe-key"]},
     {"name":"Dragon Mail","type":"heavyArmor","def":45,"spr":15,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
+    {"name":"Grand Armor","type":"heavyArmor","hp%":15,"def":72,"spr":28,"access":["TMR-5*"],"tmrUnit":"Knight Delita"},
 
     {"name":"Scion Conjurer's Pattens","type":"accessory","hp%":5,"mp%":5,"def":5,"spr":10,"exclusiveUnits":["Y'shtola"],"access":["recipe-event"]},
     {"name":"Evening Glove","type":"accessory","def":3,"mag%":15,"spr%":10,"exclusiveUnits":["Dangerous Ariana"],"access":["recipe-event"]},
@@ -506,6 +512,7 @@
     {"name":"Elven Gloves","type":"accessory","mp%":20,"def":3,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}],"special":["Enables use of [Song of Memories]"],"access":["event"]},
     {"name":"Mystical Skull","type":"accessory","def":3,"spr":3,"special":["+50% LB Fill Rate","+5% MP Recovery Per Turn"],"access":["TMR-4*"],"tmrUnit":"Helena"},
     {"name":"Magick Gloves","type":"accessory","hp%":5,"mp%":5,"mag":10,"access":["quest"]},
+    {"name":"Japa Mala","type":"accessory","hp%":20,"mp%":20,"atk%":20,"def":3,"mag%":20,"access":["TMR-5*"],"tmrUnit":"Mercenary Ramza"},
     
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
@@ -793,6 +800,11 @@
     {"name":"Adventurer V","type":"materia","atk%":40,"def%":40,"mag%":40,"spr%":40,"special":["notStackable"],"access":["recipe-expedition"]},
     {"name":"Manufacted Nethicite","type":"materia","special":["Nullifies the next spell cast for 1 turn"],"access":["event"]},
     {"name":"Elven Pride","type":"materia","mp%":30,"atk%":20,"resist":[{"name":"lightning","percent":30}],"access":["TMR-4*"],"tmrUnit":"Bran"},
-    {"name":"World Destroyer","type":"materia","special":["Physical damage (2x) with ignore DEF (50%) to all enemies","Decrease ATK/DEF/MAG/SPR (35%) for 3 turns to all enemies"],"access":["trial"]}
+    {"name":"World Destroyer","type":"materia","special":["Physical damage (2x) with ignore DEF (50%) to all enemies","Decrease ATK/DEF/MAG/SPR (35%) for 3 turns to all enemies"],"access":["trial"]},
+    {"name":"Heaven's Guidance","type":"materia","special":["Decrease damage taken (40%) for 2 turns to one ally"],"access":["TMR-4*"],"tmrUnit":"Orran"},
+    {"name":"March","type":"materia","mp%":10,"atk%":5,"mag%":5,"access":["event"]},
+    {"name":"Vigilance","type":"materia","mp%":10,"def%":5,"spr%":5,"access":["event"]},
+    {"name":"Regenerator","type":"materia","special":["Chance to counter physical attacks (20%) with heal (200 HP, 4x) split over 3 turns to caster"],"access":["event"]},
+    {"name":"Reactive Defense","type":"materia","special":["Chance to counter physical attacks (20%) with decrease damage taken (20%) for 2 turns to caster"],"access":["event"]}
     
 ]
