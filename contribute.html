@@ -1,0 +1,151 @@
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="contribute.css?version=3">
+        <title>FFBE Equip - Contribution</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default search">
+                    <div class="panel-heading">
+                        <button class="btn btn-default" onclick="addNewItem();">Add new item</button>
+					</div>
+                </div>
+                        
+                <div class="panel panel-default hidden">
+                    <div class="panel-heading">
+                        Or modify existing item
+                        <div class="input-group">
+                            <span class="input-group-addon">Search</span>
+                            <input type="text" class="form-control" id="searchText">
+                        </div>
+					</div>
+                    <div class="panel-body" style="padding:0;">
+                        <div id="results" class="table notSorted">
+                            <div class="thead">
+                                <div class="tr">
+                                    <div class="td type">&nbsp;</div>
+                                    <div class="td name">Name</div>
+                                    <div class="td special">Special</div>
+                                    <div class="td access">Access</div>
+                                    <div class="td action"></div>
+                                </div>
+                            </div>
+                            <div class="tbody">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default currentItem hidden">
+                    <div class="panel-heading">
+                        <button class="btn btn-primary">Save it</button>
+                        <button class="btn btn-danger">Cancel</button>
+					</div>
+                    <div class="panel-body">
+                        <div id="results" class="table">
+                            <div class="tbody">
+                                <div class="tr">
+                                    <div class="td type">
+                                        <div class="dropdown">
+                                            <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>    
+                                            <div class="dropdown-menu">
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div class="td name empty">
+                                        <input type="text" placeholder="Enter item name"/>
+                                        <a class="name"></a>
+                                        <div class="detail"></div>
+                                    </div>
+                                    <div class="td special">
+                                        <div class="dropdown element">
+                                            <img src="img/noElement.png" class="dropdown-toggle elementChoice" type="button" data-toggle="dropdown"/>    
+                                            <div class="dropdown-menu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="td access">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 addForm hidden">
+                            <div class="input-group">
+                                <span class="input-group-addon name"></span>
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button"><div class="glyphicon glyphicon-ok"></div></button>
+                                    <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="addButtons">
+                            <div class="col-xs-6 addStat">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>  
+                                    <div class="dropdown-menu">
+
+                                    </div>
+                                </div> 
+
+                            </div>
+                            <div class="col-xs-6">
+                                <button>Add ailments</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button>Add resistance</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button>Add special</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button>Add access</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button>Add exclusive</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default newItems hidden">
+                    <div class="panel-heading">
+                        Added or modified items
+                        <button class="btn btn-primary">Send it to FFBE Equip</button>
+					</div>
+                    <div class="panel-body" style="padding:0;">
+                        <div id="results" class="table notSorted">
+                            <div class="thead">
+                                <div class="tr">
+                                    <div class="td type">&nbsp;</div>
+                                    <div class="td name">Name</div>
+                                    <div class="td special">Special</div>
+                                    <div class="td access">Access</div>
+                                    <div class="td action"></div>
+                                </div>
+                            </div>
+                            <div class="tbody">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="common.js?version=2"></script>
+		<script src="contribute.js?version=2"></script>
+        <script src="googleAnalytics.js"></script>
+    </body>
+</html>
