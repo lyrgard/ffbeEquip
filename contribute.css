@@ -1,0 +1,37 @@
+.currentItem .typeChoice {
+    cursor: pointer;
+}
+
+.currentItem .type .dropdown-menu {
+    width: 335px;
+    padding: 5px;
+}
+
+.currentItem .special .element .dropdown-menu {
+    width: 205px;
+    padding: 5px;
+}
+
+.currentItem .name.empty a.name, .currentItem .name:hover a.name {
+    display: none;
+}
+
+.currentItem .name input {
+    display: none;
+}
+.currentItem .name.empty input, .currentItem .name:hover input {
+    display: inline-block;
+}
+
+.currentItem .addStat .dropdown-menu {
+    width: 293px;
+    padding: 5px;
+}
+
+.currentItem .addStat .dropdown-menu .stat {
+    width: 70px;
+    text-transform: uppercase;
+}
+.currentItem .addForm .name {
+    text-transform: uppercase;
+}
