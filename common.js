@@ -2,6 +2,15 @@ var wikiBaseUrl = "http://exvius.gamepedia.com/";
 
 var data;
 var units;
+var stat = '';
+var types = [];
+var elements = [];
+var ailments = [];
+var killers = [];
+var accessToRemove = [];
+var additionalStat = [];
+var searchText = '';
+var selectedUnit = '';
 var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
@@ -35,6 +44,29 @@ function getKillersHtml(item) {
     });
     return html;
 }
+function getExclusiveUnitsHtml(item) {
+    html = "<div class='exclusive'>Only ";
+    var first = true;
+    $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+        if (first) {
+            first = false;
+        } else {
+            html += ", ";
+        }
+        html += '<a href="' + toUrl(exclusiveUnit) + '">' + exclusiveUnit + '</a>';
+    });
+    html += "</div>";
+    return html;
+}
+function getSpecialHtml(item) {
+    var special = "";
+    $(item.special).each(function(index, itemSpecial) {
+        if (itemSpecial != "twoHanded" && itemSpecial != "notStackable") {
+            special += "<li>" + toHtml(itemSpecial) + "</li>";
+        }
+    });
+    return special;
+}
 
 // Create an HTML span containing the stats of the item
 var getStatDetail = function(item) {
@@ -64,6 +96,117 @@ var getStatDetail = function(item) {
         
     });
     return detail;
+};
+
+// Construct HTML of the results. String concatenation was chosen for rendering speed.
+var displayItems = function(items) {
+    var html = "";
+    $(items).each(function (index, item){
+        html += '<div class="tr">';
+        
+        // type
+        html += '<div class="td type">';
+        if (item.special && item.special.includes("notStackable")) {
+            html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+        }
+        if (item.special && item.special.includes("twoHanded")) {
+            html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+        }
+        html += "<img src='img/" + item.type + ".png'></img></div>";
+        
+        // name
+        html += '<div class="td name"><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
+		if (item.outclassedBy) {
+			html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>'
+		}
+		html += "<div class='detail'>" + getStatDetail(item) + "</div></div>";
+        
+        // value
+        html += '<div class="td value sort">' + item.calculatedValue;
+        if (stat == 'inflict' || stat == 'evade' || stat == 'resist') {
+            html += '%';
+        }
+        html += "</div>";
+        
+		
+		
+        // special
+        html += '<div class="td special">';
+        
+        if (item.element) {
+            html += getElementHtml(item.element);
+        }
+        if (item.ailments) {
+            html += getAilmentsHtml(item);
+        }
+        if (item.resist) {
+            html += getResistHtml(item);
+        }
+        
+        if (item.killers) {
+            html += getKillersHtml(item);
+        }
+        var special = "";
+        if (item.evade) {
+            special += "<li>Evade " + item.evade + "%</li>";
+        }
+        
+        if (item.special) {
+            special += getSpecialHtml(item);
+        }
+        if (special.length != 0) {
+            html += "<ul>" + special + "<ul>";
+        }
+        html += "</div>";
+        
+        
+        //access
+        html += '<div class="td access">';
+        $(item.access).each(function(index, itemAccess) {
+            html += "<div"; 
+            if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
+                html += " class='notSelected forbiddenAccess'";
+            }
+            html += ">" + itemAccess + "</div>"; 
+        });
+        if (item.tmrUnit) {
+            html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
+        }
+        if (item.exclusiveUnits) {
+            getExclusiveUnitsHtml(item)
+        }
+        if (item.exclusiveSex) {
+            html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
+        }
+        if (item.condition) {
+            html += "<div class='exclusive'>" + toHtml(item.condition) + "</div>";
+        }
+        html += "</div>";
+        
+        html += "</div>";
+    });
+    $("#results .tbody").html(html);
+    $("#resultNumber").html(items.length);
+    $(baseStats).each(function(index, currentStat) {
+        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
+            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
+        }
+    });
+    $(elementList).each(function(index, resist) {
+        if (elements.length != 0 && !elements.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(ailmentList).each(function(index, resist) {
+        if (ailments.length != 0 && !ailments.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(killerList).each(function(index, killer) {
+        if (killers.length != 0 && !killers.includes(killer)) {
+            $("#results .tbody .special .killer-" + killer).addClass("notSelected");
+        }
+    });
 };
 
 // Some field in the data can use a special syntax to display link to the wiki. This is done by using brace ( blabla [name] blabla). This replace the parts inside braces by html links.

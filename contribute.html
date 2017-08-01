@@ -47,7 +47,7 @@
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default currentItem hidden">
                     <div class="panel-heading">
-                        <button class="btn btn-primary">Save it</button>
+                        <button class="btn btn-primary" onclick="saveCurrentItem()">Save it</button>
                         <button class="btn btn-danger">Cancel</button>
 					</div>
                     <div class="panel-body">
@@ -56,6 +56,8 @@
                                 <div class="tr">
                                     <div class="td type">
                                         <div class="dropdown">
+                                            <img class='miniIcon left hidden notStackable' src='img/notStackable.png' title='Not stackable'>
+                                            <img class='miniIcon left hidden twoHanded' src='img/twoHanded.png' title='Two-handed'>
                                             <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>    
                                             <div class="dropdown-menu">
                                             </div>
@@ -98,7 +100,7 @@
                             </div>
                         </div>
                         <div class="addButtons">
-                            <div class="col-xs-6 addStat">
+                            <div class="col-xs-4 addStat">
                                 <div class="dropdown">
                                     <button class="dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>  
                                     <div class="dropdown-menu">
@@ -106,39 +108,55 @@
                                     </div>
                                 </div> 
                             </div>
-                            <div class="col-xs-6 addAilment">
+                            <div class="col-xs-4 addAilment">
                                 <div class="dropdown">
                                     <button class="dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>  
                                     <div class="dropdown-menu">
                                     </div>
                                 </div> 
                             </div>
-                            <div class="col-xs-6 addResist">
+                            <div class="col-xs-4 addResist">
                                 <div class="dropdown">
                                     <button class="dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>  
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu dropdown-menu-right">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 addKiller">
+                            <div class="col-xs-4 addKiller">
                                 <div class="dropdown">
                                     <button class="dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>  
                                     <div class="dropdown-menu">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <button>Add special</button>
-                            </div>
-                            <div class="col-xs-6 addAccess">
+                            <div class="col-xs-4 addSpecial">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
+                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add special</button>  
                                     <div class="dropdown-menu">
+                                        <span class="btn btn-default special" onclick="selectSpecial('special')">Effect</span>
+                                        <span class="btn btn-default special" onclick="selectSpecial('evade')">Evade %</span>
+                                        <span class="btn btn-default special" onclick="selectSpecial('twoHanded')">Two-handed</span>
+                                        <span class="btn btn-default special" onclick="selectSpecial('notStackable')">Not stackable</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <button>Add exclusive</button>
+                            <div class="col-xs-4 addAccess">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
+                                    <div class="dropdown-menu  dropdown-menu-right">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 addExclusive">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle exclusiveChoice" data-toggle="dropdown">Add restriction</button>  
+                                    <div class="dropdown-menu">
+                                        <span class="btn btn-default exclusive" onclick="selectExclusive('male')">Only male</span>
+                                        <span class="btn btn-default exclusive" onclick="selectExclusive('female')">Only female</span>
+                                        <span class="btn btn-default exclusive" onclick="selectExclusive('unit')">Only unit</span>
+                                        <span class="btn btn-default exclusive" onclick="selectExclusive('condition')">Condition</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

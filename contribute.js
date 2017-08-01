@@ -1,4 +1,5 @@
 var currentItem;
+var newItems = [];
 var currentAddFormProperty;
 
 function addNewItem() {
@@ -40,6 +41,26 @@ function updateCurrentItemDisplay() {
     if (currentItem.killers) {
         otherSpecials.append(getKillersHtml(currentItem));
     }
+    var specialList = ""; 
+    if (currentItem.evade) {
+        specialList += "<li>Evade " + currentItem.evade + "%</li>"
+    }
+    if (currentItem.special) {
+        specialList += getSpecialHtml(currentItem)
+        if (currentItem.special.includes("twoHanded")) {
+            $(".currentItem .type .twoHanded").removeClass("hidden");
+        } else {
+            $(".currentItem .type .twoHanded").addClass("hidden");
+        }
+        if (currentItem.special.includes("notStackable")) {
+            $(".currentItem .type .notStackable").removeClass("hidden");
+        } else {
+            $(".currentItem .type .notStackable").addClass("hidden");
+        }
+    }
+    if (specialList != "") {
+        otherSpecials.append("<ul>" + specialList + "</ul>");
+    }
     var access = $(".currentItem .td.access");
     access.empty();
     if (currentItem.access) {
@@ -50,6 +71,22 @@ function updateCurrentItemDisplay() {
     if (currentItem.tmrUnit) {
         access.append('<div><a href="' + toUrl(currentItem.tmrUnit) + '">' + currentItem.tmrUnit + '</a></div>');
     }
+    if (currentItem.exclusiveUnits) {
+        access.append(getExclusiveUnitsHtml(currentItem));
+    }
+    if (currentItem.exclusiveSex) {
+        access.append("<div class='exclusive'>Only " + currentItem.exclusiveSex + "</div>");
+    }
+    if (currentItem.condition) {
+        access.append("<div class='exclusive'>" + toHtml(currentItem.condition) + "</div>");
+    }
+    
+}
+
+function saveCurrentItem() {
+    newItems.push(currentItem);
+    $(".newItems").removeClass("hidden");
+    displayItems(newItems);
 }
 
 function selectType(type) {
@@ -67,68 +104,29 @@ function selectElement(element) {
 }
 
 function selectStat(stat) {
-    $(".currentItem .addButtons").addClass("hidden");
-    $(".currentItem .addForm .name").text(stat);
-    var input = $(".currentItem .addForm input");
-    input.val("");
-    currentAddFormProperty = stat;
-    $(".currentItem .addForm").removeClass("hidden");
-    input.focus();
+     displayAddForm(stat, stat);
 }
 
 
 
 function selectAilment(ailment) {
-    $(".currentItem .addButtons").addClass("hidden");
-    $(".currentItem .addForm .miniIcon").prop("src", "img/sword.png");
-    $(".currentItem .addForm .icon").prop("src", "img/" + ailment +".png");
-    $(".currentItem .addForm .name").text("%");
-    var input = $(".currentItem .addForm input");
-    input.val("");
-    currentAddFormProperty = "ailment-" + ailment;
-    $(".currentItem .addForm").removeClass("hidden");
-    input.focus();
+    displayAddForm("ailment-" + ailment, "%", ailment, "sword");
 }
 
 function selectResist(resist) {
-    $(".currentItem .addButtons").addClass("hidden");
-    $(".currentItem .addForm .miniIcon").prop("src", "img/heavyShield.png");
-    $(".currentItem .addForm .icon").prop("src", "img/" + resist +".png");
-    $(".currentItem .addForm .name").text("%");
-    var input = $(".currentItem .addForm input");
-    input.val("");
-    currentAddFormProperty = "resist-" + resist;
-    $(".currentItem .addForm").removeClass("hidden");
-    input.focus();
+    displayAddForm("resist-" + resist, "%", resist, "heavyShield");
 }
 function selectKiller(killer) {
-    $(".currentItem .addButtons").addClass("hidden");
-    $(".currentItem .addForm .miniIcon").prop("src", "");
-    $(".currentItem .addForm .icon").prop("src", "img/killer.png");
-    $(".currentItem .addForm .name").text(killer + " %");
-    var input = $(".currentItem .addForm input");
-    input.val("");
-    currentAddFormProperty = killer;
-    $(".currentItem .addForm").removeClass("hidden");
-    input.focus();
+    displayAddForm(killer, killer + " %", "killer");
 }
 function selectAccess(access) {
     if (access.startsWith("TMR")) {
-        $(".currentItem .addButtons").addClass("hidden");
-        $(".currentItem .addForm .miniIcon").prop("src", "");
-        $(".currentItem .addForm .icon").prop("src", "");
-        $(".currentItem .addForm .name").text("TMR of");
-        var input = $(".currentItem .addForm input");
-        input.val("");
-        currentAddFormProperty = access;
-        $(".currentItem .addForm").removeClass("hidden");
-        input.focus();
+        displayAddForm(access, "TMR of")
     } else {
         addAccess(access);
         updateCurrentItemDisplay();
     }
 }
-
 function addAccess(access) {
     if (!currentItem.access) {
         currentItem.access = [];
@@ -136,6 +134,51 @@ function addAccess(access) {
     if (!currentItem.access.includes(access)) {
         currentItem.access.push(access);
     }
+}
+
+function selectExclusive(exclusive) {
+    if (exclusive == 'male' || exclusive == 'female') {
+        currentItem.exclusiveSex = exclusive;
+        updateCurrentItemDisplay();
+    } else if (exclusive == "unit") {
+        displayAddForm(exclusive, "Only")
+    } else {
+        displayAddForm(exclusive, "Condition")
+    }
+}
+function selectSpecial(special) {
+    if (special == "twoHanded" || special == "notStackable") {
+        currentItem.special = currentItem.special || [];
+        if (!currentItem.special.includes(special)) {
+            currentItem.special.push(special);
+        }
+        updateCurrentItemDisplay();
+    } else if (special == "evade") {
+        displayAddForm("evade", "Evade %");
+    } else {
+        displayAddForm("special", "special");
+    }
+}
+
+
+function displayAddForm(value, text, icon, miniIcon) {
+    $(".currentItem .addButtons").addClass("hidden");
+    if (miniIcon) {
+        $(".currentItem .addForm .miniIcon").prop("src", "img/" + miniIcon + ".png").removeClass("hidden");
+    } else {
+        $(".currentItem .addForm .miniIcon").addClass("hidden");
+    }
+    if (icon) {
+        $(".currentItem .addForm .icon").prop("src", "img/" + icon + ".png").removeClass("hidden");
+    } else {
+        $(".currentItem .addForm .icon").addClass("hidden");
+    }
+    $(".currentItem .addForm .name").text(text);
+    var input = $(".currentItem .addForm input");
+    input.val("");
+    currentAddFormProperty = value;
+    $(".currentItem .addForm").removeClass("hidden");
+    input.focus();
 }
 
 function validateAddForm() {
@@ -161,11 +204,37 @@ function validateAddForm() {
     } else if (currentAddFormProperty.startsWith("TMR")) {
         addAccess(currentAddFormProperty);
         currentItem.tmrUnit = value;
+    } else if (currentAddFormProperty == "unit") {
+        addExclusiveUnit(value);
+    } else if (currentAddFormProperty == "condition") {
+        currentItem.condition = value;
+    } else if (currentAddFormProperty == "special") {
+        currentItem.special = currentItem.special || [];
+        currentItem.special.push(value);
+    } else if (currentAddFormProperty == "evade") {
+        if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
+        currentItem.evade = parseInt(value);
     }
     currentAddFormProperty = null;
     hideAddForm();
     updateCurrentItemDisplay();
     
+}
+
+function addExclusiveUnit(unit) {
+    if (!currentItem.exclusiveUnits) {
+        currentItem.exclusiveUnits = [];
+    }
+    var found = false;
+    for (var index in currentItem.exclusiveUnits) {
+        if (currentItem.exclusiveUnits[index] == unit) {
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        currentItem.exclusiveUnits.push(unit);
+    }
 }
 
 function addPercentageValue(propertyName, name, percent) {
