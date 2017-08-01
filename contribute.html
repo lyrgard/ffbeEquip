@@ -7,7 +7,7 @@
         <title>FFBE Equip - Contribution</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default search">
                     <div class="panel-heading">
@@ -51,7 +51,7 @@
                         <button class="btn btn-danger">Cancel</button>
 					</div>
                     <div class="panel-body">
-                        <div id="results" class="table">
+                        <div class="table items">
                             <div class="tbody">
                                 <div class="tr">
                                     <div class="td type">
@@ -67,10 +67,13 @@
                                         <div class="detail"></div>
                                     </div>
                                     <div class="td special">
-                                        <div class="dropdown element">
+                                        <div class="dropdown element specialImg">
+                                            <img class="miniIcon" src="img/sword.png">
                                             <img src="img/noElement.png" class="dropdown-toggle elementChoice" type="button" data-toggle="dropdown"/>    
                                             <div class="dropdown-menu">
                                             </div>
+                                        </div>
+                                        <div class="otherSpecials">
                                         </div>
                                     </div>
                                     <div class="td access">
@@ -79,13 +82,19 @@
                             </div>
                         </div>
                         <div class="col-xs-12 addForm hidden">
-                            <div class="input-group">
-                                <span class="input-group-addon name"></span>
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button"><div class="glyphicon glyphicon-ok"></div></button>
-                                    <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span></button>
-                                </span>
+                            <div class="col-xs-2">
+                                <img class="miniIcon" src="">
+                                <img class="icon" src="" />
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="input-group ">
+                                    <span class="input-group-addon name"></span>
+                                    <input type="text" class="form-control" onkeypress="if (isEnter(event)) {validateAddForm();}">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button" onclick="validateAddForm();"><span class="glyphicon glyphicon-ok"></span></button>
+                                        <button class="btn btn-danger" type="button" onclick="hideAddForm()"><span class="glyphicon glyphicon-remove"></span></button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="addButtons">
@@ -96,19 +105,37 @@
 
                                     </div>
                                 </div> 
-
                             </div>
-                            <div class="col-xs-6">
-                                <button>Add ailments</button>
+                            <div class="col-xs-6 addAilment">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>  
+                                    <div class="dropdown-menu">
+                                    </div>
+                                </div> 
                             </div>
-                            <div class="col-xs-6">
-                                <button>Add resistance</button>
+                            <div class="col-xs-6 addResist">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>  
+                                    <div class="dropdown-menu">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 addKiller">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>  
+                                    <div class="dropdown-menu">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-xs-6">
                                 <button>Add special</button>
                             </div>
-                            <div class="col-xs-6">
-                                <button>Add access</button>
+                            <div class="col-xs-6 addAccess">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
+                                    <div class="dropdown-menu">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-xs-6">
                                 <button>Add exclusive</button>
