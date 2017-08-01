@@ -27,6 +27,12 @@
 .currentItem .addAccess .dropdown-menu {
     width: 275px;
 }
+.currentItem .addSpecial .dropdown-menu {
+    width: 260px;
+}
+.currentItem .addExclusive .dropdown-menu {
+    width: 260px;
+}
 .currentItem .name.empty a.name, .currentItem .name:hover a.name {
     display: none;
 }
@@ -51,9 +57,19 @@
 .currentItem .addAccess .dropdown-menu .access {
     width: 130px;
 }
+.currentItem .addSpecial .dropdown-menu .special {
+    width: 120px;
+}
+.currentItem .addExclusive .dropdown-menu .exclusive {
+    width: 120px;
+}
 .currentItem .addForm .name {
     text-transform: uppercase;
 }
 .currentItem .addForm .btn {
     height: 34px;   
+}
+
+.currentItem .addButtons button {
+    width: 120px;
 }
