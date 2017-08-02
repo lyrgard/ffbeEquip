@@ -1,7 +1,7 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 var fs = require('fs');
-var jv = require('json-validator');
+var jv = require('json-validation');
 var app = express();
 
 
