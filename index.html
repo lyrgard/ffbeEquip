@@ -150,7 +150,12 @@
             </div>
             <div  class="col-xs-12 col-md-6">
                 <div id="resultsDiv" class="panel panel-default collapse in">
-                    <div class="panel-heading">Results : <span id="resultNumber"></span></div>
+                    <div class="panel-heading">
+                        Results : <span id="resultNumber"></span>
+                        <div class="checkbox-inline userInputedResultsChoice">
+                            <input id="showUserInputedCheckbox" type="checkbox" value="" onchange="update();"><label>Show user-inputed results</label>
+                        </div>
+                    </div>
                     <div class="panel-body" style="padding:0;">
                         <div id="results" class="table notSorted items">
 							<div class="thead">

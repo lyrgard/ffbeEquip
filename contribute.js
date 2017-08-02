@@ -20,6 +20,20 @@ function saveCurrentItem() {
     currentItem = null;
 }
 
+function sendToServer() {
+    $.ajax({
+        type: "POST",
+        url: "/items/temp",
+        data: JSON.stringify(newItems),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data){alert(data);},
+        failure: function(errMsg) {
+            alert(errMsg);
+        }
+    });
+}
+
 function updateCurrentItemDisplay() {
     if (currentItem.type) {
         $(".currentItem .typeChoice").prop("src", "img/" + currentItem.type + ".png");
