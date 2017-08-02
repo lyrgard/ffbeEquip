@@ -7,8 +7,17 @@ function addNewItem() {
         currentItem = {};
         updateCurrentItemDisplay();
         $(".currentItem").removeClass("hidden");
+        $('.currentItem .name input').val("");
         $(".currentItem .items .name").focus();
     }
+}
+
+function saveCurrentItem() {
+    newItems.push(currentItem);
+    $(".newItems").removeClass("hidden");
+    displayItems(newItems);
+    $(".currentItem").addClass("hidden");
+    currentItem = null;
 }
 
 function updateCurrentItemDisplay() {
@@ -24,7 +33,7 @@ function updateCurrentItemDisplay() {
         $(".currentItem .name").addClass("empty");
     }
     $(".currentItem .name .detail").html(getStatDetail(currentItem));
-    var special = $(".currentItem .td.special");
+    var special = $(".currentItem .tbody .td.special");
     if (currentItem.element) {
         $(".currentItem .special .elementChoice").prop("src", "img/" + currentItem.element + ".png");
     } else {
@@ -57,11 +66,14 @@ function updateCurrentItemDisplay() {
         } else {
             $(".currentItem .type .notStackable").addClass("hidden");
         }
+    } else {
+        $(".currentItem .type .twoHanded").addClass("hidden");
+        $(".currentItem .type .notStackable").addClass("hidden");
     }
     if (specialList != "") {
         otherSpecials.append("<ul>" + specialList + "</ul>");
     }
-    var access = $(".currentItem .td.access");
+    var access = $(".currentItem .tbody .td.access");
     access.empty();
     if (currentItem.access) {
         $(currentItem.access).each(function(index, itemAccess) {
@@ -81,12 +93,6 @@ function updateCurrentItemDisplay() {
         access.append("<div class='exclusive'>" + toHtml(currentItem.condition) + "</div>");
     }
     
-}
-
-function saveCurrentItem() {
-    newItems.push(currentItem);
-    $(".newItems").removeClass("hidden");
-    displayItems(newItems);
 }
 
 function selectType(type) {
@@ -258,6 +264,25 @@ function hideAddForm() {
     $(".currentItem .addButtons").removeClass("hidden");
     $(".currentItem .addForm .miniIcon").prop("src", "");
     $(".currentItem .addForm .icon").prop("src", "");
+}
+
+function deleteSpecial() {
+    delete currentItem.element;
+    delete currentItem.special;
+    delete currentItem.ailments;
+    delete currentItem.resist;
+    delete currentItem.killers;
+    delete currentItem.evade;
+    updateCurrentItemDisplay();
+}
+
+function deleteAccess() {
+    delete currentItem.access;
+    delete currentItem.tmrUnit;
+    delete currentItem.exclusiveSex;
+    delete currentItem.exclusiveUnits;
+    delete currentItem.condition;
+    updateCurrentItemDisplay();
 }
 
 $(function() {
