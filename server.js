@@ -102,6 +102,8 @@ var schema = {
             "access": {
                 "type": "array", 
                 "maxItems": 10, 
+                "minItems": 1, 
+                "required": true,
                 "items": {"type": "string","maxLength": 50}
             }
         }

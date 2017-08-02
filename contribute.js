@@ -27,11 +27,15 @@ function sendToServer() {
         data: JSON.stringify(newItems),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function(data){alert(data);},
+        success: function(data){
+            
+        },
         failure: function(errMsg) {
             alert(errMsg);
         }
     });
+    $(".newItems").addClass("hidden");
+    newItems = [];
 }
 
 function updateCurrentItemDisplay() {
