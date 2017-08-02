@@ -102,7 +102,11 @@ var getStatDetail = function(item) {
 var displayItems = function(items) {
     var html = "";
     $(items).each(function (index, item){
-        html += '<div class="tr">';
+        html += '<div class="tr';
+        if (item.temp) {
+            html += ' userInputed';
+        }
+        html += '">';
         
         // type
         html += '<div class="td type">';
@@ -117,7 +121,7 @@ var displayItems = function(items) {
         // name
         html += '<div class="td name"><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
 		if (item.outclassedBy) {
-			html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>'
+			html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
 		}
 		html += "<div class='detail'>" + getStatDetail(item) + "</div></div>";
         

@@ -47,6 +47,9 @@ ul {
 .items .tr  {
 	display: table-row;
 }
+.items .tr.userInputed  {
+	background-color: antiquewhite;
+}
 .items .tr .td {
 	display: table-cell;
     vertical-align: middle;
@@ -63,7 +66,7 @@ ul {
     font-size: 0.8em;
 }
 .items.notSorted .sort {
-    display:none;
+    display:none !important;
 }
 #statTitle {
     text-transform: uppercase;

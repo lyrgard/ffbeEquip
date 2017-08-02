@@ -1,5 +1,8 @@
 var baseStat = 180;
 var defaultFilter = {};
+var verifiedData;
+var tempData;
+var showTempData = false;
 
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
@@ -10,6 +13,12 @@ var update = function() {
     modifyFilterSummary();
     modifyUrl();
 
+    if (showTempData) {
+        data = $($.merge($.merge([], verifiedData),tempData));
+    } else {
+        data = verifiedData;
+    }
+    
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
         $("#results tbody").html("");
@@ -67,6 +76,7 @@ var readFilterValues = function() {
     killers = getSelectedValuesFor("killers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
+    showTempData = $("#showUserInputedCheckbox").prop('checked');
 }
 
 // Get the values for a filter type
@@ -463,12 +473,20 @@ $(function() {
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get("data.json", function(result) {
-        data = $(result);
-        $.get("units.json", function(result) {
-            units = result;
-            populateUnitSelect();
-            loadHash();
-            update();
+        verifiedData = $(result);
+        $.get("tempData.json", function(result) {
+            tempData = $(result);
+            for (var index in tempData) {
+                tempData[index].temp=true;
+            }
+            $.get("units.json", function(result) {
+                units = result;
+                populateUnitSelect();
+                loadHash();
+                update();
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                alert( errorThrown );
+            });
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });
