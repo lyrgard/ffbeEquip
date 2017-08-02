@@ -1,0 +1,80 @@
+.currentItem .typeChoice {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    padding: 5px;
+}
+.currentItem .type .dropdown-menu {
+    width: 335px;
+}
+
+.currentItem .special .element .dropdown-menu {
+    width: 205px;
+}
+.currentItem .addStat .dropdown-menu {
+    width: 293px;
+}
+.currentItem .addAilment .dropdown-menu {
+    width: 270px;
+}
+.currentItem .addResist .dropdown-menu {
+    width: 270px;
+}
+.currentItem .addKiller .dropdown-menu {
+    width: 315px;
+}
+.currentItem .addAccess .dropdown-menu {
+    width: 275px;
+}
+.currentItem .addSpecial .dropdown-menu {
+    width: 260px;
+}
+.currentItem .addExclusive .dropdown-menu {
+    width: 260px;
+}
+.currentItem .name.empty a.name, .currentItem .name:hover a.name {
+    display: none;
+}
+
+.currentItem .name input {
+    display: none;
+}
+.currentItem .name.empty input, .currentItem .name:hover input {
+    display: inline-block;
+}
+
+
+
+.currentItem .addStat .dropdown-menu .stat {
+    width: 70px;
+    text-transform: uppercase;
+}
+.currentItem .addKiller .dropdown-menu .killer {
+    width: 100px;
+    text-transform: capitalize;
+}
+.currentItem .addAccess .dropdown-menu .access {
+    width: 130px;
+}
+.currentItem .addSpecial .dropdown-menu .special {
+    width: 120px;
+}
+.currentItem .addExclusive .dropdown-menu .exclusive {
+    width: 120px;
+}
+.currentItem .addForm .name {
+    text-transform: uppercase;
+}
+.currentItem .addForm .btn {
+    height: 34px;   
+}
+
+.currentItem .addButtons button {
+    width: 120px;
+}
+
+.currentItem .table {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
