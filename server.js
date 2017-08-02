@@ -10,41 +10,72 @@ app.use(bodyParser.json());
 app.post('/items/temp', function(req, res) {
     var result = (new jv.JSONValidation()).validate(req.body, schema);
     if (result.ok) {
+        var items = sanitize(req.body);
         var tempItems = [];
-        if (fs.existsSync('tempData.json')) {
-            tempItems = JSON.parse(fs.readFileSync('tempData.json', 'utf8'));    
+        if (fs.existsSync('static/tempData.json')) {
+            tempItems = JSON.parse(fs.readFileSync('static/tempData.json', 'utf8'));    
         }
-        tempItems = tempItems.concat(req.body);
-        
-        fs.writeFileSync('tempData.json', JSON.stringify(tempItems).replace(/\},\{/g, '},\n\t{').replace(/^\[/g, '[\n\t').replace(/\]$/g, '\n]'));
-        res.status(201).send();
+        tempItems = tempItems.concat(items);
+        if (tempItems.length > 2000) {
+            res.status(500).send();
+        } else {
+            fs.writeFileSync('static/tempData.json', JSON.stringify(tempItems).replace(/\},\{/g, '},\n\t{').replace(/^\[/g, '[\n\t').replace(/\]$/g, '\n]'));
+            res.status(201).send();
+        }
     } else {
         res.status(400).send("JSON has the following errors: " + result.errors.join(", ") + " at path " + result.path);
     }
 });
 
-app.use(express.static(__dirname)); //where your static content is located in your filesystem);
+app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
 app.listen(3000); //the port you want to use
 
-function checkItems(items) {
-    if (items instanceof Array) {
-        if (items.length > 10) {
-            return false;
-        }
-        for (var index in items) {
-            if (!checkItem(items[index])) {
-                return false;
+
+var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex"];
+
+function sanitize(body) {
+    var items = [];
+    for (var i in body) {
+        var item = {};
+        item.name = escapeHtml(body[i].name);
+        for (var j in safeValues) {
+            if (body[i][safeValues[j]]) {
+                item[safeValues[j]] = body[i][safeValues[j]];
             }
-            return true;
         }
+        if (body[i].special) {
+            item.special = [];
+            for (var k = 0; k < body[i].special.length; k++) {
+                item.special.push(escapeHtml(body[i].special[k]));
+            }
+        }
+        if (body[i].tmrUnit) {
+            item.tmrUnit = escapeHtml(body[i].tmrUnit);
+        }
+        if (body[i].exclusiveUnits) {
+            item.exclusiveUnits = [];
+            for (var k = 0; k < body[i].exclusiveUnits.length; k++) {
+                item.exclusiveUnits.push(escapeHtml(body[i].exclusiveUnits[k]));
+            }
+        }
+        if (body[i].condition) {
+            item.condition = escapeHtml(body[i].condition);
+        }
+        if (body[i].access) {
+            item.access = [];
+            for (var k = 0; k < body[i].access.length; k++) {
+                item.access.push(escapeHtml(body[i].access[k]));
+            }
+        }
+        items.push(item);
     }
-    return false;
+    return items;
 }
 
 var schemaPercent = { 
     "type": "object",
     "properties": {
-        "name"  : {"type": "string", "required": true, "maxLength": 50 },
+        "name"  : {"type": "string", "required": true, "enum": ['fire','ice','lightning','water','earth','wind','light','dark','poison','blind','sleep','silence','paralysis','confuse','disease','petrification','aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit']},
         "percent"  : {"type": "number", "required": true}
     }
 };
@@ -56,7 +87,7 @@ var schema = {
         "type": "object",
         "properties": {
             "name"  : {"type": "string", "required": true, "maxLength": 50 },
-            "type"  : {"type": "string", "required": true, "maxLength": 50 },
+            "type"  : {"type": "string", "required": true, "enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"] },
             "hp"    : {"type": "number"},
             "hp%"   : {"type": "number"},
             "mp"    : {"type": "number"},
@@ -108,4 +139,20 @@ var schema = {
             }
         }
     }
+}
+
+var entityMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  '/': '&#x2F;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
+function escapeHtml (string) {
+  return String(string).replace(/[&<>"`=\/]/g, function (s) {
+    return entityMap[s];
+  });
 }
