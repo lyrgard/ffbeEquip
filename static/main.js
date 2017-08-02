@@ -347,7 +347,41 @@ var sort = function(items) {
     });
 };
 
-
+// Construct HTML of the results. String concatenation was chosen for rendering speed.
+var displayItems = function(items) {
+    var html = "";
+    $(items).each(function (index, item){
+        html += '<div class="tr';
+        if (item.temp) {
+            html += ' userInputed';
+        }
+        html += '">';
+        html += displayItemLine(item);
+        html += "</div>";
+    });
+    $("#results .tbody").html(html);
+    $("#resultNumber").html(items.length);
+    $(baseStats).each(function(index, currentStat) {
+        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
+            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
+        }
+    });
+    $(elementList).each(function(index, resist) {
+        if (elements.length != 0 && !elements.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(ailmentList).each(function(index, resist) {
+        if (ailments.length != 0 && !ailments.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(killerList).each(function(index, killer) {
+        if (killers.length != 0 && !killers.includes(killer)) {
+            $("#results .tbody .special .killer-" + killer).addClass("notSelected");
+        }
+    });
+};
 
 // Displays selected unit's rarity by stars
 var displayUnitRarity = function(unit) {

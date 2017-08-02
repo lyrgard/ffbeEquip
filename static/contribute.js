@@ -13,11 +13,40 @@ function addNewItem() {
 }
 
 function saveCurrentItem() {
-    newItems.push(currentItem);
-    $(".newItems").removeClass("hidden");
-    displayItems(newItems);
+    if (currentItem.name && currentItem.type && currentItem.access) {
+        newItems.push(currentItem);
+        displayNewItems();
+        $(".currentItem").addClass("hidden");
+        currentItem = null;
+    } else {
+        alert("Item name, type and access are mandatory!");
+    }
+}
+
+function displayNewItems() {
+    if (newItems.length > 0) {
+        var html = "";
+        $(newItems).each(function (index, item){
+            html += '<div class="tr">';
+            html += displayItemLine(item);
+            html += '<div class="td"><span class="glyphicon glyphicon-trash iconBtn" onclick="deleteNewItem(' + index + ')"/></div>';
+            html += "</div>";
+        });
+        $("#results .tbody").html(html);
+        $(".newItems").removeClass("hidden");
+    } else {
+        $(".newItems").addClass("hidden");
+    }
+}
+
+function cancel() {
     $(".currentItem").addClass("hidden");
     currentItem = null;
+}
+
+function deleteNewItem(index) {
+    newItems.splice(index, 1);
+    displayNewItems();
 }
 
 function sendToServer() {
@@ -27,11 +56,12 @@ function sendToServer() {
         data: JSON.stringify(newItems),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function(data){
-            
+        statusCode: {
+            201: function(data){alert("Data successfuly saved");},
+            400: function(jqXHR, textStatus, errorThrown) {alert("An error occured");}
         },
         failure: function(errMsg) {
-            alert(errMsg);
+            alert("An error occured");
         }
     });
     $(".newItems").addClass("hidden");

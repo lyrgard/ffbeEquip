@@ -43,12 +43,21 @@
                 <div>
                     <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
                 </div>
+                <div>
+                    <h3>How to use this :</h3>
+                    <ol>
+                        <li>Click on "<b>Add new item</b>" to open the item form</li>
+                        <li>When filled, click "<b>Add to list</b>" to add it to the list of items you want to send</li>
+                        <li>When you have entered all the items you want, click on "<b>Send it to FFBE Equip</b>"</li>
+                    </ol>
+                    <h4>Reload FFBE Equip and select "Show user-inputed results" on top of the results to include the items you and others users added</h4>
+                </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default currentItem hidden">
                     <div class="panel-heading">
-                        <button class="btn btn-primary" onclick="saveCurrentItem()">Save it</button>
-                        <button class="btn btn-danger">Cancel</button>
+                        <button class="btn btn-primary" onclick="saveCurrentItem()">Add to list</button>
+                        <button class="btn btn-danger" onclick="cancel()">Cancel</button>
 					</div>
                     <div class="panel-body">
                         <div class="table items">

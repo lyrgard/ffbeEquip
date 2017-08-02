@@ -2,6 +2,10 @@
     float: right;
 }
 
+.userInputedResultsChoice label {
+    font-weight: normal;
+}
+
 @media (max-width: 991px) {
     body, span, a, table, label, input, select, img, div {font-size: 40px!important; }
     #results .name a {font-size: 44px!important; }
