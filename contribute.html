@@ -52,6 +52,14 @@
 					</div>
                     <div class="panel-body">
                         <div class="table items">
+                            <div class="thead">
+                                <div class="tr">
+                                    <div class="td type">&nbsp;</div>
+                                    <div class="td name">Name</div>
+                                    <div class="td special">Special <span class="glyphicon glyphicon-trash iconBtn" onclick="deleteSpecial()"></span></div>
+                                    <div class="td access">Access <span class="glyphicon glyphicon-trash iconBtn" onclick="deleteAccess()"></span></div>
+                                </div>
+                            </div>
                             <div class="tbody">
                                 <div class="tr">
                                     <div class="td type">
@@ -167,7 +175,7 @@
                         <button class="btn btn-primary">Send it to FFBE Equip</button>
 					</div>
                     <div class="panel-body" style="padding:0;">
-                        <div id="results" class="table notSorted">
+                        <div id="results" class="items table notSorted">
                             <div class="thead">
                                 <div class="tr">
                                     <div class="td type">&nbsp;</div>
