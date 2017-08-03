@@ -169,7 +169,7 @@ function displayItemLine(item) {
         html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
     }
     if (item.exclusiveUnits) {
-        getExclusiveUnitsHtml(item)
+        html += getExclusiveUnitsHtml(item);
     }
     if (item.exclusiveSex) {
         html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
