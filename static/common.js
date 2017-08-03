@@ -115,7 +115,11 @@ function displayItemLine(item) {
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
-    html += "<div class='detail'>" + getStatDetail(item) + "</div></div>";
+    html += "<div class='detail'>" + getStatDetail(item) + "</div>"
+    if (item.userPseudo) {
+        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
+    }
+    html += "</div>";
 
     // value
     html += '<div class="td value sort">' + item.calculatedValue;

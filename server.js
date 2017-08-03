@@ -67,6 +67,7 @@ function sanitize(body) {
                 item.access.push(escapeHtml(body[i].access[k]));
             }
         }
+        item.userPseudo = escapeHtml(body[i].userPseudo);
         items.push(item);
     }
     return items;
@@ -136,7 +137,8 @@ var schema = {
                 "minItems": 1, 
                 "required": true,
                 "items": {"type": "string","maxLength": 50}
-            }
+            },
+            "userPseudo": {"type": "string", "required": true,"maxLength": 200}
         }
     }
 }
