@@ -13,13 +13,14 @@ function addNewItem() {
 }
 
 function saveCurrentItem() {
-    if (currentItem.name && currentItem.type && currentItem.access) {
+    currentItem.userPseudo = $("#pseudo").val();
+    if (currentItem.name && currentItem.type && currentItem.access && currentItem.userPseudo && currentItem.userPseudo.length > 0) {
         newItems.push(currentItem);
         displayNewItems();
         $(".currentItem").addClass("hidden");
         currentItem = null;
     } else {
-        alert("Item name, type and access are mandatory!");
+        alert("Your pseudonyme as well as item's name, type and access are mandatory!");
     }
 }
 
