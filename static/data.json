@@ -65,7 +65,7 @@
 	{"name":"Excalipoor","type":"greatSword","atk":1,"outclassedBy":"Golden Blade","access":["event"]},
 	{"name":"Great Sword","type":"greatSword","atk":27,"outclassedBy":"Golden Blade","access":["shop","recipe-quest"]},
     {"name":"Defender (FFT)","type":"greatSword","atk":65,"evade":5,"access":["event"]},
-    
+    {"name":"Organyx","type":"greatSword","atk":74,"element":"dark","access":["event"]},
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"],"tmrUnit":"Miyuki"},
@@ -301,6 +301,7 @@
     {"name":"Moogle Crown","type":"hat","def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"access":["event"]},
     {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusiveUnits":["Moogle"],"access":["event"]},
     {"name":"Sage's Hat","type":"hat","def":12,"mag":7,"spr":7,"access":["chest"]},
+    {"name":"Trick Hat","type":"hat","mp%":15,"mag%":35,"spr%":35,"tmrUnit":"Timothy","access":["TMR-3*"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Grand Helm","type":"helm","def":45,"def%":20,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"condition":"If equiped with heavy armor","access":["trial"]},
@@ -312,6 +313,7 @@
     {"name":"Dragon Helm","type":"helm","def":24,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}],"access":["quest"]},
     {"name":"Rider's Helm","type":"helm","atk":28,"def":60,"resist":[{"name":"petrification","percent":100},{"name":"disease","percent":100}],"access":["TMR-5*"],"tmrUnit":"Fohlen"},
     {"name":"Judge Helm","type":"helm","def":35,"spr":20,"resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15}],"access":["TMR-5*"],"tmrUnit":"Zargabaath"},
+    {"name":"Protective Helm","type":"helm","def":15,"spr":20,"special":["[Auto-Shell]"],"access":["event"]},
 
     {"name":"Brave Suit","type":"clothes","atk%":15,"def":51,"mag%":15,"access":["TMR-5*"],"tmrUnit":"Ramza"},
     {"name":"Minerva Bustier","type":"clothes","def":47,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"wind","percent":30}],"exclusiveSex":"female","access":["TMR-3*"],"tmrUnit":"Celes"},
@@ -361,6 +363,7 @@
     {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"access":["trial"]},
     {"name":"Fina's Clothes","type":"robe","hp%":10,"def":35,"spr":25,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}],"exclusiveUnits":["Fina"],"access":["trial"]},
     {"name":"Chain Robe","type":"robe","mp%":15,"def":55,"spr":30,"access":["TMR-4*"],"tmrUnit":"Meliadoul"},
+    {"name":"Dark Robe","type":"robe","def":35,"mag":55,"spr":20,"resist":[{"name":"dark","percent":30}],"tmrUnit":"Victoria","access":["TMR-4*"]},
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"],"tmrUnit":"Yun"},
     {"name":"Crimson Slayer","type":"lightArmor","atk%":30,"def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"condition":"If equiped with a fist","access":["TMR-5*-event"],"tmrUnit":"Yun"},
@@ -392,6 +395,7 @@
     {"name":"Paladin Armor","type":"heavyArmor","def":32,"spr":10,"access":["shop","quest","recipe-key"]},
     {"name":"Dragon Mail","type":"heavyArmor","def":45,"spr":15,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
     {"name":"Grand Armor","type":"heavyArmor","hp%":15,"def":72,"spr":28,"access":["TMR-5*"],"tmrUnit":"Knight Delita"},
+    {"name":"Protective Armor","type":"heavyArmor","def":42,"spr":38,"access":["event"]},
 
     {"name":"Scion Conjurer's Pattens","type":"accessory","hp%":5,"mp%":5,"def":5,"spr":10,"exclusiveUnits":["Y'shtola"],"access":["recipe-event"]},
     {"name":"Evening Glove","type":"accessory","def":3,"mag%":15,"spr%":10,"exclusiveUnits":["Dangerous Ariana"],"access":["recipe-event"]},
@@ -805,6 +809,14 @@
     {"name":"March","type":"materia","mp%":10,"atk%":5,"mag%":5,"access":["event"]},
     {"name":"Vigilance","type":"materia","mp%":10,"def%":5,"spr%":5,"access":["event"]},
     {"name":"Regenerator","type":"materia","special":["Chance to counter physical attacks (20%) with heal (200 HP, 4x) split over 3 turns to caster"],"access":["event"]},
-    {"name":"Reactive Defense","type":"materia","special":["Chance to counter physical attacks (20%) with decrease damage taken (20%) for 2 turns to caster"],"access":["event"]}
+    {"name":"Reactive Defense","type":"materia","special":["Chance to counter physical attacks (20%) with decrease damage taken (20%) for 2 turns to caster"],"access":["event"]},{"name":"Sworn Six's Pride - Dark","type":"materia","atk%":60,"special":["notStackable"],"tmrUnit":"Veritas of the Dark","condition":"if equiped with a great sword and a heavy armor ","access":["TMR-5*"]},
+	{"name":"Sworn Six's Pride - Dark","type":"materia","atk%":30,"special":["notStackable"],"tmrUnit":"Veritas of the Dark","condition":"if equiped with a great sword or a heavy armor, but not both","access":["TMR-5*"]},
+	{"name":"Sworn Six's Pride - Fire","type":"materia","atk%":60,"special":["notStackable"],"tmrUnit":"Veritas of the Fire","condition":"if equiped with an axe and a heavy armor","access":["TMR-5*"]},
+	{"name":"Sworn Six's Pride - Fire","type":"materia","atk%":30,"special":["notStackable"],"tmrUnit":"Veritas of the Fire","condition":"if equiped with an axe or a heavy armor, but not both","access":["TMR-5*"]},
+	{"name":"Sworn Six's Pride - Earth","type":"materia","atk%":40,"def%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","condition":"if equiped with a heavy armor and a heavy shield","access":["TMR-4*"]},
+	{"name":"Sworn Six's Pride - Earth","type":"materia","atk%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","condition":"if equiped with a heavy armor","access":["TMR-4*"]},
+	{"name":"Sworn Six's Pride - Earth","type":"materia","def%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","condition":"if equiped with a heavy shield","access":["TMR-4*"]},
+	{"name":"Increase wind resistance (15%)","type":"materia","resist":[{"name":"wind","percent":15}],"access":["event"]},
+	{"name":"False Saint","type":"materia","mp%":10,"mag%":20,"access":["event"]}
     
 ]
