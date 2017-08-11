@@ -40,9 +40,9 @@ app.get('/googleOAuthUrl', function(req, res) {
 app.get('/googleOAuthSuccess', function(req, res) {
     var googleOAuthAccessToken = req.query.code;
     var oauth2Client = new OAuth2(
-        googleOAuthCredential.installed.client_id,
-        googleOAuthCredential.installed.client_secret,
-        googleOAuthCredential.installed.redirect_uris[0]
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
     );
     oauth2Client.getToken(googleOAuthAccessToken, function(err, tokens) {
         // Now tokens contains an access_token and an optional refresh_token. Save them.
@@ -70,9 +70,9 @@ app.put("/itemInventory", function(req, res) {
     console.log(data);
     
     var oauth2Client = new OAuth2(
-        googleOAuthCredential.installed.client_id,
-        googleOAuthCredential.installed.client_secret,
-        googleOAuthCredential.installed.redirect_uris[0]
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
     );
     oauth2Client.setCredentials(googleOAuthAccessToken);
     let driveConfigClient = new driveConfig(oauth2Client);
@@ -110,9 +110,9 @@ app.get("/itemInventory", function(req, res) {
     }
 
     var oauth2Client = new OAuth2(
-        googleOAuthCredential.installed.client_id,
-        googleOAuthCredential.installed.client_secret,
-        googleOAuthCredential.installed.redirect_uris[0]
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
     );
     oauth2Client.setCredentials(googleOAuthAccessToken);
     let driveConfigClient = new driveConfig(oauth2Client);
@@ -154,9 +154,9 @@ fs.readFile('googleOAuth/client_secret.json', function processClientSecrets(err,
 
 function getOAuthUrl() {
     var oauth2Client = new OAuth2(
-        googleOAuthCredential.installed.client_id,
-        googleOAuthCredential.installed.client_secret,
-        googleOAuthCredential.installed.redirect_uris[0]
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
     );
     return oauth2Client.generateAuthUrl({
         access_type: 'offline',
