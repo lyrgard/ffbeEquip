@@ -1,14 +1,18 @@
+'use strict';
 var express = require('express');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var fs = require('fs');
 var jv = require('json-validation');
+var google = require('googleapis');
 var app = express();
+let driveConfig = require('drive-config');
 
-
+app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.post('/items/temp', function(req, res) {
-    var result = (new jv.JSONValidation()).validate(req.body, schema);
+    var result = (new jv.JSONValidation()).validate(req.body, schemaData);
     if (result.ok) {
         var items = sanitize(req.body);
         var tempItems = [];
@@ -27,8 +31,140 @@ app.post('/items/temp', function(req, res) {
     }
 });
 
+app.get('/googleOAuthUrl', function(req, res) {
+    var url = getOAuthUrl();
+    console.log(url);
+    res.status(200).json({"url": url});
+});
+
+app.get('/googleOAuthSuccess', function(req, res) {
+    var googleOAuthAccessToken = req.query.code;
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.installed.client_id,
+        googleOAuthCredential.installed.client_secret,
+        googleOAuthCredential.installed.redirect_uris[0]
+    );
+    oauth2Client.getToken(googleOAuthAccessToken, function(err, tokens) {
+        // Now tokens contains an access_token and an optional refresh_token. Save them.
+        if(!err) {
+            res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
+            res.status(303).location('http://localhost:3000').send();
+        } else {
+            console.log(err);
+            res.status(500).send(err);
+        }
+    }); 
+});
+
+app.put("/itemInventory", function(req, res) {
+    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+    if (!googleOAuthAccessToken) {
+        res.status(401).send();
+        return;
+    } else {
+        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
+    }
+    var data = req.body;
+
+    console.log("Saving inventory : ");
+    console.log(data);
+    
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.installed.client_id,
+        googleOAuthCredential.installed.client_secret,
+        googleOAuthCredential.installed.redirect_uris[0]
+    );
+    oauth2Client.setCredentials(googleOAuthAccessToken);
+    let driveConfigClient = new driveConfig(oauth2Client);
+    driveConfigClient.getByName("itemInventory.json").then(files => {
+        if (files.length > 0) {
+            driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
+                console.log(file);
+                res.status(200).json(file);
+            }).catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+            });
+        } else {
+            driveConfigClient.create("itemInventory.json", JSON.stringify(data)).then(file => {
+                console.log(file);
+                res.send();
+            }).catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+            });
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500);
+    });   
+});
+
+app.get("/itemInventory", function(req, res) {
+    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+    if (!googleOAuthAccessToken) {
+        res.status(401).send();
+        return;
+    } else {
+        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
+    }
+
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.installed.client_id,
+        googleOAuthCredential.installed.client_secret,
+        googleOAuthCredential.installed.redirect_uris[0]
+    );
+    oauth2Client.setCredentials(googleOAuthAccessToken);
+    let driveConfigClient = new driveConfig(oauth2Client);
+    driveConfigClient.getByName("itemInventory.json").then(files => {
+        if (files.length > 0) {
+            console.log(files);
+            res.status(200).json(files[0].data);
+        } else {
+            res.status(200).json([]);
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+    });
+});
+
 app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
 app.listen(3000); //the port you want to use
+
+var OAuth2 = google.auth.OAuth2;
+var googleOAuthCredential;
+
+var scopes = [
+    'https://www.googleapis.com/auth/drive.appfolder'
+];
+var fileMetadata = {
+  'name': 'itemInventory.json',
+  'parents': [ 'appDataFolder']
+};
+
+fs.readFile('googleOAuth/client_secret.json', function processClientSecrets(err, content) {
+    if (err) {
+        console.log('Error loading client secret file: ' + err);
+        return;
+    }
+    
+    googleOAuthCredential = JSON.parse(content);
+});
+
+function getOAuthUrl() {
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.installed.client_id,
+        googleOAuthCredential.installed.client_secret,
+        googleOAuthCredential.installed.redirect_uris[0]
+    );
+    return oauth2Client.generateAuthUrl({
+        access_type: 'offline',
+        scope: scopes,
+        // Optional property that passes state parameters to redirect URI
+        // state: { foo: 'bar' }
+    });
+}
 
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex"];
@@ -81,7 +217,7 @@ var schemaPercent = {
     }
 };
 
-var schema = {
+var schemaData = {
     "type": "array",
     "maxItems": 20,
     "items": { 

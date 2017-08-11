@@ -149,6 +149,24 @@
                 
             </div>
             <div  class="col-xs-12 col-md-6">
+                <div id="inventoryDiv" class="panel panel-default collapse in">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <span>Inventory : </span>
+                                <span class="status"></span>
+                                <div class="loader"></div>
+                            </div>
+                            <div class="col-xs-4 text-right buttons">
+                                <button id="loadInventory" class="hidden" onclick="loadInventory()">Load Inventory</button>
+                                <button id="saveInventory" class="hidden" onclick="saveInventory()">Save</button>
+                                <div class="loader hidden"></div>
+                                <span class="message hidden"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div id="resultsDiv" class="panel panel-default collapse in">
                     <div class="panel-heading">
                         Results : <span id="resultNumber"></span>
@@ -165,6 +183,7 @@
                                     <div id="statTitle" class="td value sort">Value</div>
                                     <div class="td special">Special</div>
 									<div class="td access">Access</div>
+                                    <div class="td inventory"></div>
                                 </div>
                             </div>
                             <div class="tbody">

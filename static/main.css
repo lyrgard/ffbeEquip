@@ -6,6 +6,24 @@
     font-weight: normal;
 }
 
+.inventory .number {
+    color : white;
+    margin-top: 1px;
+    background-color: green;
+}
+.inventory .glyphicon {
+    cursor: pointer;
+    color: lightgray;
+    font-size: 0.8em;
+}
+.inventory span {
+    display: block;
+    text-align: center;
+}
+.inventory.notPossessed .number, .inventory.notPossessed .glyphicon-minus {
+    display: none;
+}
+
 @media (max-width: 991px) {
     body, span, a, table, label, input, select, img, div {font-size: 40px!important; }
     #results .name a {font-size: 44px!important; }
