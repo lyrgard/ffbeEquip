@@ -363,13 +363,13 @@ var displayItems = function(items) {
                 html+= "notPossessed";
             }
             html += '">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + item.name + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + escapeQuote(item.name) + '\',this)" />';
             html += '<span class="number badge badge-success">';
             if (itemInventory[item.name]) {
                 html += itemInventory[item.name];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + item.name + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + escapeQuote(item.name) + '\',this)" />';
             
             html += '</div>';
         }
@@ -671,7 +671,13 @@ function addImageChoiceTo(target, name, value) {
 }
 
 function escapeName (string) {
-  return String(string).replace(/[&' \(\)]/g, function (s) {
-    return "_";
-  });
+    return String(string).replace(/[&' \(\)]/g, function (s) {
+        return "_";
+    });
+}
+
+function escapeQuote(string) {
+    return String(string).replace(/[']/g, function (s) {
+        return "\\'";
+    });
 }
