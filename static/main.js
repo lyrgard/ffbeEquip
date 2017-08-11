@@ -3,7 +3,7 @@ var defaultFilter = {};
 var verifiedData;
 var tempData;
 var showTempData = false;
-
+var itemInventory = {};
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -357,6 +357,22 @@ var displayItems = function(items) {
         }
         html += '">';
         html += displayItemLine(item);
+        if (itemInventory) {
+            html+= '<div class="td inventory ' + escapeName(item.name) + ' ' ;
+            if (!itemInventory[item.name]) {
+                html+= "notPossessed";
+            }
+            html += '">';
+            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + item.name + '\',this)" />';
+            html += '<span class="number badge badge-success">';
+            if (itemInventory[item.name]) {
+                html += itemInventory[item.name];
+            }
+            html += '</span>';
+            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + item.name + '\',this)" />';
+            
+            html += '</div>';
+        }
         html += "</div>";
     });
     $("#results .tbody").html(html);
@@ -381,6 +397,11 @@ var displayItems = function(items) {
             $("#results .tbody .special .killer-" + killer).addClass("notSelected");
         }
     });
+    if (itemInventory) {
+        $("#results .thead .inventory").removeClass("hidden");
+    } else {
+        $("#results .thead .inventory").addClass("hidden");
+    }
 };
 
 // Displays selected unit's rarity by stars
@@ -399,6 +420,35 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.hide();
     }
 };
+
+function addToInventory(name, span) {
+    var inventoryDiv = $(".inventory." + escapeName(name));
+    if(itemInventory[name]) {
+        itemInventory[name] = itemInventory[name] + 1;
+        inventoryDiv.children(".number").text(itemInventory[name]);
+    } else {
+        itemInventory[name] = 1;
+        inventoryDiv.removeClass('notPossessed');
+        inventoryDiv.children(".number").text(itemInventory[name]);
+        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+    }
+    $("#saveInventory").removeClass("hidden");
+}
+
+function removeFromInventory(name, span) {
+    if(itemInventory[name]) {
+        var inventoryDiv = $(".inventory." + escapeName(name));
+        if (itemInventory[name] == 1 ) {
+            delete itemInventory[name];
+            inventoryDiv.addClass('notPossessed');
+            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        } else {
+            itemInventory[name] = itemInventory[name] - 1;
+            inventoryDiv.children(".number").text(itemInventory[name]);
+        }
+        $("#saveInventory").removeClass("hidden");
+    }
+}
 
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
 function unselectAll(type, runUpdate = true) {
@@ -495,6 +545,39 @@ function populateUnitSelect() {
     });
 }
 
+function loadInventory() {
+    $.get('googleOAuthUrl', function(result) {
+        window.location.href = result.url;
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
+}
+
+function saveInventory() {
+    $("#saveInventory").addClass("hidden");
+    $("#inventoryDiv .buttons .loader").removeClass("hidden");
+    $.ajax({
+        url: 'itemInventory',
+        method: 'PUT',
+        data: JSON.stringify(itemInventory),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function() {
+            $("#inventoryDiv .buttons .loader").addClass("hidden");
+            $("#inventoryDiv .buttons .message").text("save OK");
+            $("#inventoryDiv .buttons .message").removeClass("hidden");
+            setTimeout( function(){ 
+                $("#inventoryDiv .buttons .message").addClass("hidden");
+            }  , 3000 );
+        },
+        error: function() {
+            $("#inventoryDiv .buttons .loader").addClass("hidden");
+            $("#saveInventory").removeClass("hidden");
+            alert('error while saving the inventory');
+        }
+    });
+}
+
 // will be called by jQuery at page load)
 $(function() {
     // Triggers on unit base stats change
@@ -526,6 +609,17 @@ $(function() {
         });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
+    });
+    
+    $.get('itemInventory', function(result) {
+        itemInventory = result;
+        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        $("#inventoryDiv .loader").addClass("hidden");
+        update();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        $("#loadInventory").removeClass("hidden");
+        $("#inventoryDiv .status").text("not loaded");
+        $("#inventoryDiv .loader").addClass("hidden");
     });
 	
 	// Populates the various filters
@@ -576,3 +670,8 @@ function addImageChoiceTo(target, name, value) {
 	target.append('<label class="btn btn-default"><input type="checkbox" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+value+'.png"/></label>');
 }
 
+function escapeName (string) {
+  return String(string).replace(/[&' \(\)]/g, function (s) {
+    return "_";
+  });
+}
