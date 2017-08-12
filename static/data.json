@@ -526,7 +526,7 @@
     {"name":"Mystical Skull","type":"accessory","def":3,"spr":3,"special":["+50% LB Fill Rate","+5% MP Recovery Per Turn"],"access":["TMR-4*"],"tmrUnit":"Helena"},
     {"name":"Magick Gloves","type":"accessory","hp%":5,"mp%":5,"mag":10,"access":["quest"]},
     {"name":"Japa Mala","type":"accessory","hp%":20,"mp%":20,"atk%":20,"def":3,"mag%":20,"access":["TMR-5*"],"tmrUnit":"Mercenary Ramza"},
-    {"name":"Pod 153","type":"accessory","def":8,"spr":8,"special":["[A120: Repair]","[A170: Scanner]","[A060: P Shield]","[R020: Mirage]"],"access":["TMR-4*-event"],"tmrUnit":"9S"},
+    {"name":"Pod 153","type":"accessory","def":8,"spr":8,"special":["[A120: Repair] : Heal (3000 HP, 9x) split over 3 turns to all allies","[A170: Scanner] : Boosts the rate of items dropped by enemies","[A060: P Shield] : Physical damage mitigation (40%) for 2 turns to all allies","[R020: Mirage] : Physical damage (3x) to all enemies"],"access":["TMR-4*-event"],"tmrUnit":"9S"},
 
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
@@ -826,7 +826,7 @@
     {"name":"Sworn Six's Pride - Earth","type":"materia","atk%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","condition":"if equiped with a heavy armor","access":["TMR-4*"]},
     {"name":"Sworn Six's Pride - Earth","type":"materia","def%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","condition":"if equiped with a heavy shield","access":["TMR-4*"]},
     {"name":"Increase wind resistance (15%)","type":"materia","resist":[{"name":"wind","percent":15}],"access":["event"]},
-    {"name":"False Saint","type":"materia","mp%":10,"mag%":20,"access":["event"]}
+    {"name":"False Saint","type":"materia","mp%":10,"mag%":20,"access":["event"]},
     {"name":"Mechanical Heart","type":"materia","hp%":15,"spr%":15,"special":["Chance to counter physical & magical attacks (30%) with heal (800 HP, 1x to caster)","notStackable"],"access":["TMR-3*-event"],"tmrUnit":"21O"},
     {"name":"Resentment","type":"materia","hp%":30,"special":["Increase DEF (110%) for 3 turns when HP drops below 30%"],"access":["TMR-4*-event"],"tmrUnit":"Eve"},
     {"name":"Vengeful Wrath","type":"materia","hp%":20,"special":["Increase ATK (110%) for 3 turns when HP drops below 30%"],"access":["TMR-4*-event"],"tmrUnit":"Adam"}
