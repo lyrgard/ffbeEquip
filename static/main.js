@@ -547,7 +547,21 @@ function populateUnitSelect() {
 
 function loadInventory() {
     $.get('googleOAuthUrl', function(result) {
-        window.location.href = result.url;
+        $('<div id="dialog" title="Authentication">' + 
+            '<h4>You\'ll be redirected to a google authentication page</h4><p>This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</p>' +
+          '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+            },
+            position: { my: 'top', at: 'top+150' },
+            buttons: {
+                Ok: function() {
+                    window.location.href = result.url;
+                }
+            }
+        });
+        
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
