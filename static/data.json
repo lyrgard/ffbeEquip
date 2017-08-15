@@ -69,6 +69,7 @@
     {"name":"Organyx","type":"greatSword","atk":74,"element":"dark","access":["event"]},
     {"name":"Iron Will","type":"greatSword","atk":40,"def%":15,"access":["recipe-event"]},
     {"name":"Beastlord","type":"greatSword","atk":125,"def%":20,"special":["[Beast Roar]"],"access":["TMR-5*-event"],"tmrUnit":"A2"},
+    {"name":"Force Stealer","type":"greatSword","atk":58,"access":["quest"]},
 
     {"name":"Genji Blade","type":"katana","atk":107,"access":["trial"]},
     {"name":"Sakurafubuki","type":"katana","atk":98,"access":["TMR-3*"],"tmrUnit":"Miyuki"},
@@ -122,6 +123,7 @@
     {"name":"Golden Eye","type":"rod","hp%":10,"mp%":10,"atk":11,"mag":88,"exclusiveUnits":["Papalymo"],"access":["recipe-event"]},
     {"name":"Recovery Rod","type":"rod","atk":18,"mag":51,"spr":18,"special":["[Cura]"],"access":["key"]},
     {"name":"Holy Rod","type":"rod","mp%":15,"atk":10,"mag":53,"element":"light","access":["event"]},
+    {"name":"Platinum Rod","type":"rod","atk":14,"mag":40,"access":["chest"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":40,"killers":[{"name":"bird","percent":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"Rosa"},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"White Witch Fina"},
@@ -309,6 +311,7 @@
     {"name":"Moogle Crown","type":"hat","hp%":10,"mp%":10,"def%":10,"def":15,"spr":15,"resist":[{"name":"petrification","percent":100}],"exclusiveUnits":["Moogle"],"access":["event"]},
     {"name":"Sage's Hat","type":"hat","def":12,"mag":7,"spr":7,"access":["chest"]},
     {"name":"Trick Hat","type":"hat","mp%":15,"mag":35,"spr":35,"tmrUnit":"Timothy","access":["TMR-3*"]},
+    {"name":"Twist Headband","type":"hat","atk":7,"def":8,"access":["shop","quest"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Grand Helm","type":"helm","def":45,"def%":20,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"condition":"If equiped with heavy armor","access":["trial"]},
