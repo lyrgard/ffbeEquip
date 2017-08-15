@@ -3,7 +3,7 @@ var defaultFilter = {};
 var verifiedData;
 var tempData;
 var showTempData = false;
-var itemInventory = {};
+var itemInventory = null;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {

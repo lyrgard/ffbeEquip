@@ -8,6 +8,7 @@ var google = require('googleapis');
 var app = express();
 let driveConfig = require('drive-config');
 
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 
@@ -33,7 +34,6 @@ app.post('/items/temp', function(req, res) {
 
 app.get('/googleOAuthUrl', function(req, res) {
     var url = getOAuthUrl();
-    console.log(url);
     res.status(200).json({"url": url});
 });
 
@@ -48,7 +48,7 @@ app.get('/googleOAuthSuccess', function(req, res) {
         // Now tokens contains an access_token and an optional refresh_token. Save them.
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
-            res.status(303).location('http://ffbeEquip.lyrgard.fr').send();
+            res.status(303).location('http://localhost:3000').send();
         } else {
             console.log(err);
             res.status(500).send(err);
@@ -119,9 +119,15 @@ app.get("/itemInventory", function(req, res) {
     driveConfigClient.getByName("itemInventory.json").then(files => {
         if (files.length > 0) {
             console.log(files);
-            res.status(200).json(files[0].data);
+            if (files[0].data.constructor === Array) {
+                console.log("Old array inventory, transformed into object")
+                res.status(200).json({});
+            } else {
+                res.status(200).json(files[0].data);
+            }
         } else {
-            res.status(200).json([]);
+            console.log("new Inventory sent");
+            res.status(200).json({});
         }
     }).catch(err => {
         console.log(err);
