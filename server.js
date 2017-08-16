@@ -48,7 +48,7 @@ app.get('/googleOAuthSuccess', function(req, res) {
         // Now tokens contains an access_token and an optional refresh_token. Save them.
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
-            res.status(303).location('http://localhost:3000').send();
+            res.status(303).location('http://ffbeEquip.lyrgard.fr').send();
         } else {
             console.log(err);
             res.status(500).send(err);
