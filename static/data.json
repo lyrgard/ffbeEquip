@@ -182,7 +182,7 @@
     {"name":"Moogle Spear","type":"spear","atk":82,"special":["Increase LB gauge (1) per turn"],"access":["event"]},
     {"name":"Moogle Spear","type":"spear","hp%":10,"mp%":10,"atk%":10,"atk":82,"special":["Increase LB gauge (1) per turn"],"exclusiveUnits":["Moogle"],"access":["event"]},
     {"name":"Zodiac Spear","type":"spear","atk":130,"special":["twoHanded"],"access":["event"]},
-    {"name":"Dragoon Lance","type":"Spear","atk":55,"special":["Increase damage for jump attacks (10%)"],"access":["recipe-event"]},
+    {"name":"Dragoon Lance","type":"spear","atk":55,"special":["Increase damage for jump attacks (10%)"],"access":["recipe-event"]},
     {"name":"Wyvern Spear","type":"spear","atk":80,"killers":[{"name":"dragon","percent":50}],"access":["key"]},
     {"name":"Partisan","type":"spear","atk":31,"outclassedBy":"Mythril Spear","access":["shop","colosseum"]},
     {"name":"Javelin","type":"spear","atk":22,"outclassedBy":"Mythril Spear","access":["shop","colosseum"]},
@@ -272,6 +272,7 @@
     {"name":"Stellar Shield","type":"lightShield","mp":10,"def":28,"mag":15,"access":["event"]},
     {"name":"Leather Shield","type":"lightShield","def":10,"resist":[{"name":"lightning","percent":20},{"name":"water","percent":-20}],"access":["shop","recipe-chest","chest"]},
     {"name":"Army Shield","type":"lightShield","def":40,"spr":20,"resist":[{"name":"lightning","percent":20}],"access":["event"]},
+    {"name":"Buckler","type":"lightShield","def":16,"outclassedBy":"Mythril Buckler","access":["shop","chest","quest","recipe-shop"]},
 
     {"name":"Aegis Shield","type":"heavyShield","def":53,"spr":25,"resist":[{"name":"petrification","percent":100}],"access":["TMR-3*"],"tmrUnit":"Leo"},
     {"name":"Force Shield","type":"heavyShield","def":40,"spr":8,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["chocobo"]},
