@@ -1,0 +1,402 @@
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="main.css?version=3">
+        <title>FFBE Equip</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script>
+
+var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
+var handList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield"];
+var headList = ["hat", "helm"];
+var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
+
+var equipable = [
+    ["dagger","sword","greatSword","katana","axe","spear","heavyShield"],
+    ["heavyShield"],
+    ["helm"],
+    ["lightArmor","heavyArmor"],
+    ["accessory"],
+    ["accessory"],
+    ["materia"],
+    ["materia"],
+    ["materia"],
+    ["materia"],
+];
+
+var items = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+];
+
+var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"thunder":0,"earth":0,"light":0,"dark":-50};
+var ennemyTypes = ["beast"];
+var innateElements = [];
+
+var equiped = [null, null, null, null, null, null, null, null, null, null];
+
+var unitPassives = [{"atk%":20},{"atk%":50,"equipedConditions":["greatSword"]}];
+
+var unitName = "Veritas of the Dark";
+var unitSex = "male";
+var stats = {"hp":4100,"mp":233,"atk":180,"def":162,"mag":155,"spr":151};
+
+var data;
+var level = "";
+
+var bestValue = 0;
+var bestBuild;
+var progress = 0;
+
+var itemsByType = {};
+
+function sort() {
+    for (var dataIndex in data) {
+        if (!itemsByType[data[dataIndex].type]) {
+            itemsByType[data[dataIndex].type] = [];
+        }
+        itemsByType[data[dataIndex].type].push(data[dataIndex]);
+    }
+    for (var equipableIndex in equipable) {
+        for (var dataIndex in data) {
+            if (equipable[equipableIndex].includes(data[dataIndex].type)) {
+                items[equipableIndex].push(data[dataIndex]);
+            }
+        }
+        items[equipableIndex] = items[equipableIndex].sort(order);
+    }
+}
+
+function order(item1, item2) {
+    if (isSpecial(item1)) {
+        if (isSpecial(item2)) {
+            return 0;
+        } else {
+            return -1;
+        }
+    } else {
+        if (isSpecial(item2)) {
+            return 1;
+        } else {
+            return calculateStat([item2], 'atk', true) - calculateStat([item1], 'atk', true);    
+        }
+    }
+}
+
+var alreadyProcessed = {};
+
+function optimize() {
+    optimize2([]);
+    for (var dataIndex in data) {
+        var item = data[dataIndex];
+        if (item.dualWield && item.dualWield == "all") {
+            for (var equipableIndex in equipable) {
+                if (equipable[equipableIndex].includes(item.type)) {
+                    var oldBestValue = bestValue;
+                    var oldBestBuild = bestBuild;
+                    var oldItem = equiped[equipableIndex];
+                    var oldEquipableHand2 = equipable[1];
+                    bestValue = 0;
+                    equipable[1] = equipable[0];
+                    equiped[equipableIndex] = item;
+                    optimize2([equipableIndex]);
+                    equiped[equipableIndex] = oldItem;
+                    equipable[1] = oldEquipableHand2;
+                    if (bestValue < oldBestValue) {
+                        bestValue = oldBestValue;
+                        bestBuild = oldBestBuild;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+function optimize2(lockedEquipableIndex, recursive = true) {
+    var oldEquiped = equiped.slice();
+    for (var dataIndex in data) {
+        var item = data[dataIndex];
+        if (!isSpecial(item) && !item.equipedConditions) {
+            if (!isStackable(item)) {
+                for (var equipableIndex in equipable) {
+                    if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
+                        var oldItem = equiped[equipableIndex];
+                        equiped[equipableIndex] = item;
+                        var value = calculateStat(equiped, 'atk');
+                        if (value > bestValue) {
+                            bestValue = value;
+                            bestBuild = equiped.slice();
+                        }
+                        equiped[equipableIndex] = oldItem;
+                    }
+                }
+                equiped = bestBuild;
+            } else {
+                for (var equipableIndex in equipable) {
+                    if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
+                        var oldItem = equiped[equipableIndex];
+                        equiped[equipableIndex] = item;
+                        var value = calculateStat(equiped, 'atk');
+                        if (value > bestValue) {
+                            bestValue = value;
+                            bestBuild = equiped.slice();
+                        } else {
+                            equiped[equipableIndex] = oldItem;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+    equiped = bestBuild;
+    if (recursive) {
+        for (var dataIndex in data) {  
+            var item = data[dataIndex];
+            if (item.equipedConditions) {
+                if (!isStackable(item)) {
+                    var equipableIndex = findBestEquipableIndex(equiped, item, lockedEquipableIndex);
+                    
+                    if (equipableIndex) {
+                        var oldBestValue = bestValue;
+                        var oldBestBuild = bestBuild;
+                        var oldItem = equiped[equipableIndex];
+                        bestValue = 0;
+                        equiped[equipableIndex] = item;
+                        var newLock = lockedEquipableIndex.slice();
+                        newLock.push(equipableIndex)
+                        optimize2(newLock, false);
+                        equiped = bestBuild;
+                        if (bestValue < oldBestValue) {
+                            equiped[equipableIndex] = oldItem;
+                            bestValue = oldBestValue;
+                            bestBuild = oldBestBuild;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+    
+    equiped = oldEquiped;
+}
+
+function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
+    var bestEquipableIndex;
+    var bestValue = 0;
+    for (var equipableIndex in equipable) {
+        if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
+            var oldItem = equiped[equipableIndex]
+            equiped[equipableIndex] = null;
+            value = calculateStat(equiped, 'atk');
+            if (value > bestValue) {
+                bestEquipableIndex = equipableIndex;
+                bestValue = value;
+            }
+            equiped[equipableIndex] = oldItem;
+        }
+    }
+    return bestEquipableIndex;
+}
+
+var currentIndex = 0;
+
+
+function isApplicable(item, equiped, currentIndex) {
+    if (item.exclusiveSex && item.exclusiveSex != unitSex) {
+        return false;
+    }
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(unitName)) {
+        return false;
+    }
+    if (item.special && item.special.includes("notStackable")) {
+        for (var equipedIndex in equiped) {
+            if (equiped[equipedIndex] && equiped[equipedIndex].name == item.name) {
+                return false;
+            }
+        }
+    }
+    if (item.equipedConditions) {
+        var found = 0;
+        conditionLoop: for (var conditionIndex in item.equipedConditions) {
+            for (var index = 0; index < currentIndex; index++) {
+                if (equiped[index].type == item.equipedConditions[conditionIndex]) {
+                    found ++;
+                    continue conditionLoop;
+                }
+            }
+            for (var index = currentIndex; index < equipable.length; index++) {
+                if (equipable[index].includes(item.equipedConditions[conditionIndex])) {
+                    found ++;
+                    break;
+                }
+            }
+        }
+        if (found != item.equipedConditions.length) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isStackable(item) {
+    return !(item.special && item.special.includes("notStackable"));
+}
+
+function findAllowUseOf(type) {
+    for (var dataIndex in data) {
+        if(data[dataIndex].allowUseOf && data[dataIndex].allowUseOf == type) {
+            return data[dataIndex];
+        }
+    }
+    return null;   
+}
+
+function calculateStat(equiped, stat, ignoreCondition = false) {
+    var calculatedValue = 0;
+    if (stat = 'atk') {
+        var calculatedValue = stats[stat];
+        var itemAndPassives = equiped.concat(unitPassives);
+        var cumulatedKiller = 0;
+        for (var equipedIndex in itemAndPassives) {
+            if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+                if (itemAndPassives[equipedIndex][stat]) {
+                    calculatedValue += itemAndPassives[equipedIndex][stat];
+                }
+                if (itemAndPassives[equipedIndex][stat + '%']) {
+                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * stats[stat] / 100;
+                }
+                if (ennemyTypes.length > 0 && itemAndPassives[equipedIndex].killers) {
+                    for (var killerIndex in itemAndPassives[equipedIndex].killers) {
+                        if (ennemyTypes.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
+                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].percent;
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Element weakness/resistance
+        var elements = innateElements.slice();
+        if (equiped[0] && equiped[0].element && !elements.includes(equiped[0].element)) {
+            elements.push(equiped[0].element);
+        };
+        if (equiped[1] && equiped[1].element && !elements.includes(equiped[1].element)) {
+            elements.push(equiped[1].element);
+        };
+        var resistModifier = 0;
+        
+        if (elements.length > 0) {
+            for (var element in ennemyResist) {
+                if (equiped[0] && equiped[0].element && equiped[0].element == element || equiped[1] && equiped[1].element && equiped[1].element == element) {
+                    resistModifier += ennemyResist[element];
+                }
+            }    
+            resistModifier = resistModifier / elements.length;
+        }
+        
+        // Killers
+        var killerMultiplicator = 1;
+        if (ennemyTypes.length > 0) {
+            killerMultiplicator += (cumulatedKiller / 100) / ennemyTypes.length;
+        }
+        
+        calculatedValue = calculatedValue * calculatedValue * (1 - resistModifier) * killerMultiplicator;
+    }
+    return calculatedValue;
+}
+
+function areConditionOK(item, equiped) {
+    if (item.equipedConditions) {
+        var found = 0;
+        for (var conditionIndex in item.equipedConditions) {
+            for (var equipedIndex in equiped) {
+                if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
+                    found ++;
+                    break;
+                }
+            }
+        }
+        if (found != item.equipedConditions.length) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isSpecial(item) {
+    return item.dualWield || item.allowUseOf;
+}
+
+function logBuild(build) {
+    var order = [0,1,2,3,4,5,6,7,8,9];
+    var text = "";
+    for (var index = 0; index < order.length; index++) {
+        if (build[order[index]]) {
+            text += build[order[index]].name 
+            if (build[order[index]]["atk%"]) { text += "(+" + build[order[index]]["atk%"] + "%)"}
+            if (build[order[index]]["atk"]) { text += "(+" + build[order[index]]["atk"] + ")"}
+            text +=", ";    
+        } else {
+            text += "empty, ";
+        }
+    }
+    console.log(text);
+}
+
+function logBuild(build) {
+    var order = [0,1,2,3,4,5,6,7,8,9];
+    html = "";
+    for (var index = 0; index < order.length; index++) {
+        html += build[order[index]].name + ", ";
+    }
+    $("#results").html(html);
+}
+
+            
+            $(function() {
+                $.get("data.json", function(result) {
+                    data = result;
+                    sort();
+                    optimize();
+                    logBuild(bestBuild);
+                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                    alert( errorThrown );
+                });
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="col-xs-12">
+                
+    
+                    <div class="panel panel-default stat">
+                        <div class="panel-heading">
+                            <span>Desired stat (filter and sort)</span>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
+                        </div>
+                        <div class="panel-body" id="results">
+                            
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+    </body>
+</html>
