@@ -160,6 +160,8 @@
     {"name":"Master's Hammer","type":"hammer","atk":108,"element":"earth","access":["TMR-3*"],"tmrUnit":"Ruggles"},
     {"name":"Wooden Hammer","type":"hammer","atk":24,"outclassedBy":"Blessed Hammer","access":["chest","recipe-chest","shop"]},
     {"name":"Iron Hammer","type":"hammer","atk":18,"outclassedBy":"Blessed Hammer","access":["recipe-chest","shop"]},
+    {"name":"Microphone Stand","type":"hammer","atk":16,"mag":72,"access":["event"]},
+	{"name":"Microphone Stand","type":"hammer","atk":16,"mag":72,"mag%":20,"exclusiveUnits":["Chic Ariana"],"access":["event"]},
 
     {"name":"Demon Scythe","type":"spear","atk":120,"element":"dark","access":["TMR-5*"],"tmrUnit":"Elza"},
     {"name":"Gungnir","type":"spear","atk":90,"access":["TMR-3*"],"tmrUnit":"Kain"},
@@ -355,6 +357,8 @@
     {"name":"Dark Fina's Swimsuit","type":"clothes","def":21,"mag":60,"resist":[{"name":"water","percent":50}],"special":["Recover MP (5%) per turn"],"exclusiveSex":"female","access":["TMR-5*"],"tmrUnit":"Seabreeze Dark Fina"},
     {"name":"Fina's Swimsuit","type":"clothes","def":18,"spr":50,"resist":[{"name":"water","percent":30}],"special":["[Auto-Regen]"],"exclusiveSex":"female","access":["TMR-4*"],"tmrUnit":"Beach Time Fina"},
     {"name":"Lid's Swimsuit","type":"clothes","def":15,"mag":30,"spr":30,"resist":[{"name":"water","percent":20}],"exclusiveSex":"female","access":["TMR-3*"],"tmrUnit":"Summer Lid"},
+    {"name":"Fashionable Dancewear","type":"clothes","def":28,"spr":28,"access":["event"]},
+	{"name":"Fashionable Dancewear","type":"clothes","hp%":20,"def":28,"spr":28,"exclusiveUnits":["Chic Ariana"],"access":["event"]},
     
 
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"],"tmrUnit":"Marie"},
@@ -532,6 +536,8 @@
     {"name":"Magick Gloves","type":"accessory","hp%":5,"mp%":5,"mag":10,"access":["quest"]},
     {"name":"Japa Mala","type":"accessory","hp%":20,"mp%":20,"atk%":20,"def":3,"mag%":20,"access":["TMR-5*"],"tmrUnit":"Mercenary Ramza"},
     {"name":"Pod 153","type":"accessory","def":8,"spr":8,"special":["[A120: Repair] : Heal (3000 HP, 9x) split over 3 turns to all allies","[A170: Scanner] : Boosts the rate of items dropped by enemies","[A060: P Shield] : Physical damage mitigation (40%) for 2 turns to all allies","[R020: Mirage] : Physical damage (3x) to all enemies"],"access":["TMR-4*-event"],"tmrUnit":"9S"},
+    {"name":"Magical Scrunchie","type":"accessory","def":5,"mag%":20,"spr":5,"access":["event"]},
+	{"name":"Magical Scrunchie","type":"accessory","def":5,"mag%":20,"spr":5,"special":["Recover MP (5%) per turn"],"exclusiveUnits":["Chic Ariana"],"access":["event"]},
 
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
