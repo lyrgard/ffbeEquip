@@ -210,6 +210,9 @@ function selectSpecial(special) {
         updateCurrentItemDisplay();
     } else if (special == "evade") {
         displayAddForm("evade", "Evade %");
+    } else if (special == "dualWield") {
+        currentItem.dualWield = "all";
+        updateCurrentItemDisplay();
     } else {
         displayAddForm("special", "special");
     }

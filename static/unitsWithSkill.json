@@ -1,0 +1,15 @@
+{
+    "Veritas of the Dark":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3650,"mp":158,"atk":150,"def":132,"mag":125,"spr":121},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor","accessory"],
+        "skills":[
+            {"atk%":20},
+            {"atk%":50,"equipedConditions":["greatSword"]}
+        ]
+    }
+}

@@ -1,0 +1,156 @@
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="builder.css">
+        <title>FFBE Equip</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="col-xs-12">
+                <nav class="col-xs-12 navbar navbar-default">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">FFBE Equip</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Search</a></li>
+                            <li class="active"><a href="builder.html">Builder</a></li>
+                            <li><a href="contribute.html">Contribute</a></li>
+                        </ul>
+                        <div class="buttons account">
+                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Load Inventory</button>
+                            <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
+                            <div class="loader hidden"></div>
+                            <span class="message hidden"/>
+                        </div>
+                </nav>
+            </div>
+            <div class="col-xs-6">
+                <div class="panel panel-default unit">
+                    <div class="panel-heading">
+                        <form class="form-inline">
+                            <div class="form-group flex-form-group">
+                                <span>Unit</span>
+                                <select id="unitsSelect" name="units" class="form-control"></select>
+                                <div class="unit-rarity">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">HP</span>
+                                <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">MP</span>
+                                <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">ATK</span>
+                                <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">DEF</span>
+                                <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">MAG</span>
+                                <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class = "input-group">
+                                <span class = "input-group-addon">SPR</span>
+                                <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel panel-default goal">
+                    <div class="panel-heading">
+                        <span>Goal : Maximize physical damage (for now)</span>
+                    </div>
+                </div>
+                <div class="panel panel-default monster">
+                    <div class="panel-heading">
+                        <span>Monster</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="btn-group elements choice" data-toggle="buttons" id="races">
+                        </div>
+                        <table id="elementalResists">
+                            <thead>
+                                <tr>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/fire.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/ice.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/lightning.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/water.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/wind.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/earth.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/light.png"/></th>
+                                    <th><img class="miniIcon" src="img/heavyShield.png"><img src="img/dark.png"/></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fire"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="ice"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="lightning"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="water"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="wind"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="earth"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="light"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="dark"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span>Results</span>
+                        <button onclick="build();">Build !</button>
+                    </div>
+                    <div class="panel-body">
+                        <div id="results" class="table notSorted items">
+							<div class="thead">
+                                <div class="tr">
+                                    <div class="td type">&nbsp;</div>
+                                    <div class="td name">Name</div>
+                                    <div id="statTitle" class="td value sort">Value</div>
+                                    <div class="td special">Special</div>
+									<div class="td access">Access</div>
+                                    <div class="td inventory"></div>
+                                </div>
+                            </div>
+                            <div class="tbody">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="common.js"></script>
+        <script src="builder.js"></script>
+    </body>
+</html>

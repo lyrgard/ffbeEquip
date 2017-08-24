@@ -1,81 +1,66 @@
-<html lang="en">
-    <head>
-		<meta charset="UTF-8">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="common.css?version=3">
-        <link rel="stylesheet" type="text/css" href="main.css?version=3">
-        <title>FFBE Equip</title>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-        <script>
-
 var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
-var handList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield"];
+var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
+var shieldList = ["lightShield", "heavyShield"];
 var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 
-var equipable = [
-    ["dagger","sword","greatSword","katana","axe","spear","heavyShield"],
-    ["heavyShield"],
-    ["helm"],
-    ["lightArmor","heavyArmor"],
-    ["accessory"],
-    ["accessory"],
-    ["materia"],
-    ["materia"],
-    ["materia"],
-    ["materia"],
-];
+var data;
+var units;
+var selectedUnit;
 
-var items = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-];
+var equipable;
 
-var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"thunder":0,"earth":0,"light":0,"dark":-50};
-var ennemyTypes = ["beast"];
+var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":0,"dark":-50};
+var ennemyRaces;
 var innateElements = [];
 
 var equiped = [null, null, null, null, null, null, null, null, null, null];
 
-var unitPassives = [{"atk%":20},{"atk%":50,"equipedConditions":["greatSword"]}];
-
-var unitName = "Veritas of the Dark";
-var unitSex = "male";
-var stats = {"hp":4100,"mp":233,"atk":180,"def":162,"mag":155,"spr":151};
-
-var data;
-var level = "";
-
 var bestValue = 0;
 var bestBuild;
-var progress = 0;
 
-var itemsByType = {};
 
-function sort() {
-    for (var dataIndex in data) {
-        if (!itemsByType[data[dataIndex].type]) {
-            itemsByType[data[dataIndex].type] = [];
-        }
-        itemsByType[data[dataIndex].type].push(data[dataIndex]);
+function build() {
+    if (!selectedUnit) {
+        alert("Please select an unit");
+        return;
     }
-    for (var equipableIndex in equipable) {
-        for (var dataIndex in data) {
-            if (equipable[equipableIndex].includes(data[dataIndex].type)) {
-                items[equipableIndex].push(data[dataIndex]);
-            }
-        }
-        items[equipableIndex] = items[equipableIndex].sort(order);
+    bestValue = 0;
+    bestBuild = null;
+    equiped = [null, null, null, null, null, null, null, null, null, null];
+    prepareEquipable();
+    ennemyRaces = getSelectedValuesFor("races");
+    readEnnemyResists();
+    optimize();
+    logBuild(bestBuild);
+}
+
+function prepareEquipable() {
+    equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"]];
+    for (var equipIndex in selectedUnit.equip) {
+        if (weaponList.includes(selectedUnit.equip[equipIndex])) {
+            equipable[0].push(selectedUnit.equip[equipIndex]);
+        } else if (shieldList.includes(selectedUnit.equip[equipIndex])) {
+            equipable[1].push(selectedUnit.equip[equipIndex]);
+        } else if (headList.includes(selectedUnit.equip[equipIndex])) {
+            equipable[2].push(selectedUnit.equip[equipIndex]);
+        } else if (bodyList.includes(selectedUnit.equip[equipIndex])) {
+            equipable[3].push(selectedUnit.equip[equipIndex]);
+        } 
     }
 }
+
+function readEnnemyResists() {
+    for(var element in ennemyResist) {
+        var value = $("#elementalResists td." + element + " input").val();
+        if (value) {
+            ennemyResist[element] = parseInt(value);
+        } else {
+            ennemyResist[element] = 0;
+        }
+    }
+}
+
 
 function order(item1, item2) {
     if (isSpecial(item1)) {
@@ -93,8 +78,6 @@ function order(item1, item2) {
     }
 }
 
-var alreadyProcessed = {};
-
 function optimize() {
     optimize2([]);
     for (var dataIndex in data) {
@@ -102,6 +85,7 @@ function optimize() {
         if (item.dualWield && item.dualWield == "all") {
             for (var equipableIndex in equipable) {
                 if (equipable[equipableIndex].includes(item.type)) {
+                    console.log("try " + item.name + " at slot " + equipableIndex);
                     var oldBestValue = bestValue;
                     var oldBestBuild = bestBuild;
                     var oldItem = equiped[equipableIndex];
@@ -137,6 +121,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
+                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                         equiped[equipableIndex] = oldItem;
                     }
@@ -151,6 +136,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
+                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         } else {
                             equiped[equipableIndex] = oldItem;
                         }
@@ -181,6 +167,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                             equiped[equipableIndex] = oldItem;
                             bestValue = oldBestValue;
                             bestBuild = oldBestBuild;
+                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                     }
                 }
@@ -213,10 +200,10 @@ var currentIndex = 0;
 
 
 function isApplicable(item, equiped, currentIndex) {
-    if (item.exclusiveSex && item.exclusiveSex != unitSex) {
+    if (item.exclusiveSex && item.exclusiveSex != selectedUnit.sex) {
         return false;
     }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(unitName)) {
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit.name)) {
         return false;
     }
     if (item.special && item.special.includes("notStackable")) {
@@ -253,20 +240,12 @@ function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
 }
 
-function findAllowUseOf(type) {
-    for (var dataIndex in data) {
-        if(data[dataIndex].allowUseOf && data[dataIndex].allowUseOf == type) {
-            return data[dataIndex];
-        }
-    }
-    return null;   
-}
-
 function calculateStat(equiped, stat, ignoreCondition = false) {
     var calculatedValue = 0;
     if (stat = 'atk') {
-        var calculatedValue = stats[stat];
-        var itemAndPassives = equiped.concat(unitPassives);
+        var baseValue = selectedUnit.stats.maxStats[stat] + selectedUnit.stats.pots[stat];
+        var calculatedValue = baseValue;
+        var itemAndPassives = equiped.concat(selectedUnit.skills);
         var cumulatedKiller = 0;
         for (var equipedIndex in itemAndPassives) {
             if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
@@ -274,11 +253,11 @@ function calculateStat(equiped, stat, ignoreCondition = false) {
                     calculatedValue += itemAndPassives[equipedIndex][stat];
                 }
                 if (itemAndPassives[equipedIndex][stat + '%']) {
-                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * stats[stat] / 100;
+                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * baseValue / 100;
                 }
-                if (ennemyTypes.length > 0 && itemAndPassives[equipedIndex].killers) {
+                if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
                     for (var killerIndex in itemAndPassives[equipedIndex].killers) {
-                        if (ennemyTypes.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
+                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
                             cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].percent;
                         }
                     }
@@ -307,8 +286,8 @@ function calculateStat(equiped, stat, ignoreCondition = false) {
         
         // Killers
         var killerMultiplicator = 1;
-        if (ennemyTypes.length > 0) {
-            killerMultiplicator += (cumulatedKiller / 100) / ennemyTypes.length;
+        if (ennemyRaces.length > 0) {
+            killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         
         calculatedValue = calculatedValue * calculatedValue * (1 - resistModifier) * killerMultiplicator;
@@ -340,63 +319,77 @@ function isSpecial(item) {
 
 function logBuild(build) {
     var order = [0,1,2,3,4,5,6,7,8,9];
-    var text = "";
+    var html = "";
     for (var index = 0; index < order.length; index++) {
-        if (build[order[index]]) {
-            text += build[order[index]].name 
-            if (build[order[index]]["atk%"]) { text += "(+" + build[order[index]]["atk%"] + "%)"}
-            if (build[order[index]]["atk"]) { text += "(+" + build[order[index]]["atk"] + ")"}
-            text +=", ";    
-        } else {
-            text += "empty, ";
+        var item = build[order[index]];
+        if (item) {
+            html += '<div class="tr">';
+            html += displayItemLine(item);
+            html += "</div>";
         }
     }
-    console.log(text);
+    $("#results .tbody").html(html);
+
 }
 
-function logBuild(build) {
-    var order = [0,1,2,3,4,5,6,7,8,9];
-    html = "";
-    for (var index = 0; index < order.length; index++) {
-        html += build[order[index]].name + ", ";
+
+
+// Populate the unit html select with a line per unit
+function populateUnitSelect() {
+    var options = '<option value=""></option>';
+    Object.keys(units).sort().forEach(function(value, index) {
+        options += '<option value="'+ value + '">' + value + '</option>';
+    });
+    $("#unitsSelect").html(options);
+    $("#unitsSelect").change(function() {
+        $( "#unitsSelect option:selected" ).each(function() {
+            var selectedUnitData = units[$(this).val()];
+            if (selectedUnitData) {
+                selectedUnit = selectedUnitData;
+                $(baseStats).each(function (index, stat) {
+                    $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
+		      	});
+            } else {
+                selectedUnit = '';
+                $(baseStats).each(function (index, stat) {
+                    $("#baseStat_" + stat).val("");
+		      	});
+            }
+            displayUnitRarity(selectedUnitData);
+        });
+    });
+}
+
+// Displays selected unit's rarity by stars
+var displayUnitRarity = function(unit) {
+    var rarityWrapper = $('.unit-rarity');
+    if (unit) {
+        var rarity = unit.max_rarity;
+
+        rarityWrapper.show();
+        rarityWrapper.empty();
+
+        for (var i = 0; i < rarity; i++) {
+            rarityWrapper.append('<i class="rarity-star" />');
+        }
+    } else {
+        rarityWrapper.hide();
     }
-    $("#results").html(html);
-}
-
+};
             
-            $(function() {
-                $.get("data.json", function(result) {
-                    data = result;
-                    sort();
-                    optimize();
-                    logBuild(bestBuild);
-                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                    alert( errorThrown );
-                });
-                
-            });
-        </script>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="col-xs-12">
-                
+$(function() {
+    $.get("data.json", function(result) {
+        data = result;
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
+    $.get("unitsWithSkill.json", function(result) {
+        units = result;
+        populateUnitSelect();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
     
-                    <div class="panel panel-default stat">
-                        <div class="panel-heading">
-                            <span>Desired stat (filter and sort)</span>
-                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
-                        </div>
-                        <div class="panel-body" id="results">
-                            
-                        </div>
-                    </div>
-
-            </div>
-        </div>
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
-		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
-    </body>
-</html>
+    // Killers
+	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+});

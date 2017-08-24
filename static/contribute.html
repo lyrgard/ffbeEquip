@@ -8,6 +8,24 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div class="col-xs-12">
+                <nav class="col-xs-12 navbar navbar-default">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">FFBE Equip</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Search</a></li>
+                            <li><a href="builder.html">Builder</a></li>
+                            <li class="active"><a href="contribute.html">Contribute</a></li>
+                        </ul>
+                        <div class="buttons account">
+                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Load Inventory</button>
+                            <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
+                            <div class="loader hidden"></div>
+                            <span class="message hidden"/>
+                        </div>
+                </nav>
+            </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default search">
                     <div class="panel-heading">
@@ -125,7 +143,7 @@
                         <div class="addButtons">
                             <div class="col-xs-4 addStat">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>  
+                                    <button class="btn btn-default dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>  
                                     <div class="dropdown-menu">
 
                                     </div>
@@ -133,30 +151,31 @@
                             </div>
                             <div class="col-xs-4 addAilment">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>  
+                                    <button class="btn btn-default dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>  
                                     <div class="dropdown-menu">
                                     </div>
                                 </div> 
                             </div>
                             <div class="col-xs-4 addResist">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>  
+                                    <button class="btn btn-default dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>  
                                     <div class="dropdown-menu dropdown-menu-right">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4 addKiller">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>  
+                                    <button class="btn btn-default dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>  
                                     <div class="dropdown-menu">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4 addSpecial">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add special</button>  
+                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add special</button>  
                                     <div class="dropdown-menu">
                                         <span class="btn btn-default special" onclick="selectSpecial('special')">Effect</span>
+                                        <span class="btn btn-default special" onclick="selectSpecial('dualWield')">Dual Wield</span>    
                                         <span class="btn btn-default special" onclick="selectSpecial('evade')">Evade %</span>
                                         <span class="btn btn-default special" onclick="selectSpecial('twoHanded')">Two-handed</span>
                                         <span class="btn btn-default special" onclick="selectSpecial('notStackable')">Not stackable</span>
@@ -165,14 +184,14 @@
                             </div>
                             <div class="col-xs-4 addAccess">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
+                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
                                     <div class="dropdown-menu  dropdown-menu-right">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4 addExclusive">
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle exclusiveChoice" data-toggle="dropdown">Add restriction</button>  
+                                    <button class="btn btn-default dropdown-toggle exclusiveChoice" data-toggle="dropdown">Add restriction</button>  
                                     <div class="dropdown-menu">
                                         <span class="btn btn-default exclusive" onclick="selectExclusive('male')">Only male</span>
                                         <span class="btn btn-default exclusive" onclick="selectExclusive('female')">Only female</span>
@@ -211,6 +230,7 @@
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="common.js?version=2"></script>
 		<script src="contribute.js?version=2"></script>
