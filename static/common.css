@@ -216,3 +216,10 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.account {
+    display: flex;
+    align-items: center;
+    float: right;
+    height: 50px;
+}

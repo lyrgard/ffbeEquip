@@ -79,15 +79,6 @@ var readFilterValues = function() {
     showTempData = $("#showUserInputedCheckbox").prop('checked');
 }
 
-// Get the values for a filter type
-var getSelectedValuesFor = function(type) {
-    var values = [];
-        $('.active input[name='+ type +']').each(function() {
-            values.push($(this).val());
-        });
-    return values;
-};
-
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
 var updateFilterHeadersDisplay = function() {
 	$(filters).each(function(index, filter) {
@@ -545,29 +536,6 @@ function populateUnitSelect() {
     });
 }
 
-function loadInventory() {
-    $.get('googleOAuthUrl', function(result) {
-        $('<div id="dialog" title="Authentication">' + 
-            '<h4>You\'ll be redirected to a google authentication page</h4><h5>This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</h5>' +
-            '<h5>The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</h5>' +
-          '</div>' ).dialog({
-            modal: true,
-            open: function(event, ui) {
-                $(this).parent().css('position', 'fixed');
-            },
-            position: { my: 'top', at: 'top+150' },
-            buttons: {
-                Ok: function() {
-                    window.location.href = result.url;
-                }
-            }
-        });
-        
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
-    });
-}
-
 function saveInventory() {
     $("#saveInventory").addClass("hidden");
     $("#inventoryDiv .buttons .loader").removeClass("hidden");
@@ -658,32 +626,6 @@ $(function() {
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
 });
-
-// Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
-function addTextChoicesTo(targetId, type, valueMap) {
-	var target = $("#" + targetId);
-	for (var key in valueMap) {
-		addTextChoiceTo(target, targetId, type, valueMap[key], key);
-	}
-}
-
-// Add image choices to a filter.
-function addImageChoicesTo(targetId, valueList) {
-	var target = $("#" + targetId);
-	for (i = 0; i < valueList.length; i++) {
-		addImageChoiceTo(target, targetId, valueList[i]);
-	}
-}
-
-// Add one text choice to a filter
-function addTextChoiceTo(target, name, type, value, label) {
-	target.append('<label class="btn btn-default"><input type="' + type +'" name="' + name + '" value="'+value+'" autocomplete="off">'+label+'</label>');
-}
-
-// Add one image choice to a filter
-function addImageChoiceTo(target, name, value) {
-	target.append('<label class="btn btn-default"><input type="checkbox" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+value+'.png"/></label>');
-}
 
 function escapeName (string) {
     return String(string).replace(/[&' \(\)]/g, function (s) {

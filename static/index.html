@@ -9,6 +9,24 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div class="col-xs-12">
+                <nav class="col-xs-12 navbar navbar-default">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">FFBE Equip</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">Search</a></li>
+                            <li><a href="builder.html">Builder</a></li>
+                            <li><a href="contribute.html">Contribute</a></li>
+                        </ul>
+                        <div class="buttons account">
+                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Load Inventory</button>
+                            <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
+                            <div class="loader hidden"></div>
+                            <span class="message hidden"/>
+                        </div>
+                </nav>
+            </div>
             <div class="col-xs-12 col-md-6">
                 
                 <div class="panel panel-default search">
