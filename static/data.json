@@ -330,6 +330,8 @@
     {"name":"Judge Helm","type":"helm","def":35,"spr":20,"resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15}],"access":["TMR-5*"],"tmrUnit":"Zargabaath"},
     {"name":"Protective Helm","type":"helm","def":15,"spr":20,"special":["[Auto-Shell]"],"access":["event"]},
     {"name":"Emil's Head","type":"helm","def":30,"mag%":15,"access":["recipe-event"]},
+    {"name":"Barbut","type":"helm","atk":3,"def":8,"access":["chest","shop","recipe-quest"]},
+    {"name":"Thornlet","type":"helm","def":30,"access":["chest"]},
 
     {"name":"Brave Suit","type":"clothes","atk%":15,"def":51,"mag%":15,"access":["TMR-5*"],"tmrUnit":"Ramza"},
     {"name":"Minerva Bustier","type":"clothes","def":47,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"wind","percent":30}],"exclusiveSex":"female","access":["TMR-3*"],"tmrUnit":"Celes"},
@@ -359,6 +361,7 @@
     {"name":"Lid's Swimsuit","type":"clothes","def":15,"mag":30,"spr":30,"resist":[{"name":"water","percent":20}],"exclusiveSex":"female","access":["TMR-3*"],"tmrUnit":"Summer Lid"},
     {"name":"Fashionable Dancewear","type":"clothes","def":28,"spr":28,"access":["event"]},
 	{"name":"Fashionable Dancewear","type":"clothes","hp%":20,"def":28,"spr":28,"exclusiveUnits":["Chic Ariana"],"access":["event"]},
+    {"name":"Producer's Jacket","type":"clothes","def":15,"spr":10,"special":["[Smoke] : Escape battle"],"access":["event"]},
     
 
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"],"tmrUnit":"Marie"},
@@ -400,6 +403,7 @@
     {"name":"Lasswell's Clothes","type":"lightArmor","atk":10,"def":38,"spr":12,"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"exclusiveUnits":["Lasswell"],"access":["trial"]},
     {"name":"Adaman Vest","type":"lightArmor","hp%":10,"def":38,"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50}],"access":["event"]},
     {"name":"Platinum Breastplate","type":"lightArmor","def":48,"access":["chest"]},
+    {"name":"Mythril Plate","type":"lightArmor","def":28,"access":["chest","key","recipe-key"]},
     
 
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"],"tmrUnit":"Vaan"},
@@ -538,6 +542,7 @@
     {"name":"Pod 153","type":"accessory","def":8,"spr":8,"special":["[A120: Repair] : Heal (3000 HP, 9x) split over 3 turns to all allies","[A170: Scanner] : Boosts the rate of items dropped by enemies","[A060: P Shield] : Physical damage mitigation (40%) for 2 turns to all allies","[R020: Mirage] : Physical damage (3x) to all enemies"],"access":["TMR-4*-event"],"tmrUnit":"9S"},
     {"name":"Magical Scrunchie","type":"accessory","def":5,"mag%":20,"spr":5,"access":["event"]},
 	{"name":"Magical Scrunchie","type":"accessory","def":5,"mag%":20,"spr":5,"special":["Recover MP (5%) per turn"],"exclusiveUnits":["Chic Ariana"],"access":["event"]},
+    {"name":"Anniversary Ring","type":"accessory","atk":5,"def":5,"mag":5,"spr":5,"special":["EXP Boost x1.3"],"access":["event"]},
 
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
@@ -845,5 +850,8 @@
     {"name":"Mechanical Heart","type":"materia","hp%":15,"spr%":15,"special":["Chance to counter physical & magical attacks (30%) with heal (800 HP, 1x to caster)","notStackable"],"access":["TMR-3*-event"],"tmrUnit":"21O"},
     {"name":"Resentment","type":"materia","hp%":30,"special":["Increase DEF (110%) for 3 turns when HP drops below 30%"],"access":["TMR-4*-event"],"tmrUnit":"Eve"},
     {"name":"Vengeful Wrath","type":"materia","hp%":20,"special":["Increase ATK (110%) for 3 turns when HP drops below 30%"],"access":["TMR-4*-event"],"tmrUnit":"Adam"},
-    {"name":"Rhythmic Flair","type":"materia","mp%":15,"mag%":25,"tmrUnit":"Chic Ariana","access":["TMR-4*-event"]}
+    {"name":"Rhythmic Flair","type":"materia","mp%":15,"mag%":25,"tmrUnit":"Chic Ariana","access":["TMR-4*-event"]},
+    {"name":"Encore","type":"materia","hp%":10,"mag%":15,"access":["event"]},
+    {"name":"Encore","type":"materia","hp%":10,"mag%":15,"special":["[Dualcast]"],"exclusiveUnits":["Dangerous Ariana"],"access":["event"]},
+    {"name":"Healing Waltz II","type":"materia","special":["Cure poison, blind, sleep, silence, paralyze, confuse, and disease to all allies"],"exclusiveUnits":["Soleil"],"access":["event"]}
 ]
