@@ -561,6 +561,10 @@ function saveInventory() {
     });
 }
 
+function inventoryLoaded() {
+    update();
+}
+
 // will be called by jQuery at page load)
 $(function() {
     // Triggers on unit base stats change

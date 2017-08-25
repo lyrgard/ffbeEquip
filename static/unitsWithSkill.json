@@ -11,5 +11,34 @@
             {"atk%":20},
             {"atk%":50,"equipedConditions":["greatSword"]}
         ]
+    },
+    "Firion":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3537,"mp":143,"atk":132,"def":128,"mag":114,"spr":114},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","lightArmor"],
+        "skills":[
+            {"killers":[{"name":"plant","percent":125},{"name":"bug","percent":125},{"name":"bird","percent":125},{"name":"dragon","percent":150},{"name":"demon","percent":150},{"name":"beast","percent":150},{"name":"human","percent":100},{"name":"undead","percent":100}]},
+            {"atk%":10},
+            {"mag%":30,"spr%":30,"equipedConditions":["staff"]},
+            {"mag%":30,"spr%":30,"equipedConditions":["rod"]},
+            {"mag%":30,"spr%":30,"equipedConditions":["harp"]},
+            {"mag%":30,"spr%":30,"equipedConditions":["mace"]},
+            {"atk%":25,"spr%":30,"equipedConditions":["bow"]},
+            {"atk%":25,"spr%":30,"equipedConditions":["whip"]},
+            {"atk%":25,"spr%":30,"equipedConditions":["throwing"]},
+            {"atk%":25,"spr%":30,"equipedConditions":["gun"]},
+            {"atk%":30,"equipedConditions":["axe"]},
+            {"atk%":30,"equipedConditions":["hammer"]},
+            {"atk%":30,"equipedConditions":["spear"]},
+            {"atk%":30,"equipedConditions":["fist"]},
+            {"atk%":20,"def%":20,"equipedConditions":["dagger"]},
+            {"atk%":20,"def%":20,"equipedConditions":["sword"]},
+            {"atk%":20,"def%":20,"equipedConditions":["greatSword"]},
+            {"atk%":20,"def%":20,"equipedConditions":["katana"]}
+        ]
     }
 }

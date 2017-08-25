@@ -2,6 +2,7 @@
     <head>
 		<meta charset="UTF-8">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="common.css?version=3">
         <link rel="stylesheet" type="text/css" href="builder.css">
         <title>FFBE Equip</title>
@@ -18,7 +19,10 @@
                             <li class="active"><a href="builder.html">Builder</a></li>
                             <li><a href="contribute.html">Contribute</a></li>
                         </ul>
-                        <div class="buttons account">
+                        <div id="inventoryDiv" class="buttons account">
+                            <span>Inventory : </span>
+                            <span class="status"></span>
+                            <div class="loader"></div>
                             <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Load Inventory</button>
                             <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
                             <div class="loader hidden"></div>
@@ -123,9 +127,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span>Results</span>
-                        <button onclick="build();">Build !</button>
+                        <button class="btn btn-default" onclick="build();">Build !</button>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="padding:0;">
                         <div id="results" class="table notSorted items">
 							<div class="thead">
                                 <div class="tr">
