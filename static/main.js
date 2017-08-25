@@ -686,7 +686,7 @@ function addImageChoiceTo(target, name, value) {
 }
 
 function escapeName (string) {
-    return String(string).replace(/[&' \(\)]/g, function (s) {
+    return String(string).replace(/[+%&' \(\)]/g, function (s) {
         return "_";
     });
 }
