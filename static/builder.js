@@ -82,10 +82,10 @@ function optimize() {
     optimize2([]);
     for (var dataIndex in data) {
         var item = data[dataIndex];
-        if (item.dualWield && item.dualWield == "all") {
+        if (item.dualWield && item.dualWield == "all" && isOwned(item)) {
             for (var equipableIndex in equipable) {
                 if (equipable[equipableIndex].includes(item.type)) {
-                    console.log("try " + item.name + " at slot " + equipableIndex);
+                    //console.log("try " + item.name + " at slot " + equipableIndex);
                     var oldBestValue = bestValue;
                     var oldBestBuild = bestBuild;
                     var oldItem = equiped[equipableIndex];
@@ -111,7 +111,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
     var oldEquiped = equiped.slice();
     for (var dataIndex in data) {
         var item = data[dataIndex];
-        if (!isSpecial(item) && !item.equipedConditions) {
+        if (!isSpecial(item) && !item.equipedConditions && isOwned(item)) {
             if (!isStackable(item)) {
                 for (var equipableIndex in equipable) {
                     if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
@@ -121,7 +121,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
-                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                         equiped[equipableIndex] = oldItem;
                     }
@@ -136,7 +136,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
-                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         } else {
                             equiped[equipableIndex] = oldItem;
                         }
@@ -149,7 +149,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
     if (recursive) {
         for (var dataIndex in data) {  
             var item = data[dataIndex];
-            if (item.equipedConditions) {
+            if (item.equipedConditions && isOwned(item)) {
                 if (!isStackable(item)) {
                     var equipableIndex = findBestEquipableIndex(equiped, item, lockedEquipableIndex);
                     
@@ -167,7 +167,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                             equiped[equipableIndex] = oldItem;
                             bestValue = oldBestValue;
                             bestBuild = oldBestBuild;
-                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                     }
                 }
@@ -176,6 +176,14 @@ function optimize2(lockedEquipableIndex, recursive = true) {
     }
     
     equiped = oldEquiped;
+}
+
+function isOwned(item) {
+    if (itemInventory) {
+        return itemInventory[item.name];
+    } else {
+        return true;
+    }
 }
 
 function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
@@ -376,6 +384,10 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.hide();
     }
 };
+
+function inventoryLoaded() {
+   
+}
             
 $(function() {
     $.get("data.json", function(result) {
