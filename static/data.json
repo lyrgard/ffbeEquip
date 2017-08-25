@@ -315,8 +315,8 @@
     {"name":"Sage's Hat","type":"hat","def":12,"mag":7,"spr":7,"access":["chest"]},
     {"name":"Trick Hat","type":"hat","mp%":15,"mag":35,"spr":35,"tmrUnit":"Timothy","access":["TMR-3*"]},
     {"name":"Twist Headband","type":"hat","atk":7,"def":8,"access":["shop","quest"]},
-    {"name":"Black Mask","type":"accessory","def":12,"mag":18,"resist":[{"name":"dark","percent":15}],"access":["quest"]},
-    {"name":"White Mask","type":"accessory","def":12,"spr":18,"resist":[{"name":"light","percent":15}],"access":["chest"]},
+    {"name":"Black Mask","type":"hat","def":12,"mag":18,"resist":[{"name":"dark","percent":15}],"access":["quest"]},
+    {"name":"White Mask","type":"hat","def":12,"spr":18,"resist":[{"name":"light","percent":15}],"access":["chest"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Grand Helm","type":"helm","def":45,"def%":20,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"condition":"If equiped with heavy armor","access":["trial"]},
