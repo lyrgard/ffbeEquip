@@ -309,7 +309,7 @@ $(function() {
         itemInventory = result;
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
         $("#inventoryDiv .loader").addClass("hidden");
-        update();
+        inventoryLoaded();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $("#loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");

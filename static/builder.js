@@ -73,7 +73,7 @@ function order(item1, item2) {
         if (isSpecial(item2)) {
             return 1;
         } else {
-            return calculateStat([item2], 'atk', true) - calculateStat([item1], 'atk', true);    
+            return calculateValue([item2], 'atk', true) - calculateValue([item1], 'atk', true);    
         }
     }
 }
@@ -105,6 +105,7 @@ function optimize() {
             }
         }
     }
+    //optimize2([]);
 }
 
 function optimize2(lockedEquipableIndex, recursive = true) {
@@ -117,10 +118,13 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                     if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
                         var oldItem = equiped[equipableIndex];
                         equiped[equipableIndex] = item;
-                        var value = calculateStat(equiped, 'atk');
+                        var value = calculateValue(equiped, 'atk');
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
+                            if (someEquipmentNoMoreApplicable(bestBuild)) {
+                                optimize2([]);
+                            }
                             //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                         equiped[equipableIndex] = oldItem;
@@ -132,10 +136,13 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                     if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
                         var oldItem = equiped[equipableIndex];
                         equiped[equipableIndex] = item;
-                        var value = calculateStat(equiped, 'atk');
+                        var value = calculateValue(equiped, 'atk');
                         if (value > bestValue) {
                             bestValue = value;
                             bestBuild = equiped.slice();
+                            if (someEquipmentNoMoreApplicable(bestBuild)) {
+                                optimize2([]);
+                            }
                             //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         } else {
                             equiped[equipableIndex] = oldItem;
@@ -167,7 +174,7 @@ function optimize2(lockedEquipableIndex, recursive = true) {
                             equiped[equipableIndex] = oldItem;
                             bestValue = oldBestValue;
                             bestBuild = oldBestBuild;
-                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
                         }
                     }
                 }
@@ -193,7 +200,7 @@ function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
         if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
             var oldItem = equiped[equipableIndex]
             equiped[equipableIndex] = null;
-            value = calculateStat(equiped, 'atk');
+            value = calculateValue(equiped, 'atk');
             if (value > bestValue) {
                 bestEquipableIndex = equipableIndex;
                 bestValue = value;
@@ -244,25 +251,27 @@ function isApplicable(item, equiped, currentIndex) {
     return true;
 }
 
+function someEquipmentNoMoreApplicable(build) {
+    for (var index in build) {
+        if (build[index] && !isApplicable(build[index],build,5)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
 }
 
-function calculateStat(equiped, stat, ignoreCondition = false) {
-    var calculatedValue = 0;
+function calculateValue(equiped, stat, ignoreCondition = false) {
+    var calculatedValue = calculateStatValue(equiped, stat, ignoreCondition);
     if (stat = 'atk') {
-        var baseValue = selectedUnit.stats.maxStats[stat] + selectedUnit.stats.pots[stat];
-        var calculatedValue = baseValue;
-        var itemAndPassives = equiped.concat(selectedUnit.skills);
+        calculatedValue
         var cumulatedKiller = 0;
+        var itemAndPassives = equiped.concat(selectedUnit.skills);
         for (var equipedIndex in itemAndPassives) {
             if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-                if (itemAndPassives[equipedIndex][stat]) {
-                    calculatedValue += itemAndPassives[equipedIndex][stat];
-                }
-                if (itemAndPassives[equipedIndex][stat + '%']) {
-                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * baseValue / 100;
-                }
                 if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
                     for (var killerIndex in itemAndPassives[equipedIndex].killers) {
                         if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
@@ -303,6 +312,36 @@ function calculateStat(equiped, stat, ignoreCondition = false) {
     return calculatedValue;
 }
 
+function calculateStatValue(equiped, stat, ignoreCondition = false) {
+    var calculatedValue = 0;
+    if (stat = 'atk') {
+        var baseValue = selectedUnit.stats.maxStats[stat] + selectedUnit.stats.pots[stat];
+        var calculatedValue = baseValue;
+        var itemAndPassives = equiped.concat(selectedUnit.skills);
+        var cumulatedKiller = 0;
+        for (var equipedIndex in itemAndPassives) {
+            if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+                if (itemAndPassives[equipedIndex][stat]) {
+                    calculatedValue += itemAndPassives[equipedIndex][stat];
+                }
+                if (itemAndPassives[equipedIndex][stat + '%']) {
+                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * baseValue / 100;
+                }
+                if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
+                    for (var killerIndex in itemAndPassives[equipedIndex].killers) {
+                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
+                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].percent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return calculatedValue;
+}
+
+
+
 function areConditionOK(item, equiped) {
     if (item.equipedConditions) {
         var found = 0;
@@ -337,7 +376,7 @@ function logBuild(build) {
         }
     }
     $("#results .tbody").html(html);
-
+    $("#resultStats").html("atk = " + Math.floor(calculateStatValue(build, 'atk')) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, 'atk') / 100));
 }
 
 
