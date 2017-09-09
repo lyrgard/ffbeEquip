@@ -202,6 +202,7 @@
     {"name":"Microphone","type":"harp","atk":14,"mag":58,"srp":15,"resist":[{"name":"silence","percent":100}],"exclusiveUnits":["Dangerous Ariana"],"access":["event"]},
     {"name":"Platinum Bell","type":"harp","atk":38,"mag":30,"srp":21,"special":["twoHanded"],"access":["chest"]},
     {"name":"Harp","type":"harp","atk":14,"special":["twoHanded"],"outclassedBy":"Silver Harp","access":["shop","recipe-chest","quest"]},
+    {"name":"Apollo Harp","type":"harp","atk":34,"mag":110,"spr":30,"special":["twoHanded","Increase magic damage against dragons (75%)","[Hero's Rime]"],"killers":[{"name":"dragon","percent":75}],"access":["trial"]},
 
     {"name":"Tamer's Whip","type":"whip","atk":65,"killers":[{"name":"beast","percent":50}],"access":["event"]},
     {"name":"Hayate Whip","type":"whip","atk":45,"access":["event"]},
@@ -210,6 +211,7 @@
     {"name":"Chain Whip","type":"whip","atk":21,"ailments":[{"name":"paralysis","percent":5}],"access":["shop","chest","recipe-chest"]},
     {"name":"Empress Birch","type":"whip","atk":12,"mag":64,"ailments":[{"name":"blind","percent":30},{"name":"silence","percent":30}],"access":["event"]},
     {"name":"Leather Whip","type":"whip","atk":17,"ailments":[{"name":"paralysis","percent":5}],"outclassedBy":"Chain Whip","access":["shop","chest","recipe-chest"]},
+    {"name":"Malboro's Tentacle","type":"whip","atk":20,"mag":118,"special":["Increase magic damage against demons (50%)","Increase magic damage against plants (50%)"],"access":["trial"]},
 
     {"name":"Rising Sun","type":"throwing","atk":107,"killers":[{"name":"bird","percent":50}],"access":["TMR-3*"],"tmrUnit":"Locke"},
     {"name":"Tezcatlipoca","type":"throwing","hp%":20,"atk":65,"exclusiveUnits":["Hope"],"access":["event"]},
@@ -490,7 +492,8 @@
     {"name":"Gold Armlet","type":"accessory","mp":30,"def":3,"resist":[{"name":"petrification","percent":100}],"access":["chest","quest"]},
     {"name":"Rune Armlet","type":"accessory","mp":50,"def":3,"access":["chocobo"]},
     {"name":"Soul of Thamasa","type":"accessory","mp%":30,"def":12,"spr":12,"special":["Dualcast"],"access":["TMR-5*"],"tmrUnit":"Trance Terra"},
-    {"name":"Cold Snap","type":"accessory","atk%":15,"mag%":15,"condition":"if equipped with a heavy armor","access":["recipe-event"]},
+    {"name":"Cold Snap","type":"accessory","resist":[{"name":"poison","percent":100}],"access":["recipe-event"]},
+    {"name":"Cold Snap","type":"accessory","atk%":15,"mag%":15,"resist":[{"name":"poison","percent":100}],"condition":"if equipped with a heavy armor","access":["recipe-event"]},
     {"name":"Star Pendant","type":"accessory","def":3,"resist":[{"name":"poison","percent":100}],"access":["chest","chocobo"]},
     {"name":"Silver Glasses","type":"accessory","def":3,"resist":[{"name":"blind","percent":100}],"access":["chest","chocobo"]},
     {"name":"Headband","type":"accessory","atk":3,"resist":[{"name":"sleep","percent":100}],"access":["chest","chocobo"]},
@@ -562,8 +565,11 @@
 	{"name":"Magical Scrunchie","type":"accessory","def":5,"mag%":20,"spr":5,"special":["Recover MP (5%) per turn"],"exclusiveUnits":["Chic Ariana"],"access":["event"]},
     {"name":"Anniversary Ring","type":"accessory","atk":5,"def":5,"mag":5,"spr":5,"special":["EXP Boost x1.3"],"access":["event"]},
     {"name":"Desch's Earring","type":"accessory","atk":45,"access":["TMR-4*"],"tmrUnit":"Desch"},
-    {"name":"RSorcerer's Cape","type":"accessory","def":5,"spr":5,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"access":["quest"]},
+    {"name":"Sorcerer's Cape","type":"accessory","def":5,"spr":5,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"access":["quest"]},
     {"name":"Amulet","type":"accessory","mp%":15,"def":3,"mag%":15,"spr":3,"access":["key"]},
+    {"name":"Onion Gauntlets","type":"accessory","mp%":10,"atk%":15,"def":3,"spr":3,"access":["event"]},
+    {"name":"Onion Gauntlets","type":"accessory","mp%":10,"atk%":15,"def":3,"spr":3,"special":["[Lance+]"],"exclusiveUnits":["Onion Knights"],"access":["event"]},
+    {"name":"Malboro's Eye","type":"accessory","special":["Enables use of [Malboro's Eye] : Increase resistance to poison, sleep, silence, and petrify (50%) for 3 turns to all allies"],"access":["trial"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -627,6 +633,7 @@
     {"name":"Dark Resistance +15%","type":"materia","resist":[{"name":"dark","percent":15}],"access":["event"]},
     {"name":"Light Resistance +15%","type":"materia","resist":[{"name":"light","percent":15}],"access":["event"]},
     {"name":"Earth Resistance +15%","type":"materia","resist":[{"name":"earth","percent":15}],"access":["event"]},
+    {"name":"Water Resistance +15%","type":"materia","resist":[{"name":"water","percent":15}],"access":["event"]},
     {"name":"Discernment","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Seven"},
     {"name":"Goddess's Protection","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Tilith"},
     {"name":"Hydaelyn Guard","type":"materia","resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"access":["TMR-4*-event"],"tmrUnit":"Minfilia"},
@@ -886,5 +893,7 @@
     {"name":"Heart of Fire","type":"materia","hp%":15,"resist":[{"name":"fire","percent":5}],"access":["event"]},
     {"name":"Heart of Water","type":"materia","hp%":15,"resist":[{"name":"water","percent":5}],"access":["event"]},
     {"name":"Heart of Wind","type":"materia","hp%":15,"resist":[{"name":"wind","percent":5}],"access":["event"]},
-    {"name":"Heart of Earth","type":"materia","hp%":15,"resist":[{"name":"earth","percent":5}],"access":["event"]}
+    {"name":"Heart of Earth","type":"materia","hp%":15,"resist":[{"name":"earth","percent":5}],"access":["event"]},
+    {"name":"Codex of Sword Master","type":"materia","atk%":20,"mag%":20,"tmrUnit":"Swordsman Lasswell","condition":"if equiped with a sword","access":["TMR-4*"]},
+    {"name":"Malboro's Whisper","type":"materia","hp%":20,"mag%":30,"access":["trial"]}
 ]
