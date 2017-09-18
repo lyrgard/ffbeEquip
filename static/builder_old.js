@@ -3,7 +3,6 @@ var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bo
 var shieldList = ["lightShield", "heavyShield"];
 var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
-var inventory = {"byType":{},"byCondition":{}};
 
 var data;
 var units;
@@ -80,125 +79,110 @@ function order(item1, item2) {
 }
 
 function optimize() {
-    var build = [null, null, null, null, null, null, null, null, null, null];
-    for (var index in data) {
-        optimizeWithNewItem(build, inventory, equipable, data[index], 1);
-    }
-}
-
-
-function optimizeWithNewItem(currentBestBuild, inventory, equipable, newItem, newItemQuantity) {
-    var build = currentBestBuild.slice();
-    if (canBeBestItemForType(newItem, inventory)) {
-        var possibleSlots = getPossibleSlotsFor(newItem, equipable);
-        for (var slotIndex in possibleSlots) {
-            var slot = possibleSlots[slotIndex];
-            var oldItem = build[slot];
-            build[slot] = newItem;
-            var value = calculateValue(build, 'atk');
-            if (value > bestValue) {
-                bestValue = value;
-            } else {
-                build[slot] = oldItem;
-            }
-            /*if (oldItem.type != newItem.type) {
-                // Changing the type of equiped item. Look for items that can now be equiped
-                var itemsToTest = getRelevantItemsToTest(inventory, newItem);
-            }*/
-        }
-    }
-    addToInventory(newItem, inventory);
-}
-
-function canBeBestItemForType(newItem, inventory) {
-    return getInsertionIndexInList(newItem, inventory.byType[newItem.type]) == 0;
-}
-
-function addToInventory(newItem, inventory, itemQuantity) {
-    var maxValue = calculateMaxValue(newItem);
-    var itemEntry = {"maxValue":maxValue,"item":newItem,"quantity":itemQuantity};
-    if (!inventory.byType[newItem.type]) {
-        inventory.byType[newItem.type] = [itemEntry];
-    } else {
-        var listByType = inventory.byType[newItem.type];
-        var index = getInsertionIndexInList(newItem, listByType);
-        listByType.splice(index, 0, itemEntry);
-    }
-    if (newItem.equipedConditions) {
-        var conditions = getEquipedConditionString(newItem.equipedConditions);
-        if (!inventory.byCondition[conditions]) {
-            inventory.byCondition[conditions] = [itemEntry];
-        } else {
-            var index = getInsertionIndexInList(newItem, inventory.byCondition[conditions]);
-            byCondition[conditions].splice(index, 0, itemEntry);
-        }
-    }
-}
-
-function getEquipedConditionString(itemCondition) {
-    var conditions = itemCondition.slice();
-    conditions.sort();
-    var first = true;
-    var result = "";
-    for (var conditionIndex in conditions) {
-        if (first) {
-            first = false;
-        } else {
-            result += "-";
-        }
-        result += conditions[conditionIndex];
-    }
-    return result;
-}
-
-function getInsertionIndexInList(newItem, listByType) {
-    for (var index in listByType) {
-        if (listByType[index].maxValue < maxValue) {
-            return index;
-        }
-    }
-    return listByType.length;
-}
-
-function getPossibleSlotsFor(item, equipable) {
-    var result = [];
-    for (var index in equipable) {
-        if (equipable[index].includes(item.type)) {
-            result.push(index);
-        }
-    }
-    return result;
-}
-
-function getRelevantItemsToTest(inventory, newItem, build) {
-    var result = [];
-    var itemsByCondition = inventory.byCondition[newItem.type];
-    if (itemsByCondition) {
-        for (var inventoryIndex in itemsByCondition) {
-            result.push(itemsByCondition[inventoryIndex]);
-            if (isStackable(itemsByCondition[inventoryIndex].item)) {
-                break;
-            }        
-        }
-    }
-    for (var index in build) {
-        if (build[index] && build[index] != newItem) {
-            var conditions = getEquipedConditionString([newItem.type, build[index].type]);
-            itemsByCondition = inventory.byCondition[conditions];
-            if (itemsByCondition) {
-                for (var inventoryIndex in itemsByCondition) {
-                    result.push(itemsByCondition[inventoryIndex]);
-                    if (isStackable(itemsByCondition[inventoryIndex].item)) {
-                        break;
-                    }        
+    optimize2([]);
+    for (var dataIndex in data) {
+        var item = data[dataIndex];
+        if (item.dualWield && item.dualWield == "all" && isOwned(item)) {
+            for (var equipableIndex in equipable) {
+                if (equipable[equipableIndex].includes(item.type)) {
+                    //console.log("try " + item.name + " at slot " + equipableIndex);
+                    var oldBestValue = bestValue;
+                    var oldBestBuild = bestBuild;
+                    var oldItem = equiped[equipableIndex];
+                    var oldEquipableHand2 = equipable[1];
+                    bestValue = 0;
+                    equipable[1] = equipable[0];
+                    equiped[equipableIndex] = item;
+                    optimize2([equipableIndex]);
+                    equiped[equipableIndex] = oldItem;
+                    equipable[1] = oldEquipableHand2;
+                    if (bestValue < oldBestValue) {
+                        bestValue = oldBestValue;
+                        bestBuild = oldBestBuild;
+                    }
+                    break;
                 }
-            }       
+            }
         }
     }
+    //optimize2([]);
 }
 
-function isStackable(item) {
-    return !(item.special && item.special.includes("notStackable"));
+function optimize2(lockedEquipableIndex, recursive = true) {
+    var oldEquiped = equiped.slice();
+    for (var dataIndex in data) {
+        var item = data[dataIndex];
+        if (!isSpecial(item) && !item.equipedConditions && isOwned(item)) {
+            if (!isStackable(item)) {
+                for (var equipableIndex in equipable) {
+                    if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
+                        var oldItem = equiped[equipableIndex];
+                        equiped[equipableIndex] = item;
+                        var value = calculateValue(equiped, 'atk');
+                        if (value > bestValue) {
+                            bestValue = value;
+                            bestBuild = equiped.slice();
+                            if (someEquipmentNoMoreApplicable(bestBuild)) {
+                                optimize2([]);
+                            }
+                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                        }
+                        equiped[equipableIndex] = oldItem;
+                    }
+                }
+                equiped = bestBuild;
+            } else {
+                for (var equipableIndex in equipable) {
+                    if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
+                        var oldItem = equiped[equipableIndex];
+                        equiped[equipableIndex] = item;
+                        var value = calculateValue(equiped, 'atk');
+                        if (value > bestValue) {
+                            bestValue = value;
+                            bestBuild = equiped.slice();
+                            if (someEquipmentNoMoreApplicable(bestBuild)) {
+                                optimize2([]);
+                            }
+                            //console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                        } else {
+                            equiped[equipableIndex] = oldItem;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+    equiped = bestBuild;
+    if (recursive) {
+        for (var dataIndex in data) {  
+            var item = data[dataIndex];
+            if (item.equipedConditions && isOwned(item)) {
+                if (!isStackable(item)) {
+                    var equipableIndex = findBestEquipableIndex(equiped, item, lockedEquipableIndex);
+                    
+                    if (equipableIndex) {
+                        var oldBestValue = bestValue;
+                        var oldBestBuild = bestBuild;
+                        var oldItem = equiped[equipableIndex];
+                        bestValue = 0;
+                        equiped[equipableIndex] = item;
+                        var newLock = lockedEquipableIndex.slice();
+                        newLock.push(equipableIndex)
+                        optimize2(newLock, false);
+                        equiped = bestBuild;
+                        if (bestValue < oldBestValue) {
+                            equiped[equipableIndex] = oldItem;
+                            bestValue = oldBestValue;
+                            bestBuild = oldBestBuild;
+                            console.log("replaced " + (oldItem ? oldItem.name : "empty") + " by " + item.name);
+                        }
+                    }
+                }
+            }
+        }   
+    }
+    
+    equiped = oldEquiped;
 }
 
 function isOwned(item) {
@@ -226,6 +210,8 @@ function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
     }
     return bestEquipableIndex;
 }
+
+var currentIndex = 0;
 
 
 function isApplicable(item, equiped, currentIndex) {
@@ -272,6 +258,10 @@ function someEquipmentNoMoreApplicable(build) {
         }
     }
     return false;
+}
+
+function isStackable(item) {
+    return !(item.special && item.special.includes("notStackable"));
 }
 
 function calculateValue(equiped, stat, ignoreCondition = false) {

@@ -1,18 +1,24 @@
+var fs = require("fs");
+
 var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
 var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
 var shieldList = ["lightShield", "heavyShield"];
 var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var inventory = {"byType":{},"byCondition":{}};
+var numberByType = {}
 
-var data;
+var rawData;
+var data = [];
+var dataWithCondition = {};
 var units;
+var itemOwned;
 var selectedUnit;
 
 var equipable;
 
-var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":0,"dark":-50};
-var ennemyRaces;
+var ennemyResist = {"fire":-50,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":0,"dark":0};
+var ennemyRaces = ["human","demon"];
 var innateElements = [];
 
 var equiped = [null, null, null, null, null, null, null, null, null, null];
@@ -22,16 +28,12 @@ var bestBuild;
 
 
 function build() {
-    if (!selectedUnit) {
-        alert("Please select an unit");
-        return;
-    }
+    selectedUnit = units['Firion'];
     bestValue = 0;
     bestBuild = null;
     equiped = [null, null, null, null, null, null, null, null, null, null];
     prepareEquipable();
-    ennemyRaces = getSelectedValuesFor("races");
-    readEnnemyResists();
+    prepareData();
     optimize();
     logBuild(bestBuild);
 }
@@ -49,6 +51,23 @@ function prepareEquipable() {
             equipable[3].push(selectedUnit.equip[equipIndex]);
         } 
     }
+}
+
+function prepareData() {
+    for (var index in rawData) {
+        var item = rawData[index];
+        if (item.equipedConditions) {
+            var conditions = getEquipedConditionString(item.equipedConditions);
+            if (!dataWithCondition[conditions]) {
+                dataWithCondition[conditions] = [item];
+            } else {
+                dataWithCondition[conditions].push(item);
+            }
+        } else {
+            data.push(item);
+        }
+    }
+    console.log(dataWithCondition);
 }
 
 function readEnnemyResists() {
@@ -80,15 +99,37 @@ function order(item1, item2) {
 }
 
 function optimize() {
-    var build = [null, null, null, null, null, null, null, null, null, null];
+    bestBuild = [null, null, null, null, null, null, null, null, null, null];
     for (var index in data) {
-        optimizeWithNewItem(build, inventory, equipable, data[index], 1);
+        var item = data[index];
+        if (itemOwned[item.name] && isApplicable(item)) {    
+            var number = getItemNumber(item);
+            for (var i = 0; i < number; i++) {
+                optimizeWithNewItem(bestBuild, inventory, equipable, item);
+            }
+        }
     }
 }
 
+function getItemNumber(item) {
+    var number = 0;
+    if (!isStackable(item) || isTwoHanded(item)) {
+        number = 1;
+    } else {
+        if (item.type == "materia") {
+            number = 4;
+        } else if (item.type == "accessory" || weaponList.includes(item.type)) {
+            number = 2;
+        } else {
+            number = 1;
+        }
+    }
+    return Math.min(number, itemOwned[item.name]);
+}
 
-function optimizeWithNewItem(currentBestBuild, inventory, equipable, newItem, newItemQuantity) {
-    var build = currentBestBuild.slice();
+
+function optimizeWithNewItem(build, inventory, equipable, newItem, checkConditionItems = true) {
+    var itemWasBetter = false;
     if (canBeBestItemForType(newItem, inventory)) {
         var possibleSlots = getPossibleSlotsFor(newItem, equipable);
         for (var slotIndex in possibleSlots) {
@@ -98,9 +139,19 @@ function optimizeWithNewItem(currentBestBuild, inventory, equipable, newItem, ne
             var value = calculateValue(build, 'atk');
             if (value > bestValue) {
                 bestValue = value;
-            } else {
-                build[slot] = oldItem;
+                bestBuild = build.slice();
+                itemWasBetter = true;
             }
+            if (checkConditionItems && dataWithCondition[newItem.type]) {
+                for (var conditionItemIndex in dataWithCondition[newItem.type]) {
+                    var itemWithCondition = dataWithCondition[newItem.type][conditionItemIndex];
+                    var number = getItemNumber(itemWithCondition);
+                    for (var i = 0; i < number; i++) {
+                        optimizeWithNewItem(build.slice(), inventory, equipable, itemWithCondition, false);
+                    }
+                }
+            }
+            build[slot] = oldItem;
             /*if (oldItem.type != newItem.type) {
                 // Changing the type of equiped item. Look for items that can now be equiped
                 var itemsToTest = getRelevantItemsToTest(inventory, newItem);
@@ -108,19 +159,39 @@ function optimizeWithNewItem(currentBestBuild, inventory, equipable, newItem, ne
         }
     }
     addToInventory(newItem, inventory);
+    return itemWasBetter;
 }
 
 function canBeBestItemForType(newItem, inventory) {
-    return getInsertionIndexInList(newItem, inventory.byType[newItem.type]) == 0;
+    var itemType = newItem.type;
+    if (newItem.element) {
+        itemType += "_" + newItem.element;
+    }
+    return hasKillersForEnnemy(newItem) || getInsertionIndexInList(newItem, inventory.byType[itemType]) == 0;
+}
+
+function hasKillersForEnnemy(newItem) {
+    if (newItem.killers && ennemyRaces.length > 0) {
+        for (var index in newItem.killers) {
+            if (ennemyRaces.includes(newItem.killers[index].name)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 function addToInventory(newItem, inventory, itemQuantity) {
     var maxValue = calculateMaxValue(newItem);
     var itemEntry = {"maxValue":maxValue,"item":newItem,"quantity":itemQuantity};
-    if (!inventory.byType[newItem.type]) {
-        inventory.byType[newItem.type] = [itemEntry];
+    var itemType = newItem.type;
+    if (newItem.element) {
+        itemType += "_" + newItem.element;
+    }
+    if (!inventory.byType[itemType]) {
+        inventory.byType[itemType] = [itemEntry];
     } else {
-        var listByType = inventory.byType[newItem.type];
+        var listByType = inventory.byType[itemType];
         var index = getInsertionIndexInList(newItem, listByType);
         listByType.splice(index, 0, itemEntry);
     }
@@ -130,7 +201,7 @@ function addToInventory(newItem, inventory, itemQuantity) {
             inventory.byCondition[conditions] = [itemEntry];
         } else {
             var index = getInsertionIndexInList(newItem, inventory.byCondition[conditions]);
-            byCondition[conditions].splice(index, 0, itemEntry);
+            inventory.byCondition[conditions].splice(index, 0, itemEntry);
         }
     }
 }
@@ -152,8 +223,12 @@ function getEquipedConditionString(itemCondition) {
 }
 
 function getInsertionIndexInList(newItem, listByType) {
+    if (!listByType) {
+        return 0;
+    }
+    var maxValue = calculateMaxValue(newItem);
     for (var index in listByType) {
-        if (listByType[index].maxValue < maxValue) {
+        if (listByType[index].maxValue <= maxValue) {
             return index;
         }
     }
@@ -201,6 +276,10 @@ function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
 }
 
+function isTwoHanded(item) {
+    return (item.special && item.special.includes("twoHanded"));
+}
+
 function isOwned(item) {
     if (itemInventory) {
         return itemInventory[item.name];
@@ -228,21 +307,21 @@ function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
 }
 
 
-function isApplicable(item, equiped, currentIndex) {
+function isApplicable(item) {
     if (item.exclusiveSex && item.exclusiveSex != selectedUnit.sex) {
         return false;
     }
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit.name)) {
         return false;
     }
-    if (item.special && item.special.includes("notStackable")) {
+    /*if (item.special && item.special.includes("notStackable")) {
         for (var equipedIndex in equiped) {
             if (equiped[equipedIndex] && equiped[equipedIndex].name == item.name) {
                 return false;
             }
         }
-    }
-    if (item.equipedConditions) {
+    }*/
+    /*if (item.equipedConditions) {
         var found = 0;
         conditionLoop: for (var conditionIndex in item.equipedConditions) {
             for (var index = 0; index < currentIndex; index++) {
@@ -261,7 +340,7 @@ function isApplicable(item, equiped, currentIndex) {
         if (found != item.equipedConditions.length) {
             return false;
         }
-    }
+    }*/
     return true;
 }
 
@@ -272,6 +351,19 @@ function someEquipmentNoMoreApplicable(build) {
         }
     }
     return false;
+}
+
+function calculateMaxValue(item) {
+    var stat = 'atk';
+    var baseValue = selectedUnit.stats.maxStats[stat] + selectedUnit.stats.pots[stat];
+    var calculatedValue = 0;
+    if (item[stat]) {
+        calculatedValue += item[stat];
+    }
+    if (item[stat + '%']) {
+        calculatedValue += item[stat+'%'] * baseValue / 100;
+    }
+    return calculatedValue;
 }
 
 function calculateValue(equiped, stat, ignoreCondition = false) {
@@ -375,82 +467,31 @@ function isSpecial(item) {
 }
 
 function logBuild(build) {
+    if (!build) {
+        console.log("null build");
+        return;
+    }
     var order = [0,1,2,3,4,5,6,7,8,9];
     var html = "";
     for (var index = 0; index < order.length; index++) {
         var item = build[order[index]];
         if (item) {
-            html += '<div class="tr">';
-            html += displayItemLine(item);
-            html += "</div>";
+            html += item.name + ", ";
         }
     }
-    $("#results .tbody").html(html);
-    $("#resultStats").html("atk = " + Math.floor(calculateStatValue(build, 'atk')) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, 'atk') / 100));
+    console.log(html);
+    console.log("atk = " + Math.floor(calculateStatValue(build, 'atk')) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, 'atk') / 100));
 }
-
-
-
-// Populate the unit html select with a line per unit
-function populateUnitSelect() {
-    var options = '<option value=""></option>';
-    Object.keys(units).sort().forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + value + '</option>';
-    });
-    $("#unitsSelect").html(options);
-    $("#unitsSelect").change(function() {
-        $( "#unitsSelect option:selected" ).each(function() {
-            var selectedUnitData = units[$(this).val()];
-            if (selectedUnitData) {
-                selectedUnit = selectedUnitData;
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
-		      	});
-            } else {
-                selectedUnit = '';
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val("");
-		      	});
-            }
-            displayUnitRarity(selectedUnitData);
+        
+fs.readFile('data.json', function(err, content) {
+    rawData = JSON.parse(content);
+    fs.readFile('unitsWithSkill.json', function(err, content) {
+        units = JSON.parse(content);
+        fs.readFile('itemOwned.json', function(err, content) {
+            itemOwned = JSON.parse(content);
+            build();
         });
     });
-}
-
-// Displays selected unit's rarity by stars
-var displayUnitRarity = function(unit) {
-    var rarityWrapper = $('.unit-rarity');
-    if (unit) {
-        var rarity = unit.max_rarity;
-
-        rarityWrapper.show();
-        rarityWrapper.empty();
-
-        for (var i = 0; i < rarity; i++) {
-            rarityWrapper.append('<i class="rarity-star" />');
-        }
-    } else {
-        rarityWrapper.hide();
-    }
-};
-
-function inventoryLoaded() {
-   
-}
-            
-$(function() {
-    $.get("data.json", function(result) {
-        data = result;
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
-    });
-    $.get("unitsWithSkill.json", function(result) {
-        units = result;
-        populateUnitSelect();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
-    });
-    
-    // Killers
-	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
 });
+
+    
