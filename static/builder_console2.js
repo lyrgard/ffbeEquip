@@ -9,7 +9,7 @@ var inventory = {"byType":{},"byCondition":{}};
 var numberByType = {}
 
 var rawData;
-var data = [];
+var data = {};
 var dataWithCondition = {};
 var units;
 var itemOwned;
@@ -30,9 +30,9 @@ function build() {
     bestValue = 0;
     bestBuild = null;
     prepareEquipable();
-    prepareData();
-    optimize();
-    logBuild(bestBuild);
+    prepareData(selectedUnit.equip);
+//    optimize();
+    //logBuild(bestBuild);
 }
 
 function prepareEquipable() {
@@ -69,21 +69,75 @@ function shuffle(array) {
   return array;
 }
 
-function prepareData() {
+function prepareData(equipable) {
+    var tempData = {};
     for (var index in rawData) {
         var item = rawData[index];
-        if (item.equipedConditions) {
-            var conditions = getEquipedConditionString(item.equipedConditions);
-            if (!dataWithCondition[conditions]) {
-                dataWithCondition[conditions] = [item];
+        if (itemOwned[item.name] && itemOwned[item.name] > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
+            if (item.equipedConditions) {
+                var conditions = getEquipedConditionString(item.equipedConditions);
+                if (!dataWithCondition[conditions]) {
+                    dataWithCondition[conditions] = [item];
+                } else {
+                    dataWithCondition[conditions].push(item);
+                }
             } else {
-                dataWithCondition[conditions].push(item);
+                if (!tempData[item.type]) {
+                    tempData[item.type] = {};
+                }
+                var subType = "";
+                if (item.element && ennemyResist[item.element] < 0) {
+                    subType += "element" + ennemyResist[item.element];
+                }
+                var killer = getKillerCoef(item); 
+                if (killer > 0) {
+                    subType += "killer" + killer;
+                }
+                if (subType == "") {
+                    subType = "normal";
+                }
+                var statValue = calculateMaxValue(item);
+                var itemEntry = {"value":statValue, "item":item, "name":item.name};
+                if (!tempData[item.type][subType]) {
+                    tempData[item.type][subType] = [itemEntry];
+                } else {
+                    if (statValue > tempData[item.type][subType][0].value) {
+                        tempData[item.type][subType] = [itemEntry];
+                    } else if (statValue == tempData[item.type][subType][0].value) {
+                        tempData[item.type][subType].push(itemEntry);
+                    }
+                }
             }
-        } else {
-            data.push(item);
         }
     }
-    data = shuffle(data);
+    for (index in typeList) {
+        console.log(typeList[index]);    
+        console.log(tempData[typeList[index]]);    
+    }
+    for (var typeIndex in typeList) {
+        var type = typeList[typeIndex];
+        data[type] = [];
+        if (tempData[type]) {
+            for (var subTypeIndex in tempData[type]) {
+                for (var index in tempData[type][subTypeIndex]) {
+                    data[type].push(tempData[type][subTypeIndex][index].item)
+                }
+            }
+        }
+    }
+    console.log(data);
+}
+
+function getKillerCoef(item) {
+    var cumulatedKiller = 0;
+    if (ennemyRaces.length > 0 && item.killers) {
+        for (var killerIndex in item.killers) {
+            if (ennemyRaces.includes(item.killers[killerIndex].name)) {
+                cumulatedKiller += item.killers[killerIndex].percent;
+            }
+        }
+    }
+    return cumulatedKiller / ennemyRaces.length;
 }
 
 function readEnnemyResists() {
