@@ -4,36 +4,56 @@ var shieldList = ["lightShield", "heavyShield"];
 var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var inventory = {"byType":{},"byCondition":{}};
+var numberByType = {}
 
-var data;
+var rawData;
+var data = {};
+var dataWithCondition = [];
+var dualWieldSources = [];
+var espers;
+var selectedEspers = [];
 var units;
+var itemOwned;
+var onlyUseOwnedItems = false;
 var selectedUnit;
 
 var equipable;
 
-var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":0,"dark":-50};
-var ennemyRaces;
+var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
+var ennemyRaces = ["human","demon"];
 var innateElements = [];
-
-var equiped = [null, null, null, null, null, null, null, null, null, null];
 
 var bestValue = 0;
 var bestBuild;
+var bestEsper;
 
+var statToMaximize = "atk";
+
+var stats = [];
+var numberOfItemCombination;
+
+var fixedItems = [
+    null, 
+    null, 
+    null, 
+    null, 
+    null, 
+    null, 
+    null, 
+    null,
+    null,
+    null]
 
 function build() {
-    if (!selectedUnit) {
-        alert("Please select an unit");
-        return;
-    }
+    console.log("==============================\n=             START          =\n==============================");
+    selectedUnit = units['Veritas of the Dark'];
     bestValue = 0;
     bestBuild = null;
-    equiped = [null, null, null, null, null, null, null, null, null, null];
+    prepareData(selectedUnit.equip);
     prepareEquipable();
-    ennemyRaces = getSelectedValuesFor("races");
-    readEnnemyResists();
+    selectEspers();
     optimize();
-    logBuild(bestBuild);
+    //logBuild(bestBuild, bestEsper);
 }
 
 function prepareEquipable() {
@@ -51,6 +71,92 @@ function prepareEquipable() {
     }
 }
 
+function prepareData(equipable) {
+    var tempData = {};
+    for (var index in rawData) {
+        var item = rawData[index];
+        if (getOwnedNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
+            if (item.equipedConditions) {
+                dataWithCondition.push(item);
+            } else {
+                if (item.dualWield) {
+                    dualWieldSources.push(item);
+                    continue;
+                }
+                if (!tempData[item.type]) {
+                    tempData[item.type] = {};
+                }
+                var subType = "";
+                if (item.element && ennemyResist[item.element] < 0) {
+                    subType += "element" + ennemyResist[item.element];
+                }
+                var killer = getKillerCoef(item); 
+                if (killer > 0) {
+                    subType += "killer" + killer;
+                }
+                if (subType == "") {
+                    subType = "normal";
+                }
+                var statValue = calculateMaxValue(item);
+                var itemEntry = {"value":statValue, "item":item, "name":item.name};
+                if (!tempData[item.type][subType]) {
+                    tempData[item.type][subType] = [itemEntry];
+                } else {
+                    if (statValue > tempData[item.type][subType][0].value) {
+                        tempData[item.type][subType] = [itemEntry];
+                    } else if (statValue == tempData[item.type][subType][0].value) {
+                        tempData[item.type][subType].push(itemEntry);
+                    }
+                }
+            }
+        }
+    }
+    /*for (index in typeList) {
+        console.log(typeList[index]);    
+        console.log(tempData[typeList[index]]);    
+    }*/
+    for (var typeIndex in typeList) {
+        var type = typeList[typeIndex];
+        data[type] = [];
+        if (tempData[type]) {
+            for (var subTypeIndex in tempData[type]) {
+                for (var index in tempData[type][subTypeIndex]) {
+                    data[type].push(tempData[type][subTypeIndex][index].item)
+                }
+            }
+        }
+    }
+    //console.log(data);
+}
+
+function selectEspers() {
+    selectedEspers = [];
+    var maxValueEsper = null;
+    for (var index in espers) {
+        if (maxValueEsper == null || espers[index][statToMaximize] > maxValueEsper.atk) {
+            maxValueEsper = espers[index];
+        }
+        if (getKillerCoef(espers[index]) > 0) {
+            selectedEspers.push(espers[index]);
+        }
+    }
+    if (!selectedEspers.includes(maxValueEsper)) {
+        selectedEspers.push(maxValueEsper);
+    }
+}
+
+function getKillerCoef(item) {
+    var cumulatedKiller = 0;
+    if (ennemyRaces.length > 0 && item.killers) {
+        for (var killerIndex in item.killers) {
+            if (ennemyRaces.includes(item.killers[killerIndex].name)) {
+                cumulatedKiller += item.killers[killerIndex].percent;
+            }
+        }
+    }
+    return cumulatedKiller / ennemyRaces.length;
+}
+
 function readEnnemyResists() {
     for(var element in ennemyResist) {
         var value = $("#elementalResists td." + element + " input").val();
@@ -63,204 +169,255 @@ function readEnnemyResists() {
 }
 
 
-function order(item1, item2) {
-    if (isSpecial(item1)) {
-        if (isSpecial(item2)) {
-            return 0;
-        } else {
-            return -1;
-        }
-    } else {
-        if (isSpecial(item2)) {
-            return 1;
-        } else {
-            return calculateValue([item2], 'atk', true) - calculateValue([item1], 'atk', true);    
-        }
-    }
-}
+
 
 function optimize() {
-    var build = [null, null, null, null, null, null, null, null, null, null];
-    for (var index in data) {
-        optimizeWithNewItem(build, inventory, equipable, data[index], 1);
-    }
-}
-
-
-function optimizeWithNewItem(currentBestBuild, inventory, equipable, newItem, newItemQuantity) {
-    var build = currentBestBuild.slice();
-    if (canBeBestItemForType(newItem, inventory)) {
-        var possibleSlots = getPossibleSlotsFor(newItem, equipable);
-        for (var slotIndex in possibleSlots) {
-            var slot = possibleSlots[slotIndex];
-            var oldItem = build[slot];
-            build[slot] = newItem;
-            var value = calculateValue(build, 'atk');
-            if (value > bestValue) {
-                bestValue = value;
-            } else {
-                build[slot] = oldItem;
+    var combinations = [];
+    typeCombination = [null, null, null, null, null, null, null, null, null, null];
+    buildTypeCombination(0,typeCombination, combinations);
+    
+    
+    if (dualWieldSources.length > 0) {
+        equipable[1] = equipable[1].concat(equipable[0]);
+        for (var index in dualWieldSources) {
+            var item = dualWieldSources[index];
+            var slot = 0;
+            if (item.type == "accessory") {
+                slot = 4;
+            } else if (item.type == "materia") {
+                slot = 6;
             }
-            /*if (oldItem.type != newItem.type) {
-                // Changing the type of equiped item. Look for items that can now be equiped
-                var itemsToTest = getRelevantItemsToTest(inventory, newItem);
-            }*/
+            fixedItems[slot] = item;
+            buildTypeCombination(0,typeCombination,combinations);
+            fixedItems[slot] = null;
         }
     }
-    addToInventory(newItem, inventory);
+    console.log(combinations.length);
+    
+    
+    findBestBuildForCombinationAsync(0, combinations);
 }
 
-function canBeBestItemForType(newItem, inventory) {
-    return getInsertionIndexInList(newItem, inventory.byType[newItem.type]) == 0;
-}
-
-function addToInventory(newItem, inventory, itemQuantity) {
-    var maxValue = calculateMaxValue(newItem);
-    var itemEntry = {"maxValue":maxValue,"item":newItem,"quantity":itemQuantity};
-    if (!inventory.byType[newItem.type]) {
-        inventory.byType[newItem.type] = [itemEntry];
+function findBestBuildForCombinationAsync(index, combinations) {
+    var build = [null, null, null, null, null, null, null, null, null, null];
+    findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
+    //console.log(Math.floor(index/combinations.length*100) + "%" );
+    var progress = Math.floor((index + 1)/combinations.length*100) + "%";
+    var progressElement = $("#buildProgressBar .progress");
+    progressElement.width(progress);
+    progressElement.text(progress);
+    if (index + 1 < combinations.length) {
+        setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
     } else {
-        var listByType = inventory.byType[newItem.type];
-        var index = getInsertionIndexInList(newItem, listByType);
-        listByType.splice(index, 0, itemEntry);
+        logBuild(bestBuild, bestEsper);
+        progressElement.addClass("finished");
     }
-    if (newItem.equipedConditions) {
-        var conditions = getEquipedConditionString(newItem.equipedConditions);
-        if (!inventory.byCondition[conditions]) {
-            inventory.byCondition[conditions] = [itemEntry];
+}
+
+
+function buildTypeCombination(index, typeCombination, combinations) {
+    if (fixedItems[index]) {
+        tryType(index, typeCombination, fixedItems[index].type, combinations);
+    } else {
+        for (var typeIndex in equipable[index]) {
+            type = equipable[index][typeIndex]
+            if (data[type].length > 0) {
+                tryType(index, typeCombination, type, combinations);
+            }
+        }
+    }
+}
+
+function tryType(index, typeCombination, type, combinations) {
+    typeCombination[index] = type;
+    if (index == 9) {
+        build = [null, null, null, null, null, null, null, null, null, null];
+/*                var startTime = new Date();*/
+        numberOfItemCombination = 0;
+        var dataWithdConditionItems = {}
+        for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
+            dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+        }
+        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":fixedItems.slice()});
+        //findBestBuildForCombination(0, build, typeCombination, dataWithdConditionItems);
+/*                var endTime = new Date();
+        stats.push(endTime - startTime);
+
+        console.log(typeCombination);
+        console.log(endTime - startTime);
+        console.log(numberOfItemCombination);
+        logDataWithdConditionItems(dataWithdConditionItems);
+        console.log("===============================================================");*/
+    } else {
+        buildTypeCombination(index+1, typeCombination, combinations);
+    }
+}
+
+function logDataWithdConditionItems(dataWithdConditionItems) {
+    for (var index in dataWithdConditionItems) {
+        logAddConditionItems(dataWithdConditionItems[index]);
+    }
+}
+
+function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
+    if (fixedItems[index]) {
+        tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
+    } else {
+        if (index == 1 && isTwoHanded(build[0])) {
+            build[index] == null;
+            findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
         } else {
-            var index = getInsertionIndexInList(newItem, inventory.byCondition[conditions]);
-            byCondition[conditions].splice(index, 0, itemEntry);
-        }
-    }
-}
-
-function getEquipedConditionString(itemCondition) {
-    var conditions = itemCondition.slice();
-    conditions.sort();
-    var first = true;
-    var result = "";
-    for (var conditionIndex in conditions) {
-        if (first) {
-            first = false;
-        } else {
-            result += "-";
-        }
-        result += conditions[conditionIndex];
-    }
-    return result;
-}
-
-function getInsertionIndexInList(newItem, listByType) {
-    for (var index in listByType) {
-        if (listByType[index].maxValue < maxValue) {
-            return index;
-        }
-    }
-    return listByType.length;
-}
-
-function getPossibleSlotsFor(item, equipable) {
-    var result = [];
-    for (var index in equipable) {
-        if (equipable[index].includes(item.type)) {
-            result.push(index);
-        }
-    }
-    return result;
-}
-
-function getRelevantItemsToTest(inventory, newItem, build) {
-    var result = [];
-    var itemsByCondition = inventory.byCondition[newItem.type];
-    if (itemsByCondition) {
-        for (var inventoryIndex in itemsByCondition) {
-            result.push(itemsByCondition[inventoryIndex]);
-            if (isStackable(itemsByCondition[inventoryIndex].item)) {
-                break;
-            }        
-        }
-    }
-    for (var index in build) {
-        if (build[index] && build[index] != newItem) {
-            var conditions = getEquipedConditionString([newItem.type, build[index].type]);
-            itemsByCondition = inventory.byCondition[conditions];
-            if (itemsByCondition) {
-                for (var inventoryIndex in itemsByCondition) {
-                    result.push(itemsByCondition[inventoryIndex]);
-                    if (isStackable(itemsByCondition[inventoryIndex].item)) {
-                        break;
-                    }        
+            for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
+                var item = dataWithConditionItems[typeCombination[index]][itemIndex];
+                if (canAddMoreOfThisItem(build, item, index)) {
+                    if (index == 1 && isTwoHanded(item)) {
+                        continue;
+                    }
+                    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems)
                 }
-            }       
+            }
+            build[index] == null;
         }
     }
 }
+
+function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems) {
+    build[index] = item;
+    if (index == 9) {
+        numberOfItemCombination++
+        for (var esperIndex in selectedEspers) {
+            value = calculateValue(build, selectedEspers[esperIndex]);
+            if (value > bestValue) {
+                bestBuild = build.slice();
+                bestValue = value;
+                bestEsper = selectedEspers[esperIndex];
+                logBuild(bestBuild, bestEsper);
+            }    
+        }
+    } else {
+        findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);
+    }
+}
+
+function addConditionItems(itemsOfType, type, typeCombination) {
+    var result = itemsOfType.slice();
+    for (var index in dataWithCondition) {
+        var item = dataWithCondition[index];
+        if (item.type == type) {
+            var allFound = true;
+            for (var conditionIndex in item.equipedConditions) {
+                if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
+                    allFound = false;
+                    break;
+                }
+            }
+            if (allFound) {
+                result.push(item);
+            }
+        }
+    }
+    result.sort(function (item1, item2) {
+        return calculateMaxValue(item2) - calculateMaxValue(item1);
+    });
+    var numberNeeded = 0;
+    for (var slotIndex in typeCombination) {
+        if (typeCombination[slotIndex] == type) {
+            numberNeeded++;
+        }
+    }
+    var number = 0;
+    var itemIndex = 0;
+    var itemKeptNames = [];
+    var damageCoefLevelAlreadyKept = [];
+    while(itemIndex < result.length) {
+        item = result[itemIndex];
+        if (number < numberNeeded) {
+            if (!itemKeptNames.includes(item.name)) {
+                if (!isStackable(item)) {
+                    number += 1;
+                } else {
+                    number += getOwnedNumber(item);
+                }
+            }
+            itemIndex++;
+        } else {
+            var damageCoefLevel = "";
+            var killerCoef = getKillerCoef(item);
+            if (killerCoef > 0) {
+                damageCoefLevel += "killer" + killerCoef;
+            }
+            if ((item.element && ennemyResist[item.element] < 0)) {
+                damageCoefLevel += "element" + ennemyResist[item.element];
+            }
+            
+            if (damageCoefLevel == "" || damageCoefLevelAlreadyKept.includes(damageCoefLevel)) {
+                result.splice(itemIndex, 1);
+            } else {
+                damageCoefLevelAlreadyKept.push(damageCoefLevel);
+                itemIndex++;
+            }
+        }
+    }
+    return result;
+}
+
+function logAddConditionItems(data) {
+    var string = "";
+    for (var index in data) {
+        string += data[index].name + ", ";
+    }
+    console.log(string);
+}
+
+function canAddMoreOfThisItem(build, item, currentIndex) {
+    var number = 0;
+    for (var index = 0; index < currentIndex; index++) {
+        if (build[index] && build[index].name == item.name) {
+            if (!isStackable(item)) {
+                return false;
+            }
+            number++;
+        }
+    }
+    for (var index = currentIndex + 1; index < 10; index++) {
+        if (fixedItems[index] && fixedItems[index].name == item.name) {
+            if (!isStackable(item)) {
+                return false;
+            }
+            number++;
+        }
+    }
+    return getOwnedNumber(item) > number;
+}
+
 
 function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
 }
 
-function isOwned(item) {
-    if (itemInventory) {
-        return itemInventory[item.name];
-    } else {
-        return true;
-    }
+function isTwoHanded(item) {
+    return (item.special && item.special.includes("twoHanded"));
 }
 
-function findBestEquipableIndex(equiped, item, lockedEquipableIndex) {
-    var bestEquipableIndex;
-    var bestValue = 0;
-    for (var equipableIndex in equipable) {
-        if (!lockedEquipableIndex.includes(equipableIndex) && equipable[equipableIndex].includes(item.type) && isApplicable(item, equiped, 0)) {
-            var oldItem = equiped[equipableIndex]
-            equiped[equipableIndex] = null;
-            value = calculateValue(equiped, 'atk');
-            if (value > bestValue) {
-                bestEquipableIndex = equipableIndex;
-                bestValue = value;
-            }
-            equiped[equipableIndex] = oldItem;
+function getOwnedNumber(item) {
+    if (onlyUseOwnedItems) {
+        if (itemOwned[item.name]) {
+            return itemOwned[item.name];
+        } else {
+            return 0;
         }
+    } else {
+        return 4;
     }
-    return bestEquipableIndex;
 }
 
 
-function isApplicable(item, equiped, currentIndex) {
+function isApplicable(item) {
     if (item.exclusiveSex && item.exclusiveSex != selectedUnit.sex) {
         return false;
     }
     if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit.name)) {
         return false;
-    }
-    if (item.special && item.special.includes("notStackable")) {
-        for (var equipedIndex in equiped) {
-            if (equiped[equipedIndex] && equiped[equipedIndex].name == item.name) {
-                return false;
-            }
-        }
-    }
-    if (item.equipedConditions) {
-        var found = 0;
-        conditionLoop: for (var conditionIndex in item.equipedConditions) {
-            for (var index = 0; index < currentIndex; index++) {
-                if (equiped[index].type == item.equipedConditions[conditionIndex]) {
-                    found ++;
-                    continue conditionLoop;
-                }
-            }
-            for (var index = currentIndex; index < equipable.length; index++) {
-                if (equipable[index].includes(item.equipedConditions[conditionIndex])) {
-                    found ++;
-                    break;
-                }
-            }
-        }
-        if (found != item.equipedConditions.length) {
-            return false;
-        }
     }
     return true;
 }
@@ -274,12 +431,30 @@ function someEquipmentNoMoreApplicable(build) {
     return false;
 }
 
-function calculateValue(equiped, stat, ignoreCondition = false) {
-    var calculatedValue = calculateStatValue(equiped, stat, ignoreCondition);
-    if (stat = 'atk') {
+function calculateMaxValue(item) {
+    var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
+    var calculatedValue = 0;
+    if (item[statToMaximize]) {
+        calculatedValue += item[statToMaximize];
+    }
+    if (item[statToMaximize + '%']) {
+        calculatedValue += item[statToMaximize+'%'] * baseValue / 100;
+    }
+    return calculatedValue;
+}
+
+function calculateValue(equiped, esper, ignoreCondition = false) {
+    var calculatedValue = calculateStatValue(equiped, ignoreCondition);
+    if (esper != null) {
+        calculatedValue += esper[statToMaximize] / 100;
+    }
+    if ("atk" == statToMaximize) {
         calculatedValue
         var cumulatedKiller = 0;
         var itemAndPassives = equiped.concat(selectedUnit.skills);
+        if (esper != null) {
+            itemAndPassives.push(esper);
+        }
         for (var equipedIndex in itemAndPassives) {
             if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
                 if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
@@ -305,7 +480,7 @@ function calculateValue(equiped, stat, ignoreCondition = false) {
         if (elements.length > 0) {
             for (var element in ennemyResist) {
                 if (equiped[0] && equiped[0].element && equiped[0].element == element || equiped[1] && equiped[1].element && equiped[1].element == element) {
-                    resistModifier += ennemyResist[element];
+                    resistModifier += ennemyResist[element] / 100;
                 }
             }    
             resistModifier = resistModifier / elements.length;
@@ -316,33 +491,29 @@ function calculateValue(equiped, stat, ignoreCondition = false) {
         if (ennemyRaces.length > 0) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
-        
         calculatedValue = calculatedValue * calculatedValue * (1 - resistModifier) * killerMultiplicator;
+        
+        /*if (equiped[0].name == "Crimson Saber") {
+            console.log(resistModifier);
+        }*/
     }
     return calculatedValue;
 }
 
-function calculateStatValue(equiped, stat, ignoreCondition = false) {
+function calculateStatValue(equiped, ignoreCondition = false) {
     var calculatedValue = 0;
-    if (stat = 'atk') {
-        var baseValue = selectedUnit.stats.maxStats[stat] + selectedUnit.stats.pots[stat];
+    if ("atk" == statToMaximize) {
+        var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
         var calculatedValue = baseValue;
         var itemAndPassives = equiped.concat(selectedUnit.skills);
         var cumulatedKiller = 0;
         for (var equipedIndex in itemAndPassives) {
             if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-                if (itemAndPassives[equipedIndex][stat]) {
-                    calculatedValue += itemAndPassives[equipedIndex][stat];
+                if (itemAndPassives[equipedIndex][statToMaximize]) {
+                    calculatedValue += itemAndPassives[equipedIndex][statToMaximize];
                 }
-                if (itemAndPassives[equipedIndex][stat + '%']) {
-                    calculatedValue += itemAndPassives[equipedIndex][stat+'%'] * baseValue / 100;
-                }
-                if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
-                    for (var killerIndex in itemAndPassives[equipedIndex].killers) {
-                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
-                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].percent;
-                        }
-                    }
+                if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
+                    calculatedValue += itemAndPassives[equipedIndex][statToMaximize+'%'] * baseValue / 100;
                 }
             }
         }
@@ -370,11 +541,7 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
-function isSpecial(item) {
-    return item.dualWield || item.allowUseOf;
-}
-
-function logBuild(build) {
+function logBuild(build, esper) {
     var order = [0,1,2,3,4,5,6,7,8,9];
     var html = "";
     for (var index = 0; index < order.length; index++) {
@@ -386,7 +553,7 @@ function logBuild(build) {
         }
     }
     $("#results .tbody").html(html);
-    $("#resultStats").html("atk = " + Math.floor(calculateStatValue(build, 'atk')) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, 'atk') / 100));
+    $("#resultStats").html(statToMaximize + " = " + Math.floor(calculateStatValue(build)) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, esper) / 100) + ". esper : " + esper.name);
 }
 
 
@@ -440,13 +607,18 @@ function inventoryLoaded() {
             
 $(function() {
     $.get("data.json", function(result) {
-        data = result;
+        rawData = result;
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
     $.get("unitsWithSkill.json", function(result) {
         units = result;
         populateUnitSelect();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
+    $.get("espers.json", function(result) {
+        espers = result;
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
