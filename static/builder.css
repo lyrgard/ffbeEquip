@@ -12,3 +12,20 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.progressBar {
+    width: 100%;
+    background-color: grey;
+}
+.progress {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white; 
+}
+
+.progress.finished {
+    background-color: skyblue;
+}
