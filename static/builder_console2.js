@@ -10,29 +10,34 @@ var numberByType = {}
 
 var rawData;
 var data = {};
-var dataWithCondition = {};
+var dataWithCondition = [];
 var units;
 var itemOwned;
 var selectedUnit;
 
 var equipable;
 
-var ennemyResist = {"fire":0,"ice":-140,"water":0,"wind":0,"lightning":0,"earth":0,"light":0,"dark":0};
+var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
 var ennemyRaces = ["human","demon"];
 var innateElements = [];
 
 var bestValue = 0;
 var bestBuild;
 
+var stats = [];
+var numberOfItemCombination;
+
+var fixedItems = [null, null, null, null, null, null, {"name":"Dual Wield","type":"materia","dualWield":"all","access":["TMR-3*"],"tmrUnit":"Zidane"}, null, null, null]
 
 function build() {
-    selectedUnit = units['Firion'];
+    console.log("==============================\n=             START          =\n==============================");
+    selectedUnit = units['Veritas of the Dark'];
     bestValue = 0;
     bestBuild = null;
     prepareEquipable();
     prepareData(selectedUnit.equip);
-//    optimize();
-    //logBuild(bestBuild);
+    optimize();
+    logBuild(bestBuild);
 }
 
 function prepareEquipable() {
@@ -47,6 +52,20 @@ function prepareEquipable() {
         } else if (bodyList.includes(selectedUnit.equip[equipIndex])) {
             equipable[3].push(selectedUnit.equip[equipIndex]);
         } 
+    }
+    var hasDualWield = false;
+    for (var index in selectedUnit.skills) {
+        if (selectedUnit.skills[index].dualWield == "all") {
+            hasDualWield = true;
+        }
+    }
+    for (var index in fixedItems) {
+        if (fixedItems[index] && fixedItems[index].dualWield == "all") {
+            hasDualWield = true;
+        }
+    }
+    if (hasDualWield) {
+        equipable[1] = equipable[1].concat(equipable[0]);
     }
 }
 
@@ -75,12 +94,7 @@ function prepareData(equipable) {
         var item = rawData[index];
         if (itemOwned[item.name] && itemOwned[item.name] > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
-                var conditions = getEquipedConditionString(item.equipedConditions);
-                if (!dataWithCondition[conditions]) {
-                    dataWithCondition[conditions] = [item];
-                } else {
-                    dataWithCondition[conditions].push(item);
-                }
+                dataWithCondition.push(item);
             } else {
                 if (!tempData[item.type]) {
                     tempData[item.type] = {};
@@ -110,10 +124,10 @@ function prepareData(equipable) {
             }
         }
     }
-    for (index in typeList) {
+    /*for (index in typeList) {
         console.log(typeList[index]);    
         console.log(tempData[typeList[index]]);    
-    }
+    }*/
     for (var typeIndex in typeList) {
         var type = typeList[typeIndex];
         data[type] = [];
@@ -125,7 +139,7 @@ function prepareData(equipable) {
             }
         }
     }
-    console.log(data);
+    //console.log(data);
 }
 
 function getKillerCoef(item) {
@@ -169,16 +183,162 @@ function order(item1, item2) {
 }
 
 function optimize() {
-    bestBuild = [null, null, null, null, null, null, null, null, null, null];
-    for (var index in data) {
-        var item = data[index];
-        if (itemOwned[item.name] && isApplicable(item)) {    
-            var number = getItemNumber(item);
-            for (var i = 0; i < number; i++) {
-                optimizeWithNewItem(bestBuild, inventory, equipable, item);
+    typeCombination = [null, null, null, null, null, null, null, null, null, null];
+    buildTypeCombination(0,typeCombination);
+}
+
+function buildTypeCombination(index, typeCombination) {
+    if (fixedItems[index]) {
+        tryType(index, typeCombination, fixedItems[index].type);
+    } else {
+        for (var typeIndex in equipable[index]) {
+            type = equipable[index][typeIndex]
+            if (data[type].length > 0) {
+                tryType(index, typeCombination, type);
             }
         }
     }
+}
+
+function tryType(index, typeCombination, type) {
+    typeCombination[index] = type;
+    if (index == 9) {
+        build = [null, null, null, null, null, null, null, null, null, null];
+/*                var startTime = new Date();*/
+        numberOfItemCombination = 0;
+        var dataWithdConditionItems = {}
+        for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
+            dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+        }
+        findBestBuildForCombination(0, build, typeCombination, dataWithdConditionItems);
+/*                var endTime = new Date();
+        stats.push(endTime - startTime);
+
+        console.log(typeCombination);
+        console.log(endTime - startTime);
+        console.log(numberOfItemCombination);
+        logDataWithdConditionItems(dataWithdConditionItems);
+        console.log("===============================================================");*/
+    } else {
+        buildTypeCombination(index+1, typeCombination);
+    }
+}
+
+function logDataWithdConditionItems(dataWithdConditionItems) {
+    for (var index in dataWithdConditionItems) {
+        logAddConditionItems(dataWithdConditionItems[index]);
+    }
+}
+
+function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems) {
+    if (fixedItems[index]) {
+        tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index]);
+    } else {
+        for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
+            var item = dataWithConditionItems[typeCombination[index]][itemIndex];
+            if (canAddMoreOfThisItem(build, item, index)) {
+                if (index == 1 && isTwoHanded(item)) {
+                    continue;
+                }
+                tryItem(index, build, typeCombination, dataWithConditionItems, item)
+            }
+        }
+        build[index] == null;
+    }
+}
+
+function tryItem(index, build, typeCombination, dataWithConditionItems, item) {
+    build[index] = item;
+    if (index == 9) {
+        numberOfItemCombination++
+        value = calculateValue(build, 'atk');
+        if (value > bestValue) {
+            bestBuild = build.slice();
+            bestValue = value;
+        }
+    } else {
+        findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems);
+    }
+}
+
+function addConditionItems(itemsOfType, type, typeCombination) {
+    var result = itemsOfType.slice();
+    for (var index in dataWithCondition) {
+        var item = dataWithCondition[index];
+        if (item.type == type) {
+            var allFound = true;
+            for (var conditionIndex in item.equipedConditions) {
+                if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
+                    allFound = false;
+                    break;
+                }
+            }
+            if (allFound) {
+                result.push(item);
+            }
+        }
+    }
+    result.sort(function (item1, item2) {
+        return calculateMaxValue(item2) - calculateMaxValue(item1);
+    });
+    var numberNeeded = 0;
+    for (var slotIndex in typeCombination) {
+        if (typeCombination[slotIndex] == type) {
+            numberNeeded++;
+        }
+    }
+    var number = 0;
+    var itemIndex = 0;
+    var itemKeptNames = [];
+    while(itemIndex < result.length) {
+        item = result[itemIndex];
+        if (number < numberNeeded) {
+            if (!itemKeptNames.includes(item.name)) {
+                if (!isStackable(item)) {
+                    number += 1;
+                } else {
+                    number += itemOwned[item.name];
+                }
+            }
+            itemIndex++;
+        } else {
+            if ((item.element && ennemyResist[item.element] < 0) || getKillerCoef(item) > 0) {
+                itemIndex++; // Keep items with good element or killers
+            } else {
+                result.splice(itemIndex, 1);
+            }
+        }
+    }
+    return result;
+}
+
+function logAddConditionItems(data) {
+    var string = "";
+    for (var index in data) {
+        string += data[index].name + ", ";
+    }
+    console.log(string);
+}
+
+function canAddMoreOfThisItem(build, item, currentIndex) {
+    var number = 0;
+    for (var index = 0; index < currentIndex; index++) {
+        if (build[index] && build[index].name == item.name) {
+            if (!isStackable(item)) {
+                return false;
+            }
+            number++;
+        }
+    }
+    for (var index = currentIndex + 1; index < 10; index++) {
+        if (fixedItems[index] && fixedItems[index].name == item.name) {
+            if (!isStackable(item)) {
+                return false;
+            }
+            number++;
+        }
+    }
+    return itemOwned[item.name] > number;
 }
 
 function getItemNumber(item) {
@@ -486,6 +646,10 @@ function calculateValue(equiped, stat, ignoreCondition = false) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         calculatedValue = calculatedValue * calculatedValue * (1 - resistModifier) * killerMultiplicator;
+        
+        /*if (equiped[0].name == "Crimson Saber") {
+            console.log(resistModifier);
+        }*/
     }
     return calculatedValue;
 }
