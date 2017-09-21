@@ -1,15 +1,68 @@
 {
-    "Veritas of the Dark":{
+    "2B":{
         "max_rarity":6,
         "stats":{
-            "maxStats":{"hp":3650,"mp":158,"atk":150,"def":132,"mag":125,"spr":121},
+            "maxStats":{"hp":3605,"mp":193,"atk":155,"def":140,"mag":82,"spr":118},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"female",
+        "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":40,"atk%":80,"dualWield":"all","killers":[{"name":"machine","percent":100}]}
+        ]
+    },
+    "A2":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3692,"mp":193,"atk":153,"def":142,"mag":85,"spr":121},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"female",
+        "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+        "skills":[
+            {"dualWield":"all","killers":[{"name":"machine","percent":100}]},   
+            {"atk%":30,"def%":20,"equipedConditions":["sword"]},
+            {"atk%":50,"equipedConditions":["greatSword"]},
+            {"atk%":30,"spr%":20,"equipedConditions":["spear"]},
+            {"hp%":30,"atk%":30,"equipedConditions":["fist"]}
+        ]
+    },
+    "Agrias":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3476,"mp":164,"atk":140,"def":124,"mag":117,"spr":117},
             "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
         },
-        "sex":"male",
-        "equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
+        "sex":"female",
+        "equip":["dagger","sword","greatSword","katana","axe","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},
-            {"atk%":50,"equipedConditions":["greatSword"]}
+            {"hp%":30,"atk%":20,"def%":10},
+            {"atk%":50,"equipedConditions":["greatSword"]},
+            {"def%":30,"spr%":30,"equipedConditions":["lightShield"]}
+        ]
+    },
+    "Aileen":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3698,"mp":149,"atk":155,"def":120,"mag":122,"spr":119},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"female",
+        "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","robe","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"mp%":20,"atk%":60,"killers":[{"name":"stone","percent":50},{"name":"machine","percent":50}]}
+        ]
+    },
+    "Dark Knight Cecil":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3711,"mp":145,"atk":155,"def":123,"mag":116,"spr":117},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"atk%":60,"def%":20}
         ]
     },
     "Firion":{
@@ -21,8 +74,7 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","lightArmor"],
         "skills":[
-            {"killers":[{"name":"plant","percent":125},{"name":"bug","percent":125},{"name":"bird","percent":125},{"name":"dragon","percent":150},{"name":"demon","percent":150},{"name":"beast","percent":150},{"name":"human","percent":100},{"name":"undead","percent":100}]},
-            {"atk%":10},
+            {"atk%":10,"killers":[{"name":"plant","percent":125},{"name":"bug","percent":125},{"name":"bird","percent":125},{"name":"dragon","percent":150},{"name":"demon","percent":150},{"name":"beast","percent":150},{"name":"human","percent":100},{"name":"undead","percent":100}]},
             {"mag%":30,"spr%":30,"equipedConditions":["staff"]},
             {"mag%":30,"spr%":30,"equipedConditions":["rod"]},
             {"mag%":30,"spr%":30,"equipedConditions":["harp"]},
@@ -41,6 +93,35 @@
             {"atk%":20,"def%":20,"equipedConditions":["katana"]}
         ]
     },
+    "Luneth":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3625,"mp":155,"atk":146,"def":127,"mag":115,"spr":117},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"atk%":30,"dualWield":"all"},
+            {"atk%":50,"equipedConditions":["dagger"]},
+            {"atk%":50,"equipedConditions":["sword"]},
+            {"atk%":50,"equipedConditions":["greatSword"]},
+            {"atk%":50,"equipedConditions":["kaktana"]}
+        ]
+    },
+    "Onion Knight":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3642,"mp":162,"atk":158,"def":120,"mag":119,"spr":125},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":30,"mp%":30,"atk%":30,"def%":10,"killers":[{"name":"undead","percent":50}],"dualWield":"all"},
+            {"atk%":50,"equipedConditions":["sword"]}
+        ]
+    },
     "Orlandeau":{
         "max_rarity":6,
         "stats":{
@@ -54,18 +135,55 @@
             {"atk%":40,"equipedConditions":["greatSword"]}
         ]
     },
-    "Agrias":{
+    "Randi":{
         "max_rarity":6,
         "stats":{
-            "maxStats":{"hp":3476,"mp":164,"atk":140,"def":124,"mag":117,"spr":117},
+            "maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+        "skills":[
+            {"hp%":20,"atk%":30,"def%":20,"dualWield":"all","killers":[{"name":"beast","percent":125},{"name":"dragon","percent":125},{"name":"spirit","percent":125},{"name":"undead","percent":125}]},
+            {"atk%":70,"def%":35,"srp%":35,"equipedConditions":["sword"]}
+        ]
+    },
+    "Tidus":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3656,"mp":159,"atk":154,"def":126,"mag":121,"spr":124},
             "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
         },
         "sex":"male",
-        "equip":["dagger","sword","greatSword","katana","axe","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+        "equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":30,"atk%":20,"def%":10},
-            {"atk%":50,"equipedConditions":["greatSword"]},
-            {"def%":30,"spr%":30,"equipedConditions":["lightShield"]}
+            {"hp%":30,"mp%":20,"atk%":50,"killers":[{"name":"beast","percent":50},{"name":"bird","percent":50},{"name":"demon","percent":50}]}
+        ]
+    },
+    "Veritas of the Dark":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3650,"mp":158,"atk":150,"def":132,"mag":125,"spr":121},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},
+            {"atk%":50,"equipedConditions":["greatSword"]}
+        ]
+    },
+    "Veritas of the Flame":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3702,"mp":148,"atk":155,"def":132,"mag":113,"spr":130},
+            "pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","throwing","gun","mace","fist","heavyShield","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":30,"mp%":10,"atk%":20,"def%":20},   
+            {"atk%":50,"equipedConditions":["axe"]}
         ]
     }
 }

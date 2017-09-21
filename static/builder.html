@@ -42,43 +42,49 @@
                         </form>
                     </div>
                     <div class="panel-body">
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">HP</span>
-                                <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                        <div class="unitStats">
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">HP</span>
+                                    <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">MP</span>
+                                    <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">ATK</span>
+                                    <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">DEF</span>
+                                    <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">MAG</span>
+                                    <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class = "input-group">
+                                    <span class = "input-group-addon">SPR</span>
+                                    <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">MP</span>
-                                <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        <div class="col-xs-12 unitAttackElement">
+                            <span>If using an attack with innate element(s), select it (them):</span>
+                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">ATK</span>
-                                <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">DEF</span>
-                                <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">MAG</span>
-                                <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class = "input-group">
-                                <span class = "input-group-addon">SPR</span>
-                                <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div class="panel panel-default goal">
