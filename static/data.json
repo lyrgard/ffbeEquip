@@ -20,6 +20,7 @@
     {"name":"Zwill Crossblade","type":"dagger","atk":73,"element":"wind","evade":5,"access":["event"]},
     {"name":"Zwill Crossblade (FFT)","type":"dagger","atk":72,"ailments":[{"name":"sleep","percent":30}],"access":["event"]},
     {"name":"Avenger","type":"dagger","atk":54,"special":["[Berserker] : +50% atk and auto attack each turn"],"access":["key"]},
+    {"name":"Galkan Dagger","type":"dagger","hp%":10,"atk":40,"element":"earth","access":["recipe-event"]},
 
 
     {"name":"Moonblade","type":"sword","atk":118,"element":"dark","access":["TMR-5*"],"tmrUnit":"Delita"},
@@ -108,7 +109,7 @@
     {"name":"Staff","type":"staff","atk":5,"mag":2,"spr":14,"outclassedBy":"Golden Staff","access":["shop","recipe-chest","chest"]},
     {"name":"Aura Staff","type":"staff","atk":21,"mag":12,"spr":53,"special":["[Dispel]"],"access":["key"]},
     {"name":"Cypress Pile","type":"staff","atk":23,"mag":6,"spr":45,"ailments":[{"name":"confuse","percent":30}],"access":["chest"]},
-    {"name":"APlatinum Staff","type":"staff","atk":20,"mag":9,"spr":54,"access":["chest"]},
+    {"name":"Platinum Staff","type":"staff","atk":20,"mag":9,"spr":54,"access":["chest"]},
 
     {"name":"Mateus's Malice","type":"rod","hp%":10,"atk":19,"mag":129,"access":["TMR-5*"],"tmrUnit":"Emperor"},
     {"name":"Omnirod","type":"rod","atk":20,"mag":91,"access":["TMR-3*"],"tmrUnit":"Arc"},
@@ -129,6 +130,7 @@
     {"name":"Holy Rod","type":"rod","mp%":15,"atk":10,"mag":53,"element":"light","access":["event"]},
     {"name":"Platinum Rod","type":"rod","atk":14,"mag":40,"access":["chest"]},
     {"name":"Water Drake's Rod","type":"rod","mp%":10,"atk":11,"mag":48,"element":"water","access":["event"]},
+    {"name":"Iridal Staff","type":"rod","atk":19,"mag":82,"special":["[Auto-Regen]"],"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":40,"killers":[{"name":"bird","percent":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"Rosa"},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","percent":50},{"name":"undead","percent":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"White Witch Fina"},
@@ -156,6 +158,7 @@
     {"name":"Battle Axe","type":"axe","atk":28,"outclassedBy":"Giant's Axe","access":["shop","recipe-chest","chest"]},
     {"name":"Great Axe","type":"axe","atk":32,"outclassedBy":"Giant's Axe","access":["shop","recipe-chest","chest"]},
     {"name":"Ogrekiller","type":"axe","atk":36,"outclassedBy":"Giant's Axe","access":["colosseum","chest"]},
+    {"name":"Leucos Voulge","type":"axe","atk":101,"exclusiveUnits":["Werei"],"access":["recipe-event"]},
 
     {"name":"Mighty Hammer","type":"hammer","hp%":15,"atk":72,"element":"lightning","access":["event"]},
     {"name":"Blessed Hammer","type":"hammer","atk":44,"mag":6,"spr":28,"access":["key"]},
@@ -168,6 +171,7 @@
     {"name":"Iron Hammer","type":"hammer","atk":18,"outclassedBy":"Blessed Hammer","access":["recipe-chest","shop"]},
     {"name":"Microphone Stand","type":"hammer","atk":16,"mag":72,"access":["event"]},
 	{"name":"Microphone Stand","type":"hammer","atk":16,"mag":72,"mag%":20,"exclusiveUnits":["Chic Ariana"],"access":["event"]},
+    {"name":"Thoth's Wand","type":"hammer","hp%":10,"atk":70,"spr":48,"exclusiveUnits":["Kupipi"],"access":["recipe-event"]},
 
     {"name":"Demon Scythe","type":"spear","atk":120,"element":"dark","access":["TMR-5*"],"tmrUnit":"Elza"},
     {"name":"Gungnir","type":"spear","atk":90,"access":["TMR-3*"],"tmrUnit":"Kain"},
@@ -194,6 +198,7 @@
     {"name":"Wyvern Spear","type":"spear","atk":80,"killers":[{"name":"dragon","percent":50}],"access":["key"]},
     {"name":"Partisan","type":"spear","atk":31,"outclassedBy":"Mythril Spear","access":["shop","colosseum"]},
     {"name":"Javelin","type":"spear","atk":22,"outclassedBy":"Mythril Spear","access":["shop","colosseum"]},
+    {"name":"Orc Piercer","type":"spear","atk":44,"killers":[{"name":"human","percent":50}],"access":["recipe-event"]},
 
     {"name":"Dream Harp","type":"harp","atk":76,"mag":41,"ailment":[{"name":"sleep","percent":40}],"special":["twoHanded"],"access":["TMR-3*"],"tmrUnit":"Gilbert"},
     {"name":"Rune Bell","type":"harp","atk":34,"special":["twoHanded"],"access":["event"]},
@@ -228,6 +233,7 @@
     {"name":"Platinum Edge","type":"throwing","atk":42,"killers":[{"name":"bird","percent":50}],"access":["chest"]},
     {"name":"Chakram","type":"throwing","atk":21,"killers":[{"name":"bird","percent":50}],"outclassedBy":"Moon Ring Blade","access":["shop","recipe-chest","quest"]},
     {"name":"Boomrang","type":"throwing","atk":16,"killers":[{"name":"bird","percent":50}],"outclassedBy":"Moon Ring Blade","access":["shop","recipe-chest","quest"]},
+    {"name":"Slick Dart","type":"throwing","atk":60,"spr":32,"access":["recipe-event"]},
 
     {"name":"Sparky","type":"gun","atk":120,"element":"lightning","special":["Increase equipment ATK (50%) when single wielding"],"access":["TMR-5*"],"tmrUnit":"Olive"},
     {"name":"Romandan Pistol","type":"gun","atk":107,"access":["TMR-3*"],"tmrUnit":"Mustadio"},
@@ -247,6 +253,7 @@
     {"name":"Capella","type":"gun","atk":26,"outclassedBy":"Betelgeuse","special":["twoHanded"],"access":["shop","recipe-chest","key"]},
     {"name":"Altair","type":"gun","atk":20,"outclassedBy":"Betelgeuse","access":["shop","recipe-chest","quest"]},
     {"name":"Quasar","type":"gun","atk":60,"mag":60,"access":["event"]},
+    {"name":"Shark Gun","type":"gun","atk":80,"access":["recipe-event"]},
 
     {"name":"Thorned Mace","type":"mace","atk":78,"ailments":[{"name":"poison","percent":70}],"killers":[{"name":"human","percent":50}],"access":["trial"]},
     {"name":"Lunar Pestle","type":"mace","mp":25,"atk":60,"mag":15,"access":["event"]},
@@ -275,6 +282,7 @@
     {"name":"Metal Knuckles","type":"fist","atk":20,"outclassedBy":"Mythril Claws","access":["shop","recipe-chest","chest"]},
     {"name":"Bronze Knuckles","type":"fist","atk":16,"outclassedBy":"Mythril Claws","access":["shop","recipe-quest","chest"]},
     {"name":"Type-3 Fists","type":"fist","atk":60,"ailments":[{"name":"confuse","percent":20}],"access":["recipe-event"]},
+    {"name":"Retaliator","type":"fist","mp%":20,"atk":96,"exclusiveUnits":["Prishe"],"access":["recipe-event"]},
 
     {"name":"Snowstorm Shield","type":"lightShield","def":42,"spr":12,"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":-30},{"name":"fire","percent":-30}],"access":["event"]},
     {"name":"Dragon Shield","type":"lightShield","def":38,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}],"access":["key"]},
@@ -284,6 +292,7 @@
     {"name":"Leather Shield","type":"lightShield","def":10,"resist":[{"name":"lightning","percent":20},{"name":"water","percent":-20}],"access":["shop","recipe-chest","chest"]},
     {"name":"Army Shield","type":"lightShield","def":40,"spr":20,"resist":[{"name":"lightning","percent":20}],"access":["event"]},
     {"name":"Buckler","type":"lightShield","def":16,"outclassedBy":"Mythril Buckler","access":["shop","chest","quest","recipe-shop"]},
+    {"name":"Divine Shield","type":"lightShield","hp%":5,"mp%":5,"def":15,"spr":25,"access":["recipe-event"]},
 
     {"name":"Aegis Shield","type":"heavyShield","def":53,"spr":25,"resist":[{"name":"petrification","percent":100}],"access":["TMR-3*"],"tmrUnit":"Leo"},
     {"name":"Force Shield","type":"heavyShield","def":40,"spr":8,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["chocobo"]},
@@ -328,6 +337,8 @@
     {"name":"Black Mask","type":"hat","def":12,"mag":18,"resist":[{"name":"dark","percent":15}],"access":["quest"]},
     {"name":"White Mask","type":"hat","def":12,"spr":18,"resist":[{"name":"light","percent":15}],"access":["chest"]},
     {"name":"Aria's Ribbon","type":"hat","mp%":15,"def":15,"spr":45,"tmrUnit":"Aria","access":["TMR-4*"]},
+    {"name":"Prishe's Hairpin","type":"hat","hp%":10,"mp%":10,"atk":45,"tmrUnit":"Prishe","access":["TMR-5*"]},
+    {"name":"Raven Beret","type":"hat","def":16,"evade":5,"access":["recipe-event"]},
 
     {"name":"Grand Helm","type":"helm","def":45,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"access":["trial"]},
     {"name":"Grand Helm","type":"helm","def":45,"def%":20,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}],"special":["[Heavy Arms]"],"equipedConditions":["heavyArmor"],"access":["trial"]},
@@ -401,6 +412,7 @@
     {"name":"Chain Robe","type":"robe","mp%":15,"def":55,"spr":30,"access":["TMR-4*"],"tmrUnit":"Meliadoul"},
     {"name":"Dark Robe","type":"robe","def":35,"mag":55,"spr":20,"resist":[{"name":"dark","percent":30}],"tmrUnit":"Victoria","access":["TMR-4*"]},
     {"name":"Sara's Robe","type":"robe","def":15,"mag":20,"spr":55,"resist":[{"name":"wind","percent":30}],"tmrUnit":"Sara","access":["TMR-3*"]},
+    {"name":"Tactician Magician's Coat","type":"robe","hp%":10,"mp%":10,"def":30,"mag":30,"spr":40,"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
     
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"],"tmrUnit":"Yun"},
@@ -423,6 +435,7 @@
     {"name":"Mythril Plate","type":"lightArmor","def":28,"access":["chest","key","recipe-key"]},
     {"name":"Onion Armor","type":"lightArmor","atk":10,"def":40,"access":["event"]},
     {"name":"Onion Armor","type":"lightArmor","hp%":15,"atk":10,"def":40,"exclusiveUnits":["Onion Knight"],"access":["event"]},
+    {"name":"Parade Cuirass","type":"lightArmor","hp%":10,"def%":40,"access":["recipe-event"]},
     
 
     {"name":"Maximilian","type":"heavyArmor","def":62,"access":["TMR-3*"],"tmrUnit":"Vaan"},
@@ -569,6 +582,9 @@
     {"name":"Onion Gauntlets","type":"accessory","mp%":10,"atk%":15,"def":3,"spr":3,"access":["event"]},
     {"name":"Onion Gauntlets","type":"accessory","mp%":10,"atk%":15,"def":3,"spr":3,"special":["[Lance+]"],"exclusiveUnits":["Onion Knights"],"access":["event"]},
     {"name":"Malboro's Eye","type":"accessory","special":["Enables use of [Malboro's Eye] : Increase resistance to poison, sleep, silence, and petrify (50%) for 3 turns to all allies"],"access":["trial"]},
+    {"name":"Portal Charm","type":"accessory","def":3,"mag%":15,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"tmrUnit":"Kupipi","access":["TMR-3*"]},
+    {"name":"Golden Hairpin","type":"accessory","hp%":10,"mp%":10,"mag%":20,"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
+    {"name":"Parade Gorget","type":"accessory","def":5,"special":["Recover MP (2%) per turn"],"access":["recipe-event"]},
 
     {"name":"HP +10%","type":"materia","hp%":10,"access":["TMR-1*"],"tmrUnit":"Rizer"},
     {"name":"HP +15%","type":"materia","hp%":15,"access":["recipe-event","event"]},
@@ -898,5 +914,7 @@
     {"name":"Heart of Wind","type":"materia","hp%":15,"resist":[{"name":"wind","percent":5}],"access":["event"]},
     {"name":"Heart of Earth","type":"materia","hp%":15,"resist":[{"name":"earth","percent":5}],"access":["event"]},
     {"name":"Codex of Sword Master","type":"materia","atk%":20,"mag%":20,"tmrUnit":"Swordsman Lasswell","condition":"if equiped with a sword","access":["TMR-4*"]},
-    {"name":"Malboro's Whisper","type":"materia","hp%":20,"mag%":30,"access":["trial"]}
+    {"name":"Malboro's Whisper","type":"materia","hp%":20,"mag%":30,"access":["trial"]},
+    {"name":"Proud Fencer","type":"materia","hp%":20,"atk%":40,"equipedConditions":["greatSword"],"tmrUnit":"Werei","access":["TMR-4*"]},
+	{"name":"Proud Fencer","type":"materia","hp%":20,"tmrUnit":"Werei","access":["TMR-4*"]}
 ]
