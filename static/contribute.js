@@ -120,10 +120,10 @@ function updateCurrentItemDisplay() {
         $(".currentItem .type .notStackable").addClass("hidden");
     }
     if (currentItem.dualWield) {
-        if (item.dualWield == "all") {
-            special += "<li>" + toHtml("[Dual Wield]") + "</li>";
+        if (currentItem.dualWield == "all") {
+            specialList += "<li>" + toHtml("[Dual Wield]") + "</li>";
         } else {
-            special += "<li>" + toHtml("[Dual Wield] of ") + "<img src='img/" + item.dualWield + ".png'></img></li>";
+            specialList += "<li>" + toHtml("[Dual Wield] of ") + "<img src='img/" + currentItem.dualWield + ".png'></img></li>";
         }
     }
     if (specialList != "") {
@@ -145,8 +145,8 @@ function updateCurrentItemDisplay() {
     if (currentItem.exclusiveSex) {
         access.append("<div class='exclusive'>Only " + currentItem.exclusiveSex + "</div>");
     }
-    if (item.equipedConditions) {
-        html += getEquipedConditionHtml(item);
+    if (currentItem.equipedConditions) {
+        access.append(getEquipedConditionHtml(currentItem));
     }
     
 }
@@ -205,7 +205,13 @@ function selectExclusive(exclusive) {
     } else if (exclusive == "unit") {
         displayAddForm(exclusive, "Only")
     } else {
-        displayAddForm(exclusive, "Condition")
+        if (!currentItem.equipedConditions) {
+            currentItem.equipedConditions = [];
+        }
+        if (!currentItem.equipedConditions.includes(exclusive)) {
+            currentItem.equipedConditions.push(exclusive);
+        }
+        updateCurrentItemDisplay();
     }
 }
 function selectSpecial(special) {
@@ -332,6 +338,7 @@ function deleteSpecial() {
     delete currentItem.resist;
     delete currentItem.killers;
     delete currentItem.evade;
+    delete currentItem.dualWield;
     updateCurrentItemDisplay();
 }
 
@@ -340,7 +347,7 @@ function deleteAccess() {
     delete currentItem.tmrUnit;
     delete currentItem.exclusiveSex;
     delete currentItem.exclusiveUnits;
-    delete currentItem.condition;
+    delete currentItem.equipedConditions;
     updateCurrentItemDisplay();
 }
 
@@ -352,6 +359,7 @@ $(function() {
     populateAddResist();
     populateAddKiller();
     populateAddAccess();
+    populateEquipedWith();
     $('.currentItem .name input').on("input",$.debounce(300,function() {
         currentItem.name = $('.currentItem .name input').val();
         updateCurrentItemDisplay();
@@ -404,4 +412,20 @@ function populateAddAccess() {
 	for (var key in accessList) {
         target.append('<span class="btn btn-default access" onclick="selectAccess(\'' + accessList[key] + '\')">' + accessList[key] + '</span>');
 	}
+}
+function populateEquipedWith() {
+    var target = $(".currentItem .addExclusive .dropdown-menu");
+	for (var key in weaponList) {
+        target.append('<img src="img/' + weaponList[key] + '.png" onclick="selectExclusive(\'' + weaponList[key] + '\');" class="btn btn-default"/>');
+	}
+    for (var key in headList) {
+        target.append('<img src="img/' + headList[key] + '.png" onclick="selectExclusive(\'' + headList[key] + '\');" class="btn btn-default"/>');
+	}
+    for (var key in bodyList) {
+        target.append('<img src="img/' + bodyList[key] + '.png" onclick="selectExclusive(\'' + bodyList[key] + '\');" class="btn btn-default"/>');
+	}
+}
+
+function inventoryLoaded() {
+   
 }
