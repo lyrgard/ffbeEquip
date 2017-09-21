@@ -61,6 +61,7 @@ function build() {
     
     readEnnemyResists();
     ennemyRaces = getSelectedValuesFor("races");
+    innateElements = getSelectedValuesFor("elements");
     
     prepareData(selectedUnit.equip);
     prepareEquipable();
@@ -75,6 +76,9 @@ function prepareEquipable() {
             equipable[0].push(selectedUnit.equip[equipIndex]);
         } else if (shieldList.includes(selectedUnit.equip[equipIndex])) {
             equipable[1].push(selectedUnit.equip[equipIndex]);
+            if (hasInnateDualWield()) {
+                equipable[1] = equipable[1].concat(equipable[0]);
+            }
         } else if (headList.includes(selectedUnit.equip[equipIndex])) {
             equipable[2].push(selectedUnit.equip[equipIndex]);
         } else if (bodyList.includes(selectedUnit.equip[equipIndex])) {
@@ -104,7 +108,7 @@ function prepareData(equipable) {
                 if (item.element) {
                     if (ennemyResist[item.element] <= 0) {
                         subType += "element" + ennemyResist[item.element];
-                    } else {
+                    } else if (!innateElements.includes(item.element)) {
                         continue;
                     }
                 }
@@ -207,7 +211,7 @@ function optimize() {
     buildTypeCombination(0,typeCombination, combinations);
     
     
-    if (dualWieldSources.length > 0) {
+    if (!hasInnateDualWield() && dualWieldSources.length > 0) {
         equipable[1] = equipable[1].concat(equipable[0]);
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
@@ -424,7 +428,7 @@ function getDamageCoefLevel(item) {
     if ((item.element && ennemyResist[item.element] < 0)) {
         damageCoefLevel += "element" + ennemyResist[item.element];
     }
-    if (damageCoefLevel == "" && weaponList.includes(item.type) && !item.element) {
+    if (damageCoefLevel == "" && weaponList.includes(item.type) && (!item.element || innateElements.includes(item.element))) {
         damageCoefLevel = "elementless";
     }
     return damageCoefLevel;
@@ -466,6 +470,15 @@ function isStackable(item) {
 
 function isTwoHanded(item) {
     return (item.special && item.special.includes("twoHanded"));
+}
+
+function hasInnateDualWield() {
+    for (var index in selectedUnit.skills) {
+        if (selectedUnit.skills[index].dualWield && selectedUnit.skills[index].dualWield == "all") {
+            return true;
+        }
+    }
+    return false;
 }
 
 function getOwnedNumber(item) {
@@ -706,6 +719,8 @@ $(function() {
     
     $("#buildButton").click(build);
     
+    // Elements
+	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"]);
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
 });
