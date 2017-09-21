@@ -173,7 +173,7 @@ function getOAuthUrl() {
 }
 
 
-var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex"];
+var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex","dualWield","equipedConditions"];
 
 function sanitize(body) {
     var items = [];
@@ -199,9 +199,6 @@ function sanitize(body) {
             for (var k = 0; k < body[i].exclusiveUnits.length; k++) {
                 item.exclusiveUnits.push(escapeHtml(body[i].exclusiveUnits[k]));
             }
-        }
-        if (body[i].condition) {
-            item.condition = escapeHtml(body[i].condition);
         }
         if (body[i].access) {
             item.access = [];
@@ -272,7 +269,12 @@ var schemaData = {
                 "maxItems": 10, 
                 "items": {"type": "string","maxLength": 50}
             },
-            "condition": {"type": "string","maxLength": 200},
+            "dualWield":{"type": "string","maxLength": 30},
+            "equipedConditions": {
+                "type": "array", 
+                "maxItems": 3, 
+                "items": {"type": "string","enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor"]}
+            },
             "access": {
                 "type": "array", 
                 "maxItems": 10, 

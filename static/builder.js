@@ -1,8 +1,3 @@
-var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
-var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
-var shieldList = ["lightShield", "heavyShield"];
-var headList = ["hat", "helm"];
-var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var inventory = {"byType":{},"byCondition":{}};
 var numberByType = {}
 
@@ -53,7 +48,7 @@ function build() {
         return;
     }
     if (Object.keys(itemInventory).length == 0) {
-        alert("Please log in to load your inventory");
+        alert("Your inventory is empty. Please go to the Search tab to fill your inventory");
         return;
     }
     
@@ -233,32 +228,15 @@ function optimize() {
     findBestBuildForCombinationAsync(0, combinations);
 }
 
-function findBestBuildForCombinationAsync(index, combinations) {
-    var build = [null, null, null, null, null, null, null, null, null, null];
-    if (index == 63) {
-        console.log("now");
-    }
-    findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
-    //console.log(Math.floor(index/combinations.length*100) + "%" );
-    var progress = Math.floor((index + 1)/combinations.length*100) + "%";
-    var progressElement = $("#buildProgressBar .progress");
-    progressElement.width(progress);
-    progressElement.text(progress);
-    if (index + 1 < combinations.length) {
-        setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
-    } else {
-        logBuild(bestBuild, bestEsper);
-        progressElement.addClass("finished");
-    }
-}
-
-
 function buildTypeCombination(index, typeCombination, combinations) {
     if (fixedItems[index]) {
         tryType(index, typeCombination, fixedItems[index].type, combinations);
     } else {
         for (var typeIndex in equipable[index]) {
             type = equipable[index][typeIndex]
+            if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
+                continue;
+            }
             if (data[type].length > 0) {
                 tryType(index, typeCombination, type, combinations);
             }
@@ -291,14 +269,44 @@ function tryType(index, typeCombination, type, combinations) {
     }
 }
 
+function alreadyTriedInSlot0(type, typeSlot0, equipableSlot0) {
+    if (type == typeSlot0) {
+        return false;
+    }
+    var indexOfTypeSlot0 = equipableSlot0.indexOf(typeSlot0);
+    if (indexOfTypeSlot0 >= 0) {
+        for (var index = 0; index <= indexOfTypeSlot0; index++) {
+            if (equipableSlot0[index] == type) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 function logDataWithdConditionItems(dataWithdConditionItems) {
     for (var index in dataWithdConditionItems) {
         logAddConditionItems(dataWithdConditionItems[index]);
     }
 }
 
+function findBestBuildForCombinationAsync(index, combinations) {
+    var build = [null, null, null, null, null, null, null, null, null, null];
+    findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
+    //console.log(Math.floor(index/combinations.length*100) + "%" );
+    var progress = Math.floor((index + 1)/combinations.length*100) + "%";
+    var progressElement = $("#buildProgressBar .progress");
+    progressElement.width(progress);
+    progressElement.text(progress);
+    if (index + 1 < combinations.length) {
+        setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
+    } else {
+        logBuild(bestBuild, bestEsper);
+        progressElement.addClass("finished");
+    }
+}
+
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
-    if (index > 1 &&  build[0].name == "Save the Queen" && build[1].name == "Genji Blade") {console.log("TOTO");}
     if (fixedItems[index]) {
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
     } else {
@@ -327,11 +335,6 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             value = calculateValue(build, selectedEspers[esperIndex]);
-            if (index > 1 &&  build[0].name == "Save the Queen" && build[1].name == "Genji Blade") {
-                if (value == bestValue) {
-                    console.log(value + " _ " + bestValue);
-                }
-            }
             if (value > bestValue) {
                 bestBuild = build.slice();
                 bestValue = value;
@@ -362,7 +365,13 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         }
     }
     result.sort(function (item1, item2) {
-        return calculateMaxValue(item2) - calculateMaxValue(item1);
+        var value1 = calculateMaxValue(item1);
+        var value2 = calculateMaxValue(item2);
+        if (value1 == value2) {
+            return getOwnedNumber(item2) - getOwnedNumber(item1);
+        } else {
+            return value2 - value1;
+        }
     });
     var numberNeeded = 0;
     for (var slotIndex in typeCombination) {
@@ -373,7 +382,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var number = 0;
     var itemIndex = 0;
     var itemKeptNames = [];
-    var damageCoefLevelAlreadyKept = [];
+    var damageCoefLevelAlreadyKept = {};
     while(itemIndex < result.length) {
         item = result[itemIndex];
         if (number < numberNeeded) {
@@ -384,14 +393,21 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                     number += getOwnedNumber(item);
                 }
             }
-            damageCoefLevelAlreadyKept.push(getDamageCoefLevel(item));
+            var damageCoefLevel = getDamageCoefLevel(item);
+            if (damageCoefLevelAlreadyKept[damageCoefLevel]) {
+                damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
+            }
+            damageCoefLevelAlreadyKept[damageCoefLevel] += damageCoefLevel;
             itemIndex++;
         } else {
             var damageCoefLevel = getDamageCoefLevel(item);
-            if (damageCoefLevel == "" || damageCoefLevelAlreadyKept.includes(damageCoefLevel)) {
+            if (damageCoefLevel == "" || (damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded)) {
                 result.splice(itemIndex, 1);
             } else {
-                damageCoefLevelAlreadyKept.push(damageCoefLevel);
+                if (damageCoefLevelAlreadyKept[damageCoefLevel]) {
+                    damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
+                }
+                damageCoefLevelAlreadyKept[damageCoefLevel] += damageCoefLevel;
                 itemIndex++;
             }
         }
@@ -408,7 +424,7 @@ function getDamageCoefLevel(item) {
     if ((item.element && ennemyResist[item.element] < 0)) {
         damageCoefLevel += "element" + ennemyResist[item.element];
     }
-    if (damageCoefLevel == "" && !item.element) {
+    if (damageCoefLevel == "" && weaponList.includes(item.type) && !item.element) {
         damageCoefLevel = "elementless";
     }
     return damageCoefLevel;
@@ -569,7 +585,7 @@ function calculateStatValue(equiped, esper) {
         var right = calculateStateValueForIndex(equiped, itemAndPassives, 0, baseValue);
         var left = calculateStateValueForIndex(equiped, itemAndPassives, 1, baseValue);
         result.right = calculatedValue + right;
-        result.left = calculatedValue + right;
+        result.left = calculatedValue + left;
         result.total = calculatedValue + right + left;
         return result;   
     }

@@ -18,6 +18,10 @@ var elementList = ['fire','ice','lightning','water','earth','wind','light','dark
 var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
 var killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
 var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
+var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
+var shieldList = ["lightShield", "heavyShield"];
+var headList = ["hat", "helm"];
+var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy"];
 
 function getElementHtml(element) {
