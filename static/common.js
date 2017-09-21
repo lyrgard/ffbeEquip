@@ -99,6 +99,20 @@ var getStatDetail = function(item) {
     return detail;
 };
 
+function getEquipedConditionHtml(item) {
+    var conditions = "";
+    var first = true;
+    for(var equipedConditionsIndex in item.equipedConditions) {
+        if (first) {
+            first = false;
+        } else {
+            conditions += " and ";
+        }
+        conditions += "<img src='img/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
+    }
+    return "<div class='exclusive'>If equiped with " + conditions + "</div>";
+}
+
 function displayItemLine(item) {
     html = "";
     // type
@@ -190,17 +204,7 @@ function displayItemLine(item) {
         html += "<div class='exclusive'>Only " + item.exclusiveSex + "</div>";
     }
     if (item.equipedConditions) {
-        var conditions = "";
-        var first = true;
-        for(var equipedConditionsIndex in item.equipedConditions) {
-            if (first) {
-                first = false;
-            } else {
-                conditions += " and ";
-            }
-            conditions += "<img src='img/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
-        }
-        html += "<div class='exclusive'>If equiped with " + conditions + "</div>";
+        html += getEquipedConditionHtml(item);
     }
     html += "</div>";
     return html;

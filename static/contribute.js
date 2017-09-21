@@ -119,6 +119,13 @@ function updateCurrentItemDisplay() {
         $(".currentItem .type .twoHanded").addClass("hidden");
         $(".currentItem .type .notStackable").addClass("hidden");
     }
+    if (currentItem.dualWield) {
+        if (item.dualWield == "all") {
+            special += "<li>" + toHtml("[Dual Wield]") + "</li>";
+        } else {
+            special += "<li>" + toHtml("[Dual Wield] of ") + "<img src='img/" + item.dualWield + ".png'></img></li>";
+        }
+    }
     if (specialList != "") {
         otherSpecials.append("<ul>" + specialList + "</ul>");
     }
@@ -138,8 +145,8 @@ function updateCurrentItemDisplay() {
     if (currentItem.exclusiveSex) {
         access.append("<div class='exclusive'>Only " + currentItem.exclusiveSex + "</div>");
     }
-    if (currentItem.condition) {
-        access.append("<div class='exclusive'>" + toHtml(currentItem.condition) + "</div>");
+    if (item.equipedConditions) {
+        html += getEquipedConditionHtml(item);
     }
     
 }

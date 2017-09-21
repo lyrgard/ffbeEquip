@@ -20,11 +20,10 @@
                             <li><a href="contribute.html">Contribute</a></li>
                         </ul>
                         <div id="inventoryDiv" class="buttons account">
-                            <span>Inventory : </span>
+                            <span>Inventory :&nbsp;</span>
                             <span class="status"></span>
                             <div class="loader"></div>
-                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Load Inventory</button>
-                            <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
+                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Log in</button>
                             <div class="loader hidden"></div>
                             <span class="message hidden"/>
                         </div>
@@ -109,14 +108,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="fire"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="ice"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="lightning"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="water"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="wind"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="earth"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="light"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
-                                    <td class="dark"><div class="input-group"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/><span class="input-group-addon">%</span></div></td>
+                                    <td class="fire"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="ice"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="lightning"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="water"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="wind"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="earth"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="light"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
+                                    <td class="dark"><input class="form-control" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)"/></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -127,7 +126,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span>Results</span>
-                        <button class="btn btn-default" onclick="build();">Build !</button>
+                        <button id="buildButton" class="btn btn-default">Build !</button>
                     </div>
                     <div class="panel-body" style="padding:0;">
                         <div id="buildProgressBar" class="progressBar">
@@ -151,6 +150,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <h3>How to use this :</h3>
+                    <ol>
+                        <li>Make sure you're logged in, so that your inventory is loaded</li>
+                        <li>Select an unit you want to make a build for</li>
+                        <li>Fill information on the monster you're facing, its race(s) and its elemental resistance (negative number for elemental weakness). Take into account the elemental debufs you'll give it (for instance, if using Orlandeau's Divine Ruination, substract 50 to the light elemental resistance).</li>
+                        <li>Click on "Build !" button to start the computation</li>
+                    </ol>
+                    <p>Some features are still missing for now. It wont calculate Dualhand builds, won't use Equip X materia, and won't understand specific Dual Wield (like the one Aqua Blade offer). It also can only maximize ATK right now, but others stats should come soon</p>
+                </div>
+                <div>
+                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+                </div>
+                <div>
+                    <a class="buttonLink" href='https://ko-fi.com/Lyrgard'>Donate</a>
                 </div>
             </div>
         </div>

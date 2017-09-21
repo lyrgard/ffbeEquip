@@ -14,13 +14,13 @@ var espers;
 var selectedEspers = [];
 var units;
 var itemOwned;
-var onlyUseOwnedItems = false;
+var onlyUseOwnedItems = true;
 var selectedUnit;
 
 var equipable;
 
 var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
-var ennemyRaces = ["human","demon"];
+var ennemyRaces;
 var innateElements = [];
 
 var bestValue = 0;
@@ -45,15 +45,32 @@ var fixedItems = [
     null]
 
 function build() {
-    console.log("==============================\n=             START          =\n==============================");
-    selectedUnit = units['Veritas of the Dark'];
     bestValue = 0;
     bestBuild = null;
+    
+    if (!itemInventory) {
+        alert("Please log in to load your inventory");
+        return;
+    }
+    if (Object.keys(itemInventory).length == 0) {
+        alert("Please log in to load your inventory");
+        return;
+    }
+    
+    var selectedUnitName = $("#unitsSelect").val();
+    if (!selectedUnitName) {
+        alert("Please select an unit");
+        return;
+    }
+    selectedUnit = units[selectedUnitName];
+    
+    readEnnemyResists();
+    ennemyRaces = getSelectedValuesFor("races");
+    
     prepareData(selectedUnit.equip);
     prepareEquipable();
     selectEspers();
     optimize();
-    //logBuild(bestBuild, bestEsper);
 }
 
 function prepareEquipable() {
@@ -72,6 +89,9 @@ function prepareEquipable() {
 }
 
 function prepareData(equipable) {
+    data = {};
+    dataWithCondition = [];
+    dualWieldSources = [];
     var tempData = {};
     for (var index in rawData) {
         var item = rawData[index];
@@ -81,14 +101,17 @@ function prepareData(equipable) {
             } else {
                 if (item.dualWield) {
                     dualWieldSources.push(item);
-                    continue;
                 }
                 if (!tempData[item.type]) {
                     tempData[item.type] = {};
                 }
                 var subType = "";
-                if (item.element && ennemyResist[item.element] < 0) {
-                    subType += "element" + ennemyResist[item.element];
+                if (item.element) {
+                    if (ennemyResist[item.element] <= 0) {
+                        subType += "element" + ennemyResist[item.element];
+                    } else {
+                        continue;
+                    }
                 }
                 var killer = getKillerCoef(item); 
                 if (killer > 0) {
@@ -168,10 +191,22 @@ function readEnnemyResists() {
     }
 }
 
+function readEnnemyRaces() {
+    for(var element in ennemyResist) {
+        var value = $("#elementalResists td." + element + " input").val();
+        if (value) {
+            ennemyResist[element] = parseInt(value);
+        } else {
+            ennemyResist[element] = 0;
+        }
+    }
+}
+
 
 
 
 function optimize() {
+    $("#buildProgressBar .progress").removeClass("finished");
     var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations);
@@ -200,6 +235,9 @@ function optimize() {
 
 function findBestBuildForCombinationAsync(index, combinations) {
     var build = [null, null, null, null, null, null, null, null, null, null];
+    if (index == 63) {
+        console.log("now");
+    }
     findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
     //console.log(Math.floor(index/combinations.length*100) + "%" );
     var progress = Math.floor((index + 1)/combinations.length*100) + "%";
@@ -260,6 +298,7 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
+    if (index > 1 &&  build[0].name == "Save the Queen" && build[1].name == "Genji Blade") {console.log("TOTO");}
     if (fixedItems[index]) {
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
     } else {
@@ -284,9 +323,15 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
 function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems) {
     build[index] = item;
     if (index == 9) {
+        
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             value = calculateValue(build, selectedEspers[esperIndex]);
+            if (index > 1 &&  build[0].name == "Save the Queen" && build[1].name == "Genji Blade") {
+                if (value == bestValue) {
+                    console.log(value + " _ " + bestValue);
+                }
+            }
             if (value > bestValue) {
                 bestBuild = build.slice();
                 bestValue = value;
@@ -339,17 +384,10 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                     number += getOwnedNumber(item);
                 }
             }
+            damageCoefLevelAlreadyKept.push(getDamageCoefLevel(item));
             itemIndex++;
         } else {
-            var damageCoefLevel = "";
-            var killerCoef = getKillerCoef(item);
-            if (killerCoef > 0) {
-                damageCoefLevel += "killer" + killerCoef;
-            }
-            if ((item.element && ennemyResist[item.element] < 0)) {
-                damageCoefLevel += "element" + ennemyResist[item.element];
-            }
-            
+            var damageCoefLevel = getDamageCoefLevel(item);
             if (damageCoefLevel == "" || damageCoefLevelAlreadyKept.includes(damageCoefLevel)) {
                 result.splice(itemIndex, 1);
             } else {
@@ -359,6 +397,21 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         }
     }
     return result;
+}
+
+function getDamageCoefLevel(item) {
+    var damageCoefLevel = "";
+    var killerCoef = getKillerCoef(item);
+    if (killerCoef > 0) {
+        damageCoefLevel += "killer" + killerCoef;
+    }
+    if ((item.element && ennemyResist[item.element] < 0)) {
+        damageCoefLevel += "element" + ennemyResist[item.element];
+    }
+    if (damageCoefLevel == "" && !item.element) {
+        damageCoefLevel = "elementless";
+    }
+    return damageCoefLevel;
 }
 
 function logAddConditionItems(data) {
@@ -401,8 +454,8 @@ function isTwoHanded(item) {
 
 function getOwnedNumber(item) {
     if (onlyUseOwnedItems) {
-        if (itemOwned[item.name]) {
-            return itemOwned[item.name];
+        if (itemInventory[item.name]) {
+            return itemInventory[item.name];
         } else {
             return 0;
         }
@@ -443,20 +496,17 @@ function calculateMaxValue(item) {
     return calculatedValue;
 }
 
-function calculateValue(equiped, esper, ignoreCondition = false) {
-    var calculatedValue = calculateStatValue(equiped, ignoreCondition);
-    if (esper != null) {
-        calculatedValue += esper[statToMaximize] / 100;
-    }
+function calculateValue(equiped, esper) {
     if ("atk" == statToMaximize) {
-        calculatedValue
+        var calculatedValues = calculateStatValue(equiped, esper);
+        
         var cumulatedKiller = 0;
         var itemAndPassives = equiped.concat(selectedUnit.skills);
         if (esper != null) {
             itemAndPassives.push(esper);
         }
         for (var equipedIndex in itemAndPassives) {
-            if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+            if (itemAndPassives[equipedIndex] && (areConditionOK(itemAndPassives[equipedIndex], equiped))) {
                 if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
                     for (var killerIndex in itemAndPassives[equipedIndex].killers) {
                         if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
@@ -491,37 +541,52 @@ function calculateValue(equiped, esper, ignoreCondition = false) {
         if (ennemyRaces.length > 0) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
-        calculatedValue = calculatedValue * calculatedValue * (1 - resistModifier) * killerMultiplicator;
+        var result = (calculatedValues.right * calculatedValues.right + calculatedValues.left * calculatedValues.left) * (1 - resistModifier) * killerMultiplicator;
         
         /*if (equiped[0].name == "Crimson Saber") {
             console.log(resistModifier);
         }*/
+        return result;
     }
-    return calculatedValue;
 }
 
-function calculateStatValue(equiped, ignoreCondition = false) {
-    var calculatedValue = 0;
+function calculateStatValue(equiped, esper) {
+    
     if ("atk" == statToMaximize) {
+        var result = {"right":0,"left":0,"total":0}; 
+        var calculatedValue = 0   
         var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
         var calculatedValue = baseValue;
         var itemAndPassives = equiped.concat(selectedUnit.skills);
         var cumulatedKiller = 0;
-        for (var equipedIndex in itemAndPassives) {
-            if (itemAndPassives[equipedIndex] && (ignoreCondition || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-                if (itemAndPassives[equipedIndex][statToMaximize]) {
-                    calculatedValue += itemAndPassives[equipedIndex][statToMaximize];
-                }
-                if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
-                    calculatedValue += itemAndPassives[equipedIndex][statToMaximize+'%'] * baseValue / 100;
-                }
-            }
+        
+        for (var equipedIndex = 2; equipedIndex < itemAndPassives.length; equipedIndex++) {
+            calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue);
         }
+        if (esper != null) {
+            calculatedValue += esper[statToMaximize] / 100;
+        }
+        var right = calculateStateValueForIndex(equiped, itemAndPassives, 0, baseValue);
+        var left = calculateStateValueForIndex(equiped, itemAndPassives, 1, baseValue);
+        result.right = calculatedValue + right;
+        result.left = calculatedValue + right;
+        result.total = calculatedValue + right + left;
+        return result;   
     }
-    return calculatedValue;
 }
 
-
+function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue) {
+    var value = 0;
+    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+        if (itemAndPassives[equipedIndex][statToMaximize]) {
+            value += itemAndPassives[equipedIndex][statToMaximize];
+        }
+        if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
+            value += itemAndPassives[equipedIndex][statToMaximize+'%'] * baseValue / 100;
+        }
+    }
+    return value;
+}
 
 function areConditionOK(item, equiped) {
     if (item.equipedConditions) {
@@ -553,7 +618,7 @@ function logBuild(build, esper) {
         }
     }
     $("#results .tbody").html(html);
-    $("#resultStats").html(statToMaximize + " = " + Math.floor(calculateStatValue(build)) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, esper) / 100) + ". esper : " + esper.name);
+    $("#resultStats").html(statToMaximize + " = " + Math.floor(calculateStatValue(build, esper).total) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, esper) / 100) + ". esper : " + esper.name);
 }
 
 
@@ -622,6 +687,8 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
+    
+    $("#buildButton").click(build);
     
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});

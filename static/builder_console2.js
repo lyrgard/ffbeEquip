@@ -180,7 +180,7 @@ function optimize() {
     
     
     if (dualWieldSources.length > 0) {
-        equipable[1] = equipable[1].concat(equipable[0]);
+        equipable[1] = equipable[0];
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
             var slot = 0;
@@ -347,6 +347,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
             }
         }
     }
+    if (typeCombination[1].name == "katana") { console.log(result);}
     return result;
 }
 
