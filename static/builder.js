@@ -76,14 +76,14 @@ function prepareEquipable() {
             equipable[0].push(selectedUnit.equip[equipIndex]);
         } else if (shieldList.includes(selectedUnit.equip[equipIndex])) {
             equipable[1].push(selectedUnit.equip[equipIndex]);
-            if (hasInnateDualWield()) {
-                equipable[1] = equipable[1].concat(equipable[0]);
-            }
         } else if (headList.includes(selectedUnit.equip[equipIndex])) {
             equipable[2].push(selectedUnit.equip[equipIndex]);
         } else if (bodyList.includes(selectedUnit.equip[equipIndex])) {
             equipable[3].push(selectedUnit.equip[equipIndex]);
         } 
+    }
+    if (hasInnateDualWield()) {
+        equipable[1] = equipable[1].concat(equipable[0]);
     }
 }
 
@@ -238,14 +238,19 @@ function buildTypeCombination(index, typeCombination, combinations) {
     if (fixedItems[index]) {
         tryType(index, typeCombination, fixedItems[index].type, combinations);
     } else {
-        for (var typeIndex in equipable[index]) {
-            type = equipable[index][typeIndex]
-            if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
-                continue;
+        if (equipable[index].length > 0) {
+            for (var typeIndex in equipable[index]) {
+                type = equipable[index][typeIndex]
+                if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
+                    continue;
+                }
+                if (data[type].length > 0) {
+                    tryType(index, typeCombination, type, combinations);
+                }
             }
-            if (data[type].length > 0) {
-                tryType(index, typeCombination, type, combinations);
-            }
+        } else {
+            typeCombination[index] = null;
+            buildTypeCombination(index+1, typeCombination, combinations);
         }
     }
 }
@@ -258,7 +263,9 @@ function tryType(index, typeCombination, type, combinations) {
         numberOfItemCombination = 0;
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
-            dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+            if (typeCombination[slotIndex]) {
+                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+            }
         }
         combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":fixedItems.slice()});
         //findBestBuildForCombination(0, build, typeCombination, dataWithdConditionItems);
@@ -320,16 +327,20 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             build[index] == null;
             findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
         } else {
-            for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
-                var item = dataWithConditionItems[typeCombination[index]][itemIndex];
-                if (canAddMoreOfThisItem(build, item, index)) {
-                    if (index == 1 && isTwoHanded(item)) {
-                        continue;
+            if (typeCombination[index]) {
+                for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
+                    var item = dataWithConditionItems[typeCombination[index]][itemIndex];
+                    if (canAddMoreOfThisItem(build, item, index)) {
+                        if (index == 1 && isTwoHanded(item)) {
+                            continue;
+                        }
+                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems)
                     }
-                    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems)
                 }
+                build[index] == null;
+            } else {
+                findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);
             }
-            build[index] == null;
         }
     }
 }
