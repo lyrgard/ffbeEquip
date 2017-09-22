@@ -575,9 +575,14 @@ function calculateStatValue(equiped, esper) {
         }
         var right = calculateStateValueForIndex(equiped, itemAndPassives, 0, baseValue);
         var left = calculateStateValueForIndex(equiped, itemAndPassives, 1, baseValue);
-        result.right = calculatedValue + right;
-        result.left = calculatedValue + left;
-        result.total = calculatedValue + right + left;
+        if (equiped[1] && weaponList.includes(equiped[1].type)) {
+            result.right = calculatedValue + right;
+            result.left = calculatedValue + left;
+            result.total = calculatedValue + right + left;    
+        } else {
+            result.right = calculatedValue + right + left;
+            result.total = result.right;
+        }
         return result;   
     }
 }
