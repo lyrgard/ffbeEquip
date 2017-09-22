@@ -289,14 +289,19 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
+                var foundAnItem = false;
                 for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
                     var item = dataWithConditionItems[typeCombination[index]][itemIndex];
                     if (canAddMoreOfThisItem(build, item, index)) {
                         if (index == 1 && isTwoHanded(item)) {
                             continue;
                         }
-                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems)
+                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems);
+                        foundAnItem = true;
                     }
+                }
+                if (!foundAnItem) {
+                    tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems);
                 }
                 build[index] == null;
             } else {
@@ -309,7 +314,6 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
 function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems) {
     build[index] = item;
     if (index == 9) {
-        
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             value = calculateValue(build, selectedEspers[esperIndex]);

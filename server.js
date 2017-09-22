@@ -101,7 +101,7 @@ app.put("/itemInventory", function(req, res) {
 });
 
 app.get("/itemInventory", function(req, res) {
-    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+    /*var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
     if (!googleOAuthAccessToken) {
         res.status(401).send();
         return;
@@ -132,7 +132,9 @@ app.get("/itemInventory", function(req, res) {
     }).catch(err => {
         console.log(err);
         res.status(500).send(err);
-    });
+    });*/
+    console.log(JSON.parse(fs.readFileSync('static/inventoryPb1.json', 'utf8')));
+    res.status(200).json(JSON.parse(fs.readFileSync('static/inventoryPb1.json', 'utf8')));
 });
 
 app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
