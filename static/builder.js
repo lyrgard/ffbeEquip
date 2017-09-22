@@ -101,54 +101,25 @@ function prepareData(equipable) {
                 if (item.dualWield) {
                     dualWieldSources.push(item);
                 }
-                if (!tempData[item.type]) {
-                    tempData[item.type] = {};
-                }
-                var subType = "";
-                if (item.element) {
-                    if (ennemyResist[item.element] <= 0) {
-                        subType += "element" + ennemyResist[item.element];
-                    } else if (!innateElements.includes(item.element)) {
-                        continue;
-                    }
-                }
-                var killer = getKillerCoef(item); 
-                if (killer > 0) {
-                    subType += "killer" + killer;
-                }
-                if (subType == "") {
-                    subType = "normal";
+                if (!data[item.type]) {
+                    data[item.type] = [];
                 }
                 var statValue = calculateMaxValue(item);
                 var itemEntry = {"value":statValue, "item":item, "name":item.name};
-                if (!tempData[item.type][subType]) {
-                    tempData[item.type][subType] = [itemEntry];
-                } else {
-                    if (statValue > tempData[item.type][subType][0].value) {
-                        tempData[item.type][subType] = [itemEntry];
-                    } else if (statValue == tempData[item.type][subType][0].value) {
-                        tempData[item.type][subType].push(itemEntry);
-                    }
-                }
+                data[item.type].push(itemEntry);
             }
         }
     }
-    /*for (index in typeList) {
-        console.log(typeList[index]);    
-        console.log(tempData[typeList[index]]);    
-    }*/
     for (var typeIndex in typeList) {
         var type = typeList[typeIndex];
-        data[type] = [];
-        if (tempData[type]) {
-            for (var subTypeIndex in tempData[type]) {
-                for (var index in tempData[type][subTypeIndex]) {
-                    data[type].push(tempData[type][subTypeIndex][index].item)
-                }
-            }
+        if (data[type]) {
+            data[type].sort(function (entry1, entry2) {
+                return entry2.value - entry1.value;
+            });
+        } else {
+            data[type] = [];  
         }
     }
-    //console.log(data);
 }
 
 function selectEspers() {
@@ -259,7 +230,6 @@ function tryType(index, typeCombination, type, combinations) {
     typeCombination[index] = type;
     if (index == 9) {
         build = [null, null, null, null, null, null, null, null, null, null];
-/*                var startTime = new Date();*/
         numberOfItemCombination = 0;
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
@@ -268,15 +238,6 @@ function tryType(index, typeCombination, type, combinations) {
             }
         }
         combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":fixedItems.slice()});
-        //findBestBuildForCombination(0, build, typeCombination, dataWithdConditionItems);
-/*                var endTime = new Date();
-        stats.push(endTime - startTime);
-
-        console.log(typeCombination);
-        console.log(endTime - startTime);
-        console.log(numberOfItemCombination);
-        logDataWithdConditionItems(dataWithdConditionItems);
-        console.log("===============================================================");*/
     } else {
         buildTypeCombination(index+1, typeCombination, combinations);
     }
@@ -327,7 +288,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             build[index] == null;
             findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
         } else {
-            if (typeCombination[index]) {
+            if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
                 for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
                     var item = dataWithConditionItems[typeCombination[index]][itemIndex];
                     if (canAddMoreOfThisItem(build, item, index)) {
@@ -365,7 +326,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
 }
 
 function addConditionItems(itemsOfType, type, typeCombination) {
-    var result = itemsOfType.slice();
+    var tempResult = itemsOfType.slice();
     for (var index in dataWithCondition) {
         var item = dataWithCondition[index];
         if (item.type == type) {
@@ -377,17 +338,16 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                 }
             }
             if (allFound) {
-                result.push(item);
+                tempResult.push({"value":calculateMaxValue(item), "item":item, "name":item.name});
             }
         }
     }
-    result.sort(function (item1, item2) {
-        var value1 = calculateMaxValue(item1);
-        var value2 = calculateMaxValue(item2);
-        if (value1 == value2) {
-            return getOwnedNumber(item2) - getOwnedNumber(item1);
+    tempResult.sort(function (entry1, entry2) {
+        
+        if (entry1.value == entry2.value2) {
+            return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
         } else {
-            return value2 - value1;
+            return entry2.value - entry1.value;
         }
     });
     var numberNeeded = 0;
@@ -400,8 +360,8 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var itemIndex = 0;
     var itemKeptNames = [];
     var damageCoefLevelAlreadyKept = {};
-    while(itemIndex < result.length) {
-        item = result[itemIndex];
+    while(itemIndex < tempResult.length) {
+        item = tempResult[itemIndex];
         if (number < numberNeeded) {
             if (!itemKeptNames.includes(item.name)) {
                 if (!isStackable(item)) {
@@ -419,7 +379,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         } else {
             var damageCoefLevel = getDamageCoefLevel(item);
             if (damageCoefLevel == "" || (damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded)) {
-                result.splice(itemIndex, 1);
+                tempResult.splice(itemIndex, 1);
             } else {
                 if (damageCoefLevelAlreadyKept[damageCoefLevel]) {
                     damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
@@ -428,6 +388,10 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                 itemIndex++;
             }
         }
+    }
+    var result = [];
+    for (var index in tempResult) {
+        result.push(tempResult[index].item);
     }
     return result;
 }
@@ -584,10 +548,7 @@ function calculateValue(equiped, esper) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         var result = (calculatedValues.right * calculatedValues.right + calculatedValues.left * calculatedValues.left) * (1 - resistModifier) * killerMultiplicator;
-        
-        /*if (equiped[0].name == "Crimson Saber") {
-            console.log(resistModifier);
-        }*/
+    
         return result;
     }
 }
