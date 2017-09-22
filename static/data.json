@@ -376,7 +376,6 @@
     {"name":"Scholar Robe","type":"clothes","mp":20,"def":13,"spr":10,"access":["shop","chest","recipe-chest"]},
     {"name":"Cupid's Robe","type":"clothes","def":12,"mag":30,"spr":30,"resist":[{"name":"dark","percent":20}],"access":["event"]},
     {"name":"Bard's Tunic","type":"clothes","def":10,"spr":5,"resist":[{"name":"silence","percent":30}],"access":["shop","chest","recipe-quest"]},
-    {"name":"Drakesguard Robe","type":"clothes","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
     {"name":"Red Jacket","type":"clothes","def":38,"resist":[{"name":"fire","percent":30}],"access":["key"]},
     {"name":"Scion Striker's Attire","type":"clothes","hp%":15,"mp%":15,"atk":24,"def":40,"spr":12,"exclusiveUnits":["Yda"],"access":["recipe-event"]},
     {"name":"Apron Dress","type":"clothes","def":49,"spr":49,"access":["TMR-4*"],"tmrUnit":"Amelia"},
@@ -413,6 +412,7 @@
     {"name":"Dark Robe","type":"robe","def":35,"mag":55,"spr":20,"resist":[{"name":"dark","percent":30}],"tmrUnit":"Victoria","access":["TMR-4*"]},
     {"name":"Sara's Robe","type":"robe","def":15,"mag":20,"spr":55,"resist":[{"name":"wind","percent":30}],"tmrUnit":"Sara","access":["TMR-3*"]},
     {"name":"Tactician Magician's Coat","type":"robe","hp%":10,"mp%":10,"def":30,"mag":30,"spr":40,"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
+    {"name":"Drakesguard Robe","type":"robe","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
     
 
     {"name":"Crimson Slayer","type":"lightArmor","def":52,"resist":[{"name":"fire","percent":25}],"special":["[Fist of Fire]"],"access":["TMR-5*-event"],"tmrUnit":"Yun"},

@@ -215,15 +215,17 @@ function optimize() {
         equipable[1] = equipable[1].concat(equipable[0]);
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
-            var slot = 0;
-            if (item.type == "accessory") {
-                slot = 4;
-            } else if (item.type == "materia") {
-                slot = 6;
+            if (item.dualWield == "all") {
+                var slot = 0;
+                if (item.type == "accessory") {
+                    slot = 4;
+                } else if (item.type == "materia") {
+                    slot = 6;
+                }
+                fixedItems[slot] = item;
+                buildTypeCombination(0,typeCombination,combinations);
+                fixedItems[slot] = null;
             }
-            fixedItems[slot] = item;
-            buildTypeCombination(0,typeCombination,combinations);
-            fixedItems[slot] = null;
         }
     }
     console.log(combinations.length);
