@@ -90,7 +90,7 @@ function updateCurrentItemDisplay() {
     } else {
         $(".currentItem .name.jp").addClass("empty");
     }
-    $(".currentItem .name .detail").html(getStatDetail(currentItem));
+    $(".currentItem .detail").html(getStatDetail(currentItem));
     var special = $(".currentItem .tbody .td.special");
     if (currentItem.element) {
         $(".currentItem .special .elementChoice").prop("src", "img/" + currentItem.element + ".png");
