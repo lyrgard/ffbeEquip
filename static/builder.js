@@ -365,7 +365,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var itemKeptNames = [];
     var damageCoefLevelAlreadyKept = {};
     while(itemIndex < tempResult.length) {
-        item = tempResult[itemIndex];
+        item = tempResult[itemIndex].item;
         if (number < numberNeeded) {
             if (!itemKeptNames.includes(item.name)) {
                 if (!isStackable(item)) {
