@@ -175,7 +175,7 @@ function getOAuthUrl() {
 }
 
 
-var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex","dualWield","equipedConditions"];
+var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex","dualWield","equipedConditions","server"];
 
 function sanitize(body) {
     var items = [];
@@ -284,6 +284,7 @@ var schemaData = {
                 "required": true,
                 "items": {"type": "string","maxLength": 50}
             },
+            "server": {"type": "string","enum": ["JP","GL"]},
             "userPseudo": {"type": "string", "required": true,"maxLength": 200}
         }
     }
