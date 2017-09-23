@@ -2,6 +2,7 @@ var baseStat = 180;
 var defaultFilter = {};
 var rawVerifiedData;
 var verifiedData;
+var rawTempData;
 var tempData;
 var showTempData = false;
 var itemInventory = null;
@@ -580,7 +581,8 @@ $(function() {
         verifiedData = filterByServer(rawVerifiedData);
         data = verifiedData;
         $.get("tempData.json", function(result) {
-            tempData = $(result);
+            rawTempData = $(result);
+            tempData = filterByServer(rawTempData);
             for (var index in tempData) {
                 tempData[index].temp=true;
             }

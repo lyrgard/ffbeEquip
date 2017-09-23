@@ -79,10 +79,16 @@ function updateCurrentItemDisplay() {
         $(".currentItem .typeChoice").prop("src","img/unknownType.png");
     }
     if (currentItem.name) {
-        $(".currentItem .name").removeClass("empty");
-        $(".currentItem .name a.name").text(currentItem.name).prop("href",toUrl(currentItem.name));
+        $(".currentItem .name.gl").removeClass("empty");
+        $(".currentItem .name.gl a.name").text(currentItem.name).prop("href",toUrl(currentItem.name));
     } else {
-        $(".currentItem .name").addClass("empty");
+        $(".currentItem .name.gl").addClass("empty");
+    }
+    if (currentItem.jpname) {
+        $(".currentItem .name.jp").removeClass("empty");
+        $(".currentItem .name.jp a.name").text(currentItem.jpname).prop("href",toUrl(currentItem.jpname));
+    } else {
+        $(".currentItem .name.jp").addClass("empty");
     }
     $(".currentItem .name .detail").html(getStatDetail(currentItem));
     var special = $(".currentItem .tbody .td.special");
@@ -363,10 +369,19 @@ $(function() {
     populateAddKiller();
     populateAddAccess();
     populateEquipedWith();
-    $('.currentItem .name input').on("input",$.debounce(300,function() {
-        currentItem.name = $('.currentItem .name input').val();
+    $('.currentItem .name.gl input').on("input",$.debounce(300,function() {
+        currentItem.name = $('.currentItem .name.gl input').val();
         updateCurrentItemDisplay();
     }));
+    readServerType();
+    if (server == "JP") {
+        $('.currentItem .name.jp input').on("input",$.debounce(300,function() {
+            currentItem.jpname = $('.currentItem .name.jp input').val();
+            updateCurrentItemDisplay();
+        }));
+    } else {
+        $('.currentItem .name.jp').addClass("hidden");
+    }
 });
 
 function populateCurrentItemType() {

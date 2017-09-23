@@ -131,9 +131,13 @@ function displayItemLine(item) {
     html += "<img src='img/" + item.type + ".png'></img></div>";
 
     // name
-    html += '<div class="td name"><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
+    html += '<div class="td name"><div><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
+    }
+    html += "</div>";
+    if (item.jpname) {
+        html += '<div><a href="' + toUrl(item.jpname) + '">' + item.jpname + "</a></div>";
     }
     html += "<div class='detail'>" + getStatDetail(item) + "</div>"
     if (item.userPseudo) {
