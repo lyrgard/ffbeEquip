@@ -182,6 +182,9 @@ function sanitize(body) {
     for (var i in body) {
         var item = {};
         item.name = escapeHtml(body[i].name);
+        if (body[i].jpname) {
+            item.jpname = escapeHtml(body[i].jpname);
+        }
         for (var j in safeValues) {
             if (body[i][safeValues[j]]) {
                 item[safeValues[j]] = body[i][safeValues[j]];
@@ -229,6 +232,7 @@ var schemaData = {
         "type": "object",
         "properties": {
             "name"  : {"type": "string", "required": true, "maxLength": 50 },
+            "jpname"  : {"type": "string", "maxLength": 50 },
             "type"  : {"type": "string", "required": true, "enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"] },
             "hp"    : {"type": "number"},
             "hp%"   : {"type": "number"},
