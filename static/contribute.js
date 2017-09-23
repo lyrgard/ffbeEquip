@@ -14,6 +14,9 @@ function addNewItem() {
 
 function saveCurrentItem() {
     currentItem.userPseudo = $("#pseudo").val();
+    if (server == "JP") {
+        currentItem.server = "JP";
+    }
     if (currentItem.name && currentItem.type && currentItem.access && currentItem.userPseudo && currentItem.userPseudo.length > 0) {
         newItems.push(currentItem);
         displayNewItems();

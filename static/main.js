@@ -1,5 +1,6 @@
 var baseStat = 180;
 var defaultFilter = {};
+var rawVerifiedData;
 var verifiedData;
 var tempData;
 var showTempData = false;
@@ -12,12 +13,6 @@ var update = function() {
 	updateFilterHeadersDisplay();
     modifyFilterSummary();
     modifyUrl();
-
-    if (showTempData) {
-        data = $($.merge($.merge([], verifiedData),tempData));
-    } else {
-        data = verifiedData;
-    }
     
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
@@ -76,7 +71,11 @@ var readFilterValues = function() {
     killers = getSelectedValuesFor("killers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
-    showTempData = $("#showUserInputedCheckbox").prop('checked');
+    var showTempDataTemp = $("#showUserInputedCheckbox").prop('checked');
+    if (showTempDataTemp != showTempData) {
+        data = $($.merge($.merge([], verifiedData),tempData));
+        showTempData = showTempDataTemp;
+    }
 }
 
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
@@ -577,7 +576,9 @@ $(function() {
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get("data.json", function(result) {
-        verifiedData = $(result);
+        rawVerifiedData = $(result);
+        verifiedData = filterByServer(rawVerifiedData);
+        data = verifiedData;
         $.get("tempData.json", function(result) {
             tempData = $(result);
             for (var index in tempData) {

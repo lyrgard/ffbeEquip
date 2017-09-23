@@ -12,6 +12,7 @@ var accessToRemove = [];
 var additionalStat = [];
 var searchText = '';
 var selectedUnit = '';
+var server = "GL";
 var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
@@ -191,6 +192,9 @@ function displayItemLine(item) {
 
     //access
     html += '<div class="td access">';
+    if (item.server == "JP") {
+        html += "<div><img src='img/jp.png'></div>"
+    }
     $(item.access).each(function(index, itemAccess) {
         html += "<div"; 
         if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
@@ -312,7 +316,43 @@ function loadInventory() {
     });
 }
 
+function filterByServer(rawData) {
+    readServerType();
+    var result = [];
+    for (var index in rawData) {
+        if (!rawData[index].server || rawData[index].server == server) {
+            result.push(rawData[index]);
+        }
+    }
+    return $(result);
+}
+
+function readServerType() {
+    if (window.location.href.indexOf("server=") > 0) {
+        var captured = /server=([^&#]+)/.exec(window.location.href)[1];
+        if (captured == "GL" || captured == "JP") {
+            server = captured;
+        } else {
+            server = "GL";
+        }
+    } else {
+        server = "GL";
+    }
+    updateLinks();
+}
+
+function updateLinks() {
+    var serverParam = "";
+    if (server == "JP") {
+        serverParam = "?server=JP";
+    }
+    $("#linkToSearch").prop("href","index.html" + serverParam);
+    $("#linkToBuilder").prop("href","builder.html" + serverParam);
+    $("#linkToContribute").prop("href","contribute.html" + serverParam);
+}
+
 $(function() {
+    readServerType();
     $.get('itemInventory', function(result) {
         itemInventory = result;
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
