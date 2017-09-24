@@ -210,6 +210,7 @@ function buildTypeCombination(index, typeCombination, combinations) {
         tryType(index, typeCombination, fixedItems[index].type, combinations);
     } else {
         if (equipable[index].length > 0) {
+            var found = false;
             for (var typeIndex in equipable[index]) {
                 type = equipable[index][typeIndex]
                 if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
@@ -217,7 +218,12 @@ function buildTypeCombination(index, typeCombination, combinations) {
                 }
                 if (data[type].length > 0) {
                     tryType(index, typeCombination, type, combinations);
+                    found = true;
                 }
+            }
+            if (!found) {
+                typeCombination[index] = null;
+                buildTypeCombination(index+1, typeCombination, combinations);
             }
         } else {
             typeCombination[index] = null;
