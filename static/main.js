@@ -198,7 +198,12 @@ var exclusiveForbidAccess = function(item) {
 var containsText = function(text, item) {
     var textToSearch = item["name"] + "|" + getStatDetail(item);
     if (item["evade"]) {
-        textToSearch += "|" + "Evade " + item.evade + "%";
+        if (item.evade.physical) {
+            textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
+        }
+        if (item.evade.physical) {
+            textToSearch += "|" + "Evade magical " + item.evade.magical + "%";
+        }
     }
     if (item["resist"]) {
         $(item["resist"]).each(function (index, resist) {
@@ -300,11 +305,19 @@ var isAccessAllowed = function(forbiddenAccessList, access) {
 // If sort is required, this calculate the effective value of the requested stat, based on the unit stat for percentage increase.
 var calculateValue = function(item) {
     var calculatedValue = 0;
-    if (item[stat]) {
+    if (item[stat] && stat != "evade") {
         calculatedValue = item[stat];
     } 
     if (item[stat + '%']) {
         calculatedValue += item[stat+'%'] * baseStat / 100;
+    }
+    if (item[stat] && stat == "evade") {
+        if (item.evade.physical) {
+            calculatedValue = item.evade.physical;
+        }
+        if (item.evade.magical && item.evade.magical > calculatedValue) {
+            calculatedValue = item.evade.magical;
+        }
     }
     if (stat == 'inflict' && (item.ailments || item.killers)) {
         var maxValue = 0;
