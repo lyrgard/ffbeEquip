@@ -387,6 +387,7 @@
 	{"name":"Fashionable Dancewear","type":"clothes","hp%":20,"def":28,"spr":28,"exclusiveUnits":["Chic Ariana"],"access":["event"]},
     {"name":"Producer's Jacket","type":"clothes","def":15,"spr":10,"special":["[Smoke] : Escape battle"],"access":["event"]},
     {"name":"Unsui Clothes","type":"clothes","def":30,"spr":12,"resist":[{"name":"water","percent":50}],"access":["recipe-chest"]},
+    {"name":"Tactician Magician's Coat","type":"clothes","hp%":10,"mp%":10,"def":30,"mag":30,"spr":40,"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
     
 
     {"name":"Rainbow Robe","type":"robe","def":45,"mag":45,"spr":45,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30}],"access":["TMR-5*"],"tmrUnit":"Marie"},
@@ -411,7 +412,6 @@
     {"name":"Chain Robe","type":"robe","mp%":15,"def":55,"spr":30,"access":["TMR-4*"],"tmrUnit":"Meliadoul"},
     {"name":"Dark Robe","type":"robe","def":35,"mag":55,"spr":20,"resist":[{"name":"dark","percent":30}],"tmrUnit":"Victoria","access":["TMR-4*"]},
     {"name":"Sara's Robe","type":"robe","def":15,"mag":20,"spr":55,"resist":[{"name":"wind","percent":30}],"tmrUnit":"Sara","access":["TMR-3*"]},
-    {"name":"Tactician Magician's Coat","type":"robe","hp%":10,"mp%":10,"def":30,"mag":30,"spr":40,"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
     {"name":"Drakesguard Robe","type":"robe","def":35,"mag":20,"spr":20,"special":["[Auto-Regen]"],"access":["recipe-event"]},
     
 
