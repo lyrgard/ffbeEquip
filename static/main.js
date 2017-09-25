@@ -201,7 +201,7 @@ var containsText = function(text, item) {
         if (item.evade.physical) {
             textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
         }
-        if (item.evade.physical) {
+        if (item.evade.magical) {
             textToSearch += "|" + "Evade magical " + item.evade.magical + "%";
         }
     }
