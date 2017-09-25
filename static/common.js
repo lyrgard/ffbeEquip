@@ -46,7 +46,12 @@ function getResistHtml(item) {
 function getKillersHtml(item) {
     var html = "";
     $(item.killers).each(function(index, killer) {
-        html += "<div class='specialImg noWrap killer-" + killer.name + "'><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.percent + "%</div>";
+        if (killer.physical) {
+            html += "<div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.physical + "%</div>";    
+        }
+        if (killer.magical) {
+            html += "<div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.magical + "%</div>";
+        }
     });
     return html;
 }
