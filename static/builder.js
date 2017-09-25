@@ -143,7 +143,7 @@ function getKillerCoef(item) {
     if (ennemyRaces.length > 0 && item.killers) {
         for (var killerIndex in item.killers) {
             if (ennemyRaces.includes(item.killers[killerIndex].name)) {
-                cumulatedKiller += item.killers[killerIndex].percent;
+                cumulatedKiller += item.killers[killerIndex].physical;
             }
         }
     }
@@ -526,7 +526,7 @@ function calculateValue(equiped, esper) {
                 if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
                     for (var killerIndex in itemAndPassives[equipedIndex].killers) {
                         if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
-                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].percent;
+                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].physical;
                         }
                     }
                 }

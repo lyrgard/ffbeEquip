@@ -306,8 +306,13 @@ var calculateValue = function(item) {
             }
         });
         $(item.killers).each(function(index, killer) {
-            if ((killers.length == 0 || killers.includes(killer.name)) && killer.percent > maxValue) {
-                maxValue = killer.percent;
+            if ((killers.length == 0 || killers.includes(killer.name))) {
+                if (killer.physical > maxValue) {
+                    maxValue = killer.physical;
+                }
+                if (killer.magical > maxValue) {
+                    maxValue = killer.magical;
+                }
             }
         });
         calculatedValue = maxValue;

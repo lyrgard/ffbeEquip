@@ -187,8 +187,11 @@ function selectAilment(ailment) {
 function selectResist(resist) {
     displayAddForm("resist-" + resist, "%", resist, "heavyShield");
 }
-function selectKiller(killer) {
-    displayAddForm(killer, killer + " %", "killer");
+function selectPhysicalKiller(killer) {
+    displayAddForm("killerPhysical-" + killer, killer + " %", "killer","sword");
+}
+function selectMagicalKiller(killer) {
+    displayAddForm("killerMagical-" + killer, killer + " %", "killer","rod");
 }
 function selectAccess(access) {
     if (access.startsWith("TMR")) {
@@ -278,9 +281,9 @@ function validateAddForm() {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
         var resist = currentAddFormProperty.substr(7);
         addPercentageValue("resist",resist, parseInt(value));
-    } else if (killerList.includes(currentAddFormProperty)) {
+    } else if (currentAddFormProperty.startsWith("killer")) {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
-        addPercentageValue("killers",currentAddFormProperty, parseInt(value));
+        addKiller(currentAddFormProperty, parseInt(value));
     } else if (currentAddFormProperty.startsWith("TMR")) {
         addAccess(currentAddFormProperty);
         currentItem.tmrUnit = value;
@@ -319,18 +322,43 @@ function addExclusiveUnit(unit) {
 
 function addPercentageValue(propertyName, name, percent) {
     if (!currentItem[propertyName]) {
-            currentItem[propertyName] = [];
+        currentItem[propertyName] = [];
+    }
+    var found = false;
+    for (var index in currentItem[propertyName]) {
+        if (currentItem[propertyName][index].name == name) {
+            found = true;
+            currentItem[propertyName][index].percent = percent;
         }
-        var found = false;
-        for (var index in currentItem[propertyName]) {
-            if (currentItem[propertyName][index].name == name) {
-                found = true;
-                currentItem[propertyName][index].percent = percent;
-            }
+    }
+    if (!found) {
+        currentItem[propertyName].push({"name":name, "percent": percent});
+    }
+}
+
+function addKiller(propertyName, value) {
+    var valueName;
+    var killer;
+    if (propertyName.startsWith("killerPhysical")) {
+        valueName = "physical";
+        killer = propertyName.substr(15);
+    } else {
+        valueName = "magical";
+        killer = propertyName.substr(14);
+    }
+    if (!currentItem.killers) {
+        currentItem.killers = [];
+    }
+    var found = false;
+    for (var index in currentItem.killers) {
+        if (currentItem.killers[index].name == killer) {
+            found = true;
+            currentItem.killers[index][valueName] = value;
         }
-        if (!found) {
-            currentItem[propertyName].push({"name":name, "percent": percent});
-        }
+    }
+    if (!found) {
+        currentItem.killers.push({"name":killer, [valueName]: value});
+    }
 }
 
 function hideAddForm() {
@@ -420,9 +448,13 @@ function populateAddResist() {
 	}
 }
 function populateAddKiller() {
-    var target = $(".currentItem .addKiller .dropdown-menu");
+    var target = $(".currentItem .addKiller .dropdown-menu .physical");
 	for (var key in killerList) {
-        target.append('<span class="btn btn-default killer" onclick="selectKiller(\'' + killerList[key] + '\')">' + killerList[key] + '</span>');
+        target.append('<span class="btn btn-default killer" onclick="selectPhysicalKiller(\'' + killerList[key] + '\')">' + killerList[key] + '</span>');
+	}
+    target = $(".currentItem .addKiller .dropdown-menu .magical");
+	for (var key in killerList) {
+        target.append('<span class="btn btn-default killer" onclick="selectMagicalKiller(\'' + killerList[key] + '\')">' + killerList[key] + '</span>');
 	}
 }
 function populateAddAccess() {
