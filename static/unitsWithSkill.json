@@ -8,7 +8,7 @@
         "sex":"female",
         "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":40,"atk%":80,"dualWield":"all","killers":[{"name":"machine","percent":100}]}
+            {"hp%":40,"atk%":80,"special":["dualWield"],"killers":[{"name":"machine","percent":100}]}
         ]
     },
     "A2":{
@@ -20,7 +20,7 @@
         "sex":"female",
         "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"dualWield":"all","killers":[{"name":"machine","percent":100}]},   
+            {"special":["dualWield"],"killers":[{"name":"machine","percent":100}]},   
             {"atk%":30,"def%":20,"equipedConditions":["sword"]},
             {"atk%":50,"equipedConditions":["greatSword"]},
             {"atk%":30,"spr%":20,"equipedConditions":["spear"]},
@@ -102,7 +102,7 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":20,"atk%":30,"dualWield":"all"},
+            {"hp%":20,"atk%":30,"special":["dualWield"]},
             {"atk%":50,"equipedConditions":["dagger"]},
             {"atk%":50,"equipedConditions":["sword"]},
             {"atk%":50,"equipedConditions":["greatSword"]},
@@ -118,7 +118,7 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":30,"mp%":30,"atk%":30,"def%":10,"killers":[{"name":"undead","percent":50}],"dualWield":"all"},
+            {"hp%":30,"mp%":30,"atk%":30,"def%":10,"killers":[{"name":"undead","percent":50}],"special":["dualWield"]},
             {"atk%":50,"equipedConditions":["sword"]}
         ]
     },
@@ -144,7 +144,7 @@
         "sex":"male",
         "equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
         "skills":[
-            {"hp%":20,"atk%":30,"def%":20,"dualWield":"all","killers":[{"name":"beast","percent":125},{"name":"dragon","percent":125},{"name":"spirit","percent":125},{"name":"undead","percent":125}]},
+            {"hp%":20,"atk%":30,"def%":20,"special":["dualWield"],"killers":[{"name":"beast","percent":125},{"name":"dragon","percent":125},{"name":"spirit","percent":125},{"name":"undead","percent":125}]},
             {"atk%":70,"def%":35,"srp%":35,"equipedConditions":["sword"]}
         ]
     },

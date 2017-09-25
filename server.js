@@ -183,7 +183,7 @@ function getOAuthUrl() {
 }
 
 
-var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","element","resist","ailments","killers","exclusiveSex","dualWield","equipedConditions","server"];
+var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
 
 function sanitize(body) {
     var items = [];
@@ -283,7 +283,12 @@ var schemaData = {
                 "maxItems": 10, 
                 "items": {"type": "string","maxLength": 50}
             },
-            "dualWield":{"type": "string","maxLength": 30},
+            "partialDualWield":{
+                "type": "array",
+                "maxItems": 15,
+                "items":{"type": "string","enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"]}
+            },
+            "doubleHand":{"type": "number"},
             "equipedConditions": {
                 "type": "array", 
                 "maxItems": 3, 

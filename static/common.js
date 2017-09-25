@@ -72,7 +72,7 @@ function getExclusiveUnitsHtml(item) {
 function getSpecialHtml(item) {
     var special = "";
     $(item.special).each(function(index, itemSpecial) {
-        if (itemSpecial != "twoHanded" && itemSpecial != "notStackable") {
+        if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {
             special += "<li>" + toHtml(itemSpecial) + "</li>";
         }
     });
@@ -176,18 +176,24 @@ function displayItemLine(item) {
         html += getKillersHtml(item);
     }
     var special = "";
-    if (item.dualWield) {
-        if (item.dualWield == "all") {
-            special += "<li>" + toHtml("[Dual Wield]") + "</li>";
-        } else {
-            special += "<li>" + toHtml("[Dual Wield] of ") + "<img src='img/" + item.dualWield + ".png'></img></li>";
+    if (item.special && item.special.includes("dualWield")) {
+        special += "<li>" + toHtml("[Dual Wield]") + "</li>";
+    }
+    if (item.partialDualWield) {
+        special += "<li>" + toHtml("[Dual Wield] of ")
+        for (var index in item.partialDualWield) {
+            special += "<img src='img/" + item.partialDualWield[index] + ".png'></img>";
         }
+        special += "</li>";
     }
     if (item.allowUseOf) {
         special += "<li>Allow use of <img src='img/" + item.allowUseOf + ".png'></img></li>";
     }
     if (item.evade) {
         special += "<li>Evade " + item.evade + "%</li>";
+    }
+    if (item.doubleHand) {
+        special += "<li>Increase equipment ATK (" + item.doubleHand + "%) when single wielding</li>";
     }
 
     if (item.special) {
