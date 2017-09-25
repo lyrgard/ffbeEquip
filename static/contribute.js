@@ -113,7 +113,7 @@ function updateCurrentItemDisplay() {
         specialList += "<li>Evade " + currentItem.evade + "%</li>"
     }
     if (currentItem.special) {
-        specialList += getSpecialHtml(currentItem)
+        specialList += getSpecialHtml(currentItem);
         if (currentItem.special.includes("twoHanded")) {
             $(".currentItem .type .twoHanded").removeClass("hidden");
         } else {
@@ -124,16 +124,15 @@ function updateCurrentItemDisplay() {
         } else {
             $(".currentItem .type .notStackable").addClass("hidden");
         }
+        if (currentItem.special.includes("dualWield")) {
+            specialList += "<li>" + toHtml("[Dual Wield]") + "</li>";
+        }
     } else {
         $(".currentItem .type .twoHanded").addClass("hidden");
         $(".currentItem .type .notStackable").addClass("hidden");
     }
-    if (currentItem.dualWield) {
-        if (currentItem.dualWield == "all") {
-            specialList += "<li>" + toHtml("[Dual Wield]") + "</li>";
-        } else {
-            specialList += "<li>" + toHtml("[Dual Wield] of ") + "<img src='img/" + currentItem.dualWield + ".png'></img></li>";
-        }
+    if (currentItem.doubleHand) {
+        specialList += "<li>Increase equipment ATK (" + currentItem.doubleHand + "%) when single wielding</li>";
     }
     if (specialList != "") {
         otherSpecials.append("<ul>" + specialList + "</ul>");
@@ -227,7 +226,7 @@ function selectExclusive(exclusive) {
     }
 }
 function selectSpecial(special) {
-    if (special == "twoHanded" || special == "notStackable") {
+    if (special == "twoHanded" || special == "notStackable" || special == "dualWield") {
         currentItem.special = currentItem.special || [];
         if (!currentItem.special.includes(special)) {
             currentItem.special.push(special);
@@ -235,9 +234,8 @@ function selectSpecial(special) {
         updateCurrentItemDisplay();
     } else if (special == "evade") {
         displayAddForm("evade", "Evade %");
-    } else if (special == "dualWield") {
-        currentItem.dualWield = "all";
-        updateCurrentItemDisplay();
+    } else if (special == "doubleHand") {
+        displayAddForm("doubleHand", "Double Hand %");
     } else {
         displayAddForm("special", "special");
     }
@@ -297,6 +295,9 @@ function validateAddForm() {
     } else if (currentAddFormProperty == "evade") {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
         currentItem.evade = parseInt(value);
+    } else if (currentAddFormProperty == "doubleHand") {
+        if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
+        currentItem.doubleHand = parseInt(value);
     }
     currentAddFormProperty = null;
     hideAddForm();
@@ -375,7 +376,6 @@ function deleteSpecial() {
     delete currentItem.resist;
     delete currentItem.killers;
     delete currentItem.evade;
-    delete currentItem.dualWield;
     updateCurrentItemDisplay();
 }
 

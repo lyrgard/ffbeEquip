@@ -98,7 +98,7 @@ function prepareData(equipable) {
             if (item.equipedConditions) {
                 dataWithCondition.push(item);
             } else {
-                if (item.dualWield) {
+                if (item.special && item.special.includes("dualWield")) {
                     dualWieldSources.push(item);
                 }
                 if (!data[item.type]) {
@@ -186,17 +186,15 @@ function optimize() {
         equipable[1] = equipable[1].concat(equipable[0]);
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
-            if (item.dualWield == "all") {
-                var slot = 0;
-                if (item.type == "accessory") {
-                    slot = 4;
-                } else if (item.type == "materia") {
-                    slot = 6;
-                }
-                fixedItems[slot] = item;
-                buildTypeCombination(0,typeCombination,combinations);
-                fixedItems[slot] = null;
+            var slot = 0;
+            if (item.type == "accessory") {
+                slot = 4;
+            } else if (item.type == "materia") {
+                slot = 6;
             }
+            fixedItems[slot] = item;
+            buildTypeCombination(0,typeCombination,combinations);
+            fixedItems[slot] = null;
         }
     }
     console.log(combinations.length);
@@ -461,7 +459,7 @@ function isTwoHanded(item) {
 
 function hasInnateDualWield() {
     for (var index in selectedUnit.skills) {
-        if (selectedUnit.skills[index].dualWield && selectedUnit.skills[index].dualWield == "all") {
+        if (selectedUnit.skills[index].special && selectedUnit.skills[index].special.includes("dualWield")) {
             return true;
         }
     }

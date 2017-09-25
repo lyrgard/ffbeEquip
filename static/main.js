@@ -17,7 +17,7 @@ var update = function() {
     
     if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
-        $("#results tbody").html("");
+        $("#results .tbody").html("");
         $("#results").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
         return;
@@ -231,6 +231,14 @@ var containsText = function(text, item) {
     if (item["special"]) {
         $(item["special"]).each(function (index, special) {
             textToSearch += "|" + special;
+        });
+    }
+    if (item.doubleHand) {
+        textToSearch += "|" + "Increase equipment ATK (" + item.doubleHand + "%) when single wielding";
+    }
+    if (item.killers) {
+        $(item["killers"]).each(function (index, killer) {
+            textToSearch += "|killer " + killer.name;
         });
     }
     if (item["tmrUnit"]) {
