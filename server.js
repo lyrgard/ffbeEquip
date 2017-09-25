@@ -254,7 +254,13 @@ var schemaData = {
             "mag%"  : {"type": "number"},
             "spr"   : {"type": "number"},
             "spr%"  : {"type": "number"},
-            "evade" : {"type": "number"},
+            "evade" : {
+                "type": "object",
+                "properties": {
+                    "physical":{"type": "number"},
+                    "magical":{"type": "number"},
+                }
+            },
             "element" : {"type": "string", "enum": ['fire','ice','lightning','water','earth','wind','light','dark']},
             "resist"  : {
                 "type": "array",

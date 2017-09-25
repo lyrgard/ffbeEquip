@@ -190,7 +190,12 @@ function displayItemLine(item) {
         special += "<li>Allow use of <img src='img/" + item.allowUseOf + ".png'></img></li>";
     }
     if (item.evade) {
-        special += "<li>Evade " + item.evade + "%</li>";
+        if (item.evade.physical) {
+            special += "<li>Evade physical attacks " + item.evade.physical + "%</li>";    
+        }
+        if (item.evade.magical) {
+            special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";    
+        }
     }
     if (item.doubleHand) {
         special += "<li>Increase equipment ATK (" + item.doubleHand + "%) when single wielding</li>";

@@ -110,7 +110,12 @@ function updateCurrentItemDisplay() {
     }
     var specialList = ""; 
     if (currentItem.evade) {
-        specialList += "<li>Evade " + currentItem.evade + "%</li>"
+        if (currentItem.evade.physical) {
+            specialList += "<li>Evade Physical attacks " + currentItem.evade.physical + "%</li>"    
+        }
+        if (currentItem.evade.magical) {
+            specialList += "<li>Evade Magical attacks " + currentItem.evade.magical + "%</li>"    
+        }
     }
     if (currentItem.special) {
         specialList += getSpecialHtml(currentItem);
@@ -232,8 +237,10 @@ function selectSpecial(special) {
             currentItem.special.push(special);
         }
         updateCurrentItemDisplay();
-    } else if (special == "evade") {
-        displayAddForm("evade", "Evade %");
+    } else if (special == "evadePhysical") {
+        displayAddForm("evadePhysical", "Evade Physical %");
+    } else if (special == "evadeMagical") {
+        displayAddForm("evadeMagical", "Evade Magical %");
     } else if (special == "doubleHand") {
         displayAddForm("doubleHand", "Double Hand %");
     } else {
@@ -292,9 +299,18 @@ function validateAddForm() {
     } else if (currentAddFormProperty == "special") {
         currentItem.special = currentItem.special || [];
         currentItem.special.push(value);
-    } else if (currentAddFormProperty == "evade") {
+    } else if (currentAddFormProperty == "evadePhysical") {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
-        currentItem.evade = parseInt(value);
+        if (!currentItem.evade) {
+            currentItem.evade = {};
+        }
+        currentItem.evade.physical = parseInt(value);
+    } else if (currentAddFormProperty == "evadeMagical") {
+        if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
+        if (!currentItem.evade) {
+            currentItem.evade = {};
+        }
+        currentItem.evade.magical = parseInt(value);
     } else if (currentAddFormProperty == "doubleHand") {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
         currentItem.doubleHand = parseInt(value);
