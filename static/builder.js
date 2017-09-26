@@ -1,3 +1,20 @@
+var goals = {
+    "atk":{
+        "useWeaponsElements":true,
+        "applicableKillerType":"physical",
+        "attackTwiceWithDualWield":true
+     },
+     "mag":{
+        "useWeaponsElements":false,
+        "applicableKillerType":"magical",
+        "attackTwiceWithDualWield":false
+     }
+};
+
+var useWeaponsElements = true;
+var applicableKillerType = "physical";
+var attackTwiceWithDualWield = true;
+
 var inventory = {"byType":{},"byCondition":{}};
 var numberByType = {}
 
@@ -22,7 +39,7 @@ var bestValue = 0;
 var bestBuild;
 var bestEsper;
 
-var statToMaximize = "atk";
+var statToMaximize = "mag";
 
 var stats = [];
 var numberOfItemCombination;
@@ -62,11 +79,32 @@ function build() {
     readEnnemyResists();
     ennemyRaces = getSelectedValuesFor("races");
     innateElements = getSelectedValuesFor("elements");
+    readGoal();
     
     prepareData(selectedUnit.equip);
     prepareEquipable();
     selectEspers();
     optimize();
+}
+
+function readGoal() {
+    var goal = $(".goal select").val();
+    var mecanismType;
+    if (goal == "atk") {
+        statToMaximize = goal;
+        mecanismType = "atk";
+    } else if (goal == "mag") {
+        statToMaximize = goal;
+        var attackType = $(".magicalSkillType input").val();
+        if (attackType == "normal") {
+            mecanismType = "mag";
+        } else {
+            mecanismType = "atk";
+        }
+    }
+    useWeaponsElements = goals[mecanismType].useWeaponsElements;
+    applicableKillerType = goals[mecanismType].applicableKillerType;
+    attackTwiceWithDualWield = goals[mecanismType].attackTwiceWithDualWield;
 }
 
 function prepareEquipable() {
@@ -126,7 +164,7 @@ function selectEspers() {
     selectedEspers = [];
     var maxValueEsper = null;
     for (var index in espers) {
-        if (maxValueEsper == null || espers[index][statToMaximize] > maxValueEsper.atk) {
+        if (maxValueEsper == null || espers[index][statToMaximize] > maxValueEsper[statToMaximize]) {
             maxValueEsper = espers[index];
         }
         if (getKillerCoef(espers[index]) > 0) {
@@ -142,8 +180,8 @@ function getKillerCoef(item) {
     var cumulatedKiller = 0;
     if (ennemyRaces.length > 0 && item.killers) {
         for (var killerIndex in item.killers) {
-            if (ennemyRaces.includes(item.killers[killerIndex].name)) {
-                cumulatedKiller += item.killers[killerIndex].physical;
+            if (ennemyRaces.includes(item.killers[killerIndex].name) && item.killers[killerIndex][applicableKillerType]) {
+                cumulatedKiller += item.killers[killerIndex][applicableKillerType];
             }
         }
     }
@@ -511,8 +549,8 @@ function calculateMaxValue(item) {
 }
 
 function calculateValue(equiped, esper) {
-    if ("atk" == statToMaximize) {
-        var calculatedValues = calculateStatValue(equiped, esper);
+    if ("atk" == statToMaximize || "mag" == statToMaximize) {
+        var calculatedValue = calculateStatValue(equiped, esper);
         
         var cumulatedKiller = 0;
         var itemAndPassives = equiped.concat(selectedUnit.skills);
@@ -522,9 +560,9 @@ function calculateValue(equiped, esper) {
         for (var equipedIndex in itemAndPassives) {
             if (itemAndPassives[equipedIndex] && (areConditionOK(itemAndPassives[equipedIndex], equiped))) {
                 if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
-                    for (var killerIndex in itemAndPassives[equipedIndex].killers) {
-                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name)) {
-                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex].physical;
+                    for (var killerIndex = 0; killerIndex <  itemAndPassives[equipedIndex].killers.length; killerIndex++) {
+                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name) && itemAndPassives[equipedIndex].killers[killerIndex][applicableKillerType]) {
+                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex][applicableKillerType];
                         }
                     }
                 }
@@ -533,12 +571,14 @@ function calculateValue(equiped, esper) {
         
         // Element weakness/resistance
         var elements = innateElements.slice();
-        if (equiped[0] && equiped[0].element && !elements.includes(equiped[0].element)) {
-            elements.push(equiped[0].element);
-        };
-        if (equiped[1] && equiped[1].element && !elements.includes(equiped[1].element)) {
-            elements.push(equiped[1].element);
-        };
+        if (useWeaponsElements) {
+            if (equiped[0] && equiped[0].element && !elements.includes(equiped[0].element)) {
+                elements.push(equiped[0].element);
+            };
+            if (equiped[1] && equiped[1].element && !elements.includes(equiped[1].element)) {
+                elements.push(equiped[1].element);
+            };
+        }
         var resistModifier = 0;
         
         if (elements.length > 0) {
@@ -555,28 +595,40 @@ function calculateValue(equiped, esper) {
         if (ennemyRaces.length > 0) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
-        var result = (calculatedValues.right * calculatedValues.right + calculatedValues.left * calculatedValues.left) * (1 - resistModifier) * killerMultiplicator;
-    
-        return result;
+        
+        if ("atk" == statToMaximize) {
+            return (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
+        } else {
+            var dualWieldCoef = 1;
+            if (attackTwiceWithDualWield) {
+                dualWieldCoef = 2;
+            }
+            return (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef; 
+        }
     }
 }
 
 function calculateStatValue(equiped, esper) {
     
+    var indexToStart = 0;
+    if ("atk" == statToMaximize) {
+        var indexToStart = 2;
+    } 
+        
+    var calculatedValue = 0   
+    var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
+    var calculatedValue = baseValue;
+    var itemAndPassives = equiped.concat(selectedUnit.skills);
+
+    for (var equipedIndex = indexToStart; equipedIndex < itemAndPassives.length; equipedIndex++) {
+        calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue);
+    }
+    if (esper != null) {
+        calculatedValue += esper[statToMaximize] / 100;
+    }
+    
     if ("atk" == statToMaximize) {
         var result = {"right":0,"left":0,"total":0}; 
-        var calculatedValue = 0   
-        var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
-        var calculatedValue = baseValue;
-        var itemAndPassives = equiped.concat(selectedUnit.skills);
-        var cumulatedKiller = 0;
-        
-        for (var equipedIndex = 2; equipedIndex < itemAndPassives.length; equipedIndex++) {
-            calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue);
-        }
-        if (esper != null) {
-            calculatedValue += esper[statToMaximize] / 100;
-        }
         var right = calculateStateValueForIndex(equiped, itemAndPassives, 0, baseValue);
         var left = calculateStateValueForIndex(equiped, itemAndPassives, 1, baseValue);
         if (equiped[1] && weaponList.includes(equiped[1].type)) {
@@ -588,6 +640,8 @@ function calculateStatValue(equiped, esper) {
             result.total = result.right;
         }
         return result;   
+    } else {
+        return {"total" : calculatedValue};
     }
 }
 
@@ -685,6 +739,15 @@ var displayUnitRarity = function(unit) {
 function inventoryLoaded() {
    
 }
+
+function onGoalChange() {
+    var goal = $(".goal select").val();
+    if (goal == "mag") {
+        $(".magicalSkillType").removeClass("hidden");
+    } else {
+        $(".magicalSkillType").addClass("hidden");
+    }
+}
             
 $(function() {
     $.get("data.json", function(result) {
@@ -703,6 +766,9 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
+    
+    $(".goal select").change(onGoalChange);
+    onGoalChange();
     
     $("#buildButton").click(build);
     
