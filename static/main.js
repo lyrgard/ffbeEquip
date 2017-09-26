@@ -6,6 +6,7 @@ var rawTempData;
 var tempData;
 var showTempData = false;
 var itemInventory = null;
+var saveNeeded = false;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -449,6 +450,7 @@ function addToInventory(name, span) {
         inventoryDiv.children(".number").text(itemInventory[name]);
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
     }
+    saveNeeded = true;
     $("#saveInventory").removeClass("hidden");
 }
 
@@ -463,6 +465,7 @@ function removeFromInventory(name, span) {
             itemInventory[name] = itemInventory[name] - 1;
             inventoryDiv.children(".number").text(itemInventory[name]);
         }
+        saveNeeded = true;
         $("#saveInventory").removeClass("hidden");
     }
 }
@@ -572,6 +575,7 @@ function saveInventory() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function() {
+            saveNeeded = false;
             $("#inventoryDiv .buttons .loader").addClass("hidden");
             $("#inventoryDiv .buttons .message").text("save OK");
             $("#inventoryDiv .buttons .message").removeClass("hidden");
@@ -658,6 +662,12 @@ $(function() {
 	
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
+    
+    $(window).on("beforeunload", function () {
+        if  (saveNeeded) {
+            return "Unsaved change exists !"
+        }
+    });
 });
 
 function escapeName (string) {
