@@ -32,11 +32,15 @@
             <div class="col-xs-6">
                 <div class="panel panel-default goal">
                     <div class="panel-heading">
-                        <span>Goal : Maximize</span>
-                        <select>
-                            <option value="atk">Physical damage</option>
-                            <option value="mag">Magical damage</option>
-                        </select>
+                        <form class="form-inline">
+                            <div class="form-group flex-form-group">
+                                <span>Goal : Maximize</span>
+                                <select class="form-control">
+                                    <option value="atk">Physical damage</option>
+                                    <option value="mag">Magical damage</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="panel panel-default unit">
@@ -96,7 +100,7 @@
                         <div class="col-xs-12 magicalSkillType hidden">
                             <div class="col-xs-3 text-right">Type of used attack:</div>
                             <div class="col-xs-9">
-                                <select>
+                                <select class="form-control">
                                     <option value="normal">Normal magical attack</option>
                                     <option value="physicalMagic">Magic attack with physical mecanism</option>
                                 </select>

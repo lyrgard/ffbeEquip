@@ -102,6 +102,18 @@
             {"mp%":30,"mag%":30}
         ]
     },
+    "Emperor":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3521,"mp":184,"atk":116,"def":121,"mag":149,"spr":134},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"male",
+        "equip":["staff","rod","hat","clothes","robe"],
+        "skills":[
+            {"mp%":20,"mag%":30}
+        ]
+    },
     "Exdeath":{
         "max_rarity":6,
         "stats":{
@@ -284,6 +296,20 @@
             {"mp%":30,"mag%":30},
             {"mag%":20,"equipedConditions":["hat"]},
             {"mag%":20,"equipedConditions":["robe"]}
+        ]
+    },
+    "Zyrus":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3366,"mp":199,"atk":106,"def":113,"mag":148,"spr":133},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"male",
+        "equip":["staff","rod","mace","hat","clothes","robe"],
+        "skills":[
+            {"mp%":20,"mag%":10,"killers":[{"name":"dragon","physical":25,"magical":50}]},
+            {"mag%":20,"equipedConditions":["rod"]},
+            {"mag%":30,"equipedConditions":["robe"]}
         ]
     }
 }
