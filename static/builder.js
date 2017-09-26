@@ -75,6 +75,7 @@ function build() {
         return;
     }
     selectedUnit = units[selectedUnitName];
+    selectedUnit.name = selectedUnitName;
     
     readEnnemyResists();
     ennemyRaces = getSelectedValuesFor("races");
@@ -132,6 +133,9 @@ function prepareData(equipable) {
     var tempData = {};
     for (var index in rawData) {
         var item = rawData[index];
+        if (item.name == "Defender's Daggers") {
+            console.log(isApplicable(item));
+        }
         if (getOwnedNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
                 dataWithCondition.push(item);
