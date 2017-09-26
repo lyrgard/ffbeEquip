@@ -8,7 +8,7 @@
         "sex":"female",
         "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":40,"atk%":80,"special":["dualWield"],"killers":[{"name":"machine","percent":100}]}
+            {"hp%":40,"atk%":80,"special":["dualWield"],"killers":[{"name":"machine","physical":100}]}
         ]
     },
     "A2":{
@@ -20,11 +20,23 @@
         "sex":"female",
         "equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"special":["dualWield"],"killers":[{"name":"machine","percent":100}]},   
+            {"special":["dualWield"],"killers":[{"name":"machine","physical":100}]},   
             {"atk%":30,"def%":20,"equipedConditions":["sword"]},
             {"atk%":50,"equipedConditions":["greatSword"]},
             {"atk%":30,"spr%":20,"equipedConditions":["spear"]},
             {"hp%":30,"atk%":30,"equipedConditions":["fist"]}
+        ]
+    },
+    "Ace":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3500,"mp":155,"atk":119,"def":118,"mag":147,"spr":125},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"male",
+        "equip":["dagger","rod","throwing","hat","clothes","robe"],
+        "skills":[
+            {"mp%":10,"mag%":70,"spr%":20}
         ]
     },
     "Agrias":{
@@ -50,7 +62,20 @@
         "sex":"female",
         "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","robe","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":20,"mp%":20,"atk%":60,"killers":[{"name":"stone","percent":50},{"name":"machine","percent":50}]}
+            {"hp%":20,"mp%":20,"atk%":60,"killers":[{"name":"stone","physical":50},{"name":"machine","physical":50}]}
+        ]
+    },
+    "Ashe":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3624,"mp":180,"atk":130,"def":124,"mag":145,"spr":130},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+        "skills":[
+            {"hp%":10,"mp%":20,"mag%":30},
+            {"atk%":50,"mag%":30,"equipedConditions":["sword"]}
         ]
     },
     "Dark Knight Cecil":{
@@ -65,6 +90,30 @@
             {"hp%":20,"atk%":60,"def%":20}
         ]
     },
+    "Dark Fina":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3472,"mp":190,"atk":115,"def":120,"mag":150,"spr":128},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"female",
+        "equip":["staff","rod","whip","mace","hat","clothes","robe"],
+        "skills":[
+            {"mp%":30,"mag%":30}
+        ]
+    },
+    "Exdeath":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3121,"mp":188,"atk":117,"def":109,"mag":145,"spr":123},
+            "pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"mp%":20,"mag%":30,"killers":[{"name":"plant","magical":30},{"name":"bug","magical":30},{"name":"bird","magical":30},{"name":"beast","magical":30},{"name":"human","magical":30}]}
+        ]
+    },
     "Firion":{
         "max_rarity":6,
         "stats":{
@@ -74,7 +123,7 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","lightArmor"],
         "skills":[
-            {"atk%":10,"killers":[{"name":"plant","percent":125},{"name":"bug","percent":125},{"name":"bird","percent":125},{"name":"dragon","percent":150},{"name":"demon","percent":150},{"name":"beast","percent":150},{"name":"human","percent":100},{"name":"undead","percent":100}]},
+            {"atk%":10,"killers":[{"name":"plant","physical":125},{"name":"bug","physical":125},{"name":"bird","physical":125},{"name":"dragon","physical":150},{"name":"demon","physical":150},{"name":"beast","physical":150},{"name":"human","physical":100},{"name":"undead","physical":100}]},
             {"mag%":30,"spr%":30,"equipedConditions":["staff"]},
             {"mag%":30,"spr%":30,"equipedConditions":["rod"]},
             {"mag%":30,"spr%":30,"equipedConditions":["harp"]},
@@ -118,7 +167,7 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":30,"mp%":30,"atk%":30,"def%":10,"killers":[{"name":"undead","percent":50}],"special":["dualWield"]},
+            {"hp%":30,"mp%":30,"atk%":30,"def%":10,"killers":[{"name":"undead","physical":50}],"special":["dualWield"]},
             {"atk%":50,"equipedConditions":["sword"]}
         ]
     },
@@ -144,8 +193,33 @@
         "sex":"male",
         "equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
         "skills":[
-            {"hp%":20,"atk%":30,"def%":20,"special":["dualWield"],"killers":[{"name":"beast","percent":125},{"name":"dragon","percent":125},{"name":"spirit","percent":125},{"name":"undead","percent":125}]},
+            {"hp%":20,"atk%":30,"def%":20,"special":["dualWield"],"killers":[{"name":"beast","physical":125},{"name":"dragon","physical":125},{"name":"spirit","physical":125},{"name":"undead","physical":125}]},
             {"atk%":70,"def%":35,"srp%":35,"equipedConditions":["sword"]}
+        ]
+    },
+    "Rem":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3452,"mp":196,"atk":118,"def":118,"mag":149,"spr":149},
+            "pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+        },
+        "sex":"female",
+        "equip":["dagger","sword","staff","rod","hat","clothes","robe"],
+        "skills":[
+            {"mp%":30,"mag%":20,"spr%":30,"partialDualWield":["dagger"]},   
+            {"mag%":50,"spr%":50,"equipedConditions":["dagger"]}
+        ]
+    },
+    "Seabreeze Dark Fina":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3472,"mp":190,"atk":115,"def":120,"mag":150,"spr":128},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"female",
+        "equip":["staff","rod","whip","mace","hat","clothes","robe"],
+        "skills":[
+            {"mp%":30,"mag%":30}
         ]
     },
     "Tidus":{
@@ -157,7 +231,19 @@
         "sex":"male",
         "equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
         "skills":[
-            {"hp%":30,"mp%":20,"atk%":50,"killers":[{"name":"beast","percent":50},{"name":"bird","percent":50},{"name":"demon","percent":50}]}
+            {"hp%":30,"mp%":20,"atk%":50,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}]}
+        ]
+    },
+    "Trance Terra":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3421,"mp":186,"atk":125,"def":120,"mag":150,"spr":130},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"female",
+        "equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes","robe"],
+        "skills":[
+            {"mp%":30,"mag%":60,"spr%":50}
         ]
     },
     "Veritas of the Dark":{
@@ -184,6 +270,20 @@
         "skills":[
             {"hp%":30,"mp%":10,"atk%":20,"def%":20},   
             {"atk%":50,"equipedConditions":["axe"]}
+        ]
+    },
+    "Victoria":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3220,"mp":180,"atk":112,"def":118,"mag":146,"spr":126},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+        },
+        "sex":"female",
+        "equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
+        "skills":[
+            {"mp%":30,"mag%":30},
+            {"mag%":20,"equipedConditions":["hat"]},
+            {"mag%":20,"equipedConditions":["robe"]}
         ]
     }
 }

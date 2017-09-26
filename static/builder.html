@@ -30,6 +30,15 @@
                 </nav>
             </div>
             <div class="col-xs-6">
+                <div class="panel panel-default goal">
+                    <div class="panel-heading">
+                        <span>Goal : Maximize</span>
+                        <select>
+                            <option value="atk">Physical damage</option>
+                            <option value="mag">Magical damage</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="panel panel-default unit">
                     <div class="panel-heading">
                         <form class="form-inline">
@@ -81,15 +90,18 @@
                             </div>
                         </div>
                         <div class="col-xs-12 unitAttackElement">
-                            <span>If using an attack with innate element(s), select it (them):</span>
-                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
+                            <div class="col-xs-3 text-right">Attack element(s):</div>
+                            <div class="col-xs-9 btn-group elements choice" data-toggle="buttons" id="elements"></div>
+                        </div>
+                        <div class="col-xs-12 magicalSkillType hidden">
+                            <div class="col-xs-3 text-right">Type of used attack:</div>
+                            <div class="col-xs-9">
+                                <select>
+                                    <option value="normal">Normal magical attack</option>
+                                    <option value="physicalMagic">Magic attack with physical mecanism</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="panel panel-default goal">
-                    <div class="panel-heading">
-                        <span>Goal : Maximize physical damage (for now)</span>
                     </div>
                 </div>
                 <div class="panel panel-default monster">
