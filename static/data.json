@@ -131,6 +131,7 @@
     {"name":"Platinum Rod","type":"rod","atk":14,"mag":40,"access":["chest"]},
     {"name":"Water Drake's Rod","type":"rod","mp%":10,"atk":11,"mag":48,"element":"water","access":["event"]},
     {"name":"Iridal Staff","type":"rod","atk":19,"mag":82,"special":["[Auto-Regen]"],"exclusiveUnits":["Shantotto"],"access":["recipe-event"]},
+    {"name":"Tactician Magician's Wand","type":"rod","atk":16,"mag":38,"access":["recipe-event"]},
 
     {"name":"Goddess Bow","type":"bow","atk":91,"spr":40,"killers":[{"name":"bird","physical":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"Rosa"},
     {"name":"Blessed Bow","type":"bow","atk":80,"spr":40,"killers":[{"name":"bird","physical":50},{"name":"undead","physical":50}],"special":["twoHanded"],"access":["TMR-4*"],"tmrUnit":"White Witch Fina"},
@@ -293,6 +294,7 @@
     {"name":"Army Shield","type":"lightShield","def":40,"spr":20,"resist":[{"name":"lightning","percent":20}],"access":["event"]},
     {"name":"Buckler","type":"lightShield","def":16,"outclassedBy":"Mythril Buckler","access":["shop","chest","quest","recipe-shop"]},
     {"name":"Divine Shield","type":"lightShield","hp%":5,"mp%":5,"def":15,"spr":25,"access":["recipe-event"]},
+    {"name":"Lustrous Shield","type":"lightShield","def":32,"spr":10,"resist":[{"name":"light","percent":50}],"access":["quest"]},
 
     {"name":"Aegis Shield","type":"heavyShield","def":53,"spr":25,"resist":[{"name":"petrification","percent":100}],"access":["TMR-3*"],"tmrUnit":"Leo"},
     {"name":"Force Shield","type":"heavyShield","def":40,"spr":8,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}],"access":["chocobo"]},
@@ -651,6 +653,7 @@
     {"name":"Water Resistance +15%","type":"materia","resist":[{"name":"water","percent":15}],"access":["event"]},
     {"name":"Sleep Resistance","type":"materia","resist":[{"name":"sleep","percent":100}],"access":["event"]},
     {"name":"Confusion Resistance","type":"materia","resist":[{"name":"confuse","percent":100}],"access":["event"]},
+    {"name":"Poison Resistance","type":"materia","resist":[{"name":"poison","percent":100}],"access":["event"]},
     {"name":"Discernment","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Seven"},
     {"name":"Goddess's Protection","type":"materia","resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"access":["TMR-4*"],"tmrUnit":"Tilith"},
     {"name":"Hydaelyn Guard","type":"materia","resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"access":["TMR-4*-event"],"tmrUnit":"Minfilia"},
@@ -733,6 +736,7 @@
     {"name":"Fire Beam","type":"materia","element":"fire","special":["Fire magic damage (1.2x) to one enemy"],"access":["TMR-2*"],"tmrUnit":"Wedge"},
     {"name":"Fire Blade","type":"materia","element":"fire","special":["Fire hybrid damage (1.2x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Holy Blade","type":"materia","element":"light","special":["Light hybrid damage (2.3x) to one enemy"],"access":["TMR-3*"],"tmrUnit":"Rakshasa"},
+    {"name":"Thunder Blade","type":"materia","element":"lightning","special":["Lightning hybrid damage (1.8x) to one enemy"],"access":["shop","recipe-shop"]},
     {"name":"Blind Blade","type":"materia","ailments":[{"name":"blind","percent":30}],"special":["Hybrid damage (1.8x) to one enemy"],"access":["recipe-chest"]},
     {"name":"Osmose Blade","type":"materia","special":["Hybrid damage (1.4x) to one enemy","Physical damage (0.3x) with MP drain (30%) to one enemy "],"access":["recipe-chest"]},
     {"name":"Magic Infuse","type":"materia","element":"dark","special":["Dark hybrid damage (1.3x) to one enemy"],"access":["recipe-colosseum"]},
@@ -891,7 +895,7 @@
     {"name":"Sworn Six's Pride - Earth","type":"materia","atk%":40,"def%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","equipedConditions":["heavyArmor","heavyShield"],"access":["TMR-4*"]},
     {"name":"Sworn Six's Pride - Earth","type":"materia","atk%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","equipedConditions":["heavyArmor"],"access":["TMR-4*"]},
     {"name":"Sworn Six's Pride - Earth","type":"materia","def%":40,"special":["notStackable"],"tmrUnit":"Veritas of the Earth","equipedConditions":["heavyShield"],"access":["TMR-4*"]},
-    {"name":"Increase wind resistance (15%)","type":"materia","resist":[{"name":"wind","percent":15}],"access":["event"]},
+    {"name":"Wind Resistance +15%","type":"materia","resist":[{"name":"wind","percent":15}],"access":["event"]},
     {"name":"False Saint","type":"materia","mp%":10,"mag%":20,"access":["event"]},
     {"name":"Mechanical Heart","type":"materia","hp%":15,"spr%":15,"special":["Chance to counter physical & magical attacks (30%) with heal (800 HP, 1x to caster)","notStackable"],"access":["TMR-3*-event"],"tmrUnit":"21O"},
     {"name":"Resentment","type":"materia","hp%":30,"special":["Increase DEF (110%) for 3 turns when HP drops below 30%"],"access":["TMR-4*-event"],"tmrUnit":"Eve"},
@@ -916,5 +920,9 @@
     {"name":"Codex of Sword Master","type":"materia","atk%":20,"mag%":20,"tmrUnit":"Swordsman Lasswell","condition":"if equiped with a sword","access":["TMR-4*"]},
     {"name":"Malboro's Whisper","type":"materia","hp%":20,"mag%":30,"access":["trial"]},
     {"name":"Proud Fencer","type":"materia","hp%":20,"atk%":40,"equipedConditions":["greatSword"],"tmrUnit":"Werei","access":["TMR-4*"]},
-	{"name":"Proud Fencer","type":"materia","hp%":20,"tmrUnit":"Werei","access":["TMR-4*"]}
+	{"name":"Proud Fencer","type":"materia","hp%":20,"tmrUnit":"Werei","access":["TMR-4*"]},
+    {"name":"Mog Song","type":"materia","special":["Restore MP (15) to one ally"],"access":["event"]},
+	{"name":"Mog Step","type":"materia","special":["Heal (250 HP, 3x) to one ally"],"access":["event"]},
+	{"name":"Mog Search","type":"materia","special":["View info on one enemy"],"access":["event"]},
+    {"name":"Renewal","type":"materia","special":["Regen 5% MP Per Turn","Note: Only Available From Premium Bundle"],"access":["premium"]}
 ]

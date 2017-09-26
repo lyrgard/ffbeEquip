@@ -71,9 +71,6 @@ app.put("/itemInventory", function(req, res) {
         googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
     }
     var data = req.body;
-
-    console.log("Saving inventory : ");
-    console.log(data);
     
     var oauth2Client = new OAuth2(
         googleOAuthCredential.web.client_id,
@@ -85,7 +82,6 @@ app.put("/itemInventory", function(req, res) {
     driveConfigClient.getByName("itemInventory.json").then(files => {
         if (files.length > 0) {
             driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
-                console.log(file);
                 res.status(200).json(file);
             }).catch(err => {
                 console.log(err);
@@ -93,7 +89,6 @@ app.put("/itemInventory", function(req, res) {
             });
         } else {
             driveConfigClient.create("itemInventory.json", JSON.stringify(data)).then(file => {
-                console.log(file);
                 res.send();
             }).catch(err => {
                 console.log(err);
@@ -125,15 +120,12 @@ app.get("/itemInventory", function(req, res) {
         let driveConfigClient = new driveConfig(oauth2Client);
         driveConfigClient.getByName("itemInventory.json").then(files => {
             if (files.length > 0) {
-                console.log(files);
                 if (files[0].data.constructor === Array) {
-                    console.log("Old array inventory, transformed into object")
                     res.status(200).json({});
                 } else {
                     res.status(200).json(files[0].data);
                 }
             } else {
-                console.log("new Inventory sent");
                 res.status(200).json({});
             }
         }).catch(err => {
