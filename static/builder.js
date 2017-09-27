@@ -424,31 +424,15 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var damageCoefLevelAlreadyKept = {};
     while(itemIndex < tempResult.length) {
         item = tempResult[itemIndex].item;
-        if (number < numberNeeded) {
-            if (!itemKeptNames.includes(item.name)) {
-                if (!isStackable(item)) {
-                    number += 1;
-                } else {
-                    number += getOwnedNumber(item);
-                }
-            }
-            var damageCoefLevel = getDamageCoefLevel(item);
-            if (damageCoefLevelAlreadyKept[damageCoefLevel]) {
+        var damageCoefLevel = getDamageCoefLevel(item);
+        if (!damageCoefLevel || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
+            tempResult.splice(itemIndex, 1);
+        } else {
+            if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
                 damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
             }
-            damageCoefLevelAlreadyKept[damageCoefLevel] += damageCoefLevel;
+            damageCoefLevelAlreadyKept[damageCoefLevel] += getOwnedNumber(item);
             itemIndex++;
-        } else {
-            var damageCoefLevel = getDamageCoefLevel(item);
-            if (damageCoefLevel == "" || (damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded)) {
-                tempResult.splice(itemIndex, 1);
-            } else {
-                if (damageCoefLevelAlreadyKept[damageCoefLevel]) {
-                    damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
-                }
-                damageCoefLevelAlreadyKept[damageCoefLevel] += damageCoefLevel;
-                itemIndex++;
-            }
         }
     }
     var result = [];
@@ -459,16 +443,19 @@ function addConditionItems(itemsOfType, type, typeCombination) {
 }
 
 function getDamageCoefLevel(item) {
-    var damageCoefLevel = "";
+    var damageCoefLevel = "neutral";
     var killerCoef = getKillerCoef(item);
     if (killerCoef > 0) {
         damageCoefLevel += "killer" + killerCoef;
     }
-    if ((item.element && ennemyResist[item.element] < 0)) {
-        damageCoefLevel += "element" + ennemyResist[item.element];
-    }
-    if (damageCoefLevel == "" && weaponList.includes(item.type) && (!item.element || innateElements.includes(item.element))) {
-        damageCoefLevel = "elementless";
+    if (weaponList.includes(item.type)) {
+        // only for weapons
+        if ((item.element && ennemyResist[item.element] != 0)) {
+            damageCoefLevel += "element" + ennemyResist[item.element];
+        }
+        if (damageCoefLevel == "neutral" && (!item.element || innateElements.includes(item.element))) {
+            damageCoefLevel = "elementless";
+        }
     }
     return damageCoefLevel;
 }
