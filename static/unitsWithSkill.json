@@ -284,6 +284,20 @@
             {"atk%":50,"equipedConditions":["axe"]}
         ]
     },
+    "Veritas of the Light":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3544,"mp":180,"atk":139,"def":120,"mag":139,"spr":136},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"female",
+        "equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"mp%":20,"mag%":30,"spr%":10,"partialDualWield":["throwing","gun"],"killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+            {"atk%":50,"equipedConditions":["gun"]},
+            {"mag%":50,"equipedConditions":["throwing"]}
+        ]
+    },
     "Victoria":{
         "max_rarity":6,
         "stats":{
