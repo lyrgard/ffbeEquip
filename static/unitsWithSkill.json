@@ -170,6 +170,27 @@
             {"atk%":50,"equipedConditions":["kaktana"]}
         ]
     },
+    "Noctis":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3824,"mp":174,"atk":158,"def":120,"mag":150,"spr":136},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
+        "skills":[
+            {"hp%":15,"mp%":15},
+            {"atk%":20,"def%":15,"equipedConditions":["dagger"]},
+            {"atk%":20,"spr%":15,"equipedConditions":["sword"]},
+            {"atk%":35,"equipedConditions":["greatSword"]},
+            {"mag%":20,"spr%":20,"equipedConditions":["throwing"]},
+            {"def%":20,"mag%":20,"equipedConditions":["gun"]},
+            {"atk%":20,"mag%":20,"equipedConditions":["katana"]},
+            {"atk%":20,"spr%":20,"equipedConditions":["spear"]},
+            {"def%":20,"spr%":20,"equipedConditions":["lightShield"]},
+            {"def%":20,"spr%":20,"equipedConditions":["heavyShield"]}
+        ]
+    },
     "Onion Knight":{
         "max_rarity":6,
         "stats":{
@@ -282,6 +303,20 @@
         "skills":[
             {"hp%":30,"mp%":10,"atk%":20,"def%":20},   
             {"atk%":50,"equipedConditions":["axe"]}
+        ]
+    },
+    "Veritas of the Light":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3544,"mp":180,"atk":139,"def":120,"mag":139,"spr":136},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"female",
+        "equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"mp%":20,"mag%":30,"spr%":10,"partialDualWield":["throwing","gun"],"killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+            {"atk%":50,"equipedConditions":["gun"]},
+            {"mag%":50,"equipedConditions":["throwing"]}
         ]
     },
     "Victoria":{
