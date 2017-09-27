@@ -124,6 +124,10 @@ function prepareEquipable() {
     if (hasInnateDualWield()) {
         equipable[1] = equipable[1].concat(equipable[0]);
     }
+    var partialDualWield = getInnatePartialDualWield();
+    if (partialDualWield) {
+        equipable[1] = equipable[1].concat(partialDualWield);
+    }
 }
 
 function prepareData(equipable) {
@@ -133,14 +137,11 @@ function prepareData(equipable) {
     var tempData = {};
     for (var index in rawData) {
         var item = rawData[index];
-        if (item.name == "Defender's Daggers") {
-            console.log(isApplicable(item));
-        }
         if (getOwnedNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
                 dataWithCondition.push(item);
             } else {
-                if (item.special && item.special.includes("dualWield")) {
+                if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
                     dualWieldSources.push(item);
                 }
                 if (!data[item.type]) {
@@ -225,7 +226,6 @@ function optimize() {
     
     
     if (!hasInnateDualWield() && dualWieldSources.length > 0) {
-        equipable[1] = equipable[1].concat(equipable[0]);
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
             var slot = 0;
@@ -235,8 +235,20 @@ function optimize() {
                 slot = 6;
             }
             fixedItems[slot] = item;
+            var savedEquipable0 = equipable[0];
+            if (item.partialDualWield && slot == 0) {
+                equipable[0] = [item.type];
+                equipable[1] = item.partialDualWield;
+                var unitPartialDualWield = getInnatePartialDualWield();
+                if (unitPartialDualWield) {
+                    equipable[1] = mergeArrayWithoutDuplicates(equipable[1], unitPartialDualWield);
+                }
+            } else {
+                equipable[1] = equipable[0];
+            }
             buildTypeCombination(0,typeCombination,combinations);
             fixedItems[slot] = null;
+            equipable[0] = savedEquipable0;
         }
     }
     console.log(combinations.length);
@@ -506,6 +518,15 @@ function hasInnateDualWield() {
         }
     }
     return false;
+}
+
+function getInnatePartialDualWield() {
+    for (var index in selectedUnit.skills) {
+        if (selectedUnit.skills[index].partialDualWield) {
+            return selectedUnit.skills[index].partialDualWield;
+        }
+    }
+    return null;
 }
 
 function getOwnedNumber(item) {

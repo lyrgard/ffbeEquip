@@ -336,6 +336,16 @@ function loadInventory() {
     });
 }
 
+function mergeArrayWithoutDuplicates(array1, array2) {
+    var result = [].concat(array1);
+    for (var index in array2) {
+        if (!result.includes(array2[index])) {
+            result.push(array2[index]);
+        }
+    }
+    return result;
+}
+
 function filterByServer(rawData) {
     readServerType();
     var result = [];
