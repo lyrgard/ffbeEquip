@@ -124,10 +124,6 @@ function prepareEquipable() {
     if (hasInnateDualWield()) {
         equipable[1] = equipable[1].concat(equipable[0]);
     }
-    var partialDualWield = getInnatePartialDualWield();
-    if (partialDualWield) {
-        equipable[1] = equipable[1].concat(partialDualWield);
-    }
 }
 
 function prepareData(equipable) {
@@ -224,7 +220,18 @@ function optimize() {
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations);
     
-    
+    var unitPartialDualWield = getInnatePartialDualWield();
+    if (unitPartialDualWield) {
+        var savedEquipable0 = equipable[0];
+        var savedEquipable1 = equipable[1];
+        
+        equipable[0] = unitPartialDualWield;
+        equipable[1] = unitPartialDualWield;
+        buildTypeCombination(0,typeCombination,combinations);
+        
+        equipable[0] = savedEquipable0;
+        equipable[1] = savedEquipable1;
+    }
     if (!hasInnateDualWield() && dualWieldSources.length > 0) {
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
