@@ -35,7 +35,7 @@ var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,
 var ennemyRaces;
 var innateElements = [];
 
-var bestValue = 0;
+var bestValue;
 var bestBuild;
 var bestEsper;
 
@@ -57,7 +57,7 @@ var fixedItems = [
     null]
 
 function build() {
-    bestValue = 0;
+    bestValue = null;
     bestBuild = null;
     
     if (!itemInventory) {
@@ -211,11 +211,9 @@ function readEnnemyRaces() {
     }
 }
 
-
-
-
 function optimize() {
-    $("#buildProgressBar .progress").removeClass("finished");
+    console.time("optimize");
+    $("#buildProgressBar .progressBar").removeClass("finished");
     var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations);
@@ -334,14 +332,15 @@ function findBestBuildForCombinationAsync(index, combinations) {
     findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
     //console.log(Math.floor(index/combinations.length*100) + "%" );
     var progress = Math.floor((index + 1)/combinations.length*100) + "%";
-    var progressElement = $("#buildProgressBar .progress");
+    var progressElement = $("#buildProgressBar .progressBar");
     progressElement.width(progress);
     progressElement.text(progress);
     if (index + 1 < combinations.length) {
         setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
     } else {
-        logBuild(bestBuild, bestEsper);
+        logBuild(bestBuild, bestValue, bestEsper);
         progressElement.addClass("finished");
+        console.timeEnd("optimize");
     }
 }
 
@@ -382,11 +381,11 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             value = calculateValue(build, selectedEspers[esperIndex]);
-            if (value > bestValue) {
+            if (bestValue == null || value.total > bestValue.total) {
                 bestBuild = build.slice();
                 bestValue = value;
                 bestEsper = selectedEspers[esperIndex];
-                logBuild(bestBuild, bestEsper);
+                logBuild(bestBuild, bestValue, bestEsper);
             }    
         }
     } else {
@@ -425,32 +424,62 @@ function addConditionItems(itemsOfType, type, typeCombination) {
             numberNeeded++;
         }
     }
-    var number = 0;
     var itemIndex = 0;
     var itemKeptNames = [];
     var damageCoefLevelAlreadyKept = {};
-    while(itemIndex < tempResult.length) {
+    var result = [];
+    for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
         var damageCoefLevel = getDamageCoefLevel(item);
         if (!damageCoefLevel || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
-            tempResult.splice(itemIndex, 1);
+            continue;
         } else {
             if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
                 damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
             }
             damageCoefLevelAlreadyKept[damageCoefLevel] += getOwnedNumber(item);
-            itemIndex++;
+            result.push(item)
         }
     }
-    var result = [];
-    for (var index in tempResult) {
-        result.push(tempResult[index].item);
+    
+    // Also keep at least the best numberNeeded items with flat stat
+    tempResult.sort(function (entry1, entry2) {
+        var value1 = 0;
+        var value2 = 0;
+        if (entry1.item[statToMaximize]) {
+            value1 = entry1.item[statToMaximize];
+        }
+        if (entry2.item[statToMaximize]) {
+            value2 = entry2.item[statToMaximize];
+        }
+        if (value1 == value2) {
+            return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
+        } else {
+            return value2 - value1;
+        }
+    });
+    
+    var number = 0;
+    for (var itemIndex in tempResult) {
+        item = tempResult[itemIndex].item;
+        if (number < numberNeeded) {
+            if (!result.includes(item)) {
+                result.push(item);
+            }
+            number += getOwnedNumber(item);
+        } else {
+            break;
+        }
     }
+    
     return result;
 }
 
 function getDamageCoefLevel(item) {
-    var damageCoefLevel = "neutral";
+    var damageCoefLevel = null;
+    if (item[statToMaximize] || item[statToMaximize + '%']) {
+        damageCoefLevel = "neutral";
+    }
     var killerCoef = getKillerCoef(item);
     if (killerCoef > 0) {
         damageCoefLevel += "killer" + killerCoef;
@@ -464,9 +493,6 @@ function getDamageCoefLevel(item) {
             damageCoefLevel = "elementless";
         }
     }
-    /*if (item[statToMaximize + '%']) {
-        damageCoefLevel += "percent";
-    }*/
     return damageCoefLevel;
 }
 
@@ -619,13 +645,15 @@ function calculateValue(equiped, esper) {
         }
         
         if ("atk" == statToMaximize) {
-            return (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
+            var total = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
+            return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         } else {
             var dualWieldCoef = 1;
             if (attackTwiceWithDualWield) {
                 dualWieldCoef = 2;
             }
-            return (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef; 
+            var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
+            return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         }
     }
 }
@@ -650,7 +678,7 @@ function calculateStatValue(equiped, esper) {
     }
     
     if ("atk" == statToMaximize) {
-        var result = {"right":0,"left":0,"total":0}; 
+        var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
         var right = calculateFlatStateValueForIndex(equiped, itemAndPassives, 0);
         var left = calculateFlatStateValueForIndex(equiped, itemAndPassives, 1);
         if (equiped[1] && weaponList.includes(equiped[1].type)) {
@@ -663,7 +691,7 @@ function calculateStatValue(equiped, esper) {
         }
         return result;   
     } else {
-        return {"total" : calculatedValue};
+        return {"total" : calculatedValue,"bonusPercent":currentPercentIncrease.value};
     }
 }
 
@@ -675,9 +703,9 @@ function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, bas
         }
         if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
             percent = itemAndPassives[equipedIndex][statToMaximize+'%'];
-            percent = Math.min(percent, 300 - currentPercentIncrease.value);
+            percentTakenIntoAccount = Math.min(percent, Math.max(300 - currentPercentIncrease.value, 0));
             currentPercentIncrease.value += percent;
-            value += percent * baseValue / 100;
+            value += percentTakenIntoAccount * baseValue / 100;
         }
     }
     return value;
@@ -722,7 +750,7 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
-function logBuild(build, esper) {
+function logBuild(build, value, esper) {
     var order = [0,1,2,3,4,5,6,7,8,9];
     var html = "";
     for (var index = 0; index < order.length; index++) {
@@ -733,8 +761,16 @@ function logBuild(build, esper) {
             html += "</div>";
         }
     }
+    
+    var bonusPercent;
+    if (value.bonusPercent > 300) {
+        bonusPercent = "<span style='color:red;'>" + value.bonusPercent + "%</span> (Only 300% taken into account)";
+    } else {
+        bonusPercent = value.bonusPercent + "%";
+    }
+    
     $("#results .tbody").html(html);
-    $("#resultStats").html(statToMaximize + " = " + Math.floor(calculateStatValue(build, esper).total) + ' , damage (on 100 def) = ' + Math.floor(calculateValue(build, esper) / 100) + ". esper : " + esper.name);
+    $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
 }
 
 
