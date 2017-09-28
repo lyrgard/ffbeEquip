@@ -3,12 +3,17 @@ var goals = {
         "useWeaponsElements":true,
         "applicableKillerType":"physical",
         "attackTwiceWithDualWield":true
-     },
-     "mag":{
+    },
+    "mag":{
         "useWeaponsElements":false,
         "applicableKillerType":"magical",
         "attackTwiceWithDualWield":false
-     }
+    },
+    "def": {
+        "useWeaponsElements":false,
+        "applicableKillerType":"none",
+        "attackTwiceWithDualWield":false
+    }
 };
 
 var useWeaponsElements = true;
@@ -39,7 +44,7 @@ var bestValue;
 var bestBuild;
 var bestEsper;
 
-var statToMaximize = "mag";
+var statToMaximize;
 
 var stats = [];
 var numberOfItemCombination;
@@ -102,6 +107,9 @@ function readGoal() {
         } else {
             mecanismType = "atk";
         }
+    } else if (goal == "spr" || goal == "def") {
+        statToMaximize = goal;
+        mecanismType = "def";
     }
     useWeaponsElements = goals[mecanismType].useWeaponsElements;
     applicableKillerType = goals[mecanismType].applicableKillerType;
@@ -480,17 +488,19 @@ function getDamageCoefLevel(item) {
     if (item[statToMaximize] || item[statToMaximize + '%']) {
         damageCoefLevel = "neutral";
     }
-    var killerCoef = getKillerCoef(item);
-    if (killerCoef > 0) {
-        damageCoefLevel += "killer" + killerCoef;
-    }
-    if (weaponList.includes(item.type)) {
-        // only for weapons
-        if ((item.element && ennemyResist[item.element] != 0)) {
-            damageCoefLevel += "element" + ennemyResist[item.element];
+    if (statToMaximize == "atk" || statToMaximize == "mag") {
+        var killerCoef = getKillerCoef(item);
+        if (killerCoef > 0) {
+            damageCoefLevel += "killer" + killerCoef;
         }
-        if (damageCoefLevel == "neutral" && (!item.element || innateElements.includes(item.element))) {
-            damageCoefLevel = "elementless";
+        if (weaponList.includes(item.type)) {
+            // only for weapons
+            if ((item.element && ennemyResist[item.element] != 0)) {
+                damageCoefLevel += "element" + ennemyResist[item.element];
+            }
+            if (damageCoefLevel == "neutral" && (!item.element || innateElements.includes(item.element))) {
+                damageCoefLevel = "elementless";
+            }
         }
     }
     return damageCoefLevel;
@@ -655,6 +665,8 @@ function calculateValue(equiped, esper) {
             var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         }
+    } else if ("def" == statToMaximize || "spr" == statToMaximize) {
+        return calculateStatValue(equiped, esper);
     }
 }
 
@@ -770,7 +782,11 @@ function logBuild(build, value, esper) {
     }
     
     $("#results .tbody").html(html);
-    $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
+    if (statToMaximize == "atk" || statToMaximize == "mag") {
+        $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
+    } else if (statToMaximize == "def" || statToMaximize == "spr") {
+        $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
+    }
 }
 
 
@@ -826,7 +842,15 @@ function onGoalChange() {
     var goal = $(".goal select").val();
     if (goal == "mag") {
         $(".magicalSkillType").removeClass("hidden");
-    } else {
+        $(".monster").removeClass("hidden");
+        $(".unitAttackElement").removeClass("hidden");
+    } else if (goal == "atk"){
+        $(".magicalSkillType").addClass("hidden");
+        $(".monster").removeClass("hidden");
+        $(".unitAttackElement").removeClass("hidden");
+    } else if (goal == "def" || goal == "spr") {
+        $(".monster").addClass("hidden");
+        $(".unitAttackElement").addClass("hidden");
         $(".magicalSkillType").addClass("hidden");
     }
 }
