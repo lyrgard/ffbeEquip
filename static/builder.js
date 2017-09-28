@@ -464,6 +464,9 @@ function getDamageCoefLevel(item) {
             damageCoefLevel = "elementless";
         }
     }
+    /*if (item[statToMaximize + '%']) {
+        damageCoefLevel += "percent";
+    }*/
     return damageCoefLevel;
 }
 
@@ -629,18 +632,18 @@ function calculateValue(equiped, esper) {
 
 function calculateStatValue(equiped, esper) {
     
-    var indexToStart = 0;
-    if ("atk" == statToMaximize) {
-        var indexToStart = 2;
-    } 
-        
     var calculatedValue = 0   
+    var currentPercentIncrease = {"value":0};
     var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
     var calculatedValue = baseValue;
     var itemAndPassives = equiped.concat(selectedUnit.skills);
 
-    for (var equipedIndex = indexToStart; equipedIndex < itemAndPassives.length; equipedIndex++) {
-        calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue);
+    for (var equipedIndex = 0; equipedIndex < itemAndPassives.length; equipedIndex++) {
+        if (equipedIndex < 2 && "atk" == statToMaximize) {
+            calculatedValue += calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease);    
+        } else {
+            calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease);    
+        }
     }
     if (esper != null) {
         calculatedValue += esper[statToMaximize] / 100;
@@ -648,8 +651,8 @@ function calculateStatValue(equiped, esper) {
     
     if ("atk" == statToMaximize) {
         var result = {"right":0,"left":0,"total":0}; 
-        var right = calculateStateValueForIndex(equiped, itemAndPassives, 0, baseValue);
-        var left = calculateStateValueForIndex(equiped, itemAndPassives, 1, baseValue);
+        var right = calculateFlatStateValueForIndex(equiped, itemAndPassives, 0);
+        var left = calculateFlatStateValueForIndex(equiped, itemAndPassives, 1);
         if (equiped[1] && weaponList.includes(equiped[1].type)) {
             result.right = calculatedValue + right;
             result.left = calculatedValue + left;
@@ -664,17 +667,41 @@ function calculateStatValue(equiped, esper) {
     }
 }
 
-function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue) {
+function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease) {
     var value = 0;
     if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
         if (itemAndPassives[equipedIndex][statToMaximize]) {
             value += itemAndPassives[equipedIndex][statToMaximize];
         }
         if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
-            value += itemAndPassives[equipedIndex][statToMaximize+'%'] * baseValue / 100;
+            percent = itemAndPassives[equipedIndex][statToMaximize+'%'];
+            percent = Math.min(percent, 300 - currentPercentIncrease.value);
+            currentPercentIncrease.value += percent;
+            value += percent * baseValue / 100;
         }
     }
     return value;
+}
+
+function calculateFlatStateValueForIndex(equiped, itemAndPassives, equipedIndex) {
+    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+        if (itemAndPassives[equipedIndex][statToMaximize]) {
+            return itemAndPassives[equipedIndex][statToMaximize];
+        }
+    }
+    return 0;
+}
+
+function calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease) {
+    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
+        if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
+            percent = itemAndPassives[equipedIndex][statToMaximize+'%'];
+            percent = Math.min(percent, 300 - currentPercentIncrease.value);
+            currentPercentIncrease.value += percent;
+            return percent * baseValue / 100;
+        }
+    }
+    return 0;
 }
 
 function areConditionOK(item, equiped) {
