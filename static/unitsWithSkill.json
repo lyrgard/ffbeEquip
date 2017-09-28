@@ -78,6 +78,18 @@
             {"atk%":50,"mag%":30,"equipedConditions":["sword"]}
         ]
     },
+    "Charlotte":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3668,"mp":152,"atk":123,"def":120,"mag":110,"spr":124},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+        },
+        "sex":"female",
+        "equip":["dagger","sword","staff","rod","mace","lightShield","heavyArmor","hat","helm","clothes","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":25,"atk%":10,"def%":30,"spr%":10,"killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
+        ]
+    },
     "Dark Knight Cecil":{
         "max_rarity":6,
         "stats":{
@@ -331,6 +343,32 @@
             {"mp%":30,"mag%":30},
             {"mag%":20,"equipedConditions":["hat"]},
             {"mag%":20,"equipedConditions":["robe"]}
+        ]
+    },
+    "Warrior of Light":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3722,"mp":155,"atk":130,"def":124,"mag":126,"spr":125},
+            "pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","robe","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":20,"def%":30,"killers":[{"name":"undead","physical":50}]}
+        ]
+    },
+    "Wilhelm":{
+        "max_rarity":6,
+        "stats":{
+            "maxStats":{"hp":3784,"mp":153,"atk":135,"def":148,"mag":113,"spr":135},
+            "pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+        },
+        "sex":"male",
+        "equip":["dagger","sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+        "skills":[
+            {"hp%":30,"def%":30,"spr%":20,"killers":[{"name":"undead","physical":50}]},
+            {"def%":25,"equipedConditions":["heavyShield"]},
+            {"def%":25,"equipedConditions":["heavyArmor"]}
         ]
     },
     "Zyrus":{
