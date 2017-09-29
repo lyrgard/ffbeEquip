@@ -18,7 +18,7 @@ if (process.argv.length > 2) {
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-app.post('/items/temp', function(req, res) {
+app.post('/:server/items/temp', function(req, res) {
     var result = (new jv.JSONValidation()).validate(req.body, schemaData);
     if (result.ok) {
         var items = sanitize(req.body);
@@ -62,7 +62,7 @@ app.get('/googleOAuthSuccess', function(req, res) {
     }); 
 });
 
-app.put("/itemInventory", function(req, res) {
+app.put("/:server/itemInventory", function(req, res) {
     var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
     if (!googleOAuthAccessToken) {
         res.status(401).send();
@@ -101,7 +101,7 @@ app.put("/itemInventory", function(req, res) {
     });   
 });
 
-app.get("/itemInventory", function(req, res) {
+app.get("/:server/itemInventory", function(req, res) {
     if (inventoryFile == null) {
         var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
         if (!googleOAuthAccessToken) {

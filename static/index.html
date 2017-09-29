@@ -14,20 +14,26 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">FFBE Equip</a>
                     </div>
+                    <div class="switchServer btn-group">
+                        <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                        <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                    </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a id="linkToSearch" href="index.html">Search</a></li>
-                        <li><a id="linkToBuilder" href="builder.html">Builder (Work In Progress)</a></li>
+                        <li><a id="linkToBuilder" href="builder.html">Builder</a></li>
                         <li><a id="linkToContribute" href="contribute.html">Contribute</a></li>
                     </ul>
+                    <div class="jpWarning hidden"><span class="glyphicon glyphicon-alert"></span>The JP version is a work in progress. The data are not complete, or are still GL data.</div>
                     <div id="inventoryDiv" class="buttons account">
                         <span>Inventory :&nbsp;</span>
                         <span class="status"></span>
                         <div class="loader"></div>
-                        <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Log in</button>
-                        <button id="saveInventory" class="hidden btn btn-default" onclick="saveInventory()">Save</button>
+                        <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+                        <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
                         <div class="loader hidden"></div>
                         <span class="message hidden"/>
                     </div>
+                    
                 </nav>
             </div>
             <div class="col-xs-12 col-md-6">
@@ -180,8 +186,8 @@
                                 <div class="loader"></div>
                             </div>
                             <div class="col-xs-4 text-right buttons">
-                                <button id="loadInventory" class="hidden" onclick="loadInventory()">Log in</button>
-                                <button id="saveInventory" class="hidden" onclick="saveInventory()">Save</button>
+                                <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+                                <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
                                 <div class="loader hidden"></div>
                                 <span class="message hidden"/>
                             </div>
