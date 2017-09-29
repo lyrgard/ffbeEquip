@@ -197,7 +197,13 @@ var exclusiveForbidAccess = function(item) {
 
 // Return true if the various fields of the items contains all the searched terms
 var containsText = function(text, item) {
-    var textToSearch = item["name"] + "|" + getStatDetail(item);
+    var textToSearch = item["name"];
+    
+    if (server == "JP") {
+        textToSearch += item["jpname"];
+    }
+        
+    textToSearch += "|" + getStatDetail(item);
     if (item["evade"]) {
         if (item.evade.physical) {
             textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
@@ -451,7 +457,7 @@ function addToInventory(name, span) {
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
     }
     saveNeeded = true;
-    $("#saveInventory").removeClass("hidden");
+    $(".saveInventory").removeClass("hidden");
 }
 
 function removeFromInventory(name, span) {
@@ -466,7 +472,7 @@ function removeFromInventory(name, span) {
             inventoryDiv.children(".number").text(itemInventory[name]);
         }
         saveNeeded = true;
-        $("#saveInventory").removeClass("hidden");
+        $(".saveInventory").removeClass("hidden");
     }
 }
 
@@ -566,10 +572,10 @@ function populateUnitSelect() {
 }
 
 function saveInventory() {
-    $("#saveInventory").addClass("hidden");
+    $(".saveInventory").addClass("hidden");
     $("#inventoryDiv .buttons .loader").removeClass("hidden");
     $.ajax({
-        url: 'itemInventory',
+        url: server + '/itemInventory',
         method: 'PUT',
         data: JSON.stringify(itemInventory),
         contentType: "application/json; charset=utf-8",
@@ -585,7 +591,7 @@ function saveInventory() {
         },
         error: function() {
             $("#inventoryDiv .buttons .loader").addClass("hidden");
-            $("#saveInventory").removeClass("hidden");
+            $(".saveInventory").removeClass("hidden");
             alert('error while saving the inventory');
         }
     });
@@ -599,24 +605,24 @@ function inventoryLoaded() {
 $(function() {
     // Triggers on unit base stats change
 	$(baseStats).each(function (index, value) {
-			$("#baseStat_" + value).on("input", $.debounce(300,update));
+        $("#baseStat_" + value).on("input", $.debounce(300,update));
 	});
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get("data.json", function(result) {
+    $.get(server + "/data.json", function(result) {
         rawVerifiedData = $(result);
         verifiedData = filterByServer(rawVerifiedData);
         data = verifiedData;
-        $.get("tempData.json", function(result) {
+        $.get(server + "/tempData.json", function(result) {
             rawTempData = $(result);
             tempData = filterByServer(rawTempData);
             for (var index in tempData) {
                 tempData[index].temp=true;
             }
-            $.get("units.json", function(result) {
+            $.get(server + "/units.json", function(result) {
                 units = result;
                 populateUnitSelect();
                 loadHash();
@@ -629,17 +635,6 @@ $(function() {
         });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
-    });
-    
-    $.get('itemInventory', function(result) {
-        itemInventory = result;
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
-        $("#inventoryDiv .loader").addClass("hidden");
-        update();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $("#loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
     });
 	
 	// Populates the various filters

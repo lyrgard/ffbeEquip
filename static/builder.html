@@ -14,16 +14,21 @@
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">FFBE Equip</a>
                         </div>
+                        <div class="switchServer btn-group">
+                            <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                            <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                        </div>
                         <ul class="nav navbar-nav">
                             <li><a id="linkToSearch" href="index.html">Search</a></li>
-                            <li class="active"><a id="linkToBuilder" href="builder.html">Builder (Work In Progress)</a></li>
+                            <li class="active"><a id="linkToBuilder" href="builder.html">Builder</a></li>
                             <li><a id="linkToContribute" href="contribute.html">Contribute</a></li>
                         </ul>
+                        <div class="jpWarning"><span class="glyphicon glyphicon-alert"></span>The JP version is a work in progress. The data are not complete, or are still GL data.</div>
                         <div id="inventoryDiv" class="buttons account">
                             <span>Inventory :&nbsp;</span>
                             <span class="status"></span>
                             <div class="loader"></div>
-                            <button id="loadInventory" class="hidden btn btn-default" onclick="loadInventory()">Log in</button>
+                            <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
                             <div class="loader hidden"></div>
                             <span class="message hidden"/>
                         </div>

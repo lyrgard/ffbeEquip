@@ -224,6 +224,25 @@ body {
     height: 50px;
 }
 
+.switchServer {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.switchServer .notSelected {
+    color: grey;
+}
+
+.jpWarning {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    float: left;
+}
+
 #inventoryDiv .btn {
     margin-left: 10px;
 }

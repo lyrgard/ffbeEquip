@@ -856,18 +856,18 @@ function onGoalChange() {
 }
             
 $(function() {
-    $.get("data.json", function(result) {
+    $.get(server + "/data.json", function(result) {
         rawData = result;
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    $.get("unitsWithSkill.json", function(result) {
+    $.get(server + "/unitsWithSkill.json", function(result) {
         units = result;
         populateUnitSelect();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    $.get("espers.json", function(result) {
+    $.get(server + "/espers.json", function(result) {
         espers = result;
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );

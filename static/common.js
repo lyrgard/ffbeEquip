@@ -212,9 +212,6 @@ function displayItemLine(item) {
 
     //access
     html += '<div class="td access">';
-    if (item.server == "JP") {
-        html += "<div><img src='img/jp.png'></div>"
-    }
     $(item.access).each(function(index, itemAccess) {
         html += "<div"; 
         if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
@@ -357,6 +354,16 @@ function filterByServer(rawData) {
     return $(result);
 }
 
+function switchTo(newServer) {
+    if (newServer != server) {
+        var serverParam = "";
+        if (newServer == "JP") {
+            serverParam = "?server=JP";
+        }
+        window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + serverParam + window.location.hash;
+    }
+}
+
 function readServerType() {
     if (window.location.href.indexOf("server=") > 0) {
         var captured = /server=([^&#]+)/.exec(window.location.href)[1];
@@ -367,6 +374,15 @@ function readServerType() {
         }
     } else {
         server = "GL";
+    }
+    if (server == "GL") {
+        $(".switchServer .GL").addClass("btn-primary").removeClass("notSelected");
+        $(".switchServer .JP").removeClass("btn-primary").addClass("notSelected");
+        $(".jpWarning").addClass("hidden");
+    } else {
+        $(".switchServer .JP").addClass("btn-primary").removeClass("notSelected");
+        $(".switchServer .GL").removeClass("btn-primary").addClass("notSelected");
+        $(".jpWarning").removeClass("hidden");
     }
     updateLinks();
 }
@@ -383,13 +399,13 @@ function updateLinks() {
 
 $(function() {
     readServerType();
-    $.get('itemInventory', function(result) {
+    $.get(server + '/itemInventory', function(result) {
         itemInventory = result;
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
         $("#inventoryDiv .loader").addClass("hidden");
         inventoryLoaded();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $("#loadInventory").removeClass("hidden");
+        $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");
         $("#inventoryDiv .loader").addClass("hidden");
     });
