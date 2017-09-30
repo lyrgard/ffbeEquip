@@ -56,7 +56,7 @@ function deleteNewItem(index) {
 function sendToServer() {
     $.ajax({
         type: "POST",
-        url: "/items/temp",
+        url: "/" + server + "/items/temp",
         data: JSON.stringify(newItems),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
