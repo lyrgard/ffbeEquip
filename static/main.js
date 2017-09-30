@@ -666,7 +666,7 @@ $(function() {
 });
 
 function escapeName (string) {
-    return String(string).replace(/[+%&' \(\)]/g, function (s) {
+    return String(string).replace(/[+%&': \(\)]/g, function (s) {
         return "_";
     });
 }
