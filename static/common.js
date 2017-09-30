@@ -64,7 +64,7 @@ function getExclusiveUnitsHtml(item) {
         } else {
             html += ", ";
         }
-        html += '<a href="' + toUrl(exclusiveUnit) + '">' + exclusiveUnit + '</a>';
+        html += toLink(exclusiveUnit);
     });
     html += "</div>";
     return html;
@@ -136,13 +136,13 @@ function displayItemLine(item) {
     html += "<img src='img/" + item.type + ".png'></img></div>";
 
     // name
-    html += '<div class="td name"><div><a href="' + toUrl(item.name) + '">' + item.name + "</a>";
+    html += '<div class="td name"><div>' + toLink(item.name);
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
     html += "</div>";
     if (item.jpname) {
-        html += '<div><a href="' + toUrl(item.jpname) + '">' + item.jpname + "</a></div>";
+        html += '<div>' + item.jpname + "</div>";
     }
     html += "<div class='detail'>" + getStatDetail(item) + "</div>"
     if (item.userPseudo) {
@@ -220,7 +220,7 @@ function displayItemLine(item) {
         html += ">" + itemAccess + "</div>"; 
     });
     if (item.tmrUnit) {
-        html += '<div><a href="' + toUrl(item.tmrUnit) + '">' + item.tmrUnit + '</a></div>';
+        html += '<div>' + toLink(item.tmrUnit) + '</div>';
     }
     if (item.exclusiveUnits) {
         html += getExclusiveUnitsHtml(item);
@@ -237,17 +237,29 @@ function displayItemLine(item) {
 
 // Some field in the data can use a special syntax to display link to the wiki. This is done by using brace ( blabla [name] blabla). This replace the parts inside braces by html links.
 var toHtml = function(text) {
-    var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
-        var vWithoutBrace = v.substring(1, v.length - 1); 
-        return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
-    });
-    return "<span>" + textWithAddedAnchors +"</span>";
+    if (server == "GL") {
+        var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
+            var vWithoutBrace = v.substring(1, v.length - 1); 
+            return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
+        });
+        return "<span>" + textWithAddedAnchors +"</span>";
+    } else {
+        return "<span>" + text +"</span>";
+    }
 };
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
     return wikiBaseUrl + name.replace(' ', '_');
 };
+
+var toLink = function(text) {
+    if (server == "GL") {
+        return '<a href="' + toUrl(text) + '">' + text + '</a>';
+    } else {
+        return "<span>" + text + "</span>";
+    }
+}
 
 // Function used to know if a keyboard key pressed is a number, to prevent non number to be entered
 function isNumber(evt) {
