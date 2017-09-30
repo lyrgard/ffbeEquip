@@ -21,16 +21,17 @@ app.use(bodyParser.json());
 app.post('/:server/items/temp', function(req, res) {
     var result = (new jv.JSONValidation()).validate(req.body, schemaData);
     if (result.ok) {
+        var fileName = 'static/' + req.params.server + '/tempData.json';
         var items = sanitize(req.body);
         var tempItems = [];
-        if (fs.existsSync('static/tempData.json')) {
-            tempItems = JSON.parse(fs.readFileSync('static/tempData.json', 'utf8'));    
+        if (fs.existsSync(fileName)) {
+            tempItems = JSON.parse(fs.readFileSync(fileName, 'utf8'));    
         }
         tempItems = tempItems.concat(items);
         if (tempItems.length > 2000) {
             res.status(500).send();
         } else {
-            fs.writeFileSync('static/tempData.json', JSON.stringify(tempItems).replace(/\},\{/g, '},\n\t{').replace(/^\[/g, '[\n\t').replace(/\]$/g, '\n]'));
+            fs.writeFileSync(fileName, JSON.stringify(tempItems).replace(/\},\{/g, '},\n\t{').replace(/^\[/g, '[\n\t').replace(/\]$/g, '\n]'));
             res.status(201).send();
         }
     } else {
@@ -79,7 +80,8 @@ app.put("/:server/itemInventory", function(req, res) {
     );
     oauth2Client.setCredentials(googleOAuthAccessToken);
     let driveConfigClient = new driveConfig(oauth2Client);
-    driveConfigClient.getByName("itemInventory.json").then(files => {
+    var fileName = "itemInventory_" + req.params.server + ".json"
+    driveConfigClient.getByName(fileName).then(files => {
         if (files.length > 0) {
             driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
                 res.status(200).json(file);
@@ -88,7 +90,7 @@ app.put("/:server/itemInventory", function(req, res) {
                 res.status(500).send(err);
             });
         } else {
-            driveConfigClient.create("itemInventory.json", JSON.stringify(data)).then(file => {
+            driveConfigClient.create(fileName, JSON.stringify(data)).then(file => {
                 res.send();
             }).catch(err => {
                 console.log(err);
@@ -116,9 +118,10 @@ app.get("/:server/itemInventory", function(req, res) {
             googleOAuthCredential.web.client_secret,
             googleOAuthCredential.web.redirect_uris[0]
         );
+        var fileName = "itemInventory_" + req.params.server + ".json"
         oauth2Client.setCredentials(googleOAuthAccessToken);
         let driveConfigClient = new driveConfig(oauth2Client);
-        driveConfigClient.getByName("itemInventory.json").then(files => {
+        driveConfigClient.getByName(fileName).then(files => {
             if (files.length > 0) {
                 if (files[0].data.constructor === Array) {
                     res.status(200).json({});
@@ -126,7 +129,21 @@ app.get("/:server/itemInventory", function(req, res) {
                     res.status(200).json(files[0].data);
                 }
             } else {
-                res.status(200).json({});
+                // Migration to GL/JP files.
+                if (req.params.server == "GL") {
+                    driveConfigClient.getByName("itemInventory.json").then(files => {
+                        if (files.length > 0) {
+                            if (files[0].data.constructor === Array) {
+                                res.status(200).json({});
+                            } else {
+                                res.status(200).json(files[0].data);
+                            }
+                        } else {
+                        }
+                    });
+                } else {
+                    res.status(200).json({});
+                }
             }
         }).catch(err => {
             console.log(err);
@@ -146,10 +163,6 @@ var googleOAuthCredential;
 var scopes = [
     'https://www.googleapis.com/auth/drive.appfolder'
 ];
-var fileMetadata = {
-  'name': 'itemInventory.json',
-  'parents': [ 'appDataFolder']
-};
 
 fs.readFile('googleOAuth/client_secret.json', function processClientSecrets(err, content) {
     if (err) {
