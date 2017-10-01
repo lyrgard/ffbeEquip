@@ -1,5 +1,4 @@
 [
-	{"name":"Broadsword","jpname":"ブロードソード","type":"sword","atk":15,"server":"JP","access":["shop"]},
 	{"name":"Assassin Dagger ","jpname":"アサシンダガー","type":"dagger","atk":116,"ailments":[{"name":"poison","percent":5},{"name":"blind","percent":5},{"name":"sleep","percent":5},{"name":"silence","percent":5},{"name":"paralysis","percent":5},{"name":"confuse","percent":5},{"name":"disease","percent":5},{"name":"petrification","percent":5}],"server":"JP","special":["Death Blade: Chance to use ST Death or ST Defense Ignore+chance to Poison&#x2F;Virus","Needle Blade: 60% chance to counter physical attacks (max 3&#x2F;turn)"],"access":["trial"]},
 	{"name":"Assassin Dagger Replica","jpname":"アサシンダガー・レプリカ","type":"dagger","atk":58,"ailments":[{"name":"poison","percent":5},{"name":"blind","percent":5},{"name":"confuse","percent":5}],"server":"JP","access":["trial"]},
 	{"name":"Second Knife","jpname":"シークレットナイフ","type":"dagger","atk":10,"mag":10,"dualWield":"all","server":"JP","access":["recipe-event"]},
@@ -18,6 +17,8 @@
 	{"name":"Venomous Edge","jpname":"仕込み刀","type":"dagger","atk":85,"ailments":[{"name":"poison","percent":30},{"name":"paralysis","percent":30}],"server":"JP","tmrUnit":"Ling","access":["TMR-4*"]},
 	{"name":"Defender's Dagger","jpname":"いやしのだがー","type":"dagger","atk":12,"mag":68,"spr":35,"server":"JP","access":["event"]},
 	{"name":"Bowie Knife","jpname":"ガンボウイナイフ","type":"dagger","atk":82,"dualWield":"all","server":"JP","tmrUnit":"Abel","access":["TMR-3*"]},
+    
+    {"name":"Broadsword","jpname":"ブロードソード","type":"sword","atk":15,"server":"JP","access":["shop"]},
 	{"name":"Holy Sword Farwell","jpname":"聖剣ファーウェル","type":"sword","atk":135,"element":"light","server":"JP","tmrUnit":"Fayt","access":["TMR-5*"]},
 	{"name":"Enhancer+","jpname":"エンハンスソード・改","type":"sword","hp%":10,"atk":106,"mag":23,"mag%":20,"server":"JP","access":["trial"]},
 	{"name":"Chocobo Wing","jpname":"チョコボウィング","type":"sword","atk":92,"element":"wind","server":"JP","access":["chocobo"]},
@@ -45,6 +46,7 @@
 	{"name":"Moonblade","jpname":"ムーンフィイス","type":"sword","atk":118,"element":"dark","server":"JP","tmrUnit":"Delita","access":["TMR-5*"]},
 	{"name":"Mana Blade","jpname":"マナの剣","type":"sword","atk":101,"def":8,"mag":8,"spr":8,"server":"JP","tmrUnit":"Randi","access":["TMR-5*"]},
 	{"name":"Enhancer","jpname":"エンハンスソード","type":"sword","atk":82,"mag":23,"server":"JP","access":["trial"]},
+    
 	{"name":"Excalipoor","jpname":"エクスカリパー","type":"greatSword","atk":1,"server":"JP","access":["event"]},
 	{"name":"Excalibur","jpname":"エクスカリバー","type":"greatSword","atk":120,"element":"light","server":"JP","tmrUnit":"Cecil","access":["TMR-3*"]},
 	{"name":"Excalibur II","jpname":"エクスカリバーII","type":"greatSword","atk":130,"element":"light","server":"JP","tmrUnit":"Steiner","access":["TMR-4*"]},
@@ -67,6 +69,8 @@
 	{"name":"Deathbringer","jpname":"デスブリンガー","type":"greatSword","atk":120,"element":"dark","killers":[{"name":"human","percent":50}],"server":"JP","tmrUnit":"Dark Knight Cecil","access":["TMR-5*"]},
 	{"name":"Durandal","jpname":"デゥランダル","type":"greatSword","atk":74,"element":"light","server":"JP","access":["event"]},
 	{"name":"Rune Blade","jpname":"ルーンブレイド","type":"greatSword","atk":27,"mag":10,"element":"light","server":"JP","access":["chest"]},
+    {"name":"Crimson Saber","jpname":"クリムゾンセイバー","type":"greatSword","hp%":30,"mp%":30,"server":"JP","exclusiveUnits":["Rain"],"access":["trial"]},
+    
 	{"name":"Demon Sword・Karasuma","jpname":"霊剣・小烏丸","type":"katana","atk":72,"element":"dark","server":"JP","access":["recipe-event"]},
 	{"name":"Light Blade","jpname":"ライトブレード","type":"katana","atk":54,"element":"light","server":"JP","access":["chest"]},
 	{"name":"Masamune","jpname":"正宗","type":"katana","atk":150,"server":"JP","special":["Doublehand: +50% Equipped ATK when 2-Handing","Sephiroth exclusive: Octaslash:250% 8 Hit Phys ST and 50% Ignore DEF"],"tmrUnit":"Sephiroth","access":["TMR-5*"]},
@@ -85,6 +89,8 @@
 	{"name":"Sakurafubuki","jpname":"桜吹雪","type":"katana","atk":98,"server":"JP","tmrUnit":"Miyuki","access":["event","TMR-3*"]},
 	{"name":"Chirijiraden","jpname":"塵地螺鈿飾剣","type":"katana","atk":80,"element":"fire","server":"JP","access":["event"]},
 	{"name":"Kazekiri","jpname":"風切りの刃","type":"katana","atk":35,"element":"wind","server":"JP","access":["shop","quest"]},
+    {"name":"Purple Lightning","jpname":"紫電","type":"katana","atk%":40,"server":"JP","exclusiveUnits":["Lasswell"],"access":["trial"]},
+    
 	{"name":"Chocobo Memoria","jpname":"チョコボメモリア","type":"staff","atk":6,"def":5,"spr":66,"resist":[{"name":"wind","percent":10}],"server":"JP","access":["chocobo"]},
 	{"name":"Yggdrasil's Staff","jpname":"世界樹の杖","type":"staff","mp%":10,"atk":12,"spr":54,"server":"JP","special":["Enables use of Curaga"],"access":["recipe-event"]},
 	{"name":"Arc Arcana","jpname":"アークアルカナ","type":"staff","mag":68,"spr":68,"server":"JP","special":["Allows use of FIraga, Blizzaga, Thundaga, Waterga"],"access":["event"]},
@@ -97,6 +103,7 @@
 	{"name":"Cypress Pile","jpname":"サイプレスパイル","type":"staff","atk":23,"mag":6,"spr":45,"ailments":[{"name":"confuse","percent":30}],"server":"JP","access":["chest","event"]},
 	{"name":"Magi Staff","jpname":"賢者の杖","type":"staff","atk":25,"mag":12,"spr":70,"server":"JP","tmrUnit":"Lenna","access":["TMR-3*"]},
 	{"name":"Budding Maple Wand","jpname":"バッデッドワンド","type":"staff","hp%":10,"mp%":10,"atk":12,"mag":30,"spr":68,"server":"JP","exclusiveUnits":["Y'shtola"],"access":["recipe-event"]},
+    
 	{"name":"Gale Rod","jpname":"烈風のロッド","type":"rod","atk":14,"mag":82,"server":"JP","special":["Allows use of Aerora"],"access":["event"]},
 	{"name":"Chocobo Feather","jpname":"チョコボフェザー","type":"rod","hp%":5,"atk":20,"mag":76,"server":"JP","special":["Allows use of Aeroga"],"access":["chocobo"]},
 	{"name":"Onion Knight","jpname":"ナイト・オブ・タマネギ","type":"rod","mp%":20,"atk":21,"mag":120,"server":"JP","special":["Auto-Faith"],"tmrUnit":"Lulu","access":["TMR-5*"]},
@@ -108,6 +115,7 @@
 	{"name":"Mateus Malice","jpname":"マティウスの悪意","type":"rod","hp%":10,"atk":19,"mag":109,"server":"JP","tmrUnit":"Emperor","access":["TMR-5*"]},
 	{"name":"Omnirod","jpname":"すべてのぼう","type":"rod","atk":20,"mag":91,"server":"JP","tmrUnit":"Arc","access":["TMR-3*"]},
 	{"name":"Wizard Rod","jpname":"ウィザードロード","type":"rod","atk":18,"mag":72,"server":"JP","access":["trial"]},
+    
 	{"name":"Fierce Bow &quot;Reppu Shingetsu&quot;","jpname":"剛弓“烈風新月”","type":"bow","atk":110,"element":"wind","server":"JP","special":["Auto-Regen"],"access":["recipe-event"]},
 	{"name":"Chocobo Menace","jpname":"チョコボメナス","type":"bow","atk":100,"resist":[{"name":"paralysis","percent":30}],"killers":[{"name":"bird","percent":50}],"server":"JP","special":["70% accuracy","Multishot: 110% Phys AoE "],"access":["chocobo"]},
 	{"name":"Killer Bow - Revised","jpname":"キラーボウ・改","type":"bow","atk":118,"killers":[{"name":"bird","percent":50},{"name":"plant","percent":50},{"name":"beast","percent":50},{"name":"bug","percent":50}],"server":"JP","special":["Accuracy 70%","125%-175% damage variance"],"access":["trial"]},
@@ -116,6 +124,8 @@
 	{"name":"Reincarnation","jpname":"リンカネーシュン","type":"bow","atk":45,"spr":68,"server":"JP","special":["Fina exclusive: Girl of Rebirth: +40% MP"],"access":["trial"]},
 	{"name":"Elf's Bow","jpname":"エルブンボウ","type":"bow","atk":51,"mag":135,"killers":[{"name":"demon","percent":50}],"server":"JP","tmrUnit":"Runera","access":["TMR-5*"]},
 	{"name":"Goddess Bow","jpname":"女神の弓","type":"bow","atk":91,"spr":40,"killers":[{"name":"bird","percent":50}],"server":"JP","tmrUnit":"Rosa","access":["TMR-4*"]},
+    {"name":"Reincarnation","jpname":"リンカネーシュン","type":"bow","mp%":40,"server":"JP","exclusiveUnits":["Fina"],"access":["trial"]},
+    
 	{"name":"Thunder Axe Kelanos","jpname":"雷霆斧ケラウノス","type":"axe","atk":120,"element":"lightning","resist":[{"name":"lightning","percent":15}],"server":"JP","tmrUnit":"Merald","access":["TMR-3*"]},
 	{"name":"Refined Engine Axe","jpname":"エンジンアクス・リファイ","type":"axe","atk":130,"element":"fire","server":"JP","tmrUnit":"Killian","access":["TMR-4*"]},
 	{"name":"Kemono's Axe","jpname":"獣王の斧","type":"axe","atk":102,"killers":[{"name":"beast","percent":50}],"server":"JP","special":["70%-130% damage variance"],"access":["chocobo"]},
@@ -126,18 +136,17 @@
 	{"name":"Moon Axe","jpname":"ムーンアックス","type":"axe","atk":110,"server":"JP","tmrUnit":"Robin' 'Ood","access":["TMR-3*"]},
 	{"name":"Viking Axe","jpname":"バイキングアクス","type":"axe","atk":125,"element":"water","server":"JP","tmrUnit":"Mercedes","access":["TMR-4*"]},
 	{"name":"Gigantaxe","jpname":"ギガントアクス","type":"axe","hp%":15,"atk":75,"server":"JP","access":["event"]},
+    
 	{"name":"Rock Hammer","jpname":"ロックハンマー","type":"hammer","atk":51,"element":"earth","killers":[{"name":"stone","percent":50}],"server":"JP","access":["chest"]},
 	{"name":"Frying Pan","jpname":"あいのフライパン","type":"hammer","atk":85,"server":"JP","access":["event"]},
 	{"name":"Frying Pan","jpname":"あいのフライパン","type":"hammer","ailments":[{"name":"sleep","percent":100}],"server":"JP","exclusiveUnits":["Yang"],"access":["event"]},
-	{"name":"Reincarnation","jpname":"リンカネーシュン","type":"bow","mp%":40,"server":"JP","exclusiveUnits":["Fina"],"access":["trial"]},
-	{"name":"Purple Lightning","jpname":"紫電","type":"katana","atk%":40,"server":"JP","exclusiveUnits":["Lasswell"],"access":["trial"]},
-	{"name":"Crimson Saber","jpname":"クリムゾンセイバー","type":"greatSword","hp%":30,"mp%":30,"server":"JP","exclusiveUnits":["Rain"],"access":["trial"]},
 	{"name":"Thor's Hammer","jpname":"トールハンマー","type":"hammer","atk":145,"server":"JP","special":["Thor's Rage: 45 MP - 200% Thunder Phys ST and 50% Ignore DEF"],"access":["trial"]},
 	{"name":"Thor's Hammer - Replica","jpname":"トールハンマー・レプリカ","type":"hammer","atk":72,"server":"JP","access":["trial"]},
 	{"name":"Master's Hammer","jpname":"名匠ノハンマー","type":"hammer","atk":108,"element":"earth","server":"JP","tmrUnit":"Ruggles","access":["TMR-3*"]},
 	{"name":"Mighty Hammer","jpname":"マイティハンマー","type":"hammer","hp%":15,"atk":72,"element":"lightning","server":"JP","access":["event"]},
 	{"name":"Sledgehammer","jpname":"スレッジハンマー","type":"hammer","atk":50,"ailments":[{"name":"confuse","percent":30}],"server":"JP","access":["chest"]},
 	{"name":"Blessed Hammer","jpname":"ブレスドハンマー","type":"hammer","atk":44,"mag":6,"spr":28,"server":"JP","access":["key"]},
+    
 	{"name":"Beast Piercer","jpname":"ビーストピアッサ","type":"spear","atk":54,"killers":[{"name":"beast","percent":50}],"server":"JP","access":["event"]},
 	{"name":"Precision Lance","jpname":"プレサイズランス","type":"spear","atk":74,"server":"JP","special":["Critical Up +10%"],"access":["event"]},
 	{"name":"Stoss Spear","jpname":"シュトースシュペーア","type":"spear","atk":140,"server":"JP","special":["twoHanded","High Jump (+100% Jump Damage)"],"tmrUnit":"Aranea","access":["TMR-5*"]},
@@ -149,15 +158,19 @@
 	{"name":"Platinum Lance","jpname":"プラチナランス","type":"spear","atk":62,"server":"JP","access":["quest"]},
 	{"name":"Break Shot","jpname":"ブレイクショット","type":"spear","atk":48,"element":"lightning","server":"JP","special":["Herculean Strength (Increase ATK for 1 ally by 50%)"],"access":["recipe-event"]},
 	{"name":"Ventus","jpname":"ベントゥス","type":"spear","atk":125,"element":"wind","server":"JP","special":["Auto-Shell"],"tmrUnit":"Aura","access":["TMR-4*"]},
+    
 	{"name":"Sandstorm's Horn","jpname":"砂塵の角笛","type":"harp","atk":23,"mag":27,"spr":29,"server":"JP","access":["chest"]},
 	{"name":"Angel's Flute","jpname":"天使のふえ","type":"harp","hp%":10,"atk":10,"mag":98,"server":"JP","tmrUnit":"Eiko","access":["TMR-5*"]},
 	{"name":"Dragon's Harp","jpname":"竜鳴の竪琴","type":"harp","mp%":15,"atk":10,"mag":38,"spr":52,"server":"JP","special":["twoHanded"],"access":["event"]},
+    
 	{"name":"Sleipnir's Tail","jpname":"スレイプニルテイル","type":"whip","atk":55,"mag":76,"resist":[{"name":"confuse","percent":30}],"server":"JP","access":["chest"]},
 	{"name":"Phantom Kusarigama","jpname":"隠伏の鎖鎌","type":"whip","atk":78,"killers":[{"name":"plant","percent":50}],"server":"JP","access":["event"]},
 	{"name":"Platinum Whip","jpname":"プラチナウィップ","type":"whip","atk":70,"server":"JP","access":["chest"]},
 	{"name":"Twin Whip","jpname":"双散鞭","type":"whip","atk":56,"killers":[{"name":"beast","percent":50}],"server":"JP","access":["recipe-chest"]},
+    
 	{"name":"Twin Viper","jpname":"ツインヴァイパー","type":"throwing","atk":52,"mag":16,"server":"JP","access":["event"]},
 	{"name":"Hawkeye","jpname":"ホークアイ","type":"throwing","atk":36,"mag":42,"killers":[{"name":"bird","percent":50}],"server":"JP","access":["chest"]},
+    
 	{"name":"Scarlet Roses","jpname":"スカーレットローゼス","type":"gun","atk":60,"mag":60,"element":"earth","server":"JP","access":["recipe-event"]},
 	{"name":"Enemy Launcher","jpname":"エネミーランチャ","type":"gun","atk":64,"server":"JP","access":["event"]},
 	{"name":"Platinum Musket","jpname":"プラチナマスケット","type":"gun","atk":68,"server":"JP","special":["twoHanded"],"access":["recipe-chest"]},
@@ -165,10 +178,12 @@
 	{"name":"Valiant II","jpname":"バリアントII","type":"gun","mp%":30,"atk":98,"spr":8,"server":"JP","access":["recipe-event"]},
 	{"name":"Assault Rifle","jpname":"突撃銃","type":"gun","atk":66,"server":"JP","access":["event"]},
 	{"name":"Arcturus","jpname":"アルクトゥルス","type":"gun","atk":135,"server":"JP","tmrUnit":"Balthier","access":["TMR-5*"]},
+    
 	{"name":"Fang Breaker","jpname":"ファングブレイカー","type":"mace","hp%":15,"atk":62,"server":"JP","access":["event"]},
 	{"name":"Mace of Zeus","jpname":"メイスオブゼウス","type":"mace","atk":110,"mag":98,"server":"JP","special":["Ultimate Blow: 52 MP - 500% Hybrid AoE"],"access":["trial"]},
 	{"name":" Mace of Zeus Replica","jpname":"メイスオブゼウス・レプリカ","type":"mace","atk":55,"mag":49,"server":"JP","access":["trial"]},
 	{"name":"Nail Bat","jpname":"釘バット","type":"mace","atk":115,"server":"JP","special":["twoHanded"],"access":["event"]},
+    
 	{"name":"Fallen Hope","jpname":"ファルンホープ","type":"fist","mp%":30,"atk":75,"spr":75,"server":"JP","special":["Auto-Refresh"],"tmrUnit":"Rena","access":["TMR-5*"]},
 	{"name":"Darkness Edge","jpname":"暗黒千刃爪","type":"fist","atk":130,"spr":30,"element":"dark","server":"JP","tmrUnit":"Lila","access":["TMR-5*"]},
 	{"name":"Beast Cestus","jpname":"猛獣使いのグローブ","type":"fist","hp%":5,"atk":102,"server":"JP","access":["event"]},
@@ -176,11 +191,13 @@
 	{"name":"Falcon Claw","jpname":"はやぶさのツメ","type":"fist","atk":36,"server":"JP","special":["Auto attack twice"],"access":["event"]},
 	{"name":"Dragon Claw","jpname":"ドラゴンクロー","type":"fist","atk":82,"element":"water","server":"JP","access":["chocobo"]},
 	{"name":"Broken Arm","jpname":"ブロッケンアーム","type":"fist","atk":53,"def":28,"server":"JP","access":["recipe-event"]},
+    
 	{"name":"Gladiator's Shield","jpname":"剣闘士の戦盾","type":"lightShield","def":25,"spr":18,"server":"JP","special":["Swordbreaker: 5% phys evade"],"access":["event"]},
 	{"name":"Asgard","jpname":"アスファレス","type":"lightShield","hp%":10,"def":45,"spr":45,"resist":[{"name":"water","percent":30},{"name":"earth","percent":30},{"name":"wind","percent":30}],"server":"JP","access":["trial"]},
 	{"name":"Moogle Plushie","jpname":"モーグリぬいぐうみ","type":"lightShield","def":25,"spr":25,"server":"JP","special":["Moogle Plushie: 30% Provoke"],"tmrUnit":"Iris","access":["TMR-3*"]},
 	{"name":"Platinum Shield","jpname":"プラチナシールド","type":"lightShield","def":37,"server":"JP","access":["chest"]},
 	{"name":"Metal Slime Tray","jpname":"メタスラトレイ","type":"lightShield","def":49,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"server":"JP","tmrUnit":"Liquid Metal Slime","access":["TMR-4*"]},
+    
 	{"name":"Aqua Shield","jpname":"アクアシールド","type":"heavyShield","def":36,"spr":8,"resist":[{"name":"water","percent":50},{"name":"lightning","percent":-50}],"server":"JP","access":["chest"]},
 	{"name":"Commander's Shield","jpname":"大元帥の盾","type":"heavyShield","def":46,"spr":32,"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"server":"JP","access":["event"]},
 	{"name":"Zodiac Shield","jpname":"最強の盾","type":"heavyShield","def":60,"spr":70,"resist":[{"name":"lightning","percent":50}],"server":"JP","special":["Decompose: 10% phys evade"],"tmrUnit":"Basch","access":["TMR-5*"]},
@@ -188,6 +205,7 @@
 	{"name":"Power Shield","jpname":"パワーシールド","type":"heavyShield","atk":20,"def":32,"spr":6,"server":"JP","access":["event"]},
 	{"name":"Ziedrich","jpname":"ザイドリッツ","type":"heavyShield","hp%":15,"def":70,"spr":35,"server":"JP","special":["Ziedrich: 30% chance to counter with 1 turn +100% Self ATK Buff "],"tmrUnit":"Gladio","access":["TMR-5*"]},
 	{"name":"Big Boss' Shield","jpname":"大おやぶんの盾","type":"heavyShield","def":40,"server":"JP","special":["Auto-Shell"],"access":["event"]},
+    
 	{"name":"Neffer Cap","jpname":"ネフェルキャップ","type":"hat","def":21,"mag":42,"spr":36,"resist":[{"name":"earth","percent":50},{"name":"silence","percent":100}],"server":"JP","tmrUnit":"Hunter Fina","access":["TMR-4*"]},
 	{"name":"Santa's Hat","jpname":"サンタの帽子","type":"hat","def":3,"mag%":10,"server":"JP","access":["recipe-event"]},
 	{"name":"Reformed Santa Hat","jpname":"サンタの帽子改","type":"hat","def":6,"mag%":15,"server":"JP","access":["recipe-event"]},
@@ -207,6 +225,7 @@
 	{"name":"Covenant's Crown","jpname":"誓約の冠","type":"hat","def":5,"mag%":20,"spr%":20,"server":"JP","access":["event"]},
 	{"name":"Bravo Bunny Headband","jpname":"ブラボーバニーカチューシャ","type":"hat","hp%":15,"mag":30,"spr":30,"server":"JP","tmrUnit":"Bunny Agnes","access":["TMR-5*"]},
 	{"name":"Sitting Moogle","jpname":"おすわりモーグリ","type":"hat","def":10,"spr":10,"server":"JP","special":["Moogle Rack: Increase EXP by 25%","Recover 5 HP and 2 MP every 3 steps in explorations"],"access":["quest"]},
+    
 	{"name":"Vangis Helm","jpname":"バンギスヘルム","type":"helm","def":25,"mag":10,"resist":[{"name":"fire","percent":20}],"server":"JP","access":["recipe-event"]},
 	{"name":"Lagiacrus Helm","jpname":"ラギアヘルム","type":"helm","def":25,"resist":[{"name":"poison","percent":100}],"server":"JP","access":["recipe-event"]},
 	{"name":"Arzuros Helm","jpname":"アシラヘルム","type":"helm","def":22,"server":"JP","access":["recipe-event"]},
@@ -218,6 +237,7 @@
 	{"name":"Aranea's Helmet","jpname":"アラネアの兜","type":"helm","atk":20,"def":24,"spr":24,"server":"JP","access":["event"]},
 	{"name":"Farplane Crown","jpname":"異次元の竜冠","type":"helm","atk":8,"def":28,"resist":[{"name":"fire","percent":10}],"server":"JP","access":["quest"]},
 	{"name":"Dragon's Helm","jpname":"ドラゴーンヘルム","type":"helm","atk":40,"def":28,"resist":[{"name":"water","percent":20},{"name":"wind","percent":20}],"server":"JP","tmrUnit":"Helmless Kain","access":["TMR-5*"]},
+    
 	{"name":"Local Guide's Clothes","jpname":"現地ガイドの服","type":"clothes","atk":12,"def":35,"spr":24,"resist":[{"name":"dark","percent":20}],"server":"JP","access":["event"]},
 	{"name":"Vishnu Vest","jpname":"ヴィシュヌベスト","type":"clothes","mp%":15,"def":36,"spr":36,"resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"light","percent":25},{"name":"dark","percent":25}],"server":"JP","tmrUnit":"Edward","access":["TMR-3*"]},
 	{"name":"Basch's Clothes","jpname":"バッシュの服","type":"clothes","def":32,"spr":18,"resist":[{"name":"confuse","percent":100}],"server":"JP","access":["event"]},
@@ -235,16 +255,18 @@
 	{"name":"Rubber Suit","jpname":"ラバーコンシャス","type":"clothes","def":32,"spr":28,"resist":[{"name":"lightning","percent":30}],"server":"JP","access":["chest"]},
 	{"name":"Reformed Santa Gear","jpname":"サンタの服改","type":"clothes","def":14,"spr%":15,"server":"JP","access":["recipe-event"]},
 	{"name":"Producer's Jacket","jpname":"プロデゥーサージャケット","type":"clothes","def":7,"spr":3,"server":"JP","special":["20% Provoke"],"access":["event"]},
-	{"name":"Strategic Cape","jpname":"ストテラジーックケープ","type":"robe","mp%":20,"def":40,"mag":52,"spr":38,"resist":[{"name":"ice","percent":50},{"name":"water","percent":50}],"server":"JP","tmrUnit":"CG Nichol","access":["TMR-5*"]},
-	{"name":"Vestement of Mind","jpname":"血気のローブ","type":"robe","def":38,"spr":38,"server":"JP","special":["Auto-Refresh"],"tmrUnit":"Aiden","access":["TMR-3*"]},
 	{"name":"Magnolia's Robe","jpname":"マグノリアの服","type":"clothes","mp%":10,"def":20,"mag":18,"spr":16,"server":"JP","access":["recipe-event"]},
-	{"name":"Vestal's Robe","jpname":"巫女の祈祷衣","type":"robe","def":35,"mag":50,"spr":50,"resist":[{"name":"wind","percent":40},{"name":"light","percent":40},{"name":"fire","percent":40},{"name":"lightning","percent":40}],"server":"JP","tmrUnit":"Agnes","access":["TMR-5*"]},
 	{"name":"Sun Robe","jpname":"日輪のローブ","type":"clothes","atk":8,"def":20,"mag":28,"server":"JP","access":["chest"]},
 	{"name":"Elder's Robe","jpname":"老師のローブ","type":"clothes","def":20,"mag":36,"spr":8,"server":"JP","access":["event"]},
 	{"name":"Robe of Forgiveness","jpname":"赦しのローブ","type":"clothes","hp%":10,"def":30,"spr":55,"server":"JP","tmrUnit":"Orif","access":["TMR-4*"]},
+    
+    {"name":"Strategic Cape","jpname":"ストテラジーックケープ","type":"robe","mp%":20,"def":40,"mag":52,"spr":38,"resist":[{"name":"ice","percent":50},{"name":"water","percent":50}],"server":"JP","tmrUnit":"CG Nichol","access":["TMR-5*"]},
+	{"name":"Vestement of Mind","jpname":"血気のローブ","type":"robe","def":38,"spr":38,"server":"JP","special":["Auto-Refresh"],"tmrUnit":"Aiden","access":["TMR-3*"]},
 	{"name":"Platinum Robe","jpname":"プラチナローブ","type":"robe","def":38,"spr":15,"server":"JP","access":["recipe-chest"]},
 	{"name":"Pure White Robe","jpname":"純白のローブ","type":"robe","mp%":15,"def":30,"spr":44,"resist":[{"name":"light","percent":30}],"server":"JP","access":["event"]},
 	{"name":"Galmia Set","jpname":"ガルミアカレア","type":"robe","def":28,"mag":28,"spr":28,"server":"JP","access":["key"]},
+    {"name":"Vestal's Robe","jpname":"巫女の祈祷衣","type":"robe","def":35,"mag":50,"spr":50,"resist":[{"name":"wind","percent":40},{"name":"light","percent":40},{"name":"fire","percent":40},{"name":"lightning","percent":40}],"server":"JP","tmrUnit":"Agnes","access":["TMR-5*"]},
+    
 	{"name":"Sephiroth's Coat","jpname":"セフィロスのコート","type":"lightArmor","mp":30,"atk":15,"def":35,"spr":35,"server":"JP","access":["event"]},
 	{"name":"Arenarorika","jpname":"アレーナロリカ","type":"lightArmor","def":34,"resist":[{"name":"water","percent":20}],"server":"JP","access":["chest"]},
 	{"name":"Chobham Armor","jpname":"チョバムアーマー","type":"lightArmor","hp%":5,"def":42,"server":"JP","access":["event"]},
@@ -257,6 +279,7 @@
 	{"name":"Arzuros Mail","jpname":"アシラメイル","type":"lightArmor","def":31,"resist":[{"name":"fire","percent":20}],"server":"JP","access":["recipe-event"]},
 	{"name":"Lagiacrus Mail","jpname":"ラギアメイル","type":"lightArmor","def":36,"resist":[{"name":"water","percent":30}],"server":"JP","access":["recipe-event"]},
 	{"name":"Vangis Mail","jpname":"バンギスメイル","type":"lightArmor","atk":8,"def":36,"server":"JP","access":["recipe-event"]},
+    
 	{"name":"Duel Armor","jpname":"デュールアーマー","type":"heavyArmor","def":43,"server":"JP","access":["chest"]},
 	{"name":"Farplane Armor","jpname":"異次元の竜装","type":"heavyArmor","atk":6,"def":42,"resist":[{"name":"lightning","percent":10}],"server":"JP","access":["quest"]},
 	{"name":"Ozetta's Armor","jpname":"オゼッタの鎧","type":"heavyArmor","def":65,"spr":65,"server":"JP","tmrUnit":"Ozetta","access":["TMR-4*"]},
@@ -268,6 +291,7 @@
 	{"name":"wind","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}],"server":"JP","access":["event"]},
 	{"name":"Mobile Armor","jpname":"機動装甲","type":"heavyArmor","def":55,"spr":12,"server":"JP","access":["recipe-event"]},
 	{"name":"Muzino Mail","jpname":"ムジンオウメイル","type":"heavyArmor","atk":12,"def":45,"resist":[{"name":"lightning","percent":30}],"server":"JP","tmrUnit":"Hunter Lasswell","access":["TMR-5*"]},
+    
 	{"name":"Wind Drake's Horn","jpname":"飛竜の角","type":"accessory","def":3,"server":"JP","special":["Jump: 180% Phys ST with 1 turn jump delay"],"access":["chocobo"]},
 	{"name":"Gigginox Fold","jpname":"ネブラドフォールド","type":"accessory","atk":30,"mag":30,"resist":[{"name":"water","percent":20}],"server":"JP","tmrUnit":"Hunter Nichol","access":["TMR-4*"]},
 	{"name":"Explorer Knuckle","jpname":"エクスプロアナックル","type":"accessory","hp%":20,"def":15,"spr":15,"server":"JP","special":["Flourish: +20% LB Fill Rate"],"tmrUnit":"Hunter Lid","access":["TMR-3*"]},
@@ -339,5 +363,15 @@
 	{"name":"Producer Glasses","jpname":"プロデューサーグラス","type":"accessory","def":3,"resist":[{"name":"blind","percent":100}],"server":"JP","access":["event"]},
 	{"name":"Ring of the Lucii","jpname":"光耀の指輪","type":"accessory","mag":3,"spr":3,"server":"JP","special":["Alterna (Spell): 80 MP -  510% MAG AoE + 25% SPR Ignore","Death: 30 MP - ST 30% Chance to Instant Death &amp; ST 80% Mod&#x2F;30% HP Drain","Holy (Passive): 25% Dodge Phys&#x2F;Counter with: ST 120% Magic Light + 15 Self MP"],"tmrUnit":"Noctis","access":["TMR-5*"]},
 	{"name":"Icy Veins","jpname":"氷の道飾り","type":"accessory","hp%":10,"def":3,"mag%":15,"resist":[{"name":"ice","percent":10}],"server":"JP","access":["event"]},
-	{"name":"Patches","jpname":"つぎはぎのクマ","type":"accessory","atk":30,"mag":30,"resist":[{"name":"dark","percent":20}],"server":"JP","tmrUnit":"Xon","access":["TMR-4*"]}
+	{"name":"Patches","jpname":"つぎはぎのクマ","type":"accessory","atk":30,"mag":30,"resist":[{"name":"dark","percent":20}],"server":"JP","tmrUnit":"Xon","access":["TMR-4*"]},
+    
+    {"name":"SPR +20%","jpname":"精神 +20%","type":"materia","spr%":20,"server":"JP","access":["event"]},
+	{"name":"Revised・Follower's Oath","jpname":"真・盟主への誓い","type":"materia","hp%":15,"atk%":15,"server":"JP","access":["recipe-event"]},
+	{"name":"Revised・Sage's Prajna","jpname":"真・賢人の智慧","type":"materia","hp%":15,"mag%":25,"server":"JP","access":["recipe-event"]},
+	{"name":"Revised・Spirit of Freedom","jpname":"真・不羈への気焔","type":"materia","atk%":20,"evade":{"physical":15},"server":"JP","special":["Does not stack with itself"],"access":["recipe-event"]},
+	{"name":"Absolute Defense","jpname":"つねにだいぼうぎょ","type":"materia","def%":40,"server":"JP","tmrUnit":"Golem","access":["TMR-3*"]},
+	{"name":"Self-Preservation","jpname":"ぼうえいほんのう","type":"materia","atk%":40,"server":"JP","special":["+60% DEF&#x2F;SPR buff when below 50% HP"],"tmrUnit":"Orochi","access":["TMR-4*"]},
+	{"name":"False Saint","jpname":"偽りの聖者","type":"materia","mp%":10,"mag%":20,"server":"JP","access":["event"]},
+	{"name":"Cold Defense","jpname":"コールドディフェンド","type":"materia","hp%":10,"resist":[{"name":"ice","percent":5}],"server":"JP","access":["event"]},
+	{"name":"Thunder Defense","jpname":"サンダーディフェンド","type":"materia","hp%":10,"resist":[{"name":"lightning","percent":5}],"server":"JP","access":["event"]}
 ]
