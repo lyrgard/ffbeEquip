@@ -174,6 +174,8 @@ function migrateFromNameToId(itemInventory) {
                 for (var index in itemInventory) {
                     if (itemIdByName[index]) {
                         newItemInventory[itemIdByName[index]] = itemInventory[index];   
+                    } else {
+                        newItemInventory[index] = itemInventory[index];
                     }
                 }
                 return newItemInventory;
