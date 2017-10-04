@@ -184,11 +184,11 @@ function readSkills(itemIn, itemOut, skills) {
                         rawEffect = skill.effects_raw[rawEffectIndex];
 
                         // Mastery (+X% stat if equiped with ...)
-                        if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                        if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                             masterySkills.push(rawEffect[3]);
                             
                         } else {
-                            if (!addEffectToItem(itemOut, rawEffect, skills)) {
+                            if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
                                 skillNotIdentifiedNumber++;
                                 console.log(rawEffect + " - " + skill.effects);
                             }
@@ -198,16 +198,18 @@ function readSkills(itemIn, itemOut, skills) {
             }
         }
         var emptyItem = isItemEmpty(itemOut);
-        if (masterySkills.length == 0 || !emptyItem) {
+        if ((masterySkills.length == 0 && restrictedSkills.length ==0) || !emptyItem) {
             result.push(itemOut);
         }
         
         for (var masteryIndex in masterySkills) {
             var lenght = result.length;
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-                var copy = JSON.parse(JSON.stringify(result[itemIndex]));
-                addMastery(copy, masterySkills[masteryIndex]);
-                result.push(copy);
+                if (!result[itemIndex].equipedConditions || result[itemIndex].equipedConditions.length < 2) {
+                    var copy = JSON.parse(JSON.stringify(result[itemIndex]));
+                    addMastery(copy, masterySkills[masteryIndex]);
+                    result.push(copy);
+                }
             }
             if (emptyItem) {
                 var copy = JSON.parse(JSON.stringify(itemOut));
@@ -220,18 +222,34 @@ function readSkills(itemIn, itemOut, skills) {
             var lenght = result.length;
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                 var copy = JSON.parse(JSON.stringify(result[itemIndex]));
+                var unitFoud = false;
                 for (var restrictedUnitIndex in skill.unit_restriction) {
-                    addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                    if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
+                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        unitFoud = true;
+                    }
                 }
+                if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    addEffectToItem(copy, rawEffect, skills);
+                    addEffectToItem(copy, skill, rawEffectIndex, skills);
                 }
                 result.push(copy);
             }
             if (emptyItem) {
                 var copy = JSON.parse(JSON.stringify(itemOut));
-                addMastery(copy, masterySkills[masteryIndex]);
+                var unitFoud = false;
+                for (var restrictedUnitIndex in skill.unit_restriction) {
+                    if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
+                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        unitFoud = true;
+                    }
+                }
+                if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
+                for (var rawEffectIndex in skill.effects_raw) {
+                    rawEffect = skill.effects_raw[rawEffectIndex];
+                    addEffectToItem(copy, skill, rawEffectIndex, skills);
+                }
                 result.push(copy);
             }
         }
@@ -241,9 +259,10 @@ function readSkills(itemIn, itemOut, skills) {
     return result;
 }
 
-function addEffectToItem(item, rawEffect, skills) {
+function addEffectToItem(item, skill, rawEffectIndex, skills) {
+    var rawEffect = skill.effects_raw[rawEffectIndex];
     // + X % to a stat
-    if (rawEffect[1] == 3 && rawEffect[2] == 1 && (rawEffect[0] == 0 || rawEffect[0] == 1)) {
+    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
         var effectData = rawEffect[3]            
         addStat(item, "hp%", effectData[4]);
         addStat(item, "mp%", effectData[5]);
@@ -287,15 +306,15 @@ function addEffectToItem(item, rawEffect, skills) {
         addSpecial(item, "Gain at the start of a battle: " + getSkillString(skills[rawEffect[3][0]]));
 
     // Element Resist
-    } else if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 3) {
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
         addElementalResist(item, rawEffect[3]);
 
     // Ailments Resist
-    } else if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 2) {
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
         addAilmentResist(item, rawEffect[3]);
 
     // Equip X
-    } else if (rawEffect[0] == 0 && rawEffect[1] == 3 && rawEffect[2] == 5) {
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 5) {
         item.allowUseOf = typeMap[rawEffect[3]];
         
     // Doublehand
@@ -308,8 +327,12 @@ function addEffectToItem(item, rawEffect, skills) {
         addStat(item,"accuracy",rawEffect[3][1]);
         
     } else {
-        // effect not added
-        return false;
+        var special = "";
+        if (skill.active) {
+            special += "[" + skill.name + "]: ";
+        }
+        special += skill.effects[rawEffectIndex];
+        addSpecial(item, special);
     }
     return true;
 }
@@ -409,7 +432,11 @@ function isItemEmpty(item) {
         }
     }
     if (item.special) {
-        return false;
+        for (var index in item.special) {
+            if (item.special[index] != "twoHanded" && item.special[index] != "notStackable") {
+                return false;   
+            }
+        }
     }
     if (item.resist) {
         return false;
