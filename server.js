@@ -72,6 +72,7 @@ app.put("/:server/itemInventory", function(req, res) {
         googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
     }
     var data = req.body;
+    data.version = 2;
     
     var oauth2Client = new OAuth2(
         googleOAuthCredential.web.client_id,
@@ -159,29 +160,26 @@ app.get("/:server/itemInventory", function(req, res) {
 });
 
 function migrateFromNameToId(itemInventory) {
-    if (itemInventory) {
-        for (var property in itemInventory) {
-            if (!property.match(/\d+/)) {
-                var items = JSON.parse(fs.readFileSync('static/GL/data.json', 'utf8'));
-                var itemIdByName = {};
-                for (var index in items) {
-                    itemIdByName[items[index].name] = items[index].id;
-                }
-                itemIdByName["Blade Mastery"] = "504201670";
-                itemIdByName["Zwill Crossblade"] = "1100000083";
-                itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
-                var newItemInventory = {};
-                for (var index in itemInventory) {
-                    if (itemIdByName[index]) {
-                        newItemInventory[itemIdByName[index]] = itemInventory[index];   
-                    } else {
-                        newItemInventory[index] = itemInventory[index];
-                    }
-                }
-                return newItemInventory;
-            }
-            break;
+    if (itemInventory && (!itemInventory.version || itemInventory.version < 2)) {
+        var items = JSON.parse(fs.readFileSync('static/GL/data.json', 'utf8'));
+        var itemIdByName = {};
+        for (var index in items) {
+            itemIdByName[items[index].name] = items[index].id;
         }
+        itemIdByName["Blade Mastery"] = "504201670";
+        itemIdByName["Zwill Crossblade"] = "1100000083";
+        itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
+        itemIdByName["Imperial Helm (Item)"] = "404001100";
+        itemIdByName["Defender (FFT)"] = "303002400";
+        var newItemInventory = {};
+        for (var index in itemInventory) {
+            if (itemIdByName[index]) {
+                newItemInventory[itemIdByName[index]] = itemInventory[index];   
+            } else {
+                newItemInventory[index] = itemInventory[index];
+            }
+        }
+        return newItemInventory;
     }
     return itemInventory;
 }
