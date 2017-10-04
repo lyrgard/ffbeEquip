@@ -1,8 +1,9 @@
 var fs = require('fs');
+var request = require('request');
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
-var elements = ["fire", "ice", "thunder", "water", "wind", "earth", "light", "dark"];
-var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrify"];
+var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
+var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
 
 var typeMap = {
     1: 'dagger',
@@ -47,44 +48,99 @@ var raceMap = {
     12: 'undead'
 }
 
+var ailmentsMap = {
+    "Poison": "poison",
+    "Blind": "blind",
+    "Sleep": "sleep",
+    "Silence": "silence",
+    "Paralyze": "paralysis",
+    "Confusion": "confuse",
+    "Disease": "disease",
+    "Petrify": "petrification"
+}
+
+var elementsMap = {
+    "Fire": "fire",
+    "Ice": "ice",
+    "Lightning": "lightning",
+    "Water": "water",
+    "Wind": "wind",
+    "Earth": "earth",
+    "Light": "light",
+    "Dark": "dark"
+}
+
 var unitNamesById = {};
 var unitIdByTmrId = {};
+var oldItemsAccessByName = {};
+var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 
 
-fs.readFile('equipment.json', function (err, content) {
-    var items = JSON.parse(content);
-    fs.readFile('materia.json', function (err, content) {
-        var materias = JSON.parse(content);
-        fs.readFile('skills.json', function (err, content) {
-            var skills = JSON.parse(content);
-            fs.readFile('units.json', function (err, content) {
-                var units = JSON.parse(content);
-                for (var unitIndex in units) {
-                    var unit = units[unitIndex];
-                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
+console.log("Starting");
+if (!fs.existsSync('../static/GL/data.json')) {
+    console.log("old data not accessible");
+    return;
+}
+request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.json', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log("equipment.json downloaded");
+        var items = JSON.parse(body);
+        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/materia.json', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log("materia.json downloaded");
+                var materias = JSON.parse(body);
+                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/skills.json', function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log("skills.json downloaded");
+                        var skills = JSON.parse(body);
+                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json', function (error, response, body) {
+                            if (!error && response.statusCode == 200) {
+                                console.log("units.json downloaded");
+                                var units = JSON.parse(body);
+                                for (var unitIndex in units) {
+                                    var unit = units[unitIndex];
+                                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-                    if (unit.TMR) {
-                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                        if (unit.rarity_min > 3 && !unit.is_summonable) {
-                            unitNamesById[unitIndex].event = true;
-                        }
+                                    if (unit.TMR) {
+                                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                        if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                            unitNamesById[unitIndex].event = true;
+                                        }
+                                    }
+                                }
+                                
+                                
+                                
+                                fs.readFile('../static/GL/data.json', function (err, content) {
+                                    var oldItems = JSON.parse(content);
+                                    for (var index in oldItems) {
+                                        oldItemsAccessByName[oldItems[index].name] = oldItems[index].access;
+                                    }
+                                    
+                                    fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
+                                        releasedUnits = JSON.parse(content);
+                                    
+                                        var result = {"items":[]};
+                                        for (var itemId in items) {
+                                            treatItem(items,itemId, result, skills);
+                                        }
+                                        for (var materiaId in materias) {
+                                            treatItem(materias,materiaId, result, skills);
+                                        }
+                                        console.log(skillNotIdentifiedNumber);
+                                        fs.writeFileSync('data.json', formatOutput(result.items));
+                                    });
+                                });
+                            }
+                        });
                     }
-                }
-
-                var result = {"items":[]};
-                for (var itemId in items) {
-                    treatItem(items,itemId, result, skills);
-                }
-                for (var materiaId in materias) {
-                    treatItem(materias,materiaId, result, skills);
-                }
-                console.log(skillNotIdentifiedNumber);
-                fs.writeFileSync('output.json', formatOutput(result.items));
-            });
+                });
+            }
         });
-    });
+    }
 });
+
 
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
@@ -113,6 +169,9 @@ function treatItem(items, itemId, result, skills) {
         if (unit.event) {
             access += "-event";
         }
+        if (!releasedUnits[unit.name]) {
+            addAccess(itemOut,"not released yet");
+        }
         addAccess(itemOut,access);
         itemOut.tmrUnit = unit.name;
     }
@@ -128,6 +187,22 @@ function treatItem(items, itemId, result, skills) {
             addExclusiveUnit(itemOut, unit.name);
         }
     }
+    
+    if (itemIn.accuracy) {
+        addStat(itemOut,"accuracy",itemIn.accuracy);
+    }
+    
+    if (itemIn.dmg_variance) {
+        itemOut.damageVariance = {"min":itemIn.dmg_variance[0],"max":itemIn.dmg_variance[1]};
+    }
+    
+    if (!itemOut.access) {
+        if (oldItemsAccessByName[itemOut.name]) {
+            itemOut.access = oldItemsAccessByName[itemOut.name];
+        } else {
+            itemOut.access = ["not released yet"];
+        }
+    }
 
     result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
 }
@@ -141,12 +216,12 @@ function readStats(itemIn, itemOut) {
             }    
         }
         if (itemIn.stats.element_inflict) {
-            itemOut.element = itemIn.stats.element_inflict[0];
+            itemOut.element = elementsMap[itemIn.stats.element_inflict[0]];
         }
         if (itemIn.stats.element_resist) {
             itemOut.resist = [];
             for (var element in itemIn.stats.element_resist) {
-                itemOut.resist.push({"name":element.toLowerCase(),"percent":itemIn.stats.element_resist[element]})
+                itemOut.resist.push({"name":elementsMap[element],"percent":itemIn.stats.element_resist[element]})
             }
         }
         if (itemIn.stats.status_resist) {
@@ -154,13 +229,13 @@ function readStats(itemIn, itemOut) {
                 itemOut.resist = [];
             }
             for (var status in itemIn.stats.status_resist) {
-                itemOut.resist.push({"name":status.toLowerCase(),"percent":itemIn.stats.status_resist[status]})
+                itemOut.resist.push({"name":ailmentsMap[status],"percent":itemIn.stats.status_resist[status]})
             }
         }   
         if (itemIn.stats.status_inflict) {
             itemOut.ailments = [];
             for (var status in itemIn.stats.status_inflict) {
-                itemOut.ailments.push({"name":status.toLowerCase(),"percent":itemIn.stats.status_inflict[status]})
+                itemOut.ailments.push({"name":ailmentsMap[status],"percent":itemIn.stats.status_inflict[status]})
             }
         }
     }
@@ -180,6 +255,7 @@ function readSkills(itemIn, itemOut, skills) {
                 } else if (skill.unit_restriction) {
                     restrictedSkills.push(skill);
                 } else {
+                    var effectsNotTreated = [];
                     for (var rawEffectIndex in skill.effects_raw) {
                         rawEffect = skill.effects_raw[rawEffectIndex];
 
@@ -189,10 +265,23 @@ function readSkills(itemIn, itemOut, skills) {
                             
                         } else {
                             if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
-                                skillNotIdentifiedNumber++;
-                                console.log(rawEffect + " - " + skill.effects);
+                                effectsNotTreated.push(rawEffectIndex)
+                                //console.log(rawEffect + " - " + skill.effects);
                             }
                         }            
+                    }
+                    if (effectsNotTreated.length > 0) {
+                        var special = "[" + skill.name + "]:"
+                        var first = true;
+                        for (var index in effectsNotTreated) {
+                            if (first) {
+                                first = false;
+                            } else {
+                                special += ", ";
+                            }
+                            special += skill.effects[effectsNotTreated[index]];
+                        }
+                        addSpecial(itemOut, special);
                     }
                 }
             }
@@ -327,12 +416,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addStat(item,"accuracy",rawEffect[3][1]);
         
     } else {
-        var special = "";
-        if (skill.active) {
-            special += "[" + skill.name + "]: ";
-        }
-        special += skill.effects[rawEffectIndex];
-        addSpecial(item, special);
+        return false;
     }
     return true;
 }
@@ -452,7 +536,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","trueDoubleHand","accuracy","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","trueDoubleHand","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
