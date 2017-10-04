@@ -385,18 +385,18 @@ var displayItems = function(items) {
         html += '">';
         html += displayItemLine(item);
         if (itemInventory) {
-            html+= '<div class="td inventory ' + item.id + ' ' ;
-            if (!itemInventory[item.id]) {
+            html+= '<div class="td inventory ' + escapeName(item[getItemInventoryKey()]) + ' ' ;
+            if (!itemInventory[item[getItemInventoryKey()]]) {
                 html+= "notPossessed";
             }
             html += '">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + item.id + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\',this)" />';
             html += '<span class="number badge badge-success">';
-            if (itemInventory[item.id]) {
-                html += itemInventory[item.id];
+            if (itemInventory[item[getItemInventoryKey()]]) {
+                html += itemInventory[item[getItemInventoryKey()]];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + item.id + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\',this)" />';
             
             html += '</div>';
         }
@@ -449,7 +449,7 @@ var displayUnitRarity = function(unit) {
 };
 
 function addToInventory(id, span) {
-    var inventoryDiv = $(".inventory." + id);
+    var inventoryDiv = $(".inventory." + escapeName(id));
     if(itemInventory[id]) {
         itemInventory[id] = itemInventory[id] + 1;
         inventoryDiv.children(".number").text(itemInventory[id]);
@@ -465,7 +465,7 @@ function addToInventory(id, span) {
 
 function removeFromInventory(id, span) {
     if(itemInventory[id]) {
-        var inventoryDiv = $(".inventory." + id);
+        var inventoryDiv = $(".inventory." + escapeName(id));
         if (itemInventory[id] == 1 ) {
             delete itemInventory[id];
             inventoryDiv.addClass('notPossessed');
@@ -668,6 +668,11 @@ $(function() {
     });
 });
 
+function escapeName (string) {
+    return String(string).replace(/[+%&': \(\)]/g, function (s) {
+        return "_";
+    });
+}
 
 function escapeQuote(string) {
     return String(string).replace(/[']/g, function (s) {
