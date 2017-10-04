@@ -126,7 +126,11 @@ app.get("/:server/itemInventory", function(req, res) {
                 if (files[0].data.constructor === Array) {
                     res.status(200).json({});
                 } else {
-                    res.status(200).json(files[0].data);
+                    var result = files[0].data;
+                    if (req.params.server == "GL") {
+                        result = migrateFromNameToId(result);
+                    }
+                    res.status(200).json(result);
                 }
             } else {
                 // Migration to GL/JP files.
@@ -136,7 +140,7 @@ app.get("/:server/itemInventory", function(req, res) {
                             if (files[0].data.constructor === Array) {
                                 res.status(200).json({});
                             } else {
-                                res.status(200).json(files[0].data);
+                                res.status(200).json(migrateFromNameToId(files[0].data));
                             }
                         } else {
                         }
@@ -153,6 +157,32 @@ app.get("/:server/itemInventory", function(req, res) {
         res.status(200).json(JSON.parse(fs.readFileSync(inventoryFile, 'utf8')));
     }
 });
+
+function migrateFromNameToId(itemInventory) {
+    if (itemInventory) {
+        for (var property in itemInventory) {
+            if (!property.match(/\d+/)) {
+                var items = JSON.parse(fs.readFileSync('static/GL/data.json', 'utf8'));
+                var itemIdByName = {};
+                for (var index in items) {
+                    itemIdByName[items[index].name] = items[index].id;
+                }
+                itemIdByName["Blade Mastery"] = "504201670";
+                itemIdByName["Zwill Crossblade"] = "1100000083";
+                itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
+                var newItemInventory = {};
+                for (var index in itemInventory) {
+                    if (itemIdByName[index]) {
+                        newItemInventory[itemIdByName[index]] = itemInventory[index];   
+                    }
+                }
+                return newItemInventory;
+            }
+            break;
+        }
+    }
+    return itemInventory;
+}
 
 app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
 app.listen(3000); //the port you want to use

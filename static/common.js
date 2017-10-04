@@ -201,6 +201,12 @@ function displayItemLine(item) {
         special += "<li>Increase equipment ATK (" + item.doubleHand + "%) when single wielding</li>";
     }
 
+    if (item.accuracy) {
+        special += "<li>Increase Accuracy: " + item.accuracy + "%</li>";
+    }
+    if (item.damageVariance) {
+        special += "<li>Damage variance from x" + item.damageVariance.min + " to x"  + item.damageVariance.max + " (average : x" + (item.damageVariance.min + item.damageVariance.max)/2 + ")</li>";
+    }
     if (item.special) {
         special += getSpecialHtml(item);
     }
@@ -403,6 +409,8 @@ function updateLinks() {
     var serverParam = "";
     if (server == "JP") {
         serverParam = "?server=JP";
+    } else {
+        $("#linkToContribute").addClass("hidden");
     }
     $("#linkToSearch").prop("href","index.html" + serverParam);
     $("#linkToBuilder").prop("href","builder.html" + serverParam);

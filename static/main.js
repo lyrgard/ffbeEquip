@@ -256,6 +256,9 @@ var containsText = function(text, item) {
     if (item["tmrUnit"]) {
         textToSearch += "|" + item["tmrUnit"]; 
     }
+    for (var index in item.access) {
+        textToSearch += "|" + item.access[index]; 
+    }
     var result = true;
     text.split(" ").forEach(function (token) {
         result = result && textToSearch.match(new RegExp(escapeRegExp(token),'i'));
@@ -382,18 +385,18 @@ var displayItems = function(items) {
         html += '">';
         html += displayItemLine(item);
         if (itemInventory) {
-            html+= '<div class="td inventory ' + escapeName(item.name) + ' ' ;
-            if (!itemInventory[item.name]) {
+            html+= '<div class="td inventory ' + item.id + ' ' ;
+            if (!itemInventory[item.id]) {
                 html+= "notPossessed";
             }
             html += '">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + escapeQuote(item.name) + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + item.id + '\',this)" />';
             html += '<span class="number badge badge-success">';
-            if (itemInventory[item.name]) {
-                html += itemInventory[item.name];
+            if (itemInventory[item.id]) {
+                html += itemInventory[item.id];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + escapeQuote(item.name) + '\',this)" />';
+            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + item.id + '\',this)" />';
             
             html += '</div>';
         }
@@ -445,31 +448,31 @@ var displayUnitRarity = function(unit) {
     }
 };
 
-function addToInventory(name, span) {
-    var inventoryDiv = $(".inventory." + escapeName(name));
-    if(itemInventory[name]) {
-        itemInventory[name] = itemInventory[name] + 1;
-        inventoryDiv.children(".number").text(itemInventory[name]);
+function addToInventory(id, span) {
+    var inventoryDiv = $(".inventory." + id);
+    if(itemInventory[id]) {
+        itemInventory[id] = itemInventory[id] + 1;
+        inventoryDiv.children(".number").text(itemInventory[id]);
     } else {
-        itemInventory[name] = 1;
+        itemInventory[id] = 1;
         inventoryDiv.removeClass('notPossessed');
-        inventoryDiv.children(".number").text(itemInventory[name]);
+        inventoryDiv.children(".number").text(itemInventory[id]);
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
     }
     saveNeeded = true;
     $(".saveInventory").removeClass("hidden");
 }
 
-function removeFromInventory(name, span) {
-    if(itemInventory[name]) {
-        var inventoryDiv = $(".inventory." + escapeName(name));
-        if (itemInventory[name] == 1 ) {
-            delete itemInventory[name];
+function removeFromInventory(id, span) {
+    if(itemInventory[id]) {
+        var inventoryDiv = $(".inventory." + id);
+        if (itemInventory[id] == 1 ) {
+            delete itemInventory[id];
             inventoryDiv.addClass('notPossessed');
             $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
         } else {
-            itemInventory[name] = itemInventory[name] - 1;
-            inventoryDiv.children(".number").text(itemInventory[name]);
+            itemInventory[id] = itemInventory[id] - 1;
+            inventoryDiv.children(".number").text(itemInventory[id]);
         }
         saveNeeded = true;
         $(".saveInventory").removeClass("hidden");
@@ -665,11 +668,6 @@ $(function() {
     });
 });
 
-function escapeName (string) {
-    return String(string).replace(/[+%&': \(\)]/g, function (s) {
-        return "_";
-    });
-}
 
 function escapeQuote(string) {
     return String(string).replace(/[']/g, function (s) {
