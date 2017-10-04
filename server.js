@@ -144,6 +144,7 @@ app.get("/:server/itemInventory", function(req, res) {
                                 res.status(200).json(migrateFromNameToId(files[0].data));
                             }
                         } else {
+                          res.status(200).json({});   
                         }
                     });
                 } else {
