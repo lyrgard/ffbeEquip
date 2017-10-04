@@ -564,8 +564,8 @@ function getInnatePartialDualWield() {
 
 function getOwnedNumber(item) {
     if (onlyUseOwnedItems) {
-        if (itemInventory[item.id]) {
-            return itemInventory[item.id];
+        if (itemInventory[item[getItemInventoryKey()]]) {
+            return itemInventory[item[getItemInventoryKey()]];
         } else {
             return 0;
         }

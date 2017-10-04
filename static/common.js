@@ -382,6 +382,14 @@ function switchTo(newServer) {
     }
 }
 
+function getItemInventoryKey() {
+    if (server == "JP") {
+        return "name";
+    } else {
+        return "id";
+    }
+}
+
 function readServerType() {
     if (window.location.href.indexOf("server=") > 0) {
         var captured = /server=([^&#]+)/.exec(window.location.href)[1];
