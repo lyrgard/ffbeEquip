@@ -374,17 +374,6 @@ function mergeArrayWithoutDuplicates(array1, array2) {
     return result;
 }
 
-function filterByServer(rawData) {
-    readServerType();
-    var result = [];
-    for (var index in rawData) {
-        if (!rawData[index].server || rawData[index].server == server) {
-            result.push(rawData[index]);
-        }
-    }
-    return $(result);
-}
-
 function switchTo(newServer) {
     if (newServer != server) {
         var serverParam = "";

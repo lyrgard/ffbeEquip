@@ -7,6 +7,8 @@ var tempData;
 var showTempData = false;
 var itemInventory = null;
 var saveNeeded = false;
+var onlyShowOwnedItems = false;
+var showNotReleasedYet = false;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -16,7 +18,7 @@ var update = function() {
     modifyFilterSummary();
     modifyUrl();
     
-    if (stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
+    if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
         $("#results .tbody").html("");
         $("#results").addClass("notSorted");
@@ -73,11 +75,12 @@ var readFilterValues = function() {
     killers = getSelectedValuesFor("killers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
-    var showTempDataTemp = $("#showUserInputedCheckbox").prop('checked');
-    if (showTempDataTemp != showTempData) {
+    onlyShowOwnedItems = $("#onlyShowOwnedItems").prop('checked');
+    showNotReleasedYet = $("#showNotReleasedYet").prop('checked');
+    /*if (showTempDataTemp != showTempData) {
         data = $($.merge($.merge([], verifiedData),tempData));
         showTempData = showTempDataTemp;
-    }
+    }*/
 }
 
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
@@ -148,28 +151,33 @@ var modifyFilterSummary = function() {
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 var filter = function() {
     var result = [];
-    data.each(function(index, item) {
-        if (types.length == 0 || types.includes(item.type)) {
-            if (elements.length == 0 || elements.includes(item.element) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
-                if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
-                    if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
-                        if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
-                            if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
-                                if (searchText.length == 0 || containsText(searchText, item)) {
-                                    if (selectedUnit.length == 0 || !exclusiveForbidAccess(item)) {
-                                        if (stat.length == 0 || hasStat(stat, item)) {
-                                            calculateValue(item, stat, ailments, elements, killers);
-                                            result.push(item);
+    data.each(function (index, item){
+        var item = data[index];
+        if (!onlyShowOwnedItems || itemInventory && itemInventory[item[getItemInventoryKey()]]) {
+            if (showNotReleasedYet || !item.access.includes("not released yet")) {
+                if (types.length == 0 || types.includes(item.type)) {
+                    if (elements.length == 0 || elements.includes(item.element) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
+                        if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
+                            if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
+                                if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
+                                    if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
+                                        if (searchText.length == 0 || containsText(searchText, item)) {
+                                            if (selectedUnit.length == 0 || !exclusiveForbidAccess(item)) {
+                                                if (stat.length == 0 || hasStat(stat, item)) {
+                                                    calculateValue(item, stat, ailments, elements, killers);
+                                                    result.push(item);
+                                                }
+                                            }
                                         }
                                     }
-                                }
+                                } 
                             }
-                        } 
+                        }
                     }
                 }
             }
         }
-    })
+    });
     return result;
 };
 
@@ -367,7 +375,13 @@ var calculateValue = function(item) {
 var sort = function(items) {
     return items.sort(function (item1, item2){
 		if (item2.calculatedValue == item1.calculatedValue) {
-			return item1.name.localeCompare(item2.name);
+            var typeIndex1 = typeList.indexOf(item1.type);
+            var typeIndex2 = typeList.indexOf(item2.type);
+            if (typeIndex1 == typeIndex2) {
+                return item1.name.localeCompare(item2.name);
+            } else {
+                return typeIndex1 - typeIndex2;
+            }
 		} else {
 			return item2.calculatedValue - item1.calculatedValue;
 		}
@@ -601,6 +615,7 @@ function saveInventory() {
 }
 
 function inventoryLoaded() {
+    $("#onlyShowOwnedItemsDiv").removeClass("hidden");
     update();
 }
 
@@ -616,15 +631,12 @@ $(function() {
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
-        rawVerifiedData = $(result);
-        verifiedData = filterByServer(rawVerifiedData);
-        data = verifiedData;
+        data = $(result);
         $.get(server + "/tempData.json", function(result) {
-            rawTempData = $(result);
-            tempData = filterByServer(rawTempData);
-            for (var index in tempData) {
-                tempData[index].temp=true;
+            for (var index in result) {
+                result[index].temp=true;
             }
+            tempData = $(result);
             $.get(server + "/units.json", function(result) {
                 units = result;
                 populateUnitSelect();
