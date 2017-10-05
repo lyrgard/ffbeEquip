@@ -351,6 +351,19 @@ function loadInventory() {
     });
 }
 
+function logOut() {
+    delete_cookie("googleOAuthAccessToken", "/", window.location.hostname);
+    window.location.reload();
+}
+
+function delete_cookie( name, path, domain ) {
+    document.cookie = name + "=" +
+        ((path) ? ";path="+path:"")+
+        ((domain)?";domain="+domain:"") +
+        ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+
+}
+
 function mergeArrayWithoutDuplicates(array1, array2) {
     var result = [].concat(array1);
     for (var index in array2) {
@@ -431,6 +444,7 @@ $(function() {
         itemInventory = result;
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
         $("#inventoryDiv .loader").addClass("hidden");
+        $(".logOut").removeClass("hidden");
         inventoryLoaded();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
