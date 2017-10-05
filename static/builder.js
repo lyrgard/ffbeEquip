@@ -563,15 +563,18 @@ function getInnatePartialDualWield() {
 }
 
 function getOwnedNumber(item) {
+    var number = 0;
     if (onlyUseOwnedItems) {
         if (itemInventory[item[getItemInventoryKey()]]) {
-            return itemInventory[item[getItemInventoryKey()]];
-        } else {
-            return 0;
+            number = itemInventory[item[getItemInventoryKey()]];
         }
     } else {
-        return 4;
+        number = 4;
     }
+    if (!isStackable(item)) {
+        number = Math.min(number,1);
+    }
+    return number;
 }
 
 
