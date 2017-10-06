@@ -362,7 +362,13 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
                 var foundAnItem = false;
-                for (var itemIndex in dataWithConditionItems[typeCombination[index]]) {
+                var firstIndexToTry = 0; 
+                if ((index == 1 && typeCombination[0] == typeCombination[1]) || index == 5 || index > 6) {
+                    // For slots with same type, don't calculate all possible combination, prevent redundant combination from being calculated
+                    var indexOfPreviousItem = dataWithConditionItems[typeCombination[index - 1]].indexOf(build[index - 1]);
+                    firstIndexToTry = Math.max(indexOfPreviousItem,0);
+                }
+                for (var itemIndex = firstIndexToTry; itemIndex < dataWithConditionItems[typeCombination[index]].length; itemIndex++) {
                     var item = dataWithConditionItems[typeCombination[index]][itemIndex];
                     if (canAddMoreOfThisItem(build, item, index)) {
                         if (index == 1 && isTwoHanded(item)) {
@@ -470,13 +476,15 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var number = 0;
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
-        if (number < numberNeeded) {
-            if (!result.includes(item)) {
-                result.push(item);
+        if (item[statToMaximize]) {
+            if (number < numberNeeded) {
+                if (!result.includes(item)) {
+                    result.push(item);
+                }
+                number += getOwnedNumber(item);
+            } else {
+                break;
             }
-            number += getOwnedNumber(item);
-        } else {
-            break;
         }
     }
     
