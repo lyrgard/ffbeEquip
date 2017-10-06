@@ -352,7 +352,7 @@ function loadInventory() {
 }
 
 function logOut() {
-    delete_cookie("googleOAuthAccessToken", "/", window.location.hostname);
+    delete_cookie("googleOAuthAccessToken");
     window.location.reload();
 }
 
