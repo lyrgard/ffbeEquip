@@ -196,12 +196,16 @@ function treatItem(items, itemId, result, skills) {
         itemOut.damageVariance = {"min":itemIn.dmg_variance[0],"max":itemIn.dmg_variance[1]};
     }
     
-    if (!itemOut.access) {
-        if (oldItemsAccessByName[itemOut.name]) {
-            itemOut.access = oldItemsAccessByName[itemOut.name];
-        } else {
-            itemOut.access = ["not released yet"];
+    if (!itemOut.access && oldItemsAccessByName[itemOut.name]) {
+        for (var index in oldItemsAccessByName[itemOut.name].access) {
+            var access = oldItemsAccessByName[itemOut.name].access[index];
+            if (access != "not released yet") {
+                addAccess(itemOut, access);
+            }
         }
+    }
+    if (!itemOut.access) {
+        itemOut.access = ["not released yet"];
     }
 
     result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
