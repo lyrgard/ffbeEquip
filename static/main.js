@@ -205,74 +205,81 @@ var exclusiveForbidAccess = function(item) {
 
 // Return true if the various fields of the items contains all the searched terms
 var containsText = function(text, item) {
-    var textToSearch = item["name"];
     
-    if (server == "JP") {
-        textToSearch += item["jpname"];
-    }
-        
-    textToSearch += "|" + getStatDetail(item);
-    if (item["evade"]) {
-        if (item.evade.physical) {
-            textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
-        }
-        if (item.evade.magical) {
-            textToSearch += "|" + "Evade magical " + item.evade.magical + "%";
-        }
-    }
-    if (item["resist"]) {
-        $(item["resist"]).each(function (index, resist) {
-            textToSearch += "|" + resist.name;
-        });
-    }
-    if (item["ailments"]) {
-        $(item["ailments"]).each(function (index, ailment) {
-            textToSearch += "|" + ailment.name;
-        });
-    }
-    if (item["exclusiveUnits"]) {
-        textToSearch += "|Only ";
-        var first = true;
-        $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
-            if (first) {
-                first = false;
-            } else {
-                textToSearch += ", ";
-            }
-            textToSearch += exclusiveUnit;
-        });
-    }
-    if (item["exclusiveSex"]) {
-        textToSearch += "|Only " + item["exclusiveSex"]; 
-    }
-    if (item["condition"]) {
-        textToSearch += "|Only " + item["condition"]; 
-    }
-    if (item["special"]) {
-        $(item["special"]).each(function (index, special) {
-            textToSearch += "|" + special;
-        });
-    }
-    if (item.doubleHand) {
-        textToSearch += "|" + "Increase equipment ATK (" + item.doubleHand + "%) when single wielding";
-    }
-    if (item.killers) {
-        $(item["killers"]).each(function (index, killer) {
-            textToSearch += "|killer " + killer.name;
-        });
-    }
-    if (item["tmrUnit"]) {
-        textToSearch += "|" + item["tmrUnit"]; 
-    }
-    for (var index in item.access) {
-        textToSearch += "|" + item.access[index]; 
-    }
     var result = true;
     text.split(" ").forEach(function (token) {
-        result = result && textToSearch.match(new RegExp(escapeRegExp(token),'i'));
+        result = result && item.searchString.match(new RegExp(escapeRegExp(token),'i'));
     });
     return result;
 };
+
+function prepareSearch() {
+    data.each(function (index, item){
+        var textToSearch = item["name"];
+    
+        if (server == "JP") {
+            textToSearch += item["jpname"];
+        }
+
+        textToSearch += "|" + getStatDetail(item);
+        if (item["evade"]) {
+            if (item.evade.physical) {
+                textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
+            }
+            if (item.evade.magical) {
+                textToSearch += "|" + "Evade magical " + item.evade.magical + "%";
+            }
+        }
+        if (item["resist"]) {
+            $(item["resist"]).each(function (index, resist) {
+                textToSearch += "|" + resist.name;
+            });
+        }
+        if (item["ailments"]) {
+            $(item["ailments"]).each(function (index, ailment) {
+                textToSearch += "|" + ailment.name;
+            });
+        }
+        if (item["exclusiveUnits"]) {
+            textToSearch += "|Only ";
+            var first = true;
+            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+                if (first) {
+                    first = false;
+                } else {
+                    textToSearch += ", ";
+                }
+                textToSearch += exclusiveUnit;
+            });
+        }
+        if (item["exclusiveSex"]) {
+            textToSearch += "|Only " + item["exclusiveSex"]; 
+        }
+        if (item["condition"]) {
+            textToSearch += "|Only " + item["condition"]; 
+        }
+        if (item["special"]) {
+            $(item["special"]).each(function (index, special) {
+                textToSearch += "|" + special;
+            });
+        }
+        if (item.doubleHand) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.doubleHand + "%) when single wielding";
+        }
+        if (item.killers) {
+            $(item["killers"]).each(function (index, killer) {
+                textToSearch += "|killer " + killer.name;
+            });
+        }
+        if (item["tmrUnit"]) {
+            textToSearch += "|" + item["tmrUnit"]; 
+        }
+        for (var index in item.access) {
+            textToSearch += "|" + item.access[index]; 
+        }
+        item.searchString = textToSearch;
+    });
+}
 
 // Escape RegExp special character if the user used them in his search
 function escapeRegExp(str) {
@@ -616,7 +623,9 @@ function saveInventory() {
 
 function inventoryLoaded() {
     $("#onlyShowOwnedItemsDiv").removeClass("hidden");
-    update();
+    if (data) {
+        update();
+    }
 }
 
 // will be called by jQuery at page load)
@@ -632,6 +641,7 @@ $(function() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
         data = $(result);
+        prepareSearch();
         $.get(server + "/tempData.json", function(result) {
             for (var index in result) {
                 result[index].temp=true;

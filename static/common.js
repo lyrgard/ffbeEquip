@@ -246,7 +246,7 @@ var toHtml = function(text) {
     if (server == "GL") {
         var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
             var vWithoutBrace = v.substring(1, v.length - 1); 
-            return "<a href='"+ toUrl(vWithoutBrace) +"'>"+vWithoutBrace+"</a>"; 
+            return '<a href="'+ toUrl(vWithoutBrace) +'">'+vWithoutBrace+'</a>'; 
         });
         return "<span>" + textWithAddedAnchors +"</span>";
     } else {
