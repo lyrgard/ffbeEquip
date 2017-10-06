@@ -28,6 +28,12 @@
     display: none;
 }
 
+#resultsDiv .panel-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 @media (max-width: 991px) {
     body, span, a, table, label, input, select, img, div {font-size: 40px!important; }
     #results .name a {font-size: 44px!important; }
