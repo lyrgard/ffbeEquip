@@ -62,6 +62,9 @@ var fixedItems = [
     null]
 
 function build() {
+    $(".imageLink").addClass("hidden");
+    $(".calculatorLink").addClass("hidden");
+    
     bestValue = null;
     bestBuild = null;
     
@@ -349,7 +352,28 @@ function findBestBuildForCombinationAsync(index, combinations) {
         logBuild(bestBuild, bestValue, bestEsper);
         progressElement.addClass("finished");
         console.timeEnd("optimize");
+        
+        
+        var hash = getBuildHash();
+        $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
+        $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
+        $(".imageLink").removeClass("hidden");
+        //$(".calculatorLink").removeClass("hidden");
     }
+}
+
+function getBuildHash() {
+    var hash = "";
+    hash += Number(selectedUnit.id).toString(36);
+    for (var i = 0; i < 10; i++) {
+        item = bestBuild[i];
+        if (item) {
+            hash += Number(item.id).toString(36);
+        } else {
+            hash += 999999999..toString(36);
+        }
+    }
+    return hash;
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
