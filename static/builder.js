@@ -72,15 +72,6 @@ function build() {
     bestValue = null;
     bestBuild = null;
     
-    if (!itemInventory) {
-        alert("Please log in to load your inventory");
-        return;
-    }
-    if (Object.keys(itemInventory).length == 0) {
-        alert("Your inventory is empty. Please go to the Search tab to fill your inventory");
-        return;
-    }
-    
     var selectedUnitName = $("#unitsSelect").val();
     if (!selectedUnitName) {
         alert("Please select an unit");
