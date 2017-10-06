@@ -58,6 +58,7 @@
                                 <span>Unit</span>
                                 <select id="unitsSelect" name="units" class="form-control"></select>
                                 <div class="unit-rarity">
+                                    
                                 </div>
                             </div>
                         </form>
@@ -149,6 +150,24 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="panel panel-default equipments">
+                    <div class="panel-heading">
+                        <form class="form-inline">
+                            <div class="form-group flex-form-group">
+                                <span>Equipments</span>
+                                <select class="form-control">
+                                    <option value="all">All equipments</option>
+                                    <option value="owned" disabled>Only owned equipments</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
+                        <div><input id="excludeTMR5" type="checkbox"><label>Exclude TMR of base 5* units</label></div>
+                        <div><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
                     </div>
                 </div>
             </div>

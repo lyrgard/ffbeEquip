@@ -31,7 +31,11 @@ var espers;
 var selectedEspers = [];
 var units;
 var itemOwned;
-var onlyUseOwnedItems = true;
+var onlyUseOwnedItems = false;
+var exludeEventEquipment;
+var excludeTMR5;
+var excludeNotReleasedYet;
+
 var selectedUnit;
 
 var equipable;
@@ -138,6 +142,10 @@ function prepareEquipable() {
 }
 
 function prepareData(equipable) {
+    exludeEventEquipment = $("#exludeEvent").prop('checked');
+    excludeTMR5 = $("#excludeTMR5").prop('checked');
+    excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+    
     data = {};
     dataWithCondition = [];
     dualWieldSources = [];
@@ -606,7 +614,18 @@ function getOwnedNumber(item) {
             number = itemInventory[item[getItemInventoryKey()]];
         }
     } else {
+        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
+            for (var index in item.access) {
+                var access = item.access[index];
+                if ((excludeNotReleasedYet && access == "not released yet")
+                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != selectedUnit.name)
+                   || (exludeEventEquipment && access.endsWith("event"))) {
+                    return 0;
+                }        
+            }
+        } 
         number = 4;
+
     }
     if (!isStackable(item)) {
         number = Math.min(number,1);
@@ -875,7 +894,9 @@ var displayUnitRarity = function(unit) {
 };
 
 function inventoryLoaded() {
-   
+    $(".equipments select option[value=owned]").prop("disabled", false);
+    $(".equipments select").val("owned");
+    onEquipmentsChange();
 }
 
 function onGoalChange() {
@@ -892,6 +913,17 @@ function onGoalChange() {
         $(".monster").addClass("hidden");
         $(".unitAttackElement").addClass("hidden");
         $(".magicalSkillType").addClass("hidden");
+    }
+}
+
+function onEquipmentsChange() {
+    var equipments = $(".equipments select").val();
+    if (equipments == "all") {
+        $(".equipments .panel-body").removeClass("hidden");
+        onlyUseOwnedItems = false;
+    } else {
+        $(".equipments .panel-body").addClass("hidden");
+        onlyUseOwnedItems = true;
     }
 }
             
@@ -915,6 +947,8 @@ $(function() {
     
     $(".goal select").change(onGoalChange);
     onGoalChange();
+    
+    $(".equipments select").change(onEquipmentsChange);
     
     $("#buildButton").click(build);
     
