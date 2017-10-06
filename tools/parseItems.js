@@ -197,8 +197,8 @@ function treatItem(items, itemId, result, skills) {
     }
     
     if (!itemOut.access && oldItemsAccessByName[itemOut.name]) {
-        for (var index in oldItemsAccessByName[itemOut.name].access) {
-            var access = oldItemsAccessByName[itemOut.name].access[index];
+        for (var index in oldItemsAccessByName[itemOut.name]) {
+            var access = oldItemsAccessByName[itemOut.name][index];
             if (access != "not released yet") {
                 addAccess(itemOut, access);
             }
