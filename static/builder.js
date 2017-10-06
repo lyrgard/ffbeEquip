@@ -339,6 +339,7 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 }
 
 function findBestBuildForCombinationAsync(index, combinations) {
+    console.log(index);
     var build = [null, null, null, null, null, null, null, null, null, null];
     findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
     //console.log(Math.floor(index/combinations.length*100) + "%" );
@@ -380,7 +381,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
     if (fixedItems[index]) {
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
     } else {
-        if (index == 1 && isTwoHanded(build[0])) {
+        if (index == 1 && build[0] && isTwoHanded(build[0])) {
             build[index] == null;
             findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
         } else {
@@ -510,6 +511,10 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                 break;
             }
         }
+    }
+    
+    if (result.length == 0 && typeCombination.indexOf(type) < 4 && tempResult.length > 0) {
+        result.push(tempResult[0].item);
     }
     
     return result;
