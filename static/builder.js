@@ -463,20 +463,22 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         }
     }
     var itemIndex = 0;
-    var itemKeptNames = [];
+    var itemKeptKeys = [];
     var damageCoefLevelAlreadyKept = {};
     var result = [];
+    var itemKey = getItemInventoryKey();
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
         var damageCoefLevel = getDamageCoefLevel(item);
-        if (!damageCoefLevel || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
+        if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
             continue;
         } else {
             if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
                 damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
             }
             damageCoefLevelAlreadyKept[damageCoefLevel] += getOwnedNumber(item);
-            result.push(item)
+            result.push(item);
+            itemKeptKeys.push(item[itemKey]);
         }
     }
     
