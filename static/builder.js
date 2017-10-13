@@ -36,6 +36,7 @@ var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
 
+var selectedUnitName;
 var selectedUnit;
 
 var equipable;
@@ -43,6 +44,9 @@ var equipable;
 var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
 var ennemyRaces;
 var innateElements = [];
+
+var builds = [];
+var currentUnitIndex = 0;
 
 var bestValue;
 var bestBuild;
@@ -88,6 +92,7 @@ function build() {
     prepareData(selectedUnit.equip);
     prepareEquipable();
     selectEspers();
+    
     optimize();
 }
 
@@ -359,6 +364,10 @@ function findBestBuildForCombinationAsync(index, combinations) {
         $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
         $(".imageLink").removeClass("hidden");
         //$(".calculatorLink").removeClass("hidden");
+        
+        if (builds.length < 5) {
+            $("#addNewUnitButton").removeClass("hidden");
+        }
     }
 }
 
@@ -815,33 +824,66 @@ function areConditionOK(item, equiped) {
 }
 
 function logBuild(build, value, esper) {
-    var order = [0,1,2,3,4,5,6,7,8,9];
-    var html = "";
-    for (var index = 0; index < order.length; index++) {
-        var item = build[order[index]];
-        if (item) {
-            html += '<div class="tr">';
-            html += displayItemLine(item);
-            html += "</div>";
-        }
-    }
     
-    var bonusPercent;
-    if (value.bonusPercent > 300) {
-        bonusPercent = "<span style='color:red;'>" + value.bonusPercent + "%</span> (Only 300% taken into account)";
-    } else {
-        bonusPercent = value.bonusPercent + "%";
-    }
     
     $("#results .tbody").html(html);
-    if (statToMaximize == "atk" || statToMaximize == "mag") {
-        $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
-    } else if (statToMaximize == "def" || statToMaximize == "spr") {
-        $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div><div> esper : " + esper.name + "</div>");
+    if (build.length == 0) {
+        $("#resultStats").html("");
+        $(".imageLink").addClass("hidden");
+        var progress = "0%";
+        var progressElement = $("#buildProgressBar .progressBar");
+        progressElement.width(progress);
+        progressElement.text(progress);
+        progressElement.addClass("finished");
+    } else {
+        
+        var order = [0,1,2,3,4,5,6,7,8,9];
+        var html = "";
+        for (var index = 0; index < order.length; index++) {
+            var item = build[order[index]];
+            if (item) {
+                html += '<div class="tr">';
+                html += displayItemLine(item);
+                html += "</div>";
+            }
+        }
+        if (esper) {
+            var esperItem = getEsperItem(esper);
+            html += '<div class="tr">';
+            html += displayItemLine(esperItem);
+            html += "</div>";
+        }
+
+        var bonusPercent;
+        if (value.bonusPercent > 300) {
+            bonusPercent = "<span style='color:red;'>" + value.bonusPercent + "%</span> (Only 300% taken into account)";
+        } else {
+            bonusPercent = value.bonusPercent + "%";
+        }
+        
+        if (statToMaximize == "atk" || statToMaximize == "mag") {
+            $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div>");
+        } else if (statToMaximize == "def" || statToMaximize == "spr") {
+            $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div>");
+        }
     }
 }
 
-
+function getEsperItem(esper) {
+    var item = {};
+    item.name = esper.name;
+    item.type = escapeName(esper.name);
+    item.hp = Math.floor(esper.hp / 100);
+    item.mp = Math.floor(esper.mp / 100);
+    item.atk = Math.floor(esper.atk / 100);
+    item.def = Math.floor(esper.def / 100);
+    item.mag = Math.floor(esper.mag / 100);
+    item.spr = Math.floor(esper.spr / 100);
+    if (esper.killers) {
+        item.killers = esper.killers;
+    }
+    return item;
+}
 
 // Populate the unit html select with a line per unit
 function populateUnitSelect() {
@@ -852,21 +894,65 @@ function populateUnitSelect() {
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(function() {
         $( "#unitsSelect option:selected" ).each(function() {
-            var selectedUnitData = units[$(this).val()];
+            var unitName = $(this).val();
+            var selectedUnitData = units[unitName];
             if (selectedUnitData) {
+                selectedUnitName = unitName;
                 selectedUnit = selectedUnitData;
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
 		      	});
+                $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
+                bestBuild = [];
+                bestValue = 0;
+                bestEsper = null;
+                logBuild(bestBuild, bestValue);
             } else {
                 selectedUnit = '';
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val("");
 		      	});
+                $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
             }
             displayUnitRarity(selectedUnitData);
+            
         });
     });
+}
+
+function saveCurrentBuild() {
+    var currentUnit = {};
+    currentUnit.selectedUnitName = selectedUnitName;
+    currentUnit.selectedUnit = selectedUnit;
+    currentUnit.goal = $(".goal select").val();
+    currentUnit.attackType = $(".magicalSkillType input").val();
+    currentUnit.innateElements = innateElements;
+    currentUnit.bestBuild = bestBuild;
+    currentUnit.bestEsper = bestEsper;
+    builds[currentUnitIndex] = currentUnit;
+}
+
+function reinitBuild(buildIndex) {
+    var currentUnit = {};
+    builds[buildIndex] = currentUnit;
+}
+
+function loadBuild(buildIndex) {
+    currentUnitIndex = buildIndex;
+    var build = builds[buildIndex];
+    $("#unitsSelect option").prop("selected", false);
+    if (build.selectedUnitName) {
+        $('#unitsSelect option[value="' + build.selectedUnitName + '"]').prop("selected", false);
+    }
+    bestBuild = [];
+    if (build.bestBuild) {
+        bestBuild = build.bestBuild;
+    }
+    bestEsper = null;
+    if (build.bestEsper) {
+        bestEsper = build.bestEsper;
+    }
+    logBuild(bestBuild, 0, bestEsper);
 }
 
 // Displays selected unit's rarity by stars
@@ -918,6 +1004,22 @@ function onEquipmentsChange() {
         $(".equipments .panel-body").addClass("hidden");
         onlyUseOwnedItems = true;
     }
+}
+
+function addNewUnit() {
+    saveCurrentBuild();
+    $("#unitTabs li").removeClass("active");
+    $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
+    $("#addNewUnitButton").addClass("hidden");
+    builds.push({});
+    loadBuild(builds.length - 1);
+}
+
+function selectUnitTab(index) {
+    saveCurrentBuild();
+    $("#unitTabs li").removeClass("active");
+    $("#unitTabs .tab_" + index).addClass("active");
+    loadBuild(index);
 }
             
 $(function() {
