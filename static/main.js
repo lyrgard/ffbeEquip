@@ -690,12 +690,6 @@ $(function() {
     });
 });
 
-function escapeName (string) {
-    return String(string).replace(/[+%&': \(\)]/g, function (s) {
-        return "_";
-    });
-}
-
 function escapeQuote(string) {
     return String(string).replace(/[']/g, function (s) {
         return "\\'";

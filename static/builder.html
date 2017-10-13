@@ -172,17 +172,20 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span>Results</span>
-                        <button id="buildButton" class="btn btn-default">Build !</button>
+                <ul id="unitTabs" class="nav nav-tabs">
+                    <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
+                    <li id="addNewUnitButton" class="hidden" onclick="addNewUnit()"><a><span class="glyphicon glyphicon-plus"/></a></li>
+                </ul>
+                <div class="result-tab-pane">
+                    <div class="panel-body" style="padding:0;">
+                        <div class="buildDiv">
+                            <button id="buildButton" class="btn btn-default">Build !</button>
+                            <div id="buildProgressBar" class="progressBarDiv">
+                                <div class="progressBar">0%</div>
+                            </div>
+                        </div>
                         <a class="imageLink hidden" target="_blank">Get build image (Alpha, without esper)</a>
                         <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
-                    </div>
-                    <div class="panel-body" style="padding:0;">
-                        <div id="buildProgressBar" class="progressBarDiv">
-                            <div class="progressBar">0%</div>
-                        </div>
                         <div id="resultStats">
                         </div>
                         <div id="results" class="table notSorted items">

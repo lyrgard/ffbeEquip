@@ -133,7 +133,7 @@ function displayItemLine(item) {
     if (item.special && item.special.includes("twoHanded")) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
-    html += "<img src='img/" + item.type + ".png'></img></div>";
+    html += "<img src='img/" + item.type + ".png' class='main'></img></div>";
 
     // name
     html += '<div class="td name"><div>' + toLink(item.name);
@@ -265,6 +265,12 @@ var toLink = function(text) {
     } else {
         return "<span>" + text + "</span>";
     }
+}
+
+function escapeName(string) {
+    return String(string).replace(/[+%&': \(\)]/g, function (s) {
+        return "_";
+    });
 }
 
 // Function used to know if a keyboard key pressed is a number, to prevent non number to be entered
