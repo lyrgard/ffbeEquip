@@ -76,17 +76,14 @@ function build() {
     bestValue = null;
     bestBuild = null;
     
-    var selectedUnitName = $("#unitsSelect").val();
-    if (!selectedUnitName) {
+    if (!builds[currentUnitIndex].selectedUnit) {
         alert("Please select an unit");
         return;
     }
-    selectedUnit = units[selectedUnitName];
-    selectedUnit.name = selectedUnitName;
     
     readEnnemyResists();
     ennemyRaces = getSelectedValuesFor("races");
-    innateElements = getSelectedValuesFor("elements");
+    builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     readGoal();
     
     prepareData(selectedUnit.equip);
@@ -100,23 +97,23 @@ function readGoal() {
     var goal = $(".goal select").val();
     var mecanismType;
     if (goal == "atk") {
-        statToMaximize = goal;
-        mecanismType = "atk";
+        builds[currentUnitIndex].statToMaximize = goal;
+        builds[currentUnitIndex].mecanismType = "atk";
     } else if (goal == "mag") {
-        statToMaximize = goal;
+        builds[currentUnitIndex].statToMaximize = goal;
         var attackType = $(".magicalSkillType input").val();
         if (attackType == "normal") {
-            mecanismType = "mag";
+            builds[currentUnitIndex].mecanismType = "mag";
         } else {
-            mecanismType = "atk";
+            builds[currentUnitIndex].mecanismType = "atk";
         }
     } else if (goal == "spr" || goal == "def") {
-        statToMaximize = goal;
-        mecanismType = "def";
+        builds[currentUnitIndex].statToMaximize = goal;
+        builds[currentUnitIndex].mecanismType = "def";
     }
-    useWeaponsElements = goals[mecanismType].useWeaponsElements;
-    applicableKillerType = goals[mecanismType].applicableKillerType;
-    attackTwiceWithDualWield = goals[mecanismType].attackTwiceWithDualWield;
+    useWeaponsElements = goals[builds[currentUnitIndex].mecanismType].useWeaponsElements;
+    applicableKillerType = goals[builds[currentUnitIndex].mecanismType].applicableKillerType;
+    attackTwiceWithDualWield = goals[builds[currentUnitIndex].mecanismType].attackTwiceWithDualWield;
 }
 
 function prepareEquipable() {
@@ -354,7 +351,7 @@ function findBestBuildForCombinationAsync(index, combinations) {
     if (index + 1 < combinations.length) {
         setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
     } else {
-        logBuild(bestBuild, bestValue, bestEsper);
+        logCurrentBuild();
         progressElement.addClass("finished");
         console.timeEnd("optimize");
         
@@ -428,11 +425,11 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             value = calculateValue(build, selectedEspers[esperIndex]);
-            if (bestValue == null || value.total > bestValue.total) {
-                bestBuild = build.slice();
-                bestValue = value;
-                bestEsper = selectedEspers[esperIndex];
-                logBuild(bestBuild, bestValue, bestEsper);
+            if (builds[currentUnitIndex].bestValue == null || value.total > builds[currentUnitIndex].bestValue.total) {
+                builds[currentUnitIndex].bestBuild = build.slice();
+                builds[currentUnitIndex].bestValue = value;
+                builds[currentUnitIndex].bestEsper = selectedEspers[esperIndex];
+                logCurrentBuild();
             }    
         }
     } else {
@@ -637,10 +634,10 @@ function getOwnedNumber(item) {
 
 
 function isApplicable(item) {
-    if (item.exclusiveSex && item.exclusiveSex != selectedUnit.sex) {
+    if (item.exclusiveSex && item.exclusiveSex != builds[currentUnitIndex].selectedUnit.sex) {
         return false;
     }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit.name)) {
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(builds[currentUnitIndex].selectedUnitName)) {
         return false;
     }
     return true;
@@ -656,13 +653,13 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateMaxValue(item) {
-    var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
+    var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[statToMaximize];
     var calculatedValue = 0;
     if (item[statToMaximize]) {
-        calculatedValue += item[statToMaximize];
+        calculatedValue += item[builds[currentUnitIndex].statToMaximize];
     }
     if (item[statToMaximize + '%']) {
-        calculatedValue += item[statToMaximize+'%'] * baseValue / 100;
+        calculatedValue += item[builds[currentUnitIndex].statToMaximize+'%'] * baseValue / 100;
     }
     return calculatedValue;
 }
@@ -672,7 +669,7 @@ function calculateValue(equiped, esper) {
         var calculatedValue = calculateStatValue(equiped, esper);
         
         var cumulatedKiller = 0;
-        var itemAndPassives = equiped.concat(selectedUnit.skills);
+        var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
         if (esper != null) {
             itemAndPassives.push(esper);
         }
@@ -735,9 +732,9 @@ function calculateStatValue(equiped, esper) {
     
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
-    var baseValue = selectedUnit.stats.maxStats[statToMaximize] + selectedUnit.stats.pots[statToMaximize];
+    var baseValue = selectedUnit.stats.maxStats[builds[currentUnitIndex].statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[statToMaximize];
     var calculatedValue = baseValue;
-    var itemAndPassives = equiped.concat(selectedUnit.skills);
+    var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
 
     for (var equipedIndex = 0; equipedIndex < itemAndPassives.length; equipedIndex++) {
         if (equipedIndex < 2 && "atk" == statToMaximize) {
@@ -823,6 +820,10 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
+fonction logCurrentBuild() {
+    logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue, builds[currentUnitIndex].bestEsper);
+}
+
 function logBuild(build, value, esper) {
     
     
@@ -906,7 +907,7 @@ function populateUnitSelect() {
                 bestBuild = [];
                 bestValue = 0;
                 bestEsper = null;
-                logBuild(bestBuild, bestValue);
+                logCurrentBuild();
             } else {
                 selectedUnit = '';
                 $(baseStats).each(function (index, stat) {
@@ -952,7 +953,7 @@ function loadBuild(buildIndex) {
     if (build.bestEsper) {
         bestEsper = build.bestEsper;
     }
-    logBuild(bestBuild, 0, bestEsper);
+    logCurrentBuild();
 }
 
 // Displays selected unit's rarity by stars
