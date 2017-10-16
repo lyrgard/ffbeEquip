@@ -820,7 +820,7 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
-fonction logCurrentBuild() {
+function logCurrentBuild() {
     logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue, builds[currentUnitIndex].bestEsper);
 }
 
