@@ -134,10 +134,11 @@ function displayItemLine(item) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
     if (item.icon) {
-        html += "<img src='img/" + item.type + ".png' class='miniIcon topRight'></img>";
         html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";    
+    } else if (item.type == "esper") {
+        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
     } else {
-        html += "<img src='img/" + item.type + ".png' class='main'></img></div>";
+        html += "<img src='img/" + item.type + ".png' class='icon'></img></div>";
     }
     
 
@@ -150,7 +151,11 @@ function displayItemLine(item) {
     if (item.jpname) {
         html += '<div>' + item.jpname + "</div>";
     }
-    html += "<div class='detail'>" + getStatDetail(item) + "</div>"
+    html += "<div class='detail'>";
+    if (item.type != "esper") { 
+        html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
+    }
+    html += getStatDetail(item) + "</div>"
     if (item.userPseudo) {
         html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
     }

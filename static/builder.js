@@ -372,11 +372,6 @@ function findBestBuildForCombinationAsync(index, combinations) {
         progressElement.addClass("finished");
         console.timeEnd("optimize");
         
-        
-        var hash = getBuildHash();
-        $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
-        $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
-        $(".imageLink").removeClass("hidden");
         //$(".calculatorLink").removeClass("hidden");
         
         if (builds.length < 5) {
@@ -874,6 +869,11 @@ function logBuild(build, value, esper) {
 
         $("#results .tbody").html(html);
         
+        var hash = getBuildHash();
+        $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
+        $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
+        $(".imageLink").removeClass("hidden");
+        
         var bonusPercent;
         if (value.bonusPercent > 300) {
             bonusPercent = "<span style='color:red;'>" + value.bonusPercent + "%</span> (Only 300% taken into account)";
@@ -892,7 +892,7 @@ function logBuild(build, value, esper) {
 function getEsperItem(esper) {
     var item = {};
     item.name = esper.name;
-    item.type = escapeName(esper.name);
+    item.type = "esper";
     item.hp = Math.floor(esper.hp / 100);
     item.mp = Math.floor(esper.mp / 100);
     item.atk = Math.floor(esper.atk / 100);
@@ -925,10 +925,10 @@ function populateUnitSelect() {
                 updateUnitStats();
                 logCurrentBuild();
             } else {
-                selectedUnit = '';
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val("");
-		      	});
+                builds[currentUnitIndex].selectedUnit = null;
+                reinitBuild(currentUnitIndex); 
+                updateUnitStats();
+                logCurrentBuild();
                 $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
             }
             displayUnitRarity(selectedUnitData);
