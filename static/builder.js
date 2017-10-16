@@ -43,58 +43,73 @@ var equipable;
 
 var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
 var ennemyRaces;
-var innateElements = [];
 
 var builds = [];
 var currentUnitIndex = 0;
 
-var bestValue;
-var bestBuild;
-var bestEsper;
-
-var statToMaximize;
-
 var stats = [];
 var numberOfItemCombination;
 
-var fixedItems = [
-    null, 
-    null, 
-    null, 
-    null, 
-    null, 
-    null, 
-    null, 
-    null,
-    null,
-    null]
+var alreadyUsedItems = {};
+var alreadyUsedEspers = [];
+
+var itemKey = getItemInventoryKey();
 
 function build() {
     $(".imageLink").addClass("hidden");
     $(".calculatorLink").addClass("hidden");
-    
-    bestValue = null;
-    bestBuild = null;
     
     if (!builds[currentUnitIndex].selectedUnit) {
         alert("Please select an unit");
         return;
     }
     
+    
+    
+    builds[currentUnitIndex].bestValue = null;
+    
     readEnnemyResists();
     ennemyRaces = getSelectedValuesFor("races");
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     readGoal();
     
-    prepareData(selectedUnit.equip);
+    calculateAlreadyUsedItems();
+    
+    prepareData(builds[currentUnitIndex].selectedUnit.equip);
     prepareEquipable();
     selectEspers();
     
     optimize();
 }
 
+function calculateAlreadyUsedItems() {
+    alreadyUsedItems = {};
+    alreadyUsedEspers = [];
+    for (var i in builds) {
+        if (i != currentUnitIndex) {
+            var build = builds[i].bestBuild;
+            if (build.length != 0) {
+                for (var j in build) {
+                    var item = build[j];
+                    if (item) {
+                        if (alreadyUsedItems[item[itemKey]]) {
+                            alreadyUsedItems[item[itemKey]]++;
+                        } else {
+                            alreadyUsedItems[item[itemKey]] = 1;
+                        }
+                    }
+                }
+            }
+            if (builds[i].bestEsper) {
+                alreadyUsedEspers.push(builds[i].bestEsper.name);
+            }
+        }
+    }
+}
+
 function readGoal() {
     var goal = $(".goal select").val();
+    
     var mecanismType;
     if (goal == "atk") {
         builds[currentUnitIndex].statToMaximize = goal;
@@ -118,6 +133,7 @@ function readGoal() {
 
 function prepareEquipable() {
     equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"]];
+    var selectedUnit = builds[currentUnitIndex].selectedUnit;
     for (var equipIndex in selectedUnit.equip) {
         if (weaponList.includes(selectedUnit.equip[equipIndex])) {
             equipable[0].push(selectedUnit.equip[equipIndex]);
@@ -177,11 +193,13 @@ function selectEspers() {
     selectedEspers = [];
     var maxValueEsper = null;
     for (var index in espers) {
-        if (maxValueEsper == null || espers[index][statToMaximize] > maxValueEsper[statToMaximize]) {
-            maxValueEsper = espers[index];
-        }
-        if (getKillerCoef(espers[index]) > 0) {
-            selectedEspers.push(espers[index]);
+        if (!alreadyUsedEspers.includes(espers[index].name)) {
+            if (maxValueEsper == null || espers[index][builds[currentUnitIndex].statToMaximize] > maxValueEsper[builds[currentUnitIndex].statToMaximize]) {
+                maxValueEsper = espers[index];
+            }
+            if (getKillerCoef(espers[index]) > 0) {
+                selectedEspers.push(espers[index]);
+            }
         }
     }
     if (!selectedEspers.includes(maxValueEsper)) {
@@ -251,7 +269,7 @@ function optimize() {
             } else if (item.type == "materia") {
                 slot = 6;
             }
-            fixedItems[slot] = item;
+            builds[currentUnitIndex].fixedItems[slot] = item;
             var savedEquipable0 = equipable[0];
             if (item.partialDualWield && slot == 0) {
                 equipable[0] = [item.type];
@@ -264,7 +282,7 @@ function optimize() {
                 equipable[1] = equipable[0];
             }
             buildTypeCombination(0,typeCombination,combinations);
-            fixedItems[slot] = null;
+            builds[currentUnitIndex].fixedItems[slot] = null;
             equipable[0] = savedEquipable0;
         }
     }
@@ -275,8 +293,8 @@ function optimize() {
 }
 
 function buildTypeCombination(index, typeCombination, combinations) {
-    if (fixedItems[index]) {
-        tryType(index, typeCombination, fixedItems[index].type, combinations);
+    if (builds[currentUnitIndex].fixedItems[index]) {
+        tryType(index, typeCombination, builds[currentUnitIndex].fixedItems[index].type, combinations);
     } else {
         if (equipable[index].length > 0) {
             var found = false;
@@ -312,7 +330,7 @@ function tryType(index, typeCombination, type, combinations) {
                 dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
             }
         }
-        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":fixedItems.slice()});
+        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":builds[currentUnitIndex].fixedItems.slice()});
     } else {
         buildTypeCombination(index+1, typeCombination, combinations);
     }
@@ -340,7 +358,6 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 }
 
 function findBestBuildForCombinationAsync(index, combinations) {
-    console.log(index);
     var build = [null, null, null, null, null, null, null, null, null, null];
     findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
     //console.log(Math.floor(index/combinations.length*100) + "%" );
@@ -370,9 +387,9 @@ function findBestBuildForCombinationAsync(index, combinations) {
 
 function getBuildHash() {
     var hash = "";
-    hash += Number(selectedUnit.id).toString(36);
+    hash += Number(builds[currentUnitIndex].selectedUnit.id).toString(36);
     for (var i = 0; i < 10; i++) {
-        item = bestBuild[i];
+        item = builds[currentUnitIndex].bestBuild[i];
         if (item) {
             hash += Number(item.id).toString(36);
         } else {
@@ -424,7 +441,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     if (index == 9) {
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
-            value = calculateValue(build, selectedEspers[esperIndex]);
+            var value = calculateValue(build, selectedEspers[esperIndex]);
             if (builds[currentUnitIndex].bestValue == null || value.total > builds[currentUnitIndex].bestValue.total) {
                 builds[currentUnitIndex].bestBuild = build.slice();
                 builds[currentUnitIndex].bestValue = value;
@@ -472,7 +489,6 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var itemKeptKeys = [];
     var damageCoefLevelAlreadyKept = {};
     var result = [];
-    var itemKey = getItemInventoryKey();
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
         var damageCoefLevel = getDamageCoefLevel(item);
@@ -492,11 +508,11 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     tempResult.sort(function (entry1, entry2) {
         var value1 = 0;
         var value2 = 0;
-        if (entry1.item[statToMaximize]) {
-            value1 = entry1.item[statToMaximize];
+        if (entry1.item[builds[currentUnitIndex].statToMaximize]) {
+            value1 = entry1.item[builds[currentUnitIndex].statToMaximize];
         }
-        if (entry2.item[statToMaximize]) {
-            value2 = entry2.item[statToMaximize];
+        if (entry2.item[builds[currentUnitIndex].statToMaximize]) {
+            value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
         }
         if (value1 == value2) {
             return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
@@ -508,7 +524,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var number = 0;
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
-        if (item[statToMaximize]) {
+        if (item[builds[currentUnitIndex].statToMaximize]) {
             if (number < numberNeeded) {
                 if (!result.includes(item)) {
                     result.push(item);
@@ -529,10 +545,10 @@ function addConditionItems(itemsOfType, type, typeCombination) {
 
 function getDamageCoefLevel(item) {
     var damageCoefLevel = null;
-    if (item[statToMaximize] || item[statToMaximize + '%']) {
+    if (item[builds[currentUnitIndex].statToMaximize] || item[builds[currentUnitIndex].statToMaximize + '%']) {
         damageCoefLevel = "neutral";
     }
-    if (statToMaximize == "atk" || statToMaximize == "mag") {
+    if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
         var killerCoef = getKillerCoef(item);
         if (killerCoef > 0) {
             damageCoefLevel += "killer" + killerCoef;
@@ -542,7 +558,7 @@ function getDamageCoefLevel(item) {
             if ((item.element && ennemyResist[item.element] != 0)) {
                 damageCoefLevel += "element" + ennemyResist[item.element];
             }
-            if (damageCoefLevel == "neutral" && (!item.element || innateElements.includes(item.element))) {
+            if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
                 damageCoefLevel = "elementless";
             }
         }
@@ -569,7 +585,7 @@ function canAddMoreOfThisItem(build, item, currentIndex) {
         }
     }
     for (var index = currentIndex + 1; index < 10; index++) {
-        if (fixedItems[index] && fixedItems[index].name == item.name) {
+        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].name == item.name) {
             if (!isStackable(item)) {
                 return false;
             }
@@ -609,8 +625,11 @@ function getInnatePartialDualWield() {
 function getOwnedNumber(item) {
     var number = 0;
     if (onlyUseOwnedItems) {
-        if (itemInventory[item[getItemInventoryKey()]]) {
-            number = itemInventory[item[getItemInventoryKey()]];
+        if (itemInventory[item[itemKey]]) {
+            number = itemInventory[item[itemKey]];
+            if (alreadyUsedItems[item[itemKey]]) {
+                number = Math.max(0, number - alreadyUsedItems[item[itemKey]]);
+            }
         }
     } else {
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
@@ -653,19 +672,19 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateMaxValue(item) {
-    var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[statToMaximize];
+    var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[builds[currentUnitIndex].statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[builds[currentUnitIndex].statToMaximize];
     var calculatedValue = 0;
-    if (item[statToMaximize]) {
+    if (item[builds[currentUnitIndex].statToMaximize]) {
         calculatedValue += item[builds[currentUnitIndex].statToMaximize];
     }
-    if (item[statToMaximize + '%']) {
+    if (item[builds[currentUnitIndex].statToMaximize + '%']) {
         calculatedValue += item[builds[currentUnitIndex].statToMaximize+'%'] * baseValue / 100;
     }
     return calculatedValue;
 }
 
 function calculateValue(equiped, esper) {
-    if ("atk" == statToMaximize || "mag" == statToMaximize) {
+    if ("atk" == builds[currentUnitIndex].statToMaximize || "mag" == builds[currentUnitIndex].statToMaximize) {
         var calculatedValue = calculateStatValue(equiped, esper);
         
         var cumulatedKiller = 0;
@@ -686,7 +705,7 @@ function calculateValue(equiped, esper) {
         }
         
         // Element weakness/resistance
-        var elements = innateElements.slice();
+        var elements = builds[currentUnitIndex].innateElements.slice();
         if (useWeaponsElements) {
             if (equiped[0] && equiped[0].element && !elements.includes(equiped[0].element)) {
                 elements.push(equiped[0].element);
@@ -712,7 +731,7 @@ function calculateValue(equiped, esper) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         
-        if ("atk" == statToMaximize) {
+        if ("atk" == builds[currentUnitIndex].statToMaximize) {
             var total = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         } else {
@@ -723,7 +742,7 @@ function calculateValue(equiped, esper) {
             var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         }
-    } else if ("def" == statToMaximize || "spr" == statToMaximize) {
+    } else if ("def" == builds[currentUnitIndex].statToMaximize || "spr" == builds[currentUnitIndex].statToMaximize) {
         return calculateStatValue(equiped, esper);
     }
 }
@@ -732,22 +751,22 @@ function calculateStatValue(equiped, esper) {
     
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
-    var baseValue = selectedUnit.stats.maxStats[builds[currentUnitIndex].statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[statToMaximize];
+    var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[builds[currentUnitIndex].statToMaximize] + builds[currentUnitIndex].selectedUnit.stats.pots[builds[currentUnitIndex].statToMaximize];
     var calculatedValue = baseValue;
     var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
 
     for (var equipedIndex = 0; equipedIndex < itemAndPassives.length; equipedIndex++) {
-        if (equipedIndex < 2 && "atk" == statToMaximize) {
+        if (equipedIndex < 2 && "atk" == builds[currentUnitIndex].statToMaximize) {
             calculatedValue += calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease);    
         } else {
             calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease);    
         }
     }
     if (esper != null) {
-        calculatedValue += esper[statToMaximize] / 100;
+        calculatedValue += esper[builds[currentUnitIndex].statToMaximize] / 100;
     }
     
-    if ("atk" == statToMaximize) {
+    if ("atk" == builds[currentUnitIndex].statToMaximize) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
         var right = calculateFlatStateValueForIndex(equiped, itemAndPassives, 0);
         var left = calculateFlatStateValueForIndex(equiped, itemAndPassives, 1);
@@ -768,11 +787,11 @@ function calculateStatValue(equiped, esper) {
 function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease) {
     var value = 0;
     if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][statToMaximize]) {
-            value += itemAndPassives[equipedIndex][statToMaximize];
+        if (itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize]) {
+            value += itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize];
         }
-        if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
-            percent = itemAndPassives[equipedIndex][statToMaximize+'%'];
+        if (itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize + '%']) {
+            percent = itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize+'%'];
             percentTakenIntoAccount = Math.min(percent, Math.max(300 - currentPercentIncrease.value, 0));
             currentPercentIncrease.value += percent;
             value += percentTakenIntoAccount * baseValue / 100;
@@ -783,8 +802,8 @@ function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, bas
 
 function calculateFlatStateValueForIndex(equiped, itemAndPassives, equipedIndex) {
     if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][statToMaximize]) {
-            return itemAndPassives[equipedIndex][statToMaximize];
+        if (itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize]) {
+            return itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize];
         }
     }
     return 0;
@@ -792,8 +811,8 @@ function calculateFlatStateValueForIndex(equiped, itemAndPassives, equipedIndex)
 
 function calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease) {
     if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][statToMaximize + '%']) {
-            percent = itemAndPassives[equipedIndex][statToMaximize+'%'];
+        if (itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize + '%']) {
+            percent = itemAndPassives[equipedIndex][builds[currentUnitIndex].statToMaximize+'%'];
             percent = Math.min(percent, 300 - currentPercentIncrease.value);
             currentPercentIncrease.value += percent;
             return percent * baseValue / 100;
@@ -820,16 +839,14 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
-fonction logCurrentBuild() {
+function logCurrentBuild() {
     logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue, builds[currentUnitIndex].bestEsper);
 }
 
 function logBuild(build, value, esper) {
-    
-    
-    $("#results .tbody").html(html);
     if (build.length == 0) {
         $("#resultStats").html("");
+        $("#results .tbody").html("");
         $(".imageLink").addClass("hidden");
         var progress = "0%";
         var progressElement = $("#buildProgressBar .progressBar");
@@ -855,6 +872,8 @@ function logBuild(build, value, esper) {
             html += "</div>";
         }
 
+        $("#results .tbody").html(html);
+        
         var bonusPercent;
         if (value.bonusPercent > 300) {
             bonusPercent = "<span style='color:red;'>" + value.bonusPercent + "%</span> (Only 300% taken into account)";
@@ -862,10 +881,10 @@ function logBuild(build, value, esper) {
             bonusPercent = value.bonusPercent + "%";
         }
         
-        if (statToMaximize == "atk" || statToMaximize == "mag") {
-            $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div>");
-        } else if (statToMaximize == "def" || statToMaximize == "spr") {
-            $("#resultStats").html("<div>" + statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + statToMaximize + "% : " + bonusPercent + "</div>");
+        if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
+            $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
+        } else if (builds[currentUnitIndex].statToMaximize == "def" || builds[currentUnitIndex].statToMaximize == "spr") {
+            $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
         }
     }
 }
@@ -898,15 +917,12 @@ function populateUnitSelect() {
             var unitName = $(this).val();
             var selectedUnitData = units[unitName];
             if (selectedUnitData) {
-                selectedUnitName = unitName;
-                selectedUnit = selectedUnitData;
-                $(baseStats).each(function (index, stat) {
-                    $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
-		      	});
                 $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
-                bestBuild = [];
-                bestValue = 0;
-                bestEsper = null;
+                reinitBuild(currentUnitIndex);
+                
+                builds[currentUnitIndex].selectedUnit = selectedUnitData;
+                builds[currentUnitIndex].selectedUnitName = unitName;
+                updateUnitStats();
                 logCurrentBuild();
             } else {
                 selectedUnit = '';
@@ -921,39 +937,71 @@ function populateUnitSelect() {
     });
 }
 
-function saveCurrentBuild() {
-    var currentUnit = {};
-    currentUnit.selectedUnitName = selectedUnitName;
-    currentUnit.selectedUnit = selectedUnit;
-    currentUnit.goal = $(".goal select").val();
-    currentUnit.attackType = $(".magicalSkillType input").val();
-    currentUnit.innateElements = innateElements;
-    currentUnit.bestBuild = bestBuild;
-    currentUnit.bestEsper = bestEsper;
-    builds[currentUnitIndex] = currentUnit;
+function updateUnitStats() {
+    $(baseStats).each(function (index, stat) {
+        if (builds[currentUnitIndex].selectedUnit) {
+            $("#baseStat_" + stat).val(builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat]);
+        } else {
+            $("#baseStat_" + stat).val("");
+        }
+    });
 }
 
 function reinitBuild(buildIndex) {
-    var currentUnit = {};
-    builds[buildIndex] = currentUnit;
+    builds[buildIndex] = {};
+    builds[buildIndex].bestBuild = [];
+    builds[buildIndex].bestValue = null;
+    builds[buildIndex].fixedItems = [null, null, null, null, null, null, null, null,null,null];
+    builds[buildIndex].bestEsper = null;
+    builds[currentUnitIndex].innateElements = [];
 }
 
 function loadBuild(buildIndex) {
     currentUnitIndex = buildIndex;
     var build = builds[buildIndex];
+    
     $("#unitsSelect option").prop("selected", false);
     if (build.selectedUnitName) {
-        $('#unitsSelect option[value="' + build.selectedUnitName + '"]').prop("selected", false);
+        $('#unitsSelect option[value="' + build.selectedUnitName + '"]').prop("selected", true);
     }
-    bestBuild = [];
-    if (build.bestBuild) {
-        bestBuild = build.bestBuild;
+    $(".unitAttackElement div.elements label").removeClass("active");
+    if (build.innateElements) {
+        for (var i in build.innateElements) {
+            $(".unitAttackElement div.elements label:has(input[value=" + build.innateElements[i] + "])").addClass("active");
+        }
     }
-    bestEsper = null;
-    if (build.bestEsper) {
-        bestEsper = build.bestEsper;
+    
+    $(".goal option").prop("selected", false);
+    if (build.statToMaximize) {
+        $('.goal option[value="' + build.statToMaximize + '"]').prop("selected", true);
     }
+    $(".magicalSkillType option").prop("selected", false);
+    if (build.statToMaximize == "mag") {
+        if (build.mecanismType == "atk") {
+            $('.magicalSkillType option[value="physicalMagic"]').prop("selected", true);
+        } else {
+            $('.magicalSkillType option[value="normal"]').prop("selected", true);
+        }
+    }
+    onGoalChange();
+
+    updateUnitStats();
     logCurrentBuild();
+}
+
+function addNewUnit() {
+    $("#unitTabs li").removeClass("active");
+    $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
+    $("#addNewUnitButton").addClass("hidden");
+    builds.push({});
+    reinitBuild(builds.length - 1);
+    loadBuild(builds.length - 1);
+}
+
+function selectUnitTab(index) {
+    $("#unitTabs li").removeClass("active");
+    $("#unitTabs .tab_" + index).addClass("active");
+    loadBuild(index);
 }
 
 // Displays selected unit's rarity by stars
@@ -1006,23 +1054,7 @@ function onEquipmentsChange() {
         onlyUseOwnedItems = true;
     }
 }
-
-function addNewUnit() {
-    saveCurrentBuild();
-    $("#unitTabs li").removeClass("active");
-    $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
-    $("#addNewUnitButton").addClass("hidden");
-    builds.push({});
-    loadBuild(builds.length - 1);
-}
-
-function selectUnitTab(index) {
-    saveCurrentBuild();
-    $("#unitTabs li").removeClass("active");
-    $("#unitTabs .tab_" + index).addClass("active");
-    loadBuild(index);
-}
-            
+     
 $(function() {
     $.get(server + "/data.json", function(result) {
         rawData = result;
@@ -1047,6 +1079,8 @@ $(function() {
     $(".equipments select").change(onEquipmentsChange);
     
     $("#buildButton").click(build);
+    
+    builds[currentUnitIndex] = {};
     
     // Elements
 	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"]);
