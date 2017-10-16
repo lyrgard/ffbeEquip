@@ -133,7 +133,13 @@ function displayItemLine(item) {
     if (item.special && item.special.includes("twoHanded")) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
-    html += "<img src='img/" + item.type + ".png' class='main'></img></div>";
+    if (item.icon) {
+        html += "<img src='img/" + item.type + ".png' class='miniIcon topRight'></img>";
+        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";    
+    } else {
+        html += "<img src='img/" + item.type + ".png' class='main'></img></div>";
+    }
+    
 
     // name
     html += '<div class="td name"><div>' + toLink(item.name);
