@@ -85,6 +85,10 @@ ul {
 .miniIcon.left {
     margin-left: 1px;
 }
+.miniIcon.topRight {
+    margin-left: 55px;
+    margin-top: 55px;
+}
 .detail {
     text-transform: uppercase;
 }
@@ -203,6 +207,11 @@ body {
 
 .td.type img.main {
     width: 38px;
+    border-radius: 5px;
+}
+
+.td.type img.icon {
+    width: 64px;
     border-radius: 5px;
 }
 

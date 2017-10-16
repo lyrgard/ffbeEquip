@@ -196,6 +196,10 @@ function treatItem(items, itemId, result, skills) {
         itemOut.damageVariance = {"min":itemIn.dmg_variance[0],"max":itemIn.dmg_variance[1]};
     }
     
+    if (itemIn.icon) {
+        itemOut.icon = itemIn.icon;
+    }
+    
     if (!itemOut.access && oldItemsAccessByName[itemOut.name]) {
         for (var index in oldItemsAccessByName[itemOut.name]) {
             var access = oldItemsAccessByName[itemOut.name][index];
@@ -540,7 +544,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","trueDoubleHand","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","trueDoubleHand","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
