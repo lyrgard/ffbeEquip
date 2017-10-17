@@ -636,8 +636,13 @@ function getOwnedNumber(item) {
                     return 0;
                 }        
             }
-        } 
-        number = 4;
+        }
+        if (item.access.includes("trial")) {
+            number = 1;
+        } else {
+            number = 4;    
+        }
+        
 
     }
     if (!isStackable(item)) {
