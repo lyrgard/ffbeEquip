@@ -56,6 +56,7 @@ var ailmentsMap = {
     "Paralyze": "paralysis",
     "Confusion": "confuse",
     "Disease": "disease",
+    "Petrify": "petrification",
     "Death": "death"
 }
 
