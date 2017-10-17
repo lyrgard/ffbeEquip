@@ -680,6 +680,9 @@ $(function() {
 	addTextChoicesTo("additionalStat",'checkbox',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
 	
 	
+    
+    $("#results").addClass(server);
+    
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
     
@@ -688,6 +691,8 @@ $(function() {
             return "Unsaved change exists !"
         }
     });
+    
+    
 });
 
 function escapeQuote(string) {
