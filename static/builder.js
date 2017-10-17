@@ -600,6 +600,7 @@ function isTwoHanded(item) {
 }
 
 function hasInnateDualWield() {
+    var selectedUnit = builds[currentUnitIndex].selectedUnit;
     for (var index in selectedUnit.skills) {
         if (selectedUnit.skills[index].special && selectedUnit.skills[index].special.includes("dualWield")) {
             return true;
