@@ -122,7 +122,7 @@ function readGoal() {
         } else {
             builds[currentUnitIndex].mecanismType = "atk";
         }
-    } else if (goal == "spr" || goal == "def") {
+    } else if (goal == "spr" || goal == "def" || goal == "hp") {
         builds[currentUnitIndex].statToMaximize = goal;
         builds[currentUnitIndex].mecanismType = "def";
     }
@@ -600,6 +600,7 @@ function isTwoHanded(item) {
 }
 
 function hasInnateDualWield() {
+    var selectedUnit = builds[currentUnitIndex].selectedUnit;
     for (var index in selectedUnit.skills) {
         if (selectedUnit.skills[index].special && selectedUnit.skills[index].special.includes("dualWield")) {
             return true;
@@ -636,8 +637,13 @@ function getOwnedNumber(item) {
                     return 0;
                 }        
             }
-        } 
-        number = 4;
+        }
+        if (item.access.includes("trial")) {
+            number = 1;
+        } else {
+            number = 4;    
+        }
+        
 
     }
     if (!isStackable(item)) {
@@ -737,7 +743,7 @@ function calculateValue(equiped, esper) {
             var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         }
-    } else if ("def" == builds[currentUnitIndex].statToMaximize || "spr" == builds[currentUnitIndex].statToMaximize) {
+    } else if ("def" == builds[currentUnitIndex].statToMaximize || "spr" == builds[currentUnitIndex].statToMaximize || "hp" == builds[currentUnitIndex].statToMaximize) {
         return calculateStatValue(equiped, esper);
     }
 }
@@ -883,7 +889,7 @@ function logBuild(build, value, esper) {
         
         if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
             $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
-        } else if (builds[currentUnitIndex].statToMaximize == "def" || builds[currentUnitIndex].statToMaximize == "spr") {
+        } else if (builds[currentUnitIndex].statToMaximize == "def" || builds[currentUnitIndex].statToMaximize == "spr" || builds[currentUnitIndex].statToMaximize == "hp") {
             $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
         }
     }

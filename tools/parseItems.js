@@ -56,7 +56,8 @@ var ailmentsMap = {
     "Paralyze": "paralysis",
     "Confusion": "confuse",
     "Disease": "disease",
-    "Petrify": "petrification"
+    "Petrify": "petrification",
+    "Death": "death"
 }
 
 var elementsMap = {
@@ -279,7 +280,11 @@ function readSkills(itemIn, itemOut, skills) {
                         }            
                     }
                     if (effectsNotTreated.length > 0) {
-                        var special = "[" + skill.name + "]:"
+                        var special = "[" + skill.name;
+                        if (skill.icon) {
+                            special += "|" + skill.icon;
+                        }
+                        special += "]:"
                         var first = true;
                         for (var index in effectsNotTreated) {
                             if (first) {
@@ -471,7 +476,12 @@ function getSkillString(skill) {
         }
         effect += skill.effects[effectIndex];
     }
-    return "[" + skill.name + "]: " + effect;
+    var result = "[" + skill.name;
+    if (skill.icon) {
+        result += "|" + skill.icon;
+    }
+    result += "]: " + effect;
+    return result;
 }
 
 function addElementalResist(item, values) {
