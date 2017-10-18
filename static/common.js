@@ -16,7 +16,7 @@ var server = "GL";
 var baseStats = ['hp','mp','atk','def','mag','spr'];
 var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
-var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
+var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
 var killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
 var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
 var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
@@ -188,10 +188,10 @@ function displayItemLine(item) {
     }
     var special = "";
     if (item.special && item.special.includes("dualWield")) {
-        special += "<li>" + toHtml("[Dual Wield]") + "</li>";
+        special += "<li>" + toHtml("[Dual Wield|ability_72.png]") + "</li>";
     }
     if (item.partialDualWield) {
-        special += "<li>" + toHtml("[Dual Wield] of ")
+        special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
         for (var index in item.partialDualWield) {
             special += "<img src='img/" + item.partialDualWield[index] + ".png'></img>";
         }
@@ -257,7 +257,13 @@ var toHtml = function(text) {
     if (server == "GL") {
         var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
             var vWithoutBrace = v.substring(1, v.length - 1); 
-            return '<a href="'+ toUrl(vWithoutBrace) +'">'+vWithoutBrace+'</a>'; 
+            var token = vWithoutBrace.split("|");
+            var result = "";
+            if (token.length == 2) {
+                result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
+            }
+            result += '<a href="'+ toUrl(token[0]) +'">'+token[0] +'</a>'; 
+            return result;
         });
         return "<span>" + textWithAddedAnchors +"</span>";
     } else {
