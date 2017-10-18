@@ -713,7 +713,7 @@ function calculateValue(equiped, esper) {
         
         if (elements.length > 0) {
             for (var element in ennemyResist) {
-                if (equiped[0] && equiped[0].element && equiped[0].element == element || equiped[1] && equiped[1].element && equiped[1].element == element) {
+                if (elements.includes(element)) {
                     resistModifier += ennemyResist[element] / 100;
                 }
             }    
