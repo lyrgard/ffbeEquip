@@ -309,12 +309,10 @@ function buildTypeCombination(index, typeCombination, combinations) {
                 }
             }
             if (!found) {
-                typeCombination[index] = null;
-                buildTypeCombination(index+1, typeCombination, combinations);
+                tryType(index, typeCombination, null, combinations);
             }
         } else {
-            typeCombination[index] = null;
-            buildTypeCombination(index+1, typeCombination, combinations);
+            tryType(index, typeCombination, null, combinations);
         }
     }
 }
@@ -425,7 +423,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                 }
                 build[index] == null;
             } else {
-                findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);
+                tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems);
             }
         }
     }
