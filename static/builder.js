@@ -469,7 +469,12 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     tempResult.sort(function (entry1, entry2) {
         
         if (entry1.value == entry2.value2) {
-            return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
+            var defStatsCompare = compareDefense(entry1.item, entry2.item);
+            if (defStatsCompare == 0) {
+                return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
+            } else {
+                return defStatsCompare;
+            }
         } else {
             return entry2.value - entry1.value;
         }
@@ -510,7 +515,12 @@ function addConditionItems(itemsOfType, type, typeCombination) {
             value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
         }
         if (value1 == value2) {
-            return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
+            var defStatsCompare = compareDefense(entry1.item, entry2.item);
+            if (defStatsCompare == 0) {
+                return getOwnedNumber(entry2.item) - getOwnedNumber(entry1.item);
+            } else {
+                return defStatsCompare;
+            }
         } else {
             return value2 - value1;
         }
@@ -535,6 +545,23 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         result.push(tempResult[0].item);
     }
     
+    return result;
+}
+
+function compareDefense(item1, item2) {
+    var hpBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp;
+    var defBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def;
+    var sprBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr;
+
+    var valueItem1 = getStatValueIfExists(item1, "hp", hpBaseValue) + getStatValueIfExists(item1, "def", hpBaseValue) + getStatValueIfExists(item1, "spr", hpBaseValue);
+    var valueItem2 = getStatValueIfExists(item2, "hp", hpBaseValue) + getStatValueIfExists(item2, "def", hpBaseValue) + getStatValueIfExists(item2, "spr", hpBaseValue);
+    return valueItem2 - valueItem1;
+}
+
+function getStatValueIfExists(item, stat, baseStat) {
+    var result = 0;
+    if (item[stat]) result += item[stat];
+    if (item[stat + "%"]) result += item[stat + "%"] * baseStat;
     return result;
 }
 
