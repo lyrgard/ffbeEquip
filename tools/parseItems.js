@@ -73,7 +73,7 @@ var elementsMap = {
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
-var oldItemsAccessByName = {};
+var oldItemsAccessById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 
@@ -116,7 +116,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                 fs.readFile('../static/GL/data.json', function (err, content) {
                                     var oldItems = JSON.parse(content);
                                     for (var index in oldItems) {
-                                        oldItemsAccessByName[oldItems[index].name] = oldItems[index].access;
+                                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
                                     }
                                     
                                     fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
@@ -201,9 +201,9 @@ function treatItem(items, itemId, result, skills) {
         itemOut.icon = itemIn.icon;
     }
     
-    if (!itemOut.access && oldItemsAccessByName[itemOut.name]) {
-        for (var index in oldItemsAccessByName[itemOut.name]) {
-            var access = oldItemsAccessByName[itemOut.name][index];
+    if (!itemOut.access && oldItemsAccessById[itemOut.id]) {
+        for (var index in oldItemsAccessById[itemOut.id]) {
+            var access = oldItemsAccessById[itemOut.id][index];
             if (access != "not released yet") {
                 addAccess(itemOut, access);
             }
@@ -211,6 +211,9 @@ function treatItem(items, itemId, result, skills) {
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
+    }
+    if (!oldItemsAccessById[itemOut.id]) {
+        console.log("new item : " + itemOut.id + " - " + itemOut.name);
     }
 
     result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
