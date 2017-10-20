@@ -10,6 +10,8 @@ var saveNeeded = false;
 var onlyShowOwnedItems = false;
 var showNotReleasedYet = false;
 
+var saveTimeout;
+
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -481,6 +483,8 @@ function addToInventory(id, span) {
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
     }
     saveNeeded = true;
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    saveTimeout = setTimeout(saveInventory,3000);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -496,6 +500,8 @@ function removeFromInventory(id, span) {
             inventoryDiv.children(".number").text(itemInventory[id]);
         }
         saveNeeded = true;
+        if (saveTimeout) {clearTimeout(saveTimeout)}
+        saveTimeout = setTimeout(saveInventory,3000);
         $(".saveInventory").removeClass("hidden");
     }
 }
@@ -596,8 +602,11 @@ function populateUnitSelect() {
 }
 
 function saveInventory() {
+    if (saveTimeout) {clearTimeout(saveTimeout)}
     $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .buttons .loader").removeClass("hidden");
+    $("#inventoryDiv .loader").removeClass("hidden");
+    $("#inventoryDiv .message").addClass("hidden");
+    saveNeeded = false;
     $.ajax({
         url: server + '/itemInventory',
         method: 'PUT',
@@ -605,16 +614,16 @@ function saveInventory() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function() {
-            saveNeeded = false;
-            $("#inventoryDiv .buttons .loader").addClass("hidden");
-            $("#inventoryDiv .buttons .message").text("save OK");
-            $("#inventoryDiv .buttons .message").removeClass("hidden");
+            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv .message").text("save OK");
+            $("#inventoryDiv .message").removeClass("hidden");
             setTimeout( function(){ 
-                $("#inventoryDiv .buttons .message").addClass("hidden");
+                $("#inventoryDiv .message").addClass("hidden");
             }  , 3000 );
         },
         error: function() {
-            $("#inventoryDiv .buttons .loader").addClass("hidden");
+            saveNeeded = true;
+            $("#inventoryDiv .loader").addClass("hidden");
             $(".saveInventory").removeClass("hidden");
             alert('error while saving the inventory');
         }
