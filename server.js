@@ -174,6 +174,9 @@ function migrateFromNameToId(itemInventory) {
         itemIdByName["Defender (FFT)"] = "303002400";
         var newItemInventory = {};
         for (var index in itemInventory) {
+            if (index == "303003500") { // Turn Save the Queen back into Agrias TMR
+                newItemInventory["303001400"] = itemInventory[index];
+            }
             if (itemIdByName[index]) {
                 newItemInventory[itemIdByName[index]] = itemInventory[index];   
             } else {

@@ -635,9 +635,9 @@ function hasInnateDualWield() {
 }
 
 function getInnatePartialDualWield() {
-    for (var index in selectedUnit.skills) {
-        if (selectedUnit.skills[index].partialDualWield) {
-            return selectedUnit.skills[index].partialDualWield;
+    for (var index in builds[currentUnitIndex].selectedUnit.skills) {
+        if (builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield) {
+            return builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield;
         }
     }
     return null;
