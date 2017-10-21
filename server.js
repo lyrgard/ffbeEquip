@@ -172,11 +172,9 @@ function migrateFromNameToId(itemInventory) {
         itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
         itemIdByName["Imperial Helm (Item)"] = "404001100";
         itemIdByName["Defender (FFT)"] = "303002400";
+        itemIdByName["Save the Queen"] = "303001400";
         var newItemInventory = {};
         for (var index in itemInventory) {
-            if (index == "303003500") { // Turn Save the Queen back into Agrias TMR
-                newItemInventory["303001400"] = itemInventory[index];
-            }
             if (itemIdByName[index]) {
                 newItemInventory[itemIdByName[index]] = itemInventory[index];   
             } else {
@@ -184,6 +182,9 @@ function migrateFromNameToId(itemInventory) {
             }
         }
         return newItemInventory;
+    } else if (itemInventory.version == 2 && itemInventory["303003500"]) {
+        itemInventory["303001400"] = itemInventory["303003500"];
+        delete itemInventory["303003500"];
     }
     return itemInventory;
 }
