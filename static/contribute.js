@@ -93,7 +93,7 @@ function updateCurrentItemDisplay() {
     $(".currentItem .detail").html(getStatDetail(currentItem));
     var special = $(".currentItem .tbody .td.special");
     if (currentItem.element) {
-        $(".currentItem .special .elementChoice").prop("src", "img/" + currentItem.element + ".png");
+        $(".currentItem .special .elementChoice").prop("src", "img/" + currentItem.element[0] + ".png");
     } else {
         $(".currentItem .special .elementChoice").prop("src", "img/noElement.png");
     }
@@ -171,7 +171,7 @@ function selectType(type) {
 
 function selectElement(element) {
     if (element) {
-        currentItem.element = element;
+        currentItem.element = [element];
     } else {
         delete currentItem.element;
     }

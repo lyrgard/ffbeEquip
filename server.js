@@ -301,7 +301,11 @@ var schemaData = {
                     "magical":{"type": "number"},
                 }
             },
-            "element" : {"type": "string", "enum": ['fire','ice','lightning','water','earth','wind','light','dark']},
+            "element" : {
+                "type": "array",
+                "maxItems": 8,
+                "items": {"type": "string", "enum": ['fire','ice','lightning','water','earth','wind','light','dark']}
+            },
             "resist"  : {
                 "type": "array",
                 "maxItems": 16,

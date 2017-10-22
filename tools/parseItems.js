@@ -228,7 +228,10 @@ function readStats(itemIn, itemOut) {
             }    
         }
         if (itemIn.stats.element_inflict) {
-            itemOut.element = elementsMap[itemIn.stats.element_inflict[0]];
+            itemOut.element = [];
+            for (var elementIndex in itemIn.stats.element_inflict) {
+                itemOut.element.push(elementsMap[itemIn.stats.element_inflict[elementIndex]]);
+            }
         }
         if (itemIn.stats.element_resist) {
             itemOut.resist = [];
@@ -282,23 +285,7 @@ function readSkills(itemIn, itemOut, skills) {
                             }
                         }            
                     }
-                    if (effectsNotTreated.length > 0) {
-                        var special = "[" + skill.name;
-                        if (skill.icon) {
-                            special += "|" + skill.icon;
-                        }
-                        special += "]:"
-                        var first = true;
-                        for (var index in effectsNotTreated) {
-                            if (first) {
-                                first = false;
-                            } else {
-                                special += ", ";
-                            }
-                            special += skill.effects[effectsNotTreated[index]];
-                        }
-                        addSpecial(itemOut, special);
-                    }
+                    addNotTreatedEffects(itemOut, effectsNotTreated, skill);
                 }
             }
         }
@@ -324,6 +311,7 @@ function readSkills(itemIn, itemOut, skills) {
         }
         for (var restrictedIndex in restrictedSkills) {
             var skill = restrictedSkills[restrictedIndex];
+            var effectsNotTreated = [];
             var lenght = result.length;
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
                 var copy = JSON.parse(JSON.stringify(result[itemIndex]));
@@ -337,8 +325,11 @@ function readSkills(itemIn, itemOut, skills) {
                 if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    addEffectToItem(copy, skill, rawEffectIndex, skills);
+                    if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
+                        effectsNotTreated.push(rawEffectIndex);
+                    }
                 }
+                addNotTreatedEffects(copy, effectsNotTreated, skill);
                 result.push(copy);
             }
             if (emptyItem) {
@@ -353,8 +344,11 @@ function readSkills(itemIn, itemOut, skills) {
                 if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    addEffectToItem(copy, skill, rawEffectIndex, skills);
+                    if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
+                        effectsNotTreated.push(rawEffectIndex);
+                    }
                 }
+                addNotTreatedEffects(copy, effectsNotTreated, skill);
                 result.push(copy);
             }
         }
@@ -362,6 +356,26 @@ function readSkills(itemIn, itemOut, skills) {
         result.push(itemOut);
     }
     return result;
+}
+
+function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
+    if (effectsNotTreated.length > 0) {
+        var special = "[" + skill.name;
+        if (skill.icon) {
+            special += "|" + skill.icon;
+        }
+        special += "]:"
+        var first = true;
+        for (var index in effectsNotTreated) {
+            if (first) {
+                first = false;
+            } else {
+                special += ", ";
+            }
+            special += skill.effects[effectsNotTreated[index]];
+        }
+        addSpecial(itemOut, special);
+    }
 }
 
 function addEffectToItem(item, skill, rawEffectIndex, skills) {
