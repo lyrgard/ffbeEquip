@@ -443,7 +443,7 @@ function formatOutput(units) {
         result += "\n\t\t\"sex\":\"" + unit.sex + "\","
         result += "\n\t\t\"stats\": {";
         result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ","
-        result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots) + ","
+        result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
         result += "\n\t\t},";
         result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip) + ",";
         result += "\n\t\t\"skills\": [";
