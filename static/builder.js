@@ -578,7 +578,7 @@ function getDamageCoefLevel(item) {
     return damageCoefLevel;
 }
 
-getWeaponElementDamageCoef(weaponElements) {
+function getWeaponElementDamageCoef(weaponElements) {
     var value = 0;
     for (var elementIndex in weaponElements) {
         value += ennemyResist[weaponElements[elementIndex]];
