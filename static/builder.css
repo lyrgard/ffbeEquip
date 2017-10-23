@@ -65,3 +65,13 @@
 #buildButton {
     margin-right: 5px;
 }
+
+#fixItemModal .modal-header {
+    display: flex;
+    flex-direction: row;
+}
+
+#fixItemModal .type .dropdown-menu {
+    width: 268px;
+    padding: 5px;
+}

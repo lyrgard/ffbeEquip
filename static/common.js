@@ -334,10 +334,10 @@ function addTextChoicesTo(targetId, type, valueMap) {
 }
 
 // Add image choices to a filter.
-function addImageChoicesTo(targetId, valueList) {
+function addImageChoicesTo(targetId, valueList,type="checkbox",imagePrefix = "") {
 	var target = $("#" + targetId);
 	for (i = 0; i < valueList.length; i++) {
-		addImageChoiceTo(target, targetId, valueList[i]);
+		addImageChoiceTo(target, targetId, valueList[i], type, imagePrefix);
 	}
 }
 
@@ -347,8 +347,8 @@ function addTextChoiceTo(target, name, type, value, label) {
 }
 
 // Add one image choice to a filter
-function addImageChoiceTo(target, name, value) {
-	target.append('<label class="btn btn-default"><input type="checkbox" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+value+'.png"/></label>');
+function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
+	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+ imagePrefix + value+'.png"/></label>');
 }
 
 function loadInventory() {
