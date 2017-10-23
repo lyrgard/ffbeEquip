@@ -230,17 +230,6 @@ function readEnnemyResists() {
     }
 }
 
-function readEnnemyRaces() {
-    for(var element in ennemyResist) {
-        var value = $("#elementalResists td." + element + " input").val();
-        if (value) {
-            ennemyResist[element] = parseInt(value);
-        } else {
-            ennemyResist[element] = 0;
-        }
-    }
-}
-
 function optimize() {
     console.time("optimize");
     $("#buildProgressBar .progressBar").removeClass("finished");
@@ -576,7 +565,10 @@ function getDamageCoefLevel(item) {
         if (weaponList.includes(item.type)) {
             // only for weapons
             if ((item.element && ennemyResist[item.element] != 0)) {
-                damageCoefLevel += "element" + ennemyResist[item.element];
+                var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
+                if (weaponElementDamageCoef != 0) {
+                    damageCoefLevel += "element" + weaponElementDamageCoef;
+                }
             }
             if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
                 damageCoefLevel = "elementless";
@@ -584,6 +576,14 @@ function getDamageCoefLevel(item) {
         }
     }
     return damageCoefLevel;
+}
+
+function getWeaponElementDamageCoef(weaponElements) {
+    var value = 0;
+    for (var elementIndex in weaponElements) {
+        value += ennemyResist[weaponElements[elementIndex]];
+    }
+    return value / weaponElements.length;
 }
 
 function logAddConditionItems(data) {
@@ -635,9 +635,9 @@ function hasInnateDualWield() {
 }
 
 function getInnatePartialDualWield() {
-    for (var index in selectedUnit.skills) {
-        if (selectedUnit.skills[index].partialDualWield) {
-            return selectedUnit.skills[index].partialDualWield;
+    for (var index in builds[currentUnitIndex].selectedUnit.skills) {
+        if (builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield) {
+            return builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield;
         }
     }
     return null;
@@ -733,11 +733,19 @@ function calculateValue(equiped, esper) {
         // Element weakness/resistance
         var elements = builds[currentUnitIndex].innateElements.slice();
         if (useWeaponsElements) {
-            if (equiped[0] && equiped[0].element && !elements.includes(equiped[0].element)) {
-                elements.push(equiped[0].element);
+            if (equiped[0] && equiped[0].element) {
+                for (var elementIndex in equiped[0].element) {
+                    if (!elements.includes(equiped[0].element[elementIndex])) {
+                        elements.push(equiped[0].element[elementIndex]);       
+                    }
+                }
             };
-            if (equiped[1] && equiped[1].element && !elements.includes(equiped[1].element)) {
-                elements.push(equiped[1].element);
+            if (equiped[1] && equiped[1].element) {
+                for (var elementIndex in equiped[1].element) {
+                    if (!elements.includes(equiped[1].element[elementIndex])) {
+                        elements.push(equiped[1].element[elementIndex]);       
+                    }
+                }
             };
         }
         var resistModifier = 0;

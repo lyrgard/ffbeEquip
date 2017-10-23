@@ -172,6 +172,7 @@ function migrateFromNameToId(itemInventory) {
         itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
         itemIdByName["Imperial Helm (Item)"] = "404001100";
         itemIdByName["Defender (FFT)"] = "303002400";
+        itemIdByName["Save the Queen"] = "303001400";
         var newItemInventory = {};
         for (var index in itemInventory) {
             if (itemIdByName[index]) {
@@ -181,6 +182,9 @@ function migrateFromNameToId(itemInventory) {
             }
         }
         return newItemInventory;
+    } else if (itemInventory.version == 2 && itemInventory["303003500"]) {
+        itemInventory["303001400"] = itemInventory["303003500"];
+        delete itemInventory["303003500"];
     }
     return itemInventory;
 }
@@ -297,7 +301,11 @@ var schemaData = {
                     "magical":{"type": "number"},
                 }
             },
-            "element" : {"type": "string", "enum": ['fire','ice','lightning','water','earth','wind','light','dark']},
+            "element" : {
+                "type": "array",
+                "maxItems": 8,
+                "items": {"type": "string", "enum": ['fire','ice','lightning','water','earth','wind','light','dark']}
+            },
             "resist"  : {
                 "type": "array",
                 "maxItems": 16,

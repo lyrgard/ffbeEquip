@@ -25,8 +25,12 @@ var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
 
-function getElementHtml(element) {
-    return "<div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + element + ".png'></img></div>"
+function getElementHtml(elements) {
+    var html = "";
+    for (var index in elements) {
+        html += "<div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + elements[index] + ".png'></img></div>"
+    }
+    return html;
 }
 
 function getAilmentsHtml(item) {
