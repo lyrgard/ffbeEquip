@@ -158,7 +158,7 @@ var filter = function() {
         if (!onlyShowOwnedItems || itemInventory && itemInventory[item[getItemInventoryKey()]]) {
             if (showNotReleasedYet || !item.access.includes("not released yet")) {
                 if (types.length == 0 || types.includes(item.type)) {
-                    if (elements.length == 0 || elements.includes(item.element) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
+                    if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                         if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
                             if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
                                 if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
