@@ -180,6 +180,7 @@
                 <div class="result-tab-pane">
                     <div class="panel-body" style="padding:0;">
                         <div class="buildDiv">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#fixItemModal">Fix an item</button>
                             <button id="buildButton" class="btn btn-default">Build !</button>
                             <div id="buildProgressBar" class="progressBarDiv">
                                 <div class="progressBar">0%</div>
@@ -225,6 +226,29 @@
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="fixItemModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <input type="text" class="form-control" id="searchText">
+                        <div class="dropdown type">
+                            <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>    
+                            <div class="dropdown-menu">
+                            </div>
+                        </div> 
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is a large modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
