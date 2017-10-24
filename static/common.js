@@ -468,3 +468,235 @@ $(function() {
         $("#inventoryDiv .loader").addClass("hidden");
     });
 });
+
+// Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
+var filter = function(onlyShowOwnedItems = true, stat = "", searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
+    var result = [];
+    for (var index in data) {
+        var item = data[index];
+        if (!onlyShowOwnedItems || itemInventory && itemInventory[item[getItemInventoryKey()]]) {
+            if (showNotReleasedYet || !item.access.includes("not released yet")) {
+                if (types.length == 0 || types.includes(item.type)) {
+                    if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
+                        if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
+                            if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
+                                if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
+                                    if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
+                                        if (searchText.length == 0 || containsText(searchText, item)) {
+                                            if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
+                                                if (stat.length == 0 || hasStat(stat, item)) {
+                                                    calculateValue(item, stat, ailments, elements, killers);
+                                                    result.push(item);
+                                                }
+                                            }
+                                        }
+                                    }
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return result;
+};
+
+// If sort is required, this calculate the effective value of the requested stat, based on the unit stat for percentage increase.
+var calculateValue = function(item, stat, ailments, elements, killers) {
+    var calculatedValue = 0;
+    if (item[stat] && stat != "evade") {
+        calculatedValue = item[stat];
+    } 
+    if (item[stat + '%']) {
+        calculatedValue += item[stat+'%'] * baseStat / 100;
+    }
+    if (item[stat] && stat == "evade") {
+        if (item.evade.physical) {
+            calculatedValue = item.evade.physical;
+        }
+        if (item.evade.magical && item.evade.magical > calculatedValue) {
+            calculatedValue = item.evade.magical;
+        }
+    }
+    if (stat == 'inflict' && (item.ailments || item.killers)) {
+        var maxValue = 0;
+        $(item.ailments).each(function(index, ailment) {
+            if ((ailments.length == 0 || ailments.includes(ailment.name)) && ailment.percent > maxValue) {
+                maxValue = ailment.percent;
+            }
+        });
+        $(item.killers).each(function(index, killer) {
+            if ((killers.length == 0 || killers.includes(killer.name))) {
+                if (killer.physical > maxValue) {
+                    maxValue = killer.physical;
+                }
+                if (killer.magical > maxValue) {
+                    maxValue = killer.magical;
+                }
+            }
+        });
+        calculatedValue = maxValue;
+    }
+    if (stat == 'resist' && (item.resist)) {
+        var maxValue = 0;
+        $(item.resist).each(function(index, res) {
+            if (ailmentList.includes(res.name) && (ailments.length == 0 || ailments.includes(res.name)) && res.percent > maxValue) {
+                maxValue = res.percent;
+            }
+            if (elementList.includes(res.name) && (elements.length == 0 || elements.includes(res.name)) && res.percent > maxValue) {
+                maxValue = res.percent;
+            }
+        });
+        calculatedValue = maxValue;
+    }
+    item['calculatedValue'] = calculatedValue;
+};
+
+// Return true if the two arrays share at least one value
+var matches = function(array1, array2) {
+    var match = false;
+    $(array1).each(function(index, value) {
+        if (array2.includes(value)) {
+            match = true;
+        }
+    });
+    return match;
+};
+
+// Return true if the item is exclusive to something that does not matches the selected unit
+var exclusiveForbidAccess = function(item, selectedUnit) {
+    if (item.exclusiveSex && units[selectedUnit].sex != item.exclusiveSex) {
+        return true;
+    }
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit)) {
+        return true;
+    }
+    return false;
+}
+
+// Return true if the various fields of the items contains all the searched terms
+var containsText = function(text, item) {
+    
+    var result = true;
+    text.split(" ").forEach(function (token) {
+        result = result && item.searchString.match(new RegExp(escapeRegExp(token),'i'));
+    });
+    return result;
+};
+
+
+// Return true if the item has the required stat
+var hasStat = function(stat, item) {
+    return item[stat] || item[stat+'%'] || (stat == 'inflict' && (item.element || item.ailments || item.killers)) || (stat == 'resist' && item.resist);
+};
+
+// Return true if the item has all the required stats
+var hasStats = function(additionalStat, item) {
+    var match = true;
+    $(additionalStat).each(function(index, addStat) {
+        if (!item[addStat] && !item[addStat + '%']) {
+            match = false;
+        }
+    });
+    return match;
+};
+
+// Return true if the item has at least one access that is not forbidden by filters
+var haveAuthorizedAccess = function(forbiddenAccessList, item) {
+    var hasAccess = false;
+    if (forbiddenAccessList.includes("unitExclusive") && item.exclusiveUnits) {
+        return false;
+    }
+    $(item.access).each(function(index, itemAccess) {
+        hasAccess |= isAccessAllowed(forbiddenAccessList, itemAccess);
+    });
+    return hasAccess;
+};
+
+// Return true if one access is not forbidden by filters
+var isAccessAllowed = function(forbiddenAccessList, access) {
+    var accessAllowed = true;
+    $(forbiddenAccessList).each(function (index, accessToSplit) {
+        $(accessToSplit.split('/')).each(function(index, forbiddenAccess) {
+            if (access.startsWith(forbiddenAccess) || access.endsWith(forbiddenAccess)) {
+                accessAllowed = false;
+            }    
+        });
+    });
+    return accessAllowed;
+}
+
+// Escape RegExp special character if the user used them in his search
+function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function prepareSearch(data) {
+    for (var index in data) {
+        var item = data[index];
+        var textToSearch = item["name"];
+    
+        if (server == "JP") {
+            textToSearch += item["jpname"];
+        }
+
+        textToSearch += "|" + getStatDetail(item);
+        if (item["evade"]) {
+            if (item.evade.physical) {
+                textToSearch += "|" + "Evade physical " + item.evade.physical + "%";
+            }
+            if (item.evade.magical) {
+                textToSearch += "|" + "Evade magical " + item.evade.magical + "%";
+            }
+        }
+        if (item["resist"]) {
+            $(item["resist"]).each(function (index, resist) {
+                textToSearch += "|" + resist.name;
+            });
+        }
+        if (item["ailments"]) {
+            $(item["ailments"]).each(function (index, ailment) {
+                textToSearch += "|" + ailment.name;
+            });
+        }
+        if (item["exclusiveUnits"]) {
+            textToSearch += "|Only ";
+            var first = true;
+            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+                if (first) {
+                    first = false;
+                } else {
+                    textToSearch += ", ";
+                }
+                textToSearch += exclusiveUnit;
+            });
+        }
+        if (item["exclusiveSex"]) {
+            textToSearch += "|Only " + item["exclusiveSex"]; 
+        }
+        if (item["condition"]) {
+            textToSearch += "|Only " + item["condition"]; 
+        }
+        if (item["special"]) {
+            $(item["special"]).each(function (index, special) {
+                textToSearch += "|" + special;
+            });
+        }
+        if (item.doubleHand) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.doubleHand + "%) when single wielding";
+        }
+        if (item.killers) {
+            $(item["killers"]).each(function (index, killer) {
+                textToSearch += "|killer " + killer.name;
+            });
+        }
+        if (item["tmrUnit"]) {
+            textToSearch += "|" + item["tmrUnit"]; 
+        }
+        for (var index in item.access) {
+            textToSearch += "|" + item.access[index]; 
+        }
+        item.searchString = textToSearch;
+    }
+}

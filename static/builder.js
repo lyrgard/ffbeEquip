@@ -23,8 +23,7 @@ var attackTwiceWithDualWield = true;
 var inventory = {"byType":{},"byCondition":{}};
 var numberByType = {}
 
-var rawData;
-var data = {};
+var dataByType = {};
 var dataWithCondition = [];
 var dualWieldSources = [];
 var espers;
@@ -155,12 +154,12 @@ function prepareData(equipable) {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     
-    data = {};
+    dataByType = {};
     dataWithCondition = [];
     dualWieldSources = [];
     var tempData = {};
-    for (var index in rawData) {
-        var item = rawData[index];
+    for (var index in data) {
+        var item = data[index];
         if (getOwnedNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
                 dataWithCondition.push(item);
@@ -168,23 +167,23 @@ function prepareData(equipable) {
                 if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
                     dualWieldSources.push(item);
                 }
-                if (!data[item.type]) {
-                    data[item.type] = [];
+                if (!dataByType[item.type]) {
+                    dataByType[item.type] = [];
                 }
                 var statValue = calculateMaxValue(item);
                 var itemEntry = {"value":statValue, "item":item, "name":item.name};
-                data[item.type].push(itemEntry);
+                dataByType[item.type].push(itemEntry);
             }
         }
     }
     for (var typeIndex in typeList) {
         var type = typeList[typeIndex];
-        if (data[type]) {
-            data[type].sort(function (entry1, entry2) {
+        if (dataByType[type]) {
+            dataByType[type].sort(function (entry1, entry2) {
                 return entry2.value - entry1.value;
             });
         } else {
-            data[type] = [];  
+            dataByType[type] = [];  
         }
     }
 }
@@ -235,7 +234,7 @@ function optimize() {
     $("#buildProgressBar .progressBar").removeClass("finished");
     var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
-    buildTypeCombination(0,typeCombination, combinations);
+    buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice());
     
     var unitPartialDualWield = getInnatePartialDualWield();
     if (unitPartialDualWield) {
@@ -244,7 +243,7 @@ function optimize() {
         
         equipable[0] = unitPartialDualWield;
         equipable[1] = unitPartialDualWield;
-        buildTypeCombination(0,typeCombination,combinations);
+        buildTypeCombination(0,typeCombination,combinations, builds[currentUnitIndex].fixedItems.slice());
         
         equipable[0] = savedEquipable0;
         equipable[1] = savedEquipable1;
@@ -252,13 +251,12 @@ function optimize() {
     if (!hasInnateDualWield() && dualWieldSources.length > 0) {
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
-            var slot = 0;
-            if (item.type == "accessory") {
-                slot = 4;
-            } else if (item.type == "materia") {
-                slot = 6;
+            var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
+            if (slot == -1) {
+                continue;
             }
-            builds[currentUnitIndex].fixedItems[slot] = item;
+            var fixedItems = builds[currentUnitIndex].fixedItems.slice();
+            fixedItems[slot] = item;
             var savedEquipable0 = equipable[0];
             if (item.partialDualWield && slot == 0) {
                 equipable[0] = [item.type];
@@ -280,10 +278,66 @@ function optimize() {
     
     findBestBuildForCombinationAsync(0, combinations);
 }
+    
+function getFixedItemItemSlot(item, equipable, fixedItems) {
+    var slot = -1;
+    if (weaponList.includes(item.type)) {
+        if (fixedItems[0] && fixedItems[1]) {
+            return -1;
+        }
+        if (!fixedItems[0]) {
+            return 0;
+        } else {
+            if (equipable[1].includes(item.type)) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+    } else if (shieldList.includes(item.type)) {    
+        if (fixedItems[1]) {
+            return -1;
+        }
+        return 1;
+    } else if (headList.includes(item.type)) {    
+        if (fixedItems[2]) {
+            return -1;
+        }
+        return 2;
+    } else if (bodyList.includes(item.type)) {    
+        if (fixedItems[3]) {
+            return -1;
+        }
+        return 3;
+    } else if (item.type == "accessory") {
+        if (fixedItems[4] && fixedItems[5]) {
+            return -1;
+        }
+        if (!fixedItems[4]) {
+            return 4;
+        } else {
+            return 5;
+        }
+    } else if (item.type == "materia") {
+        if (fixedItems[6] && fixedItems[7] && fixedItems[8] && fixedItems[9]) {
+            return -1;
+        }
+        if (!fixedItems[6]) {
+            return 6;
+        } else if (!fixedItems[7]) {
+            return 7;
+        } else if (!fixedItems[8]) {
+            return 8;
+        } else {
+            return 9;
+        }
+    }
+    return slot;
+}
 
-function buildTypeCombination(index, typeCombination, combinations) {
-    if (builds[currentUnitIndex].fixedItems[index]) {
-        tryType(index, typeCombination, builds[currentUnitIndex].fixedItems[index].type, combinations);
+function buildTypeCombination(index, typeCombination, combinations, fixedItems) {
+    if (fixedItems[index]) {
+        tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems);
     } else {
         if (equipable[index].length > 0) {
             var found = false;
@@ -292,21 +346,21 @@ function buildTypeCombination(index, typeCombination, combinations) {
                 if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
                     continue;
                 }
-                if (data[type].length > 0) {
-                    tryType(index, typeCombination, type, combinations);
+                if (dataByType[type].length > 0) {
+                    tryType(index, typeCombination, type, combinations, fixedItems);
                     found = true;
                 }
             }
             if (!found) {
-                tryType(index, typeCombination, null, combinations);
+                tryType(index, typeCombination, null, combinations, fixedItems);
             }
         } else {
-            tryType(index, typeCombination, null, combinations);
+            tryType(index, typeCombination, null, combinations, fixedItems);
         }
     }
 }
 
-function tryType(index, typeCombination, type, combinations) {
+function tryType(index, typeCombination, type, combinations, fixedItems) {
     typeCombination[index] = type;
     if (index == 9) {
         build = [null, null, null, null, null, null, null, null, null, null];
@@ -314,12 +368,12 @@ function tryType(index, typeCombination, type, combinations) {
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
             if (typeCombination[slotIndex]) {
-                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(data[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
             }
         }
-        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":builds[currentUnitIndex].fixedItems.slice()});
+        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":fixedItems});
     } else {
-        buildTypeCombination(index+1, typeCombination, combinations);
+        buildTypeCombination(index+1, typeCombination, combinations, fixedItems);
     }
 }
 
@@ -399,7 +453,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                 }
                 for (var itemIndex = firstIndexToTry; itemIndex < dataWithConditionItems[typeCombination[index]].length; itemIndex++) {
                     var item = dataWithConditionItems[typeCombination[index]][itemIndex];
-                    if (canAddMoreOfThisItem(build, item, index)) {
+                    if (canAddMoreOfThisItem(build, item, index, fixedItems)) {
                         if (index == 1 && isTwoHanded(item)) {
                             continue;
                         }
@@ -594,7 +648,7 @@ function logAddConditionItems(data) {
     console.log(string);
 }
 
-function canAddMoreOfThisItem(build, item, currentIndex) {
+function canAddMoreOfThisItem(build, item, currentIndex, fixedItems) {
     var number = 0;
     for (var index = 0; index < currentIndex; index++) {
         if (build[index] && build[index].name == item.name) {
@@ -605,7 +659,7 @@ function canAddMoreOfThisItem(build, item, currentIndex) {
         }
     }
     for (var index = currentIndex + 1; index < 10; index++) {
-        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].name == item.name) {
+        if (fixedItems[index] && fixedItems[index].name == item.name) {
             if (!isStackable(item)) {
                 return false;
             }
@@ -880,7 +934,7 @@ function logCurrentBuild() {
 function logBuild(build, value, esper) {
     if (build.length == 0) {
         $("#resultStats").html("");
-        $("#results .tbody").html("");
+        $("#buildResult .tbody").html("");
         $(".imageLink").addClass("hidden");
         var progress = "0%";
         var progressElement = $("#buildProgressBar .progressBar");
@@ -889,24 +943,19 @@ function logBuild(build, value, esper) {
         progressElement.addClass("finished");
     } else {
         
-        var order = [0,1,2,3,4,5,6,7,8,9];
         var html = "";
-        for (var index = 0; index < order.length; index++) {
-            var item = build[order[index]];
+        for (var index in build) {
+            var item = build[index];
             if (item) {
-                html += '<div class="tr">';
-                html += displayItemLine(item);
-                html += "</div>";
+                html += getItemLine(item, index);
             }
         }
         if (esper) {
             var esperItem = getEsperItem(esper);
-            html += '<div class="tr">';
-            html += displayItemLine(esperItem);
-            html += "</div>";
+            html += getItemLine(esperItem);
         }
 
-        $("#results .tbody").html(html);
+        $("#buildResult .tbody").html(html);
         
         var hash = getBuildHash();
         $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
@@ -926,6 +975,40 @@ function logBuild(build, value, esper) {
             $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
         }
     }
+}
+
+function displayFixedItems(fixedItems) {
+    $("#resultStats").html("");
+    $(".imageLink").addClass("hidden");
+    var progress = "0%";
+    var progressElement = $("#buildProgressBar .progressBar");
+    progressElement.width(progress);
+    progressElement.text(progress);
+    progressElement.addClass("finished");
+    
+    var html = "";
+    for (var index in fixedItems) {
+        var item = fixedItems[index];
+        if (item) {
+            html += getItemLine(item, index);
+        }
+    }
+    
+    $("#buildResult .tbody").html(html);
+    $("#resultStats").html("<h4>Fixed items :</h4>");
+}
+
+function getItemLine(item, index) {
+    var html = "";
+    html += '<div class="tr">';
+    if (index && builds[currentUnitIndex].fixedItems[index]) {
+        html += '<div class="td fixed" onclick="removeFixedItemAt(\'' + index +'\')"><img class="" src="img/pin.png"></img></div>'
+    } else {
+        html += '<div class="td"></div>'
+    }
+    html += displayItemLine(item);
+    html += "</div>";
+    return html;
 }
 
 function getEsperItem(esper) {
@@ -1094,9 +1177,58 @@ function onEquipmentsChange() {
     }
 }
      
+function updateSearchResult() {
+    var searchText = $("#searchText").val();
+    if (searchText == null || searchText == "") {
+        $("#fixItemModal .results .tbody").html("");    
+        return;
+    }
+    displaySearchResults(filter(true, "", searchText, builds[currentUnitIndex].selectedUnitName))
+}
+
+function fixItem(key) {
+    var item;
+    for (var index in data) {
+        if (data[index][itemKey] == key) {
+            item = data[index];
+            break;
+        }
+    }
+    if (item) {
+        prepareEquipable();
+        var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
+        if (slot == -1) {
+            alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+        } else {
+            builds[currentUnitIndex].fixedItems[slot] = item;
+            displayFixedItems(builds[currentUnitIndex].fixedItems);
+        }
+    }
+}
+
+function removeFixedItemAt(index) {
+    builds[currentUnitIndex].fixedItems[index] = null;
+    displayFixedItems(builds[currentUnitIndex].fixedItems);
+}
+
+var displaySearchResults = function(items) {
+    var html = "";
+    for (var index in items) {
+        var item = items[index];
+        if (item) {
+            html += '<div class="tr selectable" onclick="fixItem(\'' + item[itemKey] + '\')">';
+            html += displayItemLine(item);
+            html += "</div>";
+        }
+    }
+    
+    $("#fixItemModal .results .tbody").html(html);
+}
+
 $(function() {
     $.get(server + "/data.json", function(result) {
-        rawData = result;
+        data = result;
+        prepareSearch(data);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -1127,11 +1259,23 @@ $(function() {
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
     populateItemType();
+    populateItemStat();
+    
+    // Triggers on search text box change
+    $("#searchText").on("input", $.debounce(300,updateSearchResult));
 });
 
 function populateItemType() {
     var target = $("#fixItemModal .type .dropdown-menu");
 	for (var key in typeList) {
         target.append('<img src="img/' + typeList[key] + '.png" onclick="selectType(\'' + typeList[key] + '\');" class="btn btn-default"/>');
+	}
+}
+
+function populateItemStat() {
+    var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
+    var target = $("#fixItemModal .stat .dropdown-menu");
+	for (var key in statList) {
+        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectType(\'' + typeList[key] + '\');" class="btn btn-default"/>');
 	}
 }
