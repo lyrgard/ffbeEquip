@@ -181,7 +181,7 @@
                     <div class="panel-body" style="padding:0;">
                         <div class="buildDiv">
                             <button class="btn btn-default" data-toggle="modal" data-target="#fixItemModal">Fix an item</button>
-                            <button id="buildButton" class="btn btn-default">Build !</button>
+                            <button id="buildButton" class="btn btn-primary">Build !</button>
                             <div id="buildProgressBar" class="progressBarDiv">
                                 <div class="progressBar">0%</div>
                             </div>
@@ -190,9 +190,10 @@
                         <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
                         <div id="resultStats">
                         </div>
-                        <div id="results" class="table notSorted items">
+                        <div id="buildResult" class="table notSorted items results">
 							<div class="thead">
                                 <div class="tr">
+                                    <div class="td fixed"></div>
                                     <div class="td type">&nbsp;</div>
                                     <div class="td name">Name</div>
                                     <div id="statTitle" class="td value sort">Value</div>
@@ -236,11 +237,30 @@
                             <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>    
                             <div class="dropdown-menu">
                             </div>
+                        </div>
+                        <div class="dropdown stat">
+                            <img src="img/sort-a-z.png" class="dropdown-toggle statChoice" type="button" data-toggle="dropdown"/>    
+                            <div class="dropdown-menu">
+                            </div>
                         </div> 
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>This is a large modal.</p>
+                        <div id="results" class="table notSorted items results">
+							<div class="thead">
+                                <div class="tr">
+                                    <div class="td type">&nbsp;</div>
+                                    <div class="td name">Name</div>
+                                    <div id="statTitle" class="td value sort">Value</div>
+                                    <div class="td special">Special</div>
+									<div class="td access">Access</div>
+                                    <div class="td inventory"></div>
+                                </div>
+                            </div>
+                            <div class="tbody">
+
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

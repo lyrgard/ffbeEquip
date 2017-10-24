@@ -64,6 +64,7 @@
 
 #buildButton {
     margin-right: 5px;
+    margin-left: 5px;
 }
 
 #fixItemModal .modal-header {
@@ -74,4 +75,51 @@
 #fixItemModal .type .dropdown-menu {
     width: 268px;
     padding: 5px;
+}
+
+
+#fixItemModal .stat .dropdown-menu {
+    width: 204px;
+    padding: 5px;
+}
+
+#fixItemModal .modal-body {
+    padding:0;
+}
+
+#fixItemModal .results .tr.selectable:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.td.fixed:hover {
+    cursor: pointer;
+}
+
+.td.fixed img {
+    width: 20px;
+}
+
+.td.fixed img {
+    position: relative;
+}
+
+.td.fixed:hover img {
+    animation-name: unpin;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes unpin {
+    from {
+        top: 0;
+        left: 0;
+        transform: rotate(0);
+    }
+    to {
+        top: -5px;
+        left: 5px;
+        transform: rotate(-15deg);
+    }
 }
