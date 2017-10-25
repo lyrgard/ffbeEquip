@@ -36,7 +36,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayItems(sort(filter(onlyShowOwnedItems, stat, searchText, selectedUnit, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
+    displayItems(sort(filter(onlyShowOwnedItems, stat, baseStat, searchText, selectedUnit, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -144,23 +144,6 @@ var modifyFilterSummary = function() {
     }
     $("#filterSummary").html(html);
 }
-
-// Sort by calculated value (will be 0 if not sort is asked) then by name
-var sort = function(items) {
-    return items.sort(function (item1, item2){
-		if (item2.calculatedValue == item1.calculatedValue) {
-            var typeIndex1 = typeList.indexOf(item1.type);
-            var typeIndex2 = typeList.indexOf(item2.type);
-            if (typeIndex1 == typeIndex2) {
-                return item1.name.localeCompare(item2.name);
-            } else {
-                return typeIndex1 - typeIndex2;
-            }
-		} else {
-			return item2.calculatedValue - item1.calculatedValue;
-		}
-    });
-};
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {

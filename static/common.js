@@ -470,7 +470,7 @@ $(function() {
 });
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(onlyShowOwnedItems = true, stat = "", searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
+var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
     var result = [];
     for (var index in data) {
         var item = data[index];
@@ -485,7 +485,7 @@ var filter = function(onlyShowOwnedItems = true, stat = "", searchText = "", sel
                                         if (searchText.length == 0 || containsText(searchText, item)) {
                                             if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
                                                 if (stat.length == 0 || hasStat(stat, item)) {
-                                                    calculateValue(item, stat, ailments, elements, killers);
+                                                    calculateValue(item, selectedUnit, stat, ailments, elements, killers);
                                                     result.push(item);
                                                 }
                                             }
@@ -502,8 +502,25 @@ var filter = function(onlyShowOwnedItems = true, stat = "", searchText = "", sel
     return result;
 };
 
+// Sort by calculated value (will be 0 if not sort is asked) then by name
+var sort = function(items) {
+    return items.sort(function (item1, item2){
+		if (item2.calculatedValue == item1.calculatedValue) {
+            var typeIndex1 = typeList.indexOf(item1.type);
+            var typeIndex2 = typeList.indexOf(item2.type);
+            if (typeIndex1 == typeIndex2) {
+                return item1.name.localeCompare(item2.name);
+            } else {
+                return typeIndex1 - typeIndex2;
+            }
+		} else {
+			return item2.calculatedValue - item1.calculatedValue;
+		}
+    });
+};
+
 // If sort is required, this calculate the effective value of the requested stat, based on the unit stat for percentage increase.
-var calculateValue = function(item, stat, ailments, elements, killers) {
+var calculateValue = function(item, baseStat, stat, ailments, elements, killers) {
     var calculatedValue = 0;
     if (item[stat] && stat != "evade") {
         calculatedValue = item[stat];

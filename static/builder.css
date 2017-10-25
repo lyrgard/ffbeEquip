@@ -92,6 +92,19 @@
     background-color: antiquewhite;
 }
 
+#fixItemModal .modal-header .type {
+    margin-left: 10px;
+}
+#fixItemModal .modal-header .stat {
+    margin-left: 10px;
+    margin-right: 50px
+}
+#fixItemModal .modal-header .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 .td.fixed:hover {
     cursor: pointer;
 }

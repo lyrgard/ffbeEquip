@@ -54,6 +54,9 @@ var alreadyUsedEspers = [];
 
 var itemKey = getItemInventoryKey();
 
+var searchType = [];
+var searchStat = "";
+
 function build() {
     $(".imageLink").addClass("hidden");
     $(".calculatorLink").addClass("hidden");
@@ -268,7 +271,7 @@ function optimize() {
             } else {
                 equipable[1] = equipable[0];
             }
-            buildTypeCombination(0,typeCombination,combinations);
+            buildTypeCombination(0,typeCombination,combinations,fixedItems);
             builds[currentUnitIndex].fixedItems[slot] = null;
             equipable[0] = savedEquipable0;
         }
@@ -477,7 +480,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     if (index == 9) {
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
-            var value = calculateValue(build, selectedEspers[esperIndex]);
+            var value = calculateBuildValue(build, selectedEspers[esperIndex]);
             if (builds[currentUnitIndex].bestValue == null || value.total > builds[currentUnitIndex].bestValue.total) {
                 builds[currentUnitIndex].bestBuild = build.slice();
                 builds[currentUnitIndex].bestValue = value;
@@ -763,7 +766,7 @@ function calculateMaxValue(item) {
     return calculatedValue;
 }
 
-function calculateValue(equiped, esper) {
+function calculateBuildValue(equiped, esper) {
     if ("atk" == builds[currentUnitIndex].statToMaximize || "mag" == builds[currentUnitIndex].statToMaximize) {
         var calculatedValue = calculateStatValue(equiped, esper);
         
@@ -1179,11 +1182,47 @@ function onEquipmentsChange() {
      
 function updateSearchResult() {
     var searchText = $("#searchText").val();
-    if (searchText == null || searchText == "") {
+    if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
         $("#fixItemModal .results .tbody").html("");    
         return;
     }
-    displaySearchResults(filter(true, "", searchText, builds[currentUnitIndex].selectedUnitName))
+    var types = searchType;
+    if (searchType.length == 0) {
+        types = builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]);
+    }
+    var baseStat = builds[currentUnitIndex].selectedUnit.stats.maxStats[searchStat] + builds[currentUnitIndex].selectedUnit.stats.pots[searchStat];
+    displaySearchResults(sort(filter(true, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types)));
+    
+    if (searchStat == "") {
+        $("#fixItemModal .results").addClass("notSorted");
+    } else {
+        $("#fixItemModal .results .thead .sort").text(searchStat.toUpperCase());    
+        $("#fixItemModal .results").removeClass("notSorted");
+    }
+    
+    $("#fixItemModal .results .tbody").unmark({
+        done: function() {
+            if (searchText && searchText.length != 0) {
+                searchText.split(" ").forEach(function (token) {
+                    $("#fixItemModal .results .tbody").mark(token);
+                });
+            }
+        }
+    });
+}
+
+function displayFixItemModal() {
+    if (!builds[currentUnitIndex].selectedUnit) {
+        alert("Please select an unit");
+        return;
+    }
+    $("#searchText").val("");
+    $("#fixItemModal .results .tbody").html("");
+    populateItemType(builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]));
+    $("#fixItemModal").modal();
+    selectSearchStat(null);
+    selectSearchType(null);
+    updateSearchResult();
 }
 
 function fixItem(key) {
@@ -1209,6 +1248,28 @@ function fixItem(key) {
 function removeFixedItemAt(index) {
     builds[currentUnitIndex].fixedItems[index] = null;
     displayFixedItems(builds[currentUnitIndex].fixedItems);
+}
+
+function selectSearchType(type) {
+    if (!type || searchType.includes(type)) {
+        searchType = [];
+        $("#fixItemModal .modal-header .type .dropdown-toggle").prop("src","img/unknownType.png");
+    } else {
+        searchType = [type];
+        $("#fixItemModal .modal-header .type .dropdown-toggle").prop("src","img/" + type + ".png");
+    }
+    updateSearchResult();
+}
+
+function selectSearchStat(stat) {
+    if (!stat || searchStat == stat) {
+        searchStat = "";
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-a-z.png");
+    } else {
+        searchStat = stat;
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-" + stat + ".png");
+    }
+    updateSearchResult();
 }
 
 var displaySearchResults = function(items) {
@@ -1258,17 +1319,17 @@ $(function() {
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
-    populateItemType();
     populateItemStat();
     
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateSearchResult));
 });
 
-function populateItemType() {
+function populateItemType(equip) {
     var target = $("#fixItemModal .type .dropdown-menu");
-	for (var key in typeList) {
-        target.append('<img src="img/' + typeList[key] + '.png" onclick="selectType(\'' + typeList[key] + '\');" class="btn btn-default"/>');
+    target.html("");
+	for (var key in equip) {
+        target.append('<img src="img/' + equip[key] + '.png" onclick="selectSearchType(\'' + equip[key] + '\');" class="btn btn-default"/>');
 	}
 }
 
@@ -1276,6 +1337,6 @@ function populateItemStat() {
     var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
     var target = $("#fixItemModal .stat .dropdown-menu");
 	for (var key in statList) {
-        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectType(\'' + typeList[key] + '\');" class="btn btn-default"/>');
+        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');" class="btn btn-default"/>');
 	}
 }
