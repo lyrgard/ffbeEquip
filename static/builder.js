@@ -101,6 +101,19 @@ function calculateAlreadyUsedItems() {
                         }
                     }
                 }
+            } else {
+                for (var index in builds[i].fixedItems) {
+                    if (builds[i].fixedItems[index]) {
+                        var item = builds[i].fixedItems[index];
+                        if (item) {
+                            if (alreadyUsedItems[item[itemKey]]) {
+                                alreadyUsedItems[item[itemKey]]++;
+                            } else {
+                                alreadyUsedItems[item[itemKey]] = 1;
+                            }
+                        }   
+                    }
+                }
             }
             if (builds[i].bestEsper) {
                 alreadyUsedEspers.push(builds[i].bestEsper.name);
@@ -1111,7 +1124,20 @@ function loadBuild(buildIndex) {
     onGoalChange();
 
     updateUnitStats();
-    logCurrentBuild();
+    if ((build.bestBuild == null || build.bestBuild.length == 0)) {
+        var foundFixedItem = false;
+        for (var index in build.fixedItems) {
+            if (build.fixedItems[index]) {
+                foundFixedItem = true;
+                break;
+            }
+        }
+        if (foundFixedItem) {
+            displayFixedItems(build.fixedItems);
+        }
+    } else {
+        logCurrentBuild();    
+    }
 }
 
 function addNewUnit() {
@@ -1191,7 +1217,8 @@ function updateSearchResult() {
         types = builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]);
     }
     var baseStat = builds[currentUnitIndex].selectedUnit.stats.maxStats[searchStat] + builds[currentUnitIndex].selectedUnit.stats.pots[searchStat];
-    displaySearchResults(sort(filter(true, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types)));
+    accessToRemove = [];
+    displaySearchResults(sort(filter(onlyUseOwnedItems, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -1241,6 +1268,9 @@ function fixItem(key) {
         } else {
             builds[currentUnitIndex].fixedItems[slot] = item;
             displayFixedItems(builds[currentUnitIndex].fixedItems);
+            builds[currentUnitIndex].bestBuild = [];
+            builds[currentUnitIndex].bestValue = null;
+            builds[currentUnitIndex].bestEsper = null;
         }
     }
 }
@@ -1248,6 +1278,9 @@ function fixItem(key) {
 function removeFixedItemAt(index) {
     builds[currentUnitIndex].fixedItems[index] = null;
     displayFixedItems(builds[currentUnitIndex].fixedItems);
+    builds[currentUnitIndex].bestBuild = [];
+    builds[currentUnitIndex].bestValue = null;
+    builds[currentUnitIndex].bestEsper = null;
 }
 
 function selectSearchType(type) {
