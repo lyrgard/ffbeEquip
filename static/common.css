@@ -84,10 +84,6 @@ ul {
     margin-left: 0;
     margin-right: 5px;
 }
-.specialImg {
-    margin-bottom: 5px;
-    text-transform: capitalize;
-}
 .miniIcon.left {
     margin-top: 30px;
     margin-left: 5px;
@@ -285,4 +281,26 @@ body {
 
 #results.JP .type {
     display: none;
+}
+
+.specialValueGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.specialValueItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2px;
+}
+.specialImg {
+    display: flex;
+    justify-content: center;
+}
+.specialValue {
+    text-align: center;
+    text-transform: capitalize;
 }
