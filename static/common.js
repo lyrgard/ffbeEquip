@@ -26,37 +26,41 @@ var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
 
 function getElementHtml(elements) {
-    var html = "";
+    var html = "<div class='specialValueGroup'>";
     for (var index in elements) {
-        html += "<div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + elements[index] + ".png'></img></div>"
+        html += "<div class='specialValueItem'><div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + elements[index] + ".png'></img></div></div>"
     }
+    html += "</div>"
     return html;
 }
 
 function getAilmentsHtml(item) {
-    var html = "";
+    var html = "<div class='specialValueGroup'>";
     $(item.ailments).each(function(index, ailment) {
-        html += "<div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img>" + ailment.percent + "%</div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img></div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
+    html += "</div>"
     return html;
 }
 function getResistHtml(item) {
-    var html = "";
+    var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
-        html += "<div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img>" + resist.percent + "%</div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img></div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
+    html += "</div>"
     return html;
 }
 function getKillersHtml(item) {
-    var html = "";
+    var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.physical + "%</div>";    
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";    
         }
         if (killer.magical) {
-            html += "<div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img>" + killer.name + " " + killer.magical + "%</div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
+    html += "</div>"
     return html;
 }
 function getExclusiveUnitsHtml(item) {
