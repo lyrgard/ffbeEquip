@@ -90,7 +90,7 @@ function calculateAlreadyUsedItems() {
     for (var i in builds) {
         if (i != currentUnitIndex) {
             var build = builds[i].bestBuild;
-            if (build.length != 0) {
+            if (build && build.length != 0) {
                 for (var j in build) {
                     var item = build[j];
                     if (item) {
@@ -428,12 +428,6 @@ function findBestBuildForCombinationAsync(index, combinations) {
         logCurrentBuild();
         progressElement.addClass("finished");
         console.timeEnd("optimize");
-        
-        //$(".calculatorLink").removeClass("hidden");
-        
-        if (builds.length < 5) {
-            $("#addNewUnitButton").removeClass("hidden");
-        }
     }
 }
 
@@ -1143,10 +1137,12 @@ function loadBuild(buildIndex) {
 function addNewUnit() {
     $("#unitTabs li").removeClass("active");
     $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
-    $("#addNewUnitButton").addClass("hidden");
     builds.push({});
     reinitBuild(builds.length - 1);
     loadBuild(builds.length - 1);
+    if (builds.length > 4) {
+        $("#addNewUnitButton").addClass("hidden");
+    }
 }
 
 function selectUnitTab(index) {
@@ -1265,6 +1261,7 @@ function fixItem(key) {
         var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
         if (slot == -1) {
             alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+            return;
         } else {
             builds[currentUnitIndex].fixedItems[slot] = item;
             displayFixedItems(builds[currentUnitIndex].fixedItems);
@@ -1273,6 +1270,7 @@ function fixItem(key) {
             builds[currentUnitIndex].bestEsper = null;
         }
     }
+    $('#fixItemModal').modal('hide');
 }
 
 function removeFixedItemAt(index) {
@@ -1356,6 +1354,9 @@ $(function() {
     
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateSearchResult));
+    $('#fixItemModal').on('shown.bs.modal', function () {
+        $('#searchText').focus();
+    })  
 });
 
 function populateItemType(equip) {
