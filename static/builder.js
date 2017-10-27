@@ -1,3 +1,5 @@
+var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
+
 var goals = {
     "atk":{
         "useWeaponsElements":true,
@@ -660,12 +662,17 @@ function logAddConditionItems(data) {
 
 function canAddMoreOfThisItem(build, item, currentIndex, fixedItems) {
     var number = 0;
+    var isAdventurer = adventurerIds.includes(item.id);
     for (var index = 0; index < currentIndex; index++) {
         if (build[index] && build[index].name == item.name) {
             if (!isStackable(item)) {
                 return false;
             }
             number++;
+        }
+        // Manage Adventurers not stackable 
+        if (build[index] && isAdventurer && adventurerIds.includes(build[index].id)) {
+            return false;
         }
     }
     for (var index = currentIndex + 1; index < 10; index++) {
@@ -674,6 +681,10 @@ function canAddMoreOfThisItem(build, item, currentIndex, fixedItems) {
                 return false;
             }
             number++;
+        }
+        // Manage Adventurers not stackable 
+        if (fixedItems[index] && isAdventurer && adventurerIds.includes(fixedItems[index].id)) {
+            return false;
         }
     }
     return getOwnedNumber(item) > number;
@@ -1140,7 +1151,7 @@ function addNewUnit() {
     builds.push({});
     reinitBuild(builds.length - 1);
     loadBuild(builds.length - 1);
-    if (builds.length > 4) {
+    if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
     }
 }
