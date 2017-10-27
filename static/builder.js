@@ -131,7 +131,7 @@ function readGoal() {
         builds[currentUnitIndex].mecanismType = "atk";
     } else if (goal == "mag") {
         builds[currentUnitIndex].statToMaximize = goal;
-        var attackType = $(".magicalSkillType input").val();
+        var attackType = $(".magicalSkillType select").val();
         if (attackType == "normal") {
             builds[currentUnitIndex].mecanismType = "mag";
         } else {
