@@ -706,6 +706,11 @@ function hasInnateDualWield() {
             return true;
         }
     }
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].special && builds[currentUnitIndex].fixedItems[index].special.includes("dualWield")) {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -713,6 +718,11 @@ function getInnatePartialDualWield() {
     for (var index in builds[currentUnitIndex].selectedUnit.skills) {
         if (builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield) {
             return builds[currentUnitIndex].selectedUnit.skills[index].partialDualWield;
+        }
+    }
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].partialDualWield) {
+            return builds[currentUnitIndex].fixedItems[index].partialDualWield;
         }
     }
     return null;
