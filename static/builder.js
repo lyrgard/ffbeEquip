@@ -932,7 +932,7 @@ function calculateBuildValue(equiped, esper) {
     }
 }
 
-function getEquipmentStatBonus(equiped) {
+function getEquipmentStatBonus(equiped, stat) {
     if (equiped[0] && !equiped[1] && weaponList.includes(equiped[0].type)) {
         var bonus = 1;
         var twoHanded = isTwoHanded(equiped[0]);
@@ -940,11 +940,11 @@ function getEquipmentStatBonus(equiped) {
         for (var index in itemAndPassives) {
             var item = itemAndPassives[index];
             if (item) {
-                if (item.singleWielding && item.singleWielding[builds[currentUnitIndex].statToMaximize]) {
-                    bonus += item.singleWielding[builds[currentUnitIndex].statToMaximize] / 100;
+                if (item.singleWielding && item.singleWielding[stat]) {
+                    bonus += item.singleWielding[stat] / 100;
                 }
-                if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[builds[currentUnitIndex].statToMaximize]) {
-                    bonus += item.singleWieldingOneHanded[builds[currentUnitIndex].statToMaximize] / 100;
+                if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat]) {
+                    bonus += item.singleWieldingOneHanded[stat] / 100;
                 }
             }
         }
@@ -955,7 +955,7 @@ function getEquipmentStatBonus(equiped) {
 }
 
 function calculateStatValue(equiped, esper, stat) {
-    var equipmentStatBonus = getEquipmentStatBonus(equiped);
+    var equipmentStatBonus = getEquipmentStatBonus(equiped, stat);
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
     var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat];
