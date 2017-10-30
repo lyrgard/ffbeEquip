@@ -108,6 +108,20 @@
     top: 10px;
 }
 
+#fixItemModal.notLoggedIn .inventory {
+    display: none;
+}
+
+#fixItemModal .inventory .badge {
+    background-color: green;
+    color: white;
+}
+
+#fixItemModal .inventory .badge.notEnough {
+    background-color: red;
+    color: white;
+}
+
 .td.fixed:hover {
     cursor: pointer;
 }
@@ -138,4 +152,35 @@
         left: 5px;
         transform: rotate(-15deg);
     }
+}
+
+#resultStats {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#resultStats .stat {
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+#resultStats .value {
+    font-weight: 100;
+}
+
+#resultStats .statToMaximize .value {
+    font-weight: bold;
+}
+
+#resultStats .bonus {
+    color: #999999;
+}
+
+#fixedItemsTitle {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 10px;
 }
