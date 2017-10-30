@@ -216,8 +216,19 @@ function displayItemLine(item) {
             special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";    
         }
     }
-    if (item.doubleHand) {
-        special += "<li>Increase equipment ATK (" + item.doubleHand + "%) when single wielding</li>";
+    if (item.singleWielding) {
+        for (var index in baseStats) {
+            if (item.singleWielding[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWielding[baseStats[index]] + "%) when single wielding</li>";    
+            }
+        }
+    }
+    if (item.singleWieldingOneHanded) {
+        for (var index in baseStats) {
+            if (item.singleWieldingOneHanded[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon</li>";    
+            }
+        }
     }
 
     if (item.accuracy) {
@@ -704,8 +715,11 @@ function prepareSearch(data) {
                 textToSearch += "|" + special;
             });
         }
-        if (item.doubleHand) {
-            textToSearch += "|" + "Increase equipment ATK (" + item.doubleHand + "%) when single wielding";
+        if (item.singleWielding) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.singleWielding["atk"] + "%) when single wielding";
+        }
+        if (item.singleWieldingOneHanded) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingOneHanded["atk"] + "%) when single wielding a one-handed weapon";
         }
         if (item.killers) {
             $(item["killers"]).each(function (index, killer) {

@@ -136,8 +136,8 @@ function updateCurrentItemDisplay() {
         $(".currentItem .type .twoHanded").addClass("hidden");
         $(".currentItem .type .notStackable").addClass("hidden");
     }
-    if (currentItem.doubleHand) {
-        specialList += "<li>Increase equipment ATK (" + currentItem.doubleHand + "%) when single wielding</li>";
+    if (currentItem.singleWieldingOneHanded ) {
+        specialList += "<li>Increase equipment ATK (" + currentItem.singleWieldingOneHanded.atk + "%) when single wielding</li>";
     }
     if (specialList != "") {
         otherSpecials.append("<ul>" + specialList + "</ul>");
@@ -313,7 +313,8 @@ function validateAddForm() {
         currentItem.evade.magical = parseInt(value);
     } else if (currentAddFormProperty == "doubleHand") {
         if (isNaN(parseInt(value))) { alert("please enter an number"); return;}
-        currentItem.doubleHand = parseInt(value);
+        if (!currentItem.singleWieldingOneHanded) {currentItem.singleWieldingOneHanded = {}};
+        currentItem.currentItem.singleWieldingOneHanded.atk = parseInt(value);
     }
     currentAddFormProperty = null;
     hideAddForm();

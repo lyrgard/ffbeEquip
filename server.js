@@ -338,7 +338,28 @@ var schemaData = {
                 "maxItems": 15,
                 "items":{"type": "string","enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"]}
             },
-            "doubleHand":{"type": "number"},
+            "singleWieldingOneHanded":{ 
+                "type": "object",
+                "properties": {
+                    "hp"    : {"type": "number"},
+                    "mp"    : {"type": "number"},
+                    "atk"   : {"type": "number"},
+                    "def"   : {"type": "number"},
+                    "mag"   : {"type": "number"},
+                    "spr"   : {"type": "number"}
+                }
+            },
+            "singleWielding":{ 
+                "type": "object",
+                "properties": {
+                    "hp"    : {"type": "number"},
+                    "mp"    : {"type": "number"},
+                    "atk"   : {"type": "number"},
+                    "def"   : {"type": "number"},
+                    "mag"   : {"type": "number"},
+                    "spr"   : {"type": "number"}
+                }
+            },
             "equipedConditions": {
                 "type": "array", 
                 "maxItems": 3, 

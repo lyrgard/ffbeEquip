@@ -439,9 +439,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // Doublehand
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 13) {
         if (rawEffect[3][2] == 0) {
-            addStat(item,"doubleHand",rawEffect[3][0]);    
+            if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
+            addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);    
         } else if (rawEffect[3][2] == 0) {
-            addStat(item,"trueDoubleHand",rawEffect[3][0]);    
+            if (!item.singleWielding) {item.singleWielding = {}};
+            addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
         
@@ -571,7 +573,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","trueDoubleHand","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
