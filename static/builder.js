@@ -45,6 +45,8 @@ var equipable;
 var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
 var ennemyRaces;
 
+var desirableElements = [];
+
 var builds = [];
 var currentUnitIndex = 0;
 
@@ -202,6 +204,14 @@ function prepareData(equipable) {
             });
         } else {
             dataByType[type] = [];  
+        }
+    }
+    
+    desirableElements = [];
+    for (var index in builds[currentUnitIndex].selectedUnit.skills) {
+        var skill = builds[currentUnitIndex].selectedUnit.skills[index];
+        if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !desirableElements.includes(skill.equipedConditions[0])) {
+            desirableElements.push(skill.equipedConditions[0]);
         }
     }
 }
@@ -630,7 +640,7 @@ function getDamageCoefLevel(item) {
         if (killerCoef > 0) {
             damageCoefLevel += "killer" + killerCoef;
         }
-        if (weaponList.includes(item.type)) {
+        if (weaponList.includes(item.type) && useWeaponsElements) {
             // only for weapons
             if ((item.element && ennemyResist[item.element] != 0)) {
                 var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
@@ -640,6 +650,13 @@ function getDamageCoefLevel(item) {
             }
             if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
                 damageCoefLevel = "elementless";
+            }
+        }
+    }
+    if (desirableElements.length > 0 && item.element) {
+        for (var index in item.element) {
+            if (desirableElements.includes(item.element[index])) {
+                damageCoefLevel += "desirableElement" + item.element[index];
             }
         }
     }

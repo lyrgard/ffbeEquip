@@ -3731,8 +3731,8 @@
 			{"mag%":30, "equipedConditions":["katana"]},
 			{"mag%":30, "equipedConditions":["hammer"]},
 			{"mag%":30, "equipedConditions":["spear"]},
-			{"atk%":20, "mag%":20, "equipedConditions":["light"]},
-			{"def%":20, "spr%":20, "equipedConditions":["fire"]}
+			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
+			{"mp%":20, "mag%":20, "equipedConditions":["fire"]}
 		]
 	},
 	"A2": {
@@ -3805,8 +3805,8 @@
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
 			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
-			{"spr%":30, "equipedConditions":["fire"]},
-			{"atk%":30, "equipedConditions":["dark"]}
+			{"mag%":30, "equipedConditions":["fire"]},
+			{"hp%":30, "equipedConditions":["dark"]}
 		]
 	},
 	"Illusionist Nichol": {

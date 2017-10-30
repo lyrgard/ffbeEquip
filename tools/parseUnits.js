@@ -109,7 +109,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         var unitsOut = {};
                         for (var unitId in units) {
                             var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"])) {
+                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
                                 var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
                                 unitsOut[unitOut.name] = unitOut.data;
                             }
@@ -291,23 +291,23 @@ function getPassives(unitId, skillsIn, skills, enhancements) {
                 var masteryEffect = rawEffect[3];
                 var masteryType = elementsMap[masteryEffect[0]];
                 var masterySkill = {"equipedConditions":[masteryType]};
-                if (masteryEffect[1]) {
-                    masterySkill["atk%"] = masteryEffect[1];
-                }
-                if (masteryEffect[2]) {
-                    masterySkill["def%"] = masteryEffect[2];
-                }
                 if (masteryEffect[3]) {
-                    masterySkill["mag%"] = masteryEffect[3];
-                }
-                if (masteryEffect[4]) {
-                    masterySkill["spr%"] = masteryEffect[4];
+                    masterySkill["atk%"] = masteryEffect[3];
                 }
                 if (masteryEffect[5]) {
-                    masterySkill["hp%"] = masteryEffect[5];
+                    masterySkill["def%"] = masteryEffect[5];
+                }
+                if (masteryEffect[4]) {
+                    masterySkill["mag%"] = masteryEffect[4];
                 }
                 if (masteryEffect[6]) {
-                    masterySkill["mp%"] = masteryEffect[6];
+                    masterySkill["spr%"] = masteryEffect[6];
+                }
+                if (masteryEffect[1]) {
+                    masterySkill["hp%"] = masteryEffect[1];
+                }
+                if (masteryEffect[2]) {
+                    masterySkill["mp%"] = masteryEffect[2];
                 }
                 skillsOut.push(masterySkill);
             }
