@@ -955,7 +955,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":50, "atk%":10},
+			{"hp%":50, "atk%":10, "singleWieldingOneHanded":{"atk":50}},
 			{"hp%":20, "atk%":20, "equipedConditions":["axe"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["hammer"]}
 		]
@@ -1229,7 +1229,7 @@
 		},
 		"equip":["dagger","sword","greatSword","bow","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20},
+			{"hp%":20, "atk%":30, "def%":20, "singleWielding":{"atk":50}},
 			{"def%":30, "spr%":50, "equipedConditions":["lightArmor"]},
 			{"def%":30, "spr%":50, "equipedConditions":["heavyArmor"]}
 		]
@@ -2267,7 +2267,7 @@
 		},
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30}
+			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"atk":100}}
 		]
 	},
 	"Zidane": {
@@ -2838,7 +2838,7 @@
 		},
 		"equip":["dagger","sword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "spr%":10},
+			{"hp%":20, "spr%":10, "singleWieldingOneHanded":{"atk":80}},
 			{"atk%":80, "equipedConditions":["katana"]}
 		]
 	},
@@ -2865,7 +2865,7 @@
 		},
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "def%":30, "evade":{"magical":20}, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]},
+			{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"atk":100}, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]},
 			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
@@ -3625,7 +3625,7 @@
 		},
 		"equip":["sword","greatSword","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":40}
+			{"hp%":40, "singleWielding":{"atk":150}}
 		]
 	},
 	"Dracu Lasswell": {

@@ -314,9 +314,14 @@ function getPassives(unitId, skillsIn, skills, enhancements) {
             }
             
             //doublehand
-            else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 13) {
-                if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
-                addToStat(baseEffects.singleWieldingOneHanded, "atk", rawEffect[3][0]);
+            else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 13) {
+                if (rawEffect[3].length == 3 && rawEffect[3][2] == 2) {
+                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+                    addToStat(baseEffects.singleWielding, "atk", rawEffect[3][0]);
+                } else {
+                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+                    addToStat(baseEffects.singleWieldingOneHanded, "atk", rawEffect[3][0]);
+                }
             }
             else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
                 var doublehandSkill = {};
