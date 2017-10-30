@@ -116,6 +116,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         }
 
                         fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
+                        fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
                     }
                 });
             }
@@ -437,15 +438,7 @@ function formatOutput(units) {
         } else {
             result += ",";
         }
-        result += "\n\t\"" + unitName + "\": {";
-        result += "\n\t\t\"id\":\"" + unit.id + "\","
-        result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
-        result += "\n\t\t\"sex\":\"" + unit.sex + "\","
-        result += "\n\t\t\"stats\": {";
-        result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ","
-        result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
-        result += "\n\t\t},";
-        result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip) + ",";
+        result += getUnitBasicInfo(unitName, unit) + ",";
         result += "\n\t\t\"skills\": [";
         var firstSkill = true;
         for (var skillIndex in unit.skills) {
@@ -475,5 +468,36 @@ function formatOutput(units) {
         result += "\n\t}";
     }
     result += "\n}";
+    return result;
+}
+
+function formatSimpleOutput(units) {
+    var result = "{\n";
+    var first = true;
+    for (var unitName in units) {
+        var unit = units[unitName]
+        if (first) {
+            first = false;
+        } else {
+            result += ",";
+        }
+        result += getUnitBasicInfo(unitName, unit);
+        result += "\n\t}";
+    }
+    result += "\n}";
+    return result;
+}
+
+function getUnitBasicInfo(unitName, unit) {
+    var result = "";
+    result += "\n\t\"" + unitName + "\": {";
+    result += "\n\t\t\"id\":\"" + unit.id + "\","
+    result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
+    result += "\n\t\t\"sex\":\"" + unit.sex + "\","
+    result += "\n\t\t\"stats\": {";
+    result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ","
+    result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
+    result += "\n\t\t},";
+    result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip)
     return result;
 }
