@@ -1104,6 +1104,19 @@ function logBuild(build, value, esper) {
             $("#resultStats ." + baseStats[statIndex] + " .bonus").html(bonusPercent);
         }
         $("#resultStats ." + builds[currentUnitIndex].statToMaximize).addClass("statToMaximize");
+        if (builds[currentUnitIndex].statToMaximize == "atk") {
+            $("#resultStats .damage .defensiveStat").html("DEF");
+            $("#resultStats .damage .damageCoef").html("1x");
+            $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
+            $("#resultStats .damage").removeClass("hidden");
+        } else if (builds[currentUnitIndex].statToMaximize == "mag") {
+            $("#resultStats .damage .defensiveStat").html("SPR");
+            $("#resultStats .damage .damageCoef").html("1x");
+            $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
+            $("#resultStats .damage").removeClass("hidden");
+        } else {
+            $("#resultStats .damage").addClass("hidden");
+        }
         /*if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
             $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
         } else if (builds[currentUnitIndex].statToMaximize == "def" || builds[currentUnitIndex].statToMaximize == "spr" || builds[currentUnitIndex].statToMaximize == "hp") {

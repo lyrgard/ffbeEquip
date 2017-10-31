@@ -130,20 +130,12 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     unit.data = {};
     var data = unit.data;
     
-    data["max_rarity"] = unitIn["rarity_max"];
-    data["stats"] = getStats(unitIn, data["max_rarity"]);
-    data["sex"] = unitIn.sex.toLowerCase();
-    data["equip"] = getEquip(unitIn.equip);
-    data["id"] = unitId;
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId])
-    return unit;
-}
-
-function getStats(unitIn, maxRarity) {
     var unitStats = {"maxStats":{}, "pots":{}};
+    var maxRarityUnitId;
     for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == maxRarity) {
+        if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
             unitData = unitIn.entries[entryId];
+            maxRarityUnitId = entryId;
             for (var statIndex in stats) {
                 var stat = stats[statIndex];
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
@@ -152,7 +144,14 @@ function getStats(unitIn, maxRarity) {
             break;
         }
     }
-    return unitStats;
+    
+    data["max_rarity"] = unitIn["rarity_max"];
+    data["stats"] = unitStats;
+    data["sex"] = unitIn.sex.toLowerCase();
+    data["equip"] = getEquip(unitIn.equip);
+    data["id"] = maxRarityUnitId;
+    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId])
+    return unit;
 }
 
 function getEquip(equipIn) {
