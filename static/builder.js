@@ -289,7 +289,7 @@ function optimize() {
         equipable[0] = savedEquipable0;
         equipable[1] = savedEquipable1;
     }
-    if (!hasInnateDualWield() && dualWieldSources.length > 0) {
+    if (!hasInnateDualWield() && dualWieldSources.length > 0 && !(builds[currentUnitIndex].fixedItems[0] && isTwoHanded(builds[currentUnitIndex].fixedItems[0]))) {
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
             var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
@@ -380,23 +380,26 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
     if (fixedItems[index]) {
         tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand);
     } else {
-        if (equipable[index].length > 0) {
-            var found = false;
-            for (var typeIndex in equipable[index]) {
-                type = equipable[index][typeIndex]
-                if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
-                    continue;
-                }
-                if (dataByType[type].length > 0) {
-                    tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand);
-                    found = true;
-                }
-            }
-            if (!found) {
+        if (equipable[index].length > 0) 
+            if (index == 1 && fixedItems[0] && isTwoHanded(fixedItems[0])) { // of a two-handed weapon was fixed, no need to try smething in the second hand
                 tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
-            } else if (index == 1 && tryDoublehand) {
-                tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
-            }
+            } else {
+                var found = false;
+                for (var typeIndex in equipable[index]) {
+                    type = equipable[index][typeIndex]
+                    if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
+                        continue;
+                    }
+                    if (dataByType[type].length > 0) {
+                        tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand);
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                } else if (index == 1 && tryDoublehand) {
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                }
         } else {
             tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
         }
@@ -498,7 +501,9 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
     } else {
         if (index == 1 && build[0] && isTwoHanded(build[0])) {
             build[index] == null;
-            findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
+            var typeCombinationWithoutSecondHand = typeCombination.slice();
+            typeCombinationWithoutSecondHand[1] = null;
+            findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
                 var foundAnItem = false;
