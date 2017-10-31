@@ -594,17 +594,20 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var result = [];
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
+        if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+            // Don't keep 2-handed weapon in combination with 2 weapons
+            continue;
+        }
         var damageCoefLevel = getDamageCoefLevel(item);
         if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
             continue;
-        } else {
-            if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
-                damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
-            }
-            damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
-            result.push(item);
-            itemKeptKeys.push(item[itemKey]);
+        } 
+        if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
+            damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
         }
+        damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
+        result.push(item);
+        itemKeptKeys.push(item[itemKey]);
     }
     
     // Also keep at least the best numberNeeded items with flat stat
