@@ -500,7 +500,7 @@ var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, search
                                         if (searchText.length == 0 || containsText(searchText, item)) {
                                             if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
                                                 if (stat.length == 0 || hasStat(stat, item)) {
-                                                    calculateValue(item, selectedUnit, stat, ailments, elements, killers);
+                                                    calculateValue(item, baseStat, stat, ailments, elements, killers);
                                                     result.push(item);
                                                 }
                                             }
