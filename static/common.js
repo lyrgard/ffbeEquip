@@ -297,7 +297,7 @@ var toUrl = function(name) {
 
 var toLink = function(text) {
     if (server == "GL") {
-        return '<a href="' + toUrl(text) + '">' + text + '</a>';
+        return '<a href="' + toUrl(text) + '" target="_blank">' + text + '</a>';
     } else {
         return "<span>" + text + "</span>";
     }
