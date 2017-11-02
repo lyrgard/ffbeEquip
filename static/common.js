@@ -343,6 +343,15 @@ var getSelectedValuesFor = function(type) {
     return values;
 };
 
+// Selects the provided values on the filter of the provided type
+function select(type, values) {
+    $(values).each(function (index, value) {
+        $("input[name='"+ type +"'][value='"+ value +"']").each(function(index, checkbox) {
+            $(checkbox).prop('checked', true);
+            $(checkbox).parent().addClass('active');
+        });
+    }) ;
+};
 
 // Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
 function addTextChoicesTo(targetId, type, valueMap) {
@@ -468,21 +477,6 @@ function updateLinks() {
     $("#linkToBuilder").prop("href","builder.html" + serverParam);
     $("#linkToContribute").prop("href","contribute.html" + serverParam);
 }
-
-$(function() {
-    readServerType();
-    $.get(server + '/itemInventory', function(result) {
-        itemInventory = result;
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
-        $("#inventoryDiv .loader").addClass("hidden");
-        $(".logOut").removeClass("hidden");
-        inventoryLoaded();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $(".loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
-    });
-});
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
@@ -735,3 +729,21 @@ function prepareSearch(data) {
         item.searchString = textToSearch;
     }
 }
+
+$(function() {
+    readServerType();
+    $.get(server + '/itemInventory', function(result) {
+        itemInventory = result;
+        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        $("#inventoryDiv .loader").addClass("hidden");
+        $(".logOut").removeClass("hidden");
+        inventoryLoaded();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        $(".loadInventory").removeClass("hidden");
+        $("#inventoryDiv .status").text("not loaded");
+        $("#inventoryDiv .loader").addClass("hidden");
+        if (notLoaded) {
+            notLoaded();
+        }
+    });
+});

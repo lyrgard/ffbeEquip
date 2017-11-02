@@ -1197,28 +1197,29 @@ function populateUnitSelect() {
         options += '<option value="'+ value + '">' + value + '</option>';
     });
     $("#unitsSelect").html(options);
-    $("#unitsSelect").change(function() {
-        $( "#unitsSelect option:selected" ).each(function() {
-            var unitName = $(this).val();
-            var selectedUnitData = units[unitName];
-            if (selectedUnitData) {
-                $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
-                reinitBuild(currentUnitIndex);
-                
-                builds[currentUnitIndex].selectedUnit = selectedUnitData;
-                builds[currentUnitIndex].selectedUnitName = unitName;
-                updateUnitStats();
-                logCurrentBuild();
-            } else {
-                builds[currentUnitIndex].selectedUnit = null;
-                reinitBuild(currentUnitIndex); 
-                updateUnitStats();
-                logCurrentBuild();
-                $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
-            }
-            displayUnitRarity(selectedUnitData);
-            
-        });
+    $("#unitsSelect").change(onUnitChange);
+}
+
+function onUnitChange() {
+    $( "#unitsSelect option:selected" ).each(function() {
+        var unitName = $(this).val();
+        var selectedUnitData = units[unitName];
+        if (selectedUnitData) {
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
+            reinitBuild(currentUnitIndex);
+
+            builds[currentUnitIndex].selectedUnit = selectedUnitData;
+            builds[currentUnitIndex].selectedUnitName = unitName;
+            updateUnitStats();
+            logCurrentBuild();
+        } else {
+            builds[currentUnitIndex].selectedUnit = null;
+            reinitBuild(currentUnitIndex); 
+            updateUnitStats();
+            logCurrentBuild();
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
+        }
+        displayUnitRarity(selectedUnitData);
     });
 }
 
@@ -1539,21 +1540,89 @@ var displaySearchResults = function(items) {
     $("#fixItemModal .results .tbody").html(html);
 }
 
+function getStateHash() {
+    var data = {
+        "goal": $(".goal select").val(),
+        "innateElements":getSelectedValuesFor("elements")
+    };
+
+    if (data.goal == "mag") {
+        data.attackType = $(".magicalSkillType select").val();
+    }
+    if (data.goal == "atk" || data.goal == "mag") {
+        data.ennemyRaces = getSelectedValuesFor("races");
+        readEnnemyResists();
+        data.ennemyResists = ennemyResist;
+    }
+    
+    if (builds[currentUnitIndex].selectedUnit) {
+        data.unitName = builds[currentUnitIndex].selectedUnitName;
+    }
+    
+    
+    data.equipmentToUse = $(".equipments select").val();
+    if (data.equipmentToUse == "all") {
+        data.exludeEventEquipment = $("#exludeEvent").prop('checked');
+        data.excludeTMR5 = $("#excludeTMR5").prop('checked');
+        data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+    }
+    
+    return btoa(JSON.stringify(data));
+}
+
+function loadStateHashAndBuild(hash) {
+    var data = JSON.parse(atob(hash));
+    reinitBuild(0);
+    $('.goal select option').prop("selected", false);
+    $('.goal select option[value="' + data.goal + '"]').prop("selected", true);
+    onGoalChange();
+    if (data.unitName) {
+        $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
+        onUnitChange();
+    }
+    select("elements", data.innateElements);
+    if (data.goal == "mag") {
+        $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
+        $(".magicalSkillType select").val("data.attackType");
+    }
+    if (data.goal == "atk" || data.goal == "mag") {
+        select("races", data.ennemyRaces);
+        for (var element in data.ennemyResists) {
+            if (data.ennemyResists[element] == 0) {
+                $("#elementalResists ." + element + " input").val("");
+            } else {
+                $("#elementalResists ." + element + " input").val(data.ennemyResists[element]);
+            }
+        }
+    }
+    $('.equipments select option[value="' + data.equipmentToUse + '"]').prop("selected", true);
+    if (data.equipmentToUse == "all") {
+        $("#exludeEvent").prop('checked', data.exludeEventEquipment);
+        $("#excludeTMR5").prop('checked', data.excludeTMR5);
+        $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
+    }
+    build();
+
+}
+
 $(function() {
     $.get(server + "/data.json", function(result) {
         data = result;
         prepareSearch(data);
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
     $.get(server + "/unitsWithSkill.json", function(result) {
         units = result;
         populateUnitSelect();
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
     $.get(server + "/espers.json", function(result) {
         espers = result;
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -1580,6 +1649,17 @@ $(function() {
         $('#searchText').focus();
     })  
 });
+
+var counter = 0;
+function readHash() {
+    counter++;
+    if (counter == 3) {
+        if (window.location.hash) {
+            loadStateHashAndBuild(window.location.hash.substr(1));
+            window.location.hash = "";
+        }
+    }
+}
 
 function populateItemType(equip) {
     var target = $("#fixItemModal .type .dropdown-menu");
