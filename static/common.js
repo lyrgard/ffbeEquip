@@ -392,7 +392,17 @@ function loadInventory() {
             position: { my: 'top', at: 'top+150' },
             buttons: {
                 Ok: function() {
-                    window.location.href = result.url;
+                    var state = {
+                        "page": page,
+                        "data": ""
+                    };
+                    if (window.location.hash && window.location.hash.length > 1) {
+                        state.data = window.location.hash.substring(1);
+                    }
+                    if (window.location.host == "localhost:3000") {
+                        state.dev = true;
+                    }
+                    window.location.href = result.url + "&state=" + encodeURIComponent(JSON.stringify(state));
                 }
             }
         });
