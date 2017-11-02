@@ -1,3 +1,4 @@
+page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 var goals = {
@@ -1326,6 +1327,10 @@ function inventoryLoaded() {
     $(".equipments select option[value=owned]").prop("disabled", false);
     $(".equipments select").val("owned");
     onEquipmentsChange();
+}
+
+function notLoaded() {
+    
 }
 
 function onGoalChange() {

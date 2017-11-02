@@ -1,3 +1,4 @@
+page = "search";
 var baseStat = 180;
 var defaultFilter = {};
 var rawVerifiedData;
@@ -373,6 +374,10 @@ function inventoryLoaded() {
     if (data) {
         update();
     }
+}
+
+function notLoaded() {
+    
 }
 
 // will be called by jQuery at page load)
