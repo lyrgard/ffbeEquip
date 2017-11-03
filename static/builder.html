@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 unitAttackElement">
-                            <div class="col-xs-3 text-right">Attack element(s):</div>
+                            <div class="col-xs-3 text-right">Skill innate element(s):</div>
                             <div class="col-xs-9 btn-group elements choice" data-toggle="buttons" id="elements"></div>
                         </div>
                         <div class="col-xs-12 magicalSkillType hidden">
@@ -114,7 +114,7 @@
                             <div class="col-xs-9">
                                 <select class="form-control">
                                     <option value="normal">Normal magical attack</option>
-                                    <option value="physicalMagic">Magic attack with physical mecanism</option>
+                                    <option value="physicalMagic">Magic attack with physical mechanism</option>
                                 </select>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                 <div class="result-tab-pane">
                     <div class="panel-body" style="padding:0;">
                         <div class="buildDiv">
-                            <button class="btn btn-default" onclick="displayFixItemModal()">Fix an item</button>
+                            <button class="btn btn-default" onclick="displayFixItemModal()"><img src="img/pin.png" style="width: 20px;margin-right: 5px;"/>Pin an item</button>
                             <button id="buildButton" class="btn btn-primary">Build !</button>
                             <div id="buildProgressBar" class="progressBarDiv">
                                 <div class="progressBar">0%</div>
@@ -197,9 +197,25 @@
                             <div class="col-xs-5 spr"><div class="col-xs-4 stat">SPR</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">250%</div></div>
                             <div class="damage hidden">Damage on a 100 <span class="defensiveStat"></span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult"></span></div>
                         </div>
-                        <a class="imageLink hidden" target="_blank">Get build image (Using ffbeben.ch. Alpha, without esper for now)</a>
+                        <div class="buildLinks hidden">
+                            <div class="col-xs-4">
+                                <span class="glyphicon glyphicon-link"></span>
+                                <a class="buildLink" onclick="showBuildLink()">Share this build</a>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                <a class="builderSetupLink" onclick="showBuilderSetupLink()">Share this builder setup</a>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="glyphicon glyphicon-camera"></span>
+                                <a class="imageLink" target="_blank">Get build image (Using ffbeben.ch)</a>
+                            </div>
+                        </div>
+                        
+                        
+                        
                         <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
-                        <div id="fixedItemsTitle" class="hidden">Fixed items:</div>
+                        <div id="fixedItemsTitle" class="hidden">Pinned items:</div>
                         <div id="buildResult" class="table notSorted items results">
                             <div class="tbody">
                                 

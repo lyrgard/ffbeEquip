@@ -40,10 +40,6 @@
     margin-top: 10px;
 }
 
-.imageLink {
-    margin-left:10px;
-}
-
 .calculatorLink {
     margin-left:10px;
 }
@@ -194,4 +190,26 @@
     font-weight: bold;
     font-size: 1.5em;
     margin-left: 10px;
+}
+
+#showBuilderSetupLinkDialog ul {
+    list-style-type: circle;
+    padding-left: 10px;
+}
+
+
+#showLinkDialog input {
+    width: 100%;
+}
+
+#showBuilderSetupLinkDialog input {
+    width: 100%;
+}
+
+.buildLink {
+    cursor: pointer;
+}
+
+.builderSetupLink {
+    cursor: pointer;
 }

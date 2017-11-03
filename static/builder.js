@@ -1,3 +1,4 @@
+page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 var goals = {
@@ -61,9 +62,10 @@ var itemKey = getItemInventoryKey();
 var searchType = [];
 var searchStat = "";
 
+var dataLoadedFromHash = false;
+
 function build() {
-    $(".imageLink").addClass("hidden");
-    $(".calculatorLink").addClass("hidden");
+    $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].selectedUnit) {
         alert("Please select an unit");
@@ -289,7 +291,7 @@ function optimize() {
         equipable[0] = savedEquipable0;
         equipable[1] = savedEquipable1;
     }
-    if (!hasInnateDualWield() && dualWieldSources.length > 0) {
+    if (!hasInnateDualWield() && dualWieldSources.length > 0 && !(builds[currentUnitIndex].fixedItems[0] && isTwoHanded(builds[currentUnitIndex].fixedItems[0]))) {
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
             var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
@@ -380,23 +382,26 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
     if (fixedItems[index]) {
         tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand);
     } else {
-        if (equipable[index].length > 0) {
-            var found = false;
-            for (var typeIndex in equipable[index]) {
-                type = equipable[index][typeIndex]
-                if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
-                    continue;
-                }
-                if (dataByType[type].length > 0) {
-                    tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand);
-                    found = true;
-                }
-            }
-            if (!found) {
+        if (equipable[index].length > 0) 
+            if (index == 1 && fixedItems[0] && isTwoHanded(fixedItems[0])) { // of a two-handed weapon was fixed, no need to try smething in the second hand
                 tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
-            } else if (index == 1 && tryDoublehand) {
-                tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
-            }
+            } else {
+                var found = false;
+                for (var typeIndex in equipable[index]) {
+                    type = equipable[index][typeIndex]
+                    if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
+                        continue;
+                    }
+                    if (dataByType[type].length > 0) {
+                        tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand);
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                } else if (index == 1 && tryDoublehand) {
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                }
         } else {
             tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
         }
@@ -498,7 +503,9 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
     } else {
         if (index == 1 && build[0] && isTwoHanded(build[0])) {
             build[index] == null;
-            findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);    
+            var typeCombinationWithoutSecondHand = typeCombination.slice();
+            typeCombinationWithoutSecondHand[1] = null;
+            findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
                 var foundAnItem = false;
@@ -589,17 +596,20 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var result = [];
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
+        if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+            // Don't keep 2-handed weapon in combination with 2 weapons
+            continue;
+        }
         var damageCoefLevel = getDamageCoefLevel(item);
         if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
             continue;
-        } else {
-            if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
-                damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
-            }
-            damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
-            result.push(item);
-            itemKeptKeys.push(item[itemKey]);
+        } 
+        if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
+            damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
         }
+        damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
+        result.push(item);
+        itemKeptKeys.push(item[itemKey]);
     }
     
     // Also keep at least the best numberNeeded items with flat stat
@@ -752,6 +762,10 @@ function isStackable(item) {
 
 function isTwoHanded(item) {
     return (item.special && item.special.includes("twoHanded"));
+}
+
+function hasDualWieldOrPartialDualWield(item) {
+    return ((item.special && item.special.includes("dualWield")) || item.partialDualWield);
 }
 
 function hasInnateDualWield() {
@@ -1061,7 +1075,7 @@ function logBuild(build, value, esper) {
     if (build.length == 0) {
         $("#resultStats").addClass("hidden");
         $("#buildResult .tbody").html("");
-        $(".imageLink").addClass("hidden");
+        $(".buildLinks").addClass("hidden");
         var progress = "0%";
         var progressElement = $("#buildProgressBar .progressBar");
         progressElement.width(progress);
@@ -1088,7 +1102,7 @@ function logBuild(build, value, esper) {
         var hash = getBuildHash();
         $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
         $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
-        $(".imageLink").removeClass("hidden");
+        $(".buildLinks").removeClass("hidden");
         
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
@@ -1127,7 +1141,7 @@ function logBuild(build, value, esper) {
 
 function displayFixedItems(fixedItems) {
     $("#resultStats").addClass("hidden");
-    $(".imageLink").addClass("hidden");
+    $(".buildLinks").addClass("hidden");
     var progress = "0%";
     var progressElement = $("#buildProgressBar .progressBar");
     progressElement.width(progress);
@@ -1189,28 +1203,29 @@ function populateUnitSelect() {
         options += '<option value="'+ value + '">' + value + '</option>';
     });
     $("#unitsSelect").html(options);
-    $("#unitsSelect").change(function() {
-        $( "#unitsSelect option:selected" ).each(function() {
-            var unitName = $(this).val();
-            var selectedUnitData = units[unitName];
-            if (selectedUnitData) {
-                $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
-                reinitBuild(currentUnitIndex);
-                
-                builds[currentUnitIndex].selectedUnit = selectedUnitData;
-                builds[currentUnitIndex].selectedUnitName = unitName;
-                updateUnitStats();
-                logCurrentBuild();
-            } else {
-                builds[currentUnitIndex].selectedUnit = null;
-                reinitBuild(currentUnitIndex); 
-                updateUnitStats();
-                logCurrentBuild();
-                $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
-            }
-            displayUnitRarity(selectedUnitData);
-            
-        });
+    $("#unitsSelect").change(onUnitChange);
+}
+
+function onUnitChange() {
+    $( "#unitsSelect option:selected" ).each(function() {
+        var unitName = $(this).val();
+        var selectedUnitData = units[unitName];
+        if (selectedUnitData) {
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
+            reinitBuild(currentUnitIndex);
+
+            builds[currentUnitIndex].selectedUnit = selectedUnitData;
+            builds[currentUnitIndex].selectedUnitName = unitName;
+            updateUnitStats();
+            logCurrentBuild();
+        } else {
+            builds[currentUnitIndex].selectedUnit = null;
+            reinitBuild(currentUnitIndex); 
+            updateUnitStats();
+            logCurrentBuild();
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
+        }
+        displayUnitRarity(selectedUnitData);
     });
 }
 
@@ -1315,8 +1330,24 @@ var displayUnitRarity = function(unit) {
 
 function inventoryLoaded() {
     $(".equipments select option[value=owned]").prop("disabled", false);
-    $(".equipments select").val("owned");
-    onEquipmentsChange();
+    if (!dataLoadedFromHash) {
+        $(".equipments select").val("owned");
+        onEquipmentsChange();
+    }
+    
+    var data = readStateHashData();
+    
+    if (data && data.equipmentToUse == "owned") {
+        loadStateHashAndBuild(data);    
+    }
+}
+
+function notLoaded() {
+    var data = readStateHashData();
+    
+    if (data && data.equipmentToUse == "owned") {
+        alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
+    }
 }
 
 function onGoalChange() {
@@ -1411,10 +1442,10 @@ function fixItem(key) {
                     return;
                 }
             } else {
-                alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+                alert("No more slot available for this item. Select another item or remove a pinned item of the same type.");
                 return;
             }
-        } 
+        }
         builds[currentUnitIndex].fixedItems[slot] = item;
         for (var index in builds[currentUnitIndex].fixedItems) {
             var item = builds[currentUnitIndex].fixedItems[index];
@@ -1541,21 +1572,184 @@ var displaySearchResults = function(items) {
     $("#fixItemModal .results .tbody").html(html);
 }
 
+function getStateHash() {
+    var data = {
+        "goal": $(".goal select").val(),
+        "innateElements":getSelectedValuesFor("elements")
+    };
+
+    if (data.goal == "mag") {
+        data.attackType = $(".magicalSkillType select").val();
+    }
+    if (data.goal == "atk" || data.goal == "mag") {
+        data.ennemyRaces = getSelectedValuesFor("races");
+        readEnnemyResists();
+        data.ennemyResists = ennemyResist;
+    }
+    
+    if (builds[currentUnitIndex].selectedUnit) {
+        data.unitName = builds[currentUnitIndex].selectedUnitName;
+    }
+    
+    
+    data.equipmentToUse = $(".equipments select").val();
+    if (data.equipmentToUse == "all") {
+        data.exludeEventEquipment = $("#exludeEvent").prop('checked');
+        data.excludeTMR5 = $("#excludeTMR5").prop('checked');
+        data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+    }
+    
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        var item = builds[currentUnitIndex].fixedItems[index];
+        if (item) {
+            if (!data.fixedItems) data.fixedItems = [];
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    
+    return data;
+}
+
+function readStateHashData() {
+    if (window.location.hash.length > 1) {
+        return JSON.parse(atob(window.location.hash.substr(1)));
+    } else {
+        return null;
+    }
+}
+    
+function loadStateHashAndBuild(data) {
+    
+    if (data.equipmentToUse == "owned" && !itemInventory) {
+        return;
+    }
+    
+    reinitBuild(0);
+    $('.goal select option').prop("selected", false);
+    $('.goal select option[value="' + data.goal + '"]').prop("selected", true);
+    onGoalChange();
+    if (data.unitName) {
+        $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
+        onUnitChange();
+    }
+    select("elements", data.innateElements);
+    if (data.goal == "mag") {
+        $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
+    }
+    if (data.goal == "atk" || data.goal == "mag") {
+        select("races", data.ennemyRaces);
+        for (var element in data.ennemyResists) {
+            if (data.ennemyResists[element] == 0) {
+                $("#elementalResists ." + element + " input").val("");
+            } else {
+                $("#elementalResists ." + element + " input").val(data.ennemyResists[element]);
+            }
+        }
+    }
+    $('.equipments select option[value="' + data.equipmentToUse + '"]').prop("selected", true);
+    if (data.equipmentToUse == "all") {
+        $("#exludeEvent").prop('checked', data.exludeEventEquipment);
+        $("#excludeTMR5").prop('checked', data.excludeTMR5);
+        $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
+    }
+    if (data.fixedItems) {
+        for (var index in data.fixedItems) {
+            fixItem(data.fixedItems[index]);
+        }
+    }
+    dataLoadedFromHash = true;
+    build();
+    window.location.hash = "";
+}
+
+function showBuildLink() {
+    var data = getStateHash();
+    data.fixedItems = [];
+    // first fix dual wield items
+    for (var index in builds[currentUnitIndex].bestBuild) {
+        var item = builds[currentUnitIndex].bestBuild[index];
+        if (item && hasDualWieldOrPartialDualWield(item)) {
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    // then others items
+    for (var index in builds[currentUnitIndex].bestBuild) {
+        var item = builds[currentUnitIndex].bestBuild[index];
+        if (item && !hasDualWieldOrPartialDualWield(item)) {
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    data.equipmentToUse = "all";
+    $('<div id="showLinkDialog" title="Build Link">' + 
+        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
+        '<h4>This link will open the builder with this exact build displayed</h4>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
+}
+      
+function showBuilderSetupLink() {
+    var data = getStateHash();
+    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
+        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
+        '<h4>The following information are stored in this link :</h4>' +
+        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
+        '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showBuilderSetupLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
+}
+
 $(function() {
     $.get(server + "/data.json", function(result) {
         data = result;
         prepareSearch(data);
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
     $.get(server + "/unitsWithSkill.json", function(result) {
         units = result;
         populateUnitSelect();
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
     $.get(server + "/espers.json", function(result) {
         espers = result;
+        readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -1582,6 +1776,17 @@ $(function() {
         $('#searchText').focus();
     })  
 });
+
+var counter = 0;
+function readHash() {
+    counter++;
+    if (counter == 3) {
+        var data = readStateHashData();
+        if (data) {
+            loadStateHashAndBuild(data);
+        }
+    }
+}
 
 function populateItemType(equip) {
     var target = $("#fixItemModal .type .dropdown-menu");

@@ -1,3 +1,4 @@
+page = "search";
 var baseStat = 180;
 var defaultFilter = {};
 var rawVerifiedData;
@@ -303,16 +304,6 @@ function loadHash() {
     });
 };
 
-// Selects the provided values on the filter of the provided type
-function select(type, values) {
-    $(values).each(function (index, value) {
-        $("input[name='"+ type +"'][value='"+ value +"']").each(function(index, checkbox) {
-            $(checkbox).prop('checked', true);
-            $(checkbox).parent().addClass('active');
-        });
-    }) ;
-};
-
 // Select on the 'types' filter the provided values that match the selected unit equipable item types
 function selectForUnit(values) {
     var unitEquip = units[selectedUnit].equip;
@@ -383,6 +374,10 @@ function inventoryLoaded() {
     if (data) {
         update();
     }
+}
+
+function notLoaded() {
+    
 }
 
 // will be called by jQuery at page load)
