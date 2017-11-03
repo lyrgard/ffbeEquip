@@ -63,8 +63,7 @@ var searchType = [];
 var searchStat = "";
 
 function build() {
-    $(".imageLink").addClass("hidden");
-    $(".calculatorLink").addClass("hidden");
+    $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].selectedUnit) {
         alert("Please select an unit");
@@ -763,6 +762,10 @@ function isTwoHanded(item) {
     return (item.special && item.special.includes("twoHanded"));
 }
 
+function hasDualWieldOrPartialDualWield(item) {
+    return ((item.special && item.special.includes("dualWield")) || item.partialDualWield);
+}
+
 function hasInnateDualWield() {
     var selectedUnit = builds[currentUnitIndex].selectedUnit;
     for (var index in selectedUnit.skills) {
@@ -1070,7 +1073,7 @@ function logBuild(build, value, esper) {
     if (build.length == 0) {
         $("#resultStats").addClass("hidden");
         $("#buildResult .tbody").html("");
-        $(".imageLink").addClass("hidden");
+        $(".buildLinks").addClass("hidden");
         var progress = "0%";
         var progressElement = $("#buildProgressBar .progressBar");
         progressElement.width(progress);
@@ -1097,7 +1100,7 @@ function logBuild(build, value, esper) {
         var hash = getBuildHash();
         $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
         $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
-        $(".imageLink").removeClass("hidden");
+        $(".buildLinks").removeClass("hidden");
         
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
@@ -1136,7 +1139,7 @@ function logBuild(build, value, esper) {
 
 function displayFixedItems(fixedItems) {
     $("#resultStats").addClass("hidden");
-    $(".imageLink").addClass("hidden");
+    $(".buildLinks").addClass("hidden");
     var progress = "0%";
     var progressElement = $("#buildProgressBar .progressBar");
     progressElement.width(progress);
@@ -1327,10 +1330,20 @@ function inventoryLoaded() {
     $(".equipments select option[value=owned]").prop("disabled", false);
     $(".equipments select").val("owned");
     onEquipmentsChange();
+    
+    var data = readStateHashData();
+    
+    if (data && data.equipmentToUse == "owned") {
+        loadStateHashAndBuild(data);    
+    }
 }
 
 function notLoaded() {
+    var data = readStateHashData();
     
+    if (data && data.equipmentToUse == "owned") {
+        alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
+    }
 }
 
 function onGoalChange() {
@@ -1572,11 +1585,31 @@ function getStateHash() {
         data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     }
     
-    return btoa(JSON.stringify(data));
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        var item = builds[currentUnitIndex].fixedItems[index];
+        if (item) {
+            if (!data.fixedItems) data.fixedItems = [];
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    
+    return data;
 }
 
-function loadStateHashAndBuild(hash) {
-    var data = JSON.parse(atob(hash));
+function readStateHashData() {
+    if (window.location.hash.length > 1) {
+        return JSON.parse(atob(window.location.hash.substr(1)));
+    } else {
+        return null;
+    }
+}
+    
+function loadStateHashAndBuild(data) {
+    
+    if (data.equipmentToUse == "owned" && !itemInventory) {
+        return;
+    }
+    
     reinitBuild(0);
     $('.goal select option').prop("selected", false);
     $('.goal select option[value="' + data.goal + '"]').prop("selected", true);
@@ -1588,7 +1621,6 @@ function loadStateHashAndBuild(hash) {
     select("elements", data.innateElements);
     if (data.goal == "mag") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
-        $(".magicalSkillType select").val("data.attackType");
     }
     if (data.goal == "atk" || data.goal == "mag") {
         select("races", data.ennemyRaces);
@@ -1606,8 +1638,83 @@ function loadStateHashAndBuild(hash) {
         $("#excludeTMR5").prop('checked', data.excludeTMR5);
         $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
     }
+    if (data.fixedItems) {
+        for (var index in data.fixedItems) {
+            fixItem(data.fixedItems[index]);
+        }
+    }
     build();
+    window.location.hash = "";
+}
 
+function showBuildLink() {
+    var data = getStateHash();
+    data.fixedItems = [];
+    // first fix dual wield items
+    for (var index in builds[currentUnitIndex].bestBuild) {
+        var item = builds[currentUnitIndex].bestBuild[index];
+        if (item && hasDualWieldOrPartialDualWield(item)) {
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    // then others items
+    for (var index in builds[currentUnitIndex].bestBuild) {
+        var item = builds[currentUnitIndex].bestBuild[index];
+        if (item && !hasDualWieldOrPartialDualWield(item)) {
+            data.fixedItems.push(item[itemKey]);
+        }
+    }
+    data.equipmentToUse = "all";
+    $('<div id="showLinkDialog" title="Build Link">' + 
+        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
+        '<h4>This link will open the builder with this exact build displayed</h4>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
+}
+      
+function showBuilderSetupLink() {
+    var data = getStateHash();
+    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
+        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
+        '<h4>The following information are stored in this link :</h4>' +
+        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been fixed in the build</li></ul>' +
+        '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showBuilderSetupLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
 }
 
 $(function() {
@@ -1659,9 +1766,9 @@ var counter = 0;
 function readHash() {
     counter++;
     if (counter == 3) {
-        if (window.location.hash) {
-            loadStateHashAndBuild(window.location.hash.substr(1));
-            window.location.hash = "";
+        var data = readStateHashData();
+        if (data) {
+            loadStateHashAndBuild(data);
         }
     }
 }
