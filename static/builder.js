@@ -1329,8 +1329,8 @@ var displayUnitRarity = function(unit) {
 };
 
 function inventoryLoaded() {
+    $(".equipments select option[value=owned]").prop("disabled", false);
     if (!dataLoadedFromHash) {
-        $(".equipments select option[value=owned]").prop("disabled", false);
         $(".equipments select").val("owned");
         onEquipmentsChange();
     }
