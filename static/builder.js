@@ -62,6 +62,8 @@ var itemKey = getItemInventoryKey();
 var searchType = [];
 var searchStat = "";
 
+var dataLoadedFromHash = false;
+
 function build() {
     $(".buildLinks").addClass("hidden");
     
@@ -1327,9 +1329,11 @@ var displayUnitRarity = function(unit) {
 };
 
 function inventoryLoaded() {
-    $(".equipments select option[value=owned]").prop("disabled", false);
-    $(".equipments select").val("owned");
-    onEquipmentsChange();
+    if (!dataLoadedFromHash) {
+        $(".equipments select option[value=owned]").prop("disabled", false);
+        $(".equipments select").val("owned");
+        onEquipmentsChange();
+    }
     
     var data = readStateHashData();
     
@@ -1643,6 +1647,7 @@ function loadStateHashAndBuild(data) {
             fixItem(data.fixedItems[index]);
         }
     }
+    dataLoadedFromHash = true;
     build();
     window.location.hash = "";
 }
