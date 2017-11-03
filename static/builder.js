@@ -1401,21 +1401,31 @@ function fixItem(key) {
         prepareEquipable();
         var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
         if (slot == -1) {
-            alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
-            return;
-        } else {
-            builds[currentUnitIndex].fixedItems[slot] = item;
-            for (var index in builds[currentUnitIndex].fixedItems) {
-                var item = builds[currentUnitIndex].fixedItems[index];
-                if (item && index != slot) {
-                    builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+            if (weaponList.includes(item.type) && builds[currentUnitIndex].fixedItems[0] && !builds[currentUnitIndex].fixedItems[1]) {
+                // for weapon, if the second weapon were refused, check if an innat partial DW allow it
+                var innatePartialDualWield = getInnatePartialDualWield();
+                if (innatePartialDualWield && innatePartialDualWield.includes(item.type)) {
+                    slot = 1;
+                } else {
+                    alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+                    return;
                 }
+            } else {
+                alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+                return;
             }
-            displayFixedItems(builds[currentUnitIndex].fixedItems);
-            builds[currentUnitIndex].bestBuild = [];
-            builds[currentUnitIndex].bestValue = null;
-            builds[currentUnitIndex].bestEsper = null;
+        } 
+        builds[currentUnitIndex].fixedItems[slot] = item;
+        for (var index in builds[currentUnitIndex].fixedItems) {
+            var item = builds[currentUnitIndex].fixedItems[index];
+            if (item && index != slot) {
+                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+            }
         }
+        displayFixedItems(builds[currentUnitIndex].fixedItems);
+        builds[currentUnitIndex].bestBuild = [];
+        builds[currentUnitIndex].bestValue = null;
+        builds[currentUnitIndex].bestEsper = null;
     }
     $('#fixItemModal').modal('hide');
 }
