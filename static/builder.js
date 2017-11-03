@@ -1432,7 +1432,7 @@ function fixItem(key) {
         prepareEquipable();
         var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
         if (slot == -1) {
-            alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+            alert("No more slot available for this item. Select another item or remove a pinned item of the same type.");
             return;
         } else {
             builds[currentUnitIndex].fixedItems[slot] = item;
@@ -1699,7 +1699,7 @@ function showBuilderSetupLink() {
     $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
         '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
         '<h4>The following information are stored in this link :</h4>' +
-        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been fixed in the build</li></ul>' +
+        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
         '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
       '</div>' ).dialog({
         modal: true,
