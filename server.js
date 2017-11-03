@@ -55,7 +55,23 @@ app.get('/googleOAuthSuccess', function(req, res) {
         // Now tokens contains an access_token and an optional refresh_token. Save them.
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
-            res.status(303).location('http://ffbeEquip.lyrgard.fr').send();
+            
+            var state = JSON.parse(decodeURIComponent(req.query.state));
+            
+            var baseUrl = 'http://ffbeEquip.lyrgard.fr/';
+            if (state.dev) {
+                baseUrl = 'http://localhost:3000/';
+            }
+            if (state.page == "builder") {
+                baseUrl += "builder.html#";
+            } else {
+                baseUrl += "#";
+            }
+            if (state.data) {
+                baseUrl += state.data;
+            }
+            
+            res.status(303).location(baseUrl).send();
         } else {
             console.log(err);
             res.status(500).send(err);

@@ -297,7 +297,7 @@ var toUrl = function(name) {
 
 var toLink = function(text) {
     if (server == "GL") {
-        return '<a href="' + toUrl(text) + '">' + text + '</a>';
+        return '<a href="' + toUrl(text) + '" target="_blank">' + text + '</a>';
     } else {
         return "<span>" + text + "</span>";
     }
@@ -343,6 +343,15 @@ var getSelectedValuesFor = function(type) {
     return values;
 };
 
+// Selects the provided values on the filter of the provided type
+function select(type, values) {
+    $(values).each(function (index, value) {
+        $("input[name='"+ type +"'][value='"+ value +"']").each(function(index, checkbox) {
+            $(checkbox).prop('checked', true);
+            $(checkbox).parent().addClass('active');
+        });
+    }) ;
+};
 
 // Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
 function addTextChoicesTo(targetId, type, valueMap) {
@@ -383,7 +392,17 @@ function loadInventory() {
             position: { my: 'top', at: 'top+150' },
             buttons: {
                 Ok: function() {
-                    window.location.href = result.url;
+                    var state = {
+                        "page": page,
+                        "data": ""
+                    };
+                    if (window.location.hash && window.location.hash.length > 1) {
+                        state.data = window.location.hash.substring(1);
+                    }
+                    if (window.location.host == "localhost:3000") {
+                        state.dev = true;
+                    }
+                    window.location.href = result.url + "&state=" + encodeURIComponent(JSON.stringify(state));
                 }
             }
         });
@@ -469,21 +488,6 @@ function updateLinks() {
     $("#linkToContribute").prop("href","contribute.html" + serverParam);
 }
 
-$(function() {
-    readServerType();
-    $.get(server + '/itemInventory', function(result) {
-        itemInventory = result;
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
-        $("#inventoryDiv .loader").addClass("hidden");
-        $(".logOut").removeClass("hidden");
-        inventoryLoaded();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $(".loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
-    });
-});
-
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
 var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
     var result = [];
@@ -500,7 +504,7 @@ var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, search
                                         if (searchText.length == 0 || containsText(searchText, item)) {
                                             if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
                                                 if (stat.length == 0 || hasStat(stat, item)) {
-                                                    calculateValue(item, selectedUnit, stat, ailments, elements, killers);
+                                                    calculateValue(item, baseStat, stat, ailments, elements, killers);
                                                     result.push(item);
                                                 }
                                             }
@@ -735,3 +739,21 @@ function prepareSearch(data) {
         item.searchString = textToSearch;
     }
 }
+
+$(function() {
+    readServerType();
+    $.get(server + '/itemInventory', function(result) {
+        itemInventory = result;
+        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        $("#inventoryDiv .loader").addClass("hidden");
+        $(".logOut").removeClass("hidden");
+        inventoryLoaded();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        $(".loadInventory").removeClass("hidden");
+        $("#inventoryDiv .status").text("not loaded");
+        $("#inventoryDiv .loader").addClass("hidden");
+        if (notLoaded) {
+            notLoaded();
+        }
+    });
+});
