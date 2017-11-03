@@ -279,14 +279,15 @@ function optimize() {
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice(), true);
     
+    var fixedItems = builds[currentUnitIndex].fixedItems;
     var unitPartialDualWield = getInnatePartialDualWield();
-    if (unitPartialDualWield) {
+    if (unitPartialDualWield && (!fixedItems[0] || unitPartialDualWield.includes(fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
         var savedEquipable0 = equipable[0];
         var savedEquipable1 = equipable[1];
         
         equipable[0] = unitPartialDualWield;
         equipable[1] = unitPartialDualWield;
-        buildTypeCombination(0,typeCombination,combinations, builds[currentUnitIndex].fixedItems.slice());
+        buildTypeCombination(0,typeCombination,combinations, fixedItems.slice());
         
         equipable[0] = savedEquipable0;
         equipable[1] = savedEquipable1;
