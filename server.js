@@ -56,7 +56,12 @@ app.get('/googleOAuthSuccess', function(req, res) {
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
             
-            var state = JSON.parse(decodeURIComponent(req.query.state));
+            var state;
+            try {
+                state = JSON.parse(decodeURIComponent(req.query.state));
+            } catch(err) {
+                state = {};
+            }
             
             var baseUrl = 'http://ffbeEquip.lyrgard.fr/';
             if (state.dev) {
