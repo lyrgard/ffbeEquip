@@ -3480,7 +3480,7 @@
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"mag":100,"spr":50}},
+			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
@@ -3520,7 +3520,7 @@
 		},
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"mag":100,"hp":50,"mp":50}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]},
+			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]},
 			{"atk%":70, "def%":35, "spr%":35, "equipedConditions":["sword"]}
 		]
 	},
