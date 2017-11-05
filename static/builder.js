@@ -595,6 +595,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var itemKeptKeys = [];
     var damageCoefLevelAlreadyKept = {};
     var result = [];
+    var adventurerAlreadyTaken;
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
         if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
@@ -604,48 +605,56 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         var damageCoefLevel = getDamageCoefLevel(item);
         if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
             continue;
-        } 
-        if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
-            damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
         }
-        damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
-        result.push(item);
-        itemKeptKeys.push(item[itemKey]);
+        var isAdventurer = adventurerIds.includes(item.id);
+        if (!(isAdventurer && adventurerAlreadyTaken)) {
+            if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
+                damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
+            }
+            damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
+            result.push(item);
+            itemKeptKeys.push(item[itemKey]);
+            if (isAdventurer) {
+                adventurerAlreadyTaken = true;
+            }
+        }
     }
     
-    // Also keep at least the best numberNeeded items with flat stat
-    tempResult.sort(function (entry1, entry2) {
-        var value1 = 0;
-        var value2 = 0;
-        if (entry1.item[builds[currentUnitIndex].statToMaximize]) {
-            value1 = entry1.item[builds[currentUnitIndex].statToMaximize];
-        }
-        if (entry2.item[builds[currentUnitIndex].statToMaximize]) {
-            value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
-        }
-        if (value1 == value2) {
-            var defStatsCompare = compareDefense(entry1.item, entry2.item);
-            if (defStatsCompare == 0) {
-                return getAvailableNumber(entry2.item) - getAvailableNumber(entry1.item);
-            } else {
-                return defStatsCompare;
+    if (type != "materia") {
+        // Also keep at least the best numberNeeded items with flat stat
+        tempResult.sort(function (entry1, entry2) {
+            var value1 = 0;
+            var value2 = 0;
+            if (entry1.item[builds[currentUnitIndex].statToMaximize]) {
+                value1 = entry1.item[builds[currentUnitIndex].statToMaximize];
             }
-        } else {
-            return value2 - value1;
-        }
-    });
-    
-    var number = 0;
-    for (var itemIndex in tempResult) {
-        item = tempResult[itemIndex].item;
-        if (item[builds[currentUnitIndex].statToMaximize]) {
-            if (number < numberNeeded) {
-                if (!result.includes(item)) {
-                    result.push(item);
+            if (entry2.item[builds[currentUnitIndex].statToMaximize]) {
+                value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
+            }
+            if (value1 == value2) {
+                var defStatsCompare = compareDefense(entry1.item, entry2.item);
+                if (defStatsCompare == 0) {
+                    return getAvailableNumber(entry2.item) - getAvailableNumber(entry1.item);
+                } else {
+                    return defStatsCompare;
                 }
-                number += getAvailableNumber(item);
             } else {
-                break;
+                return value2 - value1;
+            }
+        });
+
+        var number = 0;
+        for (var itemIndex in tempResult) {
+            item = tempResult[itemIndex].item;
+            if (item[builds[currentUnitIndex].statToMaximize]) {
+                if (number < numberNeeded) {
+                    if (!result.includes(item)) {
+                        result.push(item);
+                    }
+                    number += getAvailableNumber(item);
+                } else {
+                    break;
+                }
             }
         }
     }
