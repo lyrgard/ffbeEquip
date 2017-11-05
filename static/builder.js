@@ -83,7 +83,7 @@ function build() {
     
     calculateAlreadyUsedItems();
     
-    prepareData(builds[currentUnitIndex].selectedUnit.equip);
+    prepareData(getCurrentUnitEquip());
     prepareEquipable();
     selectEspers();
     
@@ -167,16 +167,16 @@ function readGoal() {
 
 function prepareEquipable() {
     equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"]];
-    var selectedUnit = builds[currentUnitIndex].selectedUnit;
-    for (var equipIndex in selectedUnit.equip) {
-        if (weaponList.includes(selectedUnit.equip[equipIndex])) {
-            equipable[0].push(selectedUnit.equip[equipIndex]);
-        } else if (shieldList.includes(selectedUnit.equip[equipIndex])) {
-            equipable[1].push(selectedUnit.equip[equipIndex]);
-        } else if (headList.includes(selectedUnit.equip[equipIndex])) {
-            equipable[2].push(selectedUnit.equip[equipIndex]);
-        } else if (bodyList.includes(selectedUnit.equip[equipIndex])) {
-            equipable[3].push(selectedUnit.equip[equipIndex]);
+    var equip = getCurrentUnitEquip();
+    for (var equipIndex in equip) {
+        if (weaponList.includes(equip[equipIndex])) {
+            equipable[0].push(equip[equipIndex]);
+        } else if (shieldList.includes(equip[equipIndex])) {
+            equipable[1].push(equip[equipIndex]);
+        } else if (headList.includes(equip[equipIndex])) {
+            equipable[2].push(equip[equipIndex]);
+        } else if (bodyList.includes(equip[equipIndex])) {
+            equipable[3].push(equip[equipIndex]);
         } 
     }
     if (hasInnateDualWield()) {
@@ -1396,7 +1396,7 @@ function updateSearchResult() {
     }
     var types = searchType;
     if (searchType.length == 0) {
-        types = builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]);
+        types = getCurrentUnitEquip();
     }
     var baseStat = builds[currentUnitIndex].selectedUnit.stats.maxStats[searchStat] + builds[currentUnitIndex].selectedUnit.stats.pots[searchStat];
     accessToRemove = [];
@@ -1428,11 +1428,21 @@ function displayFixItemModal() {
     calculateAlreadyUsedItems();
     $("#searchText").val("");
     $("#fixItemModal .results .tbody").html("");
-    populateItemType(builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]));
+    populateItemType(getCurrentUnitEquip());
     $("#fixItemModal").modal();
     selectSearchStat(null);
     selectSearchType(null);
     updateSearchResult();
+}
+
+function getCurrentUnitEquip() {
+    var equip = builds[currentUnitIndex].selectedUnit.equip.concat(["accessory", "materia"]);
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].allowUseOf && !equip.includes(builds[currentUnitIndex].fixedItems[index].allowUseOf)) {
+            equip.push(builds[currentUnitIndex].fixedItems[index].allowUseOf);
+        }
+    }
+    return equip;
 }
 
 function fixItem(key) {
@@ -1512,10 +1522,15 @@ function findBestItemVersion(build, key) {
 
 function removeFixedItemAt(index) {
     builds[currentUnitIndex].fixedItems[index] = null;
+    var equip = getCurrentUnitEquip();
     for (var index in builds[currentUnitIndex].fixedItems) {
         var item = builds[currentUnitIndex].fixedItems[index];
         if (item) {
-            builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+            if (!equip.includes(item.type)) {
+                removeFixedItemAt(index);
+            } else {
+                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+            }
         }
     }
     displayFixedItems(builds[currentUnitIndex].fixedItems);
