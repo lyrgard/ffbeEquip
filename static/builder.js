@@ -574,7 +574,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     }
     tempResult.sort(function (entry1, entry2) {
         
-        if (entry1.value == entry2.value2) {
+        if (entry1.value == entry2.value) {
             var defStatsCompare = compareDefense(entry1.item, entry2.item);
             if (defStatsCompare == 0) {
                 return getAvailableNumber(entry2.item) - getAvailableNumber(entry1.item);
