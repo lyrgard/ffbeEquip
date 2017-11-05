@@ -349,23 +349,23 @@ function getPassives(unitId, skillsIn, skills, enhancements) {
                 } else {
                     if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
                     doublehandSkill = baseEffects.singleWieldingOneHanded;
-                    if (doublehandEffect[0]) {
-                        addToStat(doublehandSkill, "atk", doublehandEffect[0]);
-                    }
-                    if (doublehandEffect[1]) {
-                        addToStat(doublehandSkill, "def", doublehandEffect[1]);
-                    }
                     if (doublehandEffect[2]) {
-                        addToStat(doublehandSkill, "mag", doublehandEffect[2]);
-                    }
-                    if (doublehandEffect[3]) {
-                        addToStat(doublehandSkill, "spr", doublehandEffect[3]);
+                        addToStat(doublehandSkill, "atk", doublehandEffect[2]);
                     }
                     if (doublehandEffect[4]) {
-                        addToStat(doublehandSkill, "hp", doublehandEffect[4]);
+                        addToStat(doublehandSkill, "def", doublehandEffect[4]);
+                    }
+                    if (doublehandEffect[3]) {
+                        addToStat(doublehandSkill, "mag", doublehandEffect[3]);
                     }
                     if (doublehandEffect[5]) {
-                        addToStat(doublehandSkill, "mp", doublehandEffect[5]);
+                        addToStat(doublehandSkill, "spr", doublehandEffect[5]);
+                    }
+                    if (doublehandEffect[0]) {
+                        addToStat(doublehandSkill, "hp", doublehandEffect[0]);
+                    }
+                    if (doublehandEffect[1]) {
+                        addToStat(doublehandSkill, "mp", doublehandEffect[1]);
                     }
                 }
                 
