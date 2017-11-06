@@ -1513,16 +1513,19 @@ function findBestItemVersion(build, key) {
             if (item1.equipedConditions) {
                 conditionNumber1 = item1.equipedConditions.length;
             }
+            if (item1.exclusiveUnits) {
+                conditionNumber1++;
+            }
             if (item2.equipedConditions) {
                 conditionNumber2 = item2.equipedConditions.length;
+            }
+            if (item2.exclusiveUnits) {
+                conditionNumber2++;
             }
             return conditionNumber2 - conditionNumber1;
         });
         for (var index in itemVersions) {
-            if (build[0] && build[3] && build[0].type == "greatSword" && build[3].type == "heavyArmor") {
-                console.log("LOL");
-            }
-            if (areConditionOK(itemVersions[index], build)) {
+            if (isApplicable(itemVersions[index]) && areConditionOK(itemVersions[index], build)) {
                 return itemVersions[index];
             }
         }
