@@ -503,7 +503,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
     } else {
         if (index == 1 && build[0] && isTwoHanded(build[0])) {
-            build[index] == null;
+            build[index] = null;
             var typeCombinationWithoutSecondHand = typeCombination.slice();
             typeCombinationWithoutSecondHand[1] = null;
             findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
@@ -646,6 +646,10 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         var number = 0;
         for (var itemIndex in tempResult) {
             item = tempResult[itemIndex].item;
+            if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+                // Don't keep 2-handed weapon in combination with 2 weapons
+                continue;
+            }
             if (item[builds[currentUnitIndex].statToMaximize]) {
                 if (number < numberNeeded) {
                     if (!result.includes(item)) {
