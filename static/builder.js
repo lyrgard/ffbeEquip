@@ -1183,15 +1183,19 @@ function displayFixedItems(fixedItems) {
 
 function getItemLine(item, index) {
     var html = "";
-    html += '<div class="tr">';
+    html += '<div class="tr buildLine_' + index + '">';
     if (index && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td fixed" onclick="removeFixedItemAt(\'' + index +'\')"><img class="" src="img/pin.png"></img></div>'
+        html += '<div class="td pin fixed" onclick="removeFixedItemAt(\'' + index +'\')"><img class="" src="img/pin.png"></img></div>'
     } else {
-        html += '<div class="td"></div>'
+        html += '<div class="td pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);"><img class="" src="img/pin.png"></img></div>'
     }
     html += displayItemLine(item);
     html += "</div>";
     return html;
+}
+
+function redrawBuildLine(index) {
+    $("#buildResult .tr.buildLine_" + index).replaceWith(getItemLine(builds[currentUnitIndex].bestBuild[index], index));
 }
 
 function getEsperItem(esper) {
@@ -1449,12 +1453,15 @@ function getCurrentUnitEquip() {
     return equip;
 }
 
-function fixItem(key) {
+function fixItem(key, slotParam) {
     var item = findBestItemVersion(builds[currentUnitIndex].fixedItems, key);
     
     if (item) {
         prepareEquipable();
-        var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
+        var slot = slotParam;
+        if (!slot) {
+            slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
+        }
         if (slot == -1) {
             if (weaponList.includes(item.type) && builds[currentUnitIndex].fixedItems[0] && !builds[currentUnitIndex].fixedItems[1]) {
                 // for weapon, if the second weapon were refused, check if an innat partial DW allow it
@@ -1477,10 +1484,14 @@ function fixItem(key) {
                 builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
             }
         }
-        displayFixedItems(builds[currentUnitIndex].fixedItems);
-        builds[currentUnitIndex].bestBuild = [];
-        builds[currentUnitIndex].bestValue = null;
-        builds[currentUnitIndex].bestEsper = null;
+        if (slotParam) {
+            redrawBuildLine(slotParam);
+        } else {
+            displayFixedItems(builds[currentUnitIndex].fixedItems);
+            builds[currentUnitIndex].bestBuild = [];
+            builds[currentUnitIndex].bestValue = null;
+            builds[currentUnitIndex].bestEsper = null;
+        }
     }
     $('#fixItemModal').modal('hide');
 }
@@ -1506,16 +1517,19 @@ function findBestItemVersion(build, key) {
             if (item1.equipedConditions) {
                 conditionNumber1 = item1.equipedConditions.length;
             }
+            if (item1.exclusiveUnits) {
+                conditionNumber1++;
+            }
             if (item2.equipedConditions) {
                 conditionNumber2 = item2.equipedConditions.length;
+            }
+            if (item2.exclusiveUnits) {
+                conditionNumber2++;
             }
             return conditionNumber2 - conditionNumber1;
         });
         for (var index in itemVersions) {
-            if (build[0] && build[3] && build[0].type == "greatSword" && build[3].type == "heavyArmor") {
-                console.log("LOL");
-            }
-            if (areConditionOK(itemVersions[index], build)) {
+            if (isApplicable(itemVersions[index]) && areConditionOK(itemVersions[index], build)) {
                 return itemVersions[index];
             }
         }
@@ -1524,8 +1538,8 @@ function findBestItemVersion(build, key) {
     }
 }
 
-function removeFixedItemAt(index) {
-    builds[currentUnitIndex].fixedItems[index] = null;
+function removeFixedItemAt(slot) {
+    builds[currentUnitIndex].fixedItems[slot] = null;
     var equip = getCurrentUnitEquip();
     for (var index in builds[currentUnitIndex].fixedItems) {
         var item = builds[currentUnitIndex].fixedItems[index];
@@ -1537,10 +1551,14 @@ function removeFixedItemAt(index) {
             }
         }
     }
-    displayFixedItems(builds[currentUnitIndex].fixedItems);
-    builds[currentUnitIndex].bestBuild = [];
-    builds[currentUnitIndex].bestValue = null;
-    builds[currentUnitIndex].bestEsper = null;
+    if ($("#resultStats").hasClass("hidden")) {
+        displayFixedItems(builds[currentUnitIndex].fixedItems);
+        builds[currentUnitIndex].bestBuild = [];
+        builds[currentUnitIndex].bestValue = null;
+        builds[currentUnitIndex].bestEsper = null;   
+    } else {
+        redrawBuildLine(slot);
+    }
 }
 
 function selectSearchType(type) {

@@ -118,20 +118,29 @@
     color: white;
 }
 
-.td.fixed:hover {
+.td.pin:hover {
     cursor: pointer;
 }
 
-.td.fixed img {
+.td.pin img {
     width: 20px;
-}
-
-.td.fixed img {
     position: relative;
 }
 
-.td.fixed:hover img {
+.td.pin.fixed:hover img {
     animation-name: unpin;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.td.pin.notFixed img {
+    display: none;
+}
+
+.td.pin.notFixed:hover img {
+    display: block;
+    animation-name: pin;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -147,6 +156,19 @@
         top: -5px;
         left: 5px;
         transform: rotate(-15deg);
+    }
+}
+
+@keyframes pin {
+    from {
+        top: -5px;
+        left: 5px;
+        transform: rotate(-15deg);
+    }
+    to {
+        top: 0;
+        left: 0;
+        transform: rotate(0);
     }
 }
 
