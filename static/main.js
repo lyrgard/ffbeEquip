@@ -149,7 +149,8 @@ var modifyFilterSummary = function() {
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     var html = "";
-    $(items).each(function (index, item){
+    for (var index in items) {
+        var item = items[index];
         html += '<div class="tr';
         if (item.temp) {
             html += ' userInputed';
@@ -173,7 +174,7 @@ var displayItems = function(items) {
             html += '</div>';
         }
         html += "</div>";
-    });
+    }
     $("#results .tbody").html(html);
     $("#resultNumber").html(items.length);
     $(baseStats).each(function(index, currentStat) {
@@ -447,9 +448,3 @@ $(function() {
     
     
 });
-
-function escapeQuote(string) {
-    return String(string).replace(/[']/g, function (s) {
-        return "\\'";
-    });
-}

@@ -1,0 +1,75 @@
+#results .item {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+}
+
+#results .item.notOwned {
+    background-color: white;
+}
+
+#results .item.notOwned .type, #results .item.notOwned .name{
+    opacity: 0.3;
+}
+
+#results .item:hover {
+    background-color: #337ab7;
+    color: white;
+    cursor: pointer;
+}
+
+#results .item:hover a{
+    color: white;
+}
+
+
+#results .item .name{
+    flex-grow: 1;
+}
+
+.inventory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory .number {
+    margin-top: 1px;
+    background-color: aliceblue;
+    color: #337ab7;
+    font-size: 1.2em;
+}
+
+#results .item .inventory .glyphicon {
+    color: aliceblue;
+}
+
+#results .item.notOwned .inventory .glyphicon {
+    color: white;
+}
+
+#results .item:hover .inventory .glyphicon {
+    cursor: pointer;
+    color: aliceblue;
+    font-size: 0.8em;
+    margin: 2px;
+}
+
+.result-tab-pane {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-tabs li {
+    cursor: pointer;
+}

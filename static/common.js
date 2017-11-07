@@ -25,6 +25,47 @@ var headList = ["hat", "helm"];
 var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 var accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
 
+function getImageHtml(item) {
+    var html = '<div class="td type">';
+    if (item.special && item.special.includes("notStackable")) {
+        html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+    }
+    if (item.special && item.special.includes("twoHanded")) {
+        html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+    }
+    if (item.icon) {
+        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";    
+    } else if (item.type == "esper") {
+        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
+    } else {
+        html += "<img src='img/" + item.type + ".png' class='icon'></img></div>";
+    }
+    return html;
+}
+
+function getNameColumnHtml(item) {
+    var html = '<div class="td name"><div>' + toLink(item.name);
+    if (item.outclassedBy) {
+        html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
+    }
+    html += "</div>";
+    if (item.jpname) {
+        html += '<div>' + item.jpname + "</div>";
+    }
+    html += "<div class='detail'>";
+    if (item.type != "esper") { 
+        html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
+    }
+    html += getStatDetail(item) + "</div>"
+    if (item.userPseudo) {
+        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
+    }
+    html += "</div>";
+
+    
+    return html;
+}
+
 function getElementHtml(elements) {
     var html = "<div class='specialValueGroup'>";
     for (var index in elements) {
@@ -134,40 +175,10 @@ function getEquipedConditionHtml(item) {
 function displayItemLine(item) {
     html = "";
     // type
-    html += '<div class="td type">';
-    if (item.special && item.special.includes("notStackable")) {
-        html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
-    }
-    if (item.special && item.special.includes("twoHanded")) {
-        html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
-    }
-    if (item.icon) {
-        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";    
-    } else if (item.type == "esper") {
-        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
-    } else {
-        html += "<img src='img/" + item.type + ".png' class='icon'></img></div>";
-    }
-    
+    html += getImageHtml(item);
 
     // name
-    html += '<div class="td name"><div>' + toLink(item.name);
-    if (item.outclassedBy) {
-        html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
-    }
-    html += "</div>";
-    if (item.jpname) {
-        html += '<div>' + item.jpname + "</div>";
-    }
-    html += "<div class='detail'>";
-    if (item.type != "esper") { 
-        html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
-    }
-    html += getStatDetail(item) + "</div>"
-    if (item.userPseudo) {
-        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
-    }
-    html += "</div>";
+    html += getNameColumnHtml(item);
 
     // value
     html += '<div class="td value sort">' + item.calculatedValue;
@@ -175,9 +186,7 @@ function displayItemLine(item) {
         html += '%';
     }
     html += "</div>";
-
-
-
+    
     // special
     html += '<div class="td special">';
 
@@ -666,6 +675,13 @@ var isAccessAllowed = function(forbiddenAccessList, access) {
 // Escape RegExp special character if the user used them in his search
 function escapeRegExp(str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+
+function escapeQuote(string) {
+    return String(string).replace(/[']/g, function (s) {
+        return "\\'";
+    });
 }
 
 function prepareSearch(data) {
