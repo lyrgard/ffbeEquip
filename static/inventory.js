@@ -4,6 +4,30 @@ var saveTimeout;
 
 var itemKey = getItemInventoryKey();
 
+function showMateria() {
+    $("#pleaseWaitMessage").addClass("hidden");
+    $("#loginMessage").addClass("hidden");
+    $("#inventory").removeClass("hidden");
+    
+    $(".nav-tabs li.equipment").removeClass("active");
+    $(".nav-tabs li.materia").addClass("active");
+    $("#sortType").text("Sorted by Name");
+    // filter, sort and display the results
+    displayItems(sort(keepOnlyOneOfEachMateria()));
+}
+
+function showEquipments() {
+    $("#pleaseWaitMessage").addClass("hidden");
+    $("#loginMessage").addClass("hidden");
+    $("#inventory").removeClass("hidden");
+    
+    $(".nav-tabs li.equipment").addClass("active");
+    $(".nav-tabs li.materia").removeClass("active");
+    $("#sortType").text("Sorted by Type (Strenght)");
+    // filter, sort and display the results
+    displayItems(sort(keepOnlyOneOfEachEquipement()));
+}
+
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     var html = '';
@@ -26,7 +50,7 @@ var displayItems = function(items) {
             
             html += '</div>';
         }
-        html += getImageHtml(item) + getNameColumnHtml(item) + item.id;
+        html += getImageHtml(item) + getNameColumnHtml(item);
         
         html += "</div>";
     }
@@ -99,19 +123,45 @@ function saveInventory() {
     });
 }
 
-function inventoryLoaded() {
-    if (data) {
-        // filter, sort and display the results
-        displayItems(sort(keepOnlyOneOfEachEquipement()));
+function keepOnlyOneOfEachEquipement() {
+    var idsAlreadyKept = [];
+    var tempResult = {};
+    for (var index in data) {
+        var item = data[index];
+        if (item.type != "materia" && !item.access.includes("not released yet")) {
+            if (tempResult[item[itemKey]]) {
+                var alreadyPutItem = tempResult[item[itemKey]];
+                if (item.equipedConditions) {
+                    if (alreadyPutItem.equipedConditions) {
+                        if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
+                            tempResult[item[itemKey]] = item;
+                        }
+                    } else {
+                        tempResult[item[itemKey]] = item;
+                    }
+                }
+                if (item.exclusiveUnits) {
+                    tempResult[item[itemKey]] = item;
+                }
+            } else {
+                tempResult[item[itemKey]] = item;
+            }
+        }
     }
+    
+    var result = [];
+    for (var index in tempResult) {
+        result.push(tempResult[index]);
+    }
+    return result;
 }
 
-function keepOnlyOneOfEachEquipement() {
+function keepOnlyOneOfEachMateria() {
     var idsAlreadyKept = [];
     var result = [];
     for (var index in data) {
         var item = data[index];
-        if (item.type != "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item[itemKey])) {
+        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item[itemKey])) {
             result.push(item);
             idsAlreadyKept.push(item[itemKey]);
         }
@@ -119,9 +169,18 @@ function keepOnlyOneOfEachEquipement() {
     return result;
 }
 
-var sortOrderDefault = ["atk","mag","def","spr", "id"];
+var sortOrderDefault = ["atk","mag","def","spr", "sortId"];
 var sortOrderByType = {
-    "accessory": ["def","spr","atk","mag", "id"]
+    "lightShield": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "heavyShield": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "hat": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "helm": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "lightArmor": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "heavyArmor": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "robe": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "clothes": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "accessory": ["def","spr","atk","mag","hp","mp", "sortId"],
+    "materia": []
 }
 function sort(items) {
     return items.sort(function (item1, item2){
@@ -141,7 +200,12 @@ function sort(items) {
                 }
                 return stat2 - stat1;
             }
-            return item2.id.localeCompare(item1.id);    
+            if (item1.name < item2.name) {
+                return -1;
+            } else if (item1.name > item2.name) {
+                return 1
+            }
+            return 0;    
         } else {
             return type2 - type1;
         }
@@ -160,8 +224,16 @@ function getStat(item, stat) {
     }
 }
 
+function inventoryLoaded() {
+    if (data) {
+        showEquipments();
+    }
+}
+
 function notLoaded() {
-    
+    $("#pleaseWaitMessage").addClass("hidden");
+    $("#loginMessage").removeClass("hidden");
+    $("#inventory").addClass("hidden");
 }
 
 // will be called by jQuery at page load)

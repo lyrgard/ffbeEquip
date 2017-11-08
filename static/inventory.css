@@ -3,7 +3,7 @@
     flex-direction: row;
     border-radius: 10px;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #d2edf9;
     padding: 5px;
     border-width: 2px;
     border-color: white;
@@ -42,13 +42,13 @@
 
 .inventory .number {
     margin-top: 1px;
-    background-color: aliceblue;
+    background-color: #d2edf9;
     color: #337ab7;
     font-size: 1.2em;
 }
 
 #results .item .inventory .glyphicon {
-    color: aliceblue;
+    color: #d2edf9;
 }
 
 #results .item.notOwned .inventory .glyphicon {
@@ -57,7 +57,7 @@
 
 #results .item:hover .inventory .glyphicon {
     cursor: pointer;
-    color: aliceblue;
+    color: #d2edf9;
     font-size: 0.8em;
     margin: 2px;
 }
@@ -72,4 +72,11 @@
 
 .nav-tabs li {
     cursor: pointer;
+}
+
+#sortType {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    font-weight: bold;
 }

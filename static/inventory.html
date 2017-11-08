@@ -20,7 +20,8 @@
                         <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a id="linkToSearch" href="index.html">Search</a></li>
+                        <li><a id="linkToSearch" href="index.html">Search</a></li>
+                        <li class="active"><a id="linkToInventory" href="inventory.html">Inventory</a></li>
                         <li><a id="linkToBuilder" href="builder.html">Builder</a></li>
                         <li><a id="linkToContribute" href="contribute.html">Contribute</a></li>
                     </ul>
@@ -39,23 +40,30 @@
                 </nav>
             </div>
             
-            <div  class="col-xs-12 col-md-6 col-md-offset-3">
-                <ul class="nav nav-tabs">
-                    <li class="active"  onclick="showEquipments()"><a><img src="img/accessory.png"/></a></li>
-                    <li onclick="showMateria()"><a><img src="img/materia.png"/></a></li>
-                </ul>
-                <div class="result-tab-pane">
-                    <div class="panel-body" style="padding:0;">
-                        <div id="results" class="">
-							
+            <div  class="col-xs-12 col-lg-6 col-lg-offset-3">
+                <span id="pleaseWaitMessage" class="h4">Please wait for your inventory to be loaded</span>
+                <span id="loginMessage" class="h4 hidden">Log-in to display your inventory</span>
+                <div id="inventory" class="hidden">
+                    <ul class="nav nav-tabs">
+                        <li class="equipment"  onclick="showEquipments()"><a><img src="img/accessory.png"/></a></li>
+                        <li class="materia" onclick="showMateria()"><a><img src="img/materia.png"/></a></li>
+                        <span id="sortType"></span>
+                    </ul>
+                    <div class="result-tab-pane">
+                        <div class="panel-body" style="padding:0;">
+                            <div id="results" class="">
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
-                </div>
-                <div>
-                    <a class="buttonLink" href='https://ko-fi.com/Lyrgard'>Donate</a>
+                <div class="footerButtons">
+                    <div>
+                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard'>Donate</a>
+                    </div>
                 </div>
             </div>
         </div>
