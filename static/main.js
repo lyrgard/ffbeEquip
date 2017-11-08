@@ -10,8 +10,6 @@ var saveNeeded = false;
 var onlyShowOwnedItems = false;
 var showNotReleasedYet = false;
 
-var saveTimeout;
-
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -163,13 +161,11 @@ var displayItems = function(items) {
                 html+= "notPossessed";
             }
             html += '">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\',this)" />';
             html += '<span class="number badge badge-success">';
             if (itemInventory[item[getItemInventoryKey()]]) {
                 html += itemInventory[item[getItemInventoryKey()]];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="removeFromInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\',this)" />';
             
             html += '</div>';
         }
@@ -220,41 +216,6 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.hide();
     }
 };
-
-function addToInventory(id, span) {
-    var inventoryDiv = $(".inventory." + escapeName(id));
-    if(itemInventory[id]) {
-        itemInventory[id] = itemInventory[id] + 1;
-        inventoryDiv.children(".number").text(itemInventory[id]);
-    } else {
-        itemInventory[id] = 1;
-        inventoryDiv.removeClass('notPossessed');
-        inventoryDiv.children(".number").text(itemInventory[id]);
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
-    }
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveInventory,3000);
-    $(".saveInventory").removeClass("hidden");
-}
-
-function removeFromInventory(id, span) {
-    if(itemInventory[id]) {
-        var inventoryDiv = $(".inventory." + escapeName(id));
-        if (itemInventory[id] == 1 ) {
-            delete itemInventory[id];
-            inventoryDiv.addClass('notPossessed');
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
-        } else {
-            itemInventory[id] = itemInventory[id] - 1;
-            inventoryDiv.children(".number").text(itemInventory[id]);
-        }
-        saveNeeded = true;
-        if (saveTimeout) {clearTimeout(saveTimeout)}
-        saveTimeout = setTimeout(saveInventory,3000);
-        $(".saveInventory").removeClass("hidden");
-    }
-}
 
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
 function unselectAll(type, runUpdate = true) {
@@ -338,35 +299,6 @@ function populateUnitSelect() {
             displayUnitRarity(selectedUnitData);
         });
         update();
-    });
-}
-
-function saveInventory() {
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
-    saveNeeded = false;
-    $.ajax({
-        url: server + '/itemInventory',
-        method: 'PUT',
-        data: JSON.stringify(itemInventory),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $("#inventoryDiv .loader").addClass("hidden");
-            $("#inventoryDiv .message").text("save OK");
-            $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){ 
-                $("#inventoryDiv .message").addClass("hidden");
-            }  , 3000 );
-        },
-        error: function() {
-            saveNeeded = true;
-            $("#inventoryDiv .loader").addClass("hidden");
-            $(".saveInventory").removeClass("hidden");
-            alert('error while saving the inventory');
-        }
     });
 }
 
