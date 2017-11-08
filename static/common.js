@@ -18,7 +18,7 @@ var filters = ["types","elements","ailments","killers","accessToRemove","additio
 var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
 var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
 var killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
-var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor", "accessory", "materia"];
+var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "lightArmor", "heavyArmor", "robe",  "accessory", "materia"];
 var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
 var shieldList = ["lightShield", "heavyShield"];
 var headList = ["hat", "helm"];
@@ -401,17 +401,7 @@ function loadInventory() {
             position: { my: 'top', at: 'top+150' },
             buttons: {
                 Ok: function() {
-                    var state = {
-                        "page": page,
-                        "data": ""
-                    };
-                    if (window.location.hash && window.location.hash.length > 1) {
-                        state.data = window.location.hash.substring(1);
-                    }
-                    if (window.location.host == "localhost:3000") {
-                        state.dev = true;
-                    }
-                    window.location.href = result.url + "&state=" + encodeURIComponent(JSON.stringify(state));
+                    window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href);
                 }
             }
         });

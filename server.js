@@ -56,27 +56,7 @@ app.get('/googleOAuthSuccess', function(req, res) {
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
             
-            var state;
-            try {
-                state = JSON.parse(decodeURIComponent(req.query.state));
-            } catch(err) {
-                state = {};
-            }
-            
-            var baseUrl = 'http://ffbeEquip.lyrgard.fr/';
-            if (state.dev) {
-                baseUrl = 'http://localhost:3000/';
-            }
-            if (state.page == "builder") {
-                baseUrl += "builder.html#";
-            } else {
-                baseUrl += "#";
-            }
-            if (state.data) {
-                baseUrl += state.data;
-            }
-            
-            res.status(303).location(baseUrl).send();
+            res.status(303).location(req.query.state).send();
         } else {
             console.log(err);
             res.status(500).send(err);

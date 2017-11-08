@@ -21,6 +21,7 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a id="linkToSearch" href="index.html">Search</a></li>
+                        <li><a id="linkToInventory" href="inventory.html">Inventory</a></li>
                         <li><a id="linkToBuilder" href="builder.html">Builder</a></li>
                         <li><a id="linkToContribute" href="contribute.html">Contribute</a></li>
                     </ul>
@@ -29,9 +30,7 @@
                         <span>Inventory :&nbsp;</span>
                         <span class="status"></span>
                         <div class="loader"></div>
-                        <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
                         <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                        <span class="message hidden">Saved</span>
                         <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
                         
                     </div>
@@ -193,7 +192,6 @@
                             </div>
                             <div class="col-xs-4 text-right buttons">
                                 <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                                <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
                                 <div class="loader hidden"></div>
                                 <span class="message hidden"/>
                             </div>
@@ -218,7 +216,6 @@
                                     <div id="statTitle" class="td value sort">Value</div>
                                     <div class="td special">Special</div>
 									<div class="td access">Access</div>
-                                    <div class="td inventory"></div>
                                 </div>
                             </div>
                             <div class="tbody">
@@ -233,11 +230,13 @@
                 <div>
                     Thanks to <b>N/A</b> and <b>jargonburn</b> for their contribution for items ! 
                 </div>
-                <div>
-                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
-                </div>
-                <div>
-                    <a class="buttonLink" href='https://ko-fi.com/Lyrgard'>Donate</a>
+                <div class="footerButtons">
+                    <div>
+                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard">Send me a message on reddit</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard'>Donate</a>
+                    </div>
                 </div>
             </div>
         </div>
