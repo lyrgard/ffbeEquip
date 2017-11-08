@@ -417,7 +417,7 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
             if (typeCombination[slotIndex]) {
-                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination, fixedItems);
             }
         }
         
@@ -555,7 +555,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     }
 }
 
-function addConditionItems(itemsOfType, type, typeCombination) {
+function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     var tempResult = itemsOfType.slice();
     for (var index in dataWithCondition) {
         var item = dataWithCondition[index];
@@ -598,7 +598,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var adventurerAlreadyTaken;
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
-        if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+        if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
             // Don't keep 2-handed weapon in combination with 2 weapons
             continue;
         }
@@ -646,7 +646,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         var number = 0;
         for (var itemIndex in tempResult) {
             item = tempResult[itemIndex].item;
-            if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+            if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
                 // Don't keep 2-handed weapon in combination with 2 weapons
                 continue;
             }
@@ -661,10 +661,6 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                 }
             }
         }
-    }
-    
-    if (result.length == 0 && typeCombination.indexOf(type) < 4 && tempResult.length > 0) {
-        result.push(tempResult[0].item);
     }
     
     return result;
