@@ -40,7 +40,7 @@ var displayItems = function(items) {
         html+= '" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')">';
         if (itemInventory) {
             html+= '<div class="td inventory">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')" />';
+            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')" />';
             html += '<span class="number badge badge-success">';
             if (itemInventory[item[getItemInventoryKey()]]) {
                 html += itemInventory[item[getItemInventoryKey()]];
