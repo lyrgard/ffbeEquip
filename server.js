@@ -106,6 +106,8 @@ app.put("/:server/itemInventory", function(req, res) {
 });
 
 app.get("/:server/itemInventory", function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     if (inventoryFile == null) {
         var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
         if (!googleOAuthAccessToken) {

@@ -114,11 +114,17 @@ function saveInventory() {
                 $("#inventoryDiv .message").addClass("hidden");
             }  , 3000 );
         },
-        error: function() {
-            saveNeeded = true;
+        error: function(error) {
             $("#inventoryDiv .loader").addClass("hidden");
-            $(".saveInventory").removeClass("hidden");
-            alert('error while saving the inventory');
+            if (error.status == 401) {
+                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
+                window.location.reload();
+            } else {
+                saveNeeded = true;
+                $(".saveInventory").removeClass("hidden");
+                alert('error while saving the inventory. Please click on "Save" to try again');
+            }
+            
         }
     });
 }
