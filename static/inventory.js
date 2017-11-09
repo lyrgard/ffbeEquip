@@ -3,29 +3,49 @@ var saveNeeded = false;
 var saveTimeout;
 
 var itemKey = getItemInventoryKey();
+var equipments;
+var materia;
 
 function showMateria() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#inventory").removeClass("hidden");
+    $("#searchBox").addClass("hidden");
     
     $(".nav-tabs li.equipment").removeClass("active");
     $(".nav-tabs li.materia").addClass("active");
+    $(".nav-tabs li.search").removeClass("active");
     $("#sortType").text("Sorted by Name");
     // filter, sort and display the results
-    displayItems(sort(keepOnlyOneOfEachMateria()));
+    displayItems(sort(equipments));
 }
 
 function showEquipments() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#inventory").removeClass("hidden");
+    $("#searchBox").addClass("hidden");
     
     $(".nav-tabs li.equipment").addClass("active");
     $(".nav-tabs li.materia").removeClass("active");
+    $(".nav-tabs li.search").removeClass("active");
     $("#sortType").text("Sorted by Type (Strenght)");
     // filter, sort and display the results
-    displayItems(sort(keepOnlyOneOfEachEquipement()));
+    displayItems(sort(materia));
+}
+
+function showSearch() {
+    $("#pleaseWaitMessage").addClass("hidden");
+    $("#loginMessage").addClass("hidden");
+    $("#inventory").removeClass("hidden");
+    $("#searchBox").removeClass("hidden");
+    
+    $(".nav-tabs li.equipment").removeClass("active");
+    $(".nav-tabs li.materia").removeClass("active");
+    $(".nav-tabs li.search").addClass("active");
+    $("#sortType").text("");
+    // filter, sort and display the results
+    displayItems(sort(search()));
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
@@ -127,6 +147,26 @@ function saveInventory() {
             
         }
     });
+}
+
+function search() {
+    var result = [];
+    var textToSearch = $("#searchBox").val();
+    if (textToSearch) {
+        for (var index in equipments) {
+            var item = equipments[index];
+            if (containsText(textToSearch, item)) {
+                result.push(item);
+            }
+        }
+        for (var index in materia) {
+            var item = materia[index];
+            if (containsText(textToSearch, item)) {
+                result.push(item);
+            }
+        }
+    }
+    return result;
 }
 
 function keepOnlyOneOfEachEquipement() {
@@ -232,6 +272,8 @@ function getStat(item, stat) {
 
 function inventoryLoaded() {
     if (data) {
+        equipments = keepOnlyOneOfEachEquipement();
+        materia = keepOnlyOneOfEachMateria();
         showEquipments();
     }
 }
@@ -242,12 +284,23 @@ function notLoaded() {
     $("#inventory").addClass("hidden");
 }
 
+function prepareSearch(data) {
+    for (var index in data) {
+        var item = data[index];
+        item.searchString = item.name;
+        if (item.tmrUnit) {
+            item.searchString += "|" + item.tmrUnit;
+        }
+    }
+}
+
 // will be called by jQuery at page load)
 $(function() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
         data = result;
+        prepareSearch(data);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -261,5 +314,6 @@ $(function() {
         }
     });
     
+    $("#searchBox").on("input", $.debounce(300,showSearch));
     
 });
