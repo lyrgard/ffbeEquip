@@ -281,6 +281,7 @@ function optimize() {
     
     var fixedItems = builds[currentUnitIndex].fixedItems;
     var unitPartialDualWield = getInnatePartialDualWield();
+    var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     if (unitPartialDualWield && (!fixedItems[0] || unitPartialDualWield.includes(fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
         var savedEquipable0 = equipable[0];
         var savedEquipable1 = equipable[1];
@@ -292,7 +293,7 @@ function optimize() {
         equipable[0] = savedEquipable0;
         equipable[1] = savedEquipable1;
     }
-    if (!hasInnateDualWield() && dualWieldSources.length > 0 && !(builds[currentUnitIndex].fixedItems[0] && isTwoHanded(builds[currentUnitIndex].fixedItems[0]))) {
+    if (!forceDoubleHand && !hasInnateDualWield() && dualWieldSources.length > 0 && !(builds[currentUnitIndex].fixedItems[0] && isTwoHanded(builds[currentUnitIndex].fixedItems[0]))) {
         for (var index in dualWieldSources) {
             var item = dualWieldSources[index];
             var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
@@ -325,6 +326,7 @@ function optimize() {
     
 function getFixedItemItemSlot(item, equipable, fixedItems) {
     var slot = -1;
+    var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     if (weaponList.includes(item.type)) {
         if (fixedItems[0] && fixedItems[1]) {
             return -1;
@@ -332,7 +334,7 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
         if (!fixedItems[0]) {
             return 0;
         } else {
-            if (equipable[1].includes(item.type)) {
+            if (!forceDoubleHand && equipable[1].includes(item.type)) {
                 return 1;
             } else {
                 return -1;
@@ -379,7 +381,7 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
     return slot;
 }
 
-function buildTypeCombination(index, typeCombination, combinations, fixedItems, tryDoublehand = false) {
+function buildTypeCombination(index, typeCombination, combinations, fixedItems, tryDoublehand = false, forceDoublehand = false) {
     if (fixedItems[index]) {
         if (equipable[index].length > 0 && equipable[index].includes(fixedItems[index].type)) {
             tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand);
@@ -388,8 +390,10 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
         }
     } else {
         if (equipable[index].length > 0) 
-            if (index == 1 && fixedItems[0] && isTwoHanded(fixedItems[0])) { // of a two-handed weapon was fixed, no need to try smething in the second hand
-                tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+            if (index == 1 && 
+                    ((fixedItems[0] && isTwoHanded(fixedItems[0])) 
+                    || forceDoublehand)) { // if a two-handed weapon was fixed, no need to try smething in the second hand
+                tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand, forceDoublehand);
             } else {
                 var found = false;
                 for (var typeIndex in equipable[index]) {
@@ -398,14 +402,14 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
                         continue;
                     }
                     if (dataByType[type].length > 0) {
-                        tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand);
+                        tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand, forceDoublehand);
                         found = true;
                     }
                 }
                 if (!found) {
-                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand, forceDoublehand);
                 } else if (index == 1 && tryDoublehand) {
-                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+                    tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand, forceDoublehand);
                 }
         } else {
             tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
@@ -413,7 +417,7 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
     }
 }
 
-function tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand) {
+function tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand, forceDoublehand) {
     typeCombination[index] = type;
     if (index == 9) {
         build = [null, null, null, null, null, null, null, null, null, null];
@@ -421,13 +425,13 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
             if (typeCombination[slotIndex]) {
-                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination);
+                dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination, fixedItems);
             }
         }
         
         combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":getBestFixedItemVersions(fixedItems,typeCombination)});
     } else {
-        buildTypeCombination(index+1, typeCombination, combinations, fixedItems, tryDoublehand);
+        buildTypeCombination(index+1, typeCombination, combinations, fixedItems, tryDoublehand, forceDoublehand);
     }
 }
 
@@ -559,7 +563,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     }
 }
 
-function addConditionItems(itemsOfType, type, typeCombination) {
+function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     var tempResult = itemsOfType.slice();
     for (var index in dataWithCondition) {
         var item = dataWithCondition[index];
@@ -602,7 +606,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
     var adventurerAlreadyTaken;
     for (var itemIndex in tempResult) {
         item = tempResult[itemIndex].item;
-        if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+        if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
             // Don't keep 2-handed weapon in combination with 2 weapons
             continue;
         }
@@ -650,7 +654,7 @@ function addConditionItems(itemsOfType, type, typeCombination) {
         var number = 0;
         for (var itemIndex in tempResult) {
             item = tempResult[itemIndex].item;
-            if (isTwoHanded(item) && typeCombination[0] && typeCombination[1]) {
+            if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
                 // Don't keep 2-handed weapon in combination with 2 weapons
                 continue;
             }
@@ -665,10 +669,6 @@ function addConditionItems(itemsOfType, type, typeCombination) {
                 }
             }
         }
-    }
-    
-    if (result.length == 0 && typeCombination.indexOf(type) < 4 && tempResult.length > 0) {
-        result.push(tempResult[0].item);
     }
     
     return result;
@@ -1378,14 +1378,17 @@ function onGoalChange() {
         $(".magicalSkillType").removeClass("hidden");
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
+        $("#forceDoublehand").addClass("hidden");
     } else if (goal == "atk"){
         $(".magicalSkillType").addClass("hidden");
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
+        $("#forceDoublehand").removeClass("hidden");
     } else if (goal == "def" || goal == "spr") {
         $(".monster").addClass("hidden");
         $(".unitAttackElement").addClass("hidden");
         $(".magicalSkillType").addClass("hidden");
+        $("#forceDoublehand").addClass("hidden");
     }
 }
 
