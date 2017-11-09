@@ -303,8 +303,8 @@ function optimize() {
             var fixedItems = builds[currentUnitIndex].fixedItems.slice();
             fixedItems[slot] = item;
             var savedEquipable0 = equipable[0];
-            if (item.partialDualWield && slot == 0) {
-                equipable[0] = [item.type];
+            if (item.partialDualWield) {
+                equipable[0] = item.partialDualWield;
                 equipable[1] = item.partialDualWield;
                 var unitPartialDualWield = getInnatePartialDualWield();
                 if (unitPartialDualWield) {
