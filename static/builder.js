@@ -42,6 +42,7 @@ var selectedUnitName;
 var selectedUnit;
 
 var equipable;
+var tempDataWithConditionItem = {};
 
 var ennemyResist = {"fire":0,"ice":0,"water":0,"wind":0,"lightning":0,"earth":0,"light":-50,"dark":0};
 var ennemyRaces;
@@ -91,6 +92,7 @@ function build() {
 }
 
 function calculateAlreadyUsedItems() {
+    tempDataWithConditionItem = {};
     alreadyUsedItems = {};
     alreadyUsedEspers = [];
     for (var i in builds) {
@@ -189,6 +191,14 @@ function prepareData(equipable) {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     
+    desirableElements = [];
+    for (var index in builds[currentUnitIndex].selectedUnit.skills) {
+        var skill = builds[currentUnitIndex].selectedUnit.skills[index];
+        if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !desirableElements.includes(skill.equipedConditions[0])) {
+            desirableElements.push(skill.equipedConditions[0]);
+        }
+    }
+    
     dataByType = {};
     dataWithCondition = [];
     dualWieldSources = [];
@@ -206,7 +216,14 @@ function prepareData(equipable) {
                     dataByType[item.type] = [];
                 }
                 var statValue = calculateMaxValue(item);
-                var itemEntry = {"value":statValue, "item":item, "name":item.name};
+                var itemEntry = {
+                    "value":statValue, 
+                    "item":item, 
+                    "name":item.name, 
+                    "damageCoef":getDamageCoefLevel(item),
+                    "availableNumber":getAvailableNumber(item),
+                    "defenseValue":getDefenseValue(item)
+                };
                 dataByType[item.type].push(itemEntry);
             }
         }
@@ -214,19 +231,13 @@ function prepareData(equipable) {
     for (var typeIndex in typeList) {
         var type = typeList[typeIndex];
         if (dataByType[type]) {
+            
+            var temp = [];
             dataByType[type].sort(function (entry1, entry2) {
                 return entry2.value - entry1.value;
             });
         } else {
             dataByType[type] = [];  
-        }
-    }
-    
-    desirableElements = [];
-    for (var index in builds[currentUnitIndex].selectedUnit.skills) {
-        var skill = builds[currentUnitIndex].selectedUnit.skills[index];
-        if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !desirableElements.includes(skill.equipedConditions[0])) {
-            desirableElements.push(skill.equipedConditions[0]);
         }
     }
 }
@@ -282,7 +293,7 @@ function optimize() {
     var fixedItems = builds[currentUnitIndex].fixedItems;
     var unitPartialDualWield = getInnatePartialDualWield();
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
-    if (unitPartialDualWield && (!fixedItems[0] || unitPartialDualWield.includes(fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
+    if (!forceDoubleHand && unitPartialDualWield && (!fixedItems[0] || unitPartialDualWield.includes(fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
         var savedEquipable0 = equipable[0];
         var savedEquipable1 = equipable[1];
         
@@ -294,19 +305,23 @@ function optimize() {
         equipable[1] = savedEquipable1;
     }
     if (!forceDoubleHand && !hasInnateDualWield() && dualWieldSources.length > 0 && !(builds[currentUnitIndex].fixedItems[0] && isTwoHanded(builds[currentUnitIndex].fixedItems[0]))) {
-        for (var index in dualWieldSources) {
-            var item = dualWieldSources[index];
-            var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
-            if (slot == -1) {
-                continue;
-            }
+        setTimeout(tryDualWieldSourceAsync,1,0,typeCombination,combinations,fixedItems,unitPartialDualWield);
+    } else {
+        findBestBuildForCombinationAsync(0, combinations);
+    }
+}
+
+function tryDualWieldSourceAsync(dualWieldSourceIndex,typeCombination,combinations,fixedItems,unitPartialDualWield) {
+    if (dualWieldSources.length > dualWieldSourceIndex) {
+        var item = dualWieldSources[dualWieldSourceIndex];
+        var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
+        if (slot != -1) {   
             var fixedItems = builds[currentUnitIndex].fixedItems.slice();
             fixedItems[slot] = item;
             var savedEquipable0 = equipable[0];
             if (item.partialDualWield) {
                 equipable[0] = item.partialDualWield;
                 equipable[1] = item.partialDualWield;
-                var unitPartialDualWield = getInnatePartialDualWield();
                 if (unitPartialDualWield) {
                     equipable[1] = mergeArrayWithoutDuplicates(equipable[1], unitPartialDualWield);
                 }
@@ -317,11 +332,10 @@ function optimize() {
             builds[currentUnitIndex].fixedItems[slot] = null;
             equipable[0] = savedEquipable0;
         }
+        setTimeout(tryDualWieldSourceAsync,1,dualWieldSourceIndex+1,typeCombination,combinations,fixedItems,unitPartialDualWield);
+    } else {
+        setTimeout(findBestBuildForCombinationAsync,1, 0, combinations);
     }
-    console.log(combinations.length);
-    
-    
-    findBestBuildForCombinationAsync(0, combinations);
 }
     
 function getFixedItemItemSlot(item, equipable, fixedItems) {
@@ -424,7 +438,7 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
         numberOfItemCombination = 0;
         var dataWithdConditionItems = {}
         for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
-            if (typeCombination[slotIndex]) {
+            if (typeCombination[slotIndex] && !dataWithdConditionItems[typeCombination[slotIndex]]) {
                 dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination, fixedItems);
             }
         }
@@ -564,6 +578,10 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
 }
 
 function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
+    var typeCombinationKey = getTypeCombinationKey(type, typeCombination);
+    if (tempDataWithConditionItem[typeCombinationKey]) {
+        return tempDataWithConditionItem[typeCombinationKey];
+    }
     var tempResult = itemsOfType.slice();
     for (var index in dataWithCondition) {
         var item = dataWithCondition[index];
@@ -583,9 +601,9 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     tempResult.sort(function (entry1, entry2) {
         
         if (entry1.value == entry2.value) {
-            var defStatsCompare = compareDefense(entry1.item, entry2.item);
+            var defStatsCompare = entry2.defenseValue - entry1.defenseValue;
             if (defStatsCompare == 0) {
-                return getAvailableNumber(entry2.item) - getAvailableNumber(entry1.item);
+                return entry2.availableNumber - entry1.availableNumber;
             } else {
                 return defStatsCompare;
             }
@@ -610,7 +628,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
             // Don't keep 2-handed weapon in combination with 2 weapons
             continue;
         }
-        var damageCoefLevel = getDamageCoefLevel(item);
+        var damageCoefLevel = tempResult[itemIndex].damageCoef;
         if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
             continue;
         }
@@ -619,7 +637,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
             if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
                 damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
             }
-            damageCoefLevelAlreadyKept[damageCoefLevel] += getAvailableNumber(item);
+            damageCoefLevelAlreadyKept[damageCoefLevel] += tempResult[itemIndex].availableNumber;
             result.push(item);
             itemKeptKeys.push(item[itemKey]);
             if (isAdventurer) {
@@ -640,9 +658,9 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
                 value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
             }
             if (value1 == value2) {
-                var defStatsCompare = compareDefense(entry1.item, entry2.item);
+                var defStatsCompare = entry2.defenseValue - entry1.defenseValue;
                 if (defStatsCompare == 0) {
-                    return getAvailableNumber(entry2.item) - getAvailableNumber(entry1.item);
+                    return entry2.availableNumber - entry1.availableNumber;
                 } else {
                     return defStatsCompare;
                 }
@@ -663,7 +681,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
                     if (!result.includes(item)) {
                         result.push(item);
                     }
-                    number += getAvailableNumber(item);
+                    number += tempResult[itemIndex].availableNumber;
                 } else {
                     break;
                 }
@@ -671,17 +689,25 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
         }
     }
     
+    tempDataWithConditionItem[typeCombinationKey] = result;
     return result;
 }
 
-function compareDefense(item1, item2) {
+function getTypeCombinationKey(type, typeCombination) {
+    var key = type + "|";
+    for (var index in typeCombination) {
+        if (typeCombination[index]) {
+            key += typeCombination[index];
+        }
+    }
+    return key;
+}
+
+function getDefenseValue(item) {
     var hpBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp;
     var defBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def;
     var sprBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr;
-
-    var valueItem1 = getStatValueIfExists(item1, "hp", hpBaseValue) + getStatValueIfExists(item1, "def", hpBaseValue) + getStatValueIfExists(item1, "spr", hpBaseValue);
-    var valueItem2 = getStatValueIfExists(item2, "hp", hpBaseValue) + getStatValueIfExists(item2, "def", hpBaseValue) + getStatValueIfExists(item2, "spr", hpBaseValue);
-    return valueItem2 - valueItem1;
+    return getStatValueIfExists(item, "hp", hpBaseValue) + getStatValueIfExists(item, "def", hpBaseValue) + getStatValueIfExists(item, "spr", hpBaseValue);
 }
 
 function getStatValueIfExists(item, stat, baseStat) {
