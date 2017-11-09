@@ -47,10 +47,14 @@
                     <ul class="nav nav-tabs">
                         <li class="equipment"  onclick="showEquipments()"><a><img src="img/equipment.png"/></a></li>
                         <li class="materia" onclick="showMateria()"><a><img src="img/materia.png"/></a></li>
+                        <li class="search" onclick="showSearch()"><a><img src="img/search.png"/></a></li>
                         <span id="sortType"></span>
                     </ul>
                     <div class="result-tab-pane">
                         <div class="panel-body" style="padding:0;">
+                            <div class="col-xs-12">
+                                <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
+                            </div>
                             <div id="results" class="">
 
                             </div>
