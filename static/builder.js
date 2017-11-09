@@ -381,7 +381,11 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
 
 function buildTypeCombination(index, typeCombination, combinations, fixedItems, tryDoublehand = false) {
     if (fixedItems[index]) {
-        tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand);
+        if (equipable[index].length > 0 && equipable[index].includes(fixedItems[index].type)) {
+            tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand);
+        } else {
+            return;
+        }
     } else {
         if (equipable[index].length > 0) 
             if (index == 1 && fixedItems[0] && isTwoHanded(fixedItems[0])) { // of a two-handed weapon was fixed, no need to try smething in the second hand
@@ -390,7 +394,7 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
                 var found = false;
                 for (var typeIndex in equipable[index]) {
                     type = equipable[index][typeIndex]
-                    if (index == 1 && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
+                    if (index == 1 && !fixedItems[0] && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
                         continue;
                     }
                     if (dataByType[type].length > 0) {
@@ -1181,10 +1185,10 @@ function displayFixedItems(fixedItems) {
     }
 }
 
-function getItemLine(item, index) {
+function getItemLine(item, index = -1) {
     var html = "";
     html += '<div class="tr buildLine_' + index + '">';
-    if (index && builds[currentUnitIndex].fixedItems[index]) {
+    if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
         html += '<div class="td pin fixed" onclick="removeFixedItemAt(\'' + index +'\')"><img class="" src="img/pin.png"></img></div>'
     } else {
         html += '<div class="td pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);"><img class="" src="img/pin.png"></img></div>'
@@ -1453,13 +1457,13 @@ function getCurrentUnitEquip() {
     return equip;
 }
 
-function fixItem(key, slotParam) {
+function fixItem(key, slotParam = -1) {
     var item = findBestItemVersion(builds[currentUnitIndex].fixedItems, key);
     
     if (item) {
         prepareEquipable();
         var slot = slotParam;
-        if (!slot) {
+        if (slot == -1) {
             slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
         }
         if (slot == -1) {
@@ -1479,12 +1483,35 @@ function fixItem(key, slotParam) {
         }
         builds[currentUnitIndex].fixedItems[slot] = item;
         for (var index in builds[currentUnitIndex].fixedItems) {
-            var item = builds[currentUnitIndex].fixedItems[index];
-            if (item && index != slot) {
-                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+            var itemTmp = builds[currentUnitIndex].fixedItems[index];
+            if (itemTmp && index != slot) {
+                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, itemTmp[itemKey]);
             }
         }
-        if (slotParam) {
+        if (slotParam >= 0) {
+            /*if (slot == 1) { // if pinning a second weapon, make sure a DW is available and pinned
+                if (!builds[currentUnitIndex].fixedItems[0]) {
+                    builds[currentUnitIndex].fixedItems[0] = item;
+                    builds[currentUnitIndex].fixedItems[1] = null;
+                    builds[currentUnitIndex].bestBuild[1] = builds[currentUnitIndex].bestBuild[0];
+                    builds[currentUnitIndex].bestBuild[0] = item;
+                    redrawBuildLine(0);
+                } else {
+                    if (!equipable[1].includes(item.type)) {
+                        var innatePartialDualWield = getInnatePartialDualWield();
+                        if (!(innatePartialDualWield && innatePartialDualWield.includes(item.type))) {
+                            // There is no partial DW to exlain the second weapon. We need to pin the source of DW
+                            for (var index in builds[currentUnitIndex].bestBuild) {
+                                var buildItem = builds[currentUnitIndex].bestBuild[index];
+                                if (buildItem && (buildItem.special && buildItem.special.includes("dualWield")) || (buildItem.partialDualWield && buildItem.partialDualWield.includes(item.type))) {
+                                    fixItem(buildItem[itemKey], index);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }*/
             redrawBuildLine(slotParam);
         } else {
             displayFixedItems(builds[currentUnitIndex].fixedItems);
