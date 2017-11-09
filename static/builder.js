@@ -1149,11 +1149,6 @@ function logBuild(build, value, esper) {
         } else {
             $("#resultStats .damage").addClass("hidden");
         }
-        /*if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
-            $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.stat) + '</div><div>damage (on 100 def) = ' + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
-        } else if (builds[currentUnitIndex].statToMaximize == "def" || builds[currentUnitIndex].statToMaximize == "spr" || builds[currentUnitIndex].statToMaximize == "hp") {
-            $("#resultStats").html("<div>" + builds[currentUnitIndex].statToMaximize + " = " + Math.floor(value.total) + "</div><div>+" + builds[currentUnitIndex].statToMaximize + "% : " + bonusPercent + "</div>");
-        }*/
     }
 }
 
@@ -1492,29 +1487,6 @@ function fixItem(key, slotParam = -1) {
             }
         }
         if (slotParam >= 0) {
-            /*if (slot == 1) { // if pinning a second weapon, make sure a DW is available and pinned
-                if (!builds[currentUnitIndex].fixedItems[0]) {
-                    builds[currentUnitIndex].fixedItems[0] = item;
-                    builds[currentUnitIndex].fixedItems[1] = null;
-                    builds[currentUnitIndex].bestBuild[1] = builds[currentUnitIndex].bestBuild[0];
-                    builds[currentUnitIndex].bestBuild[0] = item;
-                    redrawBuildLine(0);
-                } else {
-                    if (!equipable[1].includes(item.type)) {
-                        var innatePartialDualWield = getInnatePartialDualWield();
-                        if (!(innatePartialDualWield && innatePartialDualWield.includes(item.type))) {
-                            // There is no partial DW to exlain the second weapon. We need to pin the source of DW
-                            for (var index in builds[currentUnitIndex].bestBuild) {
-                                var buildItem = builds[currentUnitIndex].bestBuild[index];
-                                if (buildItem && (buildItem.special && buildItem.special.includes("dualWield")) || (buildItem.partialDualWield && buildItem.partialDualWield.includes(item.type))) {
-                                    fixItem(buildItem[itemKey], index);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }*/
             redrawBuildLine(slotParam);
         } else {
             displayFixedItems(builds[currentUnitIndex].fixedItems);
