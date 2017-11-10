@@ -203,12 +203,21 @@ function prepareData(equipable) {
     dataWithCondition = [];
     dualWieldSources = [];
     var tempData = {};
+    var hpBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp;
+    var defBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def;
+    var sprBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr;
     for (var index in data) {
         var item = data[index];
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
+                var value;
+                if (builds[currentUnitIndex].statToMaximize == "physicaleHp") {
+                    value = {"hp":getStatValueIfExists(item, "hp", hpBaseValue),"def":getStatValueIfExists(item, "def", defBaseValue)}
+                } else {
+                    value = calculateMaxValue(item);
+                }
                 var itemEntry = {
-                    "value":calculateMaxValue(item), 
+                    "value":value, 
                     "item":item, 
                     "name":item.name, 
                     "damageCoef":getDamageCoefLevel(item),
@@ -223,8 +232,14 @@ function prepareData(equipable) {
                 if (!dataByType[item.type]) {
                     dataByType[item.type] = [];
                 }
+                var value;
+                if (builds[currentUnitIndex].statToMaximize == "physicaleHp") {
+                    value = {"hp":getStatValueIfExists(item, "hp", hpBaseValue),"def":getStatValueIfExists(item, "def", defBaseValue)}
+                } else {
+                    value = calculateMaxValue(item);
+                }
                 var itemEntry = {
-                    "value":calculateMaxValue(item), 
+                    "value":value, 
                     "item":item, 
                     "name":item.name, 
                     "damageCoef":getDamageCoefLevel(item),
@@ -606,6 +621,16 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
             }
         }
     }
+    var numberNeeded = 0;
+    for (var slotIndex in typeCombination) {
+        if (typeCombination[slotIndex] == type) {
+            numberNeeded++;
+        }
+    }
+    
+    if (builds[currentUnitIndex].statToMaximize == "physicaleHp") {
+        return addConditionItemsForeHP(tempResult, type, typeCombination, fixedItems, numberNeeded);
+    }
     tempResult.sort(function (entry1, entry2) {
         
         if (entry1.value == entry2.value) {
@@ -619,12 +644,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
             return entry2.value - entry1.value;
         }
     });
-    var numberNeeded = 0;
-    for (var slotIndex in typeCombination) {
-        if (typeCombination[slotIndex] == type) {
-            numberNeeded++;
-        }
-    }
+    
     var itemIndex = 0;
     var itemKeptKeys = [];
     var damageCoefLevelAlreadyKept = {};
@@ -701,6 +721,93 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     return result;
 }
 
+function addConditionItemsForeHP(itemsOfType, type, typeCombination, fixedItems,numberNeeded) {
+    var result = [];
+    var keptItemsRoot = {"parent":null,"children":[],"hp":9999,"def":9999};
+    if (itemsOfType.length > 0) {
+        for (var index in itemsOfType) {
+            var entry = itemsOfType[index];
+            var newTreeItem = {"entry":entry,"parent":null,"children":[],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
+            insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded);
+        }
+    }
+    return result;
+}
+
+function insertItemIntoTree(treeItem, newTreeItem, maxDepth) {
+    if (treeItem.hp > newTreeItem.hp && treeItem.def > newTreeItem.def) {
+        // Entry is strictly worse than treeItem
+        var depth = getDepth(treeItem);
+        if (depth < maxDepth) {
+            if (treeItem.children.length > 0) {
+                for (var index in treeItem.children) {
+                    insertItemIntoTree(treeItem.children[index], newTreeItem, maxDepth);
+                }
+            } else {
+                newTreeItem.parent = treeItem;
+                treeItem.children.push(newTreeItem);
+            }
+            for (var index in treeItem.children) {
+                var oldTreeItem = treeItem.children[index]
+                if (oldTreeItem.hp < entry.value.hp && oldTreeItem.def < entry.value.def) {
+                    // TODO remove oldTreeItem from parent, and put it under newTreeItem
+                    insertItemIntoTree(treeItem.children[index], oldTreeItem.entry, maxDepth);
+                }
+            }
+        }
+    } else if (treeItem.hp == entry.value.hp && treeItem.def == entry.value.def) {
+        // entry is equivalent to treeItem
+        treeItem.equivalents.push(entry);
+    } else if (treeItem.hp < entry.value.hp && treeItem.def < entry.value.def){
+        // entry is strictly better than treeItem
+        var newTreeItem = {"entry":entry,"parent":treeItem.parent,"children":[treeItem],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
+        var index = getIndexInList(treeItem.parent.children);
+        treeItem.parent.children[index] = newTreeItem;
+        var depth = getDepth(newTreeItem);
+        if (depth < maxDepth) {
+            treeItem.parent = newTreeItem;
+        }
+    } else {
+        // entry is at the same level as treeItem
+        if (getIndexInList(treeItem.parent.children, entry) == -1) {
+            var newTreeItem = {"entry":entry,"parent":treeItem.parent,"children":[],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
+            treeItem.parent.children.push(newTreeItem);
+        }
+    }
+}
+
+function getDepth(treeEntry) {
+    var depth = 0;
+    while(treeEntry.parent) {
+        depth++;
+        treeEntry = treeEntry.parent;
+    }
+    return depth;
+}
+
+function getIndexInList(list, entry) {
+    var id = getEntryId(entry);
+    for (var index in list) {
+        if (list[index].id == id) {
+            return index;
+        }
+    }
+    return -1;
+}
+
+function getEntryId(entry) {
+    var id = entry.item[itemKey];
+    if (entry.item.equipedConditions) {
+        for (var index in entry.item.equipedConditions) {
+            id += entry.item.equipedConditions[index];
+        }
+    }
+    if (entry.item.exclusiveUnits) {
+        id += entry.item.exclusiveUnits;
+    }
+    return id;
+}
+        
 function getTypeCombinationKey(type, typeCombination) {
     var key = type + "|";
     for (var index in typeCombination) {
@@ -721,7 +828,7 @@ function getDefenseValue(item) {
 function getStatValueIfExists(item, stat, baseStat) {
     var result = 0;
     if (item[stat]) result += item[stat];
-    if (item[stat + "%"]) result += item[stat + "%"] * baseStat;
+    if (item[stat + "%"]) result += item[stat + "%"] * baseStat / 100;
     return result;
 }
 
