@@ -207,7 +207,15 @@ function prepareData(equipable) {
         var item = data[index];
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (item.equipedConditions) {
-                dataWithCondition.push(item);
+                var itemEntry = {
+                    "value":calculateMaxValue(item), 
+                    "item":item, 
+                    "name":item.name, 
+                    "damageCoef":getDamageCoefLevel(item),
+                    "availableNumber":getAvailableNumber(item),
+                    "defenseValue":getDefenseValue(item)
+                };
+                dataWithCondition.push(itemEntry);
             } else {
                 if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
                     dualWieldSources.push(item);
@@ -215,9 +223,8 @@ function prepareData(equipable) {
                 if (!dataByType[item.type]) {
                     dataByType[item.type] = [];
                 }
-                var statValue = calculateMaxValue(item);
                 var itemEntry = {
-                    "value":statValue, 
+                    "value":calculateMaxValue(item), 
                     "item":item, 
                     "name":item.name, 
                     "damageCoef":getDamageCoefLevel(item),
@@ -584,7 +591,8 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     }
     var tempResult = itemsOfType.slice();
     for (var index in dataWithCondition) {
-        var item = dataWithCondition[index];
+        var entry = dataWithCondition[index];
+        var item = entry.item;
         if (item.type == type) {
             var allFound = true;
             for (var conditionIndex in item.equipedConditions) {
@@ -594,7 +602,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
                 }
             }
             if (allFound) {
-                tempResult.push({"value":calculateMaxValue(item), "item":item, "name":item.name});
+                tempResult.push(entry);
             }
         }
     }
