@@ -158,7 +158,7 @@ function readGoal() {
         } else {
             builds[currentUnitIndex].mecanismType = "atk";
         }
-    } else if (goal == "spr" || goal == "def" || goal == "hp") {
+    } else if (goal == "spr" || goal == "def" || goal == "hp" || goal == "physicaleHp") {
         builds[currentUnitIndex].statToMaximize = goal;
         builds[currentUnitIndex].mecanismType = "def";
     }
