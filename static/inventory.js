@@ -17,7 +17,7 @@ function showMateria() {
     $(".nav-tabs li.search").removeClass("active");
     $("#sortType").text("Sorted by Name");
     // filter, sort and display the results
-    displayItems(sort(equipments));
+    displayItems(sort(materia));
 }
 
 function showEquipments() {
@@ -31,7 +31,7 @@ function showEquipments() {
     $(".nav-tabs li.search").removeClass("active");
     $("#sortType").text("Sorted by Type (Strenght)");
     // filter, sort and display the results
-    displayItems(sort(materia));
+    displayItems(sort(equipments));
 }
 
 function showSearch() {
