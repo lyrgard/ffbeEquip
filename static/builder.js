@@ -222,7 +222,8 @@ function prepareData(equipable) {
                     "name":item.name, 
                     "damageCoef":getDamageCoefLevel(item),
                     "availableNumber":getAvailableNumber(item),
-                    "defenseValue":getDefenseValue(item)
+                    "defenseValue":getDefenseValue(item),
+                    "available":getAvailableNumber(item)
                 };
                 dataWithCondition.push(itemEntry);
             } else {
@@ -244,7 +245,8 @@ function prepareData(equipable) {
                     "name":item.name, 
                     "damageCoef":getDamageCoefLevel(item),
                     "availableNumber":getAvailableNumber(item),
-                    "defenseValue":getDefenseValue(item)
+                    "defenseValue":getDefenseValue(item),
+                    "available":getAvailableNumber(item)
                 };
                 dataByType[item.type].push(itemEntry);
             }
@@ -723,7 +725,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
 
 function addConditionItemsForeHP(itemsOfType, type, typeCombination, fixedItems,numberNeeded) {
     var result = [];
-    var keptItemsRoot = {"parent":null,"children":[],"hp":9999,"def":9999};
+    var keptItemsRoot = {"parent":null,"children":[],"hp":9999,"def":9999,"entry":{"item":{"name":"ROOT"},"available":0}};
     if (itemsOfType.length > 0) {
         for (var index in itemsOfType) {
             var entry = itemsOfType[index];
@@ -731,68 +733,116 @@ function addConditionItemsForeHP(itemsOfType, type, typeCombination, fixedItems,
             insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded);
         }
     }
+    for (var index in keptItemsRoot.children) {
+        addEntriesToResult(keptItemsRoot.children[index], result, 0, numberNeeded);    
+    }
     return result;
 }
 
-function insertItemIntoTree(treeItem, newTreeItem, maxDepth) {
-    if (treeItem.hp > newTreeItem.hp && treeItem.def > newTreeItem.def) {
-        // Entry is strictly worse than treeItem
-        var depth = getDepth(treeItem);
-        if (depth < maxDepth) {
-            if (treeItem.children.length > 0) {
-                for (var index in treeItem.children) {
-                    insertItemIntoTree(treeItem.children[index], newTreeItem, maxDepth);
-                }
+function addEntriesToResult(tree, result, keptNumber, numberNeeded) {
+    result.push(tree.entry.item);
+    keptNumber += tree.entry.available;
+    for (var index in tree.equivalents) {
+        if (keptNumber >= numberNeeded) {
+            break;
+        }
+        result.push(tree.equivalents[index].item);
+        keptNumber += tree.equivalents[index].available;
+    }
+    if (keptNumber < numberNeeded) {
+        for (var index in tree.children) {
+            addEntriesToResult(tree.children[index], result);    
+        }
+    }
+}
+
+function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
+    var currentDepth = getDepth(tree, currentDepth) ;
+    var itemName = tree.entry.item.name + " (" + tree.hp + " - " + tree.def + " (" + currentDepth + "))";
+    if (addedEntry && addedEntry == tree.entry) {
+        itemName = "**" + itemName + "**";
+    }
+    var currentLine = currentLine + " | " + itemName;
+    if (tree.children.length == 0) {
+        console.log(currentLine);
+    } else {
+        var space = new Array(currentLine.length + 1).join( " " );
+        for (var index in tree.children) {
+            if (index == 0) {
+                logTree(tree.children[index], addedEntry, currentLine,currentDepth);
             } else {
+                logTree(tree.children[index], addedEntry, space,currentDepth);
+            }
+        }
+    }
+}
+
+
+function insertItemIntoTree(treeItem, newTreeItem, maxDepth, currentDepth = 0) {
+    if (treeItem.hp >= newTreeItem.hp && treeItem.def >= newTreeItem.def && treeItem.hp + treeItem.def > newTreeItem.hp + newTreeItem.def) {
+        // Entry is strictly worse than treeItem
+        if (currentDepth < maxDepth) {
+            var inserted = false
+            for (var index in treeItem.children) {
+                inserted = inserted || insertItemIntoTree(treeItem.children[index], newTreeItem, maxDepth, getDepth(treeItem.children[index], currentDepth));
+            }
+                
+            if (!inserted) {
                 newTreeItem.parent = treeItem;
                 treeItem.children.push(newTreeItem);
+                //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") under " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
             }
-            for (var index in treeItem.children) {
-                var oldTreeItem = treeItem.children[index]
-                if (oldTreeItem.hp < entry.value.hp && oldTreeItem.def < entry.value.def) {
-                    // TODO remove oldTreeItem from parent, and put it under newTreeItem
-                    insertItemIntoTree(treeItem.children[index], oldTreeItem.entry, maxDepth);
+            if (treeItem.children.indexOf(newTreeItem) != -1) {
+                var indexToRemove = [];
+                for (var index in treeItem.children) {
+                    var oldTreeItem = treeItem.children[index]
+                    if (oldTreeItem.hp <= newTreeItem.hp && oldTreeItem.def <= newTreeItem.def && oldTreeItem.hp + oldTreeItem.def < newTreeItem.hp + newTreeItem.def) {
+                        indexToRemove.push(index);
+                        insertItemIntoTree(newTreeItem, oldTreeItem, maxDepth,getDepth(newTreeItem, currentDepth));
+                    }
+                }
+                for (var index = indexToRemove.length - 1; index >= 0; index--) {
+                    treeItem.children.splice(indexToRemove[index], 1);
                 }
             }
         }
-    } else if (treeItem.hp == entry.value.hp && treeItem.def == entry.value.def) {
+    } else if (treeItem.hp == newTreeItem.hp && treeItem.def == newTreeItem.def) {
         // entry is equivalent to treeItem
-        treeItem.equivalents.push(entry);
-    } else if (treeItem.hp < entry.value.hp && treeItem.def < entry.value.def){
+        treeItem.equivalents.push(newTreeItem.entry);
+        //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
+    } else if (treeItem.hp <= newTreeItem.hp && treeItem.def <= newTreeItem.def && treeItem.hp + treeItem.def < newTreeItem.hp + newTreeItem.def){
         // entry is strictly better than treeItem
-        var newTreeItem = {"entry":entry,"parent":treeItem.parent,"children":[treeItem],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
-        var index = getIndexInList(treeItem.parent.children);
+        var parentDepth = currentDepth - getDepth(treeItem, 0);
+        newTreeItem.parent = treeItem.parent;
+        var index = treeItem.parent.children.indexOf(treeItem);
         treeItem.parent.children[index] = newTreeItem;
-        var depth = getDepth(newTreeItem);
-        if (depth < maxDepth) {
-            treeItem.parent = newTreeItem;
-        }
+        newTreeItem.children = [treeItem];
+        treeItem.parent = newTreeItem;
+        cutUnderMaxDepth(newTreeItem, maxDepth, getDepth(newTreeItem, parentDepth));
+        //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") in place of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
     } else {
-        // entry is at the same level as treeItem
-        if (getIndexInList(treeItem.parent.children, entry) == -1) {
-            var newTreeItem = {"entry":entry,"parent":treeItem.parent,"children":[],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
-            treeItem.parent.children.push(newTreeItem);
-        }
+        // Should be inserted at the same level.
+        return false;
     }
+    return true;
 }
 
-function getDepth(treeEntry) {
-    var depth = 0;
-    while(treeEntry.parent) {
-        depth++;
-        treeEntry = treeEntry.parent;
+function getDepth(treeItem, currentDepth) {
+    var result = currentDepth + treeItem.entry.available;
+    for (var index in treeItem.equivalents) {
+        result += treeItem.equivalents[index].available;
     }
-    return depth;
+    return result;
 }
-
-function getIndexInList(list, entry) {
-    var id = getEntryId(entry);
-    for (var index in list) {
-        if (list[index].id == id) {
-            return index;
+    
+function cutUnderMaxDepth(treeItem, maxDepth, currentDepth) {
+    if (currentDepth >= maxDepth) {
+        treeItem.children = [];
+    } else {
+        for (var index in treeItem.children) {
+            cutUnderMaxDepth(treeItem.children[index], maxDepth, getDepth(treeItem.children[index], currentDepth));
         }
     }
-    return -1;
 }
 
 function getEntryId(entry) {
@@ -1102,6 +1152,8 @@ function calculateBuildValue(equiped, esper) {
         }
     } else if ("def" == builds[currentUnitIndex].statToMaximize || "spr" == builds[currentUnitIndex].statToMaximize || "hp" == builds[currentUnitIndex].statToMaximize) {
         return calculateStatValue(equiped, esper, builds[currentUnitIndex].statToMaximize);
+    } else if ("physicaleHp" == builds[currentUnitIndex].statToMaximize) {
+        return {"total":calculateStatValue(equiped, esper, "def").total * calculateStatValue(equiped, esper, "hp").total};
     }
 }
 
