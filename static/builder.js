@@ -65,7 +65,7 @@ var searchStat = "";
 
 var dataLoadedFromHash = false;
 
-var goalsWithTree = ["physicaleHp", "magicaleHp", "def"];
+var goalsWithTree = ["physicaleHp", "magicaleHp", "def", "spr", "hp"];
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -300,6 +300,8 @@ function getValueForPrepareData(item) {
         case "magicaleHp":
             return geteHpValues(item, "spr");             
         case "def":
+        case "spr":
+        case "hp":
             var value = calculateMaxValue(item);
             if (value == 0) {
                 return null;
@@ -621,9 +623,6 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             typeCombinationWithoutSecondHand[1] = null;
             findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
         } else {
-            if (build[1] && build[2] && build[3] && build[4] && build[5] && typeCombination[0] == "fist" && build[1].name == "Imperial Shield" && build[2].name == "Grand Helm" && build[3].name == "Demon Mail" && build[4].name == "Champion's Belt" && build[5].name == "Champion's Belt") {
-                console.log("!!");
-            }
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
                 var foundAnItem = false;
                 var firstIndexToTry = 0; 
@@ -802,9 +801,6 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded,keepEntry = false
     if (itemsOfType.length > 0) {
         for (var index in itemsOfType) {
             var entry = itemsOfType[index];
-            if (!entry.value) {
-                console.log("!!");
-            }
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[],"id":getEntryId(entry)};
 /*            console.log("Considering " + entry.item.name);
             if (entry.item.name.startsWith("Hill")) {
@@ -949,6 +945,8 @@ function getTreeNodeComparison(treeNode1, treeNode2) {
                 return "sameLevel";
             }
         case "def":
+        case "spr":
+        case "hp":
             if (treeNode1.entry.value > treeNode2.entry.value) {
                 return "strictlyWorse";
             } else if (treeNode1.entry.value == treeNode2.entry.value) {
