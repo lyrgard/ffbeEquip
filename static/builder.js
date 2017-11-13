@@ -255,11 +255,16 @@ function prepareData(equipable) {
     for (var typeIndex in typeList) {
         var type = typeList[typeIndex];
         if (dataByType[type]) {
-            
-            var temp = [];
-            dataByType[type].sort(function (entry1, entry2) {
-                return entry2.value - entry1.value;
-            });
+            if (builds[currentUnitIndex].statToMaximize == "physicaleHp") {
+                var numberNeeded = 1;
+                if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
+                if (type == "materia") {numberNeeded = 4}
+                dataByType[type] = addConditionItemsForeHP(dataByType[type], type, numberNeeded, true);
+            } else {
+                dataByType[type].sort(function (entry1, entry2) {
+                    return entry2.value - entry1.value;
+                });
+            }
         } else {
             dataByType[type] = [];  
         }
@@ -631,7 +636,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     }
     
     if (builds[currentUnitIndex].statToMaximize == "physicaleHp") {
-        return addConditionItemsForeHP(tempResult, type, typeCombination, fixedItems, numberNeeded);
+        return addConditionItemsForeHP(tempResult, type, numberNeeded);
     }
     tempResult.sort(function (entry1, entry2) {
         
@@ -723,35 +728,49 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     return result;
 }
 
-function addConditionItemsForeHP(itemsOfType, type, typeCombination, fixedItems,numberNeeded) {
+function addConditionItemsForeHP(itemsOfType, type, numberNeeded,keepEntry = false) {
     var result = [];
-    var keptItemsRoot = {"parent":null,"children":[],"hp":9999,"def":9999,"entry":{"item":{"name":"ROOT"},"available":0}};
+    var keptItemsRoot = {"parent":null,"children":[],"hp":9999,"defitem":9999,"entry":{"item":{"name":"ROOT"},"available":0}};
     if (itemsOfType.length > 0) {
         for (var index in itemsOfType) {
             var entry = itemsOfType[index];
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"hp":entry.value.hp,"def":entry.value.def,"equivalents":[],"id":getEntryId(entry)};
+/*            console.log("Considering " + entry.item.name);
+            if (entry.item.name.startsWith("Hill")) {
+                console.log("!!");
+            }*/
             insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded);
+            //logTree(keptItemsRoot);
         }
     }
     for (var index in keptItemsRoot.children) {
-        addEntriesToResult(keptItemsRoot.children[index], result, 0, numberNeeded);    
+        addEntriesToResult(keptItemsRoot.children[index], result, 0, numberNeeded, keepEntry);    
     }
     return result;
 }
 
-function addEntriesToResult(tree, result, keptNumber, numberNeeded) {
-    result.push(tree.entry.item);
+function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
+    if (keepEntry) {
+        result.push(tree.entry);
+    } else {
+        result.push(tree.entry.item);
+    }
     keptNumber += tree.entry.available;
     for (var index in tree.equivalents) {
         if (keptNumber >= numberNeeded) {
             break;
+        }
+        if (keepEntry) {
+        result.push(tree.equivalents[index]);
+        } else {
+            result.push(tree.equivalents[index].item);
         }
         result.push(tree.equivalents[index].item);
         keptNumber += tree.equivalents[index].available;
     }
     if (keptNumber < numberNeeded) {
         for (var index in tree.children) {
-            addEntriesToResult(tree.children[index], result);    
+            addEntriesToResult(tree.children[index], result, keepEntry);    
         }
     }
 }
