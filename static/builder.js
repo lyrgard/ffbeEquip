@@ -964,14 +964,20 @@ function getElementType(item) {
     var elementType = "elementLess";
     if (weaponList.includes(item.type) && useWeaponsElements) {
         // only for weapons
-        if ((item.element && ennemyResist[item.element] != 0)) {
-            var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
-            if (weaponElementDamageCoef >= 0) {
-                elementType = "strongElement" + weaponElementDamageCoef;
-            } else if (weaponElementDamageCoef == 0) {
-                elementType = "neutralElement";
+        if (item.element) {
+            if (builds[currentUnitIndex].innateElements.includes(item.element)) {
+                elementType = "elementLess"
+            } else if (ennemyResist[item.element] != 0) {
+                var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
+                if (weaponElementDamageCoef >= 0) {
+                    elementType = "strongElement" + weaponElementDamageCoef;
+                } else if (weaponElementDamageCoef == 0) {
+                    elementType = "neutralElement";
+                } else {
+                    elementType = "weakElement";
+                }
             } else {
-                elementType = "weakElement";
+                
             }
         }
         if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
