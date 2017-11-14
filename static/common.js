@@ -599,6 +599,15 @@ var matches = function(array1, array2) {
     return match;
 };
 
+var includeAll = function(array1, array2) {
+    for (var index in array2) {
+        if (!array1.includes(array2[index])) {
+            return false;
+        }
+    }
+    return true;
+};
+
 // Return true if the item is exclusive to something that does not matches the selected unit
 var exclusiveForbidAccess = function(item, selectedUnit) {
     if (item.exclusiveSex && units[selectedUnit].sex != item.exclusiveSex) {

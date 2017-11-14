@@ -954,6 +954,37 @@ function getTreeNodeComparison(treeNode1, treeNode2) {
             } else if (treeNode1.entry.value < treeNode2.entry.value){
                 return "strictlyBetter";
             }
+        case "atk":
+            var elementType = getElementType(item);
+            // atk, element, killer, doublehand; flat stat
+    }
+}
+
+function getElementType(item) {
+    var elementType = "elementLess";
+    if (weaponList.includes(item.type) && useWeaponsElements) {
+        // only for weapons
+        if ((item.element && ennemyResist[item.element] != 0)) {
+            var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
+            if (weaponElementDamageCoef >= 0) {
+                elementType = "strongElement" + weaponElementDamageCoef;
+            } else if (weaponElementDamageCoef == 0) {
+                elementType = "neutralElement";
+            } else {
+                elementType = "weakElement";
+            }
+        }
+        if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
+            damageCoefLevel = "elementless";
+        }
+    }
+    }
+    if (desirableElements.length > 0 && item.element) {
+        for (var index in item.element) {
+            if (desirableElements.includes(item.element[index])) {
+                damageCoefLevel += "desirableElement" + item.element[index];
+            }
+        }
     }
 }
 
