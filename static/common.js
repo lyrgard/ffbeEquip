@@ -301,6 +301,9 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
+    if (!name) {
+        console.log("!!");
+    }
     return wikiBaseUrl + name.replace(' ', '_');
 };
 
