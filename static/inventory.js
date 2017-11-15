@@ -5,47 +5,76 @@ var saveTimeout;
 var itemKey = getItemInventoryKey();
 var equipments;
 var materia;
+var lastItemReleases;
 
-function showMateria() {
+function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#inventory").removeClass("hidden");
     $("#searchBox").addClass("hidden");
     
     $(".nav-tabs li.equipment").removeClass("active");
-    $(".nav-tabs li.materia").addClass("active");
+    $(".nav-tabs li.materia").removeClass("active");
     $(".nav-tabs li.search").removeClass("active");
+    $(".nav-tabs li.history").removeClass("active");
+}
+
+function showMateria() {
+    beforeShow();
+    
+    $(".nav-tabs li.materia").addClass("active");
     $("#sortType").text("Sorted by Name");
     // filter, sort and display the results
-    displayItems(sort(equipments));
+    $("#results").html(displayItems(sort(materia)));
 }
 
 function showEquipments() {
-    $("#pleaseWaitMessage").addClass("hidden");
-    $("#loginMessage").addClass("hidden");
-    $("#inventory").removeClass("hidden");
-    $("#searchBox").addClass("hidden");
+    beforeShow();
     
     $(".nav-tabs li.equipment").addClass("active");
-    $(".nav-tabs li.materia").removeClass("active");
-    $(".nav-tabs li.search").removeClass("active");
     $("#sortType").text("Sorted by Type (Strenght)");
     // filter, sort and display the results
-    displayItems(sort(materia));
+    $("#results").html(displayItems(sort(equipments)));
 }
 
 function showSearch() {
-    $("#pleaseWaitMessage").addClass("hidden");
-    $("#loginMessage").addClass("hidden");
-    $("#inventory").removeClass("hidden");
+    beforeShow();
+
     $("#searchBox").removeClass("hidden");
-    
-    $(".nav-tabs li.equipment").removeClass("active");
-    $(".nav-tabs li.materia").removeClass("active");
     $(".nav-tabs li.search").addClass("active");
     $("#sortType").text("");
     // filter, sort and display the results
-    displayItems(sort(search()));
+    $("#results").html(displayItems(sort(search())));
+}
+
+function showHistory() {
+    beforeShow();
+
+    $(".nav-tabs li.history").addClass("active");
+    $("#sortType").text("Sorted by release date");
+    
+    var html = "";
+    for (var dateIndex in lastItemReleases) {
+        html += '<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>';
+        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
+                html += '<div class="col-xs-12 source">';
+                for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
+                    if (unitIndex == lastItemReleases[dateIndex].sources[sourceIndex].units.length -1) {
+                        html += " and ";
+                    } else if (unitIndex > 0) {
+                        html += ", ";
+                    }
+                    html += lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex];
+                }
+                html += " banner</div>";
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
+                html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
+            }
+            html += displayItems(lastItemReleases[dateIndex].sources[sourceIndex].items);
+        }
+    }
+    $("#results").html(html);
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
@@ -74,7 +103,7 @@ var displayItems = function(items) {
         
         html += "</div>";
     }
-    $("#results").html(html);
+    return html;
 
 };
 
@@ -272,8 +301,6 @@ function getStat(item, stat) {
 
 function inventoryLoaded() {
     if (data) {
-        equipments = keepOnlyOneOfEachEquipement();
-        materia = keepOnlyOneOfEachMateria();
         showEquipments();
     }
 }
@@ -294,6 +321,44 @@ function prepareSearch(data) {
     }
 }
 
+function prepareLastItemReleases() {
+    var unitsToSearch = [];
+    var eventsToSearch = [];
+    for (var dateIndex in lastItemReleases) {
+        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
+                unitsToSearch = unitsToSearch.concat(lastItemReleases[dateIndex].sources[sourceIndex].units)
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
+                eventsToSearch.push(lastItemReleases[dateIndex].sources[sourceIndex].name);
+            }
+        }
+    }
+    var tmrs = {};
+    var events = {};
+    var items = equipments.concat(materia);
+    for (var index in items) {
+        if (items[index].tmrUnit && unitsToSearch.includes(items[index].tmrUnit)) {
+            tmrs[items[index].tmrUnit] = items[index];
+        }
+        if (items[index].eventName && eventsToSearch.includes(items[index].eventName)) {
+            if (!events[items[index].eventName]) {events[items[index].eventName] = []}
+            events[items[index].eventName].push(items[index]);
+        }
+    }
+    for (var dateIndex in lastItemReleases) {
+        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
+                lastItemReleases[dateIndex].sources[sourceIndex].items = [];
+                for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
+                    lastItemReleases[dateIndex].sources[sourceIndex].items.push(tmrs[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]]);
+                }
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
+                lastItemReleases[dateIndex].sources[sourceIndex].items = events[lastItemReleases[dateIndex].sources[sourceIndex].name];
+            }
+        }
+    }
+}
+
 // will be called by jQuery at page load)
 $(function() {
 
@@ -301,9 +366,19 @@ $(function() {
     $.get(server + "/data.json", function(result) {
         data = result;
         prepareSearch(data);
+        equipments = keepOnlyOneOfEachEquipement();
+        materia = keepOnlyOneOfEachMateria();
+        $.get(server + "/lastItemReleases.json", function(result) {
+            lastItemReleases = result;
+            prepareLastItemReleases();
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
+    
+    
 	
     $("#results").addClass(server);
     
