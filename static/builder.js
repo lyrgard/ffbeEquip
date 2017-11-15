@@ -1547,12 +1547,15 @@ function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
         var unitName = $(this).val();
         var selectedUnitData = units[unitName];
+        populateUnitEquip();
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
             reinitBuild(currentUnitIndex);
-
             builds[currentUnitIndex].selectedUnit = selectedUnitData;
             builds[currentUnitIndex].selectedUnitName = unitName;
+            for (var index in selectedUnitData.equip) {
+                $(".unitEquipable img." + selectedUnitData.equip[index]).removeClass("notEquipable");
+            }
             updateUnitStats();
             logCurrentBuild();
         } else {
@@ -2148,6 +2151,7 @@ $(function() {
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
     populateItemStat();
+    populateUnitEquip();
     
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateSearchResult));
@@ -2167,6 +2171,25 @@ function readHash() {
     }
 }
 
+function populateUnitEquip() {
+    var target = $(".unitEquipable.weapons");
+    target.html("");
+	for (var key in weaponList) {
+        target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
+	}
+    var target = $(".unitEquipable.armors");
+    target.html("");
+    for (var key in shieldList) {
+        target.append('<img src="img/' + shieldList[key] + '.png" class="notEquipable ' + shieldList[key] +'"/>');
+	}
+    for (var key in headList) {
+        target.append('<img src="img/' + headList[key] + '.png" class="notEquipable ' + headList[key] +'"/>');
+	}
+    for (var key in bodyList) {
+        target.append('<img src="img/' + bodyList[key] + '.png" class="notEquipable ' + bodyList[key] +'"/>');
+	}
+}
+    
 function populateItemType(equip) {
     var target = $("#fixItemModal .type .dropdown-menu");
     target.html("");
