@@ -65,7 +65,7 @@ var searchStat = "";
 
 var dataLoadedFromHash = false;
 
-var goalsWithTree = ["physicaleHp", "magicaleHp", "def", "spr", "hp"];
+var goalsWithTree = ["physicaleHp", "magicaleHp", "def", "spr", "hp","atk","mag"];
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -201,58 +201,46 @@ function prepareData(equipable) {
         }
     }
     
+    var baseValues = {
+        "hp": builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp,
+        "mp": builds[currentUnitIndex].selectedUnit.stats.maxStats.mp + builds[currentUnitIndex].selectedUnit.stats.pots.mp,
+        "atk": builds[currentUnitIndex].selectedUnit.stats.maxStats.atk + builds[currentUnitIndex].selectedUnit.stats.pots.atk,
+        "def": builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def,
+        "mag": builds[currentUnitIndex].selectedUnit.stats.maxStats.mag + builds[currentUnitIndex].selectedUnit.stats.pots.mag,
+        "spr": builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr
+    }
+
+    
     dataByType = {};
     dataWithCondition = [];
     dualWieldSources = [];
     var tempData = {};
+    var adventurersAvailable = {};
     for (var index in data) {
         var item = data[index];
+        prepareItem(item, baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
-            if (item.equipedConditions) {
-                var value;
-                if (goalsWithTree.includes(builds[currentUnitIndex].statToMaximize)) {
-                    value = getValueForPrepareData(item);
+            if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
+                adventurersAvailable[item.id] = item;
+                continue;
+            }
+            if (itemCanBeOfUseForGoal(item)) {
+                if (item.equipedConditions) {
+                    dataWithCondition.push(getItemEntry(item));
                 } else {
-                    value = calculateMaxValue(item);
-                }
-                if (value) {
-                    var itemEntry = {
-                        "value":value, 
-                        "item":item, 
-                        "name":item.name, 
-                        "damageCoef":getDamageCoefLevel(item),
-                        "availableNumber":getAvailableNumber(item),
-                        "defenseValue":getDefenseValue(item),
-                        "available":getAvailableNumber(item)
-                    };
-                    dataWithCondition.push(itemEntry);
-                }
-            } else {
-                if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                    dualWieldSources.push(item);
-                }
-                if (!dataByType[item.type]) {
-                    dataByType[item.type] = [];
-                }
-                var value;
-                if (goalsWithTree.includes(builds[currentUnitIndex].statToMaximize)) {
-                    value = getValueForPrepareData(item);
-                } else {
-                    value = calculateMaxValue(item);
-                }
-                if (value) {
-                    var itemEntry = {
-                        "value":value, 
-                        "item":item, 
-                        "name":item.name, 
-                        "damageCoef":getDamageCoefLevel(item),
-                        "availableNumber":getAvailableNumber(item),
-                        "defenseValue":getDefenseValue(item),
-                        "available":getAvailableNumber(item)
-                    };
-                    dataByType[item.type].push(itemEntry);
+                    if (!dataByType[item.type]) {dataByType[item.type] = [];}
+                    dataByType[item.type].push(getItemEntry(item));
                 }
             }
+            if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
+                dualWieldSources.push(item);
+            }
+        }
+    }
+    for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
+        if (adventurersAvailable[adventurerIds[index]]) {
+            dataByType["materia"].push(getItemEntry(adventurersAvailable[adventurerIds[index]]));
+            break;
         }
     }
     dataWithCondition.sort(function(entry1, entry2) {
@@ -288,41 +276,61 @@ function prepareData(equipable) {
     }
 }
 
-function getPlaceHolder(type) {
-    return {"name":"Any " + type,"type":type, "placeHolder":true};
+function getItemEntry(item) {
+    return {
+        "item":item, 
+        "name":item.name, 
+        "defenseValue":getDefenseValue(item),
+        "available":getAvailableNumber(item)
+    };
 }
 
-function getValueForPrepareData(item) {
-    var defensiveStat;
+function prepareItem(item, baseValues) {
+    for (var index in baseStats) {
+        item['total_' + baseStats[index]] = getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]]);
+    }
+    if (item.element && !includeAll[builds[currentUnitIndex].innateElements, item.elements]) {
+        item.elementType = "element_" + getElementCoef(item.element);
+    } else {
+        item.elementType = "neutral"
+    }
+}
+
+function itemCanBeOfUseForGoal(item) {
+    var stats;
     switch(builds[currentUnitIndex].statToMaximize) {
-        case "physicaleHp":
-            return geteHpValues(item, "def");
-        case "magicaleHp":
-            return geteHpValues(item, "spr");             
+        case "atk":
+        case "mag":
         case "def":
         case "spr":
         case "hp":
-            var value = calculateMaxValue(item);
-            if (value == 0) {
-                return null;
-            } else {
-                return value;
-            }
+            stats = [builds[currentUnitIndex].statToMaximize];
+            break;
+        case "physicaleHp":
+            stats = ["hp","def"];
+            break;
+        case "magicaleHp":
+            stats = ["hp","spr"];
+            break;
+    }
+    for (var index in stats) {
+        if (item["total_" + stats[index]]) return true;
+        if (item.singleWielding && item.singleWielding[stats[index]]) return true;
+        if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
+    }
+    if (applicableKillerType != "none") {
+        if (getKillerCoef(item) > 0) return true;
+    }
+    if (useWeaponsElements) {
+        if (item.element && getElementCoef(item.element) >= 0) return true;
+    }
+    if (desirableElements.length != 0) {
+        if (item.element && matches(item.element, desirableElements)) return true;
     }
 }
 
-function geteHpValues(item, defensiveStat) {
-    var hpBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp;
-    var defensiveStatBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[defensiveStat] + builds[currentUnitIndex].selectedUnit.stats.pots[defensiveStat];
-    var hp = getStatValueIfExists(item, "hp", hpBaseValue);
-    var defensiveStatValue = getStatValueIfExists(item, defensiveStat, defensiveStatBaseValue);
-    if (hp == 0 && defensiveStatValue == 0) {
-        return null;
-    } else {
-        var result = {"hp":hp};
-        result[defensiveStat] =defensiveStatValue;
-        return result;
-    }
+function getPlaceHolder(type) {
+    return {"name":"Any " + type,"type":type, "placeHolder":true};
 }
 
 function selectEspers() {
@@ -363,6 +371,20 @@ function getKillerCoef(item) {
         }
     }
     return cumulatedKiller / ennemyRaces.length;
+}
+ 
+function getElementCoef(elements) {
+    var resistModifier = 0;
+
+    if (elements.length > 0) {
+        for (var element in ennemyResist) {
+            if (elements.includes(element)) {
+                resistModifier += ennemyResist[element] / 100;
+            }
+        }    
+        resistModifier = resistModifier / elements.length;
+    }
+    return resistModifier;
 }
 
 function readEnnemyResists() {
@@ -702,97 +724,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
         }
     }
     
-    if (goalsWithTree.includes(builds[currentUnitIndex].statToMaximize)) {
-        return addConditionItemsTree(tempResult, type, numberNeeded);
-    }
-    tempResult.sort(function (entry1, entry2) {
-        
-        if (entry1.value == entry2.value) {
-            var defStatsCompare = entry2.defenseValue - entry1.defenseValue;
-            if (defStatsCompare == 0) {
-                return entry2.availableNumber - entry1.availableNumber;
-            } else {
-                return defStatsCompare;
-            }
-        } else {
-            return entry2.value - entry1.value;
-        }
-    });
-    
-    var itemIndex = 0;
-    var itemKeptKeys = [];
-    var damageCoefLevelAlreadyKept = {};
-    var result = [];
-    var adventurerAlreadyTaken;
-    for (var itemIndex in tempResult) {
-        item = tempResult[itemIndex].item;
-        if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
-            // Don't keep 2-handed weapon in combination with 2 weapons
-            continue;
-        }
-        var damageCoefLevel = tempResult[itemIndex].damageCoef;
-        if (!damageCoefLevel || itemKeptKeys.includes(item[itemKey]) || damageCoefLevelAlreadyKept[damageCoefLevel] && damageCoefLevelAlreadyKept[damageCoefLevel] >= numberNeeded) {
-            continue;
-        }
-        var isAdventurer = adventurerIds.includes(item.id);
-        if (!(isAdventurer && adventurerAlreadyTaken)) {
-            if (!damageCoefLevelAlreadyKept[damageCoefLevel]) {
-                damageCoefLevelAlreadyKept[damageCoefLevel] = 0;
-            }
-            damageCoefLevelAlreadyKept[damageCoefLevel] += tempResult[itemIndex].availableNumber;
-            result.push(item);
-            itemKeptKeys.push(item[itemKey]);
-            if (isAdventurer) {
-                adventurerAlreadyTaken = true;
-            }
-        }
-    }
-    
-    if (type != "materia") {
-        // Also keep at least the best numberNeeded items with flat stat
-        tempResult.sort(function (entry1, entry2) {
-            var value1 = 0;
-            var value2 = 0;
-            if (entry1.item[builds[currentUnitIndex].statToMaximize]) {
-                value1 = entry1.item[builds[currentUnitIndex].statToMaximize];
-            }
-            if (entry2.item[builds[currentUnitIndex].statToMaximize]) {
-                value2 = entry2.item[builds[currentUnitIndex].statToMaximize];
-            }
-            if (value1 == value2) {
-                var defStatsCompare = entry2.defenseValue - entry1.defenseValue;
-                if (defStatsCompare == 0) {
-                    return entry2.availableNumber - entry1.availableNumber;
-                } else {
-                    return defStatsCompare;
-                }
-            } else {
-                return value2 - value1;
-            }
-        });
-
-        var number = 0;
-        for (var itemIndex in tempResult) {
-            item = tempResult[itemIndex].item;
-            if (isTwoHanded(item) && typeCombination[0] && (typeCombination[1] || fixedItems[1])) {
-                // Don't keep 2-handed weapon in combination with 2 weapons
-                continue;
-            }
-            if (item[builds[currentUnitIndex].statToMaximize]) {
-                if (number < numberNeeded) {
-                    if (!result.includes(item)) {
-                        result.push(item);
-                    }
-                    number += tempResult[itemIndex].availableNumber;
-                } else {
-                    break;
-                }
-            }
-        }
-    }
-    
-    tempDataWithConditionItem[typeCombinationKey] = result;
-    return result;
+    return addConditionItemsTree(tempResult, type, numberNeeded);
 }
 
 function addConditionItemsTree(itemsOfType, type, numberNeeded,keepEntry = false) {
@@ -802,10 +734,7 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded,keepEntry = false
         for (var index in itemsOfType) {
             var entry = itemsOfType[index];
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[],"id":getEntryId(entry)};
-/*            console.log("Considering " + entry.item.name);
-            if (entry.item.name.startsWith("Hill")) {
-                console.log("!!");
-            }*/
+            //console.log("Considering " + entry.item.name);
             insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded);
             //logTree(keptItemsRoot);
         }
@@ -850,7 +779,7 @@ function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
     if (tree.root) {
         itemName = "ROOT"
     } else {
-        itemName = tree.entry.item.name + " (" + tree.entry.value.hp + " - " + tree.entry.value.def + " (" + currentDepth + "))";
+        itemName = tree.entry.item.name + " (" + currentDepth + "))";
     }
     if (addedEntry && addedEntry == tree.entry) {
         itemName = "**" + itemName + "**";
@@ -929,69 +858,222 @@ function getTreeNodeComparison(treeNode1, treeNode2) {
     if (treeNode1.root) {
         return "strictlyWorse"; 
     }
-    var defensiveStat;
+    var comparisionStatus = [];
+    var stats;
     switch (builds[currentUnitIndex].statToMaximize) {
         case "magicaleHp":
-            defensiveStat = "spr";
+            stats = ["hp","spr"];
+            break;
         case "physicaleHp":
-            if (!defensiveStat) {defensiveStat = "def"}
-            if (treeNode1.entry.value.hp >= treeNode2.entry.value.hp && treeNode1.entry.value[defensiveStat] >= treeNode2.entry.value[defensiveStat] && treeNode1.entry.value.hp + treeNode1.entry.value[defensiveStat] > treeNode2.entry.value.hp + treeNode2.entry.value[defensiveStat]) {
-                return "strictlyWorse";
-            } else if (treeNode1.entry.value.hp == treeNode2.entry.value.hp && treeNode1.entry.value[defensiveStat] == treeNode2.entry.value[defensiveStat]) {
-                return "equivalent";
-            } else if (treeNode1.entry.value.hp <= treeNode2.entry.value.hp && treeNode1.entry.value[defensiveStat] <= treeNode2.entry.value[defensiveStat] && treeNode1.entry.value.hp + treeNode1.entry.value[defensiveStat] < treeNode2.entry.value.hp + treeNode2.entry.value[defensiveStat]){
-                return "strictlyBetter";
-            } else {
-                return "sameLevel";
-            }
+            stats = ["hp","def"];
+            break;
         case "def":
         case "spr":
         case "hp":
-            if (treeNode1.entry.value > treeNode2.entry.value) {
-                return "strictlyWorse";
-            } else if (treeNode1.entry.value == treeNode2.entry.value) {
-                return "equivalent";
-            } else if (treeNode1.entry.value < treeNode2.entry.value){
-                return "strictlyBetter";
-            }
+            stats = [builds[currentUnitIndex].statToMaximize];
+            break;
         case "atk":
-            var elementType = getElementType(item);
-            // atk, element, killer, doublehand; flat stat
+            stats = ["atk"];
+            comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "atk")); // flat stat
+            break;
+        case "mag":
+            stats = ["mag"];
+            comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "mag")); // flat stat
+            break;
+    }
+    for (var index in stats) {
+        comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
+        comparisionStatus.push(compareBySingleWielding(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        comparisionStatus.push(compareBySingleWieldingOneHanded(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+    }
+    if (applicableKillerType != "none") {
+        comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item));
+    }
+    if (useWeaponsElements) {
+        comparisionStatus.push(compareByElementCoef(treeNode1.entry.item, treeNode2.entry.item));
+    }
+    if (desirableElements.length != 0) {
+        comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
+    }
+    
+    var result = "equivalent";
+    for (var index in comparisionStatus) {
+        if (comparisionStatus[index] == "sameLevel") {
+            return "sameLevel";
+        }
+        switch (result) {
+            case "equivalent":
+                result = comparisionStatus[index];
+                break;
+            case "strictlyWorse":
+                if (comparisionStatus[index] == "strictlyBetter") {
+                    return "sameLevel";
+                }
+                break;
+            case "strictlyBetter":
+                if (comparisionStatus[index] == "strictlyWorse") {
+                    return "sameLevel";
+                }
+                break;
+        }
+    }
+    return result;
+}
+
+function compareByStat(item1, item2, stat) {
+    var stat1 = (item1[stat] ? item1[stat] : 0);
+    var stat2 = (item2[stat] ? item2[stat] : 0);
+    if (stat1 > stat2) {
+        return "strictlyWorse"
+    } else if (stat1 < stat2){
+        return "strictlyBetter"
+    } else {
+        return "equivalent";
     }
 }
 
-function getElementType(item) {
-    var elementType = "elementLess";
-    if (weaponList.includes(item.type) && useWeaponsElements) {
-        // only for weapons
-        if (item.element) {
-            if (builds[currentUnitIndex].innateElements.includes(item.element)) {
-                elementType = "elementLess"
-            } else if (ennemyResist[item.element] != 0) {
-                var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
-                if (weaponElementDamageCoef >= 0) {
-                    elementType = "strongElement" + weaponElementDamageCoef;
-                } else if (weaponElementDamageCoef == 0) {
-                    elementType = "neutralElement";
-                } else {
-                    elementType = "weakElement";
+function compareBySingleWielding(item1, item2, stat) {
+    var singleWielding1 = 0
+    if (item1.singleWielding && item1.singleWielding[stat]) {
+        singleWielding1 = item1.singleWielding[stat];
+    }
+    var singleWielding2 = 0
+    if (item2.singleWielding && item2.singleWielding[stat]) {
+        singleWielding2 = item2.singleWielding[stat];
+    }
+    if (singleWielding1 > singleWielding2) {
+        return "strictlyWorse"
+    } else if (singleWielding1 < singleWielding2){
+        return "strictlyBetter"
+    } else {
+        return "equivalent";
+    }
+}
+
+function compareBySingleWieldingOneHanded(item1, item2, stat) {
+    var singleWielding1 = 0
+    if (item1.singleWieldingOneHanded && item1.singleWieldingOneHanded[stat]) {
+        singleWielding1 = item1.singleWieldingOneHanded[stat];
+    }
+    var singleWielding2 = 0
+    if (item2.singleWieldingOneHanded && item2.singleWieldingOneHanded[stat]) {
+        singleWielding2 = item2.singleWieldingOneHanded[stat];
+    }
+    if (singleWielding1 > singleWielding2) {
+        return "strictlyWorse"
+    } else if (singleWielding1 < singleWielding2){
+        return "strictlyBetter"
+    } else {
+        return "equivalent";
+    }
+}
+
+function compareByKillers(item1, item2) {
+    if (ennemyRaces.length) {
+        var applicableKillers1 = {};
+        for (var killerIndex in item1.killers) {
+            if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][applicableKillerType]) {
+                applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][applicableKillerType];
+            }
+        }
+        var applicableKillers2 = {};
+        for (var killerIndex in item2.killers) {
+            if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][applicableKillerType]) {
+                applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][applicableKillerType];
+            }
+        }
+        var result = "equivalent";
+        for (var index in applicableKillers1) {
+            if (!applicableKillers2[index]) {
+                switch(result) {
+                    case "equivalent":
+                        result = "strictlyWorse";
+                    case "strictlyBetter":
+                        return "sameLevel";
                 }
             } else {
-                
+                if (applicableKillers1[index] > applicableKillers2[index]) {
+                    switch(result) {
+                        case "equivalent":
+                            result = "strictlyWorse";
+                        case "strictlyBetter":
+                            return "sameLevel";
+                    }
+                } else if (applicableKillers1[index] < applicableKillers2[index]) {
+                    switch(result) {
+                        case "equivalent":
+                            result = "strictlyBetter";
+                        case "strictlyWorse":
+                            return "sameLevel";
+                    }
+                }
             }
         }
-        if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
-            damageCoefLevel = "elementless";
+        for (var index in applicableKillers2) {
+            if (!applicableKillers1[index]) {
+                switch(result) {
+                    case "equivalent":
+                        result = "strictlyBetter";
+                    case "strictlyWorse":
+                        return "sameLevel";
+                }
+            }
         }
+        return result;
+    } else {
+        return "equivalent";
     }
+}
+
+function compareByElementCoef(item1, item2) {
+    if (item1.elementType == item2.elementType) {
+        return "equivalent";
+    } else {
+        return "sameLevel";
     }
-    if (desirableElements.length > 0 && item.element) {
-        for (var index in item.element) {
-            if (desirableElements.includes(item.element[index])) {
-                damageCoefLevel += "desirableElement" + item.element[index];
+}
+
+function compareByEquipedElementCondition(item1, item2) {
+    if (desirableElements.length == 0) {
+        return "equivalent";
+    } else {
+        if (item1.element && matches(desirableElements, item1.element)) {
+            if (item2.element && matches(desirableElements, item2.element)) {
+                var desirableElementsFromItem1 = [];
+                var desirableElementsFromItem2 = [];
+                for (var index in desirableElements) {
+                    if(item1.element.includes(desirableElements[index])) {
+                        desirableElementsFromItem1.push(desirableElements[index]);
+                    }
+                    if(item2.element.includes(desirableElements[index])) {
+                        desirableElementsFromItem2.push(desirableElements[index]);
+                    }
+                    if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                            return "equivalent";
+                        } else {
+                            return "strictlyWorse";
+                        }
+                    } else {
+                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                            return "strictlyBetter";
+                        } else {
+                            return "sameLevel";
+                        }
+                    }
+                }
+            } else {
+                return "strictlyWorse";
+            }    
+        } else {
+            if (item1.element && matches(desirableElements, item1.element)) {
+                return "strictlyBetter";
+            } else {
+                return "equivalent";
             }
         }
     }
+    
 }
 
 function getDepth(treeItem, currentDepth) {
@@ -1051,42 +1133,6 @@ function getStatValueIfExists(item, stat, baseStat) {
     if (item[stat]) result += item[stat];
     if (item[stat + "%"]) result += item[stat + "%"] * baseStat / 100;
     return result;
-}
-
-function getDamageCoefLevel(item) {
-    var damageCoefLevel = null;
-    if (item[builds[currentUnitIndex].statToMaximize] || item[builds[currentUnitIndex].statToMaximize + '%']) {
-        damageCoefLevel = "neutral";
-    }
-    if (builds[currentUnitIndex].statToMaximize == "atk" || builds[currentUnitIndex].statToMaximize == "mag") {
-        var killerCoef = getKillerCoef(item);
-        if (killerCoef > 0) {
-            damageCoefLevel += "killer" + killerCoef;
-        }
-        if (weaponList.includes(item.type) && useWeaponsElements) {
-            // only for weapons
-            if ((item.element && ennemyResist[item.element] != 0)) {
-                var weaponElementDamageCoef = getWeaponElementDamageCoef(item.element);
-                if (weaponElementDamageCoef != 0) {
-                    damageCoefLevel += "element" + weaponElementDamageCoef;
-                }
-            }
-            if (damageCoefLevel == "neutral" && (!item.element || builds[currentUnitIndex].innateElements.includes(item.element))) {
-                damageCoefLevel = "elementless";
-            }
-        }
-    }
-    if (desirableElements.length > 0 && item.element) {
-        for (var index in item.element) {
-            if (desirableElements.includes(item.element[index])) {
-                damageCoefLevel += "desirableElement" + item.element[index];
-            }
-        }
-    }
-    if (item.singleWielding || item.singleWieldingOneHanded) {
-        damageCoefLevel = "doubleHand";
-    }
-    return damageCoefLevel;
 }
 
 function getWeaponElementDamageCoef(weaponElements) {
@@ -1296,16 +1342,7 @@ function calculateBuildValue(equiped, esper) {
                 }
             };
         }
-        var resistModifier = 0;
-        
-        if (elements.length > 0) {
-            for (var element in ennemyResist) {
-                if (elements.includes(element)) {
-                    resistModifier += ennemyResist[element] / 100;
-                }
-            }    
-            resistModifier = resistModifier / elements.length;
-        }
+        var resistModifier = getElementCoef(elements);
         
         // Killers
         var killerMultiplicator = 1;
@@ -1504,7 +1541,30 @@ function logBuild(build, value, esper) {
             }
             $("#resultStats ." + baseStats[statIndex] + " .bonus").html(bonusPercent);
         }
-        $("#resultStats ." + builds[currentUnitIndex].statToMaximize).addClass("statToMaximize");
+        
+        var importantStats;
+        switch(builds[currentUnitIndex].statToMaximize) {
+            case "hp":
+            case "atk":
+            case "def":
+            case "mag":
+            case "spr":
+                importantStats = [builds[currentUnitIndex].statToMaximize];
+                break;
+            case "physicaleHp":
+                importantStats = ["hp","def"];
+                break;
+            case "magicaleHp":
+                importantStats = ["hp","spr"];
+                break;
+
+        }
+        for (var index in importantStats) {
+            $("#resultStats ." + importantStats[index]).addClass("statToMaximize");    
+        }
+        
+        $("#resultStats .damage").addClass("hidden");
+        $("#resultStats .eHP").addClass("hidden");
         if (builds[currentUnitIndex].statToMaximize == "atk") {
             $("#resultStats .damage .defensiveStat").html("DEF");
             $("#resultStats .damage .damageCoef").html("1x");
@@ -1515,9 +1575,11 @@ function logBuild(build, value, esper) {
             $("#resultStats .damage .damageCoef").html("1x");
             $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
             $("#resultStats .damage").removeClass("hidden");
-        } else {
-            $("#resultStats .damage").addClass("hidden");
-        }
+        } else if (builds[currentUnitIndex].statToMaximize == "physicaleHp" || builds[currentUnitIndex].statToMaximize == "magicaleHp") {
+            $("#resultStats .eHP .eHPResult").html(Math.floor(value.total));
+            $("#resultStats .eHP").removeClass("hidden");
+        } 
+        
     }
 }
 
@@ -1750,7 +1812,7 @@ function onGoalChange() {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
         $("#forceDoublehand").removeClass("hidden");
-    } else if (goal == "def" || goal == "spr") {
+    } else if (goal == "def" || goal == "spr" || goal == "hp" || goal == "physicaleHp" || goal == "magicaleHp") {
         $(".monster").addClass("hidden");
         $(".unitAttackElement").addClass("hidden");
         $(".magicalSkillType").addClass("hidden");
