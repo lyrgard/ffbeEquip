@@ -1662,15 +1662,11 @@ function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
         var unitName = $(this).val();
         var selectedUnitData = units[unitName];
-        populateUnitEquip();
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
             reinitBuild(currentUnitIndex);
             builds[currentUnitIndex].selectedUnit = selectedUnitData;
             builds[currentUnitIndex].selectedUnitName = unitName;
-            for (var index in selectedUnitData.equip) {
-                $(".unitEquipable img." + selectedUnitData.equip[index]).removeClass("notEquipable");
-            }
             updateUnitStats();
             logCurrentBuild();
         } else {
@@ -1692,6 +1688,12 @@ function updateUnitStats() {
             $("#baseStat_" + stat).val("");
         }
     });
+    populateUnitEquip();
+    if (builds[currentUnitIndex].selectedUnit) {
+        for (var index in builds[currentUnitIndex].selectedUnit.equip) {
+            $(".unitEquipable img." + builds[currentUnitIndex].selectedUnit.equip[index]).removeClass("notEquipable");
+        }
+    }
 }
 
 function reinitBuild(buildIndex) {
@@ -1745,6 +1747,8 @@ function loadBuild(buildIndex) {
         }
         if (foundFixedItem) {
             displayFixedItems(build.fixedItems);
+        } else {
+            logCurrentBuild(); 
         }
     } else {
         logCurrentBuild();    
