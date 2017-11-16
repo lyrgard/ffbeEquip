@@ -418,11 +418,17 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
     // evade
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 22) {
-        item.physicalEvade = rawEffect[3][0];    
+        if (!item.evade) {
+            item.evade = {};
+        }
+        item.evade.physical = rawEffect[3][0];    
     
     // magical evade
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 54 && rawEffect[3][0] == -1) {
-        item.magicalEvade = rawEffect[3][1];
+        if (!item.evade) {
+            item.evade = {};
+        }
+        item.evade.magical = rawEffect[3][1];
 
     // Auto- abilities
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 35) {
@@ -577,7 +583,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","physicalEvade","magicalEvade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
