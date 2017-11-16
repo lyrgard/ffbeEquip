@@ -821,7 +821,9 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     var comparisionStatus = [];
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
     for (var index in stats) {
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        if (builds[currentUnitIndex].goal != "physicaleHP" && builds[currentUnitIndex].goal != "magicaleHP" ) {
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        }
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
@@ -835,6 +837,8 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     if (desirableElements.length != 0) {
         comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
     }
+    comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.entry.item, treeNode2.entry.item));
+    
     return combineComparison(comparisionStatus);
 }
 
@@ -892,53 +896,22 @@ function getValue(item, valuePath) {
     return currentItem;
 }
 
-function compareByStat(item1, item2, stat) {
-    var stat1 = (item1[stat] ? item1[stat] : 0);
-    var stat2 = (item2[stat] ? item2[stat] : 0);
-    if (stat1 > stat2) {
-        return "strictlyWorse"
-    } else if (stat1 < stat2){
-        return "strictlyBetter"
+function compareByNumberOfHandsNeeded(item1, item2) {
+    if (isTwoHanded(item1)) {
+        if (isTwoHanded(item2)) {
+            return "equivalent";
+        } else {
+            return "sameLevel";
+        }    
     } else {
-        return "equivalent";
+        if (isTwoHanded(item2)) {
+            return "sameLevel";
+        } else {
+            return "equivalent";
+        }
     }
 }
 
-function compareBySingleWielding(item1, item2, stat) {
-    var singleWielding1 = 0
-    if (item1.singleWielding && item1.singleWielding[stat]) {
-        singleWielding1 = item1.singleWielding[stat];
-    }
-    var singleWielding2 = 0
-    if (item2.singleWielding && item2.singleWielding[stat]) {
-        singleWielding2 = item2.singleWielding[stat];
-    }
-    if (singleWielding1 > singleWielding2) {
-        return "strictlyWorse"
-    } else if (singleWielding1 < singleWielding2){
-        return "strictlyBetter"
-    } else {
-        return "equivalent";
-    }
-}
-
-function compareBySingleWieldingOneHanded(item1, item2, stat) {
-    var singleWielding1 = 0
-    if (item1.singleWieldingOneHanded && item1.singleWieldingOneHanded[stat]) {
-        singleWielding1 = item1.singleWieldingOneHanded[stat];
-    }
-    var singleWielding2 = 0
-    if (item2.singleWieldingOneHanded && item2.singleWieldingOneHanded[stat]) {
-        singleWielding2 = item2.singleWieldingOneHanded[stat];
-    }
-    if (singleWielding1 > singleWielding2) {
-        return "strictlyWorse"
-    } else if (singleWielding1 < singleWielding2){
-        return "strictlyBetter"
-    } else {
-        return "equivalent";
-    }
-}
 
 function compareByKillers(item1, item2) {
     if (ennemyRaces.length) {
