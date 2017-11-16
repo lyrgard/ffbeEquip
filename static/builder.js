@@ -231,6 +231,7 @@ function prepareData(equipable) {
             if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
             if (type == "materia") {numberNeeded = 4}
             var tree = addConditionItemsTree(dataByType[type], type, numberNeeded);
+            dataByType[type] = [];
             for (var index in tree.children) {
                 addEntriesToResult(tree.children[index], dataByType[type], 0, numberNeeded, true);    
             }
@@ -607,7 +608,6 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             typeCombinationWithoutSecondHand[1] = null;
             findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
         } else {
-            
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
                 var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
                 var foundAnItem = false;
