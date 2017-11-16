@@ -874,7 +874,7 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     var comparisionStatus = [];
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
     for (var index in stats) {
-        if (builds[currentUnitIndex].goal != "physicaleHP" && builds[currentUnitIndex].goal != "magicaleHP" ) {
+        if (builds[currentUnitIndex].goal != "physicaleHp" && builds[currentUnitIndex].goal != "magicaleHp" ) {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
         }
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
@@ -933,20 +933,24 @@ function compareByValue(item1, item2, valuePath) {
 }
 
 function getValue(item, valuePath) {
-    var result = 0;
-    if (!valuePath) {
-        console.log("");
-    }
-    var pathTokens = valuePath.split(".");
-    var currentItem = item;
-    for (var index in pathTokens) {
-        if (currentItem[pathTokens[index]]) {
-            currentItem = currentItem[pathTokens[index]];
+    if (valuePath.indexOf('.') > -1) {
+        var pathTokens = valuePath.split(".");
+        var currentItem = item;
+        for (var index in pathTokens) {
+            if (currentItem[pathTokens[index]]) {
+                currentItem = currentItem[pathTokens[index]];
+            } else {
+                return 0;
+            }
+        }
+        return currentItem;
+    } else {
+        if (item[valuePath]) {
+            return item[valuePath];
         } else {
             return 0;
         }
     }
-    return currentItem;
 }
 
 function compareByNumberOfHandsNeeded(item1, item2) {
