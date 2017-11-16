@@ -53,6 +53,8 @@
                                     <option value="def">Defense</option>
                                     <option value="spr">Spirit</option>
                                     <option value="hp">Health Points</option>
+                                    <option value="physicalEvasion">Physical evasion</option>
+                                    <option value="magicalEvasion">Magical evasion</option>
                                 </select>
                             </div>
                         </form>
@@ -203,12 +205,14 @@
                             </div>
                         </div>
                         <div id="resultStats" class="hidden row" >
-                            <div class="col-xs-5 hp"><div class="col-xs-4 stat">HP</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">50%</div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 mp"><div class="col-xs-4 stat">MP</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">50%</div></div>
-                            <div class="col-xs-5 atk"><div class="col-xs-4 stat">ATK</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">50%</div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 def"><div class="col-xs-4 stat">DEF</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">50%</div></div>
-                            <div class="col-xs-5 mag"><div class="col-xs-4 stat">MAG</div><div class="col-xs-4 value text-right">150</div><div class="col-xs-4 bonus text-right">50%</div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 spr"><div class="col-xs-4 stat">SPR</div><div class="col-xs-4 value text-right">3500</div><div class="col-xs-4 bonus text-right">250%</div></div>
+                            <div class="col-xs-5 hp"><div class="col-xs-4 stat">HP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                            <div class="col-xs-5 mp"><div class="col-xs-4 stat">MP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                            <div class="col-xs-5 atk"><div class="col-xs-4 stat">ATK</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                            <div class="col-xs-5 def"><div class="col-xs-4 stat">DEF</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                            <div class="col-xs-5 mag"><div class="col-xs-4 stat">MAG</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                            <div class="col-xs-5 spr"><div class="col-xs-4 stat">SPR</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                            <div class="col-xs-5 evade_physical"><div class="col-xs-8 stat">Physical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
+                            <div class="col-xs-5 evade_magical"><div class="col-xs-8 stat">Magical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
                             <div class="damage buildResultLabel hidden">Damage on a 100 <span class="defensiveStat"></span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
                             <div class="eHP buildResultLabel hidden">eHP: <span class="eHPResult buildResult"></span></div>
                         </div>
