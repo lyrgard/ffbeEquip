@@ -670,15 +670,20 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
         }
     }
     
-    return addConditionItemsTree(tempResult, type, numberNeeded);
+    return addConditionItemsTree(tempResult, type, numberNeeded, false, typeCombination, fixedItems);
 }
 
-function addConditionItemsTree(itemsOfType, type, numberNeeded,keepEntry = false) {
+function addConditionItemsTree(itemsOfType, type, numberNeeded, keepEntry = false, typeCombination, fixedItems) {
     var result = [];
     var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
     if (itemsOfType.length > 0) {
         for (var index in itemsOfType) {
             var entry = itemsOfType[index];
+            
+            if (typeCombination && isTwoHanded(entry.item) && (typeCombination[1] || fixedItems[0] || fixedItems[1])) {
+                continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
+            }
+            
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[]};
             //console.log("Considering " + entry.item.name);
             insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded, getItemNodeComparison, getItemDepth);
