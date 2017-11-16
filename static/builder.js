@@ -1525,8 +1525,10 @@ function logBuild(build, value, esper) {
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
         var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
+        var values = {};
         for (var statIndex in statsToDisplay) {
             var result = calculateStatValue(build, esper, statsToDisplay[statIndex]);
+            values[statsToDisplay[statIndex]] = result.total;
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
             var bonusPercent;
             if (result.bonusPercent > 300) {
@@ -1536,7 +1538,11 @@ function logBuild(build, value, esper) {
             }
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
         }
-        
+        $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
+        $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
+        if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
+            $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
+        }
         
         var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
         for (var index in importantStats) {
@@ -1544,7 +1550,6 @@ function logBuild(build, value, esper) {
         }
         
         $("#resultStats .damage").addClass("hidden");
-        $("#resultStats .eHP").addClass("hidden");
         if (builds[currentUnitIndex].goal == "physicalDamage") {
             $("#resultStats .damage .defensiveStat").html("DEF");
             $("#resultStats .damage .damageCoef").html("1x");
@@ -1555,10 +1560,7 @@ function logBuild(build, value, esper) {
             $("#resultStats .damage .damageCoef").html("1x");
             $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
             $("#resultStats .damage").removeClass("hidden");
-        } else if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
-            $("#resultStats .eHP .eHPResult").html(Math.floor(value.total));
-            $("#resultStats .eHP").removeClass("hidden");
-        } 
+        }
         
     }
 }
