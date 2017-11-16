@@ -67,7 +67,7 @@ function showHistory() {
                     }
                     html += lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex];
                 }
-                html += " banner</div>";
+                html += "</div>";
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
                 html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
             }
