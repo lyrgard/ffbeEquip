@@ -10,6 +10,8 @@ var goals = {
     "hp":                               {"statsToMaximize":["hp"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "physicaleHp":                      {"statsToMaximize":["hp","def"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "magicaleHp":                       {"statsToMaximize":["hp","spr"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
+    "physicalEvasion":                  {"statsToMaximize":["evade.physical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
+    "magicalEvasion":                   {"statsToMaximize":["evade.magical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false}
 };
 
 
@@ -182,15 +184,16 @@ function prepareData(equipable) {
     dualWieldSources = [];
     var tempData = {};
     var adventurersAvailable = {};
+    
     for (var index in data) {
         var item = data[index];
         prepareItem(item, baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
-            if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
-                adventurersAvailable[item.id] = item;
-                continue;
-            }
             if (itemCanBeOfUseForGoal(item)) {
+                if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
+                    adventurersAvailable[item.id] = item;
+                    continue;
+                }
                 if (item.equipedConditions) {
                     dataWithCondition.push(getItemEntry(item));
                 } else {
@@ -250,12 +253,16 @@ function prepareItem(item, baseValues) {
     } else {
         item.elementType = "neutral"
     }
+    if (item.evade) {
+        
+    }
 }
 
 function itemCanBeOfUseForGoal(item) {
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
 
     for (var index in stats) {
+        if (getValue(item, stats[index]) > 0) return true;
         if (item["total_" + stats[index]]) return true;
         if (item.singleWielding && item.singleWielding[stats[index]]) return true;
         if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
@@ -299,7 +306,7 @@ function getEsperComparison(treeNode1, treeNode2) {
     var comparisionStatus = [];
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
     for (var index in stats) {
-        comparisionStatus.push(compareByStat(treeNode1.esper, treeNode2.esper, stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
     }
     if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
         comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper));
@@ -811,18 +818,11 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     }
     var comparisionStatus = [];
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
-    switch (builds[currentUnitIndex].goal) {
-        case "physicalDamage":            
-            comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "atk")); // flat stat
-            break;
-        case "magicalDamage":
-            comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "mag")); // flat stat
-            break;
-    }
     for (var index in stats) {
-        comparisionStatus.push(compareByStat(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
-        comparisionStatus.push(compareBySingleWielding(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
-        comparisionStatus.push(compareBySingleWieldingOneHanded(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
     }
     if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
         comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item));
@@ -859,6 +859,35 @@ function combineComparison(comparisionStatus) {
         }
     }
     return result;
+}
+
+function compareByValue(item1, item2, valuePath) {
+    var value1 = getValue(item1, valuePath);
+    var value2 = getValue(item2, valuePath);
+    if (value1 > value2) {
+        return "strictlyWorse"
+    } else if (value1 < value2){
+        return "strictlyBetter"
+    } else {
+        return "equivalent";
+    }
+}
+
+function getValue(item, valuePath) {
+    var result = 0;
+    if (!valuePath) {
+        console.log("");
+    }
+    var pathTokens = valuePath.split(".");
+    var currentItem = item;
+    for (var index in pathTokens) {
+        if (currentItem[pathTokens[index]]) {
+            currentItem = currentItem[pathTokens[index]];
+        } else {
+            return 0;
+        }
+    }
+    return currentItem;
 }
 
 function compareByStat(item1, item2, stat) {
@@ -1304,7 +1333,10 @@ function calculateStatValue(equiped, esper, stat) {
     var equipmentStatBonus = getEquipmentStatBonus(equiped, stat);
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
-    var baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat];
+    var baseValue = 0;
+    if (baseStats.includes(stat)) {
+        baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat];
+    }
     var calculatedValue = baseValue;
     var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
 
@@ -1315,7 +1347,7 @@ function calculateStatValue(equiped, esper, stat) {
             calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonus, stat);    
         }
     }
-    if (esper != null) {
+    if (esper != null && baseStats.includes(stat)) {
         calculatedValue += esper[stat] / 100;
     }
     
@@ -1340,9 +1372,7 @@ function calculateStatValue(equiped, esper, stat) {
 function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
     var value = 0;
     if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][stat]) {
-            value += itemAndPassives[equipedIndex][stat] * equipmentStatBonus;
-        }
+        value += getValue(itemAndPassives[equipedIndex], stat) * equipmentStatBonus;
         if (itemAndPassives[equipedIndex][stat + '%']) {
             percent = itemAndPassives[equipedIndex][stat+'%'];
             percentTakenIntoAccount = Math.min(percent, Math.max(300 - currentPercentIncrease.value, 0));
@@ -1438,21 +1468,23 @@ function logBuild(build, value, esper) {
         
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
-        for (var statIndex in baseStats) {
-            var result = calculateStatValue(build, esper, baseStats[statIndex]);
-            $("#resultStats ." + baseStats[statIndex] + " .value").html(Math.floor(result.total));
+        var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
+        for (var statIndex in statsToDisplay) {
+            var result = calculateStatValue(build, esper, statsToDisplay[statIndex]);
+            $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
             var bonusPercent;
             if (result.bonusPercent > 300) {
                 bonusPercent = "<span style='color:red;' title='Only 300% taken into account'>" + result.bonusPercent + "%</span>";
             } else {
                 bonusPercent = result.bonusPercent + "%";
             }
-            $("#resultStats ." + baseStats[statIndex] + " .bonus").html(bonusPercent);
+            $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
         }
+        
         
         var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
         for (var index in importantStats) {
-            $("#resultStats ." + importantStats[index]).addClass("statToMaximize");    
+            $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
         }
         
         $("#resultStats .damage").addClass("hidden");
@@ -1473,6 +1505,10 @@ function logBuild(build, value, esper) {
         } 
         
     }
+}
+
+function escapeDot(statName) {
+    return statName.replace(/\./g, '_');
 }
 
 function displayFixedItems(fixedItems) {
