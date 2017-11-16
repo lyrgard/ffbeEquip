@@ -32,7 +32,7 @@ function showEquipments() {
     beforeShow();
     
     $(".nav-tabs li.equipment").addClass("active");
-    $("#sortType").text("Sorted by Type (Strenght)");
+    $("#sortType").text("Sorted by Type (Strength)");
     // filter, sort and display the results
     $("#results").html(displayItems(sort(equipments)));
 }
