@@ -135,7 +135,10 @@
 }
 
 .td.pin.notFixed img {
-    display: none;
+    top: -5px;
+    left: 5px;
+    transform: rotate(-15deg);
+    opacity: 0.1;
 }
 
 .td.pin.notFixed:hover img {
@@ -151,11 +154,13 @@
         top: 0;
         left: 0;
         transform: rotate(0);
+        opacity: 1;
     }
     to {
         top: -5px;
         left: 5px;
         transform: rotate(-15deg);
+        opacity: 0.1;
     }
 }
 
@@ -164,11 +169,13 @@
         top: -5px;
         left: 5px;
         transform: rotate(-15deg);
+        opacity: 0.1;
     }
     to {
         top: 0;
         left: 0;
         transform: rotate(0);
+        opacity: 1;
     }
 }
 
