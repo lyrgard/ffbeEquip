@@ -132,7 +132,7 @@ function calculateAlreadyUsedItems() {
 function readGoal() {
     var goal = $(".goal select").val();
     
-    if (goal == "mag" && $(".magicalSkillType select").val() == "physicalMagic") {
+    if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
         builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
     } else {
         builds[currentUnitIndex].goal = goal;
