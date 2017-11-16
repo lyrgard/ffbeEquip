@@ -217,28 +217,31 @@
                             <div class="eHP buildResultLabel hidden">eHP: <span class="eHPResult buildResult"></span></div>
                         </div>
                         <div class="buildLinks hidden">
-                            <div class="col-xs-4">
+                            <div id="detailedViewLink" class="col-lg-3 col-md-6">
+                                <span class="glyphicon glyphicon-zoom-in"></span>
+                                <a onclick="switchView(false);">Detailed View</a>
+                            </div>
+                            <div id="conciseViewLink" class="col-lg-3 col-md-6 hidden">
+                                <span class="glyphicon glyphicon-zoom-out"></span>
+                                <a onclick="switchView(true);">Concise View</a>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
                                 <span class="glyphicon glyphicon-link"></span>
                                 <a class="buildLink" onclick="showBuildLink()">Share this build</a>
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-lg-3 col-md-6">
                                 <span class="glyphicon glyphicon-wrench"></span>
                                 <a class="builderSetupLink" onclick="showBuilderSetupLink()">Share this builder setup</a>
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-lg-3 col-md-6">
                                 <span class="glyphicon glyphicon-camera"></span>
-                                <a class="imageLink" target="_blank">Get build image (Using ffbeben.ch)</a>
+                                <a class="imageLink" target="_blank">Get build image</a>
                             </div>
                         </div>
-                        
-                        
-                        
+   
                         <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
                         <div id="fixedItemsTitle" class="hidden">Pinned items:</div>
-                        <div id="buildResult" class="table notSorted items results">
-                            <div class="tbody">
-                                
-                            </div>
+                        <div id="buildResult" class="notSorted table items results">
                         </div>
                     </div>
                 </div>

@@ -235,6 +235,14 @@
     width: 100%;
 }
 
+#detailedViewLink a {
+    cursor: pointer;
+}
+
+#conciseViewLink a {
+    cursor: pointer;
+}
+
 .buildLink {
     cursor: pointer;
 }
@@ -253,4 +261,16 @@
 
 .unitEquipable img.notEquipable {
     opacity: 0.2;
+}
+
+#buildResult.conciseView .table {
+    margin-bottom: 0;
+}
+
+#buildResult.conciseView .table .td {
+    border-top: 0;
+}
+
+#buildResult.conciseView .newLine {
+    clear: both;
 }

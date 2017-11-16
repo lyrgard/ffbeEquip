@@ -52,6 +52,8 @@ var searchStat = "";
 
 var dataLoadedFromHash = false;
 
+var conciseView = true;
+
 function build() {
     $(".buildLinks").addClass("hidden");
     
@@ -1436,7 +1438,7 @@ function logCurrentBuild() {
 function logBuild(build, value, esper) {
     if (build.length == 0) {
         $("#resultStats").addClass("hidden");
-        $("#buildResult .tbody").html("");
+        $("#buildResult").html("");
         $(".buildLinks").addClass("hidden");
         var progress = "0%";
         var progressElement = $("#buildProgressBar .progressBar");
@@ -1446,18 +1448,42 @@ function logBuild(build, value, esper) {
     } else {
         
         var html = "";
+        
         for (var index in build) {
+            if (conciseView) {
+                html += "<div class='col-xs-6 ";
+                if (index%2 == 0) {
+                    html += "newLine";
+                }
+                html += "'><div class='table'><div class='tbody'>";
+            }
             var item = build[index];
             if (item) {
-                html += getItemLine(item, index);
+                html += getItemLine(item, index, conciseView);
             }
+            if (conciseView) {
+                html += "</div></div></div>"
+            }            
         }
         if (esper) {
             var esperItem = getEsperItem(esper);
-            html += getItemLine(esperItem);
+            if (conciseView) {
+                html += "<div class='col-xs-6 newLine'><div class='table'><div class='tbody'>"
+            }
+            html += getItemLine(esperItem, -1, conciseView);
+            if (conciseView) {
+                html += "</div></div></div>"
+            }  
         }
 
-        $("#buildResult .tbody").html(html);
+        if (conciseView) {
+            $("#buildResult").addClass("conciseView");
+        } else {
+            html = '<div class="tbody">' + html + '</div>';
+            $("#buildResult").removeClass("conciseView");
+        }
+        
+        $("#buildResult").html(html);
         
         $("#resultStats > div").removeClass("statToMaximize");
         
@@ -1507,6 +1533,18 @@ function logBuild(build, value, esper) {
     }
 }
 
+function switchView(conciseViewParam) {
+    conciseView = conciseViewParam;
+    if (conciseView) {
+        $("#conciseViewLink").addClass("hidden");
+        $("#detailedViewLink").removeClass("hidden");
+    } else {
+        $("#detailedViewLink").addClass("hidden");
+        $("#conciseViewLink").removeClass("hidden");
+    }
+    logCurrentBuild();
+}
+
 function escapeDot(statName) {
     return statName.replace(/\./g, '_');
 }
@@ -1529,8 +1567,10 @@ function displayFixedItems(fixedItems) {
             html += getItemLine(item, index);
         }
     }
+    html = '<div class="tbody">' + html + '</div>';
+    $("#buildResult").removeClass("conciseView");
     
-    $("#buildResult .tbody").html(html);
+    $("#buildResult").html(html);
     
     if (found) {
         $("#fixedItemsTitle").removeClass("hidden");
@@ -1539,17 +1579,21 @@ function displayFixedItems(fixedItems) {
     }
 }
 
-function getItemLine(item, index = -1) {
+function getItemLine(item, index = -1, short = false) {
     var html = "";
     html += '<div class="tr buildLine_' + index + '">';
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
         html += '<div class="td pin fixed" onclick="removeFixedItemAt(\'' + index +'\')"><img class="" src="img/pin.png"></img></div>'
-    } else if (!item.placeHolder) {
+    } else if (!item.placeHolder && item.type != "esper") {
         html += '<div class="td pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);"><img class="" src="img/pin.png"></img></div>'
     } else {
         html += '<div class="td"></div>'
     }
-    html += displayItemLine(item);
+    if (short) {
+        html += getImageHtml(item) + getNameColumnHtml(item);
+    } else {
+        html += displayItemLine(item);
+    }
     html += "</div>";
     return html;
 }
