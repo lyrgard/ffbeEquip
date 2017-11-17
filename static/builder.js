@@ -2293,9 +2293,14 @@ function readHash() {
 }
 
 function populateUnitEquip() {
-    var target = $(".unitEquipable.weapons");
+    var target = $(".unitEquipable.weapons1");
+    var counter = 0;
     target.html("");
 	for (var key in weaponList) {
+        counter++;
+        if(counter == 9) {
+            var target = $(".unitEquipable.weapons2");
+        }
         target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
 	}
     var target = $(".unitEquipable.armors");
