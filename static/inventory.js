@@ -32,7 +32,7 @@ function showEquipments() {
     beforeShow();
     
     $(".nav-tabs li.equipment").addClass("active");
-    $("#sortType").text("Sorted by Type (Strenght)");
+    $("#sortType").text("Sorted by Type (Strength)");
     // filter, sort and display the results
     $("#results").html(displayItems(sort(equipments)));
 }
@@ -67,7 +67,7 @@ function showHistory() {
                     }
                     html += lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex];
                 }
-                html += " banner</div>";
+                html += "</div>";
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
                 html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
             }
