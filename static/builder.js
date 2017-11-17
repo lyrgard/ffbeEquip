@@ -2305,6 +2305,7 @@ function populateUnitEquip() {
         counter++;
         if(counter == 9) {
             var target = $(".unitEquipable.weapons2");
+            target.html("");
         }
         target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
 	}
