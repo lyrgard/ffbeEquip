@@ -137,7 +137,7 @@ function calculateAlreadyUsedItems() {
 function readGoal() {
     var goal = $(".goal select").val();
     
-    if (goal == "mag" && $(".magicalSkillType select").val() == "physicalMagic") {
+    if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
         builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
     } else {
         builds[currentUnitIndex].goal = goal;
@@ -235,7 +235,11 @@ function prepareData(equipable) {
             var numberNeeded = 1;
             if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
             if (type == "materia") {numberNeeded = 4}
-            dataByType[type] = addConditionItemsTree(dataByType[type], type, numberNeeded, true);
+            var tree = addConditionItemsTree(dataByType[type], type, numberNeeded);
+            dataByType[type] = [];
+            for (var index in tree.children) {
+                addEntriesToResult(tree.children[index], dataByType[type], 0, numberNeeded, true);    
+            }
         } else {
             dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
         }
@@ -609,9 +613,45 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             typeCombinationWithoutSecondHand[1] = null;
             findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
         } else {
-            if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].length > 0) {
+            if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
+                var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
                 var foundAnItem = false;
-                var firstIndexToTry = 0; 
+                
+                for (var childIndex in itemTreeRoot.children) {
+                    var item = itemTreeRoot.children[childIndex].entry.item;
+                    var numberRemaining = howManyRemainingOfThisItem(build, item, index, fixedItems);
+                    if (numberRemaining > 0) {
+                        if (index == 1 && isTwoHanded(item)) {
+                            continue;
+                        }
+                        
+                        if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
+                            // We used all possible copy of this item, switch to a worse item in the tree
+                            var newTreeRoot = {"children":itemTreeRoot.children.slice()};
+                            if (newTreeRoot.children[childIndex].equivalents.length > 0) {
+                                var newEquivalents = newTreeRoot.children[childIndex].equivalents.slice();
+                                newEquivalents.splice(0,1);
+                                var newTreeNode = {"children":newTreeRoot.children[childIndex].children,"equivalents":newEquivalents,entry:newTreeRoot.children[childIndex].equivalents[0]};
+                                newTreeRoot.children[childIndex] = newTreeNode;
+                            } else if (newTreeRoot.children[childIndex].children.length > 0) {
+                                // add the children of the node to root level
+                                for (var childrenOfNodeIndex in newTreeRoot.children[childIndex].children) {
+                                    newTreeRoot.children.push(newTreeRoot.children[childIndex].children[childrenOfNodeIndex]);
+                                }
+                                newTreeRoot.children.splice(childIndex,1);
+                            } else {
+                                // we finished this branch, remove it
+                                newTreeRoot.children.splice(childIndex,1);
+                            }
+                            dataWithConditionItems[typeCombination[index]] = newTreeRoot;
+                        }
+                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems);
+                        dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
+                        foundAnItem = true;
+                    }
+                }
+                
+                /*var firstIndexToTry = 0; 
                 if ((index == 1 && typeCombination[0] == typeCombination[1]) || index == 5 || index > 6) {
                     // For slots with same type, don't calculate all possible combination, prevent redundant combination from being calculated
                     var indexOfPreviousItem = dataWithConditionItems[typeCombination[index - 1]].indexOf(build[index - 1]);
@@ -626,7 +666,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                         tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems);
                         foundAnItem = true;
                     }
-                }
+                }*/
                 if (!foundAnItem) {
                     tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems);
                 }
@@ -684,10 +724,10 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
         }
     }
     
-    return addConditionItemsTree(tempResult, type, numberNeeded, false, typeCombination, fixedItems);
+    return addConditionItemsTree(tempResult, type, numberNeeded, typeCombination, fixedItems);
 }
 
-function addConditionItemsTree(itemsOfType, type, numberNeeded, keepEntry = false, typeCombination, fixedItems) {
+function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination, fixedItems) {
     var result = [];
     var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
     if (itemsOfType.length > 0) {
@@ -704,10 +744,11 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded, keepEntry = fals
             //logTree(keptItemsRoot);
         }
     }
-    for (var index in keptItemsRoot.children) {
+    /*for (var index in keptItemsRoot.children) {
         addEntriesToResult(keptItemsRoot.children[index], result, 0, numberNeeded, keepEntry);    
-    }
-    return result;
+    }*/
+    cutUnderMaxDepth(keptItemsRoot, numberNeeded, getItemDepth, 0);
+    return keptItemsRoot;
 }
 
 function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
@@ -799,6 +840,18 @@ function insertItemIntoTree(treeItem, newTreeItem, maxDepth, comparisonFunction,
         case "equivalent":
             // entry is equivalent to treeItem
             treeItem.equivalents.push(newTreeItem.entry);
+            var equivalents = treeItem.equivalents.concat([treeItem.entry]);
+    
+            equivalents.sort(function(entry1, entry2) {
+                if (entry1.defenseValue == entry2.defenseValue) {
+                    return entry2.available - entry1.available;    
+                } else {
+                    return entry2.defenseValue - entry1.defenseValue;    
+                }
+            });
+            treeItem.entry = equivalents[0];
+            equivalents.splice(0,1);
+            treeItem.equivalents = equivalents;
             //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
             break;
         case "strictlyBetter":
@@ -826,7 +879,7 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     var comparisionStatus = [];
     var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
     for (var index in stats) {
-        if (builds[currentUnitIndex].goal != "physicaleHP" && builds[currentUnitIndex].goal != "magicaleHP" ) {
+        if (builds[currentUnitIndex].goal != "physicaleHp" && builds[currentUnitIndex].goal != "magicaleHp" ) {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
         }
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
@@ -885,20 +938,24 @@ function compareByValue(item1, item2, valuePath) {
 }
 
 function getValue(item, valuePath) {
-    var result = 0;
-    if (!valuePath) {
-        console.log("");
-    }
-    var pathTokens = valuePath.split(".");
-    var currentItem = item;
-    for (var index in pathTokens) {
-        if (currentItem[pathTokens[index]]) {
-            currentItem = currentItem[pathTokens[index]];
+    if (valuePath.indexOf('.') > -1) {
+        var pathTokens = valuePath.split(".");
+        var currentItem = item;
+        for (var index in pathTokens) {
+            if (currentItem[pathTokens[index]]) {
+                currentItem = currentItem[pathTokens[index]];
+            } else {
+                return 0;
+            }
+        }
+        return currentItem;
+    } else {
+        if (item[valuePath]) {
+            return item[valuePath];
         } else {
             return 0;
         }
     }
-    return currentItem;
 }
 
 function compareByNumberOfHandsNeeded(item1, item2) {
@@ -1078,37 +1135,37 @@ function logAddConditionItems(data) {
     console.log(string);
 }
 
-function canAddMoreOfThisItem(build, item, currentIndex, fixedItems) {
+function howManyRemainingOfThisItem(build, item, currentIndex, fixedItems) {
     if (item.placeHolder){
-        return true;
+        return 4;
     }
     var number = 0;
     var isAdventurer = adventurerIds.includes(item.id);
     for (var index = 0; index < currentIndex; index++) {
         if (build[index] && build[index].name == item.name) {
             if (!isStackable(item)) {
-                return false;
+                return 0;
             }
             number++;
         }
         // Manage Adventurers not stackable 
         if (build[index] && isAdventurer && adventurerIds.includes(build[index].id)) {
-            return false;
+            return 0;
         }
     }
     for (var index = currentIndex + 1; index < 10; index++) {
         if (fixedItems[index] && fixedItems[index].name == item.name) {
             if (!isStackable(item)) {
-                return false;
+                return 0;
             }
             number++;
         }
         // Manage Adventurers not stackable 
         if (fixedItems[index] && isAdventurer && adventurerIds.includes(fixedItems[index].id)) {
-            return false;
+            return 0;
         }
     }
-    return getAvailableNumber(item) > number;
+    return getAvailableNumber(item) - number;
 }
 
 
@@ -1473,8 +1530,10 @@ function logBuild(build, value, esper) {
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
         var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
+        var values = {};
         for (var statIndex in statsToDisplay) {
             var result = calculateStatValue(build, esper, statsToDisplay[statIndex]);
+            values[statsToDisplay[statIndex]] = result.total;
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
             var bonusPercent;
             if (result.bonusPercent > 300) {
@@ -1484,7 +1543,11 @@ function logBuild(build, value, esper) {
             }
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
         }
-        
+        $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
+        $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
+        if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
+            $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
+        }
         
         var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
         for (var index in importantStats) {
@@ -1492,7 +1555,6 @@ function logBuild(build, value, esper) {
         }
         
         $("#resultStats .damage").addClass("hidden");
-        $("#resultStats .eHP").addClass("hidden");
         if (builds[currentUnitIndex].goal == "physicalDamage") {
             $("#resultStats .damage .defensiveStat").html("DEF");
             $("#resultStats .damage .damageCoef").html("1x");
@@ -1503,10 +1565,7 @@ function logBuild(build, value, esper) {
             $("#resultStats .damage .damageCoef").html("1x");
             $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
             $("#resultStats .damage").removeClass("hidden");
-        } else if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
-            $("#resultStats .eHP .eHPResult").html(Math.floor(value.total));
-            $("#resultStats .eHP").removeClass("hidden");
-        } 
+        }
         
     }
 }
@@ -1610,15 +1669,11 @@ function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
         var unitName = $(this).val();
         var selectedUnitData = units[unitName];
-        populateUnitEquip();
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
             reinitBuild(currentUnitIndex);
             builds[currentUnitIndex].selectedUnit = selectedUnitData;
             builds[currentUnitIndex].selectedUnitName = unitName;
-            for (var index in selectedUnitData.equip) {
-                $(".unitEquipable img." + selectedUnitData.equip[index]).removeClass("notEquipable");
-            }
             updateUnitStats();
             logCurrentBuild();
         } else {
@@ -1640,6 +1695,12 @@ function updateUnitStats() {
             $("#baseStat_" + stat).val("");
         }
     });
+    populateUnitEquip();
+    if (builds[currentUnitIndex].selectedUnit) {
+        for (var index in builds[currentUnitIndex].selectedUnit.equip) {
+            $(".unitEquipable img." + builds[currentUnitIndex].selectedUnit.equip[index]).removeClass("notEquipable");
+        }
+    }
 }
 
 function reinitBuild(buildIndex) {
@@ -1693,6 +1754,8 @@ function loadBuild(buildIndex) {
         }
         if (foundFixedItem) {
             displayFixedItems(build.fixedItems);
+        } else {
+            logCurrentBuild(); 
         }
     } else {
         logCurrentBuild();    
@@ -2235,9 +2298,14 @@ function readHash() {
 }
 
 function populateUnitEquip() {
-    var target = $(".unitEquipable.weapons");
+    var target = $(".unitEquipable.weapons1");
+    var counter = 0;
     target.html("");
 	for (var key in weaponList) {
+        counter++;
+        if(counter == 9) {
+            var target = $(".unitEquipable.weapons2");
+        }
         target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
 	}
     var target = $(".unitEquipable.armors");

@@ -170,7 +170,7 @@ function treatItem(items, itemId, result, skills) {
     if (unitIdByTmrId[itemOut.id]) {
         var unit = unitNamesById[unitIdByTmrId[itemOut.id]];
         var access = "TMR-" + unit.minRarity + "*";
-        if (unit.event) {
+        if (unit.event || (releasedUnits[unit.name] && releasedUnits[unit.name].type == "event")) {
             access += "-event";
         }
         if (!releasedUnits[unit.name]) {
