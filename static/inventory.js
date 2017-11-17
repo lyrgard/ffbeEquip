@@ -68,7 +68,7 @@ function showHistory() {
                     html += lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex];
                 }
                 html += "</div>";
-            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event" || lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
                 html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
             }
             html += displayItems(lastItemReleases[dateIndex].sources[sourceIndex].items);
@@ -324,17 +324,21 @@ function prepareSearch(data) {
 function prepareLastItemReleases() {
     var unitsToSearch = [];
     var eventsToSearch = [];
+    var idsToSearch = [];
     for (var dateIndex in lastItemReleases) {
         for (var sourceIndex in lastItemReleases[dateIndex].sources) {
             if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
                 unitsToSearch = unitsToSearch.concat(lastItemReleases[dateIndex].sources[sourceIndex].units)
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
                 eventsToSearch.push(lastItemReleases[dateIndex].sources[sourceIndex].name);
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
+                idsToSearch = idsToSearch.concat(lastItemReleases[dateIndex].sources[sourceIndex].ids);
             }
         }
     }
     var tmrs = {};
     var events = {};
+    var itemsById = {};
     var items = equipments.concat(materia);
     for (var index in items) {
         if (items[index].tmrUnit && unitsToSearch.includes(items[index].tmrUnit)) {
@@ -343,6 +347,9 @@ function prepareLastItemReleases() {
         if (items[index].eventName && eventsToSearch.includes(items[index].eventName)) {
             if (!events[items[index].eventName]) {events[items[index].eventName] = []}
             events[items[index].eventName].push(items[index]);
+        }
+        if (items[index].id && idsToSearch.includes(items[index].id)) {
+            itemsById[items[index].id] = items[index];
         }
     }
     for (var dateIndex in lastItemReleases) {
@@ -354,6 +361,11 @@ function prepareLastItemReleases() {
                 }
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event") {
                 lastItemReleases[dateIndex].sources[sourceIndex].items = events[lastItemReleases[dateIndex].sources[sourceIndex].name];
+            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
+                lastItemReleases[dateIndex].sources[sourceIndex].items = [];
+                for (var idIndex in lastItemReleases[dateIndex].sources[sourceIndex].ids) {
+                    lastItemReleases[dateIndex].sources[sourceIndex].items.push(itemsById[lastItemReleases[dateIndex].sources[sourceIndex].ids[idIndex]])
+                }
             }
         }
     }
