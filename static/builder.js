@@ -54,6 +54,11 @@ var dataLoadedFromHash = false;
 
 var conciseView = true;
 
+var notStackableEvadeGear = [
+    ["409006700"],
+    ["402001900", "301001500", "409012800"]
+];
+
 function build() {
     $(".buildLinks").addClass("hidden");
     
