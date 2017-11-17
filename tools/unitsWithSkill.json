@@ -656,7 +656,7 @@
 		},
 		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "evade":{"physical":10}}
+			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "evade":{"physical":30}}
 		]
 	},
 	"Shera": {
@@ -749,9 +749,9 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "def%":30, "spr%":20},
-			{"def%":25, "equipedConditions":["heavyShield"]},
-			{"def%":25, "equipedConditions":["heavyArmor"]}
+			{"hp%":60, "def%":30, "spr%":20},
+			{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]},
+			{"def%":40, "spr%":40, "equipedConditions":["heavyArmor"]}
 		]
 	},
 	"Grace": {
@@ -3283,8 +3283,8 @@
 		},
 		"equip":["dagger","sword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"atk%":20},
-			{"atk%":30, "equipedConditions":["sword"]}
+			{"atk%":20, "killers":[{"name":"human","physical":50}]},
+			{"atk%":60, "equipedConditions":["sword"]}
 		]
 	},
 	"Tilith": {
@@ -3712,6 +3712,19 @@
 			{"spr%":20, "equipedConditions":["bow"]}
 		]
 	},
+	"Maiden Sakura": {
+		"id":"401000905",
+		"max_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2402,"mp":154,"atk":88,"def":84,"mag":118,"spr":104},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
+		},
+		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "mp%":20, "mag%":30}
+		]
+	},
 	"Zargabaath": {
 		"id":"401001106",
 		"max_rarity":"6",
@@ -3905,6 +3918,35 @@
 		"skills": [
 			{"hp%":10, "spr%":20},
 			{"mag%":30, "equipedConditions":["hammer"]}
+		]
+	},
+	"Charming Kitty Ariana": {
+		"id":"401002406",
+		"max_rarity":"6",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3397,"mp":202,"atk":111,"def":118,"mag":133,"spr":155},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":15, "spr%":30},
+			{"mp%":30, "equipedConditions":["staff"]},
+			{"spr%":30, "equipedConditions":["harp"]}
+		]
+	},
+	"Sportive Ariana": {
+		"id":"401002506",
+		"max_rarity":"6",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3410,"mp":159,"atk":115,"def":126,"mag":107,"spr":145},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["hammer","harp","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":10, "def%":20, "spr%":20},
+			{"hp%":30, "def%":30, "equipedConditions":["lightShield"]}
 		]
 	}
 }

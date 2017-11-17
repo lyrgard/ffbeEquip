@@ -74,6 +74,7 @@ var elementsMap = {
 var unitNamesById = {};
 var unitIdByTmrId = {};
 var oldItemsAccessById = {};
+var oldItemsEventById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 
@@ -117,6 +118,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                     var oldItems = JSON.parse(content);
                                     for (var index in oldItems) {
                                         oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
                                     }
                                     
                                     fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
@@ -168,7 +170,7 @@ function treatItem(items, itemId, result, skills) {
     if (unitIdByTmrId[itemOut.id]) {
         var unit = unitNamesById[unitIdByTmrId[itemOut.id]];
         var access = "TMR-" + unit.minRarity + "*";
-        if (unit.event) {
+        if (unit.event || (releasedUnits[unit.name] && releasedUnits[unit.name].type == "event")) {
             access += "-event";
         }
         if (!releasedUnits[unit.name]) {
@@ -213,6 +215,9 @@ function treatItem(items, itemId, result, skills) {
                 addAccess(itemOut, access);
             }
         }
+    }
+    if (!itemOut.eventName && oldItemsEventById[itemOut.id]) {
+        itemOut.eventName = oldItemsEventById[itemOut.id];
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
@@ -578,7 +583,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
