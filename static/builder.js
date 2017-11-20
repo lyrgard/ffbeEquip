@@ -589,7 +589,73 @@ function findBestBuildForCombinationAsync(index, combinations) {
     }
 }
 
-function getBuildHash() {
+function getPiramidataImageLink() {
+    return "http://ffbe.piramidata.eu/Unit/GetConfigurationImage?" +
+        "unitname=" + encodeURIComponent(builds[currentUnitIndex].selectedUnitName) + 
+        "&rarity=" + builds[currentUnitIndex].selectedUnit.max_rarity +
+        "&espername=" + encodeURIComponent(getEsperName()) + 
+        "&pothp=" + builds[currentUnitIndex].selectedUnit.stats.pots.hp +
+        "&potmp=" + builds[currentUnitIndex].selectedUnit.stats.pots.mp +
+        "&potatk=" + builds[currentUnitIndex].selectedUnit.stats.pots.atk +
+        "&potdef=" + builds[currentUnitIndex].selectedUnit.stats.pots.def +
+        "&potmag=" + builds[currentUnitIndex].selectedUnit.stats.pots.mag +
+        "&potspr=" + builds[currentUnitIndex].selectedUnit.stats.pots.spr +
+        "&esperhp=" + builds[currentUnitIndex].bestEsper.hp + 
+        "&espermp=" + builds[currentUnitIndex].bestEsper.mp +
+        "&esperatk=" + builds[currentUnitIndex].bestEsper.atk +
+        "&esperdef=" + builds[currentUnitIndex].bestEsper.def +
+        "&espermag=" + builds[currentUnitIndex].bestEsper.mag +
+        "&esperspr=" + builds[currentUnitIndex].bestEsper.spr +
+        "&rhand=" + getItemId(0) +
+        "&lhand=" + getItemId(1) +
+        "&head=" + getItemId(2) +
+        "&body=" + getItemId(3) +
+        "&acc1=" + getItemId(4) +
+        "&acc2=" + getItemId(5) +
+        "&ability1=" + getItemId(6) +
+        "&ability2=" + getItemId(7) +
+        "&ability3=" + getItemId(8) +
+        "&ability4=" + getItemId(9) +
+        "&enh1=" + encodeURIComponent(getEnhancementSkill(0)) +
+        "&enh2=" + encodeURIComponent(getEnhancementSkill(1)) +
+        "&enh3=" + encodeURIComponent(getEnhancementSkill(2)) +
+        "&enh4=" + encodeURIComponent(getEnhancementSkill(3)) +
+        "&enh5=" + encodeURIComponent(getEnhancementSkill(4)) +
+        "&enh6=" + encodeURIComponent(getEnhancementSkill(5))
+        //"&ticks=636467793686471730";
+}
+
+function getItemId(slot) {
+    if (builds[currentUnitIndex].bestBuild[slot] && !builds[currentUnitIndex].bestBuild[slot].placeHolder) {
+        return builds[currentUnitIndex].bestBuild[slot].id;
+    } else {
+        return "";
+    }
+}
+
+function getEnhancementSkill(index) {
+    if (builds[currentUnitIndex].selectedUnit.enhancementSkills && builds[currentUnitIndex].selectedUnit.enhancementSkills.length > index) {
+        return builds[currentUnitIndex].selectedUnit.enhancementSkills[index] + " Awk+2";
+    } else {
+        return "";
+    }
+}
+
+function getEsperName() {
+    if (builds[currentUnitIndex].bestEsper) {
+        var result = builds[currentUnitIndex].bestEsper.name + " ";
+        for (var i = 0; i < builds[currentUnitIndex].bestEsper.maxLevel; i++) {
+            result += "★";
+        }
+        return result;
+    } else {
+        return "";
+    }
+} 
+
+
+
+function getFFBEBenImageLink() {
     var hash = "";
     hash += Number(builds[currentUnitIndex].selectedUnit.id).toString(36);
     for (var i = 0; i < 10; i++) {
@@ -600,7 +666,7 @@ function getBuildHash() {
             hash += 999999999..toString(36);
         }
     }
-    return hash;
+    return "http://ffbeben.ch/" + hash + ".png";
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
@@ -1522,9 +1588,8 @@ function logBuild(build, value, esper) {
         
         $("#resultStats > div").removeClass("statToMaximize");
         
-        var hash = getBuildHash();
-        $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
-        $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
+        var link = getPiramidataImageLink();
+        $(".imageLink").prop("href",link);
         $(".buildLinks").removeClass("hidden");
         
         $("#fixedItemsTitle").addClass("hidden");
