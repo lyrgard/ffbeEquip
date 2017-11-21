@@ -78,6 +78,12 @@ function build() {
     
     calculateAlreadyUsedItems();
     
+    builds[currentUnitIndex].fixedItemsIds = [];
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        if (builds[currentUnitIndex].fixedItems[index] && !builds[currentUnitIndex].fixedItemsIds.includes(builds[currentUnitIndex].fixedItems[index][itemKey]))
+        builds[currentUnitIndex].fixedItemsIds.push(builds[currentUnitIndex].fixedItems[index][itemKey]);
+    }
+    
     prepareData(getCurrentUnitEquip());
     prepareEquipable();
     selectEspers();
@@ -808,6 +814,9 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination,
             if (typeCombination && isTwoHanded(entry.item) && (typeCombination[1] || fixedItems[0] || fixedItems[1])) {
                 continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
             }
+            if (builds[currentUnitIndex].fixedItemsIds.includes(entry.item[itemKey]) && getAvailableNumber(entry.item) < 1) {
+                continue;
+            }
             
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[]};
             //console.log("Considering " + entry.item.name);
@@ -1288,6 +1297,9 @@ function getAvailableNumber(item) {
             number = getOwnedNumber(item).available;
         }
     } else {
+        if (item.name == "Rod Mastery") {
+            console.log("!!");
+        }
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
             for (var index in item.access) {
                 var access = item.access[index];
@@ -1298,8 +1310,12 @@ function getAvailableNumber(item) {
                 }        
             }
         }
-        if (item.access.includes("trial")) {
-            number = 1;
+        if (item.access.includes("trial") || !isStackable(item)) {
+            if (alreadyUsedItems[item[itemKey]]) {
+                number = 0;
+            } else {
+                number = 1;
+            }
         } else {
             number = 4;    
         }
@@ -2036,7 +2052,7 @@ function findBestItemVersion(build, key) {
             break;
         }
     }
-    if (itemVersions.length == 1) {
+    if (itemVersions.length == 1 && !itemVersions[0].equipedConditions) {
         return itemVersions[0];
     } else {
         itemVersions.sort(function (item1, item2) {
