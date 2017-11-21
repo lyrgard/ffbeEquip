@@ -150,6 +150,15 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
     data["id"] = maxRarityUnitId;
+    
+    data["enhancementSkills"] = [];
+    for (skillIndex in unitIn.skills) {
+        var skillId = unitIn.skills[skillIndex].id.toString();
+        if (enhancementsByUnitId[unitId] && enhancementsByUnitId[unitId][skillId]) {
+            data["enhancementSkills"].push(skills[skillId].name);
+        }
+    }
+    
     data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId])
     return unit;
 }
@@ -503,5 +512,9 @@ function getUnitBasicInfo(unitName, unit) {
     result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
     result += "\n\t\t},";
     result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip)
+    if (unit.enhancementSkills.length > 0) {
+        result += ",\n\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
+    }
+    
     return result;
 }
