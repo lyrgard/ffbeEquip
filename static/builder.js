@@ -59,6 +59,15 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
+const percentValues = {
+    "hp": "hp%",
+    "mp": "mp%",
+    "atk": "atk%",
+    "def": "def%",
+    "mag": "mag%",
+    "spr": "spr%"
+}
+
 function build() {
     $(".buildLinks").addClass("hidden");
     
@@ -604,6 +613,18 @@ function getBuildHash() {
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
+    if (index == 2) {
+        if (build.length > 10) {
+            build.splice(10,build.length - 10);
+        }
+        for (var skillIndex in builds[currentUnitIndex].selectedUnit.skills) {
+            var skill = builds[currentUnitIndex].selectedUnit.skills[skillIndex];
+            if (areConditionOK(skill, build)) {
+                build.push(skill);
+            }
+        }
+    }
+    
     if (fixedItems[index]) {
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems);
     } else {
@@ -679,7 +700,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
     build[index] = null;
 }
 
-function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems) {
+function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, itemAndPassives) {
     build[index] = item;
     if (index == 9) {
         numberOfItemCombination++
@@ -1115,7 +1136,7 @@ function getDefenseValue(item) {
 function getStatValueIfExists(item, stat, baseStat) {
     var result = 0;
     if (item[stat]) result += item[stat];
-    if (item[stat + "%"]) result += item[stat + "%"] * baseStat / 100;
+    if (item[percentValues[stat]]) result += item[percentValues[stat]] * baseStat / 100;
     return result;
 }
 
@@ -1275,23 +1296,26 @@ function someEquipmentNoMoreApplicable(build) {
     return false;
 }
 
-function calculateBuildValue(equiped, esper) {
+function calculateBuildValue(itemAndPassives, esper) {
     if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal) {
-        var calculatedValue = calculateStatValue(equiped, esper, goals[builds[currentUnitIndex].goal].statsToMaximize[0]);
+        var calculatedValue = calculateStatValue(itemAndPassives, esper, goals[builds[currentUnitIndex].goal].statsToMaximize[0]);
         
         var cumulatedKiller = 0;
-        var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
-        if (esper != null) {
-            itemAndPassives.push(esper);
-        }
         for (var equipedIndex in itemAndPassives) {
-            if (itemAndPassives[equipedIndex] && (areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-                if (ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
-                    for (var killerIndex = 0; killerIndex <  itemAndPassives[equipedIndex].killers.length; killerIndex++) {
-                        if (ennemyRaces.includes(itemAndPassives[equipedIndex].killers[killerIndex].name) && itemAndPassives[equipedIndex].killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                            cumulatedKiller += itemAndPassives[equipedIndex].killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
-                        }
+            if (itemAndPassives[equipedIndex] && ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
+                for (var killerIndex in itemAndPassives[equipedIndex].killers) {
+                    var killer = itemAndPassives[equipedIndex].killers[killerIndex];
+                    if (ennemyRaces.includes(killer.name) && killer[goals[builds[currentUnitIndex].goal].applicableKillerType]) {
+                        cumulatedKiller += killer[goals[builds[currentUnitIndex].goal].applicableKillerType];
                     }
+                }
+            }
+        }
+        if (esper != null && esper.killers && ennemyRaces.length > 0) {
+            for (var killerIndex in esper.killers) {
+                var killer = itemAndPassives[equipedIndex].killers[killerIndex];
+                if (ennemyRaces.includes(killer.name) && killer[goals[builds[currentUnitIndex].goal].applicableKillerType]) {
+                    cumulatedKiller += killer[goals[builds[currentUnitIndex].goal].applicableKillerType];
                 }
             }
         }
@@ -1299,17 +1323,17 @@ function calculateBuildValue(equiped, esper) {
         // Element weakness/resistance
         var elements = builds[currentUnitIndex].innateElements.slice();
         if (goals[builds[currentUnitIndex].goal].useWeaponsElements) {
-            if (equiped[0] && equiped[0].element) {
-                for (var elementIndex in equiped[0].element) {
-                    if (!elements.includes(equiped[0].element[elementIndex])) {
-                        elements.push(equiped[0].element[elementIndex]);       
+            if (itemAndPassives[0] && itemAndPassives[0].element) {
+                for (var elementIndex in itemAndPassives[0].element) {
+                    if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
+                        elements.push(itemAndPassives[0].element[elementIndex]);       
                     }
                 }
             };
-            if (equiped[1] && equiped[1].element) {
-                for (var elementIndex in equiped[1].element) {
-                    if (!elements.includes(equiped[1].element[elementIndex])) {
-                        elements.push(equiped[1].element[elementIndex]);       
+            if (itemAndPassives[1] && itemAndPassives[1].element) {
+                for (var elementIndex in itemAndPassives[1].element) {
+                    if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
+                        elements.push(itemAndPassives[1].element[elementIndex]);       
                     }
                 }
             };
@@ -1327,7 +1351,7 @@ function calculateBuildValue(equiped, esper) {
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         } else {
             var dualWieldCoef = 1;
-            if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && equiped[0] && equiped[1] && weaponList.includes(equiped[0].type) && weaponList.includes(equiped[1].type)) {
+            if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                 dualWieldCoef = 2;
             }
             var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
@@ -1338,17 +1362,16 @@ function calculateBuildValue(equiped, esper) {
         var result = 1; 
         var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
         for (var index in stats) {
-            result *= calculateStatValue(equiped, esper, stats[index]).total;
+            result *= calculateStatValue(itemAndPassives, esper, stats[index]).total;
         }
         return {"total":result};
     }
 }
 
-function getEquipmentStatBonus(equiped, stat) {
-    if (equiped[0] && !equiped[1] && weaponList.includes(equiped[0].type)) {
+function getEquipmentStatBonus(itemAndPassives, stat) {
+    if (itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
         var bonus = 1;
-        var twoHanded = isTwoHanded(equiped[0]);
-        var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
+        var twoHanded = isTwoHanded(itemAndPassives[0]);
         for (var index in itemAndPassives) {
             var item = itemAndPassives[index];
             if (item) {
@@ -1366,8 +1389,8 @@ function getEquipmentStatBonus(equiped, stat) {
     }
 }
 
-function calculateStatValue(equiped, esper, stat) {
-    var equipmentStatBonus = getEquipmentStatBonus(equiped, stat);
+function calculateStatValue(itemAndPassives, esper, stat) {
+    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat);
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
     var baseValue = 0;
@@ -1375,13 +1398,12 @@ function calculateStatValue(equiped, esper, stat) {
         baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat];
     }
     var calculatedValue = baseValue;
-    var itemAndPassives = equiped.concat(builds[currentUnitIndex].selectedUnit.skills);
-
-    for (var equipedIndex = 0; equipedIndex < itemAndPassives.length; equipedIndex++) {
+    
+    for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         if (equipedIndex < 2 && "atk" == stat) {
-            calculatedValue += calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonus, stat);    
+            calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonus, stat);    
         } else {
-            calculatedValue += calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonus, stat);    
+            calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonus, stat);    
         }
     }
     if (esper != null && baseStats.includes(stat)) {
@@ -1390,9 +1412,9 @@ function calculateStatValue(equiped, esper, stat) {
     
     if ("atk" == stat) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
-        var right = calculateFlatStateValueForIndex(equiped, itemAndPassives, 0, equipmentStatBonus, stat);
-        var left = calculateFlatStateValueForIndex(equiped, itemAndPassives, 1, equipmentStatBonus, stat);
-        if (equiped[1] && weaponList.includes(equiped[1].type)) {
+        var right = calculateFlatStateValueForIndex(itemAndPassives[0], equipmentStatBonus, stat);
+        var left = calculateFlatStateValueForIndex(itemAndPassives[1], equipmentStatBonus, stat);
+        if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.right = calculatedValue + right;
             result.left = calculatedValue + left;
             result.total = calculatedValue + right + left;    
@@ -1406,12 +1428,12 @@ function calculateStatValue(equiped, esper, stat) {
     }
 }
 
-function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
+function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
     var value = 0;
-    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        value += getValue(itemAndPassives[equipedIndex], stat) * equipmentStatBonus;
-        if (itemAndPassives[equipedIndex][stat + '%']) {
-            percent = itemAndPassives[equipedIndex][stat+'%'];
+    if (item) {
+        value += getValue(item, stat) * equipmentStatBonus;
+        if (item[percentValues[stat]]) {
+            percent = item[percentValues[stat]];
             percentTakenIntoAccount = Math.min(percent, Math.max(300 - currentPercentIncrease.value, 0));
             currentPercentIncrease.value += percent;
             value += percentTakenIntoAccount * baseValue / 100;
@@ -1420,23 +1442,19 @@ function calculateStateValueForIndex(equiped, itemAndPassives, equipedIndex, bas
     return value;
 }
 
-function calculateFlatStateValueForIndex(equiped, itemAndPassives, equipedIndex, equipmentStatBonus, stat) {
-    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][stat]) {
-            return itemAndPassives[equipedIndex][stat] * equipmentStatBonus;
-        }
+function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
+    if (item && item[stat]) {
+        return item[stat] * equipmentStatBonus;
     }
     return 0;
 }
 
-function calculatePercentStateValueForIndex(equiped, itemAndPassives, equipedIndex, baseValue, currentPercentIncrease, stat) {
-    if (itemAndPassives[equipedIndex] && (equipedIndex < 10 || areConditionOK(itemAndPassives[equipedIndex], equiped))) {
-        if (itemAndPassives[equipedIndex][stat + '%']) {
-            percent = itemAndPassives[equipedIndex][stat+'%'];
-            percent = Math.min(percent, 300 - currentPercentIncrease.value);
-            currentPercentIncrease.value += percent;
-            return percent * baseValue / 100;
-        }
+function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
+    if (item && item[percentValues[stat]]) {
+        percent = item[percentValues[stat]];
+        percent = Math.min(percent, 300 - currentPercentIncrease.value);
+        currentPercentIncrease.value += percent;
+        return percent * baseValue / 100;
     }
     return 0;
 }
@@ -1451,7 +1469,7 @@ function areConditionOK(item, equiped) {
                     found ++;
                 }
             } else {
-                for (var equipedIndex in equiped) {
+                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
                     if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
                         found ++;
                         break;
@@ -1484,7 +1502,7 @@ function logBuild(build, value, esper) {
         
         var html = "";
         
-        for (var index in build) {
+        for (var index = 0; index < 10; index++) {
             if (conciseView) {
                 html += "<div class='col-xs-6 ";
                 if (index%2 == 0) {
@@ -1531,8 +1549,15 @@ function logBuild(build, value, esper) {
         $("#resultStats").removeClass("hidden");
         var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
         var values = {};
+        var itemAndPassives = build.slice();
+        for (var index in builds[currentUnitIndex].selectedUnit.skills) {
+            var skill = builds[currentUnitIndex].selectedUnit.skills[index];
+            if (areConditionOK(skill, build)) {
+                itemAndPassives.push(skill);
+            }
+        }
         for (var statIndex in statsToDisplay) {
-            var result = calculateStatValue(build, esper, statsToDisplay[statIndex]);
+            var result = calculateStatValue(itemAndPassives, esper, statsToDisplay[statIndex]);
             values[statsToDisplay[statIndex]] = result.total;
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
             var bonusPercent;
