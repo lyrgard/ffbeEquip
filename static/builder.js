@@ -59,7 +59,7 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
-
+const itemsToExclude = ["409009000"]; // Ring of Dominion
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -202,6 +202,9 @@ function prepareData(equipable) {
     
     for (var index in data) {
         var item = data[index];
+        if (itemsToExclude.includes(item.id)) {
+            continue;
+        }
         prepareItem(item, baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (itemCanBeOfUseForGoal(item)) {
