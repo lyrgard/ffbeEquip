@@ -5,6 +5,7 @@ var goals = {
     "physicalDamage":                   {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
     "magicalDamage":                    {"statsToMaximize":["mag"], "useWeaponsElements":false, "applicableKillerType":"magical", "attackTwiceWithDualWield":false},
     "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
+    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
     "def":                              {"statsToMaximize":["def"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "spr":                              {"statsToMaximize":["spr"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "hp":                               {"statsToMaximize":["hp"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
@@ -609,12 +610,12 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 }
 
 function findBestBuildForCombinationAsync(index, combinations) {
+    var nextAsync = Date.now() + 2000;
     var build = [null, null, null, null, null, null, null, null, null, null].concat(combinations[index].applicableSkills);
-    for (var step = 0; step < 20; step++) {
-        if (index < combinations.length) {
-            findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
-            index++
-        }
+    var len = combinations.length;
+    while (index < len && Date.now() < nextAsync) {
+        findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
+        index++
     }
     
     //console.log(Math.floor(index/combinations.length*100) + "%" );
@@ -810,7 +811,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
         numberOfItemCombination++
         for (var esperIndex in selectedEspers) {
             var value = calculateBuildValue(build, selectedEspers[esperIndex]);
-            if (builds[currentUnitIndex].bestValue == null || value.total > builds[currentUnitIndex].bestValue.total) {
+            if (builds[currentUnitIndex].bestValue == null || value > builds[currentUnitIndex].bestValue) {
                 builds[currentUnitIndex].bestBuild = build.slice();
                 builds[currentUnitIndex].bestValue = value;
                 builds[currentUnitIndex].bestEsper = selectedEspers[esperIndex];
@@ -1414,8 +1415,7 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateBuildValue(itemAndPassives, esper) {
-    if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal) {
-        var calculatedValue = calculateStatValue(itemAndPassives, esper, goals[builds[currentUnitIndex].goal].statsToMaximize[0]);
+    if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal || "hybridDamage" == builds[currentUnitIndex].goal) {
         
         var cumulatedKiller = 0;
         for (var equipedIndex in itemAndPassives) {
@@ -1463,26 +1463,30 @@ function calculateBuildValue(itemAndPassives, esper) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         
-        
-        if ("physicalDamage" == builds[currentUnitIndex].goal) {
-            var variance0 = 1;
-            var variance1 = 1;
-            if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
-                variance0 = itemAndPassives[0].meanDamageVariance;
+        var total = 0;
+        for (var statIndex in goals[builds[currentUnitIndex].goal].statsToMaximize) {
+            var stat = goals[builds[currentUnitIndex].goal].statsToMaximize[statIndex];
+            var calculatedValue = calculateStatValue(itemAndPassives, esper, stat);
+
+            if ("atk" == stat) {
+                var variance0 = 1;
+                var variance1 = 1;
+                if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
+                    variance0 = itemAndPassives[0].meanDamageVariance;
+                }
+                if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
+                    variance1 = itemAndPassives[1].meanDamageVariance;
+                }
+                total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator;
+            } else {
+                var dualWieldCoef = 1;
+                if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
+                    dualWieldCoef = 2;
+                }
+                total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
             }
-            if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
-                variance1 = itemAndPassives[1].meanDamageVariance;
-            }
-            var total = (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator;
-            return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
-        } else {
-            var dualWieldCoef = 1;
-            if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                dualWieldCoef = 2;
-            }
-            var total = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef;
-            return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         }
+        return total / goals[builds[currentUnitIndex].goal].statsToMaximize.length;
     } else {
         // multiply the results of each stats. Work for goal with only one stat, and eHP
         var result = 1; 
@@ -1490,7 +1494,7 @@ function calculateBuildValue(itemAndPassives, esper) {
         for (var index in stats) {
             result *= calculateStatValue(itemAndPassives, esper, stats[index]).total;
         }
-        return {"total":result};
+        return result;
     }
 }
 
@@ -1732,12 +1736,12 @@ function logBuild(build, value, esper) {
         if (builds[currentUnitIndex].goal == "physicalDamage") {
             $("#resultStats .damage .defensiveStat").html("DEF");
             $("#resultStats .damage .damageCoef").html("1x");
-            $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
+            $("#resultStats .damage .damageResult").html(Math.floor(value/100));
             $("#resultStats .damage").removeClass("hidden");
         } else if (builds[currentUnitIndex].goal == "magicalDamage") {
             $("#resultStats .damage .defensiveStat").html("SPR");
             $("#resultStats .damage .damageCoef").html("1x");
-            $("#resultStats .damage .damageResult").html(Math.floor(value.total/100));
+            $("#resultStats .damage .damageResult").html(Math.floor(value/100));
             $("#resultStats .damage").removeClass("hidden");
         }
         
