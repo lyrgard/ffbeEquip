@@ -272,8 +272,11 @@ function prepareItem(item, baseValues) {
     } else {
         item.elementType = "neutral"
     }
-    if (item.evade) {
-        
+    if (weaponList.includes(item.type)) {
+        item.meanDamageVariance = 1;
+        if (item.damageVariance) {
+            item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
+        }
     }
 }
 
@@ -973,6 +976,9 @@ function getItemNodeComparison(treeNode1, treeNode2) {
         comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
     }
     comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.entry.item, treeNode2.entry.item));
+    if (builds[currentUnitIndex].goal == "physicalDamage") {
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "meanDamageVariance"));
+    }
     
     return combineComparison(comparisionStatus);
 }
@@ -1406,8 +1412,17 @@ function calculateBuildValue(equiped, esper) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         
+        
         if ("physicalDamage" == builds[currentUnitIndex].goal) {
-            var total = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
+            var variance0 = 1;
+            var variance1 = 1;
+            if (equiped[0] && equiped[0].meanDamageVariance) {
+                variance0 = equiped[0].meanDamageVariance;
+            }
+            if (equiped[1] && equiped[1].meanDamageVariance) {
+                variance1 = equiped[1].meanDamageVariance;
+            }
+            var total = (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         } else {
             var dualWieldCoef = 1;
@@ -1482,6 +1497,7 @@ function calculateStatValue(equiped, esper, stat) {
             result.total = calculatedValue + right + left;    
         } else {
             result.right = calculatedValue + right + left;
+            result.left = 0;
             result.total = result.right;
         }
         return result;   
