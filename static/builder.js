@@ -54,6 +54,9 @@ var dataLoadedFromHash = false;
 
 var conciseView = true;
 
+var progressElement;
+var progress;
+
 var notStackableEvadeGear = [
     ["409006700"],
     ["402001900", "301001500", "409012800"]
@@ -390,7 +393,10 @@ function readEnnemyResists() {
 
 function optimize() {
     console.time("optimize");
-    $("#buildProgressBar .progressBar").removeClass("finished");
+    progress = 0;
+    progressElement.width("0%");
+    progressElement.text("0%");
+    progressElement.removeClass("finished");
     var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice(), true);
@@ -547,8 +553,16 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
                 dataWithdConditionItems[typeCombination[slotIndex]] = addConditionItems(dataByType[typeCombination[slotIndex]], typeCombination[slotIndex], typeCombination, fixedItems);
             }
         }
+        var applicableSkills = [];
+        for (var skillIndex in builds[currentUnitIndex].selectedUnit.skills) {
+            var skill = builds[currentUnitIndex].selectedUnit.skills[skillIndex];
+            if (areConditionOKBasedOnTypeCombination(skill, typeCombination)) {
+                applicableSkills.push(skill);
+            }
+        }
+            
         
-        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":getBestFixedItemVersions(fixedItems,typeCombination)});
+        combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":getBestFixedItemVersions(fixedItems,typeCombination),"applicableSkills":applicableSkills,"elementBasedSkills":getElementBasedSkills()});
     } else {
         buildTypeCombination(index+1, typeCombination, combinations, fixedItems, tryDoublehand, forceDoublehand);
     }
@@ -595,15 +609,23 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 }
 
 function findBestBuildForCombinationAsync(index, combinations) {
-    var build = [null, null, null, null, null, null, null, null, null, null];
-    findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed);
+    var build = [null, null, null, null, null, null, null, null, null, null].concat(combinations[index].applicableSkills);
+    for (var step = 0; step < 20; step++) {
+        if (index < combinations.length) {
+            findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
+            index++
+        }
+    }
+    
     //console.log(Math.floor(index/combinations.length*100) + "%" );
-    var progress = Math.floor((index + 1)/combinations.length*100) + "%";
-    var progressElement = $("#buildProgressBar .progressBar");
-    progressElement.width(progress);
-    progressElement.text(progress);
-    if (index + 1 < combinations.length) {
-        setTimeout(findBestBuildForCombinationAsync,0,index+1,combinations);
+    var newProgress = Math.floor((index + 1)/combinations.length*100);
+    if (progress != newProgress) {
+        progress = newProgress;
+        progressElement.width(progress + "%");
+        progressElement.text(progress + "%");    
+    }
+    if (index < combinations.length) {
+        setTimeout(findBestBuildForCombinationAsync,0,index,combinations);
     } else {
         logCurrentBuild();
         progressElement.addClass("finished");
@@ -691,15 +713,18 @@ function getFFBEBenImageLink() {
     return "http://ffbeben.ch/" + hash + ".png";
 }
 
-function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
+function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills) {
     if (index == 2) {
-        if (build.length > 10) {
-            build.splice(10,build.length - 10);
-        }
-        for (var skillIndex in builds[currentUnitIndex].selectedUnit.skills) {
-            var skill = builds[currentUnitIndex].selectedUnit.skills[skillIndex];
-            if (areConditionOK(skill, build)) {
-                build.push(skill);
+        // weapon set, try elemental based skills
+        for (var skillIndex in elementBasedSkills) {
+            if (build.includes(elementBasedSkills[skillIndex])) {
+                if (!areConditionOK(elementBasedSkills[skillIndex], build)) {
+                    build.splice(build.indexOf(elementBasedSkills[skillIndex]),1);
+                }
+            } else {
+                if (areConditionOK(elementBasedSkills[skillIndex], build)) {
+                    build.push(elementBasedSkills[skillIndex]);
+                }
             }
         }
     }
@@ -711,7 +736,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
             build[index] = null;
             var typeCombinationWithoutSecondHand = typeCombination.slice();
             typeCombinationWithoutSecondHand[1] = null;
-            findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems);    
+            findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems, elementBasedSkills);    
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
                 var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
@@ -745,7 +770,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                             }
                             dataWithConditionItems[typeCombination[index]] = newTreeRoot;
                         }
-                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems);
+                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
                         dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
                         foundAnItem = true;
                     }
@@ -768,18 +793,18 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                     }
                 }*/
                 if (!foundAnItem) {
-                    tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems);
+                    tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
                 }
                 build[index] == null;
             } else {
-                tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems);
+                tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
             }
         }
     }
     build[index] = null;
 }
 
-function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, itemAndPassives) {
+function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills) {
     build[index] = item;
     if (index == 9) {
         numberOfItemCombination++
@@ -793,7 +818,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
             }    
         }
     } else {
-        findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems);
+        findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills);
     }
 }
 
@@ -1442,11 +1467,11 @@ function calculateBuildValue(itemAndPassives, esper) {
         if ("physicalDamage" == builds[currentUnitIndex].goal) {
             var variance0 = 1;
             var variance1 = 1;
-            if (equiped[0] && equiped[0].meanDamageVariance) {
-                variance0 = equiped[0].meanDamageVariance;
+            if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
+                variance0 = itemAndPassives[0].meanDamageVariance;
             }
-            if (equiped[1] && equiped[1].meanDamageVariance) {
-                variance1 = equiped[1].meanDamageVariance;
+            if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
+                variance1 = itemAndPassives[1].meanDamageVariance;
             }
             var total = (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
@@ -1586,6 +1611,37 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
+function areConditionOKBasedOnTypeCombination(item, typeCombination) {
+    if (item.equipedConditions) {
+        for (var conditionIndex in item.equipedConditions) {
+            if (elementList.includes(item.equipedConditions[conditionIndex])) {
+                return false;
+            } else {
+                if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function getElementBasedSkills() {
+    var elementBasedSkills = [];
+    for (var skillIndex in builds[currentUnitIndex].selectedUnit.skills) {
+        var skill = builds[currentUnitIndex].selectedUnit.skills[skillIndex];
+        if (skill.equipedConditions) {
+            for (var conditionIndex in skill.equipedConditions) {
+                if (elementList.includes(skill.equipedConditions[conditionIndex])) {
+                    elementBasedSkills.push(skill);
+                    break;
+                }
+            }
+        }
+    }
+    return elementBasedSkills;
+}
+
 function logCurrentBuild() {
     logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue, builds[currentUnitIndex].bestEsper);
 }
@@ -1595,10 +1651,9 @@ function logBuild(build, value, esper) {
         $("#resultStats").addClass("hidden");
         $("#buildResult").html("");
         $(".buildLinks").addClass("hidden");
-        var progress = "0%";
-        var progressElement = $("#buildProgressBar .progressBar");
-        progressElement.width(progress);
-        progressElement.text(progress);
+        var progress = 0;
+        progressElement.width("0%");
+        progressElement.text("0%");
         progressElement.addClass("finished");
     } else {
         
@@ -1650,15 +1705,8 @@ function logBuild(build, value, esper) {
         $("#resultStats").removeClass("hidden");
         var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
         var values = {};
-        var itemAndPassives = build.slice();
-        for (var index in builds[currentUnitIndex].selectedUnit.skills) {
-            var skill = builds[currentUnitIndex].selectedUnit.skills[index];
-            if (areConditionOK(skill, build)) {
-                itemAndPassives.push(skill);
-            }
-        }
         for (var statIndex in statsToDisplay) {
-            var result = calculateStatValue(itemAndPassives, esper, statsToDisplay[statIndex]);
+            var result = calculateStatValue(build, esper, statsToDisplay[statIndex]);
             values[statsToDisplay[statIndex]] = result.total;
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
             var bonusPercent;
@@ -1715,11 +1763,10 @@ function escapeDot(statName) {
 function displayFixedItems(fixedItems) {
     $("#resultStats").addClass("hidden");
     $(".buildLinks").addClass("hidden");
-    var progress = "0%";
-    var progressElement = $("#buildProgressBar .progressBar");
-    progressElement.width(progress);
-    progressElement.text(progress);
-    progressElement.addClass("finished");
+    var progress = 0;
+    progressElement.width("0%");
+    progressElement.text("0%");
+    progressElement.removeClass("finished");
     
     var html = "";
     var found = false;
@@ -2410,6 +2457,8 @@ $(function() {
     $('#fixItemModal').on('shown.bs.modal', function () {
         $('#searchText').focus();
     })  
+    
+    progressElement = $("#buildProgressBar .progressBar");
 });
 
 var counter = 0;
