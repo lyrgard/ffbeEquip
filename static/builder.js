@@ -67,6 +67,7 @@ const percentValues = {
     "mag": "mag%",
     "spr": "spr%"
 }
+const itemsToExclude = ["409009000"]; // Ring of Dominion
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -84,6 +85,12 @@ function build() {
     readGoal();
     
     calculateAlreadyUsedItems();
+    
+    builds[currentUnitIndex].fixedItemsIds = [];
+    for (var index in builds[currentUnitIndex].fixedItems) {
+        if (builds[currentUnitIndex].fixedItems[index] && !builds[currentUnitIndex].fixedItemsIds.includes(builds[currentUnitIndex].fixedItems[index][itemKey]))
+        builds[currentUnitIndex].fixedItemsIds.push(builds[currentUnitIndex].fixedItems[index][itemKey]);
+    }
     
     prepareData(getCurrentUnitEquip());
     prepareEquipable();
@@ -203,6 +210,9 @@ function prepareData(equipable) {
     
     for (var index in data) {
         var item = data[index];
+        if (itemsToExclude.includes(item.id)) {
+            continue;
+        }
         prepareItem(item, baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (itemCanBeOfUseForGoal(item)) {
@@ -273,8 +283,11 @@ function prepareItem(item, baseValues) {
     } else {
         item.elementType = "neutral"
     }
-    if (item.evade) {
-        
+    if (weaponList.includes(item.type)) {
+        item.meanDamageVariance = 1;
+        if (item.damageVariance) {
+            item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
+        }
     }
 }
 
@@ -598,7 +611,73 @@ function findBestBuildForCombinationAsync(index, combinations) {
     }
 }
 
-function getBuildHash() {
+function getPiramidataImageLink() {
+    return "http://ffbe.piramidata.eu/Unit/GetConfigurationImage?" +
+        "unitname=" + encodeURIComponent(builds[currentUnitIndex].selectedUnitName) + 
+        "&rarity=" + builds[currentUnitIndex].selectedUnit.max_rarity +
+        "&espername=" + encodeURIComponent(getEsperName()) + 
+        "&pothp=" + builds[currentUnitIndex].selectedUnit.stats.pots.hp +
+        "&potmp=" + builds[currentUnitIndex].selectedUnit.stats.pots.mp +
+        "&potatk=" + builds[currentUnitIndex].selectedUnit.stats.pots.atk +
+        "&potdef=" + builds[currentUnitIndex].selectedUnit.stats.pots.def +
+        "&potmag=" + builds[currentUnitIndex].selectedUnit.stats.pots.mag +
+        "&potspr=" + builds[currentUnitIndex].selectedUnit.stats.pots.spr +
+        "&esperhp=" + builds[currentUnitIndex].bestEsper.hp + 
+        "&espermp=" + builds[currentUnitIndex].bestEsper.mp +
+        "&esperatk=" + builds[currentUnitIndex].bestEsper.atk +
+        "&esperdef=" + builds[currentUnitIndex].bestEsper.def +
+        "&espermag=" + builds[currentUnitIndex].bestEsper.mag +
+        "&esperspr=" + builds[currentUnitIndex].bestEsper.spr +
+        "&rhand=" + getItemId(0) +
+        "&lhand=" + getItemId(1) +
+        "&head=" + getItemId(2) +
+        "&body=" + getItemId(3) +
+        "&acc1=" + getItemId(4) +
+        "&acc2=" + getItemId(5) +
+        "&ability1=" + getItemId(6) +
+        "&ability2=" + getItemId(7) +
+        "&ability3=" + getItemId(8) +
+        "&ability4=" + getItemId(9) +
+        "&enh1=" + encodeURIComponent(getEnhancementSkill(0)) +
+        "&enh2=" + encodeURIComponent(getEnhancementSkill(1)) +
+        "&enh3=" + encodeURIComponent(getEnhancementSkill(2)) +
+        "&enh4=" + encodeURIComponent(getEnhancementSkill(3)) +
+        "&enh5=" + encodeURIComponent(getEnhancementSkill(4)) +
+        "&enh6=" + encodeURIComponent(getEnhancementSkill(5))
+        //"&ticks=636467793686471730";
+}
+
+function getItemId(slot) {
+    if (builds[currentUnitIndex].bestBuild[slot] && !builds[currentUnitIndex].bestBuild[slot].placeHolder) {
+        return builds[currentUnitIndex].bestBuild[slot].id;
+    } else {
+        return "";
+    }
+}
+
+function getEnhancementSkill(index) {
+    if (builds[currentUnitIndex].selectedUnit.enhancementSkills && builds[currentUnitIndex].selectedUnit.enhancementSkills.length > index) {
+        return builds[currentUnitIndex].selectedUnit.enhancementSkills[index] + " Awk+2";
+    } else {
+        return "";
+    }
+}
+
+function getEsperName() {
+    if (builds[currentUnitIndex].bestEsper) {
+        var result = builds[currentUnitIndex].bestEsper.name + " ";
+        for (var i = 0; i < builds[currentUnitIndex].bestEsper.maxLevel; i++) {
+            result += "★";
+        }
+        return result;
+    } else {
+        return "";
+    }
+} 
+
+
+
+function getFFBEBenImageLink() {
     var hash = "";
     hash += Number(builds[currentUnitIndex].selectedUnit.id).toString(36);
     for (var i = 0; i < 10; i++) {
@@ -609,7 +688,7 @@ function getBuildHash() {
             hash += 999999999..toString(36);
         }
     }
-    return hash;
+    return "http://ffbeben.ch/" + hash + ".png";
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems) {
@@ -757,6 +836,9 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination,
             
             if (typeCombination && isTwoHanded(entry.item) && (typeCombination[1] || fixedItems[0] || fixedItems[1])) {
                 continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
+            }
+            if (builds[currentUnitIndex].fixedItemsIds.includes(entry.item[itemKey]) && getAvailableNumber(entry.item) < 1) {
+                continue;
             }
             
             var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[]};
@@ -917,6 +999,9 @@ function getItemNodeComparison(treeNode1, treeNode2) {
         comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
     }
     comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.entry.item, treeNode2.entry.item));
+    if (builds[currentUnitIndex].goal == "physicalDamage") {
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "meanDamageVariance"));
+    }
     
     return combineComparison(comparisionStatus);
 }
@@ -1238,6 +1323,9 @@ function getAvailableNumber(item) {
             number = getOwnedNumber(item).available;
         }
     } else {
+        if (item.name == "Rod Mastery") {
+            console.log("!!");
+        }
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
             for (var index in item.access) {
                 var access = item.access[index];
@@ -1248,8 +1336,12 @@ function getAvailableNumber(item) {
                 }        
             }
         }
-        if (item.access.includes("trial")) {
-            number = 1;
+        if (item.access.includes("trial") || !isStackable(item)) {
+            if (alreadyUsedItems[item[itemKey]]) {
+                number = 0;
+            } else {
+                number = 1;
+            }
         } else {
             number = 4;    
         }
@@ -1346,8 +1438,17 @@ function calculateBuildValue(itemAndPassives, esper) {
             killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
         }
         
+        
         if ("physicalDamage" == builds[currentUnitIndex].goal) {
-            var total = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator;
+            var variance0 = 1;
+            var variance1 = 1;
+            if (equiped[0] && equiped[0].meanDamageVariance) {
+                variance0 = equiped[0].meanDamageVariance;
+            }
+            if (equiped[1] && equiped[1].meanDamageVariance) {
+                variance1 = equiped[1].meanDamageVariance;
+            }
+            var total = (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator;
             return {"total":total, "stat":calculatedValue.total, "bonusPercent":calculatedValue.bonusPercent};
         } else {
             var dualWieldCoef = 1;
@@ -1420,6 +1521,7 @@ function calculateStatValue(itemAndPassives, esper, stat) {
             result.total = calculatedValue + right + left;    
         } else {
             result.right = calculatedValue + right + left;
+            result.left = 0;
             result.total = result.right;
         }
         return result;   
@@ -1540,9 +1642,8 @@ function logBuild(build, value, esper) {
         
         $("#resultStats > div").removeClass("statToMaximize");
         
-        var hash = getBuildHash();
-        $(".imageLink").prop("href","http://ffbeben.ch/" + hash + ".png");
-        $(".calculatorLink").prop("href","http://ffbeben.ch/" + hash);
+        var link = getPiramidataImageLink();
+        $(".imageLink").prop("href",link);
         $(".buildLinks").removeClass("hidden");
         
         $("#fixedItemsTitle").addClass("hidden");
@@ -1991,7 +2092,7 @@ function findBestItemVersion(build, key) {
             break;
         }
     }
-    if (itemVersions.length == 1) {
+    if (itemVersions.length == 1 && !itemVersions[0].equipedConditions) {
         return itemVersions[0];
     } else {
         itemVersions.sort(function (item1, item2) {
