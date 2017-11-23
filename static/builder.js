@@ -630,7 +630,7 @@ function findBestBuildForCombinationAsync(index, combinations) {
         index++
     }
     
-    var newProgress = Math.floor((index + 1)/combinations.length*100);
+    var newProgress = Math.floor((index)/combinations.length*100);
     if (progress != newProgress) {
         progress = newProgress;
         progressElement.width(progress + "%");
