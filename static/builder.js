@@ -827,7 +827,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
 function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
     var tempResult = itemsOfType.slice();
     var dataWithConditionKeyAlreadyAdded = [];
-    for (var index = dataWithCondition.length; index--;) {
+    for (var index = 0, len = dataWithCondition.length; index < len; index++) {
         var entry = dataWithCondition[index];
         var item = entry.item;
         if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item[itemKey])) {
