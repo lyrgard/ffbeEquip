@@ -2345,7 +2345,9 @@ function loadStateHashAndBuild(data) {
     }
     if (data.fixedItems) {
         for (var index in data.fixedItems) {
-            fixItem(data.fixedItems[index]);
+            if (data.fixedItems[index]) {
+                fixItem(data.fixedItems[index]);
+            }
         }
     }
     if (data.monsterDef) {
