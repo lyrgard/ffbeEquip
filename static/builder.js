@@ -1118,15 +1118,19 @@ function compareByNumberOfHandsNeeded(item1, item2) {
 function compareByKillers(item1, item2) {
     if (ennemyRaces.length) {
         var applicableKillers1 = {};
-        for (var killerIndex = item1.killers.length; killerIndex--;) {
-            if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+        if (item1.killers) {
+            for (var killerIndex = item1.killers.length; killerIndex--;) {
+                if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
+                    applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+                }
             }
         }
         var applicableKillers2 = {};
-        for (var killerIndex = item2.killers.length; killerIndex--;) {
-            if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+        if (item2.killers) {
+            for (var killerIndex = item2.killers.length; killerIndex--;) {
+                if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
+                    applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+                }
             }
         }
         var result = "equivalent";
