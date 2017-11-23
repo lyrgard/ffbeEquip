@@ -690,7 +690,7 @@ function getItemId(slot) {
     if (builds[currentUnitIndex].bestBuild[slot] && !builds[currentUnitIndex].bestBuild[slot].placeHolder) {
         return builds[currentUnitIndex].bestBuild[slot].id;
     } else {
-        return "";
+        return "0";
     }
 }
 
