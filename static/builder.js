@@ -1127,7 +1127,7 @@ function compareByKillers(item1, item2) {
             }
         }
         var result = "equivalent";
-        for (var index = applicableKillers1.length; index--;) {
+        for (var index in applicableKillers1) {
             if (!applicableKillers2[index]) {
                 switch(result) {
                     case "equivalent":
@@ -1153,7 +1153,7 @@ function compareByKillers(item1, item2) {
                 }
             }
         }
-        for (var index = applicableKillers2.length; index--;) {
+        for (var index in applicableKillers2) {
             if (!applicableKillers1[index]) {
                 switch(result) {
                     case "equivalent":
@@ -1432,7 +1432,7 @@ function calculateBuildValue(itemAndPassives, esper) {
         }
         if (esper != null && esper.killers && ennemyRaces.length > 0) {
             for (var killerIndex = esper.killers.length; killerIndex--;) {
-                var killer = itemAndPassives[equipedIndex].killers[killerIndex];
+                var killer = esper.killers[killerIndex];
                 if (ennemyRaces.includes(killer.name) && killer[goals[builds[currentUnitIndex].goal].applicableKillerType]) {
                     cumulatedKiller += killer[goals[builds[currentUnitIndex].goal].applicableKillerType];
                 }
