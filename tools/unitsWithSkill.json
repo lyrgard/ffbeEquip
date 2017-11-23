@@ -2846,16 +2846,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":15, "mp%":15, "evade":{"physical":20}},
-			{"atk%":20, "def%":15, "equipedConditions":["dagger"]},
-			{"atk%":20, "spr%":15, "equipedConditions":["sword"]},
-			{"atk%":35, "equipedConditions":["greatSword"]},
-			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
-			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
-			{"mag%":20, "spr%":20, "equipedConditions":["throwing"]},
-			{"def%":20, "mag%":20, "equipedConditions":["gun"]},
-			{"atk%":20, "mag%":20, "equipedConditions":["katana"]},
-			{"atk%":20, "spr%":20, "equipedConditions":["spear"]}
+			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":10}},
+			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
+			{"atk%":40, "spr%":20, "equipedConditions":["sword"]},
+			{"atk%":40, "def%":20, "equipedConditions":["greatSword"]},
+			{"def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
+			{"mag%":30, "spr%":30, "equipedConditions":["throwing"]},
+			{"def%":30, "mag%":30, "equipedConditions":["gun"]},
+			{"atk%":30, "mag%":30, "equipedConditions":["katana"]},
+			{"atk%":30, "spr%":30, "equipedConditions":["spear"]}
 		]
 	},
 	"Gladiolus": {
