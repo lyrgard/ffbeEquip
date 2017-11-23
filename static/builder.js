@@ -891,7 +891,7 @@ function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
             return entry2.defenseValue - entry1.defenseValue;    
         }
     });
-    for (var index = equivalents.length; index--;) {
+    for (var index = 0, len = equivalents.length; index < len; index++) {
         if (keptNumber >= numberNeeded) {
             break;
         }
