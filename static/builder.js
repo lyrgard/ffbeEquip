@@ -66,6 +66,8 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
+const onlyAvailableOnceItems = ["504207710"];
+
 const percentValues = {
     "hp": "hp%",
     "mp": "mp%",
@@ -1365,7 +1367,7 @@ function getAvailableNumber(item) {
                 }        
             }
         }
-        if (item.access.includes("trial") || !isStackable(item)) {
+        if (item.access.includes("trial") || !isStackable(item) || onlyAvailableOnceItems.includes(item.id)) {
             if (alreadyUsedItems[item[itemKey]]) {
                 number = 0;
             } else {
