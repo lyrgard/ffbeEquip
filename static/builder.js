@@ -540,9 +540,6 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
                     if (index == 1 && !fixedItems[0] && alreadyTriedInSlot0(type, typeCombination[0], equipable[0])) {
                         continue;
                     }
-                    if (!dataByType[type]) {
-                        console.log("!!");
-                    }
                     if (dataByType[type].length > 0) {
                         tryType(index, typeCombination, type, combinations, fixedItems, tryDoublehand, forceDoublehand);
                         found = true;
@@ -576,10 +573,6 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
             if (areConditionOKBasedOnTypeCombination(skill, typeCombination)) {
                 applicableSkills.push(skill);
             }
-        }
-        
-        if (typeCombination[0] == "greatSword" && typeCombination[1] == "fist") {
-            console.log("!!");
         }
         
         combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":getBestFixedItemVersions(fixedItems,typeCombination),"applicableSkills":applicableSkills,"elementBasedSkills":getElementBasedSkills()});
@@ -766,9 +759,6 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                 
                 var len = itemTreeRoot.children.length;
                 for (var childIndex = 0; childIndex < len; childIndex++) {
-                    if (!itemTreeRoot.children[childIndex]) {
-                        console.log("!!");
-                    }
                     var entry = itemTreeRoot.children[childIndex].entry;
                     var item = entry.item;
                     var numberRemaining = entry.available;
@@ -1427,9 +1417,6 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateBuildValue(itemAndPassives, esper) {
-    if (itemAndPassives[0] && itemAndPassives[1] && itemAndPassives[0].name=="Excalibur" && itemAndPassives[1].name.startsWith("Aigaion")) {
-        console.log("!!");
-    }
     if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal || "hybridDamage" == builds[currentUnitIndex].goal) {
         
         var cumulatedKiller = 0;
