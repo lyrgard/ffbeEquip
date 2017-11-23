@@ -1820,7 +1820,7 @@ function getItemLine(item, index = -1, short = false) {
 }
 
 function redrawBuildLine(index) {
-    $("#buildResult .tr.buildLine_" + index).replaceWith(getItemLine(builds[currentUnitIndex].bestBuild[index], index));
+    $("#buildResult .tr.buildLine_" + index).replaceWith(getItemLine(builds[currentUnitIndex].bestBuild[index], index, conciseView));
 }
 
 function getEsperItem(esper) {
