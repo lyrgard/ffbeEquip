@@ -745,7 +745,7 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                 
                 for (var childIndex in itemTreeRoot.children) {
                     var item = itemTreeRoot.children[childIndex].entry.item;
-                    var numberRemaining = howManyRemainingOfThisItem(build, item, index, fixedItems);
+                    var numberRemaining = item.available;
                     if (numberRemaining > 0) {
                         if (index == 1 && isTwoHanded(item)) {
                             continue;
@@ -771,28 +771,13 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                             }
                             dataWithConditionItems[typeCombination[index]] = newTreeRoot;
                         }
+                        item.available--;
                         tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
+                        item.available++;
                         dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
                         foundAnItem = true;
                     }
                 }
-                
-                /*var firstIndexToTry = 0; 
-                if ((index == 1 && typeCombination[0] == typeCombination[1]) || index == 5 || index > 6) {
-                    // For slots with same type, don't calculate all possible combination, prevent redundant combination from being calculated
-                    var indexOfPreviousItem = dataWithConditionItems[typeCombination[index - 1]].indexOf(build[index - 1]);
-                    firstIndexToTry = Math.max(indexOfPreviousItem,0);
-                }
-                for (var itemIndex = firstIndexToTry; itemIndex < dataWithConditionItems[typeCombination[index]].length; itemIndex++) {
-                    var item = dataWithConditionItems[typeCombination[index]][itemIndex];
-                    if (canAddMoreOfThisItem(build, item, index, fixedItems)) {
-                        if (index == 1 && isTwoHanded(item)) {
-                            continue;
-                        }
-                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems);
-                        foundAnItem = true;
-                    }
-                }*/
                 if (!foundAnItem) {
                     tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
                 }
@@ -1349,9 +1334,6 @@ function getAvailableNumber(item) {
             number = getOwnedNumber(item).available;
         }
     } else {
-        if (item.name == "Rod Mastery") {
-            console.log("!!");
-        }
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
             for (var index in item.access) {
                 var access = item.access[index];
