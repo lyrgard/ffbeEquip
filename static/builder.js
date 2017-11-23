@@ -577,7 +577,10 @@ function tryType(index, typeCombination, type, combinations, fixedItems, tryDoub
                 applicableSkills.push(skill);
             }
         }
-            
+        
+        if (typeCombination[0] == "greatSword" && typeCombination[1] == "fist") {
+            console.log("!!");
+        }
         
         combinations.push({"combination":typeCombination.slice(), "data":dataWithdConditionItems, "fixed":getBestFixedItemVersions(fixedItems,typeCombination),"applicableSkills":applicableSkills,"elementBasedSkills":getElementBasedSkills()});
     } else {
@@ -627,9 +630,9 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 
 function findBestBuildForCombinationAsync(index, combinations) {
     var nextAsync = Date.now() + 1000;
-    var build = [null, null, null, null, null, null, null, null, null, null].concat(combinations[index].applicableSkills);
     var len = combinations.length;
     while (index < len && Date.now() < nextAsync) {
+        var build = [null, null, null, null, null, null, null, null, null, null].concat(combinations[index].applicableSkills);
         findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
         index++
     }
@@ -1424,6 +1427,9 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateBuildValue(itemAndPassives, esper) {
+    if (itemAndPassives[0] && itemAndPassives[1] && itemAndPassives[0].name=="Excalibur" && itemAndPassives[1].name.startsWith("Aigaion")) {
+        console.log("!!");
+    }
     if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal || "hybridDamage" == builds[currentUnitIndex].goal) {
         
         var cumulatedKiller = 0;
