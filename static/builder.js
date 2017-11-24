@@ -62,6 +62,8 @@ var progress;
 var monsterDef = 100;
 var monsterSpr = 100;
 
+var damageMultiplier ;
+
 var notStackableEvadeGear = [
     ["409006700"],
     ["402001900", "301001500", "409012800"]
@@ -86,6 +88,10 @@ function build() {
         alert("Please select an unit");
         return;
     }
+    
+    // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
+    damageMultiplier  = (1 + ((builds[currentUnitIndex].selectedUnit.max_rarity - 1)/5)) * 0.925; 
+        
     
     builds[currentUnitIndex].bestValue = null;
     
@@ -1501,13 +1507,13 @@ function calculateBuildValue(itemAndPassives, esper) {
                 if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
                     variance1 = itemAndPassives[1].meanDamageVariance;
                 }
-                total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator / monsterDef;
+                total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / monsterDef;
             } else {
                 var dualWieldCoef = 1;
                 if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                     dualWieldCoef = 2;
                 }
-                total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef / monsterSpr;
+                total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / monsterSpr;
             }
         }
         return total / goals[builds[currentUnitIndex].goal].statsToMaximize.length;
