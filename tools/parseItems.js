@@ -75,6 +75,7 @@ var unitNamesById = {};
 var unitIdByTmrId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
+var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 
@@ -119,6 +120,9 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                     for (var index in oldItems) {
                                         oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
                                         oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                        if (oldItems[index].maxNumber) {
+                                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                        }
                                     }
                                     
                                     fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
@@ -218,6 +222,9 @@ function treatItem(items, itemId, result, skills) {
     }
     if (!itemOut.eventName && oldItemsEventById[itemOut.id]) {
         itemOut.eventName = oldItemsEventById[itemOut.id];
+    }
+    if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
+        itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
@@ -583,7 +590,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
