@@ -17,6 +17,7 @@ var goals = {
 
 
 var dataByType = {};
+var dataByTypeIds = {};
 var dataWithCondition = [];
 var dualWieldSources = [];
 var espers;
@@ -275,6 +276,10 @@ function prepareData(equipable) {
             dataByType[type] = [];
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 addEntriesToResult(tree.children[index], dataByType[type], 0, numberNeeded, true);    
+            }
+            dataByTypeIds[type]= [];
+            for (var itemIndex = itemLen = dataByType[type].length; itemIndex--;) {
+                dataByTypeIds[type].push(dataByType[type][itemIndex].item[itemKey]);
             }
         } else {
             dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
@@ -839,8 +844,18 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
                 }
             }
             if (allFound) {
+                if (dataByTypeIds[type].includes(entry.item[itemKey])) {
+                    for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
+                        if (tempResult[alreadyAddedIndex].item[itemKey] == entry.item[itemKey]) {
+                            tempResult.splice(alreadyAddedIndex,1);
+                            break;    
+                        }
+                    }
+                }
+                
                 tempResult.push(entry);
                 dataWithConditionKeyAlreadyAdded.push(item[itemKey]);
+                
             }
         }
     }
@@ -1362,6 +1377,13 @@ function getAvailableNumber(item) {
                    || (exludeEventEquipment && access.endsWith("event"))) {
                     return 0;
                 }        
+            }
+        }
+        if (item.maxNumber) {
+            if (alreadyUsedItems[item[itemKey]]) {
+                number = item.maxNumber - alreadyUsedItems[item[itemKey]];
+            } else {
+                number = item.maxNumber;
             }
         }
         if (item.access.includes("trial") || !isStackable(item) || onlyAvailableOnceItems.includes(item.id)) {
