@@ -142,6 +142,9 @@ function calculateAlreadyUsedItems() {
                         }
                     }
                 }
+                if (build[10]) {
+                    alreadyUsedEspers.push(build[10].name);
+                }
             } else {
                 for (var index = 0; index < 10; index++) {
                     if (builds[i].fixedItems[index]) {
@@ -155,10 +158,11 @@ function calculateAlreadyUsedItems() {
                         }   
                     }
                 }
+                if (builds[i].fixedItems[10]) {
+                    alreadyUsedEspers.push(builds[i].fixedItems[10].name);
+                }
             }
-            if (build[10]) {
-                alreadyUsedEspers.push(build[10].name);
-            }
+            
         } else {
             for (var index = 0; index < 10; index++) {
                 if (builds[i].fixedItems[index]) {
