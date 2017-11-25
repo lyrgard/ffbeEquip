@@ -118,6 +118,25 @@
     color: white;
 }
 
+#fixItemModal .modal-body .nav > li {
+    cursor: pointer;
+}
+
+#fixItemModal .modal-body .nav > li.active {
+    
+}
+
+#fixItemModal .modal-body .nav > li > a {
+    padding: 2px 2px;
+    opacity: 0.3;
+    border-style: none;
+}
+
+#fixItemModal .modal-body .nav > li.active > a, #fixItemModal .modal-body .nav > li:hover > a {
+    opacity: 1;
+    background-color: white;
+}
+
 .td.pin:hover {
     cursor: pointer;
 }
