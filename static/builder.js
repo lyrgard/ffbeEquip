@@ -27,6 +27,7 @@ var onlyUseOwnedItems = false;
 var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
+var excludePremium;
 
 var selectedUnitName;
 var selectedUnit;
@@ -71,7 +72,7 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
-const onlyAvailableOnceItems = ["504207710"];
+const onlyAvailableOnceItems = ["504207710","504213740"];
 
 const percentValues = {
     "hp": "hp%",
@@ -216,6 +217,7 @@ function prepareData(equipable) {
     exludeEventEquipment = $("#exludeEvent").prop('checked');
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+    excludePremium = $("#excludePremium").prop("checked");
     
     desirableElements = [];
     for (var index = 0, len = builds[currentUnitIndex].selectedUnit.skills.length; index < len; index++) {
@@ -1394,12 +1396,13 @@ function getAvailableNumber(item) {
             number = getOwnedNumber(item).available;
         }
     } else {
-        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment) {
+        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
                    || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != selectedUnit.name)
-                   || (exludeEventEquipment && access.endsWith("event"))) {
+                   || (exludeEventEquipment && access.endsWith("event"))
+                   || (excludePremium && access == "premium")) {
                     return 0;
                 }        
             }
@@ -2332,6 +2335,7 @@ function getStateHash() {
         data.exludeEventEquipment = $("#exludeEvent").prop('checked');
         data.excludeTMR5 = $("#excludeTMR5").prop('checked');
         data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+        data.excludePremium = $("#excludePremium").prop('checked');
     }
     
     for (var index = 0; index < 10; index++) {
@@ -2390,6 +2394,7 @@ function loadStateHashAndBuild(data) {
         $("#exludeEvent").prop('checked', data.exludeEventEquipment);
         $("#excludeTMR5").prop('checked', data.excludeTMR5);
         $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
+        $("#excludePremium").prop("checked", data.excludePremium);
     }
     if (data.fixedItems) {
         for (var index in data.fixedItems) {
