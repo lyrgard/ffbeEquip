@@ -209,71 +209,95 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <ul id="unitTabs" class="nav nav-tabs">
-                    <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
-                    <li id="addNewUnitButton" onclick="addNewUnit()"><a><span class="glyphicon glyphicon-plus"/></a></li>
-                </ul>
-                <div class="result-tab-pane">
-                    <div class="panel-body" style="padding:0;">
-                        <div class="buildDiv">
-                            <button class="btn btn-default" onclick="displayFixItemModal()"><img src="img/pin.png" style="width: 20px;margin-right: 5px;"/>Pin an item/esper</button>
-                            <button id="buildButton" class="btn btn-primary">Build !</button>
-                            <div id="buildProgressBar" class="progressBarDiv">
-                                <div class="progressBar">0%</div>
+                <div id="buildDiv" class="hidden">
+                    <ul id="unitTabs" class="nav nav-tabs">
+                        <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
+                        <li id="addNewUnitButton" onclick="addNewUnit()"><a><span class="glyphicon glyphicon-plus"/></a></li>
+                    </ul>
+                    <div class="result-tab-pane">
+                        <div class="panel-body" style="padding:0;">
+                            <div class="buildDiv">
+                                <button id="buildButton" class="btn btn-primary">Build !</button>
+                                <div id="buildProgressBar" class="progressBarDiv">
+                                    <div class="progressBar">0%</div>
+                                </div>
                             </div>
-                        </div>
-                        <div id="resultStats" class="hidden row" >
-                            <div class="col-xs-5 hp"><div class="col-xs-4 stat">HP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 mp"><div class="col-xs-4 stat">MP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
-                            <div class="col-xs-5 atk"><div class="col-xs-4 stat">ATK</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 def"><div class="col-xs-4 stat">DEF</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
-                            <div class="col-xs-5 mag"><div class="col-xs-4 stat">MAG</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 spr"><div class="col-xs-4 stat">SPR</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
-                            <div class="col-xs-5 evade_physical"><div class="col-xs-8 stat">Physical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 evade_magical"><div class="col-xs-8 stat">Magical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 physicaleHp"><div class="col-xs-7 stat">Physical eHP</div><div class="col-xs-5 value text-right"></div></div><div class="col-xs-1"></div>
-                            <div class="col-xs-5 magicaleHp"><div class="col-xs-7 stat">Magical eHP</div><div class="col-xs-5 value text-right"></div></div><div class="col-xs-1"></div>
-                            <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
-                        </div>
-                        <div class="buildLinks hidden">
-                            <div id="detailedViewLink" class="col-lg-3 col-md-6">
-                                <span class="glyphicon glyphicon-zoom-in"></span>
-                                <a onclick="switchView(false);">Detailed View</a>
+                            <div id="resultStats" class="hidden row" >
+                                <div class="col-xs-5 hp"><div class="col-xs-4 stat">HP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 mp"><div class="col-xs-4 stat">MP</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                                <div class="col-xs-5 atk"><div class="col-xs-4 stat">ATK</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 def"><div class="col-xs-4 stat">DEF</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                                <div class="col-xs-5 mag"><div class="col-xs-4 stat">MAG</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 spr"><div class="col-xs-4 stat">SPR</div><div class="col-xs-4 value text-right"></div><div class="col-xs-4 bonus text-right"></div></div>
+                                <div class="col-xs-5 evade_physical"><div class="col-xs-8 stat">Physical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 evade_magical"><div class="col-xs-8 stat">Magical Evade</div><div class="col-xs-4 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 physicaleHp"><div class="col-xs-7 stat">Physical eHP</div><div class="col-xs-5 value text-right"></div></div><div class="col-xs-1"></div>
+                                <div class="col-xs-5 magicaleHp"><div class="col-xs-7 stat">Magical eHP</div><div class="col-xs-5 value text-right"></div></div><div class="col-xs-1"></div>
+                                <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
                             </div>
-                            <div id="conciseViewLink" class="col-lg-3 col-md-6 hidden">
-                                <span class="glyphicon glyphicon-zoom-out"></span>
-                                <a onclick="switchView(true);">Concise View</a>
+                            <div class="buildLinks hidden">
+                                <div id="detailedViewLink" class="col-lg-3 col-md-6">
+                                    <span class="glyphicon glyphicon-zoom-in"></span>
+                                    <a onclick="switchView(false);">Detailed View</a>
+                                </div>
+                                <div id="conciseViewLink" class="col-lg-3 col-md-6 hidden">
+                                    <span class="glyphicon glyphicon-zoom-out"></span>
+                                    <a onclick="switchView(true);">Concise View</a>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <span class="glyphicon glyphicon-link"></span>
+                                    <a class="buildLink" onclick="showBuildLink()">Share this build</a>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <span class="glyphicon glyphicon-wrench"></span>
+                                    <a class="builderSetupLink" onclick="showBuilderSetupLink()">Share this builder setup</a>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <span class="glyphicon glyphicon-camera"></span>
+                                    <a class="imageLink" target="_blank">Get build image</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <span class="glyphicon glyphicon-link"></span>
-                                <a class="buildLink" onclick="showBuildLink()">Share this build</a>
+
+                            <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
+                            <div id="fixedItemsTitle" class="hidden">Pinned items:</div>
+                            <div id="buildResult" class="notSorted items results">
+                                <div class="line">
+                                    <div class='buildLine buildLine_0'></div>
+                                    <div class='buildLine buildLine_1'></div>
+                                </div>
+                                <div class="line">
+                                    <div class='buildLine buildLine_2'></div>
+                                    <div class='buildLine buildLine_3'></div>
+                                </div>
+                                <div class="line">
+                                    <div class='buildLine buildLine_4'></div>
+                                    <div class='buildLine buildLine_5'></div>
+                                </div>
+                                <div class="line">
+                                    <div class='buildLine buildLine_6'></div>
+                                    <div class='buildLine buildLine_7'></div>
+                                </div>
+                                <div class="line">
+                                    <div class='buildLine buildLine_8'></div>
+                                    <div class='buildLine buildLine_9'></div>
+                                </div>
+                                <div class="line">
+                                    <div class='buildLine buildLine_10'></div>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <span class="glyphicon glyphicon-wrench"></span>
-                                <a class="builderSetupLink" onclick="showBuilderSetupLink()">Share this builder setup</a>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <span class="glyphicon glyphicon-camera"></span>
-                                <a class="imageLink" target="_blank">Get build image</a>
-                            </div>
-                        </div>
-   
-                        <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
-                        <div id="fixedItemsTitle" class="hidden">Pinned items:</div>
-                        <div id="buildResult" class="notSorted table items results">
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="help">
                     <h3>How to use this:</h3>
                     <ol>
-                        <li>Make sure you're logged in, so that your inventory is loaded</li>
                         <li>Select a unit you want to make a build for</li>
+                        <li>If you want to make a build only using the items you own, make sure you're logged in, so that your inventory is loaded</li>
                         <li>If you plan to use an attack with innate element(s), you can select the corresponding element(s) in the "Skill innate element(s)" section</li>
                         <li>Fill information on the monster you're facing, its race(s) and its elemental resistance (negative number for elemental weakness). Take into account the elemental debufs you'll give it (for instance, if using Orlandeau's Divine Ruination, substract 50 to the light elemental resistance).</li>
                         <li>Click on "Build !" button to start the computation</li>
                     </ol>
-                    <p>Some features are still missing for now. It wont automatically use Equip X materia (but you can pin one to use it), and Hybrid damage are not yey supported (coming soon).</p>
+                    <p>Some features are still missing for now. It wont automatically use Equip X materia (but you can pin one to use it)</p>
                 </div>
                 <div class="footerButtons">
                     <div>
