@@ -74,7 +74,7 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
-const onlyAvailableOnceItems = ["504207710","504213740"];
+const onlyAvailableOnceItems = ["504207710","504213740","1100000080","1100000079"];
 
 const percentValues = {
     "hp": "hp%",
@@ -92,24 +92,12 @@ function build() {
     if (!builds[currentUnitIndex].selectedUnit) {
         alert("Please select an unit");
         return;
-    }
-    
-    // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
-    damageMultiplier  = (1 + ((builds[currentUnitIndex].selectedUnit.max_rarity - 1)/5)) * 0.925; 
-        
+    }   
     
     builds[currentUnitIndex].bestValue = null;
     
-    readEnnemyResists();
-    ennemyRaces = getSelectedValuesFor("races");
-    monsterDef = 100;
-    monsterSpr = 100;
-    if ($("#monsterDef").val()) {
-        monsterDef = parseInt($("#monsterDef").val());
-    }
-    if ($("#monsterSpr").val()) {
-        monsterSpr = parseInt($("#monsterSpr").val());
-    }
+    readEnnemyStats();
+    
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     readGoal();
     
@@ -196,7 +184,7 @@ function readGoal(index = currentUnitIndex) {
     }
 }
 
-function prepareEquipable() {
+function prepareEquipable(useBuild = false) {
     equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
     var equip = getCurrentUnitEquip();
     for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
@@ -212,6 +200,31 @@ function prepareEquipable() {
     }
     if (hasInnateDualWield()) {
         equipable[1] = equipable[1].concat(equipable[0]);
+    }
+    if (useBuild) {
+        var hasDualWield = false;
+        var partialDualWield = getInnatePartialDualWield();
+        for (var index = 0; index < 10; index++) {
+            if (builds[currentUnitIndex].bestBuild[index] && builds[currentUnitIndex].bestBuild[index].special && builds[currentUnitIndex].bestBuild[index].special.includes("dualWield")) {
+                hasDualWield = true;
+                break;
+            }
+            if (builds[currentUnitIndex].bestBuild[index] && builds[currentUnitIndex].bestBuild[index].partialDualWield) {
+                for (partialDualWieldIndex = builds[currentUnitIndex].bestBuild[index].partialDualWield.length; partialDualWieldIndex--;) {
+                    var type = builds[currentUnitIndex].bestBuild[index].partialDualWield[partialDualWieldIndex];
+                    if (!partialDualWield.includes(type)) {
+                        partialDualWieldpush(type);
+                    }
+                }
+            }
+        }
+        if (hasDualWield) {
+            equipable[1] = equipable[1].concat(equipable[0]);
+        } else {
+            if (partialDualWield.length > 0 && builds[currentUnitIndex].bestBuild[0] && partialDualWield.includes(builds[currentUnitIndex].bestBuild[0].type)) {
+                equipable[1] = equipable[1].concat(partialDualWield);
+            }
+        }
     }
 }
 
@@ -418,7 +431,7 @@ function getElementCoef(elements) {
     return resistModifier;
 }
 
-function readEnnemyResists() {
+function readEnnemyStats() {
     for(var element in ennemyResist) {
         var value = $("#elementalResists td." + element + " input").val();
         if (value) {
@@ -426,6 +439,15 @@ function readEnnemyResists() {
         } else {
             ennemyResist[element] = 0;
         }
+    }
+    ennemyRaces = getSelectedValuesFor("races");
+    monsterDef = 100;
+    monsterSpr = 100;
+    if ($("#monsterDef").val()) {
+        monsterDef = parseInt($("#monsterDef").val());
+    }
+    if ($("#monsterSpr").val()) {
+        monsterSpr = parseInt($("#monsterSpr").val());
     }
 }
 
@@ -1775,8 +1797,13 @@ function logBuild(build, value) {
             $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
         }
         
+        if (!value) {
+            readEnnemyStats();
+            value = calculateBuildValue(build);
+        }
+    
         $("#resultStats .damage").addClass("hidden");
-        if (builds[currentUnitIndex].goal == "physicalDamage" || builds[currentUnitIndex].goal == "magicalDamage" || builds[currentUnitIndex].goal == "hybridDamage") {
+        if (builds[currentUnitIndex].goal == "physicalDamage" || builds[currentUnitIndex].goal == "magicalDamage" || builds[currentUnitIndex].goal == "magicalDamageWithPhysicalMecanism" || builds[currentUnitIndex].goal == "hybridDamage") {
             $("#resultStats .damage .monsterDefSpan").addClass("hidden");
             $("#resultStats .damage .monsterSprSpan").addClass("hidden");
             if (importantStats.includes("atk")) {
@@ -1930,6 +1957,8 @@ function onUnitChange() {
             $("#help").addClass("hidden");
             $("#buildDiv").removeClass("hidden");
             recalculateApplicableSkills();
+            // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
+            damageMultiplier  = (1 + ((builds[currentUnitIndex].selectedUnit.max_rarity - 1)/5)) * 0.925; 
             logCurrentBuild();
         } else {
             builds[currentUnitIndex].selectedUnit = null;
@@ -2077,6 +2106,12 @@ function onGoalChange() {
         $(".magicalSkillType").addClass("hidden");
         $("#forceDoublehand").addClass("hidden");
     }
+    if (builds[currentUnitIndex]) {
+        builds[currentUnitIndex].goal = goal;
+        if (builds[currentUnitIndex].selectedUnit) { 
+            logCurrentBuild();
+        }
+    }
 }
 
 function onEquipmentsChange() {
@@ -2112,7 +2147,7 @@ function updateSearchResult() {
         dataWithEspers = data.concat(dataWithEspers);
     }
     
-    displaySearchResults(sort(filter(dataWithEspers, false, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types)));
+    displaySearchResults(sort(filter(dataWithEspers, false, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types, [], [], [], [], "", false, true)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -2138,7 +2173,7 @@ function displayFixItemModal(index) {
         return;
     }
     
-    prepareEquipable();
+    prepareEquipable(true);
     if (equipable[index].length == 0) {
         alert("Nothing can be added at this slot");
         return;
@@ -2178,7 +2213,7 @@ function fixItem(key, slotParam = -1) {
     }
     
     if (item) {
-        prepareEquipable();
+        prepareEquipable(true);
         var slot = slotParam;
         if (slot == -1) {
             slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
@@ -2276,7 +2311,7 @@ function removeFixedItemAt(slot) {
 function removeItemAt(slot) {
     builds[currentUnitIndex].fixedItems[slot] = null;
     builds[currentUnitIndex].bestBuild[slot] = null;
-    prepareEquipable();
+    prepareEquipable(true);
     for (var index = 0; index < 10; index ++) {
         var item = builds[currentUnitIndex].bestBuild[index];
         if (item) {
@@ -2648,6 +2683,6 @@ function populateItemStat() {
     var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
     var target = $("#fixItemModal .stat .dropdown-menu");
 	for (var key in statList) {
-        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');" class="btn btn-default"/>');
+        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
 	}
 }
