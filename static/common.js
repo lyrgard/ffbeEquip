@@ -489,7 +489,7 @@ function updateLinks() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
+var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var result = [];
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
@@ -503,7 +503,7 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
                                     if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
                                         if (searchText.length == 0 || containsText(searchText, item)) {
                                             if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
-                                                if (stat.length == 0 || hasStat(stat, item)) {
+                                                if (stat.length == 0 || showItemsWithoutStat || hasStat(stat, item)) {
                                                     calculateValue(item, baseStat, stat, ailments, elements, killers);
                                                     result.push(item);
                                                 }
