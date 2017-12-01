@@ -55,7 +55,7 @@ var searchType = [];
 var searchStat = "";
 var currentItemSlot;
 
-var dataWithEspers;
+var searchableEspers;
 
 var dataLoadedFromHash = false;
 
@@ -203,7 +203,7 @@ function prepareEquipable(useBuild = false) {
     }
     if (useBuild) {
         var hasDualWield = false;
-        var partialDualWield = getInnatePartialDualWield();
+        var partialDualWield = getInnatePartialDualWield() || [];
         for (var index = 0; index < 10; index++) {
             if (builds[currentUnitIndex].bestBuild[index] && builds[currentUnitIndex].bestBuild[index].special && builds[currentUnitIndex].bestBuild[index].special.includes("dualWield")) {
                 hasDualWield = true;
@@ -878,7 +878,7 @@ function tryEsper(build, esper) {
     if (builds[currentUnitIndex].bestValue == null || value > builds[currentUnitIndex].bestValue) {
         builds[currentUnitIndex].bestBuild = build.slice();
         builds[currentUnitIndex].bestValue = value;
-        logCurrentBuild();
+        logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue);
     }
 }
 
@@ -1721,7 +1721,7 @@ function getElementBasedSkills() {
 }
 
 function logCurrentBuild() {
-    logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue);
+    logBuild(builds[currentUnitIndex].bestBuild);
 }
 
 function logBuild(build, value) {
@@ -2138,16 +2138,28 @@ function updateSearchResult() {
     var baseStat = builds[currentUnitIndex].selectedUnit.stats.maxStats[searchStat] + builds[currentUnitIndex].selectedUnit.stats.pots[searchStat];
     accessToRemove = [];
     
-    if (!dataWithEspers) {
-        dataWithEspers = [];
-        for (var index = espers.length; index--;) {
-            dataWithEspers.push(getEsperItem(espers[index]));
+    var dataWithOnlyOneOccurence = searchableEspers.slice();
+    for (var index = 0, len = data.length; index < len; index++) {
+        var item = data[index];
+        if (dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
+            var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
+            if (previousItem.equipedConditions) {
+                if (item.equipedConditions) {
+                    if (previousItem.equipedConditions.length < item.equipedConditions.length && areConditionOK(item, builds[currentUnitIndex].bestBuild)) {
+                        dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+                    }
+                }
+            } else {
+                if (areConditionOK(item, builds[currentUnitIndex].bestBuild)) {
+                    dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+                }
+            }
+        } else {
+            dataWithOnlyOneOccurence.push(item);
         }
-        prepareSearch(dataWithEspers);
-        dataWithEspers = data.concat(dataWithEspers);
     }
     
-    displaySearchResults(sort(filter(dataWithEspers, false, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types, [], [], [], [], "", false, true)));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].selectedUnitName, types, [], [], [], [], "", false, true)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -2209,7 +2221,7 @@ function fixItem(key, slotParam = -1) {
     } else if (espersByName[key])  {
         item = espersByName[key];
     } else {
-        item = findBestItemVersion(builds[currentUnitIndex].fixedItems, key);
+        item = findBestItemVersion(builds[currentUnitIndex].bestBuild, key);
     }
     
     if (item) {
@@ -2233,10 +2245,21 @@ function fixItem(key, slotParam = -1) {
                 return;
             }
         }
+        if (!isStackable(item)) {
+            for(var index = 6; index < 10; index++) {
+                if (index != slot && builds[currentUnitIndex].bestBuild[index]&& builds[currentUnitIndex].bestBuild[index].id == item.id) {
+                    alert("This materia is not stackable. You cannot add another one");
+                    return;
+                }
+            }
+        }
+        if (builds[currentUnitIndex].bestBuild[slot]) {
+            removeItemAt(slot);
+        }
         builds[currentUnitIndex].fixedItems[slot] = item;
         builds[currentUnitIndex].bestBuild[slot] = item;
         if (slot < 10) {
-            for (var index in builds[currentUnitIndex].fixedItems) {
+            for (var index = 0; index < 10; index++) {
                 var itemTmp = builds[currentUnitIndex].fixedItems[index];
                 if (itemTmp  && !itemTmp.placeHolder && index != slot) {
                     builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, itemTmp[itemKey]);
@@ -2597,7 +2620,11 @@ $(function() {
         for (var index = espers.length; index--;) {
             espersByName[espers[index].name] = getEsperItem(espers[index]);    
         }
-        
+        searchableEspers = [];
+        for (var index = espers.length; index--;) {
+            searchableEspers.push(getEsperItem(espers[index]));
+        }
+        prepareSearch(searchableEspers);
         readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
