@@ -236,25 +236,24 @@
                                 <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
                             </div>
                             <div class="buildLinks hidden">
-                                <div id="detailedViewLink" class="col-lg-3 col-md-6">
-                                    <span class="glyphicon glyphicon-zoom-in"></span>
-                                    <a onclick="switchView(false);">Detailed View</a>
+                                <div id="detailedViewLink" class="col-xs-4 link">
+                                    <a onclick="switchView(false);"><span class="glyphicon glyphicon-zoom-in"></span> Detailed View</a>
                                 </div>
-                                <div id="conciseViewLink" class="col-lg-3 col-md-6 hidden">
-                                    <span class="glyphicon glyphicon-zoom-out"></span>
-                                    <a onclick="switchView(true);">Concise View</a>
+                                <div id="conciseViewLink" class="col-xs-4 hidden link">
+                                    <a onclick="switchView(true);"><span class="glyphicon glyphicon-zoom-out"></span> Concise View</a>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <span class="glyphicon glyphicon-link"></span>
-                                    <a class="buildLink" onclick="showBuildLink()">Share this build</a>
+                                <div class="col-xs-4">
+                                    <div class="dropdown">
+                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share this build<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="buildLink link" onclick="showBuildLink()"><span class="glyphicon glyphicon-link"></span> FFBE Equip link</a></li>
+                                            <li><a class="buildAsText link" onclick="showBuildAsText()"><span class="glyphicon glyphicon-list"></span> Build as text</a></li>
+                                            <li><a class="imageLink link" target="_blank"><span class="glyphicon glyphicon-camera"></span> Build image (using ffbe.piramidata.eu)</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <span class="glyphicon glyphicon-wrench"></span>
-                                    <a class="builderSetupLink" onclick="showBuilderSetupLink()">Share this builder setup</a>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <span class="glyphicon glyphicon-camera"></span>
-                                    <a class="imageLink" target="_blank">Get build image</a>
+                                <div class="col-xs-4">
+                                    <a class="builderSetupLink link" onclick="showBuilderSetupLink()"><span class="glyphicon glyphicon-wrench"></span> Share this builder setup</a>
                                 </div>
                             </div>
 

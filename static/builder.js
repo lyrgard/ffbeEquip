@@ -1725,16 +1725,7 @@ function logCurrentBuild() {
 }
 
 function logBuild(build, value) {
-    /*if (build.length == 0) {
-        $("#resultStats").addClass("hidden");
-        $("#buildResult").html("");
-        $(".buildLinks").addClass("hidden");
-        var progress = 0;
-        progressElement.width("0%");
-        progressElement.text("0%");
-        progressElement.addClass("finished");
-    } else {*/
-        
+
         var html = "";
         
         for (var index = 0; index < 11; index++) {
@@ -2598,6 +2589,52 @@ function showBuilderSetupLink() {
         position: { my: 'top', at: 'top+150' },
         width: 600
     });
+}
+
+function showBuildAsText() {
+    var text = "";
+    text += 
+        getItemLineAsText("Right hand", 0) +
+        getItemLineAsText("Left hand", 1) +
+        getItemLineAsText("Head", 2) +
+        getItemLineAsText("Body", 3) +
+        getItemLineAsText("Accessory 1", 4) +
+        getItemLineAsText("Accessory 2", 5) +
+        getItemLineAsText("Materia 1", 6) +
+        getItemLineAsText("Materia 2", 7) +
+        getItemLineAsText("Materia 3", 8) +
+        getItemLineAsText("Materia 4", 9) +
+        getItemLineAsText("Esper", 10);
+        
+    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
+        '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showBuilderSetupLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
+}
+
+function getItemLineAsText(prefix, slot) {
+    if (builds[currentUnitIndex].bestBuild[slot]) {
+        return prefix + ": " + builds[currentUnitIndex].bestBuild[slot].name + "\n";
+    } else {
+        return "";
+    }
 }
 
 $(function() {
