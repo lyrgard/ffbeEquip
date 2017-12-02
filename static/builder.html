@@ -205,6 +205,7 @@
                         <div><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
                         <div><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
                         <div><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
+                        <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
                     </div>
                 </div>
             </div>
@@ -216,6 +217,7 @@
                     </ul>
                     <div class="result-tab-pane">
                         <div class="panel-body" style="padding:0;">
+                            <div id="pleaseSelectUnitMessage" class="hidden">Please select a unit</div>
                             <div class="buildDiv">
                                 <button id="buildButton" class="btn btn-primary">Build !</button>
                                 <div id="buildProgressBar" class="progressBarDiv">
@@ -256,9 +258,6 @@
                                     <a class="builderSetupLink link" onclick="showBuilderSetupLink()"><span class="glyphicon glyphicon-wrench"></span> Share this builder setup</a>
                                 </div>
                             </div>
-
-                            <a class="calculatorLink hidden" target="_blank">Copy build to unit calculator</a>
-                            <div id="fixedItemsTitle" class="hidden">Pinned items:</div>
                             <div id="buildResult" class="notSorted items results">
                                 <div class="line">
                                     <div class='buildLine buildLine_0'></div>
