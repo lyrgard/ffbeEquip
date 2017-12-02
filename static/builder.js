@@ -2419,7 +2419,7 @@ function getStateHash() {
     }
     if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage") {
         data.ennemyRaces = getSelectedValuesFor("races");
-        readEnnemyResists();
+        readEnnemyStats();
         data.ennemyResists = ennemyResist;
         data.monsterDef = monsterDef;
         data.monsterSpr = monsterSpr;
