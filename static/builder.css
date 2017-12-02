@@ -171,6 +171,18 @@
     opacity: 1;
     cursor: pointer;
 }
+
+.td.actions .excludeItem {
+    margin-top: 2px;
+    opacity: 0.2;
+    text-align: center;
+}
+.td.actions .excludeItem:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: red;
+}
+
 #resultStats {
     max-width: 600px;
     margin-left: auto;
@@ -314,4 +326,8 @@
 .buildLine .slot.type:hover {
     opacity: 0.3;
     cursor: pointer;
+}
+
+#pleaseSelectUnitMessage {
+    padding: 10px;
 }

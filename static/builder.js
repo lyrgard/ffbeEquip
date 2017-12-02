@@ -1820,7 +1820,7 @@ function getItemLine(index, short = false) {
     } else if (!item) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
-        html += '<div class="td actions"><img class="pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);" src="img/pin.png"></img><img class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img></div>'
+        html += '<div class="td actions"><img class="pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);" src="img/pin.png"></img><img class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img><span class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" /></div>'
     } else {
         html += '<div class="td"></div>'
     }
@@ -1924,7 +1924,6 @@ function onUnitChange() {
             builds[currentUnitIndex].selectedUnitName = unitName;
             updateUnitStats();
             $("#help").addClass("hidden");
-            $("#buildDiv").removeClass("hidden");
             recalculateApplicableSkills();
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             damageMultiplier  = (1 + ((builds[currentUnitIndex].selectedUnit.max_rarity - 1)/5)) * 0.925; 
@@ -1933,8 +1932,6 @@ function onUnitChange() {
             builds[currentUnitIndex].selectedUnit = null;
             reinitBuild(currentUnitIndex); 
             updateUnitStats();
-            logCurrentBuild();
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
         }
         displayUnitRarity(selectedUnitData);
     });
@@ -1953,6 +1950,21 @@ function updateUnitStats() {
         for (var index in builds[currentUnitIndex].selectedUnit.equip) {
             $(".unitEquipable img." + builds[currentUnitIndex].selectedUnit.equip[index]).removeClass("notEquipable");
         }
+    }
+    if (builds[currentUnitIndex].selectedUnit) {
+        $("#pleaseSelectUnitMessage").addClass("hidden");
+        $("#buildDiv").removeClass("hidden");
+        $(".buildDiv").removeClass("hidden");
+        $("#resultStats").removeClass("hidden");
+        $(".buildLinks").removeClass("hidden");
+        $("#buildResult").removeClass("hidden");
+    } else {
+        $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
+        $("#pleaseSelectUnitMessage").removeClass("hidden");
+        $(".buildDiv").addClass("hidden");
+        $("#resultStats").addClass("hidden");
+        $(".buildLinks").addClass("hidden");
+        $("#buildResult").addClass("hidden");
     }
 }
 
@@ -2086,10 +2098,16 @@ function onGoalChange() {
 function onEquipmentsChange() {
     var equipments = $(".equipments select").val();
     if (equipments == "all") {
-        $(".equipments .panel-body").removeClass("hidden");
+        $("#exludeEvent").parent().removeClass("hidden");
+        $("#excludePremium").parent().removeClass("hidden");
+        $("#excludeTMR5").parent().removeClass("hidden");
+        $("#excludeNotReleasedYet").parent().removeClass("hidden");
         onlyUseOwnedItems = false;
     } else {
-        $(".equipments .panel-body").addClass("hidden");
+        $("#exludeEvent").parent().addClass("hidden");
+        $("#excludePremium").parent().addClass("hidden");
+        $("#excludeTMR5").parent().addClass("hidden");
+        $("#excludeNotReleasedYet").parent().addClass("hidden");
         onlyUseOwnedItems = true;
     }
 }
@@ -2323,6 +2341,18 @@ function removeItemAt(slot) {
     }
     recalculateApplicableSkills();
     logCurrentBuild();
+}
+
+function excludeItem(itemId) {
+    if (!itemsToExclude.includes(itemId)) {
+        for (var index = 0; index < 10; index++) {
+            if (builds[currentUnitIndex].bestBuild[index] && builds[currentUnitIndex].bestBuild[index].id == itemId) {
+                removeItemAt(index);
+            }
+        }
+        itemsToExclude.push(itemId);
+    }
+    $(".excludedItemNumber").html(itemsToExclude.length);
 }
 
 function recalculateApplicableSkills() {
@@ -2595,6 +2625,7 @@ function showBuildAsText() {
         modal: true,
         open: function(event, ui) {
             $(this).parent().css('position', 'fixed');
+            $(this).parent().css('top', '150px');
             $("#showBuilderSetupLinkDialog input").select();
             try {
                 var successful = document.execCommand('copy');
@@ -2607,9 +2638,39 @@ function showBuildAsText() {
                 console.log('Oops, unable to copy');
             }
         },
-        position: { my: 'top', at: 'top+150' },
         width: 600
     });
+}
+
+function showExcludedItems() {
+    
+    var text = "";
+    var idAlreadyTreated = [];
+    for (var index = 0, len = data.length; index < len; index++) {
+        var item = data[index];
+        if (itemsToExclude.includes(item.id) && !idAlreadyTreated.includes(item.id)) {
+            text += '<div class="tr id_' + item.id +'">' +
+                '<div class="td actions"><span class="excludeItem glyphicon glyphicon-remove" onclick="removeItemFromExcludeList(\'' + item.id +'\')"></span></div>' +
+                getImageHtml(item) + 
+                getNameColumnHtml(item) + 
+                '</div>';
+            idAlreadyTreated.push(item.id);
+        }
+    }
+        
+    $('<div id="showExcludedItemsDialog" title="Excluded items">' + 
+        '<div class="table items">' + text + '</div>' +
+      '</div>' ).dialog({
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        width: 600
+    });
+}
+
+function removeItemFromExcludeList(id) {
+    $("#showExcludedItemsDialog .tr.id_" + id).remove();
+    itemsToExclude.splice(itemsToExclude.indexOf(id),1);
+    $(".excludedItemNumber").html(itemsToExclude.length);
 }
 
 function getItemLineAsText(prefix, slot) {
@@ -2709,6 +2770,7 @@ $(function() {
         $('#searchText').focus();
     })  
     
+    $(".excludedItemNumber").html(itemsToExclude.length);
     progressElement = $("#buildProgressBar .progressBar");
 });
 
