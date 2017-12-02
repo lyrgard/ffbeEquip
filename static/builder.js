@@ -257,8 +257,9 @@ function prepareData(equipable) {
     dualWieldSources = [];
     var tempData = {};
     var adventurersAvailable = {};
+    var alreadyAddedIds = [];
     
-    for (var index = 0, len = data.length; index < len; index++) {
+    for (var index = data.length; index--;) {
         var item = data[index];
         if (itemsToExclude.includes(item.id)) {
             continue;
@@ -273,8 +274,11 @@ function prepareData(equipable) {
                 if (item.equipedConditions) {
                     dataWithCondition.push(getItemEntry(item));
                 } else {
-                    if (!dataByType[item.type]) {dataByType[item.type] = [];}
-                    dataByType[item.type].push(getItemEntry(item));
+                    if (!alreadyAddedIds.includes(item.id)) {
+                        if (!dataByType[item.type]) {dataByType[item.type] = [];}
+                        dataByType[item.type].push(getItemEntry(item));
+                        alreadyAddedIds.push(item.id);
+                    }
                 }
             }
             if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
@@ -1339,40 +1343,6 @@ function logAddConditionItems(data) {
     }
     console.log(string);
 }
-
-function howManyRemainingOfThisItem(build, item, currentIndex, fixedItems) {
-    if (item.placeHolder){
-        return 4;
-    }
-    var number = 0;
-    var isAdventurer = adventurerIds.includes(item.id);
-    for (var index = 0; index < currentIndex; index++) {
-        if (build[index] && build[index].name == item.name) {
-            if (!isStackable(item)) {
-                return 0;
-            }
-            number++;
-        }
-        // Manage Adventurers not stackable 
-        if (build[index] && isAdventurer && adventurerIds.includes(build[index].id)) {
-            return 0;
-        }
-    }
-    for (var index = currentIndex + 1; index < 10; index++) {
-        if (fixedItems[index] && fixedItems[index].name == item.name) {
-            if (!isStackable(item)) {
-                return 0;
-            }
-            number++;
-        }
-        // Manage Adventurers not stackable 
-        if (fixedItems[index] && isAdventurer && adventurerIds.includes(fixedItems[index].id)) {
-            return 0;
-        }
-    }
-    return getAvailableNumber(item) - number;
-}
-
 
 function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
