@@ -2101,6 +2101,10 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
+        if (!isApplicable(item)) {
+            // Don't display not applicable items
+            continue;
+        }
         if (dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
             var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
             if (previousItem.equipedConditions) {
