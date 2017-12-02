@@ -2244,7 +2244,7 @@ function fixItem(key, slotParam = -1) {
                 }
             }
         }
-        if (builds[currentUnitIndex].bestBuild[slot]) {
+        if (builds[currentUnitIndex].bestBuild[slot] && builds[currentUnitIndex].bestBuild[slot].id != item.id) {
             removeItemAt(slot);
         }
         builds[currentUnitIndex].fixedItems[slot] = item;
