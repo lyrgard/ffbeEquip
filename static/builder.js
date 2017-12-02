@@ -14,7 +14,7 @@ var goals = {
     "physicalEvasion":                  {"statsToMaximize":["evade.physical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "magicalEvasion":                   {"statsToMaximize":["evade.magical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false}
 };
-
+const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
 
 var dataByType = {};
 var dataByTypeIds = {};
@@ -1763,9 +1763,8 @@ function logBuild(build, value) {
         
         $("#fixedItemsTitle").addClass("hidden");
         $("#resultStats").removeClass("hidden");
-        var statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
         var values = {};
-        for (var statIndex in statsToDisplay) {
+        for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
             var result = calculateStatValue(build, statsToDisplay[statIndex]);
             values[statsToDisplay[statIndex]] = result.total;
             $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
@@ -2604,7 +2603,8 @@ function showBuildAsText() {
         getItemLineAsText("Materia 2", 7) +
         getItemLineAsText("Materia 3", 8) +
         getItemLineAsText("Materia 4", 9) +
-        getItemLineAsText("Esper", 10);
+        getItemLineAsText("Esper", 10) +
+        getBuildStatsAsText();
         
     $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
         '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
@@ -2630,11 +2630,47 @@ function showBuildAsText() {
 }
 
 function getItemLineAsText(prefix, slot) {
-    if (builds[currentUnitIndex].bestBuild[slot]) {
-        return prefix + ": " + builds[currentUnitIndex].bestBuild[slot].name + "\n";
+    var item = builds[currentUnitIndex].bestBuild[slot];
+    if (item) {
+        var resultText = prefix + ": " + item.name + " ";
+        var first = true;
+        for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
+            if (item[baseStats[statIndex]]) {
+                if (first) {
+                    first = false;
+                } else {
+                    resultText += ", ";
+                }
+                resultText += baseStats[statIndex].toUpperCase() + "+" + item[baseStats[statIndex]];
+            }
+            if (item[baseStats[statIndex] + "%"]) {
+                if (first) {
+                    first = false;
+                } else {
+                    resultText += ", ";
+                }
+                resultText += baseStats[statIndex].toUpperCase() + "+" + item[baseStats[statIndex]+"%"] + "%";
+            }
+        }
+        return resultText + "\n";
     } else {
         return "";
     }
+}
+
+function getBuildStatsAsText() {
+    var resultText = "Total: ";
+    var first = true;
+    for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
+        var result = calculateStatValue(builds[currentUnitIndex].bestBuild, baseStats[statIndex]).total;
+        if (first) {
+            first = false;
+        } else {
+            resultText += ", ";
+        }
+        resultText += baseStats[statIndex].toUpperCase() + ":" + Math.floor(result);
+    }
+    return resultText;
 }
 
 $(function() {
