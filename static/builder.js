@@ -286,10 +286,19 @@ function prepareData(equipable) {
             }
         }
     }
-    for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
-        if (adventurersAvailable[adventurerIds[index]]) {
-            dataByType["materia"].push(getItemEntry(adventurersAvailable[adventurerIds[index]]));
+    var adventurerAlreadyPinned = false;
+    for (var index = 6; index < 10; index++) {
+        if (builds[currentUnitIndex].fixedItems[index] && adventurerIds.includes(builds[currentUnitIndex].fixedItems[index].id)) {
+            adventurerAlreadyPinned = true;
             break;
+        }
+    }
+    if (!adventurerAlreadyPinned) {
+        for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
+            if (adventurersAvailable[adventurerIds[index]]) {
+                dataByType["materia"].push(getItemEntry(adventurersAvailable[adventurerIds[index]]));
+                break;
+            }
         }
     }
     dataWithCondition.sort(function(entry1, entry2) {
