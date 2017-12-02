@@ -213,7 +213,7 @@ function prepareEquipable(useBuild = false) {
                 for (partialDualWieldIndex = builds[currentUnitIndex].bestBuild[index].partialDualWield.length; partialDualWieldIndex--;) {
                     var type = builds[currentUnitIndex].bestBuild[index].partialDualWield[partialDualWieldIndex];
                     if (!partialDualWield.includes(type)) {
-                        partialDualWieldpush(type);
+                        partialDualWield.push(type);
                     }
                 }
             }
@@ -1816,11 +1816,11 @@ function getItemLine(index, short = false) {
     }
     
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td actions"><img class="pin fixed" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img></div>'
+        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img></div>'
     } else if (!item) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
-        html += '<div class="td actions"><img class="pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);" src="img/pin.png"></img><img class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img><span class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" /></div>'
+        html += '<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem(\'' + item[itemKey] +'\',' + index + ',false);" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img><span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" /></div>'
     } else {
         html += '<div class="td"></div>'
     }
