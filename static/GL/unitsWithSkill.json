@@ -353,7 +353,7 @@
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Pray","Curaga"],
 		"skills": [
-			{"hp%":20, "mp%":30, "def%":10, "spr%":20}
+			{"spr%":20}
 		]
 	},
 	"Medius": {
@@ -482,7 +482,6 @@
 		},
 		"equip":["dagger","katana","throwing","hat","clothes"],
 		"skills": [
-			{"hp%":30, "atk%":30, "mag%":20, "evade":{"physical":20}, "partialDualWield":["dagger","katana","throwing"], "killers":[{"name":"human","physical":50}]}
 		]
 	},
 	"Gilbert": {
@@ -977,9 +976,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":50, "atk%":10, "singleWieldingOneHanded":{"atk":50}},
-			{"hp%":20, "atk%":20, "equipedConditions":["axe"]},
-			{"hp%":20, "atk%":20, "equipedConditions":["hammer"]}
+			{"hp%":20, "atk%":10}
 		]
 	},
 	"Veritas of the Dark": {
@@ -1306,7 +1303,7 @@
 		},
 		"equip":["dagger","katana","staff","rod","bow","whip","throwing","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":30, "mag%":30}
+			{"hp%":10, "atk%":10, "mag%":10}
 		]
 	},
 	"Roy": {
@@ -2320,8 +2317,6 @@
 		},
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "def%":10, "evade":{"physical":20}, "partialDualWield":["dagger","throwing"]},
-			{"atk%":50, "equipedConditions":["dagger"]}
 		]
 	},
 	"Vivi": {
@@ -2334,8 +2329,6 @@
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"skills": [
-			{"hp%":10, "mp%":20},
-			{"mag%":50, "equipedConditions":["rod"]}
 		]
 	},
 	"Garnet": {
@@ -2349,7 +2342,7 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["EVO MAG +30%","Raise","Curaga"],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":50, "evade":{"magical":20}}
+			{"mp%":10, "spr%":30}
 		]
 	},
 	"Steiner": {
@@ -2429,7 +2422,7 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Barthundara","Thundaga"],
 		"skills": [
-			{"hp%":20, "mp%":50, "mag%":50}
+			{"mp%":20, "mag%":20}
 		]
 	},
 	"Beatrix": {
@@ -2496,7 +2489,7 @@
 		},
 		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "killers":[{"name":"bird","physical":125,"magical":75}]}
+			{"hp%":20, "atk%":10, "killers":[{"name":"bird","physical":50}]}
 		]
 	},
 	"Lulu": {
@@ -2898,7 +2891,7 @@
 		},
 		"equip":["dagger","staff","fist","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":30, "mp%":10, "def%":10, "spr%":20}
+			{"hp%":20, "mp%":10, "def%":10}
 		]
 	},
 	"Aranea": {
