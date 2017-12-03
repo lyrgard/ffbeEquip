@@ -2332,7 +2332,7 @@ function removeItemAt(slot) {
     prepareEquipable(true);
     for (var index = 0; index < 10; index ++) {
         var item = builds[currentUnitIndex].bestBuild[index];
-        if (item) {
+        if (item && !item.placeHolder) {
             if (!equipable[index].includes(item.type)) {
                 removeItemAt(index);
             } else {
