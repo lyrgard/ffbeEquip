@@ -1962,6 +1962,8 @@ function updateUnitStats() {
         $("#resultStats").removeClass("hidden");
         $(".buildLinks").removeClass("hidden");
         $("#buildResult").removeClass("hidden");
+        $("#unitLink").prop("href",toUrl(builds[currentUnitIndex].selectedUnitName));
+        $("#unitLink").removeClass("hidden");
     } else {
         $("#unitTabs .tab_" + currentUnitIndex + " a").html("Select unit");
         $("#pleaseSelectUnitMessage").removeClass("hidden");
@@ -1969,6 +1971,7 @@ function updateUnitStats() {
         $("#resultStats").addClass("hidden");
         $(".buildLinks").addClass("hidden");
         $("#buildResult").addClass("hidden");
+        $("#unitLink").addClass("hidden");
     }
 }
 
