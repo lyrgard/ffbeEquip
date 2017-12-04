@@ -380,6 +380,9 @@ $(function() {
         prepareSearch(data);
         equipments = keepOnlyOneOfEachEquipement();
         materia = keepOnlyOneOfEachMateria();
+        if (itemInventory) {
+            showEquipments();
+        }
         $.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;
             prepareLastItemReleases();
