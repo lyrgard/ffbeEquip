@@ -118,65 +118,69 @@
     color: white;
 }
 
-.td.pin:hover {
+#fixItemModal .modal-body .nav > li {
     cursor: pointer;
 }
 
-.td.pin img {
+#fixItemModal .modal-body .nav > li.active {
+    
+}
+
+#fixItemModal .modal-body .nav > li > a {
+    padding: 2px 2px;
+    opacity: 0.3;
+    border-style: none;
+}
+
+#fixItemModal .modal-body .nav > li.active > a, #fixItemModal .modal-body .nav > li:hover > a {
+    opacity: 1;
+    background-color: white;
+}
+
+.conciseView .line .buildLine .td.actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%
+}
+
+.td.actions .pin:hover {
+    cursor: pointer;
+}
+
+.td.actions img {
     width: 20px;
-    position: relative;
 }
 
-.td.pin.fixed:hover img {
-    animation-name: unpin;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+.td.actions .pin.fixed:hover {
+    opacity: 0.2;
 }
 
-.td.pin.notFixed img {
-    top: -5px;
-    left: 5px;
-    transform: rotate(-15deg);
-    opacity: 0.1;
+.td.actions .pin.notFixed {
+    opacity: 0.2;
 }
 
-.td.pin.notFixed:hover img {
-    display: block;
-    animation-name: pin;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+.td.actions .pin.notFixed:hover {
+    opacity: 1;
 }
 
-@keyframes unpin {
-    from {
-        top: 0;
-        left: 0;
-        transform: rotate(0);
-        opacity: 1;
-    }
-    to {
-        top: -5px;
-        left: 5px;
-        transform: rotate(-15deg);
-        opacity: 0.1;
-    }
+.td.actions .delete {
+    opacity: 0.2;
+}
+.td.actions .delete:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
-@keyframes pin {
-    from {
-        top: -5px;
-        left: 5px;
-        transform: rotate(-15deg);
-        opacity: 0.1;
-    }
-    to {
-        top: 0;
-        left: 0;
-        transform: rotate(0);
-        opacity: 1;
-    }
+.td.actions .excludeItem {
+    margin-top: 2px;
+    opacity: 0.2;
+    text-align: center;
+}
+.td.actions .excludeItem:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: red;
 }
 
 #resultStats {
@@ -235,19 +239,7 @@
     width: 100%;
 }
 
-#detailedViewLink a {
-    cursor: pointer;
-}
-
-#conciseViewLink a {
-    cursor: pointer;
-}
-
-.buildLink {
-    cursor: pointer;
-}
-
-.builderSetupLink {
+.link {
     cursor: pointer;
 }
 
@@ -255,22 +247,91 @@
     margin-bottom: 10px;
 }
 
-.unitEquipable img {
-    
+.unitEquipable {
+    display: inline-block;
 }
 
 .unitEquipable img.notEquipable {
     opacity: 0.2;
 }
 
-#buildResult.conciseView .table {
-    margin-bottom: 0;
+.monsterDefensiveStats {
+    margin-bottom: 20px;
 }
 
-#buildResult.conciseView .table .td {
-    border-top: 0;
-}
-
-#buildResult.conciseView .newLine {
+#buildResult {
     clear: both;
+    width: 100%;
+}
+
+.line {
+    display: table-row-group;
+}
+
+.conciseView .line {
+    display: flex;
+    flex-direction: row;
+}
+
+.buildLine {
+    display: table-row;
+    border-top: 1px solid #ddd;
+}
+
+.conciseView .buildLine {
+    flex:1;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    border-top: none;
+}
+
+.line .buildLine .td {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+.conciseView .line .buildLine .td {
+    padding: 0px;
+}
+
+.conciseView .line .buildLine .type {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.buildLine .change:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.buildLine .type.slot img {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
+.buildLine .slot {
+    opacity: 0.2;
+}
+
+.buildLine .slot.type:hover {
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+#pleaseSelectUnitMessage {
+    padding: 10px;
+}
+
+#unitLink {
+    margin-left: 20px;
 }
