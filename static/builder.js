@@ -74,8 +74,6 @@ var notStackableEvadeGear = [
     ["402001900", "301001500", "409012800"]
 ];
 
-const onlyAvailableOnceItems = ["504207710","504213740","1100000080","1100000079"];
-
 const percentValues = {
     "hp": "hp%",
     "mp": "mp%",
@@ -1412,6 +1410,7 @@ function getAvailableNumber(item) {
                 }        
             }
         }
+        number = 4;
         if (item.maxNumber) {
             if (alreadyUsedItems[item[itemKey]]) {
                 number = item.maxNumber - alreadyUsedItems[item[itemKey]];
@@ -1419,14 +1418,12 @@ function getAvailableNumber(item) {
                 number = item.maxNumber;
             }
         }
-        if (item.access.includes("trial") || !isStackable(item) || onlyAvailableOnceItems.includes(item.id)) {
+        if (!isStackable(item)) {
             if (alreadyUsedItems[item[itemKey]]) {
                 number = 0;
             } else {
                 number = 1;
             }
-        } else {
-            number = 4;    
         }
         
 
