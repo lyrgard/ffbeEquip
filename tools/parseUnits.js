@@ -150,7 +150,19 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
     data["id"] = maxRarityUnitId;
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId])
+    
+    data["enhancementSkills"] = [];
+    for (skillIndex in unitIn.skills) {
+        if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
+            continue; // don't take into account skills for a max rarity not yet released
+        }
+        var skillId = unitIn.skills[skillIndex].id.toString();
+        if (enhancementsByUnitId[unitId] && enhancementsByUnitId[unitId][skillId]) {
+            data["enhancementSkills"].push(skills[skillId].name);
+        }
+    }
+    
+    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max)
     return unit;
 }
 
@@ -164,12 +176,15 @@ function getEquip(equipIn) {
     return equip;
 }
 
-function getPassives(unitId, skillsIn, skills, enhancements) {
+function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
     
     
     for (skillIndex in skillsIn) {
+        if (skillsIn[skillIndex].rarity > maxRarity) {
+            continue; // don't take into account skills for a max rarity not yet released
+        }
         var skillId = skillsIn[skillIndex].id.toString();
         if (enhancements) {
             while(enhancements[skillId]) {
@@ -503,5 +518,9 @@ function getUnitBasicInfo(unitName, unit) {
     result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
     result += "\n\t\t},";
     result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip)
+    if (unit.enhancementSkills.length > 0) {
+        result += ",\n\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
+    }
+    
     return result;
 }

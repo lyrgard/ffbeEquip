@@ -35,7 +35,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayItems(sort(filter(onlyShowOwnedItems, stat, baseStat, searchText, selectedUnit, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
+    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnit, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({

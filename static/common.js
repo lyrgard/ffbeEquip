@@ -13,17 +13,18 @@ var additionalStat = [];
 var searchText = '';
 var selectedUnit = '';
 var server = "GL";
-var baseStats = ['hp','mp','atk','def','mag','spr'];
-var filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
-var elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
-var ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
-var killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
-var typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "lightArmor", "heavyArmor", "robe",  "accessory", "materia"];
-var weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
-var shieldList = ["lightShield", "heavyShield"];
-var headList = ["hat", "helm"];
-var bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
-var accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
+const baseStats = ['hp','mp','atk','def','mag','spr'];
+const filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
+const elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
+const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
+const killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
+const typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "lightArmor", "heavyArmor", "robe",  "accessory", "materia"];
+const typeListWithEsper = typeList.concat(["esper"]);
+const weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
+const shieldList = ["lightShield", "heavyShield"];
+const headList = ["hat", "helm"];
+const bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
+const accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -301,10 +302,7 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
-    if (!name) {
-        console.log("!!");
-    }
-    return wikiBaseUrl + name.replace(' ', '_');
+    return wikiBaseUrl + encodeURIComponent(name.replace(' ', '_'));
 };
 
 var toLink = function(text) {
@@ -491,9 +489,9 @@ function updateLinks() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false) {
+var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var result = [];
-    for (var index in data) {
+    for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
         if (!onlyShowOwnedItems || itemInventory && itemInventory[item[getItemInventoryKey()]]) {
             if (showNotReleasedYet || !item.access.includes("not released yet")) {
@@ -505,7 +503,7 @@ var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, search
                                     if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
                                         if (searchText.length == 0 || containsText(searchText, item)) {
                                             if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
-                                                if (stat.length == 0 || hasStat(stat, item)) {
+                                                if (stat.length == 0 || showItemsWithoutStat || hasStat(stat, item)) {
                                                     calculateValue(item, baseStat, stat, ailments, elements, killers);
                                                     result.push(item);
                                                 }
@@ -527,8 +525,8 @@ var filter = function(onlyShowOwnedItems = true, stat = "", baseStat = 0, search
 var sort = function(items) {
     return items.sort(function (item1, item2){
 		if (item2.calculatedValue == item1.calculatedValue) {
-            var typeIndex1 = typeList.indexOf(item1.type);
-            var typeIndex2 = typeList.indexOf(item2.type);
+            var typeIndex1 = typeListWithEsper.indexOf(item1.type);
+            var typeIndex2 = typeListWithEsper.indexOf(item2.type);
             if (typeIndex1 == typeIndex2) {
                 return item1.name.localeCompare(item2.name);
             } else {
