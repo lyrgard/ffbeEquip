@@ -69,6 +69,8 @@ var monsterSpr = 100;
 
 var damageMultiplier;
 
+var allItemVersions = {};
+
 var notStackableEvadeGear = [
     ["409006700"],
     ["402001900", "301001500", "409012800"]
@@ -280,7 +282,10 @@ function prepareData(equipable) {
                 }
             }
             if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                dualWieldSources.push(item);
+                if (!alreadyAddedIds.includes(item.id)) {
+                    dualWieldSources.push(item);
+                    alreadyAddedIds.push(item.id);
+                }
             }
         }
     }
@@ -871,6 +876,11 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     build[index] = item;
     if (index == 9) {
         numberOfItemCombination++
+        for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
+            if (fixedItems[fixedItemIndex] && (!allItemVersions[fixedItems[fixedItemIndex].id] || allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
+                build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex].id);
+            }
+        }
         if (fixedItems[10]) {
             tryEsper(build, fixedItems[10]);
         } else {
@@ -2271,16 +2281,20 @@ function fixItem(key, slotParam = -1) {
 }
 
 function findBestItemVersion(build, key) {
-    var itemVersions = [];
-    var found = false;
-    for (var index in data) {
-        if (data[index][itemKey] == key) {
-            itemVersions.push(data[index]);
-            found = true;
+    var itemVersions = allItemVersions[key];
+    if (!itemVersions) {
+        allItemVersions[key] = [];
+        var found = false;
+        for (var index in data) {
+            if (data[index][itemKey] == key) {
+                allItemVersions[key].push(data[index]);
+                found = true;
+            }
+            if (found && data[index][itemKey] != key) {
+                break;
+            }
         }
-        if (found && data[index][itemKey] != key) {
-            break;
-        }
+        itemVersions = allItemVersions[key];
     }
     if (itemVersions.length == 1 && !itemVersions[0].equipedConditions) {
         return itemVersions[0];
