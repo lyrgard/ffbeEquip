@@ -9,7 +9,7 @@ var releasedUnits;
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
-    $("#inventory").removeClass("hidden");
+    $("#units").removeClass("hidden");
     $("#searchBox").addClass("hidden");
     
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
@@ -26,30 +26,26 @@ function showAlphabeticalSort() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayUnits = function(units) {
-    var html = '';
+    var html = '<div class="unitList">';
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
-        html += '<div class="col-xs-6 unit ' + escapeName(item[getItemInventoryKey()]);
-        if (!itemInventory[item[itemKey]]) {
-            html += ' notOwned ';
+        html += '<div class="unit ';
+        if (index % 2) {
+            html += 'owned';
+        } else {
+            html += 'notOwned';
         }
-        html+= '" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')">';
-        if (itemInventory) {
-            html+= '<div class="td inventory">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')" />';
-            html += '<span class="number badge badge-success">';
-            if (itemInventory[item[getItemInventoryKey()]]) {
-                html += itemInventory[item[getItemInventoryKey()]];
-            }
-            html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\');" />';
-            
-            html += '</div>';
+        html +='"><div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div><div class="unitName">' + unit.name + '</div>';
+        html += '<div class="unitRarity">'
+        for (var rarityIndex = 0; rarityIndex < unit.min_rarity; rarityIndex++ ) {
+            html += '<img src="/img/star_icon_filled.png"/>';
         }
-        html += getImageHtml(item) + getNameColumnHtml(item);
-        
-        html += "</div>";
+        for (var rarityIndex = 0; rarityIndex < (unit.max_rarity - unit.min_rarity); rarityIndex++ ) {
+            html += '<img src="/img/star_icon.png"/>';
+        }
+        html += '</div></div>'
     }
+    html += '</div>';
     return html;
 
 };
@@ -160,14 +156,15 @@ function keepOnlyOneOfEachMateria() {
 
 function sort(units) {
     return units.sort(function (unit1, unit2){
-        return unit1.name.localeCompare(unit2.name);
+        if (unit1.min_rarity == unit2.min_rarity) {
+            return unit1.name.localeCompare(unit2.name);
+        } else {
+            return unit2.min_rarity - unit1.min_rarity;
+        }
     });
 };
 
 function inventoryLoaded() {
-    if (data) {
-        showAlphabeticalSort();
-    }
 }
 
 function notLoaded() {
@@ -180,20 +177,26 @@ function notLoaded() {
 $(function() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(server + "/units.json", function(result) {
-        units = result;
-        prepareSearch(data);
-        equipments = keepOnlyOneOfEachEquipement();
-        materia = keepOnlyOneOfEachMateria();
-        if (itemInventory) {
-            showEquipments();
-        }
-        $.get(server + "/lastItemReleases.json", function(result) {
+    $.get(server + "/units.json", function(unitResult) {
+        $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
+            units = [];
+            for (var name in unitResult) {
+                if (releasedUnitResult[name]) {
+                    units.push(unitResult[name]);
+                    unitResult[name].name = name;
+                }
+            }
+            showAlphabeticalSort();    
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });    
+        
+        /*$.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;
             prepareLastItemReleases();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
-        });
+        });*/
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -209,6 +212,6 @@ $(function() {
         }
     });
     
-    $("#searchBox").on("input", $.debounce(300,showSearch));
+    //$("#searchBox").on("input", $.debounce(300,showSearch));
     
 });
