@@ -1609,9 +1609,6 @@ function calculateStatValue(itemAndPassives, stat) {
 function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
     var value = 0;
     if (item) {
-        if (item.type == "esper") {
-            console.log("!!");
-        }
         value = getValue(item, stat) * equipmentStatBonus;
         if (item[percentValues[stat]]) {
             percent = item[percentValues[stat]];
