@@ -1,0 +1,82 @@
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="unit.css?version=3">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="icon" type="image/png" href="/img/heavyArmor.png">
+        <title>FFBE Equip : Inventory</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="col-xs-12">
+                <nav class="col-xs-12 navbar navbar-default">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">FFBE Equip</a>
+                    </div>
+                    <div class="switchServer btn-group">
+                        <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                        <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a id="linkToSearch" href="index.html">Search</a></li>
+                        <li><a id="linkToInventory" href="inventory.html">Inventory</a></li>
+                        <li class="active"><a id="linkToUnits" href="units.html">Units</a></li>
+                        <li><a id="linkToBuilder" href="builder.html">Builder</a></li>
+                        <li><a id="linkToContribute" href="contribute.html">Contribute</a></li>
+                    </ul>
+                    <div class="jpWarning"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data are not complete, or are still GL data.</div>
+                    <div id="inventoryDiv" class="buttons account">
+                        <span>Inventory :&nbsp;</span>
+                        <span class="status"></span>
+                        <div class="loader"></div>
+                        <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
+                        <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+                        <span class="message hidden">Saved</span>
+                        <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
+                        
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            <div  class="col-xs-12 col-lg-6 col-lg-offset-3">
+                <span id="pleaseWaitMessage" class="h4">Please wait for your units to be loaded</span>
+                <span id="loginMessage" class="h4 hidden">Log-in to display your units</span>
+                <div id="units" class="hidden">
+                    <ul class="nav nav-tabs">
+                        <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><img src="img/sort-a-z.png"/></a></li>
+                        <span id="sortType"></span>
+                    </ul>
+                    <div class="result-tab-pane">
+                        <div class="panel-body" style="padding:0;">
+                            <div class="col-xs-12">
+                                <input id="searchBox" type="text" class="form-control" placeholder="Enter unit name"/>
+                            </div>
+                            <div id="results" class="">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerButtons">
+                    <div>
+                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank">Send me a message on reddit</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank">Donate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="common.js?version=7"></script>
+		<script src="units.js?version=7"></script>
+        <script src="googleAnalytics.js"></script>
+    </body>
+</html>

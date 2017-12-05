@@ -2255,10 +2255,15 @@ function fixItem(key, slotParam = -1) {
         builds[currentUnitIndex].bestBuild[slot] = item;
         if (slot < 10) {
             for (var index = 0; index < 10; index++) {
-                var itemTmp = builds[currentUnitIndex].fixedItems[index];
-                if (itemTmp  && !itemTmp.placeHolder && index != slot) {
-                    builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, itemTmp[itemKey]);
-                    builds[currentUnitIndex].bestBuild[index] = builds[currentUnitIndex].fixedItems[index];
+                if (index != slot) {
+                    var itemTmp = builds[currentUnitIndex].bestBuild[index];
+                    if (itemTmp  && !itemTmp.placeHolder && index != slot) {
+                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].bestBuild, itemTmp[itemKey]);
+                        if (builds[currentUnitIndex].fixedItems[index]) {
+                            builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
+                        }
+                        builds[currentUnitIndex].bestBuild[index] = bestItemVersion;
+                    }
                 }
             }
         }
