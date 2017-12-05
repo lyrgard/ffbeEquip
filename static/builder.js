@@ -258,6 +258,7 @@ function prepareData(equipable) {
     var tempData = {};
     var adventurersAvailable = {};
     var alreadyAddedIds = [];
+    var alreadyAddedDualWieldSource = [];
     
     for (var index = data.length; index--;) {
         var item = data[index];
@@ -282,9 +283,9 @@ function prepareData(equipable) {
                 }
             }
             if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                if (!alreadyAddedIds.includes(item.id)) {
+                if (!alreadyAddedDualWieldSource.includes(item.id)) {
                     dualWieldSources.push(item);
-                    alreadyAddedIds.push(item.id);
+                    alreadyAddedDualWieldSource.push(item.id);
                 }
             }
         }
@@ -2509,10 +2510,10 @@ function loadStateHashAndBuild(data) {
         onUnitChange();
     }
     select("elements", data.innateElements);
-    if (data.goal == "mag") {
+    if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
     }
-    if (data.goal == "atk" || data.goal == "mag") {
+    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage") {
         select("races", data.ennemyRaces);
         for (var element in data.ennemyResists) {
             if (data.ennemyResists[element] == 0) {
