@@ -291,7 +291,7 @@ var toHtml = function(text) {
             if (token.length == 2) {
                 result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
             }
-            result += '<a href="'+ toUrl(token[0]) +'">'+token[0] +'</a>'; 
+            result += toLink(token[0]); 
             return result;
         });
         return "<span>" + textWithAddedAnchors +"</span>";
