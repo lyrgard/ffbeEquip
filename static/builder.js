@@ -84,7 +84,12 @@ const percentValues = {
     "mag": "mag%",
     "spr": "spr%"
 }
-const itemsToExclude = ["409009000"]; // Ring of Dominion
+var itemsToExclude = ["409009000"]; // Ring of Dominion
+
+var saveNeeded = false;
+
+var saveTimeout;
+
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -2360,6 +2365,43 @@ function excludeItem(itemId) {
         itemsToExclude.push(itemId);
     }
     $(".excludedItemNumber").html(itemsToExclude.length);
+    startSaveTimer();
+}
+
+
+function saveItemsToExclude() {
+    if (saveTimeout) { clearTimeout(saveTimeout) }
+    $(".saveInventory").addClass("hidden");
+    $("#inventoryDiv .loader").removeClass("hidden");
+    $("#inventoryDiv .message").addClass("hidden");
+    saveNeeded = false;
+    $.ajax({
+        url: server + '/itemsToExclude',
+        method: 'PUT',
+        data: JSON.stringify(itemsToExclude),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function () {
+            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv .message").text("save OK");
+            $("#inventoryDiv .message").removeClass("hidden");
+            setTimeout(function () {
+                $("#inventoryDiv .message").addClass("hidden");
+            }, 3000);
+        },
+        error: function (error) {
+            $("#inventoryDiv .loader").addClass("hidden");
+            if (error.status == 401) {
+                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
+                window.location.reload();
+            } else {
+                saveNeeded = true;
+                $(".saveInventory").removeClass("hidden");
+                alert('error while saving the inventory. Please click on "Save" to try again');
+            }
+
+        }
+    });
 }
 
 function recalculateApplicableSkills() {
@@ -2678,6 +2720,7 @@ function removeItemFromExcludeList(id) {
     $("#showExcludedItemsDialog .tr.id_" + id).remove();
     itemsToExclude.splice(itemsToExclude.indexOf(id),1);
     $(".excludedItemNumber").html(itemsToExclude.length);
+    startSaveTimer();
 }
 
 function getItemLineAsText(prefix, slot) {
@@ -2777,7 +2820,6 @@ $(function() {
         $('#searchText').focus();
     })  
     
-    $(".excludedItemNumber").html(itemsToExclude.length);
     progressElement = $("#buildProgressBar .progressBar");
 });
 
@@ -2839,3 +2881,28 @@ function populateItemStat() {
         target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
 	}
 }
+
+function startSaveTimer() {
+    saveNeeded = true;
+    if (saveTimeout) { clearTimeout(saveTimeout) }
+    saveTimeout = setTimeout(saveItemsToExclude, 3000);
+}
+
+function itemsToExcludeLoaded() {
+    $(".excludedItemNumber").html(itemsToExclude.length);
+}
+
+$(function () {
+    $.get(server + '/itemsToExclude', function (result) {
+        itemsToExclude = result;
+        itemsToExcludeLoaded();
+    }, 'json').fail(function (jqXHR, textStatus, errorThrown) {
+        itemsToExcludeLoaded();
+    });
+
+    $(window).on("beforeunload", function () {
+        if (saveNeeded) {
+            return "Unsaved change exists !"
+        }
+    });
+});
