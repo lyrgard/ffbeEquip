@@ -249,7 +249,7 @@ $(function() {
                 }
                 showAlphabeticalSort();
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
+                
             });    
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
