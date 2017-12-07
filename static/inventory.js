@@ -17,6 +17,7 @@ function beforeShow() {
     $(".nav-tabs li.materia").removeClass("active");
     $(".nav-tabs li.search").removeClass("active");
     $(".nav-tabs li.history").removeClass("active");
+    $(".nav-tabs li.settings").removeClass("active");
 }
 
 function showMateria() {
@@ -77,6 +78,24 @@ function showHistory() {
     $("#results").html(html);
 }
 
+function showSettings() {
+    beforeShow();
+    $(".nav-tabs li.settings").addClass("active");
+    var html = "";
+    html += 
+        '<div class="col-xs-12 addAll">' +
+        '<div class="col-xs-12 source">Inventory Tools</div>' +
+        '<div class="col-x2-12 inventoryTools">' +
+        '<button class="ui-button ui-co`rner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
+    if (itemsAddedWithAddAll.length > 0) {
+        html += '<button class="ui-button ui-corner-all ui-widget" onclick="undoAddAllToInventory()">Undo Add All</button>';
+    }
+    html += '</div></div>';
+    $("#results").html(html);
+
+
+}
+
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     var html = '';
@@ -123,6 +142,52 @@ function addToInventory(id) {
     saveTimeout = setTimeout(saveInventory,3000);
     $(".saveInventory").removeClass("hidden");
 }
+
+function showAddAllToInventoryDialog() {
+    $('<div id = "dialog-addAll-confirm" title = "Add all equipment and materia to inventory?" >' +
+        '<p>This wll update your inventory to have at least one of each equipment and materia. Are you sure?</p> ' +
+    '</div>').dialog({
+        resizable: false,
+        height: "auto",
+        width: 600,
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        buttons: {
+            "Add all items": function () {
+                addAllToInventory(materia);
+                addAllToInventory(equipments);
+                $(this).dialog("close");
+            },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+}
+
+var itemsAddedWithAddAll = [];
+
+function addAllToInventory(items) {
+    var itemInventoryKeys = Object.keys(itemInventory);
+    for (var index in items) {
+        var item = items[index];
+        var key = escapeName(item[getItemInventoryKey()]);
+        if (itemInventoryKeys.indexOf(key) === -1) {
+            addToInventory(key);
+            itemsAddedWithAddAll.push(key);
+        }
+    }
+    showSettings();
+}
+
+function undoAddAllToInventory() {
+    for (var index in itemsAddedWithAddAll) {
+        removeFromInventory(itemsAddedWithAddAll[index]);
+    }
+    itemsAddedWithAddAll = [];
+    showSettings();
+}
+
 
 function removeFromInventory(id) {
     if(itemInventory[id]) {
