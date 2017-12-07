@@ -1414,7 +1414,9 @@
 		},
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":30}
+			{"hp%":30, "def%":20, "spr%":30},
+			{"def%":30, "equipedConditions":["clothes"]},
+			{"spr%":30, "equipedConditions":["robe"]}
 		]
 	},
 	"William": {
@@ -4058,6 +4060,23 @@
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 		"skills": [
 			{"hp%":10, "mp%":20, "mag%":30}
+		]
+	},
+	"Cowboy Jake": {
+		"id":"401001005",
+		"max_rarity":"5",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2755,"mp":108,"atk":119,"def":100,"mag":73,"spr":98},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":10}, "killers":[{"name":"human","physical":50}], "special":["dualWield"]},
+			{"atk%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "equipedConditions":["gun"]},
+			{"def%":30, "equipedConditions":["lightArmor"]}
 		]
 	},
 	"Zargabaath": {
