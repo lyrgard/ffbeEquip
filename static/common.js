@@ -756,6 +756,23 @@ function prepareSearch(data) {
     }
 }
 
+function getShortUrl(longUrl, callback) {
+    $.ajax({
+        url: 'links',
+        method: 'POST',
+        data: JSON.stringify({"url":longUrl}),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) {
+            callback(data.url);
+        },
+        error: function(error) {
+            alert('Failed to generate short url. Long url will be used instead');
+            callback(longUrl);
+        }
+    });
+}
+
 $(function() {
     readServerType();
     $.get(server + '/itemInventory', function(result) {

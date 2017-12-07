@@ -85,6 +85,22 @@ app.get("/:server/units", function(req, res) {
     getFileFromGoogleDrive(req, res, "units");
 });
 
+app.get("/links/:shortId", function(req, res) {
+    res.status(303).location("https://goo.gl/" + req.params.shortId).send();
+});
+
+app.post("/links", function(req, res) {
+    var data = req.body;
+    googl.shorten(data.url)
+    .then(function (shortUrl) {
+        var url = "http://ffbeEquip.lyrgard.fr/links/" + shortUrl.substr(15);
+        res.status(200).json({"url":url});
+    })
+    .catch(function (err) {
+        res.status(500).send(err.message);
+    });
+});
+
 function saveFileToGoogleDrive(req, res, paramFileName) {
     let driveConfigClient = getDriveConfigClient(req, res);
     if (!driveConfigClient) return;
@@ -236,6 +252,14 @@ function getOAuthUrl() {
         // state: { foo: 'bar' }
     });
 }
+
+fs.readFile('googleOAuth/googlApiKey.txt', "utf8", function (err, content) {
+    if (err) {
+        console.log('Error loading goo.gl API key: ' + err);
+        return;
+    }
+    googl.setKey(content);
+});
 
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
