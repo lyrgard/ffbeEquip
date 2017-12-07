@@ -2572,56 +2572,61 @@ function showBuildLink() {
         }
     }
     data.equipmentToUse = "all";
-    $('<div id="showLinkDialog" title="Build Link">' + 
-        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
-        '<h4>This link will open the builder with this exact build displayed</h4>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $("#showLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+        $('<div id="showLinkDialog" title="Build Link">' + 
+            '<input value="' + shortUrl + '"></input>' +
+            '<h4>This link will open the builder with this exact build displayed</h4>' +
+          '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+                $("#showLinkDialog input").select();
+                try {
+                    var successful = document.execCommand('copy');
+                    if (successful) {
+                        $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                    } else {
+                        console.log('Oops, unable to copy');    
+                    }
+                } catch (err) {
+                    console.log('Oops, unable to copy');
                 }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        position: { my: 'top', at: 'top+150' },
-        width: 600
+            },
+            position: { my: 'top', at: 'top+150' },
+            width: 600
+        });
     });
 }
       
 function showBuilderSetupLink() {
     var data = getStateHash();
-    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
-        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
-        '<h4>The following information are stored in this link :</h4>' +
-        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
-        '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $("#showBuilderSetupLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+        $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
+            '<input value="' + shortUrl + '"></input>' +
+            '<h4>The following information are stored in this link :</h4>' +
+            '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
+            '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
+          '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+                $("#showBuilderSetupLinkDialog input").select();
+                try {
+                    var successful = document.execCommand('copy');
+                    if (successful) {
+                        $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
+                    } else {
+                        console.log('Oops, unable to copy');    
+                    }
+                } catch (err) {
+                    console.log('Oops, unable to copy');
                 }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        position: { my: 'top', at: 'top+150' },
-        width: 600
+            },
+            position: { my: 'top', at: 'top+150' },
+            width: 600
+        });
     });
+    
 }
 
 function showBuildAsText() {
