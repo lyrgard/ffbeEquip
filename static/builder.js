@@ -23,11 +23,13 @@ var dualWieldSources = [];
 var espers;
 var selectedEspers = [];
 var units;
+var ownedUnits;
 var onlyUseOwnedItems = false;
 var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
 var excludePremium;
+var includeTMROfOwnedUnits;
 
 var selectedUnitName;
 var selectedUnit;
@@ -233,6 +235,7 @@ function prepareData(equipable) {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
+    includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     
     desirableElements = [];
     for (var index = 0, len = builds[currentUnitIndex].selectedUnit.skills.length; index < len; index++) {
@@ -1406,8 +1409,19 @@ function getInnatePartialDualWield() {
 function getAvailableNumber(item) {
     var number = 0;
     if (onlyUseOwnedItems) {
-        if (itemInventory[item[itemKey]]) {
-            number = getOwnedNumber(item).available;
+        if (includeTMROfOwnedUnits && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+            number = 4;
+            if (item.maxNumber) {
+                if (alreadyUsedItems[item[itemKey]]) {
+                    number = item.maxNumber - alreadyUsedItems[item[itemKey]];
+                } else {
+                    number = item.maxNumber;
+                }
+            }
+        } else {
+            if (itemInventory[item[itemKey]]) {
+                number = getOwnedNumber(item).available;
+            }
         }
     } else {
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
@@ -1713,21 +1727,7 @@ function logBuild(build, value) {
         var html = "";
         
         for (var index = 0; index < 11; index++) {
-            redrawBuildLine(index);
-            /*if (conciseView) {
-                html += "<div class='col-xs-6 ";
-                if (index%2 == 0) {
-                    html += "newLine";
-                }
-                html += "'><div class='table'><div class='tbody'>";
-            }
-            var item = build[index];
-            if (item) {
-                html += getItemLine(item, index, conciseView);
-            }
-            if (conciseView) {
-                html += "</div></div></div>"
-            }*/            
+            redrawBuildLine(index);          
         }
 
         if (conciseView) {
@@ -1839,6 +1839,9 @@ function getItemLine(index, short = false) {
             html += '<div class="change" onclick="displayFixItemModal(' + index + ');">' + getImageHtml(item) + '</div>' + getNameColumnHtml(item);
         } else {
             html += displayItemLine(item);
+        }
+        if (!item.placeHolder && onlyUseOwnedItems && getOwnedNumber(item).available == 0 && index < 10) {
+            html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
         }
     }
     return html;
@@ -2114,12 +2117,18 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().removeClass("hidden");
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
+        $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         onlyUseOwnedItems = false;
     } else {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
         $("#excludeNotReleasedYet").parent().addClass("hidden");
+        if (ownedUnits && Object.keys(ownedUnits).length > 0) {
+            $("#includeTMROfOwnedUnits").parent().removeClass("hidden");
+        } else {
+            $("#includeTMROfOwnedUnits").parent().addClass("hidden");
+        }
         onlyUseOwnedItems = true;
     }
 }
@@ -2769,6 +2778,12 @@ $(function() {
         }
         prepareSearch(searchableEspers);
         readHash();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
+    $.get(server + "/units", function(result) {
+        ownedUnits = result;
+        onEquipmentsChange();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });

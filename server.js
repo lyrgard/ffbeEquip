@@ -119,7 +119,7 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
             });
         } else {
             driveConfigClient.create(fileName, JSON.stringify(data)).then(file => {
-                res.send();
+                res.status(200).json(file);
             }).catch(err => {
                 console.log(err);
                 res.status(500).send(err);
@@ -134,7 +134,6 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
 function getFileFromGoogleDrive(req, res, paramFileName) {
     let driveConfigClient = getDriveConfigClient(req, res);
     if (!driveConfigClient) return;
-    
     
     var fileName = paramFileName + "_" + req.params.server + ".json"
     driveConfigClient.getByName(fileName).then(files => {
