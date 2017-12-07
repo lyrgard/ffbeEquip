@@ -1,6 +1,7 @@
 .unitList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .unit {
@@ -44,4 +45,31 @@
 
 .unitRarity {
     margin-bottom: 5px;
+}
+
+.result-tab-pane {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#searchBox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-tabs li {
+    cursor: pointer;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.raritySeparator {
+    margin-top: 30px;
 }
