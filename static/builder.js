@@ -1409,7 +1409,7 @@ function getInnatePartialDualWield() {
 function getAvailableNumber(item) {
     var number = 0;
     if (onlyUseOwnedItems) {
-        if (includeTMROfOwnedUnits && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+        if (includeTMROfOwnedUnits && !item.access.includes("not released yet") && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
             number = 4;
             if (item.maxNumber) {
                 if (alreadyUsedItems[item[itemKey]]) {
