@@ -146,6 +146,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     }
     
     data["max_rarity"] = unitIn["rarity_max"];
+    data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
@@ -512,6 +513,7 @@ function getUnitBasicInfo(unitName, unit) {
     result += "\n\t\"" + unitName + "\": {";
     result += "\n\t\t\"id\":\"" + unit.id + "\","
     result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
+    result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","
     result += "\n\t\t\"sex\":\"" + unit.sex + "\","
     result += "\n\t\t\"stats\": {";
     result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ","

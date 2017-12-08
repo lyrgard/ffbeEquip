@@ -7,6 +7,7 @@ var jv = require('json-validation');
 var google = require('googleapis');
 var app = express();
 let driveConfig = require('drive-config');
+var googl = require('goo.gl');
 var inventoryFile = null;
 
 
@@ -65,24 +66,49 @@ app.get('/googleOAuthSuccess', function(req, res) {
 });
 
 app.put("/:server/itemInventory", function(req, res) {
-    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
-    if (!googleOAuthAccessToken) {
-        res.status(401).send();
-        return;
+    saveFileToGoogleDrive(req, res, "itemInventory");
+});
+
+app.put("/:server/units", function(req, res) {
+    saveFileToGoogleDrive(req, res, "units");
+});
+
+app.get("/:server/itemInventory", function(req, res) {
+    if (inventoryFile == null) {
+        getFileFromGoogleDrive(req, res, "itemInventory");
     } else {
-        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
+        res.status(200).json(JSON.parse(fs.readFileSync(inventoryFile, 'utf8')));
     }
+});
+
+app.get("/:server/units", function(req, res) {
+    getFileFromGoogleDrive(req, res, "units");
+});
+
+app.get("/links/:shortId", function(req, res) {
+    res.status(303).location("https://goo.gl/" + req.params.shortId).send();
+});
+
+app.post("/links", function(req, res) {
+    var data = req.body;
+    googl.shorten(data.url)
+    .then(function (shortUrl) {
+        var url = "http://ffbeEquip.lyrgard.fr/links/" + shortUrl.substr(15);
+        res.status(200).json({"url":url});
+    })
+    .catch(function (err) {
+        res.status(500).send(err.message);
+    });
+});
+
+function saveFileToGoogleDrive(req, res, paramFileName) {
+    let driveConfigClient = getDriveConfigClient(req, res);
+    if (!driveConfigClient) return;
+    
     var data = req.body;
     data.version = 2;
     
-    var oauth2Client = new OAuth2(
-        googleOAuthCredential.web.client_id,
-        googleOAuthCredential.web.client_secret,
-        googleOAuthCredential.web.redirect_uris[0]
-    );
-    oauth2Client.setCredentials(googleOAuthAccessToken);
-    let driveConfigClient = new driveConfig(oauth2Client);
-    var fileName = "itemInventory_" + req.params.server + ".json"
+    var fileName = paramFileName + "_" + req.params.server + ".json"
     driveConfigClient.getByName(fileName).then(files => {
         if (files.length > 0) {
             driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
@@ -93,7 +119,7 @@ app.put("/:server/itemInventory", function(req, res) {
             });
         } else {
             driveConfigClient.create(fileName, JSON.stringify(data)).then(file => {
-                res.send();
+                res.status(200).json(file);
             }).catch(err => {
                 console.log(err);
                 res.status(500).send(err);
@@ -103,63 +129,66 @@ app.put("/:server/itemInventory", function(req, res) {
         console.log(err);
         res.status(500);
     });   
-});
+}
 
-app.get("/:server/itemInventory", function(req, res) {
-    if (inventoryFile == null) {
-        var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
-        if (!googleOAuthAccessToken) {
-            res.status(401).send();
-            return;
-        } else {
-            googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
-        }
-
-        var oauth2Client = new OAuth2(
-            googleOAuthCredential.web.client_id,
-            googleOAuthCredential.web.client_secret,
-            googleOAuthCredential.web.redirect_uris[0]
-        );
-        var fileName = "itemInventory_" + req.params.server + ".json"
-        oauth2Client.setCredentials(googleOAuthAccessToken);
-        let driveConfigClient = new driveConfig(oauth2Client);
-        driveConfigClient.getByName(fileName).then(files => {
-            if (files.length > 0) {
-                if (files[0].data.constructor === Array) {
-                    res.status(200).json({});
-                } else {
-                    var result = files[0].data;
-                    if (req.params.server == "GL") {
-                        result = migrateFromNameToId(result);
-                    }
-                    res.status(200).json(result);
-                }
+function getFileFromGoogleDrive(req, res, paramFileName) {
+    let driveConfigClient = getDriveConfigClient(req, res);
+    if (!driveConfigClient) return;
+    
+    var fileName = paramFileName + "_" + req.params.server + ".json"
+    driveConfigClient.getByName(fileName).then(files => {
+        if (files.length > 0) {
+            if (files[0].data.constructor === Array) {
+                res.status(200).json({});
             } else {
-                // Migration to GL/JP files.
+                var result = files[0].data;
                 if (req.params.server == "GL") {
-                    driveConfigClient.getByName("itemInventory.json").then(files => {
-                        if (files.length > 0) {
-                            if (files[0].data.constructor === Array) {
-                                res.status(200).json({});
-                            } else {
-                                res.status(200).json(migrateFromNameToId(files[0].data));
-                            }
-                        } else {
-                          res.status(200).json({});   
-                        }
-                    });
-                } else {
-                    res.status(200).json({});
+                    result = migrateFromNameToId(result);
                 }
+                res.status(200).json(result);
             }
-        }).catch(err => {
-            console.log(err);
-            res.status(500).send(err);
-        });
+        } else {
+            // Migration to GL/JP files.
+            if (req.params.server == "GL") {
+                driveConfigClient.getByName(paramFileName + ".json").then(files => {
+                    if (files.length > 0) {
+                        if (files[0].data.constructor === Array) {
+                            res.status(200).json({});
+                        } else {
+                            res.status(200).json(migrateFromNameToId(files[0].data));
+                        }
+                    } else {
+                      res.status(200).json({});   
+                    }
+                });
+            } else {
+                res.status(200).json({});
+            }
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+    });
+}
+
+function getDriveConfigClient(req, res) {
+    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+    if (!googleOAuthAccessToken) {
+        res.status(401).send();
+        return;
     } else {
-        res.status(200).json(JSON.parse(fs.readFileSync(inventoryFile, 'utf8')));
+        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
     }
-});
+
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
+    );
+    
+    oauth2Client.setCredentials(googleOAuthAccessToken);
+    return new driveConfig(oauth2Client);
+}
 
 function migrateFromNameToId(itemInventory) {
     if (itemInventory && (!itemInventory.version || itemInventory.version < 2)) {
@@ -222,6 +251,14 @@ function getOAuthUrl() {
         // state: { foo: 'bar' }
     });
 }
+
+fs.readFile('googleOAuth/googlApiKey.txt', "utf8", function (err, content) {
+    if (err) {
+        console.log('Error loading goo.gl API key: ' + err);
+        return;
+    }
+    googl.setKey(content);
+});
 
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];

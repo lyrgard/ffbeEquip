@@ -60,7 +60,7 @@ function showHistory() {
             if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
                 html += '<div class="col-xs-12 source">';
                 for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
-                    if (unitIndex == lastItemReleases[dateIndex].sources[sourceIndex].units.length -1) {
+                    if (lastItemReleases[dateIndex].sources[sourceIndex].units.length > 1 && unitIndex == lastItemReleases[dateIndex].sources[sourceIndex].units.length -1) {
                         html += " and ";
                     } else if (unitIndex > 0) {
                         html += ", ";
@@ -380,6 +380,9 @@ $(function() {
         prepareSearch(data);
         equipments = keepOnlyOneOfEachEquipement();
         materia = keepOnlyOneOfEachMateria();
+        if (itemInventory) {
+            showEquipments();
+        }
         $.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;
             prepareLastItemReleases();
