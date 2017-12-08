@@ -23,11 +23,13 @@ var dualWieldSources = [];
 var espers;
 var selectedEspers = [];
 var units;
+var ownedUnits;
 var onlyUseOwnedItems = false;
 var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
 var excludePremium;
+var includeTMROfOwnedUnits;
 
 var selectedUnitName;
 var selectedUnit;
@@ -68,6 +70,8 @@ var monsterDef = 100;
 var monsterSpr = 100;
 
 var damageMultiplier;
+
+var allItemVersions = {};
 
 var notStackableEvadeGear = [
     ["409006700"],
@@ -231,6 +235,7 @@ function prepareData(equipable) {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
+    includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     
     desirableElements = [];
     for (var index = 0, len = builds[currentUnitIndex].selectedUnit.skills.length; index < len; index++) {
@@ -256,6 +261,7 @@ function prepareData(equipable) {
     var tempData = {};
     var adventurersAvailable = {};
     var alreadyAddedIds = [];
+    var alreadyAddedDualWieldSource = [];
     
     for (var index = data.length; index--;) {
         var item = data[index];
@@ -280,7 +286,10 @@ function prepareData(equipable) {
                 }
             }
             if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                dualWieldSources.push(item);
+                if (!alreadyAddedDualWieldSource.includes(item.id)) {
+                    dualWieldSources.push(item);
+                    alreadyAddedDualWieldSource.push(item.id);
+                }
             }
         }
     }
@@ -871,6 +880,11 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
     build[index] = item;
     if (index == 9) {
         numberOfItemCombination++
+        for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
+            if (fixedItems[fixedItemIndex] && (!allItemVersions[fixedItems[fixedItemIndex].id] || allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
+                build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex].id);
+            }
+        }
         if (fixedItems[10]) {
             tryEsper(build, fixedItems[10]);
         } else {
@@ -1395,8 +1409,19 @@ function getInnatePartialDualWield() {
 function getAvailableNumber(item) {
     var number = 0;
     if (onlyUseOwnedItems) {
-        if (itemInventory[item[itemKey]]) {
-            number = getOwnedNumber(item).available;
+        if (includeTMROfOwnedUnits && !item.access.includes("not released yet") && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+            number = 4;
+            if (item.maxNumber) {
+                if (alreadyUsedItems[item[itemKey]]) {
+                    number = item.maxNumber - alreadyUsedItems[item[itemKey]];
+                } else {
+                    number = item.maxNumber;
+                }
+            }
+        } else {
+            if (itemInventory[item[itemKey]]) {
+                number = getOwnedNumber(item).available;
+            }
         }
     } else {
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
@@ -1609,9 +1634,6 @@ function calculateStatValue(itemAndPassives, stat) {
 function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
     var value = 0;
     if (item) {
-        if (item.type == "esper") {
-            console.log("!!");
-        }
         value = getValue(item, stat) * equipmentStatBonus;
         if (item[percentValues[stat]]) {
             percent = item[percentValues[stat]];
@@ -1705,21 +1727,7 @@ function logBuild(build, value) {
         var html = "";
         
         for (var index = 0; index < 11; index++) {
-            redrawBuildLine(index);
-            /*if (conciseView) {
-                html += "<div class='col-xs-6 ";
-                if (index%2 == 0) {
-                    html += "newLine";
-                }
-                html += "'><div class='table'><div class='tbody'>";
-            }
-            var item = build[index];
-            if (item) {
-                html += getItemLine(item, index, conciseView);
-            }
-            if (conciseView) {
-                html += "</div></div></div>"
-            }*/            
+            redrawBuildLine(index);          
         }
 
         if (conciseView) {
@@ -1831,6 +1839,9 @@ function getItemLine(index, short = false) {
             html += '<div class="change" onclick="displayFixItemModal(' + index + ');">' + getImageHtml(item) + '</div>' + getNameColumnHtml(item);
         } else {
             html += displayItemLine(item);
+        }
+        if (!item.placeHolder && index < 10 && onlyUseOwnedItems && getOwnedNumber(item).available == 0 && item.tmrUnit && ownedUnits && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+            html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
         }
     }
     return html;
@@ -2106,12 +2117,18 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().removeClass("hidden");
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
+        $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         onlyUseOwnedItems = false;
     } else {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
         $("#excludeNotReleasedYet").parent().addClass("hidden");
+        if (ownedUnits && Object.keys(ownedUnits).length > 0) {
+            $("#includeTMROfOwnedUnits").parent().removeClass("hidden");
+        } else {
+            $("#includeTMROfOwnedUnits").parent().addClass("hidden");
+        }
         onlyUseOwnedItems = true;
     }
 }
@@ -2255,10 +2272,15 @@ function fixItem(key, slotParam = -1) {
         builds[currentUnitIndex].bestBuild[slot] = item;
         if (slot < 10) {
             for (var index = 0; index < 10; index++) {
-                var itemTmp = builds[currentUnitIndex].fixedItems[index];
-                if (itemTmp  && !itemTmp.placeHolder && index != slot) {
-                    builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, itemTmp[itemKey]);
-                    builds[currentUnitIndex].bestBuild[index] = builds[currentUnitIndex].fixedItems[index];
+                if (index != slot) {
+                    var itemTmp = builds[currentUnitIndex].bestBuild[index];
+                    if (itemTmp  && !itemTmp.placeHolder && index != slot) {
+                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].bestBuild, itemTmp[itemKey]);
+                        if (builds[currentUnitIndex].fixedItems[index]) {
+                            builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
+                        }
+                        builds[currentUnitIndex].bestBuild[index] = bestItemVersion;
+                    }
                 }
             }
         }
@@ -2269,16 +2291,20 @@ function fixItem(key, slotParam = -1) {
 }
 
 function findBestItemVersion(build, key) {
-    var itemVersions = [];
-    var found = false;
-    for (var index in data) {
-        if (data[index][itemKey] == key) {
-            itemVersions.push(data[index]);
-            found = true;
+    var itemVersions = allItemVersions[key];
+    if (!itemVersions) {
+        allItemVersions[key] = [];
+        var found = false;
+        for (var index in data) {
+            if (data[index][itemKey] == key) {
+                allItemVersions[key].push(data[index]);
+                found = true;
+            }
+            if (found && data[index][itemKey] != key) {
+                break;
+            }
         }
-        if (found && data[index][itemKey] != key) {
-            break;
-        }
+        itemVersions = allItemVersions[key];
     }
     if (itemVersions.length == 1 && !itemVersions[0].equipedConditions) {
         return itemVersions[0];
@@ -2493,10 +2519,10 @@ function loadStateHashAndBuild(data) {
         onUnitChange();
     }
     select("elements", data.innateElements);
-    if (data.goal == "mag") {
+    if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
     }
-    if (data.goal == "atk" || data.goal == "mag") {
+    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage") {
         select("races", data.ennemyRaces);
         for (var element in data.ennemyResists) {
             if (data.ennemyResists[element] == 0) {
@@ -2555,56 +2581,61 @@ function showBuildLink() {
         }
     }
     data.equipmentToUse = "all";
-    $('<div id="showLinkDialog" title="Build Link">' + 
-        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
-        '<h4>This link will open the builder with this exact build displayed</h4>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $("#showLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+        $('<div id="showLinkDialog" title="Build Link">' + 
+            '<input value="' + shortUrl + '"></input>' +
+            '<h4>This link will open the builder with this exact build displayed</h4>' +
+          '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+                $("#showLinkDialog input").select();
+                try {
+                    var successful = document.execCommand('copy');
+                    if (successful) {
+                        $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                    } else {
+                        console.log('Oops, unable to copy');    
+                    }
+                } catch (err) {
+                    console.log('Oops, unable to copy');
                 }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        position: { my: 'top', at: 'top+150' },
-        width: 600
+            },
+            position: { my: 'top', at: 'top+150' },
+            width: 600
+        });
     });
 }
       
 function showBuilderSetupLink() {
     var data = getStateHash();
-    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
-        '<input value="http://ffbeEquip.lyrgard.fr/builder.html#' + btoa(JSON.stringify(data)) + '"></input>' +
-        '<h4>The following information are stored in this link :</h4>' +
-        '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
-        '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $("#showBuilderSetupLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+        $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
+            '<input value="' + shortUrl + '"></input>' +
+            '<h4>The following information are stored in this link :</h4>' +
+            '<ul><li>The goal of the current unit</li><li>The currently selected unit, if any, and related information</li><li>Information about the monster (race and elemental resist)</li><li>The choice of equipments to use</li><li>The items that has been pinned in the build</li></ul>' +
+            '<h4>Upon opening the link, those information will be restored, and if possible a build will be launched.</h4>' +
+          '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+                $("#showBuilderSetupLinkDialog input").select();
+                try {
+                    var successful = document.execCommand('copy');
+                    if (successful) {
+                        $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
+                    } else {
+                        console.log('Oops, unable to copy');    
+                    }
+                } catch (err) {
+                    console.log('Oops, unable to copy');
                 }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        position: { my: 'top', at: 'top+150' },
-        width: 600
+            },
+            position: { my: 'top', at: 'top+150' },
+            width: 600
+        });
     });
+    
 }
 
 function showBuildAsText() {
@@ -2749,6 +2780,11 @@ $(function() {
         readHash();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
+    });
+    $.get(server + "/units", function(result) {
+        ownedUnits = result;
+        onEquipmentsChange();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     
     $(".goal select").change(onGoalChange);

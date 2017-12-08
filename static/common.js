@@ -291,7 +291,7 @@ var toHtml = function(text) {
             if (token.length == 2) {
                 result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
             }
-            result += '<a href="'+ toUrl(token[0]) +'">'+token[0] +'</a>'; 
+            result += toLink(token[0]); 
             return result;
         });
         return "<span>" + textWithAddedAnchors +"</span>";
@@ -754,6 +754,23 @@ function prepareSearch(data) {
         }
         item.searchString = textToSearch;
     }
+}
+
+function getShortUrl(longUrl, callback) {
+    $.ajax({
+        url: 'links',
+        method: 'POST',
+        data: JSON.stringify({"url":longUrl}),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) {
+            callback(data.url);
+        },
+        error: function(error) {
+            alert('Failed to generate short url. Long url will be used instead');
+            callback(longUrl);
+        }
+    });
 }
 
 $(function() {

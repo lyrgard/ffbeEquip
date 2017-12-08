@@ -1,0 +1,75 @@
+.unitList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.unit.owned {
+    background-color: #d2edf9;
+}
+.unit.notOwned {
+    opacity: 0.3;
+}
+
+.unit:hover {
+    background-color: #337ab7;
+}
+
+.unitImageWrapper {
+    height: 100px;
+    width: 130px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.unitImage {
+    max-height: 100px;
+}
+
+.unitRarity img {
+    width: 16px;
+    height: 16px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.unitRarity {
+    margin-bottom: 5px;
+}
+
+.result-tab-pane {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#searchBox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-tabs li {
+    cursor: pointer;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.raritySeparator {
+    margin-top: 30px;
+}
