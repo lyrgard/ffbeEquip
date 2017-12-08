@@ -1840,7 +1840,7 @@ function getItemLine(index, short = false) {
         } else {
             html += displayItemLine(item);
         }
-        if (!item.placeHolder && onlyUseOwnedItems && getOwnedNumber(item).available == 0 && index < 10) {
+        if (!item.placeHolder && index < 10 && onlyUseOwnedItems && getOwnedNumber(item).available == 0 && item.tmrUnit && ownedUnits && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
             html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
         }
     }
@@ -2785,7 +2785,6 @@ $(function() {
         ownedUnits = result;
         onEquipmentsChange();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
     $(".goal select").change(onGoalChange);
