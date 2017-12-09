@@ -9,6 +9,7 @@ var app = express();
 let driveConfig = require('drive-config');
 var googl = require('goo.gl');
 var inventoryFile = null;
+var exclusionsFile = null;
 
 
 if (process.argv.length > 2) {
@@ -189,6 +190,96 @@ function getDriveConfigClient(req, res) {
     oauth2Client.setCredentials(googleOAuthAccessToken);
     return new driveConfig(oauth2Client);
 }
+
+app.put("/:server/itemsToExclude", function (req, res) {
+    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+    if (!googleOAuthAccessToken) {
+        res.status(401).send();
+        return;
+    } else {
+        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
+    }
+    var data = req.body;
+    data.version = 1;
+
+    var oauth2Client = new OAuth2(
+        googleOAuthCredential.web.client_id,
+        googleOAuthCredential.web.client_secret,
+        googleOAuthCredential.web.redirect_uris[0]
+    );
+    oauth2Client.setCredentials(googleOAuthAccessToken);
+    let driveConfigClient = new driveConfig(oauth2Client);
+    var fileName = "itemsToExclude_" + req.params.server + ".json"
+    driveConfigClient.getByName(fileName).then(files => {
+        if (files.length > 0) {
+            driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
+                res.status(200).json(file);
+            }).catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+            });
+        } else {
+            driveConfigClient.create(fileName, JSON.stringify(data)).then(file => {
+                res.send();
+            }).catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+            });
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500);
+    });
+});
+
+app.get("/:server/itemsToExclude", function (req, res) {
+    if (exclusionsFile == null) {
+        var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
+        if (!googleOAuthAccessToken) {
+            res.status(401).send();
+            return;
+        } else {
+            googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
+        }
+
+        var oauth2Client = new OAuth2(
+            googleOAuthCredential.web.client_id,
+            googleOAuthCredential.web.client_secret,
+            googleOAuthCredential.web.redirect_uris[0]
+        );
+        var fileName = "itemsToExclude_" + req.params.server + ".json"
+        oauth2Client.setCredentials(googleOAuthAccessToken);
+        let driveConfigClient = new driveConfig(oauth2Client);
+        driveConfigClient.getByName(fileName).then(files => {
+            if (files.length > 0) {
+                var result = files[0].data;
+                res.status(200).json(result);
+            } else {
+                // Migration to GL/JP files.
+                if (req.params.server == "GL") {
+                    driveConfigClient.getByName("itemsToExclude.json").then(files => {
+                        if (files.length > 0) {
+                            if (files[0].data.constructor === Array) {
+                                res.status(200).json({});
+                            } else {
+                                res.status(200).json(migrateFromNameToId(files[0].data));
+                            }
+                        } else {
+                            res.status(200).json({});
+                        }
+                    });
+                } else {
+                    res.status(200).json({});
+                }
+            }
+        }).catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+        });
+    } else {
+        res.status(200).json(JSON.parse(fs.readFileSync(exclusionsFile, 'utf8')));
+    }
+});
 
 function migrateFromNameToId(itemInventory) {
     if (itemInventory && (!itemInventory.version || itemInventory.version < 2)) {
