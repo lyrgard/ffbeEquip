@@ -3,11 +3,12 @@ var saveNeeded = false;
 var saveTimeout;
 
 var itemKey = getItemInventoryKey();
-var units;
-var ownedUnits = {};
 var releasedUnits;
 
 var currentSort = showAlphabeticalSort;
+
+var allUnits;
+var tmrNumberByUnitId = {};
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -99,7 +100,15 @@ function getUnitDisplay(unit) {
     } else {
         html += ' notOwned"';
     }
-    html +=' onclick="toogleUnit(\'' + unit.id + '\')"><div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div><div class="unitName">' + unit.name + '</div>';
+    html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')">';
+    html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
+    html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
+    html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
+    html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToFarmableNumberFor(\'' + unit.id + '\')"></span>';
+    html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
+    html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
+    html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
+    html +='<div class="unitName">' + unit.name + '</div>';
     html += '<div class="unitRarity">'
     html += getRarity(unit.min_rarity, unit.max_rarity);
     html += '</div></div>';
@@ -118,55 +127,74 @@ function getRarity(minRarity, maxRarity) {
 }
 
 
-function toogleUnit(unitId) {
-    if (ownedUnits[unitId]) {
-        delete ownedUnits[unitId];
-        $(".unit." + unitId).removeClass("owned");
-        $(".unit." + unitId).addClass("notOwned");
-    } else {
-        ownedUnits[unitId] = 1;
+function addToOwnedUnits(unitId) {
+    if (!ownedUnits[unitId]) {
+        ownedUnits[unitId] = {"number":1, "farmable":0};
         $(".unit." + unitId).addClass("owned");
         $(".unit." + unitId).removeClass("notOwned");    
+    } else {
+        ownedUnits[unitId].number += 1;
     }
+    if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnits[unitId].number)) {
+        addToFarmableNumberFor(unitId);
+    }
+    $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveUnits,3000);
     $(".saveInventory").removeClass("hidden");
 }
 
-function saveUnits() {
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
-    saveNeeded = false;
-    $.ajax({
-        url: server + '/units',
-        method: 'PUT',
-        data: JSON.stringify(ownedUnits),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $("#inventoryDiv .loader").addClass("hidden");
-            $("#inventoryDiv .message").text("save OK");
-            $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){ 
-                $("#inventoryDiv .message").addClass("hidden");
-            }  , 3000 );
-        },
-        error: function(error) {
-            $("#inventoryDiv .loader").addClass("hidden");
-            if (error.status == 401) {
-                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-                window.location.reload();
-            } else {
-                saveNeeded = true;
-                $(".saveInventory").removeClass("hidden");
-                alert('error while saving the inventory. Please click on "Save" to try again');
-            }
-            
+function removeFromOwnedUnits(unitId) {
+    if (!ownedUnits[unitId]) {
+        return;
+    }
+    ownedUnits[unitId].number -= 1;
+    if (ownedUnits[unitId].number == 0) {
+        removeFromFarmableNumberFor(unitId);
+        delete ownedUnits[unitId];
+        $(".unit." + unitId).removeClass("owned");
+        $(".unit." + unitId).addClass("notOwned");
+    } else {
+        $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
+        if (ownedUnits[unitId].number < ownedUnits[unitId].farmable) {
+            removeFromFarmableNumberFor(unitId);
         }
-    });
+    }
+    
+    saveNeeded = true;
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    saveTimeout = setTimeout(saveUnits,3000);
+    $(".saveInventory").removeClass("hidden");
+}
+
+function addToFarmableNumberFor(unitId) {
+    if (!ownedUnits[unitId]) {
+        return;   
+    } else {
+        if (ownedUnits[unitId].farmable < ownedUnits[unitId].number) {
+            ownedUnits[unitId].farmable += 1;
+        } else {
+            return;
+        }
+    }
+    $(".unit." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
+    saveNeeded = true;
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    saveTimeout = setTimeout(saveUnits,3000);
+    $(".saveInventory").removeClass("hidden");
+}
+
+function removeFromFarmableNumberFor(unitId) {
+    if (!ownedUnits[unitId] || ownedUnits[unitId].farmable == 0) {
+        return;
+    }
+    ownedUnits[unitId].farmable -= 1;
+    $(".unit." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
+    saveNeeded = true;
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    saveTimeout = setTimeout(saveUnits,3000);
+    $(".saveInventory").removeClass("hidden");
 }
 
 function filterName(units) {
@@ -219,8 +247,7 @@ function sortByRarity(units) {
     });
 };
 
-function inventoryLoaded() {
-}
+
 
 function notLoaded() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -232,25 +259,41 @@ function updateResults() {
     currentSort();
 }
 
+function inventoryLoaded() {
+    if (units && data) {
+        prepareData();
+        showAlphabeticalSort();    
+    }
+}
+
+function prepareData() {
+    for (var index = data.length; index--; ) {
+        var item = data[index];
+        if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
+            var unitId = allUnits[item.tmrUnit].id;
+            tmrNumberByUnitId[unitId] = itemInventory[item.id];
+        }
+    }
+}
+
 // will be called by jQuery at page load)
 $(function() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/units.json", function(unitResult) {
+        allUnits = unitResult;
         $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
-            $.get(server + "/units", function(ownedUnitResult) {
-                ownedUnits = ownedUnitResult;
-                units = [];
-                for (var name in unitResult) {
-                    if (releasedUnitResult[name]) {
-                        units.push(unitResult[name]);
-                        unitResult[name].name = name;
-                    }
+            units = [];
+            for (var name in unitResult) {
+                if (releasedUnitResult[name]) {
+                    units.push(unitResult[name]);
+                    unitResult[name].name = name;
                 }
-                showAlphabeticalSort();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                
-            });    
+            }
+            if (ownedUnits && data) {
+                prepareData();
+                showAlphabeticalSort();    
+            }
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });    
@@ -264,7 +307,15 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    
+    $.get(server + "/data.json", function(result) {
+        data = result;
+        if (units && ownedUnits) {
+            prepareData();
+            showAlphabeticalSort();    
+        }
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
     
 	
     $("#results").addClass(server);

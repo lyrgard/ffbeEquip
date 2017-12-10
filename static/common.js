@@ -2,6 +2,7 @@ var wikiBaseUrl = "http://exvius.gamepedia.com/";
 
 var data;
 var units;
+var ownedUnits;
 var itemInventory;
 var stat = '';
 var types = [];
@@ -773,14 +774,100 @@ function getShortUrl(longUrl, callback) {
     });
 }
 
+function saveUnits() {
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    $(".saveInventory").addClass("hidden");
+    $("#inventoryDiv .loader").removeClass("hidden");
+    $("#inventoryDiv .message").addClass("hidden");
+    saveNeeded = false;
+    $.ajax({
+        url: server + '/units',
+        method: 'PUT',
+        data: JSON.stringify(ownedUnits),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function() {
+            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv .message").text("save OK");
+            $("#inventoryDiv .message").removeClass("hidden");
+            setTimeout( function(){ 
+                $("#inventoryDiv .message").addClass("hidden");
+            }  , 3000 );
+        },
+        error: function(error) {
+            $("#inventoryDiv .loader").addClass("hidden");
+            if (error.status == 401) {
+                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
+                window.location.reload();
+            } else {
+                saveNeeded = true;
+                $(".saveInventory").removeClass("hidden");
+                alert('error while saving the inventory. Please click on "Save" to try again');
+            }
+            
+        }
+    });
+}
+
+
+function onUnitsOrInventoryLoaded() {
+    if (itemInventory && ownedUnits) {
+        if (ownedUnits.version && ownedUnits.version < 3) {
+            // before version 3, units were : {"unitId": number}
+            // After, they are {"unitId": {"number":number,"farmable":number}
+            $.get(server + "/data.json", function(data) {
+                var tmrNumberByUnitId = {};
+                for (var index = data.length; index--; ) {
+                    var item = data[index];
+                    if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
+                        var unitId = allUnits[item.tmrUnit].id;
+                        tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                    }
+                }
+
+                for (var unitId in ownedUnits) {
+                    var unitOwned = 0;
+                    var tmrOwned = 0;
+                    if (ownedUnits[unitId]) { unitOwned = ownedUnits[unitId];}
+                    if (tmrNumberByUnitId[unitId]) { tmrOwned = tmrNumberByUnitId[unitId];}
+                    ownedUnits[unitId] = {"number":ownedUnits[unitId],"farmable":Math.max(0, unitOwned - tmrOwned)};
+                }
+                
+                alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
+                $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+                $("#inventoryDiv .loader").addClass("hidden");
+                $(".logOut").removeClass("hidden");
+                inventoryLoaded();
+                saveUnits();
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                alert( errorThrown );
+            });
+            
+        } else {
+            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+            $("#inventoryDiv .loader").addClass("hidden");
+            $(".logOut").removeClass("hidden");
+            inventoryLoaded();
+        }
+    }
+}
+
 $(function() {
     readServerType();
     $.get(server + '/itemInventory', function(result) {
         itemInventory = result;
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        onUnitsOrInventoryLoaded();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        $(".loadInventory").removeClass("hidden");
+        $("#inventoryDiv .status").text("not loaded");
         $("#inventoryDiv .loader").addClass("hidden");
-        $(".logOut").removeClass("hidden");
-        inventoryLoaded();
+        if (notLoaded) {
+            notLoaded();
+        }
+    });
+    $.get(server + '/units', function(result) {
+        ownedUnits = result;
+        onUnitsOrInventoryLoaded();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");
