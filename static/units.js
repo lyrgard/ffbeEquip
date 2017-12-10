@@ -9,6 +9,7 @@ var currentSort = showAlphabeticalSort;
 
 var allUnits;
 var tmrNumberByUnitId = {};
+var tmrNameByUnitId = {};
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -18,6 +19,7 @@ function beforeShow() {
     
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
     $(".nav-tabs li.raritySort").removeClass("active");
+    $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
 }
 
 function showAlphabeticalSort() {
@@ -54,12 +56,29 @@ function showRaritySort() {
     });
 }
 
+function showTMRAlphabeticalSort() {
+    beforeShow();
+    currentSort = showAlphabeticalSort;
+    $("#searchBox").removeClass("hidden");
+    $(".nav-tabs li.tmrAlphabeticalSort").addClass("active");
+    // filter, sort and display the results
+    $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(units)), true));
+    $("#results").unmark({
+        done: function() {
+            var textToSearch = $("#searchBox").val();
+            if (textToSearch && textToSearch.length != 0) {
+                $("#results").mark(textToSearch);
+            }
+        }
+    });
+}
+
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
-var displayUnits = function(units) {
+var displayUnits = function(units, useTmrName = false) {
     var html = '<div class="unitList">';
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
-        html += getUnitDisplay(unit);
+        html += getUnitDisplay(unit, useTmrName);
     }
     html += '</div>';
     return html;
@@ -93,7 +112,7 @@ function displayUnitsByRarity(units) {
 
 };
 
-function getUnitDisplay(unit) { 
+function getUnitDisplay(unit, useTmrName = false) { 
     var html = '<div class="unit ' + unit.id;
     if (ownedUnits[unit.id]) {
         html += ' owned"';
@@ -108,7 +127,13 @@ function getUnitDisplay(unit) {
     html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
     html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
     html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
-    html +='<div class="unitName">' + unit.name + '</div>';
+    html +='<div class="unitName">';
+    if (useTmrName) {
+        html += tmrNameByUnitId[unit.id];
+    } else {
+        html += unit.name;  
+    }
+    html += '</div>';
     html += '<div class="unitRarity">'
     html += getRarity(unit.min_rarity, unit.max_rarity);
     html += '</div></div>';
@@ -214,6 +239,28 @@ function filterName(units) {
     return result;
 }
 
+function filterTMRName(units) {
+    var result = [];
+    var textToSearch = $("#searchBox").val();
+    if (textToSearch) {
+        textToSearch = textToSearch.toLowerCase();
+        for (var index = units.length; index--;) {
+            var unit = units[index];
+            if (tmrNameByUnitId[unit.id] && tmrNameByUnitId[unit.id].toLowerCase().indexOf(textToSearch) >= 0) {
+                result.push(unit);
+            }
+        }
+    } else {
+        for (var index = units.length; index--;) {
+            var unit = units[index];
+            if (tmrNameByUnitId[unit.id]) {
+                result.push(unit);
+            }
+        }
+    }
+    return result;
+}
+
 function keepOnlyOneOfEachMateria() {
     var idsAlreadyKept = [];
     var result = [];
@@ -230,6 +277,15 @@ function keepOnlyOneOfEachMateria() {
 function sortAlphabetically(units) {
     return units.sort(function (unit1, unit2){
         return unit1.name.localeCompare(unit2.name);
+    });
+};
+
+function sortTMRAlphabetically(units) {
+    return units.sort(function (unit1, unit2){
+        if (!tmrNameByUnitId[unit1.id]) {
+            console.log(unit1.name);
+        }
+        return tmrNameByUnitId[unit1.id].localeCompare(tmrNameByUnitId[unit2.id]);
     });
 };
 
@@ -269,9 +325,12 @@ function inventoryLoaded() {
 function prepareData() {
     for (var index = data.length; index--; ) {
         var item = data[index];
-        if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
+        if (item.tmrUnit && allUnits[item.tmrUnit]) {
             var unitId = allUnits[item.tmrUnit].id;
-            tmrNumberByUnitId[unitId] = itemInventory[item.id];
+            if (itemInventory[item.id]) {
+                tmrNumberByUnitId[unitId] = itemInventory[item.id];
+            }
+            tmrNameByUnitId[unitId] = item.name;
         }
     }
 }
