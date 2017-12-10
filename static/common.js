@@ -844,6 +844,11 @@ function onUnitsOrInventoryLoaded() {
             });
             
         } else {
+            for (var index in ownedUnits) {
+                if (ownedUnits[index] != "version" && typeof ownedUnits[index] === 'number') {
+                    ownedUnits[index] = {"number":ownedUnits[index], "farmable":0};
+                }
+            }
             $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
             $("#inventoryDiv .loader").addClass("hidden");
             $(".logOut").removeClass("hidden");
