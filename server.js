@@ -75,14 +75,27 @@ app.put("/:server/units", function(req, res) {
 
 app.get("/:server/itemInventory", function(req, res) {
     if (inventoryFile == null) {
-        getFileFromGoogleDrive(req, res, "itemInventory");
+        getFileFromGoogleDrive(req, res, "itemInventory", function (result) {
+            if (result) {
+                if (result === Array) {
+                    res.status(200).json({});
+                } else {
+                    if (req.params.server == "GL") {
+                        result = migrateFromNameToId(result);
+                    }
+                }
+                res.status(200).json(result);
+            }
+        });
     } else {
         res.status(200).json(JSON.parse(fs.readFileSync(inventoryFile, 'utf8')));
     }
 });
 
 app.get("/:server/units", function(req, res) {
-    getFileFromGoogleDrive(req, res, "units");
+    getFileFromGoogleDrive(req, res, "units", function (result) {
+        res.status(200).json(result);
+    });
 });
 
 app.get("/links/:shortId", function(req, res) {
@@ -106,7 +119,7 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
     if (!driveConfigClient) return;
     
     var data = req.body;
-    data.version = 2;
+    data.version = 3;
     
     var fileName = paramFileName + "_" + req.params.server + ".json"
     driveConfigClient.getByName(fileName).then(files => {
@@ -131,38 +144,27 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
     });   
 }
 
-function getFileFromGoogleDrive(req, res, paramFileName) {
+function getFileFromGoogleDrive(req, res, paramFileName, callback) {
     let driveConfigClient = getDriveConfigClient(req, res);
-    if (!driveConfigClient) return;
-    
+    if (!driveConfigClient) {
+        return;
+    }
     var fileName = paramFileName + "_" + req.params.server + ".json"
     driveConfigClient.getByName(fileName).then(files => {
         if (files.length > 0) {
-            if (files[0].data.constructor === Array) {
-                res.status(200).json({});
-            } else {
-                var result = files[0].data;
-                if (req.params.server == "GL") {
-                    result = migrateFromNameToId(result);
-                }
-                res.status(200).json(result);
-            }
+            callback(files[0].data);
         } else {
             // Migration to GL/JP files.
             if (req.params.server == "GL") {
                 driveConfigClient.getByName(paramFileName + ".json").then(files => {
                     if (files.length > 0) {
-                        if (files[0].data.constructor === Array) {
-                            res.status(200).json({});
-                        } else {
-                            res.status(200).json(migrateFromNameToId(files[0].data));
-                        }
+                        callback(files[0].data);
                     } else {
-                      res.status(200).json({});   
+                        callback({});   
                     }
                 });
             } else {
-                res.status(200).json({});
+                callback({});
             }
         }
     }).catch(err => {

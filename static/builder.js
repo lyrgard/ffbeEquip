@@ -230,12 +230,16 @@ function prepareEquipable(useBuild = false) {
     }
 }
 
-function prepareData(equipable) {
+function readItemsExcludeInclude() {
     exludeEventEquipment = $("#exludeEvent").prop('checked');
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
     includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
+}
+
+function prepareData(equipable) {
+    readItemsExcludeInclude();
     
     desirableElements = [];
     for (var index = 0, len = builds[currentUnitIndex].selectedUnit.skills.length; index < len; index++) {
@@ -1409,20 +1413,7 @@ function getInnatePartialDualWield() {
 function getAvailableNumber(item) {
     var number = 0;
     if (onlyUseOwnedItems) {
-        if (includeTMROfOwnedUnits && !item.access.includes("not released yet") && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
-            number = 4;
-            if (item.maxNumber) {
-                if (alreadyUsedItems[item[itemKey]]) {
-                    number = item.maxNumber - alreadyUsedItems[item[itemKey]];
-                } else {
-                    number = item.maxNumber;
-                }
-            }
-        } else {
-            if (itemInventory[item[itemKey]]) {
-                number = getOwnedNumber(item).available;
-            }
-        }
+        number = getOwnedNumber(item).available;
     } else {
         if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
             for (var index = item.access.length; index--;) {
@@ -1461,16 +1452,21 @@ function getAvailableNumber(item) {
 
 function getOwnedNumber(item) {
     var totalNumber = 0;
+    var totalOwnedNumber = 0;
     var availableNumber = 0;
     if (itemInventory[item[itemKey]]) {
         totalNumber = itemInventory[item[itemKey]];
-        if (alreadyUsedItems[item[itemKey]]) {
-            availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
-        } else{
-            availableNumber = totalNumber;
-        }
     }
-    return {"total":totalNumber,"available":availableNumber};
+    totalOwnedNumber = totalNumber;
+    if (includeTMROfOwnedUnits && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+        totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+    }
+    if (alreadyUsedItems[item[itemKey]]) {
+        availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
+    } else{
+        availableNumber = totalNumber;
+    }
+    return {"total":totalNumber,"available":availableNumber,"totalOwnedNumber":totalOwnedNumber};
 }
 
 
@@ -1724,76 +1720,76 @@ function logCurrentBuild() {
 
 function logBuild(build, value) {
 
-        var html = "";
-        
-        for (var index = 0; index < 11; index++) {
-            redrawBuildLine(index);          
-        }
+    var html = "";
+    calculateAlreadyUsedItems();
+    readItemsExcludeInclude();
 
-        if (conciseView) {
-            $("#buildResult").addClass("conciseView");
+    for (var index = 0; index < 11; index++) {
+        redrawBuildLine(index);          
+    }
+
+    if (conciseView) {
+        $("#buildResult").addClass("conciseView");
+    } else {
+        html = '<div class="tbody">' + html + '</div>';
+        $("#buildResult").removeClass("conciseView");
+    }
+
+    //$("#buildResult").html(html);
+
+    $("#resultStats > div").removeClass("statToMaximize");
+
+    var link = getPiramidataImageLink();
+    $(".imageLink").prop("href",link);
+    $(".buildLinks").removeClass("hidden");
+
+    $("#fixedItemsTitle").addClass("hidden");
+    $("#resultStats").removeClass("hidden");
+    var values = {};
+    for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
+        var result = calculateStatValue(build, statsToDisplay[statIndex]);
+        values[statsToDisplay[statIndex]] = result.total;
+        $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
+        var bonusPercent;
+        if (result.bonusPercent > 300) {
+            bonusPercent = "<span style='color:red;' title='Only 300% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
-            html = '<div class="tbody">' + html + '</div>';
-            $("#buildResult").removeClass("conciseView");
+            bonusPercent = result.bonusPercent + "%";
         }
-        
-        //$("#buildResult").html(html);
-        
-        $("#resultStats > div").removeClass("statToMaximize");
-        
-        var link = getPiramidataImageLink();
-        $(".imageLink").prop("href",link);
-        $(".buildLinks").removeClass("hidden");
-        
-        $("#fixedItemsTitle").addClass("hidden");
-        $("#resultStats").removeClass("hidden");
-        var values = {};
-        for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
-            var result = calculateStatValue(build, statsToDisplay[statIndex]);
-            values[statsToDisplay[statIndex]] = result.total;
-            $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
-            var bonusPercent;
-            if (result.bonusPercent > 300) {
-                bonusPercent = "<span style='color:red;' title='Only 300% taken into account'>" + result.bonusPercent + "%</span>";
-            } else {
-                bonusPercent = result.bonusPercent + "%";
-            }
-            $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
+        $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
+    }
+    $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
+    $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
+    if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
+        $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
+    }
+
+    var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
+    for (var index in importantStats) {
+        $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
+    }
+
+    if (!value) {
+        readEnnemyStats();
+        value = calculateBuildValue(build);
+    }
+
+    $("#resultStats .damage").addClass("hidden");
+    if (builds[currentUnitIndex].goal == "physicalDamage" || builds[currentUnitIndex].goal == "magicalDamage" || builds[currentUnitIndex].goal == "magicalDamageWithPhysicalMecanism" || builds[currentUnitIndex].goal == "hybridDamage") {
+        $("#resultStats .damage .monsterDefSpan").addClass("hidden");
+        $("#resultStats .damage .monsterSprSpan").addClass("hidden");
+        if (importantStats.includes("atk")) {
+            $("#resultStats .damage .monsterDefValue").text(" " + monsterDef);
+            $("#resultStats .damage .monsterDefSpan").removeClass("hidden");
         }
-        $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
-        $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
-        if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
-            $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
+        if (importantStats.includes("mag")) {
+            $("#resultStats .damage .monsterSprValue").text(" " + monsterSpr);
+            $("#resultStats .damage .monsterSprSpan").removeClass("hidden");
         }
-        
-        var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
-        for (var index in importantStats) {
-            $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
-        }
-        
-        if (!value) {
-            readEnnemyStats();
-            value = calculateBuildValue(build);
-        }
-    
-        $("#resultStats .damage").addClass("hidden");
-        if (builds[currentUnitIndex].goal == "physicalDamage" || builds[currentUnitIndex].goal == "magicalDamage" || builds[currentUnitIndex].goal == "magicalDamageWithPhysicalMecanism" || builds[currentUnitIndex].goal == "hybridDamage") {
-            $("#resultStats .damage .monsterDefSpan").addClass("hidden");
-            $("#resultStats .damage .monsterSprSpan").addClass("hidden");
-            if (importantStats.includes("atk")) {
-                $("#resultStats .damage .monsterDefValue").text(" " + monsterDef);
-                $("#resultStats .damage .monsterDefSpan").removeClass("hidden");
-            }
-            if (importantStats.includes("mag")) {
-                $("#resultStats .damage .monsterSprValue").text(" " + monsterSpr);
-                $("#resultStats .damage .monsterSprSpan").removeClass("hidden");
-            }
-            $("#resultStats .damage .damageCoef").html("1x");
-            $("#resultStats .damage .damageResult").html(Math.floor(value));
-            $("#resultStats .damage").removeClass("hidden");
-        }
-        
-    //}
+        $("#resultStats .damage .damageCoef").html("1x");
+        $("#resultStats .damage .damageResult").html(Math.floor(value));
+        $("#resultStats .damage").removeClass("hidden");
+    }
 }
 
 function switchView(conciseViewParam) {
@@ -1840,11 +1836,34 @@ function getItemLine(index, short = false) {
         } else {
             html += displayItemLine(item);
         }
-        if (!item.placeHolder && index < 10 && onlyUseOwnedItems && getOwnedNumber(item).available == 0 && item.tmrUnit && ownedUnits && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
-            html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
+        if (!item.placeHolder && index < 10 && onlyUseOwnedItems) {
+            var alreadyUsed = 0;
+            if (alreadyUsedItems[item.id]) {
+                alreadyUsed = alreadyUsedItems[item.id];
+            }
+            alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex].bestBuild, index, item);
+            if (getOwnedNumber(item).totalOwnedNumber < alreadyUsed && getOwnedNumber(item).total >= alreadyUsed) {
+                html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
+            }
         }
     }
     return html;
+}
+
+function getNumberOfItemAlreadyUsedInThisBuild(build, index, item) {
+    var number = 0;
+    for (var previousItemIndex = 0; previousItemIndex < 10; previousItemIndex++) {
+        if (build[previousItemIndex] && build[previousItemIndex].id && build[previousItemIndex].id == item.id) {
+            if (previousItemIndex <= index) {
+                number++;
+            }
+            if (builds[currentUnitIndex].fixedItems[index]) {
+                number--;
+            }
+        }
+        
+    }
+    return number;
 }
 
 function getSlotIcon(index) {

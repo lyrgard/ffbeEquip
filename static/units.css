@@ -11,6 +11,7 @@
     border-radius: 10px;
     margin: 5px;
     cursor: pointer;
+    position: relative;
 }
 
 .unit.owned {
@@ -72,4 +73,55 @@
 
 .raritySeparator {
     margin-top: 30px;
+}
+
+.numberDiv {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numberDiv .glyphicon {
+    margin-bottom: 2px;
+    color: #d2edf9;
+}
+
+.numberDiv .badge {
+    background-color: #d2edf9;
+    color: #337ab7;
+    font-size: 1.2em;
+}
+
+.numberOwnedDiv {
+    left: 5px;
+}
+
+.farmableTMRDiv {
+    right: 5px;
+}
+
+.notOwned .numberDiv .glyphicon {
+    color: white;
+}
+
+.notOwned .numberDiv .badge {
+    color: white;
+    background-color: white;
+}
+
+.notOwned:hover .numberDiv .glyphicon {
+    color: #337ab7;
+}
+
+.notOwned:hover .numberDiv .badge {
+    color: #337ab7;
+    background-color: #337ab7;
+}
+
+.explanation {
+    position: absolute;
+    top: 15px;
+    right: 25px;
 }
