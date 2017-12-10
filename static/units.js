@@ -183,6 +183,7 @@ function removeFromOwnedUnits(unitId) {
         delete ownedUnits[unitId];
         $(".unit." + unitId).removeClass("owned");
         $(".unit." + unitId).addClass("notOwned");
+        $(".unit." + unitId + " .numberOwnedDiv .badge").html("0");
     } else {
         $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
         if (ownedUnits[unitId].number < ownedUnits[unitId].farmable) {
