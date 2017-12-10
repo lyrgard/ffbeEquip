@@ -20,6 +20,7 @@ function beforeShow() {
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
     $(".nav-tabs li.raritySort").removeClass("active");
     $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
+    $("#searchBox").prop("placeholder", "Enter unit name");
 }
 
 function showAlphabeticalSort() {
@@ -58,8 +59,10 @@ function showRaritySort() {
 
 function showTMRAlphabeticalSort() {
     beforeShow();
-    currentSort = showAlphabeticalSort;
+    currentSort = showTMRAlphabeticalSort;
     $("#searchBox").removeClass("hidden");
+    $("#searchBox").prop("placeholder", "Enter TMR name");
+    
     $(".nav-tabs li.tmrAlphabeticalSort").addClass("active");
     // filter, sort and display the results
     $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(units)), true));
