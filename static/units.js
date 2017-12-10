@@ -353,7 +353,7 @@ $(function() {
                     unitResult[name].name = name;
                 }
             }
-            if (ownedUnits && data) {
+            if (itemInventory && ownedUnits && data) {
                 prepareData();
                 showAlphabeticalSort();    
             }
@@ -372,7 +372,7 @@ $(function() {
     });
     $.get(server + "/data.json", function(result) {
         data = result;
-        if (units && ownedUnits) {
+        if (itemInventory && units && ownedUnits) {
             prepareData();
             showAlphabeticalSort();    
         }

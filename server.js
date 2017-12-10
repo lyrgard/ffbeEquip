@@ -9,11 +9,17 @@ var app = express();
 let driveConfig = require('drive-config');
 var googl = require('goo.gl');
 var inventoryFile = null;
-
+var unitsFile = null;
 
 if (process.argv.length > 2) {
-    inventoryFile = process.argv[2];
-    console.log("using " + process.argv[2] + " as inventory source");
+    if (process.argv[2] != "null") {
+        inventoryFile = process.argv[2];
+        console.log("using " + process.argv[2] + " as inventory source");
+    }
+}
+if (process.argv.length > 3) {
+    unitsFile = process.argv[3];
+    console.log("using " + process.argv[3] + " as units source");
 }
 
 app.use(cookieParser());
@@ -93,9 +99,13 @@ app.get("/:server/itemInventory", function(req, res) {
 });
 
 app.get("/:server/units", function(req, res) {
-    getFileFromGoogleDrive(req, res, "units", function (result) {
-        res.status(200).json(result);
-    });
+    if (unitsFile == null) {
+        getFileFromGoogleDrive(req, res, "units", function (result) {
+            res.status(200).json(result);
+        });
+    } else {
+        res.status(200).json(JSON.parse(fs.readFileSync(unitsFile, 'utf8')));
+    }
 });
 
 app.get("/links/:shortId", function(req, res) {
