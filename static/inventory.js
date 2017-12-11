@@ -55,7 +55,6 @@ function showHistory() {
     
     var html = "";
     for (var dateIndex in lastItemReleases) {
-        html += '<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>';
         for (var sourceIndex in lastItemReleases[dateIndex].sources) {
             if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
                 html += '<div class="col-xs-12 source">';
