@@ -385,7 +385,10 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
                     }
                 }
                 
-                
+                // MP refresh
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
+                var mpRefresh = rawEffect[3][0];
+                addToStat(baseEffects, "mpRefresh", mpRefresh);
             }
         }
     }
@@ -448,7 +451,7 @@ function addKiller(skill, race, physicalPercent, magicalPercent) {
 }
 
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitName in units) {

@@ -249,6 +249,9 @@ function displayItemLine(item) {
     if (item.damageVariance) {
         special += "<li>Damage variance from x" + item.damageVariance.min + " to x"  + item.damageVariance.max + " (average : x" + (item.damageVariance.min + item.damageVariance.max)/2 + ")</li>";
     }
+    if (item.mpRefresh) {
+        special += "<li>Recover MP (" + item.mpRefresh + "%) per turn</li>";
+    }
     if (item.special) {
         special += getSpecialHtml(item);
     }

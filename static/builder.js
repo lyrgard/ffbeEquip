@@ -1760,6 +1760,7 @@ function logBuild(build, value) {
     }
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
+    $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh").total / 100));
     if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
         $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
     }
