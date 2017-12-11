@@ -156,6 +156,10 @@ function treatItem(items, itemId, result, skills) {
         console.log("excluded : " + itemIn.name)
         return;
     }
+    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290") {
+        // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
+        return;
+    }
     var itemOut = {};
     itemOut.id = itemId;
     itemOut.name = itemIn.name;
@@ -183,9 +187,6 @@ function treatItem(items, itemId, result, skills) {
         addAccess(itemOut,access);
         
         itemOut.tmrUnit = unit.name;
-        if (itemOut.id = "504220290") {
-            itemOut.tmrUnit += "2";
-        }
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
@@ -467,6 +468,12 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
+    
+        
+    // MP refresh
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
+        var mpRefresh = rawEffect[3][0];
+        addStat(item, "mpRefresh", mpRefresh);
         
     } else {
         return false;
@@ -594,7 +601,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

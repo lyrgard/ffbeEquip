@@ -12,7 +12,7 @@
 		"equip":["dagger","sword","greatSword","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Lava Floor","Burning Soul","Leadership"],
 		"skills": [
-			{"hp%":10, "def%":20}
+			{"hp%":10, "def%":20, "mpRefresh":5}
 		]
 	},
 	"Lasswell": {
@@ -59,7 +59,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Retaliate","Ultima","Dystopia"],
 		"skills": [
-			{"mp%":30, "mag%":30}
+			{"mp%":30, "mag%":30, "mpRefresh":5}
 		]
 	},
 	"Nichol": {
@@ -365,7 +365,7 @@
 		},
 		"equip":["dagger","staff","axe","whip","mace","hat","helm","clothes","lightArmor","robe"],
 		"skills": [
-			{"mp%":30}
+			{"mp%":30, "mpRefresh":5}
 		]
 	},
 	"Roselia": {
@@ -663,7 +663,7 @@
 		"equip":["staff","harp","mace","hat","clothes","robe"],
 		"enhancementSkills":["Regenerate","Aqua Refresh","Priestess Miracle"],
 		"skills": [
-			{"hp%":30, "mp%":20, "spr%":30}
+			{"hp%":30, "mp%":20, "spr%":30, "mpRefresh":10}
 		]
 	},
 	"Mercedes": {
@@ -708,7 +708,7 @@
 		"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
 		"enhancementSkills":["Endless Turn","Schwert Dance","Cannon Dance","Panzer Dance","Shooting Dance"],
 		"skills": [
-			{"hp%":10, "mp%":35, "spr%":20, "evade":{"physical":30}}
+			{"hp%":10, "mp%":35, "spr%":20, "evade":{"physical":30}, "mpRefresh":5}
 		]
 	},
 	"Shine": {
@@ -767,7 +767,7 @@
 		},
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":20}
+			{"mp%":20, "mag%":20, "mpRefresh":3}
 		]
 	},
 	"Marie": {
@@ -782,7 +782,7 @@
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Lovely Guard","Reflect","Love You All"],
 		"skills": [
-			{"mp%":30, "spr%":30}
+			{"mp%":30, "spr%":30, "mpRefresh":5}
 		]
 	},
 	"Aileen": {
@@ -796,7 +796,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":60, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}]}
+			{"hp%":20, "mp%":20, "atk%":60, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Ulrica": {
@@ -930,7 +930,7 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}},
+			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
@@ -945,7 +945,7 @@
 		},
 		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30},
+			{"mp%":30, "mag%":30, "mpRefresh":5},
 			{"mag%":20, "equipedConditions":["hat"]},
 			{"mag%":20, "equipedConditions":["robe"]}
 		]
@@ -992,7 +992,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
 		"skills": [
-			{"mp%":30, "mag%":30}
+			{"mp%":30, "mag%":30, "mpRefresh":5}
 		]
 	},
 	"Summer Lid": {
@@ -1034,7 +1034,7 @@
 		},
 		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":20},
+			{"mp%":30, "mag%":30, "spr%":20, "mpRefresh":5},
 			{"mag%":50, "spr%":50, "equipedConditions":["bow"]}
 		]
 	},
@@ -1063,7 +1063,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -1092,7 +1092,7 @@
 		},
 		"equip":["staff","rod","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"mp%":20, "mag%":20, "spr%":20},
+			{"mp%":20, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"mag%":25, "equipedConditions":["rod"]},
 			{"spr%":25, "equipedConditions":["staff"]}
 		]
@@ -1108,7 +1108,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","throwing","gun","mace","fist","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":20, "def%":20},
+			{"hp%":30, "mp%":10, "atk%":20, "def%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["axe"]}
 		]
 	},
@@ -1137,7 +1137,7 @@
 		},
 		"equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "mag%":30, "spr%":10, "partialDualWield":["throwing","gun"], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+			{"hp%":20, "mp%":20, "mag%":30, "spr%":10, "partialDualWield":["throwing","gun"], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["throwing"]},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
@@ -1168,7 +1168,7 @@
 		},
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":30},
+			{"hp%":20, "mp%":30, "spr%":30, "mpRefresh":5},
 			{"spr%":50, "equipedConditions":["staff"]}
 		]
 	},
@@ -1225,7 +1225,7 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","helm","clothes","lightArmor"],
 		"skills": [
-			{"mp%":20, "atk%":20, "spr%":20},
+			{"mp%":20, "atk%":20, "spr%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
@@ -1240,7 +1240,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":30, "spr%":30, "special":["dualWield"]},
+			{"hp%":30, "atk%":30, "def%":30, "spr%":30, "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
@@ -1545,7 +1545,7 @@
 		},
 		"equip":["dagger","katana","bow","fist","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "evade":{"physical":20}, "killers":[{"name":"human","physical":75,"magical":75}]},
+			{"hp%":20, "evade":{"physical":20}, "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "mag%":50, "equipedConditions":["katana"]}
 		]
 	},
@@ -1603,7 +1603,7 @@
 		},
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"partialDualWield":["greatSword","katana"]},
+			{"partialDualWield":["greatSword","katana"], "mpRefresh":5},
 			{"atk%":20, "def%":10, "mag%":20, "spr%":10, "equipedConditions":["katana"]},
 			{"atk%":40, "equipedConditions":["katana"]},
 			{"hp%":30, "mp%":30, "equipedConditions":["greatSword"]}
@@ -1620,7 +1620,7 @@
 		},
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":35, "mp%":40, "mag%":30, "spr%":30},
+			{"hp%":35, "mp%":40, "mag%":30, "spr%":30, "mpRefresh":5},
 			{"spr%":50, "equipedConditions":["staff"]},
 			{"spr%":50, "equipedConditions":["bow"]},
 			{"mag%":50, "equipedConditions":["rod"]},
@@ -1638,7 +1638,7 @@
 		},
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":30, "spr%":30},
+			{"hp%":20, "mp%":30, "mag%":30, "spr%":30, "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]}
 		]
 	},
@@ -1653,7 +1653,7 @@
 		},
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]},
+			{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":5},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "mag%":30, "equipedConditions":["rod"]}
 		]
@@ -1863,7 +1863,7 @@
 		"equip":["staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Fire From Below","I'll never die!","Insolent fools!","Control"],
 		"skills": [
-			{"hp%":30, "mp%":20, "mag%":30},
+			{"hp%":30, "mp%":20, "mag%":30, "mpRefresh":10},
 			{"mag%":50, "equipedConditions":["rod"]}
 		]
 	},
@@ -1891,7 +1891,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":30, "killers":[{"name":"undead","physical":50}], "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
@@ -1907,7 +1907,7 @@
 		"equip":["dagger","sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Sword Master","Cut Through","Advance"],
 		"skills": [
-			{"hp%":20, "atk%":30, "special":["dualWield"]},
+			{"hp%":20, "atk%":30, "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
@@ -1940,7 +1940,7 @@
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Kazus Pendant","Embolden","Full-Life"],
 		"skills": [
-			{"hp%":10, "mp%":20, "spr%":30}
+			{"hp%":10, "mp%":20, "spr%":30, "mpRefresh":5}
 		]
 	},
 	"Ingus": {
@@ -1968,7 +1968,7 @@
 		},
 		"equip":["dagger","sword","katana","bow","spear","throwing","lightShield","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":20}
+			{"hp%":20, "def%":20, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"Cloud of Darkness": {
@@ -2026,7 +2026,7 @@
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "killers":[{"name":"demon","physical":50}]}
+			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Dark Knight Cecil": {
@@ -2041,7 +2041,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dark Cannon","Shikkoku","Soul Eater"],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20}
+			{"hp%":20, "atk%":70, "def%":20, "mpRefresh":5}
 		]
 	},
 	"Kain": {
@@ -2156,7 +2156,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Boco Pendant","Life Giver","Wind Shear"],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":30, "def%":30, "mag%":10, "spr%":10},
+			{"hp%":30, "mp%":10, "atk%":30, "def%":30, "mag%":10, "spr%":10, "mpRefresh":5},
 			{"atk%":20, "mag%":20, "equipedConditions":["sword"]}
 		]
 	},
@@ -2246,7 +2246,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack"],
 		"skills": [
-			{"hp%":30, "atk%":20, "def%":20},
+			{"hp%":30, "atk%":20, "def%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
@@ -2294,7 +2294,7 @@
 		"equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Chaos Wave","Inherited Power","Ultima","Magical Activation"],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":110, "spr%":50, "evade":{"physical":30}}
+			{"hp%":20, "mp%":30, "mag%":110, "spr%":50, "evade":{"physical":30}, "mpRefresh":5}
 		]
 	},
 	"Locke": {
@@ -2560,7 +2560,7 @@
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":80}
+			{"hp%":20, "mp%":30, "spr%":80, "mpRefresh":2}
 		]
 	},
 	"Amarant": {
@@ -2616,7 +2616,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "atk%":20, "spr%":30},
+			{"hp%":30, "atk%":20, "spr%":30, "mpRefresh":5},
 			{"atk%":40, "mag%":40, "equipedConditions":["sword"]},
 			{"atk%":40, "mag%":40, "equipedConditions":["greatSword"]}
 		]
@@ -2646,7 +2646,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":50, "evade":{"physical":30}, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}]}
+			{"hp%":30, "mp%":20, "atk%":50, "evade":{"physical":30}, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Yuna": {
@@ -2660,7 +2660,7 @@
 		},
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":30, "killers":[{"name":"undead","magical":100}]}
+			{"mp%":30, "mag%":30, "spr%":30, "killers":[{"name":"undead","magical":100}], "mpRefresh":7}
 		]
 	},
 	"Wakka": {
@@ -2688,7 +2688,7 @@
 		},
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30},
+			{"mp%":30, "mag%":30, "mpRefresh":5},
 			{"mag%":40, "equipedConditions":["rod"]}
 		]
 	},
@@ -2773,7 +2773,7 @@
 		},
 		"equip":["dagger","staff","rod","mace","fist","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}},
+			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}, "mpRefresh":5},
 			{"atk%":30, "spr%":30, "equipedConditions":["fist"]}
 		]
 	},
@@ -2802,7 +2802,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":10, "mp%":20, "mag%":30},
+			{"hp%":10, "mp%":20, "mag%":30, "mpRefresh":5},
 			{"atk%":50, "mag%":50, "equipedConditions":["sword"]}
 		]
 	},
@@ -2832,7 +2832,7 @@
 		},
 		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":15,"magical":15}},
+			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":15,"magical":15}, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
 	},
@@ -2891,7 +2891,7 @@
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Area Blast","Crushing Blow","Lightspeed"],
 		"skills": [
-			{"hp%":20, "atk%":30, "evade":{"physical":30,"magical":20}, "special":["dualWield"]}
+			{"hp%":20, "atk%":30, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]}
 		]
 	},
 	"Snow": {
@@ -2981,6 +2981,7 @@
 		},
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"skills": [
+			{"mpRefresh":5}
 		]
 	},
 	"Thancred": {
@@ -3050,7 +3051,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":10}},
+			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":10}, "mpRefresh":5},
 			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
 			{"atk%":40, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":40, "def%":20, "equipedConditions":["greatSword"]},
@@ -3073,7 +3074,7 @@
 		},
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":10, "def%":30, "spr%":20},
+			{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
 			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
 			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
 			{"atk%":50, "equipedConditions":["greatSword"]}
@@ -3119,7 +3120,7 @@
 		},
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"atk":100}, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]},
+			{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"atk":100}, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
@@ -3149,7 +3150,7 @@
 		},
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "special":["dualWield"]},
+			{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["dagger"]}
 		]
 	},
@@ -3207,7 +3208,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20}
+			{"hp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"Mercenary Ramza": {
@@ -3221,7 +3222,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["robe"]},
 			{"def%":50, "equipedConditions":["helm"]},
 			{"atk%":50, "equipedConditions":["hat"]},
@@ -3240,7 +3241,7 @@
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Helm Break","Shield Break","Meditate"],
 		"skills": [
-			{"hp%":30, "atk%":20}
+			{"hp%":30, "atk%":20, "mpRefresh":5}
 		]
 	},
 	"Knight Delita": {
@@ -3254,7 +3255,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":20},
+			{"hp%":30, "atk%":30, "def%":20, "mpRefresh":5},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"atk%":20, "equipedConditions":["heavyArmor"]}
 		]
@@ -3330,7 +3331,7 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":30, "atk%":30},
+			{"hp%":30, "atk%":30, "mpRefresh":5},
 			{"atk%":40, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -3345,7 +3346,7 @@
 		},
 		"equip":["sword","greatSword","katana","bow","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":10, "def%":20, "spr%":20}
+			{"hp%":20, "mp%":20, "atk%":10, "def%":20, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"Ovelia": {
@@ -3388,7 +3389,7 @@
 		"equip":["dagger","rod","throwing","hat","clothes","robe"],
 		"enhancementSkills":["Devotion","Spirit Hand","Tri-beam Laser"],
 		"skills": [
-			{"mp%":10, "mag%":70, "spr%":20}
+			{"mp%":10, "mag%":70, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"Queen": {
@@ -3403,7 +3404,7 @@
 		"equip":["dagger","sword","greatSword","hat","clothes"],
 		"enhancementSkills":["Magic Martyr","Berserk","Justice Guard","Devastate"],
 		"skills": [
-			{"hp%":20, "atk%":50, "def%":20, "mag%":20, "spr%":20}
+			{"hp%":20, "atk%":50, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"Nine": {
@@ -3490,7 +3491,7 @@
 		},
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"]},
+			{"mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "mpRefresh":5},
 			{"mag%":50, "spr%":50, "equipedConditions":["dagger"]}
 		]
 	},
@@ -3592,7 +3593,7 @@
 		},
 		"equip":["hat","clothes","robe"],
 		"skills": [
-			{"hp%":10, "mp%":20, "mag%":10, "spr%":20}
+			{"hp%":10, "mp%":20, "mag%":10, "spr%":20, "mpRefresh":10}
 		]
 	},
 	"Karl": {
@@ -3636,7 +3637,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20},
+			{"hp%":20, "mp%":20, "atk%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -3651,7 +3652,7 @@
 		},
 		"equip":["spear","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "killers":[{"name":"human","physical":50}]}
+			{"hp%":30, "atk%":30, "killers":[{"name":"human","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Elza": {
@@ -3666,7 +3667,7 @@
 		"equip":["spear","hat","clothes","lightArmor"],
 		"enhancementSkills":["Ravaging Blow","Dark Reaper","Madness Rush"],
 		"skills": [
-			{"hp%":20, "atk%":20, "killers":[{"name":"human","physical":50},{"name":"demon","physical":50}]},
+			{"hp%":20, "atk%":20, "killers":[{"name":"human","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
 			{"atk%":100, "equipedConditions":["spear"]}
 		]
 	},
@@ -3731,7 +3732,7 @@
 		},
 		"equip":["dagger","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "evade":{"physical":40}, "killers":[{"name":"human","physical":75,"magical":75}]}
+			{"mp%":20, "evade":{"physical":40}, "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
 		]
 	},
 	"Cupid Artemios": {
@@ -3776,7 +3777,7 @@
 		},
 		"equip":["hammer","gun","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "atk%":30, "spr%":20, "singleWieldingOneHanded":{"atk":75}, "killers":[{"name":"machine","physical":50}]},
+			{"hp%":20, "atk%":30, "spr%":20, "singleWieldingOneHanded":{"atk":75}, "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
 	},
@@ -3791,7 +3792,7 @@
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}},
+			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}, "mpRefresh":7},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
@@ -3836,7 +3837,7 @@
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
 		"skills": [
-			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]},
+			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
 			{"atk%":70, "def%":35, "spr%":35, "equipedConditions":["sword"]}
 		]
 	},
@@ -3852,7 +3853,7 @@
 		"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Healing Waters","Invigorate","Haunting Guard","Saintly Beam"],
 		"skills": [
-			{"atk%":100, "mag%":100, "spr%":100}
+			{"atk%":100, "mag%":100, "spr%":100, "mpRefresh":10}
 		]
 	},
 	"Popoi": {
@@ -4013,7 +4014,7 @@
 		},
 		"equip":["staff","rod","bow","axe","hammer","gun","mace","hat","clothes","lightArmor"],
 		"skills": [
-			{"mp%":20, "spr%":20}
+			{"mp%":20, "spr%":20, "mpRefresh":3}
 		]
 	},
 	"Swordsman Lasswell": {
@@ -4090,7 +4091,7 @@
 		},
 		"equip":["sword","greatSword","katana","hammer","spear","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "def%":20, "evade":{"physical":20,"magical":20}},
+			{"hp%":30, "def%":20, "evade":{"physical":20,"magical":20}, "mpRefresh":5},
 			{"spr%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
@@ -4146,7 +4147,7 @@
 		},
 		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":50},
+			{"hp%":20, "mp%":30, "mag%":50, "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"spr%":30, "equipedConditions":["lightShield"]}
 		]
@@ -4176,7 +4177,7 @@
 		},
 		"equip":["fist","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "def%":50, "spr%":40}
+			{"hp%":20, "def%":50, "spr%":40, "mpRefresh":3}
 		]
 	},
 	"Reberta": {
@@ -4298,7 +4299,7 @@
 		},
 		"equip":["staff","rod","harp","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":15, "spr%":30},
+			{"hp%":20, "mp%":15, "spr%":30, "mpRefresh":10},
 			{"mp%":30, "equipedConditions":["staff"]},
 			{"spr%":30, "equipedConditions":["harp"]}
 		]
