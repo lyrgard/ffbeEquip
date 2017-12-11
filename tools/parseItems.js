@@ -181,7 +181,11 @@ function treatItem(items, itemId, result, skills) {
             addAccess(itemOut,"not released yet");
         }
         addAccess(itemOut,access);
+        
         itemOut.tmrUnit = unit.name;
+        if (itemOut.id = "504220290") {
+            itemOut.tmrUnit += "2";
+        }
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
