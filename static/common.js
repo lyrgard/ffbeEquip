@@ -736,7 +736,7 @@ function prepareSearch(data) {
             textToSearch += "|Only " + item["condition"]; 
         }
         if (item.mpRefresh) {
-            special += "|Recover MP (" + item.mpRefresh + "%) per turn";
+            textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
         }
         if (item["special"]) {
             $(item["special"]).each(function (index, special) {
