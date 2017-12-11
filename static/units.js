@@ -4,6 +4,7 @@ var saveTimeout;
 
 var itemKey = getItemInventoryKey();
 var releasedUnits;
+var lastItemReleases;
 
 var currentSort = showAlphabeticalSort;
 
@@ -20,6 +21,7 @@ function beforeShow() {
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
     $(".nav-tabs li.raritySort").removeClass("active");
     $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
+    $(".nav-tabs li.history").removeClass("active");
     $("#searchBox").prop("placeholder", "Enter unit name");
 }
 
@@ -74,6 +76,36 @@ function showTMRAlphabeticalSort() {
             }
         }
     });
+}
+
+function showHistory() {
+    beforeShow();
+    currentSort = showHistory;
+    $(".nav-tabs li.history").addClass("active");
+    // filter, sort and display the results
+    
+    var html = "";
+    for (var dateIndex in lastItemReleases) {
+        var first = true;
+        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
+                if (first) {
+                    html += '<div class="date">' + lastItemReleases[dateIndex].date+'</div>';
+                    first = false;
+                }
+                var unitsTodisplay = [];
+                var unitNames = lastItemReleases[dateIndex].sources[sourceIndex].units;
+                for (var unitNameIndex = 0, len = unitNames.length; unitNameIndex < len; unitNameIndex++) {
+                    var unitName = unitNames[unitNameIndex];
+                    if (allUnits[unitName]) {
+                        unitsTodisplay.push(allUnits[unitName]);
+                    }
+                }
+                html += displayUnits(unitsTodisplay);
+            }
+        }
+    }
+    $("#results").html(html);
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
@@ -376,6 +408,11 @@ $(function() {
             prepareData();
             showAlphabeticalSort();    
         }
+        $.get(server + "/lastItemReleases.json", function(result) {
+            lastItemReleases = result;
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
