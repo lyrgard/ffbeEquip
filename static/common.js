@@ -26,6 +26,7 @@ const shieldList = ["lightShield", "heavyShield"];
 const headList = ["hat", "helm"];
 const bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 const accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
+var saveTimeout;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -816,29 +817,34 @@ function onUnitsOrInventoryLoaded() {
             // before version 3, units were : {"unitId": number}
             // After, they are {"unitId": {"number":number,"farmable":number}
             $.get(server + "/data.json", function(data) {
-                var tmrNumberByUnitId = {};
-                for (var index = data.length; index--; ) {
-                    var item = data[index];
-                    if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
-                        var unitId = allUnits[item.tmrUnit].id;
-                        tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                $.get(server + "/units.json", function(unitResult) {
+                    allUnits = unitResult;
+                    var tmrNumberByUnitId = {};
+                    for (var index = data.length; index--; ) {
+                        var item = data[index];
+                        if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
+                            var unitId = allUnits[item.tmrUnit].id;
+                            tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                        }
                     }
-                }
 
-                for (var unitId in ownedUnits) {
-                    var unitOwned = 0;
-                    var tmrOwned = 0;
-                    if (ownedUnits[unitId]) { unitOwned = ownedUnits[unitId];}
-                    if (tmrNumberByUnitId[unitId]) { tmrOwned = tmrNumberByUnitId[unitId];}
-                    ownedUnits[unitId] = {"number":ownedUnits[unitId],"farmable":Math.max(0, unitOwned - tmrOwned)};
-                }
-                
-                alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
-                $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
-                $("#inventoryDiv .loader").addClass("hidden");
-                $(".logOut").removeClass("hidden");
-                inventoryLoaded();
-                saveUnits();
+                    for (var unitId in ownedUnits) {
+                        var unitOwned = 0;
+                        var tmrOwned = 0;
+                        if (ownedUnits[unitId]) { unitOwned = ownedUnits[unitId];}
+                        if (tmrNumberByUnitId[unitId]) { tmrOwned = tmrNumberByUnitId[unitId];}
+                        ownedUnits[unitId] = {"number":ownedUnits[unitId],"farmable":Math.max(0, unitOwned - tmrOwned)};
+                    }
+
+                    alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
+                    $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+                    $("#inventoryDiv .loader").addClass("hidden");
+                    $(".logOut").removeClass("hidden");
+                    inventoryLoaded();
+                    saveUnits();
+                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                    alert( errorThrown );
+                });
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                 alert( errorThrown );
             });
