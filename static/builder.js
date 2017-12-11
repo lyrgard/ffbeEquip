@@ -1556,7 +1556,7 @@ function calculateBuildValue(itemAndPassives) {
         }
         return total / goals[builds[currentUnitIndex].goal].statsToMaximize.length;
     } else {
-        // multiply the results of each stats. Work for goal with only one stat, and eHP
+        // multiply the results of each stats. Work for goal with only one stat, and eHP and mp refresh
         var result = 1; 
         var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
         for (var index = stats.length; index--;) {
