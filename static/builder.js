@@ -12,7 +12,8 @@ var goals = {
     "physicaleHp":                      {"statsToMaximize":["hp","def"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "magicaleHp":                       {"statsToMaximize":["hp","spr"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
     "physicalEvasion":                  {"statsToMaximize":["evade.physical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "magicalEvasion":                   {"statsToMaximize":["evade.magical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false}
+    "magicalEvasion":                   {"statsToMaximize":["evade.magical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
+    "mpRefresh":                        {"statsToMaximize":["mp","mpRefresh"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false}
 };
 const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
 
