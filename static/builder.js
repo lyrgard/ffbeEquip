@@ -1463,9 +1463,14 @@ function getOwnedNumber(item) {
         totalNumber = itemInventory[item[itemKey]];
     }
     totalOwnedNumber = totalNumber;
-    if (includeTMROfOwnedUnits && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
-        totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+    if (includeTMROfOwnedUnits) {
+        if (item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+            totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+        } else if (totalNumber == 0 && item.access.includes("trial")) {
+            totalNumber += 1;
+        }
     }
+    
     if (alreadyUsedItems[item[itemKey]]) {
         availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
     } else{
