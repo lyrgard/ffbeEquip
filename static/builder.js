@@ -984,7 +984,11 @@ function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
     
     equivalents.sort(function(entry1, entry2) {
         if (entry1.defenseValue == entry2.defenseValue) {
-            return entry2.available - entry1.available;    
+            if (entry2.available == entry1.available) {
+                return getValue(entry2.item, "atk%") + getValue(entry2.item, "mag%") + getValue(entry2.item, "atk") + getValue(entry2.item, "mag") - (getValue(entry1.item, "atk%") + getValue(entry1.item, "mag%") + getValue(entry1.item, "atk") + getValue(entry1.item, "mag"))
+            } else {
+                return entry2.available - entry1.available;    
+            }
         } else {
             return entry2.defenseValue - entry1.defenseValue;    
         }
@@ -1026,7 +1030,7 @@ function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
         for (var index in tree.children) {
             if (index == 0) {
                 logTree(tree.children[index], addedEntry, currentLine,currentDepth);
-            } else {
+            } else { 
                 logTree(tree.children[index], addedEntry, space,currentDepth);
             }
         }
