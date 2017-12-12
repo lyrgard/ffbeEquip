@@ -1,21 +1,31 @@
 page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
-var goals = {
-    "physicalDamage":                   {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "magicalDamage":                    {"statsToMaximize":["mag"], "useWeaponsElements":false, "applicableKillerType":"magical", "attackTwiceWithDualWield":false},
-    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "def":                              {"statsToMaximize":["def"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "spr":                              {"statsToMaximize":["spr"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "hp":                               {"statsToMaximize":["hp"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "physicaleHp":                      {"statsToMaximize":["hp","def"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "magicaleHp":                       {"statsToMaximize":["hp","spr"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "physicalEvasion":                  {"statsToMaximize":["evade.physical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "magicalEvasion":                   {"statsToMaximize":["evade.magical"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false},
-    "mpRefresh":                        {"statsToMaximize":["mp","mpRefresh"], "useWeaponsElements":false, "applicableKillerType":"none", "attackTwiceWithDualWield":false}
+const formulaByGoal = {
+    "physicalDamage":                   {"type":"value","name":"physicalDamage"},
+    "magicalDamage":                    {"type":"value","name":"magicalDamage"},
+    "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
+    "hybridDamage":                     {"type":"value","name":"hybridDamage"},
+    "def":                              {"type":"value","name":"def"},
+    "spr":                              {"type":"value","name":"spr"},
+    "hp":                               {"type":"value","name":"hp"},
+    "physicaleHp":                      {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"def"}},
+    "magicaleHp":                       {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"spr"}},
+    "physicalEvasion":                  {"type":"value","name":"evade.physical"},
+    "magicalEvasion":                   {"type":"value","name":"evade.magical"},
+    "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}}
 };
+const involvedStats = {
+    "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
+    "magicalDamage":                    ["mag","magicalKiller"],
+    "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
+    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"]
+}
+
+
 const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
+
+
 
 var dataByType = {};
 var dataByTypeIds = {};
@@ -88,6 +98,15 @@ const percentValues = {
     "spr": "spr%"
 }
 const itemsToExclude = ["409009000"]; // Ring of Dominion
+
+
+var goalValuesCaract = {
+    "physicalDamage":                   {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
+    "magicalDamage":                    {"statsToMaximize":["mag"], "useWeaponsElements":false, "applicableKillerType":"magical", "attackTwiceWithDualWield":false},
+    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
+    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true}
+}
+
 
 function build() {
     $(".buildLinks").addClass("hidden");
@@ -184,6 +203,28 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
     } else {
         builds[currentUnitIndex].goal = goal;
+    }
+    builds[currentUnitIndex].involvedStats = [];
+    calculateInvolvedStats(formulaByGoal[builds[currentUnitIndex].goal]);
+}
+
+function calculateInvolvedStats(formula) {
+    if (formula.type == "value") {
+        var name = formula.name;
+        if (involvedStats[name]) {
+            for (var index = involvedStats[name].length; index--;) {
+                if (!builds[currentUnitIndex].involvedStats.includes(involvedStats[name][index])) {
+                    builds[currentUnitIndex].involvedStats.push(involvedStats[name][index]);
+                }
+            }
+        } else {
+            if (!builds[currentUnitIndex].involvedStats.includes(name)) {
+                    builds[currentUnitIndex].involvedStats.push(name);
+                }
+        }
+    } else {
+        calculateInvolvedStats(formula.value1);
+        calculateInvolvedStats(formula.value2);
     }
 }
 
@@ -371,19 +412,21 @@ function prepareItem(item, baseValues) {
 }
 
 function itemCanBeOfUseForGoal(item) {
-    var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
+    var stats = builds[currentUnitIndex].involvedStats;
 
     for (var index = 0, len = stats.length; index < len; index++) {
-        if (getValue(item, stats[index]) > 0) return true;
-        if (item["total_" + stats[index]]) return true;
-        if (item.singleWielding && item.singleWielding[stats[index]]) return true;
-        if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
-    }
-    if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
-        if (getKillerCoef(item) > 0) return true;
-    }
-    if (goals[builds[currentUnitIndex].goal].useWeaponsElements) {
-        if (item.element && getElementCoef(item.element) >= 0) return true;
+        if (stats[index] == "weaponElement") {
+            if (item.element && getElementCoef(item.element) >= 0) return true;
+        } else if (stats[index] == "physicalKiller") {
+            if (getKillerCoef(item, "physical") > 0) return true;
+        } else if (stats[index] == "magicalKiller") {
+            if (getKillerCoef(item, "magical") > 0) return true;
+        } else {
+            if (getValue(item, stats[index]) > 0) return true;
+            if (item["total_" + stats[index]]) return true;
+            if (item.singleWielding && item.singleWielding[stats[index]]) return true;
+            if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
+        }
     }
     if (desirableElements.length != 0) {
         if (item.element && matches(item.element, desirableElements)) return true;
@@ -416,12 +459,15 @@ function getEsperComparison(treeNode1, treeNode2) {
         return "strictlyWorse"; 
     }
     var comparisionStatus = [];
-    var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
+    var stats = builds[currentUnitIndex].involvedStats;
     for (var index = stats.length; index--;) {
-        comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
-    }
-    if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
-        comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper));
+        if (baseStats.includes(stats[index])) {
+            comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
+        } else if (stats[index] == "physicalKiller") {
+            comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"physical"));
+        } else if (stats[index] == "magicalKiller") {
+            comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"magical"));
+        }
     }
     return combineComparison(comparisionStatus);
 }
@@ -430,12 +476,12 @@ function getEsperDepth(treeItem, currentDepth) {
     return currentDepth + 1;
 }
 
-function getKillerCoef(item) {
+function getKillerCoef(item, applicableKillerType) {
     var cumulatedKiller = 0;
     if (ennemyRaces.length > 0 && item.killers) {
         for (var killerIndex = item.killers.length; killerIndex--;) {
-            if (ennemyRaces.includes(item.killers[killerIndex].name) && item.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                cumulatedKiller += item.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+            if (ennemyRaces.includes(item.killers[killerIndex].name) && item.killers[killerIndex][applicableKillerType]) {
+                cumulatedKiller += item.killers[killerIndex][applicableKillerType];
             }
         }
     }
@@ -1105,28 +1151,27 @@ function getItemNodeComparison(treeNode1, treeNode2) {
         return "strictlyWorse"; 
     }
     var comparisionStatus = [];
-    var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
+    var stats = builds[currentUnitIndex].involvedStats;
     for (var index = stats.length; index--;) {
-        if (builds[currentUnitIndex].goal != "physicaleHp" && builds[currentUnitIndex].goal != "magicaleHp" ) {
+        if (stats[index] == "physicalKiller") {
+            comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item, "physical"));
+        } else if (stats[index] == "magicalKiller") {
+            comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item, "magical"));
+        } else if (stats[index] == "weaponElement") {
+            comparisionStatus.push(compareByElementCoef(treeNode1.entry.item, treeNode2.entry.item));
+        } else if (stats[index] == "meanDamageVariance" || stats[index] == "evade.physical" || stats[index] == "evade.magical" || stats[index] == "mpRefresh") {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+        } else {
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
         }
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
-    }
-    if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
-        comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item));
-    }
-    if (goals[builds[currentUnitIndex].goal].useWeaponsElements) {
-        comparisionStatus.push(compareByElementCoef(treeNode1.entry.item, treeNode2.entry.item));
     }
     if (desirableElements.length != 0) {
         comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
     }
     comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.entry.item, treeNode2.entry.item));
-    if (builds[currentUnitIndex].goal == "physicalDamage") {
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "meanDamageVariance"));
-    }
     
     return combineComparison(comparisionStatus);
 }
@@ -1206,21 +1251,21 @@ function compareByNumberOfHandsNeeded(item1, item2) {
 }
 
 
-function compareByKillers(item1, item2) {
+function compareByKillers(item1, item2, applicableKillerType) {
     if (ennemyRaces.length) {
         var applicableKillers1 = {};
         if (item1.killers) {
             for (var killerIndex = item1.killers.length; killerIndex--;) {
-                if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                    applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+                if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][applicableKillerType]) {
+                    applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][applicableKillerType];
                 }
             }
         }
         var applicableKillers2 = {};
         if (item2.killers) {
             for (var killerIndex = item2.killers.length; killerIndex--;) {
-                if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                    applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][goals[builds[currentUnitIndex].goal].applicableKillerType];
+                if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][applicableKillerType]) {
+                    applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][applicableKillerType];
                 }
             }
         }
@@ -1491,80 +1536,90 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateBuildValue(itemAndPassives) {
-    if ("physicalDamage" == builds[currentUnitIndex].goal || "magicalDamage" == builds[currentUnitIndex].goal || "magicalDamageWithPhysicalMecanism" == builds[currentUnitIndex].goal || "hybridDamage" == builds[currentUnitIndex].goal) {
-        
-        var cumulatedKiller = 0;
-        for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
-            if (itemAndPassives[equipedIndex] && ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
-                for (var killerIndex = itemAndPassives[equipedIndex].killers.length; killerIndex--;) {
-                    var killer = itemAndPassives[equipedIndex].killers[killerIndex];
-                    if (ennemyRaces.includes(killer.name) && killer[goals[builds[currentUnitIndex].goal].applicableKillerType]) {
-                        cumulatedKiller += killer[goals[builds[currentUnitIndex].goal].applicableKillerType];
-                    }
-                }
-            }
-        }
-        
-        // Element weakness/resistance
-        var elements = builds[currentUnitIndex].innateElements.slice();
-        if (goals[builds[currentUnitIndex].goal].useWeaponsElements) {
-            if (itemAndPassives[0] && itemAndPassives[0].element) {
-                for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
-                    if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
-                        elements.push(itemAndPassives[0].element[elementIndex]);       
-                    }
-                }
-            };
-            if (itemAndPassives[1] && itemAndPassives[1].element) {
-                for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
-                    if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
-                        elements.push(itemAndPassives[1].element[elementIndex]);       
-                    }
-                }
-            };
-        }
-        var resistModifier = getElementCoef(elements);
-        
-        // Killers
-        var killerMultiplicator = 1;
-        if (ennemyRaces.length > 0) {
-            killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
-        }
-        
-        var total = 0;
-        for (var statIndex = goals[builds[currentUnitIndex].goal].statsToMaximize.length; statIndex--;) {
-            var stat = goals[builds[currentUnitIndex].goal].statsToMaximize[statIndex];
-            var calculatedValue = calculateStatValue(itemAndPassives, stat);
+    return calculateBuildValueWithFormula(itemAndPassives, formulaByGoal[builds[currentUnitIndex].goal]);
+}
 
-            if ("atk" == stat) {
-                var variance0 = 1;
-                var variance1 = 1;
-                if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
-                    variance0 = itemAndPassives[0].meanDamageVariance;
-                }
-                if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
-                    variance1 = itemAndPassives[1].meanDamageVariance;
-                }
-                total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / monsterDef;
-            } else {
-                var dualWieldCoef = 1;
-                if (goals[builds[currentUnitIndex].goal].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                    dualWieldCoef = 2;
-                }
-                total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / monsterSpr;
+function calculateBuildValueWithFormula(itemAndPassives, formula) {
+    if (formula.type == "value") {
+        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name) {
+            var cumulatedKiller = 0;
+            var applicableKillerType = null;
+            if (builds[currentUnitIndex].involvedStats.includes("physicalKiller")) {
+                applicableKillerType = "physical";
+            } else if (builds[currentUnitIndex].involvedStats.includes("magicalKiller")) {
+                applicableKillerType = "magical";
             }
-        }
-        return total / goals[builds[currentUnitIndex].goal].statsToMaximize.length;
-    } else {
-        // multiply the results of each stats. Work for goal with only one stat, and eHP and mp refresh
-        var result = 1; 
-        var stats = goals[builds[currentUnitIndex].goal].statsToMaximize;
-        for (var index = stats.length; index--;) {
-            result *= calculateStatValue(itemAndPassives, stats[index]).total;
-        }
-        return result;
+            if (applicableKillerType) {
+                for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
+                    if (itemAndPassives[equipedIndex] && ennemyRaces.length > 0 && itemAndPassives[equipedIndex].killers) {
+                        for (var killerIndex = itemAndPassives[equipedIndex].killers.length; killerIndex--;) {
+                            var killer = itemAndPassives[equipedIndex].killers[killerIndex];
+                            if (ennemyRaces.includes(killer.name) && killer[applicableKillerType]) {
+                                cumulatedKiller += killer[applicableKillerType];
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Element weakness/resistance
+            var elements = builds[currentUnitIndex].innateElements.slice();
+            if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+                if (itemAndPassives[0] && itemAndPassives[0].element) {
+                    for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
+                        if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
+                            elements.push(itemAndPassives[0].element[elementIndex]);       
+                        }
+                    }
+                };
+                if (itemAndPassives[1] && itemAndPassives[1].element) {
+                    for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
+                        if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
+                            elements.push(itemAndPassives[1].element[elementIndex]);       
+                        }
+                    }
+                };
+            }
+            var resistModifier = getElementCoef(elements);
+
+            // Killers
+            var killerMultiplicator = 1;
+            if (ennemyRaces.length > 0) {
+                killerMultiplicator += (cumulatedKiller / 100) / ennemyRaces.length;
+            }
+
+            var total = 0;
+            for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
+                var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
+                var calculatedValue = calculateStatValue(itemAndPassives, stat);
+
+                if ("atk" == stat) {
+                    var variance0 = 1;
+                    var variance1 = 1;
+                    if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
+                        variance0 = itemAndPassives[0].meanDamageVariance;
+                    }
+                    if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
+                        variance1 = itemAndPassives[1].meanDamageVariance;
+                    }
+                    total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / monsterDef;
+                } else {
+                    var dualWieldCoef = 1;
+                    if (goalValuesCaract[formula.name].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
+                        dualWieldCoef = 2;
+                    }
+                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / monsterSpr;
+                }
+            }
+            return total / goalValuesCaract[formula.name].statsToMaximize.length;
+        } else {
+            return calculateStatValue(itemAndPassives, formula.name).total;
+        }    
+    } else if (formula.type == "*") {
+        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, formula.value2);
     }
 }
+    
 
 function getEquipmentStatBonus(itemAndPassives, stat) {
     if (itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
@@ -1766,7 +1821,7 @@ function logBuild(build, value) {
         $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
     }
 
-    var importantStats = goals[builds[currentUnitIndex].goal].statsToMaximize;
+    var importantStats = builds[currentUnitIndex].involvedStats;
     for (var index in importantStats) {
         $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
     }
@@ -2124,10 +2179,19 @@ function onGoalChange() {
         $("#forceDoublehand").addClass("hidden");
     }
     if (builds[currentUnitIndex]) {
-        builds[currentUnitIndex].goal = goal;
+        readGoal();
+        $("#formula").text(formulaToString(formulaByGoal[builds[currentUnitIndex].goal]));
         if (builds[currentUnitIndex].selectedUnit) { 
             logCurrentBuild();
         }
+    }
+}
+
+function formulaToString(formula) {
+    if (formula.type == "value") {
+        return formula.name;
+    } else {
+        return formulaToString(formula.value1) + ' ' + formula.type + ' ' + formulaToString(formula.value2);
     }
 }
 
