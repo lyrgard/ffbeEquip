@@ -58,6 +58,7 @@
                                     <option value="physicalEvasion">Physical evasion</option>
                                     <option value="magicalEvasion">Magical evasion</option>
                                     <option value="mpRefresh">MP/turn</option>
+                                    <option value="custom">Custom</option>
                                 </select>
                                 <span id="formula"></span>
                             </div>
@@ -352,6 +353,60 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="customFormulaModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span><b>Custom Formula</b></span>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="inputDiv">
+                            <input type="text" class="form-control" id="formulaInput" placeholder="Enter formula (for instance, HP * DEF)">
+                            <button>OK</button>
+                        </div>
+                        <h4>How to use this:</h4>
+                        <ul>
+                            <li>The formula determine how a build is noted. If build A get a better note than build B, it means that A is a better build than B for this formula.</li>
+                            <li>You can use (currently) :
+                                <ul>
+                                    <li><h5>Variables :</h5>
+                                        <div class="tokenList">
+                                            <table class="table">
+                                                <tobdy>
+                                                    <tr><td class="token">HP, MP, ATK, ...</td><td>Value of the corresponding basic stat</td></tr>
+                                                    <tr><td class="token">P_DAMAGE</td><td>This is the total physical damage, taking into account the ATK, the elements, the killers, the damage variance, ...</td></tr>
+                                                    <tr><td class="token">M_DAMAGE</td><td>Same as P_DAMAGE but for magical damage</td></tr>
+                                                    <tr><td class="token">H_DAMAGE</td><td>Same as P_DAMAGE but for hybrid damage</td></tr>
+                                                    <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
+                                                    <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
+                                                    <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
+                                                    <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
+                                                </tobdy>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h5>Operators : </h5>
+                                        <div class="tokenList">
+                                            <table class="table">
+                                                <tobdy>
+                                                    <td class="token">*</td><td>Multiplication operator</td>
+                                                </tobdy>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>For instance, to maximize the MP refreshed each turn, the formula is: <b>MP * MP_REFRESH</b></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -359,6 +414,7 @@
 		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="common.js?version=8"></script>
+        <script src="formula.js?version=8"></script>
         <script src="builder.js?version=8"></script>
         <script src="googleAnalytics.js"></script>
     </body>
