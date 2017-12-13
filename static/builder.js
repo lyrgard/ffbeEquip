@@ -2,7 +2,7 @@ page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"value","name":"physicalDamage"},
+    "physicalDamage":                   {"type":"conditions","conditions":[{"value":{"type":"value","name":"evade.physical"}, "goal":300}],"formula":{"type":"value","name":"physicalDamage"}},
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
@@ -222,6 +222,11 @@ function calculateInvolvedStats(formula) {
                     builds[currentUnitIndex].involvedStats.push(name);
                 }
         }
+    } else if (formula.type == "conditions") {
+        for (var index = formula.conditions.length; index-- ;) {
+            calculateInvolvedStats(formula.conditions[index].value);    
+        }
+        calculateInvolvedStats(formula.formula);    
     } else {
         calculateInvolvedStats(formula.value1);
         calculateInvolvedStats(formula.value2);
@@ -764,6 +769,9 @@ function findBestBuildForCombinationAsync(index, combinations) {
         logCurrentBuild();
         progressElement.addClass("finished");
         console.timeEnd("optimize");
+        if (!builds[currentUnitIndex].bestValue) {
+            alert("Impossible to fulfill conditions");
+        }
     }
 }
 
@@ -951,7 +959,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
 function tryEsper(build, esper) {
     build[10] = esper;
     var value = calculateBuildValue(build);
-    if (builds[currentUnitIndex].bestValue == null || value > builds[currentUnitIndex].bestValue) {
+    if (value != 0 && builds[currentUnitIndex].bestValue == null || value > builds[currentUnitIndex].bestValue) {
         builds[currentUnitIndex].bestBuild = build.slice();
         builds[currentUnitIndex].bestValue = value;
         logBuild(builds[currentUnitIndex].bestBuild, builds[currentUnitIndex].bestValue);
@@ -1626,6 +1634,14 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
         }    
     } else if (formula.type == "*") {
         return calculateBuildValueWithFormula(itemAndPassives, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+    } else if (formula.type == "conditions") {
+        for (var index = formula.conditions.length; index --; ) {
+            var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
+            if (value < formula.conditions[index].goal) {
+                return 0;
+            }
+        }
+        return calculateBuildValueWithFormula(itemAndPassives, formula.formula)
     }
 }
     
@@ -2186,6 +2202,8 @@ function onGoalChange() {
         $(".unitAttackElement").addClass("hidden");
         $(".magicalSkillType").addClass("hidden");
         $("#forceDoublehand").addClass("hidden");
+    } else if (goal == "custom") {
+        $("#customFormulaModal").modal();
     }
     if (builds[currentUnitIndex]) {
         readGoal();
@@ -2193,14 +2211,6 @@ function onGoalChange() {
         if (builds[currentUnitIndex].selectedUnit) { 
             logCurrentBuild();
         }
-    }
-}
-
-function formulaToString(formula) {
-    if (formula.type == "value") {
-        return formula.name;
-    } else {
-        return formulaToString(formula.value1) + ' ' + formula.type + ' ' + formulaToString(formula.value2);
     }
 }
 
