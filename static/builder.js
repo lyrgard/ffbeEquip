@@ -1030,7 +1030,11 @@ function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
     
     equivalents.sort(function(entry1, entry2) {
         if (entry1.defenseValue == entry2.defenseValue) {
-            return entry2.available - entry1.available;    
+            if (entry2.available == entry1.available) {
+                return getValue(entry2.item, "atk%") + getValue(entry2.item, "mag%") + getValue(entry2.item, "atk") + getValue(entry2.item, "mag") - (getValue(entry1.item, "atk%") + getValue(entry1.item, "mag%") + getValue(entry1.item, "atk") + getValue(entry1.item, "mag"))
+            } else {
+                return entry2.available - entry1.available;    
+            }
         } else {
             return entry2.defenseValue - entry1.defenseValue;    
         }
@@ -1072,7 +1076,7 @@ function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
         for (var index in tree.children) {
             if (index == 0) {
                 logTree(tree.children[index], addedEntry, currentLine,currentDepth);
-            } else {
+            } else { 
                 logTree(tree.children[index], addedEntry, space,currentDepth);
             }
         }
@@ -1504,9 +1508,14 @@ function getOwnedNumber(item) {
         totalNumber = itemInventory[item[itemKey]];
     }
     totalOwnedNumber = totalNumber;
-    if (includeTMROfOwnedUnits && item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
-        totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+    if (includeTMROfOwnedUnits) {
+        if (item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
+            totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+        } else if (totalNumber == 0 && item.access.includes("trial")) {
+            totalNumber += 1;
+        }
     }
+    
     if (alreadyUsedItems[item[itemKey]]) {
         availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
     } else{
