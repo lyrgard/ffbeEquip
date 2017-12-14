@@ -248,6 +248,8 @@
                                 <div class="col-xs-5 physicaleHp"><div class="col-xs-6 stat" title="Physical eHP : HP x DEF">P. eHP</div><div class="col-xs-6 value text-right"></div></div><div class="col-xs-1"></div>
                                 <div class="col-xs-5 magicaleHp"><div class="col-xs-6 stat" title="Magical eHP : HP x SPR">M. eHP</div><div class="col-xs-6 value text-right"></div></div><div class="col-xs-1"></div>
                                 <div class="col-xs-5 mpRefresh"><div class="col-xs-6 stat">MP/turn</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div>
+                                <div class="resists elements"></div>
+                                <div class="resists ailments"></div>
                                 <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
                             </div>
                             <div class="buildLinks hidden">
@@ -373,40 +375,34 @@
                         </div>
                         <h4>How to use this:</h4>
                         <ul>
-                            <li>The formula determine how a build is noted. If build A get a better note than build B, it means that A is a better build than B for this formula.</li>
-                            <li>A formula is constructed like : &lt;NOTE FORMULA&gt;[;&lt;CONDITION&gt;]* </li>
-                            <li>Some valid formula : <span class="formula">HP</span>, <span class="formula">P_DAMAGE; HP > 6000</span>, <span class="formula">HP * DEF; P_EVADE > 100; HP > 5000</span></li>
-                            <li>You can use (currently) :
-                                <ul>
-                                    <li><h5>Variables :</h5>
-                                        <div class="tokenList">
-                                            <table class="table">
-                                                <tobdy>
-                                                    <tr><td class="token">HP, MP, ATK, ...</td><td>Value of the corresponding basic stat</td></tr>
-                                                    <tr><td class="token">P_DAMAGE</td><td>This is the total physical damage, taking into account the ATK, the elements, the killers, the damage variance, ...</td></tr>
-                                                    <tr><td class="token">M_DAMAGE</td><td>Same as P_DAMAGE but for magical damage</td></tr>
-                                                    <tr><td class="token">H_DAMAGE</td><td>Same as P_DAMAGE but for hybrid damage</td></tr>
-                                                    <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
-                                                    <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
-                                                    <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
-                                                    <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
-                                                </tobdy>
-                                            </table>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h5>Operators : </h5>
-                                        <div class="tokenList">
-                                            <table class="table">
-                                                <tobdy>
-                                                    <td class="token">*</td><td>Multiplication operator</td>
-                                                </tobdy>
-                                            </table>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
+                            <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span> operator between them</li>
+                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span></li>
+                            <li>Some valid formula : 
+                                <div><span class="code">HP</span> &rarr; Maximize HP</div>
+                                <div><span class="code">DEF * HP</span> &rarr; Maximize the product of HP by DEF (physical eHP)</div>
+                                <div><span class="code">MP * MP_REFRESH</span> &rarr; Maximize the number of MP regained each turn</div>
+                                <div><span class="code">M_DAMAGE; HP > 6000</span> &rarr; Maximize Magical Damage while keeping HP > 6000</div>
+                                <div><span class="code">P_DAMAGE; P_EVADE > 100; HP > 5000</span> &rarr; Maximize Physical Damage while reaching 100% physical evade and HP > 5000</div>
                             </li>
-                            <li>For instance, to maximize the MP refreshed each turn, the formula is: <b>MP * MP_REFRESH</b></li>
+                            <li><span class="glyphicon glyphicon-warning-sign"></span> The more different variables you use in your formula, the more time the calculations will take</li>
+                            <li>
+                                <h5>Available variables :</h5>
+                                <div class="tokenList">
+                                    <table class="table">
+                                        <tobdy>
+                                            <tr><td class="token">HP, MP, ATK, DEF, MAG, SPR</td><td>Value of the corresponding basic stat</td></tr>
+                                            <tr><td class="token">P_DAMAGE</td><td>This is the total physical damage, taking into account the ATK, the elements, the killers, the damage variance, ...</td></tr>
+                                            <tr><td class="token">M_DAMAGE</td><td>Same as P_DAMAGE but for magical damage</td></tr>
+                                            <tr><td class="token">H_DAMAGE</td><td>Same as P_DAMAGE but for hybrid damage</td></tr>
+                                            <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
+                                            <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
+                                            <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
+                                            <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
+                                        </tobdy>
+                                    </table>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div class="modal-footer">
