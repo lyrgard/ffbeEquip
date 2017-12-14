@@ -127,15 +127,23 @@ function formulaToString(formula) {
         return "EMPTY FORMULA";
     }
     if (formula.type == "value") {
-        return formula.name;
+        return getVariableName(formula.name);
     } else if (formula.type == "conditions") {
         var result = formulaToString(formula.formula);
         for (var index = 0, len = formula.conditions.length; index < len ;index ++) {
-            result += "; " + formula.conditions[index].value.name + ' > ' + formula.conditions[index].goal;
+            result += "; " + getVariableName(formula.conditions[index].value.name) + ' > ' + formula.conditions[index].goal;
         }
         return result;
     } else {
         return formulaToString(formula.value1) + ' ' + formula.type + ' ' + formulaToString(formula.value2);
+    }
+}
+
+function getVariableName(attribute) {
+    for (var variable in attributeByVariable) {
+        if (attributeByVariable[variable] == attribute) {
+            return variable;
+        }
     }
 }
 

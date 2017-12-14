@@ -363,3 +363,31 @@
 .goal .customGoalLinkSpan {
     margin-left: 10px;
 }
+
+.code {
+    background-color: aliceblue;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+#resultStats .resists {
+    display: flex;
+    clear: both; 
+}
+
+#resultStats .resists .resist {
+    position: relative;
+}
+
+#resultStats .resists .resist .value{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    z-index: 5;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    
+}

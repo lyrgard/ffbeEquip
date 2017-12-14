@@ -199,7 +199,7 @@ function calculateAlreadyUsedItems() {
 function readGoal(index = currentUnitIndex) {
     var goal;
     if (customFormula) {
-        goal = "custom";
+        builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].customFormula = customFormula;
     } else {
         goal = $(".goal select").val();   
@@ -2125,10 +2125,13 @@ function loadBuild(buildIndex) {
     if (build.goal) {
         if (build.goal == "custom") {
             customFormula = build.customFormula;
-        } else if (build.goal == "magicalDamageWithPhysicalMecanism") {
-            $('.goal option[value="magicalDamage"]').prop("selected", true);   
         } else {
-            $('.goal option[value="' + build.goal + '"]').prop("selected", true);
+            customFormula = null;
+            if (build.goal == "magicalDamageWithPhysicalMecanism") {
+                $('.goal option[value="magicalDamage"]').prop("selected", true);   
+            } else {
+                $('.goal option[value="' + build.goal + '"]').prop("selected", true);
+            }
         }
     }
     $(".magicalSkillType option").prop("selected", false);
@@ -2141,7 +2144,9 @@ function loadBuild(buildIndex) {
 
     updateUnitStats();
     
-    logCurrentBuild();  
+    if (builds[currentUnitIndex].selectedUnit) {
+        logCurrentBuild();  
+    }
 }
 
 function addNewUnit() {
@@ -2210,14 +2215,13 @@ function onGoalChange() {
     $(".unitAttackElement").addClass("hidden");
     $(".magicalSkillType").addClass("hidden");
     $("#forceDoublehand").addClass("hidden");
-    if (builds[currentUnitIndex].involvedStats.includes("physicalDamage") 
-        || builds[currentUnitIndex].involvedStats.includes("magicalDamage")
-        || builds[currentUnitIndex].involvedStats.includes("hybridDamage")) {
+    if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
+        || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
+        || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
     }
-    if (builds[currentUnitIndex].involvedStats.includes("physicalDamage") 
-        || builds[currentUnitIndex].involvedStats.includes("hybridDamage")) {
+    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
         $("#forceDoublehand").removeClass("hidden");
     }
@@ -2599,14 +2603,14 @@ var displaySearchResults = function(items) {
 
 function getStateHash() {
     var data = {
-        "goal": $(".goal select").val(),
+        "goal": builds[currentUnitIndex].goal,
         "innateElements":getSelectedValuesFor("elements")
     };
 
     if (data.goal == "magicalDamage") {
         data.attackType = $(".magicalSkillType select").val();
     }
-    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage") {
+    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "custom") {
         data.ennemyRaces = getSelectedValuesFor("races");
         readEnnemyStats();
         data.ennemyResists = ennemyResist;
@@ -2639,6 +2643,10 @@ function getStateHash() {
         data.esper = builds[currentUnitIndex].fixedItems[10].name;
     }
     
+    if (data.goal == "custom") {
+        data.customFormula = formulaToString(builds[currentUnitIndex].customFormula);
+    }
+    
     return data;
 }
 
@@ -2659,6 +2667,9 @@ function loadStateHashAndBuild(data) {
     reinitBuild(0);
     $('.goal select option').prop("selected", false);
     $('.goal select option[value="' + data.goal + '"]').prop("selected", true);
+    if (data.customFormula) {
+        customFormula = parseFormula(data.customFormula);
+    }
     onGoalChange();
     if (data.unitName) {
         $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
@@ -2899,6 +2910,7 @@ function getBuildStatsAsText() {
 }
 
 $(function() {
+    progressElement = $("#buildProgressBar .progressBar");
     $.get(server + "/data.json", function(result) {
         data = result;
         prepareSearch(data);
@@ -2951,15 +2963,19 @@ $(function() {
     
     populateItemStat();
     populateUnitEquip();
+    populateResists();
     
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateSearchResult));
     $('#fixItemModal').on('shown.bs.modal', function () {
         $('#searchText').focus();
     })  
+    $("#customFormulaModal").on('shown.bs.modal', function () {
+        $("#customFormulaModal input").focus();
+    })
+    
     
     $(".excludedItemNumber").html(itemsToExclude.length);
-    progressElement = $("#buildProgressBar .progressBar");
 });
 
 var counter = 0;
@@ -3019,4 +3035,15 @@ function populateItemStat() {
 	for (var key in statList) {
         target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
 	}
+}
+
+function populateResists() {
+    var div = $("#resultStats .resists.elements");
+    for (var index in elementList) {
+        div.append('<div class="resist ' + elementList[index] + '"><img src="img/' + elementList[index] + '.png"><div class="value">0%<div></div>');
+    }
+    var div = $("#resultStats .resists.ailments");
+    for (var index in ailmentList) {
+        div.append('<div class="resist ' + ailmentList[index] + '"><img src="img/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
+    }
 }
