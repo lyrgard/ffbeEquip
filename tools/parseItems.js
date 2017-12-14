@@ -463,7 +463,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][2] == 0) {
             if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
             addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);    
-        } else if (rawEffect[3][2] == 0) {
+        } else if (rawEffect[3][2] == 2) {
             if (!item.singleWielding) {item.singleWielding = {}};
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
