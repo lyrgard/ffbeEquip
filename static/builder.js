@@ -2,7 +2,7 @@ page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"conditions","conditions":[{"value":{"type":"value","name":"evade.physical"}, "goal":300}],"formula":{"type":"value","name":"physicalDamage"}},
+    "physicalDamage":                   {"type":"value","name":"physicalDamage"},
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
@@ -14,7 +14,6 @@ const formulaByGoal = {
     "physicalEvasion":                  {"type":"value","name":"evade.physical"},
     "magicalEvasion":                   {"type":"value","name":"evade.magical"},
     "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}},
-    "custom":                           null 
 };
 const involvedStats = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
@@ -26,7 +25,7 @@ const involvedStats = {
 
 const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
 
-
+var customFormula;
 
 var dataByType = {};
 var dataByTypeIds = {};
@@ -199,21 +198,29 @@ function calculateAlreadyUsedItems() {
 
 function readGoal(index = currentUnitIndex) {
     var goal;
-    if (formulaByGoal["custom"]) {
-        goal = custom;
+    if (customFormula) {
+        goal = "custom";
+        builds[currentUnitIndex].customFormula = customFormula;
     } else {
         goal = $(".goal select").val();   
-    }
-    
-    if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
-        builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
-    } else {
-        builds[currentUnitIndex].goal = goal;
+        if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
+            builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
+        } else {
+            builds[currentUnitIndex].goal = goal;
+        }
     }
     builds[currentUnitIndex].involvedStats = [];
-    calculateInvolvedStats(formulaByGoal[builds[currentUnitIndex].goal]);
+    calculateInvolvedStats(getFormula());
 }
 
+function getFormula() {
+    if (customFormula) {
+        return customFormula;
+    } else {
+        return formulaByGoal[builds[currentUnitIndex].goal];
+    }
+}
+ 
 function calculateInvolvedStats(formula) {
     if (formula.type == "value") {
         var name = formula.name;
@@ -1559,7 +1566,7 @@ function someEquipmentNoMoreApplicable(build) {
 }
 
 function calculateBuildValue(itemAndPassives) {
-    return calculateBuildValueWithFormula(itemAndPassives, formulaByGoal[builds[currentUnitIndex].goal]);
+    return calculateBuildValueWithFormula(itemAndPassives, getFormula());
 }
 
 function calculateBuildValueWithFormula(itemAndPassives, formula) {
@@ -2116,7 +2123,9 @@ function loadBuild(buildIndex) {
     
     $(".goal option").prop("selected", false);
     if (build.goal) {
-        if (build.goal == "magicalDamageWithPhysicalMecanism") {
+        if (build.goal == "custom") {
+            customFormula = build.customFormula;
+        } else if (build.goal == "magicalDamageWithPhysicalMecanism") {
             $('.goal option[value="magicalDamage"]').prop("selected", true);   
         } else {
             $('.goal option[value="' + build.goal + '"]').prop("selected", true);
@@ -2196,29 +2205,33 @@ function onGoalChange() {
     if (builds[currentUnitIndex].selectedUnit) { 
         logCurrentBuild();
     }
-    var goal;
-    if (formulaByGoal["custom"]) {
-        goal = "custom";
-    } else {
-        goal = $(".goal select").val();
-    }
+    var goal = builds[currentUnitIndex].goal;
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
     $(".magicalSkillType").addClass("hidden");
     $("#forceDoublehand").addClass("hidden");
-    if (formulaByGoal[goal].involvedStats.includes("physicalDamage") 
-        || formulaByGoal[goal].involvedStats.includes("magicalDamage")
-        || formulaByGoal[goal].involvedStats.includes("hybridDamage")) {
+    if (builds[currentUnitIndex].involvedStats.includes("physicalDamage") 
+        || builds[currentUnitIndex].involvedStats.includes("magicalDamage")
+        || builds[currentUnitIndex].involvedStats.includes("hybridDamage")) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
     }
-    if (formulaByGoal[goal].involvedStats.includes("physicalDamage") 
-        || formulaByGoal[goal].involvedStats.includes("hybridDamage")) {
+    if (builds[currentUnitIndex].involvedStats.includes("physicalDamage") 
+        || builds[currentUnitIndex].involvedStats.includes("hybridDamage")) {
         $(".unitAttackElement").removeClass("hidden");
         $("#forceDoublehand").removeClass("hidden");
     }
     if (goal == "magicalDamage") {
         $(".magicalSkillType").removeClass("hidden");
+    }
+    
+    if (customFormula) {
+        $('#normalGoalChoices').addClass("hidden");
+        $('#customGoalChoice').removeClass("hidden");
+        $("#customGoalFormula").text(formulaToString(getFormula()));
+    } else {
+        $('#normalGoalChoices').removeClass("hidden");
+        $('#customGoalChoice').addClass("hidden");
     }
 }
 
@@ -2230,9 +2243,17 @@ function chooseCustomFormula() {
     var formulaString = $("#customFormulaModal input").val();
     var formula = parseFormula(formulaString);
     if (formula) {
-        formulaByGoal["custom"] = formula;
+        customFormula = formula;
         builds[currentUnitIndex].goal = "custom";
+        $('#customFormulaModal').modal('hide');
+        onGoalChange();
     }
+}
+
+function removeCustomGoal() {
+    customFormula = null;
+    onGoalChange();
+    $('#customFormulaModal').modal('hide');
 }
 
 function onEquipmentsChange() {

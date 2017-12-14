@@ -70,7 +70,6 @@ function parseExpression(formula, pos) {
 }
 
 function parseConditions(formula, pos) {
-    console.log(formula);
     while (formula.startsWith(" ")) {
         formula = formula.substr(1);
         pos++;
