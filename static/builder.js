@@ -13,7 +13,8 @@ const formulaByGoal = {
     "magicaleHp":                       {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"spr"}},
     "physicalEvasion":                  {"type":"value","name":"evade.physical"},
     "magicalEvasion":                   {"type":"value","name":"evade.magical"},
-    "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}}
+    "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}},
+    "custom":                           null 
 };
 const involvedStats = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
@@ -197,7 +198,12 @@ function calculateAlreadyUsedItems() {
 }
 
 function readGoal(index = currentUnitIndex) {
-    var goal = $(".goal select").val();
+    var goal;
+    if (formulaByGoal["custom"]) {
+        goal = custom;
+    } else {
+        goal = $(".goal select").val();   
+    }
     
     if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
         builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
@@ -2186,31 +2192,46 @@ function notLoaded() {
 }
 
 function onGoalChange() {
-    var goal = $(".goal select").val();
-    if (goal == "magicalDamage") {
-        $(".magicalSkillType").removeClass("hidden");
+    readGoal();
+    if (builds[currentUnitIndex].selectedUnit) { 
+        logCurrentBuild();
+    }
+    var goal;
+    if (formulaByGoal["custom"]) {
+        goal = "custom";
+    } else {
+        goal = $(".goal select").val();
+    }
+    $(".monster").addClass("hidden");
+    $(".unitAttackElement").addClass("hidden");
+    $(".magicalSkillType").addClass("hidden");
+    $("#forceDoublehand").addClass("hidden");
+    if (formulaByGoal[goal].involvedStats.includes("physicalDamage") 
+        || formulaByGoal[goal].involvedStats.includes("magicalDamage")
+        || formulaByGoal[goal].involvedStats.includes("hybridDamage")) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
-        $("#forceDoublehand").addClass("hidden");
-    } else if (goal == "physicalDamage" || goal == "hybridDamage"){
-        $(".magicalSkillType").addClass("hidden");
-        $(".monster").removeClass("hidden");
+    }
+    if (formulaByGoal[goal].involvedStats.includes("physicalDamage") 
+        || formulaByGoal[goal].involvedStats.includes("hybridDamage")) {
         $(".unitAttackElement").removeClass("hidden");
         $("#forceDoublehand").removeClass("hidden");
-    } else if (goal == "def" || goal == "spr" || goal == "hp" || goal == "physicaleHp" || goal == "magicaleHp") {
-        $(".monster").addClass("hidden");
-        $(".unitAttackElement").addClass("hidden");
-        $(".magicalSkillType").addClass("hidden");
-        $("#forceDoublehand").addClass("hidden");
-    } else if (goal == "custom") {
-        $("#customFormulaModal").modal();
     }
-    if (builds[currentUnitIndex]) {
-        readGoal();
-        $("#formula").text(formulaToString(formulaByGoal[builds[currentUnitIndex].goal]));
-        if (builds[currentUnitIndex].selectedUnit) { 
-            logCurrentBuild();
-        }
+    if (goal == "magicalDamage") {
+        $(".magicalSkillType").removeClass("hidden");
+    }
+}
+
+function openCustomGoalModal() {
+    $("#customFormulaModal").modal();
+}
+
+function chooseCustomFormula() {
+    var formulaString = $("#customFormulaModal input").val();
+    var formula = parseFormula(formulaString);
+    if (formula) {
+        formulaByGoal["custom"] = formula;
+        builds[currentUnitIndex].goal = "custom";
     }
 }
 
@@ -2891,6 +2912,8 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     
+    builds[currentUnitIndex] = {};
+    
     $(".goal select").change(onGoalChange);
     onGoalChange();
     
@@ -2898,7 +2921,7 @@ $(function() {
     
     $("#buildButton").click(build);
     
-    builds[currentUnitIndex] = {};
+    
     
     // Elements
 	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"]);
