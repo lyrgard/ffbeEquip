@@ -134,11 +134,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div id="forceDoublehand" class="col-xs-12">
-                            <div class="col-xs-3 text-right">Force Doublehand build</div>
-                            <div class="col-xs-9">
-                                <input type="checkbox"/>
-                            </div>
+                        <div id="forceDoublehand" class="col-xs-12 checkboxGroup">
+                            <input type="checkbox"/><label>Force Doublehand build</label>
+                        </div>
+                        <div id="forceDualWield" class="col-xs-12 checkboxGroup">
+                            <input type="checkbox"/><label>Force Dual Wield build</label>
                         </div>
                     </div>
                 </div>
@@ -204,11 +204,11 @@
                         </form>
                     </div>
                     <div class="panel-body">
-                        <div class="hidden"><input id="includeTMROfOwnedUnits" type="checkbox"><label>Include TMR of owned units not farmed yet and Trial rewards not acquired yet</label></div>
-                        <div><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
-                        <div><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
-                        <div><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
-                        <div><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
+                        <div class="checkboxGroup hidden"><input id="includeTMROfOwnedUnits" type="checkbox"><label>Include TMR of owned units not farmed yet and Trial rewards not acquired yet</label></div>
+                        <div class="checkboxGroup"><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
+                        <div class="checkboxGroup"><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
+                        <div class="checkboxGroup"><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
+                        <div class="checkboxGroup"><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
                         <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
                     </div>
                 </div>
