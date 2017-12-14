@@ -1115,7 +1115,7 @@ function getItemNodeComparison(treeNode1, treeNode2) {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
         }
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
-        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
+        comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWielding." + stats[index]));
         comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
     }
     if (goals[builds[currentUnitIndex].goal].applicableKillerType != "none") {
