@@ -1245,6 +1245,20 @@ function getValue(item, valuePath) {
         for (var index = 0, len = pathTokens.length; index < len; index++) {
             if (currentItem[pathTokens[index]]) {
                 currentItem = currentItem[pathTokens[index]];
+            } else if (pathTokens[index].indexOf('|') > -1) {
+                var tmpToken = pathTokens[index].split("|");
+                var property = tmpToken[0];
+                var name = tmpToken[1];
+                if (currentItem[property]) {
+                    for (var listIndex = currentItem[property].length; listIndex--;) {
+                        if (currentItem[property][listIndex].name == name) {
+                            currentItem = currentItem[property][listIndex];
+                            break;
+                        }
+                    }
+                } else {
+                    return 0; 
+                }
             } else {
                 return 0;
             }
@@ -1660,7 +1674,7 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
     
 
 function getEquipmentStatBonus(itemAndPassives, stat) {
-    if (itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
+    if (baseStats.includes(stat) && itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
         var bonus = 1;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
         for (var index = itemAndPassives.length; index--;) {
@@ -1855,6 +1869,12 @@ function logBuild(build, value) {
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh").total / 100));
+    for (var index in elementList) {
+        $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent").total + '%');
+    }
+    for (var index in ailmentList) {
+        $("#resultStats .resists .resist." + ailmentList[index] + " .value").text(calculateStatValue(build, "resist|" + ailmentList[index] + ".percent").total + '%');
+    }
     if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
         $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
     }
@@ -1870,7 +1890,7 @@ function logBuild(build, value) {
     }
 
     $("#resultStats .damage").addClass("hidden");
-    if (builds[currentUnitIndex].goal == "physicalDamage" || builds[currentUnitIndex].goal == "magicalDamage" || builds[currentUnitIndex].goal == "magicalDamageWithPhysicalMecanism" || builds[currentUnitIndex].goal == "hybridDamage") {
+    if (importantStats.includes("atk") || importantStats.includes("mag")) {
         $("#resultStats .damage .monsterDefSpan").addClass("hidden");
         $("#resultStats .damage .monsterSprSpan").addClass("hidden");
         if (importantStats.includes("atk")) {
@@ -1900,7 +1920,8 @@ function switchView(conciseViewParam) {
 }
 
 function escapeDot(statName) {
-    return statName.replace(/\./g, '_');
+    statName = statName.replace(/\./g, '_');
+    return statName.replace(/\|/g, '_');
 }
 
 function getItemLine(index, short = false) {
@@ -3038,12 +3059,12 @@ function populateItemStat() {
 }
 
 function populateResists() {
-    var div = $("#resultStats .resists.elements");
+    var div = $("#resultStats .resists .elements");
     for (var index in elementList) {
-        div.append('<div class="resist ' + elementList[index] + '"><img src="img/' + elementList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '"><img src="img/' + elementList[index] + '.png"><div class="value">0%<div></div>');
     }
-    var div = $("#resultStats .resists.ailments");
+    var div = $("#resultStats .resists .ailments");
     for (var index in ailmentList) {
-        div.append('<div class="resist ' + ailmentList[index] + '"><img src="img/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'"><img src="img/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
     }
 }

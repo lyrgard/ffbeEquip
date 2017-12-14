@@ -372,8 +372,16 @@
 }
 
 #resultStats .resists {
-    display: flex;
     clear: both; 
+    padding-left: 30px;
+    padding-top: 5px;
+}
+
+#resultStats .resists .elements {
+    display: flex;
+}
+#resultStats .resists .ailments {
+    display: flex;
 }
 
 #resultStats .resists .resist {
@@ -390,4 +398,8 @@
     text-align: center;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     
+}
+
+#resultStats .resists .resist.statToMaximize .value {
+    color: chartreuse;
 }

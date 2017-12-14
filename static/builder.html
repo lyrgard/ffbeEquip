@@ -248,8 +248,10 @@
                                 <div class="col-xs-5 physicaleHp"><div class="col-xs-6 stat" title="Physical eHP : HP x DEF">P. eHP</div><div class="col-xs-6 value text-right"></div></div><div class="col-xs-1"></div>
                                 <div class="col-xs-5 magicaleHp"><div class="col-xs-6 stat" title="Magical eHP : HP x SPR">M. eHP</div><div class="col-xs-6 value text-right"></div></div><div class="col-xs-1"></div>
                                 <div class="col-xs-5 mpRefresh"><div class="col-xs-6 stat">MP/turn</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div>
-                                <div class="resists elements"></div>
-                                <div class="resists ailments"></div>
+                                <div class="resists">
+                                    <div class="elements"></div>
+                                    <div class="ailments"></div>
+                                </div>
                                 <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
                             </div>
                             <div class="buildLinks hidden">
@@ -399,6 +401,8 @@
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
                                             <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
                                             <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
+                                            <tr><td class="token">R_FIRE, R_ICE, R_THUNDER, R_WATER, R_EARTH, R_WIND, R_LIGHT, R_DARK</td><td>Corresponding elemental resistance</td></tr>
+                                            <tr><td class="token">R_POISON, R_BLIND, R_SLEEP, R_SILENCE, R_PARALYSIS, R_CONFUSION, R_DISEASE, R_PETRIFICATION, R_DEATH</td><td>Corresponding ailment resistance</td></tr>
                                         </tobdy>
                                     </table>
                                 </div>

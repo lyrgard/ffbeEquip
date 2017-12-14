@@ -385,6 +385,14 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
                     }
                 }
                 
+            // Element Resist
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
+                addElementalResist(baseEffects, rawEffect[3]);
+
+            // Ailments Resist
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
+                addAilmentResist(baseEffects, rawEffect[3]);
+                
                 // MP refresh
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
                 var mpRefresh = rawEffect[3][0];
@@ -446,6 +454,28 @@ function addKiller(skill, race, physicalPercent, magicalPercent) {
             killerData.magical += magicalPercent;
         } else {
             killerData.magical = magicalPercent;
+        }
+    }
+}
+
+function addElementalResist(item, values) {
+    if (!item.resist) {
+        item.resist = [];
+    }
+    for (var index in elements) {
+        if (values[index]) {
+            item.resist.push({"name":elements[index],"percent":values[index]})
+        }
+    }
+}
+
+function addAilmentResist(item, values) {
+    if (!item.resist) {
+        item.resist = [];
+    }
+    for (var index in ailments) {
+        if (values[index]) {
+            item.resist.push({"name":ailments[index],"percent":values[index]})
         }
     }
 }
