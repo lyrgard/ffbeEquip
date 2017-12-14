@@ -1,4 +1,4 @@
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE","M_P_DAMAGE"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE","M_P_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH"];
 const operators = ["*"];
 const attributeByVariable = {
     "HP":"hp",
@@ -13,7 +13,26 @@ const attributeByVariable = {
     "P_DAMAGE":"physicalDamage",
     "M_DAMAGE":"magicalDamage",
     "H_DAMAGE":"hibridDamage",
-    "M_P_DAMAGE":"magicalDamageWithPhysicalMecanism"
+    "M_P_DAMAGE":"magicalDamageWithPhysicalMecanism",
+    "R_FIRE":"resist|fire.percent",
+    "R_ICE":"resist|ice.percent",
+    "R_THUNDER":"resist|lightning.percent",
+    "R_WATER":"resist|water.percent",
+    "R_EARTH":"resist|earth.percent",
+    "R_WIND":"resist|wind.percent",
+    "R_LIGHt":"resist|light.percent",
+    "R_DARK":"resist|dark.percent",
+    "R_POISON":"resist|poison.percent",
+    "R_BLIND":"resist|blind.percent",
+    "R_SLEEP":"resist|sleep.percent",
+    "R_SILENCE":"resist|silence.percent",
+    "R_PARALYSIS":"resist|paralysis.percent",
+    "R_CONFUSION":"resist|confuse.percent",
+    "R_DISEASE":"resist|disease.percent",
+    "R_PETRIFICATION":"resist|petrification.percent",
+    "R_DEATH":"resist|death.percent",
+    
+    
 };
 
 function parseFormula(formula) {
