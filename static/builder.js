@@ -691,7 +691,7 @@ function buildTypeCombination(index, typeCombination, combinations, fixedItems, 
                     tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand, forceDoublehand, forceDualWield);
                 }
         } else {
-            tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand);
+            tryType(index, typeCombination, null, combinations, fixedItems, tryDoublehand, forceDoublehand, forceDualWield);
         }
     }
 }
@@ -1195,7 +1195,7 @@ function getItemNodeComparison(treeNode1, treeNode2) {
         } else {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singlWielding." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWielding." + stats[index]));
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
         }
     }
@@ -1879,7 +1879,7 @@ function logBuild(build, value) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent").total + '%');
     }
     for (var index in ailmentList) {
-        $("#resultStats .resists .resist." + ailmentList[index] + " .value").text(calculateStatValue(build, "resist|" + ailmentList[index] + ".percent").total + '%');
+        $("#resultStats .resists .resist." + ailmentList[index] + " .value").text(Math.min(100, calculateStatValue(build, "resist|" + ailmentList[index] + ".percent").total) + '%');
     }
     if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
         $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
@@ -2247,33 +2247,10 @@ function onGoalChange() {
         || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
-<<<<<<< HEAD
     }
     if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
         $("#forceDoublehand").removeClass("hidden");
-=======
-        $("#forceDoublehand").addClass("hidden");
-        $("#forceDualWield").addClass("hidden");
-    } else if (goal == "physicalDamage" || goal == "hybridDamage"){
-        $(".magicalSkillType").addClass("hidden");
-        $(".monster").removeClass("hidden");
-        $(".unitAttackElement").removeClass("hidden");
-        $("#forceDoublehand").removeClass("hidden");
-        $("#forceDualWield").removeClass("hidden");
-    } else if (goal == "def" || goal == "spr" || goal == "hp" || goal == "physicaleHp" || goal == "magicaleHp") {
-        $(".monster").addClass("hidden");
-        $(".unitAttackElement").addClass("hidden");
-        $(".magicalSkillType").addClass("hidden");
-        $("#forceDoublehand").addClass("hidden");
-        $("#forceDualWield").addClass("hidden");
-    }
-    if (builds[currentUnitIndex]) {
-        builds[currentUnitIndex].goal = goal;
-        if (builds[currentUnitIndex].selectedUnit) { 
-            logCurrentBuild();
-        }
->>>>>>> master
     }
     if (goal == "magicalDamage") {
         $(".magicalSkillType").removeClass("hidden");
@@ -3026,10 +3003,7 @@ $(function() {
     
     
     $(".excludedItemNumber").html(itemsToExclude.length);
-<<<<<<< HEAD
-=======
-    progressElement = $("#buildProgressBar .progressBar");
-    
+
     $("#forceDoublehand input").change(function() {
         if ($("#forceDoublehand input").prop('checked')) {
             $('#forceDualWield input').prop('checked', false);
@@ -3040,7 +3014,6 @@ $(function() {
             $('#forceDoublehand input').prop('checked', false);
         }
     });
->>>>>>> master
 });
 
 var counter = 0;
