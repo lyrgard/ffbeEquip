@@ -485,6 +485,8 @@ function getEsperComparison(treeNode1, treeNode2) {
             comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"physical"));
         } else if (stats[index] == "magicalKiller") {
             comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"magical"));
+        } else if (stats[index].startsWith("resist")) {
+            comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
         }
     }
     return combineComparison(comparisionStatus);
@@ -2052,6 +2054,9 @@ function getEsperItem(esper) {
     item.access = ["story"];
     if (esper.killers) {
         item.killers = esper.killers;
+    }
+    if (esper.resist) {
+        item.resist = esper.resist;
     }
     return item;
 }
