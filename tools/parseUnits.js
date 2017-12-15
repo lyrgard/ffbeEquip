@@ -386,11 +386,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
                 }
                 
             // Element Resist
-            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
+            } else if (!skillIn.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
                 addElementalResist(baseEffects, rawEffect[3]);
 
             // Ailments Resist
-            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
+            } else if (!skillIn.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
                 addAilmentResist(baseEffects, rawEffect[3]);
                 
                 // MP refresh
