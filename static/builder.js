@@ -1694,7 +1694,7 @@ function getEquipmentStatBonus(itemAndPassives, stat) {
                 }
             }
         }
-        return bonus;
+        return Math.min(4, bonus);
     } else {
         return 1;
     }
