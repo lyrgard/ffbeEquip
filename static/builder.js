@@ -41,6 +41,7 @@ var excludeTMR5;
 var excludeNotReleasedYet;
 var excludePremium;
 var includeTMROfOwnedUnits;
+var includeTrialRewards;
 
 var selectedUnitName;
 var selectedUnit;
@@ -296,6 +297,7 @@ function readItemsExcludeInclude() {
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
     includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
+    includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
 
 function prepareData(equipable) {
@@ -485,6 +487,8 @@ function getEsperComparison(treeNode1, treeNode2) {
             comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"physical"));
         } else if (stats[index] == "magicalKiller") {
             comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"magical"));
+        } else if (stats[index].startsWith("resist")) {
+            comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
         }
     }
     return combineComparison(comparisionStatus);
@@ -1552,9 +1556,10 @@ function getOwnedNumber(item) {
     if (includeTMROfOwnedUnits) {
         if (item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
             totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
-        } else if (totalNumber == 0 && item.access.includes("trial")) {
-            totalNumber += 1;
         }
+    }
+    if (includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
+        totalNumber += 1;
     }
     
     if (alreadyUsedItems[item[itemKey]]) {
@@ -2053,6 +2058,9 @@ function getEsperItem(esper) {
     if (esper.killers) {
         item.killers = esper.killers;
     }
+    if (esper.resist) {
+        item.resist = esper.resist;
+    }
     return item;
 }
 
@@ -2295,6 +2303,7 @@ function onEquipmentsChange() {
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
+        $("#includeTrialRewards").parent().addClass("hidden");
         onlyUseOwnedItems = false;
     } else {
         $("#exludeEvent").parent().addClass("hidden");
@@ -2306,6 +2315,7 @@ function onEquipmentsChange() {
         } else {
             $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         }
+        $("#includeTrialRewards").parent().removeClass("hidden");
         onlyUseOwnedItems = true;
     }
 }
