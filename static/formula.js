@@ -1,5 +1,5 @@
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE","M_P_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH"];
-const operators = ["*"];
+const operators = ["/","*","+"];
 const attributeByVariable = {
     "HP":"hp",
     "MP":"mp",
@@ -84,8 +84,22 @@ function parseExpression(formula, pos) {
             return {"type":"value", "name":attributeByVariable[baseVariables[index]]};
         }
     }
-    alert("Error at position " + pos + ". Expected variable.");
-    return;
+    var constant = parseConstant(formula, pos);
+    if (constant) {
+        return constant;
+    }
+}
+
+function parseConstant(formula, pos) {
+    while (formula.startsWith(" ")) {
+        formula = formula.substr(1);
+        pos++;
+    }
+    formula = formula.trim();
+    if (!isNaN(formula)) {
+        return {"type":"constant", "value":+formula}
+    }
+    alert("Error at position " + pos + ". Expected constant.");
 }
 
 function parseConditions(formula, pos) {
@@ -111,33 +125,17 @@ function parseCondition(formula, pos) {
         formula = formula.substr(1);
         pos++;
     }
-    for (var index = baseVariables.length; index--; ) {
-        if (formula.startsWith(baseVariables[index])) {
-            var variable = baseVariables[index];
-            formula = formula.substr(baseVariables[index].length);
-            while (formula.startsWith(" ")) {
-                formula = formula.substr(1);
-                pos++;
-            }
-            if (formula.startsWith(">")) {
-                formula = formula.substr(1);
-                while (formula.startsWith(" ")) {
-                    formula = formula.substr(1);
-                    pos++;
-                }
-                formula = formula.trim();
-                var goal = parseInt(formula);
-                if (!isNaN(goal)) {
-                    return {"value":{"type":"value", "name":attributeByVariable[variable]}, "goal":goal};
-                } else {
-                    alert("Error at position " + pos + ". Expected number.");            
-                }
-            } else {
-                alert("Error at position " + pos + ". Expected '>'.");            
-            }
+    var gtPos = formula.indexOf(">")
+    if (gtPos >= 0) {
+        var expression = parseExpression(formula.substr(0,gtPos), pos);
+        var constant = parseConstant(formula.substr(gtPos + 1), gtPos + 1);
+        if (expression && constant) {
+            return {"value":expression, "goal":constant.value};
         }
+    } else {
+        alert("Error at position " + pos + ". Condition does not contains \">\".");    
     }
-    alert("Error at position " + pos + ". Expected variable.");
+    
     return;
 }
 
@@ -147,10 +145,12 @@ function formulaToString(formula) {
     }
     if (formula.type == "value") {
         return getVariableName(formula.name);
+    } else if (formula.type == "constant") {
+        return formula.value.toString();
     } else if (formula.type == "conditions") {
         var result = formulaToString(formula.formula);
         for (var index = 0, len = formula.conditions.length; index < len ;index ++) {
-            result += "; " + getVariableName(formula.conditions[index].value.name) + ' > ' + formula.conditions[index].goal;
+            result += "; " + formulaToString(formula.conditions[index].value) + ' > ' + formula.conditions[index].goal;
         }
         return result;
     } else {
