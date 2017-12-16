@@ -1669,7 +1669,11 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
             }
             return total / goalValuesCaract[formula.name].statsToMaximize.length;
         } else {
-            return calculateStatValue(itemAndPassives, formula.name).total;
+            var value = calculateStatValue(itemAndPassives, formula.name).total;
+            if (formula.name == "mpRefresh") {
+                value /= 100;
+            }
+            return value;
         }   
     } else if (formula.type == "constant") {
         return formula.value;
