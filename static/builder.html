@@ -59,6 +59,7 @@
                                         <option value="physicalEvasion">Physical evasion</option>
                                         <option value="magicalEvasion">Magical evasion</option>
                                         <option value="mpRefresh">MP/turn</option>
+                                        <option value="heal">Heal</option>
                                     </select>
                                     <span class="customGoalLinkSpan">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
                                 </div>
@@ -379,7 +380,7 @@
                         <h4>How to use this:</h4>
                         <ul>
                             <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
-                            <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span> operator between them</li>
+                            <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
                             <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span></li>
                             <li>Some valid formula : 
                                 <div><span class="code">HP</span> &rarr; Maximize HP</div>

@@ -14,6 +14,7 @@ const formulaByGoal = {
     "physicalEvasion":                  {"type":"value","name":"evade.physical"},
     "magicalEvasion":                   {"type":"value","name":"evade.magical"},
     "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}},
+    "heal":                             {"type":"+", "value1":{"type":"/", "value1":{"type":"value","name":"spr"}, "value2":{"type":"constant", "value":2}}, "value2":{"type":"/", "value1":{"type":"value","name":"mag"}, "value2":{"type":"constant", "value":10}}},
 };
 const involvedStats = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
@@ -241,7 +242,7 @@ function calculateInvolvedStats(formula) {
             calculateInvolvedStats(formula.conditions[index].value);    
         }
         calculateInvolvedStats(formula.formula);    
-    } else {
+    } else if (formula.type != "constant") {
         calculateInvolvedStats(formula.value1);
         calculateInvolvedStats(formula.value2);
     }
@@ -1669,9 +1670,15 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
             return total / goalValuesCaract[formula.name].statsToMaximize.length;
         } else {
             return calculateStatValue(itemAndPassives, formula.name).total;
-        }    
+        }   
+    } else if (formula.type == "constant") {
+        return formula.value;
     } else if (formula.type == "*") {
         return calculateBuildValueWithFormula(itemAndPassives, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+    } else if (formula.type == "+") {
+        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+    } else if (formula.type == "/") {
+        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, formula.value2);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
             var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
