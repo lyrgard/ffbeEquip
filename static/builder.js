@@ -109,8 +109,16 @@ var goalValuesCaract = {
     "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true}
 }
 
+var running = false;
+var stop = false;
+
 
 function build() {
+    if (running) {
+        stop = true;
+        return;
+    }
+    
     $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].selectedUnit) {
@@ -137,6 +145,8 @@ function build() {
     prepareEquipable();
     selectEspers();
     
+    running = true;
+    $("#buildButton").text("STOP");
     optimize();
 }
 
@@ -580,6 +590,13 @@ function optimize() {
 }
 
 function tryDualWieldSourceAsync(dualWieldSourceIndex,typeCombination,combinations,fixedItems,unitPartialDualWield, forceDualWield) {
+    if (stop) {
+        alert("Build was stoped before completion. The result may not be optimal");
+        stop = false;
+        running = false;
+        $("#buildButton").text("Build !");
+        return;
+    }
     if (dualWieldSources.length > dualWieldSourceIndex) {
         var item = dualWieldSources[dualWieldSourceIndex];
         var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
@@ -666,6 +683,9 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
 }
 
 function buildTypeCombination(index, typeCombination, combinations, fixedItems, tryDoublehand = false, forceDoublehand = false, forceDualWield = true) {
+    if (stop) {
+        return;
+    }
     if (fixedItems[index]) {
         if (equipable[index].length > 0 && equipable[index].includes(fixedItems[index].type)) {
             tryType(index, typeCombination, fixedItems[index].type, combinations, fixedItems, tryDoublehand, forceDoublehand, forceDualWield);
@@ -772,7 +792,7 @@ function logDataWithdConditionItems(dataWithdConditionItems) {
 function findBestBuildForCombinationAsync(index, combinations) {
     var nextAsync = Date.now() + 1000;
     var len = combinations.length;
-    while (index < len && Date.now() < nextAsync) {
+    while (index < len && Date.now() < nextAsync && !stop) {
         var build = [null, null, null, null, null, null, null, null, null, null,null].concat(combinations[index].applicableSkills);
         findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
         index++
@@ -787,15 +807,20 @@ function findBestBuildForCombinationAsync(index, combinations) {
     
     //console.log(Math.floor(index/combinations.length*100) + "%" );
     
-    if (index < combinations.length) {
+    if (index < combinations.length && !stop) {
         setTimeout(findBestBuildForCombinationAsync,0,index,combinations);
     } else {
         logCurrentBuild();
         progressElement.addClass("finished");
         console.timeEnd("optimize");
-        if (!builds[currentUnitIndex].bestValue) {
+        if (stop) {
+            alert("Build was stoped before completion. The result may not be optimal");
+        } else if (!builds[currentUnitIndex].bestValue) {
             alert("Impossible to fulfill conditions");
         }
+        stop = false;
+        running = false;
+        $("#buildButton").text("Build !");
     }
 }
 
@@ -882,6 +907,9 @@ function getFFBEBenImageLink() {
 }
 
 function findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills) {
+    if (stop) {
+        return;
+    }
     if (index == 2) {
         // weapon set, try elemental based skills
         for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
