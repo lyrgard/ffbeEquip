@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "FFBE Equip",
   "main": "server.js",
+  "engines": {
+    "node": ">= 8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -18,13 +21,13 @@
   },
   "homepage": "https://github.com/lyrgard/ffbeEquip#readme",
   "dependencies": {
+    "bluebird": "3.5.1",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "drive-config": "^0.1.1",
     "express": "^4.15.3",
-    "goo.gl": "^0.1.4",
-    "google-auth-library": "^0.10.0",
-    "googleapis": "^20.1.0",
+    "google-auth-library": "0.12.0",
+    "googleapis": "23.0.0",
     "json-validation": "^1.0.4"
   }
 }

@@ -7,9 +7,9 @@ var jv = require('json-validation');
 var google = require('googleapis');
 var app = express();
 let driveConfig = require('drive-config');
-var googl = require('goo.gl');
 var inventoryFile = null;
 var unitsFile = null;
+const links = require('./server/routes/links.js');
 
 if (process.argv.length > 2) {
     if (process.argv[2] != "null") {
@@ -32,7 +32,7 @@ app.post('/:server/items/temp', function(req, res) {
         var items = sanitize(req.body);
         var tempItems = [];
         if (fs.existsSync(fileName)) {
-            tempItems = JSON.parse(fs.readFileSync(fileName, 'utf8'));    
+            tempItems = JSON.parse(fs.readFileSync(fileName, 'utf8'));
         }
         tempItems = tempItems.concat(items);
         if (tempItems.length > 2000) {
@@ -62,13 +62,13 @@ app.get('/googleOAuthSuccess', function(req, res) {
         // Now tokens contains an access_token and an optional refresh_token. Save them.
         if(!err) {
             res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
-            
+
             res.status(303).location(req.query.state).send();
         } else {
             console.log(err);
             res.status(500).send(err);
         }
-    }); 
+    });
 });
 
 app.put("/:server/itemInventory", function(req, res) {
@@ -108,29 +108,16 @@ app.get("/:server/units", function(req, res) {
     }
 });
 
-app.get("/links/:shortId", function(req, res) {
-    res.status(303).location("https://goo.gl/" + req.params.shortId).send();
-});
-
-app.post("/links", function(req, res) {
-    var data = req.body;
-    googl.shorten(data.url)
-    .then(function (shortUrl) {
-        var url = "http://ffbeEquip.lyrgard.fr/links/" + shortUrl.substr(15);
-        res.status(200).json({"url":url});
-    })
-    .catch(function (err) {
-        res.status(500).send(err.message);
-    });
-});
+app.get('/links/:shortId', links.get);
+app.post('/links', links.insert);
 
 function saveFileToGoogleDrive(req, res, paramFileName) {
     let driveConfigClient = getDriveConfigClient(req, res);
     if (!driveConfigClient) return;
-    
+
     var data = req.body;
     data.version = 3;
-    
+
     var fileName = paramFileName + "_" + req.params.server + ".json"
     driveConfigClient.getByName(fileName).then(files => {
         if (files.length > 0) {
@@ -151,7 +138,7 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
     }).catch(err => {
         console.log(err);
         res.status(500);
-    });   
+    });
 }
 
 function getFileFromGoogleDrive(req, res, paramFileName, callback) {
@@ -170,7 +157,7 @@ function getFileFromGoogleDrive(req, res, paramFileName, callback) {
                     if (files.length > 0) {
                         callback(files[0].data);
                     } else {
-                        callback({});   
+                        callback({});
                     }
                 });
             } else {
@@ -197,7 +184,7 @@ function getDriveConfigClient(req, res) {
         googleOAuthCredential.web.client_secret,
         googleOAuthCredential.web.redirect_uris[0]
     );
-    
+
     oauth2Client.setCredentials(googleOAuthAccessToken);
     return new driveConfig(oauth2Client);
 }
@@ -218,7 +205,7 @@ function migrateFromNameToId(itemInventory) {
         var newItemInventory = {};
         for (var index in itemInventory) {
             if (itemIdByName[index]) {
-                newItemInventory[itemIdByName[index]] = itemInventory[index];   
+                newItemInventory[itemIdByName[index]] = itemInventory[index];
             } else {
                 newItemInventory[index] = itemInventory[index];
             }
@@ -246,7 +233,7 @@ fs.readFile('googleOAuth/client_secret.json', function processClientSecrets(err,
         console.log('Error loading client secret file: ' + err);
         return;
     }
-    
+
     googleOAuthCredential = JSON.parse(content);
 });
 
@@ -263,15 +250,6 @@ function getOAuthUrl() {
         // state: { foo: 'bar' }
     });
 }
-
-fs.readFile('googleOAuth/googlApiKey.txt', "utf8", function (err, content) {
-    if (err) {
-        console.log('Error loading goo.gl API key: ' + err);
-        return;
-    }
-    googl.setKey(content);
-});
-
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
 
@@ -315,7 +293,7 @@ function sanitize(body) {
     return items;
 }
 
-var schemaPercent = { 
+var schemaPercent = {
     "type": "object",
     "properties": {
         "name"  : {"type": "string", "required": true, "enum": ['fire','ice','lightning','water','earth','wind','light','dark','poison','blind','sleep','silence','paralysis','confuse','disease','petrification','aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit']},
@@ -326,7 +304,7 @@ var schemaPercent = {
 var schemaData = {
     "type": "array",
     "maxItems": 20,
-    "items": { 
+    "items": {
         "type": "object",
         "properties": {
             "name"  : {"type": "string", "required": true, "maxLength": 50 },
@@ -372,15 +350,15 @@ var schemaData = {
                 "items": schemaPercent
             },
             "special" : {
-                "type": "array", 
-                "maxItems": 10, 
+                "type": "array",
+                "maxItems": 10,
                 "items": {"type": "string","maxLength": 200}
             },
             "tmrUnit": {"type":"string", "maxLength": 50},
             "exclusiveSex" : {"type": "string", "enum": ["male", "female"]},
             "exclusiveUnits": {
-                "type": "array", 
-                "maxItems": 10, 
+                "type": "array",
+                "maxItems": 10,
                 "items": {"type": "string","maxLength": 50}
             },
             "partialDualWield":{
@@ -388,7 +366,7 @@ var schemaData = {
                 "maxItems": 15,
                 "items":{"type": "string","enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"]}
             },
-            "singleWieldingOneHanded":{ 
+            "singleWieldingOneHanded":{
                 "type": "object",
                 "properties": {
                     "hp"    : {"type": "number"},
@@ -399,7 +377,7 @@ var schemaData = {
                     "spr"   : {"type": "number"}
                 }
             },
-            "singleWielding":{ 
+            "singleWielding":{
                 "type": "object",
                 "properties": {
                     "hp"    : {"type": "number"},
@@ -411,14 +389,14 @@ var schemaData = {
                 }
             },
             "equipedConditions": {
-                "type": "array", 
-                "maxItems": 3, 
+                "type": "array",
+                "maxItems": 3,
                 "items": {"type": "string","enum": ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "robe", "lightArmor", "heavyArmor"]}
             },
             "access": {
-                "type": "array", 
-                "maxItems": 10, 
-                "minItems": 1, 
+                "type": "array",
+                "maxItems": 10,
+                "minItems": 1,
                 "required": true,
                 "items": {"type": "string","maxLength": 50}
             },
