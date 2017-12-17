@@ -2008,7 +2008,11 @@ function getItemLine(index, short = false) {
             }
             alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex].bestBuild, index, item);
             if (getOwnedNumber(item).totalOwnedNumber < alreadyUsed && getOwnedNumber(item).total >= alreadyUsed) {
-                html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
+                if (item.tmrUnit) {
+                    html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
+                } else if (item.access.includes("trial")) {
+                    html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="Trial reward"/></div>'
+                }
             }
         }
     }
