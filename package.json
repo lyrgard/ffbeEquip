@@ -7,7 +7,7 @@
     "node": ">= 8"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/ --recursive",
     "start": "node server.js"
   },
   "repository": {
@@ -29,5 +29,10 @@
     "google-auth-library": "0.12.0",
     "googleapis": "22.2.0",
     "json-validation": "^1.0.4"
+  },
+  "devDependencies": {
+    "mocha": "4.0.1",
+    "nock": "9.1.4",
+    "power-assert": "1.4.4"
   }
 }
