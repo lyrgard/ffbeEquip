@@ -1710,6 +1710,8 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
         return calculateBuildValueWithFormula(itemAndPassives, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, formula.value2);
     } else if (formula.type == "/") {
         return calculateBuildValueWithFormula(itemAndPassives, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+    } else if (formula.type == "-") {
+        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, formula.value2);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
             var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
