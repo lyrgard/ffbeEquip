@@ -129,6 +129,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     unit.name = unitIn.name;
     unit.data = {};
     var data = unit.data;
+    var unitData;
     
     var unitStats = {"maxStats":{}, "pots":{}};
     var maxRarityUnitId;
@@ -144,7 +145,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
             break;
         }
     }
-    
+
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
@@ -163,7 +164,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
         }
     }
     
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max)
+    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
     return unit;
 }
 
@@ -177,7 +178,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
+function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
     
@@ -400,6 +401,8 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity) {
             }
         }
     }
+    addElementalResist(baseEffects, unitData.element_resist);
+    addAilmentResist(baseEffects, unitData.status_resist);
     
     if (Object.keys(baseEffects).length === 0) {
         skillsOut.splice(0,1);
@@ -459,22 +462,22 @@ function addKiller(skill, race, physicalPercent, magicalPercent) {
 }
 
 function addElementalResist(item, values) {
-    if (!item.resist) {
-        item.resist = [];
-    }
     for (var index in elements) {
         if (values[index]) {
+            if (!item.resist) {
+                item.resist = [];
+            }
             item.resist.push({"name":elements[index],"percent":values[index]})
         }
     }
 }
 
 function addAilmentResist(item, values) {
-    if (!item.resist) {
-        item.resist = [];
-    }
     for (var index in ailments) {
         if (values[index]) {
+            if (!item.resist) {
+                item.resist = [];
+            }
             item.resist.push({"name":ailments[index],"percent":values[index]})
         }
     }
