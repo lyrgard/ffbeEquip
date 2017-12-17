@@ -2097,6 +2097,7 @@ function getEsperItem(esper) {
     item.mag = Math.floor(esper.mag / 100);
     item.spr = Math.floor(esper.spr / 100);
     item.access = ["story"];
+    item.maxLevel = esper.maxLevel
     if (esper.killers) {
         item.killers = esper.killers;
     }
