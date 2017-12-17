@@ -567,7 +567,7 @@ function optimize() {
     
     var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
-    buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice(), true, forceDoubleHand, forceDualWield);
+    buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice(), !forceDualWield, forceDoubleHand, forceDualWield);
     
     var fixedItems = builds[currentUnitIndex].fixedItems;
     var unitPartialDualWield = getInnatePartialDualWield();
@@ -928,66 +928,65 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
     if (fixedItems[index]) {
         tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills);
     } else {
-        if (index == 1 && build[0] && isTwoHanded(build[0])) {
-            build[index] = null;
-            var typeCombinationWithoutSecondHand = typeCombination.slice();
-            typeCombinationWithoutSecondHand[1] = null;
-            findBestBuildForCombination(index + 1, build, typeCombinationWithoutSecondHand, dataWithConditionItems, fixedItems, elementBasedSkills);    
-        } else {
-            if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
-                var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
-                var foundAnItem = false;
-                
-                var len = itemTreeRoot.children.length;
-                for (var childIndex = 0; childIndex < len; childIndex++) {
-                    var entry = itemTreeRoot.children[childIndex].entry;
-                    var item = entry.item;
-                    var numberRemaining = entry.available;
-                    if (numberRemaining > 0) {
-                        if (index == 1 && isTwoHanded(item)) {
-                            continue;
-                        }
-                        
-                        if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
-                            // We used all possible copy of this item, switch to a worse item in the tree
-                            var newTreeRoot = {"children":itemTreeRoot.children.slice()};
-                            if (newTreeRoot.children[childIndex].equivalents.length > 0) {
-                                var newEquivalents = newTreeRoot.children[childIndex].equivalents.slice();
-                                newEquivalents.splice(0,1);
-                                var newTreeNode = {"children":newTreeRoot.children[childIndex].children,"equivalents":newEquivalents,entry:newTreeRoot.children[childIndex].equivalents[0]};
-                                newTreeRoot.children[childIndex] = newTreeNode;
-                            } else if (newTreeRoot.children[childIndex].children.length > 0) {
-                                // add the children of the node to root level
-                                for (var childrenOfNodeIndex = 0, childrenOfNodeLen = newTreeRoot.children[childIndex].children.length; childrenOfNodeIndex < childrenOfNodeLen; childrenOfNodeIndex++) {
-                                    newTreeRoot.children.push(newTreeRoot.children[childIndex].children[childrenOfNodeIndex]);
-                                }
-                                newTreeRoot.children.splice(childIndex,1);
-                            } else {
-                                // we finished this branch, remove it
-                                newTreeRoot.children.splice(childIndex,1);
-                            }
-                            dataWithConditionItems[typeCombination[index]] = newTreeRoot;
-                        }
-                        entry.available--;
-                        tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
-                        entry.available++;
-                        dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
-                        foundAnItem = true;
+        if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
+            var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
+            var foundAnItem = false;
+
+            var len = itemTreeRoot.children.length;
+            for (var childIndex = 0; childIndex < len; childIndex++) {
+                var entry = itemTreeRoot.children[childIndex].entry;
+                var item = entry.item;
+                var numberRemaining = entry.available;
+                if (numberRemaining > 0) {
+                    if (index == 1 && isTwoHanded(item)) {
+                        continue;
                     }
+
+                    if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
+                        // We used all possible copy of this item, switch to a worse item in the tree
+                        var newTreeRoot = {"children":itemTreeRoot.children.slice()};
+                        if (newTreeRoot.children[childIndex].equivalents.length > 0) {
+                            var newEquivalents = newTreeRoot.children[childIndex].equivalents.slice();
+                            newEquivalents.splice(0,1);
+                            var newTreeNode = {"children":newTreeRoot.children[childIndex].children,"equivalents":newEquivalents,entry:newTreeRoot.children[childIndex].equivalents[0]};
+                            newTreeRoot.children[childIndex] = newTreeNode;
+                        } else if (newTreeRoot.children[childIndex].children.length > 0) {
+                            // add the children of the node to root level
+                            for (var childrenOfNodeIndex = 0, childrenOfNodeLen = newTreeRoot.children[childIndex].children.length; childrenOfNodeIndex < childrenOfNodeLen; childrenOfNodeIndex++) {
+                                newTreeRoot.children.push(newTreeRoot.children[childIndex].children[childrenOfNodeIndex]);
+                            }
+                            newTreeRoot.children.splice(childIndex,1);
+                        } else {
+                            // we finished this branch, remove it
+                            newTreeRoot.children.splice(childIndex,1);
+                        }
+                        dataWithConditionItems[typeCombination[index]] = newTreeRoot;
+                    }
+                    entry.available--;
+                    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
+                    entry.available++;
+                    dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
+                    foundAnItem = true;
                 }
-                if (!foundAnItem) {
-                    tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
-                }
-                build[index] == null;
-            } else {
+            }
+            if (!foundAnItem) {
                 tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
             }
+            build[index] == null;
+        } else {
+            tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
         }
     }
     build[index] = null;
 }
 
 function tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills) {
+    if (index == 0 && (!item || isTwoHanded(item)) && typeCombination[1]) {
+        return; // Two handed weapon only accepted on DH builds
+    }
+    if (index == 1 && !item && typeCombination[1]) {
+        return; // don't accept null second hand in DW builds
+    }
     build[index] = item;
     if (index == 9) {
         numberOfItemCombination++
@@ -1000,7 +999,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
             tryEsper(build, fixedItems[10]);
         } else {
             for (var esperIndex = 0, len = selectedEspers.length; esperIndex < len; esperIndex++) {
-                tryEsper(build, selectedEspers[esperIndex])    
+                tryEsper(build, selectedEspers[esperIndex])  
             }
         }
     } else {
