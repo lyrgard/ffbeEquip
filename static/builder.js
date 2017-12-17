@@ -1033,7 +1033,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
                 }
             }
             if (allFound) {
-                if (dataByTypeIds[type].includes(entry.item[itemKey])) {
+                if (dataByTypeIds[type] && dataByTypeIds[type].includes(entry.item[itemKey])) {
                     for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
                         if (tempResult[alreadyAddedIndex].item[itemKey] == entry.item[itemKey]) {
                             tempResult.splice(alreadyAddedIndex,1);
