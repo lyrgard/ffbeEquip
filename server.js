@@ -219,7 +219,7 @@ function migrateFromNameToId(itemInventory) {
 }
 
 app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
-app.listen(3000); //the port you want to use
+var server = app.listen(3000); //the port you want to use
 
 var OAuth2 = google.auth.OAuth2;
 var googleOAuthCredential;
@@ -420,4 +420,9 @@ function escapeHtml (string) {
   return String(string).replace(/[&<>"`=\/]/g, function (s) {
     return entityMap[s];
   });
+}
+
+module.exports = {
+  app,
+  server,
 }

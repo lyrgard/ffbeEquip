@@ -1,8 +1,8 @@
 const Promise = require('bluebird');
 const google = require('googleapis');
-const urlshortener = google.urlshortener('v1');
 const config = require('../config.js');
 
+const urlshortener = google.urlshortener('v1');
 const key = config.googleApiKey;
 
 /**
