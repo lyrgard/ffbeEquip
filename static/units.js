@@ -12,6 +12,9 @@ var allUnits;
 var tmrNumberByUnitId = {};
 var tmrNameByUnitId = {};
 
+var onlyShowOwnedUnits = false;
+var showNumberTMRFarmed = false;
+
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
@@ -148,30 +151,37 @@ function displayUnitsByRarity(units) {
 };
 
 function getUnitDisplay(unit, useTmrName = false) { 
-    var html = '<div class="unit ' + unit.id;
-    if (ownedUnits[unit.id]) {
-        html += ' owned"';
-    } else {
-        html += ' notOwned"';
+    var html = "";
+    if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
+        html += '<div class="unit ' + unit.id;
+        if (ownedUnits[unit.id]) {
+            html += ' owned"';
+        } else {
+            html += ' notOwned"';
+        }
+        html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')">';
+        html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
+        html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
+        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
+        html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToFarmableNumberFor(\'' + unit.id + '\')"></span>';
+        if (showNumberTMRFarmed) {
+            html += '<span class="farmableNumber badge badge-success">' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + '</span>';
+        } else {
+            html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
+        }
+        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
+        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
+        html +='<div class="unitName">';
+        if (useTmrName) {
+            html += tmrNameByUnitId[unit.id];
+        } else {
+            html += unit.name;  
+        }
+        html += '</div>';
+        html += '<div class="unitRarity">'
+        html += getRarity(unit.min_rarity, unit.max_rarity);
+        html += '</div></div>';
     }
-    html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')">';
-    html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
-    html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
-    html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
-    html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToFarmableNumberFor(\'' + unit.id + '\')"></span>';
-    html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
-    html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
-    html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
-    html +='<div class="unitName">';
-    if (useTmrName) {
-        html += tmrNameByUnitId[unit.id];
-    } else {
-        html += unit.name;  
-    }
-    html += '</div>';
-    html += '<div class="unitRarity">'
-    html += getRarity(unit.min_rarity, unit.max_rarity);
-    html += '</div></div>';
     return html;
 }
 
@@ -369,6 +379,37 @@ function prepareData() {
             tmrNameByUnitId[unitId] = item.name;
         }
     }
+}
+
+function exportAsImage() {
+    $("#loaderGlassPanel").removeClass("hidden");
+    var savedSort = currentSort;
+    onlyShowOwnedUnits = true;
+    showNumberTMRFarmed = true;
+    showRaritySort();
+    setTimeout(function() {
+        domtoimage.toBlob(document.getElementById('results'))
+        .then(function (blob) {
+            window.saveAs(blob, 'FFBE_Equip - Unit collection.png');
+            onlyShowOwnedUnits = false;
+            showNumberTMRFarmed = false;
+            savedSort();
+            $("#loaderGlassPanel").addClass("hidden");
+        });
+    }, 1);
+    
+}
+
+function exportAsCsv() {
+    var csv = "Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR owned\n";
+    var sortedUnits = sortByRarity(units);
+    for (var index = 0, len = sortedUnits.length; index < len; index++) {
+        var unit = units[index];
+        if (ownedUnits[unit.id]) {
+            csv +=  "\"" + unit.name + "\"" + ';' + unit.min_rarity + ';' + unit.max_rarity + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + ';' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + "\n";
+        }
+    }
+    window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
 }
 
 // will be called by jQuery at page load)

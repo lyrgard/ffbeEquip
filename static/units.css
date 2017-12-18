@@ -69,6 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
 }
 
 .raritySeparator {
@@ -118,6 +119,11 @@
 .notOwned:hover .numberDiv .badge {
     color: #337ab7;
     background-color: #337ab7;
+}
+
+#tabs .dropdown > .link {
+    line-height: 58px;
+    padding-left: 15px;
 }
 
 .explanation {
