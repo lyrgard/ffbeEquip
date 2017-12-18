@@ -21,7 +21,7 @@ describe('app.links', () => {
         url: LONG_URL,
       })
       .expect(200, {
-        url: 'http://ffbeequip.lyrgard.fr/example',
+        url: 'http://ffbeequip.lyrgard.fr/links/example',
       }, done);
   });
 

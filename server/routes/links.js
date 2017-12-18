@@ -8,6 +8,7 @@ const insert = async (req, res) => {
   const parsedLongUrl = new URL(longUrl);
   const parsedShortUrl = new URL(shortUrl);
 
+  parsedShortUrl.pathname = `/links${parsedShortUrl.pathname}`;
   parsedShortUrl.protocol = parsedLongUrl.protocol;
   parsedShortUrl.host = parsedLongUrl.host;
 
