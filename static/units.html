@@ -54,18 +54,18 @@
                         <li class="raritySort" onclick="showRaritySort()"><a><img src="img/star_icon.png"/></a></li>
                         <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><img src="img/sort-tmr.png"/></a></li>
                         <li class="history" onclick="showHistory()"><a><img src="img/history.png"/></a></li>
-                        <div class="dropdown">
-                            <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share unit collection<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="link" onclick="exportAsImage();"><span class="glyphicon glyphicon-camera"></span> Export as image. (Works on Chrome, problems with Firefox for now)</a></li>
-                                <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-list"></span> Export as CSV</a></li>
-                            </ul>
-                        </div>
-                        <div class="explanation">
-                            <div>Left number: how many time you own this unit</div>
-                            <div>Right number: how many time you can still farm the TMR</div>
-                        </div>
                     </ul>
+                    <div id="shareLinks" class="dropdown">
+                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share unit collection<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="link" onclick="exportAsImage();"><span class="glyphicon glyphicon-camera"></span> Export as image. (Works on Chrome, problems with Firefox for now)</a></li>
+                            <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-list"></span> Export as CSV</a></li>
+                        </ul>
+                    </div>
+                    <div class="explanation">
+                        <div>Left number: how many time you own this unit</div>
+                        <div>Right number: how many time you can still farm the TMR</div>
+                    </div>
                     
                     <div class="result-tab-pane">
                         <div class="panel-body" style="padding:0;">
