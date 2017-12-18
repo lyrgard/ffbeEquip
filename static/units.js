@@ -388,13 +388,11 @@ function exportAsImage() {
     showNumberTMRFarmed = true;
     showRaritySort();
     setTimeout(function() {
-        domtoimage.toBlob(document.getElementById('results'))
-        .then(function (blob) {
-            window.saveAs(blob, 'FFBE_Equip - Unit collection.png');
-            onlyShowOwnedUnits = false;
-            showNumberTMRFarmed = false;
-            savedSort();
-            $("#loaderGlassPanel").addClass("hidden");
+        html2canvas($("#results")[0]).then(function(canvas) {
+            canvas.toBlob(function (blob) {
+                saveAs(blob, "FFBE_Equip - Unit collection.png");
+                $("#loaderGlassPanel").addClass("hidden");
+            });
         });
     }, 1);
     
