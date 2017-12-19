@@ -409,12 +409,12 @@ function exportAsImage() {
 }
 
 function exportAsCsv() {
-    var csv = "Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR owned\n";
+    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR owned;Number of TMR still farmable\n";
     var sortedUnits = sortByRarity(units);
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
         var unit = units[index];
         if (ownedUnits[unit.id]) {
-            csv +=  "\"" + unit.name + "\"" + ';' + unit.min_rarity + ';' + unit.max_rarity + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + ';' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + "\n";
+            csv +=  "\"" + unit.id + "\";" + "\"" + unit.name + "\";" + unit.min_rarity + ';' + unit.max_rarity + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + ';' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + "\n";
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
