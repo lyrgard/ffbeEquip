@@ -349,6 +349,15 @@ function sortByRarity(units) {
     });
 };
 
+function sortByBaseRarity(units) {
+    return units.sort(function (unit1, unit2){
+        if (unit1.min_rarity == unit2.min_rarity) {
+            return unit1.name.localeCompare(unit2.name);
+        } else {
+            return unit2.min_rarity - unit1.min_rarity;
+        }
+    });
+};
 
 
 function notLoaded() {
@@ -408,6 +417,36 @@ function exportAsCsv() {
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
+}
+
+function exportAsText() {
+    var text = "";
+    var sortedUnits = sortByBaseRarity(units);
+    var currentBaseRarity;
+    first = true;
+    for (var index = 0, len = sortedUnits.length; index < len; index++) {
+        var unit = units[index];
+        if (ownedUnits[unit.id]) {
+            if (!currentBaseRarity || currentBaseRarity != unit.min_rarity) {
+                if (currentBaseRarity) {
+                    text += "\n\n";
+                }
+                text += "Base " + unit.min_rarity + "★\n";
+                currentBaseRarity = unit.min_rarity;
+                first = true;
+            }
+            if (first) {
+                first = false;
+            } else {
+                text += ", ";
+            }
+            text +=  unit.name;
+            if (ownedUnits[unit.id] && ownedUnits[unit.id].number > 1) {
+                text += " x" + ownedUnits[unit.id].number;
+            }
+        }
+    }
+    showTextPopup("Owned units", text);
 }
 
 // will be called by jQuery at page load)

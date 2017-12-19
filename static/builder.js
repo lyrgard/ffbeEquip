@@ -2893,27 +2893,7 @@ function showBuildAsText() {
         getItemLineAsText("Esper", 10) +
         getBuildStatsAsText();
         
-    $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
-        '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $(this).parent().css('top', '150px');
-            $("#showBuilderSetupLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showBuilderSetupLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
-                }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        width: 600
-    });
+    showTextPopup("Build as text", text);
 }
 
 function showExcludedItems() {
