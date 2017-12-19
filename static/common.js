@@ -869,6 +869,30 @@ function onUnitsOrInventoryLoaded() {
     }
 }
 
+function showTextPopup(title, text) {
+    $('<div id="showBuilderSetupLinkDialog" title="' + title +'">' + 
+        '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $(this).parent().css('top', '150px');
+            $("#showBuilderSetupLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showBuilderSetupLinkDialog input").after("<div>Copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        width: 600
+    });
+}
+
 $(function() {
     readServerType();
     $.get(server + '/itemInventory', function(result) {
