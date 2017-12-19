@@ -321,7 +321,7 @@ body {
 }
 
 #loaderGlassPanel {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;  
     right: 0;
@@ -332,7 +332,7 @@ body {
 }
 
 #loader {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   z-index: 51;
