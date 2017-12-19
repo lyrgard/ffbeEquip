@@ -400,6 +400,7 @@ function exportAsImage() {
         html2canvas($("#results")[0]).then(function(canvas) {
             canvas.toBlob(function (blob) {
                 saveAs(blob, "FFBE_Equip - Unit collection.png");
+                savedSort();
                 $("#loaderGlassPanel").addClass("hidden");
             });
         });
