@@ -93,40 +93,94 @@
                         <span class="unitEquipable armors">
                         </span>
                         <div class="unitStats">
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">HP</span>
-                                    <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                            <div class="stat hp">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">HP</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0" onkeypress="return isNumberOrMinus(event)"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0" onkeypress="return isNumberOrMinus(event)"/>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MP</span>
-                                    <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            <div class="stat mp">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">MP</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">ATK</span>
-                                    <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            <div class="stat atk">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">ATK</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">DEF</span>
-                                    <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            <div class="stat mag">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">MAG</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MAG</span>
-                                    <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            <div class="stat def">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">DEF</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">SPR</span>
-                                    <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                            <div class="stat spr">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">SPR</span>
+                                    <input type="text" class="form-control" placeholder="0" readonly/>
+                                </div>
+                                <div class="inputWithIcon pots">
+                                    <span class="leftIcon glyphicon glyphicon-plus"></span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
                         </div>
