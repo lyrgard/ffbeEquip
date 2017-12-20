@@ -2389,7 +2389,7 @@ function updateSearchResult() {
             var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
             if (previousItem.equipedConditions) {
                 if (item.equipedConditions) {
-                    if (previousItem.equipedConditions.length < item.equipedConditions.length && areConditionOK(item, builds[currentUnitIndex].bestBuild)) {
+                    if (previousItem.equipedConditions.length <= item.equipedConditions.length && areConditionOK(item, builds[currentUnitIndex].bestBuild)) {
                         dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
                     }
                 }
