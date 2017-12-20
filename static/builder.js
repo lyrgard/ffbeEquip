@@ -311,6 +311,16 @@ function readItemsExcludeInclude() {
     includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
 
+function readStatsValues() {
+    for (var index = baseStats.length; index--;) {
+        builds[currentUnitIndex].baseValues[baseStats[index]] = {
+            "base" : parseInt($(".unitStats .stat." + baseStats[index] + " .baseStat input").val()) || 0,
+            "pots" : parseInt($(".unitStats .stat." + baseStats[index] + " .pots input").val()) || 0
+        };
+        builds[currentUnitIndex].baseValues[baseStats[index]].total = builds[currentUnitIndex].baseValues[baseStats[index]].base + builds[currentUnitIndex].baseValues[baseStats[index]].pots;
+    }
+}
+
 function prepareData(equipable) {
     readItemsExcludeInclude();
     
@@ -322,15 +332,7 @@ function prepareData(equipable) {
         }
     }
     
-    var baseValues = {
-        "hp": builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp,
-        "mp": builds[currentUnitIndex].selectedUnit.stats.maxStats.mp + builds[currentUnitIndex].selectedUnit.stats.pots.mp,
-        "atk": builds[currentUnitIndex].selectedUnit.stats.maxStats.atk + builds[currentUnitIndex].selectedUnit.stats.pots.atk,
-        "def": builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def,
-        "mag": builds[currentUnitIndex].selectedUnit.stats.maxStats.mag + builds[currentUnitIndex].selectedUnit.stats.pots.mag,
-        "spr": builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr
-    }
-
+    readStatsValues();
     
     dataByType = {};
     dataWithCondition = [];
@@ -345,7 +347,7 @@ function prepareData(equipable) {
         if (itemsToExclude.includes(item.id)) {
             continue;
         }
-        prepareItem(item, baseValues);
+        prepareItem(item, builds[currentUnitIndex].baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
             if (itemCanBeOfUseForGoal(item)) {
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
@@ -427,7 +429,7 @@ function getItemEntry(item) {
 
 function prepareItem(item, baseValues) {
     for (var index = 0, len = baseStats.length; index < len; index++) {
-        item['total_' + baseStats[index]] = getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]]);
+        item['total_' + baseStats[index]] = getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
     }
     if (item.element && !includeAll[builds[currentUnitIndex].innateElements, item.elements]) {
         item.elementType = "element_" + getElementCoef(item.element);
@@ -830,12 +832,12 @@ function getPiramidataImageLink() {
     var link = "http://ffbe.piramidata.eu/Unit/GetConfigurationImage?" +
         "unitname=" + encodeURIComponent(builds[currentUnitIndex].selectedUnitName) + 
         "&rarity=" + builds[currentUnitIndex].selectedUnit.max_rarity +
-        "&pothp=" + builds[currentUnitIndex].selectedUnit.stats.pots.hp +
-        "&potmp=" + builds[currentUnitIndex].selectedUnit.stats.pots.mp +
-        "&potatk=" + builds[currentUnitIndex].selectedUnit.stats.pots.atk +
-        "&potdef=" + builds[currentUnitIndex].selectedUnit.stats.pots.def +
-        "&potmag=" + builds[currentUnitIndex].selectedUnit.stats.pots.mag +
-        "&potspr=" + builds[currentUnitIndex].selectedUnit.stats.pots.spr;
+        "&pothp=" + builds[currentUnitIndex].baseValues.hp.pots +
+        "&potmp=" + builds[currentUnitIndex].baseValues.mp.pots +
+        "&potatk=" + builds[currentUnitIndex].baseValues.atk.pots +
+        "&potdef=" + builds[currentUnitIndex].baseValues.def.pots +
+        "&potmag=" + builds[currentUnitIndex].baseValues.mag.pots +
+        "&potspr=" + builds[currentUnitIndex].baseValues.spr.pots;
     if (builds[currentUnitIndex].bestBuild[10]) {
         link += "&espername=" + encodeURIComponent(getEsperName()) + 
             "&esperhp=" + builds[currentUnitIndex].bestBuild[10].hp + 
@@ -1467,9 +1469,9 @@ function cutUnderMaxDepth(treeItem, maxDepth, depthFunction, currentDepth) {
 }
 
 function getDefenseValue(item) {
-    var hpBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.hp + builds[currentUnitIndex].selectedUnit.stats.pots.hp;
-    var defBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.def + builds[currentUnitIndex].selectedUnit.stats.pots.def;
-    var sprBaseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats.spr + builds[currentUnitIndex].selectedUnit.stats.pots.spr;
+    var hpBaseValue = builds[currentUnitIndex].baseValues.hp.base + builds[currentUnitIndex].baseValues.hp.pots;
+    var defBaseValue = builds[currentUnitIndex].baseValues.def.base + builds[currentUnitIndex].baseValues.def.pots;
+    var sprBaseValue = builds[currentUnitIndex].baseValues.spr.base + builds[currentUnitIndex].baseValues.spr.pots;
     return getStatValueIfExists(item, "hp", hpBaseValue) + getStatValueIfExists(item, "def", hpBaseValue) + getStatValueIfExists(item, "spr", hpBaseValue);
 }
 
@@ -1762,7 +1764,7 @@ function calculateStatValue(itemAndPassives, stat) {
     var currentPercentIncrease = {"value":0};
     var baseValue = 0;
     if (baseStats.includes(stat)) {
-        baseValue = builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat];
+        baseValue = builds[currentUnitIndex].baseValues[stat].base + builds[currentUnitIndex].baseValues[stat].pots;
     }
     var calculatedValue = baseValue;
     
@@ -1885,6 +1887,7 @@ function getElementBasedSkills() {
 }
 
 function logCurrentBuild() {
+    readStatsValues();
     logBuild(builds[currentUnitIndex].bestBuild);
 }
 
@@ -2157,9 +2160,15 @@ function onUnitChange() {
 function updateUnitStats() {
     $(baseStats).each(function (index, stat) {
         if (builds[currentUnitIndex].selectedUnit) {
-            $("#baseStat_" + stat).val(builds[currentUnitIndex].selectedUnit.stats.maxStats[stat] + builds[currentUnitIndex].selectedUnit.stats.pots[stat]);
+            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].selectedUnit.stats.maxStats[stat]);
+            if (builds[currentUnitIndex].baseValues[stat]) {
+                $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
+            } else {
+                $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].selectedUnit.stats.pots[stat]);
+            }
         } else {
-            $("#baseStat_" + stat).val("");
+            $(".unitStats .stat." + stat + " .baseStat input").val("");
+            $(".unitStats .stat." + stat + " .pots input").val("");
         }
     });
     populateUnitEquip();
@@ -2186,6 +2195,7 @@ function updateUnitStats() {
         $("#buildResult").addClass("hidden");
         $("#unitLink").addClass("hidden");
     }
+    readStatsValues();
 }
 
 function reinitBuild(buildIndex) {
@@ -2194,7 +2204,8 @@ function reinitBuild(buildIndex) {
     builds[buildIndex].bestBuild = [null, null, null, null, null, null, null, null,null,null,null];
     builds[buildIndex].bestValue = null;
     builds[buildIndex].fixedItems = [null, null, null, null, null, null, null, null,null,null,null];
-    builds[currentUnitIndex].innateElements = [];
+    builds[buildIndex].baseValues = {};
+    builds[buildIndex].innateElements = [];
 }
 
 function loadBuild(buildIndex) {
@@ -2231,9 +2242,12 @@ function loadBuild(buildIndex) {
     } else if (build.goal == "magicalDamageWithPhysicalMecanism") {
         $('.magicalSkillType option[value="physicalMagic"]').prop("selected", true);
     }
+    
+    updateUnitStats();
+    
     onGoalChange();
 
-    updateUnitStats();
+    
     
     if (builds[currentUnitIndex].selectedUnit) {
         logCurrentBuild();  
@@ -2386,7 +2400,7 @@ function updateSearchResult() {
     if (searchType.length == 0) {
         types = getCurrentUnitEquip().concat("esper");
     }
-    var baseStat = builds[currentUnitIndex].selectedUnit.stats.maxStats[searchStat] + builds[currentUnitIndex].selectedUnit.stats.pots[searchStat];
+    var baseStat = builds[currentUnitIndex].baseValues[searchStat].base + builds[currentUnitIndex].baseValues[searchStat].pots;
     accessToRemove = [];
     
     var dataWithOnlyOneOccurence = searchableEspers.slice();
@@ -2740,6 +2754,11 @@ function getStateHash() {
         data.customFormula = formulaToString(builds[currentUnitIndex].customFormula);
     }
     
+    data.pots = {};
+    for (var index = baseStats.length; index--;) {
+        data.pots[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].pots;
+    }
+    
     return data;
 }
 
@@ -2804,6 +2823,11 @@ function loadStateHashAndBuild(data) {
     }
     if (data.esper) {
         fixItem(data.esper);
+    }
+    if (data.pots) {
+        for (var index = baseStats.length; index--;) {
+            $(".unitStats .stat." + baseStats[index] + " .pots input").val(data.pots[baseStats[index]]);
+        }
     }
     dataLoadedFromHash = true;
     build();
@@ -2982,6 +3006,16 @@ function getBuildStatsAsText() {
     return resultText;
 }
 
+function onPotsChange(stat) {
+    if (builds[currentUnitIndex].selectedUnit) {
+        var value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
+        if (value > builds[currentUnitIndex].selectedUnit.stats.pots[stat]) {
+            $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].selectedUnit.stats.pots[stat]);
+        }
+        logCurrentBuild();
+    }
+}
+
 $(function() {
     progressElement = $("#buildProgressBar .progressBar");
     $.get(server + "/data.json", function(result) {
@@ -3060,6 +3094,21 @@ $(function() {
             $('#forceDoublehand input').prop('checked', false);
         }
     });
+    for (let statIndex = baseStats.length; statIndex--;) {
+        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").on('input',$.debounce(300,function() {onPotsChange(baseStats[statIndex]);}));
+        $(".unitStats .stat." + baseStats[statIndex] + " .buff input").on('input',$.debounce(300,logCurrentBuild));
+        $(".unitStats .stat." + baseStats[statIndex] + " .pots .leftIcon").click(function(stat) {
+            if (builds[currentUnitIndex].selectedUnit) {
+                var value = parseInt($(".unitStats .stat." + baseStats[statIndex] + " .pots input").val()) || 0;
+                if (value == builds[currentUnitIndex].selectedUnit.stats.pots[baseStats[statIndex]]) {
+                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
+                } else {
+                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].selectedUnit.stats.pots[baseStats[statIndex]]);
+                }
+                logCurrentBuild();
+            }
+        });
+    }
 });
 
 var counter = 0;

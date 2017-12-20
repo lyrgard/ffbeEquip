@@ -410,3 +410,59 @@
     margin-bottom: 0px;
     font-weight: 100;
 }
+
+.unitStats .stat {
+    display: flex;
+    float: left;
+    width: 50%;
+    padding: 2px;
+}
+
+.unitStats .stat input { 
+    text-align: right; 
+}
+.unitStats .stat .baseStat {
+    flex: 2;
+}
+
+.unitStats .stat .pots {
+    flex: 1;
+}
+
+.unitStats .stat .buff {
+    flex: 1;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon .leftIcon {
+    position: absolute;
+    left: 5px;
+    line-height: 34px;
+    opacity: 0.6;
+}
+
+.unitStats .pots .leftIcon {
+    cursor: pointer;
+}
+
+.unitStats .buff {
+    display: none;
+}
+
+.inputWithIcon .rightIcon {
+    position: absolute;
+    right: 5px;
+    line-height: 34px;
+    opacity: 0.6;
+}
+
+.inputWithIcon input {
+    padding-left: 20px;
+}
+
+.inputWithIcon.withPercent input {
+    padding-right: 20px;
+}
