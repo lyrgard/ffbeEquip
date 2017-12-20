@@ -372,7 +372,7 @@ function prepareLastItemReleases() {
 }
 
 function exportAsCsv() {
-    var csv = "Item Id;Item Name;Item typeNumber Owned;TMR of;\n";
+    var csv = "Item Id;Item Name;Item type;Number Owned;TMR of;\n";
     var sortedItems = sort(equipments).concat(sort(materia));
     for (var index = 0, len = sortedItems.length; index < len; index++) {
         var item = sortedItems[index];
