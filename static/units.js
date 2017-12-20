@@ -396,6 +396,7 @@ function exportAsImage() {
     onlyShowOwnedUnits = true;
     showNumberTMRFarmed = true;
     showRaritySort();
+    $("#results").addClass("hachForImage");
     setTimeout(function() {
         html2canvas($("#results")[0]).then(function(canvas) {
             canvas.toBlob(function (blob) {
@@ -403,6 +404,7 @@ function exportAsImage() {
                 onlyShowOwnedUnits = false;
                 showNumberTMRFarmed = false;
                 savedSort();
+                $("#results").removeClass("hachForImage");
                 $("#loaderGlassPanel").addClass("hidden");
             });
         });
