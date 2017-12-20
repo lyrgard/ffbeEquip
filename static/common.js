@@ -235,6 +235,13 @@ function displayItemLine(item) {
             }
         }
     }
+    if (item.singleWieldingGL) {
+        for (var index in baseStats) {
+            if (item.singleWieldingGL[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingGL[baseStats[index]] + "%) when single wielding (Different stack for DH cap)</li>";    
+            }
+        }
+    }
     if (item.singleWieldingOneHanded) {
         for (var index in baseStats) {
             if (item.singleWieldingOneHanded[baseStats[index]]) {
@@ -242,6 +249,14 @@ function displayItemLine(item) {
             }
         }
     }
+    if (item.singleWieldingOneHandedGL) {
+        for (var index in baseStats) {
+            if (item.singleWieldingOneHandedGL[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHandedGL[baseStats[index]] + "%) when single wielding a one-handed weapon (Different stack for DH cap)</li>";    
+            }
+        }
+    }
+    
 
     if (item.accuracy) {
         special += "<li>Increase Accuracy: " + item.accuracy + "%</li>";
@@ -746,8 +761,14 @@ function prepareSearch(data) {
         if (item.singleWielding) {
             textToSearch += "|" + "Increase equipment ATK (" + item.singleWielding["atk"] + "%) when single wielding";
         }
+        if (item.singleWieldingGL) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingGL["atk"] + "%) when single wielding";
+        }
         if (item.singleWieldingOneHanded) {
             textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingOneHanded["atk"] + "%) when single wielding a one-handed weapon";
+        }
+        if (item.singleWieldingOneHandedGL) {
+            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingOneHandedGL["atk"] + "%) when single wielding a one-handed weapon";
         }
         if (item.killers) {
             $(item["killers"]).each(function (index, killer) {

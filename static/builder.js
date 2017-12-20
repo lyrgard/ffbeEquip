@@ -456,7 +456,9 @@ function itemCanBeOfUseForGoal(item) {
             if (getValue(item, stats[index]) > 0) return true;
             if (item["total_" + stats[index]]) return true;
             if (item.singleWielding && item.singleWielding[stats[index]]) return true;
+            if (item.singleWieldingGL && item.singleWieldingGL[stats[index]]) return true;
             if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
+            if (item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stats[index]]) return true;
         }
     }
     if (desirableElements.length != 0) {
@@ -1229,6 +1231,8 @@ function getItemNodeComparison(treeNode1, treeNode2) {
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWielding." + stats[index]));
             comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingGL." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHandedGL." + stats[index]));
         }
     }
     if (desirableElements.length != 0) {
@@ -1726,20 +1730,27 @@ function calculateBuildValueWithFormula(itemAndPassives, formula) {
 
 function getEquipmentStatBonus(itemAndPassives, stat) {
     if (baseStats.includes(stat) && itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
-        var bonus = 1;
+        var normalStack = 0;
+        var glStack = 0;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
             if (item) {
                 if (item.singleWielding && item.singleWielding[stat]) {
-                    bonus += item.singleWielding[stat] / 100;
+                    normalStack += item.singleWielding[stat] / 100;
+                }
+                if (item.singleWieldingGL && item.singleWieldingGL[stat]) {
+                    glStack += item.singleWieldingGL[stat] / 100;
                 }
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat]) {
-                    bonus += item.singleWieldingOneHanded[stat] / 100;
+                    normalStack += item.singleWieldingOneHanded[stat] / 100;
+                }
+                if (!twoHanded && item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stat]) {
+                    glStack += item.singleWieldingOneHandedGL[stat] / 100;
                 }
             }
         }
-        return Math.min(4, bonus);
+        return 1 + Math.min(3, normalStack) + Math.min(3, glStack);
     } else {
         return 1;
     }

@@ -343,47 +343,29 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
-                    doublehandSkill = baseEffects.singleWielding;
-                    if (doublehandEffect[2]) {
-                        addToStat(doublehandSkill, "atk", doublehandEffect[2]);
-                    }
-                    if (doublehandEffect[4]) {
-                        addToStat(doublehandSkill, "def", doublehandEffect[4]);
-                    }
-                    if (doublehandEffect[3]) {
-                        addToStat(doublehandSkill, "mag", doublehandEffect[3]);
-                    }
-                    if (doublehandEffect[5]) {
-                        addToStat(doublehandSkill, "spr", doublehandEffect[5]);
-                    }
-                    if (doublehandEffect[0]) {
-                        addToStat(doublehandSkill, "hp", doublehandEffect[0]);
-                    }
-                    if (doublehandEffect[1]) {
-                        addToStat(doublehandSkill, "mp", doublehandEffect[1]);
-                    }
+                    if (!baseEffects.singleWieldingGL) {baseEffects.singleWieldingGL = {}};
+                    doublehandSkill = baseEffects.singleWieldingGL;
                 } else {
-                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHanded;
-                    if (doublehandEffect[2]) {
-                        addToStat(doublehandSkill, "atk", doublehandEffect[2]);
-                    }
-                    if (doublehandEffect[4]) {
-                        addToStat(doublehandSkill, "def", doublehandEffect[4]);
-                    }
-                    if (doublehandEffect[3]) {
-                        addToStat(doublehandSkill, "mag", doublehandEffect[3]);
-                    }
-                    if (doublehandEffect[5]) {
-                        addToStat(doublehandSkill, "spr", doublehandEffect[5]);
-                    }
-                    if (doublehandEffect[0]) {
-                        addToStat(doublehandSkill, "hp", doublehandEffect[0]);
-                    }
-                    if (doublehandEffect[1]) {
-                        addToStat(doublehandSkill, "mp", doublehandEffect[1]);
-                    }
+                    if (!baseEffects.singleWieldingOneHandedGL) {baseEffects.singleWieldingOneHandedGL = {}};
+                    doublehandSkill = baseEffects.singleWieldingOneHandedGL;
+                }
+                if (doublehandEffect[2]) {
+                    addToStat(doublehandSkill, "atk", doublehandEffect[2]);
+                }
+                if (doublehandEffect[4]) {
+                    addToStat(doublehandSkill, "def", doublehandEffect[4]);
+                }
+                if (doublehandEffect[3]) {
+                    addToStat(doublehandSkill, "mag", doublehandEffect[3]);
+                }
+                if (doublehandEffect[5]) {
+                    addToStat(doublehandSkill, "spr", doublehandEffect[5]);
+                }
+                if (doublehandEffect[0]) {
+                    addToStat(doublehandSkill, "hp", doublehandEffect[0]);
+                }
+                if (doublehandEffect[1]) {
+                    addToStat(doublehandSkill, "mp", doublehandEffect[1]);
                 }
                 
             // Element Resist
@@ -484,7 +466,7 @@ function addAilmentResist(item, values) {
 }
 
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitName in units) {
