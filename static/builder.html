@@ -34,7 +34,9 @@
                             <span class="status"></span>
                             <div class="loader"></div>
                             <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                            <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
+                            <a href="/googleOAuthLogout">
+                              <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                            </a>
                             <div class="loader hidden"></div>
                             <span class="message hidden"/>
                         </div>
@@ -79,7 +81,7 @@
                                 <span>Unit</span>
                                 <select id="unitsSelect" name="units" class="form-control"></select>
                                 <div class="unit-rarity">
-                                    
+
                                 </div>
                                 <a id="unitLink" class="hidden" target="_blank">Unit info</a>
                             </div>
@@ -380,18 +382,18 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="fixItemModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        
+
                         <input type="text" class="form-control" id="searchText">
                         <div class="dropdown stat">
-                            <img src="img/sort-a-z.png" class="dropdown-toggle statChoice" type="button" data-toggle="dropdown"/>    
+                            <img src="img/sort-a-z.png" class="dropdown-toggle statChoice" type="button" data-toggle="dropdown"/>
                             <div class="dropdown-menu">
                             </div>
-                        </div> 
+                        </div>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -436,7 +438,7 @@
                             <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
                             <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
                             <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span></li>
-                            <li>Some valid formula : 
+                            <li>Some valid formula :
                                 <div><span class="code">HP</span> &rarr; Maximize HP</div>
                                 <div><span class="code">DEF * HP</span> &rarr; Maximize the product of HP by DEF (physical eHP)</div>
                                 <div><span class="code">MP * MP_REFRESH</span> &rarr; Maximize the number of MP regained each turn</div>
@@ -471,7 +473,7 @@
                 </div>
             </div>
         </div>
-        
+
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>

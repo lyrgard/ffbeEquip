@@ -14,7 +14,7 @@ const insert = (longUrl) => {
   return Promise
     .fromCallback(cb => urlshortener.url.insert({ key, resource: { longUrl } }, cb))
     .then(res => res.id);
-}
+};
 
 /**
  * @summary Return matching long url
@@ -25,7 +25,7 @@ const get = (shortUrl) => {
   return Promise
     .fromCallback(cb => urlshortener.url.get({ key, shortUrl }, cb))
     .then(res => res.longUrl);
-}
+};
 
 module.exports = {
   insert,

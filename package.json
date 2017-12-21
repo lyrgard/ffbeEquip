@@ -23,12 +23,12 @@
   "dependencies": {
     "bluebird": "3.5.1",
     "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
+    "client-sessions": "0.8.0",
     "drive-config": "^0.1.1",
     "express": "^4.15.3",
-    "google-auth-library": "0.12.0",
     "googleapis": "22.2.0",
-    "json-validation": "^1.0.4"
+    "json-validation": "^1.0.4",
+    "morgan": "1.9.0"
   },
   "devDependencies": {
     "mocha": "4.0.1",
