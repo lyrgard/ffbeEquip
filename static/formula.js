@@ -36,6 +36,7 @@ const attributeByVariable = {
 };
 
 function parseFormula(formula) {
+    formula = formula.toUpperCase();
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
         return parseExpression(formula, 0);
