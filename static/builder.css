@@ -433,6 +433,18 @@
     flex: 1;
 }
 
+.unitStats .stat .baseStat input{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.unitStats .stat .pots input{
+    border-radius: 0;
+}
+.unitStats .stat .buff input{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 .inputWithIcon {
     position: relative;
 }
@@ -446,10 +458,6 @@
 
 .unitStats .pots .leftIcon {
     cursor: pointer;
-}
-
-.unitStats .buff {
-    display: none;
 }
 
 .inputWithIcon .rightIcon {
