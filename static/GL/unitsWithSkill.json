@@ -522,16 +522,18 @@
 		]
 	},
 	"Gilbert": {
-		"id":"100003905",
-		"max_rarity":"5",
+		"id":"100003906",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2222,"mp":96,"atk":88,"def":80,"mag":100,"spr":97},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":2889,"mp":125,"atk":114,"def":104,"mag":130,"spr":126},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","harp","hat","clothes","robe"],
 		"skills": [
+			{"hp%":30, "def%":20},
+			{"def%":30, "spr%":30, "equipedConditions":["harp"]}
 		]
 	},
 	"Xiao": {
@@ -915,8 +917,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","staff","throwing","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Special Recipe","Pharmacology+","Extract"],
 		"skills": [
-			{"hp%":10, "mp%":40, "spr%":20}
+			{"hp%":10, "mp%":40, "spr%":50}
 		]
 	},
 	"Fohlen": {
@@ -1741,8 +1744,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Hope","Brave Presence","Light is with us!"],
 		"skills": [
-			{"hp%":20, "def%":30, "resist":[{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}]}
+			{"hp%":20, "def%":30, "spr%":20, "resist":[{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}]}
 		]
 	},
 	"Garland": {
@@ -3330,9 +3334,12 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Crush Weapon","Black Lion's Crest","Divine Ruination"],
 		"skills": [
-			{"hp%":30, "atk%":30, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"atk%":40, "equipedConditions":["greatSword"]}
+			{"hp%":50, "atk%":30, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
+			{"atk%":40, "equipedConditions":["greatSword"]},
+			{"atk%":40, "equipedConditions":["sword"]},
+			{"atk%":40, "equipedConditions":["katana"]}
 		]
 	},
 	"Meliadoul": {
@@ -3417,9 +3424,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","spear","hat","clothes"],
+		"enhancementSkills":["Double Recover","Spear Adept","Clean Sweep","Hyper Dive"],
 		"skills": [
-			{"hp%":20, "atk%":40, "def%":10, "spr%":20, "killers":[{"name":"demon","physical":50}]},
-			{"atk%":30, "equipedConditions":["spear"]}
+			{"hp%":20, "atk%":40, "def%":10, "spr%":20, "killers":[{"name":"demon","physical":50}], "mpRefresh":5},
+			{"atk%":60, "equipedConditions":["spear"]}
 		]
 	},
 	"Trey": {
@@ -3490,9 +3498,10 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
 		"skills": [
-			{"mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "mpRefresh":5},
-			{"mag%":50, "spr%":50, "equipedConditions":["dagger"]}
+			{"hp%":30, "mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
+			{"mag%":80, "spr%":80, "equipedConditions":["dagger"]}
 		]
 	},
 	"Eight": {
@@ -3520,8 +3529,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","throwing","gun","hat","clothes"],
+		"enhancementSkills":["Hi-Cap Magazine","Point-Blank Shot","Hi-Cap Magazine II","Indomitable"],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "partialDualWield":["gun"]}
+			{"hp%":20, "atk%":120, "def%":20, "partialDualWield":["gun"]}
 		]
 	},
 	"Sice": {
@@ -3681,14 +3691,15 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["staff","rod","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}]},
-			{"mag%":15, "equipedConditions":["rod"]},
-			{"def%":15, "equipedConditions":["lightShield"]},
-			{"def%":15, "equipedConditions":["heavyShield"]},
-			{"def%":30, "equipedConditions":["lightArmor"]},
-			{"def%":30, "equipedConditions":["heavyArmor"]},
-			{"mag%":30, "equipedConditions":["robe"]}
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"def%":50, "spr%":50, "equipedConditions":["lightShield"]},
+			{"def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+			{"hp%":20, "def%":50, "spr%":50, "equipedConditions":["lightArmor"]},
+			{"hp%":20, "def%":50, "spr%":50, "equipedConditions":["heavyArmor"]},
+			{"mp%":20, "mag%":50, "spr%":50, "equipedConditions":["robe"]}
 		]
 	},
 	"Santa Roselia": {
@@ -3701,8 +3712,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer’s Resolve","Divine Grace"],
 		"skills": [
-			{"hp%":20, "spr%":50, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":25}]}
+			{"hp%":50, "spr%":100, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":25}], "mpRefresh":5}
 		]
 	},
 	"Yun": {
@@ -4317,6 +4329,52 @@
 		"skills": [
 			{"hp%":20, "mp%":10, "def%":20, "spr%":20},
 			{"hp%":30, "def%":30, "equipedConditions":["lightShield"]}
+		]
+	},
+	"Christine": {
+		"id":"401002606",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3480,"mp":202,"atk":92,"def":122,"mag":151,"spr":136},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":70, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5}
+		]
+	},
+	"Kryla": {
+		"id":"401002706",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3562,"mp":176,"atk":122,"def":126,"mag":130,"spr":140},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"undead","magical":50}]},
+			{"def%":20, "equipedConditions":["clothes"]},
+			{"spr%":20, "equipedConditions":["robe"]}
+		]
+	},
+	"Tinkerer Carrie": {
+		"id":"401002806",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3558,"mp":166,"atk":142,"def":120,"mag":127,"spr":127},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["bow","harp","throwing","gun","hat","clothes","lightArmor"],
+		"skills": [
+			{"mp%":10, "atk%":20, "resist":[{"name":"ice","percent":30},{"name":"wind","percent":30}], "killers":[{"name":"machine","physical":50},{"name":"demon","physical":50}]},
+			{"atk%":50, "equipedConditions":["gun"]},
+			{"atk%":40, "spr%":40, "equipedConditions":["bow"]}
 		]
 	}
 }

@@ -418,13 +418,13 @@
 		"equip":["dagger","katana","throwing","hat","clothes"]
 	},
 	"Gilbert": {
-		"id":"100003905",
-		"max_rarity":"5",
+		"id":"100003906",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2222,"mp":96,"atk":88,"def":80,"mag":100,"spr":97},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":2889,"mp":125,"atk":114,"def":104,"mag":130,"spr":126},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","harp","hat","clothes","robe"]
 	},
@@ -722,7 +722,8 @@
 			"maxStats":{"hp":3211,"mp":178,"atk":118,"def":120,"mag":130,"spr":140},
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","staff","throwing","lightShield","hat","helm","clothes","lightArmor"]
+		"equip":["dagger","sword","staff","throwing","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Special Recipe","Pharmacology+","Extract"]
 	},
 	"Fohlen": {
 		"id":"100006806",
@@ -1340,7 +1341,8 @@
 			"maxStats":{"hp":3722,"mp":155,"atk":130,"def":124,"mag":126,"spr":125},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Hope","Brave Presence","Light is with us!"]
 	},
 	"Garland": {
 		"id":"201000206",
@@ -2544,7 +2546,8 @@
 			"maxStats":{"hp":3621,"mp":142,"atk":155,"def":124,"mag":124,"spr":116},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Crush Weapon","Black Lion's Crest","Divine Ruination"]
 	},
 	"Meliadoul": {
 		"id":"253000906",
@@ -2612,7 +2615,8 @@
 			"maxStats":{"hp":3706,"mp":148,"atk":152,"def":134,"mag":109,"spr":109},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","spear","hat","clothes"]
+		"equip":["dagger","spear","hat","clothes"],
+		"enhancementSkills":["Double Recover","Spear Adept","Clean Sweep","Hyper Dive"]
 	},
 	"Trey": {
 		"id":"254000405",
@@ -2668,7 +2672,8 @@
 			"maxStats":{"hp":3452,"mp":196,"atk":118,"def":118,"mag":149,"spr":149},
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","staff","rod","hat","clothes","robe"]
+		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"]
 	},
 	"Eight": {
 		"id":"254001005",
@@ -2690,7 +2695,8 @@
 			"maxStats":{"hp":3621,"mp":148,"atk":141,"def":126,"mag":118,"spr":120},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","throwing","gun","hat","clothes"]
+		"equip":["dagger","throwing","gun","hat","clothes"],
+		"enhancementSkills":["Hi-Cap Magazine","Point-Blank Shot","Hi-Cap Magazine II","Indomitable"]
 	},
 	"Sice": {
 		"id":"254001405",
@@ -2817,7 +2823,8 @@
 			"maxStats":{"hp":3660,"mp":162,"atk":114,"def":139,"mag":136,"spr":112},
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
-		"equip":["staff","rod","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","robe"]
+		"equip":["staff","rod","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"]
 	},
 	"Santa Roselia": {
 		"id":"302000806",
@@ -2828,7 +2835,8 @@
 			"maxStats":{"hp":2984,"mp":180,"atk":107,"def":112,"mag":120,"spr":152},
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
-		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"]
+		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer’s Resolve","Divine Grace"]
 	},
 	"Yun": {
 		"id":"302000906",
@@ -3277,5 +3285,38 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["hammer","harp","lightShield","hat","clothes","robe"]
+	},
+	"Christine": {
+		"id":"401002606",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3480,"mp":202,"atk":92,"def":122,"mag":151,"spr":136},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["staff","rod","harp","whip","hat","clothes","robe"]
+	},
+	"Kryla": {
+		"id":"401002706",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3562,"mp":176,"atk":122,"def":126,"mag":130,"spr":140},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"]
+	},
+	"Tinkerer Carrie": {
+		"id":"401002806",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3558,"mp":166,"atk":142,"def":120,"mag":127,"spr":127},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["bow","harp","throwing","gun","hat","clothes","lightArmor"]
 	}
 }
