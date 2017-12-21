@@ -2,15 +2,15 @@ const Promise = require('bluebird');
 const OAuth = require('../lib/oauth.js');
 
 const OAuth2Client = OAuth.createClient();
+const AuthUrl = OAuth2Client.generateAuthUrl({
+  access_type: 'offline',
+  scope: [
+    'https://www.googleapis.com/auth/drive.appfolder',
+  ],
+});
 
 const authorize = (req, res) => {
-  const url = OAuth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: [
-      'https://www.googleapis.com/auth/drive.appfolder',
-    ],
-  });
-  return res.json({ url });
+  return res.json({ url: AuthUrl });
 };
 
 const callback = async (req, res) => {
