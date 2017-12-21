@@ -1788,17 +1788,17 @@ function calculateStatValue(itemAndPassives, stat) {
         var right = calculateFlatStateValueForIndex(itemAndPassives[0], equipmentStatBonus, stat);
         var left = calculateFlatStateValueForIndex(itemAndPassives[1], equipmentStatBonus, stat);
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-            result.right = calculatedValue + right;
-            result.left = calculatedValue + left;
-            result.total = calculatedValue + right + left;    
+            result.right = Math.floor(calculatedValue + right);
+            result.left = Math.floor(calculatedValue + left);
+            result.total = Math.floor(calculatedValue + right + left);    
         } else {
-            result.right = calculatedValue + right + left;
+            result.right = Math.floor(calculatedValue + right + left);
             result.left = 0;
             result.total = result.right;
         }
         return result;   
     } else {
-        return {"total" : calculatedValue,"bonusPercent":currentPercentIncrease.value};
+        return {"total" : Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value};
     }
 }
 
