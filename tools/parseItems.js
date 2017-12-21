@@ -447,11 +447,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addSpecial(item, "Gain at the start of a battle: " + getSkillString(skills[rawEffect[3][0]]));
 
     // Element Resist
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
+    } else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
         addElementalResist(item, rawEffect[3]);
 
     // Ailments Resist
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
+    } else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
         addAilmentResist(item, rawEffect[3]);
 
     // Equip X
