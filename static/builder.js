@@ -318,6 +318,7 @@ function readStatsValues() {
             "pots" : parseInt($(".unitStats .stat." + baseStats[index] + " .pots input").val()) || 0
         };
         builds[currentUnitIndex].baseValues[baseStats[index]].total = builds[currentUnitIndex].baseValues[baseStats[index]].base + builds[currentUnitIndex].baseValues[baseStats[index]].pots;
+        builds[currentUnitIndex].baseValues[baseStats[index]].buff = parseInt($(".unitStats .stat." + baseStats[index] + " .buff input").val()) || 0;
     }
 }
 
@@ -1469,9 +1470,9 @@ function cutUnderMaxDepth(treeItem, maxDepth, depthFunction, currentDepth) {
 }
 
 function getDefenseValue(item) {
-    var hpBaseValue = builds[currentUnitIndex].baseValues.hp.base + builds[currentUnitIndex].baseValues.hp.pots;
-    var defBaseValue = builds[currentUnitIndex].baseValues.def.base + builds[currentUnitIndex].baseValues.def.pots;
-    var sprBaseValue = builds[currentUnitIndex].baseValues.spr.base + builds[currentUnitIndex].baseValues.spr.pots;
+    var hpBaseValue = builds[currentUnitIndex].baseValues.hp.total;
+    var defBaseValue = builds[currentUnitIndex].baseValues.def.total;
+    var sprBaseValue = builds[currentUnitIndex].baseValues.spr.total;
     return getStatValueIfExists(item, "hp", hpBaseValue) + getStatValueIfExists(item, "def", hpBaseValue) + getStatValueIfExists(item, "spr", hpBaseValue);
 }
 
@@ -1763,10 +1764,12 @@ function calculateStatValue(itemAndPassives, stat) {
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
     var baseValue = 0;
+    var buffValue = 0
     if (baseStats.includes(stat)) {
-        baseValue = builds[currentUnitIndex].baseValues[stat].base + builds[currentUnitIndex].baseValues[stat].pots;
+        baseValue = builds[currentUnitIndex].baseValues[stat].total;
+        buffValue = builds[currentUnitIndex].baseValues[stat].buff * baseValue / 100;
     }
-    var calculatedValue = baseValue;
+    var calculatedValue = baseValue + buffValue;
     
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
         var equipmentStatBonusToApply = 1;
@@ -2163,6 +2166,7 @@ function updateUnitStats() {
             $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].selectedUnit.stats.maxStats[stat]);
             if (builds[currentUnitIndex].baseValues[stat]) {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
+                $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
             } else {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].selectedUnit.stats.pots[stat]);
             }
@@ -2402,7 +2406,7 @@ function updateSearchResult() {
     }
     var baseStat;
     if (searchStat != "") {
-        baseStat = builds[currentUnitIndex].baseValues[searchStat].base + builds[currentUnitIndex].baseValues[searchStat].pots;
+        baseStat = builds[currentUnitIndex].baseValues[searchStat].total;
     }
     accessToRemove = [];
     
@@ -2758,8 +2762,10 @@ function getStateHash() {
     }
     
     data.pots = {};
+    data.buff = {};
     for (var index = baseStats.length; index--;) {
         data.pots[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].pots;
+        data.buff[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].buff;
     }
     
     return data;
@@ -2830,6 +2836,11 @@ function loadStateHashAndBuild(data) {
     if (data.pots) {
         for (var index = baseStats.length; index--;) {
             $(".unitStats .stat." + baseStats[index] + " .pots input").val(data.pots[baseStats[index]]);
+        }
+    }
+    if (data.buff) {
+        for (var index = baseStats.length; index--;) {
+            $(".unitStats .stat." + baseStats[index] + " .buff input").val(data.buff[baseStats[index]]);
         }
     }
     dataLoadedFromHash = true;
@@ -3019,6 +3030,16 @@ function onPotsChange(stat) {
     }
 }
 
+function onBuffChange(stat) {
+    if (builds[currentUnitIndex].selectedUnit) {
+        var value = parseInt($(".unitStats .stat." + stat + " .buff input").val()) || 0;
+        if (value > 300) {
+            $(".unitStats .stat." + stat + " .buff input").val(300);
+        }
+        logCurrentBuild();
+    }
+}
+
 $(function() {
     progressElement = $("#buildProgressBar .progressBar");
     $.get(server + "/data.json", function(result) {
@@ -3099,7 +3120,7 @@ $(function() {
     });
     for (let statIndex = baseStats.length; statIndex--;) {
         $(".unitStats .stat." + baseStats[statIndex] + " .pots input").on('input',$.debounce(300,function() {onPotsChange(baseStats[statIndex]);}));
-        $(".unitStats .stat." + baseStats[statIndex] + " .buff input").on('input',$.debounce(300,logCurrentBuild));
+        $(".unitStats .stat." + baseStats[statIndex] + " .buff input").on('input',$.debounce(300,function() {onBuffChange(baseStats[statIndex]);}));
         $(".unitStats .stat." + baseStats[statIndex] + " .pots .leftIcon").click(function(stat) {
             if (builds[currentUnitIndex].selectedUnit) {
                 var value = parseInt($(".unitStats .stat." + baseStats[statIndex] + " .pots input").val()) || 0;
