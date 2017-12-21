@@ -2400,7 +2400,10 @@ function updateSearchResult() {
     if (searchType.length == 0) {
         types = getCurrentUnitEquip().concat("esper");
     }
-    var baseStat = builds[currentUnitIndex].baseValues[searchStat].base + builds[currentUnitIndex].baseValues[searchStat].pots;
+    var baseStat;
+    if (searchStat != "") {
+        baseStat = builds[currentUnitIndex].baseValues[searchStat].base + builds[currentUnitIndex].baseValues[searchStat].pots;
+    }
     accessToRemove = [];
     
     var dataWithOnlyOneOccurence = searchableEspers.slice();
