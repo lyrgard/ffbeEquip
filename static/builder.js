@@ -1549,7 +1549,7 @@ function getAvailableNumber(item) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
-                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != selectedUnit.name)
+                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].selectedUnitName)
                    || (exludeEventEquipment && access.endsWith("event"))
                    || (excludePremium && access == "premium")) {
                     return 0;
