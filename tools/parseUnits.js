@@ -188,12 +188,19 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             continue; // don't take into account skills for a max rarity not yet released
         }
         var skillId = skillsIn[skillIndex].id.toString();
+        if (skillId == "0") {
+            console.log(skillsIn[skillIndex]);
+            continue;
+        }
         if (enhancements) {
             while(enhancements[skillId]) {
                 skillId = enhancements[skillId];
             }
         }
         var skillIn = skills[skillId];
+        if (!skillIn) {
+            console.log(skillId);
+        }
         for (var rawEffectIndex in skillIn["effects_raw"]) {
             var rawEffect = skillIn["effects_raw"][rawEffectIndex];
             
