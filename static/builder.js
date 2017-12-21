@@ -62,6 +62,7 @@ var stats = [];
 var numberOfItemCombination;
 
 var alreadyUsedItems = {};
+var unstackablePinnedItems = [];
 var alreadyUsedEspers = [];
 
 var itemKey = getItemInventoryKey();
@@ -152,6 +153,7 @@ function build() {
 
 function calculateAlreadyUsedItems() {
     alreadyUsedItems = {};
+    unstackablePinnedItems = [];
     alreadyUsedEspers = [];
     for (var i = 0, len = builds.length; i < len; i++) {
         if (i != currentUnitIndex) {
@@ -197,6 +199,9 @@ function calculateAlreadyUsedItems() {
                             alreadyUsedItems[item[itemKey]]++;
                         } else {
                             alreadyUsedItems[item[itemKey]] = 1;
+                        }
+                        if (!isStackable(item)) {
+                            unstackablePinnedItems.push(item.id);
                         }
                     }   
                 }
@@ -1598,7 +1603,15 @@ function getOwnedNumber(item) {
     }
     
     if (alreadyUsedItems[item[itemKey]]) {
-        availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
+        if (!isStackable(item)) {
+            if (unstackablePinnedItems.includes(item.id)) {
+                availableNumber = 0
+            } else {
+                availableNumber = 1;
+            }
+        } else {
+            availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
+        }
     } else{
         availableNumber = totalNumber;
     }
