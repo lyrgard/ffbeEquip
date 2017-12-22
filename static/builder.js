@@ -1603,14 +1603,13 @@ function getOwnedNumber(item) {
     }
     
     if (alreadyUsedItems[item[itemKey]]) {
+        availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
         if (!isStackable(item)) {
             if (unstackablePinnedItems.includes(item.id)) {
                 availableNumber = 0
             } else {
-                availableNumber = 1;
+                availableNumber = Math.min(1, availableNumber);
             }
-        } else {
-            availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
         }
     } else{
         availableNumber = totalNumber;
