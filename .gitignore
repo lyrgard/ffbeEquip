@@ -1,9 +1,11 @@
-.config.json
-/node_modules
-/googleOAuth
+.nyc_output/
+coverage/
+node_modules/
+googleOAuth/
 /tools/skills.json
 /tools/equipment.json
 /tools/units.json
 /tools/materia.json
 /tools/unitsWithSkill.json
+.config.json
 *.log
