@@ -3,6 +3,11 @@ const config = require('../config.js');
 
 const { OAuth2 } = google.auth;
 
+/**
+ * @summary Create a Google OAuth2 client
+ * @param {Object} tokens - User OAuth tokens
+ * @returns {OAuth2}
+ */
 const createClient = (tokens) => {
   const OAuth2Client = new OAuth2(
     config.googleOAuthCredential.web.client_id,
@@ -17,6 +22,16 @@ const createClient = (tokens) => {
   return OAuth2Client;
 };
 
+const client = createClient();
+const authUrl = client.generateAuthUrl({
+  access_type: 'offline',
+  scope: [
+    'https://www.googleapis.com/auth/drive.appfolder',
+  ],
+});
+
 module.exports = {
+  authUrl,
+  client,
   createClient,
 };

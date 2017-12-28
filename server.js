@@ -11,9 +11,11 @@ const DriveConfig = require('drive-config');
 const config = require('./server/config.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
+const errorHandler = require('./server/middlewares/boom.js');
 const authRequired = require('./server/middlewares/oauth.js');
 
 const app = express();
+app.disable('x-powered-by');
 
 let inventoryFile = null;
 let unitsFile = null;
@@ -37,12 +39,8 @@ app.use(sessions({
 }));
 app.use(bodyParser.json());
 
-app.get('/googleOAuthUrl', oauth.authorize);
-app.get('/googleOAuthSuccess', oauth.callback);
-app.get('/googleOAuthLogout', oauth.logout);
-
-app.get('/links/:shortId', links.get);
-app.post('/links', links.insert);
+app.use('/', oauth);
+app.use('/links', links);
 
 const driveRouter = express.Router();
 driveRouter.use(authRequired);
@@ -374,6 +372,8 @@ app.use(driveRouter);
 app.use((req, res) => {
   res.status(404).send('Not Found');
 });
+
+app.use(errorHandler);
 
 if (module === require.main) {
   const server = app.listen(config.port, () => {
