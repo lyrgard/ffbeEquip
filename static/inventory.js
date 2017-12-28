@@ -126,11 +126,27 @@ var displayItems = function(items) {
 
 };
 
-function addToInventory(id) {
+function findInventoryItemById(id) {
+    var inventoryItem = equipments.find(equip => equip.id === String(id));
+    if (!inventoryItem) {
+        inventoryItem = materia.find(m => m.id === String(id));
+    }
+    return inventoryItem;
+}
+
+function addToInventory(id, showAlert = true) {
     var inventoryDiv = $(".item." + escapeName(id));
     if(itemInventory[id]) {
-        itemInventory[id] = itemInventory[id] + 1;
-        inventoryDiv.find(".number").text(itemInventory[id]);
+        var item = findInventoryItemById(id);
+        if (item.maxNumber && itemInventory[id] >= item.maxNumber) {
+            if (showAlert) {
+                alert('You can only have up to ' + item.maxNumber + ' of these');
+            }
+            return false;
+        } else {
+            itemInventory[id] = itemInventory[id] + 1;
+            inventoryDiv.find(".number").text(itemInventory[id]);
+        }
     } else {
         itemInventory[id] = 1;
         inventoryDiv.removeClass('notOwned');
@@ -141,11 +157,12 @@ function addToInventory(id) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveInventory,3000);
     $(".saveInventory").removeClass("hidden");
+    return true;
 }
 
 function showAddAllToInventoryDialog() {
     $('<div id = "dialog-addAll-confirm" title = "Add all equipment and materia to inventory?" >' +
-        '<p>This wll update your inventory to have at least one of each equipment and materia. Are you sure?</p> ' +
+        '<p>This will add up to 2 of each equipment and 4 of each materia to your inventory. Are you sure you want to continue?</p> ' +
     '</div>').dialog({
         resizable: false,
         height: "auto",
@@ -154,8 +171,8 @@ function showAddAllToInventoryDialog() {
         position: { my: 'top', at: 'top+150', of: $("body") },
         buttons: {
             "Add all items": function () {
-                addAllToInventory(materia);
-                addAllToInventory(equipments);
+                addAllToInventory(materia, 4);
+                addAllToInventory(equipments, 2);
                 $(this).dialog("close");
             },
             Cancel: function () {
@@ -167,14 +184,15 @@ function showAddAllToInventoryDialog() {
 
 var itemsAddedWithAddAll = [];
 
-function addAllToInventory(items) {
+function addAllToInventory(items, amount) {
     var itemInventoryKeys = Object.keys(itemInventory);
     for (var index in items) {
         var item = items[index];
         var key = escapeName(item[getItemInventoryKey()]);
-        if (itemInventoryKeys.indexOf(key) === -1) {
-            addToInventory(key);
-            itemsAddedWithAddAll.push(key);
+        for (var i = 0; i < amount; i++) {
+            if (addToInventory(key, false)) {
+                itemsAddedWithAddAll.push(key);
+            }
         }
     }
     showSettings();
