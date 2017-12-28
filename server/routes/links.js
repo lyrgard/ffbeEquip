@@ -1,8 +1,33 @@
 const { URL } = require('url');
+const Joi = require('joi');
+const express = require('express');
+const validator = require('../middlewares/validator.js');
 const shortener = require('../lib/shortener.js');
 
-const insert = async (req, res) => {
-  const longUrl = req.body.url;
+const route = express.Router();
+
+/**
+ * "GET /:shortId"
+ */
+const getSchema = Joi.object({
+  shortId: Joi.string().required(),
+});
+route.get('/:shortId', validator.params(getSchema), async (req, res) => {
+  const { shortId } = req.params;
+  const shortUrl = `https://goo.gl/${shortId}`;
+  const longUrl = await shortener.get(shortUrl);
+
+  return res.redirect(longUrl);
+});
+
+/**
+ * "POST /"
+ */
+const insertSchema = Joi.object({
+  url: Joi.string().uri().required(),
+});
+route.post('/', validator.body(insertSchema), async (req, res) => {
+  const { url: longUrl } = req.body;
   const shortUrl = await shortener.insert(longUrl);
 
   const parsedLongUrl = new URL(longUrl);
@@ -15,17 +40,6 @@ const insert = async (req, res) => {
   return res.status(200).json({
     url: parsedShortUrl.href,
   });
-};
+});
 
-const get = async (req, res) => {
-  const { shortId } = req.params;
-  const shortUrl = `https://goo.gl/${shortId}`;
-  const longUrl = await shortener.get(shortUrl);
-
-  return res.redirect(longUrl);
-};
-
-module.exports = {
-  insert,
-  get,
-};
+module.exports = route;
