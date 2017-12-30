@@ -8,7 +8,7 @@ const sessions = require('client-sessions');
 const jv = require('json-validation');
 const DriveConfig = require('drive-config');
 
-const config = require('./server/config.js');
+const config = require('./config.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
 const errorHandler = require('./server/middlewares/boom.js');

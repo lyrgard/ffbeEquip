@@ -1,9 +1,11 @@
 const Promise = require('bluebird');
 const google = require('googleapis');
-const config = require('../config.js');
+const config = require('../../config.js');
 
-const urlshortener = google.urlshortener('v1');
-const key = config.googleApiKey;
+const urlshortener = google.urlshortener({
+  version: 'v1',
+  auth: config.googleApiKey,
+});
 
 /**
  * @summary Shorten a long url
@@ -12,7 +14,7 @@ const key = config.googleApiKey;
  */
 const insert = (longUrl) => {
   return Promise
-    .fromCallback(cb => urlshortener.url.insert({ key, resource: { longUrl } }, cb))
+    .fromCallback(cb => urlshortener.url.insert({ resource: { longUrl } }, cb))
     .then(res => res.id);
 };
 
@@ -23,7 +25,7 @@ const insert = (longUrl) => {
  */
 const get = (shortUrl) => {
   return Promise
-    .fromCallback(cb => urlshortener.url.get({ key, shortUrl }, cb))
+    .fromCallback(cb => urlshortener.url.get({ shortUrl }, cb))
     .then(res => res.longUrl);
 };
 
