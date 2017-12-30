@@ -2275,6 +2275,8 @@ function addNewUnit() {
     $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
     builds.push({});
     reinitBuild(builds.length - 1);
+    $('#forceDoublehand input').prop('checked', false);
+    $('#forceDualWield input').prop('checked', false);
     loadBuild(builds.length - 1);
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
@@ -2335,7 +2337,6 @@ function onGoalChange() {
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
     $(".magicalSkillType").addClass("hidden");
-    $("#forceDoublehand").addClass("hidden");
     if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
         || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
         || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
@@ -2344,7 +2345,6 @@ function onGoalChange() {
     }
     if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
-        $("#forceDoublehand").removeClass("hidden");
     }
     if (goal == "magicalDamage") {
         $(".magicalSkillType").removeClass("hidden");
