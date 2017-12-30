@@ -17,6 +17,7 @@ function beforeShow() {
     $(".nav-tabs li.materia").removeClass("active");
     $(".nav-tabs li.search").removeClass("active");
     $(".nav-tabs li.history").removeClass("active");
+    $(".nav-tabs li.settings").removeClass("active");
 }
 
 function showMateria() {
@@ -77,6 +78,24 @@ function showHistory() {
     $("#results").html(html);
 }
 
+function showSettings() {
+    beforeShow();
+    $(".nav-tabs li.settings").addClass("active");
+    var html = "";
+    html += 
+        '<div class="col-xs-12 addAll">' +
+        '<div class="col-xs-12 source">Inventory Tools</div>' +
+        '<div class="col-x2-12 inventoryTools">' +
+        '<button class="ui-button ui-co`rner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
+    if (itemsAddedWithAddAll.length > 0) {
+        html += '<button class="ui-button ui-corner-all ui-widget" onclick="undoAddAllToInventory()">Undo Add All</button>';
+    }
+    html += '</div></div>';
+    $("#results").html(html);
+
+
+}
+
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     var html = '';
@@ -107,11 +126,27 @@ var displayItems = function(items) {
 
 };
 
-function addToInventory(id) {
+function findInventoryItemById(id) {
+    var inventoryItem = equipments.find(equip => equip.id === String(id));
+    if (!inventoryItem) {
+        inventoryItem = materia.find(m => m.id === String(id));
+    }
+    return inventoryItem;
+}
+
+function addToInventory(id, showAlert = true) {
     var inventoryDiv = $(".item." + escapeName(id));
     if(itemInventory[id]) {
-        itemInventory[id] = itemInventory[id] + 1;
-        inventoryDiv.find(".number").text(itemInventory[id]);
+        var item = findInventoryItemById(id);
+        if (item.maxNumber && itemInventory[id] >= item.maxNumber) {
+            if (showAlert) {
+                alert('You can only have up to ' + item.maxNumber + ' of these');
+            }
+            return false;
+        } else {
+            itemInventory[id] = itemInventory[id] + 1;
+            inventoryDiv.find(".number").text(itemInventory[id]);
+        }
     } else {
         itemInventory[id] = 1;
         inventoryDiv.removeClass('notOwned');
@@ -122,7 +157,55 @@ function addToInventory(id) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveInventory,3000);
     $(".saveInventory").removeClass("hidden");
+    return true;
 }
+
+function showAddAllToInventoryDialog() {
+    $('<div id = "dialog-addAll-confirm" title = "Add all equipment and materia to inventory?" >' +
+        '<p>This will add up to 2 of each equipment and 4 of each materia to your inventory. Are you sure you want to continue?</p> ' +
+    '</div>').dialog({
+        resizable: false,
+        height: "auto",
+        width: 600,
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        buttons: {
+            "Add all items": function () {
+                addAllToInventory(materia, 4);
+                addAllToInventory(equipments, 2);
+                $(this).dialog("close");
+            },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+}
+
+var itemsAddedWithAddAll = [];
+
+function addAllToInventory(items, amount) {
+    var itemInventoryKeys = Object.keys(itemInventory);
+    for (var index in items) {
+        var item = items[index];
+        var key = escapeName(item[getItemInventoryKey()]);
+        for (var i = 0; i < amount; i++) {
+            if (addToInventory(key, false)) {
+                itemsAddedWithAddAll.push(key);
+            }
+        }
+    }
+    showSettings();
+}
+
+function undoAddAllToInventory() {
+    for (var index in itemsAddedWithAddAll) {
+        removeFromInventory(itemsAddedWithAddAll[index]);
+    }
+    itemsAddedWithAddAll = [];
+    showSettings();
+}
+
 
 function removeFromInventory(id) {
     if(itemInventory[id]) {
