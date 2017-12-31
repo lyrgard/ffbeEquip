@@ -2,6 +2,7 @@ const request = require('supertest');
 const express = require('express');
 const bodyParser = require('body-parser');
 const utils = require('../utils.js');
+
 const links = require('../../../server/routes/links.js');
 const boom = require('../../../server/middlewares/boom.js');
 
