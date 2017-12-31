@@ -3,6 +3,7 @@ const mock = require('mock-require');
 
 const testConfig = {
   port: 3000,
+  env: 'test',
   secret: 'secret',
   googleApiKey: 'test',
   googleOAuthCredential: {
@@ -12,6 +13,8 @@ const testConfig = {
       redirect_uris: ['http://localhost/test'],
     },
   },
+  isDev: false,
+  isProd: false,
 };
 
 mock('../../config.js', testConfig);
