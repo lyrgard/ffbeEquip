@@ -957,20 +957,18 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
                     var addedChildrenNumber = 0;
                     if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
                         // We used all possible copy of this item, switch to a worse item in the tree
-                        var newTreeRoot = {"children":itemTreeRoot.children.slice()};
-                        if (newTreeRoot.children[childIndex].equivalents.length > currentEquivalentIndex + 1) {
+                        if (currentChild.equivalents.length > currentEquivalentIndex + 1) {
                             currentChild.currentEquivalentIndex++;
-                        } else if (newTreeRoot.children[childIndex].children.length > 0) {
+                        } else if (currentChild.children.length > 0) {
                             // add the children of the node to root level
-                            Array.prototype.splice.apply(itemTreeRoot.children, [childIndex, 1].concat(newTreeRoot.children[childIndex].children));
+                            Array.prototype.splice.apply(itemTreeRoot.children, [childIndex, 1].concat(currentChild.children));
                             removedChild = true;
-                            addedChildrenNumber = newTreeRoot.children[childIndex].children.length;
+                            addedChildrenNumber = currentChild.children.length;
                         } else {
                             // we finished this branch, remove it
-                            newTreeRoot.children.splice(childIndex,1);
+                            itemTreeRoot.children.splice(childIndex,1);
                             removedChild = true;
                         }
-                        dataWithConditionItems[typeCombination[index]] = newTreeRoot;
                     }
                     entry.available--;
                     tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
@@ -1456,7 +1454,7 @@ function compareByEquipedElementCondition(item1, item2) {
 }
 
 function getItemDepth(treeItem, currentDepth) {
-    var result;
+    var result = currentDepth;
     if (treeItem.root) {
         return 0;
     }
