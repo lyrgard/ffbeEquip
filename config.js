@@ -7,6 +7,7 @@ const random = require('crypto-random-string');
 const CONFIG_FILE = path.join(__dirname, '.config.json');
 
 const configSchema = Joi.object({
+  env: Joi.string().required(),
   port: Joi.number().integer().required(),
   secret: Joi.string().required(),
   googleApiKey: Joi.string().required(),
@@ -53,6 +54,13 @@ const setupConfig = (currentConfig) => {
   console.log('FFBE Equip server configuration setup:');
   const questions = [
     {
+      type: 'list',
+      name: 'env',
+      message: 'Server environment',
+      choices: ['development', 'production', 'test'],
+      default: 'development',
+    },
+    {
       type: 'input',
       name: 'port',
       message: 'Server listen port',
@@ -97,6 +105,11 @@ const setupConfig = (currentConfig) => {
 };
 
 const config = readJson(CONFIG_FILE);
+
+// ALlow env vars override
+config.env = process.env.NODE_ENV || config.env;
+config.port = process.env.PORT || config.port;
+
 const validation = Joi.validate(config, configSchema);
 
 if (require.main === module && validation.error) {
@@ -113,6 +126,10 @@ if (require.main !== module) {
 
   // Dynamically load OAuth credentials
   config.googleOAuthCredential = readJson(config.googleOAuthFile);
+
+  // Env utils
+  config.isDev = (config.env === 'development');
+  config.isProd = (config.env === 'production');
 }
 
 module.exports = config;

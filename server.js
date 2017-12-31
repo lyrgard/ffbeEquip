@@ -32,7 +32,9 @@ if (process.argv.length > 3) {
 }
 
 app.use(express.static(path.join(__dirname, '/static/')));
-app.use(morgan('dev'));
+if (config.isDev) {
+  app.use(morgan('dev'));
+}
 app.use(sessions({
   cookieName: 'OAuthSession',
   secret: config.secret,
