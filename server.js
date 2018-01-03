@@ -1,15 +1,24 @@
-'use strict';
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var fs = require('fs');
-var jv = require('json-validation');
-var google = require('googleapis');
-var app = express();
-let driveConfig = require('drive-config');
-var inventoryFile = null;
-var unitsFile = null;
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const sessions = require('client-sessions');
+
+const jv = require('json-validation');
+const DriveConfig = require('drive-config');
+
+const config = require('./config.js');
 const links = require('./server/routes/links.js');
+const oauth = require('./server/routes/oauth.js');
+const errorHandler = require('./server/middlewares/boom.js');
+const authRequired = require('./server/middlewares/oauth.js');
+
+const app = express();
+app.disable('x-powered-by');
+
+let inventoryFile = null;
+let unitsFile = null;
 
 if (process.argv.length > 2) {
     if (process.argv[2] != "null") {
@@ -22,10 +31,23 @@ if (process.argv.length > 3) {
     console.log("using " + process.argv[3] + " as units source");
 }
 
-app.use(cookieParser());
+app.use(express.static(path.join(__dirname, '/static/')));
+if (config.isDev) {
+  app.use(morgan('dev'));
+}
+app.use(sessions({
+  cookieName: 'OAuthSession',
+  secret: config.secret,
+}));
 app.use(bodyParser.json());
 
-app.post('/:server/items/temp', function(req, res) {
+app.use('/', oauth);
+app.use('/links', links);
+
+const driveRouter = express.Router();
+driveRouter.use(authRequired);
+
+driveRouter.post('/:server/items/temp', function(req, res) {
     var result = (new jv.JSONValidation()).validate(req.body, schemaData);
     if (result.ok) {
         var fileName = 'static/' + req.params.server + '/tempData.json';
@@ -46,40 +68,15 @@ app.post('/:server/items/temp', function(req, res) {
     }
 });
 
-app.get('/googleOAuthUrl', function(req, res) {
-    var url = getOAuthUrl();
-    res.status(200).json({"url": url});
-});
-
-app.get('/googleOAuthSuccess', function(req, res) {
-    var googleOAuthAccessToken = req.query.code;
-    var oauth2Client = new OAuth2(
-        googleOAuthCredential.web.client_id,
-        googleOAuthCredential.web.client_secret,
-        googleOAuthCredential.web.redirect_uris[0]
-    );
-    oauth2Client.getToken(googleOAuthAccessToken, function(err, tokens) {
-        // Now tokens contains an access_token and an optional refresh_token. Save them.
-        if(!err) {
-            res.cookie('googleOAuthAccessToken', JSON.stringify(tokens));
-
-            res.status(303).location(req.query.state).send();
-        } else {
-            console.log(err);
-            res.status(500).send(err);
-        }
-    });
-});
-
-app.put("/:server/itemInventory", function(req, res) {
+driveRouter.put("/:server/itemInventory", function(req, res) {
     saveFileToGoogleDrive(req, res, "itemInventory");
 });
 
-app.put("/:server/units", function(req, res) {
+driveRouter.put("/:server/units", function(req, res) {
     saveFileToGoogleDrive(req, res, "units");
 });
 
-app.get("/:server/itemInventory", function(req, res) {
+driveRouter.get("/:server/itemInventory", function(req, res) {
     if (inventoryFile == null) {
         getFileFromGoogleDrive(req, res, "itemInventory", function (result) {
             if (result) {
@@ -98,7 +95,7 @@ app.get("/:server/itemInventory", function(req, res) {
     }
 });
 
-app.get("/:server/units", function(req, res) {
+driveRouter.get("/:server/units", function(req, res) {
     if (unitsFile == null) {
         getFileFromGoogleDrive(req, res, "units", function (result) {
             res.status(200).json(result);
@@ -107,9 +104,6 @@ app.get("/:server/units", function(req, res) {
         res.status(200).json(JSON.parse(fs.readFileSync(unitsFile, 'utf8')));
     }
 });
-
-app.get('/links/:shortId', links.get);
-app.post('/links', links.insert);
 
 function saveFileToGoogleDrive(req, res, paramFileName) {
     let driveConfigClient = getDriveConfigClient(req, res);
@@ -171,22 +165,7 @@ function getFileFromGoogleDrive(req, res, paramFileName, callback) {
 }
 
 function getDriveConfigClient(req, res) {
-    var googleOAuthAccessToken = req.cookies['googleOAuthAccessToken'];
-    if (!googleOAuthAccessToken) {
-        res.status(401).send();
-        return;
-    } else {
-        googleOAuthAccessToken = JSON.parse(googleOAuthAccessToken);
-    }
-
-    var oauth2Client = new OAuth2(
-        googleOAuthCredential.web.client_id,
-        googleOAuthCredential.web.client_secret,
-        googleOAuthCredential.web.redirect_uris[0]
-    );
-
-    oauth2Client.setCredentials(googleOAuthAccessToken);
-    return new driveConfig(oauth2Client);
+  return new DriveConfig(req.OAuth2Client);
 }
 
 function migrateFromNameToId(itemInventory) {
@@ -216,39 +195,6 @@ function migrateFromNameToId(itemInventory) {
         delete itemInventory["303003500"];
     }
     return itemInventory;
-}
-
-app.use(express.static(__dirname + '/static/')); //where your static content is located in your filesystem);
-var server = app.listen(3000); //the port you want to use
-
-var OAuth2 = google.auth.OAuth2;
-var googleOAuthCredential;
-
-var scopes = [
-    'https://www.googleapis.com/auth/drive.appfolder'
-];
-
-fs.readFile('googleOAuth/client_secret.json', function processClientSecrets(err, content) {
-    if (err) {
-        console.log('Error loading client secret file: ' + err);
-        return;
-    }
-
-    googleOAuthCredential = JSON.parse(content);
-});
-
-function getOAuthUrl() {
-    var oauth2Client = new OAuth2(
-        googleOAuthCredential.web.client_id,
-        googleOAuthCredential.web.client_secret,
-        googleOAuthCredential.web.redirect_uris[0]
-    );
-    return oauth2Client.generateAuthUrl({
-        access_type: 'offline',
-        scope: scopes,
-        // Optional property that passes state parameters to redirect URI
-        // state: { foo: 'bar' }
-    });
 }
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
@@ -422,7 +368,19 @@ function escapeHtml (string) {
   });
 }
 
-module.exports = {
-  app,
-  server,
+app.use(driveRouter);
+
+// Basic 404 handler
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
+
+app.use(errorHandler);
+
+if (module === require.main) {
+  const server = app.listen(config.port, () => {
+    console.log(`App server running at http://localhost:${config.port}`);
+  });
 }
+
+module.exports = app;

@@ -31,7 +31,9 @@
                             <span class="status"></span>
                             <div class="loader"></div>
                             <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                            <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
+                            <a href="/googleOAuthLogout">
+                              <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                            </a>
                             <div class="loader hidden"></div>
                             <span class="message hidden"/>
                         </div>
@@ -48,7 +50,7 @@
                         <button class="btn btn-default" onclick="addNewItem();">Add new item</button>
 					</div>
                 </div>
-                        
+
                 <div class="panel panel-default hidden">
                     <div class="panel-heading">
                         Or modify existing item
@@ -115,10 +117,10 @@
                                         <div class="dropdown">
                                             <img class='miniIcon left hidden notStackable' src='img/notStackable.png' title='Not stackable'>
                                             <img class='miniIcon left hidden twoHanded' src='img/twoHanded.png' title='Two-handed'>
-                                            <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>    
+                                            <img src="img/unknownType.png" class="dropdown-toggle typeChoice" type="button" data-toggle="dropdown"/>
                                             <div class="dropdown-menu">
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>
                                     <div class="td empty">
                                         <div class="name gl">
@@ -134,7 +136,7 @@
                                     <div class="td special">
                                         <div class="dropdown element specialImg">
                                             <img class="miniIcon" src="img/sword.png">
-                                            <img src="img/noElement.png" class="dropdown-toggle elementChoice" type="button" data-toggle="dropdown"/>    
+                                            <img src="img/noElement.png" class="dropdown-toggle elementChoice" type="button" data-toggle="dropdown"/>
                                             <div class="dropdown-menu">
                                             </div>
                                         </div>
@@ -165,29 +167,29 @@
                         <div class="addButtons">
                             <div class="col-xs-4 addStat">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>  
+                                    <button class="btn btn-default dropdown-toggle typeChoice" data-toggle="dropdown">Add stat</button>
                                     <div class="dropdown-menu">
 
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                             <div class="col-xs-4 addAilment">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>  
+                                    <button class="btn btn-default dropdown-toggle ailmentChoice" data-toggle="dropdown">Add ailment</button>
                                     <div class="dropdown-menu">
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                             <div class="col-xs-4 addResist">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>  
+                                    <button class="btn btn-default dropdown-toggle resistChoice" data-toggle="dropdown">Add resistance</button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4 addKiller">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>  
+                                    <button class="btn btn-default dropdown-toggle killerChoice" data-toggle="dropdown">Add killer</button>
                                     <div class="dropdown-menu">
                                         <h4>Physical killer</h4>
                                         <div class="physical"></div>
@@ -198,10 +200,10 @@
                             </div>
                             <div class="col-xs-4 addSpecial">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add special</button>  
+                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add special</button>
                                     <div class="dropdown-menu">
                                         <span class="btn btn-default special" onclick="selectSpecial('special')">Effect</span>
-                                        <span class="btn btn-default special" onclick="selectSpecial('dualWield')">Dual Wield</span>    
+                                        <span class="btn btn-default special" onclick="selectSpecial('dualWield')">Dual Wield</span>
                                         <span class="btn btn-default special" onclick="selectSpecial('evadePhysical')">Evade Physical</span>
                                         <span class="btn btn-default special" onclick="selectSpecial('evadeMagical')">Evade Magical</span>
                                         <span class="btn btn-default special" onclick="selectSpecial('twoHanded')">Two-handed</span>
@@ -212,14 +214,14 @@
                             </div>
                             <div class="col-xs-4 addAccess">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>  
+                                    <button class="btn btn-default dropdown-toggle accessChoice" data-toggle="dropdown">Add access</button>
                                     <div class="dropdown-menu  dropdown-menu-right">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4 addExclusive">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle exclusiveChoice" data-toggle="dropdown">Add restriction</button>  
+                                    <button class="btn btn-default dropdown-toggle exclusiveChoice" data-toggle="dropdown">Add restriction</button>
                                     <div class="dropdown-menu">
                                         <span class="btn btn-default exclusive" onclick="selectExclusive('male')">Only male</span>
                                         <span class="btn btn-default exclusive" onclick="selectExclusive('female')">Only female</span>
