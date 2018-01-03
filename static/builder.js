@@ -355,7 +355,12 @@ function prepareData(equipable) {
         }
         prepareItem(item, builds[currentUnitIndex].baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
-            if (itemCanBeOfUseForGoal(item)) {
+            if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
+                if (!alreadyAddedDualWieldSource.includes(item.id)) {
+                    dualWieldSources.push(item);
+                    alreadyAddedDualWieldSource.push(item.id);
+                }
+            } else if (itemCanBeOfUseForGoal(item)) {
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                     adventurersAvailable[item.id] = item;
                     continue;
@@ -368,12 +373,6 @@ function prepareData(equipable) {
                         dataByType[item.type].push(getItemEntry(item));
                         alreadyAddedIds.push(item.id);
                     }
-                }
-            }
-            if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                    dualWieldSources.push(item);
-                    alreadyAddedDualWieldSource.push(item.id);
                 }
             }
         }
