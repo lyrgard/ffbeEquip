@@ -1,7 +1,6 @@
 const assert = require('power-assert');
-const utils = require('./utils.js');
-
-const shortener = require('../../server/lib/shortener.js');
+const utils = require('../utils.js');
+const shortener = require('../../../server/lib/shortener.js');
 
 const LONG_URL = 'http://example.com/long/url';
 const SHORT_URL = 'https://goo.gl/example';

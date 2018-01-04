@@ -37,7 +37,7 @@ function getImageHtml(item) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
     if (item.icon) {
-        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";    
+        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";
     } else if (item.type == "esper") {
         html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
     } else {
@@ -56,7 +56,7 @@ function getNameColumnHtml(item) {
         html += '<div>' + item.jpname + "</div>";
     }
     html += "<div class='detail'>";
-    if (item.type != "esper") { 
+    if (item.type != "esper") {
         html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
     }
     html += getStatDetail(item) + "</div>"
@@ -65,7 +65,7 @@ function getNameColumnHtml(item) {
     }
     html += "</div>";
 
-    
+
     return html;
 }
 
@@ -98,7 +98,7 @@ function getKillersHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";    
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
             html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
@@ -137,7 +137,7 @@ var getStatDetail = function(item) {
     var first = true;
     $(baseStats).each(function(index, stat) {
         detail += "<span class='" + stat + "'>";
-        
+
         if (item[stat]) {
             if (first) {
                 first = false;
@@ -154,9 +154,9 @@ var getStatDetail = function(item) {
             }
             detail += stat + '+' + item[stat+'%'] + '%';
         }
-        
+
         detail += "</span>";
-        
+
     });
     return detail;
 };
@@ -189,7 +189,7 @@ function displayItemLine(item) {
         html += '%';
     }
     html += "</div>";
-    
+
     // special
     html += '<div class="td special">';
 
@@ -222,16 +222,16 @@ function displayItemLine(item) {
     }
     if (item.evade) {
         if (item.evade.physical) {
-            special += "<li>Evade physical attacks " + item.evade.physical + "%</li>";    
+            special += "<li>Evade physical attacks " + item.evade.physical + "%</li>";
         }
         if (item.evade.magical) {
-            special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";    
+            special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";
         }
     }
     if (item.singleWielding) {
         for (var index in baseStats) {
             if (item.singleWielding[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWielding[baseStats[index]] + "%) when single wielding</li>";    
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWielding[baseStats[index]] + "%) when single wielding</li>";
             }
         }
     }
@@ -245,7 +245,7 @@ function displayItemLine(item) {
     if (item.singleWieldingOneHanded) {
         for (var index in baseStats) {
             if (item.singleWieldingOneHanded[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon</li>";    
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon</li>";
             }
         }
     }
@@ -279,11 +279,11 @@ function displayItemLine(item) {
     //access
     html += '<div class="td access">';
     $(item.access).each(function(index, itemAccess) {
-        html += "<div"; 
+        html += "<div";
         if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
             html += " class='notSelected forbiddenAccess'";
         }
-        html += ">" + itemAccess + "</div>"; 
+        html += ">" + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
         html += '<div>' + toLink(item.tmrUnit) + '</div>';
@@ -305,13 +305,13 @@ function displayItemLine(item) {
 var toHtml = function(text) {
     if (server == "GL") {
         var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
-            var vWithoutBrace = v.substring(1, v.length - 1); 
+            var vWithoutBrace = v.substring(1, v.length - 1);
             var token = vWithoutBrace.split("|");
             var result = "";
             if (token.length == 2) {
                 result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
             }
-            result += toLink(token[0]); 
+            result += toLink(token[0]);
             return result;
         });
         return "<span>" + textWithAddedAnchors +"</span>";
@@ -411,7 +411,7 @@ function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "")
 
 function loadInventory() {
     $.get('googleOAuthUrl', function(result) {
-        $('<div id="dialog" title="Authentication">' + 
+        $('<div id="dialog" title="Authentication">' +
             '<h4>You\'ll be redirected to a google authentication page</h4><h5>This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</h5>' +
             '<h5>The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</h5>' +
           '</div>' ).dialog({
@@ -426,23 +426,10 @@ function loadInventory() {
                 }
             }
         });
-        
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-}
-
-function logOut() {
-    delete_cookie("googleOAuthAccessToken");
-    window.location.reload();
-}
-
-function delete_cookie( name, path, domain ) {
-    document.cookie = name + "=" +
-        ((path) ? ";path="+path:"")+
-        ((domain)?";domain="+domain:"") +
-        ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
-
 }
 
 function mergeArrayWithoutDuplicates(array1, array2) {
@@ -530,7 +517,7 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
                                             }
                                         }
                                     }
-                                } 
+                                }
                             }
                         }
                     }
@@ -563,7 +550,7 @@ var calculateValue = function(item, baseStat, stat, ailments, elements, killers)
     var calculatedValue = 0;
     if (item[stat] && stat != "evade") {
         calculatedValue = item[stat];
-    } 
+    }
     if (item[stat + '%']) {
         calculatedValue += item[stat+'%'] * baseStat / 100;
     }
@@ -642,7 +629,7 @@ var exclusiveForbidAccess = function(item, selectedUnit) {
 
 // Return true if the various fields of the items contains all the searched terms
 var containsText = function(text, item) {
-    
+
     var result = true;
     text.split(" ").forEach(function (token) {
         result = result && item.searchString.match(new RegExp(escapeRegExp(token),'i'));
@@ -686,7 +673,7 @@ var isAccessAllowed = function(forbiddenAccessList, access) {
         $(accessToSplit.split('/')).each(function(index, forbiddenAccess) {
             if (access.startsWith(forbiddenAccess) || access.endsWith(forbiddenAccess)) {
                 accessAllowed = false;
-            }    
+            }
         });
     });
     return accessAllowed;
@@ -708,7 +695,7 @@ function prepareSearch(data) {
     for (var index in data) {
         var item = data[index];
         var textToSearch = item["name"];
-    
+
         if (server == "JP") {
             textToSearch += item["jpname"];
         }
@@ -745,10 +732,10 @@ function prepareSearch(data) {
             });
         }
         if (item["exclusiveSex"]) {
-            textToSearch += "|Only " + item["exclusiveSex"]; 
+            textToSearch += "|Only " + item["exclusiveSex"];
         }
         if (item["condition"]) {
-            textToSearch += "|Only " + item["condition"]; 
+            textToSearch += "|Only " + item["condition"];
         }
         if (item.mpRefresh) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
@@ -776,10 +763,10 @@ function prepareSearch(data) {
             });
         }
         if (item["tmrUnit"]) {
-            textToSearch += "|" + item["tmrUnit"]; 
+            textToSearch += "|" + item["tmrUnit"];
         }
         for (var index in item.access) {
-            textToSearch += "|" + item.access[index]; 
+            textToSearch += "|" + item.access[index];
         }
         item.searchString = textToSearch;
     }
@@ -818,7 +805,7 @@ function saveUnits() {
             $("#inventoryDiv .loader").addClass("hidden");
             $("#inventoryDiv .message").text("save OK");
             $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){ 
+            setTimeout( function(){
                 $("#inventoryDiv .message").addClass("hidden");
             }  , 3000 );
         },
@@ -832,7 +819,7 @@ function saveUnits() {
                 $(".saveInventory").removeClass("hidden");
                 alert('error while saving the inventory. Please click on "Save" to try again');
             }
-            
+
         }
     });
 }
@@ -875,7 +862,7 @@ function onUnitsOrInventoryLoaded() {
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                 alert( errorThrown );
             });
-            
+
         } else {
             for (var index in ownedUnits) {
                 if (ownedUnits[index] != "version" && typeof ownedUnits[index] === 'number') {
@@ -891,7 +878,7 @@ function onUnitsOrInventoryLoaded() {
 }
 
 function showTextPopup(title, text) {
-    $('<div id="showBuilderSetupLinkDialog" title="' + title +'">' + 
+    $('<div id="showBuilderSetupLinkDialog" title="' + title +'">' +
         '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
       '</div>' ).dialog({
         modal: true,
@@ -904,7 +891,7 @@ function showTextPopup(title, text) {
                 if (successful) {
                     $("#showBuilderSetupLinkDialog input").after("<div>Copied to clipboard<div>");
                 } else {
-                    console.log('Oops, unable to copy');    
+                    console.log('Oops, unable to copy');
                 }
             } catch (err) {
                 console.log('Oops, unable to copy');

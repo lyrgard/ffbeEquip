@@ -32,31 +32,32 @@
                         <span class="status"></span>
                         <div class="loader"></div>
                         <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                        <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
-                        
+                        <a href="/googleOAuthLogout">
+                          <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                        </a>
                     </div>
-                    
+
                 </nav>
             </div>
             <div class="col-xs-12 col-md-6">
-                
+
                 <div class="panel panel-default search">
                     <div class="panel-heading">
                         <div class="input-group">
                             <span class="input-group-addon">Search</span>
                             <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
-                        </div> 
+                        </div>
 					</div>
                 </div>
-				
+
                 <div id="filterSummary" class="hidden-md hidden-lg">
                 </div>
                 <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg" type="button" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
                     <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
                 </button>
-                
+
                 <div id="advancedSearch" class="collapse">
-                    
+
                     <div class="panel panel-default unit">
                         <div class="panel-heading">
                             <form class="form-inline">
@@ -139,7 +140,7 @@
                         <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="elements">
-                            </div>    
+                            </div>
                         </div>
                     </div>
 
@@ -169,14 +170,14 @@
 
                     <div class="panel panel-default additionalStat">
                         <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
-                        <div class="panel-body">    
+                        <div class="panel-body">
                             <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div  class="col-xs-12 col-md-6">
                 <div id="inventoryDiv" class="mobile panel panel-default collapse in">
@@ -199,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="resultsDiv" class="panel panel-default collapse in">
                     <div class="panel-heading">
                         <div>Results : <span id="resultNumber"></span></div>
@@ -226,7 +227,7 @@
                     </div>
                 </div>
                 <div>
-                    Data updated December 22th, 2017. Added Christine's banner TMRs and items from the Eternal Winter event
+                    Data updated January 5th, 2018. Added Jack Ray's banner TMRs and items from the Conqueror of Izander event
                 </div>
                 <div class="footerButtons">
                     <div>

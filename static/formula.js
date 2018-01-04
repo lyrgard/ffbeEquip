@@ -20,7 +20,7 @@ const attributeByVariable = {
     "R_WATER":"resist|water.percent",
     "R_EARTH":"resist|earth.percent",
     "R_WIND":"resist|wind.percent",
-    "R_LIGHt":"resist|light.percent",
+    "R_LIGHT":"resist|light.percent",
     "R_DARK":"resist|dark.percent",
     "R_POISON":"resist|poison.percent",
     "R_BLIND":"resist|blind.percent",
