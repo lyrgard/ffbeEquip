@@ -468,7 +468,34 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
-    
+    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+        var doublehandSkill = {};
+        var doublehandEffect = rawEffect[3];
+        if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
+            if (!item.singleWieldingGL) {item.singleWieldingGL = {}};
+            doublehandSkill = item.singleWieldingGL;
+        } else {
+            if (!item.singleWieldingOneHandedGL) {item.singleWieldingOneHandedGL = {}};
+            doublehandSkill = item.singleWieldingOneHandedGL;
+        }
+        if (doublehandEffect[2]) {
+            addStat(doublehandSkill, "atk", doublehandEffect[2]);
+        }
+        if (doublehandEffect[4]) {
+            addStat(doublehandSkill, "def", doublehandEffect[4]);
+        }
+        if (doublehandEffect[3]) {
+            addStat(doublehandSkill, "mag", doublehandEffect[3]);
+        }
+        if (doublehandEffect[5]) {
+            addStat(doublehandSkill, "spr", doublehandEffect[5]);
+        }
+        if (doublehandEffect[0]) {
+            addStat(doublehandSkill, "hp", doublehandEffect[0]);
+        }
+        if (doublehandEffect[1]) {
+            addStat(doublehandSkill, "mp", doublehandEffect[1]);
+        }
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -601,7 +628,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","singleWieldingOneHandedGL","singleWieldingGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
