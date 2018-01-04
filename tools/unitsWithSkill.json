@@ -4356,7 +4356,7 @@
 		},
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"undead","magical":50}]},
+			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}]},
 			{"def%":20, "equipedConditions":["clothes"]},
 			{"spr%":20, "equipedConditions":["robe"]}
 		]
@@ -4375,6 +4375,65 @@
 			{"mp%":10, "atk%":20, "resist":[{"name":"ice","percent":30},{"name":"wind","percent":30}], "killers":[{"name":"machine","physical":50},{"name":"demon","physical":50}]},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"atk%":40, "spr%":40, "equipedConditions":["bow"]}
+		]
+	},
+	"Ray Jack": {
+		"id":"401002906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3594,"mp":160,"atk":159,"def":130,"mag":116,"spr":124},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":30, "atk%":30, "def%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50}], "killers":[{"name":"dragon","physical":50}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["sword"]}
+		]
+	},
+	"Barusa": {
+		"id":"401003006",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3600,"mp":130,"atk":125,"def":148,"mag":105,"spr":130},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["dagger","fist","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":30, "def%":20, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"earth","percent":20}], "killers":[{"name":"dragon","physical":50}]},
+			{"hp%":30, "def%":30, "equipedConditions":["lightShield"]},
+			{"hp%":30, "def%":30, "equipedConditions":["heavyShield"]}
+		]
+	},
+	"Kaliva": {
+		"id":"401003106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3195,"mp":176,"atk":109,"def":113,"mag":143,"spr":126},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["staff","rod","hat","clothes","robe"],
+		"skills": [
+			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHandedGL":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
+		]
+	},
+	"Toby": {
+		"id":"401003205",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2527,"mp":116,"atk":120,"def":95,"mag":90,"spr":92},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
+		"skills": [
+			{"atk%":20, "def%":15, "evade":{"physical":30}, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
 	}
 }
