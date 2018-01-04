@@ -436,7 +436,7 @@ function exportAsText() {
                 if (currentBaseRarity) {
                     text += "\n\n";
                 }
-                text += "Base " + unit.min_rarity + "★\n";
+                text += "Base " + unit.min_rarity + "★  \n";
                 currentBaseRarity = unit.min_rarity;
                 first = true;
             }
