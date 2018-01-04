@@ -34,13 +34,14 @@
                         <button class="hidden btn btn-default saveInventory" onclick="saveInventory()">Save</button>
                         <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
                         <span class="message hidden">Saved</span>
-                        <span class="hidden glyphicon glyphicon-off logOut" onclick="logOut()" title="logout"></span>
-                        
+                        <a href="/googleOAuthLogout">
+                          <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                        </a>
                     </div>
-                    
+
                 </nav>
             </div>
-            
+
             <div  class="col-xs-12 col-lg-6 col-lg-offset-3">
                 <span id="pleaseWaitMessage" class="h4">Please wait for your inventory to be loaded</span>
                 <span id="loginMessage" class="h4 hidden">Log-in to display your inventory</span>
@@ -50,6 +51,7 @@
                         <li class="materia" onclick="showMateria()"><a><img src="img/materia.png"/></a></li>
                         <li class="search" onclick="showSearch()"><a><img src="img/search.png"/></a></li>
                         <li class="history" onclick="showHistory()"><a><img src="img/history.png"/></a></li>
+                        <li class="settings" onclick="showSettings()"><a><img src="img/settings.png" /></a></li>
                     </ul>
                     <span id="sortType"></span>
                     <a id="exportAsCsv" class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-list"></span> Export as CSV</a>
@@ -64,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="footerButtons">
                     <div>
                         <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank">Send me a message on reddit</a><a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank">chat on FFBE Equip discord server</a>

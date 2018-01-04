@@ -62,6 +62,7 @@ var stats = [];
 var numberOfItemCombination;
 
 var alreadyUsedItems = {};
+var unstackablePinnedItems = [];
 var alreadyUsedEspers = [];
 
 var itemKey = getItemInventoryKey();
@@ -152,6 +153,7 @@ function build() {
 
 function calculateAlreadyUsedItems() {
     alreadyUsedItems = {};
+    unstackablePinnedItems = [];
     alreadyUsedEspers = [];
     for (var i = 0, len = builds.length; i < len; i++) {
         if (i != currentUnitIndex) {
@@ -197,6 +199,9 @@ function calculateAlreadyUsedItems() {
                             alreadyUsedItems[item[itemKey]]++;
                         } else {
                             alreadyUsedItems[item[itemKey]] = 1;
+                        }
+                        if (!isStackable(item)) {
+                            unstackablePinnedItems.push(item.id);
                         }
                     }   
                 }
@@ -350,7 +355,12 @@ function prepareData(equipable) {
         }
         prepareItem(item, builds[currentUnitIndex].baseValues);
         if (getAvailableNumber(item) > 0 && isApplicable(item) && (equipable.includes(item.type) || item.type == "accessory" || item.type == "materia")) {
-            if (itemCanBeOfUseForGoal(item)) {
+            if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
+                if (!alreadyAddedDualWieldSource.includes(item.id)) {
+                    dualWieldSources.push(item);
+                    alreadyAddedDualWieldSource.push(item.id);
+                }
+            } else if (itemCanBeOfUseForGoal(item)) {
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                     adventurersAvailable[item.id] = item;
                     continue;
@@ -363,12 +373,6 @@ function prepareData(equipable) {
                         dataByType[item.type].push(getItemEntry(item));
                         alreadyAddedIds.push(item.id);
                     }
-                }
-            }
-            if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                    dualWieldSources.push(item);
-                    alreadyAddedDualWieldSource.push(item.id);
                 }
             }
         }
@@ -939,38 +943,40 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
 
             var len = itemTreeRoot.children.length;
             for (var childIndex = 0; childIndex < len; childIndex++) {
-                var entry = itemTreeRoot.children[childIndex].entry;
+                var entry = itemTreeRoot.children[childIndex].equivalents[itemTreeRoot.children[childIndex].currentEquivalentIndex];
                 var item = entry.item;
                 var numberRemaining = entry.available;
                 if (numberRemaining > 0) {
                     if (index == 1 && isTwoHanded(item)) {
                         continue;
                     }
-
+                    var currentEquivalentIndex = itemTreeRoot.children[childIndex].currentEquivalentIndex;
+                    var currentChild = itemTreeRoot.children[childIndex];
+                    var removedChild = false;
+                    var addedChildrenNumber = 0;
                     if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
                         // We used all possible copy of this item, switch to a worse item in the tree
-                        var newTreeRoot = {"children":itemTreeRoot.children.slice()};
-                        if (newTreeRoot.children[childIndex].equivalents.length > 0) {
-                            var newEquivalents = newTreeRoot.children[childIndex].equivalents.slice();
-                            newEquivalents.splice(0,1);
-                            var newTreeNode = {"children":newTreeRoot.children[childIndex].children,"equivalents":newEquivalents,entry:newTreeRoot.children[childIndex].equivalents[0]};
-                            newTreeRoot.children[childIndex] = newTreeNode;
-                        } else if (newTreeRoot.children[childIndex].children.length > 0) {
+                        if (currentChild.equivalents.length > currentEquivalentIndex + 1) {
+                            currentChild.currentEquivalentIndex++;
+                        } else if (currentChild.children.length > 0) {
                             // add the children of the node to root level
-                            for (var childrenOfNodeIndex = 0, childrenOfNodeLen = newTreeRoot.children[childIndex].children.length; childrenOfNodeIndex < childrenOfNodeLen; childrenOfNodeIndex++) {
-                                newTreeRoot.children.push(newTreeRoot.children[childIndex].children[childrenOfNodeIndex]);
-                            }
-                            newTreeRoot.children.splice(childIndex,1);
+                            Array.prototype.splice.apply(itemTreeRoot.children, [childIndex, 1].concat(currentChild.children));
+                            removedChild = true;
+                            addedChildrenNumber = currentChild.children.length;
                         } else {
                             // we finished this branch, remove it
-                            newTreeRoot.children.splice(childIndex,1);
+                            itemTreeRoot.children.splice(childIndex,1);
+                            removedChild = true;
                         }
-                        dataWithConditionItems[typeCombination[index]] = newTreeRoot;
                     }
                     entry.available--;
                     tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
                     entry.available++;
-                    dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
+                    //dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
+                    currentChild.currentEquivalentIndex = currentEquivalentIndex;
+                    if (removedChild) {
+                        itemTreeRoot.children.splice(childIndex, addedChildrenNumber, currentChild);    
+                    }
                     foundAnItem = true;
                 }
             }
@@ -1076,7 +1082,7 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination,
                 continue;
             }
             
-            var newTreeItem = {"entry":entry,"parent":null,"children":[],"equivalents":[]};
+            var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
             //console.log("Considering " + entry.item.name);
             insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded, getItemNodeComparison, getItemDepth);
             //logTree(keptItemsRoot);
@@ -1090,9 +1096,7 @@ function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination,
 }
 
 function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
-    var equivalents = tree.equivalents.concat([tree.entry]);
-    
-    equivalents.sort(function(entry1, entry2) {
+    tree.equivalents.sort(function(entry1, entry2) {
         if (entry1.defenseValue == entry2.defenseValue) {
             if (entry2.available == entry1.available) {
                 return getValue(entry2.item, "atk%") + getValue(entry2.item, "mag%") + getValue(entry2.item, "atk") + getValue(entry2.item, "mag") - (getValue(entry1.item, "atk%") + getValue(entry1.item, "mag%") + getValue(entry1.item, "atk") + getValue(entry1.item, "mag"))
@@ -1103,16 +1107,16 @@ function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
             return entry2.defenseValue - entry1.defenseValue;    
         }
     });
-    for (var index = 0, len = equivalents.length; index < len; index++) {
+    for (var index = 0, len = tree.equivalents.length; index < len; index++) {
         if (keptNumber >= numberNeeded) {
             break;
         }
         if (keepEntry) {
-            result.push(equivalents[index]);
+            result.push(tree.equivalents[index]);
         } else {
-            result.push(equivalents[index].item);
+            result.push(tree.equivalents[index].item);
         }
-        keptNumber += equivalents[index].available;
+        keptNumber += tree.equivalents[index].available;
     }
     if (keptNumber < numberNeeded) {
         for (var index = 0, len = tree.children.length; index < len; index++) {
@@ -1150,7 +1154,7 @@ function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
 
 function insertItemIntoTree(treeItem, newTreeItem, maxDepth, comparisonFunction, depthFunction, currentDepth = 0) {
     var comparison = comparisonFunction(treeItem, newTreeItem);
-    switch (comparisonFunction(treeItem, newTreeItem)) {
+    switch (comparison) {
         case "strictlyWorse":
             // Entry is strictly worse than treeItem
             if (currentDepth < maxDepth) {
@@ -1181,19 +1185,15 @@ function insertItemIntoTree(treeItem, newTreeItem, maxDepth, comparisonFunction,
             break;
         case "equivalent":
             // entry is equivalent to treeItem
-            treeItem.equivalents.push(newTreeItem.entry);
-            var equivalents = treeItem.equivalents.concat([treeItem.entry]);
+            treeItem.equivalents.push(newTreeItem.equivalents[0]);
     
-            equivalents.sort(function(entry1, entry2) {
+            treeItem.equivalents.sort(function(entry1, entry2) {
                 if (entry1.defenseValue == entry2.defenseValue) {
                     return entry2.available - entry1.available;    
                 } else {
                     return entry2.defenseValue - entry1.defenseValue;    
                 }
             });
-            treeItem.entry = equivalents[0];
-            equivalents.splice(0,1);
-            treeItem.equivalents = equivalents;
             //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
             break;
         case "strictlyBetter":
@@ -1222,26 +1222,26 @@ function getItemNodeComparison(treeNode1, treeNode2) {
     var stats = builds[currentUnitIndex].involvedStats;
     for (var index = stats.length; index--;) {
         if (stats[index] == "physicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item, "physical"));
+            comparisionStatus.push(compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "physical"));
         } else if (stats[index] == "magicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.entry.item, treeNode2.entry.item, "magical"));
+            comparisionStatus.push(compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "magical"));
         } else if (stats[index] == "weaponElement") {
-            comparisionStatus.push(compareByElementCoef(treeNode1.entry.item, treeNode2.entry.item));
+            comparisionStatus.push(compareByElementCoef(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
         } else if (stats[index] == "meanDamageVariance" || stats[index] == "evade.physical" || stats[index] == "evade.magical" || stats[index] == "mpRefresh") {
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, stats[index]));
         } else {
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "total_" + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWielding." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHanded." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingGL." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.entry.item, treeNode2.entry.item, "singleWieldingOneHandedGL." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "total_" + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWielding." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHanded." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingGL." + stats[index]));
+            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHandedGL." + stats[index]));
         }
     }
     if (desirableElements.length != 0) {
-        comparisionStatus.push(compareByEquipedElementCondition(treeNode1.entry.item, treeNode2.entry.item));
+        comparisionStatus.push(compareByEquipedElementCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
     }
-    comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.entry.item, treeNode2.entry.item));
+    comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
     
     return combineComparison(comparisionStatus);
 }
@@ -1284,38 +1284,43 @@ function compareByValue(item1, item2, valuePath) {
 }
 
 function getValue(item, valuePath) {
-    if (valuePath.indexOf('.') > -1) {
-        var pathTokens = valuePath.split(".");
-        var currentItem = item;
-        for (var index = 0, len = pathTokens.length; index < len; index++) {
-            if (currentItem[pathTokens[index]]) {
-                currentItem = currentItem[pathTokens[index]];
-            } else if (pathTokens[index].indexOf('|') > -1) {
-                var tmpToken = pathTokens[index].split("|");
-                var property = tmpToken[0];
-                var name = tmpToken[1];
-                if (currentItem[property]) {
-                    for (var listIndex = currentItem[property].length; listIndex--;) {
-                        if (currentItem[property][listIndex].name == name) {
-                            currentItem = currentItem[property][listIndex];
-                            break;
-                        }
+    var value = item[valuePath];
+    if (value == undefined) {
+        if (valuePath.indexOf('.') > -1) {
+            value = getValueFromPath(item, valuePath);
+        } else {
+            value = 0;
+        }
+        item[valuePath] = value;
+    }
+    return value;
+}
+
+function getValueFromPath(item, valuePath) {
+    var pathTokens = valuePath.split(".");
+    var currentItem = item;
+    for (var index = 0, len = pathTokens.length; index < len; index++) {
+        if (currentItem[pathTokens[index]]) {
+            currentItem = currentItem[pathTokens[index]];
+        } else if (pathTokens[index].indexOf('|') > -1) {
+            var tmpToken = pathTokens[index].split("|");
+            var property = tmpToken[0];
+            var name = tmpToken[1];
+            if (currentItem[property]) {
+                for (var listIndex = currentItem[property].length; listIndex--;) {
+                    if (currentItem[property][listIndex].name == name) {
+                        currentItem = currentItem[property][listIndex];
+                        break;
                     }
-                } else {
-                    return 0; 
                 }
             } else {
-                return 0;
+                return 0; 
             }
-        }
-        return currentItem;
-    } else {
-        if (item[valuePath]) {
-            return item[valuePath];
         } else {
             return 0;
         }
     }
+    return currentItem;
 }
 
 function compareByNumberOfHandsNeeded(item1, item2) {
@@ -1448,11 +1453,10 @@ function compareByEquipedElementCondition(item1, item2) {
 }
 
 function getItemDepth(treeItem, currentDepth) {
-    var result;
+    var result = currentDepth;
     if (treeItem.root) {
         return 0;
     }
-    result = currentDepth + treeItem.entry.available;
     for (var index = treeItem.equivalents.length; index--;) {
         result += treeItem.equivalents[index].available;
     }
@@ -1549,7 +1553,7 @@ function getAvailableNumber(item) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
-                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != selectedUnit.name)
+                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].selectedUnitName)
                    || (exludeEventEquipment && access.endsWith("event"))
                    || (excludePremium && access == "premium")) {
                     return 0;
@@ -1599,6 +1603,13 @@ function getOwnedNumber(item) {
     
     if (alreadyUsedItems[item[itemKey]]) {
         availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item[itemKey]]);
+        if (!isStackable(item)) {
+            if (unstackablePinnedItems.includes(item.id)) {
+                availableNumber = 0
+            } else {
+                availableNumber = Math.min(1, availableNumber);
+            }
+        }
     } else{
         availableNumber = totalNumber;
     }
@@ -1788,32 +1799,32 @@ function calculateStatValue(itemAndPassives, stat) {
         var right = calculateFlatStateValueForIndex(itemAndPassives[0], equipmentStatBonus, stat);
         var left = calculateFlatStateValueForIndex(itemAndPassives[1], equipmentStatBonus, stat);
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-            result.right = calculatedValue + right;
-            result.left = calculatedValue + left;
-            result.total = calculatedValue + right + left;    
+            result.right = Math.floor(calculatedValue + right);
+            result.left = Math.floor(calculatedValue + left);
+            result.total = Math.floor(calculatedValue + right + left);    
         } else {
-            result.right = calculatedValue + right + left;
+            result.right = Math.floor(calculatedValue + right + left);
             result.left = 0;
             result.total = result.right;
         }
         return result;   
     } else {
-        return {"total" : calculatedValue,"bonusPercent":currentPercentIncrease.value};
+        return {"total" : Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value};
     }
 }
 
 function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
-    var value = 0;
     if (item) {
-        value = getValue(item, stat) * equipmentStatBonus;
+        var value = getValue(item, stat);
         if (item[percentValues[stat]]) {
-            percent = item[percentValues[stat]];
-            percentTakenIntoAccount = Math.min(percent, Math.max(300 - currentPercentIncrease.value, 0));
-            currentPercentIncrease.value += percent;
-            value += percentTakenIntoAccount * baseValue / 100;
+            var percentTakenIntoAccount = Math.min(item[percentValues[stat]], Math.max(300 - currentPercentIncrease.value, 0));
+            currentPercentIncrease.value += item[percentValues[stat]];
+            return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
+        } else {
+            return value * equipmentStatBonus;
         }
     }
-    return value;
+    return 0;
 }
 
 function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
@@ -1895,7 +1906,6 @@ function logCurrentBuild() {
 }
 
 function logBuild(build, value) {
-
     var html = "";
     calculateAlreadyUsedItems();
     readItemsExcludeInclude();
@@ -2263,6 +2273,8 @@ function addNewUnit() {
     $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
     builds.push({});
     reinitBuild(builds.length - 1);
+    $('#forceDoublehand input').prop('checked', false);
+    $('#forceDualWield input').prop('checked', false);
     loadBuild(builds.length - 1);
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
@@ -2323,7 +2335,6 @@ function onGoalChange() {
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
     $(".magicalSkillType").addClass("hidden");
-    $("#forceDoublehand").addClass("hidden");
     if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
         || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
         || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
@@ -2332,7 +2343,6 @@ function onGoalChange() {
     }
     if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
-        $("#forceDoublehand").removeClass("hidden");
     }
     if (goal == "magicalDamage") {
         $(".magicalSkillType").removeClass("hidden");
