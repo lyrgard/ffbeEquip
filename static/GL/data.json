@@ -394,7 +394,7 @@
 	{"id":"404000800", "name":"Golden Helm", "type":"helm", "def":28, "access":["event","chest","recipe-chest"], "icon":"item_30204.png", "sortId":280},
 	{"id":"404001000", "name":"Grand Helm", "type":"helm", "def":45, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "access":["trial"], "icon":"item_30212.png", "sortId":313},
 	{"id":"404001000", "name":"Grand Helm", "type":"helm", "def":45, "def%":20, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "equipedConditions":["heavyArmor"], "access":["trial"], "icon":"item_30212.png", "sortId":313},
-	{"id":"404001100", "name":"Imperial Helm", "type":"helm", "atk":18, "def":15, "resist":[{"name":"fire","percent":15}], "access":["event"], "icon":"item_30214.png", "sortId":407},
+	{"id":"404001100", "name":"Imperial Helm", "type":"helm", "atk":18, "def":15, "resist":[{"name":"fire","percent":15}], "access":["event"], "maxNumber":1, "icon":"item_30214.png", "sortId":407},
 	{"id":"404001200", "name":"Thornlet", "type":"helm", "def":30, "access":["chest"], "icon":"item_30210.png", "sortId":454},
 	{"id":"404001300", "name":"Dragon Helm", "type":"helm", "def":24, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}], "access":["quest"], "icon":"item_30211.png", "sortId":455},
 	{"id":"404001400", "name":"Rider's Helm", "type":"helm", "atk":28, "def":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "tmrUnit":"Fohlen", "access":["TMR-5*"], "icon":"item_30215.png", "sortId":464},
