@@ -172,7 +172,7 @@ function treatItem(items, itemId, result, skills) {
     if (itemIn.is_twohanded) {
         addSpecial(itemOut,"twoHanded");
     }
-    if (itemIn.unique) {
+    if (itemIn.unique || itemOut.id == "409006700") {
         addSpecial(itemOut,"notStackable");
     }
     if (unitIdByTmrId[itemOut.id]) {
