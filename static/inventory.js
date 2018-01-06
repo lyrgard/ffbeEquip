@@ -463,7 +463,7 @@ function exportAsCsv() {
             csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? item.tmrUnit : "") + "\"\n";
         }
     }
-    window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
+    window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
 // will be called by jQuery at page load)
