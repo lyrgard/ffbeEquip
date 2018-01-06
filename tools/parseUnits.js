@@ -456,7 +456,17 @@ function addElementalResist(item, values) {
             if (!item.resist) {
                 item.resist = [];
             }
-            item.resist.push({"name":elements[index],"percent":values[index]})
+            var found = false;
+            for (var indexResist = item.resist.length; indexResist--;) {
+                if (item.resist[indexResist].name == elements[index]) {
+                    item.resist[indexResist].percent += values[index];
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                item.resist.push({"name":elements[index],"percent":values[index]})
+            }
         }
     }
 }
