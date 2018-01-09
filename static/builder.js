@@ -574,7 +574,11 @@ function optimize() {
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
     
-    var combinations = [];
+    var unitBuild = new UnitBuild(builds[currentUnitIndex].selectedUnit, [null, null, null, null, null, null, null, null, null, null]);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, unitBuild, dualWieldSources, dataByType);
+    console.log(typeCombinationGenerator.generateTypeCombinations())
+    
+    /*var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
     buildTypeCombination(0,typeCombination, combinations,builds[currentUnitIndex].fixedItems.slice(), !forceDualWield, forceDoubleHand, forceDualWield);
     
@@ -595,7 +599,7 @@ function optimize() {
         setTimeout(tryDualWieldSourceAsync,1,0,typeCombination,combinations,fixedItems,unitPartialDualWield,forceDualWield);
     } else {
         findBestBuildForCombinationAsync(0, combinations);
-    }
+    }*/
 }
 
 function tryDualWieldSourceAsync(dualWieldSourceIndex,typeCombination,combinations,fixedItems,unitPartialDualWield, forceDualWield) {
