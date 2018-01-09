@@ -576,7 +576,9 @@ function optimize() {
     
     var unitBuild = new UnitBuild(builds[currentUnitIndex].selectedUnit, [null, null, null, null, null, null, null, null, null, null]);
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, unitBuild, dualWieldSources, dataByType);
-    console.log(typeCombinationGenerator.generateTypeCombinations())
+    var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
+    
+    findBestBuildForCombinationAsync(0, typeCombinations);
     
     /*var combinations = [];
     typeCombination = [null, null, null, null, null, null, null, null, null, null];
@@ -806,8 +808,23 @@ function findBestBuildForCombinationAsync(index, combinations) {
     var nextAsync = Date.now() + 1000;
     var len = combinations.length;
     while (index < len && Date.now() < nextAsync && !stop) {
+        
+        var dataWithdConditionItems = {}
+        for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
+            if (combinations[index].combination[slotIndex] && !dataWithdConditionItems[combinations[index].combination[slotIndex]]) {
+                dataWithdConditionItems[combinations[index].combination[slotIndex]] = addConditionItems(dataByType[combinations[index].combination[slotIndex]], combinations[index].combination[slotIndex], combinations[index].combination, combinations[index].fixedItems);
+            }
+        }
+        var applicableSkills = [];
+        for (var skillIndex = builds[currentUnitIndex].selectedUnit.skills.length; skillIndex--;) {
+            var skill = builds[currentUnitIndex].selectedUnit.skills[skillIndex];
+            if (areConditionOKBasedOnTypeCombination(skill, combinations[index].combination)) {
+                applicableSkills.push(skill);
+            }
+        }
+        
         var build = [null, null, null, null, null, null, null, null, null, null,null].concat(combinations[index].applicableSkills);
-        findBestBuildForCombination(0, build, combinations[index].combination, combinations[index].data, combinations[index].fixed, combinations[index].elementBasedSkills);
+        findBestBuildForCombination(0, build, combinations[index].combination, dataWithdConditionItems, combinations[index].fixedItems, getElementBasedSkills());
         index++
     }
     
