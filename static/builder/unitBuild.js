@@ -8,9 +8,8 @@ const involvedStatsByValue = {
 class UnitBuild {
     
     constructor(unit, fixedItems, baseValues) {
-        this.unit = unit;
+        this._unit = unit;
         this.fixedItems = fixedItems;
-        this.equipable = this.prepareEquipable();
         this.build = fixedItems.slice();
         this.buildValue = 0;
         this.innateElements = [];
@@ -22,14 +21,14 @@ class UnitBuild {
             }
         }
         this.goal = null;
-        this.formula = null;
+        this._formula = null;
         this.involvedStats = [];
     }
     
     getPartialDualWield() {
-        for (var index = this.unit.skills.length; index--;) {
-            if (this.unit.skills[index].partialDualWield) {
-                return this.unit.skills[index].partialDualWield;
+        for (var index = this._unit.skills.length; index--;) {
+            if (this._unit.skills[index].partialDualWield) {
+                return this._unit.skills[index].partialDualWield;
             }
         }
         for (var index = 0; index < 10; index++) {
@@ -41,8 +40,8 @@ class UnitBuild {
     }
     
     hasDualWield() {
-        for (var index in this.unit.skills) {
-            if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
+        for (var index in this._unit.skills) {
+            if (this._unit.skills[index].special && this._unit.skills[index].special.includes("dualWield")) {
                 return true;
             }
         }
@@ -56,29 +55,32 @@ class UnitBuild {
     
     prepareEquipable() {
         var equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
-        var equip = this.getCurrentUnitEquip();
-        for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
-            if (weaponList.includes(equip[equipIndex])) {
-                equipable[0].push(equip[equipIndex]);
-            } else if (shieldList.includes(equip[equipIndex])) {
-                equipable[1].push(equip[equipIndex]);
-            } else if (headList.includes(equip[equipIndex])) {
-                equipable[2].push(equip[equipIndex]);
-            } else if (bodyList.includes(equip[equipIndex])) {
-                equipable[3].push(equip[equipIndex]);
-            } 
-        }
-        if (hasDualWield()) {
-            equipable[1] = equipable[1].concat(equipable[0]);
-        }
-        if (partialDualWield.length > 0 && builds[currentthis.unitIndex].bestBuild[0] && partialDualWield.includes(builds[currentthis.unitIndex].bestBuild[0].type)) {
-            equipable[1] = equipable[1].concat(partialDualWield);
+        if (this._unit) {
+            var equip = this.getCurrentUnitEquip();
+            for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
+                if (weaponList.includes(equip[equipIndex])) {
+                    equipable[0].push(equip[equipIndex]);
+                } else if (shieldList.includes(equip[equipIndex])) {
+                    equipable[1].push(equip[equipIndex]);
+                } else if (headList.includes(equip[equipIndex])) {
+                    equipable[2].push(equip[equipIndex]);
+                } else if (bodyList.includes(equip[equipIndex])) {
+                    equipable[3].push(equip[equipIndex]);
+                } 
+            }
+            if (this.hasDualWield()) {
+                equipable[1] = equipable[1].concat(equipable[0]);
+            }
+            var partialDualWield = this.getPartialDualWield() || [];
+            if (partialDualWield.length > 0 && this.build[0] && partialDualWield.includes(this.build[0].type)) {
+                equipable[1] = equipable[1].concat(partialDualWield);
+            }
         }
         return equipable;
     }
     
     getCurrentUnitEquip() {
-        var equip = this.unit.equip.concat(["accessory", "materia"]);
+        var equip = this._unit.equip.concat(["accessory", "materia"]);
         for (var index in this.fixedItems) {
             if (this.fixedItems[index] && this.fixedItems[index].allowUseOf && !equip.includes(this.fixedItems[index].allowUseOf)) {
                 equip.push(this.fixedItems[index].allowUseOf);
@@ -156,17 +158,9 @@ class UnitBuild {
         }
     }
     
-    set formula(formula) {
-        this.formula = formula;
-        this.involvedStats = [];
-        if (formula) {
-            this.calculateInvolvedStats();
-        }
-    }
-    
     calculateInvolvedStats() {
-        if (this.formula.type == "value") {
-            var name = this.formula.name;
+        if (this._formula.type == "value") {
+            var name = this._formula.name;
             if (involvedStatsByValue[name]) {
                 for (var index = involvedStatsByValue[name].length; index--;) {
                     if (!this.involvedStats.includes(involvedStatsByValue[name][index])) {
@@ -178,14 +172,33 @@ class UnitBuild {
                         this.involvedStats.push(name);
                     }
             }
-        } else if (this.formula.type == "conditions") {
-            for (var index = this.formula.conditions.length; index-- ;) {
-                calculateInvolvedStats(this.formula.conditions[index].value);    
+        } else if (this._formula.type == "conditions") {
+            for (var index = this._formula.conditions.length; index-- ;) {
+                calculateInvolvedStats(this._formula.conditions[index].value);    
             }
-            calculateInvolvedStats(this.formula.formula);    
-        } else if (this.formula.type != "constant") {
-            calculateInvolvedStats(this.formula.value1);
-            calculateInvolvedStats(this.formula.value2);
+            calculateInvolvedStats(this._formula.formula);    
+        } else if (this._formula.type != "constant") {
+            calculateInvolvedStats(this._formula.value1);
+            calculateInvolvedStats(this._formula.value2);
         }
+    }
+    
+    get formula() {
+        return this._formula;
+    }
+    set formula(formula) {
+        this._formula = formula;
+        this.involvedStats = [];
+        if (formula) {
+            this.calculateInvolvedStats();
+        }
+    }
+    
+    get unit() {
+        return this._unit;
+    }
+    set unit(unit) {
+        this._unit = unit;
+        this.equipable = this.prepareEquipable();
     }
 }

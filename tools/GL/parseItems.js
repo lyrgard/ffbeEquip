@@ -186,7 +186,7 @@ function treatItem(items, itemId, result, skills) {
         }
         addAccess(itemOut,access);
         
-        itemOut.tmrUnit = unit.name;
+        itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
