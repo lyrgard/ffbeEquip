@@ -1,6 +1,6 @@
 class Piramidata {
 
-    static getPiramidataImageLink(unitBuild) {
+    static getImageLink(unitBuild) {
         var link = "http://ffbe.piramidata.eu/Unit/GetConfigurationImage?" +
             "unitname=" + encodeURIComponent(unitBuild.unit.name) + 
             "&rarity=" + unitBuild.unit.max_rarity +
@@ -82,5 +82,4 @@ class FFBEBen {
         }
         return "http://ffbeben.ch/" + hash + ".png";
     }
-}
 }

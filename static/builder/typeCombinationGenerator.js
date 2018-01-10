@@ -12,7 +12,7 @@ class TypeCombinationGenerator {
         var typeCombination = [null, null, null, null, null, null, null, null, null, null];
         this.buildTypeCombination(0,typeCombination, combinations);
 
-        var unitPartialDualWield = this.unitBuild.getInnatePartialDualWield();
+        var unitPartialDualWield = this.unitBuild.getPartialDualWield();
         if (!this.forceDoubleHand && unitPartialDualWield && (!this.unitBuild.fixedItems[0] || unitPartialDualWield.includes(this.unitBuild.fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
             var savedEquipable0 = this.unitBuild.equipable[0];
             var savedEquipable1 = this.unitBuild.equipable[1];
@@ -24,7 +24,7 @@ class TypeCombinationGenerator {
             this.unitBuild.equipable[0] = savedEquipable0;
             this.unitBuild.equipable[1] = savedEquipable1;
         }
-        if (!this.forceDoubleHand && !this.unitBuild.hasInnateDualWield() && this.dualWieldSources.length > 0 && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
+        if (!this.forceDoubleHand && !this.unitBuild.hasDualWield() && this.dualWieldSources.length > 0 && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
             var savedForceDualWield = this.forceDualWield;
             this.forceDualWield = true;
             for (var dualWieldSourceIndex = this.dualWieldSources.length; dualWieldSourceIndex--;) {
@@ -74,7 +74,7 @@ class TypeCombinationGenerator {
                     var found = false;
                     for (var typeIndex = 0, len = this.unitBuild.equipable[index].length; typeIndex < len; typeIndex++) {
                         var type = this.unitBuild.equipable[index][typeIndex]
-                        if (index == 1 && !this.unitBuild.fixedItems[0] && alreadyTriedInSlot0(type, typeCombination[0], this.unitBuild.equipable[0])) {
+                        if (index == 1 && !this.unitBuild.fixedItems[0] && this.alreadyTriedInSlot0(type, typeCombination[0], this.unitBuild.equipable[0])) {
                             continue;
                         }
                         if (dataByType[type].length > 0) {
