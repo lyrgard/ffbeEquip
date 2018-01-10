@@ -1,32 +1,53 @@
+const involvedStatsByValue = {
+    "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
+    "magicalDamage":                    ["mag","magicalKiller"],
+    "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
+    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"]
+}
+
 class UnitBuild {
-    constructor(unit, fixedItems) {
+    
+    constructor(unit, fixedItems, baseValues) {
         this.unit = unit;
         this.fixedItems = fixedItems;
         this.equipable = this.prepareEquipable();
+        this.build = fixedItems.slice();
+        this.buildValue = 0;
+        this.innateElements = [];
+        this.baseValues = baseValues;
+        this.fixedItemsIds = [];
+        for (var index = 0; index < 10; index++) {
+            if (fixedItems[index] && !fixedItemsIds.includes(fixedItems[index].id)) {
+                fixedItemsIds.push(builds[currentUnitIndex].fixedItems[index][itemKey]);
+            }
+        }
+        this.goal = null;
+        this.formula = null;
+        this.involvedStats = [];
     }
     
-    getInnatePartialDualWield() {
+    getPartialDualWield() {
         for (var index = this.unit.skills.length; index--;) {
             if (this.unit.skills[index].partialDualWield) {
                 return this.unit.skills[index].partialDualWield;
             }
         }
         for (var index = 0; index < 10; index++) {
-            if (this.fixedItems[index] && this.fixedItems[index].partialDualWield) {
-                return this.fixedItems[index].partialDualWield;
+            if (this.build[index] && this.build[index].partialDualWield) {
+                return this.build[index].partialDualWield;
             }
         }
         return null;
     }
     
-    hasInnateDualWield() {
+    hasDualWield() {
         for (var index in this.unit.skills) {
             if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
                 return true;
             }
         }
-        for (var index in this.fixedItems) {
-            if (this.fixedItems[index] && this.fixedItems[index].special && this.fixedItems[index].special.includes("dualWield")) {
+        for (var index = 0; index < 10; index++) {
+            if (this.build[index] && this.build[index].special && this.build[index].special.includes("dualWield")) {
                 return true;
             }
         }
@@ -35,7 +56,7 @@ class UnitBuild {
     
     prepareEquipable() {
         var equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
-        var equip = getCurrentUnitEquip();
+        var equip = this.getCurrentUnitEquip();
         for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
             if (weaponList.includes(equip[equipIndex])) {
                 equipable[0].push(equip[equipIndex]);
@@ -47,34 +68,12 @@ class UnitBuild {
                 equipable[3].push(equip[equipIndex]);
             } 
         }
-        if (hasInnateDualWield()) {
+        if (hasDualWield()) {
             equipable[1] = equipable[1].concat(equipable[0]);
         }
-        /*if (useBuild) {
-            var hasDualWield = false;
-            var partialDualWield = getInnatePartialDualWield() || [];
-            for (var index = 0; index < 10; index++) {
-                if (builds[currentthis.unitIndex].bestBuild[index] && builds[currentthis.unitIndex].bestBuild[index].special && builds[currentthis.unitIndex].bestBuild[index].special.includes("dualWield")) {
-                    hasDualWield = true;
-                    break;
-                }
-                if (builds[currentthis.unitIndex].bestBuild[index] && builds[currentthis.unitIndex].bestBuild[index].partialDualWield) {
-                    for (partialDualWieldIndex = builds[currentthis.unitIndex].bestBuild[index].partialDualWield.length; partialDualWieldIndex--;) {
-                        var type = builds[currentthis.unitIndex].bestBuild[index].partialDualWield[partialDualWieldIndex];
-                        if (!partialDualWield.includes(type)) {
-                            partialDualWield.push(type);
-                        }
-                    }
-                }
-            }
-            if (hasDualWield) {
-                equipable[1] = equipable[1].concat(equipable[0]);
-            } else {
-                if (partialDualWield.length > 0 && builds[currentthis.unitIndex].bestBuild[0] && partialDualWield.includes(builds[currentthis.unitIndex].bestBuild[0].type)) {
-                    equipable[1] = equipable[1].concat(partialDualWield);
-                }
-            }
-        }*/
+        if (partialDualWield.length > 0 && builds[currentthis.unitIndex].bestBuild[0] && partialDualWield.includes(builds[currentthis.unitIndex].bestBuild[0].type)) {
+            equipable[1] = equipable[1].concat(partialDualWield);
+        }
         return equipable;
     }
     
@@ -144,5 +143,49 @@ class UnitBuild {
             return 10;
         }
         return slot;
+    }
+    
+    fixItem(item, slot) {
+        if (this.fixedItems[slot]) {
+            var index = this.fixedItemsIds.indexOf(item.id);
+            this.fixedItemsIds.splice(index,1);
+        }
+        this.fixedItems[slot] = item;
+        if (item && !this.fixedItemsIds.includes(item.id)) {
+            this.fixedItemsIds.push(item.id);
+        }
+    }
+    
+    set formula(formula) {
+        this.formula = formula;
+        this.involvedStats = [];
+        if (formula) {
+            this.calculateInvolvedStats();
+        }
+    }
+    
+    calculateInvolvedStats() {
+        if (this.formula.type == "value") {
+            var name = this.formula.name;
+            if (involvedStatsByValue[name]) {
+                for (var index = involvedStatsByValue[name].length; index--;) {
+                    if (!this.involvedStats.includes(involvedStatsByValue[name][index])) {
+                        this.involvedStats.push(involvedStatsByValue[name][index]);
+                    }
+                }
+            } else {
+                if (!this.involvedStats.includes(name)) {
+                        this.involvedStats.push(name);
+                    }
+            }
+        } else if (this.formula.type == "conditions") {
+            for (var index = this.formula.conditions.length; index-- ;) {
+                calculateInvolvedStats(this.formula.conditions[index].value);    
+            }
+            calculateInvolvedStats(this.formula.formula);    
+        } else if (this.formula.type != "constant") {
+            calculateInvolvedStats(this.formula.value1);
+            calculateInvolvedStats(this.formula.value2);
+        }
     }
 }
