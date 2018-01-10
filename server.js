@@ -129,7 +129,7 @@ function saveFileToGoogleDrive(req, res, paramFileName) {
                 res.status(500).send(err);
             });
         }
-        if (req.OAuth2Client.credentials.id_token) {
+        if (req.OAuth2Client.credentials.access_token != req.OAuthSession.tokens.access_token) {
             /*console.log('Received new tokens : ');
             console.log(req.OAuth2Client.credentials);*/
             req.OAuthSession.tokens = req.OAuth2Client.credentials;
@@ -163,7 +163,7 @@ function getFileFromGoogleDrive(req, res, paramFileName, callback) {
                 callback({});
             }
         }
-        if (req.OAuth2Client.credentials.id_token) {
+        if (req.OAuth2Client.credentials.access_token != req.OAuthSession.tokens.access_token) {
             /*console.log('Received new tokens : ');
             console.log(req.OAuth2Client.credentials);*/
             req.OAuthSession.tokens = req.OAuth2Client.credentials;
