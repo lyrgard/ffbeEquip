@@ -54,40 +54,6 @@ class TypeCombinationGenerator {
         return combinations;
     }
     
-    tryDualWieldSource(dualWieldSourceIndex,typeCombination,combinations,fixedItems,unitPartialDualWield, forceDualWield) {
-        if (stop) {
-            alert("Build was stoped before completion. The result may not be optimal");
-            stop = false;
-            running = false;
-            $("#buildButton").text("Build !");
-            return;
-        }
-        if (dualWieldSources.length > dualWieldSourceIndex) {
-            var item = dualWieldSources[dualWieldSourceIndex];
-            var slot = getFixedItemItemSlot(item, equipable, builds[currentUnitIndex].fixedItems);
-            if (slot != -1) {   
-                var fixedItems = builds[currentUnitIndex].fixedItems.slice();
-                fixedItems[slot] = item;
-                var savedEquipable0 = equipable[0];
-                if (item.partialDualWield) {
-                    equipable[0] = item.partialDualWield;
-                    equipable[1] = item.partialDualWield;
-                    if (unitPartialDualWield) {
-                        equipable[1] = mergeArrayWithoutDuplicates(equipable[1], unitPartialDualWield);
-                    }
-                } else {
-                    equipable[1] = equipable[0];
-                }
-                buildTypeCombination(0,typeCombination,combinations,fixedItems, false, false, forceDualWield);
-                builds[currentUnitIndex].fixedItems[slot] = null;
-                equipable[0] = savedEquipable0;
-            }
-            setTimeout(tryDualWieldSourceAsync,1,dualWieldSourceIndex+1,typeCombination,combinations,fixedItems,unitPartialDualWield, forceDualWield);
-        } else {
-            setTimeout(findBestBuildForCombinationAsync,1, 0, combinations);
-        }
-    }
-    
     buildTypeCombination(index, typeCombination, combinations) {
         if (stop) {
             return;
