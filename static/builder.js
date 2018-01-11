@@ -137,10 +137,10 @@ function build() {
     calculateAlreadyUsedItems();
     
     prepareData(builds[currentUnitIndex].getCurrentUnitEquip());
-    selectEspers();
     
     running = true;
     $("#buildButton").text("STOP");
+    
     optimize();
 }
 
@@ -373,16 +373,6 @@ function getPlaceHolder(type) {
     return {"name":"Any " + type,"type":type, "placeHolder":true};
 }
 
-function selectEspers() {
-    selectedEspers = [];
-    var keptEsperRoot = EsperTreeComparator.sort(espers, alreadyUsedEspers);
-    for (var index = keptEsperRoot.children.length; index--;) {
-        if (!selectedEspers.includes(keptEsperRoot.children[index])) {
-            selectedEspers.push(getEsperItem(keptEsperRoot.children[index].esper));
-        }
-    }
-}
-
 function getKillerCoef(item, applicableKillerType) {
     var cumulatedKiller = 0;
     if (ennemyRaces.length > 0 && item.killers) {
@@ -441,8 +431,10 @@ function optimize() {
     
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dualWieldSources, dataByType);
     var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
-    console.log(typeCombinations.length);
-    findBestBuildForCombinationAsync(0, typeCombinations);
+    
+    var buildOptimizer = new BuildOptimizer(data, espers);
+    buildOptimizer.optimizeFor(typeCombinations, alreadyUsedItems, alreadyUsedEspers)
+    //findBestBuildForCombinationAsync(0, typeCombinations);
 }
     
 function getFixedItemItemSlot(item, equipable, fixedItems) {
@@ -684,46 +676,6 @@ function tryEsper(build, esper) {
         builds[currentUnitIndex].buildValue = value;
         logBuild(builds[currentUnitIndex].build, builds[currentUnitIndex].buildValue);
     }
-}
-
-function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
-    var tempResult = itemsOfType.slice();
-    var dataWithConditionKeyAlreadyAdded = [];
-    for (var index = 0, len = dataWithCondition.length; index < len; index++) {
-        var entry = dataWithCondition[index];
-        var item = entry.item;
-        if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item[itemKey])) {
-            var allFound = true;
-            for (var conditionIndex in item.equipedConditions) {
-                if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
-                    allFound = false;
-                    break;
-                }
-            }
-            if (allFound) {
-                if (dataByTypeIds[type] && dataByTypeIds[type].includes(entry.item[itemKey])) {
-                    for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
-                        if (tempResult[alreadyAddedIndex].item[itemKey] == entry.item[itemKey]) {
-                            tempResult.splice(alreadyAddedIndex,1);
-                            break;    
-                        }
-                    }
-                }
-                
-                tempResult.push(entry);
-                dataWithConditionKeyAlreadyAdded.push(item[itemKey]);
-                
-            }
-        }
-    }
-    var numberNeeded = 0;
-    for (var slotIndex = typeCombination.length; slotIndex--;) {
-        if (typeCombination[slotIndex] == type && !fixedItems[slotIndex]) {
-            numberNeeded++;
-        }
-    }
-    
-    return ItemTreeComparator.sort(tempResult, numberNeeded, typeCombination, builds[currentUnitIndex]);
 }
 
 function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
@@ -1145,37 +1097,6 @@ function areConditionOK(item, equiped) {
         }
     }
     return true;
-}
-
-function areConditionOKBasedOnTypeCombination(item, typeCombination) {
-    if (item.equipedConditions) {
-        for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
-            if (elementList.includes(item.equipedConditions[conditionIndex])) {
-                return false;
-            } else {
-                if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
-                    return false;
-                }
-            }
-        }
-    }
-    return true;
-}
-
-function getElementBasedSkills() {
-    var elementBasedSkills = [];
-    for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
-        var skill = builds[currentUnitIndex].unit.skills[skillIndex];
-        if (skill.equipedConditions) {
-            for (var conditionIndex in skill.equipedConditions) {
-                if (elementList.includes(skill.equipedConditions[conditionIndex])) {
-                    elementBasedSkills.push(skill);
-                    break;
-                }
-            }
-        }
-    }
-    return elementBasedSkills;
 }
 
 function logCurrentBuild() {
