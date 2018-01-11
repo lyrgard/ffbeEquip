@@ -127,7 +127,7 @@ function build() {
         return;
     }   
     
-    builds[currentUnitIndex].buildValue = null;
+    builds[currentUnitIndex].emptyBuild();
     
     readEnnemyStats();
     
@@ -136,7 +136,7 @@ function build() {
     
     calculateAlreadyUsedItems();
     
-    prepareData(getCurrentUnitEquip());
+    prepareData(builds[currentUnitIndex].getCurrentUnitEquip());
     selectEspers();
     
     running = true;
@@ -304,7 +304,7 @@ function prepareData(equipable) {
             var numberNeeded = 1;
             if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
             if (type == "materia") {numberNeeded = 4}
-            var tree = addConditionItemsTree(dataByType[type], type, numberNeeded);
+            var tree = ItemTreeComparator.sort(dataByType[type], numberNeeded);
             dataByType[type] = [];
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 addEntriesToResult(tree.children[index], dataByType[type], 0, numberNeeded, true);    
@@ -375,43 +375,12 @@ function getPlaceHolder(type) {
 
 function selectEspers() {
     selectedEspers = [];
-    var maxValueEsper = null;
-    var keptEsperRoot = {"parent":null,"children":[],"root":true};
-    for (var index = espers.length; index--;) {
-        if (!alreadyUsedEspers.includes(espers[index].name)) {
-            var newTreeEsper = {"esper":espers[index],"parent":null,"children":[],"equivalents":[]};
-            insertItemIntoTree(keptEsperRoot, newTreeEsper, 1, getEsperComparison, getEsperDepth);
-        }
-    }
+    var keptEsperRoot = EsperTreeComparator.sort(espers, alreadyUsedEspers);
     for (var index = keptEsperRoot.children.length; index--;) {
         if (!selectedEspers.includes(keptEsperRoot.children[index])) {
             selectedEspers.push(getEsperItem(keptEsperRoot.children[index].esper));
         }
     }
-}
-
-function getEsperComparison(treeNode1, treeNode2) {
-    if (treeNode1.root) {
-        return "strictlyWorse"; 
-    }
-    var comparisionStatus = [];
-    var stats = builds[currentUnitIndex].involvedStats;
-    for (var index = stats.length; index--;) {
-        if (baseStats.includes(stats[index])) {
-            comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
-        } else if (stats[index] == "physicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"physical"));
-        } else if (stats[index] == "magicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.esper, treeNode2.esper,"magical"));
-        } else if (stats[index].startsWith("resist")) {
-            comparisionStatus.push(compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
-        }
-    }
-    return combineComparison(comparisionStatus);
-}
-
-function getEsperDepth(treeItem, currentDepth) {
-    return currentDepth + 1;
 }
 
 function getKillerCoef(item, applicableKillerType) {
@@ -469,10 +438,10 @@ function optimize() {
     
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
-     
+    
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dualWieldSources, dataByType);
     var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
-    
+    console.log(typeCombinations.length);
     findBestBuildForCombinationAsync(0, typeCombinations);
 }
     
@@ -573,7 +542,7 @@ function findBestBuildForCombinationAsync(index, combinations) {
             }
         }
         
-        var build = [null, null, null, null, null, null, null, null, null, null,null].concat(combinations[index].applicableSkills);
+        var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
         findBestBuildForCombination(0, build, combinations[index].combination, dataWithdConditionItems, combinations[index].fixedItems, getElementBasedSkills());
         index++
     }
@@ -710,7 +679,7 @@ function tryItem(index, build, typeCombination, dataWithConditionItems, item, fi
 function tryEsper(build, esper) {
     build[10] = esper;
     var value = calculateBuildValue(build);
-    if (value != 0 && !builds[currentUnitIndex].buildValue || value > builds[currentUnitIndex].buildValue) {
+    if ((value != 0 && builds[currentUnitIndex].buildValue == 0) || value > builds[currentUnitIndex].buildValue) {
         builds[currentUnitIndex].build = build.slice();
         builds[currentUnitIndex].buildValue = value;
         logBuild(builds[currentUnitIndex].build, builds[currentUnitIndex].buildValue);
@@ -754,34 +723,7 @@ function addConditionItems(itemsOfType, type, typeCombination, fixedItems) {
         }
     }
     
-    return addConditionItemsTree(tempResult, type, numberNeeded, typeCombination, fixedItems);
-}
-
-function addConditionItemsTree(itemsOfType, type, numberNeeded, typeCombination, fixedItems) {
-    var result = [];
-    var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
-    if (itemsOfType.length > 0) {
-        for (var index = itemsOfType.length; index--;) {
-            var entry = itemsOfType[index];
-            
-            if (typeCombination && isTwoHanded(entry.item) && (typeCombination[1] || fixedItems[0] || fixedItems[1])) {
-                continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
-            }
-            if (builds[currentUnitIndex].fixedItemsIds.includes(entry.item[itemKey]) && getAvailableNumber(entry.item) < 1) {
-                continue;
-            }
-            
-            var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
-            //console.log("Considering " + entry.item.name);
-            insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded, getItemNodeComparison, getItemDepth);
-            //logTree(keptItemsRoot);
-        }
-    }
-    /*for (var index in keptItemsRoot.children) {
-        addEntriesToResult(keptItemsRoot.children[index], result, 0, numberNeeded, keepEntry);    
-    }*/
-    cutUnderMaxDepth(keptItemsRoot, numberNeeded, getItemDepth, 0);
-    return keptItemsRoot;
+    return ItemTreeComparator.sort(tempResult, numberNeeded, typeCombination, builds[currentUnitIndex]);
 }
 
 function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
@@ -814,163 +756,6 @@ function addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
     }
 }
 
-function logTree(tree, addedEntry = null, currentLine = "", currentDepth = 0) {
-    var currentDepth = getItemDepth(tree, currentDepth) ;
-    var itemName;
-    if (tree.root) {
-        itemName = "ROOT"
-    } else {
-        itemName = tree.entry.item.name + " (" + currentDepth + "))";
-    }
-    if (addedEntry && addedEntry == tree.entry) {
-        itemName = "**" + itemName + "**";
-    }
-    var currentLine = currentLine + " | " + itemName;
-    if (tree.children.length == 0) {
-        console.log(currentLine);
-    } else {
-        var space = new Array(currentLine.length + 1).join( " " );
-        for (var index in tree.children) {
-            if (index == 0) {
-                logTree(tree.children[index], addedEntry, currentLine,currentDepth);
-            } else { 
-                logTree(tree.children[index], addedEntry, space,currentDepth);
-            }
-        }
-    }
-}
-
-
-function insertItemIntoTree(treeItem, newTreeItem, maxDepth, comparisonFunction, depthFunction, currentDepth = 0) {
-    var comparison = comparisonFunction(treeItem, newTreeItem);
-    switch (comparison) {
-        case "strictlyWorse":
-            // Entry is strictly worse than treeItem
-            if (currentDepth < maxDepth) {
-                var inserted = false
-                for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                    inserted = inserted || insertItemIntoTree(treeItem.children[index], newTreeItem, maxDepth, comparisonFunction, depthFunction, depthFunction(treeItem.children[index], currentDepth));
-                }
-
-                if (!inserted) {
-                    newTreeItem.parent = treeItem;
-                    treeItem.children.push(newTreeItem);
-                    //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") under " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-                }
-                if (treeItem.children.indexOf(newTreeItem) != -1) {
-                    var indexToRemove = [];
-                    for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                        var oldTreeItem = treeItem.children[index]
-                        if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem) == "strictlyBetter") {
-                            indexToRemove.push(index);
-                            insertItemIntoTree(newTreeItem, oldTreeItem, maxDepth, comparisonFunction, depthFunction,depthFunction(newTreeItem, currentDepth));
-                        }
-                    }
-                    for (var index = indexToRemove.length - 1; index >= 0; index--) {
-                        treeItem.children.splice(indexToRemove[index], 1);
-                    }
-                }
-            }
-            break;
-        case "equivalent":
-            // entry is equivalent to treeItem
-            treeItem.equivalents.push(newTreeItem.equivalents[0]);
-    
-            treeItem.equivalents.sort(function(entry1, entry2) {
-                if (entry1.defenseValue == entry2.defenseValue) {
-                    return entry2.available - entry1.available;    
-                } else {
-                    return entry2.defenseValue - entry1.defenseValue;    
-                }
-            });
-            //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-            break;
-        case "strictlyBetter":
-            // entry is strictly better than treeItem
-            var parentDepth = currentDepth - depthFunction(treeItem, 0);
-            newTreeItem.parent = treeItem.parent;
-            var index = treeItem.parent.children.indexOf(treeItem);
-            treeItem.parent.children[index] = newTreeItem;
-            newTreeItem.children = [treeItem];
-            treeItem.parent = newTreeItem;
-            cutUnderMaxDepth(newTreeItem, maxDepth, depthFunction, depthFunction(newTreeItem, parentDepth));
-            //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") in place of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
-            break;
-        case "sameLevel":
-            // Should be inserted at the same level.
-            return false;
-    }
-    return true;
-}
-
-function getItemNodeComparison(treeNode1, treeNode2) {
-    if (treeNode1.root) {
-        return "strictlyWorse"; 
-    }
-    var comparisionStatus = [];
-    var stats = builds[currentUnitIndex].involvedStats;
-    for (var index = stats.length; index--;) {
-        if (stats[index] == "physicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "physical"));
-        } else if (stats[index] == "magicalKiller") {
-            comparisionStatus.push(compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "magical"));
-        } else if (stats[index] == "weaponElement") {
-            comparisionStatus.push(compareByElementCoef(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
-        } else if (stats[index] == "meanDamageVariance" || stats[index] == "evade.physical" || stats[index] == "evade.magical" || stats[index] == "mpRefresh") {
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, stats[index]));
-        } else {
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "total_" + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWielding." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHanded." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingGL." + stats[index]));
-            comparisionStatus.push(compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHandedGL." + stats[index]));
-        }
-    }
-    if (desirableElements.length != 0) {
-        comparisionStatus.push(compareByEquipedElementCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
-    }
-    comparisionStatus.push(compareByNumberOfHandsNeeded(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
-    
-    return combineComparison(comparisionStatus);
-}
-
-function combineComparison(comparisionStatus) {
-    var result = "equivalent";
-    for (var index = comparisionStatus.length; index--;) {
-        if (comparisionStatus[index] == "sameLevel") {
-            return "sameLevel";
-        }
-        switch (result) {
-            case "equivalent":
-                result = comparisionStatus[index];
-                break;
-            case "strictlyWorse":
-                if (comparisionStatus[index] == "strictlyBetter") {
-                    return "sameLevel";
-                }
-                break;
-            case "strictlyBetter":
-                if (comparisionStatus[index] == "strictlyWorse") {
-                    return "sameLevel";
-                }
-                break;
-        }
-    }
-    return result;
-}
-
-function compareByValue(item1, item2, valuePath) {
-    var value1 = getValue(item1, valuePath);
-    var value2 = getValue(item2, valuePath);
-    if (value1 > value2) {
-        return "strictlyWorse"
-    } else if (value1 < value2){
-        return "strictlyBetter"
-    } else {
-        return "equivalent";
-    }
-}
 
 function getValue(item, valuePath) {
     var value = item[valuePath];
@@ -1012,156 +797,6 @@ function getValueFromPath(item, valuePath) {
     return currentItem;
 }
 
-function compareByNumberOfHandsNeeded(item1, item2) {
-    if (isTwoHanded(item1)) {
-        if (isTwoHanded(item2)) {
-            return "equivalent";
-        } else {
-            return "sameLevel";
-        }    
-    } else {
-        if (isTwoHanded(item2)) {
-            return "sameLevel";
-        } else {
-            return "equivalent";
-        }
-    }
-}
-
-
-function compareByKillers(item1, item2, applicableKillerType) {
-    if (ennemyRaces.length) {
-        var applicableKillers1 = {};
-        if (item1.killers) {
-            for (var killerIndex = item1.killers.length; killerIndex--;) {
-                if (ennemyRaces.includes(item1.killers[killerIndex].name) && item1.killers[killerIndex][applicableKillerType]) {
-                    applicableKillers1[item1.killers[killerIndex].name] = item1.killers[killerIndex][applicableKillerType];
-                }
-            }
-        }
-        var applicableKillers2 = {};
-        if (item2.killers) {
-            for (var killerIndex = item2.killers.length; killerIndex--;) {
-                if (ennemyRaces.includes(item2.killers[killerIndex].name) && item2.killers[killerIndex][applicableKillerType]) {
-                    applicableKillers2[item2.killers[killerIndex].name] = item2.killers[killerIndex][applicableKillerType];
-                }
-            }
-        }
-        var result = "equivalent";
-        for (var index in applicableKillers1) {
-            if (!applicableKillers2[index]) {
-                switch(result) {
-                    case "equivalent":
-                        result = "strictlyWorse";
-                    case "strictlyBetter":
-                        return "sameLevel";
-                }
-            } else {
-                if (applicableKillers1[index] > applicableKillers2[index]) {
-                    switch(result) {
-                        case "equivalent":
-                            result = "strictlyWorse";
-                        case "strictlyBetter":
-                            return "sameLevel";
-                    }
-                } else if (applicableKillers1[index] < applicableKillers2[index]) {
-                    switch(result) {
-                        case "equivalent":
-                            result = "strictlyBetter";
-                        case "strictlyWorse":
-                            return "sameLevel";
-                    }
-                }
-            }
-        }
-        for (var index in applicableKillers2) {
-            if (!applicableKillers1[index]) {
-                switch(result) {
-                    case "equivalent":
-                        result = "strictlyBetter";
-                    case "strictlyWorse":
-                        return "sameLevel";
-                }
-            }
-        }
-        return result;
-    } else {
-        return "equivalent";
-    }
-}
-
-function compareByElementCoef(item1, item2) {
-    if (item1.elementType == item2.elementType) {
-        return "equivalent";
-    } else {
-        return "sameLevel";
-    }
-}
-
-function compareByEquipedElementCondition(item1, item2) {
-    if (desirableElements.length == 0) {
-        return "equivalent";
-    } else {
-        if (item1.element && matches(desirableElements, item1.element)) {
-            if (item2.element && matches(desirableElements, item2.element)) {
-                var desirableElementsFromItem1 = [];
-                var desirableElementsFromItem2 = [];
-                for (var index = desirableElements.length; index--;) {
-                    if(item1.element.includes(desirableElements[index])) {
-                        desirableElementsFromItem1.push(desirableElements[index]);
-                    }
-                    if(item2.element.includes(desirableElements[index])) {
-                        desirableElementsFromItem2.push(desirableElements[index]);
-                    }
-                    if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                            return "equivalent";
-                        } else {
-                            return "strictlyWorse";
-                        }
-                    } else {
-                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                            return "strictlyBetter";
-                        } else {
-                            return "sameLevel";
-                        }
-                    }
-                }
-            } else {
-                return "strictlyWorse";
-            }    
-        } else {
-            if (item1.element && matches(desirableElements, item1.element)) {
-                return "strictlyBetter";
-            } else {
-                return "equivalent";
-            }
-        }
-    }
-    
-}
-
-function getItemDepth(treeItem, currentDepth) {
-    var result = currentDepth;
-    if (treeItem.root) {
-        return 0;
-    }
-    for (var index = treeItem.equivalents.length; index--;) {
-        result += treeItem.equivalents[index].available;
-    }
-    return result;
-}
-    
-function cutUnderMaxDepth(treeItem, maxDepth, depthFunction, currentDepth) {
-    if (currentDepth >= maxDepth) {
-        treeItem.children = [];
-    } else {
-        for (var index = treeItem.children.length; index--;) {
-            cutUnderMaxDepth(treeItem.children[index], maxDepth, depthFunction, depthFunction(treeItem.children[index], currentDepth));
-        }
-    }
-}
-
 function getDefenseValue(item) {
     var hpBaseValue = builds[currentUnitIndex].baseValues.hp.total;
     var defBaseValue = builds[currentUnitIndex].baseValues.def.total;
@@ -1184,14 +819,6 @@ function getWeaponElementDamageCoef(weaponElements) {
     return value / weaponElements.length;
 }
 
-function logAddConditionItems(data) {
-    var string = "";
-    for (var index in data) {
-        string += data[index].name + ", ";
-    }
-    console.log(string);
-}
-
 function isStackable(item) {
     return !(item.special && item.special.includes("notStackable"));
 }
@@ -1202,35 +829,6 @@ function isTwoHanded(item) {
 
 function hasDualWieldOrPartialDualWield(item) {
     return ((item.special && item.special.includes("dualWield")) || item.partialDualWield);
-}
-
-function hasInnateDualWield() {
-    var selectedUnit = builds[currentUnitIndex].unit;
-    for (var index in selectedUnit.skills) {
-        if (selectedUnit.skills[index].special && selectedUnit.skills[index].special.includes("dualWield")) {
-            return true;
-        }
-    }
-    for (var index in builds[currentUnitIndex].fixedItems) {
-        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].special && builds[currentUnitIndex].fixedItems[index].special.includes("dualWield")) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function getInnatePartialDualWield() {
-    for (var index = builds[currentUnitIndex].unit.skills.length; index--;) {
-        if (builds[currentUnitIndex].unit.skills[index].partialDualWield) {
-            return builds[currentUnitIndex].unit.skills[index].partialDualWield;
-        }
-    }
-    for (var index = 0; index < 10; index++) {
-        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].partialDualWield) {
-            return builds[currentUnitIndex].fixedItems[index].partialDualWield;
-        }
-    }
-    return null;
 }
 
 function getAvailableNumber(item) {
@@ -1314,15 +912,6 @@ function isApplicable(item) {
         return false;
     }
     return true;
-}
-
-function someEquipmentNoMoreApplicable(build) {
-    for (var index in build) {
-        if (build[index] && !isApplicable(build[index],build,5)) {
-            return true;
-        }
-    }
-    return false;
 }
 
 function calculateBuildValue(itemAndPassives) {
@@ -1910,7 +1499,7 @@ function loadBuild(buildIndex) {
     var build = builds[buildIndex];
     
     $("#unitsSelect option").prop("selected", false);
-    if (build.unit.name) {
+    if (build.unit) {
         $('#unitsSelect option[value="' + build.unit.name + '"]').prop("selected", true);
     }
     $(".unitAttackElement div.elements label").removeClass("active");
@@ -1953,7 +1542,7 @@ function loadBuild(buildIndex) {
 function addNewUnit() {
     $("#unitTabs li").removeClass("active");
     $("#unitTabs .tab_" + (builds.length - 1)).after("<li class='active tab_" + builds.length + "'><a href='#' onclick='selectUnitTab(" + builds.length + ")'>Select unit</a></li>");
-    builds.push({});
+    builds.push(null);
     reinitBuild(builds.length - 1);
     $('#forceDoublehand input').prop('checked', false);
     $('#forceDualWield input').prop('checked', false);
@@ -2094,7 +1683,7 @@ function updateSearchResult() {
     }
     var types = searchType;
     if (searchType.length == 0) {
-        types = getCurrentUnitEquip().concat("esper");
+        types = builds[currentUnitIndex].getCurrentUnitEquip().concat("esper");
     }
     var baseStat;
     if (searchStat != "") {
@@ -2172,16 +1761,6 @@ function displayFixItemModal(index) {
     updateSearchResult();
 }
 
-function getCurrentUnitEquip() {
-    var equip = builds[currentUnitIndex].unit.equip.concat(["accessory", "materia"]);
-    for (var index in builds[currentUnitIndex].fixedItems) {
-        if (builds[currentUnitIndex].fixedItems[index] && builds[currentUnitIndex].fixedItems[index].allowUseOf && !equip.includes(builds[currentUnitIndex].fixedItems[index].allowUseOf)) {
-            equip.push(builds[currentUnitIndex].fixedItems[index].allowUseOf);
-        }
-    }
-    return equip;
-}
-
 function fixItem(key, slotParam = -1) {
     var item;
     if (typeList.includes(key)) {
@@ -2201,7 +1780,7 @@ function fixItem(key, slotParam = -1) {
         if (slot == -1) {
             if (weaponList.includes(item.type) && builds[currentUnitIndex].fixedItems[0] && !builds[currentUnitIndex].fixedItems[1]) {
                 // for weapon, if the second weapon were refused, check if an innat partial DW allow it
-                var innatePartialDualWield = getInnatePartialDualWield();
+                var innatePartialDualWield = builds[currentUnitIndex].getPartialDualWield();
                 if (innatePartialDualWield && innatePartialDualWield.includes(item.type)) {
                     slot = 1;
                 } else {
@@ -2294,7 +1873,7 @@ function findBestItemVersion(build, key) {
 
 function removeFixedItemAt(slot) {
     builds[currentUnitIndex].fixedItems[slot] = null;
-    var equip = getCurrentUnitEquip();
+    var equip = builds[currentUnitIndex].getCurrentUnitEquip();
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].fixedItems[index];
         if (item) {

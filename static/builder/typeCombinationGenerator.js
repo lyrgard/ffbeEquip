@@ -34,7 +34,7 @@ class TypeCombinationGenerator {
                     var savedFixedItems = this.unitBuild.fixedItems;
                     this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
                     this.unitBuild.fixedItems[slot] = item;
-                    var savedEquipable0 = this.unitBuild.equipable[0];
+                    var savedEquipable1 = this.unitBuild.equipable[1];
                     if (item.partialDualWield) {
                         this.unitBuild.equipable[0] = item.partialDualWield;
                         this.unitBuild.equipable[1] = item.partialDualWield;
@@ -46,7 +46,7 @@ class TypeCombinationGenerator {
                     }
                     this.buildTypeCombination(0,typeCombination,combinations);
                     this.unitBuild.fixedItems = savedFixedItems;
-                    this.unitBuild.equipable[0] = savedEquipable0;
+                    this.unitBuild.equipable[1] = savedEquipable1;
                 }
             }
             this.forceDualWield = savedForceDualWield;
