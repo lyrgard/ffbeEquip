@@ -1788,7 +1788,7 @@ function calculateStatValue(itemAndPassives, stat) {
             equipmentStatBonusToApply = equipmentStatBonus;
         }
         if (equipedIndex < 2 && "atk" == stat) {
-            calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat);    
+            calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat);    
         } else {
             calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat);    
         }
