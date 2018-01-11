@@ -183,6 +183,12 @@ class UnitBuild {
         }
     }
     
+    emptyBuild() {
+        this.build = this.fixedItems.slice();
+        this.buildValue = 0;
+        this.equipable = this.prepareEquipable();
+    }
+    
     get formula() {
         return this._formula;
     }
