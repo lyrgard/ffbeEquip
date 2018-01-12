@@ -29,7 +29,6 @@ const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
 var customFormula;
 
 var dataByType = {};
-var dataByTypeIds = {};
 var dataWithCondition = [];
 var dualWieldSources = [];
 var espers;
@@ -308,10 +307,6 @@ function prepareData(equipable) {
             dataByType[type] = [];
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 addEntriesToResult(tree.children[index], dataByType[type], 0, numberNeeded, true);    
-            }
-            dataByTypeIds[type]= [];
-            for (var itemIndex = itemLen = dataByType[type].length; itemIndex--;) {
-                dataByTypeIds[type].push(dataByType[type][itemIndex].item[itemKey]);
             }
         } else {
             dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
