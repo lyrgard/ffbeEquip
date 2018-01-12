@@ -4,15 +4,15 @@ class TreeComparator {
         return {"parent":null,"children":[],"root":true,"available":0};
     }
 
-    static insertItemIntoTree(treeItem, newTreeItem, maxDepth, comparisonFunction, depthFunction, currentDepth = 0) {
-        var comparison = comparisonFunction(treeItem, newTreeItem);
+    static insertItemIntoTree(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction, currentDepth = 0) {
+        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements);
         switch (comparison) {
             case "strictlyWorse":
                 // Entry is strictly worse than treeItem
                 if (currentDepth < maxDepth) {
                     var inserted = false
                     for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, maxDepth, comparisonFunction, depthFunction, depthFunction(treeItem.children[index], currentDepth));
+                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction, depthFunction(treeItem.children[index], currentDepth));
                     }
 
                     if (!inserted) {
@@ -24,9 +24,9 @@ class TreeComparator {
                         var indexToRemove = [];
                         for (var index = 0, len = treeItem.children.length; index < len; index++) {
                             var oldTreeItem = treeItem.children[index]
-                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem) == "strictlyBetter") {
+                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, ennemyStats, desirableElements) == "strictlyBetter") {
                                 indexToRemove.push(index);
-                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, maxDepth, comparisonFunction, depthFunction,depthFunction(newTreeItem, currentDepth));
+                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction,depthFunction(newTreeItem, currentDepth));
                             }
                         }
                         for (var index = indexToRemove.length - 1; index >= 0; index--) {
@@ -130,7 +130,7 @@ class TreeComparator {
     }
 
 
-    static compareByKillers(item1, item2, applicableKillerType) {
+    static compareByKillers(item1, item2, applicableKillerType, ennemyRaces) {
         if (ennemyRaces.length) {
             var applicableKillers1 = {};
             if (item1.killers) {
@@ -199,7 +199,7 @@ class TreeComparator {
         }
     }
 
-    static compareByEquipedElementCondition(item1, item2) {
+    static compareByEquipedElementCondition(item1, item2, desirableElements) {
         if (desirableElements.length == 0) {
             return "equivalent";
         } else {

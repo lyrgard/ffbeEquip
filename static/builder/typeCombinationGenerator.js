@@ -77,7 +77,7 @@ class TypeCombinationGenerator {
                         if (index == 1 && !this.unitBuild.fixedItems[0] && this.alreadyTriedInSlot0(type, typeCombination[0], this.unitBuild.equipable[0])) {
                             continue;
                         }
-                        if (dataByType[type].length > 0) {
+                        if (this.dataByType[type].length > 0) {
                             this.tryType(index, typeCombination, type, combinations);
                             found = true;
                         }

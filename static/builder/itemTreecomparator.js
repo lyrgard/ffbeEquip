@@ -1,6 +1,6 @@
 class ItemTreeComparator {
     
-    static sort(itemsOfType, numberNeeded, typeCombination = null, unitBuild = null) {
+    static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null) {
         var result = [];
         var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
         if (itemsOfType.length > 0) {
@@ -16,7 +16,7 @@ class ItemTreeComparator {
 
                 var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
                 //console.log("Considering " + entry.item.name);
-                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, numberNeeded, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth);
+                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, numberNeeded, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth);
                 //logTree(keptItemsRoot);
             }
         }
@@ -24,17 +24,16 @@ class ItemTreeComparator {
         return keptItemsRoot;
     }
     
-    static getComparison(treeNode1, treeNode2) {
+    static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements) {
         if (treeNode1.root) {
             return "strictlyWorse"; 
         }
         var comparisionStatus = [];
-        var stats = builds[currentUnitIndex].involvedStats;
         for (var index = stats.length; index--;) {
             if (stats[index] == "physicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "physical"));
+                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "physical", ennemyStats.races));
             } else if (stats[index] == "magicalKiller") {
-                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "magical"));
+                comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "magical", ennemyStats.races));
             } else if (stats[index] == "weaponElement") {
                 comparisionStatus.push(TreeComparator.compareByElementCoef(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
             } else if (stats[index] == "meanDamageVariance" || stats[index] == "evade.physical" || stats[index] == "evade.magical" || stats[index] == "mpRefresh") {
@@ -48,8 +47,8 @@ class ItemTreeComparator {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHandedGL." + stats[index]));
             }
         }
-        if (desirableElements.length != 0) {
-            comparisionStatus.push(TreeComparator.compareByEquipedElementCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
+        if (desirableElements && desirableElements.length != 0) {
+            comparisionStatus.push(TreeComparator.compareByEquipedElementCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, desirableElements));
         }
         comparisionStatus.push(TreeComparator.compareByNumberOfHandsNeeded(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
 
