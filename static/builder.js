@@ -920,9 +920,6 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
         return;
     }
     if (index == 2) {
-        if (build[0].name == "Excalibur") {
-            console.log("!!");
-        }
         // weapon set, try elemental based skills
         for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
             if (build.includes(elementBasedSkills[skillIndex])) {
