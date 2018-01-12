@@ -920,6 +920,9 @@ function findBestBuildForCombination(index, build, typeCombination, dataWithCond
         return;
     }
     if (index == 2) {
+        if (build[0].name == "Excalibur") {
+            console.log("!!");
+        }
         // weapon set, try elemental based skills
         for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
             if (build.includes(elementBasedSkills[skillIndex])) {
@@ -1424,25 +1427,25 @@ function compareByEquipedElementCondition(item1, item2) {
                     if(item2.element.includes(desirableElements[index])) {
                         desirableElementsFromItem2.push(desirableElements[index]);
                     }
-                    if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                            return "equivalent";
-                        } else {
-                            return "strictlyWorse";
-                        }
+                }
+                if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                    if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                        return "equivalent";
                     } else {
-                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                            return "strictlyBetter";
-                        } else {
-                            return "sameLevel";
-                        }
+                        return "strictlyWorse";
+                    }
+                } else {
+                    if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                        return "strictlyBetter";
+                    } else {
+                        return "sameLevel";
                     }
                 }
             } else {
                 return "strictlyWorse";
             }    
         } else {
-            if (item1.element && matches(desirableElements, item1.element)) {
+            if (item2.element && matches(desirableElements, item2.element)) {
                 return "strictlyBetter";
             } else {
                 return "equivalent";
