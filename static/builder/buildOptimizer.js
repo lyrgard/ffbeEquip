@@ -43,6 +43,12 @@ class BuildOptimizer {
     }
     
     addConditionItems(itemsOfType, type, typeCombination, fixedItems, dataWithCondition) {
+        var dataWithoutConditionIds = [];
+        for (var index = itemsOfType.length; index--; ) {
+            if (!dataWithoutConditionIds.includes(itemsOfType[index].id)) {
+                dataWithoutConditionIds.push(itemsOfType[index].id);
+            }
+        }
         var tempResult = itemsOfType.slice();
         var dataWithConditionKeyAlreadyAdded = [];
         for (var index = 0, len = dataWithCondition.length; index < len; index++) {
@@ -57,7 +63,8 @@ class BuildOptimizer {
                     }
                 }
                 if (allFound) {
-                    if (dataByTypeIds[type] && dataByTypeIds[type].includes(entry.item[itemKey])) {
+                    if (dataWithoutConditionIds[type] && dataWithoutConditionIds[type].includes(entry.item[itemKey])) {
+                        // If we add a condition items that have a none conditioned version alreadty selected, remove that second version
                         for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
                             if (tempResult[alreadyAddedIndex].item[itemKey] == entry.item[itemKey]) {
                                 tempResult.splice(alreadyAddedIndex,1);
