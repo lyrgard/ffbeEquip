@@ -8,7 +8,7 @@ const involvedStatsByValue = {
 class UnitBuild {
     
     constructor(unit, fixedItems, baseValues) {
-        this._unit = unit;
+        this.unit = unit;
         this.fixedItems = fixedItems;
         this.build = fixedItems.slice();
         this.buildValue = 0;
@@ -26,9 +26,9 @@ class UnitBuild {
     }
     
     getPartialDualWield() {
-        for (var index = this._unit.skills.length; index--;) {
-            if (this._unit.skills[index].partialDualWield) {
-                return this._unit.skills[index].partialDualWield;
+        for (var index = this.unit.skills.length; index--;) {
+            if (this.unit.skills[index].partialDualWield) {
+                return this.unit.skills[index].partialDualWield;
             }
         }
         for (var index = 0; index < 10; index++) {
@@ -40,8 +40,8 @@ class UnitBuild {
     }
     
     hasDualWield() {
-        for (var index in this._unit.skills) {
-            if (this._unit.skills[index].special && this._unit.skills[index].special.includes("dualWield")) {
+        for (var index in this.unit.skills) {
+            if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
                 return true;
             }
         }
@@ -55,7 +55,7 @@ class UnitBuild {
     
     prepareEquipable() {
         var equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
-        if (this._unit) {
+        if (this.unit) {
             var equip = this.getCurrentUnitEquip();
             for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
                 if (weaponList.includes(equip[equipIndex])) {
@@ -80,7 +80,7 @@ class UnitBuild {
     }
     
     getCurrentUnitEquip() {
-        var equip = this._unit.equip.concat(["accessory", "materia"]);
+        var equip = this.unit.equip.concat(["accessory", "materia"]);
         for (var index in this.fixedItems) {
             if (this.fixedItems[index] && this.fixedItems[index].allowUseOf && !equip.includes(this.fixedItems[index].allowUseOf)) {
                 equip.push(this.fixedItems[index].allowUseOf);
@@ -199,12 +199,9 @@ class UnitBuild {
             this.calculateInvolvedStats();
         }
     }
-    
-    get unit() {
-        return this._unit;
-    }
-    set unit(unit) {
-        this._unit = unit;
+
+    setUnit(unit) {
+        this.unit = unit;
         this.equipable = this.prepareEquipable();
     }
 }
