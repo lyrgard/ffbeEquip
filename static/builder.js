@@ -2414,8 +2414,8 @@ function updateSearchResult() {
     if (searchType.length == 0) {
         types = getCurrentUnitEquip().concat("esper");
     }
-    var baseStat;
-    if (searchStat != "") {
+    var baseStat = 0;
+    if (baseStats.includes(searchStat)) {
         baseStat = builds[currentUnitIndex].baseValues[searchStat].total;
     }
     accessToRemove = [];
