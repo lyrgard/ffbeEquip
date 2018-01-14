@@ -27,7 +27,7 @@ class BuildOptimizer {
             var dataWithdConditionItems = {}
             for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
                 if (typeCombinations[index].combination[slotIndex] && !dataWithdConditionItems[typeCombinations[index].combination[slotIndex]]) {
-                    dataWithdConditionItems[typeCombinations[index].combination[slotIndex]] = this.selectItems(this.dataByType[typeCombinations[index].combination[slotIndex]], typeCombinations[index].combination[slotIndex], typeCombinations[index].combination, typeCombinations[index].fixedItems, dataWithCondition);
+                    dataWithdConditionItems[typeCombinations[index].combination[slotIndex]] = this.selectItems(typeCombinations[index].combination[slotIndex], typeCombinations[index].combination, typeCombinations[index].fixedItems, this.dataWithCondition);
                 }
             }
             var applicableSkills = [];
@@ -55,13 +55,14 @@ class BuildOptimizer {
         var keptEsperRoot = EsperTreeComparator.sort(this.espers, alreadyUsedEspers, this._unitBuild.involvedStats, ennemyStats);
         for (var index = keptEsperRoot.children.length; index--;) {
             if (!selectedEspers.includes(keptEsperRoot.children[index])) {
-                selectedEspers.push(getEsperItem(keptEsperRoot.children[index].esper));
+                selectedEspers.push(keptEsperRoot.children[index].esper);
             }
         }
         return selectedEspers;
     }
     
-    selectItems(itemsOfType, type, typeCombination, fixedItems, dataWithCondition) {
+    selectItems(type, typeCombination, fixedItems, dataWithCondition) {
+        var itemsOfType = this.dataByType[type];
         var dataWithoutConditionIds = [];
         for (var index = itemsOfType.length; index--; ) {
             if (!dataWithoutConditionIds.includes(itemsOfType[index].id)) {
@@ -73,7 +74,7 @@ class BuildOptimizer {
         for (var index = 0, len = this.dataWithCondition.length; index < len; index++) {
             var entry = this.dataWithCondition[index];
             var item = entry.item;
-            if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item[itemKey])) {
+            if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item.id)) {
                 var allFound = true;
                 for (var conditionIndex in item.equipedConditions) {
                     if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
@@ -82,10 +83,10 @@ class BuildOptimizer {
                     }
                 }
                 if (allFound) {
-                    if (dataWithoutConditionIds[type] && dataWithoutConditionIds[type].includes(entry.item[itemKey])) {
+                    if (dataWithoutConditionIds[type] && dataWithoutConditionIds[type].includes(entry.item.id)) {
                         // If we add a condition items that have a none conditioned version alreadty selected, remove that second version
                         for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
-                            if (tempResult[alreadyAddedIndex].item[itemKey] == entry.item[itemKey]) {
+                            if (tempResult[alreadyAddedIndex].item.id == entry.item.id) {
                                 tempResult.splice(alreadyAddedIndex,1);
                                 break;    
                             }
@@ -93,7 +94,7 @@ class BuildOptimizer {
                     }
 
                     tempResult.push(entry);
-                    dataWithConditionKeyAlreadyAdded.push(item[itemKey]);
+                    dataWithConditionKeyAlreadyAdded.push(item.id);
 
                 }
             }
@@ -105,7 +106,8 @@ class BuildOptimizer {
             }
         }
 
-        return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, ennemyStats, typeCombination);
+        console.log(this.ennemyStats);
+        return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, typeCombination);
     }
     
     getElementBasedSkills() {
@@ -139,172 +141,7 @@ class BuildOptimizer {
         return true;
     }
     
-    prepareData(itemsToExclude) {
-        this.dataByType = {};
-        this.dataWithCondition = [];
-        this.dualWieldSources = [];
-        var tempData = {};
-        var adventurersAvailable = {};
-        var alreadyAddedIds = [];
-        var alreadyAddedDualWieldSource = [];
-        var equipable = this._unitBuild.getCurrentUnitEquip();
-
-        for (var index = this.data.length; index--;) {
-            var item = this.data[index];
-            if (itemsToExclude.includes(item.id)) {
-                continue;
-            }
-            this.prepareItem(item, this._unitBuild.baseValues);
-            if (getAvailableNumber(item) > 0 && isApplicable(item) && equipable.includes(item.type)) {
-                if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
-                    if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                        dualWieldSources.push(item);
-                        alreadyAddedDualWieldSource.push(item.id);
-                    }
-                } else if (this.itemCanBeOfUseForGoal(item)) {
-                    if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
-                        adventurersAvailable[item.id] = item;
-                        continue;
-                    }
-                    if (item.equipedConditions) {
-                        this.dataWithCondition.push(this.getItemEntry(item));
-                    } else {
-                        if (!alreadyAddedIds.includes(item.id)) {
-                            if (!this.dataByType[item.type]) {
-                                this.dataByType[item.type] = [];
-                            }
-                            this.dataByType[item.type].push(this.getItemEntry(item));
-                            alreadyAddedIds.push(item.id);
-                        }
-                    }
-                }
-            }
-        }
-        var adventurerAlreadyPinned = false;
-        for (var index = 6; index < 10; index++) {
-            if (this._unitBuild.fixedItems[index] && adventurerIds.includes(this._unitBuild.fixedItems[index].id)) {
-                adventurerAlreadyPinned = true;
-                break;
-            }
-        }
-        if (!adventurerAlreadyPinned) {
-            for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
-                if (adventurersAvailable[adventurerIds[index]]) {
-                    this.dataByType["materia"].push(this.getItemEntry(adventurersAvailable[adventurerIds[index]]));
-                    break;
-                }
-            }
-        }
-        this.dataWithCondition.sort(function(entry1, entry2) {
-            if (entry1.item[itemKey] == entry2.item[itemKey]) {
-                return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
-            } else {
-                return entry1.item[itemKey] - entry2.item[itemKey];
-            }
-        })
-        for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
-            var type = typeList[typeIndex];
-            if (this.dataByType[type] && this.dataByType[type].length > 0) {
-                var numberNeeded = 1;
-                if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
-                if (type == "materia") {numberNeeded = 4}
-                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this._unitBuild, ennemyStats);
-                this.dataByType[type] = [];
-                for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
-                    this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, numberNeeded, true);    
-                }
-            } else {
-                this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
-            }
-        }
-    }
     
-    addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
-        tree.equivalents.sort(function(entry1, entry2) {
-            if (entry1.defenseValue == entry2.defenseValue) {
-                if (entry2.available == entry1.available) {
-                    return getValue(entry2.item, "atk%") + getValue(entry2.item, "mag%") + getValue(entry2.item, "atk") + getValue(entry2.item, "mag") - (getValue(entry1.item, "atk%") + getValue(entry1.item, "mag%") + getValue(entry1.item, "atk") + getValue(entry1.item, "mag"))
-                } else {
-                    return entry2.available - entry1.available;    
-                }
-            } else {
-                return entry2.defenseValue - entry1.defenseValue;    
-            }
-        });
-        for (var index = 0, len = tree.equivalents.length; index < len; index++) {
-            if (keptNumber >= numberNeeded) {
-                break;
-            }
-            if (keepEntry) {
-                result.push(tree.equivalents[index]);
-            } else {
-                result.push(tree.equivalents[index].item);
-            }
-            keptNumber += tree.equivalents[index].available;
-        }
-        if (keptNumber < numberNeeded) {
-            for (var index = 0, len = tree.children.length; index < len; index++) {
-                this.addEntriesToResult(tree.children[index], result, keptNumber, numberNeeded, keepEntry);    
-            }
-        }
-    }
-
-    getItemEntry(item) {
-        return {
-            "item":item, 
-            "name":item.name, 
-            "defenseValue":this.getDefenseValue(item),
-            "available":getAvailableNumber(item)
-        };
-    }
-    
-    getDefenseValue(item) {
-        var hpBaseValue = this._unitBuild.baseValues.hp.total;
-        var defBaseValue = this._unitBuild.baseValues.def.total;
-        var sprBaseValue = this._unitBuild.baseValues.spr.total;
-        return getStatValueIfExists(item, "hp", hpBaseValue) + getStatValueIfExists(item, "def", hpBaseValue) + getStatValueIfExists(item, "spr", hpBaseValue);
-    }
-
-    prepareItem(item, baseValues) {
-        for (var index = 0, len = baseStats.length; index < len; index++) {
-            item['total_' + baseStats[index]] = getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
-        }
-        if (item.element && !includeAll[builds[currentUnitIndex].innateElements, item.elements]) {
-            item.elementType = "element_" + getElementCoef(item.element);
-        } else {
-            item.elementType = "neutral"
-        }
-        if (weaponList.includes(item.type)) {
-            item.meanDamageVariance = 1;
-            if (item.damageVariance) {
-                item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
-            }
-        }
-    }
-
-    itemCanBeOfUseForGoal(item) {
-        var stats = builds[currentUnitIndex].involvedStats;
-
-        for (var index = 0, len = stats.length; index < len; index++) {
-            if (stats[index] == "weaponElement") {
-                if (item.element && getElementCoef(item.element) >= 0) return true;
-            } else if (stats[index] == "physicalKiller") {
-                if (this.getKillerCoef(item, "physical") > 0) return true;
-            } else if (stats[index] == "magicalKiller") {
-                if (this.getKillerCoef(item, "magical") > 0) return true;
-            } else {
-                if (getValue(item, stats[index]) > 0) return true;
-                if (item["total_" + stats[index]]) return true;
-                if (item.singleWielding && item.singleWielding[stats[index]]) return true;
-                if (item.singleWieldingGL && item.singleWieldingGL[stats[index]]) return true;
-                if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
-                if (item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stats[index]]) return true;
-            }
-        }
-        if (this.desirableElements.length != 0) {
-            if (item.element && matches(item.element, this.desirableElements)) return true;
-        }
-    }
     
     findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills) {
         if (index == 2) {
@@ -388,7 +225,6 @@ class BuildOptimizer {
         }
         build[index] = item;
         if (index == 9) {
-            numberOfItemCombination++
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
                 if (fixedItems[fixedItemIndex] && (!allItemVersions[fixedItems[fixedItemIndex].id] || allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
                     build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex].id);
@@ -408,23 +244,11 @@ class BuildOptimizer {
 
     tryEsper(build, esper) {
         build[10] = esper;
-        var value = calculateBuildValue(build);
+        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats);
         if ((value != 0 && builds[currentUnitIndex].buildValue == 0) || value > builds[currentUnitIndex].buildValue) {
             builds[currentUnitIndex].build = build.slice();
             builds[currentUnitIndex].buildValue = value;
             this.betterBuildFoundCallback(builds[currentUnitIndex].build, builds[currentUnitIndex].buildValue);
         }
-    }
-    
-    getKillerCoef(item, applicableKillerType) {
-        var cumulatedKiller = 0;
-        if (ennemyStats.races.length > 0 && item.killers) {
-            for (var killerIndex = item.killers.length; killerIndex--;) {
-                if (ennemyStats.races.includes(item.killers[killerIndex].name) && item.killers[killerIndex][applicableKillerType]) {
-                    cumulatedKiller += item.killers[killerIndex][applicableKillerType];
-                }
-            }
-        }
-        return cumulatedKiller / ennemyStats.races.length;
     }
 }

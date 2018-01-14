@@ -203,8 +203,8 @@ class TreeComparator {
         if (desirableElements.length == 0) {
             return "equivalent";
         } else {
-            if (item1.element && matches(desirableElements, item1.element)) {
-                if (item2.element && matches(desirableElements, item2.element)) {
+            if (item1.element && TreeComparator.matches(desirableElements, item1.element)) {
+                if (item2.element && TreeComparator.matches(desirableElements, item2.element)) {
                     var desirableElementsFromItem1 = [];
                     var desirableElementsFromItem2 = [];
                     for (var index = desirableElements.length; index--;) {
@@ -232,7 +232,7 @@ class TreeComparator {
                     return "strictlyWorse";
                 }    
             } else {
-                if (item1.element && matches(desirableElements, item1.element)) {
+                if (item1.element && TreeComparator.matches(desirableElements, item1.element)) {
                     return "strictlyBetter";
                 } else {
                     return "equivalent";
@@ -240,5 +240,16 @@ class TreeComparator {
             }
         }
 
+    }
+    
+        // Return true if the two arrays share at least one value
+    static matches(array1, array2) {
+        var match = false;
+        for (var index = array1.length; index --;) {
+            if (array2.includes(array1[index])) {
+                match = true;
+            }
+        }
+        return match;
     }
 }

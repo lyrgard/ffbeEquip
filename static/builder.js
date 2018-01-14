@@ -84,15 +84,6 @@ var notStackableEvadeGear = [
     ["409006700"],
     ["402001900", "301001500", "409012800"]
 ];
-
-const percentValues = {
-    "hp": "hp%",
-    "mp": "mp%",
-    "atk": "atk%",
-    "def": "def%",
-    "mag": "mag%",
-    "spr": "spr%"
-}
 const itemsToExclude = ["409009000"]; // Ring of Dominion
 
 
@@ -107,6 +98,7 @@ var running = false;
 var stop = false;
 
 var workers = [];
+var dataStorage;
 
 
 function build() {
@@ -224,19 +216,6 @@ function getPlaceHolder(type) {
     return {"name":"Any " + type,"type":type, "placeHolder":true};
 }
  
-function getElementCoef(elements) {
-    var resistModifier = 0;
-
-    if (elements.length > 0) {
-        for (var element in ennemyStats.elementResists) {
-            if (elements.includes(element)) {
-                resistModifier += ennemyStats.elementResists[element] / 100;
-            }
-        }    
-        resistModifier = resistModifier / elements.length;
-    }
-    return resistModifier;
-}
 
 function readEnnemyStats() {
     var ennemyResist = {};
@@ -271,13 +250,23 @@ function optimize() {
     var forceDualWield = $("#forceDualWield input").prop('checked');
     
     var buildOptimizer = new BuildOptimizer(data, espers);
-    workers[0].postMessage({"type":"unitSelected", "unitBuild":builds[currentUnitIndex]});
     
-    buildOptimizer.unitBuild = builds[currentUnitIndex];
-    buildOptimizer.prepareData(itemsToExclude);
+    dataStorage.setUnitBuild(builds[currentUnitIndex]);
+    dataStorage.itemsToExclude = itemsToExclude;
+    dataStorage.prepareData(itemsToExclude);
     
+    workers[0].postMessage({
+        "type":"setData", 
+        "unit":builds[currentUnitIndex].unit, 
+        "fixedItems":builds[currentUnitIndex].fixedItems, 
+        "baseValues":builds[currentUnitIndex].baseValues,
+        "formula":builds[currentUnitIndex].formula,
+        "dataByType":dataStorage.dataByType,
+        "dataWithCondition":dataStorage.dataWithCondition,
+        "dualWieldSources":dataStorage.dualWieldSources
+    });
     
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dualWieldSources, buildOptimizer.dataByType);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.dataByType);
     var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     workers[0].onMessage = function(event) {
@@ -298,7 +287,13 @@ function optimize() {
         }
     }
     
-    workers[0].postMessage({"type":"optimize", "typeCombinations":typeCombinations, "alreadyUsedItems":alreadyUsedItems, "alreadyUsedEspers":alreadyUsedEspers,"ennemyStats":ennemyStats});
+    workers[0].postMessage({
+        "type":"optimize", 
+        "typeCombinations":typeCombinations, 
+        "alreadyUsedItems":alreadyUsedItems, 
+        "alreadyUsedEspers":alreadyUsedEspers,
+        "ennemyStats":ennemyStats, 
+        "itemsToExclude":itemsToExclude});
     
     /*var newProgress = Math.floor((index)/combinations.length*100);
     if (progress != newProgress) {
@@ -398,31 +393,12 @@ function getBestFixedItemVersions(fixedItems, typeCombination) {
 }
 
 
-function getStatValueIfExists(item, stat, baseStat) {
-    var result = 0;
-    if (item[stat]) result += item[stat];
-    if (item[percentValues[stat]]) result += item[percentValues[stat]] * baseStat / 100;
-    return result;
-}
-
 function getWeaponElementDamageCoef(weaponElements) {
     var value = 0;
     for (var elementIndex = weaponElements.length; elementIndex--;) {
         value += ennemyStats.elementResists[weaponElements[elementIndex]];
     }
     return value / weaponElements.length;
-}
-
-function isStackable(item) {
-    return !(item.special && item.special.includes("notStackable"));
-}
-
-function isTwoHanded(item) {
-    return (item.special && item.special.includes("twoHanded"));
-}
-
-function hasDualWieldOrPartialDualWield(item) {
-    return ((item.special && item.special.includes("dualWield")) || item.partialDualWield);
 }
 
 function getAvailableNumber(item) {
@@ -508,214 +484,6 @@ function isApplicable(item) {
     return true;
 }
 
-function calculateBuildValue(itemAndPassives) {
-    return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex].formula);
-}
-
-function calculateBuildValueWithFormula(itemAndPassives, formula) {
-    if (formula.type == "value") {
-        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name) {
-            var cumulatedKiller = 0;
-            var applicableKillerType = null;
-            if (builds[currentUnitIndex].involvedStats.includes("physicalKiller")) {
-                applicableKillerType = "physical";
-            } else if (builds[currentUnitIndex].involvedStats.includes("magicalKiller")) {
-                applicableKillerType = "magical";
-            }
-            if (applicableKillerType) {
-                for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
-                    if (itemAndPassives[equipedIndex] && ennemyStats.races.length > 0 && itemAndPassives[equipedIndex].killers) {
-                        for (var killerIndex = itemAndPassives[equipedIndex].killers.length; killerIndex--;) {
-                            var killer = itemAndPassives[equipedIndex].killers[killerIndex];
-                            if (ennemyStats.races.includes(killer.name) && killer[applicableKillerType]) {
-                                cumulatedKiller += killer[applicableKillerType];
-                            }
-                        }
-                    }
-                }
-            }
-
-            // Element weakness/resistance
-            var elements = builds[currentUnitIndex].innateElements.slice();
-            if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
-                if (itemAndPassives[0] && itemAndPassives[0].element) {
-                    for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
-                        if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
-                            elements.push(itemAndPassives[0].element[elementIndex]);       
-                        }
-                    }
-                };
-                if (itemAndPassives[1] && itemAndPassives[1].element) {
-                    for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
-                        if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
-                            elements.push(itemAndPassives[1].element[elementIndex]);       
-                        }
-                    }
-                };
-            }
-            var resistModifier = getElementCoef(elements);
-
-            // Killers
-            var killerMultiplicator = 1;
-            if (ennemyStats.races.length > 0) {
-                killerMultiplicator += (cumulatedKiller / 100) / ennemyStats.races.length;
-            }
-
-            var total = 0;
-            for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
-                var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
-                var calculatedValue = calculateStatValue(itemAndPassives, stat);
-
-                if ("atk" == stat) {
-                    var variance0 = 1;
-                    var variance1 = 1;
-                    if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
-                        variance0 = itemAndPassives[0].meanDamageVariance;
-                    }
-                    if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
-                        variance1 = itemAndPassives[1].meanDamageVariance;
-                    }
-                    total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / ennemyStats.def;
-                } else {
-                    var dualWieldCoef = 1;
-                    if (goalValuesCaract[formula.name].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                        dualWieldCoef = 2;
-                    }
-                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / ennemyStats.spr;
-                }
-            }
-            return total / goalValuesCaract[formula.name].statsToMaximize.length;
-        } else {
-            var value = calculateStatValue(itemAndPassives, formula.name).total;
-            if (formula.name == "mpRefresh") {
-                value /= 100;
-            }
-            return value;
-        }   
-    } else if (formula.type == "constant") {
-        return formula.value;
-    } else if (formula.type == "*") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, formula.value2);
-    } else if (formula.type == "+") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, formula.value2);
-    } else if (formula.type == "/") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, formula.value2);
-    } else if (formula.type == "-") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, formula.value2);
-    } else if (formula.type == "conditions") {
-        for (var index = formula.conditions.length; index --; ) {
-            var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
-            if (value < formula.conditions[index].goal) {
-                return 0;
-            }
-        }
-        return calculateBuildValueWithFormula(itemAndPassives, formula.formula)
-    }
-}
-    
-
-function getEquipmentStatBonus(itemAndPassives, stat) {
-    if (baseStats.includes(stat) && itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
-        var normalStack = 0;
-        var glStack = 0;
-        var twoHanded = isTwoHanded(itemAndPassives[0]);
-        for (var index = itemAndPassives.length; index--;) {
-            var item = itemAndPassives[index];
-            if (item) {
-                if (item.singleWielding && item.singleWielding[stat]) {
-                    normalStack += item.singleWielding[stat] / 100;
-                }
-                if (item.singleWieldingGL && item.singleWieldingGL[stat]) {
-                    glStack += item.singleWieldingGL[stat] / 100;
-                }
-                if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat]) {
-                    normalStack += item.singleWieldingOneHanded[stat] / 100;
-                }
-                if (!twoHanded && item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stat]) {
-                    glStack += item.singleWieldingOneHandedGL[stat] / 100;
-                }
-            }
-        }
-        return 1 + Math.min(3, normalStack) + Math.min(3, glStack);
-    } else {
-        return 1;
-    }
-}
-
-function calculateStatValue(itemAndPassives, stat) {
-    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat);
-    var calculatedValue = 0   
-    var currentPercentIncrease = {"value":0};
-    var baseValue = 0;
-    var buffValue = 0
-    if (baseStats.includes(stat)) {
-        baseValue = builds[currentUnitIndex].baseValues[stat].total;
-        buffValue = builds[currentUnitIndex].baseValues[stat].buff * baseValue / 100;
-    }
-    var calculatedValue = baseValue + buffValue;
-    
-    for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
-        var equipmentStatBonusToApply = 1;
-        if (equipedIndex < 10) {
-            equipmentStatBonusToApply = equipmentStatBonus;
-        }
-        if (equipedIndex < 2 && "atk" == stat) {
-            calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat);    
-        } else {
-            calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat);    
-        }
-    }
-    
-    if ("atk" == stat) {
-        var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
-        var right = calculateFlatStateValueForIndex(itemAndPassives[0], equipmentStatBonus, stat);
-        var left = calculateFlatStateValueForIndex(itemAndPassives[1], equipmentStatBonus, stat);
-        if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-            result.right = Math.floor(calculatedValue + right);
-            result.left = Math.floor(calculatedValue + left);
-            result.total = Math.floor(calculatedValue + right + left);    
-        } else {
-            result.right = Math.floor(calculatedValue + right + left);
-            result.left = 0;
-            result.total = result.right;
-        }
-        return result;   
-    } else {
-        return {"total" : Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value};
-    }
-}
-
-function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
-    if (item) {
-        var value = getValue(item, stat);
-        if (item[percentValues[stat]]) {
-            var percentTakenIntoAccount = Math.min(item[percentValues[stat]], Math.max(300 - currentPercentIncrease.value, 0));
-            currentPercentIncrease.value += item[percentValues[stat]];
-            return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
-        } else {
-            return value * equipmentStatBonus;
-        }
-    }
-    return 0;
-}
-
-function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
-    if (item && item[stat]) {
-        return item[stat] * equipmentStatBonus;
-    }
-    return 0;
-}
-
-function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
-    if (item && item[percentValues[stat]]) {
-        percent = item[percentValues[stat]];
-        percent = Math.min(percent, 300 - currentPercentIncrease.value);
-        currentPercentIncrease.value += percent;
-        return percent * baseValue / 100;
-    }
-    return 0;
-}
-
 function areConditionOK(item, equiped) {
     if (item.equipedConditions) {
         var found = 0;
@@ -774,7 +542,7 @@ function logBuild(build, value) {
     $("#resultStats").removeClass("hidden");
     var values = {};
     for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
-        var result = calculateStatValue(build, statsToDisplay[statIndex]);
+        var result = calculateStatValue(build, statsToDisplay[statIndex], builds[currentUnitIndex]);
         values[statsToDisplay[statIndex]] = result.total;
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
         var bonusPercent;
@@ -787,12 +555,12 @@ function logBuild(build, value) {
     }
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
-    $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh").total / 100));
+    $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     for (var index in elementList) {
-        $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent").total + '%');
+        $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
     }
     for (var index in ailmentList) {
-        $("#resultStats .resists .resist." + ailmentList[index] + " .value").text(Math.min(100, calculateStatValue(build, "resist|" + ailmentList[index] + ".percent").total) + '%');
+        $("#resultStats .resists .resist." + ailmentList[index] + " .value").text(Math.min(100, calculateStatValue(build, "resist|" + ailmentList[index] + ".percent", builds[currentUnitIndex]).total) + '%');
     }
     if (builds[currentUnitIndex].goal == "physicaleHp" || builds[currentUnitIndex].goal == "magicaleHp") {
         $("#resultStats ." + builds[currentUnitIndex].goal).addClass("statToMaximize");
@@ -1843,7 +1611,7 @@ function getBuildStatsAsText() {
     var resultText = "Total: ";
     var first = true;
     for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
-        var result = calculateStatValue(builds[currentUnitIndex].build, baseStats[statIndex]).total;
+        var result = calculateStatValue(builds[currentUnitIndex].build, baseStats[statIndex], builds[currentUnitIndex]).total;
         if (first) {
             first = false;
         } else {
@@ -1878,6 +1646,7 @@ $(function() {
     progressElement = $("#buildProgressBar .progressBar");
     $.get(server + "/data.json", function(result) {
         data = result;
+        dataStorage = new DataStorage(data);
         prepareSearch(data);
         continueIfReady();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
@@ -1894,13 +1663,16 @@ $(function() {
         alert( errorThrown );
     });
     $.get(server + "/espers.json", function(result) {
-        espers = result;
+        espers = [];
+        for (var index = result.length; index--;) {
+            espers.push(getEsperItem(result[index]))
+        }
         for (var index = espers.length; index--;) {
-            espersByName[espers[index].name] = getEsperItem(espers[index]);    
+            espersByName[espers[index].name] = espers[index];    
         }
         searchableEspers = [];
         for (var index = espers.length; index--;) {
-            searchableEspers.push(getEsperItem(espers[index]));
+            searchableEspers.push(espers[index]);
         }
         prepareSearch(searchableEspers);
         continueIfReady();
