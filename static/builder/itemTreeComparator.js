@@ -10,7 +10,7 @@ class ItemTreeComparator {
                 if (typeCombination && isTwoHanded(entry.item) && (typeCombination[1] || unitBuild.fixedItems[0] || unitBuild.fixedItems[1])) {
                     continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
                 }
-                if (unitBuild && unitBuild.fixedItemsIds.includes(entry.item.id) && getAvailableNumber(entry.item) < 1) {
+                if (unitBuild && unitBuild.fixedItemsIds.includes(entry.item.id) && entry.available < 1) {
                     continue;
                 }
 

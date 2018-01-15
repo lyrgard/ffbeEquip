@@ -1,7 +1,7 @@
 class BuildOptimizer {
-    constructor(data, espers) {
-        this.data = data;
+    constructor(espers, allItemVersions) {
         this.espers = espers;
+        this.allItemVersions = allItemVersions;
     }
     
     set unitBuild(unitBuild) {
@@ -20,7 +20,6 @@ class BuildOptimizer {
         this.selectedEspers = this.selectEspers(alreadyUsedEspers, ennemyStats);
         this.ennemyStats = ennemyStats;
         var combinationsNumber = typeCombinations.length;
-        var percent = 0;
         var numberCalculated = 0;
         for (var index = 0, len = combinationsNumber; index < len; index++) {
 
@@ -42,12 +41,13 @@ class BuildOptimizer {
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills());
             
             numberCalculated++;
-            var newPercent = Math.floor(numberCalculated*100/combinationsNumber);
-            if (newPercent != percent) {
-                percent = newPercent;
+            var percent = Math.floor(numberCalculated*100/combinationsNumber);
+            if (percent > 2) {
                 incrementCalculatedCallback(numberCalculated);
+                numberCalculated = 0;
             }
         }
+        incrementCalculatedCallback(numberCalculated);
     }
     
     selectEspers(alreadyUsedEspers, ennemyStats) {
@@ -105,8 +105,6 @@ class BuildOptimizer {
                 numberNeeded++;
             }
         }
-
-        console.log(this.ennemyStats);
         return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, typeCombination);
     }
     
@@ -226,8 +224,8 @@ class BuildOptimizer {
         build[index] = item;
         if (index == 9) {
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
-                if (fixedItems[fixedItemIndex] && (!allItemVersions[fixedItems[fixedItemIndex].id] || allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
-                    build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex].id);
+                if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
+                    build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions);
                 }
             }
             if (fixedItems[10]) {
@@ -244,11 +242,11 @@ class BuildOptimizer {
 
     tryEsper(build, esper) {
         build[10] = esper;
-        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats);
-        if ((value != 0 && builds[currentUnitIndex].buildValue == 0) || value > builds[currentUnitIndex].buildValue) {
-            builds[currentUnitIndex].build = build.slice();
-            builds[currentUnitIndex].buildValue = value;
-            this.betterBuildFoundCallback(builds[currentUnitIndex].build, builds[currentUnitIndex].buildValue);
+        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula);
+        if ((value != 0 && this._unitBuild.buildValue == 0) || value > this._unitBuild.buildValue) {
+            this._unitBuild.build = build.slice();
+            this._unitBuild.buildValue = value;
+            this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue);
         }
     }
 }

@@ -12,8 +12,7 @@ var optimizer = null;
 onmessage = function(event) {
     switch(event.data.type) {
         case "init":
-            optimizer = new BuildOptimizer(event.data.data, event.data.espers);
-            console.log(event.data.espers);
+            optimizer = new BuildOptimizer(event.data.espers, event.data.allItemVersions);
             console.log("worker ready");
             break;
         case "setData":
@@ -24,11 +23,9 @@ onmessage = function(event) {
             optimizer.dataByType = event.data.dataByType;
             optimizer.dataWithCondition = event.data.dataWithCondition;
             optimizer.dualWieldSources = event.data.dualWieldSources;
-            console.log(event.data.dataByType);
             break;
         case "optimize":
             console.log("optimize received");
-            console.log(event.data.ennemyStats);
             optimizer.optimizeFor(
                 event.data.typeCombinations, 
                 event.data.alreadyUsedItems, 
@@ -37,9 +34,11 @@ onmessage = function(event) {
                     postMessage({"type":"incrementCalculated","numberCalculated":numberCalculated})
                 },
                 function(build, value) {
-                    postMessage({"type":"betterBuildFound","build":build,"value":value})
+                    postMessage({"type":"betterBuildFound","build":build,"value":value});
                 },
-                event.data.ennemyStats);
+                event.data.ennemyStats
+            );
+            postMessage({"type":"finished"});
             break;
     }
 }

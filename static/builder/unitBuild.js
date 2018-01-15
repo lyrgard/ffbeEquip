@@ -16,8 +16,8 @@ class UnitBuild {
         this.baseValues = baseValues;
         this.fixedItemsIds = [];
         for (var index = 0; index < 10; index++) {
-            if (fixedItems[index] && !fixedItemsIds.includes(fixedItems[index].id)) {
-                fixedItemsIds.push(builds[currentUnitIndex].fixedItems[index][itemKey]);
+            if (this.fixedItems[index] && !this.fixedItemsIds.includes(this.fixedItems[index].id)) {
+                this.fixedItemsIds.push(this.fixedItems[index].id);
             }
         }
         this.goal = null;
@@ -158,9 +158,9 @@ class UnitBuild {
         }
     }
     
-    calculateInvolvedStats() {
-        if (this._formula.type == "value") {
-            var name = this._formula.name;
+    calculateInvolvedStats(formula) {
+        if (formula.type == "value") {
+            var name = formula.name;
             if (involvedStatsByValue[name]) {
                 for (var index = involvedStatsByValue[name].length; index--;) {
                     if (!this.involvedStats.includes(involvedStatsByValue[name][index])) {
@@ -172,14 +172,14 @@ class UnitBuild {
                         this.involvedStats.push(name);
                     }
             }
-        } else if (this._formula.type == "conditions") {
-            for (var index = this._formula.conditions.length; index-- ;) {
-                calculateInvolvedStats(this._formula.conditions[index].value);    
+        } else if (formula.type == "conditions") {
+            for (var index = formula.conditions.length; index-- ;) {
+                this.calculateInvolvedStats(formula.conditions[index].value);    
             }
-            calculateInvolvedStats(this._formula.formula);    
-        } else if (this._formula.type != "constant") {
-            calculateInvolvedStats(this._formula.value1);
-            calculateInvolvedStats(this._formula.value2);
+            this.calculateInvolvedStats(formula.formula);    
+        } else if (formula.type != "constant") {
+            this.calculateInvolvedStats(formula.value1);
+            this.calculateInvolvedStats(formula.value2);
         }
     }
     
@@ -196,7 +196,7 @@ class UnitBuild {
         this._formula = formula;
         this.involvedStats = [];
         if (formula) {
-            this.calculateInvolvedStats();
+            this.calculateInvolvedStats(formula);
         }
     }
 

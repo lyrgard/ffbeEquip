@@ -317,6 +317,9 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
+    if (!name) {
+        console.log("!!");
+    }
     return wikiBaseUrl + encodeURIComponent(name.replace(' ', '_'));
 };
 
@@ -435,6 +438,34 @@ function mergeArrayWithoutDuplicates(array1, array2) {
         }
     }
     return result;
+}
+
+function chunkify(arrayIn, partCount) {
+    if (partCount < 2) {
+        return [arrayIn];
+    }
+    var len = arrayIn.length,
+        out = [],
+        i = 0,
+        size;
+
+    if (len % partCount === 0) {
+        size = Math.floor(len / partCount);
+        while (i < len) {
+            out.push(arrayIn.slice(i, i += size));
+        }
+    } else {
+        partCount--;
+        size = Math.floor(len / partCount);
+        if (len % size === 0) {
+            size--;
+        }
+        while (i < size * partCount) {
+            out.push(arrayIn.slice(i, i += size));
+        }
+        out.push(arrayIn.slice(size * partCount));
+    }
+    return out;
 }
 
 function switchTo(newServer) {

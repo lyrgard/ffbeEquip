@@ -78,8 +78,6 @@ var progress;
 
 var damageMultiplier;
 
-var allItemVersions = {};
-
 var notStackableEvadeGear = [
     ["409006700"],
     ["402001900", "301001500", "409012800"]
@@ -87,17 +85,13 @@ var notStackableEvadeGear = [
 const itemsToExclude = ["409009000"]; // Ring of Dominion
 
 
-var goalValuesCaract = {
-    "physicalDamage":                   {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "magicalDamage":                    {"statsToMaximize":["mag"], "useWeaponsElements":false, "applicableKillerType":"magical", "attackTwiceWithDualWield":false},
-    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true}
-}
-
 var running = false;
 var stop = false;
 
 var workers = [];
+var workerWorkingCount = 0;
+var processedCount = 0
+var typeCombinationsCount;
 var dataStorage;
 
 
@@ -249,52 +243,41 @@ function optimize() {
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
     
-    var buildOptimizer = new BuildOptimizer(data, espers);
-    
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
-    dataStorage.prepareData(itemsToExclude);
+    dataStorage.prepareData(itemsToExclude, ennemyStats);
     
-    workers[0].postMessage({
-        "type":"setData", 
-        "unit":builds[currentUnitIndex].unit, 
-        "fixedItems":builds[currentUnitIndex].fixedItems, 
-        "baseValues":builds[currentUnitIndex].baseValues,
-        "formula":builds[currentUnitIndex].formula,
-        "dataByType":dataStorage.dataByType,
-        "dataWithCondition":dataStorage.dataWithCondition,
-        "dualWieldSources":dataStorage.dualWieldSources
-    });
+    for (var index = workers.length; index--; index) {
+        workers[index].postMessage({
+            "type":"setData", 
+            "unit":builds[currentUnitIndex].unit, 
+            "fixedItems":builds[currentUnitIndex].fixedItems, 
+            "baseValues":builds[currentUnitIndex].baseValues,
+            "formula":builds[currentUnitIndex].formula,
+            "dataByType":dataStorage.dataByType,
+            "dataWithCondition":dataStorage.dataWithCondition,
+            "dualWieldSources":dataStorage.dualWieldSources
+        });
+    }
+    
     
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.dataByType);
     var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
-    workers[0].onMessage = function(event) {
-        switch(event.data.type) {
-            case "incrementCalculated":
-                var newProgress = Math.floor(event.data.numberCalculated/typeCombinations.length*100);
-                if (progress != newProgress) {
-                    progress = newProgress;
-                    progressElement.width(progress + "%");
-                    progressElement.text(progress + "%");    
-                }
-                break;
-            case "betterBuildFound":
-                builds[currentUnitIndex].build = event.data.build;
-                builds[currentUnitIndex].buildValue = event.data.value;
-                logCurrentBuild();
-                break;
-        }
-    }
-    
-    workers[0].postMessage({
-        "type":"optimize", 
-        "typeCombinations":typeCombinations, 
-        "alreadyUsedItems":alreadyUsedItems, 
-        "alreadyUsedEspers":alreadyUsedEspers,
-        "ennemyStats":ennemyStats, 
-        "itemsToExclude":itemsToExclude});
-    
+    processedCount = 0
+    typeCombinationsCount = typeCombinations.length;
+    typeCombinationsParts = chunkify(typeCombinations, workers.length);
+    workerWorkingCount = workers.length;
+    for (var index = workers.length; index--; index) {
+        workers[index].postMessage({
+            "type":"optimize", 
+            "typeCombinations":typeCombinationsParts[index], 
+            "alreadyUsedItems":alreadyUsedItems, 
+            "alreadyUsedEspers":alreadyUsedEspers,
+            "ennemyStats":ennemyStats, 
+            "itemsToExclude":itemsToExclude
+        });
+    }   
     /*var newProgress = Math.floor((index)/combinations.length*100);
     if (progress != newProgress) {
         progress = newProgress;
@@ -313,6 +296,7 @@ function optimize() {
     running = false;
     $("#buildButton").text("Build !");*/
 }
+
     
 function getFixedItemItemSlot(item, equipable, fixedItems) {
     var slot = -1;
@@ -386,7 +370,7 @@ function getBestFixedItemVersions(fixedItems, typeCombination) {
  
     for (var index = 0; index < 10; index++) {
         if (fixedItems[index]) {
-            result[index] = findBestItemVersion(typeCombinationBuild, fixedItems[index][itemKey]);
+            result[index] = findBestItemVersion(typeCombinationBuild, fixedItems[index], dataStorage.itemWithVariation);
         }
     }
     return result;
@@ -471,42 +455,6 @@ function getOwnedNumber(item) {
         availableNumber = totalNumber;
     }
     return {"total":totalNumber,"available":availableNumber,"totalOwnedNumber":totalOwnedNumber};
-}
-
-
-function isApplicable(item) {
-    if (item.exclusiveSex && item.exclusiveSex != builds[currentUnitIndex].unit.sex) {
-        return false;
-    }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(builds[currentUnitIndex].unit.name)) {
-        return false;
-    }
-    return true;
-}
-
-function areConditionOK(item, equiped) {
-    if (item.equipedConditions) {
-        var found = 0;
-        for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
-            if (elementList.includes(item.equipedConditions[conditionIndex])) {
-                var neededElement = item.equipedConditions[conditionIndex];
-                if ((equiped[0] && equiped[0].element && equiped[0].element.includes(neededElement)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(neededElement))) {
-                    found ++;
-                }
-            } else {
-                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
-                    if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
-                        found ++;
-                        break;
-                    }
-                }
-            }
-        }
-        if (found != item.equipedConditions.length) {
-            return false;
-        }
-    }
-    return true;
 }
 
 function logCurrentBuild() {
@@ -1099,7 +1047,7 @@ function fixItem(key, slotParam = -1) {
     } else if (espersByName[key])  {
         item = espersByName[key];
     } else {
-        item = findBestItemVersion(builds[currentUnitIndex].build, key);
+        item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation);
     }
     
     if (item) {
@@ -1141,7 +1089,7 @@ function fixItem(key, slotParam = -1) {
                 if (index != slot) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
-                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp[itemKey]);
+                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation);
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
@@ -1156,52 +1104,6 @@ function fixItem(key, slotParam = -1) {
     $('#fixItemModal').modal('hide');
 }
 
-function findBestItemVersion(build, key) {
-    var itemVersions = allItemVersions[key];
-    if (!itemVersions) {
-        allItemVersions[key] = [];
-        var found = false;
-        for (var index in data) {
-            if (data[index][itemKey] == key) {
-                allItemVersions[key].push(data[index]);
-                found = true;
-            }
-            if (found && data[index][itemKey] != key) {
-                break;
-            }
-        }
-        itemVersions = allItemVersions[key];
-    }
-    if (itemVersions.length == 1 && !itemVersions[0].equipedConditions) {
-        return itemVersions[0];
-    } else {
-        itemVersions.sort(function (item1, item2) {
-            var conditionNumber1 = 0; 
-            var conditionNumber2 = 0;
-            if (item1.equipedConditions) {
-                conditionNumber1 = item1.equipedConditions.length;
-            }
-            if (item1.exclusiveUnits) {
-                conditionNumber1++;
-            }
-            if (item2.equipedConditions) {
-                conditionNumber2 = item2.equipedConditions.length;
-            }
-            if (item2.exclusiveUnits) {
-                conditionNumber2++;
-            }
-            return conditionNumber2 - conditionNumber1;
-        });
-        for (var index in itemVersions) {
-            if (isApplicable(itemVersions[index]) && areConditionOK(itemVersions[index], build)) {
-                return itemVersions[index];
-            }
-        }
-        var item = itemVersions[0];
-        return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
-    }
-}
-
 function removeFixedItemAt(slot) {
     builds[currentUnitIndex].fixedItems[slot] = null;
     var equip = builds[currentUnitIndex].getCurrentUnitEquip();
@@ -1211,7 +1113,7 @@ function removeFixedItemAt(slot) {
             if (!equip.includes(item.type)) {
                 removeFixedItemAt(index);
             } else {
-                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item[itemKey]);
+                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item, dataStorage.itemWithVariation);
             }
         }
     }
@@ -1228,7 +1130,7 @@ function removeItemAt(slot) {
             if (!builds[currentUnitIndex].equipable[index].includes(item.type)) {
                 removeItemAt(index);
             } else {
-                builds[currentUnitIndex].build[index] = findBestItemVersion(builds[currentUnitIndex].build, item[itemKey]);
+                builds[currentUnitIndex].build[index] = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation);
                 if (builds[currentUnitIndex].fixedItems[index]) {
                     builds[currentUnitIndex].fixedItems[index] = builds[currentUnitIndex].build[index];
                 }
@@ -1748,9 +1650,40 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 3) {
-        for (var index = 0, len = navigator.hardwareConcurrency; index < len; index++) {
+        for (var index = 0, len = navigator.hardwareConcurrency - 1; index < len; index++) {
+        //for (var index = 0, len = 1; index < len; index++) {
             workers.push(new Worker('builder/optimizerWebWorker.js'));
-            workers[index].postMessage({"type":"init", "data":data, "espers":espers});
+            workers[index].postMessage({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation});
+            workers[index].onmessage = function(event) {
+                switch(event.data.type) {
+                    case "incrementCalculated":
+                        processedCount += event.data.numberCalculated;
+                        var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
+                        if (progress != newProgress) {
+                            progress = newProgress;
+                            progressElement.width(progress + "%");
+                            progressElement.text(progress + "%");    
+                        }
+                        break;
+                    case "betterBuildFound":
+                        if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < event.data.value) {
+                            builds[currentUnitIndex].build = event.data.build;
+                            builds[currentUnitIndex].buildValue = event.data.value;
+                            logCurrentBuild();
+                        }
+                        break;
+                    case "finished":
+                        workerWorkingCount--;
+                        if (workerWorkingCount == 0) {
+                            progressElement.addClass("finished");
+                            console.timeEnd("optimize");
+                            stop = false;
+                            running = false;
+                            $("#buildButton").text("Build !");
+                        }
+                        break;
+                }
+            }
         }
         var hashData = readStateHashData();
         if (hashData) {
