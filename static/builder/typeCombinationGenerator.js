@@ -17,9 +17,9 @@ class TypeCombinationGenerator {
             var savedEquipable0 = this.unitBuild.equipable[0];
             var savedEquipable1 = this.unitBuild.equipable[1];
 
-            equipable[0] = unitPartialDualWield;
-            equipable[1] = unitPartialDualWield;
-            buildTypeCombination(0,typeCombination,combinations);
+            this.unitBuild.equipable[0] = unitPartialDualWield;
+            this.unitBuild.equipable[1] = unitPartialDualWield;
+            this.buildTypeCombination(0,typeCombination,combinations);
 
             this.unitBuild.equipable[0] = savedEquipable0;
             this.unitBuild.equipable[1] = savedEquipable1;

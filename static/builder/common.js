@@ -51,11 +51,10 @@ function hasDualWieldOrPartialDualWield(item) {
 }
 
 function calculateBuildValue(itemAndPassives) {
-    return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats);
+    return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
 }
 
-function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats) {
-    var formula = unitBuild.formula;
+function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula) {
     if (formula.type == "value") {
         if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name) {
             var cumulatedKiller = 0;
@@ -104,6 +103,8 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats)
                 killerMultiplicator += (cumulatedKiller / 100) / ennemyStats.races.length;
             }
 
+            damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
+            
             var total = 0;
             for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
                 var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
@@ -138,13 +139,13 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats)
     } else if (formula.type == "constant") {
         return formula.value;
     } else if (formula.type == "*") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
     } else if (formula.type == "+") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
     } else if (formula.type == "/") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
     } else if (formula.type == "-") {
-        return calculateBuildValueWithFormula(itemAndPassives, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
             var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
@@ -271,4 +272,75 @@ function getElementCoef(elements, ennemyStats) {
         resistModifier = resistModifier / elements.length;
     }
     return resistModifier;
+}
+
+function isApplicable(item) {
+    if (item.exclusiveSex && item.exclusiveSex != builds[currentUnitIndex].unit.sex) {
+        return false;
+    }
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(builds[currentUnitIndex].unit.name)) {
+        return false;
+    }
+    return true;
+}
+
+function areConditionOK(item, equiped) {
+    if (item.equipedConditions) {
+        var found = 0;
+        for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
+            if (elementList.includes(item.equipedConditions[conditionIndex])) {
+                var neededElement = item.equipedConditions[conditionIndex];
+                if ((equiped[0] && equiped[0].element && equiped[0].element.includes(neededElement)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(neededElement))) {
+                    found ++;
+                }
+            } else {
+                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+                    if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
+                        found ++;
+                        break;
+                    }
+                }
+            }
+        }
+        if (found != item.equipedConditions.length) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function findBestItemVersion(build, item, itemWithVariation) {
+    var itemVersions = itemWithVariation[item.id];
+    if (!itemVersions) {
+        if (isApplicable(item) && (!item.equipedConditions || areConditionOK(item, build))) {
+            return item;    
+        } else {
+            return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
+        }
+    } else {
+        itemVersions.sort(function (item1, item2) {
+            var conditionNumber1 = 0; 
+            var conditionNumber2 = 0;
+            if (item1.equipedConditions) {
+                conditionNumber1 = item1.equipedConditions.length;
+            }
+            if (item1.exclusiveUnits) {
+                conditionNumber1++;
+            }
+            if (item2.equipedConditions) {
+                conditionNumber2 = item2.equipedConditions.length;
+            }
+            if (item2.exclusiveUnits) {
+                conditionNumber2++;
+            }
+            return conditionNumber2 - conditionNumber1;
+        });
+        for (var index in itemVersions) {
+            if (isApplicable(itemVersions[index]) && areConditionOK(itemVersions[index], build)) {
+                return itemVersions[index];
+            }
+        }
+        var item = itemVersions[0];
+        return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
+    }
 }

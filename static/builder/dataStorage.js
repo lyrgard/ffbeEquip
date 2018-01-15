@@ -1,6 +1,30 @@
 class DataStorage {
     constructor(data) {
         this.data = data;
+        this.prepareAllItemsVersion();
+    }
+    
+    prepareAllItemsVersion() {
+        this.allItemVersions = {};
+        this.itemWithVariation = {};
+        var currentId = 0;
+        var currentItemVersions = [];
+        for (var index = 0, len = this.data.length; index < len; index++) {
+            var item = this.data[index];
+            if (item.id != currentId) {
+                if (currentItemVersions.length > 1) {
+                    this.itemWithVariation[currentId] = currentItemVersions;
+                }
+                this.allItemVersions[currentId] = currentItemVersions;
+                currentId = item.id;
+                currentItemVersions = [];
+            }
+            currentItemVersions.push(item);
+        }
+        if (currentItemVersions.length > 1) {
+            this.itemWithVariation[currentId] = currentItemVersions;
+        }
+        this.allItemVersions[currentId] = currentItemVersions;
     }
     
     setItemsToExclude(itemsToExclude) {
@@ -37,7 +61,7 @@ class DataStorage {
             if (getAvailableNumber(item) > 0 && isApplicable(item) && equipable.includes(item.type)) {
                 if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
                     if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                        dualWieldSources.push(item);
+                        this.dualWieldSources.push(item);
                         alreadyAddedDualWieldSource.push(item.id);
                     }
                 } else if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
