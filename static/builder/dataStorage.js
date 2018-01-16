@@ -57,7 +57,7 @@ class DataStorage {
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
-            this.prepareItem(item, this.unitBuild.baseValues);
+            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats);
             if (getAvailableNumber(item) > 0 && isApplicable(item) && equipable.includes(item.type)) {
                 if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
                     if (!alreadyAddedDualWieldSource.includes(item.id)) {
@@ -99,10 +99,10 @@ class DataStorage {
             }
         }
         this.dataWithCondition.sort(function(entry1, entry2) {
-            if (entry1.item[itemKey] == entry2.item[itemKey]) {
+            if (entry1.item.id == entry2.item.id) {
                 return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
             } else {
-                return entry1.item[itemKey] - entry2.item[itemKey];
+                return entry1.item.id - entry2.item.id;
             }
         })
         for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
@@ -175,11 +175,11 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues) {
+    prepareItem(item, baseValues, ennemyStats) {
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
-        if (item.element && !includeAll[builds[currentUnitIndex].innateElements, item.elements]) {
+        if (item.element && !includeAll(this.unitBuild.innateElements, item.element)) {
             item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
         } else {
             item.elementType = "neutral"

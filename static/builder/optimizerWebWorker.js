@@ -29,9 +29,6 @@ onmessage = function(event) {
         case "optimize":
             optimizer.optimizeFor(
                 event.data.typeCombinations, 
-                function(numberCalculated) {
-                    postMessage({"type":"incrementCalculated","numberCalculated":numberCalculated})
-                },
                 function(build, value) {
                     postMessage({"type":"betterBuildFound","build":build,"value":value});
                 }

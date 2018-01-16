@@ -19,10 +19,9 @@ class BuildOptimizer {
         this.selectedEspers = this.selectEspers(alreadyUsedEspers, this.ennemyStats);
     }
     
-    optimizeFor(typeCombinations, incrementCalculatedCallback, betterBuildFoundCallback) {
+    optimizeFor(typeCombinations, betterBuildFoundCallback) {
         this.betterBuildFoundCallback = betterBuildFoundCallback;
         var combinationsNumber = typeCombinations.length;
-        var numberCalculated = 0;
         for (var index = 0, len = combinationsNumber; index < len; index++) {
 
             var dataWithdConditionItems = {}
@@ -41,15 +40,7 @@ class BuildOptimizer {
 
             var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills());
-            
-            numberCalculated++;
-            var percent = Math.floor(numberCalculated*100/combinationsNumber);
-            if (percent > 2) {
-                //incrementCalculatedCallback(numberCalculated);
-                numberCalculated = 0;
-            }
         }
-        //incrementCalculatedCallback(numberCalculated);
     }
     
     selectEspers(alreadyUsedEspers, ennemyStats) {

@@ -103,6 +103,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 killerMultiplicator += (cumulatedKiller / 100) / ennemyStats.races.length;
             }
 
+            // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
             
             var total = 0;
@@ -264,9 +265,9 @@ function getElementCoef(elements, ennemyStats) {
     var resistModifier = 0;
 
     if (elements.length > 0) {
-        for (var element in ennemyStats.elementResists) {
+        for (var element in ennemyStats.elementalResists) {
             if (elements.includes(element)) {
-                resistModifier += ennemyStats.elementResists[element] / 100;
+                resistModifier += ennemyStats.elementalResists[element] / 100;
             }
         }    
         resistModifier = resistModifier / elements.length;
@@ -343,4 +344,26 @@ function findBestItemVersion(build, item, itemWithVariation) {
         var item = itemVersions[0];
         return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
     }
+}
+
+function getEsperItem(esper) {
+    var item = {};
+    item.name = esper.name;
+    item.id = esper.name;
+    item.type = "esper";
+    item.hp = Math.floor(esper.hp / 100);
+    item.mp = Math.floor(esper.mp / 100);
+    item.atk = Math.floor(esper.atk / 100);
+    item.def = Math.floor(esper.def / 100);
+    item.mag = Math.floor(esper.mag / 100);
+    item.spr = Math.floor(esper.spr / 100);
+    item.access = ["story"];
+    item.maxLevel = esper.maxLevel
+    if (esper.killers) {
+        item.killers = esper.killers;
+    }
+    if (esper.resist) {
+        item.resist = esper.resist;
+    }
+    return item;
 }
