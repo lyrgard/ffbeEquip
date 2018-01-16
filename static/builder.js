@@ -92,7 +92,10 @@ var workers = [];
 var workerWorkingCount = 0;
 var processedCount = 0
 var typeCombinationsCount;
+var remainingTypeCombinations;
 var dataStorage;
+var typeCombinationChunckSizeDefault = 10;
+var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
 
 
 function build() {
@@ -256,27 +259,22 @@ function optimize() {
             "formula":builds[currentUnitIndex].formula,
             "dataByType":dataStorage.dataByType,
             "dataWithCondition":dataStorage.dataWithCondition,
-            "dualWieldSources":dataStorage.dualWieldSources
+            "dualWieldSources":dataStorage.dualWieldSources,
+            "alreadyUsedEspers":alreadyUsedEspers,
+            "ennemyStats":ennemyStats
         });
     }
     
     
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.dataByType);
-    var typeCombinations = typeCombinationGenerator.generateTypeCombinations();
+    remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
+    
+    typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
     
     processedCount = 0
-    typeCombinationsCount = typeCombinations.length;
-    typeCombinationsParts = chunkify(typeCombinations, workers.length);
-    workerWorkingCount = workers.length;
+    typeCombinationsCount = remainingTypeCombinations.length;
     for (var index = workers.length; index--; index) {
-        workers[index].postMessage({
-            "type":"optimize", 
-            "typeCombinations":typeCombinationsParts[index], 
-            "alreadyUsedItems":alreadyUsedItems, 
-            "alreadyUsedEspers":alreadyUsedEspers,
-            "ennemyStats":ennemyStats, 
-            "itemsToExclude":itemsToExclude
-        });
+        processTypeCombinations(index);
     }   
     /*var newProgress = Math.floor((index)/combinations.length*100);
     if (progress != newProgress) {
@@ -295,6 +293,25 @@ function optimize() {
     stop = false;
     running = false;
     $("#buildButton").text("Build !");*/
+}
+
+function processTypeCombinations(workerIndex) {
+    if (remainingTypeCombinations.length == 0) {
+        return;
+    }
+    var combinationsToProcess;
+    if (typeCombinationChunckSize > remainingTypeCombinations.length) {
+        combinationsToProcess = remainingTypeCombinations;
+        remainingTypeCombinations = [];
+    } else {
+        combinationsToProcess = remainingTypeCombinations.slice(0,typeCombinationChunckSize);
+        remainingTypeCombinations = remainingTypeCombinations.slice(typeCombinationChunckSize);
+    }
+    workers[workerIndex].postMessage({
+        "type":"optimize", 
+        "typeCombinations":combinationsToProcess
+    });
+    workerWorkingCount++;
 }
 
     
@@ -1650,10 +1667,10 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 3) {
-        for (var index = 0, len = navigator.hardwareConcurrency - 1; index < len; index++) {
+        for (var index = 0, len = navigator.hardwareConcurrency; index < len; index++) {
         //for (var index = 0, len = 1; index < len; index++) {
             workers.push(new Worker('builder/optimizerWebWorker.js'));
-            workers[index].postMessage({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation});
+            workers[index].postMessage({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index});
             workers[index].onmessage = function(event) {
                 switch(event.data.type) {
                     case "incrementCalculated":
@@ -1674,6 +1691,14 @@ function continueIfReady() {
                         break;
                     case "finished":
                         workerWorkingCount--;
+                        processTypeCombinations(event.data.number);
+                        processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
+                        var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
+                        if (progress != newProgress) {
+                            progress = newProgress;
+                            progressElement.width(progress + "%");
+                            progressElement.text(progress + "%");    
+                        }
                         if (workerWorkingCount == 0) {
                             progressElement.addClass("finished");
                             console.timeEnd("optimize");

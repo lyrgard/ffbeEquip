@@ -148,12 +148,12 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
-            var value = calculateBuildValueWithFormula(itemAndPassives, formula.conditions[index].value);
+            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value);
             if (value < formula.conditions[index].goal) {
                 return 0;
             }
         }
-        return calculateBuildValueWithFormula(itemAndPassives, formula.formula)
+        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula)
     }
 }
     
