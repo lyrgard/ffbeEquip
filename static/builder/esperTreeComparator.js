@@ -2,7 +2,7 @@ class EsperTreeComparator {
     
     static sort(espers, alreadyUsedEspers, involvedStats, ennemyStats) {
         var keptEsperRoot = {"parent":null,"children":[],"root":true};
-        for (var index = espers.length; index--;) {
+        for (var index = 0, len = espers.length; index < len; index++) {
             if (!alreadyUsedEspers.includes(espers[index].name)) {
                 var newTreeEsper = {"esper":espers[index],"parent":null,"children":[],"equivalents":[]};
                 TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, ennemyStats, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
