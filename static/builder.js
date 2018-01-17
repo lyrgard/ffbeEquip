@@ -1193,7 +1193,7 @@ function getStateHash() {
     }
     
     if (data.goal == "custom") {
-        data.customFormula = formulaToString(builds[currentUnitIndex].customFormula);
+        data.customFormula = formulaToString(builds[currentUnitIndex].formula);
     }
     
     data.pots = {};
