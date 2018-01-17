@@ -54,8 +54,11 @@ function calculateBuildValue(itemAndPassives) {
     return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
 }
 
-function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula) {
+function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, alreadyCalculatedValues = {}) {
     if (formula.type == "value") {
+        if (alreadyCalculatedValues[formula.name]) {
+            return alreadyCalculatedValues[formula.name];
+        }
         if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name) {
             var cumulatedKiller = 0;
             var applicableKillerType = null;
@@ -129,32 +132,35 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / ennemyStats.spr;
                 }
             }
-            return total / goalValuesCaract[formula.name].statsToMaximize.length;
+            var value = total / goalValuesCaract[formula.name].statsToMaximize.length;
+            alreadyCalculatedValues[formula.name] = value;
+            return value;
         } else {
             var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
             if (formula.name == "mpRefresh") {
                 value /= 100;
             }
+            alreadyCalculatedValues[formula.name] = value;
             return value;
         }   
     } else if (formula.type == "constant") {
         return formula.value;
     } else if (formula.type == "*") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
     } else if (formula.type == "+") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
     } else if (formula.type == "/") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
     } else if (formula.type == "-") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
-            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value);
+            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value, alreadyCalculatedValues);
             if (value < formula.conditions[index].goal) {
                 return 0;
             }
         }
-        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula)
+        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, alreadyCalculatedValues)
     }
 }
     

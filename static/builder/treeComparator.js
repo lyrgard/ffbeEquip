@@ -214,25 +214,25 @@ class TreeComparator {
                         if(item2.element.includes(desirableElements[index])) {
                             desirableElementsFromItem2.push(desirableElements[index]);
                         }
-                        if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                            if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                                return "equivalent";
-                            } else {
-                                return "strictlyWorse";
-                            }
+                    }
+                    if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                        if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                            return "equivalent";
                         } else {
-                            if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                                return "strictlyBetter";
-                            } else {
-                                return "sameLevel";
-                            }
+                            return "strictlyWorse";
+                        }
+                    } else {
+                        if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                            return "strictlyBetter";
+                        } else {
+                            return "sameLevel";
                         }
                     }
                 } else {
                     return "strictlyWorse";
                 }    
             } else {
-                if (item1.element && TreeComparator.matches(desirableElements, item1.element)) {
+                if (item2.element && TreeComparator.matches(desirableElements, item2.element)) {
                     return "strictlyBetter";
                 } else {
                     return "equivalent";
