@@ -45,13 +45,13 @@ function showAlphabeticalSort() {
     });
 }
 
-function showRaritySort() {
+function showRaritySort(only5Star = false) {
     beforeShow();
     currentSort = showRaritySort;
     $("#searchBox").removeClass("hidden");
     $(".nav-tabs li.raritySort").addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(units))));
+    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(units)), only5Star));
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -123,15 +123,20 @@ var displayUnits = function(units, useTmrName = false) {
 
 };
 
-function displayUnitsByRarity(units) {
+function displayUnitsByRarity(units, only5Star = false) {
     var lastMinRarity, lastMaxRarity;
     var first = true;
     
     var html = '';
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
+        if (only5Star && unit.min_rarity < 5) {
+            continue;
+        }
         if (first) {
-            html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>"; 
+            if (!only5Star) {
+                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>"; 
+            }
             html += '<div class="unitList">';
             first = false;
         } else {
@@ -390,13 +395,17 @@ function prepareData() {
     }
 }
 
-function exportAsImage() {
+function exportAsImage(only5Star = false) {
     $("#loaderGlassPanel").removeClass("hidden");
     var savedSort = currentSort;
     onlyShowOwnedUnits = true;
     showNumberTMRFarmed = true;
-    showRaritySort();
-    $("#results").addClass("hachForImage");
+    showRaritySort(only5Star);
+    if (only5Star) {
+        $("#results").addClass("hackForImage5");
+    } else {
+        $("#results").addClass("hackForImage");
+    }
     setTimeout(function() {
         html2canvas($("#results")[0]).then(function(canvas) {
             canvas.toBlob(function (blob) {
@@ -404,7 +413,9 @@ function exportAsImage() {
                 onlyShowOwnedUnits = false;
                 showNumberTMRFarmed = false;
                 savedSort();
-                $("#results").removeClass("hachForImage");
+                $("#results").removeClass("hackForImage");
+                $("#results").removeClass("hackForImage5");
+                
                 $("#loaderGlassPanel").addClass("hidden");
             });
         });
