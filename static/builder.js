@@ -904,7 +904,7 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
-        if (!isApplicable(item)) {
+        if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
         }
@@ -978,7 +978,7 @@ function fixItem(key, slotParam = -1) {
     } else if (espersByName[key])  {
         item = espersByName[key];
     } else {
-        item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation);
+        item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
     }
     
     if (item) {
@@ -1020,7 +1020,7 @@ function fixItem(key, slotParam = -1) {
                 if (index != slot) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
-                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation);
+                        var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
@@ -1044,7 +1044,7 @@ function removeFixedItemAt(slot) {
             if (!equip.includes(item.type)) {
                 removeFixedItemAt(index);
             } else {
-                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item, dataStorage.itemWithVariation);
+                builds[currentUnitIndex].fixedItems[index] = findBestItemVersion(builds[currentUnitIndex].fixedItems, item, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
             }
         }
     }
@@ -1061,7 +1061,7 @@ function removeItemAt(slot) {
             if (!builds[currentUnitIndex].equipable[index].includes(item.type)) {
                 removeItemAt(index);
             } else {
-                builds[currentUnitIndex].build[index] = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation);
+                builds[currentUnitIndex].build[index] = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
                 if (builds[currentUnitIndex].fixedItems[index]) {
                     builds[currentUnitIndex].fixedItems[index] = builds[currentUnitIndex].build[index];
                 }
