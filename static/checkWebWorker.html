@@ -1,0 +1,13 @@
+<html>
+    <head></head>
+    <body>
+        <h2 id="result"></h2>
+        <script>
+            if (typeof(Worker) !== "undefined") {
+                document.getElementById("result").innerHTML = "OK, Web workers work on your browser";
+            } else {
+                document.getElementById("result").innerHTML = "KO, Web workers DO NOT work on your browser";
+            } 
+        </script>
+    </body>
+</html>
