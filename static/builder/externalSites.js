@@ -12,12 +12,12 @@ class Piramidata {
             "&potspr=" + unitBuild.baseValues.spr.pots;
         if (unitBuild.build[10]) {
             link += "&espername=" + encodeURIComponent(Piramidata.getEsperName(unitBuild)) + 
-                "&esperhp=" + unitBuild.build[10].hp + 
-                "&espermp=" + unitBuild.build[10].mp +
-                "&esperatk=" + unitBuild.build[10].atk +
-                "&esperdef=" + unitBuild.build[10].def +
-                "&espermag=" + unitBuild.build[10].mag +
-                "&esperspr=" + unitBuild.build[10].spr;
+                "&esperhp=" + unitBuild.build[10].hp * 100 + 
+                "&espermp=" + unitBuild.build[10].mp  * 100+
+                "&esperatk=" + unitBuild.build[10].atk  * 100+
+                "&esperdef=" + unitBuild.build[10].def  * 100+
+                "&espermag=" + unitBuild.build[10].mag  * 100+
+                "&esperspr=" + unitBuild.build[10].spr * 100;
         }
         link += "&rhand=" + Piramidata.getItemId(unitBuild, 0) +
             "&lhand=" + Piramidata.getItemId(unitBuild, 1) +
