@@ -124,7 +124,7 @@ function optimize() {
     dataStorage.itemsToExclude = itemsToExclude;
     dataStorage.prepareData(itemsToExclude, ennemyStats);
     for (var index = workers.length; index--; index) {
-        workers[index].postMessage({
+        workers[index].postMessage(JSON.stringify({
             "type":"setData", 
             "unit":builds[currentUnitIndex].unit, 
             "fixedItems":builds[currentUnitIndex].fixedItems, 
@@ -135,7 +135,7 @@ function optimize() {
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":alreadyUsedEspers,
             "ennemyStats":ennemyStats
-        });
+        }));
     }
     
     
@@ -163,10 +163,10 @@ function processTypeCombinations(workerIndex) {
         combinationsToProcess = remainingTypeCombinations.slice(0,typeCombinationChunckSize);
         remainingTypeCombinations = remainingTypeCombinations.slice(typeCombinationChunckSize);
     }
-    workers[workerIndex].postMessage({
+    workers[workerIndex].postMessage(JSON.stringify({
         "type":"optimize", 
         "typeCombinations":combinationsToProcess
-    });
+    }));
     workerWorkingCount++;
 }
 
@@ -1581,20 +1581,21 @@ function continueIfReady() {
         for (var index = 0, len = navigator.hardwareConcurrency; index < len; index++) {
         //for (var index = 0, len = 1; index < len; index++) {
             workers.push(new Worker('builder/optimizerWebWorker.js'));
-            workers[index].postMessage({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index});
+            workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
             workers[index].onmessage = function(event) {
-                switch(event.data.type) {
+                var messageData = JSON.parse(event.data);
+                switch(messageData.type) {
                     case "betterBuildFound":
-                        if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < event.data.value) {
-                            builds[currentUnitIndex].build = event.data.build;
-                            builds[currentUnitIndex].buildValue = event.data.value;
+                        if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < messageData.value) {
+                            builds[currentUnitIndex].build = messageData.build;
+                            builds[currentUnitIndex].buildValue = messageData.value;
                             logCurrentBuild();
                         }
                         break;
                     case "finished":
                         workerWorkingCount--;
                         if (!stop) {
-                            processTypeCombinations(event.data.number);
+                            processTypeCombinations(messageData.number);
                         }
                         processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
                         var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
