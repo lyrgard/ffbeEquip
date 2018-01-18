@@ -54,29 +54,29 @@ class UnitBuild {
     }
     
     prepareEquipable() {
-        var equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
+        this.equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
         if (this.unit) {
             var equip = this.getCurrentUnitEquip();
             for (var equipIndex = 0, len = equip.length; equipIndex < len; equipIndex++) {
                 if (weaponList.includes(equip[equipIndex])) {
-                    equipable[0].push(equip[equipIndex]);
+                    this.equipable[0].push(equip[equipIndex]);
                 } else if (shieldList.includes(equip[equipIndex])) {
-                    equipable[1].push(equip[equipIndex]);
+                    this.equipable[1].push(equip[equipIndex]);
                 } else if (headList.includes(equip[equipIndex])) {
-                    equipable[2].push(equip[equipIndex]);
+                    this.equipable[2].push(equip[equipIndex]);
                 } else if (bodyList.includes(equip[equipIndex])) {
-                    equipable[3].push(equip[equipIndex]);
+                    this.equipable[3].push(equip[equipIndex]);
                 } 
             }
             if (this.hasDualWield()) {
-                equipable[1] = equipable[1].concat(equipable[0]);
+                this.equipable[1] = this.equipable[0].concat(this.equipable[1]);
             }
             var partialDualWield = this.getPartialDualWield() || [];
             if (partialDualWield.length > 0 && this.build[0] && partialDualWield.includes(this.build[0].type)) {
-                equipable[1] = equipable[1].concat(partialDualWield);
+                this.equipable[1] = partialDualWield.concat(this.equipable[1]);
             }
         }
-        return equipable;
+        return this.equipable;
     }
     
     getCurrentUnitEquip() {
@@ -186,7 +186,7 @@ class UnitBuild {
     emptyBuild() {
         this.build = this.fixedItems.slice();
         this.buildValue = 0;
-        this.equipable = this.prepareEquipable();
+        this.prepareEquipable();
     }
     
     get formula() {
@@ -202,6 +202,6 @@ class UnitBuild {
 
     setUnit(unit) {
         this.unit = unit;
-        this.equipable = this.prepareEquipable();
+        this.prepareEquipable();
     }
 }
