@@ -81,7 +81,7 @@ var skillNotIdentifiedNumber = 0;
 
 
 console.log("Starting");
-if (!fs.existsSync('../../static/GL/data.json')) {
+if (!fs.existsSync('../static/GL/data.json')) {
     console.log("old data not accessible");
     return;
 }
@@ -115,7 +115,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                 
                                 
                                 
-                                fs.readFile('../../static/GL/data.json', function (err, content) {
+                                fs.readFile('../static/GL/data.json', function (err, content) {
                                     var oldItems = JSON.parse(content);
                                     for (var index in oldItems) {
                                         oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
@@ -125,7 +125,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                         }
                                     }
                                     
-                                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
+                                    fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
                                         releasedUnits = JSON.parse(content);
                                     
                                         var result = {"items":[]};

@@ -754,8 +754,9 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Defense Order","Zoldaad Guard","Hell Shaft"],
 		"skills": [
-			{"hp%":30, "atk%":20, "def%":20, "resist":[{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50}]},
+			{"hp%":50, "atk%":20, "def%":20, "resist":[{"name":"fire","percent":70}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50}]},
 			{"atk%":30, "def%":30, "equipedConditions":["heavyArmor"]}
 		]
 	},
@@ -798,8 +799,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Recovery Oil","Analysis","Piledriver"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":60, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "mpRefresh":5}
+			{"hp%":40, "mp%":20, "atk%":60, "killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
 	"Ulrica": {
@@ -933,9 +936,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Spear Mastery","Aggravate","Vortex","Sonic Blast"],
 		"skills": [
 			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"atk%":100, "equipedConditions":["spear"]}
 		]
 	},
 	"Victoria": {
@@ -948,10 +952,11 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Seductive Witch","Overflow","Meteor"],
 		"skills": [
-			{"mp%":30, "mag%":30, "mpRefresh":5},
-			{"mag%":20, "equipedConditions":["hat"]},
-			{"mag%":20, "equipedConditions":["robe"]}
+			{"mp%":50, "mag%":30, "mpRefresh":5},
+			{"mag%":30, "equipedConditions":["hat"]},
+			{"mag%":30, "equipedConditions":["robe"]}
 		]
 	},
 	"Amelia": {
@@ -964,9 +969,12 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["Two-handed","Killer Bullet","Disorder"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":20, "partialDualWield":["gun"]},
-			{"atk%":20, "def%":20, "equipedConditions":["gun"]}
+			{"hp%":20, "atk%":20, "def%":20, "partialDualWield":["gun","fist"]},
+			{"atk%":20, "def%":20, "equipedConditions":["gun"]},
+			{"atk%":20, "equipedConditions":["gun"]},
+			{"atk%":20, "equipedConditions":["fist"]}
 		]
 	},
 	"Beach Time Fina": {
@@ -1023,8 +1031,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Noble Elf","Lightning Shield","Thunder Clap"],
 		"skills": [
-			{"hp%":20, "atk%":30, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100}]}
+			{"hp%":20, "atk%":30, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100}]},
+			{"atk%":30, "equipedConditions":["sword"]}
 		]
 	},
 	"Lunera": {
@@ -1156,9 +1166,11 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","katana","bow","hammer","spear","harp","whip","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["Best Shot","Endless Dream","Ace Adventurer"],
 		"skills": [
 			{"hp%":10, "mp%":10, "atk%":20, "def%":10, "spr%":10, "evade":{"physical":20}, "partialDualWield":["dagger","whip","throwing","gun"]},
-			{"def%":100, "equipedConditions":[null]}
+			{"def%":100, "equipedConditions":[null]},
+			{"atk%":40, "equipedConditions":["gun"]}
 		]
 	},
 	"Ayaka": {
@@ -1631,6 +1643,32 @@
 			{"mag%":50, "equipedConditions":["whip"]}
 		]
 	},
+	"Heavenly Technician Lid": {
+		"id":"100011906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3498,"mp":170,"atk":136,"def":128,"mag":135,"spr":127},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","bow","axe","hammer","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+		]
+	},
+	"Gunner Jake": {
+		"id":"100012006",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3586,"mp":181,"atk":156,"def":130,"mag":113,"spr":123},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
+		"skills": [
+		]
+	},
 	"Blossom Sage Sakura": {
 		"id":"100012406",
 		"max_rarity":"6",
@@ -1644,6 +1682,19 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]}
+		]
+	},
+	"Maritime Strategist Nichol": {
+		"id":"100012506",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3381,"mp":209,"atk":109,"def":121,"mag":150,"spr":138},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"skills": [
 		]
 	},
 	"Kunshira": {
@@ -2002,7 +2053,7 @@
 		},
 		"equip":["staff","harp","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":100}]}
+			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":50},{"name":"water","percent":50}]}
 		]
 	},
 	"Sara": {
@@ -2031,7 +2082,7 @@
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":130}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":30},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Dark Knight Cecil": {
@@ -2046,7 +2097,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dark Cannon","Shikkoku","Soul Eater"],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":125}], "mpRefresh":5}
+			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":50}], "mpRefresh":5}
 		]
 	},
 	"Kain": {
@@ -2868,6 +2919,22 @@
 			{"spr%":10}
 		]
 	},
+	"Basch": {
+		"id":"212000906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3745,"mp":162,"atk":132,"def":151,"mag":108,"spr":140},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":40, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
+			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
+			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]}
+		]
+	},
 	"Rasler": {
 		"id":"212001006",
 		"max_rarity":"6",
@@ -2879,9 +2946,71 @@
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":100},{"name":"blind","percent":100}]},
+			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100}]},
 			{"def%":50, "equipedConditions":["heavyArmor"]},
 			{"atk%":50, "equipedConditions":["sword"]}
+		]
+	},
+	"Gabranth": {
+		"id":"212001106",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3872,"mp":149,"atk":147,"def":151,"mag":103,"spr":145},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"atk%":40, "equipedConditions":["greatSword"]},
+			{"def%":20, "spr%":20, "equipedConditions":["dagger"]},
+			{"hp%":20, "equipedConditions":["heavyArmor"]},
+			{"atk%":30, "def%":30, "equipedConditions":["sword"]}
+		]
+	},
+	"Vayne": {
+		"id":"212001206",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3610,"mp":160,"atk":134,"def":120,"mag":129,"spr":117},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "atk%":20, "mag%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":20}]},
+			{"hp%":15, "mp%":15, "equipedConditions":["fist"]}
+		]
+	},
+	"Larsa": {
+		"id":"212001305",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2488,"mp":125,"atk":109,"def":112,"mag":108,"spr":130},
+			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes","robe"],
+		"skills": [
+			{"mp%":20, "mag%":20}
+		]
+	},
+	"Drace": {
+		"id":"212001406",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3587,"mp":178,"atk":129,"def":134,"mag":145,"spr":120},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","staff","rod","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":10, "mp%":10, "mag%":20},
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
 	"Lightning": {
@@ -3212,6 +3341,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rime"],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "mpRefresh":5}
 		]
@@ -3648,7 +3778,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":50},{"name":"fire","percent":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -3663,7 +3793,7 @@
 		},
 		"equip":["spear","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
+			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":50},{"name":"light","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Elza": {
@@ -3713,7 +3843,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer’s Resolve","Divine Grace"],
+		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer's Resolve","Divine Grace"],
 		"skills": [
 			{"hp%":50, "spr%":100, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":25}], "mpRefresh":5}
 		]
