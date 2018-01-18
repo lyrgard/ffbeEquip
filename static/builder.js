@@ -129,6 +129,7 @@ function optimize() {
             "unit":builds[currentUnitIndex].unit, 
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
+            "innateElements":builds[currentUnitIndex].innateElements,
             "formula":builds[currentUnitIndex].formula,
             "dataByType":dataStorage.dataByType,
             "dataWithCondition":dataStorage.dataWithCondition,

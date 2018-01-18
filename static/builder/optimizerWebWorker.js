@@ -19,6 +19,7 @@ onmessage = function(event) {
             break;
         case "setData":
             var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
+            unitBuild.innateElements = messageData.innateElements,
             unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
             optimizer.dataByType = messageData.dataByType;
@@ -26,6 +27,7 @@ onmessage = function(event) {
             optimizer.dualWieldSources = messageData.dualWieldSources;
             optimizer.ennemyStats = messageData.ennemyStats;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
+            console.log(unitBuild)
             break;
         case "optimize":
             optimizer.optimizeFor(
