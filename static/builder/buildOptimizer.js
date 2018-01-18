@@ -218,7 +218,7 @@ class BuildOptimizer {
         if (index == 9) {
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
                 if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
-                    build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions);
+                    build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions, this._unitBuild.unit);
                 }
             }
             if (fixedItems[10]) {

@@ -281,11 +281,11 @@ function getElementCoef(elements, ennemyStats) {
     return resistModifier;
 }
 
-function isApplicable(item) {
-    if (item.exclusiveSex && item.exclusiveSex != builds[currentUnitIndex].unit.sex) {
+function isApplicable(item, unit) {
+    if (item.exclusiveSex && item.exclusiveSex != unit.sex) {
         return false;
     }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(builds[currentUnitIndex].unit.name)) {
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.name)) {
         return false;
     }
     return true;
@@ -316,10 +316,10 @@ function areConditionOK(item, equiped) {
     return true;
 }
 
-function findBestItemVersion(build, item, itemWithVariation) {
+function findBestItemVersion(build, item, itemWithVariation, unit) {
     var itemVersions = itemWithVariation[item.id];
     if (!itemVersions) {
-        if (isApplicable(item) && (!item.equipedConditions || areConditionOK(item, build))) {
+        if (isApplicable(item, unit) && (!item.equipedConditions || areConditionOK(item, build))) {
             return item;    
         } else {
             return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
@@ -343,7 +343,7 @@ function findBestItemVersion(build, item, itemWithVariation) {
             return conditionNumber2 - conditionNumber1;
         });
         for (var index in itemVersions) {
-            if (isApplicable(itemVersions[index]) && areConditionOK(itemVersions[index], build)) {
+            if (isApplicable(itemVersions[index], unit) && areConditionOK(itemVersions[index], build)) {
                 return itemVersions[index];
             }
         }
