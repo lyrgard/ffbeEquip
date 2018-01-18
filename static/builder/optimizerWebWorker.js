@@ -11,29 +11,30 @@ var optimizer = null;
 var number;
 
 onmessage = function(event) {
-    switch(event.data.type) {
+    var messageData = JSON.parse(event.data);
+    switch(messageData.type) {
         case "init":
-            optimizer = new BuildOptimizer(event.data.espers, event.data.allItemVersions);
-            number = event.data.number;
+            optimizer = new BuildOptimizer(messageData.espers, messageData.allItemVersions);
+            number = messageData.number;
             break;
         case "setData":
-            var unitBuild = new UnitBuild(event.data.unit, event.data.fixedItems, event.data.baseValues);
-            unitBuild.formula = event.data.formula;
+            var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
+            unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
-            optimizer.dataByType = event.data.dataByType;
-            optimizer.dataWithCondition = event.data.dataWithCondition;
-            optimizer.dualWieldSources = event.data.dualWieldSources;
-            optimizer.ennemyStats = event.data.ennemyStats;
-            optimizer.alreadyUsedEspers = event.data.alreadyUsedEspers;
+            optimizer.dataByType = messageData.dataByType;
+            optimizer.dataWithCondition = messageData.dataWithCondition;
+            optimizer.dualWieldSources = messageData.dualWieldSources;
+            optimizer.ennemyStats = messageData.ennemyStats;
+            optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             break;
         case "optimize":
             optimizer.optimizeFor(
-                event.data.typeCombinations, 
+                messageData.typeCombinations, 
                 function(build, value) {
-                    postMessage({"type":"betterBuildFound","build":build,"value":value});
+                    postMessage(JSON.stringify({"type":"betterBuildFound","build":build,"value":value}));
                 }
             );
-            postMessage({"type":"finished", "number":number});
+            postMessage(JSON.stringify({"type":"finished", "number":number}));
             break;
     }
 }
