@@ -407,13 +407,13 @@
 		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"Miyuki": {
-		"id":"100003805",
-		"max_rarity":"5",
+		"id":"100003806",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2185,"mp":118,"atk":100,"def":80,"mag":100,"spr":83},
-			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":2928,"mp":159,"atk":134,"def":108,"mag":134,"spr":112},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","katana","throwing","hat","clothes"]
 	},
@@ -598,7 +598,8 @@
 			"maxStats":{"hp":3851,"mp":141,"atk":150,"def":131,"mag":112,"spr":109},
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Defense Order","Zoldaad Guard","Hell Shaft"]
 	},
 	"Heltich": {
 		"id":"100005705",
@@ -632,7 +633,8 @@
 			"maxStats":{"hp":3698,"mp":149,"atk":155,"def":120,"mag":122,"spr":119},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Recovery Oil","Analysis","Piledriver"]
 	},
 	"Ulrica": {
 		"id":"100006005",
@@ -734,7 +736,8 @@
 			"maxStats":{"hp":3645,"mp":155,"atk":145,"def":133,"mag":115,"spr":122},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Spear Mastery","Aggravate","Vortex","Sonic Blast"]
 	},
 	"Victoria": {
 		"id":"100006906",
@@ -745,7 +748,8 @@
 			"maxStats":{"hp":3220,"mp":180,"atk":112,"def":118,"mag":146,"spr":126},
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
-		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Seductive Witch","Overflow","Meteor"]
 	},
 	"Amelia": {
 		"id":"100007006",
@@ -756,7 +760,8 @@
 			"maxStats":{"hp":3520,"mp":148,"atk":134,"def":125,"mag":122,"spr":125},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes"]
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["Two-handed","Killer Bullet","Disorder"]
 	},
 	"Beach Time Fina": {
 		"id":"100007106",
@@ -802,7 +807,8 @@
 			"maxStats":{"hp":3623,"mp":160,"atk":150,"def":128,"mag":117,"spr":130},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","greatSword","spear","fist","hat","helm","clothes","lightArmor","robe"]
+		"equip":["dagger","sword","greatSword","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Noble Elf","Lightning Shield","Thunder Clap"]
 	},
 	"Lunera": {
 		"id":"100007506",
@@ -901,7 +907,8 @@
 			"maxStats":{"hp":3544,"mp":154,"atk":140,"def":130,"mag":118,"spr":124},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","sword","katana","bow","hammer","spear","harp","whip","throwing","gun","fist","lightShield","hat","clothes","lightArmor"]
+		"equip":["dagger","sword","katana","bow","hammer","spear","harp","whip","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["Best Shot","Endless Dream","Ace Adventurer"]
 	},
 	"Ayaka": {
 		"id":"100008606",
@@ -1233,7 +1240,7 @@
 		},
 		"equip":["dagger","katana","throwing","hat","clothes","robe"]
 	},
-	"Ice Knight Lasswell": {
+	"Pyro Glacial Lasswell": {
 		"id":"100011706",
 		"max_rarity":"6",
 		"min_rarity":"5",
@@ -1255,6 +1262,28 @@
 		},
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"]
 	},
+	"Heavenly Technician Lid": {
+		"id":"100011906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3498,"mp":170,"atk":136,"def":128,"mag":135,"spr":127},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","bow","axe","hammer","gun","mace","fist","lightShield","hat","clothes","lightArmor"]
+	},
+	"Gunner Jake": {
+		"id":"100012006",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3586,"mp":181,"atk":156,"def":130,"mag":113,"spr":123},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"]
+	},
 	"Blossom Sage Sakura": {
 		"id":"100012406",
 		"max_rarity":"6",
@@ -1265,6 +1294,17 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"]
+	},
+	"Maritime Strategist Nichol": {
+		"id":"100012506",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3381,"mp":209,"atk":109,"def":121,"mag":150,"spr":138},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"]
 	},
 	"Kunshira": {
 		"id":"100012606",
@@ -2200,6 +2240,17 @@
 		},
 		"equip":["staff","mace","hat","clothes","robe"]
 	},
+	"Basch": {
+		"id":"212000906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3745,"mp":162,"atk":132,"def":151,"mag":108,"spr":140},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+	},
 	"Rasler": {
 		"id":"212001006",
 		"max_rarity":"6",
@@ -2210,6 +2261,50 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+	},
+	"Gabranth": {
+		"id":"212001106",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3872,"mp":149,"atk":147,"def":151,"mag":103,"spr":145},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+	},
+	"Vayne": {
+		"id":"212001206",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3610,"mp":160,"atk":134,"def":120,"mag":129,"spr":117},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"]
+	},
+	"Larsa": {
+		"id":"212001305",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2488,"mp":125,"atk":109,"def":112,"mag":108,"spr":130},
+			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","sword","staff","rod","harp","whip","hat","clothes","robe"]
+	},
+	"Drace": {
+		"id":"212001406",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3587,"mp":178,"atk":129,"def":134,"mag":145,"spr":120},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","staff","rod","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 	},
 	"Lightning": {
 		"id":"213000106",
@@ -2455,7 +2550,8 @@
 			"maxStats":{"hp":3538,"mp":156,"atk":140,"def":130,"mag":122,"spr":119},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rime"]
 	},
 	"Mercenary Ramza": {
 		"id":"253000116",
@@ -2836,7 +2932,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer’s Resolve","Divine Grace"]
+		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer's Resolve","Divine Grace"]
 	},
 	"Yun": {
 		"id":"302000906",
@@ -3318,5 +3414,49 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["bow","harp","throwing","gun","hat","clothes","lightArmor"]
+	},
+	"Ray Jack": {
+		"id":"401002906",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3594,"mp":160,"atk":159,"def":130,"mag":116,"spr":124},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+	},
+	"Barusa": {
+		"id":"401003006",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3600,"mp":130,"atk":125,"def":148,"mag":105,"spr":130},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["dagger","fist","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+	},
+	"Kaliva": {
+		"id":"401003106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3195,"mp":176,"atk":109,"def":113,"mag":143,"spr":126},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["staff","rod","hat","clothes","robe"]
+	},
+	"Toby": {
+		"id":"401003205",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2527,"mp":116,"atk":120,"def":95,"mag":90,"spr":92},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"]
 	}
 }
