@@ -564,11 +564,8 @@ function getNumberOfItemAlreadyUsedInThisBuild(build, index, item) {
     var number = 0;
     for (var previousItemIndex = 0; previousItemIndex < 10; previousItemIndex++) {
         if (build[previousItemIndex] && build[previousItemIndex].id && build[previousItemIndex].id == item.id) {
-            if (previousItemIndex <= index) {
+            if (previousItemIndex < index) {
                 number++;
-            }
-            if (builds[currentUnitIndex].fixedItems[index]) {
-                number--;
             }
         }
         
