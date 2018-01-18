@@ -455,12 +455,12 @@ function prepareLastItemReleases() {
 }
 
 function exportAsCsv() {
-    var csv = "Item Id;Item Name;Item type;Number Owned;TMR of;\n";
+    var csv = "Item Id;Item Name;Item type;Number Owned;TMR of;Access\n";
     var sortedItems = sort(equipments).concat(sort(materia));
     for (var index = 0, len = sortedItems.length; index < len; index++) {
         var item = sortedItems[index];
         if (itemInventory[item[itemKey]]) {
-            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? item.tmrUnit : "") + "\"\n";
+            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? item.tmrUnit : "") + "\";\"" + item.access.join(", ") + "\"\n";
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
