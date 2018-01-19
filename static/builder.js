@@ -1611,6 +1611,9 @@ function continueIfReady() {
                             if (stop) {
                                 alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
                             }
+                            if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
+                                alert("The condition set in the goal are impossible to meet.");
+                            }
                             stop = false;
                             running = false;
                             $("#buildButton").text("Build !");
