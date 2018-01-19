@@ -27,7 +27,6 @@ onmessage = function(event) {
             optimizer.dualWieldSources = messageData.dualWieldSources;
             optimizer.ennemyStats = messageData.ennemyStats;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
-            console.log(unitBuild)
             break;
         case "optimize":
             optimizer.optimizeFor(
