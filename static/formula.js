@@ -110,7 +110,10 @@ function parseConditions(formula, pos) {
     }
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
-        return [parseCondition(formula, pos)];
+        var condition = parseCondition(formula, pos);
+        if (condition) {
+            return [condition];
+        }
     } else {
         var firstCondition = parseCondition(formula.substr(0,separatorIndex), 0);
         var otherConditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1);

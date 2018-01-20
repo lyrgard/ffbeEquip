@@ -60,6 +60,7 @@
                         <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share unit collection<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a class="link" onclick="exportAsImage();"><span class="glyphicon glyphicon-camera"></span> Export as image</a></li>
+                            <li><a class="link" onclick="exportAsImage(true);"><span class="glyphicon glyphicon-camera"></span> Export only 5* as image</a></li>
                             <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-list"></span> Export as CSV</a></li>
                             <li><a class="link" onclick="exportAsText()"><span class="glyphicon glyphicon-list"></span> Export as simple text</a></li>
                         </ul>
@@ -97,6 +98,7 @@
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/FileSaver.min.js"></script>
         <script src="lib/html2canvas.min.js"></script>
+        <script src="constants.js"></script>
         <script src="common.js?version=8"></script>
 		<script src="units.js?version=8"></script>
         <script src="googleAnalytics.js"></script>
