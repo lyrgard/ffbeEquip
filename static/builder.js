@@ -1579,54 +1579,64 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 3) {
-        for (var index = 0, len = navigator.hardwareConcurrency; index < len; index++) {
-        //for (var index = 0, len = 1; index < len; index++) {
-            workers.push(new Worker('builder/optimizerWebWorker.js'));
-            workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
-            workers[index].onmessage = function(event) {
-                var messageData = JSON.parse(event.data);
-                switch(messageData.type) {
-                    case "betterBuildFound":
-                        if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < messageData.value) {
-                            builds[currentUnitIndex].build = messageData.build;
-                            builds[currentUnitIndex].buildValue = messageData.value;
-                            logCurrentBuild();
-                        }
-                        break;
-                    case "finished":
-                        workerWorkingCount--;
-                        if (!stop) {
-                            processTypeCombinations(messageData.number);
-                        }
-                        processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
-                        var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
-                        if (progress != newProgress) {
-                            progress = newProgress;
-                            progressElement.width(progress + "%");
-                            progressElement.text(progress + "%");    
-                        }
-                        if (workerWorkingCount == 0) {
-                            progressElement.addClass("finished");
-                            console.timeEnd("optimize");
-                            if (stop) {
-                                alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
-                            }
-                            if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
-                                alert("The condition set in the goal are impossible to meet.");
-                            }
-                            stop = false;
-                            running = false;
-                            $("#buildButton").text("Build !");
-                        }
-                        break;
-                }
-            }
+        if (navigator.hardwareConcurrency) {
+            initWorkers(navigator.hardwareConcurrency);
+        } else {
+            console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
+            initWorkers(4);
         }
+        
+        
         var hashData = readStateHashData();
         if (hashData) {
             loadStateHashAndBuild(hashData);
         } else {
             reinitBuild(currentUnitIndex);
+        }
+    }
+}
+
+function initWorkers(numberOfWorkers) {
+    for (var index = 0, len = numberOfWorkers; index < len; index++) {
+        workers.push(new Worker('builder/optimizerWebWorker.js'));
+        workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
+        workers[index].onmessage = function(event) {
+            var messageData = JSON.parse(event.data);
+            switch(messageData.type) {
+                case "betterBuildFound":
+                    if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < messageData.value) {
+                        builds[currentUnitIndex].build = messageData.build;
+                        builds[currentUnitIndex].buildValue = messageData.value;
+                        logCurrentBuild();
+                    }
+                    break;
+                case "finished":
+                    workerWorkingCount--;
+                    if (!stop) {
+                        processTypeCombinations(messageData.number);
+                    }
+                    processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
+                    var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
+                    if (progress != newProgress) {
+                        progress = newProgress;
+                        progressElement.width(progress + "%");
+                        progressElement.text(progress + "%");    
+                    }
+                    if (workerWorkingCount == 0) {
+                        progressElement.addClass("finished");
+                        console.timeEnd("optimize");
+                        if (stop) {
+                            alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
+                        }
+                        if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
+                            alert("The condition set in the goal are impossible to meet.");
+                        }
+                        stop = false;
+                        running = false;
+                        $("#buildButton").text("Build !");
+                    }
+                    break;
+            }
         }
     }
 }
