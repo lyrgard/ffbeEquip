@@ -509,16 +509,17 @@
 		]
 	},
 	"Miyuki": {
-		"id":"100003805",
-		"max_rarity":"5",
+		"id":"100003806",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2185,"mp":118,"atk":100,"def":80,"mag":100,"spr":83},
-			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":2928,"mp":159,"atk":134,"def":108,"mag":134,"spr":112},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","katana","throwing","hat","clothes"],
 		"skills": [
+			{"hp%":30, "atk%":30, "mag%":20, "evade":{"physical":20}, "partialDualWield":["dagger","katana","throwing"], "killers":[{"name":"human","physical":50}]}
 		]
 	},
 	"Gilbert": {
@@ -1595,7 +1596,7 @@
 			{"hp%":10, "mp%":20, "evade":{"physical":10}, "resist":[{"name":"poison","percent":100}]}
 		]
 	},
-	"Ice Knight Lasswell": {
+	"Pyro Glacial Lasswell": {
 		"id":"100011706",
 		"max_rarity":"6",
 		"min_rarity":"5",
@@ -2001,7 +2002,7 @@
 		},
 		"equip":["staff","harp","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":50},{"name":"water","percent":50}]}
+			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":100}]}
 		]
 	},
 	"Sara": {
@@ -2030,7 +2031,7 @@
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":30},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":130}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Dark Knight Cecil": {
@@ -2045,7 +2046,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dark Cannon","Shikkoku","Soul Eater"],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":125}], "mpRefresh":5}
 		]
 	},
 	"Kain": {
@@ -2878,7 +2879,7 @@
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100}]},
+			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":100},{"name":"blind","percent":100}]},
 			{"def%":50, "equipedConditions":["heavyArmor"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
@@ -3647,7 +3648,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":50},{"name":"fire","percent":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -3662,7 +3663,7 @@
 		},
 		"equip":["spear","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":50},{"name":"light","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
+			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Elza": {

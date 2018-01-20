@@ -81,7 +81,7 @@ var skillNotIdentifiedNumber = 0;
 
 
 console.log("Starting");
-if (!fs.existsSync('../static/GL/data.json')) {
+if (!fs.existsSync('../../static/GL/data.json')) {
     console.log("old data not accessible");
     return;
 }
@@ -115,7 +115,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                 
                                 
                                 
-                                fs.readFile('../static/GL/data.json', function (err, content) {
+                                fs.readFile('../../static/GL/data.json', function (err, content) {
                                     var oldItems = JSON.parse(content);
                                     for (var index in oldItems) {
                                         oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
@@ -125,7 +125,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                         }
                                     }
                                     
-                                    fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
+                                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
                                         releasedUnits = JSON.parse(content);
                                     
                                         var result = {"items":[]};
@@ -172,7 +172,7 @@ function treatItem(items, itemId, result, skills) {
     if (itemIn.is_twohanded) {
         addSpecial(itemOut,"twoHanded");
     }
-    if (itemIn.unique || itemOut.id == "409006700") {
+    if (itemIn.unique) {
         addSpecial(itemOut,"notStackable");
     }
     if (unitIdByTmrId[itemOut.id]) {
@@ -186,7 +186,7 @@ function treatItem(items, itemId, result, skills) {
         }
         addAccess(itemOut,access);
         
-        itemOut.tmrUnit = unit.name;
+        itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
@@ -468,34 +468,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
-    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
-        var doublehandSkill = {};
-        var doublehandEffect = rawEffect[3];
-        if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-            if (!item.singleWieldingGL) {item.singleWieldingGL = {}};
-            doublehandSkill = item.singleWieldingGL;
-        } else {
-            if (!item.singleWieldingOneHandedGL) {item.singleWieldingOneHandedGL = {}};
-            doublehandSkill = item.singleWieldingOneHandedGL;
-        }
-        if (doublehandEffect[2]) {
-            addStat(doublehandSkill, "atk", doublehandEffect[2]);
-        }
-        if (doublehandEffect[4]) {
-            addStat(doublehandSkill, "def", doublehandEffect[4]);
-        }
-        if (doublehandEffect[3]) {
-            addStat(doublehandSkill, "mag", doublehandEffect[3]);
-        }
-        if (doublehandEffect[5]) {
-            addStat(doublehandSkill, "spr", doublehandEffect[5]);
-        }
-        if (doublehandEffect[0]) {
-            addStat(doublehandSkill, "hp", doublehandEffect[0]);
-        }
-        if (doublehandEffect[1]) {
-            addStat(doublehandSkill, "mp", doublehandEffect[1]);
-        }
+    
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -628,7 +601,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","singleWieldingOneHandedGL","singleWieldingGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

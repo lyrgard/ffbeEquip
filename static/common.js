@@ -14,18 +14,6 @@ var additionalStat = [];
 var searchText = '';
 var selectedUnit = '';
 var server = "GL";
-const baseStats = ['hp','mp','atk','def','mag','spr'];
-const filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
-const elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
-const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
-const killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
-const typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "lightArmor", "heavyArmor", "robe",  "accessory", "materia"];
-const typeListWithEsper = typeList.concat(["esper"]);
-const weaponList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist"];
-const shieldList = ["lightShield", "heavyShield"];
-const headList = ["hat", "helm"];
-const bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
-const accessList = ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium"];
 var saveTimeout;
 
 function getImageHtml(item) {
@@ -47,7 +35,14 @@ function getImageHtml(item) {
 }
 
 function getNameColumnHtml(item) {
-    var html = '<div class="td name"><div>' + toLink(item.name);
+    var html = ""
+    
+    if (item.placeHolder) {
+        html += '<div class="td name"><div>' + toLink(item.name, typeCategories[item.type]);
+    } else {
+        html += '<div class="td name"><div>' + toLink(item.name);
+    }
+        
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
@@ -322,12 +317,15 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
+    if (!name) {
+        console.log("!!");
+    }
     return wikiBaseUrl + encodeURIComponent(name.replace(' ', '_'));
 };
 
-var toLink = function(text) {
+var toLink = function(text, link = text) {
     if (server == "GL") {
-        return '<a href="' + toUrl(text) + '" target="_blank">' + text + '</a>';
+        return '<a href="' + toUrl(link) + '" target="_blank">' + text + '</a>';
     } else {
         return "<span>" + text + "</span>";
     }
@@ -440,6 +438,34 @@ function mergeArrayWithoutDuplicates(array1, array2) {
         }
     }
     return result;
+}
+
+function chunkify(arrayIn, partCount) {
+    if (partCount < 2) {
+        return [arrayIn];
+    }
+    var len = arrayIn.length,
+        out = [],
+        i = 0,
+        size;
+
+    if (len % partCount === 0) {
+        size = Math.floor(len / partCount);
+        while (i < len) {
+            out.push(arrayIn.slice(i, i += size));
+        }
+    } else {
+        partCount--;
+        size = Math.floor(len / partCount);
+        if (len % size === 0) {
+            size--;
+        }
+        while (i < size * partCount) {
+            out.push(arrayIn.slice(i, i += size));
+        }
+        out.push(arrayIn.slice(size * partCount));
+    }
+    return out;
 }
 
 function switchTo(newServer) {

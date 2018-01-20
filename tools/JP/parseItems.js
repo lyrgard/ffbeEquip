@@ -5,32 +5,41 @@ var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
 var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
 
+var statsMap = {
+    "hp": "hp",
+    "mp": "mp",
+    "atk": "atk",
+    "def": "def",
+    "int": "mag",
+    "mnd": "spr"
+}
+
 var typeMap = {
-    1: 'dagger',
-    2: 'sword',
-    3: 'greatSword',
-    4: 'katana',
-    5: 'staff',
-    6: 'rod',
-    7: 'bow',
-    8: 'axe',
-    9: 'hammer',
-    10: 'spear',
-    11: 'harp',
-    12: 'whip',
-    13: 'throwing',
-    14: 'gun',
-    15: 'mace',
-    16: 'fist',
-    30: 'lightShield',
-    31: 'heavyShield',
-    40: 'hat',
-    41: 'helm',
-    50: 'clothes',
-    51: 'lightArmor',
-    52: 'heavyArmor',
-    53: 'robe',
-    60: 'accessory'
+    "Dagger": 'dagger',
+    "Sword": 'sword',
+    "Greatsword": 'greatSword',
+    "Katana": 'katana',
+    "Staff": 'staff',
+    "Rod": 'rod',
+    "Bow": 'bow',
+    "Axe": 'axe',
+    "Hammer": 'hammer',
+    "Lance": 'spear',
+    "Harp": 'harp',
+    "Whip": 'whip',
+    "Projectile": 'throwing',
+    "Gun": 'gun',
+    "Mace": 'mace',
+    "Knuckle": 'fist',
+    "Light Shield": 'lightShield',
+    "Heavy Shield": 'heavyShield',
+    "Hat": 'hat',
+    "Helm": 'helm',
+    "Clothes": 'clothes',
+    "Light Armor": 'lightArmor',
+    "Heavy Armor": 'heavyArmor',
+    "Robes": 'robe',
+    "Accessory": 'accessory'
 }
 
 var raceMap = {
@@ -49,26 +58,26 @@ var raceMap = {
 }
 
 var ailmentsMap = {
-    "Poison": "poison",
-    "Blind": "blind",
-    "Sleep": "sleep",
-    "Silence": "silence",
-    "Paralyze": "paralysis",
-    "Confusion": "confuse",
-    "Disease": "disease",
-    "Petrify": "petrification",
-    "Death": "death"
+    "poison": "poison",
+    "blind": "blind",
+    "sleep": "sleep",
+    "silence": "silence",
+    "paralyze": "paralysis",
+    "confuse": "confuse",
+    "virus": "disease",
+    "petrify": "petrification",
+    "death": "death"
 }
 
 var elementsMap = {
-    "Fire": "fire",
-    "Ice": "ice",
-    "Lightning": "lightning",
-    "Water": "water",
-    "Wind": "wind",
-    "Earth": "earth",
-    "Light": "light",
-    "Dark": "dark"
+    "fire": "fire",
+    "ice": "ice",
+    "thunder": "lightning",
+    "water": "water",
+    "wind": "wind",
+    "earth": "earth",
+    "light": "light",
+    "dark": "dark"
 }
 
 var unitNamesById = {};
@@ -81,15 +90,15 @@ var skillNotIdentifiedNumber = 0;
 
 
 console.log("Starting");
-if (!fs.existsSync('../static/GL/data.json')) {
+/*if (!fs.existsSync('../../static/JP/data.json')) {
     console.log("old data not accessible");
     return;
-}
-request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.json', function (error, response, body) {
+}*/
+request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/equip.json', function (error, response, body) {
     if (!error && response.statusCode == 200) {
-        console.log("equipment.json downloaded");
+        console.log("equip.json downloaded");
         var items = JSON.parse(body);
-        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/materia.json', function (error, response, body) {
+        /*request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/materia.json', function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log("materia.json downloaded");
                 var materias = JSON.parse(body);
@@ -126,53 +135,47 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.
                                     }
                                     
                                     fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
-                                        releasedUnits = JSON.parse(content);
+                                        releasedUnits = JSON.parse(content);*/
                                     
+                                        var skills = {};
+        
                                         var result = {"items":[]};
                                         for (var itemId in items) {
                                             treatItem(items,itemId, result, skills);
                                         }
-                                        for (var materiaId in materias) {
+                                        /*for (var materiaId in materias) {
                                             treatItem(materias,materiaId, result, skills);
-                                        }
+                                        }*/
                                         console.log(skillNotIdentifiedNumber);
                                         fs.writeFileSync('data.json', formatOutput(result.items));
-                                    });
+              /*                      });
                                 });
                             }
                         });
                     }
                 });
             }
-        });
+        });*/
     }
 });
 
 
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
-    if (itemIn.name.match(/[^\x00-\x7F]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
-        // exclude item whose name contain non english char
-        console.log("excluded : " + itemIn.name)
-        return;
-    }
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290") {
-        // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
-        return;
-    }
     var itemOut = {};
     itemOut.id = itemId;
     itemOut.name = itemIn.name;
-    if (itemIn.type_id) {
-        itemOut.type = typeMap[itemIn.type_id];
+    if (itemIn.equip_type) {
+        itemOut.type = typeMap[itemIn.equip_type];
     } else {
         itemOut.type = "materia";
     }
     readStats(itemIn, itemOut);
-    if (itemIn.is_twohanded) {
+    if (itemIn.two_handed) {
         addSpecial(itemOut,"twoHanded");
     }
-    if (itemIn.unique || itemOut.id == "409006700") {
+    /*
+    if (itemIn.unique) {
         addSpecial(itemOut,"notStackable");
     }
     if (unitIdByTmrId[itemOut.id]) {
@@ -188,19 +191,19 @@ function treatItem(items, itemId, result, skills) {
         
         itemOut.tmrUnit = unit.name;
     }
-    if (itemIn.requirements) {
-        if (itemIn.requirements[0] == "SEX") {
-            if (itemIn.requirements[1] == 1) {
-                itemOut.exclusiveSex = "male";
-            } else if (itemIn.requirements[1] == 2) {
-                itemOut.exclusiveSex = "female";
+    */
+    if (itemIn.equip_condition) {
+        if (itemIn.equip_condition["gender required"]) {
+            itemOut.exclusiveSex = itemIn.equip_condition["gender required"];
+        } else if (itemIn.equip_condition["series required"]) {
+            var tokens = itemIn.equip_condition["series required"].split(":");
+            for (var index = 0; index < tokens.lenght; index++) {
+                var unit = unitNamesById[tokens[index]];
+                addExclusiveUnit(itemOut, unit.name);    
             }
-        } else if (itemIn.requirements[0] == "UNIT_ID") {
-            var unit = unitNamesById[itemIn.requirements[1]];
-            addExclusiveUnit(itemOut, unit.name);
         }
     }
-    
+    /*
     if (itemIn.accuracy) {
         addStat(itemOut,"accuracy",itemIn.accuracy);
     }
@@ -238,42 +241,43 @@ function treatItem(items, itemId, result, skills) {
         console.log("new item : " + itemOut.id + " - " + itemOut.name);
     }
 
-    result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
+    result.items = result.items.concat(readSkills(itemIn, itemOut,skills));*/
+    result.items.push(itemOut);
 }
 
 function readStats(itemIn, itemOut) {
-    if (itemIn.stats) {
-        for (var statsIndex in stats) {
-            var stat = stats[statsIndex];
-            if (itemIn.stats[stat] != 0) {
-                itemOut[stat.toLowerCase()] = itemIn.stats[stat];
+    if (itemIn.boosts) {
+        for (var statIn in statsMap) {
+            var statValue = itemIn.boosts[statIn];
+            if (statValue != 0) {
+                itemOut[statsMap[statIn]] = statValue;
             }    
         }
-        if (itemIn.stats.element_inflict) {
-            itemOut.element = [];
-            for (var elementIndex in itemIn.stats.element_inflict) {
-                itemOut.element.push(elementsMap[itemIn.stats.element_inflict[elementIndex]]);
-            }
+    }
+    if (itemIn.attack.elements.length > 0) {
+        itemOut.element = [];
+        for (var elementIndex in itemIn.attack.elements) {
+            itemOut.element.push(elementsMap[itemIn.attack.elements[elementIndex]]);
         }
-        if (itemIn.stats.element_resist) {
+    }
+    if (Object.keys(itemIn.attack.ailments).length > 0) {
+        itemOut.ailments = [];
+        for (var status in itemIn.attack.ailments) {
+            itemOut.ailments.push({"name":ailmentsMap[status],"percent":itemIn.attack.ailments[status]})
+        }
+    }
+    if (Object.keys(itemIn.resists.elements).length > 0) {
+        itemOut.resist = [];
+        for (var status in itemIn.resists.elements) {
+            itemOut.resist.push({"name":elementsMap[status],"percent":itemIn.resists.elements[status]})
+        }
+    }
+    if (Object.keys(itemIn.resists.ailments).length > 0) {
+        if (!itemOut.resist) {
             itemOut.resist = [];
-            for (var element in itemIn.stats.element_resist) {
-                itemOut.resist.push({"name":elementsMap[element],"percent":itemIn.stats.element_resist[element]})
-            }
         }
-        if (itemIn.stats.status_resist) {
-            if (!itemOut.resist) {
-                itemOut.resist = [];
-            }
-            for (var status in itemIn.stats.status_resist) {
-                itemOut.resist.push({"name":ailmentsMap[status],"percent":itemIn.stats.status_resist[status]})
-            }
-        }   
-        if (itemIn.stats.status_inflict) {
-            itemOut.ailments = [];
-            for (var status in itemIn.stats.status_inflict) {
-                itemOut.ailments.push({"name":ailmentsMap[status],"percent":itemIn.stats.status_inflict[status]})
-            }
+        for (var status in itemIn.resists.ailments) {
+            itemOut.resist.push({"name":ailmentsMap[status],"percent":itemIn.resists.ailments[status]})
         }
     }
 }
@@ -468,34 +472,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
-    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
-        var doublehandSkill = {};
-        var doublehandEffect = rawEffect[3];
-        if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-            if (!item.singleWieldingGL) {item.singleWieldingGL = {}};
-            doublehandSkill = item.singleWieldingGL;
-        } else {
-            if (!item.singleWieldingOneHandedGL) {item.singleWieldingOneHandedGL = {}};
-            doublehandSkill = item.singleWieldingOneHandedGL;
-        }
-        if (doublehandEffect[2]) {
-            addStat(doublehandSkill, "atk", doublehandEffect[2]);
-        }
-        if (doublehandEffect[4]) {
-            addStat(doublehandSkill, "def", doublehandEffect[4]);
-        }
-        if (doublehandEffect[3]) {
-            addStat(doublehandSkill, "mag", doublehandEffect[3]);
-        }
-        if (doublehandEffect[5]) {
-            addStat(doublehandSkill, "spr", doublehandEffect[5]);
-        }
-        if (doublehandEffect[0]) {
-            addStat(doublehandSkill, "hp", doublehandEffect[0]);
-        }
-        if (doublehandEffect[1]) {
-            addStat(doublehandSkill, "mp", doublehandEffect[1]);
-        }
+    
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -628,7 +605,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","singleWieldingOneHandedGL","singleWieldingGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
