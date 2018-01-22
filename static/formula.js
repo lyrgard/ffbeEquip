@@ -41,7 +41,9 @@ const abbreviations = {
     "I_PARALYSIS" : "R_PARALYSIS > 100",
     "I_CONFUSION" : "R_CONFUSION > 100",
     "I_DISEASE" : "R_DISEASE > 100",
-    "I_PETRIFICATION" : "R_PETRIFICATION > 100"
+    "I_PETRIFICATION" : "R_PETRIFICATION > 100",
+    "I_DEATH" : "R_DEATH > 100",
+    "I_PHYSICAL" : "P_EVADE > 100"
 }
 
 function parseFormula(formula) {
