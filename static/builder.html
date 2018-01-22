@@ -365,7 +365,7 @@
                     <h3>How to use this:</h3>
                     <ol>
                         <li>Select a unit you want to make a build for</li>
-                        <li>If you want to make a build only using the items you own, make sure you're logged in, so that your inventory is loaded</li>
+                        <li>If you want to make a build only using the items you own, make sure you're logged in, so that your inventory is loaded. Please note that your inventory cannot be imported, so you have to input and update it for accuracy.</li>
                         <li>If you plan to use an attack with innate element(s), you can select the corresponding element(s) in the "Skill innate element(s)" section</li>
                         <li>Fill information on the monster you're facing, its race(s) and its elemental resistance (negative number for elemental weakness). Take into account the elemental debufs you'll give it (for instance, if using Orlandeau's Divine Ruination, substract 50 to the light elemental resistance).</li>
                         <li>Click on "Build !" button to start the computation</li>
@@ -437,7 +437,7 @@
                         <ul>
                             <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
                             <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
-                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span></li>
+                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span>. A exception to this rule are the immunity conditions, starting with <span class="code">I</span> (like <span class="code">I_CONFUSION</span>), that need to be alone in their condition</li>
                             <li>Some valid formula :
                                 <div><span class="code">HP</span> &rarr; Maximize HP</div>
                                 <div><span class="code">DEF * HP</span> &rarr; Maximize the product of HP by DEF (physical eHP)</div>
@@ -459,6 +459,8 @@
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
                                             <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
                                             <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
+                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition must not have "> value"</td></tr>
+                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. Those conditions must not have "> value"</td></tr>
                                             <tr><td class="token">R_FIRE, R_ICE, R_THUNDER, R_WATER, R_EARTH, R_WIND, R_LIGHT, R_DARK</td><td>Corresponding elemental resistance</td></tr>
                                             <tr><td class="token">R_POISON, R_BLIND, R_SLEEP, R_SILENCE, R_PARALYSIS, R_CONFUSION, R_DISEASE, R_PETRIFICATION, R_DEATH</td><td>Corresponding ailment resistance</td></tr>
                                         </tobdy>

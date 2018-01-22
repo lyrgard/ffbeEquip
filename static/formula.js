@@ -31,12 +31,24 @@ const attributeByVariable = {
     "R_DISEASE":"resist|disease.percent",
     "R_PETRIFICATION":"resist|petrification.percent",
     "R_DEATH":"resist|death.percent",
-    
-    
 };
+const abbreviations = {
+    "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
+    "I_POISON" : "R_POISON > 100",
+    "I_BLIND" : "R_BLIND > 100",
+    "I_SLEEP" : "R_SLEEP > 100",
+    "I_SILENCE": "R_SILENCE > 100",
+    "I_PARALYSIS" : "R_PARALYSIS > 100",
+    "I_CONFUSION" : "R_CONFUSION > 100",
+    "I_DISEASE" : "R_DISEASE > 100",
+    "I_PETRIFICATION" : "R_PETRIFICATION > 100"
+}
 
 function parseFormula(formula) {
     formula = formula.toUpperCase();
+    for (var abbreviation in abbreviations) {
+        formula = formula.replace(abbreviation, abbreviations[abbreviation]);
+    }
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
         return parseExpression(formula, 0);
@@ -156,6 +168,10 @@ function formulaToString(formula) {
         for (var index = 0, len = formula.conditions.length; index < len ;index ++) {
             result += "; " + formulaToString(formula.conditions[index].value) + ' > ' + formula.conditions[index].goal;
         }
+        for (var abbreviation in abbreviations) {
+            result = result.replace(abbreviations[abbreviation], abbreviation);
+        }
+        result = result.replace(abbreviations["I_AILMENTS"], "I_AILMENTS");
         return result;
     } else {
         return formulaToString(formula.value1) + ' ' + formula.type + ' ' + formulaToString(formula.value2);
