@@ -193,8 +193,8 @@ function calculateAlreadyUsedItems() {
             }
         } else {
             for (var index = 0; index < 10; index++) {
-                if (builds[i].build[index]) {
-                    var item = builds[i].build[index];
+                if (builds[i].fixedItems[index]) {
+                    var item = builds[i].fixedItems[index];
                     if (item) {
                         if (alreadyUsedItems[item.id]) {
                             alreadyUsedItems[item.id]++;
@@ -420,7 +420,7 @@ function logCurrentBuild() {
 
 function logBuild(build, value) {
     var html = "";
-    calculateAlreadyUsedItems();
+    //calculateAlreadyUsedItems();
     readItemsExcludeInclude();
 
     for (var index = 0; index < 11; index++) {
@@ -544,12 +544,15 @@ function getItemLine(index, short = false) {
             html += displayItemLine(item);
         }
         if (!item.placeHolder && index < 10 && onlyUseOwnedItems) {
+            if (item && item.name == "Snowbear" && index == 5) {
+                console.log("!!")
+            }
             var alreadyUsed = 0;
             if (alreadyUsedItems[item.id]) {
                 alreadyUsed = alreadyUsedItems[item.id];
             }
-            alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex].build, index, item);
-            if (getOwnedNumber(item).totalOwnedNumber < alreadyUsed && getOwnedNumber(item).total >= alreadyUsed) {
+            alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex], index, item);
+            if (getOwnedNumber(item).totalOwnedNumber <= alreadyUsed && getOwnedNumber(item).total > alreadyUsed) {
                 if (item.tmrUnit) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
                 } else if (item.access.includes("trial")) {
@@ -561,13 +564,11 @@ function getItemLine(index, short = false) {
     return html;
 }
 
-function getNumberOfItemAlreadyUsedInThisBuild(build, index, item) {
+function getNumberOfItemAlreadyUsedInThisBuild(unitBuild, index, item) {
     var number = 0;
-    for (var previousItemIndex = 0; previousItemIndex < 10; previousItemIndex++) {
-        if (build[previousItemIndex] && build[previousItemIndex].id && build[previousItemIndex].id == item.id) {
-            if (previousItemIndex < index) {
-                number++;
-            }
+    for (var previousItemIndex = 0; previousItemIndex < index; previousItemIndex++) {
+        if (unitBuild.build[previousItemIndex] && !unitBuild.fixedItems[previousItemIndex] && unitBuild.build[previousItemIndex].id && unitBuild.build[previousItemIndex].id == item.id) {
+            number++;
         }
         
     }
