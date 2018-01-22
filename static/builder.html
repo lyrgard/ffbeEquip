@@ -458,9 +458,10 @@
                                             <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
                                             <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
+                                            <tr><td class="token">I_PHYSICAL</td><td>Immunity to physical attacks. This is a shortcut to P_EVADE > 100</td></tr>
                                             <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
-                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition must not have "> value"</td></tr>
-                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. Those conditions must not have "> value"</td></tr>
+                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
+                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. I_XXX is a shortcut for R_XXX > 100</td></tr>
                                             <tr><td class="token">R_FIRE, R_ICE, R_THUNDER, R_WATER, R_EARTH, R_WIND, R_LIGHT, R_DARK</td><td>Corresponding elemental resistance</td></tr>
                                             <tr><td class="token">R_POISON, R_BLIND, R_SLEEP, R_SILENCE, R_PARALYSIS, R_CONFUSION, R_DISEASE, R_PETRIFICATION, R_DEATH</td><td>Corresponding ailment resistance</td></tr>
                                         </tobdy>
