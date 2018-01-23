@@ -863,8 +863,7 @@ function onUnitsOrInventoryLoaded() {
                     for (var index = data.length; index--; ) {
                         var item = data[index];
                         if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
-                            var unitId = allUnits[item.tmrUnit].id;
-                            tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                            tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
                         }
                     }
 

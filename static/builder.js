@@ -350,7 +350,7 @@ function getAvailableNumber(item) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
-                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.name)
+                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
                    || (exludeEventEquipment && access.endsWith("event"))
                    || (excludePremium && access == "premium")) {
                     return 0;
@@ -390,8 +390,8 @@ function getOwnedNumber(item) {
     }
     totalOwnedNumber = totalNumber;
     if (includeTMROfOwnedUnits) {
-        if (item.tmrUnit && units[item.tmrUnit] && ownedUnits[units[item.tmrUnit].id]) {
-            totalNumber += ownedUnits[units[item.tmrUnit].id].farmable;
+        if (item.tmrUnit && ownedUnits[item.tmrUnit]) {
+            totalNumber += ownedUnits[item.tmrUnit].farmable;
         }
     }
     if (includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
@@ -551,7 +551,7 @@ function getItemLine(index, short = false) {
             alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex].build, index, item);
             if (getOwnedNumber(item).totalOwnedNumber < alreadyUsed && getOwnedNumber(item).total >= alreadyUsed) {
                 if (item.tmrUnit) {
-                    html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + item.tmrUnit + '"/></div>'
+                    html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + units[item.tmrUnit].name + '"/></div>'
                 } else if (item.access.includes("trial")) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="Trial reward"/></div>'
                 }
@@ -627,8 +627,10 @@ function redrawBuildLine(index) {
 // Populate the unit html select with a line per unit
 function populateUnitSelect() {
     var options = '<option value=""></option>';
-    Object.keys(units).sort().forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + value + '</option>';
+    Object.keys(units).sort(function(id1, id2) {
+        return units[id1].name.localeCompare(units[id2].name);
+    }).forEach(function(value, index) {
+        options += '<option value="'+ value + '">' + units[value].name + '</option>';
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(onUnitChange);
@@ -636,10 +638,10 @@ function populateUnitSelect() {
 
 function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
-        var unitName = $(this).val();
-        var selectedUnitData = units[unitName];
+        var unitId = $(this).val();
+        var selectedUnitData = units[unitId];
         if (selectedUnitData) {
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html(unitName);
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html(selectedUnitData.name);
             reinitBuild(currentUnitIndex);
             builds[currentUnitIndex].setUnit(selectedUnitData);
             updateUnitStats();
@@ -1226,8 +1228,13 @@ function loadStateHashAndBuild(data) {
     }
     onGoalChange();
     if (data.unitName) {
-        $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
-        onUnitChange();
+        for (var unitId in units) {
+            if (units[unitId].name == unitName) {
+                $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
+                onUnitChange();        
+                break;
+            }
+        }
     }
     select("elements", data.innateElements);
     if (data.goal == "mag" || data.goal == "magicalDamage") {
@@ -1484,9 +1491,6 @@ $(function() {
         alert( errorThrown );
     });
     $.get(server + "/unitsWithSkill.json", function(result) {
-        for (var name in result) {
-            result[name].name = name;
-        }
         units = result;
         populateUnitSelect();
         continueIfReady();

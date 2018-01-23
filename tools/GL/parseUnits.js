@@ -111,7 +111,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                             var unitIn = units[unitId];
                             if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
                                 var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                unitsOut[unitOut.name] = unitOut.data;
+                                unitsOut[unitOut.data.id] = unitOut.data;
                             }
                         }
 
@@ -126,8 +126,8 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
 
 function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     var unit = {};
-    unit.name = unitIn.name;
     unit.data = {};
+    
     var data = unit.data;
     var unitData;
     
@@ -145,7 +145,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
             break;
         }
     }
-
+    data["name"] = unitIn["name"];
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
@@ -476,14 +476,14 @@ function formatOutput(units) {
     var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
-    for (var unitName in units) {
-        var unit = units[unitName]
+    for (var unitId in units) {
+        var unit = units[unitId]
         if (first) {
             first = false;
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitName, unit) + ",";
+        result += getUnitBasicInfo(unitId, unit) + ",";
         result += "\n\t\t\"skills\": [";
         var firstSkill = true;
         for (var skillIndex in unit.skills) {
@@ -519,23 +519,24 @@ function formatOutput(units) {
 function formatSimpleOutput(units) {
     var result = "{\n";
     var first = true;
-    for (var unitName in units) {
-        var unit = units[unitName]
+    for (var unitId in units) {
+        var unit = units[unitId]
         if (first) {
             first = false;
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitName, unit);
+        result += getUnitBasicInfo(unitId, unit);
         result += "\n\t}";
     }
     result += "\n}";
     return result;
 }
 
-function getUnitBasicInfo(unitName, unit) {
+function getUnitBasicInfo(unitId, unit) {
     var result = "";
-    result += "\n\t\"" + unitName + "\": {";
+    result += "\n\t\"" + unitId + "\": {";
+    result += "\n\t\t\"name\":\"" + unit.name + "\","
     result += "\n\t\t\"id\":\"" + unit.id + "\","
     result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
     result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","

@@ -385,12 +385,11 @@ function inventoryLoaded() {
 function prepareData() {
     for (var index = data.length; index--; ) {
         var item = data[index];
-        if (item.tmrUnit && allUnits[item.tmrUnit]) {
-            var unitId = allUnits[item.tmrUnit].id;
+        if (item.tmrUnit) {
             if (itemInventory[item.id]) {
-                tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
             }
-            tmrNameByUnitId[unitId] = item.name;
+            tmrNameByUnitId[item.tmrUnit] = item.name;
         }
     }
 }
