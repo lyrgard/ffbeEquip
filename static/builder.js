@@ -493,8 +493,8 @@ function logBuild(build, value) {
             $("#resultStats .damage .monsterSprSpan").removeClass("hidden");
         }
         $("#resultStats .damage .damageCoef").html("1x");
-        if (typeof(value) === "object" && value.minValue && value.minValue > 0) {
-            $("#resultStats .damage .damageResult").html(Math.floor(value.value) + "(" + Math.floor(value.minValue) + " - " + Math.floor(value.maxValue) + ")");
+        if (typeof(value) === "object" && value.minValue && value.minValue > 0 && value.minValue != value.value) {
+            $("#resultStats .damage .damageResult").html(Math.floor(value.value) + " (" + Math.floor(value.minValue) + " - " + Math.floor(value.maxValue) + ")");
         } else {
             $("#resultStats .damage .damageResult").html(Math.floor(typeof(value) === "object" ? value.value : value));
         }
