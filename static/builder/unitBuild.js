@@ -46,6 +46,9 @@ class UnitBuild {
             }
         }
         for (var index = 0; index < 10; index++) {
+            if (this.fixedItems[index] && this.fixedItems[index].special && this.fixedItems[index].special.includes("dualWield")) {
+                return true;
+            }
             if (this.build[index] && this.build[index].special && this.build[index].special.includes("dualWield")) {
                 return true;
             }
@@ -81,9 +84,9 @@ class UnitBuild {
     
     getCurrentUnitEquip() {
         var equip = this.unit.equip.concat(["accessory", "materia"]);
-        for (var index in this.fixedItems) {
-            if (this.fixedItems[index] && this.fixedItems[index].allowUseOf && !equip.includes(this.fixedItems[index].allowUseOf)) {
-                equip.push(this.fixedItems[index].allowUseOf);
+        for (var index = 9; index--;) {
+            if (this.build[index] && this.build[index].allowUseOf && !equip.includes(this.build[index].allowUseOf)) {
+                equip.push(this.build[index].allowUseOf);
             }
         }
         return equip;
@@ -181,6 +184,11 @@ class UnitBuild {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }
+    }
+    
+    fixItem(item, slot) {
+        this.fixedItems[slot] = item;
+        this.build[slot] = item;
     }
     
     emptyBuild() {
