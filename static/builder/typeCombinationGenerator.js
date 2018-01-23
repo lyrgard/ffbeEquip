@@ -15,6 +15,8 @@ class TypeCombinationGenerator {
         this.tryEquipSources = tryEquipSources;
     }
     
+   
+    
     generateTypeCombinations() {
         var combinations = [];
         var typeCombination = [null, null, null, null, null, null, null, null, null, null];
@@ -67,22 +69,6 @@ class TypeCombinationGenerator {
         return combinations;
     }
     
-/*    tryEquipSources(combinations) {
-        var alreadyAddedCombinations = [];
-        for (var index = 0, len = combinations.length; index < len; index++) {
-            var combination = combinations[index];
-            for (var equipSourceIndex, lenEquipSource = this.equipSources.length; equipSourceIndex < lenEquipSource; equipSourceIndex++) {
-                var equipSource = this.tryEquipSources[equipSourceIndex];
-                if (shieldList.includes(equipSource.allowUseOf)) {
-                    if (!combination.combination[1] || )
-                    typeCombination = combination.combination.slice();
-                    
-                }
-                combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems});
-            }
-        }
-    }*/
-    
     buildTypeCombination(index, typeCombination, combinations) {
         if (stop) {
             return;
@@ -122,6 +108,9 @@ class TypeCombinationGenerator {
             }
             if (this.tryEquipSources && index < 4 ) {
                 var typesToTry = this.getEquipSourceToTry(index);
+                if (index == 1 && typesToTry.includes("harp") && this.unitBuild.fixedItems[6] && this.unitBuild.fixedItems[6].name == "Instrumental Flair") {
+                    console.log("!!");
+                }
                 for (var typeIndex = 0, lenType = typesToTry.length; typeIndex < lenType; typeIndex++) {
                     var typeToTry = typesToTry[typeIndex];
                     if (this.equipSourcesByType[typeToTry]) {
@@ -133,7 +122,7 @@ class TypeCombinationGenerator {
                                 var savedEquipable1; 
                                 if (index == 0 && this.unitBuild.hasDualWield()) {
                                     savedEquipable1 = this.unitBuild.equipable[1];
-                                    this.unitBuild.equipable[1] = this.unitBuild.equipable[1].concat([[typeToTry]]);
+                                    this.unitBuild.equipable[1] = this.unitBuild.equipable[1].concat([typeToTry]);
                                 }
                                 var savedFixedItems = this.unitBuild.fixedItems;
                                 this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
@@ -143,7 +132,6 @@ class TypeCombinationGenerator {
                                 this.unitBuild.fixedItems = savedFixedItems;
                                 this.unitBuild.equipable[index] = savedEquipable;
                                 if (index == 0 && this.unitBuild.hasDualWield()) {
-                                    savedEquipable1 = this.unitBuild.equipable[1];
                                     this.unitBuild.equipable[1] = savedEquipable1;
                                 }
                             }
