@@ -119,6 +119,7 @@ function optimize() {
     
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
+    var tryEquipSources = $("#tryEquipsources input").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -140,7 +141,7 @@ function optimize() {
     }
     
     
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
@@ -755,6 +756,7 @@ function addNewUnit() {
     reinitBuild(builds.length - 1);
     $('#forceDoublehand input').prop('checked', false);
     $('#forceDualWield input').prop('checked', false);
+    $('#tryEquipSources input').prop('checked', false);
     loadBuild(builds.length - 1);
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
@@ -1285,6 +1287,14 @@ function loadStateHashAndBuild(data) {
 function showBuildLink() {
     var data = getStateHash();
     data.fixedItems = [];
+    
+    // first fix allow Us of items
+    for (var index = 0; index < 10; index++) {
+        var item = builds[currentUnitIndex].build[index];
+        if (item && !item.placeHolder && item.allowUseOf) {
+            data.fixedItems.push(item.id);
+        }
+    }
     // first fix dual wield items
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].build[index];
@@ -1295,7 +1305,7 @@ function showBuildLink() {
     // then others items
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].build[index];
-        if (item && !item.placeHolder && !hasDualWieldOrPartialDualWield(item)) {
+        if (item && !item.placeHolder && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
             data.fixedItems.push(item.id);
         }
         if (item && item.placeHolder) {
