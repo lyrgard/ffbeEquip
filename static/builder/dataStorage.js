@@ -60,7 +60,7 @@ class DataStorage {
             }
             this.prepareItem(item, this.unitBuild.baseValues, ennemyStats);
             if (getAvailableNumber(item) > 0 && isApplicable(item, this.unitBuild.unit)) {
-                if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
+                if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
                     if (!alreadyAddedDualWieldSource.includes(item.id)) {
                         this.dualWieldSources.push(item);
                         alreadyAddedDualWieldSource.push(item.id);
