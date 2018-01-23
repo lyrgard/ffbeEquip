@@ -1,10 +1,18 @@
 class TypeCombinationGenerator {
-    constructor(forceDoubleHand, forceDualWield, unitBuild, dualWieldSources, dataByType) {
+    constructor(forceDoubleHand, forceDualWield, unitBuild, dualWieldSources, equipSources, dataByType) {
         this.forceDoubleHand = forceDoubleHand;
         this.forceDualWield = forceDualWield;
         this.unitBuild = unitBuild;
         this.dualWieldSources = dualWieldSources;
+        this.equipSourcesByType = {};
+        for (var index = equipSources.length; index --;) {
+            if (!this.equipSourcesByType[equipSources[index].allowUseOf]) {
+                this.equipSourcesByType[equipSources[index].allowUseOf] = [];
+            }
+            this.equipSourcesByType[equipSources[index].allowUseOf].push(equipSources[index]);
+        }
         this.dataByType = dataByType;
+        this.tryEquipSources = true;
     }
     
     generateTypeCombinations() {
@@ -56,6 +64,22 @@ class TypeCombinationGenerator {
         return combinations;
     }
     
+/*    tryEquipSources(combinations) {
+        var alreadyAddedCombinations = [];
+        for (var index = 0, len = combinations.length; index < len; index++) {
+            var combination = combinations[index];
+            for (var equipSourceIndex, lenEquipSource = this.equipSources.length; equipSourceIndex < lenEquipSource; equipSourceIndex++) {
+                var equipSource = this.tryEquipSources[equipSourceIndex];
+                if (shieldList.includes(equipSource.allowUseOf)) {
+                    if (!combination.combination[1] || )
+                    typeCombination = combination.combination.slice();
+                    
+                }
+                combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems});
+            }
+        }
+    }*/
+    
     buildTypeCombination(index, typeCombination, combinations) {
         if (stop) {
             return;
@@ -67,7 +91,7 @@ class TypeCombinationGenerator {
                 return;
             }
         } else {
-            if (this.unitBuild.equipable[index].length > 0) 
+            if (this.unitBuild.equipable[index].length > 0) {
                 if (index == 1 && 
                         ((this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0])) 
                         || this.forceDoubleHand)) { // if a two-handed weapon was fixed, no need to try smething in the second hand
@@ -89,10 +113,56 @@ class TypeCombinationGenerator {
                     } else if (index == 1 && !this.forceDualWield) {
                         this.tryType(index, typeCombination, null, combinations);
                     }
+                }
             } else {
                 this.tryType(index, typeCombination, null, combinations);
             }
+            if (index == 0) {
+                console.log("!!");
+            }
+            if (this.tryEquipSources && index < 4 ) {
+                var typesToTry = this.getEquipSourceToTry(index);
+                for (var typeIndex = 0, lenType = typesToTry.length; typeIndex < lenType; typeIndex++) {
+                    var typeToTry = typesToTry[typeIndex];
+                    if (this.equipSourcesByType[typeToTry]) {
+                        for (var equipSourceIndex = 0, lenEquipSources = this.equipSourcesByType[typeToTry].length; equipSourceIndex < lenEquipSources; equipSourceIndex++) {
+                            var equipSource = this.equipSourcesByType[typeToTry][equipSourceIndex];
+                            var slot = this.unitBuild.getItemSlotFor(equipSource, this.forceDoubleHand);
+                            if (slot >= 0) {
+                                var saveEquipable = this.unitBuild.equipable[index];
+                                this.unitBuild.fixedItems[slot] = equipSource;
+                                this.unitBuild.equipable[index] = this.unitBuild.equipable[index].concat([typeToTry]);
+                                this.tryType(index, typeCombination, typeToTry, combinations);
+                                this.unitBuild.fixedItems[slot] = null;
+                                this.unitBuild.equipable[index] = saveEquipable;
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+    
+    getEquipSourceToTry(index) {
+        var typesToTry;
+        var self = this;
+        if (index == 0) {
+            typesToTry = weaponList.filter(function(type) {
+                return !self.unitBuild.equipable[index].includes(type);
+            });
+        } else if (index == 1) {
+            typesToTry = [];// TODO
+        } else if (index == 2) {
+            typesToTry = headList.filter(function(type) {
+                return !self.unitBuild.equipable[index].includes(type);
+            });
+        } else if (index == 3) {
+            
+            typesToTry = bodyList.filter(function(type) {
+                return !self.unitBuild.equipable[index].includes(type);
+            });
+        }
+        return typesToTry;
     }
     
     alreadyTriedInSlot0(type, typeSlot0, equipableSlot0) {

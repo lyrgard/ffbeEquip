@@ -140,7 +140,7 @@ function optimize() {
     }
     
     
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.dataByType);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
