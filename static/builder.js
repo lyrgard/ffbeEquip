@@ -76,9 +76,9 @@ var processedCount = 0
 var typeCombinationsCount;
 var remainingTypeCombinations;
 var dataStorage;
+var bestiary;
 var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
-
 
 function build() {
     if (running) {
@@ -1414,6 +1414,52 @@ function showExcludedItems() {
     });
 }
 
+function showMonsterList() {
+    var text = "";
+    for (var index = 0, len = bestiary.monsters.length; index < len; index++) {
+        var monster = bestiary.monsters[index];
+        text += '<div class="tr" onclick="selectMonster(' + index +')">' +
+            getNameColumnHtml(monster) + 
+            '<div class="td special">' + getResistHtml(monster) + '</div>';
+        text += '<div class="td access">';
+        for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
+            text += "<div>" + monster.races[raceIndex] + "</div>";
+        }
+        text += '</div>';
+        text += '</div>';
+    }
+        
+    $('<div id="showMonsterListDialog" title="Monster List">' + 
+        '<div class="table items monsters">' + text + '</div>' +
+      '</div>' ).dialog({
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        width: 600
+    });
+}
+
+function selectMonster(monsterIndex) {
+    var monster = bestiary.monsters[monsterIndex];
+    $("#monsterDef").val(monster.def);
+    $("#monsterSpr").val(monster.spr);
+    for(var elementIndex = elementList.length; elementIndex--;) {
+        var element = elementList[elementIndex];
+        $("#elementalResists td." + element + " input").val("");
+    }
+    if (monster.resist) {
+        for(var resistIndex = monster.resist.length; resistIndex--;) {
+            var resist = monster.resist[resistIndex];
+            $("#elementalResists td." + resist.name + " input").val(resist.percent);
+        }   
+    }
+    unselectAll("races");
+    select("races", monster.races);
+    $('#showMonsterListDialog').dialog('destroy');
+    if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
+        logCurrentBuild();    
+    }
+}
+
 function removeItemFromExcludeList(id) {
     $("#showExcludedItemsDialog .tr.id_" + id).remove();
     itemsToExclude.splice(itemsToExclude.indexOf(id),1);
@@ -1524,6 +1570,11 @@ $(function() {
     $.get(server + "/units", function(result) {
         ownedUnits = result;
         onEquipmentsChange();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+    });
+    $.get(server + "/monsters.json", function(result) {
+        bestiary = new Bestiary(result);
+        $("#monsterListLink").removeClass("hidden");
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     
