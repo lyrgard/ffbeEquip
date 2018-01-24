@@ -39,6 +39,8 @@ function getNameColumnHtml(item) {
     
     if (item.placeHolder) {
         html += '<div class="td name"><div>' + toLink(item.name, typeCategories[item.type]);
+    } else if (item.wikiEntry) {
+        html += '<div class="td name"><div>' + toLink(item.name, item.wikiEntry);
     } else {
         html += '<div class="td name"><div>' + toLink(item.name);
     }
@@ -51,7 +53,7 @@ function getNameColumnHtml(item) {
         html += '<div>' + item.jpname + "</div>";
     }
     html += "<div class='detail'>";
-    if (item.type != "esper") {
+    if (item.type != "esper" && item.type != "monster") {
         html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
     }
     html += getStatDetail(item) + "</div>"
@@ -130,7 +132,11 @@ function getSpecialHtml(item) {
 var getStatDetail = function(item) {
     var detail = "";
     var first = true;
-    $(baseStats).each(function(index, stat) {
+    var statsToDisplay = baseStats;
+    if (item.type == "monster") {
+        statsToDisplay = ["def", "spr"];
+    }
+    $(statsToDisplay).each(function(index, stat) {
         detail += "<span class='" + stat + "'>";
 
         if (item[stat]) {
@@ -317,9 +323,6 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
-    if (!name) {
-        console.log("!!");
-    }
     return wikiBaseUrl + encodeURIComponent(name.replace(' ', '_'));
 };
 
@@ -380,6 +383,13 @@ function select(type, values) {
         });
     }) ;
 };
+
+function unselectAll(type) {
+    $("input[name='"+ type +"']").each(function(index, checkbox) {
+        $(checkbox).prop('checked', false);
+        $(checkbox).parent().removeClass('active');
+    });
+}
 
 // Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
 function addTextChoicesTo(targetId, type, valueMap) {
