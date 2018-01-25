@@ -1376,6 +1376,24 @@
 			{"mp%":10, "atk%":10, "def%":10, "killers":[{"name":"machine","physical":50}]}
 		]
 	},
+	"Raegen": {
+		"id":"100010006",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3802,"mp":166,"atk":156,"def":128,"mag":128,"spr":134},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mag%":20, "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":50, "equipedConditions":["sword"]},
+			{"atk%":50, "equipedConditions":["dagger"]},
+			{"atk%":50, "equipedConditions":["katana"]},
+			{"atk%":50, "equipedConditions":["greatSword"]}
+		]
+	},
 	"Silvia": {
 		"id":"100010106",
 		"max_rarity":"6",
@@ -1654,6 +1672,8 @@
 		},
 		"equip":["dagger","staff","rod","bow","axe","hammer","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
 		"skills": [
+			{"mp%":20, "def%":20, "spr%":20, "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
+			{"hp%":30, "atk%":30, "equipedConditions":["hammer"]}
 		]
 	},
 	"Gunner Jake": {
@@ -1667,6 +1687,53 @@
 		},
 		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
 		"skills": [
+			{"hp%":60, "def%":30, "special":["dualWield"]},
+			{"atk%":50, "equipedConditions":["gun"]}
+		]
+	},
+	"Emilia": {
+		"id":"100012106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3584,"mp":146,"atk":138,"def":121,"mag":122,"spr":129},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"],
+		"skills": [
+			{"hp%":20, "atk%":20, "spr%":10, "partialDualWield":["dagger"], "resist":[{"name":"dark","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"human","physical":50}]},
+			{"atk%":20, "spr%":20, "equipedConditions":["dagger"]}
+		]
+	},
+	"Riley": {
+		"id":"100012205",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2505,"mp":116,"atk":110,"def":114,"mag":84,"spr":110},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","sword","axe","hammer","whip","throwing","gun","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":10, "spr%":10}
+		]
+	},
+	"Ozetta": {
+		"id":"100012306",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3599,"mp":145,"atk":128,"def":141,"mag":107,"spr":128},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["axe","hammer","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30},
+			{"def%":15, "spr%":15, "equipedConditions":["heavyShield"]},
+			{"def%":15, "spr%":15, "equipedConditions":["heavyArmor"]}
 		]
 	},
 	"Blossom Sage Sakura": {
@@ -1695,6 +1762,9 @@
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"skills": [
+			{"mp%":30, "resist":[{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mp%":20, "spr%":30, "equipedConditions":["robe"]},
+			{"mag%":30, "equipedConditions":["rod"]}
 		]
 	},
 	"Kunshira": {
@@ -1771,6 +1841,258 @@
 		"equip":["dagger","sword","katana","rod","harp","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"mp%":10, "atk%":10, "resist":[{"name":"ice","percent":20},{"name":"fire","percent":20},{"name":"poison","percent":10},{"name":"blind","percent":10},{"name":"sleep","percent":10},{"name":"silence","percent":10},{"name":"paralysis","percent":10},{"name":"confuse","percent":10},{"name":"disease","percent":10},{"name":"petrification","percent":10}]}
+		]
+	},
+	"Emperor Shera": {
+		"id":"100013306",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3713,"mp":158,"atk":147,"def":134,"mag":127,"spr":123},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","katana","bow","hammer","gun","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["sword"]},
+			{"atk%":50, "equipedConditions":["sword"]},
+			{"atk%":20, "def%":20, "equipedConditions":["lightArmor"]}
+		]
+	},
+	"Killian": {
+		"id":"100013406",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3526,"mp":156,"atk":152,"def":126,"mag":82,"spr":115},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "singleWielding":{"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"plant","physical":50},{"name":"stone","physical":50}]},
+			{"atk%":40, "equipedConditions":["axe"]}
+		]
+	},
+	"Shylt": {
+		"id":"100013506",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3491,"mp":191,"atk":111,"def":130,"mag":112,"spr":149},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":10, "def%":50, "spr%":30}
+		]
+	},
+	"Lila": {
+		"id":"100013806",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3428,"mp":187,"atk":156,"def":119,"mag":102,"spr":152},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"mp%":20, "evade":{"physical":20}, "partialDualWield":["fist"], "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"spr%":20, "equipedConditions":["hat"]},
+			{"spr%":20, "equipedConditions":["clothes"]},
+			{"atk%":50, "equipedConditions":["fist"]},
+			{"hp%":30, "atk%":30, "equipedConditions":["fist"]}
+		]
+	},
+	"Mim": {
+		"id":"100013905",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2240,"mp":127,"atk":68,"def":68,"mag":104,"spr":121},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["harp","hat","clothes","robe"],
+		"skills": [
+		]
+	},
+	"Mediena": {
+		"id":"100014006",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3443,"mp":220,"atk":92,"def":115,"mag":155,"spr":131},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":20, "mag%":30, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mag%":50, "equipedConditions":["rod"]}
+		]
+	},
+	"Lexa": {
+		"id":"100014106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3031,"mp":193,"atk":108,"def":116,"mag":149,"spr":138},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"skills": [
+			{"mag%":20, "resist":[{"name":"confuse","percent":100},{"name":"wind","percent":30}]},
+			{"mag%":30, "spr%":30, "equipedConditions":["hat"]},
+			{"mp%":20, "mag%":30, "equipedConditions":["rod"]}
+		]
+	},
+	"Elbis": {
+		"id":"100014206",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3674,"mp":153,"atk":150,"def":132,"mag":93,"spr":118},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "def%":20, "singleWieldingOneHanded":{"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]},
+			{"atk%":50, "equipedConditions":["greatSword"]}
+		]
+	},
+	"Merald": {
+		"id":"100014305",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2564,"mp":117,"atk":113,"def":106,"mag":91,"spr":87},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","axe","hammer","fist","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":10, "atk%":10, "killers":[{"name":"beast","physical":50}]}
+		]
+	},
+	"Reberta": {
+		"id":"401001706",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3575,"mp":138,"atk":154,"def":120,"mag":117,"spr":111},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":30, "def%":20, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
+			{"atk%":50, "equipedConditions":["spear"]}
+		]
+	},
+	"Ling": {
+		"id":"302001006",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2765,"mp":187,"atk":124,"def":96,"mag":104,"spr":115},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","hat","clothes","robe"],
+		"skills": [
+			{"mp%":20, "evade":{"physical":40}, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
+		]
+	},
+	"Xon": {
+		"id":"302001506",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3530,"mp":142,"atk":140,"def":124,"mag":120,"spr":116},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","throwing","fist","hat","clothes"],
+		"skills": [
+			{"hp%":20, "atk%":10, "evade":{"physical":20}}
+		]
+	},
+	"Aiden": {
+		"id":"302001605",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2717,"mp":110,"atk":85,"def":91,"mag":86,"spr":104},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+		},
+		"equip":["dagger","staff","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Mind Shield","Burst Heal"],
+		"skills": [
+			{"hp%":20, "def%":40, "spr%":40}
+		]
+	},
+	"マダム": {
+		"id":"100014905",
+		"max_rarity":"5",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0},
+			"pots":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0}
+		},
+		"equip":[null],
+		"skills": [
+		]
+	},
+	"Ryumynui": {
+		"id":"100015106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3188,"mp":169,"atk":109,"def":122,"mag":121,"spr":144},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+			{"spr%":20, "resist":[{"name":"wind","percent":15},{"name":"earth","percent":15}]},
+			{"hp%":20, "def%":20, "equipedConditions":["harp"]}
+		]
+	},
+	"Zile": {
+		"id":"100015206",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3699,"mp":150,"atk":149,"def":119,"mag":100,"spr":123},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"atk%":50, "def%":20, "singleWielding":{"atk":50}}
+		]
+	},
+	"Lucille": {
+		"id":"100015305",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2538,"mp":122,"atk":110,"def":107,"mag":89,"spr":95},
+			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","bow","whip","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"mp%":20, "atk%":20, "resist":[{"name":"lightning","percent":30}]}
 		]
 	},
 	"Emma (Battle NPC)": {
@@ -2053,7 +2375,7 @@
 		},
 		"equip":["staff","harp","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":50},{"name":"water","percent":50}]}
+			{"mp%":20, "spr%":30, "resist":[{"name":"water","percent":100}]}
 		]
 	},
 	"Sara": {
@@ -2082,7 +2404,7 @@
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":30},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "resist":[{"name":"light","percent":130}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Dark Knight Cecil": {
@@ -2097,7 +2419,7 @@
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dark Cannon","Shikkoku","Soul Eater"],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":125}], "mpRefresh":5}
 		]
 	},
 	"Kain": {
@@ -2159,6 +2481,36 @@
 			{"mag%":20}
 		]
 	},
+	"Edward": {
+		"id":"204000605",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2050,"mp":115,"atk":76,"def":88,"mag":99,"spr":109},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["staff","rod","bow","harp","throwing","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"def%":20, "spr%":20}
+		]
+	},
+	"Yang": {
+		"id":"204000706",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3744,"mp":112,"atk":150,"def":120,"mag":80,"spr":117},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["hammer","fist","hat","clothes"],
+		"skills": [
+			{"hp%":30, "atk%":30, "evade":{"physical":15}, "partialDualWield":["fist"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":50, "equipedConditions":["fist"]}
+		]
+	},
 	"Edge": {
 		"id":"204001105",
 		"max_rarity":"5",
@@ -2198,6 +2550,36 @@
 		},
 		"equip":["sword","greatSword","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
+		]
+	},
+	"Pure Summoner Rydia": {
+		"id":"204001506",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3289,"mp":190,"atk":78,"def":112,"mag":152,"spr":140},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
+		"skills": [
+			{"mp%":30, "mag%":50, "spr%":20, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":8}
+		]
+	},
+	"Studious Dragoon Kain": {
+		"id":"204001606",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3653,"mp":155,"atk":155,"def":135,"mag":115,"spr":119},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50}]},
+			{"atk%":20, "equipedConditions":["spear"]},
+			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
 	"Bartz": {
@@ -2532,6 +2914,21 @@
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}
+		]
+	},
+	"Sephiroth": {
+		"id":"207001006",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3674,"mp":172,"atk":160,"def":130,"mag":142,"spr":137},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["katana"]}
 		]
 	},
 	"Zidane": {
@@ -2946,7 +3343,7 @@
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100}]},
+			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":100},{"name":"blind","percent":100}]},
 			{"def%":50, "equipedConditions":["heavyArmor"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
@@ -3778,7 +4175,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":50},{"name":"fire","percent":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -3793,7 +4190,7 @@
 		},
 		"equip":["spear","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":50},{"name":"light","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
+			{"hp%":30, "atk%":30, "resist":[{"name":"light","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
 		]
 	},
 	"Elza": {
@@ -3864,20 +4261,6 @@
 			{"atk%":50, "equipedConditions":["lightArmor"]}
 		]
 	},
-	"Ling": {
-		"id":"302001006",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":2765,"mp":187,"atk":124,"def":96,"mag":104,"spr":115},
-			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
-		},
-		"equip":["dagger","hat","clothes","robe"],
-		"skills": [
-			{"mp%":20, "evade":{"physical":40}, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
-		]
-	},
 	"Cupid Artemios": {
 		"id":"302001106",
 		"max_rarity":"6",
@@ -3937,35 +4320,6 @@
 		"skills": [
 			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHandedGL":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
-		]
-	},
-	"Xon": {
-		"id":"302001506",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3530,"mp":142,"atk":140,"def":124,"mag":120,"spr":116},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-		},
-		"equip":["dagger","sword","throwing","fist","hat","clothes"],
-		"skills": [
-			{"hp%":20, "atk%":10, "evade":{"physical":20}}
-		]
-	},
-	"Aiden": {
-		"id":"302001605",
-		"max_rarity":"5",
-		"min_rarity":"3",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":2717,"mp":110,"atk":85,"def":91,"mag":86,"spr":104},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
-		},
-		"equip":["dagger","staff","rod","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Mind Shield","Burst Heal"],
-		"skills": [
-			{"hp%":20, "def%":40, "spr%":40}
 		]
 	},
 	"Randi": {
@@ -4068,6 +4422,163 @@
 		"equip":["sword","katana","spear","throwing","fist","hat","clothes","lightArmor"],
 		"skills": [
 			{"hp%":10, "mp%":10, "def%":20, "spr%":20}
+		]
+	},
+	"Tiz": {
+		"id":"313000106",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3740,"mp":162,"atk":150,"def":143,"mag":119,"spr":120},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"resist":[{"name":"light","percent":50}]}
+		]
+	},
+	"Agnès": {
+		"id":"313000206",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3420,"mp":193,"atk":108,"def":123,"mag":140,"spr":153},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+		]
+	},
+	"Bravo Bunny Agnès": {
+		"id":"313000306",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3382,"mp":162,"atk":109,"def":126,"mag":138,"spr":132},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","staff","rod","gun","fist","lightShield","hat","clothes","robe"],
+		"skills": [
+		]
+	},
+	"Edea": {
+		"id":"313000406",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3682,"mp":141,"atk":142,"def":125,"mag":108,"spr":126},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","staff","axe","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+		]
+	},
+	"Yew": {
+		"id":"314000106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3554,"mp":148,"atk":144,"def":120,"mag":116,"spr":121},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","bow","axe","spear","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+		]
+	},
+	"Magnolia": {
+		"id":"314000205",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2576,"mp":113,"atk":108,"def":87,"mag":98,"spr":91},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","sword","greatSword","staff","bow","spear","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+		]
+	},
+	"Rinne": {
+		"id":"315000106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2794,"mp":176,"atk":106,"def":112,"mag":234,"spr":149},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["hat","clothes","robe"],
+		"skills": [
+		]
+	},
+	"Roddick": {
+		"id":"316000105",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2633,"mp":106,"atk":115,"def":95,"mag":88,"spr":106},
+			"pots":{"hp":360,"mp":40,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","sword","greatSword","spear","throwing","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+		]
+	},
+	"Rena": {
+		"id":"317000106",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3445,"mp":196,"atk":116,"def":128,"mag":127,"spr":152},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["dagger","staff","fist","hat","clothes","robe"],
+		"skills": [
+		]
+	},
+	"Fayt": {
+		"id":"318000106",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3781,"mp":142,"atk":159,"def":148,"mag":125,"spr":120},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","katana","mace","hat","clothes","lightArmor"],
+		"skills": [
+		]
+	},
+	"Reimi": {
+		"id":"319000106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3156,"mp":160,"atk":135,"def":118,"mag":102,"spr":130},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","bow","harp","throwing","gun","hat","clothes","lightArmor","robe"],
+		"skills": [
+		]
+	},
+	"Fidel": {
+		"id":"320000106",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3755,"mp":142,"atk":148,"def":128,"mag":101,"spr":128},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
 		]
 	},
 	"Dangerous Ariana": {
@@ -4321,21 +4832,6 @@
 		"equip":["fist","helm","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":20, "def%":50, "spr%":40, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":-20},{"name":"lightning","percent":-20},{"name":"water","percent":20}], "mpRefresh":3}
-		]
-	},
-	"Reberta": {
-		"id":"401001706",
-		"max_rarity":"6",
-		"min_rarity":"5",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":3575,"mp":138,"atk":154,"def":120,"mag":117,"spr":111},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-		},
-		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
-			{"atk%":50, "equipedConditions":["spear"]}
 		]
 	},
 	"Zyrus": {

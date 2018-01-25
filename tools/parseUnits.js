@@ -110,8 +110,10 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         for (var unitId in units) {
                             var unitIn = units[unitId];
                             if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
-                                var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                unitsOut[unitOut.name] = unitOut.data;
+                                if (unitIn.name) {
+                                    var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
+                                    unitsOut[unitOut.name] = unitOut.data;
+                                }
                             }
                         }
 
@@ -149,6 +151,9 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
+    if (!unitIn.sex) {
+        console.log(unitIn);
+    }
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
     data["id"] = maxRarityUnitId;
