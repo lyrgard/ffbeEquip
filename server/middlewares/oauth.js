@@ -7,5 +7,9 @@ module.exports = (req, res, next) => {
   }
 
   req.OAuth2Client = OAuth.createClient(tokens);
-  return next();
+
+  return req.OAuth2Client.getRequestMetadata(null, (error) => {
+    req.OAuthSession.tokens = req.OAuth2Client.credentials;
+    next(error);
+  });
 };

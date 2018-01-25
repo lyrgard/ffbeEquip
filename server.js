@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
 
 const jv = require('json-validation');
-const DriveConfig = require('drive-config');
 
 const config = require('./config.js');
+const drive = require('./server/routes/drive.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
 const errorHandler = require('./server/middlewares/boom.js');
@@ -16,20 +16,6 @@ const authRequired = require('./server/middlewares/oauth.js');
 
 const app = express();
 app.disable('x-powered-by');
-
-let inventoryFile = null;
-let unitsFile = null;
-
-if (process.argv.length > 2) {
-    if (process.argv[2] != "null") {
-        inventoryFile = process.argv[2];
-        console.log("using " + process.argv[2] + " as inventory source");
-    }
-}
-if (process.argv.length > 3) {
-    unitsFile = process.argv[3];
-    console.log("using " + process.argv[3] + " as units source");
-}
 
 app.use(express.static(path.join(__dirname, '/static/')));
 if (config.isDev) {
@@ -43,6 +29,7 @@ app.use(bodyParser.json());
 
 app.use('/', oauth);
 app.use('/links', links);
+app.use('/', authRequired, drive);
 
 const driveRouter = express.Router();
 driveRouter.use(authRequired);
@@ -67,145 +54,6 @@ driveRouter.post('/:server/items/temp', function(req, res) {
         res.status(400).send("JSON has the following errors: " + result.errors.join(", ") + " at path " + result.path);
     }
 });
-
-driveRouter.put("/:server/itemInventory", function(req, res) {
-    saveFileToGoogleDrive(req, res, "itemInventory");
-});
-
-driveRouter.put("/:server/units", function(req, res) {
-    saveFileToGoogleDrive(req, res, "units");
-});
-
-driveRouter.get("/:server/itemInventory", function(req, res) {
-    if (inventoryFile == null) {
-        getFileFromGoogleDrive(req, res, "itemInventory", function (result) {
-            if (result) {
-                if (result === Array) {
-                    res.status(200).json({});
-                } else {
-                    if (req.params.server == "GL") {
-                        result = migrateFromNameToId(result);
-                    }
-                }
-                res.status(200).json(result);
-            }
-        });
-    } else {
-        res.status(200).json(JSON.parse(fs.readFileSync(inventoryFile, 'utf8')));
-    }
-});
-
-driveRouter.get("/:server/units", function(req, res) {
-    if (unitsFile == null) {
-        getFileFromGoogleDrive(req, res, "units", function (result) {
-            res.status(200).json(result);
-        });
-    } else {
-        res.status(200).json(JSON.parse(fs.readFileSync(unitsFile, 'utf8')));
-    }
-});
-
-function saveFileToGoogleDrive(req, res, paramFileName) {
-    let driveConfigClient = getDriveConfigClient(req, res);
-    if (!driveConfigClient) return;
-
-    var data = req.body;
-    data.version = 3;
-
-    var fileName = paramFileName + "_" + req.params.server + ".json"
-    driveConfigClient.getByName(fileName).then(files => {
-        if (files.length > 0) {
-            driveConfigClient.update(files[0].id, JSON.stringify(data)).then(file => {
-                res.status(200).json(file);
-            }).catch(err => {
-                console.log(err);
-                res.status(500).send(err);
-            });
-        } else {
-            driveConfigClient.create(fileName, JSON.stringify(data)).then(file => {
-                res.status(200).json(file);
-            }).catch(err => {
-                console.log(err);
-                res.status(500).send(err);
-            });
-        }
-        if (req.OAuth2Client.credentials.access_token != req.OAuthSession.tokens.access_token) {
-            /*console.log('Received new tokens : ');
-            console.log(req.OAuth2Client.credentials);*/
-            req.OAuthSession.tokens = req.OAuth2Client.credentials;
-        }
-    }).catch(err => {
-        console.log(err);
-        res.status(500);
-    });
-}
-
-function getFileFromGoogleDrive(req, res, paramFileName, callback) {
-    let driveConfigClient = getDriveConfigClient(req, res);
-    if (!driveConfigClient) {
-        return;
-    }
-    var fileName = paramFileName + "_" + req.params.server + ".json"
-    driveConfigClient.getByName(fileName).then(files => {
-        if (files.length > 0) {
-            callback(files[0].data);
-        } else {
-            // Migration to GL/JP files.
-            if (req.params.server == "GL") {
-                driveConfigClient.getByName(paramFileName + ".json").then(files => {
-                    if (files.length > 0) {
-                        callback(files[0].data);
-                    } else {
-                        callback({});
-                    }
-                });
-            } else {
-                callback({});
-            }
-        }
-        if (req.OAuth2Client.credentials.access_token != req.OAuthSession.tokens.access_token) {
-            /*console.log('Received new tokens : ');
-            console.log(req.OAuth2Client.credentials);*/
-            req.OAuthSession.tokens = req.OAuth2Client.credentials;
-        }
-    }).catch(err => {
-        console.log(err);
-        res.status(500).send(err);
-    });
-}
-
-function getDriveConfigClient(req, res) {
-  return new DriveConfig(req.OAuth2Client);
-}
-
-function migrateFromNameToId(itemInventory) {
-    if (itemInventory && (!itemInventory.version || itemInventory.version < 2)) {
-        var items = JSON.parse(fs.readFileSync('static/GL/data.json', 'utf8'));
-        var itemIdByName = {};
-        for (var index in items) {
-            itemIdByName[items[index].name] = items[index].id;
-        }
-        itemIdByName["Blade Mastery"] = "504201670";
-        itemIdByName["Zwill Crossblade"] = "1100000083";
-        itemIdByName["Zwill Crossblade (FFT)"] = "301002000";
-        itemIdByName["Imperial Helm (Item)"] = "404001100";
-        itemIdByName["Defender (FFT)"] = "303002400";
-        itemIdByName["Save the Queen"] = "303001400";
-        var newItemInventory = {};
-        for (var index in itemInventory) {
-            if (itemIdByName[index]) {
-                newItemInventory[itemIdByName[index]] = itemInventory[index];
-            } else {
-                newItemInventory[index] = itemInventory[index];
-            }
-        }
-        return newItemInventory;
-    } else if (itemInventory.version == 2 && itemInventory["303003500"]) {
-        itemInventory["303001400"] = itemInventory["303003500"];
-        delete itemInventory["303003500"];
-    }
-    return itemInventory;
-}
 
 var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
 
