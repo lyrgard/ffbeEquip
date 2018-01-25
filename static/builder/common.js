@@ -182,12 +182,9 @@ function getEquipmentStatBonus(itemAndPassives, stat) {
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat]) {
                     normalStack += item.singleWieldingOneHanded[stat] / 100;
                 }
-                if (!twoHanded && item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stat]) {
-                    glStack += item.singleWieldingOneHandedGL[stat] / 100;
-                }
             }
         }
-        return 1 + Math.min(3, normalStack) + Math.min(3, glStack);
+        return 1 + Math.min(3, normalStack);
     } else {
         return 1;
     }
