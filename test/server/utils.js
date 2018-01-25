@@ -4,13 +4,13 @@ const mock = require('mock-require');
 const testConfig = {
   port: 3000,
   env: 'test',
-  secret: 'secret',
-  googleApiKey: 'test',
+  secret: 'test_secret',
+  googleApiKey: 'test_api_key',
   googleOAuthCredential: {
     web: {
-      client_id: 'test',
-      client_secret: 'test',
-      redirect_uris: ['http://localhost/test'],
+      client_id: 'test_client_id',
+      client_secret: 'test_client_secret',
+      redirect_uris: ['http://localhost/test-redirect-uri'],
     },
   },
   isDev: false,
@@ -27,9 +27,9 @@ module.exports.mockGoogleShortener = (longUrl, id) => {
     longUrl,
   });
   nock('https://www.googleapis.com')
-    .post('/urlshortener/v1/url', () => true).query(true)
+    .post('/urlshortener/v1/url', { longUrl }).query({ key: testConfig.googleApiKey })
     .reply(201, res);
   nock('https://www.googleapis.com')
-    .get('/urlshortener/v1/url').query(true)
+    .get('/urlshortener/v1/url').query({ shortUrl: id, key: testConfig.googleApiKey })
     .reply(200, res);
 };

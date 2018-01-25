@@ -25,7 +25,9 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
 
   OAuth.client.getToken(code, (err, tokens) => {
     if (err) {
-      return next(Boom.boomify(err, { statusCode: err.code }));
+      return next(Boom.boomify(err, {
+        statusCode: err.code,
+      }));
     }
     req.OAuthSession.tokens = tokens;
     return res.redirect(state);
