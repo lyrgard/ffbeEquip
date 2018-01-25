@@ -15,7 +15,7 @@ const urlshortener = google.urlshortener({
 const insert = (longUrl) => {
   return Promise
     .fromCallback(cb => urlshortener.url.insert({ resource: { longUrl } }, cb))
-    .then(res => res.id);
+    .then(res => res.data.id);
 };
 
 /**
@@ -26,7 +26,7 @@ const insert = (longUrl) => {
 const get = (shortUrl) => {
   return Promise
     .fromCallback(cb => urlshortener.url.get({ shortUrl }, cb))
-    .then(res => res.longUrl);
+    .then(res => res.data.longUrl);
 };
 
 module.exports = {
