@@ -4318,7 +4318,7 @@
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHandedGL":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
@@ -4334,7 +4334,7 @@
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
 		"skills": [
-			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHandedGL":{"atk":100,"def":50,"spr":50}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
+			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
 			{"atk%":70, "def%":35, "spr%":35, "equipedConditions":["sword"]}
 		]
 	},
@@ -4638,7 +4638,7 @@
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Divine Burst","Entrust","Raise","SPR +20%, MP +10%","Ritual"],
 		"skills": [
-			{"mp%":50, "spr%":60, "singleWieldingGL":{"spr":100}, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
+			{"mp%":50, "spr%":60, "singleWielding":{"spr":100}, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
 		]
 	},
 	"Black Cat Lid": {
@@ -4875,7 +4875,7 @@
 		},
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWieldingGL":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 			{"mag%":30, "equipedConditions":["fire"]},
 			{"hp%":30, "equipedConditions":["dark"]}
 		]
@@ -5046,7 +5046,7 @@
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHandedGL":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
+			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHanded":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
 		]
 	},
 	"Toby": {

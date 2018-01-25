@@ -787,12 +787,6 @@ function prepareSearch(data) {
         if (item.singleWieldingGL) {
             textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingGL["atk"] + "%) when single wielding";
         }
-        if (item.singleWieldingOneHanded) {
-            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingOneHanded["atk"] + "%) when single wielding a one-handed weapon";
-        }
-        if (item.singleWieldingOneHandedGL) {
-            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingOneHandedGL["atk"] + "%) when single wielding a one-handed weapon";
-        }
         if (item.killers) {
             $(item["killers"]).each(function (index, killer) {
                 textToSearch += "|killer " + killer.name;

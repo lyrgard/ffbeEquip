@@ -355,11 +355,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWieldingGL) {baseEffects.singleWieldingGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingGL;
+                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+                    doublehandSkill = baseEffects.singleWielding;
                 } else {
-                    if (!baseEffects.singleWieldingOneHandedGL) {baseEffects.singleWieldingOneHandedGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHandedGL;
+                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+                    doublehandSkill = baseEffects.singleWieldingOneHanded;
                 }
                 if (doublehandEffect[2]) {
                     addToStat(doublehandSkill, "atk", doublehandEffect[2]);
@@ -488,7 +488,7 @@ function addAilmentResist(item, values) {
 }
 
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitName in units) {
