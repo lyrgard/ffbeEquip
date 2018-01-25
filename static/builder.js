@@ -64,7 +64,8 @@ var conciseView = true;
 var progressElement;
 var progress;
 
-const itemsToExclude = ["409009000"]; // Ring of Dominion
+const defaultItemsToExclude = ["409009000"];
+const itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
 var running = false;
@@ -1406,6 +1407,7 @@ function showExcludedItems() {
     }
         
     $('<div id="showExcludedItemsDialog" title="Excluded items">' + 
+        '<a class="buttonLink" onclick="resetExcludeList();">Reset item exclusion list</a>' +
         '<div class="table items">' + text + '</div>' +
       '</div>' ).dialog({
         modal: true,
@@ -1464,6 +1466,14 @@ function removeItemFromExcludeList(id) {
     $("#showExcludedItemsDialog .tr.id_" + id).remove();
     itemsToExclude.splice(itemsToExclude.indexOf(id),1);
     $(".excludedItemNumber").html(itemsToExclude.length);
+}
+
+function resetExcludeList() {
+    for (var index = itemsToExclude.length; index--;) {
+        if (!defaultItemsToExclude.includes(itemsToExclude[index])) {
+            removeItemFromExcludeList(itemsToExclude[index]);
+        }
+    }
 }
 
 function getItemLineAsText(prefix, slot) {
