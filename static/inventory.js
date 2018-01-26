@@ -12,6 +12,8 @@ function beforeShow() {
     $("#loginMessage").addClass("hidden");
     $("#inventory").removeClass("hidden");
     $("#searchBox").addClass("hidden");
+    $("#itemCount").addClass("hidden");
+    $("#materiaCount").addClass("hidden");
     
     $(".nav-tabs li.equipment").removeClass("active");
     $(".nav-tabs li.materia").removeClass("active");
@@ -25,6 +27,7 @@ function showMateria() {
     
     $(".nav-tabs li.materia").addClass("active");
     $("#sortType").text("Sorted by Name");
+    $("#materiaCount").removeClass("hidden");
     // filter, sort and display the results
     $("#results").html(displayItems(sort(materia)));
 }
@@ -34,6 +37,7 @@ function showEquipments() {
     
     $(".nav-tabs li.equipment").addClass("active");
     $("#sortType").text("Sorted by Type (Strength)");
+    $("#itemCount").removeClass("hidden");
     // filter, sort and display the results
     $("#results").html(displayItems(sort(equipments)));
 }
@@ -81,6 +85,7 @@ function showHistory() {
 function showSettings() {
     beforeShow();
     $(".nav-tabs li.settings").addClass("active");
+    $("#sortType").text("");
     var html = "";
     html += 
         '<div class="col-xs-12 addAll">' +
@@ -157,6 +162,7 @@ function addToInventory(id, showAlert = true) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveInventory,3000);
     $(".saveInventory").removeClass("hidden");
+    updateCounts();
     return true;
 }
 
@@ -196,6 +202,7 @@ function addAllToInventory(items, amount) {
         }
     }
     showSettings();
+    updateCounts();
 }
 
 function undoAddAllToInventory() {
@@ -204,6 +211,7 @@ function undoAddAllToInventory() {
     }
     itemsAddedWithAddAll = [];
     showSettings();
+    updateCounts();
 }
 
 
@@ -223,6 +231,7 @@ function removeFromInventory(id) {
         if (saveTimeout) {clearTimeout(saveTimeout)}
         saveTimeout = setTimeout(saveInventory,3000);
         $(".saveInventory").removeClass("hidden");
+        updateCounts();
     }
 }
 
@@ -382,9 +391,27 @@ function getStat(item, stat) {
     }
 }
 
+function updateCounts() {
+    var itemCount = 0;
+    var materiaCount = 0;
+    for (var index = equipments.length; index--;) {
+        if (itemInventory[equipments[index].id]) {
+            itemCount++;
+        }
+    }
+    for (var index = materia.length; index--;) {
+        if (itemInventory[materia[index].id]) {
+            materiaCount++;
+        }
+    }
+    $("#itemCount").text(" - " + itemCount + " slots");
+    $("#materiaCount").text(" - " + materiaCount + " slots");
+}
+
 function inventoryLoaded() {
     if (data) {
         showEquipments();
+        updateCounts();
     }
 }
 
@@ -477,6 +504,7 @@ $(function() {
         materia = keepOnlyOneOfEachMateria();
         if (itemInventory) {
             showEquipments();
+            updateCounts();
         }
         $.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;

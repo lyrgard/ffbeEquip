@@ -7,6 +7,10 @@ const authRequired = require('../../../server/middlewares/oauth.js');
 describe('middlewares.oauth', () => {
   const app = express();
   const agent = request.agent(app);
+  const fixtureToken = {
+    access_token: 'TEST_TOKEN',
+    token_type: 'Bearer',
+  };
 
   // Middleware
   app.use(sessions({
@@ -20,7 +24,7 @@ describe('middlewares.oauth', () => {
     return res.status(200).send(tokens);
   });
   app.get('/authenticate', (req, res) => {
-    req.OAuthSession.tokens = 'test';
+    req.OAuthSession.tokens = fixtureToken;
     return res.status(200).send();
   });
 
@@ -42,6 +46,6 @@ describe('middlewares.oauth', () => {
   it('.authorized', (done) => {
     agent
       .get('/secure')
-      .expect(200, 'test', done);
+      .expect(200, JSON.stringify(fixtureToken), done);
   });
 });
