@@ -438,35 +438,44 @@
                         <h4>How to use this:</h4>
                         <ul>
                             <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
-                            <li>The first <span class="code">EXPRESSION</span> is used to note a build in order to be able to compare builds. It can uses the <span class="code">VARIABLES</span> and the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
-                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span>. A exception to this rule are the immunity conditions, starting with <span class="code">I</span> (like <span class="code">I_CONFUSION</span>), that need to be alone in their condition</li>
-                            <li>Some valid formula :
-                                <div><span class="code">HP</span> &rarr; Maximize HP</div>
-                                <div><span class="code">DEF * HP</span> &rarr; Maximize the product of HP by DEF (physical eHP)</div>
-                                <div><span class="code">MP * MP_REFRESH</span> &rarr; Maximize the number of MP regained each turn</div>
-                                <div><span class="code">M_DAMAGE; HP > 6000</span> &rarr; Maximize Magical Damage while keeping HP > 6000</div>
-                                <div><span class="code">P_DAMAGE; P_EVADE > 100; HP > 5000</span> &rarr; Maximize Physical Damage while reaching 100% physical evade and HP > 5000</div>
+                            <li>The first <span class="code">EXPRESSION</span> is used to note a stat to maximize in order to be able to compare builds. It can use one or more <span class="code">VARIABLES</span> with the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
+                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span>. The exceptions to this rule are the short-cuts, starting with <span class="code">I</span> (like <span class="code">I_CONFUSION</span>), which are translated into <span class="code">VARIABLE > VALUE</span> form</li>
+                            <li>
+                                <h5>Some valid formula :</h5>
+                                <div class="tokenList">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr><td class="token"><span class="code">HP</span></td><td>Maximize HP</td></tr>
+                                            <tr><td class="token"><span class="code">DEF * HP</span></td><td>Maximize the product of HP by DEF (physical eHP)</td></tr>
+                                            <tr><td class="token"><span class="code">SPR * HP</span></td><td>Maximize the product of HP by SPR (magical eHP)</td></tr>
+                                            <tr><td class="token"><span class="code">MP * MP_REFRESH</span></td><td>Maximize the number of MP regained each turn</td></tr>
+                                            <tr><td class="token"><span class="code">M_DAMAGE; HP > 6000</span></td><td>Maximize Magical Damage while keeping HP > 6000</td></tr>
+                                            <tr><td class="token"><span class="code">P_DAMAGE; P_EVADE > 100; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                            <tr><td class="token"><span class="code">P_DAMAGE; I_PHYSICAL; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </li>
                             <li><span class="glyphicon glyphicon-warning-sign"></span> The more different variables you use in your formula, the more time the calculations will take</li>
                             <li>
                                 <h5>Available variables :</h5>
                                 <div class="tokenList">
                                     <table class="table">
-                                        <tobdy>
+                                        <tbody>
                                             <tr><td class="token">HP, MP, ATK, DEF, MAG, SPR</td><td>Value of the corresponding basic stat</td></tr>
+                                            <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
                                             <tr><td class="token">P_DAMAGE</td><td>This is the total physical damage, taking into account the ATK, the elements, the killers, the damage variance, ...</td></tr>
                                             <tr><td class="token">M_DAMAGE</td><td>Same as P_DAMAGE but for magical damage</td></tr>
                                             <tr><td class="token">H_DAMAGE</td><td>Same as P_DAMAGE but for hybrid damage</td></tr>
                                             <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
-                                            <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
                                             <tr><td class="token">I_PHYSICAL</td><td>Immunity to physical attacks. This is a shortcut to P_EVADE > 100</td></tr>
-                                            <tr><td class="token">MP_REFRESH</td><td>% of MP refresh per turn</td></tr>
-                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
-                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. I_XXX is a shortcut for R_XXX > 100</td></tr>
+                                            <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
                                             <tr><td class="token">R_FIRE, R_ICE, R_THUNDER, R_WATER, R_EARTH, R_WIND, R_LIGHT, R_DARK</td><td>Corresponding elemental resistance</td></tr>
                                             <tr><td class="token">R_POISON, R_BLIND, R_SLEEP, R_SILENCE, R_PARALYSIS, R_CONFUSION, R_DISEASE, R_PETRIFICATION, R_DEATH</td><td>Corresponding ailment resistance</td></tr>
-                                        </tobdy>
+                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. I_XXX is a shortcut for R_XXX > 100</td></tr>
+                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
+                                        </tbody>
                                     </table>
                                 </div>
                             </li>
