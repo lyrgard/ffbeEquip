@@ -25,13 +25,17 @@ const createClient = (tokens) => {
 const client = createClient();
 const authUrl = client.generateAuthUrl({
   access_type: 'offline',
-  scope: [
-    'https://www.googleapis.com/auth/drive.appfolder',
-  ],
+  scope: ['https://www.googleapis.com/auth/drive.appfolder'],
+});
+const authUrlConsent = client.generateAuthUrl({
+  access_type: 'offline',
+  prompt: 'consent',
+  scope: ['https://www.googleapis.com/auth/drive.appfolder'],
 });
 
 module.exports = {
   authUrl,
+  authUrlConsent,
   client,
   createClient,
 };

@@ -156,7 +156,7 @@ function treatItem(items, itemId, result, skills) {
         console.log("excluded : " + itemIn.name)
         return;
     }
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290") {
+    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
         // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
         return;
     }
@@ -425,7 +425,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }
 
     // killers
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) {
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && (rawEffect[1] == 1 || rawEffect[1] == 3) && rawEffect[2] == 11) {
         addKiller(item, rawEffect[3][0],rawEffect[3][1],rawEffect[3][2]);
 
     // evade
@@ -472,11 +472,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var doublehandSkill = {};
         var doublehandEffect = rawEffect[3];
         if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-            if (!item.singleWieldingGL) {item.singleWieldingGL = {}};
-            doublehandSkill = item.singleWieldingGL;
+            if (!item.singleWielding) {item.singleWielding = {}};
+            doublehandSkill = item.singleWielding;
         } else {
-            if (!item.singleWieldingOneHandedGL) {item.singleWieldingOneHandedGL = {}};
-            doublehandSkill = item.singleWieldingOneHandedGL;
+            if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
+            doublehandSkill = item.singleWieldingOneHanded;
         }
         if (doublehandEffect[2]) {
             addStat(doublehandSkill, "atk", doublehandEffect[2]);
@@ -628,7 +628,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","singleWieldingOneHandedGL","singleWieldingGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

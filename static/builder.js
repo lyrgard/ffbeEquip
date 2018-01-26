@@ -64,7 +64,8 @@ var conciseView = true;
 var progressElement;
 var progress;
 
-const itemsToExclude = ["409009000"]; // Ring of Dominion
+const defaultItemsToExclude = ["409009000"];
+const itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
 var running = false;
@@ -76,9 +77,9 @@ var processedCount = 0
 var typeCombinationsCount;
 var remainingTypeCombinations;
 var dataStorage;
+var bestiary;
 var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
-
 
 function build() {
     if (running) {
@@ -119,6 +120,7 @@ function optimize() {
     
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
+    var tryEquipSources = $("#tryEquipsources input").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -140,7 +142,7 @@ function optimize() {
     }
     
     
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.dataByType);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
@@ -193,8 +195,8 @@ function calculateAlreadyUsedItems() {
             }
         } else {
             for (var index = 0; index < 10; index++) {
-                if (builds[i].build[index]) {
-                    var item = builds[i].build[index];
+                if (builds[i].fixedItems[index]) {
+                    var item = builds[i].fixedItems[index];
                     if (item) {
                         if (alreadyUsedItems[item.id]) {
                             alreadyUsedItems[item.id]++;
@@ -420,7 +422,7 @@ function logCurrentBuild() {
 
 function logBuild(build, value) {
     var html = "";
-    calculateAlreadyUsedItems();
+    //calculateAlreadyUsedItems();
     readItemsExcludeInclude();
 
     for (var index = 0; index < 11; index++) {
@@ -544,12 +546,15 @@ function getItemLine(index, short = false) {
             html += displayItemLine(item);
         }
         if (!item.placeHolder && index < 10 && onlyUseOwnedItems) {
+            if (item && item.name == "Snowbear" && index == 5) {
+                console.log("!!")
+            }
             var alreadyUsed = 0;
             if (alreadyUsedItems[item.id]) {
                 alreadyUsed = alreadyUsedItems[item.id];
             }
-            alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex].build, index, item);
-            if (getOwnedNumber(item).totalOwnedNumber < alreadyUsed && getOwnedNumber(item).total >= alreadyUsed) {
+            alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex], index, item);
+            if (getOwnedNumber(item).totalOwnedNumber <= alreadyUsed && getOwnedNumber(item).total > alreadyUsed) {
                 if (item.tmrUnit) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + units[item.tmrUnit].name + '"/></div>'
                 } else if (item.access.includes("trial")) {
@@ -561,13 +566,11 @@ function getItemLine(index, short = false) {
     return html;
 }
 
-function getNumberOfItemAlreadyUsedInThisBuild(build, index, item) {
+function getNumberOfItemAlreadyUsedInThisBuild(unitBuild, index, item) {
     var number = 0;
-    for (var previousItemIndex = 0; previousItemIndex < 10; previousItemIndex++) {
-        if (build[previousItemIndex] && build[previousItemIndex].id && build[previousItemIndex].id == item.id) {
-            if (previousItemIndex < index) {
-                number++;
-            }
+    for (var previousItemIndex = 0; previousItemIndex < index; previousItemIndex++) {
+        if (unitBuild.build[previousItemIndex] && !unitBuild.fixedItems[previousItemIndex] && unitBuild.build[previousItemIndex].id && unitBuild.build[previousItemIndex].id == item.id) {
+            number++;
         }
         
     }
@@ -756,6 +759,7 @@ function addNewUnit() {
     reinitBuild(builds.length - 1);
     $('#forceDoublehand input').prop('checked', false);
     $('#forceDualWield input').prop('checked', false);
+    $('#tryEquipSources input').prop('checked', false);
     loadBuild(builds.length - 1);
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
@@ -1291,6 +1295,14 @@ function loadStateHashAndBuild(data) {
 function showBuildLink() {
     var data = getStateHash();
     data.fixedItems = [];
+    
+    // first fix allow Us of items
+    for (var index = 0; index < 10; index++) {
+        var item = builds[currentUnitIndex].build[index];
+        if (item && !item.placeHolder && item.allowUseOf) {
+            data.fixedItems.push(item.id);
+        }
+    }
     // first fix dual wield items
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].build[index];
@@ -1301,7 +1313,7 @@ function showBuildLink() {
     // then others items
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].build[index];
-        if (item && !item.placeHolder && !hasDualWieldOrPartialDualWield(item)) {
+        if (item && !item.placeHolder && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
             data.fixedItems.push(item.id);
         }
         if (item && item.placeHolder) {
@@ -1402,6 +1414,7 @@ function showExcludedItems() {
     }
         
     $('<div id="showExcludedItemsDialog" title="Excluded items">' + 
+        '<a class="buttonLink" onclick="resetExcludeList();">Reset item exclusion list</a>' +
         '<div class="table items">' + text + '</div>' +
       '</div>' ).dialog({
         modal: true,
@@ -1410,10 +1423,64 @@ function showExcludedItems() {
     });
 }
 
+function showMonsterList() {
+    var text = "";
+    for (var index = 0, len = bestiary.monsters.length; index < len; index++) {
+        var monster = bestiary.monsters[index];
+        text += '<div class="tr" onclick="selectMonster(' + index +')">' +
+            getNameColumnHtml(monster) + 
+            '<div class="td special">' + getResistHtml(monster) + '</div>';
+        text += '<div class="td access">';
+        for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
+            text += "<div>" + monster.races[raceIndex] + "</div>";
+        }
+        text += '</div>';
+        text += '</div>';
+    }
+        
+    $('<div id="showMonsterListDialog" title="Monster List">' + 
+        '<div class="table items monsters">' + text + '</div>' +
+      '</div>' ).dialog({
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        width: 600
+    });
+}
+
+function selectMonster(monsterIndex) {
+    var monster = bestiary.monsters[monsterIndex];
+    $("#monsterDef").val(monster.def);
+    $("#monsterSpr").val(monster.spr);
+    for(var elementIndex = elementList.length; elementIndex--;) {
+        var element = elementList[elementIndex];
+        $("#elementalResists td." + element + " input").val("");
+    }
+    if (monster.resist) {
+        for(var resistIndex = monster.resist.length; resistIndex--;) {
+            var resist = monster.resist[resistIndex];
+            $("#elementalResists td." + resist.name + " input").val(resist.percent);
+        }   
+    }
+    unselectAll("races");
+    select("races", monster.races);
+    $('#showMonsterListDialog').dialog('destroy');
+    if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
+        logCurrentBuild();    
+    }
+}
+
 function removeItemFromExcludeList(id) {
     $("#showExcludedItemsDialog .tr.id_" + id).remove();
     itemsToExclude.splice(itemsToExclude.indexOf(id),1);
     $(".excludedItemNumber").html(itemsToExclude.length);
+}
+
+function resetExcludeList() {
+    for (var index = itemsToExclude.length; index--;) {
+        if (!defaultItemsToExclude.includes(itemsToExclude[index])) {
+            removeItemFromExcludeList(itemsToExclude[index]);
+        }
+    }
 }
 
 function getItemLineAsText(prefix, slot) {
@@ -1517,6 +1584,11 @@ $(function() {
     $.get(server + "/units", function(result) {
         ownedUnits = result;
         onEquipmentsChange();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+    });
+    $.get(server + "/monsters.json", function(result) {
+        bestiary = new Bestiary(result);
+        $("#monsterListLink").removeClass("hidden");
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     

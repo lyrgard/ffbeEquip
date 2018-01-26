@@ -46,6 +46,7 @@ class DataStorage {
         this.dataByType = {};
         this.dataWithCondition = [];
         this.dualWieldSources = [];
+        this.equipSources = [];
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
@@ -58,12 +59,14 @@ class DataStorage {
                 continue;
             }
             this.prepareItem(item, this.unitBuild.baseValues, ennemyStats);
-            if (getAvailableNumber(item) > 0 && isApplicable(item, this.unitBuild.unit) && equipable.includes(item.type)) {
-                if ((item.special && item.special.includes("dualWield")) || item.partialDualWield) {
+            if (getAvailableNumber(item) > 0 && isApplicable(item, this.unitBuild.unit)) {
+                if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
                     if (!alreadyAddedDualWieldSource.includes(item.id)) {
                         this.dualWieldSources.push(item);
                         alreadyAddedDualWieldSource.push(item.id);
                     }
+                } else if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
+                    this.equipSources.push(item);
                 } else if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
                     if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                         adventurersAvailable[item.id] = item;
