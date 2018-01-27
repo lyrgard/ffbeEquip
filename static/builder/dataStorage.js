@@ -65,7 +65,8 @@ class DataStorage {
                         this.dualWieldSources.push(item);
                         alreadyAddedDualWieldSource.push(item.id);
                     }
-                } else if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
+                } 
+                if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
                     this.equipSources.push(item);
                 } else if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
                     if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
