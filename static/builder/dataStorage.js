@@ -12,7 +12,7 @@ class DataStorage {
         for (var index = 0, len = this.data.length; index < len; index++) {
             var item = this.data[index];
             if (item.id != currentId) {
-                if (currentItemVersions.length > 1) {
+                if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {
                     this.itemWithVariation[currentId] = currentItemVersions;
                 }
                 this.allItemVersions[currentId] = currentItemVersions;
