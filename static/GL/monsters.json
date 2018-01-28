@@ -1,6 +1,12 @@
 [
-    {"name":"Urutan Eater (DEF/SPR not known)", "wikiEntry":"Nam-Yensa_Sandsea_-_Exploration", "hp":4000000, "races":["aquatic"], "resist":[{"name":"wind", "percent":-50}, {"name":"earth", "percent":300}]},
+    {"name":"Urutan Eater", "wikiEntry":"Nam-Yensa_Sandsea_-_Exploration", "hp":4000000, "def":50, "spr":50,"races":["aquatic"], "resist":[{"name":"wind", "percent":-50}, {"name":"earth", "percent":300}]},
     {"name":"Salamand Entite", "wikiEntry":"Yensa_Sandsea", "hp":3800000, "mp":2500, "atk":400, "def":50, "mag":430, "spr":40, "races":["spirit"], "resist":[{"name":"fire", "percent":300}, {"name":"water", "percent":-50}]},
+    {"name":"Elnath", "wikiEntry":"Chamber_of_Arms_-_Elnath", "hp":4000000, "mp":4000, "atk":700, "def":170, "mag":700, "spr":120, "races":["human", "machine"], "resist":[{"name":"lightning", "percent":-50}]},
+    {"name":"Elnath - Left Arm", "wikiEntry":"Chamber_of_Arms_-_Elnath", "hp":1700000, "mp":2500, "atk":620, "def":999, "mag":500, "spr":75, "races":["human", "machine"], "resist":[{"name":"lightning", "percent":-50}]},
+    {"name":"Elnath - Right Arm", "wikiEntry":"Chamber_of_Arms_-_Elnath", "hp":1700000, "mp":2500, "atk":620, "def":130, "mag":500, "spr":999, "races":["human", "machine"], "resist":[{"name":"lightning", "percent":-50}]},
+    {"name":"Sheratan",    "wikiEntry":"Chamber_of_Arms_-_Sheratan", "hp":4000000, "mp":4000, "atk":1000, "def":170, "mag":700, "spr":120, "races":["human", "plant"], "resist":[{"name":"earth", "percent":100}, {"name":"dark", "percent":100}]},
+    {"name":"Fruit of Tenacity", "wikiEntry":"Chamber_of_Arms_-_Sheratan", "hp":1700000, "mp":2500, "atk":1000, "def":130, "mag":500, "spr":75, "races":["plant"], "resist":[{"name":"fire", "percent":-50}, {"name":"light", "percent":-50}]},
+    {"name":"Fruit of Anger", "wikiEntry":"Chamber_of_Arms_-_Sheratan", "hp":1700000, "mp":2500, "atk":1000, "def":130, "mag":500, "spr":75, "races":["plant"], "resist":[{"name":"fire", "percent":-50}, {"name":"wind", "percent":-50}]},
 	{"name":"Glacial", "wikiEntry":"The_Fallen_Ice_Bird", "hp":44444444, "mp":100000, "atk":500, "def":15, "mag":450, "spr":15, "races":["bird", "spirit"], "resist":[{"name":"fire", "percent":-1000}, {"name":"ice", "percent":300}, {"name":"water", "percent":300}]},
 	{"name":"Glacon", "wikiEntry":"The_Fallen_Ice_Bird", "hp":4444444, "mp":1000, "atk":500, "def":3, "mag":400, "spr":15, "races":["spirit"], "resist":[{"name":"fire", "percent":-1000}, {"name":"ice", "percent":300}, {"name":"water", "percent":300}]},
 	{"name":"Bloody Moon", "wikiEntry":"Wicked_Moon", "hp":6000000, "mp":200000, "atk":500, "def":999, "mag":450, "spr":150, "races":["demon", "spirit"], "resist":[]},
