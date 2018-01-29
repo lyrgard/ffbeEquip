@@ -18,6 +18,8 @@ class Piramidata {
                 "&esperdef=" + unitBuild.build[10].def  * 100+
                 "&espermag=" + unitBuild.build[10].mag  * 100+
                 "&esperspr=" + unitBuild.build[10].spr * 100;
+        } else {
+            link += "&esperhp=0&espermp=0&esperatk=0&esperdef=0&espermag=0&esperspr=0";
         }
         link += "&rhand=" + Piramidata.getItemId(unitBuild, 0) +
             "&lhand=" + Piramidata.getItemId(unitBuild, 1) +
