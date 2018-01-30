@@ -42,6 +42,33 @@ var typeMap = {
     "Accessory": 'accessory'
 }
 
+var typeIdMap = {
+    1: 'dagger',
+    2: 'sword',
+    3: 'greatSword',
+    4: 'katana',
+    5: 'staff',
+    6: 'rod',
+    7: 'bow',
+    8: 'axe',
+    9: 'hammer',
+    10: 'spear',
+    11: 'harp',
+    12: 'whip',
+    13: 'throwing',
+    14: 'gun',
+    15: 'mace',
+    16: 'fist',
+    30: 'lightShield',
+    31: 'heavyShield',
+    40: 'hat',
+    41: 'helm',
+    50: 'clothes',
+    51: 'lightArmor',
+    52: 'heavyArmor',
+    53: 'robe'
+}
+
 var raceMap = {
     1: 'beast',
     2: 'bird',
@@ -78,6 +105,19 @@ var elementsMap = {
     6: 'earth',
     7: 'light',
     8: 'dark'
+}
+
+var targetAreaMap = {
+    "none" : 0,
+    "single" : 1,
+    "all" : 2
+}
+
+var targetSideMap = {
+    "enemy" : 1,
+    "ally" : 2,
+    "self" : 3,
+    "allies" : 5,
 }
 
 filterGame = [20001, 20002, 20006, 20007, 20008, 20011, 20012];
@@ -148,7 +188,6 @@ request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/unit
                                         unitsOut[unitOut.data.id] = unitOut.data;
                                     }
                                 }
-                                console.log(unitsOut);
 
                                 fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
                                 fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
@@ -186,6 +225,7 @@ function treatUnit(serieId, unitId, unitIn, minRarity, maxRarity, learns, enhanc
         console.log(unitIn);
         console.log(serieId);
     }
+    var enhancements = {};
     for (skillIndex in learns[serieId].abilities) {
         var skill = learns[serieId].abilities[skillIndex];
         var unhancedSkillId = skill.id;
@@ -197,10 +237,11 @@ function treatUnit(serieId, unitId, unitIn, minRarity, maxRarity, learns, enhanc
         }
         if (unhancedSkillId != skillId) {
             data["enhancementSkills"].push(abilities[skillId].name);
+            enhancements[unhancedSkillId] = skillId;
         }
     }
     
-    //data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)*/
+    data.skills = getPassives(learns[serieId].abilities, abilities, enhancements, unitIn)
     return unit;
 }
 
@@ -214,20 +255,15 @@ function getEquip(equipIn) {
     return equip;
 }
 
-function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData) {
+function getPassives(skillsIn, skills, enhancements, unitData) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
     
     
     for (skillIndex in skillsIn) {
-        if (skillsIn[skillIndex].rarity > maxRarity) {
-            continue; // don't take into account skills for a max rarity not yet released
-        }
-        var skillId = skillsIn[skillIndex].id.toString();
-        if (skillId == "0") {
-            console.log(skillsIn[skillIndex]);
-            continue;
-        }
+        
+        var skillId = skillsIn[skillIndex].id;
+
         if (enhancements) {
             while(enhancements[skillId]) {
                 skillId = enhancements[skillId];
@@ -237,8 +273,12 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         if (!skillIn) {
             console.log(skillId);
         }
-        for (var rawEffectIndex in skillIn["effects_raw"]) {
-            var rawEffect = skillIn["effects_raw"][rawEffectIndex];
+        if (skillIn.skill_type != "passive") {
+            continue; // only keep passives
+        }
+        for (var effectIndex in skillIn.effects) {
+            var effect = skillIn.effects[effectIndex];
+            var rawEffect = [targetAreaMap[effect.target_area], targetSideMap[effect.target_side], effect.passive_id, effect.params];
             
             // stat bonus
             if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
@@ -259,7 +299,7 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                     addToList(baseEffects,"special","dualWield");
                 } else {
                     for(var partialDualWieldIndex in types) {
-                        addToList(baseEffects,"partialDualWield",typeMap[types[partialDualWieldIndex]]);
+                        addToList(baseEffects,"partialDualWield",typeIdMap[types[partialDualWieldIndex]]);
                     }                    
                 }
             }
@@ -300,7 +340,7 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             // Mastery
             else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                 var masteryEffect = rawEffect[3];
-                var masteryType = typeMap[masteryEffect[0]];
+                var masteryType = typeIdMap[masteryEffect[0]];
                 var masterySkill = {"equipedConditions":[masteryType]};
                 
                 if (masteryEffect.length > 5) {
@@ -426,8 +466,32 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             }
         }
     }
-    addElementalResist(baseEffects, unitData.element_resist);
-    addAilmentResist(baseEffects, unitData.status_resist);
+    if (unitData.resists.elements) {
+        var resist = [
+            unitData.resists.elements["fire"] || 0,
+            unitData.resists.elements["ice"] || 0,
+            unitData.resists.elements["thunder"] || 0,
+            unitData.resists.elements["water"] || 0,
+            unitData.resists.elements["wind"] || 0,
+            unitData.resists.elements["earth"] || 0,
+            unitData.resists.elements["light"] || 0,
+            unitData.resists.elements["dark"] || 0
+        ]
+        addElementalResist(baseEffects, resist);    
+    }
+    if (unitData.resists.ailments) {
+        var resist = [
+            unitData.resists.ailments["poison"] || 0,
+            unitData.resists.ailments["blind"] || 0,
+            unitData.resists.ailments["sleep"] || 0,
+            unitData.resists.ailments["silence"] || 0,
+            unitData.resists.ailments["paralyze"] || 0,
+            unitData.resists.ailments["confuse"] || 0,
+            unitData.resists.ailments["virus"] || 0,
+            unitData.resists.ailments["petrify"] || 0
+        ]
+        addAilmentResist(baseEffects, resist);
+    }
     
     if (Object.keys(baseEffects).length === 0) {
         skillsOut.splice(0,1);
