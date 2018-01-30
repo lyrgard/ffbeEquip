@@ -15,6 +15,7 @@ var searchText = '';
 var selectedUnit = '';
 var server = "GL";
 var saveTimeout;
+var mustSaveInventory = false;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -819,41 +820,6 @@ function getShortUrl(longUrl, callback) {
     });
 }
 
-function saveUnits() {
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
-    saveNeeded = false;
-    $.ajax({
-        url: server + '/units',
-        method: 'PUT',
-        data: JSON.stringify(ownedUnits),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $("#inventoryDiv .loader").addClass("hidden");
-            $("#inventoryDiv .message").text("save OK");
-            $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){
-                $("#inventoryDiv .message").addClass("hidden");
-            }  , 3000 );
-        },
-        error: function(error) {
-            $("#inventoryDiv .loader").addClass("hidden");
-            if (error.status == 401) {
-                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-                window.location.reload();
-            } else {
-                saveNeeded = true;
-                $(".saveInventory").removeClass("hidden");
-                alert('error while saving the inventory. Please click on "Save" to try again');
-            }
-
-        }
-    });
-}
-
 
 function onUnitsOrInventoryLoaded() {
     if (itemInventory && ownedUnits) {
@@ -928,6 +894,75 @@ function showTextPopup(title, text) {
             }
         },
         width: 600
+    });
+}
+
+function saveUserData(mustSaveInventory, mustSaveUnits) {
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    $(".saveInventory").addClass("hidden");
+    $("#inventoryDiv .loader").removeClass("hidden");
+    $("#inventoryDiv .message").addClass("hidden");
+    saveNeeded = false;
+    if (mustSaveInventory) {
+        if (mustSaveUnits) {
+            saveInventory(
+                function() {
+                    saveUnits(saveSuccess, saveError);
+                }
+            );
+        } else {
+            saveInventory(saveSuccess, saveError);
+        }
+    } else if (mustSaveUnits) {
+        saveUnits(saveSuccess, saveError);
+    }
+}
+
+function saveSuccess() {
+    if (mustSaveInventory) {
+        mustSaveInventory = false;
+    }
+    $("#inventoryDiv .loader").addClass("hidden");
+    $("#inventoryDiv .message").text("save OK");
+    $("#inventoryDiv .message").removeClass("hidden");
+    setTimeout( function(){
+        $("#inventoryDiv .message").addClass("hidden");
+    }  , 3000 );
+}
+
+function saveError() {
+    $("#inventoryDiv .loader").addClass("hidden");
+    if (error.status == 401) {
+        alert('You have been disconnected. The data was not saved. The page will be reloaded.');
+        window.location.reload();
+    } else {
+        saveNeeded = true;
+        $(".saveInventory").removeClass("hidden");
+        alert('error while saving the user data. Please click on "Save" to try again');
+    }
+}
+
+function saveInventory(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/itemInventory',
+        method: 'PUT',
+        data: JSON.stringify(itemInventory),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
+    });
+}
+    
+ function saveUnits(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/units',
+        method: 'PUT',
+        data: JSON.stringify(ownedUnits),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
     });
 }
 

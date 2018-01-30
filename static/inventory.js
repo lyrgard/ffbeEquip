@@ -160,7 +160,7 @@ function addToInventory(id, showAlert = true) {
     }
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveInventory,3000);
+    saveTimeout = setTimeout(saveUserData,3000, true, false);
     $(".saveInventory").removeClass("hidden");
     updateCounts();
     return true;
@@ -229,45 +229,10 @@ function removeFromInventory(id) {
         }
         saveNeeded = true;
         if (saveTimeout) {clearTimeout(saveTimeout)}
-        saveTimeout = setTimeout(saveInventory,3000);
+        saveTimeout = setTimeout(saveUserData,3000, true, false);
         $(".saveInventory").removeClass("hidden");
         updateCounts();
     }
-}
-
-function saveInventory() {
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
-    saveNeeded = false;
-    $.ajax({
-        url: server + '/itemInventory',
-        method: 'PUT',
-        data: JSON.stringify(itemInventory),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $("#inventoryDiv .loader").addClass("hidden");
-            $("#inventoryDiv .message").text("save OK");
-            $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){ 
-                $("#inventoryDiv .message").addClass("hidden");
-            }  , 3000 );
-        },
-        error: function(error) {
-            $("#inventoryDiv .loader").addClass("hidden");
-            if (error.status == 401) {
-                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-                window.location.reload();
-            } else {
-                saveNeeded = true;
-                $(".saveInventory").removeClass("hidden");
-                alert('error while saving the inventory. Please click on "Save" to try again');
-            }
-            
-        }
-    });
 }
 
 function search() {
