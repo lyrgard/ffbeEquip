@@ -5,32 +5,41 @@ var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
 var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
 
+var statsMap = {
+    "hp": "hp",
+    "mp": "mp",
+    "atk": "atk",
+    "def": "def",
+    "int": "mag",
+    "mnd": "spr"
+}
+
 var typeMap = {
-    1: 'dagger',
-    2: 'sword',
-    3: 'greatSword',
-    4: 'katana',
-    5: 'staff',
-    6: 'rod',
-    7: 'bow',
-    8: 'axe',
-    9: 'hammer',
-    10: 'spear',
-    11: 'harp',
-    12: 'whip',
-    13: 'throwing',
-    14: 'gun',
-    15: 'mace',
-    16: 'fist',
-    30: 'lightShield',
-    31: 'heavyShield',
-    40: 'hat',
-    41: 'helm',
-    50: 'clothes',
-    51: 'lightArmor',
-    52: 'heavyArmor',
-    53: 'robe',
-    60: 'accessory'
+    "Dagger": 'dagger',
+    "Sword": 'sword',
+    "Greatsword": 'greatSword',
+    "Katana": 'katana',
+    "Staff": 'staff',
+    "Rod": 'rod',
+    "Bow": 'bow',
+    "Axe": 'axe',
+    "Hammer": 'hammer',
+    "Lance": 'spear',
+    "Harp": 'harp',
+    "Whip": 'whip',
+    "Projectile": 'throwing',
+    "Gun": 'gun',
+    "Mace": 'mace',
+    "Knuckle": 'fist',
+    "Light Shield": 'lightShield',
+    "Heavy Shield": 'heavyShield',
+    "Hat": 'hat',
+    "Helm": 'helm',
+    "Clothes": 'clothes',
+    "Light Armor": 'lightArmor',
+    "Heavy Armor": 'heavyArmor',
+    "Robes": 'robe',
+    "Accessory": 'accessory'
 }
 
 var raceMap = {
@@ -82,15 +91,24 @@ var skillNotIdentifiedNumber = 0;
 
 
 console.log("Starting");
-request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json', function (error, response, body) {
+request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/unit.json', function (error, response, body) {
     if (!error && response.statusCode == 200) {
         console.log("units.json downloaded");
         var units = JSON.parse(body);
-        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/skills.json', function (error, response, body) {
+        request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/learns.json', function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log("skills.json downloaded");
-                var skills = JSON.parse(body);
-                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
+                console.log("learns.json downloaded");
+                var learns = JSON.parse(body);
+                request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/enhance.json', function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log("enhance.json downloaded");
+                        var enhance = JSON.parse(body);
+                        request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/ability.json', function (error, response, body) {
+                            if (!error && response.statusCode == 200) {
+                                console.log("ability.json downloaded");
+                                var abilities = JSON.parse(body);
+                        
+                /*request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                         console.log("enhancements.json downloaded");
                         var enhancements = JSON.parse(body);
@@ -104,19 +122,38 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                                 }
                                 enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
                             }
-                        }
+                        }*/
                 
-                        var unitsOut = {};
-                        for (var unitId in units) {
-                            var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
-                                var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                unitsOut[unitOut.data.id] = unitOut.data;
-                            }
-                        }
+                                var unitSeries = {};
+                                var unitsOut = {};
+                                for (var unitId in units) {
+                                    var serieId = unitId.substr(0, unitId.length - 1);
+                                    var stars = parseInt(unitId.substr(unitId.length -1, 1));
+                                    if (!unitSeries[serieId]) {
+                                        unitSeries[serieId] = {"min":stars, "max":stars};
+                                    }
+                                    if (unitSeries[serieId].min > stars) {
+                                        unitSeries[serieId].min = stars
+                                    }
+                                    if (unitSeries[serieId].max < stars) {
+                                        unitSeries[serieId].max = stars
+                                    }
+                                }
+                                for (var serieId in unitSeries) {
+                                    var minUnitId = serieId + unitSeries[serieId].min;
+                                    var maxUnitId = serieId + unitSeries[serieId].max;
+                                    var unitIn = units[maxUnitId];
+                                    if (!maxUnitId.startsWith("9") && learns[minUnitId]) {
+                                        var unitOut = treatUnit(minUnitId, maxUnitId, unitIn, unitSeries[serieId].min, unitSeries[serieId].max, learns, enhance, abilities); //, skills, enhancementsByUnitId);
+                                        unitsOut[unitOut.data.id] = unitOut.data;
+                                    }
+                                }
+                                console.log(unitsOut);
 
-                        fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
-                        fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
+                                fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
+                                fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
+                            }
+                        });
                     }
                 });
             }
@@ -124,54 +161,53 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     }
 });
 
-function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
+function treatUnit(serieId, unitId, unitIn, minRarity, maxRarity, learns, enhance, abilities) {
     var unit = {};
     unit.data = {};
     
     var data = unit.data;
-    var unitData;
     
-    var unitStats = {"maxStats":{}, "pots":{}};
-    var maxRarityUnitId;
-    for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
-            unitData = unitIn.entries[entryId];
-            maxRarityUnitId = entryId;
-            for (var statIndex in stats) {
-                var stat = stats[statIndex];
-                unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
-                unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
-            }
-            break;
-        }
+    data["stats"] = {"maxStats":{}, "pots":{}};
+    
+    for (var stat in statsMap) {
+        data["stats"].maxStats[statsMap[stat]] = unitIn.stats[stat].max;
+        data["stats"].pots[stat.toLowerCase()] = unitIn.stats[stat].bonus_cap;
     }
+    
     data["name"] = unitIn["name"];
-    data["max_rarity"] = unitIn["rarity_max"];
-    data["min_rarity"] = unitIn["rarity_min"];
-    data["stats"] = unitStats;
-    data["sex"] = unitIn.sex.toLowerCase();
-    data["equip"] = getEquip(unitIn.equip);
-    data["id"] = maxRarityUnitId;
+    data["max_rarity"] = maxRarity;
+    data["min_rarity"] = minRarity;
+    data["sex"] = unitIn.gender;
+    data["equip"] = getEquip(unitIn.equipment);
+    data["id"] = unitId;
     
     data["enhancementSkills"] = [];
-    for (skillIndex in unitIn.skills) {
-        if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
-            continue; // don't take into account skills for a max rarity not yet released
+    if (!learns[serieId]) {
+        console.log(unitIn);
+        console.log(serieId);
+    }
+    for (skillIndex in learns[serieId].abilities) {
+        var skill = learns[serieId].abilities[skillIndex];
+        var unhancedSkillId = skill.id;
+        var skillId = skill.id;
+        if (enhance[serieId]) {
+            while(enhance[serieId][skillId]) {
+                skillId = enhance[serieId][skillId].id;
+            }
         }
-        var skillId = unitIn.skills[skillIndex].id.toString();
-        if (enhancementsByUnitId[unitId] && enhancementsByUnitId[unitId][skillId]) {
-            data["enhancementSkills"].push(skills[skillId].name);
+        if (unhancedSkillId != skillId) {
+            data["enhancementSkills"].push(abilities[skillId].name);
         }
     }
     
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
+    //data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)*/
     return unit;
 }
 
 function getEquip(equipIn) {
     var equip = [];
     for(var equipIndex in equipIn) {
-        if (equipIn[equipIndex] != 60) {
+        if (equipIn[equipIndex] != "Accessory") {
             equip.push(typeMap[equipIn[equipIndex]]);
         }
     }
