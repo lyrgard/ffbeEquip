@@ -761,12 +761,17 @@ function prepareSearch(data) {
             textToSearch += "|Only ";
             var first = true;
             $(item.exclusiveUnits).each(function(index, exclusiveUnitId) {
-                if (first) {
-                    first = false;
-                } else {
-                    textToSearch += ", ";
+                if (units[exclusiveUnitId]) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        textToSearch += ", ";
+                    }
+                    if (!units[exclusiveUnitId]) {
+                        console.log("");
+                    }
+                    textToSearch += units[exclusiveUnitId].name;
                 }
-                textToSearch += units[exclusiveUnitId].name;
             });
         }
         if (item["exclusiveSex"]) {

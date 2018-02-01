@@ -1553,18 +1553,18 @@ $(function() {
     $.get(server + "/data.json", function(result) {
         data = result;
         dataStorage = new DataStorage(data);
-        prepareSearch(data);
-        continueIfReady();
+        $.get(server + "/unitsWithSkill.json", function(result) {
+            units = result;
+            populateUnitSelect();
+            prepareSearch(data);
+            continueIfReady();
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    $.get(server + "/unitsWithSkill.json", function(result) {
-        units = result;
-        populateUnitSelect();
-        continueIfReady();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
-    });
+    
     $.get(server + "/espers.json", function(result) {
         espers = [];
         for (var index = result.length; index--;) {
@@ -1655,7 +1655,7 @@ $(function() {
 var counter = 0;
 function continueIfReady() {
     counter++;
-    if (counter == 3) {
+    if (counter == 2) {
         if (navigator.hardwareConcurrency) {
             initWorkers(navigator.hardwareConcurrency);
         } else {
