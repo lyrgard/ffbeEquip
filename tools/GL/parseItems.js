@@ -425,7 +425,9 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }
 
     // killers
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) {
+        // Killers
+    } else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
+        (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
         addKiller(item, rawEffect[3][0],rawEffect[3][1],rawEffect[3][2]);
 
     // evade
