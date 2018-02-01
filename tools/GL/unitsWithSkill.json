@@ -397,17 +397,17 @@
 	"100002703": {
 		"name":"Roselia",
 		"id":"100002703",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":1955,"mp":143,"atk":77,"def":81,"mag":89,"spr":114},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+			"maxStats":{"hp":2774,"mp":195,"atk":100,"def":105,"mag":115,"spr":148},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Pray","Curaga"],
 		"skills": [
-			{"spr%":20}
+			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}
 		]
 	},
 	"100002803": {
@@ -1127,16 +1127,18 @@
 	"100007603": {
 		"name":"Ruggles",
 		"id":"100007603",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2657,"mp":118,"atk":106,"def":101,"mag":82,"spr":80},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
+			"maxStats":{"hp":3454,"mp":153,"atk":138,"def":131,"mag":107,"spr":104},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "atk%":10, "resist":[{"name":"earth","percent":30}]}
+			{"hp%":50, "atk%":10, "singleWieldingOneHanded":{"atk":50}, "resist":[{"name":"earth","percent":30},{"name":"earth","percent":20}]},
+			{"hp%":20, "atk%":20, "equipedConditions":["axe"]},
+			{"hp%":20, "atk%":20, "equipedConditions":["hammer"]}
 		]
 	},
 	"100007705": {
