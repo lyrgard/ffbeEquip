@@ -196,8 +196,7 @@ function treatItem(items, itemId, result, skills) {
                 itemOut.exclusiveSex = "female";
             }
         } else if (itemIn.requirements[0] == "UNIT_ID") {
-            var unit = unitNamesById[itemIn.requirements[1]];
-            addExclusiveUnit(itemOut, unit.name);
+            addExclusiveUnit(itemOut, itemIn.requirements[1]);
         }
     }
     
@@ -340,7 +339,7 @@ function readSkills(itemIn, itemOut, skills) {
                 var unitFoud = false;
                 for (var restrictedUnitIndex in skill.unit_restriction) {
                     if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
-                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        addExclusiveUnit(copy, skill.unit_restriction[restrictedUnitIndex]);
                         unitFoud = true;
                     }
                 }
@@ -359,7 +358,7 @@ function readSkills(itemIn, itemOut, skills) {
                 var unitFoud = false;
                 for (var restrictedUnitIndex in skill.unit_restriction) {
                     if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
-                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        addExclusiveUnit(copy, skill.unit_restriction[restrictedUnitIndex]);
                         unitFoud = true;
                     }
                 }
@@ -564,11 +563,14 @@ function addMastery(item, mastery) {
     addStat(item, "spr%", mastery[4]);
 }
 
-function addExclusiveUnit(item, name) {
+function addExclusiveUnit(item, unitId) {
     if (!item.exclusiveUnits) {
         item.exclusiveUnits = [];
     }
-    item.exclusiveUnits.push(name);
+    if (typeof unitId == "number") {
+        unitId = new String(unitId);
+    }
+    item.exclusiveUnits.push(unitId);
 }
 
 function isItemEmpty(item) {

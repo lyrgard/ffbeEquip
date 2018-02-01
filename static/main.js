@@ -35,7 +35,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnit, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
+    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnitId, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -85,7 +85,7 @@ var updateFilterHeadersDisplay = function() {
 		// If filter has a value selected, display "unselect all" link
         $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
 		// If filter has unit specific link and a unit is selected, display those links
-        $("."+ filter + " .forUnit").toggleClass("hidden", !selectedUnit); 
+        $("."+ filter + " .forUnit").toggleClass("hidden", !selectedUnitId); 
     });
     $(".stat .unselectAll").toggleClass("hidden", stat.length == 0); 
 }
@@ -105,8 +105,8 @@ var modifyUrl = function() {
     if (searchText && searchText.length != 0) {
         state.search = searchText;
     }
-    if (selectedUnit) {
-        state.unit = selectedUnit;
+    if (selectedUnitId) {
+        state.unit = units[selectedUnitId].name;
     }
 	$(baseStats).each(function (index, value) {
 		var statValue = $("#baseStat_" + value).val();
@@ -246,9 +246,21 @@ function loadHash() {
 		}
 	}
     if (state.unit) {
-        $('#unitsSelect option[value="' + state.unit + '"]').prop("selected", "selected");
-        selectedUnit = state.unit;
-        displayUnitRarity(units[selectedUnit]);
+        var selectedUnitId;
+        if (units[state.unit]) {
+            selectedUnitId = state.unit;
+        } else {
+            for (var unitId in units) {
+                if (units[unitId].name == state.unit) {
+                    selectedUnitId = unitId;
+                    break;
+                }
+            }
+        }
+        if (selectedUnitId) {
+            $('#unitsSelect option[value="' + selectedUnitId + '"]').prop("selected", "selected");
+            displayUnitRarity(units[selectedUnitId]);
+        }
     }
     if (state.stat) {
         $("input[name='stats'][value='"+ state.stat +"']").each(function(index, checkbox) {
@@ -268,7 +280,7 @@ function loadHash() {
 
 // Select on the 'types' filter the provided values that match the selected unit equipable item types
 function selectForUnit(values) {
-    var unitEquip = units[selectedUnit].equip;
+    var unitEquip = units[selectedUnitId].equip;
     select("types", $.grep(values, function (value) {
         return unitEquip.includes(value);
     }));
@@ -277,21 +289,23 @@ function selectForUnit(values) {
 // Populate the unit html select with a line per unit
 function populateUnitSelect() {
     var options = '<option value="custom">Custom</option>';
-    Object.keys(units).sort().forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + value + '</option>';
+    Object.keys(units).sort(function(id1, id2) {
+        return units[id1].name.localeCompare(units[id2].name)
+    }).forEach(function(value, index) {
+        options += '<option value="'+ value + '">' + units[value].name + '</option>';
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(function() {
         $( "#unitsSelect option:selected" ).each(function() {
             var selectedUnitData = units[$(this).val()];
             if (selectedUnitData) {
-                selectedUnit = $(this).val();
+                selectedUnitId = $(this).val();
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
 		      	});
                 unselectAll("types", false);
             } else {
-                selectedUnit = '';
+                selectedUnitId = 0;
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val("");
 		      	});

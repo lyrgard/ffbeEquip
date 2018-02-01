@@ -109,7 +109,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         var unitsOut = {};
                         for (var unitId in units) {
                             var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
+                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name) {
                                 var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
                                 unitsOut[unitOut.data.id] = unitOut.data;
                             }
@@ -132,11 +132,9 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     var unitData;
     
     var unitStats = {"maxStats":{}, "pots":{}};
-    var maxRarityUnitId;
     for (entryId in unitIn.entries) {
         if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
             unitData = unitIn.entries[entryId];
-            maxRarityUnitId = entryId;
             for (var statIndex in stats) {
                 var stat = stats[statIndex];
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
@@ -149,9 +147,12 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
+    if (!unitIn.sex) {
+        console.log(unitIn);
+    }
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
-    data["id"] = maxRarityUnitId;
+    data["id"] = unitId;
     
     data["enhancementSkills"] = [];
     for (skillIndex in unitIn.skills) {
