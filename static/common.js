@@ -767,9 +767,6 @@ function prepareSearch(data) {
                     } else {
                         textToSearch += ", ";
                     }
-                    if (!units[exclusiveUnitId]) {
-                        console.log("");
-                    }
                     textToSearch += units[exclusiveUnitId].name;
                 }
             });

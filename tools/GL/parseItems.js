@@ -176,12 +176,13 @@ function treatItem(items, itemId, result, skills) {
         addSpecial(itemOut,"notStackable");
     }
     if (unitIdByTmrId[itemOut.id]) {
-        var unit = unitNamesById[unitIdByTmrId[itemOut.id]];
+        var uitId = unitIdByTmrId[itemOut.id];
+        var unit = unitNamesById[uitId];
         var access = "TMR-" + unit.minRarity + "*";
-        if (unit.event || (releasedUnits[unit.name] && releasedUnits[unit.name].type == "event")) {
+        if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
             access += "-event";
         }
-        if (!releasedUnits[unit.name]) {
+        if (!releasedUnits[uitId]) {
             addAccess(itemOut,"not released yet");
         }
         addAccess(itemOut,access);
