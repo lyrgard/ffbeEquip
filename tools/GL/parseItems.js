@@ -156,7 +156,7 @@ function treatItem(items, itemId, result, skills) {
         console.log("excluded : " + itemIn.name)
         return;
     }
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290") {
+    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
         // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
         return;
     }

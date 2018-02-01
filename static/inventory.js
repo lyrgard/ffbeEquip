@@ -6,6 +6,7 @@ var itemKey = getItemInventoryKey();
 var equipments;
 var materia;
 var lastItemReleases;
+var allUnits;
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -452,7 +453,7 @@ function exportAsCsv() {
     for (var index = 0, len = sortedItems.length; index < len; index++) {
         var item = sortedItems[index];
         if (itemInventory[item[itemKey]]) {
-            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit] : "") + "\";\"" + item.access.join(", ") + "\"\n";
+            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
@@ -464,16 +465,21 @@ $(function() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
         data = result;
-        prepareSearch(data);
-        equipments = keepOnlyOneOfEachEquipement();
-        materia = keepOnlyOneOfEachMateria();
-        if (itemInventory) {
-            showEquipments();
-            updateCounts();
-        }
-        $.get(server + "/lastItemReleases.json", function(result) {
-            lastItemReleases = result;
-            prepareLastItemReleases();
+        $.get(server + "/units.json", function(unitResult) {
+            allUnits = unitResult;
+            prepareSearch(data);
+            equipments = keepOnlyOneOfEachEquipement();
+            materia = keepOnlyOneOfEachMateria();
+            if (itemInventory) {
+                showEquipments();
+                updateCounts();
+            }
+            $.get(server + "/lastItemReleases.json", function(result) {
+                lastItemReleases = result;
+                prepareLastItemReleases();
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                alert( errorThrown );
+            });
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });
