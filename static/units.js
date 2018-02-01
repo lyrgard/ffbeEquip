@@ -179,7 +179,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
         html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
         html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
-        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
+        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + unit.max_rarity + '.png"/></div></div>';
         html +='<div class="unitName">';
         if (useTmrName) {
             html += tmrNameByUnitId[unit.id];
