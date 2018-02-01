@@ -282,18 +282,13 @@ function removeFromFarmableNumberFor(unitId) {
 }
 
 function farmedTMR(unitId) {
-    var unitName;
-    for (var index = units.length; index--; ) {
-        if (units[index].id == unitId) {
-            unitName = units[index].name;
-        }
-    }
-    if (!unitName) {
-        return;
-    }
     for (var index = data.length; index--;) {
-        if (data[index].tmrUnit && itemInventory[data[index].id] && data[index].tmrUnit == unitName && !data[index].access.includes("not released yet")) {
-            itemInventory[data[index].id] += 1;
+        if (data[index].tmrUnit && data[index].tmrUnit == unitId) {
+            if (itemInventory[data[index].id]) {
+                itemInventory[data[index].id] += 1;   
+            } else {
+                itemInventory[data[index].id] = 1;    
+            }
         }
     }
     removeFromFarmableNumberFor(unitId);
@@ -501,10 +496,9 @@ $(function() {
         allUnits = unitResult;
         $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
             units = [];
-            for (var name in unitResult) {
-                if (releasedUnitResult[name]) {
-                    units.push(unitResult[name]);
-                    unitResult[name].name = name;
+            for (var unitId in unitResult) {
+                if (releasedUnitResult[unitId]) {
+                    units.push(unitResult[unitId]);
                 }
             }
             if (itemInventory && ownedUnits && data) {
@@ -514,13 +508,6 @@ $(function() {
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });    
-        
-        /*$.get(server + "/lastItemReleases.json", function(result) {
-            lastItemReleases = result;
-            prepareLastItemReleases();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
-        });*/
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });

@@ -25,18 +25,6 @@
     background-color: #337ab7;
 }
 
-.farmedButton {
-    display: none;
-}
-
-.unit.owned.farmable:hover .farmedButton {
-    display: block;
-    position: absolute;
-    top: -5px;
-    right: -6px;
-    height: 45px;
-}
-
 .unitImageWrapper {
     height: 100px;
     width: 130px;

@@ -357,3 +357,15 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.farmedButton {
+    display: none;
+}
+
+.farmable:hover .farmedButton {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    height: 45px;
+}

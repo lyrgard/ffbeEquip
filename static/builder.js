@@ -1233,8 +1233,8 @@ function loadStateHashAndBuild(data) {
     onGoalChange();
     if (data.unitName) {
         for (var unitId in units) {
-            if (units[unitId].name == unitName) {
-                $('#unitsSelect option[value="' + data.unitName + '"]').prop("selected", true);
+            if (units[unitId].name == data.unitName) {
+                $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
                 onUnitChange();        
                 break;
             }

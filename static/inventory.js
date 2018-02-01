@@ -2,7 +2,6 @@ var saveNeeded = false;
 
 var saveTimeout;
 
-var itemKey = getItemInventoryKey();
 var equipments;
 var materia;
 var lastItemReleases;
@@ -71,7 +70,7 @@ function showHistory() {
                     } else if (unitIndex > 0) {
                         html += ", ";
                     }
-                    html += lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex];
+                    html += allUnits[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]].name;
                 }
                 html += "</div>";
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event" || lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
@@ -105,11 +104,14 @@ function showSettings() {
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     var html = '';
-    for (var index in items) {
+    for (var index = 0, len = items.length; index < len; index++) {
         var item = items[index];
         html += '<div class="col-xs-6 item ' + escapeName(item[getItemInventoryKey()]);
-        if (!itemInventory[item[itemKey]]) {
+        if (!itemInventory[item.id]) {
             html += ' notOwned ';
+        }
+        if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
+            html += ' farmable';
         }
         html+= '" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')">';
         if (itemInventory) {
@@ -121,7 +123,7 @@ var displayItems = function(items) {
             }
             html += '</span>';
             html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\');" />';
-            
+            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
             html += '</div>';
         }
         html += getImageHtml(item) + getNameColumnHtml(item);
@@ -161,7 +163,7 @@ function addToInventory(id, showAlert = true) {
     }
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, true, false);
+    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
     $(".saveInventory").removeClass("hidden");
     updateCounts();
     return true;
@@ -229,11 +231,33 @@ function removeFromInventory(id) {
             inventoryDiv.find(".number").text(itemInventory[id]);
         }
         saveNeeded = true;
+        mustSaveUnits = true;
         if (saveTimeout) {clearTimeout(saveTimeout)}
-        saveTimeout = setTimeout(saveUserData,3000, true, false);
+        saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
         $(".saveInventory").removeClass("hidden");
         updateCounts();
     }
+}
+
+function farmedTMR(unitId) {
+    var item;
+    for (var index = data.length; index--;) {
+        if (data[index].tmrUnit && data[index].tmrUnit == unitId) {
+            item = data[index];
+            addToInventory(item.id);
+            break;
+        }
+    }
+    if (!item) {
+        return;
+    }
+    ownedUnits[unitId].farmable -= 1;
+    if (ownedUnits[unitId].farmable == 0) {
+        $(".item." + escapeName(item.id)).removeClass("farmable");
+    }
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    mustSaveUnits = true;
+    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
 }
 
 function search() {
@@ -262,22 +286,22 @@ function keepOnlyOneOfEachEquipement() {
     for (var index in data) {
         var item = data[index];
         if (item.type != "materia" && !item.access.includes("not released yet")) {
-            if (tempResult[item[itemKey]]) {
-                var alreadyPutItem = tempResult[item[itemKey]];
+            if (tempResult[item.id]) {
+                var alreadyPutItem = tempResult[item.id];
                 if (item.equipedConditions) {
                     if (alreadyPutItem.equipedConditions) {
                         if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
-                            tempResult[item[itemKey]] = item;
+                            tempResult[item.id] = item;
                         }
                     } else {
-                        tempResult[item[itemKey]] = item;
+                        tempResult[item.id] = item;
                     }
                 }
                 if (item.exclusiveUnits) {
-                    tempResult[item[itemKey]] = item;
+                    tempResult[item.id] = item;
                 }
             } else {
-                tempResult[item[itemKey]] = item;
+                tempResult[item.id] = item;
             }
         }
     }
@@ -294,9 +318,9 @@ function keepOnlyOneOfEachMateria() {
     var result = [];
     for (var index in data) {
         var item = data[index];
-        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item[itemKey])) {
+        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item.id)) {
             result.push(item);
-            idsAlreadyKept.push(item[itemKey]);
+            idsAlreadyKept.push(item.id);
         }
     }
     return result;
@@ -391,7 +415,7 @@ function prepareSearch(data) {
     for (var index in data) {
         var item = data[index];
         item.searchString = item.name;
-        if (item.tmrUnit) {
+        if (item.tmrUnit && allUnits[item.tmrUnit]) {
             item.searchString += "|" + allUnits[item.tmrUnit].name;
         }
     }
@@ -452,8 +476,8 @@ function exportAsCsv() {
     var sortedItems = sort(equipments).concat(sort(materia));
     for (var index = 0, len = sortedItems.length; index < len; index++) {
         var item = sortedItems[index];
-        if (itemInventory[item[itemKey]]) {
-            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item[itemKey]] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
+        if (itemInventory[item.id]) {
+            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item.id] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
