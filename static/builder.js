@@ -908,6 +908,9 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
+        if (item.name == "Onion Sword") {
+            console.log("!!");
+        }
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
@@ -930,7 +933,7 @@ function updateSearchResult() {
         }
     }
     
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.name, types, [], [], [], [], "", false, true)));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], "", false, true)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
