@@ -470,7 +470,34 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
-    
+    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+        var doublehandSkill = {};
+        var doublehandEffect = rawEffect[3];
+        if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
+            if (!item.singleWielding) {item.singleWielding = {}};
+            doublehandSkill = item.singleWielding;
+        } else {
+            if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
+            doublehandSkill = item.singleWieldingOneHanded;
+        }
+        if (doublehandEffect[2]) {
+            addStat(doublehandSkill, "atk", doublehandEffect[2]);
+        }
+        if (doublehandEffect[4]) {
+            addStat(doublehandSkill, "def", doublehandEffect[4]);
+        }
+        if (doublehandEffect[3]) {
+            addStat(doublehandSkill, "mag", doublehandEffect[3]);
+        }
+        if (doublehandEffect[5]) {
+            addStat(doublehandSkill, "spr", doublehandEffect[5]);
+        }
+        if (doublehandEffect[0]) {
+            addStat(doublehandSkill, "hp", doublehandEffect[0]);
+        }
+        if (doublehandEffect[1]) {
+            addStat(doublehandSkill, "mp", doublehandEffect[1]);
+        }
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
