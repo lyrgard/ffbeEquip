@@ -340,7 +340,6 @@ $(function() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
         data = result;
-        prepareSearch(data);
         $.get(server + "/tempData.json", function(result) {
             for (var index in result) {
                 result[index].temp=true;
@@ -349,6 +348,7 @@ $(function() {
             $.get(server + "/units.json", function(result) {
                 units = result;
                 populateUnitSelect();
+                prepareSearch(data);
                 loadHash();
                 update();
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
