@@ -102,6 +102,7 @@ var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
+var glNameById = {};
 
 var dev = true;
 
@@ -131,69 +132,46 @@ function getData(filename, callback) {
 
 getData('equip.json', function (items) {
     getData('unit.json', function (units) {
-        for (var unitId in units) {
-            var unit = units[unitId];
-            if (unitId == unit.series && unit.trust_reward) {
-                unitByTmrId[unit.trust_reward.id] = unit;
-            }
-        }
         getData('ability.json', function (skills) {
             getData('magic.json', function (magics) {
-                var result = {"items":[]};
-                for (var itemId in items) {
-                    treatItem(items,itemId, result, skills, magics);
-                }
-                /*for (var materiaId in materias) {
-                    treatItem(materias,materiaId, result, skills, magics);
-                }*/
-                fs.writeFileSync('data.json', formatOutput(result.items));
+                fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
+                    var glData = JSON.parse(glDatacontent);
+                    for (var glIndex = glData.length; glIndex--;) {
+                        glNameById[glData[glIndex].id] = glData[glIndex].name;
+                    }
+                    for (var unitId in units) {
+                        var unit = units[unitId];
+                        if (unitId == unit.series && unit.trust_reward) {
+                            unitByTmrId[unit.trust_reward.id] = unit;
+                        }
+                    }                                
+
+                    var result = {"items":[]};
+                    for (var itemId in items) {
+                        treatItem(items,itemId, result, skills, magics);
+                    }
+                    /*for (var materiaId in materias) {
+                        treatItem(materias,materiaId, result, skills, magics);
+                    }*/
+                    fs.writeFileSync('data.json', formatOutput(result.items));
+                });
             });
         });
     });
 });
-                /*request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/skills.json', function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        console.log("skills.json downloaded");
-                        var skills = JSON.parse(body);
-                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json', function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                console.log("units.json downloaded");
-                                var units = JSON.parse(body);*/
-                                
-                                
-                                
-                                
-                                /*fs.readFile('../static/GL/data.json', function (err, content) {
-                                    var oldItems = JSON.parse(content);
-                                    for (var index in oldItems) {
-                                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                        if (oldItems[index].maxNumber) {
-                                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                        }
-                                    }
-                                    
-                                    fs.readFile('../static/GL/releasedUnits.json', function (err, content) {
-                                        releasedUnits = JSON.parse(content);*/
-                                    
-                                        
-              /*                      });
-                                });
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-});*/
-
+ 
 
 function treatItem(items, itemId, result, skills, magics) {
     var itemIn = items[itemId];
     var itemOut = {};
     itemOut.id = itemId;
-    itemOut.name = itemIn.name;
+    if (glNameById[itemId]) {
+        itemOut.name = glNameById[itemId];
+        itemOut.jpname = itemIn.name;
+    } else {
+        itemOut.name = itemIn.name;    
+    }
+    
     if (itemIn.equip_type) {
         itemOut.type = typeMap[itemIn.equip_type];
     } else {
@@ -241,6 +219,10 @@ function treatItem(items, itemId, result, skills, magics) {
         itemOut.sortId = itemIn.guide_id;
     }
     
+    
+    if (!itemOut.access) {
+        itemOut.access = ["unknown"];
+    }
     /*if (!itemOut.access && oldItemsAccessById[itemOut.id]) {
         for (var index in oldItemsAccessById[itemOut.id]) {
             var access = oldItemsAccessById[itemOut.id][index];
@@ -617,7 +599,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
