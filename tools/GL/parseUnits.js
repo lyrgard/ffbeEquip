@@ -72,6 +72,7 @@ var elementsMap = {
 }
 
 filterGame = [20001, 20002, 20006, 20007, 20008, 20011, 20012];
+filterUnits = ["100014604","100014504","100014703","100014405"]
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
@@ -109,7 +110,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         var unitsOut = {};
                         for (var unitId in units) {
                             var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name) {
+                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
                                 var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
                                 unitsOut[unitOut.data.id] = unitOut.data;
                             }
@@ -351,11 +352,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWieldingGL) {baseEffects.singleWieldingGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingGL;
+                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+                    doublehandSkill = baseEffects.singleWielding;
                 } else {
-                    if (!baseEffects.singleWieldingOneHandedGL) {baseEffects.singleWieldingOneHandedGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHandedGL;
+                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+                    doublehandSkill = baseEffects.singleWieldingOneHanded;
                 }
                 if (doublehandEffect[2]) {
                     addToStat(doublehandSkill, "atk", doublehandEffect[2]);

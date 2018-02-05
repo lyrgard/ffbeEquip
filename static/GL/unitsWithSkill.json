@@ -2117,63 +2117,6 @@
 			{"hp%":10, "atk%":10, "killers":[{"name":"beast","physical":50}]}
 		]
 	},
-	"100014405": {
-		"name":"Reberta",
-		"id":"100014405",
-		"max_rarity":"6",
-		"min_rarity":"5",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":3604,"mp":170,"atk":149,"def":128,"mag":136,"spr":120},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
-		},
-		"equip":["dagger","sword","staff","rod","spear","whip","mace","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"skills": [
-			{"resist":[{"name":"fire","percent":20},{"name":"dark","percent":20}]}
-		]
-	},
-	"100014504": {
-		"name":"Ling",
-		"id":"100014504",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":3271,"mp":176,"atk":125,"def":117,"mag":119,"spr":145},
-			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
-		},
-		"equip":["dagger","harp","whip","throwing","fist","hat","clothes","robe"],
-		"skills": [
-		]
-	},
-	"100014604": {
-		"name":"Xon",
-		"id":"100014604",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3558,"mp":180,"atk":142,"def":128,"mag":114,"spr":122},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
-		},
-		"equip":["dagger","sword","whip","throwing","fist","hat","clothes","lightArmor"],
-		"skills": [
-		]
-	},
-	"100014703": {
-		"name":"Aiden",
-		"id":"100014703",
-		"max_rarity":"5",
-		"min_rarity":"3",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":2635,"mp":110,"atk":115,"def":92,"mag":84,"spr":115},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
-		},
-		"equip":["dagger","sword","greatSword","staff","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","robe"],
-		"skills": [
-		]
-	},
 	"100014905": {
 		"name":"マダム",
 		"id":"100014905",
@@ -4621,7 +4564,7 @@
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHandedGL":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
@@ -4669,7 +4612,7 @@
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
 		"skills": [
-			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHandedGL":{"atk":100,"def":50,"spr":50}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
+			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
 			{"atk%":70, "def%":35, "spr%":35, "equipedConditions":["sword"]}
 		]
 	},
@@ -4995,7 +4938,7 @@
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Divine Burst","Entrust","Raise","SPR +20%, MP +10%","Ritual"],
 		"skills": [
-			{"mp%":50, "spr%":60, "singleWieldingGL":{"spr":100}, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
+			{"mp%":50, "spr%":60, "singleWielding":{"spr":100}, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
 		]
 	},
 	"401000503": {
@@ -5263,7 +5206,7 @@
 		},
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWieldingGL":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 			{"mag%":30, "equipedConditions":["fire"]},
 			{"hp%":30, "equipedConditions":["dark"]}
 		]
@@ -5445,7 +5388,7 @@
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHandedGL":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
+			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHanded":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
 		]
 	},
 	"401003203": {
