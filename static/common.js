@@ -831,11 +831,11 @@ function onUnitsOrInventoryLoaded() {
             // After, they are {"unitId": {"number":number,"farmable":number}
             $.get(server + "/data.json", function(data) {
                 $.get(server + "/units.json", function(unitResult) {
-                    allUnits = unitResult;
+                    var allUnitsTmp = unitResult;
                     var tmrNumberByUnitId = {};
                     for (var index = data.length; index--; ) {
                         var item = data[index];
-                        if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
+                        if (item.tmrUnit && allUnitsTmp[item.tmrUnit] && itemInventory[item.id]) {
                             tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
                         }
                     }
