@@ -1447,7 +1447,7 @@ function showMonsterList() {
       '</div>' ).dialog({
         modal: true,
         position: { my: 'top', at: 'top+150', of: $("body") },
-        width: 600
+        width: 800
     });
 }
 
