@@ -42,6 +42,33 @@ var typeMap = {
     "Accessory": 'accessory'
 }
 
+var typeIdMap = {
+    1: 'dagger',
+    2: 'sword',
+    3: 'greatSword',
+    4: 'katana',
+    5: 'staff',
+    6: 'rod',
+    7: 'bow',
+    8: 'axe',
+    9: 'hammer',
+    10: 'spear',
+    11: 'harp',
+    12: 'whip',
+    13: 'throwing',
+    14: 'gun',
+    15: 'mace',
+    16: 'fist',
+    30: 'lightShield',
+    31: 'heavyShield',
+    40: 'hat',
+    41: 'helm',
+    50: 'clothes',
+    51: 'lightArmor',
+    52: 'heavyArmor',
+    53: 'robe'
+}
+
 var raceMap = {
     1: 'beast',
     2: 'bird',
@@ -112,6 +139,7 @@ console.log("Starting");
     console.log("old data not accessible");
     return;
 }*/
+<<<<<<< HEAD
 
 function getData(filename, callback) {
     if (!dev) {
