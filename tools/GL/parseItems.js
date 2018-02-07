@@ -591,6 +591,12 @@ function addMastery(item, mastery) {
     addStat(item, "def%", mastery[2]);
     addStat(item, "mag%", mastery[3]);
     addStat(item, "spr%", mastery[4]);
+    if (mastery.length >= 6) {
+        addStat(item, "hp%", mastery[5]);
+    }
+    if (mastery.length >= 7) {
+        addStat(item, "mp%", mastery[6]);
+    }
 }
 
 function addExclusiveUnit(item, unitId) {
