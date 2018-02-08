@@ -12,9 +12,11 @@ var killers = [];
 var accessToRemove = [];
 var additionalStat = [];
 var searchText = '';
-var selectedUnit = '';
+var selectedUnitId = 0;
 var server = "GL";
 var saveTimeout;
+var mustSaveUnits = false;
+var mustSaveInventory = false;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -107,13 +109,13 @@ function getKillersHtml(item) {
 function getExclusiveUnitsHtml(item) {
     html = "<div class='exclusive'>Only ";
     var first = true;
-    $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
+    $(item.exclusiveUnits).each(function(index, exclusiveUnitId) {
         if (first) {
             first = false;
         } else {
             html += ", ";
         }
-        html += toLink(exclusiveUnit);
+        html += toLink(units[exclusiveUnitId].name);
     });
     html += "</div>";
     return html;
@@ -287,7 +289,7 @@ function displayItemLine(item) {
         html += ">" + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
-        html += '<div>' + toLink(item.tmrUnit) + '</div>';
+        html += '<div>' + toLink(units[item.tmrUnit].name) + '</div>';
     }
     if (item.exclusiveUnits) {
         html += getExclusiveUnitsHtml(item);
@@ -532,7 +534,7 @@ function updateLinks() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnit = "", types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
+var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var result = [];
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
@@ -545,7 +547,7 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
                                 if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
                                     if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
                                         if (searchText.length == 0 || containsText(searchText, item)) {
-                                            if (selectedUnit.length == 0 || !exclusiveForbidAccess(item, selectedUnit)) {
+                                            if (!selectedUnitId || !exclusiveForbidAccess(item, selectedUnitId)) {
                                                 if (stat.length == 0 || showItemsWithoutStat || hasStat(stat, item)) {
                                                     calculateValue(item, baseStat, stat, ailments, elements, killers);
                                                     result.push(item);
@@ -653,11 +655,11 @@ var includeAll = function(array1, array2) {
 };
 
 // Return true if the item is exclusive to something that does not matches the selected unit
-var exclusiveForbidAccess = function(item, selectedUnit) {
-    if (item.exclusiveSex && units[selectedUnit].sex != item.exclusiveSex) {
+var exclusiveForbidAccess = function(item, selectedUnitId) {
+    if (item.exclusiveSex && units[selectedUnitId].sex != item.exclusiveSex) {
         return true;
     }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnit)) {
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(selectedUnitId)) {
         return true;
     }
     return false;
@@ -758,13 +760,15 @@ function prepareSearch(data) {
         if (item["exclusiveUnits"]) {
             textToSearch += "|Only ";
             var first = true;
-            $(item.exclusiveUnits).each(function(index, exclusiveUnit) {
-                if (first) {
-                    first = false;
-                } else {
-                    textToSearch += ", ";
+            $(item.exclusiveUnits).each(function(index, exclusiveUnitId) {
+                if (units[exclusiveUnitId]) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        textToSearch += ", ";
+                    }
+                    textToSearch += units[exclusiveUnitId].name;
                 }
-                textToSearch += exclusiveUnit;
             });
         }
         if (item["exclusiveSex"]) {
@@ -819,41 +823,6 @@ function getShortUrl(longUrl, callback) {
     });
 }
 
-function saveUnits() {
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
-    saveNeeded = false;
-    $.ajax({
-        url: server + '/units',
-        method: 'PUT',
-        data: JSON.stringify(ownedUnits),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function() {
-            $("#inventoryDiv .loader").addClass("hidden");
-            $("#inventoryDiv .message").text("save OK");
-            $("#inventoryDiv .message").removeClass("hidden");
-            setTimeout( function(){
-                $("#inventoryDiv .message").addClass("hidden");
-            }  , 3000 );
-        },
-        error: function(error) {
-            $("#inventoryDiv .loader").addClass("hidden");
-            if (error.status == 401) {
-                alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-                window.location.reload();
-            } else {
-                saveNeeded = true;
-                $(".saveInventory").removeClass("hidden");
-                alert('error while saving the inventory. Please click on "Save" to try again');
-            }
-
-        }
-    });
-}
-
 
 function onUnitsOrInventoryLoaded() {
     if (itemInventory && ownedUnits) {
@@ -862,13 +831,12 @@ function onUnitsOrInventoryLoaded() {
             // After, they are {"unitId": {"number":number,"farmable":number}
             $.get(server + "/data.json", function(data) {
                 $.get(server + "/units.json", function(unitResult) {
-                    allUnits = unitResult;
+                    var allUnitsTmp = unitResult;
                     var tmrNumberByUnitId = {};
                     for (var index = data.length; index--; ) {
                         var item = data[index];
-                        if (item.tmrUnit && allUnits[item.tmrUnit] && itemInventory[item.id]) {
-                            var unitId = allUnits[item.tmrUnit].id;
-                            tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                        if (item.tmrUnit && allUnitsTmp[item.tmrUnit] && itemInventory[item.id]) {
+                            tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
                         }
                     }
 
@@ -931,6 +899,74 @@ function showTextPopup(title, text) {
     });
 }
 
+function saveUserData(mustSaveInventory, mustSaveUnits) {
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    $(".saveInventory").addClass("hidden");
+    $("#inventoryDiv .loader").removeClass("hidden");
+    $("#inventoryDiv .message").addClass("hidden");
+    saveNeeded = false;
+    if (mustSaveInventory) {
+        if (mustSaveUnits) {
+            saveInventory(
+                function() {
+                    saveUnits(saveSuccess, saveError);
+                }
+            );
+        } else {
+            saveInventory(saveSuccess, saveError);
+        }
+    } else if (mustSaveUnits) {
+        saveUnits(saveSuccess, saveError);
+    }
+}
+
+function saveSuccess() {
+    if (mustSaveInventory) {
+        mustSaveInventory = false;
+    }
+    if (mustSaveUnits) {
+        mustSaveUnits = false;
+    }
+    $("#inventoryDiv .loader").addClass("hidden");
+    $.notify("Data saved", "success");
+}
+
+function saveError() {
+    $("#inventoryDiv .loader").addClass("hidden");
+    if (error.status == 401) {
+        alert('You have been disconnected. The data was not saved. The page will be reloaded.');
+        window.location.reload();
+    } else {
+        saveNeeded = true;
+        $(".saveInventory").removeClass("hidden");
+        alert('error while saving the user data. Please click on "Save" to try again');
+    }
+}
+
+function saveInventory(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/itemInventory',
+        method: 'PUT',
+        data: JSON.stringify(itemInventory),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
+    });
+}
+    
+ function saveUnits(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/units',
+        method: 'PUT',
+        data: JSON.stringify(ownedUnits),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
+    });
+}
+
 $(function() {
     readServerType();
     $.get(server + '/itemInventory', function(result) {
@@ -946,7 +982,36 @@ $(function() {
     });
     $.get(server + '/units', function(result) {
         ownedUnits = result;
-        onUnitsOrInventoryLoaded();
+        if (result.version && result.version == 3) {
+            $.get(server + "/units.json", function(allUnitResult) {
+                for (var unitSerieId in allUnitResult) {
+                    var unit = allUnitResult[unitSerieId];
+                    var maxUnitId = unitSerieId.substr(0, unitSerieId.length-1) + unit.max_rarity;
+                    if (ownedUnits[maxUnitId]) {
+                        ownedUnits[unitSerieId] = ownedUnits[maxUnitId];
+                        delete ownedUnits[maxUnitId];
+                    }
+                }
+                ownedUnits.version = 4;
+                saveUnits(
+                    function() {
+                        $.notify("Owned units data successfuly migrated to v4", "success");
+                        onUnitsOrInventoryLoaded();
+                    },
+                    function() {
+                        alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
+                        alert( errorThrown );
+                    }
+                );
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
+                alert( errorThrown );
+            });   
+        } else {
+            onUnitsOrInventoryLoaded();
+        }
+        
+        
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");

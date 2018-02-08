@@ -282,7 +282,7 @@ function isApplicable(item, unit) {
     if (item.exclusiveSex && item.exclusiveSex != unit.sex) {
         return false;
     }
-    if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.name)) {
+    if (item.exclusiveUnits && !item.exclusiveUnits.includes(unit.id)) {
         return false;
     }
     return true;
