@@ -160,11 +160,14 @@ function getUnitDisplay(unit, useTmrName = false) {
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
         html += '<div class="unit ' + unit.id;
         if (ownedUnits[unit.id]) {
-            html += ' owned"';
+            html += ' owned';
         } else {
-            html += ' notOwned"';
+            html += ' notOwned';
         }
-        html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')">';
+        if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
+            html += ' farmable';
+        }
+        html +='" onclick="addToOwnedUnits(\'' + unit.id + '\')">';
         html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
         html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
         html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
@@ -175,7 +178,8 @@ function getUnitDisplay(unit, useTmrName = false) {
             html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
         }
         html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
-        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id + '.png"/></div></div>';
+        html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
+        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + unit.max_rarity + '.png"/></div></div>';
         html +='<div class="unitName">';
         if (useTmrName) {
             html += tmrNameByUnitId[unit.id];
@@ -216,7 +220,7 @@ function addToOwnedUnits(unitId) {
     $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUnits,3000);
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -240,7 +244,7 @@ function removeFromOwnedUnits(unitId) {
     
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUnits,3000);
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -255,9 +259,10 @@ function addToFarmableNumberFor(unitId) {
         }
     }
     $(".unit." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
+    $(".unit." + unitId).addClass("farmable");
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUnits,3000);
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -267,10 +272,29 @@ function removeFromFarmableNumberFor(unitId) {
     }
     ownedUnits[unitId].farmable -= 1;
     $(".unit." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
+    if (ownedUnits[unitId].farmable == 0) {
+        $(".unit." + unitId).removeClass("farmable");
+    }
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUnits,3000);
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
+}
+
+function farmedTMR(unitId) {
+    for (var index = data.length; index--;) {
+        if (data[index].tmrUnit && data[index].tmrUnit == unitId) {
+            if (itemInventory[data[index].id]) {
+                itemInventory[data[index].id] += 1;   
+            } else {
+                itemInventory[data[index].id] = 1;    
+            }
+        }
+    }
+    removeFromFarmableNumberFor(unitId);
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    mustSaveInventory = true;
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
 }
 
 function filterName(units) {
@@ -385,12 +409,11 @@ function inventoryLoaded() {
 function prepareData() {
     for (var index = data.length; index--; ) {
         var item = data[index];
-        if (item.tmrUnit && allUnits[item.tmrUnit]) {
-            var unitId = allUnits[item.tmrUnit].id;
+        if (item.tmrUnit) {
             if (itemInventory[item.id]) {
-                tmrNumberByUnitId[unitId] = itemInventory[item.id];
+                tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
             }
-            tmrNameByUnitId[unitId] = item.name;
+            tmrNameByUnitId[item.tmrUnit] = item.name;
         }
     }
 }
@@ -473,10 +496,9 @@ $(function() {
         allUnits = unitResult;
         $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
             units = [];
-            for (var name in unitResult) {
-                if (releasedUnitResult[name]) {
-                    units.push(unitResult[name]);
-                    unitResult[name].name = name;
+            for (var unitId in unitResult) {
+                if (releasedUnitResult[unitId]) {
+                    units.push(unitResult[unitId]);
                 }
             }
             if (itemInventory && ownedUnits && data) {
@@ -486,13 +508,6 @@ $(function() {
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });    
-        
-        /*$.get(server + "/lastItemReleases.json", function(result) {
-            lastItemReleases = result;
-            prepareLastItemReleases();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
-        });*/
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });

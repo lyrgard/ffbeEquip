@@ -11,7 +11,7 @@ route.get('/:server/:table', async (req, res) => {
   const auth = req.OAuth2Client;
 
   let db = await drive.readJson(auth, `${table}_${server}.json`, {});
-  if (db.version !== DB_VERSION) {
+  if (db.version < DB_VERSION) {
     db = migration.up(table, db);
   }
 
@@ -23,7 +23,6 @@ route.put('/:server/:table', async (req, res) => {
   const auth = req.OAuth2Client;
 
   const data = req.body;
-  data.version = DB_VERSION;
 
   await drive.writeJson(auth, `${table}_${server}.json`, data);
 

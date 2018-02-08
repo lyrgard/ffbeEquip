@@ -10,7 +10,7 @@ const route = express.Router();
  * "GET /googleOAuthUrl"
  */
 route.get('/googleOAuthUrl', (req, res) => {
-  return res.json({ url: OAuth.authUrl });
+  return res.json({ url: OAuth.authUrl  + "&prompt=select_account"});
 });
 
 /**

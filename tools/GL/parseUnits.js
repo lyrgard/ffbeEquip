@@ -72,6 +72,7 @@ var elementsMap = {
 }
 
 filterGame = [20001, 20002, 20006, 20007, 20008, 20011, 20012];
+filterUnits = ["100014604","100014504","100014703","100014405"]
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
@@ -109,9 +110,9 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                         var unitsOut = {};
                         for (var unitId in units) {
                             var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9")) {
+                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
                                 var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                unitsOut[unitOut.name] = unitOut.data;
+                                unitsOut[unitOut.data.id] = unitOut.data;
                             }
                         }
 
@@ -126,17 +127,15 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
 
 function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     var unit = {};
-    unit.name = unitIn.name;
     unit.data = {};
+    
     var data = unit.data;
     var unitData;
     
     var unitStats = {"maxStats":{}, "pots":{}};
-    var maxRarityUnitId;
     for (entryId in unitIn.entries) {
         if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
             unitData = unitIn.entries[entryId];
-            maxRarityUnitId = entryId;
             for (var statIndex in stats) {
                 var stat = stats[statIndex];
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
@@ -145,13 +144,16 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
             break;
         }
     }
-
+    data["name"] = unitIn["name"];
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
+    if (!unitIn.sex) {
+        console.log(unitIn);
+    }
     data["sex"] = unitIn.sex.toLowerCase();
     data["equip"] = getEquip(unitIn.equip);
-    data["id"] = maxRarityUnitId;
+    data["id"] = unitId;
     
     data["enhancementSkills"] = [];
     for (skillIndex in unitIn.skills) {
@@ -350,11 +352,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWieldingGL) {baseEffects.singleWieldingGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingGL;
+                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+                    doublehandSkill = baseEffects.singleWielding;
                 } else {
-                    if (!baseEffects.singleWieldingOneHandedGL) {baseEffects.singleWieldingOneHandedGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHandedGL;
+                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+                    doublehandSkill = baseEffects.singleWieldingOneHanded;
                 }
                 if (doublehandEffect[2]) {
                     addToStat(doublehandSkill, "atk", doublehandEffect[2]);
@@ -476,14 +478,14 @@ function formatOutput(units) {
     var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
-    for (var unitName in units) {
-        var unit = units[unitName]
+    for (var unitId in units) {
+        var unit = units[unitId]
         if (first) {
             first = false;
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitName, unit) + ",";
+        result += getUnitBasicInfo(unitId, unit) + ",";
         result += "\n\t\t\"skills\": [";
         var firstSkill = true;
         for (var skillIndex in unit.skills) {
@@ -519,23 +521,24 @@ function formatOutput(units) {
 function formatSimpleOutput(units) {
     var result = "{\n";
     var first = true;
-    for (var unitName in units) {
-        var unit = units[unitName]
+    for (var unitId in units) {
+        var unit = units[unitId]
         if (first) {
             first = false;
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitName, unit);
+        result += getUnitBasicInfo(unitId, unit);
         result += "\n\t}";
     }
     result += "\n}";
     return result;
 }
 
-function getUnitBasicInfo(unitName, unit) {
+function getUnitBasicInfo(unitId, unit) {
     var result = "";
-    result += "\n\t\"" + unitName + "\": {";
+    result += "\n\t\"" + unitId + "\": {";
+    result += "\n\t\t\"name\":\"" + unit.name + "\","
     result += "\n\t\t\"id\":\"" + unit.id + "\","
     result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
     result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","

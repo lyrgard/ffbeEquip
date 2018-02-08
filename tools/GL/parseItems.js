@@ -156,7 +156,7 @@ function treatItem(items, itemId, result, skills) {
         console.log("excluded : " + itemIn.name)
         return;
     }
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290") {
+    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
         // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
         return;
     }
@@ -176,12 +176,13 @@ function treatItem(items, itemId, result, skills) {
         addSpecial(itemOut,"notStackable");
     }
     if (unitIdByTmrId[itemOut.id]) {
-        var unit = unitNamesById[unitIdByTmrId[itemOut.id]];
+        var uitId = unitIdByTmrId[itemOut.id];
+        var unit = unitNamesById[uitId];
         var access = "TMR-" + unit.minRarity + "*";
-        if (unit.event || (releasedUnits[unit.name] && releasedUnits[unit.name].type == "event")) {
+        if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
             access += "-event";
         }
-        if (!releasedUnits[unit.name]) {
+        if (!releasedUnits[uitId]) {
             addAccess(itemOut,"not released yet");
         }
         addAccess(itemOut,access);
@@ -196,8 +197,7 @@ function treatItem(items, itemId, result, skills) {
                 itemOut.exclusiveSex = "female";
             }
         } else if (itemIn.requirements[0] == "UNIT_ID") {
-            var unit = unitNamesById[itemIn.requirements[1]];
-            addExclusiveUnit(itemOut, unit.name);
+            addExclusiveUnit(itemOut, itemIn.requirements[1]);
         }
     }
     
@@ -340,7 +340,7 @@ function readSkills(itemIn, itemOut, skills) {
                 var unitFoud = false;
                 for (var restrictedUnitIndex in skill.unit_restriction) {
                     if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
-                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        addExclusiveUnit(copy, skill.unit_restriction[restrictedUnitIndex]);
                         unitFoud = true;
                     }
                 }
@@ -359,7 +359,7 @@ function readSkills(itemIn, itemOut, skills) {
                 var unitFoud = false;
                 for (var restrictedUnitIndex in skill.unit_restriction) {
                     if (unitNamesById[skill.unit_restriction[restrictedUnitIndex]]) {
-                        addExclusiveUnit(copy, unitNamesById[skill.unit_restriction[restrictedUnitIndex]].name);
+                        addExclusiveUnit(copy, skill.unit_restriction[restrictedUnitIndex]);
                         unitFoud = true;
                     }
                 }
@@ -425,7 +425,9 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }
 
     // killers
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) {
+        // Killers
+    } else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
+        (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
         addKiller(item, rawEffect[3][0],rawEffect[3][1],rawEffect[3][2]);
 
     // evade
@@ -468,7 +470,34 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
         }
         addStat(item,"accuracy",rawEffect[3][1]);
-    
+    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+        var doublehandSkill = {};
+        var doublehandEffect = rawEffect[3];
+        if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
+            if (!item.singleWielding) {item.singleWielding = {}};
+            doublehandSkill = item.singleWielding;
+        } else {
+            if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
+            doublehandSkill = item.singleWieldingOneHanded;
+        }
+        if (doublehandEffect[2]) {
+            addStat(doublehandSkill, "atk", doublehandEffect[2]);
+        }
+        if (doublehandEffect[4]) {
+            addStat(doublehandSkill, "def", doublehandEffect[4]);
+        }
+        if (doublehandEffect[3]) {
+            addStat(doublehandSkill, "mag", doublehandEffect[3]);
+        }
+        if (doublehandEffect[5]) {
+            addStat(doublehandSkill, "spr", doublehandEffect[5]);
+        }
+        if (doublehandEffect[0]) {
+            addStat(doublehandSkill, "hp", doublehandEffect[0]);
+        }
+        if (doublehandEffect[1]) {
+            addStat(doublehandSkill, "mp", doublehandEffect[1]);
+        }
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -562,13 +591,22 @@ function addMastery(item, mastery) {
     addStat(item, "def%", mastery[2]);
     addStat(item, "mag%", mastery[3]);
     addStat(item, "spr%", mastery[4]);
+    if (mastery.length >= 6) {
+        addStat(item, "hp%", mastery[5]);
+    }
+    if (mastery.length >= 7) {
+        addStat(item, "mp%", mastery[6]);
+    }
 }
 
-function addExclusiveUnit(item, name) {
+function addExclusiveUnit(item, unitId) {
     if (!item.exclusiveUnits) {
         item.exclusiveUnits = [];
     }
-    item.exclusiveUnits.push(name);
+    if (typeof unitId == "number") {
+        unitId = new String(unitId);
+    }
+    item.exclusiveUnits.push(unitId);
 }
 
 function isItemEmpty(item) {

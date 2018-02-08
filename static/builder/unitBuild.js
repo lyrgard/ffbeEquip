@@ -84,7 +84,7 @@ class UnitBuild {
     
     getCurrentUnitEquip() {
         var equip = this.unit.equip.concat(["accessory", "materia"]);
-        for (var index = 9; index--;) {
+        for (var index = 10; index--;) {
             if (this.build[index] && this.build[index].allowUseOf && !equip.includes(this.build[index].allowUseOf)) {
                 equip.push(this.build[index].allowUseOf);
             }

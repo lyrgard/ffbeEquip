@@ -12,7 +12,7 @@ class DataStorage {
         for (var index = 0, len = this.data.length; index < len; index++) {
             var item = this.data[index];
             if (item.id != currentId) {
-                if (currentItemVersions.length > 1) {
+                if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {
                     this.itemWithVariation[currentId] = currentItemVersions;
                 }
                 this.allItemVersions[currentId] = currentItemVersions;
@@ -65,22 +65,25 @@ class DataStorage {
                         this.dualWieldSources.push(item);
                         alreadyAddedDualWieldSource.push(item.id);
                     }
-                } else if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
-                    this.equipSources.push(item);
-                } else if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
-                    if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
-                        adventurersAvailable[item.id] = item;
-                        continue;
-                    }
-                    if (item.equipedConditions) {
-                        this.dataWithCondition.push(this.getItemEntry(item));
-                    } else {
-                        if (!alreadyAddedIds.includes(item.id)) {
-                            if (!this.dataByType[item.type]) {
-                                this.dataByType[item.type] = [];
+                }
+                if (!item.special || !item.special.includes("dualWield")) {
+                    if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
+                        this.equipSources.push(item);
+                    } else if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
+                        if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
+                            adventurersAvailable[item.id] = item;
+                            continue;
+                        }
+                        if (item.equipedConditions) {
+                            this.dataWithCondition.push(this.getItemEntry(item));
+                        } else {
+                            if (!alreadyAddedIds.includes(item.id)) {
+                                if (!this.dataByType[item.type]) {
+                                    this.dataByType[item.type] = [];
+                                }
+                                this.dataByType[item.type].push(this.getItemEntry(item));
+                                alreadyAddedIds.push(item.id);
                             }
-                            this.dataByType[item.type].push(this.getItemEntry(item));
-                            alreadyAddedIds.push(item.id);
                         }
                     }
                 }
