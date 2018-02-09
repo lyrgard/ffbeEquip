@@ -78,6 +78,7 @@ var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
+var glNameById = {};
 var dev = false;
 
 
@@ -107,42 +108,48 @@ getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
         getData('skills.json', function (skills) {
             getData('units.json', function (units) {
-                for (var unitIndex in units) {
-                    var unit = units[unitIndex];
-                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
-
-                    if (unit.TMR) {
-                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                        if (unit.rarity_min > 3 && !unit.is_summonable) {
-                            unitNamesById[unitIndex].event = true;
-                        }
+                fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
+                    var glData = JSON.parse(glDatacontent);
+                    for (var glIndex = glData.length; glIndex--;) {
+                        glNameById[glData[glIndex].id] = glData[glIndex].name;
                     }
-                }
+                    for (var unitIndex in units) {
+                        var unit = units[unitIndex];
+                        unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-
-
-                fs.readFile('../../static/GL/data.json', function (err, content) {
-                    var oldItems = JSON.parse(content);
-                    for (var index in oldItems) {
-                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                        if (oldItems[index].maxNumber) {
-                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                        if (unit.TMR) {
+                            unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                            if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                unitNamesById[unitIndex].event = true;
+                            }
                         }
                     }
 
-                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
-                        releasedUnits = JSON.parse(content);
 
-                        var result = {"items":[]};
-                        for (var itemId in items) {
-                            treatItem(items,itemId, result, skills);
+
+                    fs.readFile('../../static/JP/data.json', function (err, content) {
+                        var oldItems = JSON.parse(content);
+                        for (var index in oldItems) {
+                            oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                            if (oldItems[index].maxNumber) {
+                                oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                            }
                         }
-                        for (var materiaId in materias) {
-                            treatItem(materias,materiaId, result, skills);
-                        }
-                        console.log(skillNotIdentifiedNumber);
-                        fs.writeFileSync('data.json', formatOutput(result.items));
+
+                        fs.readFile('../../static/JP/releasedUnits.json', function (err, content) {
+                            releasedUnits = JSON.parse(content);
+
+                            var result = {"items":[]};
+                            for (var itemId in items) {
+                                treatItem(items,itemId, result, skills);
+                            }
+                            for (var materiaId in materias) {
+                                treatItem(materias,materiaId, result, skills);
+                            }
+                            console.log(skillNotIdentifiedNumber);
+                            fs.writeFileSync('data.json', formatOutput(result.items));
+                        });
                     });
                 });
             });
@@ -153,18 +160,15 @@ getData('equipment.json', function (items) {
 
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
-    if (itemIn.name.match(/[^\x00-\x7F]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
-        // exclude item whose name contain non english char
-        console.log("excluded : " + itemIn.name)
-        return;
-    }
-    if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
-        // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
-        return;
-    }
     var itemOut = {};
     itemOut.id = itemId;
-    itemOut.name = itemIn.name;
+    if (glNameById[itemId]) {
+        itemOut.name = glNameById[itemId];
+        itemOut.jpname = itemIn.name;
+    } else {
+        itemOut.name = itemIn.name;    
+    }
+    
     if (itemIn.type_id) {
         itemOut.type = typeMap[itemIn.type_id];
     } else {
@@ -185,7 +189,7 @@ function treatItem(items, itemId, result, skills) {
             access += "-event";
         }
         if (!releasedUnits[uitId]) {
-            addAccess(itemOut,"not released yet");
+            addAccess(itemOut,"unknown");
         }
         addAccess(itemOut,access);
         
@@ -222,7 +226,7 @@ function treatItem(items, itemId, result, skills) {
     if (!itemOut.access && oldItemsAccessById[itemOut.id]) {
         for (var index in oldItemsAccessById[itemOut.id]) {
             var access = oldItemsAccessById[itemOut.id][index];
-            if (access != "not released yet") {
+            if (access != "unknown" && access != "not released yet") {
                 addAccess(itemOut, access);
             }
         }
@@ -234,7 +238,7 @@ function treatItem(items, itemId, result, skills) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
     }
     if (!itemOut.access) {
-        itemOut.access = ["not released yet"];
+        itemOut.access = ["unknown"];
     }
     if (!oldItemsAccessById[itemOut.id]) {
         console.log("new item : " + itemOut.id + " - " + itemOut.name);
@@ -641,7 +645,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
