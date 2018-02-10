@@ -1,5 +1,6 @@
 var fs = require('fs');
 var request = require('request');
+var PNG = require('pngjs').PNG;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -79,7 +80,7 @@ var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var glNameById = {};
-var dev = false;
+var dev = true;
 
 
 function getData(filename, callback) {
@@ -217,6 +218,7 @@ function treatItem(items, itemId, result, skills) {
     
     if (itemIn.icon) {
         itemOut.icon = itemIn.icon;
+        verifyImage(itemOut.icon);
     }
     
     if (itemIn.compendium_id) {
@@ -673,3 +675,32 @@ function formatOutput(items) {
     result += "\n]";
     return result;
 }
+
+function verifyImage(icon) {
+    var filePath = "../../static/img/items/" + icon;
+    if (!fs.existsSync(filePath)) {
+        download("http://exviusdb.com/static/img/assets/item/" + icon ,filePath);
+    }
+}
+
+var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+        if (err || res.statusCode == 404) {
+            console.log("!! unable to download image : " + uri);
+        } else {
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', function() {
+                fs.createReadStream(filename).pipe(new PNG({
+                    filterType: 4
+                }))
+                .on('error', function() {
+                    fs.unlinkSync(filename);
+                    console.log("!! image : " + uri + " invalid");
+                })
+                .on('parsed', function() {
+                    console.log("image : " + uri + " downloaded and valid");
+                });
+                
+            });
+        }
+    });
+};

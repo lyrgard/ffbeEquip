@@ -1,5 +1,6 @@
 var fs = require('fs');
 var request = require('request');
+var PNG = require('pngjs').PNG;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -81,7 +82,7 @@ var oldItemsAccessById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var glNameById = {};
-var dev = false;
+var dev = true;
 
 function getData(filename, callback) {
     if (!dev) {
@@ -99,6 +100,8 @@ function getData(filename, callback) {
         });
     }
 }
+
+
 
 
 console.log("Starting");
@@ -184,6 +187,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     }
     
     data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
+    verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     return unit;
 }
 
@@ -574,3 +578,35 @@ function getUnitBasicInfo(unitId, unit) {
     
     return result;
 }
+
+function verifyImage(serieId, minRarity, maxRarity) {
+    for (var i = minRarity; i <= maxRarity; i++) {
+        var unitId = serieId.substr(0, serieId.length - 1) + i;
+        var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
+        if (!fs.existsSync(filePath)) {
+            download("http://exviusdb.com/static/img/assets/unit/unit_ills_" + unitId + ".png",filePath);
+        }
+    }
+}
+
+var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+        if (err || res.statusCode == 404) {
+            console.log("!! unable to download image : " + uri);
+        } else {
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', function() {
+                fs.createReadStream(filename).pipe(new PNG({
+                    filterType: 4
+                }))
+                .on('error', function() {
+                    fs.unlinkSync(filename);
+                    console.log("!! image : " + uri + " invalid");
+                })
+                .on('parsed', function() {
+                    console.log("image : " + uri + " downloaded and valid");
+                });
+                
+            });
+        }
+    });
+};
