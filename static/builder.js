@@ -175,6 +175,7 @@ function processTypeCombinations(workerIndex) {
 
 function calculateAlreadyUsedItems() {
     alreadyUsedItems = {};
+    alreadyUsedInThisBuildItems = {};
     unstackablePinnedItems = [];
     alreadyUsedEspers = [];
     for (var i = 0, len = builds.length; i < len; i++) {
@@ -368,7 +369,7 @@ function getAvailableNumber(item) {
             }
         }
         if (!isStackable(item)) {
-            if (alreadyUsedItems[item.id]) {
+            if (unstackablePinnedItems.includes(item.id)) {
                 number = 0;
             } else {
                 number = 1;
