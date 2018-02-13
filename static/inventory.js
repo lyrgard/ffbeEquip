@@ -106,23 +106,23 @@ var displayItems = function(items) {
     var html = '';
     for (var index = 0, len = items.length; index < len; index++) {
         var item = items[index];
-        html += '<div class="col-xs-6 item ' + escapeName(item[getItemInventoryKey()]);
+        html += '<div class="col-xs-6 item ' + escapeName(item.id);
         if (!itemInventory[item.id]) {
             html += ' notOwned ';
         }
         if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
             html += ' farmable';
         }
-        html+= '" onclick="addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')">';
+        html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
         if (itemInventory) {
             html+= '<div class="td inventory">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\')" />';
+            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
             html += '<span class="number badge badge-success">';
-            if (itemInventory[item[getItemInventoryKey()]]) {
-                html += itemInventory[item[getItemInventoryKey()]];
+            if (itemInventory[item.id]) {
+                html += itemInventory[item.id];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + escapeQuote(item[getItemInventoryKey()]) + '\');" />';
+            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + escapeQuote(item.id) + '\');" />';
             html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
             html += '</div>';
         }
@@ -197,7 +197,7 @@ function addAllToInventory(items, amount) {
     var itemInventoryKeys = Object.keys(itemInventory);
     for (var index in items) {
         var item = items[index];
-        var key = escapeName(item[getItemInventoryKey()]);
+        var key = escapeName(item.id);
         for (var i = 0; i < amount; i++) {
             if (addToInventory(key, false)) {
                 itemsAddedWithAddAll.push(key);
