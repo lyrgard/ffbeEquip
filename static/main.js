@@ -156,14 +156,14 @@ var displayItems = function(items) {
         html += '">';
         html += displayItemLine(item);
         if (itemInventory) {
-            html+= '<div class="td inventory ' + escapeName(item[getItemInventoryKey()]) + ' ' ;
-            if (!itemInventory[item[getItemInventoryKey()]]) {
+            html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
+            if (!itemInventory[item.id]) {
                 html+= "notPossessed";
             }
             html += '">';
             html += '<span class="number badge badge-success">';
-            if (itemInventory[item[getItemInventoryKey()]]) {
-                html += itemInventory[item[getItemInventoryKey()]];
+            if (itemInventory[item.id]) {
+                html += itemInventory[item.id];
             }
             html += '</span>';
             

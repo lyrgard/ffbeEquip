@@ -2,6 +2,33 @@ var currentItem;
 var newItems = [];
 var currentAddFormProperty;
 
+
+
+
+
+
+
+// will be called by jQuery at page load)
+$(function() {
+	// Triggers on search text box change
+    $("#searchText").on("input", $.debounce(300,update));
+    
+	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
+    $.get(server + "/data.json", function(result) {
+        data = result;
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
+}
+
+
+
+
+
+
+
+
+
 function addNewItem() {
     if (!currentItem) {
         currentItem = {};
@@ -493,6 +520,3 @@ function populateEquipedWith() {
 	}
 }
 
-function inventoryLoaded() {
-   
-}

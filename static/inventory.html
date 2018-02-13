@@ -20,12 +20,12 @@
                         <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li><a id="linkToSearch" href="index.html">Search</a></li>
-                        <li class="active"><a id="linkToInventory" href="inventory.html">Inventory</a></li>
-                        <li><a id="linkToUnits" href="units.html">Units</a></li>
-                        <li><a id="linkToBuilder" href="builder.html">Builder</a></li>
+                        <li><a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a></li>
+                        <li class="active"><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a></li>
+                        <li><a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a></li>
+                        <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a></li>
                     </ul>
-                    <div class="jpWarning"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data are not complete, or are still GL data.</div>
+                    <div class="jpWarning hidden" data-server="JP"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data are not complete, or are still GL data.</div>
                     <div id="inventoryDiv" class="buttons account">
                         <span>Inventory :&nbsp;</span>
                         <span class="status"></span>
