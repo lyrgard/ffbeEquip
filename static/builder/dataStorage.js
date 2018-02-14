@@ -194,6 +194,8 @@ class DataStorage {
             item.meanDamageVariance = 1;
             if (item.damageVariance) {
                 item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
+                item.minDamageVariance = item.damageVariance.min
+                item.maxDamageVariance = item.damageVariance.max
             }
         }
     }

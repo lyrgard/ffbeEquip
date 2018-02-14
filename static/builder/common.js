@@ -54,7 +54,11 @@ function calculateBuildValue(itemAndPassives) {
     return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
 }
 
-function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, alreadyCalculatedValues = {}) {
+function calculateBuildWithVariance(itemAndPassives) {
+    return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, true);
+}
+
+function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, exportVariance, alreadyCalculatedValues = {}) {
     if (formula.type == "value") {
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
@@ -110,6 +114,8 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
             
             var total = 0;
+            var minTotal = 0;
+            var maxTotal = 0;
             for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
                 var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
                 var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
@@ -117,13 +123,23 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 if ("atk" == stat) {
                     var variance0 = 1;
                     var variance1 = 1;
+                    var minVariance0 = 1;
+                    var minVariance1= 1;
+                    var maxVariance0 = 1;
+                    var maxVariance1 = 1;
                     if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
                         variance0 = itemAndPassives[0].meanDamageVariance;
+                        minVariance0 = itemAndPassives[0].minDamageVariance;
+                        maxVariance0 = itemAndPassives[0].maxDamageVariance;
                     }
                     if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
                         variance1 = itemAndPassives[1].meanDamageVariance;
+                        minVariance1= itemAndPassives[1].minDamageVariance;
+                        maxVariance1 = itemAndPassives[1].maxDamageVariance;
                     }
                     total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / ennemyStats.def;
+                    minTotal += (calculatedValue.right * calculatedValue.right * minVariance0 + calculatedValue.left * calculatedValue.left * minVariance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / ennemyStats.def;
+                    maxTotal += (calculatedValue.right * calculatedValue.right * maxVariance0 + calculatedValue.left * calculatedValue.left * maxVariance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / ennemyStats.def;
                 } else {
                     var dualWieldCoef = 1;
                     if (goalValuesCaract[formula.name].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
@@ -133,7 +149,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 }
             }
             var value = total / goalValuesCaract[formula.name].statsToMaximize.length;
+            var valueMin = minTotal / goalValuesCaract[formula.name].statsToMaximize.length;
+            var valueMax = maxTotal / goalValuesCaract[formula.name].statsToMaximize.length;
+            
             alreadyCalculatedValues[formula.name] = value;
+            if (exportVariance) return { value: value, minValue: valueMin, maxValue: valueMax }
             return value;
         } else {
             var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
@@ -146,21 +166,21 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     } else if (formula.type == "constant") {
         return formula.value;
     } else if (formula.type == "*") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, exportVariance, alreadyCalculatedValues) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, exportVariance, alreadyCalculatedValues);
     } else if (formula.type == "+") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, exportVariance, alreadyCalculatedValues) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, exportVariance, alreadyCalculatedValues);
     } else if (formula.type == "/") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, exportVariance, alreadyCalculatedValues) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, exportVariance, alreadyCalculatedValues);
     } else if (formula.type == "-") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, exportVariance, alreadyCalculatedValues) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, exportVariance, alreadyCalculatedValues);
     } else if (formula.type == "conditions") {
         for (var index = formula.conditions.length; index --; ) {
-            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value, alreadyCalculatedValues);
+            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value, exportVariance, alreadyCalculatedValues);
             if (value < formula.conditions[index].goal) {
                 return 0;
             }
         }
-        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, alreadyCalculatedValues)
+        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, exportVariance, alreadyCalculatedValues)
     }
 }
     
