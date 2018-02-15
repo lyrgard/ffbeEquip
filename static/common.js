@@ -561,6 +561,28 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
     return result;
 };
 
+function keepOnlyOneInstance(data) {
+    var dataWithOnlyOneOccurence = [];
+    for (var index = 0, len = data.length; index < len; index++) {
+        var item = data[index];
+        if (dataWithOnlyOneOccurence.length > 0 && dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
+            var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
+            if (previousItem.equipedConditions) {
+                if (item.equipedConditions) {
+                    if (previousItem.equipedConditions.length <= item.equipedConditions.length) {
+                        dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+                    }
+                }
+            } else {
+                dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+            }
+        } else {
+            dataWithOnlyOneOccurence.push(item);
+        }
+    }
+    return dataWithOnlyOneOccurence;
+}
+
 // Sort by calculated value (will be 0 if not sort is asked) then by name
 var sort = function(items) {
     return items.sort(function (item1, item2){
@@ -729,7 +751,7 @@ function prepareSearch(data) {
         var item = data[index];
         var textToSearch = item["name"];
 
-        if (server == "JP") {
+        if (item.jpname) {
             textToSearch += item["jpname"];
         }
 
