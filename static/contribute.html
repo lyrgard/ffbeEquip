@@ -45,8 +45,24 @@
                         <input type="text" id="pseudo" class="form-control" placeholder="Enter your pseudonym">
 					</div>
                 </div>
-                <div id="modifiedItems" class="panel panel-default">
-                    <button class="btn btn-primary" onclick="sendToServer()">Send it to FFBE Equip</button>
+                <div id="modifiedItems" class="panel panel-default hidden">
+                    <div id="results" class="table notSorted items results">
+                        <div class="thead">
+                            <div class="tr">
+                                <div class="td type">&nbsp;</div>
+                                <div class="td name">Name</div>
+                                <div class="td access">Access</div>
+                                <div class="td maxNumber">Max Number</div>
+                                <div class="td">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="tbody">
+
+                        </div>
+                    </div>
+                    <div id="sendToServerDiv">
+                        <button class="btn btn-primary" onclick="sendToServer()">Send it to FFBE Equip</button>
+                    </div>
                 </div>
                 <div>
                     <h4>How to use this:</h4>
@@ -75,6 +91,7 @@
                         <div id="results" class="table notSorted items results">
 							<div class="thead">
                                 <div class="tr">
+                                    <div class="td select">&nbsp;</div>
                                     <div class="td type">&nbsp;</div>
                                     <div class="td name">Name</div>
                                     <div id="statTitle" class="td value sort">Value</div>
@@ -87,6 +104,18 @@
 
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addAccessModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">Add access</div>
+                    <div class="modal-body">
+                        <div id="accessList"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
