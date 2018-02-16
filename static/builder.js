@@ -632,6 +632,9 @@ function redrawBuildLine(index) {
 function populateUnitSelect() {
     var options = '<option value=""></option>';
     Object.keys(units).sort(function(id1, id2) {
+        if (!units[id1].name || !units[id2].name) {
+            console.log("!!");
+        }
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
         options += '<option value="'+ value + '">' + units[value].name + '</option>';
@@ -909,9 +912,6 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
-        if (item.name == "Onion Sword") {
-            console.log("!!");
-        }
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
