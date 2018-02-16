@@ -511,8 +511,6 @@ function updateLinks() {
     var serverParam = "";
     if (server == "JP") {
         serverParam = "?server=JP";
-    } else {
-        $("#linkToContribute").addClass("hidden");
     }
     $("a[data-internal-link]").each(function(index, element) {
         var link = $(element);
