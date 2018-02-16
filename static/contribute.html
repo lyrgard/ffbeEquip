@@ -40,11 +40,6 @@
                 </nav>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default search">
-                    <div class="panel-heading">
-                        <input type="text" id="pseudo" class="form-control" placeholder="Enter your pseudonym">
-					</div>
-                </div>
                 <div id="modifiedItems" class="panel panel-default hidden">
                     <div id="results" class="table notSorted items results">
                         <div class="thead">
@@ -67,10 +62,10 @@
                 <div>
                     <h4>How to use this:</h4>
                     <ol>
-                        <li>Enter your pseudonym. You can use your reddit pseudonym, or whatever you want</li>
-                        <li>Items that are missing data are displayed on the left. You can fill them, or use the search if you want to correct an item</li>
-                        <li>When filled, click the <span class="glyphicon glyphicon-ok-circle"/> to add this item to the list on the left</li>
-                        <li>When you have entered all the items you want to modify, click on "<b>Send it to FFBE Equip</b>"</li>
+                        <li>Items that are missing data are displayed on the right. You cann select one, or use the search if you want to correct another item</li>
+                        <li>Once you found the item you want to modify, click on the <span class="glyphicon glyphicon-edit"/> to add this item to the list on the left. You can add multiple items to this list</li>
+                        <li>When you have entered all the data on the items on the left, click on "<b>Send it to FFBE Equip</b>" to send it to FFBE Equip</li>
+                        <li>I'll regulary merge the sent data to the main data of FFBE Equip.</li>
                     </ol>
                 </div>
                 <div class="footerButtons">
@@ -113,9 +108,7 @@
                 <div class="modal-content">
                     <div class="modal-header">Add access</div>
                     <div class="modal-body">
-                        <div id="accessList"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div class="btn-group choice" data-toggle="buttons" id="accessList"></div>
                     </div>
                 </div>
             </div>
