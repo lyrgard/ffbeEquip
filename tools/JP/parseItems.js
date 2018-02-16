@@ -80,7 +80,7 @@ var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var glNameById = {};
-var dev = true;
+var dev = false;
 
 
 function getData(filename, callback) {
@@ -101,7 +101,7 @@ function getData(filename, callback) {
 }
 
 console.log("Starting");
-if (!fs.existsSync('../../static/GL/data.json')) {
+if (!fs.existsSync('../../static/JP/data.json')) {
     console.log("old data not accessible");
     return;
 }

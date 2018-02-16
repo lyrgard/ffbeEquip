@@ -20,3 +20,9 @@
 input.maxNumber {
     width: 50px;
 }
+
+#modifiedItems .td.access > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

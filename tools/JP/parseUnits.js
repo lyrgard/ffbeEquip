@@ -82,7 +82,7 @@ var oldItemsAccessById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var glNameById = {};
-var dev = true;
+var dev = false;
 
 function getData(filename, callback) {
     if (!dev) {

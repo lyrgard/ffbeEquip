@@ -79,7 +79,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
-		"enhancementSkills":["Curada","はげます","イノセントシューター"],
+		"enhancementSkills":["ケアルダ","はげます","イノセントシューター"],
 		"skills": [
 			{"mp%":30, "spr%":30},
 			{"spr%":50, "equipedConditions":["bow"]}
@@ -97,7 +97,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["リタリエイト","Ultima","ディストピア"],
+		"enhancementSkills":["リタリエイト","アルテマ","ディストピア"],
 		"skills": [
 			{"hp%":30, "mp%":30, "def%":25, "mag%":100, "spr%":25, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"dark","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
@@ -541,7 +541,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["いのり","Curaga","白光の加護"],
+		"enhancementSkills":["いのり","ケアルガ","白光の加護"],
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
 		]
@@ -1005,7 +1005,7 @@
 			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["ラブリーガード","Reflect","ラブユーオール"],
+		"enhancementSkills":["ラブリーガード","リフレク","ラブユーオール"],
 		"skills": [
 			{"hp%":20, "mp%":50, "def%":40, "spr%":70, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":5}
 		]
@@ -1199,7 +1199,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["妖艶の魔女","オーバーフロウ","Meteor"],
+		"enhancementSkills":["妖艶の魔女","オーバーフロウ","メテオ"],
 		"skills": [
 			{"mp%":50, "mag%":30, "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["hat"]},
@@ -1238,7 +1238,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
-		"enhancementSkills":["はげます","インスタントキュア","Raise"],
+		"enhancementSkills":["はげます","インスタントキュア","レイズ"],
 		"skills": [
 			{"mp%":20, "spr%":10, "resist":[{"name":"water","percent":30}]}
 		]
@@ -1255,7 +1255,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["フィジカルフォール","リタリエイト","Ultima"],
+		"enhancementSkills":["フィジカルフォール","リタリエイト","アルテマ"],
 		"skills": [
 			{"hp%":30, "mp%":30, "mag%":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
@@ -1345,7 +1345,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["常闇","Impact","暗黒の罪科","暗黒の刃"],
+		"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃"],
 		"skills": [
 			{"hp%":40, "mp%":40, "atk%":40, "def%":40, "mag%":40, "spr%":40, "singleWieldingOneHanded":{"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
@@ -1444,7 +1444,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["光輝","Ultima","キリングライト","セイントショット"],
+		"enhancementSkills":["光輝","アルテマ","キリングライト","セイントショット"],
 		"skills": [
 			{"hp%":40, "mp%":40, "atk%":20, "def%":20, "mag%":70, "spr%":30, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":30, "mag%":30, "equipedConditions":["heavyArmor"]},
@@ -1517,7 +1517,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["spear","hat"],
-		"enhancementSkills":["モグみだれ突き","Curaga","モグワルツ"],
+		"enhancementSkills":["モグみだれ突き","ケアルガ","モグワルツ"],
 		"skills": [
 			{"hp%":10, "mp%":10, "atk%":10, "def%":10, "mag%":10, "spr%":10, "singleWieldingOneHanded":{"atk":50}}
 		]
@@ -1811,7 +1811,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["staff","rod","spear","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["ウィズドロー","オープンハート","Quake"],
+		"enhancementSkills":["ウィズドロー","オープンハート","クエイク"],
 		"skills": [
 			{"mp%":30, "mag%":20, "resist":[{"name":"petrification","percent":100}]},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -3094,7 +3094,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["カズスのお守り","勇気づける","Full-Life"],
+		"enhancementSkills":["カズスのお守り","勇気づける","アレイズ"],
 		"skills": [
 			{"hp%":10, "mp%":20, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 		]
@@ -3161,7 +3161,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","harp","mace","hat","clothes","robe"],
-		"enhancementSkills":["Curaga","水の巫女","尊き献身"],
+		"enhancementSkills":["ケアルガ","水の巫女","尊き献身"],
 		"skills": [
 			{"hp%":15, "mp%":20, "spr%":45, "resist":[{"name":"water","percent":100},{"name":"water","percent":50}], "mpRefresh":5}
 		]
@@ -3498,7 +3498,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["種の超越者","Meteor","邪悪なる光"],
+		"enhancementSkills":["種の超越者","メテオ","邪悪なる光"],
 		"skills": [
 			{"mp%":20, "mag%":30, "resist":[{"name":"light","percent":-50},{"name":"poison","percent":10}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}]}
 		]
@@ -3569,7 +3569,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["ケイオスウェイヴ","受け継ぎし力","Ultima","魔導力覚醒"],
+		"enhancementSkills":["ケイオスウェイヴ","受け継ぎし力","アルテマ","魔導力覚醒"],
 		"skills": [
 			{"hp%":50, "mp%":50, "mag%":130, "spr%":50, "evade":{"physical":30}, "resist":[{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}], "mpRefresh":5}
 		]
@@ -3945,7 +3945,7 @@
 			"pots":{"hp":360,"mp":140,"atk":24,"def":24,"mag":24,"spr":24}
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
-		"enhancementSkills":["魔力をためる","生の証明","Crusader"],
+		"enhancementSkills":["魔力をためる","生の証明","ジハード"],
 		"skills": [
 			{"hp%":10, "mp%":20},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -3963,7 +3963,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Raise","Curaga","アレクサンドリア王女"],
+		"enhancementSkills":["レイズ","ケアルガ","アレクサンドリア王女"],
 		"skills": [
 			{"hp%":20, "mp%":30, "spr%":80, "evade":{"magical":20}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":8}
 		]
@@ -4065,7 +4065,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Barthundara","Thundaga","フレアスター"],
+		"enhancementSkills":["バサンダラ","サンダガ","フレアスター"],
 		"skills": [
 			{"hp%":20, "mp%":50, "mag%":50, "resist":[{"name":"wind","percent":-50},{"name":"earth","percent":50},{"name":"light","percent":-50}]}
 		]
@@ -4617,7 +4617,7 @@
 			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
 		},
 		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
-		"enhancementSkills":["Waterga","Aeroga"],
+		"enhancementSkills":["ウォタガ","エアロガ"],
 		"skills": [
 			{"mp%":20, "def%":20, "mag%":20}
 		]
@@ -4651,7 +4651,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["クルセードスタンス","女神の加護","Holy"],
+		"enhancementSkills":["クルセードスタンス","女神の加護","ホーリー"],
 		"skills": [
 			{"hp%":20, "mp%":20, "def%":20, "mpRefresh":5}
 		]
@@ -4720,7 +4720,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","rod","hat","clothes","robe"],
-		"enhancementSkills":["Astral Fire","Astral Blizzard","Flare"],
+		"enhancementSkills":["アストラルファイア","アンブラルブリザード","フレア"],
 		"skills": [
 			{"mp%":20, "mag%":30}
 		]
@@ -5287,7 +5287,7 @@
 			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
-		"enhancementSkills":["Firaga","Thundaga","Blizzaga","刃に秘めし覚悟","死なないで"],
+		"enhancementSkills":["ファイガ","サンダガ","ブリザガ","刃に秘めし覚悟","死なないで"],
 		"skills": [
 			{"hp%":40, "mp%":50, "def%":20, "mag%":50, "spr%":60, "partialDualWield":["dagger"], "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
 			{"mag%":50, "spr%":50, "equipedConditions":["dagger"]},
