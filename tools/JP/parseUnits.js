@@ -584,7 +584,7 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://exviusdb.com/static/img/assets/unit/unit_ills_" + unitId + ".png",filePath);
+            download("https://exviusdb.com/static/img/assets/unit/unit_ills_" + unitId + ".png",filePath);
         }
     }
 }
