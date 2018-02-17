@@ -637,9 +637,9 @@ function populateUnitSelect() {
     Object.keys(units).sort(function(id1, id2) {
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + units[value].max_rarity + '★ '+ units[value].name + '</option>';
+        options += '<option value="'+ value + '">' + units[value].name + (units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") + '</option>';
         if (units[value]["6_form"]) {
-            options += '<option value="'+ value + '-6">6★ ' + units[value].name + '</option>';
+            options += '<option value="'+ value + '-6">' + units[value].name + ' 6★</option>';
         }
     });
     $("#unitsSelect").html(options);
