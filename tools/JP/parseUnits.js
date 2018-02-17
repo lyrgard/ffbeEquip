@@ -108,10 +108,10 @@ console.log("Starting");
 getData('units.json', function (units) {
     getData('skills.json', function (skills) {
         getData('enhancements.json', function (enhancements) {
-            fs.readFile('../../static/GL/units.json', function (err, glDatacontent) {
-                var glData = JSON.parse(glDatacontent);
-                for (var unitId in glData) {
-                    glNameById[unitId] = glData[unitId].name;
+            fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
+                var nameData = JSON.parse(nameDatacontent);
+                for (var unitId in nameData) {
+                    glNameById[unitId] = nameData[unitId].name;
                 }
                 for (var index in enhancements) {
                     var enhancement = enhancements[index];
