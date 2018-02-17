@@ -1,4 +1,4 @@
-const google = require('googleapis');
+const { google } = require('googleapis');
 const config = require('../../config.js');
 
 const { OAuth2 } = google.auth;
@@ -23,8 +23,9 @@ const createClient = (tokens) => {
 };
 
 const client = createClient();
-const authUrl = client.generateAuthUrl({
+const authUrlSelectAccount = client.generateAuthUrl({
   access_type: 'offline',
+  prompt: 'select_account',
   scope: ['https://www.googleapis.com/auth/drive.appfolder'],
 });
 const authUrlConsent = client.generateAuthUrl({
@@ -34,7 +35,7 @@ const authUrlConsent = client.generateAuthUrl({
 });
 
 module.exports = {
-  authUrl,
+  authUrlSelectAccount,
   authUrlConsent,
   client,
   createClient,
