@@ -1182,6 +1182,7 @@ function getStateHash() {
     
     if (builds[currentUnitIndex].unit) {
         data.unitName = builds[currentUnitIndex].unit.name;
+        data.rarity = builds[currentUnitIndex].unit.max_rarity;
     }
     
     
@@ -1243,7 +1244,11 @@ function loadStateHashAndBuild(data) {
     if (data.unitName) {
         for (var unitId in units) {
             if (units[unitId].name == data.unitName) {
-                $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+                if (data.rarity == 6 && units[unitId]["6_form"]) {
+                    $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
+                } else {
+                    $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+                }
                 onUnitChange();        
                 break;
             }
@@ -1330,7 +1335,7 @@ function showBuildLink() {
         }
     }
     data.equipmentToUse = "all";
-    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html?server=" + server + "#" + btoa(JSON.stringify(data)), function(shortUrl) {
         $('<div id="showLinkDialog" title="Build Link">' + 
             '<input value="' + shortUrl + '"></input>' +
             '<h4>This link will open the builder with this exact build displayed</h4>' +

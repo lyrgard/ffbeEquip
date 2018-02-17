@@ -521,9 +521,9 @@ function formatOutput(units) {
     return result;
 }
 
-function formatUnit(unit) {
-    result = getUnitBasicInfo(unit) + ",";
-    result += "\n\t\t\"skills\": [";
+function formatUnit(unit, prefix = "") {
+    result = getUnitBasicInfo(unit,prefix) + ",";
+    result += "\n" + prefix + "\t\t\"skills\": [";
     var firstSkill = true;
     for (var skillIndex in unit.skills) {
         var skill = unit.skills[skillIndex];
@@ -532,7 +532,7 @@ function formatUnit(unit) {
         } else {
             result+= ",";
         }
-        result+= "\n\t\t\t{"
+        result+= "\n" + prefix + "\t\t\t{"
         var firstProperty = true;
         for (var propertyIndex in properties) {
             var property = properties[propertyIndex];
@@ -547,10 +547,10 @@ function formatUnit(unit) {
         }
         result+= "}"
     }
+    result += "\n" + prefix + "\t\t]";
     if (unit["6_form"]) {
-        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t\t") + "\n\t\t\t}";
+        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t") + "\n\t\t}";
     }
-    result += "\n\t\t]";
     return result;
 }
 
