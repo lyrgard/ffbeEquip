@@ -140,7 +140,7 @@ getData('units.json', function (units) {
     });
 });
 
-function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
+function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -149,7 +149,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     
     var unitStats = {"maxStats":{}, "pots":{}};
     for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
+        if (unitIn.entries[entryId].rarity == maxRariry) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in stats) {
                 var stat = stats[statIndex];
@@ -165,7 +165,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     } else {
         data["name"] = unitIn["name"];    
     }
-    data["max_rarity"] = unitIn["rarity_max"];
+    data["max_rarity"] = maxRariry;
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
     if (!unitIn.sex) {
@@ -188,6 +188,11 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
     
     data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
+    
+    if (maxRariry == 7) {
+        data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
+    }
+    
     return unit;
 }
 
@@ -495,8 +500,9 @@ function addAilmentResist(item, values) {
     }
 }
 
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+
 function formatOutput(units) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
@@ -506,36 +512,45 @@ function formatOutput(units) {
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitId, unit) + ",";
-        result += "\n\t\t\"skills\": [";
-        var firstSkill = true;
-        for (var skillIndex in unit.skills) {
-            var skill = unit.skills[skillIndex];
-            if (firstSkill) {
-                firstSkill = false;
-            } else {
-                result+= ",";
-            }
-            result+= "\n\t\t\t{"
-            var firstProperty = true;
-            for (var propertyIndex in properties) {
-                var property = properties[propertyIndex];
-                if (skill[property]) {
-                    if (firstProperty) {
-                        firstProperty = false;
-                    } else {
-                        result += ", ";
-                    }
-                    result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
-                }
-            }
-            result+= "}"
-        }
-        result += "\n\t\t]";
+        result += "\n\t\"" + unitId + "\": {";
+        result += formatUnit(unit);
         
         result += "\n\t}";
     }
     result += "\n}";
+    return result;
+}
+
+function formatUnit(unit) {
+    result = getUnitBasicInfo(unit) + ",";
+    result += "\n\t\t\"skills\": [";
+    var firstSkill = true;
+    for (var skillIndex in unit.skills) {
+        var skill = unit.skills[skillIndex];
+        if (firstSkill) {
+            firstSkill = false;
+        } else {
+            result+= ",";
+        }
+        result+= "\n\t\t\t{"
+        var firstProperty = true;
+        for (var propertyIndex in properties) {
+            var property = properties[propertyIndex];
+            if (skill[property]) {
+                if (firstProperty) {
+                    firstProperty = false;
+                } else {
+                    result += ", ";
+                }
+                result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
+            }
+        }
+        result+= "}"
+    }
+    if (unit["6_form"]) {
+        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t\t") + "\n\t\t\t}";
+    }
+    result += "\n\t\t]";
     return result;
 }
 
@@ -549,31 +564,36 @@ function formatSimpleOutput(units) {
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitId, unit);
+        result += "\n\t\"" + unitId + "\": {";
+        result += getUnitBasicInfo(unit);
+        if (unit["6_form"]) {
+            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t") + "\n\t\t}";
+        }
         result += "\n\t}";
     }
     result += "\n}";
     return result;
 }
 
-function getUnitBasicInfo(unitId, unit) {
-    var result = "";
-    result += "\n\t\"" + unitId + "\": {";
-    result += "\n\t\t\"name\":\"" + unit.name + "\",";
+function getUnitBasicInfo(unit, prefix = "") {
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name + "\",";
     if (unit.jpname) {
-        result += "\n\t\t\"jpname\":\"" + unit.jpname + "\",";
+        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname + "\",";
     }
-    result += "\n\t\t\"id\":\"" + unit.id + "\",";
-    result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
-    result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
-    result += "\n\t\t\"sex\":\"" + unit.sex + "\",";
-    result += "\n\t\t\"stats\": {";
-    result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
-    result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
-    result += "\n\t\t},";
-    result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip);
+    result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
+    result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
+    result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
+    result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
+    result += "\n" + prefix + "\t\t\"stats\": {";
+    if (!unit.stats) {
+        console.log("!!\n!!\n"  + JSON.stringify(unit));
+    }
+    result += "\n" + prefix + "\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
+    result += "\n" + prefix + "\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
+    result += "\n" + prefix + "\t\t},";
+    result += "\n" + prefix + "\t\t\"equip\":" + JSON.stringify(unit.equip);
     if (unit.enhancementSkills.length > 0) {
-        result += ",\n\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
+        result += ",\n" + prefix + "\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
     }
     
     return result;
@@ -594,18 +614,23 @@ var download = function(uri, filename, callback){
         if (err || res.statusCode == 404) {
             console.log("!! unable to download image : " + uri);
         } else {
-            request(uri).pipe(fs.createWriteStream(filename)).on('close', function() {
-                fs.createReadStream(filename).pipe(new PNG({
-                    filterType: 4
-                }))
-                .on('error', function() {
-                    fs.unlinkSync(filename);
-                    console.log("!! image : " + uri + " invalid");
+            request(uri).pipe(fs.createWriteStream(filename))
+                .on('close', function() {
+                    if (fs.existsSync(filename)) {
+                        fs.createReadStream(filename).pipe(new PNG({
+                            filterType: 4
+                        }))
+                        .on('error', function() {
+                            fs.unlinkSync(filename);
+                            console.log("!! image : " + uri + " invalid");
+                        })
+                        .on('parsed', function() {
+                            console.log("image : " + uri + " downloaded and valid");
+                        });
+                    }
                 })
-                .on('parsed', function() {
-                    console.log("image : " + uri + " downloaded and valid");
-                });
-                
+            .on('error', function() {
+                console.log("!! unable to download image : " + uri);
             });
         }
     });
