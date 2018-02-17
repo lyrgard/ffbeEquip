@@ -5,7 +5,7 @@ var dev = false;
 
 function getData(filename, callback) {
     if (!dev) {
-        request.get('http://ffbeEquip.lyrgard.fr/JP/' + filename, function (error, response, body) {
+        request.get('http://ffbeEquip.lyrgard.fr/GL/' + filename, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
@@ -26,7 +26,7 @@ if (!fs.existsSync('./data.json')) {
     return;
 }
 getData('corrections.json', function (corrections) {
-    fs.readFile('../../static/JP/data.json', function (err, dataContent) {
+    fs.readFile('../../static/GL/data.json', function (err, dataContent) {
         var data = JSON.parse(dataContent);
         
         for (var index = data.length; index--;) {
@@ -57,7 +57,6 @@ getData('corrections.json', function (corrections) {
         fs.writeFileSync('data.json', formatOutput(data));
     });
 });
-
 
 function formatOutput(items) {
     var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
