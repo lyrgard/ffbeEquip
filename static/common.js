@@ -291,6 +291,9 @@ function displayItemLine(item) {
     if (item.tmrUnit) {
         html += '<div>' + toLink(units[item.tmrUnit].name) + '</div>';
     }
+    if (item.stmrUnit) {
+        html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
+    }
     if (item.exclusiveUnits) {
         html += getExclusiveUnitsHtml(item);
     }
@@ -811,8 +814,11 @@ function prepareSearch(data) {
                 textToSearch += "|killer " + killer.name;
             });
         }
-        if (item["tmrUnit"]) {
-            textToSearch += "|" + item["tmrUnit"];
+        if (item["tmrUnit"] && units[item["tmrUnit"]]) {
+            textToSearch += "|" + units[item["tmrUnit"]].name;
+        }
+        if (item["stmrUnit"] && units[item["stmrUnit"]]) {
+            textToSearch += "|" + units[item["stmrUnit"]].name;
         }
         for (var index in item.access) {
             textToSearch += "|" + item.access[index];
