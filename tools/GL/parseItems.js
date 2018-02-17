@@ -1,5 +1,6 @@
 var fs = require('fs');
 var request = require('request');
+var PNG = require('pngjs').PNG;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -78,74 +79,76 @@ var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
+var dev = false;
 
+
+function getData(filename, callback) {
+    if (!dev) {
+        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/' + filename, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(filename + " downloaded");
+                var result = JSON.parse(body);
+                callback(result);
+            }
+        });
+    } else {
+        fs.readFile('./sources/' + filename, function (err, content) {
+            var result = JSON.parse(content);
+            callback(result);
+        });
+    }
+}
 
 console.log("Starting");
 if (!fs.existsSync('../../static/GL/data.json')) {
     console.log("old data not accessible");
     return;
 }
-request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/equipment.json', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log("equipment.json downloaded");
-        var items = JSON.parse(body);
-        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/materia.json', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log("materia.json downloaded");
-                var materias = JSON.parse(body);
-                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/skills.json', function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        console.log("skills.json downloaded");
-                        var skills = JSON.parse(body);
-                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json', function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                console.log("units.json downloaded");
-                                var units = JSON.parse(body);
-                                for (var unitIndex in units) {
-                                    var unit = units[unitIndex];
-                                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
+getData('equipment.json', function (items) {
+    getData('materia.json', function (materias) {
+        getData('skills.json', function (skills) {
+            getData('units.json', function (units) {
+                for (var unitIndex in units) {
+                    var unit = units[unitIndex];
+                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-                                    if (unit.TMR) {
-                                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                                        if (unit.rarity_min > 3 && !unit.is_summonable) {
-                                            unitNamesById[unitIndex].event = true;
-                                        }
-                                    }
-                                }
-                                
-                                
-                                
-                                fs.readFile('../../static/GL/data.json', function (err, content) {
-                                    var oldItems = JSON.parse(content);
-                                    for (var index in oldItems) {
-                                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                        if (oldItems[index].maxNumber) {
-                                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                        }
-                                    }
-                                    
-                                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
-                                        releasedUnits = JSON.parse(content);
-                                    
-                                        var result = {"items":[]};
-                                        for (var itemId in items) {
-                                            treatItem(items,itemId, result, skills);
-                                        }
-                                        for (var materiaId in materias) {
-                                            treatItem(materias,materiaId, result, skills);
-                                        }
-                                        console.log(skillNotIdentifiedNumber);
-                                        fs.writeFileSync('data.json', formatOutput(result.items));
-                                    });
-                                });
-                            }
-                        });
+                    if (unit.TMR) {
+                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                        if (unit.rarity_min > 3 && !unit.is_summonable) {
+                            unitNamesById[unitIndex].event = true;
+                        }
                     }
+                }
+
+
+
+                fs.readFile('../../static/GL/data.json', function (err, content) {
+                    var oldItems = JSON.parse(content);
+                    for (var index in oldItems) {
+                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                        if (oldItems[index].maxNumber) {
+                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                        }
+                    }
+
+                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
+                        releasedUnits = JSON.parse(content);
+
+                        var result = {"items":[]};
+                        for (var itemId in items) {
+                            treatItem(items,itemId, result, skills);
+                        }
+                        for (var materiaId in materias) {
+                            treatItem(materias,materiaId, result, skills);
+                        }
+                        console.log(skillNotIdentifiedNumber);
+                        fs.writeFileSync('data.json', formatOutput(result.items));
+                    });
                 });
-            }
+            });
         });
-    }
+    });
 });
 
 
@@ -211,6 +214,7 @@ function treatItem(items, itemId, result, skills) {
     
     if (itemIn.icon) {
         itemOut.icon = itemIn.icon;
+        verifyImage(itemOut.icon);
     }
     
     if (itemIn.compendium_id) {
@@ -591,6 +595,12 @@ function addMastery(item, mastery) {
     addStat(item, "def%", mastery[2]);
     addStat(item, "mag%", mastery[3]);
     addStat(item, "spr%", mastery[4]);
+    if (mastery.length >= 6) {
+        addStat(item, "hp%", mastery[5]);
+    }
+    if (mastery.length >= 7) {
+        addStat(item, "mp%", mastery[6]);
+    }
 }
 
 function addExclusiveUnit(item, unitId) {
@@ -661,3 +671,32 @@ function formatOutput(items) {
     result += "\n]";
     return result;
 }
+
+function verifyImage(icon) {
+    var filePath = "../../static/img/items/" + icon;
+    if (!fs.existsSync(filePath)) {
+        download("http://exviusdb.com/static/img/assets/item/" + icon ,filePath);
+    }
+}
+
+var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+        if (err || res.statusCode == 404) {
+            console.log("!! unable to download image : " + uri);
+        } else {
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', function() {
+                fs.createReadStream(filename).pipe(new PNG({
+                    filterType: 4
+                }))
+                .on('error', function() {
+                    fs.unlinkSync(filename);
+                    console.log("!! image : " + uri + " invalid");
+                })
+                .on('parsed', function() {
+                    console.log("image : " + uri + " downloaded and valid");
+                });
+                
+            });
+        }
+    });
+};

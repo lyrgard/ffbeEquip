@@ -2,7 +2,6 @@ var saveNeeded = false;
 
 var saveTimeout;
 
-var itemKey = getItemInventoryKey();
 var releasedUnits;
 var lastItemReleases;
 
@@ -341,9 +340,9 @@ function keepOnlyOneOfEachMateria() {
     var result = [];
     for (var index in data) {
         var item = data[index];
-        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item[itemKey])) {
+        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item.id)) {
             result.push(item);
-            idsAlreadyKept.push(item[itemKey]);
+            idsAlreadyKept.push(item.id);
         }
     }
     return result;

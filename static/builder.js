@@ -39,6 +39,7 @@ var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
 var excludePremium;
+var excludeSTMR;
 var includeTMROfOwnedUnits;
 var includeTrialRewards;
 
@@ -175,6 +176,7 @@ function processTypeCombinations(workerIndex) {
 
 function calculateAlreadyUsedItems() {
     alreadyUsedItems = {};
+    alreadyUsedInThisBuildItems = {};
     unstackablePinnedItems = [];
     alreadyUsedEspers = [];
     for (var i = 0, len = builds.length; i < len; i++) {
@@ -237,6 +239,7 @@ function readItemsExcludeInclude() {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
+    excludeSTMR = $("#excludeSTMR").prop("checked");
     includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
@@ -348,13 +351,14 @@ function getAvailableNumber(item) {
     if (onlyUseOwnedItems) {
         number = getOwnedNumber(item).available;
     } else {
-        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
+        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium || excludeSTMR) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
                    || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
                    || (exludeEventEquipment && access.endsWith("event"))
-                   || (excludePremium && access == "premium")) {
+                   || (excludePremium && access == "premium")
+                   || (excludeSTMR && access == "STMR")) {
                     return 0;
                 }        
             }
@@ -368,7 +372,7 @@ function getAvailableNumber(item) {
             }
         }
         if (!isStackable(item)) {
-            if (alreadyUsedItems[item.id]) {
+            if (unstackablePinnedItems.includes(item.id)) {
                 number = 0;
             } else {
                 number = 1;
@@ -633,7 +637,10 @@ function populateUnitSelect() {
     Object.keys(units).sort(function(id1, id2) {
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + units[value].name + '</option>';
+        options += '<option value="'+ value + '">' + units[value].max_rarity + '★ '+ units[value].name + '</option>';
+        if (units[value]["6_form"]) {
+            options += '<option value="'+ value + '-6">6★ ' + units[value].name + '</option>';
+        }
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(onUnitChange);
@@ -642,7 +649,12 @@ function populateUnitSelect() {
 function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
         var unitId = $(this).val();
-        var selectedUnitData = units[unitId];
+        var selectedUnitData;
+        if (unitId.endsWith("-6")) {
+            selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
+        } else {
+            selectedUnitData = units[unitId];    
+        }
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html(selectedUnitData.name);
             reinitBuild(currentUnitIndex);
@@ -871,6 +883,9 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().removeClass("hidden");
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
+        if (server == "JP") {
+            $("#excludeSTMR").parent().removeClass("hidden");
+        }
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         onlyUseOwnedItems = false;
@@ -879,6 +894,7 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
         $("#excludeNotReleasedYet").parent().addClass("hidden");
+        $("#excludeSTMR").parent().addClass("hidden");
         if (ownedUnits && Object.keys(ownedUnits).length > 0) {
             $("#includeTMROfOwnedUnits").parent().removeClass("hidden");
         } else {
@@ -908,9 +924,6 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
-        if (item.name == "Onion Sword") {
-            console.log("!!");
-        }
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
@@ -1176,6 +1189,7 @@ function getStateHash() {
     
     if (builds[currentUnitIndex].unit) {
         data.unitName = builds[currentUnitIndex].unit.name;
+        data.rarity = builds[currentUnitIndex].unit.max_rarity;
     }
     
     
@@ -1185,6 +1199,7 @@ function getStateHash() {
         data.excludeTMR5 = $("#excludeTMR5").prop('checked');
         data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
         data.excludePremium = $("#excludePremium").prop('checked');
+        data.excludeSTMR = $("#excludeSTMR").prop('checked');
     }
     
     for (var index = 0; index < 10; index++) {
@@ -1237,7 +1252,11 @@ function loadStateHashAndBuild(data) {
     if (data.unitName) {
         for (var unitId in units) {
             if (units[unitId].name == data.unitName) {
-                $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+                if (data.rarity == 6 && units[unitId]["6_form"]) {
+                    $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
+                } else {
+                    $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+                }
                 onUnitChange();        
                 break;
             }
@@ -1263,6 +1282,7 @@ function loadStateHashAndBuild(data) {
         $("#excludeTMR5").prop('checked', data.excludeTMR5);
         $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
         $("#excludePremium").prop("checked", data.excludePremium);
+        $("#excludeSTMR").prop("checked", data.excludeSTMR);
     }
     if (data.fixedItems) {
         for (var index in data.fixedItems) {
@@ -1324,7 +1344,7 @@ function showBuildLink() {
         }
     }
     data.equipmentToUse = "all";
-    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
+    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html?server=" + server + "#" + btoa(JSON.stringify(data)), function(shortUrl) {
         $('<div id="showLinkDialog" title="Build Link">' + 
             '<input value="' + shortUrl + '"></input>' +
             '<h4>This link will open the builder with this exact build displayed</h4>' +
@@ -1447,7 +1467,7 @@ function showMonsterList() {
       '</div>' ).dialog({
         modal: true,
         position: { my: 'top', at: 'top+150', of: $("body") },
-        width: 600
+        width: 800
     });
 }
 

@@ -331,7 +331,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["Pray","Curaga"]
+		"enhancementSkills":["Pray","Curaga","White Light's Protection"]
 	},
 	"100002803": {
 		"name":"Medius",
@@ -891,7 +891,8 @@
 			"maxStats":{"hp":3684,"mp":180,"atk":120,"def":118,"mag":152,"spr":135},
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
-		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Elven Song","Elf Superior","Bran's Love","Aureole Ray"]
 	},
 	"100007603": {
 		"name":"Ruggles",
@@ -903,7 +904,8 @@
 			"maxStats":{"hp":3454,"mp":153,"atk":138,"def":131,"mag":107,"spr":104},
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dwarven Force","Song of Memories","Manufacture"]
 	},
 	"100007705": {
 		"name":"Veritas of the Dark",
@@ -1197,12 +1199,12 @@
 	"100010303": {
 		"name":"Yuri",
 		"id":"100010303",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2563,"mp":130,"atk":108,"def":82,"mag":101,"spr":92},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":3179,"mp":162,"atk":134,"def":102,"mag":126,"spr":115},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","katana","staff","rod","bow","whip","throwing","lightShield","hat","clothes","lightArmor","robe"]
 	},
@@ -3468,7 +3470,8 @@
 			"maxStats":{"hp":3525,"mp":132,"atk":150,"def":124,"mag":110,"spr":116},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"]
+		"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"]
 	},
 	"302001004": {
 		"name":"Ling",
@@ -3480,7 +3483,8 @@
 			"maxStats":{"hp":2765,"mp":187,"atk":124,"def":96,"mag":104,"spr":115},
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","hat","clothes","robe"]
+		"equip":["dagger","hat","clothes","robe"],
+		"enhancementSkills":["Beauty","Feint Step","Daunting Step","Invigorating Dance"]
 	},
 	"302001104": {
 		"name":"Cupid Artemios",
@@ -3492,7 +3496,8 @@
 			"maxStats":{"hp":3128,"mp":170,"atk":135,"def":111,"mag":127,"spr":120},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["dagger","bow","throwing","hat","clothes","lightArmor"]
+		"equip":["dagger","bow","throwing","hat","clothes","lightArmor"],
+		"enhancementSkills":["Rose Custodian","Flash Barrage","Sun Cupid","Lux Magna"]
 	},
 	"302001203": {
 		"name":"Cupid Luna",
@@ -3504,7 +3509,8 @@
 			"maxStats":{"hp":2500,"mp":121,"atk":104,"def":91,"mag":102,"spr":95},
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
-		"equip":["bow","gun","hat","clothes"]
+		"equip":["bow","gun","hat","clothes"],
+		"enhancementSkills":["Twilight Bolt","Chainsaw","Nightwalker"]
 	},
 	"302001305": {
 		"name":"Olive",
@@ -3516,7 +3522,8 @@
 			"maxStats":{"hp":3296,"mp":150,"atk":156,"def":124,"mag":106,"spr":102},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"equip":["hammer","gun","hat","clothes","lightArmor"]
+		"equip":["hammer","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["Shattering Shot","Heavy Arms Proficiency","Mortar Beacon","True Shot"]
 	},
 	"302001405": {
 		"name":"Fryevia",
@@ -4173,5 +4180,41 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"]
+	},
+	"401003704": {
+		"name":"Yan",
+		"id":"401003704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3458,"mp":188,"atk":107,"def":127,"mag":132,"spr":146},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["lightShield","hat","clothes","robe"]
+	},
+	"401003805": {
+		"name":"Chow",
+		"id":"401003805",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3788,"mp":168,"atk":128,"def":138,"mag":108,"spr":148},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+	},
+	"401003905": {
+		"name":"Ang",
+		"id":"401003905",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3670,"mp":165,"atk":155,"def":130,"mag":129,"spr":130},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"]
 	}
 }
