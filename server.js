@@ -5,12 +5,11 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
 
-const jv = require('json-validation');
-
 const config = require('./config.js');
 const drive = require('./server/routes/drive.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
+const corrections = require('./server/routes/corrections.js');
 const errorHandler = require('./server/middlewares/boom.js');
 const authRequired = require('./server/middlewares/oauth.js');
 
@@ -29,33 +28,10 @@ app.use(bodyParser.json());
 
 app.use('/', oauth);
 app.use('/links', links);
+app.use('/', corrections);
 app.use('/', authRequired, drive);
 
-const driveRouter = express.Router();
-driveRouter.use(authRequired);
-
-driveRouter.post('/:server/items/temp', function(req, res) {
-    var result = (new jv.JSONValidation()).validate(req.body, schemaData);
-    if (result.ok) {
-        var fileName = 'static/' + req.params.server + '/tempData.json';
-        var items = sanitize(req.body);
-        var tempItems = [];
-        if (fs.existsSync(fileName)) {
-            tempItems = JSON.parse(fs.readFileSync(fileName, 'utf8'));
-        }
-        tempItems = tempItems.concat(items);
-        if (tempItems.length > 2000) {
-            res.status(500).send();
-        } else {
-            fs.writeFileSync(fileName, JSON.stringify(tempItems).replace(/\},\{/g, '},\n\t{').replace(/^\[/g, '[\n\t').replace(/\]$/g, '\n]'));
-            res.status(201).send();
-        }
-    } else {
-        res.status(400).send("JSON has the following errors: " + result.errors.join(", ") + " at path " + result.path);
-    }
-});
-
-var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
+/*var safeValues = ["type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","doubleHand","element","resist","ailments","killers","exclusiveSex","partialDualWield","equipedConditions","server"];
 
 function sanitize(body) {
     var items = [];
@@ -95,9 +71,9 @@ function sanitize(body) {
         items.push(item);
     }
     return items;
-}
+}*/
 
-var schemaPercent = {
+/*var schemaPercent = {
     "type": "object",
     "properties": {
         "name"  : {"type": "string", "required": true, "enum": ['fire','ice','lightning','water','earth','wind','light','dark','poison','blind','sleep','silence','paralysis','confuse','disease','petrification','aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit']},
@@ -224,9 +200,7 @@ function escapeHtml (string) {
   return String(string).replace(/[&<>"`=\/]/g, function (s) {
     return entityMap[s];
   });
-}
-
-app.use(driveRouter);
+}*/
 
 // Basic 404 handler
 app.use((req, res) => {

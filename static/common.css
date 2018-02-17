@@ -283,10 +283,6 @@ body {
     cursor: pointer;
 }
 
-#results.JP .type {
-    display: none;
-}
-
 .specialValueGroup {
     display: flex;
     flex-direction: row;
@@ -368,4 +364,8 @@ body {
     top: -5px;
     right: -6px;
     height: 45px;
+}
+
+.clickable {
+    cursor: pointer;
 }

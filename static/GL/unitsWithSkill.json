@@ -405,9 +405,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"enhancementSkills":["Pray","Curaga"],
+		"enhancementSkills":["Pray","Curaga","White Light's Protection"],
 		"skills": [
-			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}
+			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
 		]
 	},
 	"100002803": {
@@ -1119,9 +1119,11 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Elven Song","Elf Superior","Bran's Love","Aureole Ray"],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":20, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"mag%":50, "spr%":50, "equipedConditions":["bow"]}
+			{"hp%":20, "mp%":30, "mag%":30, "spr%":20, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"demon","physical":75,"magical":75}], "mpRefresh":5},
+			{"mag%":150, "spr%":150, "equipedConditions":["bow"]},
+			{"def%":30, "spr%":80, "equipedConditions":["harp"]}
 		]
 	},
 	"100007603": {
@@ -1135,8 +1137,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dwarven Force","Song of Memories","Manufacture"],
 		"skills": [
-			{"hp%":50, "atk%":10, "singleWieldingOneHanded":{"atk":50}, "resist":[{"name":"earth","percent":30},{"name":"earth","percent":20}]},
+			{"hp%":50, "atk%":40, "singleWieldingOneHanded":{"atk":50}, "resist":[{"name":"earth","percent":30},{"name":"earth","percent":20}], "killers":[{"name":"stone","physical":50}]},
 			{"hp%":20, "atk%":20, "equipedConditions":["axe"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["hammer"]}
 		]
@@ -1525,16 +1528,16 @@
 	"100010303": {
 		"name":"Yuri",
 		"id":"100010303",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2563,"mp":130,"atk":108,"def":82,"mag":101,"spr":92},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":3179,"mp":162,"atk":134,"def":102,"mag":126,"spr":115},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","katana","staff","rod","bow","whip","throwing","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":10, "atk%":10, "mag%":10}
+			{"hp%":30, "mp%":10, "atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}]}
 		]
 	},
 	"100010405": {
@@ -4482,8 +4485,9 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"beast","physical":50}]},
+			{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "partialDualWield":["dagger","whip","mace","fist"], "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"beast","physical":50}]},
 			{"atk%":50, "equipedConditions":["clothes"]},
 			{"atk%":50, "equipedConditions":["lightArmor"]}
 		]
@@ -4499,8 +4503,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","hat","clothes","robe"],
+		"enhancementSkills":["Beauty","Feint Step","Daunting Step","Invigorating Dance"],
 		"skills": [
-			{"mp%":20, "evade":{"physical":40}, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
+			{"hp%":30, "mp%":50, "evade":{"physical":40}, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
 		]
 	},
 	"302001104": {
@@ -4514,8 +4519,9 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","bow","throwing","hat","clothes","lightArmor"],
+		"enhancementSkills":["Rose Custodian","Flash Barrage","Sun Cupid","Lux Magna"],
 		"skills": [
-			{"hp%":30, "atk%":25, "def%":25, "resist":[{"name":"light","percent":25},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"undead","physical":50},{"name":"demon","physical":50}]},
+			{"hp%":50, "atk%":65, "def%":25, "resist":[{"name":"light","percent":75},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"undead","physical":50},{"name":"demon","physical":50}]},
 			{"atk%":75, "equipedConditions":["bow"]},
 			{"atk%":30, "equipedConditions":["throwing"]},
 			{"atk%":30, "equipedConditions":["dagger"]}
@@ -4532,8 +4538,9 @@
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["bow","gun","hat","clothes"],
+		"enhancementSkills":["Twilight Bolt","Chainsaw","Nightwalker"],
 		"skills": [
-			{"hp%":20, "atk%":80, "mag%":70, "resist":[{"name":"dark","percent":25}], "killers":[{"name":"spirit","physical":50},{"name":"human","physical":50}]}
+			{"hp%":20, "atk%":110, "mag%":100, "resist":[{"name":"dark","percent":50}], "killers":[{"name":"spirit","physical":50},{"name":"human","physical":50}]}
 		]
 	},
 	"302001305": {
@@ -4547,8 +4554,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["hammer","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["Shattering Shot","Heavy Arms Proficiency","Mortar Beacon","True Shot"],
 		"skills": [
-			{"hp%":20, "atk%":30, "spr%":20, "singleWieldingOneHanded":{"atk":75}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
+			{"hp%":20, "atk%":30, "spr%":20, "singleWieldingOneHanded":{"atk":150}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["gun"]},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
 	},
@@ -5404,6 +5413,55 @@
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
 		"skills": [
 			{"atk%":20, "def%":15, "evade":{"physical":30}, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
+		]
+	},
+	"401003704": {
+		"name":"Yan",
+		"id":"401003704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3458,"mp":188,"atk":107,"def":127,"mag":132,"spr":146},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "spr%":20, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":5},
+			{"spr%":50, "equipedConditions":["lightShield"]}
+		]
+	},
+	"401003805": {
+		"name":"Chow",
+		"id":"401003805",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3788,"mp":168,"atk":128,"def":138,"mag":108,"spr":148},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":30, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50}], "mpRefresh":5},
+			{"def%":30, "equipedConditions":["robe"]},
+			{"spr%":30, "equipedConditions":["heavyArmor"]}
+		]
+	},
+	"401003905": {
+		"name":"Ang",
+		"id":"401003905",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3670,"mp":165,"atk":155,"def":130,"mag":129,"spr":130},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":20, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"bird","physical":25},{"name":"dragon","physical":25}]},
+			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "equipedConditions":["bow"]}
 		]
 	}
 }

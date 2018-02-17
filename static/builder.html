@@ -22,12 +22,13 @@
                             <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a id="linkToSearch" href="index.html">Search</a></li>
-                            <li><a id="linkToInventory" href="inventory.html">Inventory</a></li>
-                            <li><a id="linkToUnits" href="units.html">Units</a></li>
-                            <li class="active"><a id="linkToBuilder" href="builder.html">Builder</a></li>
+                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a></li>
+                            <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a></li>
+                            <li><a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a></li>
+                            <li class="active"><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a></li>
+                            <li><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a></li>
                         </ul>
-                        <div class="jpWarning"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data are not complete, or are still GL data.</div>
+                        <div class="jpWarning hidden" data-server="JP"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data may not be accurate</div>
                         <div id="inventoryDiv" class="buttons account">
                             <span>Inventory :&nbsp;</span>
                             <span class="status"></span>
@@ -277,6 +278,7 @@
                         <div class="checkboxGroup"><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
                         <div class="checkboxGroup"><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
                         <div class="checkboxGroup"><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
+                        <div class="checkboxGroup" data-server="JP"><input id="excludeSTMR" type="checkbox"/><label>Exclude STMR</label></div>
                         <div class="checkboxGroup"><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
                         <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
                     </div>
@@ -328,7 +330,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="buildLink link" onclick="showBuildLink()"><span class="glyphicon glyphicon-link"></span> FFBE Equip link</a></li>
                                             <li><a class="buildAsText link" onclick="showBuildAsText()"><span class="glyphicon glyphicon-list"></span> Build as text</a></li>
-                                            <li><a class="imageLink link" target="_blank"><span class="glyphicon glyphicon-camera"></span> Build image (using ffbe.piramidata.eu)</a></li>
+                                            <li data-server="GL"><a class="imageLink link" target="_blank"><span class="glyphicon glyphicon-camera"></span> Build image (using ffbe.piramidata.eu)</a></li>
                                         </ul>
                                     </div>
                                 </div>

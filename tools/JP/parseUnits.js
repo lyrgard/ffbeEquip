@@ -1,45 +1,37 @@
 var fs = require('fs');
 var request = require('request');
+var PNG = require('pngjs').PNG;
 
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
 var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
 
-var statsMap = {
-    "hp": "hp",
-    "mp": "mp",
-    "atk": "atk",
-    "def": "def",
-    "int": "mag",
-    "mnd": "spr"
-}
-
 var typeMap = {
-    "Dagger": 'dagger',
-    "Sword": 'sword',
-    "Greatsword": 'greatSword',
-    "Katana": 'katana',
-    "Staff": 'staff',
-    "Rod": 'rod',
-    "Bow": 'bow',
-    "Axe": 'axe',
-    "Hammer": 'hammer',
-    "Lance": 'spear',
-    "Harp": 'harp',
-    "Whip": 'whip',
-    "Projectile": 'throwing',
-    "Gun": 'gun',
-    "Mace": 'mace',
-    "Knuckle": 'fist',
-    "Light Shield": 'lightShield',
-    "Heavy Shield": 'heavyShield',
-    "Hat": 'hat',
-    "Helm": 'helm',
-    "Clothes": 'clothes',
-    "Light Armor": 'lightArmor',
-    "Heavy Armor": 'heavyArmor',
-    "Robes": 'robe',
-    "Accessory": 'accessory'
+    1: 'dagger',
+    2: 'sword',
+    3: 'greatSword',
+    4: 'katana',
+    5: 'staff',
+    6: 'rod',
+    7: 'bow',
+    8: 'axe',
+    9: 'hammer',
+    10: 'spear',
+    11: 'harp',
+    12: 'whip',
+    13: 'throwing',
+    14: 'gun',
+    15: 'mace',
+    16: 'fist',
+    30: 'lightShield',
+    31: 'heavyShield',
+    40: 'hat',
+    41: 'helm',
+    50: 'clothes',
+    51: 'lightArmor',
+    52: 'heavyArmor',
+    53: 'robe',
+    60: 'accessory'
 }
 
 var raceMap = {
@@ -80,7 +72,8 @@ var elementsMap = {
     8: 'dark'
 }
 
-filterGame = [20001, 20002, 20006, 20007, 20008, 20011, 20012];
+filterGame = [];
+filterUnits = []
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
@@ -88,126 +81,125 @@ var enhancementsByUnitId = {};
 var oldItemsAccessById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
+var glNameById = {};
+var dev = false;
+
+function getData(filename, callback) {
+    if (!dev) {
+        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/' + filename, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(filename + " downloaded");
+                var result = JSON.parse(body);
+                callback(result);
+            }
+        });
+    } else {
+        fs.readFile('./sources/' + filename, function (err, content) {
+            var result = JSON.parse(content);
+            callback(result);
+        });
+    }
+}
+
+
 
 
 console.log("Starting");
-request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/unit.json', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log("units.json downloaded");
-        var units = JSON.parse(body);
-        request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/learns.json', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log("learns.json downloaded");
-                var learns = JSON.parse(body);
-                request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/enhance.json', function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        console.log("enhance.json downloaded");
-                        var enhance = JSON.parse(body);
-                        request.get('https://raw.githubusercontent.com/DanUgore/ffbe_data/master/jp/ability.json', function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                console.log("ability.json downloaded");
-                                var abilities = JSON.parse(body);
-                        
-                /*request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        console.log("enhancements.json downloaded");
-                        var enhancements = JSON.parse(body);
-                        
-                        for (var index in enhancements) {
-                            var enhancement = enhancements[index];
-                            for (var unitIdIndex in enhancement.units) {
-                                var unitId = enhancement.units[unitIdIndex].toString();
-                                if (!enhancementsByUnitId[unitId]) {
-                                    enhancementsByUnitId[unitId] = {};
-                                }
-                                enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
-                            }
-                        }*/
-                
-                                var unitSeries = {};
-                                var unitsOut = {};
-                                for (var unitId in units) {
-                                    var serieId = unitId.substr(0, unitId.length - 1);
-                                    var stars = parseInt(unitId.substr(unitId.length -1, 1));
-                                    if (!unitSeries[serieId]) {
-                                        unitSeries[serieId] = {"min":stars, "max":stars};
-                                    }
-                                    if (unitSeries[serieId].min > stars) {
-                                        unitSeries[serieId].min = stars
-                                    }
-                                    if (unitSeries[serieId].max < stars) {
-                                        unitSeries[serieId].max = stars
-                                    }
-                                }
-                                for (var serieId in unitSeries) {
-                                    var minUnitId = serieId + unitSeries[serieId].min;
-                                    var maxUnitId = serieId + unitSeries[serieId].max;
-                                    var unitIn = units[maxUnitId];
-                                    if (!maxUnitId.startsWith("9") && learns[minUnitId]) {
-                                        var unitOut = treatUnit(minUnitId, maxUnitId, unitIn, unitSeries[serieId].min, unitSeries[serieId].max, learns, enhance, abilities); //, skills, enhancementsByUnitId);
-                                        unitsOut[unitOut.data.id] = unitOut.data;
-                                    }
-                                }
-                                console.log(unitsOut);
-
-                                fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
-                                fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
-                            }
-                        });
+getData('units.json', function (units) {
+    getData('skills.json', function (skills) {
+        getData('enhancements.json', function (enhancements) {
+            fs.readFile('../../static/GL/units.json', function (err, glDatacontent) {
+                var glData = JSON.parse(glDatacontent);
+                for (var unitId in glData) {
+                    glNameById[unitId] = glData[unitId].name;
+                }
+                for (var index in enhancements) {
+                    var enhancement = enhancements[index];
+                    for (var unitIdIndex in enhancement.units) {
+                        var unitId = enhancement.units[unitIdIndex].toString();
+                        if (!enhancementsByUnitId[unitId]) {
+                            enhancementsByUnitId[unitId] = {};
+                        }
+                        enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
                     }
-                });
-            }
+                }
+
+                var unitsOut = {};
+                for (var unitId in units) {
+                    var unitIn = units[unitId];
+                    if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                        var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
+                        unitsOut[unitOut.data.id] = unitOut.data;
+                    }
+                }
+
+                fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
+                fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
+            });
         });
-    }
+    });
 });
 
-function treatUnit(serieId, unitId, unitIn, minRarity, maxRarity, learns, enhance, abilities) {
+function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
     var data = unit.data;
+    var unitData;
     
-    data["stats"] = {"maxStats":{}, "pots":{}};
-    
-    for (var stat in statsMap) {
-        data["stats"].maxStats[statsMap[stat]] = unitIn.stats[stat].max;
-        data["stats"].pots[stat.toLowerCase()] = unitIn.stats[stat].bonus_cap;
+    var unitStats = {"maxStats":{}, "pots":{}};
+    for (entryId in unitIn.entries) {
+        if (unitIn.entries[entryId].rarity == maxRariry) {
+            unitData = unitIn.entries[entryId];
+            for (var statIndex in stats) {
+                var stat = stats[statIndex];
+                unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
+                unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
+            }
+            break;
+        }
     }
-    
-    data["name"] = unitIn["name"];
-    data["max_rarity"] = maxRarity;
-    data["min_rarity"] = minRarity;
-    data["sex"] = unitIn.gender;
-    data["equip"] = getEquip(unitIn.equipment);
+    if (glNameById[unitId]) {
+        data["name"] = glNameById[unitId];
+        data["jpname"] = unitIn["name"];
+    } else {
+        data["name"] = unitIn["name"];    
+    }
+    data["max_rarity"] = maxRariry;
+    data["min_rarity"] = unitIn["rarity_min"];
+    data["stats"] = unitStats;
+    if (!unitIn.sex) {
+        console.log(unitIn);
+    }
+    data["sex"] = unitIn.sex.toLowerCase();
+    data["equip"] = getEquip(unitIn.equip);
     data["id"] = unitId;
     
     data["enhancementSkills"] = [];
-    if (!learns[serieId]) {
-        console.log(unitIn);
-        console.log(serieId);
-    }
-    for (skillIndex in learns[serieId].abilities) {
-        var skill = learns[serieId].abilities[skillIndex];
-        var unhancedSkillId = skill.id;
-        var skillId = skill.id;
-        if (enhance[serieId]) {
-            while(enhance[serieId][skillId]) {
-                skillId = enhance[serieId][skillId].id;
-            }
+    for (skillIndex in unitIn.skills) {
+        if (unitIn.skills[skillIndex].rarity > unitIn.rarity_max) {
+            continue; // don't take into account skills for a max rarity not yet released
         }
-        if (unhancedSkillId != skillId) {
-            data["enhancementSkills"].push(abilities[skillId].name);
+        var skillId = unitIn.skills[skillIndex].id.toString();
+        if (enhancementsByUnitId[unitId] && enhancementsByUnitId[unitId][skillId]) {
+            data["enhancementSkills"].push(skills[skillId].name);
         }
     }
     
-    //data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)*/
+    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
+    verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
+    
+    if (maxRariry == 7) {
+        data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
+    }
+    
     return unit;
 }
 
 function getEquip(equipIn) {
     var equip = [];
     for(var equipIndex in equipIn) {
-        if (equipIn[equipIndex] != "Accessory") {
+        if (equipIn[equipIndex] != 60) {
             equip.push(typeMap[equipIn[equipIndex]]);
         }
     }
@@ -386,11 +378,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWieldingGL) {baseEffects.singleWieldingGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingGL;
+                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+                    doublehandSkill = baseEffects.singleWielding;
                 } else {
-                    if (!baseEffects.singleWieldingOneHandedGL) {baseEffects.singleWieldingOneHandedGL = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHandedGL;
+                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+                    doublehandSkill = baseEffects.singleWieldingOneHanded;
                 }
                 if (doublehandEffect[2]) {
                     addToStat(doublehandSkill, "atk", doublehandEffect[2]);
@@ -508,8 +500,9 @@ function addAilmentResist(item, values) {
     }
 }
 
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
@@ -519,36 +512,45 @@ function formatOutput(units) {
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitId, unit) + ",";
-        result += "\n\t\t\"skills\": [";
-        var firstSkill = true;
-        for (var skillIndex in unit.skills) {
-            var skill = unit.skills[skillIndex];
-            if (firstSkill) {
-                firstSkill = false;
-            } else {
-                result+= ",";
-            }
-            result+= "\n\t\t\t{"
-            var firstProperty = true;
-            for (var propertyIndex in properties) {
-                var property = properties[propertyIndex];
-                if (skill[property]) {
-                    if (firstProperty) {
-                        firstProperty = false;
-                    } else {
-                        result += ", ";
-                    }
-                    result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
-                }
-            }
-            result+= "}"
-        }
-        result += "\n\t\t]";
+        result += "\n\t\"" + unitId + "\": {";
+        result += formatUnit(unit);
         
         result += "\n\t}";
     }
     result += "\n}";
+    return result;
+}
+
+function formatUnit(unit, prefix = "") {
+    result = getUnitBasicInfo(unit,prefix) + ",";
+    result += "\n" + prefix + "\t\t\"skills\": [";
+    var firstSkill = true;
+    for (var skillIndex in unit.skills) {
+        var skill = unit.skills[skillIndex];
+        if (firstSkill) {
+            firstSkill = false;
+        } else {
+            result+= ",";
+        }
+        result+= "\n" + prefix + "\t\t\t{"
+        var firstProperty = true;
+        for (var propertyIndex in properties) {
+            var property = properties[propertyIndex];
+            if (skill[property]) {
+                if (firstProperty) {
+                    firstProperty = false;
+                } else {
+                    result += ", ";
+                }
+                result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
+            }
+        }
+        result+= "}"
+    }
+    result += "\n" + prefix + "\t\t]";
+    if (unit["6_form"]) {
+        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t") + "\n\t\t}";
+    }
     return result;
 }
 
@@ -562,29 +564,74 @@ function formatSimpleOutput(units) {
         } else {
             result += ",";
         }
-        result += getUnitBasicInfo(unitId, unit);
+        result += "\n\t\"" + unitId + "\": {";
+        result += getUnitBasicInfo(unit);
+        if (unit["6_form"]) {
+            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t") + "\n\t\t}";
+        }
         result += "\n\t}";
     }
     result += "\n}";
     return result;
 }
 
-function getUnitBasicInfo(unitId, unit) {
-    var result = "";
-    result += "\n\t\"" + unitId + "\": {";
-    result += "\n\t\t\"name\":\"" + unit.name + "\","
-    result += "\n\t\t\"id\":\"" + unit.id + "\","
-    result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
-    result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","
-    result += "\n\t\t\"sex\":\"" + unit.sex + "\","
-    result += "\n\t\t\"stats\": {";
-    result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ","
-    result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots)
-    result += "\n\t\t},";
-    result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip)
+function getUnitBasicInfo(unit, prefix = "") {
+    var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name + "\",";
+    if (unit.jpname) {
+        result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname + "\",";
+    }
+    result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
+    result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
+    result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
+    result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
+    result += "\n" + prefix + "\t\t\"stats\": {";
+    if (!unit.stats) {
+        console.log("!!\n!!\n"  + JSON.stringify(unit));
+    }
+    result += "\n" + prefix + "\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
+    result += "\n" + prefix + "\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
+    result += "\n" + prefix + "\t\t},";
+    result += "\n" + prefix + "\t\t\"equip\":" + JSON.stringify(unit.equip);
     if (unit.enhancementSkills.length > 0) {
-        result += ",\n\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
+        result += ",\n" + prefix + "\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
     }
     
     return result;
 }
+
+function verifyImage(serieId, minRarity, maxRarity) {
+    for (var i = minRarity; i <= maxRarity; i++) {
+        var unitId = serieId.substr(0, serieId.length - 1) + i;
+        var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
+        if (!fs.existsSync(filePath)) {
+            download("https://exviusdb.com/static/img/assets/unit/unit_ills_" + unitId + ".png",filePath);
+        }
+    }
+}
+
+var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+        if (err || res.statusCode == 404) {
+            console.log("!! unable to download image : " + uri);
+        } else {
+            request(uri).pipe(fs.createWriteStream(filename))
+                .on('close', function() {
+                    if (fs.existsSync(filename)) {
+                        fs.createReadStream(filename).pipe(new PNG({
+                            filterType: 4
+                        }))
+                        .on('error', function() {
+                            fs.unlinkSync(filename);
+                            console.log("!! image : " + uri + " invalid");
+                        })
+                        .on('parsed', function() {
+                            console.log("image : " + uri + " downloaded and valid");
+                        });
+                    }
+                })
+            .on('error', function() {
+                console.log("!! unable to download image : " + uri);
+            });
+        }
+    });
+};

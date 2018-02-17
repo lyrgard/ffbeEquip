@@ -306,21 +306,17 @@ function displayItemLine(item) {
 
 // Some field in the data can use a special syntax to display link to the wiki. This is done by using brace ( blabla [name] blabla). This replace the parts inside braces by html links.
 var toHtml = function(text) {
-    if (server == "GL") {
-        var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
-            var vWithoutBrace = v.substring(1, v.length - 1);
-            var token = vWithoutBrace.split("|");
-            var result = "";
-            if (token.length == 2) {
-                result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
-            }
-            result += toLink(token[0]);
-            return result;
-        });
-        return "<span>" + textWithAddedAnchors +"</span>";
-    } else {
-        return "<span>" + text +"</span>";
-    }
+    var textWithAddedAnchors = text.replace(/(\[[^\]]*\])/g, function(v) {
+        var vWithoutBrace = v.substring(1, v.length - 1);
+        var token = vWithoutBrace.split("|");
+        var result = "";
+        if (token.length == 2) {
+            result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
+        }
+        result += toLink(token[0]);
+        return result;
+    });
+    return "<span>" + textWithAddedAnchors +"</span>";
 };
 
 // Return the wiki url corresponding to the name
@@ -490,14 +486,6 @@ function switchTo(newServer) {
     }
 }
 
-function getItemInventoryKey() {
-    if (server == "JP") {
-        return "name";
-    } else {
-        return "id";
-    }
-}
-
 function readServerType() {
     if (window.location.href.indexOf("server=") > 0) {
         var captured = /server=([^&#]+)/.exec(window.location.href)[1];
@@ -512,11 +500,9 @@ function readServerType() {
     if (server == "GL") {
         $(".switchServer .GL").addClass("btn-primary").removeClass("notSelected");
         $(".switchServer .JP").removeClass("btn-primary").addClass("notSelected");
-        $(".jpWarning").addClass("hidden");
     } else {
         $(".switchServer .JP").addClass("btn-primary").removeClass("notSelected");
         $(".switchServer .GL").removeClass("btn-primary").addClass("notSelected");
-        $(".jpWarning").removeClass("hidden");
     }
     updateLinks();
 }
@@ -525,12 +511,19 @@ function updateLinks() {
     var serverParam = "";
     if (server == "JP") {
         serverParam = "?server=JP";
-    } else {
-        $("#linkToContribute").addClass("hidden");
     }
-    $("#linkToSearch").prop("href","index.html" + serverParam);
-    $("#linkToBuilder").prop("href","builder.html" + serverParam);
-    $("#linkToContribute").prop("href","contribute.html" + serverParam);
+    $("a[data-internal-link]").each(function(index, element) {
+        var link = $(element);
+        link.prop("href", link.data("internal-link") + serverParam);
+    });
+    $("[data-server]").each(function(index, element) {
+        var item = $(element);
+        if (server == item.data("server")) {
+            item.removeClass("hidden");
+        } else {
+            item.addClass("hidden");
+        }
+    });
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
@@ -538,7 +531,7 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
     var result = [];
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
-        if (!onlyShowOwnedItems || itemInventory && itemInventory[item[getItemInventoryKey()]]) {
+        if (!onlyShowOwnedItems || itemInventory && itemInventory[item.id]) {
             if (showNotReleasedYet || !item.access.includes("not released yet")) {
                 if (types.length == 0 || types.includes(item.type)) {
                     if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
@@ -565,6 +558,28 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
     }
     return result;
 };
+
+function keepOnlyOneInstance(data) {
+    var dataWithOnlyOneOccurence = [];
+    for (var index = 0, len = data.length; index < len; index++) {
+        var item = data[index];
+        if (dataWithOnlyOneOccurence.length > 0 && dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
+            var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
+            if (previousItem.equipedConditions) {
+                if (item.equipedConditions) {
+                    if (previousItem.equipedConditions.length <= item.equipedConditions.length) {
+                        dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+                    }
+                }
+            } else {
+                dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1] = item;
+            }
+        } else {
+            dataWithOnlyOneOccurence.push(item);
+        }
+    }
+    return dataWithOnlyOneOccurence;
+}
 
 // Sort by calculated value (will be 0 if not sort is asked) then by name
 var sort = function(items) {
@@ -734,7 +749,7 @@ function prepareSearch(data) {
         var item = data[index];
         var textToSearch = item["name"];
 
-        if (server == "JP") {
+        if (item.jpname) {
             textToSearch += item["jpname"];
         }
 
