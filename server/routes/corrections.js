@@ -5,7 +5,6 @@ const jv = require('json-validation');
 const route = express.Router();
 
 route.post('/:server/corrections', async (req, res) => {
-  console.log("TOTO");
     var validator = new jv.JSONValidation();
     var data = req.body;
     if (Object.keys(data).length > 10) {
@@ -48,7 +47,7 @@ var schemaData = {
             "type": "array",
             "maxItems": 6,
             "required": true,
-            "items": {"type": "string", "enum": ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium","STMR","not released yet"]}
+            "items": {"type": "string", "enum": ["shop","chest","quest","trial","chocobo","event","colosseum","key","TMR-1*","TMR-2*","TMR-3*","TMR-4*","TMR-5*","recipe","recipe-shop","recipe-chest","recipe-quest","recipe-event","recipe-colosseum","recipe-key","trophy","recipe-trophy","premium","STMR","not released yet"]}
         },
     }
 }

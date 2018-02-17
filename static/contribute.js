@@ -228,7 +228,7 @@ $(function() {
         var itemId = $("#accessList").data("id");
         setAccess(itemId, getSelectedValuesFor("accessList"));
     });
-    addTextChoicesTo("accessList",'checkbox',{ 'Shop':'shop', 'Chest':'chest', 'Quest':'quest', 'Key':'key', 'Colosseum':'colosseum', 'Event':'event', 'Recipe':'recipe', 'Event Recipe':'recipe-event', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Not released yet':'not released yet'});
+    addTextChoicesTo("accessList",'checkbox',{ 'Shop':'shop', 'Chest':'chest', 'Quest':'quest', 'Key':'key', 'Colosseum':'colosseum', 'Event':'event', 'Recipe':'recipe', 'Event Recipe':'recipe-event', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'STMR':'STMR', 'Not released yet':'not released yet'});
 });
   
 function inventoryLoaded() {

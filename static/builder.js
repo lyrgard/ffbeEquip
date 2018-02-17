@@ -632,12 +632,12 @@ function redrawBuildLine(index) {
 function populateUnitSelect() {
     var options = '<option value=""></option>';
     Object.keys(units).sort(function(id1, id2) {
-        if (!units[id1].name || !units[id2].name) {
-            console.log("!!");
-        }
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + units[value].name + '</option>';
+        options += '<option value="'+ value + '">' + units[value].max_rarity + '★ '+ units[value].name + '</option>';
+        if (units[value]["6_form"]) {
+            options += '<option value="'+ value + '-6">6★ ' + units[value].name + '</option>';
+        }
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(onUnitChange);
@@ -646,7 +646,12 @@ function populateUnitSelect() {
 function onUnitChange() {
     $( "#unitsSelect option:selected" ).each(function() {
         var unitId = $(this).val();
-        var selectedUnitData = units[unitId];
+        var selectedUnitData;
+        if (unitId.endsWith("-6")) {
+            selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
+        } else {
+            selectedUnitData = units[unitId];    
+        }
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html(selectedUnitData.name);
             reinitBuild(currentUnitIndex);
