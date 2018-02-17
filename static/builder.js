@@ -39,6 +39,7 @@ var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
 var excludePremium;
+var excludeSTMR;
 var includeTMROfOwnedUnits;
 var includeTrialRewards;
 
@@ -238,6 +239,7 @@ function readItemsExcludeInclude() {
     excludeTMR5 = $("#excludeTMR5").prop('checked');
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
+    excludeSTMR = $("#excludeSTMR").prop("checked");
     includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
@@ -349,13 +351,14 @@ function getAvailableNumber(item) {
     if (onlyUseOwnedItems) {
         number = getOwnedNumber(item).available;
     } else {
-        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium) {
+        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium || excludeSTMR) {
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
                 if ((excludeNotReleasedYet && access == "not released yet")
                    || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
                    || (exludeEventEquipment && access.endsWith("event"))
-                   || (excludePremium && access == "premium")) {
+                   || (excludePremium && access == "premium")
+                   || (excludeSTMR && access == "STMR")) {
                     return 0;
                 }        
             }
@@ -880,6 +883,9 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().removeClass("hidden");
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
+        if (server == "JP") {
+            $("#excludeSTMR").parent().removeClass("hidden");
+        }
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         onlyUseOwnedItems = false;
@@ -888,6 +894,7 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
         $("#excludeNotReleasedYet").parent().addClass("hidden");
+        $("#excludeSTMR").parent().addClass("hidden");
         if (ownedUnits && Object.keys(ownedUnits).length > 0) {
             $("#includeTMROfOwnedUnits").parent().removeClass("hidden");
         } else {
@@ -1192,6 +1199,7 @@ function getStateHash() {
         data.excludeTMR5 = $("#excludeTMR5").prop('checked');
         data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
         data.excludePremium = $("#excludePremium").prop('checked');
+        data.excludeSTMR = $("#excludeSTMR").prop('checked');
     }
     
     for (var index = 0; index < 10; index++) {
@@ -1274,6 +1282,7 @@ function loadStateHashAndBuild(data) {
         $("#excludeTMR5").prop('checked', data.excludeTMR5);
         $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
         $("#excludePremium").prop("checked", data.excludePremium);
+        $("#excludeSTMR").prop("checked", data.excludeSTMR);
     }
     if (data.fixedItems) {
         for (var index in data.fixedItems) {
