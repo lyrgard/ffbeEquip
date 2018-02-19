@@ -357,12 +357,9 @@ function sort(items) {
                 }
                 return stat2 - stat1;
             }
-            if (item1.name < item2.name) {
-                return -1;
-            } else if (item1.name > item2.name) {
-                return 1
-            }
-            return 0;    
+            var name1 = item1.jpname || item1.name;
+            var name2 = item2.jpname || item2.name;
+            return name1.localeCompare(name2);
         } else {
             return type2 - type1;
         }
@@ -417,6 +414,9 @@ function prepareSearch(data) {
         item.searchString = item.name;
         if (item.tmrUnit && allUnits[item.tmrUnit]) {
             item.searchString += "|" + allUnits[item.tmrUnit].name;
+        }
+        if (item.stmrUnit && allUnits[item.stmrUnit]) {
+            item.searchString += "|" + allUnits[item.stmrUnit].name;
         }
     }
 }
