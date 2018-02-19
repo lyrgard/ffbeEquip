@@ -5343,15 +5343,29 @@
 		"name":"Randi",
 		"jpname":"ランディ",
 		"id":"304000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4746,"mp":208,"atk":198,"def":166,"mag":144,"spr":154},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["パワーチャージ","オートチャージ","三段斬り","マナの血脈","聖剣の勇者"]
+		"enhancementSkills":["パワーチャージ","オートチャージ","三段斬り","マナの血脈","聖剣の勇者"],
+		"6_form": {
+			"name":"Randi",
+			"jpname":"ランディ",
+			"id":"304000105",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["パワーチャージ","オートチャージ","三段斬り","マナの血脈","聖剣の勇者"]
+		}
 	},
 	"304000204": {
 		"name":"Primm",
@@ -5380,6 +5394,42 @@
 		},
 		"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["アシッドストーム","バースト"]
+	},
+	"304000405": {
+		"name":"フラミー",
+		"id":"304000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4880,"mp":219,"atk":197,"def":199,"mag":165,"spr":198},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"フラミー",
+			"id":"304000405",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3770,"mp":169,"atk":156,"def":145,"mag":127,"spr":139},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"304000503": {
+		"name":"ラビ",
+		"id":"304000503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2230,"mp":109,"atk":104,"def":75,"mag":92,"spr":93},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","whip","fist","hat","helm","clothes","lightArmor"]
 	},
 	"306000105": {
 		"name":"Dragonlord",
@@ -5773,40 +5823,79 @@
 		"name":"Riesz",
 		"jpname":"リース",
 		"id":"312000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3592,"mp":168,"atk":142,"def":133,"mag":140,"spr":140},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4669,"mp":218,"atk":184,"def":172,"mag":190,"spr":187},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"]
+		"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Riesz",
+			"jpname":"リース",
+			"id":"312000105",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3592,"mp":168,"atk":142,"def":133,"mag":140,"spr":140},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
 	},
 	"312000205": {
 		"name":"Hawkeye",
 		"jpname":"ホークアイ",
 		"id":"312000205",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3618,"mp":150,"atk":147,"def":122,"mag":143,"spr":129},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4703,"mp":211,"atk":199,"def":158,"mag":193,"spr":167},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"]
+		"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Hawkeye",
+			"jpname":"ホークアイ",
+			"id":"312000205",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3618,"mp":150,"atk":147,"def":122,"mag":143,"spr":129},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"]
+		}
 	},
 	"312000305": {
 		"name":"Kevin",
 		"jpname":"ケヴィン",
 		"id":"312000305",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3655,"mp":139,"atk":156,"def":128,"mag":122,"spr":125},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4751,"mp":195,"atk":203,"def":166,"mag":158,"spr":162},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Kevin",
+			"jpname":"ケヴィン",
+			"id":"312000305",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3655,"mp":139,"atk":156,"def":128,"mag":122,"spr":125},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"]
+		}
 	},
 	"312000404": {
 		"name":"Carlie",
