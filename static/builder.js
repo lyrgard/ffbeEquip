@@ -35,6 +35,7 @@ var units;
 var ownedUnits;
 
 var onlyUseOwnedItems = false;
+var onlyUseShopRecipeItems = false;
 var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
@@ -240,6 +241,7 @@ function readItemsExcludeInclude() {
     excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
     excludePremium = $("#excludePremium").prop("checked");
     excludeSTMR = $("#excludeSTMR").prop("checked");
+    onlyShopRecipe = $("#onlyShopRecipe").prop("checked");
     includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
@@ -355,35 +357,57 @@ function getAvailableNumber(item) {
     if (onlyUseOwnedItems) {
         number = getOwnedNumber(item).available;
     } else {
-        if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium || excludeSTMR) {
+        if (onlyUseShopRecipeItems) {
+            if (item.maxNumber || adventurerIds.includes(item.id)) {
+                return 0;
+            }
+            var shopRecipe = false;
             for (var index = item.access.length; index--;) {
                 var access = item.access[index];
-                if ((excludeNotReleasedYet && access == "not released yet")
-                   || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
-                   || (exludeEventEquipment && access.endsWith("event"))
-                   || (excludePremium && access == "premium")
-                   || (excludeSTMR && access == "STMR")) {
-                    return 0;
-                }        
+                if (access.startsWith("recipe") || access == "shop") {
+                    if (access.endsWith("event")) {
+                        return 0;
+                    }       
+                    shopRecipe = true;
+                    if (!exludeEventEquipment) {
+                        break;
+                    }
+                } 
             }
-        }
-        number = 4;
-        if (item.maxNumber) {
-            if (alreadyUsedItems[item.id]) {
-                number = item.maxNumber - alreadyUsedItems[item.id];
+            if (shopRecipe) {
+                return 4;
             } else {
-                number = item.maxNumber;
+                return 0;
+            }
+        } else {
+            if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium || excludeSTMR) {
+                for (var index = item.access.length; index--;) {
+                    var access = item.access[index];
+                    if ((excludeNotReleasedYet && access == "not released yet")
+                       || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
+                       || (exludeEventEquipment && access.endsWith("event"))
+                       || (excludePremium && access == "premium")
+                       || (excludeSTMR && access == "STMR")) {
+                        return 0;
+                    }        
+                }
+            }
+            number = 4;
+            if (item.maxNumber) {
+                if (alreadyUsedItems[item.id]) {
+                    number = item.maxNumber - alreadyUsedItems[item.id];
+                } else {
+                    number = item.maxNumber;
+                }
+            }
+            if (!isStackable(item)) {
+                if (unstackablePinnedItems.includes(item.id)) {
+                    number = 0;
+                } else {
+                    number = 1;
+                }
             }
         }
-        if (!isStackable(item)) {
-            if (unstackablePinnedItems.includes(item.id)) {
-                number = 0;
-            } else {
-                number = 1;
-            }
-        }
-        
-
     }
     if (!isStackable(item)) {
         number = Math.min(number,1);
@@ -555,9 +579,6 @@ function getItemLine(index, short = false) {
             html += displayItemLine(item);
         }
         if (!item.placeHolder && index < 10 && onlyUseOwnedItems) {
-            if (item && item.name == "Snowbear" && index == 5) {
-                console.log("!!")
-            }
             var alreadyUsed = 0;
             if (alreadyUsedItems[item.id]) {
                 alreadyUsed = alreadyUsedItems[item.id];
@@ -901,7 +922,8 @@ function onEquipmentsChange() {
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         onlyUseOwnedItems = false;
-    } else {
+        onlyUseShopRecipeItems = false;
+    } else if (equipments == "owned") {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
@@ -914,6 +936,19 @@ function onEquipmentsChange() {
         }
         $("#includeTrialRewards").parent().removeClass("hidden");
         onlyUseOwnedItems = true;
+        onlyUseShopRecipeItems = false;
+    } else {
+        $("#exludeEvent").parent().addClass("hidden");
+        $("#excludePremium").parent().addClass("hidden");
+        $("#excludeTMR5").parent().addClass("hidden");
+        $("#excludeNotReleasedYet").parent().addClass("hidden");
+        if (server == "JP") {
+            $("#excludeSTMR").parent().addClass("hidden");
+        }
+        $("#includeTMROfOwnedUnits").parent().addClass("hidden");
+        $("#includeTrialRewards").parent().addClass("hidden");
+        onlyUseOwnedItems = false;
+        onlyUseShopRecipeItems = true;
     }
 }
      

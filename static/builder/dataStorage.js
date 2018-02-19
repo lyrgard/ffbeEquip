@@ -99,6 +99,9 @@ class DataStorage {
         if (!adventurerAlreadyPinned) {
             for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
                 if (adventurersAvailable[adventurerIds[index]]) {
+                    if (!this.dataByType["materia"]) {
+                        this.dataByType["materia"] = [];
+                    }
                     this.dataByType["materia"].push(this.getItemEntry(adventurersAvailable[adventurerIds[index]]));
                     break;
                 }
