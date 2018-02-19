@@ -208,7 +208,7 @@ class BuildOptimizer {
     }
 
     tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills) {
-        if (index == 0 && (!item || isTwoHanded(item)) && typeCombination[1]) {
+        if (index == 0 && item && isTwoHanded(item) && typeCombination[1]) {
             return; // Two handed weapon only accepted on DH builds
         }
         if (index == 1 && !item && typeCombination[1]) {

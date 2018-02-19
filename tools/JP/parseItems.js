@@ -74,6 +74,7 @@ var elementsMap = {
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
+var unitIdBySTmrId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
@@ -123,6 +124,9 @@ getData('equipment.json', function (items) {
                             if (unit.rarity_min > 3 && !unit.is_summonable) {
                                 unitNamesById[unitIndex].event = true;
                             }
+                        }
+                        if (unit.sTMR) {
+                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
                         }
                     }
 
@@ -189,12 +193,16 @@ function treatItem(items, itemId, result, skills) {
         if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
             access += "-event";
         }
-        if (!releasedUnits[uitId]) {
-            addAccess(itemOut,"unknown");
-        }
         addAccess(itemOut,access);
         
         itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
+    }
+    if (unitIdBySTmrId[itemOut.id]) {
+        var unitId = unitIdBySTmrId[itemOut.id];
+        var access = "STMR";
+        addAccess(itemOut,access);
+        
+        itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
@@ -647,7 +655,7 @@ function addAccess(item, access) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
