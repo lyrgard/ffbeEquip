@@ -253,6 +253,10 @@ function readStatsValues() {
         builds[currentUnitIndex].baseValues[baseStats[index]].total = builds[currentUnitIndex].baseValues[baseStats[index]].base + builds[currentUnitIndex].baseValues[baseStats[index]].pots;
         builds[currentUnitIndex].baseValues[baseStats[index]].buff = parseInt($(".unitStats .stat." + baseStats[index] + " .buff input").val()) || 0;
     }
+    builds[currentUnitIndex].baseValues["lbFillRate"] = {
+        "total" : parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val()) || 4,
+        "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
+    };
 }
 
 
@@ -466,6 +470,7 @@ function logBuild(build, value) {
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
+    $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
     }
@@ -687,6 +692,13 @@ function updateUnitStats() {
             $(".unitStats .stat." + stat + " .pots input").val("");
         }
     });
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].baseValues["lbFillRate"]) {
+        $(".unitStats .stat.lbFillRate .buff input").val(builds[currentUnitIndex].baseValues["lbFillRate"].buff);
+        $(".unitStats .stat.lbShardsPerTurn .buff input").val(builds[currentUnitIndex].baseValues["lbFillRate"].total);
+    } else {
+        $(".unitStats .stat.lbFillRate .buff input").val("");
+        $(".unitStats .stat.lbShardsPerTurn .buff input").val("");
+    }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
         for (var index in builds[currentUnitIndex].unit.equip) {
@@ -1224,6 +1236,8 @@ function getStateHash() {
         data.pots[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].pots;
         data.buff[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].buff;
     }
+    data.buff.lbFillRate = builds[currentUnitIndex].baseValues.lbFillRate.buff;
+    data.lbShardsPerTurn = builds[currentUnitIndex].baseValues.lbFillRate.total;
     
     return data;
 }
@@ -1309,6 +1323,12 @@ function loadStateHashAndBuild(data) {
         for (var index = baseStats.length; index--;) {
             $(".unitStats .stat." + baseStats[index] + " .buff input").val(data.buff[baseStats[index]]);
         }
+        if (data.buff.lbFillRate) {
+            $(".unitStats .stat.lbFillRate .buff input").val(data.buff.lbFillRate);
+        }
+    }
+    if (data.lbShardsPerTurn) {
+        $(".unitStats .stat.lbShardsPerTurn .buff input").val(data.lbShardsPerTurn);
     }
     dataLoadedFromHash = true;
     build();
@@ -1668,10 +1688,11 @@ $(function() {
                 } else {
                     $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
                 }
-                logCurrentBuild();
             }
         });
     }
+    $(".unitStats .stat.lbFillRate .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate");}));
+    $(".unitStats .stat.lbShardsPerTurn .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate")}));
     
 });
 

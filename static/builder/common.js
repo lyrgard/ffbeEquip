@@ -199,6 +199,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     if (baseStats.includes(stat)) {
         baseValue = unitBuild.baseValues[stat].total;
         buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
+    } else if (stat == "lbPerTurn") {
+        baseValue = unitBuild.baseValues["lbFillRate"].total;
+        buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;
     }
     var calculatedValue = baseValue + buffValue;
     
@@ -235,13 +238,24 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
 
 function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
     if (item) {
-        var value = getValue(item, stat);
-        if (item[percentValues[stat]]) {
-            var percentTakenIntoAccount = Math.min(item[percentValues[stat]], Math.max(300 - currentPercentIncrease.value, 0));
-            currentPercentIncrease.value += item[percentValues[stat]];
-            return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
+        if (stat == "lbPerTurn") {
+            var value = 0;
+            if (item.lbPerTurn) {
+                value += (item.lbPerTurn.min + item.lbPerTurn.max) / 2;
+            }
+            if (item.lbFillRate) {
+                value += item.lbFillRate * baseValue / 100;
+            }
+            return value;
         } else {
-            return value * equipmentStatBonus;
+            var value = getValue(item, stat);
+            if (item[percentValues[stat]]) {
+                var percentTakenIntoAccount = Math.min(item[percentValues[stat]], Math.max(300 - currentPercentIncrease.value, 0));
+                currentPercentIncrease.value += item[percentValues[stat]];
+                return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
+            } else {
+                return value * equipmentStatBonus;
+            }
         }
     }
     return 0;

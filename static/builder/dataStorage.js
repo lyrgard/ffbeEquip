@@ -208,6 +208,8 @@ class DataStorage {
                 if (this.getKillerCoef(item, "physical") > 0) return true;
             } else if (stats[index] == "magicalKiller") {
                 if (this.getKillerCoef(item, "magical") > 0) return true;
+            } else if (stats[index] == "lbPerTurn") {
+                if (item.lbPerTurn || item.lbFillRate) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item["total_" + stats[index]]) return true;
