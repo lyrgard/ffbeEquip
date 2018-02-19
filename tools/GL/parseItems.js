@@ -77,6 +77,7 @@ var unitIdByTmrId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
+var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var dev = false;
@@ -129,6 +130,9 @@ getData('equipment.json', function (items) {
                         oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
                         if (oldItems[index].maxNumber) {
                             oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                        }
+                        if (oldItems[index].wikiEntry) {
+                            oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
                         }
                     }
 
@@ -234,6 +238,9 @@ function treatItem(items, itemId, result, skills) {
     }
     if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
+    }
+    if (oldItemsWikiEntryById[itemOut.id]) {
+        itemOut.wikiEntry = oldItemsWikiEntryById[itemOut.id];
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
@@ -668,7 +675,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
