@@ -3,8 +3,6 @@ var baseStat = 180;
 var defaultFilter = {};
 var rawVerifiedData;
 var verifiedData;
-var tempData;
-var showTempData = false;
 var itemInventory = null;
 var saveNeeded = false;
 var onlyShowOwnedItems = false;
@@ -340,20 +338,12 @@ $(function() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/data.json", function(result) {
         data = result;
-        $.get(server + "/tempData.json", function(result) {
-            for (var index in result) {
-                result[index].temp=true;
-            }
-            tempData = result;
-            $.get(server + "/units.json", function(result) {
-                units = result;
-                populateUnitSelect();
-                prepareSearch(data);
-                loadHash();
-                update();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
-            });
+        $.get(server + "/units.json", function(result) {
+            units = result;
+            populateUnitSelect();
+            prepareSearch(data);
+            loadHash();
+            update();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });
