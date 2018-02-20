@@ -99,6 +99,9 @@ class DataStorage {
         if (!adventurerAlreadyPinned) {
             for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
                 if (adventurersAvailable[adventurerIds[index]]) {
+                    if (!this.dataByType["materia"]) {
+                        this.dataByType["materia"] = [];
+                    }
                     this.dataByType["materia"].push(this.getItemEntry(adventurersAvailable[adventurerIds[index]]));
                     break;
                 }
@@ -208,6 +211,8 @@ class DataStorage {
                 if (this.getKillerCoef(item, "physical") > 0) return true;
             } else if (stats[index] == "magicalKiller") {
                 if (this.getKillerCoef(item, "magical") > 0) return true;
+            } else if (stats[index] == "lbPerTurn") {
+                if (item.lbPerTurn || item.lbFillRate) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item["total_" + stats[index]]) return true;

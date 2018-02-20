@@ -270,6 +270,18 @@ function displayItemLine(item) {
     if (item.mpRefresh) {
         special += "<li>Recover MP (" + item.mpRefresh + "%) per turn</li>";
     }
+    if (item.lbFillRate) {
+        special += "<li>Increase LB gauge fill rate (" + item.lbFillRate + "%)</li>";
+    }
+    if (item.lbPerTurn) {
+        var value;
+        if (item.lbPerTurn.min == item.lbPerTurn.max) {
+            value = item.lbPerTurn.min;
+        } else {
+            value = item.lbPerTurn.min + "-" + item.lbPerTurn.max;
+        }
+        special += "<li>Increase LB gauge each turn (" + value + ")</li>";
+    }
     if (item.special) {
         special += getSpecialHtml(item);
     }
