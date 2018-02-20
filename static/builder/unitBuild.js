@@ -172,8 +172,8 @@ class UnitBuild {
                 }
             } else {
                 if (!this.involvedStats.includes(name)) {
-                        this.involvedStats.push(name);
-                    }
+                    this.involvedStats.push(name);
+                }
             }
         } else if (formula.type == "conditions") {
             for (var index = formula.conditions.length; index-- ;) {

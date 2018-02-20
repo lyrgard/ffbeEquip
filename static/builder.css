@@ -424,6 +424,9 @@
 .unitStats .stat .baseStat {
     flex: 2;
 }
+.unitStats .stat.lbFillRate .baseStat,.unitStats .stat.lbShardsPerTurn .baseStat {
+    flex: 3;
+}
 
 .unitStats .stat .pots {
     flex: 1;

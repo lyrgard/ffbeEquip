@@ -77,6 +77,7 @@ var unitIdByTmrId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
+var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var dev = false;
@@ -129,6 +130,9 @@ getData('equipment.json', function (items) {
                         oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
                         if (oldItems[index].maxNumber) {
                             oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                        }
+                        if (oldItems[index].wikiEntry) {
+                            oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
                         }
                     }
 
@@ -234,6 +238,9 @@ function treatItem(items, itemId, result, skills) {
     }
     if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
+    }
+    if (oldItemsWikiEntryById[itemOut.id]) {
+        itemOut.wikiEntry = oldItemsWikiEntryById[itemOut.id];
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
@@ -405,6 +412,9 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
 }
 
 function addEffectToItem(item, skill, rawEffectIndex, skills) {
+    if (skill.active) {
+        return false; // don't consider active skills
+    }
     var rawEffect = skill.effects_raw[rawEffectIndex];
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
@@ -507,6 +517,20 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
         var mpRefresh = rawEffect[3][0];
         addStat(item, "mpRefresh", mpRefresh);
+        
+    // LB/turn
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 33) {
+        var lbPerTurn = rawEffect[3][0]/100;
+        addLbPerTurn(item, lbPerTurn, lbPerTurn);
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 125) {
+        var lbPerTurnMin = rawEffect[3][0]/100;
+        var lbPerTurnMax = rawEffect[3][1]/100;
+        addLbPerTurn(item, lbPerTurnMin, lbPerTurnMax);
+
+    // LB fill rate
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
+        var lbFillRate = rawEffect[3][0];
+        addStat(item, "lbFillRate", lbFillRate);
         
     } else {
         return false;
@@ -642,8 +666,16 @@ function addAccess(item, access) {
     item.access.push(access);
 }
 
+function addLbPerTurn(item, min, max) {
+    if (!item.lbPerTurn) {
+        item.lbPerTurn = {"min":0, "max":0};
+    }
+    item.lbPerTurn.min += min;
+    item.lbPerTurn.max += max;
+}
+
 function formatOutput(items) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

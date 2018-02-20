@@ -191,6 +191,9 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         if (skillsIn[skillIndex].rarity > maxRarity) {
             continue; // don't take into account skills for a max rarity not yet released
         }
+        if (skillsIn[skillIndex].active) {
+            continue; // don't consider active skills
+        }
         var skillId = skillsIn[skillIndex].id.toString();
         if (skillId == "0") {
             console.log(skillsIn[skillIndex]);
@@ -387,10 +390,24 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             } else if (!skillIn.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
                 addAilmentResist(baseEffects, rawEffect[3]);
                 
-                // MP refresh
+            // MP refresh
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
                 var mpRefresh = rawEffect[3][0];
                 addToStat(baseEffects, "mpRefresh", mpRefresh);
+                
+            // LB/turn
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 33) {
+                var lbPerTurn = rawEffect[3][0]/100;
+                addLbPerTurn(baseEffects, lbPerTurn, lbPerTurn);
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 125) {
+                var lbPerTurnMin = rawEffect[3][0]/100;
+                var lbPerTurnMax = rawEffect[3][1]/100;
+                addLbPerTurn(baseEffects, lbPerTurnMin, lbPerTurnMax);
+                
+            // LB fill rate
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
+                var lbFillRate = rawEffect[3][0];
+                addToStat(baseEffects, "lbFillRate", lbFillRate);
             }
         }
     }
@@ -476,8 +493,16 @@ function addAilmentResist(item, values) {
     }
 }
 
+function addLbPerTurn(item, min, max) {
+    if (!item.lbPerTurn) {
+        item.lbPerTurn = {"min":0, "max":0};
+    }
+    item.lbPerTurn.min += min;
+    item.lbPerTurn.max += max;
+}
+
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element", "lbFillRate", "lbPerTurn","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
