@@ -208,13 +208,13 @@
     color: #999999;
 }
 
-#resultStats .buildResultLabel {
+#resultStats .resultLine {
     margin-left: 10px;
     clear: both;
     padding-top: 10px;
 }
 
-#resultStats .buildResult {
+#resultStats .calcValue {
     font-size: 1.1em;
     font-weight: bold;
 }
@@ -334,10 +334,6 @@
 
 #unitLink {
     margin-left: 20px;
-}
-
-#customFormulaModal .inputDiv {
-    display: flex;
 }
 
 #customFormulaModal .tokenList {

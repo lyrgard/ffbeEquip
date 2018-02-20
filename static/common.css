@@ -369,3 +369,33 @@ body {
 .clickable {
     cursor: pointer;
 }
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropdown li {
+    padding: 2px !important;
+}
+
+.dropdown ul {
+    padding: 0 !important;
+}
+
+.caret-right {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    right: 10px;
+    position: absolute;
+    top: 10px;
+}
