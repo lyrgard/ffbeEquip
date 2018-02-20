@@ -514,23 +514,44 @@ function logBuild(build, value) {
         readEnnemyStats();
         value = calculateBuildValue(build);
     }
-
-    $("#resultStats .damage").addClass("hidden");
-    if (importantStats.includes("atk") || importantStats.includes("mag")) {
-        $("#resultStats .damage .monsterDefSpan").addClass("hidden");
-        $("#resultStats .damage .monsterSprSpan").addClass("hidden");
-        if (importantStats.includes("atk")) {
-            $("#resultStats .damage .monsterDefValue").text(" " + ennemyStats.def);
-            $("#resultStats .damage .monsterDefSpan").removeClass("hidden");
-        }
-        if (importantStats.includes("mag")) {
-            $("#resultStats .damage .monsterSprValue").text(" " + ennemyStats.spr);
-            $("#resultStats .damage .monsterSprSpan").removeClass("hidden");
-        }
-        $("#resultStats .damage .damageCoef").html("1x");
-        $("#resultStats .damage .damageResult").html(Math.floor(value));
-        $("#resultStats .damage").removeClass("hidden");
+    
+    var physicalDamageResult = 0;
+    var magicalDamageResult = 0;
+    var hybridDamageResult = 0;
+    var healingResult = 0;
+    
+    $("#resultStats .physicalDamageResult").addClass("hidden");
+    $("#resultStats .magicalDamageResult").addClass("hidden");
+    $("#resultStats .hybridDamageResult").addClass("hidden");
+    $("#resultStats .healingResult").addClass("hidden");
+    $("#resultStats .buildResult").addClass("hidden");
+    if (importantStats.includes("atk")) {
+        $("#resultStats .physicalDamageResult").removeClass("hidden");
+        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"]);
+        $("#resultStats .physicalDamageResult .calcValue").text(Math.floor(physicalDamageResult));
     }
+    if (importantStats.includes("mag")) {
+        $("#resultStats .magicalDamageResult").removeClass("hidden");
+        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"]);
+        $("#resultStats .magicalDamageResult .calcValue").text(Math.floor(magicalDamageResult));
+    }
+    if (importantStats.includes("atk") && importantStats.includes("mag")) {
+        $("#resultStats .hybridDamageResult").removeClass("hidden");
+        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"]);
+        $("#resultStats .hybridDamageResult .calcValue").text(Math.floor(hybridDamageResult));
+    }
+    if (importantStats.includes("mag") && importantStats.includes("spr")) {
+        $("#resultStats .healingResult").removeClass("hidden");
+        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"]);
+        $("#resultStats .healingResult .calcValue").text(Math.floor(healingResult));
+    }
+    if (value != physicalDamageResult && value != magicalDamageResult && value != hybridDamageResult && value != healingResult) {
+        $("#resultStats .buildResult").removeClass("hidden");
+        $("#resultStats .buildResult .calcValue").text(Math.floor(value));
+    }
+    $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
+    $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
+    $("#resultStats .damageCoef").html("1x");
 }
 
 function switchView(conciseViewParam) {
@@ -901,6 +922,10 @@ function chooseCustomFormula() {
         $('#customFormulaModal').modal('hide');
         onGoalChange();
     }
+}
+
+function addToCustomFormula(string) {
+    $("#customFormulaModal input").val($("#customFormulaModal input").val() + string);
 }
 
 function removeCustomGoal() {
