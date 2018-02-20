@@ -255,8 +255,12 @@ function readStatsValues() {
         builds[currentUnitIndex].baseValues[baseStats[index]].total = builds[currentUnitIndex].baseValues[baseStats[index]].base + builds[currentUnitIndex].baseValues[baseStats[index]].pots;
         builds[currentUnitIndex].baseValues[baseStats[index]].buff = parseInt($(".unitStats .stat." + baseStats[index] + " .buff input").val()) || 0;
     }
+    var lbShardsPerTurn = parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val());
+    if (isNaN(lbShardsPerTurn)) {
+        lbShardsPerTurn = 4;
+    }
     builds[currentUnitIndex].baseValues["lbFillRate"] = {
-        "total" : parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val()) || 4,
+        "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
 }
