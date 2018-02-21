@@ -70,9 +70,6 @@ class TypeCombinationGenerator {
     }
     
     buildTypeCombination(index, typeCombination, combinations) {
-        if (stop) {
-            return;
-        }
         if (this.unitBuild.fixedItems[index]) {
             if (this.unitBuild.equipable[index].length > 0 && this.unitBuild.equipable[index].includes(this.unitBuild.fixedItems[index].type)) {
                 this.tryType(index, typeCombination, this.unitBuild.fixedItems[index].type, combinations);
