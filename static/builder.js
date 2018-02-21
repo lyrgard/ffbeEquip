@@ -71,7 +71,6 @@ const itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
 var running = false;
-var stop = false;
 
 var workers = [];
 var workerWorkingCount = 0;
@@ -85,7 +84,14 @@ var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
 
 function build() {
     if (running) {
-        stop = true;
+        for (var index = workers.length; index--; index) {
+            workers[index].terminate();
+        }   
+        alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
+        console.timeEnd("optimize");
+        initWorkers();
+        running = false;
+        $("#buildButton").text("Build !");
         return;
     }
     
@@ -551,7 +557,13 @@ function logBuild(build, value) {
     }
     if (value != physicalDamageResult && value != magicalDamageResult && value != hybridDamageResult && value != healingResult) {
         $("#resultStats .buildResult").removeClass("hidden");
-        $("#resultStats .buildResult .calcValue").text(Math.floor(value));
+        var valueToDisplay;
+        if (value < 100) {
+            valueToDisplay = Math.floor(value*10)/10;
+        } else {
+            valueToDisplay = Math.floor(value);
+        }
+        $("#resultStats .buildResult .calcValue").text(valueToDisplay);
     }
     $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
@@ -1764,13 +1776,7 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 2) {
-        if (navigator.hardwareConcurrency) {
-            initWorkers(navigator.hardwareConcurrency);
-        } else {
-            console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
-            initWorkers(4);
-        }
-        
+        initWorkers();
         
         var hashData = readStateHashData();
         if (hashData) {
@@ -1781,7 +1787,14 @@ function continueIfReady() {
     }
 }
 
-function initWorkers(numberOfWorkers) {
+function initWorkers() {
+    workers = [];
+    if (navigator.hardwareConcurrency) {
+        numberOfWorkers = navigator.hardwareConcurrency;
+    } else {
+        console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
+        numberOfWorkers = 4;
+    }
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
         workers.push(new Worker('builder/optimizerWebWorker.js'));
         workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
@@ -1797,9 +1810,7 @@ function initWorkers(numberOfWorkers) {
                     break;
                 case "finished":
                     workerWorkingCount--;
-                    if (!stop) {
-                        processTypeCombinations(messageData.number);
-                    }
+                    processTypeCombinations(messageData.number);
                     processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
                     var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
                     if (progress != newProgress) {
@@ -1810,13 +1821,9 @@ function initWorkers(numberOfWorkers) {
                     if (workerWorkingCount == 0) {
                         progressElement.addClass("finished");
                         console.timeEnd("optimize");
-                        if (stop) {
-                            alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
-                        }
                         if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
                             alert("The condition set in the goal are impossible to meet.");
                         }
-                        stop = false;
                         running = false;
                         $("#buildButton").text("Build !");
                     }
