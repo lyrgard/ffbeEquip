@@ -186,7 +186,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
         }
     }
     
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData)
+    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData)
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRariry == 7) {
