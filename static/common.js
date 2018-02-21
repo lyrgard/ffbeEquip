@@ -270,6 +270,9 @@ function displayItemLine(item) {
     if (item.mpRefresh) {
         special += "<li>Recover MP (" + item.mpRefresh + "%) per turn</li>";
     }
+    if (item.jumpDamage) {
+        special += "<li>Increase damage dealt by jump attacks by "+ item.jumpDamage + "%</li>";
+    }
     if (item.lbFillRate) {
         special += "<li>Increase LB gauge fill rate (" + item.lbFillRate + "%)</li>";
     }
@@ -825,6 +828,22 @@ function prepareSearch(data) {
             $(item["killers"]).each(function (index, killer) {
                 textToSearch += "|killer " + killer.name;
             });
+        }
+        
+        if (item.jumpDamage) {
+            textToSearch += "|" + "Increase damage dealt by jump attacks by "+ item.jumpDamage + "%";
+        }
+        if (item.lbFillRate) {
+            textToSearch += "|" + "Increase LB gauge fill rate (" + item.lbFillRate + "%)";
+        }
+        if (item.lbPerTurn) {
+            var value;
+            if (item.lbPerTurn.min == item.lbPerTurn.max) {
+                value = item.lbPerTurn.min;
+            } else {
+                value = item.lbPerTurn.min + "-" + item.lbPerTurn.max;
+            }
+            textToSearch += "|" + "Increase LB gauge each turn (" + value + ")";
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;

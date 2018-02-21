@@ -59,7 +59,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
         }
-        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name) {
+        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name || "jumpDamage" == formula.name) {
             var cumulatedKiller = 0;
             var applicableKillerType = null;
             if (unitBuild.involvedStats.includes("physicalKiller")) {
@@ -105,6 +105,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             if (ennemyStats.races.length > 0) {
                 killerMultiplicator += (cumulatedKiller / 100) / ennemyStats.races.length;
             }
+            
+            var jumpMultiplier = 1;
+            if (unitBuild.involvedStats.includes("jumpDamage")) {
+                jumpMultiplier += calculateStatValue(itemAndPassives, "jumpDamage", unitBuild).total/100;
+            }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
@@ -123,13 +128,13 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
                         variance1 = itemAndPassives[1].meanDamageVariance;
                     }
-                    total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * damageMultiplier  / ennemyStats.def;
+                    total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier  / ennemyStats.def;
                 } else {
                     var dualWieldCoef = 1;
                     if (goalValuesCaract[formula.name].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                         dualWieldCoef = 2;
                     }
-                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * damageMultiplier  / ennemyStats.spr;
+                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * damageMultiplier  / ennemyStats.spr;
                 }
             }
             var value = total / goalValuesCaract[formula.name].statsToMaximize.length;
