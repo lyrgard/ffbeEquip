@@ -147,6 +147,7 @@ function optimize() {
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":alreadyUsedEspers,
+            "useEspers":!onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats
         }));
     }
