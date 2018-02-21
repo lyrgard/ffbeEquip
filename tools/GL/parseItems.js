@@ -531,7 +531,12 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
         var lbFillRate = rawEffect[3][0];
         addStat(item, "lbFillRate", lbFillRate);
-        
+     
+    // +Jump damage
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
+        var jumpDamage = rawEffect[3][0];
+        addStat(item, "jumpDamage", jumpDamage);
+     
     } else {
         return false;
     }
@@ -675,7 +680,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

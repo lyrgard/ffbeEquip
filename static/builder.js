@@ -6,6 +6,7 @@ const formulaByGoal = {
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
+    "jumpDamage":                       {"type":"value","name":"jumpDamage"},
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
@@ -20,7 +21,8 @@ const involvedStats = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
     "magicalDamage":                    ["mag","magicalKiller"],
     "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
-    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"]
+    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
+    "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
 }
 
 
@@ -1267,7 +1269,7 @@ function getStateHash() {
     if (data.goal == "magicalDamage") {
         data.attackType = $(".magicalSkillType select").val();
     }
-    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "custom") {
+    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "custom") {
         data.ennemyRaces = getSelectedValuesFor("races");
         readEnnemyStats();
         data.ennemyResists = ennemyStats.elementResists;
@@ -1356,7 +1358,7 @@ function loadStateHashAndBuild(data) {
     if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
     }
-    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage") {
+    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage"|| data.goal == "jumpDamage") {
         select("races", data.ennemyRaces);
         for (var element in data.ennemyResists) {
             if (data.ennemyResists[element] == 0) {
