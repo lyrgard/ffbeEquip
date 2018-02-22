@@ -298,6 +298,12 @@ function readSkills(itemIn, itemOut, skills) {
             var skillId = itemIn.skills[skillIndex];
             var skill = skills[skillId];
             if (skill) {
+                if (skill.unique && !skill.active) {
+                    if (!itemOut.notStackableSkills) {
+                        itemOut.notStackableSkills = [];
+                    }
+                    itemOut.notStackableSkills.push(skillId);
+                }
                 if (skill.type == "MAGIC") {
                     addSpecial(itemOut, getSkillString(skill));
                 } else if (skill.unit_restriction) {
@@ -680,7 +686,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
