@@ -246,7 +246,10 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
         if (stat == "lbPerTurn") {
             var value = 0;
             if (item.lbPerTurn) {
-                value += (item.lbPerTurn.min + item.lbPerTurn.max) / 2;
+                var lbPerTurn = (item.lbPerTurn.min + item.lbPerTurn.max) / 2;
+                var lbPerTurnTakenIntoAccount = Math.min(lbPerTurn, Math.max(12 - currentPercentIncrease.value, 0));
+                currentPercentIncrease.value += lbPerTurnTakenIntoAccount;
+                value += lbPerTurnTakenIntoAccount;
             }
             if (item.lbFillRate) {
                 value += item.lbFillRate * baseValue / 100;
