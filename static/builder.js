@@ -89,9 +89,10 @@ function build() {
         for (var index = workers.length; index--; index) {
             workers[index].terminate();
         }   
-        alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
+        alert("The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         console.timeEnd("optimize");
         initWorkers();
+        workerWorkingCount = 0;
         running = false;
         $("#buildButton").text("Build !");
         return;
