@@ -1,4 +1,4 @@
-function getValue(item, valuePath) {
+function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
     if (value == undefined) {
         if (valuePath.indexOf('.') > -1) {
@@ -7,6 +7,16 @@ function getValue(item, valuePath) {
             value = 0;
         }
         item[valuePath] = value;
+    }
+    if (value.min && value.max) {
+        value = (value.min + value.max) / 2;
+    }
+    if (notStackableSkillsAlreadyUsed && item.notStackableSkills) {
+        for (var index = notStackableSkillsAlreadyUsed.length; index--;) {
+            if (item.notStackableSkills[notStackableSkillsAlreadyUsed[index]]) {
+                value -= getValue(item.notStackableSkills[notStackableSkillsAlreadyUsed[index]], valuePath);
+            }
+        }
     }
     return value;
 }
@@ -210,15 +220,26 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     }
     var calculatedValue = baseValue + buffValue;
     
+    var notStackableSkillsAlreadyUsed = [];
+    
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
-        var equipmentStatBonusToApply = 1;
-        if (equipedIndex < 10) {
-            equipmentStatBonusToApply = equipmentStatBonus;
-        }
-        if (equipedIndex < 2 && "atk" == stat) {
-            calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat);    
-        } else {
-            calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat);    
+        if (itemAndPassives[equipedIndex]) {
+            var equipmentStatBonusToApply = 1;
+            if (equipedIndex < 10) {
+                equipmentStatBonusToApply = equipmentStatBonus;
+            }
+            if (equipedIndex < 2 && "atk" == stat) {
+                calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat, notStackableSkillsAlreadyUsed);    
+            } else {
+                calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed);    
+            }
+            if (itemAndPassives[equipedIndex].notStackableSkills) {
+                for (var skillId in itemAndPassives[equipedIndex].notStackableSkills) {
+                    if (!notStackableSkillsAlreadyUsed.includes(skillId)) {
+                        notStackableSkillsAlreadyUsed.push(skillId);
+                    }
+                }
+            }
         }
     }
     
@@ -241,12 +262,12 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     }
 }
 
-function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat) {
+function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat, notStackableSkillsAlreadyUsed) {
     if (item) {
         if (stat == "lbPerTurn") {
             var value = 0;
             if (item.lbPerTurn) {
-                var lbPerTurn = (item.lbPerTurn.min + item.lbPerTurn.max) / 2;
+                var lbPerTurn = getValue(item, "lbPerTurn", notStackableSkillsAlreadyUsed);
                 var lbPerTurnTakenIntoAccount = Math.min(lbPerTurn, Math.max(12 - currentPercentIncrease.value, 0));
                 currentPercentIncrease.value += lbPerTurnTakenIntoAccount;
                 value += lbPerTurnTakenIntoAccount;
@@ -256,10 +277,11 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
             }
             return value;
         } else {
-            var value = getValue(item, stat);
+            var value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             if (item[percentValues[stat]]) {
-                var percentTakenIntoAccount = Math.min(item[percentValues[stat]], Math.max(300 - currentPercentIncrease.value, 0));
-                currentPercentIncrease.value += item[percentValues[stat]];
+                var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
+                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(300 - currentPercentIncrease.value, 0));
+                currentPercentIncrease.value += itemPercentValue;
                 return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
             } else {
                 return value * equipmentStatBonus;
