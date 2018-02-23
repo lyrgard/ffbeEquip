@@ -1,7 +1,7 @@
 class Piramidata {
 
     static getImageLink(unitBuild) {
-        var link = "http://ffbe.piramidata.eu/Unit/GetConfigurationImage?" +
+        var link = "http://www.kupoconfig.com/Unit/GetConfigurationImage?" +
             "unitname=" + encodeURIComponent(unitBuild.unit.name) + 
             "&rarity=" + unitBuild.unit.max_rarity +
             "&pothp=" + unitBuild.baseValues.hp.pots +
