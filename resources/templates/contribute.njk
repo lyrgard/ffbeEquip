@@ -1,0 +1,80 @@
+{% extends "base.njk" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="contribute.css?version=3">
+{% endblock %}
+
+{% block script %}
+<script src="contribute.js?version=7"></script>
+{% endblock %}
+
+{% block body %}
+<div class="col-xs-12 col-md-6">
+    <div id="modifiedItems" class="panel panel-default hidden">
+        <div id="results" class="table notSorted items results">
+            <div class="thead">
+                <div class="tr">
+                    <div class="td type">&nbsp;</div>
+                    <div class="td name">Name</div>
+                    <div class="td access">Access</div>
+                    <div class="td maxNumber">Max Number</div>
+                    <div class="td">&nbsp;</div>
+                </div>
+            </div>
+            <div class="tbody">
+
+            </div>
+        </div>
+        <div id="sendToServerDiv">
+            <button class="btn btn-primary" onclick="sendToServer()">Send it to FFBE Equip</button>
+        </div>
+    </div>
+    <div>
+        <h4>How to use this:</h4>
+        <ol>
+            <li>Items that are missing data are displayed on the right. You cann select one, or use the search if you want to correct another item</li>
+            <li>Once you found the item you want to modify, click on the <span class="glyphicon glyphicon-edit"></span> to add this item to the list on the left. You can add multiple items to this list (max 10)</li>
+            <li>You cann modify the Access and Max Number of the items on the left pane. For Max Number, leave it empty if there is no limitation on how many time this item could be aquired</li>
+            <li>When you have entered all the data on the items on the left, click on "<b>Send it to FFBE Equip</b>" to send it to FFBE Equip</li>
+            <li>If the save is successful, the page will reload itself</li>
+            <li>The data won't be corrected immediatly. I'll regulary merge the sent data to the main data of FFBE Equip.</li>
+        </ol>
+    </div>
+</div>
+<div class="col-xs-12 col-md-6">
+    <div class="panel panel-default itemList">
+        <div class="panel-heading">
+            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
+        </div>
+        <div class="panel-body">
+            <div id="results" class="table notSorted items results">
+                <div class="thead">
+                    <div class="tr">
+                        <div class="td select">&nbsp;</div>
+                        <div class="td type">&nbsp;</div>
+                        <div class="td name">Name</div>
+                        <div id="statTitle" class="td value sort">Value</div>
+                        <div class="td special">Special</div>
+                        <div class="td access">Access</div>
+                        <div class="td maxNumber">Max Number</div>
+                    </div>
+                </div>
+                <div class="tbody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addAccessModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">Add access</div>
+            <div class="modal-body">
+                <div class="btn-group choice" data-toggle="buttons" id="accessList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

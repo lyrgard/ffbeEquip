@@ -108,10 +108,12 @@ ul {
     font-size: 0.9em;
     white-space:nowrap;
 }
-.footerButtons {
-    margin-top: 10px;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
 }
-
 .noWrap {
     white-space:nowrap;
 }
@@ -127,7 +129,9 @@ mark {
 }
 
 body {
-    padding-top: 15px;
+  position: relative;
+  padding-bottom: 40px;
+  padding-top: 15px;
 }
 
 .unit .col-xs-12 {
@@ -319,7 +323,7 @@ body {
 #loaderGlassPanel {
     position: fixed;
     left: 0;
-    top: 0;  
+    top: 0;
     right: 0;
     bottom: 0;
     background-color: black;

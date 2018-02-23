@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
+const nunjucks = require('nunjucks');
 
 const config = require('./config.js');
 const drive = require('./server/routes/drive.js');
@@ -26,7 +27,21 @@ app.use(sessions({
 }));
 app.use(bodyParser.json());
 
+// View engine
+nunjucks.configure(path.join(__dirname, 'resources/templates'), {
+  express: app,
+  watch: config.isDev,
+});
+
 // Routes
+app.get('/', (req, res) => {
+  res.render('index.njk', { view: 'index' });
+});
+app.get('/:view.html', (req, res) => {
+  const { view } = req.params;
+  res.render(`${view}.njk`, { view });
+});
+
 app.use('/', oauth);
 app.use('/links', links);
 app.use('/', corrections);

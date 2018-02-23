@@ -1,0 +1,30 @@
+<div class="col-xs-12">
+    <nav class="col-xs-12 navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">FFBE Equip</a>
+        </div>
+        <div class="switchServer btn-group">
+            <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+            <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li {% if view === "index" %}class="active"{% endif %}><a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a></li>
+            <li {% if view === "inventory" %}class="active"{% endif %}><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a></li>
+            <li {% if view === "units" %}class="active"{% endif %}><a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a></li>
+            <li {% if view === "builder" %}class="active"{% endif %}><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a></li>
+            <li {% if view === "contribute" %}class="active"{% endif %}><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a></li>
+        </ul>
+        <div class="jpWarning hidden" data-server="JP">
+            <span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress
+            <br/> The data may not be accurate</div>
+        <div id="inventoryDiv" class="buttons account">
+            <span>Inventory :&nbsp;</span>
+            <span class="status"></span>
+            <div class="loader"></div>
+            <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+            <a href="/googleOAuthLogout">
+                <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+            </a>
+        </div>
+    </nav>
+</div>
