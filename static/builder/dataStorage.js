@@ -123,7 +123,7 @@ class DataStorage {
                 var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats);
                 this.dataByType[type] = [];
                 for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
-                    this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, numberNeeded, true);    
+                    this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    
                 }
             } else {
                 this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
@@ -131,7 +131,7 @@ class DataStorage {
         }
     }
     
-    addEntriesToResult(tree, result, keptNumber, numberNeeded, keepEntry) {
+    addEntriesToResult(tree, result, keptNumber, keepEntry) {
         tree.equivalents.sort(function(entry1, entry2) {
             if (entry1.defenseValue == entry2.defenseValue) {
                 if (entry2.available == entry1.available) {
@@ -144,20 +144,14 @@ class DataStorage {
             }
         });
         for (var index = 0, len = tree.equivalents.length; index < len; index++) {
-            if (keptNumber >= numberNeeded) {
-                break;
-            }
             if (keepEntry) {
                 result.push(tree.equivalents[index]);
             } else {
                 result.push(tree.equivalents[index].item);
             }
-            keptNumber += tree.equivalents[index].available;
         }
-        if (keptNumber < numberNeeded) {
-            for (var index = 0, len = tree.children.length; index < len; index++) {
-                this.addEntriesToResult(tree.children[index], result, keptNumber, numberNeeded, keepEntry);    
-            }
+        for (var index = 0, len = tree.children.length; index < len; index++) {
+            this.addEntriesToResult(tree.children[index], result, keptNumber, keepEntry);    
         }
     }
 

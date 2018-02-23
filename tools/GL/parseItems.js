@@ -300,9 +300,14 @@ function readSkills(itemIn, itemOut, skills) {
             if (skill) {
                 if (skill.unique && !skill.active) {
                     if (!itemOut.notStackableSkills) {
-                        itemOut.notStackableSkills = [];
+                        itemOut.notStackableSkills = {};
                     }
-                    itemOut.notStackableSkills.push(skillId);
+                    var notStackableSkill = {};
+                    for (var rawEffectIndex in skill.effects_raw) {
+                        rawEffect = skill.effects_raw[rawEffectIndex];
+                        addEffectToItem(notStackableSkill, skill, rawEffectIndex, skills)
+                    }
+                    itemOut.notStackableSkills[skillId] = notStackableSkill;
                 }
                 if (skill.type == "MAGIC") {
                     addSpecial(itemOut, getSkillString(skill));

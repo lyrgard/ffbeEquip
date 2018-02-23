@@ -1,6 +1,9 @@
 class ItemTreeComparator {
     
     static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null) {
+        if (itemsOfType[0].item.type == "accessory") {
+            console.log("!!");
+        }
         var result = [];
         var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
         if (itemsOfType.length > 0) {
@@ -16,10 +19,13 @@ class ItemTreeComparator {
 
                 var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
                 //console.log("Considering " + entry.item.name);
-                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, numberNeeded, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth);
+                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, 10, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth);
                 //logTree(keptItemsRoot);
             }
         }
+        
+        ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepth);
+        
         TreeComparator.cutUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepth, 0);
         return keptItemsRoot;
     }
@@ -56,6 +62,42 @@ class ItemTreeComparator {
         return TreeComparator.combineComparison(comparisionStatus);
     }
     
+    static moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree = treeRoot, currentDepth = 0) {
+        var depth = getDepth(currentTree, currentDepth);
+        if (depth > maxDepth) {
+            return;
+        }
+        var entryToAddToRoot = [];
+        if (!currentTree.root) {
+            var index = 0;
+            while (index < currentTree.equivalents.length) {
+                var entry = currentTree.equivalents[index];
+                if (entry.item.notStackableSkills) {
+                    entryToAddToRoot.push(entry);
+                    currentTree.equivalents.splice(index,1);
+                } else {
+                    index++;
+                }
+            }
+        }
+        if (!currentTree.root && currentTree.equivalents.length == 0) {
+            for (var index = currentTree.children.length; index--;) {
+                currentTree.parent.children.push(currentTree.children[index]);
+                currentTree.children[index].parent = currentTree.parent;
+                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], currentDepth);
+            }
+            currentTree.children = [];
+        } else {
+            for (var index = currentTree.children.length; index--;) {
+                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], depth);
+            }
+        }
+        
+        for (var index = entryToAddToRoot.length; index--;) {
+            treeRoot.children.push({"parent":treeRoot,"children":[],"equivalents":[entryToAddToRoot[index]], "currentEquivalentIndex":0});
+        }
+    }
+
     static getDepth(treeItem, currentDepth) {
         var result = currentDepth;
         if (treeItem.root) {
