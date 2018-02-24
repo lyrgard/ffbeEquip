@@ -1,9 +1,6 @@
 class ItemTreeComparator {
     
     static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null) {
-        if (itemsOfType[0].item.type == "accessory") {
-            console.log("!!");
-        }
         var result = [];
         var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
         if (itemsOfType.length > 0) {
@@ -24,7 +21,7 @@ class ItemTreeComparator {
             }
         }
         
-        ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepth);
+        ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepthWithoutNotStackableSkillsItems);
         
         TreeComparator.cutUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepth, 0);
         return keptItemsRoot;
@@ -87,6 +84,7 @@ class ItemTreeComparator {
                 ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], currentDepth);
             }
             currentTree.children = [];
+            currentTree.parent.children.splice(currentTree.parent.children.indexOf(currentTree), 1);
         } else {
             for (var index = currentTree.children.length; index--;) {
                 ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], depth);
@@ -105,6 +103,19 @@ class ItemTreeComparator {
         }
         for (var index = treeItem.equivalents.length; index--;) {
             result += treeItem.equivalents[index].available;
+        }
+        return result;
+    }
+    
+    static getDepthWithoutNotStackableSkillsItems(treeItem, currentDepth) {
+        var result = currentDepth;
+        if (treeItem.root) {
+            return 0;
+        }
+        for (var index = treeItem.equivalents.length; index--;) {
+            if (!treeItem.equivalents[index].item.notStackableSkills) {
+                result += treeItem.equivalents[index].available;
+            }
         }
         return result;
     }
