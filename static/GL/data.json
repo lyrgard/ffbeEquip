@@ -246,7 +246,7 @@
 	{"id":"310000800", "name":"Rod of Lightning", "type":"rod", "atk":14, "mag":26, "element":["lightning"], "special":["[Thundara|ability_20.png]: Magic lightning damage (1.4x, MAG) to all enemies"], "access":["chest","recipe-chest"], "icon":"item_10604.png", "sortId":290},
 	{"id":"310001400", "name":"Wizard Rod", "type":"rod", "atk":18, "mag":72, "access":["trial"], "maxNumber":1, "icon":"item_10609.png", "sortId":266},
 	{"id":"310001500", "name":"Lilith Rod", "type":"rod", "mag":60, "special":["[Drain|ability_6.png]: Magic damage (0.8x) as HP drain (30%) to one enemy"], "access":["event"], "maxNumber":1, "icon":"item_10614.png", "sortId":324},
-	{"id":"310001600", "name":"Omnirod", "type":"rod", "atk":20, "mag":91, "tmrUnit":"203000303", "access":["TMR-3*"], "icon":"item_10615.png", "sortId":338},
+	{"id":"310001600", "name":"Omnirod", "type":"rod", "atk":20, "mag":91, "tmrUnit":"203000303", "access":["TMR-3*", "event"], "eventName":"Imperial Infiltration", "icon":"item_10615.png", "sortId":338},
 	{"id":"310001700", "name":"Mateus's Malice", "type":"rod", "hp%":10, "atk":19, "mag":129, "tmrUnit":"202000505", "access":["TMR-5*"], "icon":"item_10616.png", "sortId":373},
 	{"id":"310001800", "name":"Drakesclaw Rod", "type":"rod", "atk":10, "mag":35, "access":["recipe-event"], "maxNumber":1, "icon":"item_10617.png", "sortId":377},
 	{"id":"310001900", "name":"Striking Staff", "type":"rod", "atk":16, "mag":42, "access":["key"], "maxNumber":1, "icon":"item_10611.png", "sortId":451},
