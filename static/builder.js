@@ -1274,7 +1274,7 @@ function getStateHash() {
     if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "custom") {
         data.ennemyRaces = getSelectedValuesFor("races");
         readEnnemyStats();
-        data.ennemyResists = ennemyStats.elementResists;
+        data.ennemyResists = ennemyStats.elementalResists;
         data.monsterDef = ennemyStats.def;
         data.monsterSpr = ennemyStats.spr;
     }
