@@ -6,6 +6,7 @@ const formulaByGoal = {
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
+    "jumpDamage":                       {"type":"value","name":"jumpDamage"},
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
@@ -20,7 +21,8 @@ const involvedStats = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
     "magicalDamage":                    ["mag","magicalKiller"],
     "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
-    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"]
+    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
+    "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
 }
 
 
@@ -71,7 +73,6 @@ const itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
 var running = false;
-var stop = false;
 
 var workers = [];
 var workerWorkingCount = 0;
@@ -85,7 +86,15 @@ var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
 
 function build() {
     if (running) {
-        stop = true;
+        for (var index = workers.length; index--; index) {
+            workers[index].terminate();
+        }   
+        alert("The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
+        console.timeEnd("optimize");
+        initWorkers();
+        workerWorkingCount = 0;
+        running = false;
+        $("#buildButton").text("Build !");
         return;
     }
     
@@ -139,6 +148,7 @@ function optimize() {
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":alreadyUsedEspers,
+            "useEspers":!onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats
         }));
     }
@@ -255,8 +265,12 @@ function readStatsValues() {
         builds[currentUnitIndex].baseValues[baseStats[index]].total = builds[currentUnitIndex].baseValues[baseStats[index]].base + builds[currentUnitIndex].baseValues[baseStats[index]].pots;
         builds[currentUnitIndex].baseValues[baseStats[index]].buff = parseInt($(".unitStats .stat." + baseStats[index] + " .buff input").val()) || 0;
     }
+    var lbShardsPerTurn = parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val());
+    if (isNaN(lbShardsPerTurn)) {
+        lbShardsPerTurn = 4;
+    }
     builds[currentUnitIndex].baseValues["lbFillRate"] = {
-        "total" : parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val()) || 4,
+        "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
 }
@@ -514,23 +528,50 @@ function logBuild(build, value) {
         readEnnemyStats();
         value = calculateBuildValue(build);
     }
-
-    $("#resultStats .damage").addClass("hidden");
-    if (importantStats.includes("atk") || importantStats.includes("mag")) {
-        $("#resultStats .damage .monsterDefSpan").addClass("hidden");
-        $("#resultStats .damage .monsterSprSpan").addClass("hidden");
-        if (importantStats.includes("atk")) {
-            $("#resultStats .damage .monsterDefValue").text(" " + ennemyStats.def);
-            $("#resultStats .damage .monsterDefSpan").removeClass("hidden");
-        }
-        if (importantStats.includes("mag")) {
-            $("#resultStats .damage .monsterSprValue").text(" " + ennemyStats.spr);
-            $("#resultStats .damage .monsterSprSpan").removeClass("hidden");
-        }
-        $("#resultStats .damage .damageCoef").html("1x");
-        $("#resultStats .damage .damageResult").html(Math.floor(value));
-        $("#resultStats .damage").removeClass("hidden");
+    
+    var physicalDamageResult = 0;
+    var magicalDamageResult = 0;
+    var hybridDamageResult = 0;
+    var healingResult = 0;
+    
+    $("#resultStats .physicalDamageResult").addClass("hidden");
+    $("#resultStats .magicalDamageResult").addClass("hidden");
+    $("#resultStats .hybridDamageResult").addClass("hidden");
+    $("#resultStats .healingResult").addClass("hidden");
+    $("#resultStats .buildResult").addClass("hidden");
+    if (importantStats.includes("atk")) {
+        $("#resultStats .physicalDamageResult").removeClass("hidden");
+        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"]);
+        $("#resultStats .physicalDamageResult .calcValue").text(Math.floor(physicalDamageResult));
     }
+    if (importantStats.includes("mag")) {
+        $("#resultStats .magicalDamageResult").removeClass("hidden");
+        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"]);
+        $("#resultStats .magicalDamageResult .calcValue").text(Math.floor(magicalDamageResult));
+    }
+    if (importantStats.includes("atk") && importantStats.includes("mag")) {
+        $("#resultStats .hybridDamageResult").removeClass("hidden");
+        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"]);
+        $("#resultStats .hybridDamageResult .calcValue").text(Math.floor(hybridDamageResult));
+    }
+    if (importantStats.includes("mag") && importantStats.includes("spr")) {
+        $("#resultStats .healingResult").removeClass("hidden");
+        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"]);
+        $("#resultStats .healingResult .calcValue").text(Math.floor(healingResult));
+    }
+    if (value != physicalDamageResult && value != magicalDamageResult && value != hybridDamageResult && value != healingResult) {
+        $("#resultStats .buildResult").removeClass("hidden");
+        var valueToDisplay;
+        if (value < 100) {
+            valueToDisplay = Math.floor(value*10)/10;
+        } else {
+            valueToDisplay = Math.floor(value);
+        }
+        $("#resultStats .buildResult .calcValue").text(valueToDisplay);
+    }
+    $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
+    $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
+    $("#resultStats .damageCoef").html("1x");
 }
 
 function switchView(conciseViewParam) {
@@ -903,6 +944,10 @@ function chooseCustomFormula() {
     }
 }
 
+function addToCustomFormula(string) {
+    $("#customFormulaModal input").val($("#customFormulaModal input").val() + string);
+}
+
 function removeCustomGoal() {
     customFormula = null;
     onGoalChange();
@@ -1226,10 +1271,10 @@ function getStateHash() {
     if (data.goal == "magicalDamage") {
         data.attackType = $(".magicalSkillType select").val();
     }
-    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "custom") {
+    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "custom") {
         data.ennemyRaces = getSelectedValuesFor("races");
         readEnnemyStats();
-        data.ennemyResists = ennemyStats.elementResists;
+        data.ennemyResists = ennemyStats.elementalResists;
         data.monsterDef = ennemyStats.def;
         data.monsterSpr = ennemyStats.spr;
     }
@@ -1315,7 +1360,7 @@ function loadStateHashAndBuild(data) {
     if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
     }
-    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage") {
+    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage"|| data.goal == "jumpDamage") {
         select("races", data.ennemyRaces);
         for (var element in data.ennemyResists) {
             if (data.ennemyResists[element] == 0) {
@@ -1735,13 +1780,7 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 2) {
-        if (navigator.hardwareConcurrency) {
-            initWorkers(navigator.hardwareConcurrency);
-        } else {
-            console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
-            initWorkers(4);
-        }
-        
+        initWorkers();
         
         var hashData = readStateHashData();
         if (hashData) {
@@ -1752,7 +1791,14 @@ function continueIfReady() {
     }
 }
 
-function initWorkers(numberOfWorkers) {
+function initWorkers() {
+    workers = [];
+    if (navigator.hardwareConcurrency) {
+        numberOfWorkers = navigator.hardwareConcurrency;
+    } else {
+        console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
+        numberOfWorkers = 4;
+    }
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
         workers.push(new Worker('builder/optimizerWebWorker.js'));
         workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
@@ -1768,9 +1814,7 @@ function initWorkers(numberOfWorkers) {
                     break;
                 case "finished":
                     workerWorkingCount--;
-                    if (!stop) {
-                        processTypeCombinations(messageData.number);
-                    }
+                    processTypeCombinations(messageData.number);
                     processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
                     var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
                     if (progress != newProgress) {
@@ -1781,13 +1825,9 @@ function initWorkers(numberOfWorkers) {
                     if (workerWorkingCount == 0) {
                         progressElement.addClass("finished");
                         console.timeEnd("optimize");
-                        if (stop) {
-                            alert("The build calculation has been stoped. The best calculated result is displayed, but it may not be the overall best build.");
-                        }
                         if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
                             alert("The condition set in the goal are impossible to meet.");
                         }
-                        stop = false;
                         running = false;
                         $("#buildButton").text("Build !");
                     }

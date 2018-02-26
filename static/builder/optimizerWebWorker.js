@@ -26,6 +26,7 @@ onmessage = function(event) {
             optimizer.dataWithCondition = messageData.dataWithCondition;
             optimizer.dualWieldSources = messageData.dualWieldSources;
             optimizer.ennemyStats = messageData.ennemyStats;
+            optimizer.useEspers = messageData.useEspers;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             break;
         case "optimize":

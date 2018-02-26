@@ -16,7 +16,11 @@ class BuildOptimizer {
     }
     
     set alreadyUsedEspers(alreadyUsedEspers) {
-        this.selectedEspers = this.selectEspers(alreadyUsedEspers, this.ennemyStats);
+        if (this.useEspers) {
+            this.selectedEspers = this.selectEspers(alreadyUsedEspers, this.ennemyStats);
+        } else {
+            this.selectedEspers = [];
+        }
     }
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
@@ -224,8 +228,12 @@ class BuildOptimizer {
             if (fixedItems[10]) {
                 this.tryEsper(build, fixedItems[10]);
             } else {
-                for (var esperIndex = 0, len = this.selectedEspers.length; esperIndex < len; esperIndex++) {
-                    this.tryEsper(build, this.selectedEspers[esperIndex])  
+                if (this.selectedEspers.length > 0) {
+                    for (var esperIndex = 0, len = this.selectedEspers.length; esperIndex < len; esperIndex++) {
+                        this.tryEsper(build, this.selectedEspers[esperIndex])  
+                    }
+                } else {
+                    this.tryEsper(build, null);
                 }
             }
         } else {

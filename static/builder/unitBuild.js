@@ -2,7 +2,8 @@ const involvedStatsByValue = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
     "magicalDamage":                    ["mag","magicalKiller"],
     "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
-    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"]
+    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
+    "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
 }
 
 class UnitBuild {
