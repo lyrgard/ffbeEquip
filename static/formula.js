@@ -13,6 +13,7 @@ const attributeByVariable = {
     "P_DAMAGE":"physicalDamage",
     "M_DAMAGE":"magicalDamage",
     "H_DAMAGE":"hybridDamage",
+    "J_DAMAGE":"jumpDamage",
     "M_P_DAMAGE":"magicalDamageWithPhysicalMecanism",
     "R_FIRE":"resist|fire.percent",
     "R_ICE":"resist|ice.percent",

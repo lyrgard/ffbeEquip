@@ -53,6 +53,7 @@
                                         <option value="physicalDamage">Physical damage</option>
                                         <option value="magicalDamage">Magical damage</option>
                                         <option value="hybridDamage">Hybrid damage</option>
+                                        <option value="jumpDamage">Jump damage</option>
                                         <option value="physicaleHp">Physical eHP</option>
                                         <option value="magicaleHp">Magical eHP</option>
                                         <option value="def">Defense</option>
@@ -337,7 +338,11 @@
                                     <div class="elements"></div>
                                     <div class="ailments"></div>
                                 </div>
-                                <div class="damage buildResultLabel hidden">Damage on a<span class="monsterDefSpan"><span class="monsterDefValue"></span> DEF</span><span class="monsterSprSpan"><span class="monsterSprValue"></span> SPR</span> enemy with a <span class="damageCoef"></span> skill: <span class="damageResult buildResult"></span></div>
+                                <div class="resultLine physicalDamageResult hidden">Physical damage on a <span class="monsterDefValue"></span> DEF enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
+                                <div class="resultLine magicalDamageResult hidden">Magical damage on a <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
+                                <div class="resultLine hybridDamageResult hidden">Hybrid damage on a <span class="monsterDefValue"></span> DEF <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
+                                <div class="resultLine healingResult hidden">Healing coef: <span class="calcValue"></span></div>
+                                <div class="resultLine buildResult hidden">Build goal calculated value: <span class="calcValue"></span></div>
                             </div>
                             <div class="buildLinks hidden">
                                 <div id="detailedViewLink" class="col-xs-4 link">
@@ -352,7 +357,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="buildLink link" onclick="showBuildLink()"><span class="glyphicon glyphicon-link"></span> FFBE Equip link</a></li>
                                             <li><a class="buildAsText link" onclick="showBuildAsText()"><span class="glyphicon glyphicon-list"></span> Build as text</a></li>
-                                            <li data-server="GL"><a class="imageLink link" target="_blank"><span class="glyphicon glyphicon-camera"></span> Build image (using ffbe.piramidata.eu)</a></li>
+                                            <li data-server="GL"><a class="imageLink link" target="_blank"><span class="glyphicon glyphicon-camera"></span> Build image (using kupoconfig.com)</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -459,9 +464,75 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="inputDiv">
+                        <div class="inputDiv input-group">
+                            <span class="input-group-btn">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a class="test" tabindex="-1" href="#">Healing<span class="caret-right"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('2500 + 9*SPR + 1.8*MAG')">Curaja</a></li>
+                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('1000 + 1.7*SPR + 0.34*MAG')">Curaga</a></li>
+                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('0.5*SPR + 0.1*MAG')">Base healing coef</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="test" tabindex="-1" href="#">Expeditions<span class="caret-right"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-submenu">
+                                                    <a class="test" tabindex="-1" href="#">A Rank<span class="caret-right"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + SPR/29.39')">General Hospitality</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + MAG/29.39')">Stranger Stuff</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">He Who Smelt It</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2164 + MP/54.1 + SPR/43.28')">Full House</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/108.2 + ATK/43.28 + MAG/43.28')">A Beast's Bounty</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1082 + ATK/43.28 + DEF/86.56')">Child's Play</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2172 + MP/108.6 + ATK/86.88 + DEF/86.88 + MAG/86.88')">A Priest, a Monk, and a Paladin</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/54.1 + MAG/86.56 + SPR/43.28')">Shopping for Medicine</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/107.1 + MAG/42.84 + SPR/85.68')">The Missing Key</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">Across the Desert</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + ATK/95.56 + MAG/47.78 + SPR/95.56')">Cook Off</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2429 + MP/121.45 + ATK/97.16 + DEF/97.16 + MAG/97.16 + SPR/97.16')">Tavern Cleanup</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + ATK/47.78 + DEF/95.56 + MAG/95.56 + SPR/95.56')">Too Many Coeurls</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + ATK/95.2 + DEF/47.6 + SPR/95.2')">Lost in the Dark</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Anger Management</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">Wrath in the Wreckage</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Seven Years Bad Luck</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Ghost Busted</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">What's Her Secret?</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Braving the Elements</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown-submenu">
+                                                    <a class="test" tabindex="-1" href="#">S Rank<span class="caret-right"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Lost in the World</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hotline Grandshelt</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Break Time</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Reinventing the Wheel</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Winter is Coming</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hide your wallets!</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Paper, Please!</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Wherefore Art Thou, Father</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">A "Legendary" Challenge</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Where's My Mommy?</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Be the Best</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Hot Ice</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Save the Children</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Magi in Danger</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </span>
                             <input type="text" class="form-control" id="formulaInput" placeholder="Enter formula (for instance, HP * DEF)">
-                            <button onclick="chooseCustomFormula()">OK</button>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" onclick="chooseCustomFormula()">OK</button>
+                            </span>
                         </div>
                         <h4>How to use this:</h4>
                         <ul>
@@ -496,6 +567,7 @@
                                             <tr><td class="token">P_DAMAGE</td><td>This is the total physical damage, taking into account the ATK, the elements, the killers, the damage variance, ...</td></tr>
                                             <tr><td class="token">M_DAMAGE</td><td>Same as P_DAMAGE but for magical damage</td></tr>
                                             <tr><td class="token">H_DAMAGE</td><td>Same as P_DAMAGE but for hybrid damage</td></tr>
+                                            <tr><td class="token">J_DAMAGE</td><td>Same as J_DAMAGE but for jump damage</td></tr>
                                             <tr><td class="token">M_P_DAMAGE</td><td>Same as P_DAMAGE but for magical damage with physical mechanism</td></tr>
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
                                             <tr><td class="token">I_PHYSICAL</td><td>Immunity to physical attacks. This is a shortcut to P_EVADE > 100</td></tr>
