@@ -91,6 +91,8 @@ function getData(filename, callback) {
                 console.log(filename + " downloaded");
                 var result = JSON.parse(body);
                 callback(result);
+            } else {
+                console.log(error);
             }
         });
     } else {
