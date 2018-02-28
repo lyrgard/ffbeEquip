@@ -1504,6 +1504,7 @@ function showBuilderSetupLink() {
 function showBuildAsText() {
     var text = "";
     text += 
+        builds[currentUnitIndex].unit.name + ' ' + builds[currentUnitIndex].unit.max_rarity + '★\n' +
         getItemLineAsText("Right hand", 0) +
         getItemLineAsText("Left hand", 1) +
         getItemLineAsText("Head", 2) +
