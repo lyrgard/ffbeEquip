@@ -1,3 +1,5 @@
+const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism"];
+
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
     if (value == undefined) {
@@ -69,7 +71,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
         }
-        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name || "jumpDamage" == formula.name) {
+        if (damageFormulaNames.includes(formula.name)) {
             var cumulatedKiller = 0;
             var applicableKillerType = null;
             if (unitBuild.involvedStats.includes("physicalKiller")) {
