@@ -504,6 +504,14 @@ function logBuild(build, value) {
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
+    var evoMagResult = calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total;
+    if (evoMagResult > 0) {
+        $("#resultStats .evoMag").removeClass("hidden");
+        $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    } else {
+        $("#resultStats .evoMag").addClass("hidden");
+    }
+    
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
     }
