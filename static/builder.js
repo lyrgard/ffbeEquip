@@ -1784,6 +1784,7 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 2) {
+        initWorkerNumber();
         initWorkers();
         
         var hashData = readStateHashData();
@@ -1795,14 +1796,28 @@ function continueIfReady() {
     }
 }
 
-function initWorkers() {
-    workers = [];
+function initWorkerNumber() {
     if (navigator.hardwareConcurrency) {
         numberOfWorkers = navigator.hardwareConcurrency;
     } else {
         console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
         numberOfWorkers = 4;
     }
+    $("#coreUsage input").val(numberOfWorkers);
+    $("#coreUsage input").on('input',$.debounce(300,function() {
+        var number = parseInt($("#coreUsage input").val());
+        if (!number || isNaN(number)) {
+            $("#coreUsage input").val("1");
+            numberOfWorkers = 1;
+        } else {
+            numberOfWorkers = number;
+        }
+        initWorkers();
+    }));
+}
+
+function initWorkers() {
+    workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
         workers.push(new Worker('builder/optimizerWebWorker.js'));
         workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
