@@ -489,3 +489,17 @@
     padding: 5px;
     border-top: 1px solid #ddd;
 }
+
+#coreUsage {
+    display: flex;
+    align-items: center;
+}
+
+#coreUsage input {
+    width: 40px;
+}
+
+#coreUsage span {
+    margin-right: 5px;
+    margin-left: 5px;
+}
