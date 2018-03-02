@@ -1809,7 +1809,7 @@ function initWorkerNumber() {
     $("#coreUsage input").val(numberOfWorkers);
     $("#coreUsage input").on('input',$.debounce(300,function() {
         var number = parseInt($("#coreUsage input").val());
-        if (!number || isNaN(number)) {
+        if (!number || isNaN(number) || number < 1) {
             $("#coreUsage input").val("1");
             numberOfWorkers = 1;
         } else {
