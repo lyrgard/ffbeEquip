@@ -1414,8 +1414,10 @@ function loadStateHashAndBuild(data) {
         $(".unitStats .stat.lbShardsPerTurn .buff input").val(data.lbShardsPerTurn);
     }
     dataLoadedFromHash = true;
-    build();
     window.location.hash = "";
+    if (data.runBuild) {
+        build();
+    }
 }
 
 function showBuildLink() {
@@ -1475,6 +1477,7 @@ function showBuildLink() {
       
 function showBuilderSetupLink() {
     var data = getStateHash();
+    data.runBuild = true;
     getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
         $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
             '<input value="' + shortUrl + '"></input>' +
