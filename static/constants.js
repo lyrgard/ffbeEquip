@@ -20,9 +20,11 @@ const percentValues = {
     "spr": "spr%"
 };
 const goalValuesCaract = {
-    "physicalDamage":                   {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "magicalDamage":                    {"statsToMaximize":["mag"], "useWeaponsElements":false, "applicableKillerType":"magical", "attackTwiceWithDualWield":false},
-    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true},
-    "jumpDamage":                       {"statsToMaximize":["atk"], "useWeaponsElements":true, "applicableKillerType":"physical", "attackTwiceWithDualWield":true}
+    "physicalDamage":                   {"statsToMaximize":["atk"], "type": "physical"},
+    "magicalDamage":                    {"statsToMaximize":["mag"], "type": "magical"},
+    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "type": "physical"},
+    "hybridDamage":                     {"statsToMaximize":["atk","mag"], "type": "physical"},
+    "jumpDamage":                       {"statsToMaximize":["atk"], "type": "physical"},
+    "sprDamageWithPhysicalMecanism":    {"statsToMaximize":["spr"], "type": "physical"},
+    "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };

@@ -285,6 +285,9 @@ function displayItemLine(item) {
         }
         special += "<li>Increase LB gauge each turn (" + value + ")</li>";
     }
+    if (item.evoMag) {
+        special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
+    }
     if (item.special) {
         special += getSpecialHtml(item);
     }
@@ -844,6 +847,9 @@ function prepareSearch(data) {
                 value = item.lbPerTurn.min + "-" + item.lbPerTurn.max;
             }
             textToSearch += "|" + "Increase LB gauge each turn (" + value + ")";
+        }
+        if (item.evoMag) {
+            textToSearch += "|" + "Increase Esper summon damage by "+ item.evoMag + "%";
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;

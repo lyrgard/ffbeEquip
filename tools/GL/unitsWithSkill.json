@@ -13,7 +13,7 @@
 		"equip":["dagger","sword","greatSword","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Lava Floor","Burning Soul","Leadership"],
 		"skills": [
-			{"hp%":10, "def%":20, "lbFillRate":100, "resist":[{"name":"fire","percent":50}], "mpRefresh":5}
+			{"hp%":10, "def%":20, "evoMag":20, "lbFillRate":100, "resist":[{"name":"fire","percent":50}], "mpRefresh":5}
 		]
 	},
 	"100000202": {
@@ -2573,7 +2573,7 @@
 		},
 		"equip":["dagger","rod","whip","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"mp%":10, "mag%":20}
+			{"mp%":10, "mag%":20, "evoMag":60}
 		]
 	},
 	"204000503": {
@@ -2665,6 +2665,7 @@
 		},
 		"equip":["sword","greatSword","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
+			{"evoMag":30}
 		]
 	},
 	"204001505": {
@@ -2679,7 +2680,7 @@
 		},
 		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":50, "spr%":20, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			{"mp%":30, "mag%":50, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 		]
 	},
 	"204001605": {
@@ -2759,7 +2760,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"atk%":20, "mag%":20}
+			{"atk%":20, "mag%":20, "evoMag":30}
 		]
 	},
 	"205000503": {
@@ -3075,45 +3076,49 @@
 	"209000103": {
 		"name":"Zidane",
 		"id":"209000103",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2527,"mp":109,"atk":104,"def":99,"mag":87,"spr":85},
-			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":3285,"mp":141,"atk":135,"def":128,"mag":113,"spr":110},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor"],
 		"skills": [
+			{"hp%":20, "def%":10, "evade":{"physical":20}, "partialDualWield":["dagger","throwing"], "resist":[{"name":"confuse","percent":100},{"name":"sleep","percent":100}]},
+			{"atk%":50, "equipedConditions":["dagger"]}
 		]
 	},
 	"209000203": {
 		"name":"Vivi",
 		"id":"209000203",
-		"max_rarity":"4",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":1504,"mp":111,"atk":59,"def":63,"mag":92,"spr":85},
-			"pots":{"hp":270,"mp":105,"atk":18,"def":18,"mag":18,"spr":18}
+			"maxStats":{"hp":2541,"mp":187,"atk":98,"def":105,"mag":154,"spr":143},
+			"pots":{"hp":360,"mp":140,"atk":24,"def":24,"mag":24,"spr":24}
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"skills": [
+			{"hp%":10, "mp%":20, "lbFillRate":100},
+			{"mag%":50, "equipedConditions":["rod"]}
 		]
 	},
 	"209000304": {
 		"name":"Garnet",
 		"id":"209000304",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2142,"mp":144,"atk":86,"def":84,"mag":99,"spr":117},
-			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":2784,"mp":187,"atk":111,"def":109,"mag":128,"spr":152},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["EVO MAG +30%","Raise","Curaga"],
 		"skills": [
-			{"mp%":10, "spr%":30, "lbFillRate":100}
+			{"hp%":20, "mp%":30, "spr%":50, "evoMag":70, "evade":{"magical":20}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100}], "mpRefresh":5}
 		]
 	},
 	"209000404": {
@@ -3160,7 +3165,7 @@
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":80, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70}]}
+			{"hp%":20, "mp%":30, "spr%":80, "evoMag":60, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70}]}
 		]
 	},
 	"209000803": {
@@ -3195,17 +3200,17 @@
 	"209001003": {
 		"name":"Kuja",
 		"id":"209001003",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2482,"mp":124,"atk":105,"def":89,"mag":106,"spr":81},
-			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":3226,"mp":161,"atk":136,"def":115,"mag":137,"spr":105},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Barthundara","Thundaga"],
 		"skills": [
-			{"mp%":20, "mag%":20, "resist":[{"name":"wind","percent":-50},{"name":"earth","percent":50},{"name":"light","percent":-50}]}
+			{"hp%":20, "mp%":50, "mag%":50, "resist":[{"name":"wind","percent":-50},{"name":"earth","percent":50},{"name":"light","percent":-50}]}
 		]
 	},
 	"209001105": {
@@ -3267,7 +3272,7 @@
 		},
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":30, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5}
+			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5}
 		]
 	},
 	"210000303": {
@@ -3328,7 +3333,7 @@
 		},
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"hp%":10, "mp%":10, "mag%":50}
+			{"hp%":10, "mp%":10, "mag%":50, "evoMag":50}
 		]
 	},
 	"211000103": {
@@ -4369,7 +4374,7 @@
 		"equip":["dagger","sword","axe","spear","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Gleaming Cleave","Call to Arms"],
 		"skills": [
-			{"atk%":20, "def%":10, "killers":[{"name":"demon","physical":50},{"name":"beast","physical":50}]}
+			{"atk%":20, "def%":10, "evoMag":20, "killers":[{"name":"demon","physical":50},{"name":"beast","physical":50}]}
 		]
 	},
 	"302000304": {
@@ -4385,7 +4390,7 @@
 		"equip":["dagger","sword","greatSword","katana","hat","lightArmor","heavyArmor"],
 		"enhancementSkills":["Heart Blaze","Champion's Surge"],
 		"skills": [
-			{"atk%":10, "def%":10, "killers":[{"name":"demon","physical":50},{"name":"bird","physical":50}]}
+			{"atk%":10, "def%":10, "evoMag":20, "killers":[{"name":"demon","physical":50},{"name":"bird","physical":50}]}
 		]
 	},
 	"302000405": {
@@ -4914,7 +4919,7 @@
 		"equip":["sword","greatSword","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Counter","Defend","Demonic Fury","Doublehand","Ignite"],
 		"skills": [
-			{"hp%":40, "singleWielding":{"atk":150}, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25},{"name":"paralysis","percent":25}]}
+			{"hp%":40, "evoMag":20, "singleWielding":{"atk":150}, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25},{"name":"paralysis","percent":25}]}
 		]
 	},
 	"401000305": {

@@ -7,6 +7,8 @@ const formulaByGoal = {
     "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
     "jumpDamage":                       {"type":"value","name":"jumpDamage"},
+    "sprDamageWithPhysicalMecanism":    {"type":"value","name":"sprDamageWithPhysicalMecanism"},
+    "summonerSkill":                    {"type":"value","name":"summonerSkill"},
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
@@ -17,13 +19,6 @@ const formulaByGoal = {
     "mpRefresh":                        {"type":"*", "value1":{"type":"value","name":"mp"}, "value2":{"type":"value","name":"mpRefresh"}},
     "heal":                             {"type":"+", "value1":{"type":"/", "value1":{"type":"value","name":"spr"}, "value2":{"type":"constant", "value":2}}, "value2":{"type":"/", "value1":{"type":"value","name":"mag"}, "value2":{"type":"constant", "value":10}}},
 };
-const involvedStats = {
-    "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
-    "magicalDamage":                    ["mag","magicalKiller"],
-    "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
-    "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
-    "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
-}
 
 
 const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
@@ -509,6 +504,14 @@ function logBuild(build, value) {
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
+    var evoMagResult = calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total;
+    if (evoMagResult > 0) {
+        $("#resultStats .evoMag").removeClass("hidden");
+        $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    } else {
+        $("#resultStats .evoMag").addClass("hidden");
+    }
+    
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
     }
@@ -1271,7 +1274,7 @@ function getStateHash() {
     if (data.goal == "magicalDamage") {
         data.attackType = $(".magicalSkillType select").val();
     }
-    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "custom") {
+    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "sprDamageWithPhysicalMecanism" || data.goal == "custom") {
         data.ennemyRaces = getSelectedValuesFor("races");
         readEnnemyStats();
         data.ennemyResists = ennemyStats.elementalResists;
@@ -1411,8 +1414,10 @@ function loadStateHashAndBuild(data) {
         $(".unitStats .stat.lbShardsPerTurn .buff input").val(data.lbShardsPerTurn);
     }
     dataLoadedFromHash = true;
-    build();
     window.location.hash = "";
+    if (data.runBuild) {
+        build();
+    }
 }
 
 function showBuildLink() {
@@ -1472,6 +1477,7 @@ function showBuildLink() {
       
 function showBuilderSetupLink() {
     var data = getStateHash();
+    data.runBuild = true;
     getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html#" + btoa(JSON.stringify(data)), function(shortUrl) {
         $('<div id="showBuilderSetupLinkDialog" title="Builder setup Link">' + 
             '<input value="' + shortUrl + '"></input>' +
@@ -1504,6 +1510,7 @@ function showBuilderSetupLink() {
 function showBuildAsText() {
     var text = "";
     text += 
+        builds[currentUnitIndex].unit.name + ' ' + builds[currentUnitIndex].unit.max_rarity + '★\n' +
         getItemLineAsText("Right hand", 0) +
         getItemLineAsText("Left hand", 1) +
         getItemLineAsText("Head", 2) +
@@ -1780,6 +1787,7 @@ var counter = 0;
 function continueIfReady() {
     counter++;
     if (counter == 2) {
+        initWorkerNumber();
         initWorkers();
         
         var hashData = readStateHashData();
@@ -1791,14 +1799,28 @@ function continueIfReady() {
     }
 }
 
-function initWorkers() {
-    workers = [];
+function initWorkerNumber() {
     if (navigator.hardwareConcurrency) {
         numberOfWorkers = navigator.hardwareConcurrency;
     } else {
         console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
         numberOfWorkers = 4;
     }
+    $("#coreUsage input").val(numberOfWorkers);
+    $("#coreUsage input").on('input',$.debounce(300,function() {
+        var number = parseInt($("#coreUsage input").val());
+        if (!number || isNaN(number) || number < 1) {
+            $("#coreUsage input").val("1");
+            numberOfWorkers = 1;
+        } else {
+            numberOfWorkers = number;
+        }
+        initWorkers();
+    }));
+}
+
+function initWorkers() {
+    workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
         workers.push(new Worker('builder/optimizerWebWorker.js'));
         workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
