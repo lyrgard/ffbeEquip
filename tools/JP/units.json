@@ -5160,6 +5160,18 @@
 		},
 		"equip":["fist","hat","clothes"]
 	},
+	"254001103": {
+		"name":"ケイト",
+		"id":"254001103",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2598,"mp":123,"atk":110,"def":90,"mag":96,"spr":92},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","gun","hat","clothes"]
+	},
 	"254001204": {
 		"name":"King",
 		"jpname":"キング",
@@ -5186,6 +5198,66 @@
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["dagger","axe","spear","hat","clothes"]
+	},
+	"254001805": {
+		"name":"マキナ",
+		"id":"254001805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4623,"mp":209,"atk":201,"def":162,"mag":160,"spr":185},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"6_form": {
+			"name":"マキナ",
+			"id":"254001805",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3556,"mp":160,"atk":154,"def":124,"mag":123,"spr":142},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","greatSword","katana","hat","clothes"]
+		}
+	},
+	"254001905": {
+		"name":"クラサメ",
+		"id":"254001905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4519,"mp":245,"atk":196,"def":156,"mag":197,"spr":185},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"クラサメ",
+			"id":"254001905",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3476,"mp":188,"atk":150,"def":120,"mag":151,"spr":142},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"254002004": {
+		"name":"デュース",
+		"id":"254002004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2994,"mp":162,"atk":118,"def":120,"mag":139,"spr":149},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["staff","rod","harp","hat","clothes","robe"]
 	},
 	"255000104": {
 		"name":"Juggler",

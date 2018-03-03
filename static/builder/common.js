@@ -1,3 +1,5 @@
+const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism","summonerSkill"];
+
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
     if (value == undefined) {
@@ -69,7 +71,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
         }
-        if ("physicalDamage" == formula.name || "magicalDamage" == formula.name || "magicalDamageWithPhysicalMecanism" == formula.name || "hybridDamage" == formula.name || "jumpDamage" == formula.name) {
+        if (damageFormulaNames.includes(formula.name)) {
             var cumulatedKiller = 0;
             var applicableKillerType = null;
             if (unitBuild.involvedStats.includes("physicalKiller")) {
@@ -120,6 +122,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             if (unitBuild.involvedStats.includes("jumpDamage")) {
                 jumpMultiplier += calculateStatValue(itemAndPassives, "jumpDamage", unitBuild).total/100;
             }
+            
+            var evoMagMultiplier = 1;
+            if (unitBuild.involvedStats.includes("evoMag")) {
+                evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
+            }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
@@ -141,10 +148,10 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier  / ennemyStats.def;
                 } else {
                     var dualWieldCoef = 1;
-                    if (goalValuesCaract[formula.name].attackTwiceWithDualWield && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
+                    if (goalValuesCaract[formula.name].type == "physical" && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                         dualWieldCoef = 2;
                     }
-                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * damageMultiplier  / ennemyStats.spr;
+                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * damageMultiplier  / ennemyStats.spr;
                 }
             }
             var value = total / goalValuesCaract[formula.name].statsToMaximize.length;
