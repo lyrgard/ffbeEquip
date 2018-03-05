@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -16,6 +15,7 @@ const authRequired = require('./server/middlewares/oauth.js');
 const app = express();
 app.disable('x-powered-by');
 
+// Middlewares
 app.use(express.static(path.join(__dirname, '/static/')));
 if (config.isDev) {
   app.use(morgan('dev'));
@@ -26,6 +26,7 @@ app.use(sessions({
 }));
 app.use(bodyParser.json());
 
+// Routes
 app.use('/', oauth);
 app.use('/links', links);
 app.use('/', corrections);
@@ -39,7 +40,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 if (module === require.main) {
-  const server = app.listen(config.port, () => {
+  app.listen(config.port, () => {
     console.log(`App server running at http://localhost:${config.port}`);
   });
 }

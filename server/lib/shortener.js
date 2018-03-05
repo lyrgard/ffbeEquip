@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const google = require('googleapis');
+const { google } = require('googleapis');
 const config = require('../../config.js');
 
 const urlshortener = google.urlshortener({

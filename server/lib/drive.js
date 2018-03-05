@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const google = require('googleapis');
+const { google } = require('googleapis');
 const is = require('@sindresorhus/is');
 
 const drive = google.drive('v3');

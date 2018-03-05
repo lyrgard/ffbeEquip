@@ -14,10 +14,8 @@ const getSchema = Joi.object({
 });
 route.get('/:shortId', validator.params(getSchema), async (req, res) => {
   const { shortId } = req.params;
-  const shortUrl = `https://goo.gl/${shortId}`;
-  const longUrl = await shortener.get(shortUrl);
 
-  return res.redirect(longUrl);
+  return res.redirect(`https://goo.gl/${shortId}`);
 });
 
 /**
