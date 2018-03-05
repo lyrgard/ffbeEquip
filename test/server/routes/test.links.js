@@ -53,7 +53,7 @@ describe('routes.links', () => {
   it('.get', (done) => {
     request(app)
       .get('/links/example')
-      .expect('location', LONG_URL)
+      .expect('location', 'https://goo.gl/example')
       .expect(302, done);
   });
 });
