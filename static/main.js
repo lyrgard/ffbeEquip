@@ -216,7 +216,8 @@ var displayUnitRarity = function(unit) {
 };
 
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
-function unselectAll(type, runUpdate = true) {
+function unselectAll(type, runUpdate) {
+    runUpdate = runUpdate || true;
     $('.active input[name='+ type +']').each(function(index, checkbox) {
         $(checkbox).prop('checked', false);
         $(checkbox).parent().removeClass('active');
