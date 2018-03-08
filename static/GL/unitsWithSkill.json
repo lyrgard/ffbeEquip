@@ -5420,6 +5420,87 @@
 			{"atk%":20, "def%":15, "evade":{"physical":30}, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
 	},
+	"401003303": {
+		"name":"Pharaoh Abel",
+		"id":"401003303",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2660,"mp":111,"atk":113,"def":94,"mag":90,"spr":91},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","sword","staff","rod","throwing","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "def%":10, "killers":[{"name":"beast","physical":50}]}
+		]
+	},
+	"401003404": {
+		"name":"Divine Soleil",
+		"id":"401003404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3392,"mp":192,"atk":113,"def":119,"mag":133,"spr":147},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "mp%":35, "spr%":30, "evade":{"physical":20}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+		]
+	},
+	"401003505": {
+		"name":"Explorer Aileen",
+		"id":"401003505",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3710,"mp":151,"atk":156,"def":117,"mag":120,"spr":117},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":30, "atk%":30, "singleWielding":{"atk":100}, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50},{"name":"human","physical":50}], "mpRefresh":5},
+			{"atk%":30, "spr%":30, "equipedConditions":["bow"]},
+			{"atk%":30, "spr%":30, "equipedConditions":["gun"]},
+			{"atk%":30, "spr%":30, "equipedConditions":["throwing"]},
+			{"hp%":15, "def%":15, "equipedConditions":["hat"]},
+			{"hp%":15, "def%":15, "equipedConditions":["clothes"]},
+			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
+			{"atk%":30, "def%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "def%":30, "equipedConditions":["spear"]},
+			{"atk%":30, "def%":30, "equipedConditions":["fist"]},
+			{"atk%":30, "def%":30, "equipedConditions":["axe"]}
+		]
+	},
+	"401003605": {
+		"name":"Lara Croft",
+		"id":"401003605",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3450,"mp":155,"atk":150,"def":130,"mag":95,"spr":125},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","bow","axe","spear","whip","throwing","gun","mace","fist","lightShield","hat","clothes"],
+		"skills": [
+			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "evade":{"physical":5}, "lbFillRate":100, "partialDualWield":["dagger","whip","throwing","gun"], "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"human","physical":25},{"name":"bug","physical":25}]},
+			{"atk%":20, "equipedConditions":["bow"]},
+			{"atk%":20, "equipedConditions":["throwing"]},
+			{"atk%":20, "equipedConditions":["gun"]},
+			{"def%":20, "equipedConditions":["axe"]},
+			{"def%":20, "equipedConditions":["spear"]},
+			{"def%":20, "equipedConditions":["whip"]},
+			{"def%":20, "equipedConditions":["mace"]},
+			{"def%":20, "equipedConditions":["fist"]},
+			{"spr%":20, "equipedConditions":["dagger"]},
+			{"spr%":20, "equipedConditions":["sword"]},
+			{"spr%":20, "equipedConditions":["greatSword"]}
+		]
+	},
 	"401003704": {
 		"name":"Yan",
 		"id":"401003704",
