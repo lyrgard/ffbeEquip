@@ -59,7 +59,11 @@ function isTwoHanded(item) {
 }
 
 function hasDualWieldOrPartialDualWield(item) {
-    return ((item.special && item.special.includes("dualWield")) || item.partialDualWield);
+    return hasDualWield(item) || item.partialDualWield;
+}
+
+function hasDualWield(item) {
+    return item.special && item.special.includes("dualWield")
 }
 
 function calculateBuildValue(itemAndPassives) {
