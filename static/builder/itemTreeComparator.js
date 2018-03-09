@@ -60,10 +60,11 @@ class ItemTreeComparator {
     }
     
     static moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree = treeRoot, currentDepth = 0) {
-        var depth = getDepth(currentTree, currentDepth);
-        if (depth > maxDepth) {
+        
+        if (currentDepth > maxDepth) {
             return;
         }
+        var depth = getDepth(currentTree, currentDepth);
         var entryToAddToRoot = [];
         if (!currentTree.root) {
             var index = 0;
