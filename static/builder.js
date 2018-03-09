@@ -498,8 +498,20 @@ function logBuild(build, value) {
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
+        if (baseStats.includes(statsToDisplay[statIndex])) {
+            var equipmentFlatStatBonus = (getEquipmentStatBonus(build, statsToDisplay[statIndex], 99) - 1) * 100;
+            if (equipmentFlatStatBonus > 0) {
+                bonusPercent += "&nbsp;-&nbsp;";
+                if (equipmentFlatStatBonus > 300) {
+                    bonusPercent += "<span style='color:red;' title='Only 300% taken into account'>" + equipmentFlatStatBonus + "%</span>";
+                } else {
+                    bonusPercent += equipmentFlatStatBonus + "%";
+                }
+            }
+        }
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
     }
+
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
@@ -1671,8 +1683,8 @@ function onPotsChange(stat) {
 function onBuffChange(stat) {
     if (builds[currentUnitIndex].unit) {
         var value = parseInt($(".unitStats .stat." + stat + " .buff input").val()) || 0;
-        if (value > 300) {
-            $(".unitStats .stat." + stat + " .buff input").val(300);
+        if (value > 600) {
+            $(".unitStats .stat." + stat + " .buff input").val(600);
         }
         logCurrentBuild();
     }
