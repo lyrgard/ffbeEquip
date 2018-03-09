@@ -191,7 +191,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
 }
     
 
-function getEquipmentStatBonus(itemAndPassives, stat) {
+function getEquipmentStatBonus(itemAndPassives, stat, cap = 3) {
     if (baseStats.includes(stat) && itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
         var normalStack = 0;
         var glStack = 0;
@@ -210,7 +210,7 @@ function getEquipmentStatBonus(itemAndPassives, stat) {
                 }
             }
         }
-        return 1 + Math.min(3, normalStack);
+        return 1 + Math.min(cap, normalStack);
     } else {
         return 1;
     }
