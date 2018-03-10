@@ -104,7 +104,7 @@ class UnitBuild {
             if (!this.fixedItems[0]) {
                 return 0;
             } else {
-                if (!forceDoubleHand && this.equipable[1].includes(item.type)) {
+                if (!forceDoubleHand && (this.equipable[1].includes(item.type) || hasDualWield(item) || (item.partialDualWield && item.partialDualWield.includes(this.fixedItems[0].type)))) {
                     return 1;
                 } else {
                     return -1;
