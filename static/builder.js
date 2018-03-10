@@ -814,7 +814,7 @@ function loadBuild(buildIndex) {
     
     $("#unitsSelect option").prop("selected", false);
     if (build.unit) {
-        $('#unitsSelect option[value="' + build.unit.name + '"]').prop("selected", true);
+        $('#unitsSelect option[value="' + build.unit.id + '"]').prop("selected", true);
     }
     $(".unitAttackElement div.elements label").removeClass("active");
     if (build.innateElements) {
@@ -826,7 +826,7 @@ function loadBuild(buildIndex) {
     $(".goal option").prop("selected", false);
     if (build.goal) {
         if (build.goal == "custom") {
-            customFormula = build.customFormula;
+            customFormula = build._formula;
         } else {
             customFormula = null;
             if (build.goal == "magicalDamageWithPhysicalMecanism") {
@@ -1317,8 +1317,8 @@ function getStateHash() {
         }
     }
     
-    if (builds[currentUnitIndex].fixedItems[10]) {
-        data.esper = builds[currentUnitIndex].fixedItems[10].name;
+    if (builds[currentUnitIndex].build[10]) {
+        data.esper = builds[currentUnitIndex].build[10].name;
     }
     
     if (data.goal == "custom") {
