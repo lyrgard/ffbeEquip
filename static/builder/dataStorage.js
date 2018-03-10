@@ -11,6 +11,10 @@ class DataStorage {
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
             var item = this.data[index];
+            item.meanDamageVariance = 1;
+            if (item.damageVariance) {
+                item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
+            }
             if (item.id != currentId) {
                 if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {
                     this.itemWithVariation[currentId] = currentItemVersions;
@@ -186,12 +190,6 @@ class DataStorage {
             item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
         } else {
             item.elementType = "neutral"
-        }
-        if (weaponList.includes(item.type)) {
-            item.meanDamageVariance = 1;
-            if (item.damageVariance) {
-                item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
-            }
         }
     }
 

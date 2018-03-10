@@ -103,8 +103,6 @@ function build() {
     builds[currentUnitIndex].emptyBuild();
     
     readEnnemyStats();
-    
-    builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     readGoal();
     
     calculateAlreadyUsedItems();
@@ -268,6 +266,7 @@ function readStatsValues() {
         "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
+    builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
 }
 
 
@@ -458,6 +457,8 @@ function getOwnedNumber(item) {
 
 function logCurrentBuild() {
     readStatsValues();
+    readGoal();
+    readEnnemyStats();
     logBuild(builds[currentUnitIndex].build);
 }
 
@@ -528,7 +529,6 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        readEnnemyStats();
         value = calculateBuildValue(build);
     }
     
@@ -1417,6 +1417,8 @@ function loadStateHashAndBuild(data) {
     window.location.hash = "";
     if (data.runBuild) {
         build();
+    } else {
+        logCurrentBuild();
     }
 }
 
