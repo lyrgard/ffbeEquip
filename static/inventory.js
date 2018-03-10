@@ -91,10 +91,11 @@ function showSettings() {
         '<div class="col-xs-12 addAll">' +
         '<div class="col-xs-12 source">Inventory Tools</div>' +
         '<div class="col-x2-12 inventoryTools">' +
-        '<button class="ui-button ui-co`rner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
+        '<button class="ui-button ui-corner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
     if (itemsAddedWithAddAll.length > 0) {
         html += '<button class="ui-button ui-corner-all ui-widget" onclick="undoAddAllToInventory()">Undo Add All</button>';
     }
+    html += '<button class="ui-button ui-corner-all ui-widget removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
     html += '</div></div>';
     $("#results").html(html);
 
@@ -159,7 +160,7 @@ function addToInventory(id, showAlert = true) {
         itemInventory[id] = 1;
         inventoryDiv.removeClass('notOwned');
         inventoryDiv.find(".number").text(itemInventory[id]);
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
     }
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
@@ -182,6 +183,29 @@ function showAddAllToInventoryDialog() {
             "Add all items": function () {
                 addAllToInventory(materia, 4);
                 addAllToInventory(equipments, 2);
+                $(this).dialog("close");
+            },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+}
+
+function showRemoveAllToInventoryDialog() {
+    $('<div id = "dialog-removeAll-confirm" title = "Remove all equipment and materia from inventory?" >' +
+        '<p>This will empty your equipment and materia inventory (on this site). This is not reversible. Are you sure you want to continue?</p> ' +
+    '</div>').dialog({
+        resizable: false,
+        height: "auto",
+        width: 600,
+        modal: true,
+        position: { my: 'top', at: 'top+150', of: $("body") },
+        buttons: {
+            "Empty inventory": function () {
+                itemInventory = {};
+                saveUserData(true, false);
+                $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
                 $(this).dialog("close");
             },
             Cancel: function () {
@@ -225,7 +249,7 @@ function removeFromInventory(id) {
             delete itemInventory[id];
             inventoryDiv.addClass('notOwned');
             inventoryDiv.find(".number").text("");
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items)");
+            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
         } else {
             itemInventory[id] = itemInventory[id] - 1;
             inventoryDiv.find(".number").text(itemInventory[id]);
