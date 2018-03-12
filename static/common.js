@@ -37,16 +37,20 @@ function getImageHtml(item) {
 }
 
 function getNameColumnHtml(item) {
-    var html = ""
-    
-    if (item.placeHolder) {
-        html += '<div class="td name"><div>' + toLink(item.name, typeCategories[item.type]);
-    } else if (item.wikiEntry) {
-        html += '<div class="td name"><div>' + toLink(item.name, item.wikiEntry);
-    } else {
-        html += '<div class="td name"><div>' + toLink(item.name);
+    var html = '<div class="td name"><div>';
+
+    if (item.rarity) {
+      html += item.rarity + '<span class="glyphicon glyphicon-star"></span> ';
     }
-        
+
+    if (item.placeHolder) {
+        html += toLink(item.name, typeCategories[item.type]);
+    } else if (item.wikiEntry) {
+        html += toLink(item.name, item.wikiEntry);
+    } else {
+        html += toLink(item.name);
+    }
+
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
@@ -241,7 +245,7 @@ function displayItemLine(item) {
     if (item.singleWieldingGL) {
         for (var index in baseStats) {
             if (item.singleWieldingGL[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingGL[baseStats[index]] + "%) when single wielding (Different stack for DH cap)</li>";    
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingGL[baseStats[index]] + "%) when single wielding (Different stack for DH cap)</li>";
             }
         }
     }
@@ -255,11 +259,11 @@ function displayItemLine(item) {
     if (item.singleWieldingOneHandedGL) {
         for (var index in baseStats) {
             if (item.singleWieldingOneHandedGL[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHandedGL[baseStats[index]] + "%) when single wielding a one-handed weapon (Different stack for DH cap)</li>";    
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHandedGL[baseStats[index]] + "%) when single wielding a one-handed weapon (Different stack for DH cap)</li>";
             }
         }
     }
-    
+
 
     if (item.accuracy) {
         special += "<li>Increase Accuracy: " + item.accuracy + "%</li>";
@@ -832,7 +836,7 @@ function prepareSearch(data) {
                 textToSearch += "|killer " + killer.name;
             });
         }
-        
+
         if (item.jumpDamage) {
             textToSearch += "|" + "Increase damage dealt by jump attacks by "+ item.jumpDamage + "%";
         }
@@ -1012,7 +1016,7 @@ function saveInventory(successCallback, errorCallback) {
         error: errorCallback
     });
 }
-    
+
  function saveUnits(successCallback, errorCallback) {
     $.ajax({
         url: server + '/units',
@@ -1064,12 +1068,12 @@ $(function() {
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                 alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
                 alert( errorThrown );
-            });   
+            });
         } else {
             onUnitsOrInventoryLoaded();
         }
-        
-        
+
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");
