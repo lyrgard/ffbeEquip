@@ -835,7 +835,7 @@ function prepareSearch(data) {
         if (item.dualWielding) {
             for (var index in baseStats) {
                 if (item.dualWielding[baseStats[index]]) {
-                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when dual wielding"
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.dualWielding[baseStats[index]] + "%) when dual wielding"
                 }
             }
         }

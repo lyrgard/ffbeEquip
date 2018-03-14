@@ -306,6 +306,17 @@ function readSkills(itemIn, itemOut, skills) {
             var skillId = itemIn.skills[skillIndex];
             var skill = skills[skillId];
             if (skill) {
+                if (skill.unique && !skill.active) {
+                    if (!itemOut.notStackableSkills) {
+                        itemOut.notStackableSkills = {};
+                    }
+                    var notStackableSkill = {};
+                    for (var rawEffectIndex in skill.effects_raw) {
+                        rawEffect = skill.effects_raw[rawEffectIndex];
+                        addEffectToItem(notStackableSkill, skill, rawEffectIndex, skills)
+                    }
+                    itemOut.notStackableSkills[skillId] = notStackableSkill;
+                }
                 if (skill.type == "MAGIC") {
                     addSpecial(itemOut, getSkillString(skill));
                 } else if (skill.unit_restriction) {
@@ -708,7 +719,7 @@ function addLbPerTurn(item, min, max) {
 } 
 
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
