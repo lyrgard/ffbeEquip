@@ -1141,6 +1141,18 @@ function fixItem(key, slotParam = -1) {
         if (builds[currentUnitIndex].build[slot] && builds[currentUnitIndex].build[slot].id != item.id) {
             removeItemAt(slot);
         }
+        if (item.originalItem) {
+            var tmrSkillAlreadyUsed = false;
+            for (var index = 0; index < 10; index++) {
+                if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
+                    tmrSkillAlreadyUsed = true;
+                    break;
+                }
+            }
+            if (tmrSkillAlreadyUsed) {
+                item = item.originalItem;
+            }
+        }
         builds[currentUnitIndex].fixedItems[slot] = item;
         builds[currentUnitIndex].build[slot] = item;
         if (slot < 10) {
@@ -1149,6 +1161,7 @@ function fixItem(key, slotParam = -1) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
                         var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+                        
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
@@ -1183,13 +1196,29 @@ function removeItemAt(slot) {
     builds[currentUnitIndex].fixedItems[slot] = null;
     builds[currentUnitIndex].build[slot] = null;
     builds[currentUnitIndex].prepareEquipable();
+    
+    var tmrSkillAlreadyUsed = false;
+    for (var index = 0; index < 10; index++) {
+        if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
+            tmrSkillAlreadyUsed = true;
+            break;
+        }
+    }
+    
     for (var index = 0; index < 10; index ++) {
         var item = builds[currentUnitIndex].build[index];
         if (item && !item.placeHolder) {
             if (!builds[currentUnitIndex].equipable[index].includes(item.type)) {
                 removeItemAt(index);
             } else {
-                builds[currentUnitIndex].build[index] = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+                var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+                if (!tmrSkillAlreadyUsed) {
+                    bestItemVersion = getItemWithTmrSkillIfApplicable(bestItemVersion, builds[currentUnitIndex].unit);
+                    if (bestItemVersion.originalItem) {
+                        tmrSkillAlreadyUsed = true;
+                    }
+                }
+                builds[currentUnitIndex].build[index] = bestItemVersion;
                 if (builds[currentUnitIndex].fixedItems[index]) {
                     builds[currentUnitIndex].fixedItems[index] = builds[currentUnitIndex].build[index];
                 }

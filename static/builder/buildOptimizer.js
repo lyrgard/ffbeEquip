@@ -138,7 +138,7 @@ class BuildOptimizer {
     
     
     
-    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills) {
+    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, tmrSkillUsed = false) {
         if (index == 2) {
             // weapon set, try elemental based skills
             for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
@@ -155,7 +155,7 @@ class BuildOptimizer {
         }
 
         if (fixedItems[index]) {
-            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills);
+            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, tmrSkillUsed);
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
                 var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
@@ -190,7 +190,7 @@ class BuildOptimizer {
                             }
                         }
                         entry.available--;
-                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills);
+                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed);
                         entry.available++;
                         //dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
                         currentChild.currentEquivalentIndex = currentEquivalentIndex;
@@ -201,24 +201,30 @@ class BuildOptimizer {
                     }
                 }
                 if (!foundAnItem) {
-                    this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
+                    this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, tmrSkillUsed);
                 }
                 build[index] == null;
             } else {
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills);
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, tmrSkillUsed);
             }
         }
         build[index] = null;
     }
 
-    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills) {
+    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed) {
         if (index == 0 && item && isTwoHanded(item) && typeCombination[1]) {
             return; // Two handed weapon only accepted on DH builds
         }
         if (index == 1 && !item && typeCombination[1]) {
             return; // don't accept null second hand in DW builds
         }
+        if (tmrSkillUsed && item.originalItem) {
+            item = item.originalItem;
+        }
         build[index] = item;
+        if (item && item.originalItem) {
+            tmrSkillUsed = true;
+        }
         if (index == 9) {
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
                 if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
@@ -237,7 +243,7 @@ class BuildOptimizer {
                 }
             }
         } else {
-            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills);
+            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, tmrSkillUsed);
         }
     }
 
