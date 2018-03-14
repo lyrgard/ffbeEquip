@@ -751,7 +751,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://exviusdb.com/static/img/assets/item/" + icon ,filePath);
+        download("https://exviusdb.com/static/img/assets/item/" + icon ,filePath);
     }
 }
 
