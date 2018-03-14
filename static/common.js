@@ -196,20 +196,25 @@ function displayItemLine(item) {
     // special
     html += '<div class="td special">';
 
+    var special = "";
+    if (item.originalItem) {
+        special += "<li><b>Item enhanced by the unit TMR ability</b></li>";
+    }
+    
     if (item.element) {
-        html += getElementHtml(item.element);
+        special += getElementHtml(item.element);
     }
     if (item.ailments) {
-        html += getAilmentsHtml(item);
+        special += getAilmentsHtml(item);
     }
     if (item.resist) {
-        html += getResistHtml(item);
+        special += getResistHtml(item);
     }
 
     if (item.killers) {
-        html += getKillersHtml(item);
+        special += getKillersHtml(item);
     }
-    var special = "";
+    
     if (item.special && item.special.includes("dualWield")) {
         special += "<li>" + toHtml("[Dual Wield|ability_72.png]") + "</li>";
     }
@@ -238,13 +243,6 @@ function displayItemLine(item) {
             }
         }
     }
-    if (item.singleWieldingGL) {
-        for (var index in baseStats) {
-            if (item.singleWieldingGL[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingGL[baseStats[index]] + "%) when single wielding (Different stack for DH cap)</li>";    
-            }
-        }
-    }
     if (item.singleWieldingOneHanded) {
         for (var index in baseStats) {
             if (item.singleWieldingOneHanded[baseStats[index]]) {
@@ -252,14 +250,13 @@ function displayItemLine(item) {
             }
         }
     }
-    if (item.singleWieldingOneHandedGL) {
+    if (item.dualWielding) {
         for (var index in baseStats) {
-            if (item.singleWieldingOneHandedGL[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHandedGL[baseStats[index]] + "%) when single wielding a one-handed weapon (Different stack for DH cap)</li>";    
+            if (item.dualWielding[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.dualWielding[baseStats[index]] + "%) when dual wielding</li>";
             }
         }
     }
-    
 
     if (item.accuracy) {
         special += "<li>Increase Accuracy: " + item.accuracy + "%</li>";
@@ -822,10 +819,25 @@ function prepareSearch(data) {
             });
         }
         if (item.singleWielding) {
-            textToSearch += "|" + "Increase equipment ATK (" + item.singleWielding["atk"] + "%) when single wielding";
+            for (var index in baseStats) {
+                if (item.singleWielding[baseStats[index]]) {
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when dual wielding"
+                }
+            }
         }
-        if (item.singleWieldingGL) {
-            textToSearch += "|" + "Increase equipment ATK (" + item.singleWieldingGL["atk"] + "%) when single wielding";
+        if (item.singleWieldingOneHanded) {
+            for (var index in baseStats) {
+                if (item.singleWieldingOneHanded[baseStats[index]]) {
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWieldingOneHanded[baseStats[index]] + "%) when dual wielding"
+                }
+            }
+        }
+        if (item.dualWielding) {
+            for (var index in baseStats) {
+                if (item.dualWielding[baseStats[index]]) {
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when dual wielding"
+                }
+            }
         }
         if (item.killers) {
             $(item["killers"]).each(function (index, killer) {

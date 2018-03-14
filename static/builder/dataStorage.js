@@ -11,6 +11,12 @@ class DataStorage {
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
             var item = this.data[index];
+            if (item.originalItem) {
+                this.data[index] = item.originalItem;
+            }
+            if (this.unitBuild && this.unitBuild.unit) {
+                this.data[index] = getItemWithTmrSkillIfApplicable(this.data[index], this.unitBuild.unit);
+            }
             item.meanDamageVariance = 1;
             if (item.damageVariance) {
                 item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
@@ -44,6 +50,7 @@ class DataStorage {
                 this.desirableElements.push(skill.equipedConditions[0]);
             }
         }
+        this.prepareAllItemsVersion();
     }
     
     prepareData(itemsToExclude, ennemyStats) {
@@ -58,7 +65,7 @@ class DataStorage {
         var equipable = this.unitBuild.getCurrentUnitEquip();
 
         for (var index = this.data.length; index--;) {
-            var item = getItemWithTmrSkillIfApplicable(this.data[index], this.unitBuild.unit);
+            var item = this.data[index];
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
