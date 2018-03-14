@@ -16,6 +16,7 @@ class DataStorage {
             }
             if (this.unitBuild && this.unitBuild.unit) {
                 this.data[index] = getItemWithTmrSkillIfApplicable(this.data[index], this.unitBuild.unit);
+                item = this.data[index];
             }
             item.meanDamageVariance = 1;
             if (item.damageVariance) {
