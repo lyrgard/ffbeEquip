@@ -524,17 +524,17 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // +EQ stat when dual wielding
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
         if (!item.dualWielding) {item.dualWielding = {}};
-        var stat;
+        var dualWieldingStat;
         if (rawEffect[3][0] == 1) {
-            stat = "atk";
+            dualWieldingStat = "atk";
         } else if (rawEffect[3][0] == 2) {
-            stat = "def";
+            dualWieldingStat = "def";
         } else if (rawEffect[3][0] == 3) {
-            stat = "mag";
+            dualWieldingStat = "mag";
         } else if (rawEffect[3][0] == 4) {
-            stat = "spr";
+            dualWieldingStat = "spr";
         }
-        addStat(item.dualWielding, stat, rawEffect[3][1]);
+        addStat(item.dualWielding, dualWieldingStat, rawEffect[3][1]);
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -686,7 +686,7 @@ function isItemEmpty(item) {
             }
         }
     }
-    if (item.resist) {
+    if (item.resist ||item.singleWielding || item.singleWieldingOneHanded || item.dualWielding) {
         return false;
     }
     return true;
