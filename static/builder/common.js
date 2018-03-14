@@ -427,6 +427,9 @@ function getEsperItem(esper) {
 
 function getItemWithTmrSkillIfApplicable(item, unit) {
     if (unit.tmrSkill && item.tmrUnit && item.tmrUnit == unit.id) {
+        if (item.originalItem) {
+            item = item.originalItem;
+        }
         var sum = combineTwoItems(item, unit.tmrSkill);
         sum.originalItem = item;
         return sum;
@@ -449,10 +452,13 @@ function combineTwoItems(item1, item2) {
         addEvade(sum, item2.evade);
     }
     if (item2.singleWielding) {
-        addSingleWielding(sum, "singleWielding", item2.singleWielding);
+        addEqStatBonus(sum, "singleWielding", item2.singleWielding);
     }
     if (item2.singleWieldingOneHanded) {
-        addSingleWielding(sum, "singleWieldingOneHanded", item2.singleWieldingOneHanded);
+        addEqStatBonus(sum, "singleWieldingOneHanded", item2.singleWieldingOneHanded);
+    }
+    if (item2.dualWielding) {
+        addEqStatBonus(sum, "dualWielding", item2.dualWielding);
     }
     if (item2.resist) {
         addResist(sum, item2.resist);
@@ -561,13 +567,13 @@ function addEvade(item, evade) {
     }
 }
 
-function addSingleWielding(item, doubleHandType, values) {
+function addEqStatBonus(item, doubleHandType, values) {
     if (!item[doubleHandType]) {
         item[doubleHandType] = {};
     }
     var stats = Object.keys(values);
     for (var index = stats.length; index--;) {
         var stat = stats[index];
-        addStat(item[doubleHandType], stat, values[stat]);
+        addToStat(item[doubleHandType], stat, values[stat]);
     }
 }

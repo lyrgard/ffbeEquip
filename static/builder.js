@@ -500,7 +500,7 @@ function logBuild(build, value) {
             bonusPercent = result.bonusPercent + "%";
         }
         if (baseStats.includes(statsToDisplay[statIndex])) {
-            var equipmentFlatStatBonus = (getEquipmentStatBonus(build, statsToDisplay[statIndex], 99) - 1) * 100;
+            var equipmentFlatStatBonus = Math.floor((getEquipmentStatBonus(build, statsToDisplay[statIndex], 99) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
                 bonusPercent += "&nbsp;-&nbsp;";
                 if (equipmentFlatStatBonus > 300) {
@@ -742,6 +742,7 @@ function onUnitChange() {
             reinitBuild(currentUnitIndex);
             builds[currentUnitIndex].setUnit(selectedUnitData);
             updateUnitStats();
+            dataStorage.setUnitBuild(builds[currentUnitIndex]);
             $("#help").addClass("hidden");
             recalculateApplicableSkills();
             logCurrentBuild();
@@ -1029,8 +1030,8 @@ function updateSearchResult() {
     accessToRemove = [];
     
     var dataWithOnlyOneOccurence = searchableEspers.slice();
-    for (var index = 0, len = data.length; index < len; index++) {
-        var item = data[index];
+    for (var index = 0, len = dataStorage.data.length; index < len; index++) {
+        var item = dataStorage.data[index];
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
@@ -1140,7 +1141,6 @@ function fixItem(key, slotParam = -1) {
         if (builds[currentUnitIndex].build[slot] && builds[currentUnitIndex].build[slot].id != item.id) {
             removeItemAt(slot);
         }
-        item = getItemWithTmrSkillIfApplicable(item, builds[currentUnitIndex].unit);
         builds[currentUnitIndex].fixedItems[slot] = item;
         builds[currentUnitIndex].build[slot] = item;
         if (slot < 10) {
@@ -1149,7 +1149,6 @@ function fixItem(key, slotParam = -1) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
                         var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
-                        bestItemVersion = getItemWithTmrSkillIfApplicable(bestItemVersion, builds[currentUnitIndex].unit);
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
