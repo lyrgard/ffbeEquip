@@ -192,21 +192,20 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     
 
 function getEquipmentStatBonus(itemAndPassives, stat, cap = 3) {
-    if (baseStats.includes(stat) && itemAndPassives[0] && !itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type)) {
+    if (baseStats.includes(stat) && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         var normalStack = 0;
-        var glStack = 0;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
             if (item) {
-                if (item.singleWielding && item.singleWielding[stat]) {
+                if (item.singleWielding && item.singleWielding[stat]  && itemAndPassives[0] && !itemAndPassives[1]) {
                     normalStack += item.singleWielding[stat] / 100;
                 }
-                if (item.singleWieldingGL && item.singleWieldingGL[stat]) {
-                    glStack += item.singleWieldingGL[stat] / 100;
-                }
-                if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat]) {
+                if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat] && itemAndPassives[0] && !itemAndPassives[1]) {
                     normalStack += item.singleWieldingOneHanded[stat] / 100;
+                }
+                if (item.dualWielding && item.dualWielding[stat] && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                    normalStack += item.dualWielding[stat] / 100;
                 }
             }
         }
@@ -424,4 +423,151 @@ function getEsperItem(esper) {
         item.resist = esper.resist;
     }
     return item;
+}
+
+function getItemWithTmrSkillIfApplicable(item, unit) {
+    if (unit.tmrSkill && item.tmrUnit && item.tmrUnit == unit.id) {
+        var sum = combineTwoItems(item, unit.tmrSkill);
+        sum.originalItem = item;
+        return sum;
+    } else {
+        return item;
+    }
+}
+
+var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","lbPerTurn","mpRefresh"];
+
+function combineTwoItems(item1, item2) {
+    var sum = JSON.parse(JSON.stringify(item1));
+    for (var index = simpleAddCombineProperties.length; index--;) {
+        var stat = simpleAddCombineProperties[index];
+        if (item2[stat]) {
+            addToStat(sum, stat, item2[stat]);
+        }
+    }
+    if (item2.evade) {
+        addEvade(sum, item2.evade);
+    }
+    if (item2.singleWielding) {
+        addSingleWielding(sum, "singleWielding", item2.singleWielding);
+    }
+    if (item2.singleWieldingOneHanded) {
+        addSingleWielding(sum, "singleWieldingOneHanded", item2.singleWieldingOneHanded);
+    }
+    if (item2.resist) {
+        addResist(sum, item2.resist);
+    }
+    if (item2.killers) {
+        for (var index = items2.killers.length; index--;) {
+            addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
+        }
+    }
+    if (item2.special) {
+        if (!sum.special) {
+            sum.special = [];
+        }
+        sum.special = sum.special.concat(item2.special);
+    }
+    return sum;
+}
+
+function addToStat(skill, stat, value) {
+    if (!skill[stat]) {
+        skill[stat] = value;
+    } else {
+        skill[stat] += value;
+    }
+}
+    
+function addToList(skill, listName, value) {
+    if (!skill[listName]) {
+        skill[listName] = [value];
+    } else {
+        if (!skill[listName].includes(value)) {
+            skill[listName].push(value);
+        }
+    }
+}
+
+function addKiller(skill, race, physicalPercent, magicalPercent) {
+    if (!skill.killers) {
+        skill.killers = [];
+    }
+    var killerData;
+    for (var index in skill.killers) {
+        if (skill.killers[index].name == race) {
+            killerData = skill.killers[index];
+            break;
+        }
+    }
+    
+    if (!killerData) {
+        killerData = {"name":race};
+        skill.killers.push(killerData);
+    }
+    if (physicalPercent != 0) {
+        if (killerData.physical) {
+            killerData.physical += physicalPercent;
+        } else {
+            killerData.physical = physicalPercent;
+        }
+    }
+    if (magicalPercent != 0) {
+        if (killerData.magical) {
+            killerData.magical += magicalPercent;
+        } else {
+            killerData.magical = magicalPercent;
+        }
+    }
+}
+
+function addResist(item, values) {
+    if (!item.resist) {
+        item.resist = [];
+    }
+    for (var index = values.length; index--;) {
+        item.resist.push(values[index]);
+    }
+}
+
+function addAilmentResist(item, values) {
+    for (var index in ailments) {
+        if (values[index]) {
+            if (!item.resist) {
+                item.resist = [];
+            }
+            item.resist.push({"name":ailments[index],"percent":values[index]})
+        }
+    }
+}
+
+function addEvade(item, evade) {
+    if (!item.evade) {
+        item.evade = {};
+    }
+    if (evade.physical) {
+        if (item.evade.physical) {
+            item.evade.physical = item.evade.physical + evade.physical;
+        } else {
+            item.evade.physical = evade.physical;
+        }
+    }
+    if (evade.magical) {
+        if (item.evade.magical) {
+            item.evade.magical = item.evade.magical + evade.magical;
+        } else {
+            item.evade.magical = evade.magical;
+        }
+    }
+}
+
+function addSingleWielding(item, doubleHandType, values) {
+    if (!item[doubleHandType]) {
+        item[doubleHandType] = {};
+    }
+    var stats = Object.keys(values);
+    for (var index = stats.length; index--;) {
+        var stat = stats[index];
+        addStat(item[doubleHandType], stat, values[stat]);
+    }
 }

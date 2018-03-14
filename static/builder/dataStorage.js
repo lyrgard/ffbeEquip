@@ -58,7 +58,7 @@ class DataStorage {
         var equipable = this.unitBuild.getCurrentUnitEquip();
 
         for (var index = this.data.length; index--;) {
-            var item = this.data[index];
+            var item = getItemWithTmrSkillIfApplicable(this.data[index], this.unitBuild.unit);
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }

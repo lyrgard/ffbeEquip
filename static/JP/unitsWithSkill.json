@@ -100,8 +100,9 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["リタリエイト","アルテマ","ディストピア"],
+		"tmrSkill": {"hp%":30, "mag%":50, "resist":[{"name":"dark","percent":50}]},
 		"skills": [
-			{"hp%":30, "mp%":30, "def%":25, "mag%":100, "spr%":25, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"dark","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
+			{"mp%":30, "def%":25, "mag%":50, "spr%":25, "dualWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
 		],
 		"6_form": {
@@ -1031,8 +1032,9 @@
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["ラブリーガード","リフレク","ラブユーオール"],
+		"tmrSkill": {"def%":40, "spr%":40},
 		"skills": [
-			{"hp%":20, "mp%":50, "def%":40, "spr%":70, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":5}
+			{"hp%":20, "mp%":50, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"Marie",
@@ -1065,8 +1067,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["リカバリーオイル","アナリシス","パイルドライバー"],
+		"tmrSkill": {"singleWielding":{"atk":100}, "lbFillRate":50},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":80, "spr%":20, "singleWielding":{"atk":100}, "lbFillRate":50, "killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":40, "mp%":20, "atk%":80, "spr%":20, "dualWielding":{"atk":30}, "killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -1120,8 +1123,9 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["ジェネラルコマンド","インペリアルランス","守護者","不撓不屈"],
+		"tmrSkill": {"hp%":30, "def%":30},
 		"skills": [
-			{"hp%":110, "def%":80, "spr%":40},
+			{"hp%":80, "def%":50, "spr%":40},
 			{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]},
 			{"def%":40, "spr%":40, "equipedConditions":["heavyArmor"]}
 		],
@@ -1261,8 +1265,9 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["槍の極意","スピードスター","ヴォルテクス","ソニックブラスト"],
+		"tmrSkill": {"atk%":40, "def%":20, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50}]},
 		"skills": [
-			{"hp%":40, "mp%":10, "atk%":70, "def%":40, "spr%":20, "evade":{"physical":30}, "jumpDamage":100, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75},{"name":"aquatic","physical":75}], "mpRefresh":5},
+			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "spr%":20, "evade":{"physical":30}, "jumpDamage":100, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "mpRefresh":5},
 			{"atk%":100, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -1353,8 +1358,9 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["フィジカルフォール","リタリエイト","アルテマ"],
+		"tmrSkill": {"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}]},
 		"skills": [
-			{"hp%":30, "mp%":30, "mag%":100, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
+			{"mp%":30, "mag%":50, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
 		],
 		"6_form": {
@@ -1422,8 +1428,9 @@
 		},
 		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["エルフの歌","スペリオエルフ","ブランの愛","オレオール・レイ"],
+		"tmrSkill": {"hp%":20, "mag%":40, "killers":[{"name":"demon","physical":25,"magical":25}]},
 		"skills": [
-			{"hp%":40, "mp%":50, "mag%":70, "spr%":20, "lbFillRate":50, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"demon","physical":100,"magical":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":50, "mag%":30, "spr%":20, "lbFillRate":50, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"demon","physical":75,"magical":75}], "mpRefresh":5},
 			{"mag%":150, "spr%":150, "equipedConditions":["bow"]},
 			{"def%":30, "spr%":80, "equipedConditions":["harp"]}
 		],
@@ -1479,8 +1486,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["常闇","インパクト","暗黒の罪科","暗黒の刃"],
+		"tmrSkill": {"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},
 		"skills": [
-			{"hp%":40, "mp%":40, "atk%":40, "def%":40, "mag%":40, "spr%":40, "singleWieldingOneHanded":{"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":40, "def%":20, "mag%":40, "spr%":20, "singleWieldingOneHanded":{"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"hp%":30, "atk%":30, "equipedConditions":["heavyArmor"]},
 			{"atk%":20, "equipedConditions":["dagger"]},
@@ -1559,8 +1567,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","throwing","gun","mace","fist","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["斧の極意","劫火","鼓舞","高揚"],
+		"tmrSkill": {"hp%":20, "mp%":20},
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":100, "equipedConditions":["axe"]},
 			{"hp%":40, "def%":20, "equipedConditions":["heavyArmor"]},
 			{"atk%":50, "def%":50, "equipedConditions":["axe"]}
@@ -1616,8 +1625,9 @@
 		},
 		"equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["光輝","アルテマ","キリングライト","セイントショット"],
+		"tmrSkill": {"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20},
 		"skills": [
-			{"hp%":40, "mp%":40, "atk%":20, "def%":20, "mag%":70, "spr%":30, "lbFillRate":50, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "mag%":50, "spr%":10, "dualWielding":{"atk":50,"mag":50}, "lbFillRate":50, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":30, "mag%":30, "equipedConditions":["heavyArmor"]},
 			{"mag%":50, "equipedConditions":["throwing"]},
 			{"atk%":50, "equipedConditions":["gun"]}
@@ -1674,8 +1684,9 @@
 		},
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["賢者の教え","ストップデタッチ","デディケーション"],
+		"tmrSkill": {"resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100}]},
 		"skills": [
-			{"hp%":60, "mp%":70, "def%":20, "spr%":30, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
+			{"hp%":60, "mp%":70, "def%":20, "spr%":30, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"spr%":100, "equipedConditions":["staff"]}
 		],
 		"6_form": {
@@ -1777,8 +1788,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["双剣将軍","アームズイレイサー","アーマーイレイサー","フルブレイク改"],
+		"tmrSkill": {"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}},
 		"skills": [
-			{"hp%":50, "mp%":40, "atk%":60, "def%":30, "spr%":30, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":50, "mp%":40, "atk%":60, "def%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "equipedConditions":["katana"]},
@@ -1914,8 +1926,9 @@
 		},
 		"equip":["dagger","sword","greatSword","bow","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["怜悧な微笑","真・りょうてもち","フロストバイト","アイスプリズム"],
+		"tmrSkill": {"hp%":40, "def%":40, "spr%":40, "singleWielding":{"atk":50}},
 		"skills": [
-			{"hp%":60, "atk%":50, "def%":90, "spr%":70, "singleWielding":{"atk":150}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}]},
+			{"hp%":20, "atk%":50, "def%":50, "spr%":30, "singleWielding":{"atk":100}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}]},
 			{"def%":30, "spr%":50, "equipedConditions":["lightArmor"]},
 			{"def%":30, "spr%":50, "equipedConditions":["heavyArmor"]},
 			{"atk%":50, "equipedConditions":["greatSword"]}
@@ -1968,6 +1981,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"dualWielding":{"atk":40}},
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":50, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}], "mpRefresh":10, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
@@ -2060,8 +2074,9 @@
 		},
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
 		"enhancementSkills":["トニックピチカート","生命のリフレーン","愚か者のバラッド"],
+		"tmrSkill": {"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
-			{"hp%":20, "def%":90, "spr%":110, "resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}
+			{"hp%":20, "def%":90, "spr%":80, "resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}
 		],
 		"6_form": {
 			"name":"Roy",
@@ -2145,8 +2160,9 @@
 		},
 		"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["竜封じの血族","槍の極意","飛天滅竜槍・極","ヘキサスラスト"],
+		"tmrSkill": {"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":40}},
 		"skills": [
-			{"hp%":50, "mp%":40, "atk%":50, "def%":20, "spr%":40, "jumpDamage":150, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":20, "atk%":50, "spr%":20, "jumpDamage":150, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}], "mpRefresh":5},
 			{"atk%":100, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -2250,8 +2266,9 @@
 		},
 		"equip":["dagger","katana","bow","fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["かとん弐式","らいげき弐式","隠形術","背負い刀"],
+		"tmrSkill": {"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}]},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":70, "mag%":70, "evade":{"physical":20,"magical":20}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":125,"magical":125}], "mpRefresh":5},
+			{"hp%":40, "mp%":20, "atk%":70, "mag%":70, "evade":{"physical":20}, "dualWielding":{"atk":40,"mag":40}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":90, "mag%":90, "equipedConditions":["katana"]}
 		],
 		"6_form": {
@@ -2336,8 +2353,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"dualWielding":{"atk":30}, "lbPerTurn":{"min":2,"max":2}},
 		"skills": [
-			{"mp%":20, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["greatSword","katana"], "resist":[{"name":"ice","percent":5},{"name":"wind","percent":5},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":15},{"name":"wind","percent":15}], "mpRefresh":5},
+			{"mp%":20, "lbFillRate":100, "partialDualWield":["greatSword","katana"], "resist":[{"name":"ice","percent":5},{"name":"wind","percent":5},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":15},{"name":"wind","percent":15}], "mpRefresh":5},
 			{"atk%":20, "def%":10, "mag%":20, "spr%":10, "equipedConditions":["katana"]},
 			{"atk%":40, "equipedConditions":["katana"]},
 			{"hp%":30, "mp%":30, "equipedConditions":["greatSword"]},
@@ -2377,8 +2395,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"tmrSkill": {"atk%":20, "def%":20, "mag%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"light","percent":30}]},
 		"skills": [
-			{"hp%":35, "mp%":40, "atk%":20, "def%":40, "mag%":50, "spr%":50, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30}], "mpRefresh":5},
+			{"hp%":35, "mp%":40, "def%":20, "mag%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"spr%":50, "equipedConditions":["staff"]},
 			{"spr%":50, "equipedConditions":["bow"]},
 			{"mag%":50, "equipedConditions":["rod"]},
@@ -2417,8 +2436,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","rod","bow","axe","hammer","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"tmrSkill": {"hp%":20, "mp%":20, "lbPerTurn":{"min":2,"max":2}},
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":40, "def%":40, "mag%":20, "spr%":40, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
+			{"mp%":20, "atk%":40, "def%":40, "mag%":20, "spr%":40, "lbFillRate":100, "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
 			{"hp%":30, "atk%":30, "equipedConditions":["hammer"]}
 		],
 		"6_form": {
@@ -2451,8 +2471,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
+		"tmrSkill": {"atk%":30, "dualWielding":{"atk":40}},
 		"skills": [
-			{"hp%":60, "mp%":20, "atk%":80, "def%":30, "spr%":30, "singleWielding":{"atk":50}, "lbFillRate":25, "lbPerTurn":{"min":1,"max":1}, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "special":["dualWield"]},
+			{"hp%":60, "mp%":20, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"atk":50}, "lbFillRate":25, "lbPerTurn":{"min":1,"max":1}, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["gun"]}
 		],
 		"6_form": {
@@ -2536,8 +2557,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"tmrSkill": {"dualWielding":{"mag":50}, "lbFillRate":50},
 		"skills": [
-			{"hp%":20, "mp%":50, "mag%":60, "spr%":30, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"lightning","percent":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":50, "mag%":60, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"lightning","percent":50}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]}
 		],
 		"6_form": {
@@ -2570,8 +2592,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]},
 		"skills": [
-			{"hp%":20, "mp%":30, "def%":20, "mag%":20, "spr%":20, "lbFillRate":25, "resist":[{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"mp%":30, "mag%":20, "lbFillRate":25, "resist":[{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mp%":20, "spr%":30, "equipedConditions":["robe"]},
 			{"mag%":30, "equipedConditions":["rod"]}
 		],
@@ -2606,10 +2629,12 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣"],
+		"tmrSkill": {"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}},
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":50, "def%":20, "mag%":50, "spr%":20, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "mpRefresh":5},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-			{"atk%":30, "mag%":30, "equipedConditions":["rod"]}
+			{"hp%":20, "mp%":20, "atk%":30, "def%":20, "mag%":30, "spr%":20, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":125,"magical":125},{"name":"human","physical":125,"magical":125},{"name":"spirit","physical":125,"magical":125}], "mpRefresh":5},
+			{"atk%":60, "mag%":60, "equipedConditions":["sword"]},
+			{"atk%":60, "mag%":60, "equipedConditions":["rod"]}
 		],
 		"6_form": {
 			"name":"Kunshira",
@@ -2623,10 +2648,11 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["シビラ族の技能","ナトラ王の側近","魔操剣"],
 			"skills": [
-				{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":5},
-				{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-				{"atk%":30, "mag%":30, "equipedConditions":["rod"]}
+				{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}], "mpRefresh":5},
+				{"atk%":60, "mag%":60, "equipedConditions":["sword"]},
+				{"atk%":60, "mag%":60, "equipedConditions":["rod"]}
 			]
 		}
 	},
@@ -2642,6 +2668,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","katana","rod","bow","throwing","mace","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["土割遁・弐式","土壁忍法","光壁忍法"],
 		"skills": [
 			{"hp%":20, "mp%":10, "def%":10, "resist":[{"name":"earth","percent":40},{"name":"light","percent":20}]},
 			{"mag%":30, "equipedConditions":["throwing"]},
@@ -2710,8 +2737,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","hammer","gun","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"tmrSkill": {"lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"beast","physical":25},{"name":"demon","physical":25},{"name":"plant","physical":25}]},
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":40, "singleWielding":{"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":75},{"name":"dragon","physical":50},{"name":"plant","physical":75},{"name":"beast","physical":25}], "mpRefresh":5},
+			{"hp%":30, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":40, "singleWielding":{"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":20, "def%":20, "equipedConditions":["lightArmor"]}
@@ -2781,8 +2809,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":40, "singleWielding":{"atk":100}, "dualWielding":{"atk":40}},
 		"skills": [
-			{"hp%":20, "mp%":50, "atk%":40, "spr%":50, "evade":{"physical":20}, "singleWielding":{"atk":100}, "partialDualWield":["fist"], "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "mpRefresh":10},
+			{"hp%":20, "mp%":50, "spr%":50, "evade":{"physical":20}, "partialDualWield":["fist"], "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "mpRefresh":10},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"spr%":20, "equipedConditions":["hat"]},
 			{"spr%":20, "equipedConditions":["clothes"]},
@@ -2839,8 +2868,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+		"tmrSkill": {"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
 		"skills": [
-			{"hp%":30, "mp%":40, "mag%":60, "spr%":30, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "mpRefresh":5},
+			{"hp%":30, "mp%":40, "mag%":60, "spr%":30, "dualWielding":{"mag":50}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]}
 		],
 		"6_form": {
@@ -3005,6 +3035,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["アンダーマイン改","エスコートリーダー","D・レイジングラヴァ"],
 		"skills": [
 			{"hp%":20, "atk%":30, "def%":30, "evoMag":20, "lbFillRate":100, "mpRefresh":5},
 			{"def%":10, "spr%":10, "equipedConditions":["lightArmor"]},
@@ -3072,8 +3103,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"tmrSkill": {"atk%":25, "singleWielding":{"atk":50}},
 		"skills": [
-			{"hp%":30, "atk%":55, "def%":30, "spr%":20, "singleWielding":{"atk":150}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]},
+			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]},
 			{"atk%":50, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -3107,7 +3139,7 @@
 		},
 		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}]}
+			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "dualWielding":{"atk":30}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}]}
 		]
 	},
 	"100015604": {
@@ -3155,6 +3187,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {},
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":60, "mag%":30, "spr%":80, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"fire","percent":30},{"name":"earth","percent":30}], "mpRefresh":5},
 			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
@@ -3195,8 +3228,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"singleWielding":{"atk":100}},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":30, "spr%":20, "singleWielding":{"atk":100}, "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":30, "spr%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"atk%":30, "equipedConditions":["greatSword"]}
 		],
@@ -3329,8 +3363,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"equip":["dagger","staff","rod","harp","whip","gun","mace","hat","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"mag%":30, "spr%":30, "evoMag":50},
 		"skills": [
-			{"hp%":30, "mp%":30, "def%":20, "mag%":60, "spr%":60, "evoMag":110, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["staff","rod"], "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+			{"hp%":30, "mp%":30, "def%":20, "mag%":30, "spr%":30, "evoMag":60, "dualWielding":{"mag":20,"spr":20}, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["staff","rod"], "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
 		],
 		"6_form": {
 			"name":"CG Citra",
@@ -3361,8 +3396,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"tmrSkill": {"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"ice","percent":20},{"name":"light","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
-			{"hp%":40, "mp%":50, "def%":40, "spr%":80, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"ice","percent":30},{"name":"ice","percent":20},{"name":"ice","percent":20},{"name":"light","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":30, "def%":20, "spr%":60, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"ice","percent":30},{"name":"ice","percent":20}], "mpRefresh":5},
 			{"spr%":50, "equipedConditions":["staff"]},
 			{"spr%":50, "equipedConditions":["harp"]},
 			{"spr%":50, "equipedConditions":["mace"]}
@@ -3399,8 +3435,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"tmrSkill": {"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100}]},
 		"skills": [
-			{"hp%":30, "mp%":40, "def%":50, "spr%":70, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":30, "def%":50, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5},
 			{"hp%":20, "mp%":20, "equipedConditions":["harp"]},
 			{"spr%":30, "equipedConditions":["harp"]}
 		],
@@ -3471,6 +3508,96 @@
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","fist","hat","clothes"],
 		"skills": [
 			{"hp%":10, "def%":10, "spr%":20, "killers":[{"name":"aquatic","physical":50},{"name":"plant","physical":50}]}
+		]
+	},
+	"100017905": {
+		"name":"ジークハルト",
+		"jpname":"ジークハルト",
+		"id":"100017905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":182,"atk":175,"def":210,"mag":146,"spr":201},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","staff","axe","hammer","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":30, "def%":30},
+		"skills": [
+			{"hp%":60, "mp%":20, "def%":70, "spr%":50, "lbFillRate":100, "resist":[{"name":"earth","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"spr%":50, "equipedConditions":["lightShield"]},
+			{"def%":50, "equipedConditions":["heavyShield"]},
+			{"hp%":30, "spr%":30, "equipedConditions":["lightArmor"]},
+			{"hp%":30, "def%":30, "equipedConditions":["heavyArmor"]}
+		],
+		"6_form": {
+			"name":"ジークハルト",
+			"jpname":"ジークハルト",
+			"id":"100017905",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3863,"mp":140,"atk":134,"def":161,"mag":112,"spr":154},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","staff","axe","hammer","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":60, "def%":70, "spr%":50, "resist":[{"name":"earth","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+				{"spr%":50, "equipedConditions":["lightShield"]},
+				{"def%":50, "equipedConditions":["heavyShield"]}
+			]
+		}
+	},
+	"100018004": {
+		"name":"ディートリンデ",
+		"jpname":"ディートリンデ",
+		"id":"100018004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3455,"mp":185,"atk":122,"def":121,"mag":120,"spr":129},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["whip","throwing","gun","hat","clothes"],
+		"skills": [
+			{"hp%":20, "mp%":10, "atk%":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["gun"]}
+		]
+	},
+	"100018104": {
+		"name":"テオバルト",
+		"jpname":"テオバルト",
+		"id":"100018104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3521,"mp":181,"atk":118,"def":126,"mag":151,"spr":120},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":30, "mag%":50, "resist":[{"name":"silence","percent":100}], "mpRefresh":5},
+			{"mag%":50, "equipedConditions":["whip"]}
+		]
+	},
+	"100018203": {
+		"name":"カノン",
+		"jpname":"カノン",
+		"id":"100018203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2766,"mp":115,"atk":111,"def":107,"mag":75,"spr":110},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","sword","spear","throwing","hat","clothes"],
+		"skills": [
+			{"hp%":10, "mp%":10, "atk%":10, "resist":[{"name":"wind","percent":30},{"name":"fire","percent":50}], "killers":[{"name":"human","physical":50}]},
+			{"atk%":20, "equipedConditions":["sword"]}
 		]
 	},
 	"199000101": {
@@ -3636,6 +3763,7 @@
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["地獄の業火","わたしは死なん！","君臨"],
+		"tmrSkill": {},
 		"skills": [
 			{"hp%":50, "mp%":20, "mag%":80, "mpRefresh":10}
 		],
@@ -3685,8 +3813,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["風の輝き","クリスタルの加護","火の輝き","水の輝き","土の輝き"],
+		"tmrSkill": {"hp%":20, "mp%":20, "dualWielding":{"atk":30}},
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":50, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":100,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":50, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":100,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":15, "def%":10, "spr%":10, "equipedConditions":["sword"]},
 			{"atk%":15, "def%":10, "spr%":10, "equipedConditions":["helm"]},
 			{"atk%":15, "def%":10, "spr%":10, "equipedConditions":["lightArmor"]},
@@ -3727,8 +3856,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["剣の教え","きりこむ","ふみこむ"],
+		"tmrSkill": {"hp%":20, "atk%":20, "def%":20},
 		"skills": [
-			{"hp%":40, "atk%":50, "def%":20, "spr%":20, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":20, "atk%":30, "spr%":20, "dualWielding":{"atk":30}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
@@ -3902,8 +4032,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["ダークカノン","漆黒","ソウルイーター"],
+		"tmrSkill": {"atk%":20, "singleWieldingOneHanded":{"atk":100}, "resist":[{"name":"dark","percent":25}]},
 		"skills": [
-			{"hp%":20, "atk%":140, "def%":20, "mag%":50, "spr%":20, "singleWieldingOneHanded":{"atk":100}, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":25},{"name":"dark","percent":50}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":5},
+			{"hp%":20, "atk%":120, "def%":20, "mag%":50, "spr%":20, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":50}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":5},
 			{"hp%":20, "atk%":20, "equipedConditions":["greatSword"]}
 		],
 		"6_form": {
@@ -4086,8 +4217,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
+		"tmrSkill": {"evoMag":50, "mpRefresh":5},
 		"skills": [
-			{"hp%":30, "mp%":60, "mag%":100, "spr%":50, "evoMag":110, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+			{"hp%":30, "mp%":60, "mag%":100, "spr%":50, "evoMag":60, "dualWielding":{"mag":50}, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"Pure Summoner Rydia",
@@ -4118,8 +4250,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"mp%":20, "spr%":20, "singleWielding":{"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":40, "def%":20, "mag%":20, "spr%":60, "singleWielding":{"atk":50}, "jumpDamage":220, "lbFillRate":50, "partialDualWield":["spear"], "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50}]},
+			{"hp%":40, "atk%":40, "def%":20, "mag%":20, "spr%":40, "jumpDamage":220, "partialDualWield":["spear"], "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50}]},
 			{"atk%":20, "equipedConditions":["spear"]},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"atk%":30, "equipedConditions":["spear"]}
@@ -4258,6 +4391,7 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["雪月花","武器コレクター","三対の剣"],
+		"tmrSkill": {"dualWielding":{"atk":30}},
 		"skills": [
 			{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "lbPerTurn":{"min":1,"max":1}, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
@@ -4334,8 +4468,9 @@
 		},
 		"equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["ケイオスウェイヴ","受け継ぎし力","アルテマ","魔導力覚醒"],
+		"tmrSkill": {"hp%":30, "mp%":20, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}]},
 		"skills": [
-			{"hp%":50, "mp%":50, "mag%":130, "spr%":50, "evade":{"physical":30}, "resist":[{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}], "mpRefresh":5}
+			{"hp%":20, "mp%":30, "mag%":130, "spr%":50, "evade":{"physical":30}, "dualWielding":{"mag":30}, "resist":[{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"Trance Terra",
@@ -4560,8 +4695,9 @@
 		},
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ソルジャークラス1ST","クライムハザード","メテオレイン"],
+		"tmrSkill": {"atk%":30, "singleWielding":{"atk":50}},
 		"skills": [
-			{"hp%":60, "mp%":60, "atk%":90, "def%":40, "mag%":40, "spr%":40, "singleWielding":{"atk":150}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
+			{"hp%":60, "mp%":60, "atk%":60, "def%":40, "mag%":40, "spr%":40, "singleWielding":{"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
 			{"atk%":30, "equipedConditions":["greatSword"]}
 		],
 		"6_form": {
@@ -4611,8 +4747,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":30, "dualWielding":{"atk":40}},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":80, "def%":50, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
+			{"hp%":50, "mp%":20, "atk%":50, "def%":50, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["fist"]}
 		],
 		"6_form": {
@@ -4661,8 +4798,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}]},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":100, "def%":60, "spr%":70, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"dark","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":60, "def%":60, "spr%":50, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]}
 		],
 		"6_form": {
@@ -4694,8 +4832,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":70, "def%":50, "mag%":50, "spr%":50, "singleWielding":{"atk":50}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
+			{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"atk":50}, "dualWielding":{"atk":40}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]}
 		],
 		"6_form": {
@@ -4728,8 +4867,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":30, "lbFillRate":50},
 		"skills": [
-			{"hp%":30, "mp%":50, "atk%":30, "def%":50, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":30, "mp%":50, "def%":50, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		],
@@ -4764,6 +4904,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+		"tmrSkill": {},
 		"skills": [
 			{"hp%":40, "mp%":40, "mag%":70, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
 			{"atk%":50, "mag%":50, "equipedConditions":["throwing"]}
@@ -4908,8 +5049,9 @@
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"enhancementSkills":["パッションパフォーム","モグとの友情","召喚士一族の末裔","クリプトパフォーム"],
+		"tmrSkill": {"hp%":20, "mp%":20, "def%":20, "spr%":20, "evoMag":60},
 		"skills": [
-			{"hp%":60, "mp%":50, "def%":20, "spr%":130, "evoMag":130, "lbFillRate":100, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":10},
+			{"hp%":40, "mp%":30, "spr%":110, "evoMag":70, "lbFillRate":100, "resist":[{"name":"poison","percent":70},{"name":"blind","percent":70},{"name":"sleep","percent":70},{"name":"silence","percent":70},{"name":"paralysis","percent":70},{"name":"confuse","percent":70},{"name":"disease","percent":70},{"name":"petrification","percent":70},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "mpRefresh":10},
 			{"spr%":50, "equipedConditions":["harp"]}
 		],
 		"6_form": {
@@ -4991,8 +5133,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["聖剣技・ストックブレイク","流麗なる聖騎士","聖剣技・セイントブリンガー","聖剣技・ショック"],
+		"tmrSkill": {"hp%":20, "atk%":20, "mag%":20},
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":60, "def%":20, "mag%":40, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":30, "atk%":40, "def%":20, "mag%":20, "spr%":30, "dualWielding":{"atk":30,"mag":30}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":60, "mag%":60, "equipedConditions":["sword"]},
 			{"atk%":60, "mag%":60, "equipedConditions":["greatSword"]}
 		],
@@ -5045,8 +5188,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["タックルかいひ","勢いに乗るッス！","日輪の印","クイックトリック"],
+		"tmrSkill": {"singleWielding":{"atk":100}, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"demon","physical":25}]},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":70, "def%":20, "evade":{"physical":30,"magical":20}, "singleWielding":{"atk":100}, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75},{"name":"demon","physical":75}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":70, "def%":20, "evade":{"physical":30,"magical":20}, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"mp%":20, "atk%":40, "equipedConditions":["sword"]}
 		],
@@ -5081,8 +5225,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"tmrSkill": {"hp%":20, "mp%":20, "def%":20, "spr%":20},
 		"skills": [
-			{"hp%":20, "mp%":50, "def%":40, "mag%":60, "spr%":80, "evoMag":80, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5}
+			{"mp%":30, "def%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"Yuna",
@@ -5129,8 +5274,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"tmrSkill": {"mag%":50, "lbPerTurn":{"min":1,"max":1}, "mpRefresh":5},
 		"skills": [
-			{"hp%":20, "mp%":50, "def%":20, "mag%":80, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"hp%":20, "mp%":50, "def%":20, "mag%":30, "dualWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mag%":40, "equipedConditions":["rod"]}
 		],
 		"6_form": {
@@ -5251,8 +5397,9 @@
 		},
 		"equip":["dagger","staff","rod","mace","fist","lightShield","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["生命の意志","天衣無縫","闘魂旋風脚"],
+		"tmrSkill": {"atk%":40},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":70, "def%":20, "spr%":20, "evade":{"physical":20}, "singleWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"dark","percent":50},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":30, "def%":20, "spr%":20, "evade":{"physical":20}, "singleWielding":{"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"dark","percent":50},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":40, "spr%":40, "equipedConditions":["fist"]},
 			{"atk%":40, "spr%":40, "equipedConditions":["hat"]}
 		],
@@ -5288,6 +5435,7 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"tmrSkill": {},
 		"skills": [
 			{"def%":20, "mag%":120, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
 		],
@@ -5320,8 +5468,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "resist":[{"name":"dark","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"dark","percent":100}]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		],
 		"6_form": {
@@ -5423,8 +5572,9 @@
 		},
 		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
 		"enhancementSkills":["最速の空賊","属性強化弾・雷","リーサルショット"],
+		"tmrSkill": {"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"atk":50}, "dualWielding":{"atk":30}},
 		"skills": [
-			{"hp%":40, "mp%":40, "atk%":80, "def%":20, "mag%":20, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":60, "def%":20, "evade":{"physical":20,"magical":20}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]}
 		],
 		"6_form": {
@@ -5489,8 +5639,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"lightning","percent":50}]},
 		"skills": [
-			{"hp%":70, "mp%":20, "def%":60, "spr%":60, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"lightning","percent":50}], "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
+			{"hp%":70, "mp%":20, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
 			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
 			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
 			{"def%":20, "equipedConditions":["heavyArmor"]},
@@ -5546,8 +5697,9 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":20, "mp%":20},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":50, "def%":50, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"hp%":30, "atk%":50, "def%":50, "dualWielding":{"atk":30,"def":30}, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"atk%":40, "equipedConditions":["greatSword"]},
 			{"def%":20, "spr%":20, "equipedConditions":["dagger"]},
 			{"hp%":20, "equipedConditions":["heavyArmor"]},
@@ -5637,8 +5789,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["エリアブラスト","絶影","光速"],
+		"tmrSkill": {"atk%":80, "dualWielding":{"atk":30}},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":110, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":40, "mp%":20, "atk%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":20, "equipedConditions":["sword"]},
 			{"atk%":20, "equipedConditions":["gun"]}
 		],
@@ -5844,8 +5997,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["釣り","リンクアタック","選ばれし王","シフトブレイク"],
+		"tmrSkill": {"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
 		"skills": [
-			{"hp%":60, "mp%":30, "atk%":30, "def%":30, "mag%":50, "spr%":30, "evoMag":40, "evade":{"physical":20,"magical":10}, "lbFillRate":50, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5},
+			{"hp%":60, "mp%":30, "atk%":30, "def%":30, "mag%":50, "spr%":30, "evoMag":40, "evade":{"physical":20,"magical":10}, "dualWielding":{"atk":30}, "lbFillRate":50, "mpRefresh":5},
 			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
 			{"atk%":40, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":40, "def%":20, "equipedConditions":["greatSword"]},
@@ -5897,8 +6051,9 @@
 		},
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード"],
+		"tmrSkill": {"hp%":20, "def%":40, "spr%":20},
 		"skills": [
-			{"hp%":50, "atk%":20, "def%":90, "spr%":60, "mpRefresh":5},
+			{"hp%":30, "atk%":20, "def%":50, "spr%":40, "mpRefresh":5},
 			{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["lightShield"]},
 			{"hp%":50, "def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
 			{"atk%":100, "equipedConditions":["greatSword"]}
@@ -5971,6 +6126,7 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {},
 		"skills": [
 			{"hp%":20, "mp%":50, "atk%":50, "def%":20, "mag%":100, "spr%":90, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100}], "mpRefresh":5}
 		],
@@ -6003,8 +6159,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":40, "singleWielding":{"atk":50}},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":40, "def%":50, "evade":{"magical":20}, "singleWielding":{"atk":150}, "jumpDamage":150, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "def%":50, "evade":{"magical":20}, "singleWielding":{"atk":100}, "jumpDamage":150, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -6037,8 +6194,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"singleWielding":{"atk":100}, "dualWielding":{"atk":50}},
 		"skills": [
-			{"mp%":30, "spr%":20, "evade":{"physical":20}, "singleWielding":{"atk":100}, "lbFillRate":100, "partialDualWield":["dagger","gun"]},
+			{"mp%":30, "spr%":20, "evade":{"physical":20}, "lbFillRate":100, "partialDualWield":["dagger","gun"]},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["dagger"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["gun"]}
@@ -6090,8 +6248,9 @@
 		},
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["短剣の極意","シフトチャージ","シフトブレイク","王の剣"],
+		"tmrSkill": {"hp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}},
 		"skills": [
-			{"hp%":70, "mp%":20, "atk%":50, "mag%":20, "evade":{"physical":30}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":40, "mp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":100, "equipedConditions":["dagger"]},
 			{"atk%":40, "equipedConditions":["dagger"]}
 		],
@@ -6178,8 +6337,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["マインドブレイク","ウエポンブレイク","えいゆうのうた"],
+		"tmrSkill": {"hp%":15, "mp%":15, "def%":15, "spr%":15},
 		"skills": [
-			{"hp%":35, "mp%":35, "atk%":20, "def%":35, "mag%":30, "spr%":35, "lbFillRate":50, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20, "lbFillRate":50, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "mpRefresh":5},
 			{"hp%":15, "mp%":15, "atk%":50, "equipedConditions":["sword"]}
 		],
 		"6_form": {
@@ -6213,8 +6373,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["エール","ベオルブ家の末弟","戦士の矜持","正義の剣","真の英雄"],
+		"tmrSkill": {"hp%":20, "atk%":30, "spr%":30, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":50, "def%":20, "mag%":20, "spr%":70, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":40, "lbFillRate":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15}], "mpRefresh":5},
 			{"def%":80, "spr%":30, "equipedConditions":["helm"]},
 			{"atk%":80, "mag%":30, "equipedConditions":["hat"]}
 		],
@@ -6251,8 +6412,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ヘッドブレイク","シールドブレイク","瞑想"],
+		"tmrSkill": {"atk%":20, "singleWieldingOneHanded":{"atk":100}},
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":60, "singleWieldingOneHanded":{"atk":150}, "mpRefresh":5},
+			{"hp%":30, "mp%":20, "atk%":40, "singleWieldingOneHanded":{"atk":50}, "mpRefresh":5},
 			{"mp%":50, "atk%":50, "equipedConditions":["sword"]}
 		],
 		"6_form": {
@@ -6286,8 +6448,9 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["復讐の刃","黒羊の騎士","謀略の剣"],
+		"tmrSkill": {"atk%":20, "def%":20, "mag%":20, "spr%":20},
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":70, "def%":40, "mag%":20, "spr%":20, "singleWielding":{"atk":50}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":20, "atk%":50, "def%":20, "singleWielding":{"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
 			{"atk%":60, "equipedConditions":["sword"]},
 			{"atk%":40, "equipedConditions":["heavyArmor"]}
 		],
@@ -6392,8 +6555,9 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["冥界恐叫打","黒獅子の紋章","聖光爆裂破"],
+		"tmrSkill": {"atk%":50, "dualWielding":{"atk":30}},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":80, "def%":30, "spr%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "atk%":30, "def%":30, "spr%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
 			{"atk%":40, "equipedConditions":["greatSword"]},
 			{"atk%":40, "equipedConditions":["sword"]},
 			{"atk%":40, "equipedConditions":["katana"]}
@@ -6482,8 +6646,9 @@
 		},
 		"equip":["dagger","rod","throwing","hat","clothes","robe"],
 		"enhancementSkills":["真心","スピリットデッキ","トライレーザー"],
+		"tmrSkill": {"mag%":50},
 		"skills": [
-			{"mp%":10, "def%":20, "mag%":120, "spr%":20, "lbFillRate":200, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mp%":10, "def%":20, "mag%":70, "spr%":20, "lbFillRate":200, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"hp%":20, "mag%":40, "equipedConditions":["throwing"]}
 		],
 		"6_form": {
@@ -6517,8 +6682,9 @@
 		},
 		"equip":["dagger","sword","greatSword","hat","clothes"],
 		"enhancementSkills":["エナジーシェア","羅刹","デバステート"],
+		"tmrSkill": {"singleWielding":{"atk":100}, "lbFillRate":100},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":20, "def%":40, "mag%":20, "spr%":20, "singleWielding":{"atk":100}, "lbFillRate":100, "mpRefresh":5},
+			{"hp%":40, "mp%":20, "atk%":20, "def%":40, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"atk%":60, "equipedConditions":["sword"]}
 		],
 		"6_form": {
@@ -6636,8 +6802,9 @@
 		},
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["ファイガ","サンダガ","ブリザガ","刃に秘めし覚悟","死なないで"],
+		"tmrSkill": {"mag%":30, "spr%":30},
 		"skills": [
-			{"hp%":40, "mp%":50, "def%":20, "mag%":50, "spr%":60, "partialDualWield":["dagger"], "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
+			{"hp%":40, "mp%":50, "def%":20, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
 			{"mag%":50, "spr%":50, "equipedConditions":["dagger"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["dagger"]}
 		],
@@ -6679,6 +6846,7 @@
 	},
 	"254001103": {
 		"name":"ケイト",
+		"jpname":"ケイト",
 		"id":"254001103",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -6728,6 +6896,7 @@
 	},
 	"254001805": {
 		"name":"マキナ",
+		"jpname":"マキナ",
 		"id":"254001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6737,11 +6906,13 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"tmrSkill": {"lbPerTurn":{"min":1,"max":1}},
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":120, "def%":30, "spr%":20, "evoMag":20, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "mpRefresh":10, "special":["dualWield"]}
+			{"hp%":30, "mp%":20, "atk%":120, "def%":30, "spr%":20, "evoMag":20, "dualWielding":{"atk":40}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "mpRefresh":10, "special":["dualWield"]}
 		],
 		"6_form": {
 			"name":"マキナ",
+			"jpname":"マキナ",
 			"id":"254001805",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -6758,6 +6929,7 @@
 	},
 	"254001905": {
 		"name":"クラサメ",
+		"jpname":"クラサメ",
 		"id":"254001905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6767,11 +6939,13 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"mp%":20, "resist":[{"name":"ice","percent":50}]},
 		"skills": [
-			{"hp%":20, "mp%":50, "atk%":100, "def%":20, "mag%":100, "singleWielding":{"atk":50}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30},{"name":"ice","percent":50}], "mpRefresh":5}
+			{"hp%":20, "mp%":30, "atk%":100, "def%":20, "mag%":100, "singleWielding":{"atk":50}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"クラサメ",
+			"jpname":"クラサメ",
 			"id":"254001905",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -6788,6 +6962,7 @@
 	},
 	"254002004": {
 		"name":"デュース",
+		"jpname":"デュース",
 		"id":"254002004",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -7000,8 +7175,9 @@
 		},
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["パワーチャージ","オートチャージ","三段斬り","マナの血脈","聖剣の勇者"],
+		"tmrSkill": {"singleWieldingOneHanded":{"atk":100}, "killers":[{"name":"beast","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]},
 		"skills": [
-			{"hp%":40, "mp%":40, "atk%":50, "def%":20, "spr%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":200}, "lbPerTurn":{"min":9,"max":9}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":40}], "killers":[{"name":"spirit","physical":125,"magical":75},{"name":"beast","physical":125,"magical":75},{"name":"undead","physical":50},{"name":"dragon","physical":125,"magical":75}], "mpRefresh":5},
+			{"hp%":40, "mp%":40, "atk%":50, "def%":20, "spr%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100}, "lbPerTurn":{"min":9,"max":9}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":40}], "killers":[{"name":"spirit","physical":50},{"name":"beast","physical":50},{"name":"undead","physical":50},{"name":"dragon","physical":50}], "mpRefresh":5},
 			{"atk%":100, "def%":35, "spr%":35, "equipedConditions":["sword"]}
 		],
 		"6_form": {
@@ -7069,8 +7245,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":50, "singleWielding":{"atk":50}, "lbPerTurn":{"min":1,"max":1}},
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":130, "def%":50, "spr%":20, "singleWielding":{"atk":150}, "jumpDamage":150, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"light","percent":40},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"spirit","physical":75},{"name":"undead","physical":75}], "mpRefresh":10}
+			{"hp%":50, "mp%":50, "atk%":80, "def%":50, "spr%":20, "singleWielding":{"atk":100}, "jumpDamage":150, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"light","percent":40},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"spirit","physical":75},{"name":"undead","physical":75}], "mpRefresh":10}
 		],
 		"6_form": {
 			"name":"フラミー",
@@ -7118,8 +7295,9 @@
 		},
 		"equip":["staff","rod","mace","fist","hat","clothes","robe"],
 		"enhancementSkills":["竜王のまもり","光のはどう","メラガイアー"],
+		"tmrSkill": {"hp%":30, "mp%":30, "mag%":80},
 		"skills": [
-			{"hp%":80, "mp%":60, "def%":20, "mag%":160, "mpRefresh":10}
+			{"hp%":50, "mp%":30, "def%":20, "mag%":80, "mpRefresh":10}
 		],
 		"6_form": {
 			"name":"Dragonlord",
@@ -7252,8 +7430,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":30, "mp%":30, "atk%":50},
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":120, "def%":20, "mpRefresh":15, "special":["dualWield"]}
+			{"hp%":20, "atk%":70, "def%":20, "dualWielding":{"atk":30}, "mpRefresh":15, "special":["dualWield"]}
 		],
 		"6_form": {
 			"name":"Estark",
@@ -7284,8 +7463,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"hp%":30, "mag%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":40, "def%":50, "mag%":50, "spr%":40, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":20, "mp%":20, "atk%":40, "def%":50, "mag%":20, "spr%":40},
 			{"atk%":50, "equipedConditions":["fist"]},
 			{"atk%":50, "equipedConditions":["fist"]}
 		],
@@ -7367,8 +7547,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","spear","mace","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":20, "singleWielding":{"atk":50}, "resist":[{"name":"light","percent":50}]},
 		"skills": [
-			{"hp%":40, "mp%":40, "atk%":50, "def%":40, "spr%":40, "singleWielding":{"atk":150}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50},{"name":"light","percent":50}], "mpRefresh":5},
+			{"hp%":40, "mp%":40, "atk%":30, "def%":40, "spr%":40, "singleWielding":{"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		],
 		"6_form": {
@@ -7585,6 +7766,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["レベルアップ・戦士タイプ","レベルアップ・魔道士タイプ","レベルアップ・モンクタイプ","レベルアップ・賢者タイプ"],
 		"skills": [
 			{"def%":50, "equipedConditions":["lightShield"]},
 			{"def%":50, "equipedConditions":["heavyShield"]},
@@ -7603,9 +7785,11 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["パワーアップ","ラミアンナーガ","パワーダウン","ブリーシンガメン"],
+		"tmrSkill": {"atk%":30, "mag%":30, "spr%":30, "singleWielding":{"atk":100}},
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":70, "spr%":70, "evoMag":70, "singleWielding":{"atk":100}, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"mag%":30, "spr%":30, "equipedConditions":["spear"]},
+			{"hp%":20, "mp%":40, "atk%":40, "def%":20, "mag%":40, "spr%":40, "evoMag":70, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mag%":70, "spr%":70, "equipedConditions":["spear"]},
 			{"atk%":30, "def%":30, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -7620,9 +7804,10 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"equip":["sword","staff","bow","spear","whip","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["パワーアップ","ラミアンナーガ","パワーダウン","ブリーシンガメン"],
 			"skills": [
 				{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "evoMag":30, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
-				{"mag%":30, "spr%":30, "equipedConditions":["spear"]}
+				{"mag%":70, "spr%":70, "equipedConditions":["spear"]}
 			]
 		}
 	},
@@ -7638,9 +7823,11 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],
+		"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"],
+		"tmrSkill": {"hp%":20, "mp%":20, "atk%":30, "mag%":30, "dualWielding":{"atk":30,"mag":30}},
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":60, "mag%":110, "evade":{"physical":20}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"dark","percent":40}], "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
+			{"hp%":20, "atk%":30, "mag%":80, "evade":{"physical":20}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"dark","percent":40}], "special":["dualWield"]},
+			{"atk%":100, "equipedConditions":["dagger"]},
 			{"atk%":30, "mag%":30, "equipedConditions":["dagger"]}
 		],
 		"6_form": {
@@ -7655,9 +7842,10 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"equip":["dagger","sword","katana","staff","rod","bow","hammer","spear","whip","throwing","gun","mace","hat","clothes","robe"],
+			"enhancementSkills":["グレネードボム","千枚斬り","短剣の極意","ブラックレイン"],
 			"skills": [
 				{"hp%":20, "mag%":30, "evade":{"physical":20}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100}], "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["dagger"]}
+				{"atk%":100, "equipedConditions":["dagger"]}
 			]
 		}
 	},
@@ -7673,10 +7861,12 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"],
+		"tmrSkill": {"hp%":30, "mp%":30, "def%":30, "singleWielding":{"atk":50}, "dualWielding":{"atk":40}},
 		"skills": [
-			{"hp%":60, "mp%":30, "atk%":110, "def%":60, "mag%":20, "spr%":30, "singleWielding":{"atk":50}, "resist":[{"name":"dark","percent":40}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["fist"]},
-			{"atk%":200, "equipedConditions":["unarmed"]}
+			{"hp%":50, "mp%":20, "atk%":110, "def%":30, "mag%":20, "spr%":30, "resist":[{"name":"dark","percent":40}], "mpRefresh":5},
+			{"atk%":100, "equipedConditions":["fist"]},
+			{"atk%":300, "equipedConditions":["unarmed"]}
 		],
 		"6_form": {
 			"name":"Kevin",
@@ -7690,10 +7880,11 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"equip":["dagger","staff","rod","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"],
 			"skills": [
-				{"hp%":30, "atk%":30, "mag%":20, "mpRefresh":5},
-				{"atk%":50, "equipedConditions":["fist"]},
-				{"atk%":200, "equipedConditions":["unarmed"]}
+				{"hp%":50, "mp%":20, "atk%":30, "mag%":20, "mpRefresh":5},
+				{"atk%":100, "equipedConditions":["fist"]},
+				{"atk%":300, "equipedConditions":["unarmed"]}
 			]
 		}
 	},
@@ -7709,6 +7900,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["ヒールライト","生き返るでち","ブラックカース"],
 		"skills": [
 			{"mag%":20, "spr%":20}
 		]
@@ -7928,8 +8120,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":30, "mp%":30, "mpRefresh":10},
 		"skills": [
-			{"hp%":60, "mp%":40, "atk%":50, "def%":30, "mag%":10, "spr%":50, "singleWielding":{"atk":150}, "mpRefresh":10},
+			{"hp%":30, "mp%":10, "atk%":50, "def%":30, "mag%":10, "spr%":50, "singleWielding":{"atk":150}},
 			{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
 			{"atk%":60, "spr%":30, "equipedConditions":["bow"]},
 			{"hp%":20, "mp%":20, "equipedConditions":["bow"]}
@@ -7965,8 +8158,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["hat","clothes","robe"],
+		"tmrSkill": {"hp%":10, "mp%":10, "def%":10, "mag%":50, "spr%":10},
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":10, "def%":40, "mag%":210, "spr%":40, "mpRefresh":5}
+			{"hp%":20, "mp%":20, "atk%":10, "def%":30, "mag%":160, "spr%":30, "mpRefresh":5}
 		],
 		"6_form": {
 			"name":"Freya",
@@ -7997,8 +8191,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":30, "def%":30, "singleWielding":{"atk":75}},
 		"skills": [
-			{"hp%":90, "mp%":40, "atk%":50, "def%":60, "mag%":10, "spr%":30, "singleWielding":{"atk":150}},
+			{"hp%":60, "mp%":40, "atk%":50, "def%":30, "mag%":10, "spr%":30, "singleWielding":{"atk":75}},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "equipedConditions":["greatSword"]},
 			{"atk%":30, "equipedConditions":["spear"]},
