@@ -521,6 +521,21 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(doublehandSkill, "mp", doublehandEffect[1]);
         }
         
+    // +EQ stat when dual wielding
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
+        if (!item.dualWielding) {item.dualWielding = {}};
+        var stat;
+        if (rawEffect[3][0] == 1) {
+            stat = "atk";
+        } else if (rawEffect[3][0] == 2) {
+            stat = "def";
+        } else if (rawEffect[3][0] == 3) {
+            stat = "mag";
+        } else if (rawEffect[3][0] == 4) {
+            stat = "spr";
+        }
+        addStat(item.dualWielding, stat, rawEffect[3][1]);
+        
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
         var mpRefresh = rawEffect[3][0];
@@ -693,7 +708,7 @@ function addLbPerTurn(item, min, max) {
 } 
 
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

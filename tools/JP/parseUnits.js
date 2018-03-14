@@ -174,7 +174,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
         console.log(unitIn);
     }
     data["sex"] = unitIn.sex.toLowerCase();
-    data["equip"] = getEquip(unitIn.equip);
+    data["equip"] = getEquip(unitIn.equip); 
     data["id"] = unitId;
     
     data["enhancementSkills"] = [];
@@ -188,7 +188,11 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
         }
     }
     
-    data.skills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData)
+    var uniSkills = getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData);
+    data.skills = uniSkills.skills;
+    if (uniSkills.tmrSkill) {
+        data.tmrSkill = uniSkills.tmrSkill;
+    }
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRariry == 7) {
@@ -211,6 +215,7 @@ function getEquip(equipIn) {
 function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
+    var tmrSkill = null;
     
     
     for (skillIndex in skillsIn) {
@@ -232,29 +237,36 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         if (skillIn.active || skillIn.type == "MAGIC") {
             continue; // don't consider active skills or magic
         }
+        
+        var effect;
+        if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
+            tmrSkill = {}
+            effect = tmrSkill;
+        } else {
+            effect = baseEffects;
+        }
+        
         for (var rawEffectIndex in skillIn["effects_raw"]) {
             var rawEffect = skillIn["effects_raw"][rawEffectIndex];
             
             // stat bonus
             if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
                 var effectData = rawEffect[3];
-                if (baseEffects == null) {baseEffects = {}};
-                addToStat(baseEffects, "hp%", effectData[4]);
-                addToStat(baseEffects, "mp%", effectData[5]);
-                addToStat(baseEffects, "atk%", effectData[0]);
-                addToStat(baseEffects, "def%", effectData[1]);
-                addToStat(baseEffects, "mag%", effectData[2]);
-                addToStat(baseEffects, "spr%", effectData[3]);
+                addToStat(effect, "hp%", effectData[4]);
+                addToStat(effect, "mp%", effectData[5]);
+                addToStat(effect, "atk%", effectData[0]);
+                addToStat(effect, "def%", effectData[1]);
+                addToStat(effect, "mag%", effectData[2]);
+                addToStat(effect, "spr%", effectData[3]);
                 
             // DW
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 14) {               
                 var types = rawEffect[3]
-                if (baseEffects == null) {baseEffects = {}};
                 if (types.length == 1 && types[0] == "none") {
-                    addToList(baseEffects,"special","dualWield");
+                    addToList(effect,"special","dualWield");
                 } else {
                     for(var partialDualWieldIndex in types) {
-                        addToList(baseEffects,"partialDualWield",typeMap[types[partialDualWieldIndex]]);
+                        addToList(effect,"partialDualWield",typeMap[types[partialDualWieldIndex]]);
                     }                    
                 }
             }
@@ -267,28 +279,28 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 var killerRace = raceMap[killerData[0]];
                 var physicalPercent = killerData[1];
                 var magicalPercent = killerData[2];
-                addKiller(baseEffects, killerRace, physicalPercent, magicalPercent);
+                addKiller(effect, killerRace, physicalPercent, magicalPercent);
             }
             
             // physical evade
             else if (rawEffect[1] == 3 && rawEffect[2] == 22) {
-                if (!baseEffects.evade) {
-                    baseEffects.evade = {"physical":rawEffect[3][0]}
-                } else if (baseEffects.evade.physical) {
-                    baseEffects.evade.physical += rawEffect[3][0];
+                if (!effect.evade) {
+                    effect.evade = {"physical":rawEffect[3][0]}
+                } else if (effect.evade.physical) {
+                    effect.evade.physical += rawEffect[3][0];
                 } else {
-                    baseEffects.evade.physical = rawEffect[3][0];
+                    effect.evade.physical = rawEffect[3][0];
                 }
             }
                 
             // magical evade
             else if (rawEffect[1] == 3 && rawEffect[2] == 54 && rawEffect[3][0] == -1) {
-                if (!baseEffects.evade) {
-                    baseEffects.evade = {"magical":rawEffect[3][1]}
-                } else if (baseEffects.evade.magical) {
-                    baseEffects.evade.magical += rawEffect[3][1];
+                if (!effect.evade) {
+                    effect.evade = {"magical":rawEffect[3][1]}
+                } else if (effect.evade.magical) {
+                    effect.evade.magical += rawEffect[3][1];
                 } else {
-                    baseEffects.evade.magical = rawEffect[3][1];
+                    effect.evade.magical = rawEffect[3][1];
                 }
             }
             
@@ -370,22 +382,22 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             //doublehand
             else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 13) {
                 if (rawEffect[3].length == 3 && rawEffect[3][2] == 2) {
-                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
-                    addToStat(baseEffects.singleWielding, "atk", rawEffect[3][0]);
+                    if (!effect.singleWielding) {effect.singleWielding = {}};
+                    addToStat(effect.singleWielding, "atk", rawEffect[3][0]);
                 } else {
-                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
-                    addToStat(baseEffects.singleWieldingOneHanded, "atk", rawEffect[3][0]);
+                    if (!effect.singleWieldingOneHanded) {effect.singleWieldingOneHanded = {}};
+                    addToStat(effect.singleWieldingOneHanded, "atk", rawEffect[3][0]);
                 }
             }
             else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
                 var doublehandSkill = {};
                 var doublehandEffect = rawEffect[3];
                 if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
-                    if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
-                    doublehandSkill = baseEffects.singleWielding;
+                    if (!effect.singleWielding) {effect.singleWielding = {}};
+                    doublehandSkill = effect.singleWielding;
                 } else {
-                    if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
-                    doublehandSkill = baseEffects.singleWieldingOneHanded;
+                    if (!effect.singleWieldingOneHanded) {effect.singleWieldingOneHanded = {}};
+                    doublehandSkill = effect.singleWieldingOneHanded;
                 }
                 if (doublehandEffect[2]) {
                     addToStat(doublehandSkill, "atk", doublehandEffect[2]);
@@ -406,42 +418,57 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                     addToStat(doublehandSkill, "mp", doublehandEffect[1]);
                 }
                 
+            // +EQ stat when dual wielding
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
+                if (!effect.dualWielding) {effect.dualWielding = {}};
+                var stat;
+                if (rawEffect[3][0] == 1) {
+                    stat = "atk";
+                } else if (rawEffect[3][0] == 2) {
+                    stat = "def";
+                } else if (rawEffect[3][0] == 3) {
+                    stat = "mag";
+                } else if (rawEffect[3][0] == 4) {
+                    stat = "spr";
+                }
+                addToStat(effect.dualWielding, stat, rawEffect[3][1]);
+                
             // Element Resist
             } else if (!skillIn.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
-                addElementalResist(baseEffects, rawEffect[3]);
+                addElementalResist(effect, rawEffect[3]);
 
             // Ailments Resist
             } else if (!skillIn.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 2) {
-                addAilmentResist(baseEffects, rawEffect[3]);
+                addAilmentResist(effect, rawEffect[3]);
                 
                 // MP refresh
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
                 var mpRefresh = rawEffect[3][0];
-                addToStat(baseEffects, "mpRefresh", mpRefresh);
+                addToStat(effect, "mpRefresh", mpRefresh);
 
 		   // LB/turn
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 33) {
                 var lbPerTurn = rawEffect[3][0]/100;
-                addLbPerTurn(baseEffects, lbPerTurn, lbPerTurn);
+                addLbPerTurn(effect, lbPerTurn, lbPerTurn);
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 125) {
                 var lbPerTurnMin = rawEffect[3][0]/100;
                 var lbPerTurnMax = rawEffect[3][1]/100;
-                addLbPerTurn(baseEffects, lbPerTurnMin, lbPerTurnMax);
+                addLbPerTurn(effect, lbPerTurnMin, lbPerTurnMax);
                 
             // LB fill rate
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
                 var lbFillRate = rawEffect[3][0];
-                addToStat(baseEffects, "lbFillRate", lbFillRate);
+                addToStat(effect, "lbFillRate", lbFillRate);
                 
             // +Jump damage
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
                 var jumpDamage = rawEffect[3][0];
-                addToStat(baseEffects, "jumpDamage", jumpDamage);
+                addToStat(effect, "jumpDamage", jumpDamage);
                 
             // +EVO Mag
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
                 var evoMag = rawEffect[3][0];
-                addToStat(baseEffects, "evoMag", evoMag);
+                addToStat(effect, "evoMag", evoMag);
             }
         }
     }
@@ -452,7 +479,7 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         skillsOut.splice(0,1);
     }
     
-    return skillsOut;
+    return {"skills":skillsOut, "tmrSkill":tmrSkill};
 }
 
 function addToStat(skill, stat, value) {
@@ -535,7 +562,7 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
@@ -558,6 +585,9 @@ function formatOutput(units) {
 
 function formatUnit(unit, prefix = "") {
     result = getUnitBasicInfo(unit,prefix) + ",";
+    if (unit.tmrSkill) {
+        result += "\n" + prefix + "\t\t\"tmrSkill\": " + formatSkill(unit.tmrSkill, "") + ",";
+    }
     result += "\n" + prefix + "\t\t\"skills\": [";
     var firstSkill = true;
     for (var skillIndex in unit.skills) {
@@ -567,25 +597,30 @@ function formatUnit(unit, prefix = "") {
         } else {
             result+= ",";
         }
-        result+= "\n" + prefix + "\t\t\t{"
-        var firstProperty = true;
-        for (var propertyIndex in properties) {
-            var property = properties[propertyIndex];
-            if (skill[property]) {
-                if (firstProperty) {
-                    firstProperty = false;
-                } else {
-                    result += ", ";
-                }
-                result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
-            }
-        }
-        result+= "}"
+        result+= "\n" + formatSkill(skill, prefix + "\t\t\t");
     }
     result += "\n" + prefix + "\t\t]";
     if (unit["6_form"]) {
         result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t") + "\n\t\t}";
     }
+    return result;
+}
+
+function formatSkill(skill, prefix) {
+    var result = prefix + "{"
+    var firstProperty = true;
+    for (var propertyIndex in properties) {
+        var property = properties[propertyIndex];
+        if (skill[property]) {
+            if (firstProperty) {
+                firstProperty = false;
+            } else {
+                result += ", ";
+            }
+            result+= "\"" + property + "\":" + JSON.stringify(skill[property]);
+        }
+    }
+    result+= "}";
     return result;
 }
 
@@ -620,9 +655,6 @@ function getUnitBasicInfo(unit, prefix = "") {
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
     result += "\n" + prefix + "\t\t\"stats\": {";
-    if (!unit.stats) {
-        console.log("!!\n!!\n"  + JSON.stringify(unit));
-    }
     result += "\n" + prefix + "\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
     result += "\n" + prefix + "\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
     result += "\n" + prefix + "\t\t},";
