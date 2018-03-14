@@ -1405,14 +1405,12 @@ function loadStateHashAndBuild(data) {
     if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
     }
-    if (data.goal == "atk" || data.goal == "mag" || data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "hybridDamage"|| data.goal == "jumpDamage") {
-        select("races", data.ennemyRaces);
-        for (var element in data.ennemyResists) {
-            if (data.ennemyResists[element] == 0) {
-                $("#elementalResists ." + element + " input").val("");
-            } else {
-                $("#elementalResists ." + element + " input").val(data.ennemyResists[element]);
-            }
+    select("races", data.ennemyRaces);
+    for (var element in data.ennemyResists) {
+        if (data.ennemyResists[element] == 0) {
+            $("#elementalResists ." + element + " input").val("");
+        } else {
+            $("#elementalResists ." + element + " input").val(data.ennemyResists[element]);
         }
     }
     $('.equipments select option[value="' + data.equipmentToUse + '"]').prop("selected", true);
