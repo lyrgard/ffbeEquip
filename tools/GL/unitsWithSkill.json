@@ -3084,8 +3084,11 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor"],
+		"enhancementSkills":["Dual Edge","Soul Blade","Free Energy"],
 		"skills": [
 			{"hp%":20, "def%":10, "evade":{"physical":20}, "partialDualWield":["dagger","throwing"], "resist":[{"name":"confuse","percent":100},{"name":"sleep","percent":100}]},
+			{"atk%":30, "equipedConditions":["dagger"]},
+			{"atk%":30, "equipedConditions":["throwing"]},
 			{"atk%":50, "equipedConditions":["dagger"]}
 		]
 	},
@@ -3100,6 +3103,7 @@
 			"pots":{"hp":360,"mp":140,"atk":24,"def":24,"mag":24,"spr":24}
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Focus Magic","Proof of Life","Doomsday"],
 		"skills": [
 			{"hp%":10, "mp%":20, "lbFillRate":100},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -3116,9 +3120,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["EVO MAG +30%","Raise","Curaga"],
+		"enhancementSkills":["EVO MAG +30%","Raise","Curaga","Princess of Alexandria"],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":50, "evoMag":70, "evade":{"magical":20}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100}], "mpRefresh":5}
+			{"hp%":20, "mp%":30, "spr%":80, "evoMag":70, "evade":{"magical":20}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":5}
 		]
 	},
 	"209000404": {
@@ -3208,7 +3212,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Barthundara","Thundaga"],
+		"enhancementSkills":["Barthundara","Thundaga","Flare Star"],
 		"skills": [
 			{"hp%":20, "mp%":50, "mag%":50, "resist":[{"name":"wind","percent":-50},{"name":"earth","percent":50},{"name":"light","percent":-50}]}
 		]
@@ -3256,8 +3260,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Tackle Slip","Get pumped!","Sun Crest","Quick Hit"],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":50, "evade":{"physical":30}, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5}
+			{"hp%":30, "mp%":20, "atk%":70, "evade":{"physical":30,"magical":20}, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
 	"210000205": {
@@ -3317,8 +3323,11 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["Tidal Wave","Synthesis","Drive Boost"],
 		"skills": [
-			{"hp%":20, "mp%":10, "atk%":20, "evade":{"physical":20}, "lbFillRate":100}
+			{"hp%":20, "mp%":10, "atk%":20, "evade":{"physical":20}, "lbFillRate":100},
+			{"atk%":30, "equipedConditions":["fist"]},
+			{"mp%":30, "equipedConditions":["lightShield"]}
 		]
 	},
 	"210000804": {
@@ -3408,6 +3417,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","mace","fist","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Counter Break","Biohazard","Assault Strike"],
 		"skills": [
 			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":15}, "killers":[{"name":"bird","physical":50}]}
 		]
@@ -3600,7 +3610,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["Area Blast","Crushing Blow","Lightspeed"],
+		"enhancementSkills":["Area Blitz","Crushing Blow","Lightspeed"],
 		"skills": [
 			{"hp%":20, "atk%":30, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]}
 		]
@@ -3772,8 +3782,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["Fish","Link","Chosen King","Warp Strike"],
 		"skills": [
-			{"hp%":30, "mp%":30, "evade":{"physical":20,"magical":10}, "mpRefresh":5},
+			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":30, "evade":{"physical":20,"magical":10}, "lbFillRate":50, "mpRefresh":5},
 			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
 			{"atk%":40, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":40, "def%":20, "equipedConditions":["greatSword"]},
@@ -3939,7 +3950,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rime"],
+		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rhyme"],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "mpRefresh":5}
 		]
@@ -4325,7 +4336,7 @@
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
-		"enhancementSkills":["Steal Time","Bandit","Mercy Stroke"],
+		"enhancementSkills":["Steal Time","Thief's Mastery","Mercy Stroke"],
 		"skills": [
 		]
 	},
