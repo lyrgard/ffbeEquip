@@ -26,5 +26,6 @@ const goalValuesCaract = {
     "hybridDamage":                     {"statsToMaximize":["atk","mag"], "type": "physical"},
     "jumpDamage":                       {"statsToMaximize":["atk"], "type": "physical"},
     "sprDamageWithPhysicalMecanism":    {"statsToMaximize":["spr"], "type": "physical"},
+    "sprDamageWithMagicalMecanism":     {"statsToMaximize":["spr"], "type": "magical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };
