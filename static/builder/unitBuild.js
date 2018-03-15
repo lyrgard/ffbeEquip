@@ -5,6 +5,7 @@ const involvedStatsByValue = {
     "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
     "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
     "sprDamageWithPhysicalMecanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance"],
+    "sprDamageWithMagicalMecanism":     ["spr","magicalKiller"],
     "summonerSkill":                    ["mag","spr","evoMag"]
 }
 

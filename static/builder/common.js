@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism","summonerSkill"];
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
