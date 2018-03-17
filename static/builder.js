@@ -133,6 +133,7 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
+            "server": server,
             "unit":builds[currentUnitIndex].unit, 
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
@@ -495,13 +496,13 @@ function logBuild(build, value) {
         values[statsToDisplay[statIndex]] = result.total;
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
         var bonusPercent;
-        if (result.bonusPercent > 300) {
+        if (result.bonusPercent > statsBonusCap[server]) {
             bonusPercent = "<span style='color:red;' title='Only 300% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
         if (baseStats.includes(statsToDisplay[statIndex])) {
-            var equipmentFlatStatBonus = Math.floor((getEquipmentStatBonus(build, statsToDisplay[statIndex], 99) - 1) * 100);
+            var equipmentFlatStatBonus = Math.floor((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
                 bonusPercent += "&nbsp;-&nbsp;";
                 if (equipmentFlatStatBonus > 300) {
