@@ -9,6 +9,7 @@ importScripts('buildOptimizer.js');
 
 var optimizer = null;
 var number;
+var server;
 
 onmessage = function(event) {
     var messageData = JSON.parse(event.data);
@@ -19,6 +20,7 @@ onmessage = function(event) {
             break;
         case "setData":
             var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
+            server = messageData.server;
             unitBuild.innateElements = messageData.innateElements,
             unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
