@@ -327,7 +327,7 @@ function readSkills(itemIn, itemOut, skills) {
                         rawEffect = skill.effects_raw[rawEffectIndex];
 
                         // Mastery (+X% stat if equiped with ...)
-                        if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                        if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                             masterySkills.push(rawEffect[3]);
                             
                         } else {
