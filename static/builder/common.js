@@ -476,7 +476,7 @@ function combineTwoItems(item1, item2) {
         addResist(sum, item2.resist);
     }
     if (item2.killers) {
-        for (var index = items2.killers.length; index--;) {
+        for (var index = item2.killers.length; index--;) {
             addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
         }
     }
