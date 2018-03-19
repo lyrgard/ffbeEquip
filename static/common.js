@@ -37,16 +37,20 @@ function getImageHtml(item) {
 }
 
 function getNameColumnHtml(item) {
-    var html = ""
-    
-    if (item.placeHolder) {
-        html += '<div class="td name"><div>' + toLink(item.name, typeCategories[item.type]);
-    } else if (item.wikiEntry) {
-        html += '<div class="td name"><div>' + toLink(item.name, item.wikiEntry);
-    } else {
-        html += '<div class="td name"><div>' + toLink(item.name);
+    var html = '<div class="td name"><div>';
+
+    if (item.rarity) {
+      html += item.rarity + '<span class="glyphicon glyphicon-star"></span> ';
     }
-        
+
+    if (item.placeHolder) {
+        html += toLink(item.name, typeCategories[item.type]);
+    } else if (item.wikiEntry) {
+        html += toLink(item.name, item.wikiEntry);
+    } else {
+        html += toLink(item.name);
+    }
+
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
@@ -844,7 +848,7 @@ function prepareSearch(data) {
                 textToSearch += "|killer " + killer.name;
             });
         }
-        
+
         if (item.jumpDamage) {
             textToSearch += "|" + "Increase damage dealt by jump attacks by "+ item.jumpDamage + "%";
         }
@@ -1024,7 +1028,7 @@ function saveInventory(successCallback, errorCallback) {
         error: errorCallback
     });
 }
-    
+
  function saveUnits(successCallback, errorCallback) {
     $.ajax({
         url: server + '/units',
@@ -1076,12 +1080,12 @@ $(function() {
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                 alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
                 alert( errorThrown );
-            });   
+            });
         } else {
             onUnitsOrInventoryLoaded();
         }
-        
-        
+
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");
