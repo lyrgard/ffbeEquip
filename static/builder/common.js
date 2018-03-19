@@ -1,4 +1,8 @@
 const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism","summonerSkill"];
+const statsBonusCap = {
+    "GL": 300,
+    "JP": 400
+}
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
@@ -191,7 +195,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
 }
     
 
-function getEquipmentStatBonus(itemAndPassives, stat, cap = 3) {
+function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
     if (baseStats.includes(stat) && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         var normalStack = 0;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
@@ -205,11 +209,19 @@ function getEquipmentStatBonus(itemAndPassives, stat, cap = 3) {
                     normalStack += item.singleWieldingOneHanded[stat] / 100;
                 }
                 if (item.dualWielding && item.dualWielding[stat] && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                    normalStack += item.dualWielding[stat] / 100;
+                    if (doCap) {
+                        normalStack = Math.min(normalStack  + item.dualWielding[stat] / 100, 1);
+                    } else {
+                        normalStack += item.dualWielding[stat] / 100;
+                    }
                 }
             }
         }
-        return 1 + Math.min(cap, normalStack);
+        if (doCap) {
+            return 1 + Math.min(3, normalStack);
+        } else {
+            return 1 + normalStack;
+        }
     } else {
         return 1;
     }
@@ -290,7 +302,7 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
             var value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             if (item[percentValues[stat]]) {
                 var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
-                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(300 - currentPercentIncrease.value, 0));
+                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
                 currentPercentIncrease.value += itemPercentValue;
                 return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
             } else {
@@ -311,7 +323,7 @@ function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
 function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
     if (item && item[percentValues[stat]]) {
         percent = item[percentValues[stat]];
-        percent = Math.min(percent, 300 - currentPercentIncrease.value);
+        percent = Math.min(statsBonusCap[server], 300 - currentPercentIncrease.value);
         currentPercentIncrease.value += percent;
         return percent * baseValue / 100;
     }
@@ -464,7 +476,7 @@ function combineTwoItems(item1, item2) {
         addResist(sum, item2.resist);
     }
     if (item2.killers) {
-        for (var index = items2.killers.length; index--;) {
+        for (var index = item2.killers.length; index--;) {
             addKiller(sum, item2.killers[index].name, item2.killers[index].physical, item2.killers[index].magical);
         }
     }
