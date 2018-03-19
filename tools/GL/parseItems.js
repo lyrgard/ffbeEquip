@@ -171,6 +171,7 @@ function treatItem(items, itemId, result, skills) {
     itemOut.id = itemId;
     itemOut.name = itemIn.name;
     if (itemIn.type_id) {
+        itemOut.rarity = itemIn.rarity;
         itemOut.type = typeMap[itemIn.type_id];
     } else {
         itemOut.type = "materia";
@@ -193,7 +194,7 @@ function treatItem(items, itemId, result, skills) {
             addAccess(itemOut,"not released yet");
         }
         addAccess(itemOut,access);
-        
+
         itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
     }
     if (itemIn.requirements) {
@@ -207,24 +208,24 @@ function treatItem(items, itemId, result, skills) {
             addExclusiveUnit(itemOut, itemIn.requirements[1]);
         }
     }
-    
+
     if (itemIn.accuracy) {
         addStat(itemOut,"accuracy",itemIn.accuracy);
     }
-    
+
     if (itemIn.dmg_variance) {
         itemOut.damageVariance = {"min":itemIn.dmg_variance[0],"max":itemIn.dmg_variance[1]};
     }
-    
+
     if (itemIn.icon) {
         itemOut.icon = itemIn.icon;
         verifyImage(itemOut.icon);
     }
-    
+
     if (itemIn.compendium_id) {
         itemOut.sortId = itemIn.compendium_id;
     }
-    
+
     if (!itemOut.access && oldItemsAccessById[itemOut.id]) {
         for (var index in oldItemsAccessById[itemOut.id]) {
             var access = oldItemsAccessById[itemOut.id][index];
@@ -258,7 +259,7 @@ function readStats(itemIn, itemOut) {
             var stat = stats[statsIndex];
             if (itemIn.stats[stat] != 0) {
                 itemOut[stat.toLowerCase()] = itemIn.stats[stat];
-            }    
+            }
         }
         if (itemIn.stats.element_inflict) {
             itemOut.element = [];
@@ -279,7 +280,7 @@ function readStats(itemIn, itemOut) {
             for (var status in itemIn.stats.status_resist) {
                 itemOut.resist.push({"name":ailmentsMap[status],"percent":itemIn.stats.status_resist[status]})
             }
-        }   
+        }
         if (itemIn.stats.status_inflict) {
             itemOut.ailments = [];
             for (var status in itemIn.stats.status_inflict) {
@@ -321,13 +322,13 @@ function readSkills(itemIn, itemOut, skills) {
                         // Mastery (+X% stat if equiped with ...)
                         if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                             masterySkills.push(rawEffect[3]);
-                            
+
                         } else {
                             if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
                                 effectsNotTreated.push(rawEffectIndex)
                                 //console.log(rawEffect + " - " + skill.effects);
                             }
-                        }            
+                        }
                     }
                     addNotTreatedEffects(itemOut, effectsNotTreated, skill);
                 }
@@ -337,7 +338,7 @@ function readSkills(itemIn, itemOut, skills) {
         if ((masterySkills.length == 0 && restrictedSkills.length ==0) || !emptyItem) {
             result.push(itemOut);
         }
-        
+
         for (var masteryIndex in masterySkills) {
             var lenght = result.length;
             for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
@@ -429,7 +430,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     var rawEffect = skill.effects_raw[rawEffectIndex];
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
-        var effectData = rawEffect[3]            
+        var effectData = rawEffect[3]
         addStat(item, "hp%", effectData[4]);
         addStat(item, "mp%", effectData[5]);
         addStat(item, "atk%", effectData[0]);
@@ -460,8 +461,8 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (!item.evade) {
             item.evade = {};
         }
-        item.evade.physical = rawEffect[3][0];    
-    
+        item.evade.physical = rawEffect[3][0];
+
     // magical evade
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 54 && rawEffect[3][0] == -1) {
         if (!item.evade) {
@@ -484,15 +485,15 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // Equip X
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 5) {
         item.allowUseOf = typeMap[rawEffect[3]];
-        
+
     // Doublehand
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 13) {
         if (rawEffect[3][2] == 0) {
             if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
-            addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);    
+            addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);
         } else if (rawEffect[3][2] == 2) {
             if (!item.singleWielding) {item.singleWielding = {}};
-            addStat(item.singleWielding,"atk",rawEffect[3][0]);    
+            addStat(item.singleWielding,"atk",rawEffect[3][0]);
         }
         addStat(item,"accuracy",rawEffect[3][1]);
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
@@ -523,12 +524,12 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (doublehandEffect[1]) {
             addStat(doublehandSkill, "mp", doublehandEffect[1]);
         }
-        
+
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
         var mpRefresh = rawEffect[3][0];
         addStat(item, "mpRefresh", mpRefresh);
-        
+
     // LB/turn
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 33) {
         var lbPerTurn = rawEffect[3][0]/100;
@@ -542,17 +543,17 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 31) {
         var lbFillRate = rawEffect[3][0];
         addStat(item, "lbFillRate", lbFillRate);
-     
+
     // +Jump damage
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
         var jumpDamage = rawEffect[3][0];
         addStat(item, "jumpDamage", jumpDamage);
-     
+
     // +EVO Mag
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
         var evoMag = rawEffect[3][0];
-        addStat(item, "evoMag", evoMag);    
-    
+        addStat(item, "evoMag", evoMag);
+
     } else {
         return false;
     }
@@ -670,7 +671,7 @@ function isItemEmpty(item) {
     if (item.special) {
         for (var index in item.special) {
             if (item.special[index] != "twoHanded" && item.special[index] != "notStackable") {
-                return false;   
+                return false;
             }
         }
     }
@@ -696,7 +697,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
@@ -748,7 +749,7 @@ var download = function(uri, filename, callback){
                 .on('parsed', function() {
                     console.log("image : " + uri + " downloaded and valid");
                 });
-                
+
             });
         }
     });
