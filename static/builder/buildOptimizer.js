@@ -218,7 +218,7 @@ class BuildOptimizer {
         if (index == 1 && !item && typeCombination[1]) {
             return; // don't accept null second hand in DW builds
         }
-        if (tmrSkillUsed && item.originalItem) {
+        if (tmrSkillUsed && item && item.originalItem) {
             item = item.originalItem;
         }
         build[index] = item;
