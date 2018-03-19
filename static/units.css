@@ -20,9 +20,18 @@
 .unit.notOwned {
     opacity: 0.3;
 }
+.unit .glyphicon-time {
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    color: #999;
+}
 
 .unit:hover {
     background-color: #337ab7;
+}
+.unit:hover .glyphicon-time {
+    color: #fff;
 }
 
 .unitImageWrapper {
