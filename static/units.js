@@ -19,7 +19,7 @@ function beforeShow() {
     $("#loginMessage").addClass("hidden");
     $("#units").removeClass("hidden");
     $("#searchBox").addClass("hidden");
-    
+
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
     $(".nav-tabs li.raritySort").removeClass("active");
     $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
@@ -66,7 +66,7 @@ function showTMRAlphabeticalSort() {
     currentSort = showTMRAlphabeticalSort;
     $("#searchBox").removeClass("hidden");
     $("#searchBox").prop("placeholder", "Enter TMR name");
-    
+
     $(".nav-tabs li.tmrAlphabeticalSort").addClass("active");
     // filter, sort and display the results
     $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(units)), true));
@@ -85,7 +85,7 @@ function showHistory() {
     currentSort = showHistory;
     $(".nav-tabs li.history").addClass("active");
     // filter, sort and display the results
-    
+
     var html = "";
     for (var dateIndex in lastItemReleases) {
         var first = true;
@@ -125,7 +125,7 @@ var displayUnits = function(units, useTmrName = false) {
 function displayUnitsByRarity(units, only5Star = false) {
     var lastMinRarity, lastMaxRarity;
     var first = true;
-    
+
     var html = '';
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
@@ -134,14 +134,14 @@ function displayUnitsByRarity(units, only5Star = false) {
         }
         if (first) {
             if (!only5Star) {
-                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>"; 
+                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
             }
             html += '<div class="unitList">';
             first = false;
         } else {
             if (unit.max_rarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
                 html += '</div>';
-                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>"; 
+                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
                 html += '<div class="unitList">';
             }
         }
@@ -154,8 +154,8 @@ function displayUnitsByRarity(units, only5Star = false) {
 
 };
 
-function getUnitDisplay(unit, useTmrName = false) { 
-    var html = "";
+function getUnitDisplay(unit, useTmrName = false) {
+  var html = "";
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
         html += '<div class="unit ' + unit.id;
         if (ownedUnits[unit.id]) {
@@ -167,6 +167,9 @@ function getUnitDisplay(unit, useTmrName = false) {
             html += ' farmable';
         }
         html +='" onclick="addToOwnedUnits(\'' + unit.id + '\')">';
+        if (unit.summon_type === 'event') {
+            html +='<span class="glyphicon glyphicon-time"/>';
+        }
         html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
         html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
         html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
@@ -183,7 +186,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (useTmrName) {
             html += tmrNameByUnitId[unit.id];
         } else {
-            html += unit.name;  
+            html += unit.name;
         }
         html += '</div>';
         html += '<div class="unitRarity">'
@@ -209,7 +212,7 @@ function addToOwnedUnits(unitId) {
     if (!ownedUnits[unitId]) {
         ownedUnits[unitId] = {"number":1, "farmable":0};
         $(".unit." + unitId).addClass("owned");
-        $(".unit." + unitId).removeClass("notOwned");    
+        $(".unit." + unitId).removeClass("notOwned");
     } else {
         ownedUnits[unitId].number += 1;
     }
@@ -240,7 +243,7 @@ function removeFromOwnedUnits(unitId) {
             removeFromFarmableNumberFor(unitId);
         }
     }
-    
+
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
@@ -249,7 +252,7 @@ function removeFromOwnedUnits(unitId) {
 
 function addToFarmableNumberFor(unitId) {
     if (!ownedUnits[unitId]) {
-        return;   
+        return;
     } else {
         if (ownedUnits[unitId].farmable < ownedUnits[unitId].number) {
             ownedUnits[unitId].farmable += 1;
@@ -284,9 +287,9 @@ function farmedTMR(unitId) {
     for (var index = data.length; index--;) {
         if (data[index].tmrUnit && data[index].tmrUnit == unitId) {
             if (itemInventory[data[index].id]) {
-                itemInventory[data[index].id] += 1;   
+                itemInventory[data[index].id] += 1;
             } else {
-                itemInventory[data[index].id] = 1;    
+                itemInventory[data[index].id] = 1;
             }
         }
     }
@@ -401,7 +404,7 @@ function updateResults() {
 function inventoryLoaded() {
     if (units && data) {
         prepareData();
-        showAlphabeticalSort();    
+        showAlphabeticalSort();
     }
 }
 
@@ -437,12 +440,12 @@ function exportAsImage(only5Star = false) {
                 savedSort();
                 $("#results").removeClass("hackForImage");
                 $("#results").removeClass("hackForImage5");
-                
+
                 $("#loaderGlassPanel").addClass("hidden");
             });
         });
     }, 1);
-    
+
 }
 
 function exportAsCsv() {
@@ -497,16 +500,17 @@ $(function() {
             units = [];
             for (var unitId in unitResult) {
                 if (releasedUnitResult[unitId]) {
+                    unitResult[unitId].summon_type = releasedUnitResult[unitId].type;
                     units.push(unitResult[unitId]);
                 }
             }
             if (itemInventory && ownedUnits && data) {
                 prepareData();
-                showAlphabeticalSort();    
+                showAlphabeticalSort();
             }
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
-        });    
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -514,7 +518,7 @@ $(function() {
         data = result;
         if (itemInventory && units && ownedUnits) {
             prepareData();
-            showAlphabeticalSort();    
+            showAlphabeticalSort();
         }
         $.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;
@@ -524,17 +528,17 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    
-	
+
+
     $("#results").addClass(server);
-    
-	
+
+
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !"
         }
     });
-    
+
     $("#searchBox").on("input", $.debounce(300,updateResults));
-    
+
 });
