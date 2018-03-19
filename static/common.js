@@ -40,7 +40,7 @@ function getNameColumnHtml(item) {
     var html = '<div class="td name"><div>';
 
     if (item.rarity) {
-      html += item.rarity + '<span class="glyphicon glyphicon-star"></span> ';
+      html += '<span class="rarity">' + item.rarity + '★</span> ';
     }
 
     if (item.placeHolder) {
