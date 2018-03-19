@@ -24,9 +24,10 @@
     cursor: pointer;
 }
 
-#results .item:hover a{
+#results .item:hover a, #results .item:hover .rarity {
     color: white;
 }
+
 
 
 #results .item .name{
