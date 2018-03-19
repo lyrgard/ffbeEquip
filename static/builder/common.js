@@ -322,10 +322,10 @@ function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
 
 function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
     if (item && item[percentValues[stat]]) {
-        percent = item[percentValues[stat]];
-        percent = Math.min(statsBonusCap[server], 300 - currentPercentIncrease.value);
-        currentPercentIncrease.value += percent;
-        return percent * baseValue / 100;
+        var itemPercentValue = item[percentValues[stat]];
+        var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
+        currentPercentIncrease.value += itemPercentValue;
+        return percentTakenIntoAccount * baseValue / 100;
     }
     return 0;
 }
