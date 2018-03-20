@@ -2692,8 +2692,57 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","fist","hat","clothes"]
 	},
+	"100017605": {
+		"name":"ユライシャ",
+		"id":"100017605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4470,"mp":250,"atk":135,"def":159,"mag":197,"spr":206},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"ユライシャ",
+			"id":"100017605",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3439,"mp":193,"atk":104,"def":123,"mag":152,"spr":159},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"100017704": {
+		"name":"フラニス",
+		"id":"100017704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3244,"mp":144,"atk":124,"def":120,"mag":113,"spr":120},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"100017803": {
+		"name":"イシル",
+		"id":"100017803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2889,"mp":114,"atk":115,"def":114,"mag":71,"spr":76},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["bow","throwing","gun","hat","helm","clothes","lightArmor"]
+	},
 	"100017905": {
 		"name":"ジークハルト",
+		"jpname":"ジークハルト",
 		"id":"100017905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -2705,6 +2754,7 @@
 		"equip":["dagger","sword","staff","axe","hammer","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
 			"name":"ジークハルト",
+			"jpname":"ジークハルト",
 			"id":"100017905",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -2718,6 +2768,7 @@
 	},
 	"100018004": {
 		"name":"ディートリンデ",
+		"jpname":"ディートリンデ",
 		"id":"100018004",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -2730,6 +2781,7 @@
 	},
 	"100018104": {
 		"name":"テオバルト",
+		"jpname":"テオバルト",
 		"id":"100018104",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -2742,6 +2794,7 @@
 	},
 	"100018203": {
 		"name":"カノン",
+		"jpname":"カノン",
 		"id":"100018203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5226,6 +5279,7 @@
 	},
 	"254001103": {
 		"name":"ケイト",
+		"jpname":"ケイト",
 		"id":"254001103",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5265,6 +5319,7 @@
 	},
 	"254001805": {
 		"name":"マキナ",
+		"jpname":"マキナ",
 		"id":"254001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5276,6 +5331,7 @@
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
 		"6_form": {
 			"name":"マキナ",
+			"jpname":"マキナ",
 			"id":"254001805",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -5289,6 +5345,7 @@
 	},
 	"254001905": {
 		"name":"クラサメ",
+		"jpname":"クラサメ",
 		"id":"254001905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5300,6 +5357,7 @@
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"クラサメ",
+			"jpname":"クラサメ",
 			"id":"254001905",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -5313,6 +5371,7 @@
 	},
 	"254002004": {
 		"name":"デュース",
+		"jpname":"デュース",
 		"id":"254002004",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -6316,6 +6375,18 @@
 			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
 		},
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"]
+	},
+	"332000105": {
+		"name":"ララ・クロフト",
+		"id":"332000105",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3502,"mp":161,"atk":150,"def":137,"mag":127,"spr":133},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"]
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
