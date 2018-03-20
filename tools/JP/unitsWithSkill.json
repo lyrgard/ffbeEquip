@@ -3510,6 +3510,71 @@
 			{"hp%":10, "def%":10, "spr%":20, "killers":[{"name":"aquatic","physical":50},{"name":"plant","physical":50}]}
 		]
 	},
+	"100017605": {
+		"name":"ユライシャ",
+		"id":"100017605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4470,"mp":250,"atk":135,"def":159,"mag":197,"spr":206},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"hp%":30, "def%":30, "resist":[{"name":"sleep","percent":100}]},
+		"skills": [
+			{"hp%":20, "mp%":60, "def%":20, "mag%":50, "spr%":20, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":5},
+			{"mp%":20, "spr%":30, "equipedConditions":["staff"]}
+		],
+		"6_form": {
+			"name":"ユライシャ",
+			"id":"100017605",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3439,"mp":193,"atk":104,"def":123,"mag":152,"spr":159},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+				{"mp%":20, "spr%":30, "equipedConditions":["staff"]}
+			]
+		}
+	},
+	"100017704": {
+		"name":"フラニス",
+		"id":"100017704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3244,"mp":144,"atk":124,"def":120,"mag":113,"spr":120},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"mp%":20, "atk%":20, "lbFillRate":150, "resist":[{"name":"fire","percent":20}]},
+			{"atk%":50, "equipedConditions":["katana"]}
+		]
+	},
+	"100017803": {
+		"name":"イシル",
+		"id":"100017803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2889,"mp":114,"atk":115,"def":114,"mag":71,"spr":76},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["bow","throwing","gun","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":10, "mp%":10, "atk%":10},
+			{"atk%":40, "equipedConditions":["bow"]}
+		]
+	},
 	"100017905": {
 		"name":"ジークハルト",
 		"jpname":"ジークハルト",
@@ -8250,6 +8315,24 @@
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
 		"skills": [
 			{"def%":10, "mag%":20, "spr%":10, "resist":[{"name":"poison","percent":50},{"name":"paralysis","percent":50},{"name":"petrification","percent":50}]}
+		]
+	},
+	"332000105": {
+		"name":"ララ・クロフト",
+		"id":"332000105",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3502,"mp":161,"atk":150,"def":137,"mag":127,"spr":133},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":5}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":25},{"name":"human","physical":25},{"name":"bug","physical":25}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":10, "equipedConditions":["bow"]},
+			{"atk%":10, "equipedConditions":["throwing"]},
+			{"atk%":10, "equipedConditions":["gun"]}
 		]
 	},
 	"401000104": {
