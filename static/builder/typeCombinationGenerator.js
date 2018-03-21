@@ -185,7 +185,7 @@ class TypeCombinationGenerator {
     }
 
     tryType(index, typeCombination, type, combinations) {
-        if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes)) {
+        if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes(type))) {
             return;
         }
         typeCombination[index] = type;
