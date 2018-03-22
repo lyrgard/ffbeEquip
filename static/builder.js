@@ -728,6 +728,7 @@ function populateUnitSelect() {
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(onUnitChange);
+    $('#unitsSelect').combobox();
 }
 
 function onUnitChange() {
@@ -819,6 +820,7 @@ function loadBuild(buildIndex) {
     if (build.unit) {
         $('#unitsSelect option[value="' + build.unit.id + '"]').prop("selected", true);
     }
+    $("#unitsSelect").combobox("refresh");
     $(".unitAttackElement div.elements label").removeClass("active");
     if (build.innateElements) {
         for (var i in build.innateElements) {
@@ -868,6 +870,7 @@ function addNewUnit() {
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
     }
+    $("#unitsSelect").combobox("clearElement");
 }
 
 function selectUnitTab(index) {
@@ -1398,6 +1401,7 @@ function loadStateHashAndBuild(data) {
                 } else {
                     $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
                 }
+                $("#unitsSelect").combobox("refresh");
                 onUnitChange();        
                 break;
             }
@@ -1824,7 +1828,6 @@ $(function() {
     }
     $(".unitStats .stat.lbFillRate .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate");}));
     $(".unitStats .stat.lbShardsPerTurn .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate")}));
-    
 });
 
 var counter = 0;

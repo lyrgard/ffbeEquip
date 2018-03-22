@@ -1,4 +1,5 @@
 [
+
 	{"id":"301000200", "name":"Bronze Knife", "type":"dagger", "atk":10, "access":["shop","recipe-chest"], "icon":"item_10100.png", "sortId":1, "rarity":1},
 	{"id":"301000400", "name":"Dagger", "type":"dagger", "atk":16, "access":["shop","recipe-chest","quest"], "icon":"item_10101.png", "sortId":2, "rarity":2},
 	{"id":"301000500", "name":"Mythril Dagger", "type":"dagger", "atk":20, "access":["shop","recipe-chest","quest"], "icon":"item_10102.png", "sortId":3, "rarity":3},
@@ -936,7 +937,7 @@
 	{"id":"1100000141", "name":"Bakuya Sword", "type":"sword", "atk":51, "mag":41, "access":["event"], "maxNumber":1, "eventName":"Kanshou and Bakuya", "icon":"global_equip_10081.png", "sortId":90144, "rarity":7},
 	{"id":"1100000141", "name":"Bakuya Sword", "type":"sword", "atk":51, "mag":41, "spr%":20, "equipedConditions":["greatSword"], "access":["event"], "maxNumber":1, "eventName":"Kanshou and Bakuya", "icon":"global_equip_10081.png", "sortId":90144, "rarity":7},
 	{"id":"1100000142", "name":"Staff of Osiris", "type":"staff", "hp%":10, "atk":3, "mag":68, "spr":68, "element":["light"], "special":["[Luminous|ability_5.png]:Magic light damage (2.6x, SPR) to one enemy"], "access":["event"], "maxNumber":1, "eventName":"Tomb of the Silversmith", "icon":"global_equip_10082.png", "sortId":90145, "rarity":7},
-	{"id":"1100000143", "name":"Automatic Pistols", "type":"gun", "atk":92, "partialDualWield":["gun"], "access":["event"], "eventName":"God of Chaos", "maxNumber":1, "icon":"global_equip_10083.png", "sortId":90146, "rarity":7},
+	{"id":"1100000143", "name":"Automatic Pistols", "type":"gun", "atk":92, "partialDualWield":["gun"], "access":["event"], "maxNumber":1, "eventName":"God of Chaos", "icon":"global_equip_10083.png", "sortId":90146, "rarity":7},
 	{"id":"1100000144", "name":"Hand Cannons", "type":"gun", "atk":99, "partialDualWield":["gun"], "access":["premium"], "icon":"global_equip_10084.png", "sortId":90147, "rarity":8},
 	{"id":"1100000145", "name":"Icy Death", "type":"gun", "atk":40, "mag":60, "element":["ice"], "access":["event"], "eventName":"Tomb of the Silversmith", "icon":"global_equip_10085.png", "sortId":90148, "rarity":6},
 	{"id":"1100000146", "name":"Flamethrower", "type":"gun", "atk":60, "mag":40, "damageVariance":{"min":1.35,"max":1.65}, "element":["fire"], "special":["twoHanded"], "access":["event"], "eventName":"Tomb of the Silversmith", "icon":"global_equip_10086.png", "sortId":90149, "rarity":6},
@@ -1428,7 +1429,7 @@
 	{"id":"1500000000", "name":"Burst Shot", "type":"materia", "special":["[Burst Shot|ability_40.png]:Physical damage (1.5x, ATK) to one enemy"], "access":["recipe-event"], "icon":"ability_40.png", "sortId":90000},
 	{"id":"1500000001", "name":"Chilling Aura", "type":"materia", "hp%":13, "mp%":13, "exclusiveUnits":["401000205","401000305","401000404","401000503","401002005","401002104","401002204"], "access":["event"], "icon":"global_item_10038.png", "sortId":90001},
 	{"id":"1500000002", "name":"Spooky Aura", "type":"materia", "atk%":13, "mag%":13, "exclusiveUnits":["401000205","401000305","401000404","401000503","401002005","401002104","401002204"], "access":["event"], "icon":"global_item_10039.png", "sortId":90002},
-	{"id":"1500000003", "name":"Seal of Destruction", "type":"materia", "atk%":20, "lbFillRate":100, "exclusiveUnits":["302000605"], "wikiEntry":"Tablet_of_Ruin", "access":["event"], "maxNumber":2, "icon":"ability_77.png", "sortId":90003},
+	{"id":"1500000003", "name":"Seal of Destruction", "wikiEntry":"Tablet_of_Ruin", "type":"materia", "atk%":20, "lbFillRate":100, "exclusiveUnits":["302000605"], "access":["event"], "maxNumber":2, "icon":"ability_77.png", "sortId":90003},
 	{"id":"1500000004", "name":"Pure Heart", "type":"materia", "hp%":15, "mp%":15, "spr%":20, "tmrUnit":"302000804", "access":["TMR-4*-event"], "icon":"ability_77.png", "sortId":90004},
 	{"id":"1500000005", "name":"Winter Ward", "type":"materia", "special":["[Winter Ward|ability_15.png]:Increase resistance to Ice by 50% for 3 turns to all allies, Increase resistance to Wind by 50% for 3 turns to all allies"], "access":["event"], "maxNumber":1, "icon":"global_materia_1500000005.png", "sortId":90005},
 	{"id":"1500000007", "name":"Deliverance", "type":"materia", "atk%":20, "def%":20, "special":["Gain at the start of a battle: [Regen (Auto)|ability_4.png]: Restore 60 (+1.2x, Heal) HP per turn to one ally"], "exclusiveUnits":["254000603"], "access":["event"], "maxNumber":2, "icon":"ability_77.png", "sortId":90006},
