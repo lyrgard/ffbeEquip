@@ -31,7 +31,7 @@ class BuildOptimizer {
             var dataWithdConditionItems = {}
             for (var slotIndex = 0; slotIndex < 10; slotIndex++) {
                 if (typeCombinations[index].combination[slotIndex] && !dataWithdConditionItems[typeCombinations[index].combination[slotIndex]]) {
-                    dataWithdConditionItems[typeCombinations[index].combination[slotIndex]] = this.selectItems(typeCombinations[index].combination[slotIndex], typeCombinations[index].combination, typeCombinations[index].fixedItems, this.dataWithCondition);
+                    dataWithdConditionItems[typeCombinations[index].combination[slotIndex]] = this.selectItems(typeCombinations[index].combination[slotIndex], typeCombinations[index].combination, typeCombinations[index].fixedItems, typeCombinations[index].forcedItems, this.dataWithCondition);
                 }
             }
             var applicableSkills = [];
@@ -58,7 +58,8 @@ class BuildOptimizer {
         return selectedEspers;
     }
     
-    selectItems(type, typeCombination, fixedItems, dataWithCondition) {
+    selectItems(type, typeCombination, fixedItems, forcedItems, dataWithCondition) {
+        
         var itemsOfType = this.dataByType[type];
         var dataWithoutConditionIds = [];
         for (var index = itemsOfType.length; index--; ) {
@@ -96,6 +97,18 @@ class BuildOptimizer {
                 }
             }
         }
+        var index = 0;
+        while (index < tempResult.length) {
+            if (forcedItems.includes(tempResult[index].item.id)) {
+                tempResult[index].available--;
+                if (tempResult[index].available <= 0) {
+                    tempResult.splice(index,1);
+                    continue;
+                }
+            }
+            index++;
+        }
+        
         var numberNeeded = 0;
         for (var slotIndex = typeCombination.length; slotIndex--;) {
             if (typeCombination[slotIndex] == type && !fixedItems[slotIndex]) {
