@@ -20,7 +20,7 @@ class TypeCombinationGenerator {
     generateTypeCombinations() {
         var combinations = [];
         var typeCombination = [null, null, null, null, null, null, null, null, null, null];
-        this.buildTypeCombination(0,typeCombination, combinations);
+        this.buildTypeCombination(0,typeCombination, combinations, []);
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
         if (!this.forceDoubleHand && unitPartialDualWield && (!this.unitBuild.fixedItems[0] || unitPartialDualWield.includes(this.unitBuild.fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type
@@ -29,7 +29,7 @@ class TypeCombinationGenerator {
 
             this.unitBuild.equipable[0] = unitPartialDualWield;
             this.unitBuild.equipable[1] = unitPartialDualWield;
-            this.buildTypeCombination(0,typeCombination,combinations);
+            this.buildTypeCombination(0,typeCombination,combinations, []);
 
             this.unitBuild.equipable[0] = savedEquipable0;
             this.unitBuild.equipable[1] = savedEquipable1;
@@ -57,7 +57,7 @@ class TypeCombinationGenerator {
                         } else {
                             this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
                         }
-                        this.buildTypeCombination(0,typeCombination,combinations);
+                        this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
                         this.unitBuild.fixedItems = savedFixedItems;
                         this.unitBuild.equipable[0] = savedEquipable0;
                         this.unitBuild.equipable[1] = savedEquipable1;
@@ -69,10 +69,10 @@ class TypeCombinationGenerator {
         return combinations;
     }
     
-    buildTypeCombination(index, typeCombination, combinations) {
+    buildTypeCombination(index, typeCombination, combinations, forcedItems) {
         if (this.unitBuild.fixedItems[index]) {
             if (this.unitBuild.equipable[index].length > 0 && this.unitBuild.equipable[index].includes(this.unitBuild.fixedItems[index].type)) {
-                this.tryType(index, typeCombination, this.unitBuild.fixedItems[index].type, combinations);
+                this.tryType(index, typeCombination, this.unitBuild.fixedItems[index].type, combinations, forcedItems);
             } else {
                 return;
             }
@@ -81,7 +81,7 @@ class TypeCombinationGenerator {
                 if (index == 1 && 
                         ((this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0])) 
                         || this.forceDoubleHand)) { // if a two-handed weapon was fixed, no need to try smething in the second hand
-                    this.tryType(index, typeCombination, null, combinations);
+                    this.tryType(index, typeCombination, null, combinations, forcedItems);
                 } else {
                     var found = false;
                     for (var typeIndex = 0, len = this.unitBuild.equipable[index].length; typeIndex < len; typeIndex++) {
@@ -90,24 +90,21 @@ class TypeCombinationGenerator {
                             continue;
                         }
                         if (this.dataByType[type].length > 0) {
-                            this.tryType(index, typeCombination, type, combinations);
+                            this.tryType(index, typeCombination, type, combinations, forcedItems);
                             found = true;
                         }
                     }
                     if (!found) {
-                        this.tryType(index, typeCombination, null, combinations);
+                        this.tryType(index, typeCombination, null, combinations, forcedItems);
                     } else if (index == 1 && !this.forceDualWield) {
-                        this.tryType(index, typeCombination, null, combinations);
+                        this.tryType(index, typeCombination, null, combinations, forcedItems);
                     }
                 }
             } else {
-                this.tryType(index, typeCombination, null, combinations);
+                this.tryType(index, typeCombination, null, combinations, forcedItems);
             }
             if (this.tryEquipSources && index < 4 ) {
                 var typesToTry = this.getEquipSourceToTry(index);
-                if (index == 1 && typesToTry.includes("harp") && this.unitBuild.fixedItems[6] && this.unitBuild.fixedItems[6].name == "Instrumental Flair") {
-                    console.log("!!");
-                }
                 for (var typeIndex = 0, lenType = typesToTry.length; typeIndex < lenType; typeIndex++) {
                     var typeToTry = typesToTry[typeIndex];
                     if (this.equipSourcesByType[typeToTry]) {
@@ -125,7 +122,7 @@ class TypeCombinationGenerator {
                                 this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
                                 this.unitBuild.fixedItems[slot] = equipSource;
                                 this.unitBuild.equipable[index] = this.unitBuild.equipable[index].concat([typeToTry]);
-                                this.tryType(index, typeCombination, typeToTry, combinations);
+                                this.tryType(index, typeCombination, typeToTry, combinations, forcedItems.concat([equipSource.id]));
                                 this.unitBuild.fixedItems = savedFixedItems;
                                 this.unitBuild.equipable[index] = savedEquipable;
                                 if (index == 0 && this.unitBuild.hasDualWield()) {
@@ -184,15 +181,15 @@ class TypeCombinationGenerator {
         return false;
     }
 
-    tryType(index, typeCombination, type, combinations) {
+    tryType(index, typeCombination, type, combinations, forcedItems) {
         if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes(type))) {
             return;
         }
         typeCombination[index] = type;
         if (index == 9) {
-            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems});
+            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems, "forcedItems": forcedItems});
         } else {
-            this.buildTypeCombination(index+1, typeCombination, combinations);
+            this.buildTypeCombination(index+1, typeCombination, combinations, forcedItems);
         }
     }
 }
