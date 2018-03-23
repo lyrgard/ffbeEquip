@@ -51,9 +51,6 @@ class TypeCombinationGenerator {
                         if (item.partialDualWield) {
                             this.unitBuild.equipable[0] = item.partialDualWield;
                             this.unitBuild.equipable[1] = item.partialDualWield;
-                            if (unitPartialDualWield) {
-                                this.unitBuild.equipable[1] = mergeArrayWithoutDuplicates(this.unitBuild.equipable[1], unitPartialDualWield);
-                            }
                         } else {
                             this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
                         }
