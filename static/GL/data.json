@@ -1,4 +1,4 @@
-[
+﻿[
 
 	{"id":"301000200", "name":"Bronze Knife", "type":"dagger", "atk":10, "access":["shop","recipe-chest"], "icon":"item_10100.png", "sortId":1, "rarity":1},
 	{"id":"301000400", "name":"Dagger", "type":"dagger", "atk":16, "access":["shop","recipe-chest","quest"], "icon":"item_10101.png", "sortId":2, "rarity":2},
@@ -1224,7 +1224,7 @@
 	{"id":"504208900", "name":"Light Resistance +15%", "type":"materia", "resist":[{"name":"light","percent":15}], "access":["event"], "maxNumber":1, "icon":"ability_99.png", "sortId":581},
 	{"id":"504208970", "name":"DEF +15%", "type":"materia", "def%":15, "access":["event"], "maxNumber":2, "icon":"ability_77.png", "sortId":583},
 	{"id":"504208980", "name":"SPR +15%", "type":"materia", "spr%":15, "access":["event"], "icon":"ability_77.png", "sortId":584},
-	{"id":"504208990", "name":"Null Paralysis", "type":"materia", "resist":[{"name":"paralysis","percent":100}], "access":["event"], "maxNumber":1, "icon":"ability_19.png", "sortId":585},
+	{"id":"504208990", "name":"Null Paralysis", "type":"materia", "resist":[{"name":"paralysis","percent":100}], "access":["event"], "maxNumber":2, "eventName": "Pride of Gungan", "icon":"ability_19.png", "sortId":585},
 	{"id":"504209350", "name":"Patriotic Recall", "type":"materia", "hp%":30, "def%":20, "resist":[{"name":"light","percent":30}], "tmrUnit":"212001004", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":591},
 	{"id":"504209480", "name":"Warrior Lore", "type":"materia", "hp%":10, "atk%":5, "def%":5, "access":["event"], "maxNumber":4, "icon":"ability_77.png", "sortId":588},
 	{"id":"504209490", "name":"Mage's Monograph", "type":"materia", "hp%":10, "mag%":5, "spr%":5, "access":["event"], "maxNumber":4, "icon":"ability_77.png", "sortId":589},
