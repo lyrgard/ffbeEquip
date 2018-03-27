@@ -1,5 +1,4 @@
-﻿[
-
+[
 	{"id":"301000200", "name":"Bronze Knife", "type":"dagger", "atk":10, "access":["shop","recipe-chest"], "icon":"item_10100.png", "sortId":1, "rarity":1},
 	{"id":"301000400", "name":"Dagger", "type":"dagger", "atk":16, "access":["shop","recipe-chest","quest"], "icon":"item_10101.png", "sortId":2, "rarity":2},
 	{"id":"301000500", "name":"Mythril Dagger", "type":"dagger", "atk":20, "access":["shop","recipe-chest","quest"], "icon":"item_10102.png", "sortId":3, "rarity":3},
@@ -387,7 +386,7 @@
 	{"id":"401001600", "name":"Lustrous Shield", "type":"lightShield", "def":32, "spr":10, "resist":[{"name":"light","percent":50}], "access":["quest"], "icon":"item_40115.png", "sortId":555, "rarity":5},
 	{"id":"401001700", "name":"Platinum Shield", "type":"lightShield", "def":37, "access":["chest"], "icon":"item_40215.png", "sortId":600, "rarity":4},
 	{"id":"401001800", "name":"Moogle Plushie", "type":"lightShield", "def":25, "spr":25, "special":["[Moogle Plushie|ability_83.png]:Increase chance of being targeted by 30%"], "tmrUnit":"215000403", "access":["TMR-3*"], "icon":"item_40116.png", "sortId":671, "rarity":6},
-	{"id":"401001900", "name":"Asfales", "type":"lightShield", "hp%":10, "def":45, "spr":45, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "access":["not released yet"], "icon":"item_40117.png", "sortId":721, "rarity":8},
+	{"id":"401001900", "name":"Asfales", "type":"lightShield", "hp%":10, "def":45, "spr":45, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "access":["trial"], "icon":"item_40117.png", "sortId":721, "rarity":8},
 	{"id":"401002000", "name":"Gladiator's Shield", "type":"lightShield", "def":25, "spr":18, "evade":{"physical":5}, "special":["[Counter|ability_68.png]:30% chance to counter a physical attack with an attack (1x, ATK)"], "access":["event"], "maxNumber":1, "eventName":"The White Sage and the Magic Cane", "icon":"item_50284.png", "sortId":726, "notStackableSkills":{"206170":{"evade":{"physical":5}}}, "rarity":6},
 	{"id":"401002100", "name":"Wind Buckler", "type":"lightShield", "def":28, "spr":16, "resist":[{"name":"wind","percent":50}], "access":["not released yet"], "icon":"item_40119.png", "sortId":868, "rarity":5},
 	{"id":"402000200", "name":"Large Shield", "type":"heavyShield", "def":22, "access":["shop","chest","recipe-chest"], "icon":"item_40202.png", "sortId":117, "rarity":3},
@@ -1343,8 +1342,8 @@
 	{"id":"504219220", "name":"Power of Purification", "type":"materia", "atk%":10, "killers":[{"name":"undead","physical":20}], "access":["not released yet"], "icon":"ability_77.png", "sortId":682},
 	{"id":"504219230", "name":"Art of Purification", "type":"materia", "mag%":10, "killers":[{"name":"undead","magical":20}], "access":["not released yet"], "icon":"ability_77.png", "sortId":683},
 	{"id":"504219240", "name":"Ice Resistance +20%", "type":"materia", "resist":[{"name":"ice","percent":20}], "access":["not released yet"], "icon":"ability_15.png", "sortId":684},
-	{"id":"504219250", "name":"Cradle of Horns", "type":"materia", "special":["[Cradle of Horns|ability_63.png]:Increase DEF and SPR by 100% for 2 turns to all allies, Reduce damage taken by 10% to all allies for 2 turns"], "access":["not released yet"], "icon":"ability_63.png", "sortId":685},
-	{"id":"504219260", "name":"L Shield Arts", "type":"materia", "def%":30, "spr%":30, "equipedConditions":["lightShield"], "access":["not released yet"], "icon":"ability_95.png", "sortId":686},
+	{"id":"504219250", "name":"Cradle of Horns", "type":"materia", "special":["[Cradle of Horns|ability_63.png]:Increase DEF and SPR by 100% for 2 turns to all allies, Reduce damage taken by 10% to all allies for 2 turns"], "access":["trial"], "icon":"ability_63.png", "sortId":685},
+	{"id":"504219260", "name":"L Shield Arts", "type":"materia", "def%":30, "spr%":30, "equipedConditions":["lightShield"], "access":["trial"], "icon":"ability_95.png", "sortId":686},
 	{"id":"504219270", "name":"Dual Wield+", "type":"materia", "atk%":15, "mag%":15, "special":["dualWield"], "access":["not released yet"], "icon":"ability_72.png", "sortId":687},
 	{"id":"504219820", "name":"Uncollapsing Will", "type":"materia", "atk%":40, "equipedConditions":["sword"], "tmrUnit":"100013104", "access":["TMR-4*"], "icon":"ability_95.png", "sortId":689},
 	{"id":"504219820", "name":"Uncollapsing Will", "type":"materia", "hp%":30, "atk%":40, "equipedConditions":["sword","lightShield"], "tmrUnit":"100013104", "access":["TMR-4*"], "icon":"ability_95.png", "sortId":689},
