@@ -1,6 +1,6 @@
 [
-    {"name":"Siren","maxLevel":2,"hp":3000,"mp":3400,"atk":1800,"def":1900,"mag":3600,"spr":3600, "resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50}]},
-    {"name":"Ifrit","maxLevel":2,"hp":4500,"mp":2200,"atk":5100,"def":2800,"mag":2100,"spr":2100,"killers":[{"name":"beast","physical":50}, {"name":"plant","physical":50}], "resist":[{"name":"ice","percent":-50},{"name":"fire","percent":50}]},
+    {"name":"Siren","maxLevel":3,"hp":5400,"mp":6240,"atk":4200,"def":4680,"mag":6120,"spr":6120, "resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50},{"name":"sleep","percent":100}]},
+    {"name":"Ifrit","maxLevel":3,"hp":7000,"mp":4500,"atk":7480,"def":5060,"mag":3880,"spr":3800,"killers":[{"name":"beast","physical":125, "magical":75}, {"name":"plant","physical":125, "magical":75}], "resist":[{"name":"ice","percent":-50},{"name":"fire","percent":50},{"name":"blind","percent":50}]},
     {"name":"Shiva","maxLevel":2,"hp":3300,"mp":5900,"atk":2100,"def":2300,"mag":5400,"spr":5400, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":50}]},
     {"name":"Carbuncle","maxLevel":2,"hp":3200,"mp":5700,"atk":1800,"def":3200,"mag":4300,"spr":6000, "resist":[{"name":"dark","percent":-50},{"name":"light","percent":50}]},
     {"name":"Diabolos","maxLevel":2,"hp":4300,"mp":6000,"atk":1500,"def":2300,"mag":5300,"spr":3100,"killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "resist":[{"name":"light","percent":-50},{"name":"dark","percent":50}]},
