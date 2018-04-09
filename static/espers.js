@@ -8,14 +8,9 @@ var ownedEspers;
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
-    $("#units").removeClass("hidden");
-    $("#searchBox").addClass("hidden");
+    $("#esper").removeClass("hidden");
 
-    $(".nav-tabs li.alphabeticalSort").removeClass("active");
-    $(".nav-tabs li.raritySort").removeClass("active");
-    $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
-    $(".nav-tabs li.history").removeClass("active");
-    $("#searchBox").prop("placeholder", "Enter unit name");
+    $(".nav-tabs li").removeClass("active");
 }
 
 function show(esperName) {
@@ -23,9 +18,54 @@ function show(esperName) {
     currentEsper = esperName;
     $(".nav-tabs li." + esperName).addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnits(sortAlphabetically(filterName(units))));
+    var esper;
+    for (var index in espers) {
+        if (escapeName(espers[index].name) == esperName) {
+            esper = espers[index];
+            break;
+        }
+    }
+    if (esper) {
+        $("#esper").html(getBoard(esper.name));
+    }
 }
 
+function getBoard(esperName) {
+    var html = "";
+    var board = esperBoards[esperName];
+    for (var index in board.nodes) {
+        html += '<div class="skillLine">' + getNode(board.nodes[index]) + "</div>";
+    }
+    return html;
+}
+
+function getNode(node, depth = 0) {
+    html = '<div class="skill">';
+    for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
+        if (node[baseStats[statIndex]]) {
+            html += '<span class="stat">' + baseStats[statIndex] + ' + ' + node[baseStats[statIndex]] + '</span>';
+        }
+    }
+    if (node.special) {
+        var indexOfSemicolon = node.special[0].indexOf(":");
+        html += '<span class="ability" title="' + node.special[0].substr(indexOfSemicolon + 1) + '">' + toHtml(node.special[0].substr(0,indexOfSemicolon)) + '</span>';
+    }
+    if (node.resist) {
+        html += '<span class="resist">' +  getResistHtml(node) + '</span>';
+    }
+    html += '</div>'
+    if (node.children.length > 0) {
+        html += getNode(node.children[0], depth + 1)
+    }
+    for (var i= 1; i < node.children.length; i++) {
+        html+= '</div><div class="skillLine">';
+        for (var j= 0; j <= depth; j++) {
+            html += '<div class="skill empty"></div>';
+        }
+        html += getNode(node.children[i], depth + 1);
+    }
+    return html;
+}
 
 function addToOwnedUnits(unitId) {
     if (!ownedUnits[unitId]) {
@@ -72,13 +112,14 @@ function removeFromOwnedUnits(unitId) {
 function displayEspers() {
     var tabs = ""
     for (var index = 0; index < espers.length; index++) {
-        var escapedName = espers[index].name.replace(" ", "_");
+        var escapedName = escapeName(espers[index].name);
         tabs += "<li class=\"" + escapedName + "\" onclick=\"show('" + espers[index].name + "')\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
     }
     $("#espers #tabs").html(tabs);
     $("#espers").removeClass("hidden");
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
+    show(escapeName(espers[0].name));
 }
 
 
@@ -87,6 +128,7 @@ function notLoaded() {
     $("#loginMessage").removeClass("hidden");
     $("#inventory").addClass("hidden");
 }
+
 
 function updateResults() {
     currentSort();
@@ -108,10 +150,11 @@ $(function() {
         espers = result;
         $.get(server + "/espers", function(result) {
             ownedEspers = result;
-            displayEspers();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
-        });
+            $.get(server + "/esperBoards.json", function(result) {
+                esperBoards = result;
+                displayEspers();
+            });
+        }, 'json');
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
