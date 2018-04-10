@@ -115,6 +115,26 @@ function displayEspers() {
         var escapedName = escapeName(espers[index].name);
         tabs += "<li class=\"" + escapedName + "\" onclick=\"show('" + espers[index].name + "')\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
     }
+    var boardHtml = "";
+    for (var i = 0; i < 81; i++) {
+        var y = Math.trunc(i/9) - 4;
+        var x = i % 9 - 4;
+        x = x + Math.round(y/2)
+        var posString = "";
+        if (x < 0) {
+            posString += "m" + -x;
+        } else {
+            posString += x;
+        }
+        posString += "_"
+        if (y < 0) {
+            posString += "m" + -y;
+        } else {
+            posString += y;
+        }
+        boardHtml += '<li><div class="hexagon ' + posString + '">' + posString + " " + distance(x, y) + '</div></li>';
+    }
+    $("#grid").html(boardHtml);
     $("#espers #tabs").html(tabs);
     $("#espers").removeClass("hidden");
     $("#pleaseWaitMessage").addClass("hidden");
@@ -122,6 +142,9 @@ function displayEspers() {
     show(escapeName(espers[0].name));
 }
 
+function distance(x1, y1) {
+    return (Math.abs(x1) + Math.abs(x1 + y1) + Math.abs(y1)) / 2;
+}
 
 function notLoaded() {
     $("#pleaseWaitMessage").addClass("hidden");
