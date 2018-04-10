@@ -11,6 +11,24 @@ function beforeShow() {
     $("#esper").removeClass("hidden");
 
     $(".nav-tabs li").removeClass("active");
+    
+    var nodes = $("#grid li .hexagon");
+    nodes.removeClass("hp");
+    nodes.removeClass("mp");
+    nodes.removeClass("atk");
+    nodes.removeClass("def");
+    nodes.removeClass("mag");
+    nodes.removeClass("spr");
+    nodes.removeClass("ability");
+    nodes.removeClass("resist");
+    nodes.removeClass("killer");
+    
+    $(".line").remove();
+    
+    var grid = $("#grid");
+    grid.removeClass("star1");
+    grid.removeClass("star2");
+    grid.removeClass("star3");
 }
 
 function show(esperName) {
@@ -20,51 +38,89 @@ function show(esperName) {
     // filter, sort and display the results
     var esper;
     for (var index in espers) {
-        if (escapeName(espers[index].name) == esperName) {
+        if (espers[index].name == esperName) {
             esper = espers[index];
             break;
         }
     }
     if (esper) {
-        $("#esper").html(getBoard(esper.name));
+        showBoard(esper.name, esper.maxLevel);
     }
 }
 
-function getBoard(esperName) {
-    var html = "";
+function showBoard(esperName, level) {
+    var escapedName = escapeName(esperName);
+    $("#grid li.0_0 .hexagon").html('<img class="esperCenterIcon" src=\"img/' + escapedName +'.png\"/>');
+    $("#grid").addClass("star" + level);
     var board = esperBoards[esperName];
+    var rootNode = $("#grid li.0_0 .hexagon");
+    rootNode.addClass("selected");
     for (var index in board.nodes) {
-        html += '<div class="skillLine">' + getNode(board.nodes[index]) + "</div>";
+        showNode(board.nodes[index], rootNode, level);
     }
-    return html;
 }
 
-function getNode(node, depth = 0) {
-    html = '<div class="skill">';
+function getCenterX(node) {
+    var offset = node.offset();
+    var width = node.width();
+    return offset.left + width / 2;
+}
+
+function getCenterY(node) {
+    var offset = node.offset();
+    var height = node.height();
+    return offset.top + height / 2;
+}
+
+function showNode(node, parentNodeHtml, level) {
+    var posString = getPositionString(node.position[0], node.position[1]);
+    var nodeHtml = $("#grid li." + posString + " .hexagon");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
         if (node[baseStats[statIndex]]) {
-            html += '<span class="stat">' + baseStats[statIndex] + ' + ' + node[baseStats[statIndex]] + '</span>';
+            nodeHtml.html('<span class="iconHolder"></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[baseStats[statIndex]] + '</span><span class="cost">' + node.cost + ' SP</span>');
+            nodeHtml.addClass(baseStats[statIndex]);
+            break;
         }
     }
     if (node.special) {
         var indexOfSemicolon = node.special[0].indexOf(":");
-        html += '<span class="ability" title="' + node.special[0].substr(indexOfSemicolon + 1) + '">' + toHtml(node.special[0].substr(0,indexOfSemicolon)) + '</span>';
+        nodeHtml.html('<span class="iconHolder">' + abilityIcon(node.special[0].substr(0,indexOfSemicolon)) + '</span><span class="text">' + abilityName(node.special[0].substr(0,indexOfSemicolon)) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        nodeHtml.addClass("ability");
     }
     if (node.resist) {
-        html += '<span class="resist">' +  getResistHtml(node) + '</span>';
+        nodeHtml.html('<span class="iconHolder"></span><span class="text">' + getResistHtml(node) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        nodeHtml.addClass("resist");
     }
-    html += '</div>'
-    if (node.children.length > 0) {
-        html += getNode(node.children[0], depth + 1)
+    if (node.killers) {
+        nodeHtml.html('<span class="iconHolder"></span><span class="text">' + getKillersHtml(node) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        nodeHtml.addClass("killer");
     }
-    for (var i= 1; i < node.children.length; i++) {
-        html+= '</div><div class="skillLine">';
-        for (var j= 0; j <= depth; j++) {
-            html += '<div class="skill empty"></div>';
+    if (distance(node.position[0], node.position[1]) <= level + 1) {
+        $('body').line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
+    }
+    for (var i= 0; i < node.children.length; i++) {
+        showNode(node.children[i], nodeHtml, level);
+    }
+}
+
+function abilityIcon(text) {
+    return text.replace(/(\[[^\]]*\])/g, function(v) {
+        var vWithoutBrace = v.substring(1, v.length - 1);
+        var token = vWithoutBrace.split("|");
+        var result = "";
+        if (token.length == 2) {
+            result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
         }
-        html += getNode(node.children[i], depth + 1);
-    }
-    return html;
+        return result;
+    });
+};
+
+function abilityName(text) {
+    return text.replace(/(\[[^\]]*\])/g, function(v) {
+        var vWithoutBrace = v.substring(1, v.length - 1);
+        var token = vWithoutBrace.split("|");
+        return toLink(token[0]);
+    });
 }
 
 function addToOwnedUnits(unitId) {
@@ -108,6 +164,50 @@ function removeFromOwnedUnits(unitId) {
     saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
 }
+function onMouseOverNode(x,y) {
+    var path = findPathTo(x,y,esperBoards[currentEsper]);
+    if (path) {
+        for (var index = 0; index < path.length; index++) {
+            var posString = getPositionString(path[index].position[0], path[index].position[1]);
+            $("#grid li." + posString + " .hexagon").addClass("hover");
+        }
+    }
+}
+
+function onMouseOutNode() {
+    $("#grid .hexagon.hover").removeClass("hover");
+}
+
+function findPathTo(x,y, fromNode, currentPath = []) {
+    if (fromNode.nodes) {
+        for (var index = 0; index < fromNode.nodes.length; index++) {
+            var path = findPathTo(x, y, fromNode.nodes[index], currentPath);
+            if (path) {
+                return path;
+            }
+        }   
+    } else {
+        currentPath = currentPath.concat(fromNode);
+        if (fromNode.position && fromNode.position[0] == x && fromNode.position[1] == y) {
+            return currentPath;
+        }
+        if (fromNode.children.length == 0) {
+            return null;
+        }
+        for (var index = 0; index < fromNode.children.length; index++) {
+            var path = findPathTo(x, y, fromNode.children[index], currentPath);
+            if (path) {
+                return path;
+            }
+        }
+        return null;
+    }
+}
+
+function findPathToReccursively(x,y, currentPath = [], fromNode) {
+    children
+}
+
 
 function displayEspers() {
     var tabs = ""
@@ -120,19 +220,19 @@ function displayEspers() {
         var y = Math.trunc(i/9) - 4;
         var x = i % 9 - 4;
         x = x + Math.round(y/2)
-        var posString = "";
-        if (x < 0) {
-            posString += "m" + -x;
+        var posString = getPositionString(x, y);
+        boardHtml += '<li class="' + posString + '"><div class="hexagon ';
+        var dist = distance(x, y);
+        if (dist > 4) {
+            boardHtml += " notUsed ";
+        } else if (dist > 3) {
+            boardHtml += " star3 ";
+        } else if (dist > 2) {
+            boardHtml += " star2 ";
         } else {
-            posString += x;
+            boardHtml += " star1 ";
         }
-        posString += "_"
-        if (y < 0) {
-            posString += "m" + -y;
-        } else {
-            posString += y;
-        }
-        boardHtml += '<li><div class="hexagon ' + posString + '">' + posString + " " + distance(x, y) + '</div></li>';
+        boardHtml += ' " onclick="selectNode(' + x + ',' + y + ')" onmouseover="onMouseOverNode(' + x + ',' + y + ')" onmouseout="onMouseOutNode()"></div></li>';
     }
     $("#grid").html(boardHtml);
     $("#espers #tabs").html(tabs);
@@ -143,7 +243,23 @@ function displayEspers() {
 }
 
 function distance(x1, y1) {
-    return (Math.abs(x1) + Math.abs(x1 + y1) + Math.abs(y1)) / 2;
+    return (Math.abs(x1) + Math.abs(x1 - y1) + Math.abs(y1)) / 2;
+}
+
+function getPositionString(x, y) {
+    var posString = "";
+    if (x < 0) {
+        posString += "m" + -x;
+    } else {
+        posString += x;
+    }
+    posString += "_"
+    if (y < 0) {
+        posString += "m" + -y;
+    } else {
+        posString += y;
+    }
+    return posString;
 }
 
 function notLoaded() {
