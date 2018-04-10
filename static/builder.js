@@ -65,7 +65,7 @@ var progressElement;
 var progress;
 
 const defaultItemsToExclude = ["409009000"];
-const itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
+var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
 var running = false;
@@ -1655,11 +1655,9 @@ function removeItemFromExcludeList(id) {
 }
 
 function resetExcludeList() {
-    for (var index = itemsToExclude.length; index--;) {
-        if (!defaultItemsToExclude.includes(itemsToExclude[index])) {
-            removeItemFromExcludeList(itemsToExclude[index]);
-        }
-    }
+    itemsToExclude = defaultItemsToExclude.slice();
+    $('#showExcludedItemsDialog').dialog('destroy');
+    showExcludedItems();
 }
 
 function getItemLineAsText(prefix, slot) {
