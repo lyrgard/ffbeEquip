@@ -5,13 +5,38 @@ var saveTimeout;
 var espers;
 var ownedEspers;
 
+var grid;
+
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
 
     $(".nav-tabs li").removeClass("active");
-    
+}
+
+function show(esperName) {
+    beforeShow();
+    currentEsper = esperName;
+    $(".nav-tabs li." + esperName).addClass("active");
+    var esper;
+    for (var index in espers) {
+        if (espers[index].name == esperName) {
+            esper = espers[index];
+            break;
+        }
+    }
+    if (esper) {
+        var optionsHtml = '<option value="notOwned">Not owned</option>';
+        for (var i = 1; i <= esper.maxLevel; i++) {
+            optionsHtml += '<option value="' + i + '">' + i + ' ★</option>';
+        }
+        $("#esper #esperStar").html(optionsHtml);
+        //showBoard(esper.name, esper.maxLevel);
+    }
+}
+
+function showBoard(esperName, level) {
     var nodes = $("#grid li .hexagon");
     nodes.removeClass("hp");
     nodes.removeClass("mp");
@@ -23,32 +48,11 @@ function beforeShow() {
     nodes.removeClass("resist");
     nodes.removeClass("killer");
     
-    $(".line").remove();
-    
     var grid = $("#grid");
     grid.removeClass("star1");
     grid.removeClass("star2");
     grid.removeClass("star3");
-}
-
-function show(esperName) {
-    beforeShow();
-    currentEsper = esperName;
-    $(".nav-tabs li." + esperName).addClass("active");
-    // filter, sort and display the results
-    var esper;
-    for (var index in espers) {
-        if (espers[index].name == esperName) {
-            esper = espers[index];
-            break;
-        }
-    }
-    if (esper) {
-        showBoard(esper.name, esper.maxLevel);
-    }
-}
-
-function showBoard(esperName, level) {
+    $(".line").remove();
     var escapedName = escapeName(esperName);
     $("#grid li.0_0 .hexagon").html('<img class="esperCenterIcon" src=\"img/' + escapedName +'.png\"/>');
     $("#grid").addClass("star" + level);
@@ -63,13 +67,13 @@ function showBoard(esperName, level) {
 function getCenterX(node) {
     var offset = node.offset();
     var width = node.width();
-    return offset.left + width / 2;
+    return offset.left - grid.offset().left + width / 2;
 }
 
 function getCenterY(node) {
     var offset = node.offset();
     var height = node.height();
-    return offset.top + height / 2;
+    return offset.top - grid.offset().top + height / 2;
 }
 
 function showNode(node, parentNodeHtml, level) {
@@ -92,11 +96,26 @@ function showNode(node, parentNodeHtml, level) {
         nodeHtml.addClass("resist");
     }
     if (node.killers) {
-        nodeHtml.html('<span class="iconHolder"></span><span class="text">' + getKillersHtml(node) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        var killer = node.killers[0];
+        var html = '<span class="iconHolder">';
+        if (killer.physical) {
+            html+= '<img class="miniIcon physical" src="img/sword.png">';
+        }
+        if (killer.magical) {
+            html+= '<img class="miniIcon magical" src="img/rod.png">';
+        }
+        html += '<img class="icon" src="/img/items/ability_79.png"></img></span><span class="text"><span class="capitalize">' + killer.name + '</span> ';
+        if (killer.physical) {
+            html+= killer.physical + '%';
+        } else {
+            html+= killer.magical + '%';
+        }
+        html+='</span><span class="cost">' + node.cost + ' SP</span>';
+        nodeHtml.html(html);
         nodeHtml.addClass("killer");
     }
     if (distance(node.position[0], node.position[1]) <= level + 1) {
-        $('body').line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
+        grid.line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
     }
     for (var i= 0; i < node.children.length; i++) {
         showNode(node.children[i], nodeHtml, level);
@@ -300,11 +319,19 @@ $(function() {
 
 
     $("#results").addClass(server);
-
+    grid = $("#grid");
 
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !"
         }
     });
+    $("#esper #esperStar").change(function () {
+        var value = $("#esper #esperStar").val();
+        if (value == "notOwned") {
+            $("#grid").addClass("hidden");
+        } else {
+            showBoard(currentEsper, parseInt(value));
+        }
+    })
 });
