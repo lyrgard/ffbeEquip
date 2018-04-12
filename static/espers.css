@@ -20,10 +20,6 @@
     border-bottom-color: rgb(221, 221, 221);
 }
 
-#esper {
-    margin-right: -10%;
-}
-
 .skill {
     display: inline-block;
     width: 100px;
@@ -36,6 +32,11 @@
 
 .skill.empty {
     border-color: white;
+}
+
+#gridContainer {
+    position: relative;
+    margin-right: -10%;
 }
 
 #grid li {
@@ -84,7 +85,7 @@
 
 #grid li .hexagon:hover, #grid li .hexagon.hover {
     cursor: pointer;
-    filter: contrast(100%); 
+    filter: contrast(70%); 
 }
 
 #grid li .hexagon:hover *, #grid li .hexagon.hover *, #grid li .hexagon.selected * {
@@ -200,4 +201,54 @@
 .killer .miniIcon.magical {
     margin-top: 19px;
     margin-left: 29px;
+}
+
+.form-control-plaintext {
+    display: block;
+    width: 100%;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+}
+
+.esperHeader {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.esperChoice {
+    width: 400px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLine {
+    display: flex;
+    flex-direction: row;
+}
+
+.formLabel {
+    width: 100px;
+    min-width: 100px;
+    line-height: 34px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.formValue {
+    line-height: 34px;
+    padding-left: 5px;
+}
+
+.formLine.stats .formGroup {
+    width: 200px;
 }

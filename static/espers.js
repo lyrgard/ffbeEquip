@@ -4,14 +4,22 @@ var saveTimeout;
 
 var espers;
 var ownedEspers;
+var currentEsper;
 
-var grid;
+var gridContainer;
+
+var sp;
+
+const maxLevelByStar = {
+    "1": 30,
+    "2": 40,
+    "3": 60
+}
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
-
     $(".nav-tabs li").removeClass("active");
 }
 
@@ -32,51 +40,99 @@ function show(esperName) {
             optionsHtml += '<option value="' + i + '">' + i + ' ★</option>';
         }
         $("#esper #esperStar").html(optionsHtml);
-        //showBoard(esper.name, esper.maxLevel);
+        if (ownedEspers[esperName]) {
+            $("#esper #esperStar option[value=" + ownedEspers[esperName].rarity + "]").prop('selected', true);
+            setEsperLevel(ownedEspers[esperName].level);
+            showBoard(esper.name, ownedEspers[esperName].rarity);
+            $("#esper .levelLine").removeClass("hidden");
+            $("#esper .spLine").removeClass("hidden");
+        } else {
+            $("#esper .levelLine").addClass("hidden");
+            $("#esper .spLine").addClass("hidden");
+            gridContainer.addClass("hidden");
+        }
     }
 }
-
-function showBoard(esperName, level) {
+function showBoard(esperName, star) {
+    
     var nodes = $("#grid li .hexagon");
-    nodes.removeClass("hp");
-    nodes.removeClass("mp");
-    nodes.removeClass("atk");
-    nodes.removeClass("def");
-    nodes.removeClass("mag");
-    nodes.removeClass("spr");
-    nodes.removeClass("ability");
-    nodes.removeClass("resist");
-    nodes.removeClass("killer");
+    nodes.removeClass("hp mp atk def mag spr ability resist killer selected");
+    $(".line").remove();
     
     var grid = $("#grid");
-    grid.removeClass("star1");
-    grid.removeClass("star2");
-    grid.removeClass("star3");
-    $(".line").remove();
+    grid.removeClass("star1 star2 star3");
+    gridContainer.removeClass("hidden");
+    
     var escapedName = escapeName(esperName);
     $("#grid li.0_0 .hexagon").html('<img class="esperCenterIcon" src=\"img/' + escapedName +'.png\"/>');
-    $("#grid").addClass("star" + level);
+    $("#grid").addClass("star" + star);
     var board = esperBoards[esperName];
     var rootNode = $("#grid li.0_0 .hexagon");
     rootNode.addClass("selected");
     for (var index in board.nodes) {
-        showNode(board.nodes[index], rootNode, level);
+        showNode(board.nodes[index], rootNode, star);
     }
+}
+
+function setEsperLevel(level) {
+    $("#level").val(level);
+    ownedEspers[currentEsper].level = level;
+    updateSp();
+}
+    
+function updateSp() {
+    var level = parseInt($("#level").val());
+    var star = parseInt($("#esperStar").val());
+    var board = esperBoards[currentEsper];
+    sp = [];
+    var availableSP = 0;
+    for (var i = 1; i < star; i++) {
+        var progression = board.progression[i.toString()];
+        for (var j = 0; j < progression.length; j++) {
+            availableSP += progression[j];
+        }
+    }
+    var progression = board.progression[star];
+    for (var j = 0; j < level; j++) {
+        availableSP += progression[j];
+    }
+    
+    var board = esperBoards[currentEsper];
+    var usedSp = 0;
+    for (var index in board.nodes) {
+        usedSp += calculateUsedSp(board.nodes[index]);
+    }
+    
+    sp[0] = usedSp;
+    sp[1] = availableSP;
+    $("#sp").text(usedSp + "/" +availableSP);
+}
+
+function calculateUsedSp(node) {
+    var cost = 0;
+    var posString = getPositionString(node.position[0], node.position[1]);
+    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+        cost += node.cost;
+        for(var i = 0; i < node.children.length; i++) {
+            cost += calculateUsedSp(node.children[i]);
+        }
+    }
+    return cost;
 }
 
 function getCenterX(node) {
     var offset = node.offset();
     var width = node.width();
-    return offset.left - grid.offset().left + width / 2;
+    return offset.left - gridContainer.offset().left + width / 2;
 }
 
 function getCenterY(node) {
     var offset = node.offset();
     var height = node.height();
-    return offset.top - grid.offset().top + height / 2;
+    return offset.top - gridContainer.offset().top + height / 2;
 }
 
-function showNode(node, parentNodeHtml, level) {
+function showNode(node, parentNodeHtml, star) {
     var posString = getPositionString(node.position[0], node.position[1]);
     var nodeHtml = $("#grid li." + posString + " .hexagon");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
@@ -114,11 +170,14 @@ function showNode(node, parentNodeHtml, level) {
         nodeHtml.html(html);
         nodeHtml.addClass("killer");
     }
-    if (distance(node.position[0], node.position[1]) <= level + 1) {
-        grid.line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
+    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+        nodeHtml.addClass("selected");
+    }
+    if (distance(node.position[0], node.position[1]) <= star + 1) {
+        gridContainer.line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
     }
     for (var i= 0; i < node.children.length; i++) {
-        showNode(node.children[i], nodeHtml, level);
+        showNode(node.children[i], nodeHtml, star);
     }
 }
 
@@ -183,6 +242,39 @@ function removeFromOwnedUnits(unitId) {
     saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
     $(".saveInventory").removeClass("hidden");
 }
+
+function selectNode(x,y) {
+    var posString = getPositionString(x, y);
+    var path = findPathTo(x,y,esperBoards[currentEsper]);
+    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+        var node = path[path.length - 1];
+        unselectNodeAndChildren(node);
+    } else {
+        if (path) {
+            for (var index = 0; index < path.length; index++) {
+                var posString = getPositionString(path[index].position[0], path[index].position[1]);
+                if (!ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+                    ownedEspers[currentEsper].selectedSkills.push(posString);
+                    $("#grid li." + posString + " .hexagon").addClass("selected");
+                }
+            }
+        }
+    }
+    updateSp();
+}
+
+function unselectNodeAndChildren(node) {
+    var posString = getPositionString(node.position[0], node.position[1]);
+    var index = ownedEspers[currentEsper].selectedSkills.indexOf(posString)
+    if (index >= 0) {
+        ownedEspers[currentEsper].selectedSkills.splice(index, 1);
+        $("#grid li." + posString + " .hexagon").removeClass("selected");
+        for (var i = 0; i < node.children.length; i++) {
+            unselectNodeAndChildren(node.children[i]);
+        }
+    }
+}
+
 function onMouseOverNode(x,y) {
     var path = findPathTo(x,y,esperBoards[currentEsper]);
     if (path) {
@@ -222,11 +314,6 @@ function findPathTo(x,y, fromNode, currentPath = []) {
         return null;
     }
 }
-
-function findPathToReccursively(x,y, currentPath = [], fromNode) {
-    children
-}
-
 
 function displayEspers() {
     var tabs = ""
@@ -319,7 +406,7 @@ $(function() {
 
 
     $("#results").addClass(server);
-    grid = $("#grid");
+    gridContainer = $("#gridContainer");
 
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
@@ -329,9 +416,25 @@ $(function() {
     $("#esper #esperStar").change(function () {
         var value = $("#esper #esperStar").val();
         if (value == "notOwned") {
-            $("#grid").addClass("hidden");
+            $("#esper .levelLine").addClass("hidden");
+            $("#esper .spLine").addClass("hidden");
+            delete ownedEspers[currentEsper];
+            gridContainer.addClass("hidden");
         } else {
+            $("#esper .levelLine").removeClass("hidden");
+            $("#esper .spLine").removeClass("hidden");
+            ownedEspers[currentEsper] = {"rarity":parseInt(value),"selectedSkills":[]};
+            setEsperLevel(maxLevelByStar[value]);
             showBoard(currentEsper, parseInt(value));
         }
-    })
+    });
+    $("#esper #level").change(function () {
+        var star = $("#esperStar").val();
+        var level = parseInt($("#level").val());
+        if (level > maxLevelByStar[star]) {
+            setEsperLevel(maxLevelByStar[value]);
+        } else {
+            setEsperLevel(level);
+        }
+    });
 });

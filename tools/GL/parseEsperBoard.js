@@ -76,40 +76,42 @@ console.log("Starting");
 getData('summons.json', function (espers) {
     getData('summons_boards.json', function (esperBoards) {
         getData('skills.json', function (skills) {
-            var out = {};
-            for (var esperId in espers) {
-                var esper = espers[esperId];
-                var boardOut = {"nodes":[]};
-                out[esper.names[0]] = boardOut;
-                var boardIn = esperBoards[esperId];
-                var nodeByIds = {};
-                var rootNodeId = 0;
-                for (var nodeId in boardIn) {
-                    var node = boardIn[nodeId];
-                    if (!node.parent_node_id) {
-                        rootNodeId = nodeId
-                    } else {
-                        var nodeOut = getNode(node, skills);
-                        nodeByIds[nodeId] = nodeOut;
-                    }
-                }
-                for (var nodeId in boardIn) {
-                    var node = boardIn[nodeId];
-                    var nodeOut = nodeByIds[nodeId];
-                    if (node.parent_node_id) {
-                        if (node.parent_node_id == rootNodeId) {
-                            boardOut.nodes.push(nodeOut);
+            fs.readFile('../esperProgression.json', function (err, content) {
+                var esperProgression = JSON.parse(content);
+                var out = {};
+                for (var esperId in espers) {
+                    var esper = espers[esperId];
+                    var boardOut = {"nodes":[]};
+                    out[esper.names[0]] = boardOut;
+                    boardOut.progression = esperProgression[esper.names[0]];
+                    var boardIn = esperBoards[esperId];
+                    var nodeByIds = {};
+                    var rootNodeId = 0;
+                    for (var nodeId in boardIn) {
+                        var node = boardIn[nodeId];
+                        if (!node.parent_node_id) {
+                            rootNodeId = nodeId
                         } else {
-                            var parentNode = nodeByIds[node.parent_node_id];
-                            console.log(node.parent_node_id);
-                            console.log(parentNode);
-                            parentNode.children.push(nodeOut);
+                            var nodeOut = getNode(node, skills);
+                            nodeByIds[nodeId] = nodeOut;
                         }
                     }
+                    for (var nodeId in boardIn) {
+                        var node = boardIn[nodeId];
+                        var nodeOut = nodeByIds[nodeId];
+                        if (node.parent_node_id) {
+                            if (node.parent_node_id == rootNodeId) {
+                                boardOut.nodes.push(nodeOut);
+                            } else {
+                                var parentNode = nodeByIds[node.parent_node_id];
+                                parentNode.children.push(nodeOut);
+                            }
+                        }
+                    }
+
+                    fs.writeFileSync('esperBoards.json', JSON.stringify(out));
                 }
-                
-                fs.writeFileSync('esperBoards.json', JSON.stringify(out));
-            }
+            });
         });
     });
 });
