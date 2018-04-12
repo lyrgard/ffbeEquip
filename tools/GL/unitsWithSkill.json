@@ -961,16 +961,16 @@
 	"100006603": {
 		"name":"Camille",
 		"id":"100006603",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2672,"mp":110,"atk":107,"def":96,"mag":89,"spr":84},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+			"maxStats":{"hp":3474,"mp":143,"atk":140,"def":125,"mag":116,"spr":110},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["dagger","sword","katana","axe","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":10, "atk%":20, "resist":[{"name":"earth","percent":30},{"name":"water","percent":30}]},
+			{"hp%":30, "atk%":40, "def%":10, "spr%":10, "evade":{"physical":10}, "resist":[{"name":"earth","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}]},
 			{"atk%":30, "equipedConditions":["sword"]}
 		]
 	},

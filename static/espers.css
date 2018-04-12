@@ -85,7 +85,8 @@
 
 #grid li .hexagon:hover, #grid li .hexagon.hover {
     cursor: pointer;
-    filter: contrast(70%); 
+    filter: contrast(70%);
+    
 }
 
 #grid li .hexagon:hover *, #grid li .hexagon.hover *, #grid li .hexagon.selected * {
