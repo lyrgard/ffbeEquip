@@ -56,10 +56,58 @@
                     <div class="result-tab-pane">
                         <div class="panel-body" style="padding:0;">
                             <div id="esper">
-                                <select id="esperStar"></select>
-                                <input type="number"/>
-                                <ul id="grid" class="clear">
-                                </ul>
+                                <div class="esperHeader">
+                                    <div class="formGroup esperChoice">
+                                        <div class="formLine">
+                                            <label  for="esperStar" class="formLabel">Rarity</label>
+                                            <select id="esperStar" class="form-control formInput"></select>
+                                        </div>
+
+                                        <div class="formLine levelLine">
+                                            <label  for="level" class="formLabel">Level</label>
+                                            <input id="level" type="number" class="form-control formInput"/>
+                                        </div>
+                                            
+                                        <div class="formLine spLine">
+                                            <label  for="sp" class="formLabel">SP</label>
+                                            <span id="sp" class="formValue"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="formLine stats">
+                                        <div class="formGroup">
+                                            <div class="formLine">
+                                                <label class="formLabel">HP</label>
+                                                <span id="esperHp" class="formValue"></span> 
+                                            </div>
+                                            <div class="formLine">
+                                                <label class="formLabel">ATK</label>
+                                                <span id="esperAtk" class="formValue"></span> 
+                                            </div>
+                                            <div class="formLine">
+                                                <label class="formLabel">DEF</label>
+                                                <span id="esperDef" class="formValue"></span> 
+                                            </div>
+                                        </div>
+                                        <div class="formGroup">
+                                            <div class="formLine">
+                                                <label class="formLabel">MP</label>
+                                                <span id="esperMp" class="formValue"></span> 
+                                            </div>
+                                            <div class="formLine">
+                                                <label class="formLabel">MAG</label>
+                                                <span id="esperMag" class="formValue"></span> 
+                                            </div>
+                                            <div class="formLine">
+                                                <label class="formLabel">SPR</label>
+                                                <span id="esperSpr" class="formValue"></span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gridContainer">
+                                    <ul id="grid" class="clear">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
