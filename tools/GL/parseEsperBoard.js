@@ -84,6 +84,12 @@ getData('summons.json', function (espers) {
                     var boardOut = {"nodes":[]};
                     out[esper.names[0]] = boardOut;
                     boardOut.progression = esperProgression[esper.names[0]];
+                    boardOut.stats = {};
+                    boardOut.resist = {};
+                    for (var i = 0; i < esper.entries.length; i++) {
+                        boardOut.stats[i+1] = esper.entries[i].stats;
+                        boardOut.resist[i+1] = getResist(esper.entries[i]);
+                    }
                     var boardIn = esperBoards[esperId];
                     var nodeByIds = {};
                     var rootNodeId = 0;
@@ -375,6 +381,17 @@ function addAilmentResist(item, values) {
         if (values[index]) {
             item.resist.push({"name":ailments[index],"percent":values[index]})
         }
+    }
+}
+
+function getResist(entry) {
+    var obj = {};
+    addElementalResist(obj, entry.element_resist);
+    addAilmentResist(obj, entry.status_resist);
+    if (obj.resist.length == 0) {
+        return null;
+    } else {
+        return obj.resist;
     }
 }
 
