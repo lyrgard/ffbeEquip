@@ -418,6 +418,19 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
                 var evoMag = rawEffect[3][0];
                 addToStat(baseEffects, "evoMag", evoMag);
+                
+            // +Stats from espers boost
+            } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 63) {
+                var esperStatsBonus = rawEffect[3];
+                if (!baseEffects.esperStatsBonus) {
+                    baseEffects.esperStatsBonus = {};
+                }
+                addToStat(baseEffects.esperStatsBonus, "hp", esperStatsBonus[0]);
+                addToStat(baseEffects.esperStatsBonus, "mp", esperStatsBonus[1]);
+                addToStat(baseEffects.esperStatsBonus, "atk", esperStatsBonus[2]);
+                addToStat(baseEffects.esperStatsBonus, "def", esperStatsBonus[3]);
+                addToStat(baseEffects.esperStatsBonus, "mag", esperStatsBonus[4]);
+                addToStat(baseEffects.esperStatsBonus, "spr", esperStatsBonus[5]);
             }
         }
     }
@@ -432,10 +445,12 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
 }
 
 function addToStat(skill, stat, value) {
-    if (!skill[stat]) {
-        skill[stat] = value;
-    } else {
-        skill[stat] += value;
+    if (value != 0) {
+        if (!skill[stat]) {
+            skill[stat] = value;
+        } else {
+            skill[stat] += value;
+        }
     }
 }
     
@@ -512,7 +527,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(units) {
-    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element", "jumpDamage", "lbFillRate", "lbPerTurn","partialDualWield","resist","ailments","killers","mpRefresh","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+    var properties = ["id","name","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","singleWieldingGL","singleWieldingOneHandedGL","accuracy","damageVariance","element", "jumpDamage", "lbFillRate", "lbPerTurn","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
