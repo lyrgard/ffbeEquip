@@ -425,6 +425,7 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 if (!baseEffects.esperStatsBonus) {
                     baseEffects.esperStatsBonus = {};
                 }
+                console.log("!!");
                 addToStat(baseEffects.esperStatsBonus, "hp", esperStatsBonus[0]);
                 addToStat(baseEffects.esperStatsBonus, "mp", esperStatsBonus[1]);
                 addToStat(baseEffects.esperStatsBonus, "atk", esperStatsBonus[2]);
