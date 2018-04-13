@@ -101,9 +101,9 @@ class TreeComparator {
         return result;
     }
 
-    static compareByValue(item1, item2, valuePath) {
-        var value1 = getValue(item1, valuePath);
-        var value2 = getValue(item2, valuePath);
+    static compareByValue(item1, item2, valuePath, coef1 = 1, coef2 = 1) {
+        var value1 = getValue(item1, valuePath) * coef1;
+        var value2 = getValue(item2, valuePath) * coef2;
         if (value1 > value2) {
             return "strictlyWorse"
         } else if (value1 < value2){

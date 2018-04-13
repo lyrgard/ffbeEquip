@@ -434,6 +434,15 @@ function getEsperItem(esper) {
     if (esper.resist) {
         item.resist = esper.resist;
     }
+    if (esper.esperStatsBonus) {
+        item.esperStatsBonus = esper.esperStatsBonus;
+    }
+    if (esper.level) {
+        item.level = esper.level;
+    }
+    if (esper.rarity) {
+        item.rarity = esper.rarity;
+    }
     return item;
 }
 

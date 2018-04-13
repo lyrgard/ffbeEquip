@@ -1,7 +1,3 @@
-var saveNeeded = false;
-
-var saveTimeout;
-
 var releasedUnits;
 var lastItemReleases;
 

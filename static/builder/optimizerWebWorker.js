@@ -15,7 +15,7 @@ onmessage = function(event) {
     var messageData = JSON.parse(event.data);
     switch(messageData.type) {
         case "init":
-            optimizer = new BuildOptimizer(messageData.espers, messageData.allItemVersions);
+            optimizer = new BuildOptimizer(messageData.allItemVersions);
             number = messageData.number;
             break;
         case "setData":
@@ -29,6 +29,7 @@ onmessage = function(event) {
             optimizer.dualWieldSources = messageData.dualWieldSources;
             optimizer.ennemyStats = messageData.ennemyStats;
             optimizer.useEspers = messageData.useEspers;
+            optimizer.espers = messageData.espers;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             break;
         case "optimize":

@@ -134,6 +134,7 @@ function optimize() {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
             "server": server,
+            "espers":espersByName,
             "unit":builds[currentUnitIndex].unit, 
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
@@ -1016,6 +1017,7 @@ function onEquipmentsChange() {
         onlyUseOwnedItems = false;
         onlyUseShopRecipeItems = true;
     }
+    updateEspers();
 }
      
 function updateSearchResult() {
@@ -1724,6 +1726,28 @@ function onBuffChange(stat) {
     }
 }
 
+function updateEspers() {
+    
+    var esperSource = espers;
+    var equipments = $(".equipments select").val();
+    if (equipments == "owned" && ownedEspers && Object.keys(ownedEspers).length > 0) {
+        esperSource = [];
+        for (var index in ownedEspers) {
+            esperSource.push(getEsperItem(ownedEspers[index]));
+        }
+    }
+    espersByName = {};
+    for (var index = esperSource.length; index--;) {
+        espersByName[esperSource[index].name] = esperSource[index];    
+    }
+    searchableEspers = [];
+    for (var index = esperSource.length; index--;) {
+        searchableEspers.push(esperSource[index]);
+    }
+    
+    prepareSearch(searchableEspers);
+}
+
 $(function() {
     progressElement = $("#buildProgressBar .progressBar");
     $.get(server + "/data.json", function(result) {
@@ -1746,14 +1770,8 @@ $(function() {
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))
         }
-        for (var index = espers.length; index--;) {
-            espersByName[espers[index].name] = espers[index];    
-        }
-        searchableEspers = [];
-        for (var index = espers.length; index--;) {
-            searchableEspers.push(espers[index]);
-        }
-        prepareSearch(searchableEspers);
+        updateEspers();
+        
         continueIfReady();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
@@ -1868,7 +1886,7 @@ function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
         workers.push(new Worker('builder/optimizerWebWorker.js'));
-        workers[index].postMessage(JSON.stringify({"type":"init", "espers":espers, "allItemVersions":dataStorage.itemWithVariation, "number":index}));
+        workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
             switch(messageData.type) {
