@@ -53,6 +53,9 @@ function getNameColumnHtml(item) {
     } else {
         html += toLink(item.name);
     }
+    if (item.level) {
+        html += '<span class="rarity"> level ' + item.level + '</span> ';
+    }
 
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
@@ -291,6 +294,9 @@ function displayItemLine(item) {
     }
     if (item.evoMag) {
         special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
+    }
+    if (item.esperStatsBonus) {
+        special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
     }
     if (item.special) {
         special += getSpecialHtml(item);
@@ -869,6 +875,9 @@ function prepareSearch(data) {
         }
         if (item.evoMag) {
             textToSearch += "|" + "Increase Esper summon damage by "+ item.evoMag + "%";
+        }
+        if (item.esperStatsBonus) {
+            special += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)";
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;
