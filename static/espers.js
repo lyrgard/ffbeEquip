@@ -16,6 +16,12 @@ const maxLevelByStar = {
     "3": 60
 }
 
+const maxStatLevelByStar = {
+    "1": 30,
+    "2": 40,
+    "3": 100
+}
+
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
@@ -46,9 +52,13 @@ function show(esperName) {
             showBoard(esper.name, ownedEspers[esperName].rarity);
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
+            $(".stats").removeClass("invisible");
+            $(".esperOtherStats").removeClass("invisible");
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
+            $(".stats").addClass("invisible");
+            $(".esperOtherStats").addClass("invisible");
             gridContainer.addClass("hidden");
         }
     }
@@ -78,6 +88,7 @@ function setEsperLevel(level) {
     $("#level").val(level);
     ownedEspers[currentEsper].level = level;
     updateSp();
+    updateStats();
 }
     
 function updateSp() {
@@ -106,6 +117,41 @@ function updateSp() {
     sp[0] = usedSp;
     sp[1] = availableSP;
     $("#sp").text(usedSp + "/" +availableSP);
+}
+
+function updateStats() {
+    var level = parseInt($("#level").val());
+    var star = parseInt($("#esperStar").val());
+    var board = esperBoards[currentEsper];
+    var ownedEsper = ownedEspers[currentEsper];
+    
+    for (var index = 0; index < baseStats.length; index++) {
+        var minStat = board.stats[star][baseStats[index].toUpperCase()][0];
+        var maxStat = board.stats[star][baseStats[index].toUpperCase()][1];
+        ownedEsper[baseStats[index]] = minStat + (maxStat - minStat) / maxStatLevelByStar[star] * level;
+    }
+    
+    for (var index in board.nodes) {
+        addStatsOfSelectedNodes(board.nodes[index], ownedEsper);
+    }
+    
+    for (var index = 0; index < baseStats.length; index++) {
+        $("#esper_" + baseStats[index]).text(ownedEsper[baseStats[index]]);
+    }
+}
+
+function addStatsOfSelectedNodes(node, ownedEsper) {
+    var posString = getPositionString(node.position[0], node.position[1]);
+    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+        for (var index = 0; index < baseStats.length; index++) {
+            if (node[baseStats[index]]) {
+                ownedEsper[baseStats[index]] += node[baseStats[index]];
+            }
+        }
+        for (var index = 0; index < node.children.length; index++) {
+            addStatsOfSelectedNodes(node.children[index], ownedEsper);
+        }
+    }
 }
 
 function calculateUsedSp(node) {
@@ -261,6 +307,7 @@ function selectNode(x,y) {
         }
     }
     updateSp();
+    updateStats();
 }
 
 function unselectNodeAndChildren(node) {
@@ -420,12 +467,18 @@ $(function() {
             $("#esper .spLine").addClass("hidden");
             delete ownedEspers[currentEsper];
             gridContainer.addClass("hidden");
+            $(".stats").addClass("invisible");
+            $(".esperOtherStats").addClass("invisible");
         } else {
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
             ownedEspers[currentEsper] = {"rarity":parseInt(value),"selectedSkills":[]};
+            ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[value]));
+            $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
             setEsperLevel(maxLevelByStar[value]);
             showBoard(currentEsper, parseInt(value));
+            $(".stats").removeClass("invisible");
+            $(".esperOtherStats").removeClass("invisible");
         }
     });
     $("#esper #level").change(function () {
