@@ -1,7 +1,3 @@
-var saveNeeded = false;
-
-var saveTimeout;
-
 var equipments;
 var materia;
 var lastItemReleases;

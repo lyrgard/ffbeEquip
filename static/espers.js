@@ -66,7 +66,6 @@ function show(esperName) {
     }
 }
 function showBoard(esperName, star) {
-    
     var nodes = $("#grid li .hexagon");
     nodes.removeClass("hp mp atk def mag spr ability resist killer selected");
     $(".line").remove();
@@ -259,45 +258,10 @@ function abilityName(text) {
     });
 }
 
-function addToOwnedUnits(unitId) {
-    if (!ownedUnits[unitId]) {
-        ownedUnits[unitId] = {"number":1, "farmable":0};
-        $(".unit." + unitId).addClass("owned");
-        $(".unit." + unitId).removeClass("notOwned");
-    } else {
-        ownedUnits[unitId].number += 1;
-    }
-    if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnits[unitId].number)) {
-        addToFarmableNumberFor(unitId);
-    }
-    $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
+function prepareSave() {
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
-    $(".saveInventory").removeClass("hidden");
-}
-
-function removeFromOwnedUnits(unitId) {
-    if (!ownedUnits[unitId]) {
-        return;
-    }
-    ownedUnits[unitId].number -= 1;
-    if (ownedUnits[unitId].number == 0) {
-        removeFromFarmableNumberFor(unitId);
-        delete ownedUnits[unitId];
-        $(".unit." + unitId).removeClass("owned");
-        $(".unit." + unitId).addClass("notOwned");
-        $(".unit." + unitId + " .numberOwnedDiv .badge").html("0");
-    } else {
-        $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
-        if (ownedUnits[unitId].number < ownedUnits[unitId].farmable) {
-            removeFromFarmableNumberFor(unitId);
-        }
-    }
-
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
+    saveTimeout = setTimeout(saveUserData,3000, false, false, true);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -331,6 +295,7 @@ function selectNode(x,y) {
     updateStats();
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+    prepareSave();
 }
 
 function unselectNodeAndChildren(node) {
@@ -572,18 +537,22 @@ function notLoaded() {
     $("#inventory").addClass("hidden");
 }
 
-
-function updateResults() {
-    currentSort();
-}
-
 function inventoryLoaded() {
-    if (units && data) {
-        prepareData();
-        showAlphabeticalSort();
+    if (esperBoards) {
+        displayEspers();
     }
 }
 
+function onLevelChange() {
+    var star = $("#esperStar").val();
+    var level = parseInt($("#level").val());
+    if (level > maxLevelByStar[star]) {
+        setEsperLevel(maxLevelByStar[value]);
+    } else {
+        setEsperLevel(level);
+    }
+    prepareSave();
+}
 
 // will be called by jQuery at page load)
 $(function() {
@@ -591,13 +560,14 @@ $(function() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/espers.json", function(result) {
         espers = result;
-        $.get(server + "/espers", function(result) {
-            ownedEspers = result;
-            $.get(server + "/esperBoards.json", function(result) {
-                esperBoards = result;
+        $.get(server + "/esperBoards.json", function(result) {
+            esperBoards = result;
+            if (ownedEspers) {
                 displayEspers();
-            });
-        }, 'json');
+            }
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -623,7 +593,7 @@ $(function() {
         } else {
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
-            ownedEspers[currentEsper] = {"rarity":parseInt(value),"selectedSkills":[]};
+            ownedEspers[currentEsper] = {"name":currentEsper, "rarity":parseInt(value),"selectedSkills":[]};
             ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[value]));
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
             $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
@@ -632,14 +602,7 @@ $(function() {
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
         }
+        prepareSave();
     });
-    $("#esper #level").change(function () {
-        var star = $("#esperStar").val();
-        var level = parseInt($("#level").val());
-        if (level > maxLevelByStar[star]) {
-            setEsperLevel(maxLevelByStar[value]);
-        } else {
-            setEsperLevel(level);
-        }
-    });
+    $("#esper #level").on("input", $.debounce(300,onLevelChange));
 });

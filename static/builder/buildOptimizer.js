@@ -1,6 +1,5 @@
 class BuildOptimizer {
-    constructor(espers, allItemVersions) {
-        this.espers = espers;
+    constructor(allItemVersions) {
         this.allItemVersions = allItemVersions;
     }
     

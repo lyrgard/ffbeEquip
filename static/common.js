@@ -4,6 +4,7 @@ var data;
 var units;
 var ownedUnits;
 var itemInventory;
+var ownedEspers;
 var stat = '';
 var types = [];
 var elements = [];
@@ -15,8 +16,10 @@ var searchText = '';
 var selectedUnitId = 0;
 var server = "GL";
 var saveTimeout;
+var saveNeeded;
 var mustSaveUnits = false;
 var mustSaveInventory = false;
+var mustSaveEspers = false;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -899,7 +902,7 @@ function getShortUrl(longUrl, callback) {
 
 
 function onUnitsOrInventoryLoaded() {
-    if (itemInventory && ownedUnits) {
+    if (itemInventory && ownedUnits && ownedEspers) {
         if (ownedUnits.version && ownedUnits.version < 3) {
             // before version 3, units were : {"unitId": number}
             // After, they are {"unitId": {"number":number,"farmable":number}
@@ -973,7 +976,7 @@ function showTextPopup(title, text) {
     });
 }
 
-function saveUserData(mustSaveInventory, mustSaveUnits) {
+function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     $(".saveInventory").addClass("hidden");
     $("#inventoryDiv .loader").removeClass("hidden");
@@ -991,6 +994,8 @@ function saveUserData(mustSaveInventory, mustSaveUnits) {
         }
     } else if (mustSaveUnits) {
         saveUnits(saveSuccess, saveError);
+    } else if (mustSaveEspers) {
+        saveEspers(saveSuccess, saveError);
     }
 }
 
@@ -1000,6 +1005,9 @@ function saveSuccess() {
     }
     if (mustSaveUnits) {
         mustSaveUnits = false;
+    }
+    if (mustSaveEspers) {
+        mustSaveEspers = false;
     }
     $("#inventoryDiv .loader").addClass("hidden");
     $.notify("Data saved", "success");
@@ -1034,6 +1042,18 @@ function saveInventory(successCallback, errorCallback) {
         url: server + '/units',
         method: 'PUT',
         data: JSON.stringify(ownedUnits),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successCallback,
+        error: errorCallback
+    });
+}
+
+ function saveEspers(successCallback, errorCallback) {
+    $.ajax({
+        url: server + '/espers',
+        method: 'PUT',
+        data: JSON.stringify(ownedEspers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: successCallback,
@@ -1086,6 +1106,18 @@ $(function() {
         }
 
 
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        $(".loadInventory").removeClass("hidden");
+        $("#inventoryDiv .status").text("not loaded");
+        $("#inventoryDiv .loader").addClass("hidden");
+        if (notLoaded) {
+            notLoaded();
+        }
+    });
+    readServerType();
+    $.get(server + '/espers', function(result) {
+        ownedEspers = result;
+        onUnitsOrInventoryLoaded();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $(".loadInventory").removeClass("hidden");
         $("#inventoryDiv .status").text("not loaded");

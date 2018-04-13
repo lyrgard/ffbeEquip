@@ -2,7 +2,7 @@ class EsperTreeComparator {
     
     static sort(espers, alreadyUsedEspers, involvedStats, ennemyStats) {
         var keptEsperRoot = {"parent":null,"children":[],"root":true};
-        for (var index = 0, len = espers.length; index < len; index++) {
+        for (var index in espers) {
             if (!alreadyUsedEspers.includes(espers[index].name)) {
                 var newTreeEsper = {"esper":espers[index],"parent":null,"children":[],"equivalents":[]};
                 TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, ennemyStats, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
@@ -18,7 +18,15 @@ class EsperTreeComparator {
         var comparisionStatus = [];
         for (var index = stats.length; index--;) {
             if (baseStats.includes(stats[index])) {
-                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
+                var coef1 = 1;
+                var coef2 = 1;
+                if (treeNode1.esper.esperStatsBonus && treeNode1.esper.esperStatsBonus[stats[index]]) {
+                    coef1 += treeNode1.esper.esperStatsBonus[stats[index]] / 100;
+                }
+                if (treeNode2.esper.esperStatsBonus && treeNode2.esper.esperStatsBonus[stats[index]]) {
+                    coef2 += treeNode2.esper.esperStatsBonus[stats[index]] / 100;
+                }
+                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index], coef1, coef2));
             } else if (stats[index] == "physicalKiller") {
                 comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"physical", ennemyStats.races));
             } else if (stats[index] == "magicalKiller") {
