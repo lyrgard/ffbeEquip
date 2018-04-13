@@ -75,12 +75,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    filter: contrast(30%); 
+    /*filter: contrast(30%); */
+    background-color:  	#f5f6f5;
+    color: #d0d0d0;
 }
 
-#grid li .hexagon > * {
+#grid li .hexagon a  {
+    color: #dedede;
+}
+
+#grid li .hexagon img  {
     opacity: 0.6;
+}
+
+#grid li .hexagon.selected {
     color: black;
+}
+
+#grid li .hexagon.selected a  {
+    color: black;
+}
+
+#grid li .hexagon.selected img  {
+    opacity: 1;
 }
 
 #grid li .hexagon:hover, #grid li .hexagon.hover {
@@ -159,39 +176,39 @@
     outline: 6px solid grey;
 }
 
-.hexagon.hp {
+#grid li .selected.hexagon.hp {
     background-color: #baffc9;
 }
 
-.hexagon.mp {
+#grid li .selected.hexagon.mp {
     background-color: #ffffba;
 }
 
-.hexagon.atk {
+#grid li .selected.hexagon.atk {
     background-color:  	#ffb3ba;
 }
 
-.hexagon.def {
+#grid li .selected.hexagon.def {
     background-color: #bae1ff;
 }
 
-.hexagon.mag {
+#grid li .selected.hexagon.mag {
     background-color: #BFAEBF;
 }
 
-.hexagon.spr {
+#grid li .selected.hexagon.spr {
     background-color: #ffdfba;
 }
 
-.hexagon.ability {
-    background-color: #EEEEEE;
+#grid li .selected.hexagon.ability {
+    background-color: #e9dace;
 }
 
-.hexagon.resist {
+#grid li .selected.hexagon.resist {
     background-color: #e3e79f ;
 }
 
-.hexagon.killer {
+#grid li .selected.hexagon.killer {
     background-color: #f1ded3;
 }
 
