@@ -195,8 +195,10 @@ function showNode(node, parentNodeHtml, star) {
         }
     }
     if (node.special) {
+        var indexOfBracket = node.special[0].indexOf("[");
         var indexOfSemicolon = node.special[0].indexOf(":");
-        nodeHtml.html('<span class="iconHolder">' + abilityIcon(node.special[0].substr(0,indexOfSemicolon)) + '</span><span class="text">' + abilityName(node.special[0].substr(0,indexOfSemicolon)) + '</span><span class="cost">' + node.cost + ' SP</span>');
+        var ability = node.special[0].substr(indexOfBracket,indexOfSemicolon);
+        nodeHtml.html('<span class="iconHolder">' + abilityIcon(ability) + '</span><span class="text">' + abilityName(ability) + '</span><span class="cost">' + node.cost + ' SP</span>');
         nodeHtml.addClass("ability");
     }
     if (node.resist) {
