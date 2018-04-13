@@ -54,6 +54,8 @@ function show(esperName) {
             $("#esper .spLine").removeClass("hidden");
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
+            $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
+            $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
@@ -221,6 +223,11 @@ function showNode(node, parentNodeHtml, star) {
         nodeHtml.html(html);
         nodeHtml.addClass("killer");
     }
+    if (node.esperStatsBonus) {
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text"><a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank">ST Reflection Boost</a></span><span class="cost">' + node.cost+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         nodeHtml.addClass("selected");
     }
@@ -306,6 +313,15 @@ function selectNode(x,y) {
                 var posString = getPositionString(path[index].position[0], path[index].position[1]);
                 if (!ownedEspers[currentEsper].selectedSkills.includes(posString)) {
                     ownedEspers[currentEsper].selectedSkills.push(posString);
+                    if (path[index].killers) {
+                        addKillers(ownedEspers[currentEsper], path[index].killers);
+                    }
+                    if (path[index].resist) {
+                        addElementalResist(ownedEspers[currentEsper], path[index].resist);
+                    }
+                    if (path[index].esperStatsBonus) {
+                        addEsperStatsBonus(ownedEspers[currentEsper], path[index].esperStatsBonus);
+                    }
                     $("#grid li." + posString + " .hexagon").addClass("selected");
                 }
             }
@@ -313,6 +329,8 @@ function selectNode(x,y) {
     }
     updateSp();
     updateStats();
+    $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
+    $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
 }
 
 function unselectNodeAndChildren(node) {
@@ -321,9 +339,137 @@ function unselectNodeAndChildren(node) {
     if (index >= 0) {
         ownedEspers[currentEsper].selectedSkills.splice(index, 1);
         $("#grid li." + posString + " .hexagon").removeClass("selected");
+        if (node.killers) {
+            removeKillers(ownedEspers[currentEsper], node.killers);
+        }
+        if (node.resist) {
+            removeElementalResist(ownedEspers[currentEsper], node.resist);
+        }
+        if (node.esperStatsBonus) {
+            removeEsperStatsBonus(ownedEspers[currentEsper], node.esperStatsBonus);
+        }
         for (var i = 0; i < node.children.length; i++) {
             unselectNodeAndChildren(node.children[i]);
         }
+    }
+}
+
+
+function addKillers(esper, killers) {
+    for (var i = 0; i < killers.length; i++) {
+        addKiller(esper, killers[i].name, killers[i].physical, killers[i].magical);
+    }
+}
+function addKiller(skill, race, physicalPercent, magicalPercent) {
+    if (!skill.killers) {
+        skill.killers = [];
+    }
+    var killerData;
+    for (var index in skill.killers) {
+        if (skill.killers[index].name == race) {
+            killerData = skill.killers[index];
+            break;
+        }
+    }
+    
+    if (!killerData) {
+        killerData = {"name":race};
+        skill.killers.push(killerData);
+    }
+    if (physicalPercent != 0) {
+        if (killerData.physical) {
+            killerData.physical += physicalPercent;
+        } else {
+            killerData.physical = physicalPercent;
+        }
+    }
+    if (magicalPercent != 0) {
+        if (killerData.magical) {
+            killerData.magical += magicalPercent;
+        } else {
+            killerData.magical = magicalPercent;
+        }
+    }
+}
+function removeKillers(esper, killers) {
+    for (var i = 0; i < killers.length; i++) {
+        for (var index in esper.killers) {
+            if (esper.killers[index].name == killers[i].name) {
+                if (killers[i].physical) {
+                    esper.killers[index].physical -= killers[i].physical;
+                    if (esper.killers[index].physical == 0) {
+                        delete esper.killers[index].physical
+                    }
+                }
+                if (killers[i].magical) {
+                    esper.killers[index].magical -= killers[i].magical;
+                    if (esper.killers[index].magical == 0) {
+                        delete esper.killers[index].magical
+                    }
+                }
+                if (!esper.killers[index].physical && !esper.killers[index].magical) {
+                    esper.killers.splice(index, 1);
+                }
+                break;
+            }
+        }
+    }
+    if (esper.killers.length == 0) {
+        delete esper.killers;
+    }
+}
+
+
+function addElementalResist(item, resist) {
+    for (var i = 0; i < resist.length; i++) {
+        if (!item.resist) {
+            item.resist = [];
+        }
+        var existingResist;
+        for (var j = 0; j < item.resist.length; j++) {
+            if (item.resist[j].name == resist[i].name) {
+                existingResist = item.resist[j];
+                break;
+            }
+        }
+        if (!existingResist) {
+            item.resist.push(JSON.parse(JSON.stringify(resist[i])));
+        } else {
+            existingResist.percent += resist[i].percent;
+        }
+    }
+}
+function removeElementalResist(item, resist) {
+    for (var i = 0; i < resist.length; i++) {
+        for (var j = 0; j < item.resist.length; j++) {
+            if (item.resist[j].name == resist[i].name) {
+                item.resist[j].percent -= resist[i].percent;
+                if (item.resist[j].percent == 0) {
+                    item.resist.splice(j,1);
+                }
+                break;
+            }
+        }
+    }
+    if (item.resist.length == 0) {
+        delete item.resist;
+    }
+}
+
+function addEsperStatsBonus(item, bonus) {
+    if (!item.esperStatsBonus) {
+        item.esperStatsBonus = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
+    }
+    for (var i = 0; i < baseStats.length; i++) {
+        item.esperStatsBonus[baseStats[i]] += bonus[baseStats[i]];
+    }
+}
+function removeEsperStatsBonus(item, bonus) {
+    for (var i = 0; i < baseStats.length; i++) {
+        item.esperStatsBonus[baseStats[i]] -= bonus[baseStats[i]];
+    }
+    if (item.esperStatsBonus.hp == 0 && item.esperStatsBonus.mp == 0 && item.esperStatsBonus.atk == 0 && item.esperStatsBonus.def == 0 && item.esperStatsBonus.mag == 0 && item.esperStatsBonus.spr == 0) {
+        delete item.esperStatsBonus;
     }
 }
 
@@ -480,6 +626,7 @@ $(function() {
             ownedEspers[currentEsper] = {"rarity":parseInt(value),"selectedSkills":[]};
             ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[value]));
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
+            $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
             setEsperLevel(maxLevelByStar[value]);
             showBoard(currentEsper, parseInt(value));
             $(".stats").removeClass("invisible");
