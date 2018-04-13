@@ -227,8 +227,25 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
     }
 }
 
+function getEsperStatBonus(itemAndPassives, stat) {
+    var statsBonus = 100;
+    if (baseStats.includes(stat)) {
+        for (var index = itemAndPassives.length; index--;) {
+            var item = itemAndPassives[index];
+            if (item && item.esperStatsBonus && item.esperStatsBonus[stat]) {
+                statsBonus += item.esperStatsBonus[stat];
+            }
+        }
+    }
+    return statsBonus / 100;
+}
+
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat);
+    var esperStatBonus = 1;
+    if (itemAndPassives[10]) {
+        esperStatBonus = getEsperStatBonus(itemAndPassives, stat);
+    }
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
     var baseValue = 0;
@@ -249,6 +266,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
             var equipmentStatBonusToApply = 1;
             if (equipedIndex < 10) {
                 equipmentStatBonusToApply = equipmentStatBonus;
+            }
+            if (equipedIndex == 10) {
+                equipmentStatBonusToApply = esperStatBonus;
             }
             if (equipedIndex < 2 && "atk" == stat) {
                 calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat, notStackableSkillsAlreadyUsed);    
