@@ -554,6 +554,19 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var evoMag = rawEffect[3][0];
         addStat(item, "evoMag", evoMag);
 
+    // +Stats from espers boost
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 63) {
+        var esperStatsBonus = rawEffect[3];
+        if (!item.esperStatsBonus) {
+            item.esperStatsBonus = {};
+        }
+        addStat(item.esperStatsBonus, "hp", esperStatsBonus[0]);
+        addStat(item.esperStatsBonus, "mp", esperStatsBonus[1]);
+        addStat(item.esperStatsBonus, "atk", esperStatsBonus[2]);
+        addStat(item.esperStatsBonus, "def", esperStatsBonus[3]);
+        addStat(item.esperStatsBonus, "mag", esperStatsBonus[4]);
+        addStat(item.esperStatsBonus, "spr", esperStatsBonus[5]);
+    
     } else {
         return false;
     }
@@ -697,7 +710,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

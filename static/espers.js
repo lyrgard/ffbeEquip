@@ -116,7 +116,12 @@ function updateSp() {
     
     sp[0] = usedSp;
     sp[1] = availableSP;
-    $("#sp").text(usedSp + "/" +availableSP);
+    $("#sp").text(usedSp + " / " +availableSP);
+    if (usedSp > availableSP) {
+        $("#sp").addClass("error");
+    } else {
+        $("#sp").removeClass("error");
+    }
 }
 
 function updateStats() {
