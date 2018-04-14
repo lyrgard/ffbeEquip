@@ -194,6 +194,11 @@ function showNode(node, parentNodeHtml, star) {
             nodeHtml.addClass(baseStats[statIndex]);
             break;
         }
+        if (node[percentValues[baseStats[statIndex]]]) {
+            nodeHtml.html('<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">' + baseStats[statIndex].toUpperCase() + ' + ' + node[percentValues[baseStats[statIndex]]] + '%</span><span class="cost">' + node.cost + ' SP</span>');
+            nodeHtml.addClass(baseStats[statIndex]);
+            break;
+        }
     }
     if (node.special) {
         var indexOfBracket = node.special[0].indexOf("[");
@@ -289,6 +294,11 @@ function selectNode(x,y) {
                     if (path[index].esperStatsBonus) {
                         addEsperStatsBonus(ownedEspers[currentEsper], path[index].esperStatsBonus);
                     }
+                    for (var i = baseStats.length; i--;) {
+                        if (path[index][percentValues[baseStats[i]]]) {
+                            addToStat(ownedEspers[currentEsper], percentValues[baseStats[i]], path[index][percentValues[baseStats[i]]]);
+                        }
+                    }
                     $("#grid li." + posString + " .hexagon").addClass("selected");
                 }
             }
@@ -315,6 +325,11 @@ function unselectNodeAndChildren(node) {
         }
         if (node.esperStatsBonus) {
             removeEsperStatsBonus(ownedEspers[currentEsper], node.esperStatsBonus);
+        }
+        for (var i = baseStats.length; i--;) {
+            if (node[percentValues[baseStats[i]]]) {
+                removeFromStat(ownedEspers[currentEsper], percentValues[baseStats[i]], node[percentValues[baseStats[i]]]);
+            }
         }
         for (var i = 0; i < node.children.length; i++) {
             unselectNodeAndChildren(node.children[i]);
@@ -438,6 +453,19 @@ function removeEsperStatsBonus(item, bonus) {
     }
     if (item.esperStatsBonus.hp == 0 && item.esperStatsBonus.mp == 0 && item.esperStatsBonus.atk == 0 && item.esperStatsBonus.def == 0 && item.esperStatsBonus.mag == 0 && item.esperStatsBonus.spr == 0) {
         delete item.esperStatsBonus;
+    }
+}
+
+function addToStat(esper, stat, value) {
+    if (!esper[stat]) {
+        esper[stat] = 0;
+    }
+    esper[stat] += value;
+}
+function removeFromStat(esper, stat, value) {
+    esper[stat] -= value;
+    if (esper[stat] == 0) {
+        delete esper[stat];
     }
 }
 
