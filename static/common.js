@@ -877,7 +877,7 @@ function prepareSearch(data) {
             textToSearch += "|" + "Increase Esper summon damage by "+ item.evoMag + "%";
         }
         if (item.esperStatsBonus) {
-            special += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)";
+            textToSearch += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)";
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;
