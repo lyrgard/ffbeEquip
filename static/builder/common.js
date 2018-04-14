@@ -463,6 +463,11 @@ function getEsperItem(esper) {
     if (esper.rarity) {
         item.rarity = esper.rarity;
     }
+    for (var i = baseStats.length; i--;) {
+        if (esper[percentValues[baseStats[i]]]) {
+            item[percentValues[baseStats[i]]] = esper[percentValues[baseStats[i]]];
+        }
+    }
     return item;
 }
 
