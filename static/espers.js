@@ -32,7 +32,8 @@ function beforeShow() {
 function show(esperName) {
     beforeShow();
     currentEsper = esperName;
-    $(".nav-tabs li." + esperName).addClass("active");
+    var escapedName = escapeName(esperName);
+    $(".nav-tabs li." + escapedName).addClass("active");
     var esper;
     for (var index in espers) {
         if (espers[index].name == esperName) {
