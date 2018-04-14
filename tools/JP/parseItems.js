@@ -576,6 +576,19 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var evoMag = rawEffect[3][0];
         addStat(item, "evoMag", evoMag);
         
+        // +Stats from espers boost
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 63) {
+        var esperStatsBonus = rawEffect[3];
+        if (!item.esperStatsBonus) {
+            item.esperStatsBonus = {};
+        }
+        addStat(item.esperStatsBonus, "hp", esperStatsBonus[0]);
+        addStat(item.esperStatsBonus, "mp", esperStatsBonus[1]);
+        addStat(item.esperStatsBonus, "atk", esperStatsBonus[2]);
+        addStat(item.esperStatsBonus, "def", esperStatsBonus[3]);
+        addStat(item.esperStatsBonus, "mag", esperStatsBonus[4]);
+        addStat(item.esperStatsBonus, "spr", esperStatsBonus[5]);
+        
     } else {
         return false;
     }
