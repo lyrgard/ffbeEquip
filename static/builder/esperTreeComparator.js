@@ -27,6 +27,7 @@ class EsperTreeComparator {
                     coef2 += treeNode2.esper.esperStatsBonus[stats[index]] / 100;
                 }
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index], coef1, coef2));
+                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, percentValues[stats[index]]));
             } else if (stats[index] == "physicalKiller") {
                 comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"physical", ennemyStats.races));
             } else if (stats[index] == "magicalKiller") {
