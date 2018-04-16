@@ -357,7 +357,7 @@ var toUrl = function(name) {
 
 var toLink = function(text, link = text) {
     if (server == "GL") {
-        return '<a href="' + toUrl(link) + '" target="_blank">' + text + '</a>';
+        return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
     } else {
         return "<span>" + text + "</span>";
     }
