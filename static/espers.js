@@ -235,6 +235,11 @@ function showNode(node, parentNodeHtml, star) {
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
+    if (node.lbPerTurn) {
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text"><a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank">+' + node.lbPerTurn.min + ' LS/turn</a></span><span class="cost">' + node.cost+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         nodeHtml.addClass("selected");
     }

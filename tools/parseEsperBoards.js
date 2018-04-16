@@ -59,7 +59,9 @@ var espersMap = {
     "アレキサンダー": "Alexander",
     "フェニックス": "Phoenix",
     "バハムート": "Bahamut",
-    "フェンリル": "Fenrir"
+    "フェンリル": "Fenrir",
+    "リヴァイアサン": "Leviathan",
+    "アニマ": "Anima"
 }
 
 var unitNamesById = {};
