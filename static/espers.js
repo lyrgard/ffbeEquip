@@ -236,12 +236,12 @@ function showNode(node, parentNodeHtml, star) {
         nodeHtml.addClass("killer");
     }
     if (node.esperStatsBonus) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text"><a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank">ST Reflection Boost</a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_77.png"></img></span><span class="text">ST Reflection Boost<a href="http://exvius.gamepedia.com/ST_Reflection_Boost" target="_blank"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
     if (node.lbPerTurn) {
-        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text"><a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank">+' + node.lbPerTurn.min + ' LS/turn</a></span><span class="cost">' + node.cost+ ' SP</span>';
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_91.png"></img></span><span class="text">+' + node.lbPerTurn.min + ' LS/turn<a href="http://exvius.gamepedia.com/Auto-Limit" target="_blank"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }

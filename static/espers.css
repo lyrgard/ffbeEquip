@@ -80,6 +80,14 @@
     color: #d0d0d0;
 }
 
+#grid li .hexagon .wikilink {
+    color: #d0d0d0;
+}
+
+#grid li .hexagon.selected .wikilink {
+    color: blue;
+}
+
 #grid li .hexagon a  {
     color: #dedede;
 }
