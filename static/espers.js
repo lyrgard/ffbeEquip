@@ -5,10 +5,13 @@ var saveTimeout;
 var espers;
 var ownedEspers;
 var currentEsper;
+var esperBoards;
 
 var gridContainer;
 
 var sp;
+
+var logged = false;
 
 const maxLevelByStar = {
     "1": 30,
@@ -24,7 +27,6 @@ const maxStatLevelByStar = {
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
-    $("#loginMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
     $(".nav-tabs li").removeClass("active");
 }
@@ -42,7 +44,10 @@ function show(esperName) {
         }
     }
     if (esper) {
-        var optionsHtml = '<option value="notOwned">Not owned</option>';
+        var optionsHtml = "";
+        if (logged) {
+            optionsHtml += '<option value="notOwned">Not owned</option>';
+        }
         for (var i = 1; i <= esper.maxLevel; i++) {
             optionsHtml += '<option value="' + i + '">' + i + ' ★</option>';
         }
@@ -272,10 +277,12 @@ function abilityName(text) {
 }
 
 function prepareSave() {
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, false, false, true);
-    $(".saveInventory").removeClass("hidden");
+    if (logged) {
+        saveNeeded = true;
+        if (saveTimeout) {clearTimeout(saveTimeout)}
+        saveTimeout = setTimeout(saveUserData,3000, false, false, true);
+        $(".saveInventory").removeClass("hidden");
+    }
 }
 
 function selectNode(x,y) {
@@ -515,6 +522,18 @@ function findPathTo(x,y, fromNode, currentPath = []) {
 }
 
 function displayEspers() {
+    if (!logged) {
+        ownedEspers = {};
+        for (var index in espers) {
+            ownedEspers[espers[index].name] = {
+                "name":espers[index].name, 
+                "rarity":espers[index].maxLevel,
+                "level": maxLevelByStar[espers[index].maxLevel],
+                "selectedSkills":[], 
+                "resist":JSON.parse(JSON.stringify(esperBoards[espers[index].name].resist[espers[index].maxLevel]))};
+        }
+    }
+    
     var tabs = ""
     for (var index = 0; index < espers.length; index++) {
         var escapedName = escapeName(espers[index].name);
@@ -544,6 +563,9 @@ function displayEspers() {
     $("#espers").removeClass("hidden");
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
+    if (!logged) {
+        $("#notLoginWarningMessage").removeClass("hidden");
+    }
     show(escapeName(espers[0].name));
 }
 
@@ -568,12 +590,17 @@ function getPositionString(x, y) {
 }
 
 function notLoaded() {
+    ownedEspers = {};
+    if (esperBoards) {
+        displayEspers();
+    }
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").removeClass("hidden");
     $("#inventory").addClass("hidden");
 }
 
 function inventoryLoaded() {
+    logged = true;
     if (esperBoards) {
         displayEspers();
     }
