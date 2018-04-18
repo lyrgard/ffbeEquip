@@ -200,7 +200,7 @@ function calculateAlreadyUsedItems() {
                 }
             }
             if (build[10]) {
-                alreadyUsedEspers.push(build[10].name);
+                alreadyUsedEspers.push(build[10].id);
             }
         } else {
             for (var index = 0; index < 10; index++) {
@@ -219,7 +219,7 @@ function calculateAlreadyUsedItems() {
                 }
             }
             if (builds[i].build[10]) {
-                alreadyUsedEspers.push(builds[i].build[10].name);
+                alreadyUsedEspers.push(builds[i].build[10].id);
             }
         }
     }
@@ -1332,7 +1332,7 @@ function getStateHash() {
     }
     
     if (builds[currentUnitIndex].unit) {
-        data.unitName = builds[currentUnitIndex].unit.name;
+        data.unit = builds[currentUnitIndex].unit.id;
         data.rarity = builds[currentUnitIndex].unit.max_rarity;
     }
     
@@ -1395,20 +1395,22 @@ function loadStateHashAndBuild(data) {
         customFormula = parseFormula(data.customFormula);
     }
     onGoalChange();
+    var unitId = data.unit;
     if (data.unitName) {
         for (var unitId in units) {
             if (units[unitId].name == data.unitName) {
-                if (data.rarity == 6 && units[unitId]["6_form"]) {
-                    $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
-                } else {
-                    $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
-                }
-                $("#unitsSelect").combobox("refresh");
-                onUnitChange();        
                 break;
             }
         }
     }
+    if (data.rarity == 6 && units[unitId]["6_form"]) {
+        $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
+    } else {
+        $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+    }
+    $("#unitsSelect").combobox("refresh");
+    onUnitChange();        
+    
     select("elements", data.innateElements);
     if (data.goal == "mag" || data.goal == "magicalDamage") {
         $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
@@ -1738,7 +1740,7 @@ function updateEspers() {
     }
     espersByName = {};
     for (var index = esperSource.length; index--;) {
-        espersByName[esperSource[index].name] = esperSource[index];    
+        espersByName[esperSource[index].id] = esperSource[index];    
     }
     searchableEspers = [];
     for (var index = esperSource.length; index--;) {
@@ -1750,10 +1752,10 @@ function updateEspers() {
 
 $(function() {
     progressElement = $("#buildProgressBar .progressBar");
-    $.get(server + "/data.json", function(result) {
+    $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
         dataStorage = new DataStorage(data);
-        $.get(server + "/unitsWithSkill.json", function(result) {
+        $.get(getLocalizedFileUrl("unitsWithSkill"), function(result) {
             units = result;
             populateUnitSelect();
             prepareSearch(data);

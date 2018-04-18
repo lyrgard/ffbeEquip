@@ -337,9 +337,9 @@ $(function() {
     $("#searchText").on("input", $.debounce(300,update));
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(server + "/data.json", function(result) {
+    $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
-        $.get(server + "/units.json", function(result) {
+        $.get(getLocalizedFileUrl("units"), function(result) {
             units = result;
             populateUnitSelect();
             prepareSearch(data);

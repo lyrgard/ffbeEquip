@@ -379,12 +379,51 @@ function sort(items) {
             }
             var name1 = item1.jpname || item1.name;
             var name2 = item2.jpname || item2.name;
-            return name1.localeCompare(name2);
+            if (name1.startsWith("Anti-Eau") && name2.startsWith("ATT +10%")) {
+                console.log("!!");
+            }
+            var result = compareName(name1, name2);
+            
+            return result;
         } else {
             return type2 - type1;
         }
     });
 };
+
+function compareName(name1, name2) {
+    var minLength = Math.min(name1.length, name2.length);
+    for (var i = 0; i < minLength; i++) {
+        var letter1 = name1.substr(i,1);
+        var letter2 = name2.substr(i,1);
+        if (letter1 == letter1.toUpperCase()) {
+            if (letter2 == letter2.toUpperCase()) {
+                var result = letter1.localeCompare(letter2);
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return -1;
+            }
+        } else {
+            if (letter2 == letter2.toUpperCase()) {
+                return 1;
+            } else {
+                var result = letter1.localeCompare(letter2);
+                if (result != 0) {
+                    return result;
+                }
+            }   
+        }
+    }
+    if (name1.length == name2.length) {
+        return 0;
+    } else if (name1.length == minLength) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
 
 function getStat(item, stat) {
     if (stat == "type") {
@@ -507,9 +546,9 @@ function exportAsCsv() {
 $(function() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(server + "/data.json", function(result) {
+    $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
-        $.get(server + "/units.json", function(unitResult) {
+        $.get(getLocalizedFileUrl("units"), function(unitResult) {
             allUnits = unitResult;
             prepareSearch(data);
             equipments = keepOnlyOneOfEachEquipement();

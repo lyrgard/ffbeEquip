@@ -1,3 +1,27 @@
+.navbar-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+}
+
+.navbar-brand {
+    padding: 0;
+    height: 20px;
+}
+
+.lang-xs.selected {
+    box-shadow: 0px 0px 5px 2px #3166ff;
+}
+
+.lang-xs:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 2px #d0d0d0;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0;
