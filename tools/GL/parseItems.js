@@ -72,7 +72,7 @@ var elementsMap = {
     "Dark": "dark"
 }
 
-const languages = ["en", "ch", "ko", "fr", "de", "es"];
+const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
