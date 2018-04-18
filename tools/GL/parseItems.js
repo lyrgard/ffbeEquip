@@ -264,6 +264,8 @@ function treatItem(items, itemId, result, skills) {
     }
     if (oldItemsWikiEntryById[itemOut.id]) {
         itemOut.wikiEntry = oldItemsWikiEntryById[itemOut.id];
+    } else if (languageId != 0) {
+        itemOut.wikiEntry = itemIn.name.replace(' ', '_');
     }
     if (!itemOut.access) {
         itemOut.access = ["not released yet"];
