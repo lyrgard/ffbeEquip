@@ -189,7 +189,7 @@ function sendToServer() {
 
 // will be called by jQuery at page load)
 $(function() {
-	$.get(server + "/data.json", function(result) {
+	$.get(getLocalizedFileUrl("data"), function(result) {
         data = keepOnlyOneInstance(result);
         for (var index = data.length; index--;) {
             dataById[data[index].id] = data[index];

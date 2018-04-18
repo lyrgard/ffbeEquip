@@ -490,7 +490,7 @@ function exportAsText() {
 $(function() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(server + "/units.json", function(unitResult) {
+    $.get(getLocalizedFileUrl("units"), function(unitResult) {
         allUnits = unitResult;
         $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
             units = [];
@@ -510,7 +510,7 @@ $(function() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    $.get(server + "/data.json", function(result) {
+    $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
         if (itemInventory && units && ownedUnits) {
             prepareData();

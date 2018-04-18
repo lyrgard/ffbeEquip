@@ -72,6 +72,8 @@ var elementsMap = {
     "Dark": "dark"
 }
 
+const languages = ["en", "ch", "ko", "fr", "de", "es"];
+
 var unitNamesById = {};
 var unitIdByTmrId = {};
 var oldItemsAccessById = {};
@@ -81,6 +83,7 @@ var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var dev = false;
+var languageId;
 
 
 function getData(filename, callback) {
@@ -109,45 +112,56 @@ getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
         getData('skills.json', function (skills) {
             getData('units.json', function (units) {
-                for (var unitIndex in units) {
-                    var unit = units[unitIndex];
-                    unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
-
-                    if (unit.TMR) {
-                        unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                        if (unit.rarity_min > 3 && !unit.is_summonable) {
-                            unitNamesById[unitIndex].event = true;
-                        }
-                    }
-                }
-
-
-
                 fs.readFile('../../static/GL/data.json', function (err, content) {
                     var oldItems = JSON.parse(content);
-                    for (var index in oldItems) {
-                        oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                        if (oldItems[index].maxNumber) {
-                            oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                        }
-                        if (oldItems[index].wikiEntry) {
-                            oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
-                        }
-                    }
-
                     fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
                         releasedUnits = JSON.parse(content);
+                        
+                        for (languageId = 0; languageId < languages.length; languageId++) {
 
-                        var result = {"items":[]};
-                        for (var itemId in items) {
-                            treatItem(items,itemId, result, skills);
+                            for (var unitIndex in units) {
+                                var unit = units[unitIndex];
+                                if (!unit.names) {
+                                    continue;
+                                }
+                                unitNamesById[unitIndex] = {"name":unit.names[languageId], "minRarity":unit.rarity_min};
+
+                                if (unit.TMR) {
+                                    unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                    if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                        unitNamesById[unitIndex].event = true;
+                                    }
+                                }
+                            }
+
+                            for (var index in oldItems) {
+                                oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                if (oldItems[index].maxNumber) {
+                                    oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                }
+                                if (oldItems[index].wikiEntry) {
+                                    oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
+                                }
+                            }
+
+
+
+                            var result = {"items":[]};
+                            for (var itemId in items) {
+                                treatItem(items,itemId, result, skills);
+                            }
+                            for (var materiaId in materias) {
+                                treatItem(materias,materiaId, result, skills);
+                            }
+                            console.log(skillNotIdentifiedNumber);
+                            console.log(result.items.length);
+                            var filename = 'data.json';
+                            if (languageId != 0) {
+                                filename = 'data_' + languages[languageId] +'.json';
+                            }
+                            fs.writeFileSync(filename, formatOutput(result.items));
                         }
-                        for (var materiaId in materias) {
-                            treatItem(materias,materiaId, result, skills);
-                        }
-                        console.log(skillNotIdentifiedNumber);
-                        fs.writeFileSync('data.json', formatOutput(result.items));
                     });
                 });
             });
@@ -167,9 +181,17 @@ function treatItem(items, itemId, result, skills) {
         // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
         return;
     }
+    if (!itemIn.strings || (!itemIn.strings.name && !itemIn.strings.names)) {
+        
+        return;
+    }
     var itemOut = {};
     itemOut.id = itemId;
-    itemOut.name = itemIn.name;
+    if (itemIn.strings.name) {
+        itemOut.name = itemIn.strings.name[languageId];    
+    } else {
+        itemOut.name = itemIn.strings.names[languageId];
+    }
     if (itemIn.type_id) {
         itemOut.rarity = itemIn.rarity;
         itemOut.type = typeMap[itemIn.type_id];
@@ -406,18 +428,25 @@ function readSkills(itemIn, itemOut, skills) {
 function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
     if (effectsNotTreated.length > 0) {
         var special = "[" + skill.name;
+        if (languageId != 0) {
+            special += "|" + skill.strings.name[languageId];
+        }
         if (skill.icon) {
             special += "|" + skill.icon;
         }
         special += "]:"
-        var first = true;
-        for (var index in effectsNotTreated) {
-            if (first) {
-                first = false;
-            } else {
-                special += ", ";
+        if (languageId == 0) {
+            var first = true;
+            for (var index in effectsNotTreated) {
+                if (first) {
+                    first = false;
+                } else {
+                    special += ", ";
+                }
+                special += skill.effects[effectsNotTreated[index]];
             }
-            special += skill.effects[effectsNotTreated[index]];
+        } else {
+            special += skill.strings.desc_short[languageId];
         }
         addSpecial(itemOut, special);
     }
@@ -616,6 +645,9 @@ function getSkillString(skill) {
         effect += skill.effects[effectIndex];
     }
     var result = "[" + skill.name;
+    if (languageId != 0) {
+        result += "|" + skill.strings.name[languageId];
+    }
     if (skill.icon) {
         result += "|" + skill.icon;
     }

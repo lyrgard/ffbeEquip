@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="common.css?version=3">
         <link rel="stylesheet" type="text/css" href="builder.css">
+        <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="lib/bootstrap-combobox.css">
         <link rel="icon" type="image/png" href="/img/heavyArmor.png">
         <title>FFBE Equip - Builder</title>
@@ -16,7 +17,15 @@
             <div class="col-xs-12">
                 <nav class="col-xs-12 navbar navbar-default">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">FFBE Equip</a>
+                            <div class="navbar-brand">FFBE Equip</div>
+                            <div id="languages">
+                                <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
+                                <span class="lang-xs" lang="ch" onclick="switchToLanguage('ch')"></span>
+                                <span class="lang-xs" lang="ko" onclick="switchToLanguage('ko')"></span>
+                                <span class="lang-xs" lang="fr" onclick="switchToLanguage('fr')"></span>
+                                <span class="lang-xs" lang="de" onclick="switchToLanguage('de')"></span>
+                                <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
+                            </div>
                         </div>
                         <div class="switchServer btn-group">
                             <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
@@ -628,5 +637,7 @@
         <script src="builder.js?version=8"></script>
         <script src="lib/bootstrap-combobox.js"></script>
         <script src="googleAnalytics.js"></script>
+        <script src="lib/jsonc.js"></script>
+        <script src="builder/links.js"></script>
     </body>
 </html>

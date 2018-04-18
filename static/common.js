@@ -15,6 +15,7 @@ var additionalStat = [];
 var searchText = '';
 var selectedUnitId = 0;
 var server = "GL";
+var language = "";
 var saveTimeout;
 var saveNeeded;
 var mustSaveUnits = false;
@@ -517,7 +518,21 @@ function switchTo(newServer) {
     }
 }
 
-function readServerType() {
+function switchToLanguage(newLanguage) {
+    if (newLanguage != language && server != "JP") {
+        var languageParam = "";
+        if (newLanguage != "en") {
+            languageParam = "?l=" + newLanguage;
+        }
+        var serverParam = "";
+        if (server == "JP") {
+            serverParam = "?server=JP";
+        }
+        window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + languageParam + serverParam + window.location.hash;
+    }
+}
+
+function readUrlParams() {
     if (window.location.href.indexOf("server=") > 0) {
         var captured = /server=([^&#]+)/.exec(window.location.href)[1];
         if (captured == "GL" || captured == "JP") {
@@ -528,12 +543,25 @@ function readServerType() {
     } else {
         server = "GL";
     }
+    if (window.location.href.indexOf("l=") > 0) {
+        var captured = /l=([^&#]+)/.exec(window.location.href)[1];
+        if (captured == "ch" || captured == "ko" || captured == "fr" || captured == "de" || captured == "es") {
+            language = captured;
+        }
+    }
     if (server == "GL") {
         $(".switchServer .GL").addClass("btn-primary").removeClass("notSelected");
         $(".switchServer .JP").removeClass("btn-primary").addClass("notSelected");
+        $("#languages").removeClass("hidden");
+        var selectedLang = language;
+        if (!language) {
+            selectedLang = "en"
+        }
+        $("#languages span[lang=" + selectedLang + "]").addClass("selected");
     } else {
         $(".switchServer .JP").addClass("btn-primary").removeClass("notSelected");
         $(".switchServer .GL").removeClass("btn-primary").addClass("notSelected");
+        $("#languages").addClass("hidden");
     }
     updateLinks();
 }
@@ -543,9 +571,13 @@ function updateLinks() {
     if (server == "JP") {
         serverParam = "?server=JP";
     }
+    var languageParam = "";
+        if (language != "en") {
+            languageParam = "?l=" + language;
+        }
     $("a[data-internal-link]").each(function(index, element) {
         var link = $(element);
-        link.prop("href", link.data("internal-link") + serverParam);
+        link.prop("href", link.data("internal-link") + serverParam + languageParam);
     });
     $("[data-server]").each(function(index, element) {
         var item = $(element);
@@ -909,13 +941,21 @@ function getShortUrl(longUrl, callback) {
     });
 }
 
+function getLocalizedFileUrl(name) {
+    if (language) {
+        name = name + "_" + language;
+    }
+    name += ".json";
+    return server + "/" + name;
+}
+
 
 function onUnitsOrInventoryLoaded() {
     if (itemInventory && ownedUnits && ownedEspers) {
         if (ownedUnits.version && ownedUnits.version < 3) {
             // before version 3, units were : {"unitId": number}
             // After, they are {"unitId": {"number":number,"farmable":number}
-            $.get(server + "/data.json", function(data) {
+            $.get(getLocalizedFileUrl("data"), function(data) {
                 $.get(server + "/units.json", function(unitResult) {
                     var allUnitsTmp = unitResult;
                     var tmrNumberByUnitId = {};
@@ -1071,7 +1111,7 @@ function saveInventory(successCallback, errorCallback) {
 }
 
 $(function() {
-    readServerType();
+    readUrlParams();
     $.get(server + '/itemInventory', function(result) {
         itemInventory = result;
         onUnitsOrInventoryLoaded();
@@ -1123,7 +1163,7 @@ $(function() {
             notLoaded();
         }
     });
-    readServerType();
+    readUrlParams();
     $.get(server + '/espers', function(result) {
         ownedEspers = result;
         onUnitsOrInventoryLoaded();
