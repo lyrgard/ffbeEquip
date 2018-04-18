@@ -342,10 +342,16 @@ var toHtml = function(text) {
         var vWithoutBrace = v.substring(1, v.length - 1);
         var token = vWithoutBrace.split("|");
         var result = "";
-        if (token.length == 2) {
+        if (token.length == 1) {
+            result += toLink(token[0]);
+        } else if (token.length == 2) {
+            result += toLink(token[0]);
             result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
+        } else if (token.length == 3) {
+            result += toLink(token[1], token[0]);
+            result += "<img class='icon' src='/img/items/" + token[2] + "'></img>"
         }
-        result += toLink(token[0]);
+        
         return result;
     });
     return "<span>" + textWithAddedAnchors +"</span>";
