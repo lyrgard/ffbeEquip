@@ -75,7 +75,7 @@ var elementsMap = {
 filterGame = [20001, 20002, 20006, 20007, 20008, 20011, 20012];
 filterUnits = ["100014604","100014504","100014703","100014405"]
 
-const languages = ["en", "ch", "ko", "fr", "de", "es"];
+const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
 var unitNamesById = {};
 var unitIdByTmrId = {};

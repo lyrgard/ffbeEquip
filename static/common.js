@@ -545,7 +545,7 @@ function readUrlParams() {
     }
     if (window.location.href.indexOf("l=") > 0) {
         var captured = /l=([^&#]+)/.exec(window.location.href)[1];
-        if (captured == "ch" || captured == "ko" || captured == "fr" || captured == "de" || captured == "es") {
+        if (captured == "zh" || captured == "ko" || captured == "fr" || captured == "de" || captured == "es") {
             language = captured;
         }
     }
