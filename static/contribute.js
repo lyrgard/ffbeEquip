@@ -194,7 +194,7 @@ $(function() {
         for (var index = data.length; index--;) {
             dataById[data[index].id] = data[index];
         }
-        $.get(server + "/units.json", function(result) {
+        $.get(getLocalizedFileUrl("units"), function(result) {
             units = result;
             $.get(server + "/corrections.json", function(result) {
                 corrections = result;
