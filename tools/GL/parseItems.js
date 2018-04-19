@@ -117,6 +117,17 @@ getData('equipment.json', function (items) {
                     fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
                         releasedUnits = JSON.parse(content);
                         
+                        for (var index in oldItems) {
+                            oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                            if (oldItems[index].maxNumber) {
+                                oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                            }
+                            if (oldItems[index].wikiEntry) {
+                                oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
+                            }
+                        }
+                        
                         for (languageId = 0; languageId < languages.length; languageId++) {
 
                             for (var unitIndex in units) {
@@ -134,16 +145,7 @@ getData('equipment.json', function (items) {
                                 }
                             }
 
-                            for (var index in oldItems) {
-                                oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                if (oldItems[index].maxNumber) {
-                                    oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                }
-                                if (oldItems[index].wikiEntry) {
-                                    oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
-                                }
-                            }
+                            
 
 
 
