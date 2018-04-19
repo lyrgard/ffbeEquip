@@ -578,7 +578,7 @@ function updateLinks() {
         serverParam = "?server=JP";
     }
     var languageParam = "";
-        if (language != "en") {
+        if (language && language != "en" ) {
             languageParam = "?l=" + language;
         }
     $("a[data-internal-link]").each(function(index, element) {
