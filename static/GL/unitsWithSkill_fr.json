@@ -2963,9 +2963,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Double Dice","Quick Gamble","Red Card"],
 		"skills": [
-			{"mp%":20, "atk%":20, "spr%":20, "evade":{"physical":10}},
-			{"atk%":50, "equipedConditions":["throwing"]}
+			{"hp%":20, "mp%":40, "atk%":20, "spr%":20, "evade":{"physical":30}},
+			{"mp%":20, "atk%":50, "equipedConditions":["throwing"]}
 		]
 	},
 	"206001103": {
@@ -3707,8 +3708,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Cleric Stance","Shroud of Saints","Holy","Benediction"],
 		"skills": [
-			{"mpRefresh":5}
+			{"hp%":20, "mp%":20, "def%":20, "mpRefresh":5}
 		]
 	},
 	"214000203": {
@@ -3722,8 +3724,9 @@
 			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
 		},
 		"equip":["dagger","sword","greatSword","katana","harp","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Fast Blade","Featherfoot","Savage Blade"],
 		"skills": [
-			{"evade":{"physical":20}}
+			{"hp%":30, "atk%":30, "evade":{"physical":30}}
 		]
 	},
 	"214000304": {
@@ -3737,8 +3740,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","staff","whip","hat","clothes","robe"],
+		"enhancementSkills":["Assault Order","Guard Order","The Echo","Leader's Disposition"],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":10, "def%":10, "mag%":10, "spr%":10, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
 		]
 	},
 	"214000404": {
@@ -3752,8 +3756,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Kata","Howling Fist","Fists of Fire"],
 		"skills": [
-			{"atk%":30, "def%":20, "evade":{"physical":20,"magical":10}}
+			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":20,"magical":10}, "singleWieldingOneHanded":{"atk":50}},
+			{"atk%":20, "equipedConditions":["fist"]}
 		]
 	},
 	"214000504": {
@@ -3767,6 +3773,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","rod","hat","clothes","robe"],
+		"enhancementSkills":["Astral Fire","Astral Blizzard","Flare"],
 		"skills": [
 			{"mp%":20, "mag%":30}
 		]
@@ -3950,7 +3957,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rhyme"],
+		"enhancementSkills":["Mind Break","Weapon Break","Hero's Rime"],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "mpRefresh":5}
 		]
@@ -4588,9 +4595,11 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
 		"skills": [
-			{"mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWieldingOneHanded":{"atk":100,"mag":50}, "resist":[{"name":"ice","percent":20},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
+			{"hp%":30, "mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWielding":{"atk":100,"mag":100}, "resist":[{"name":"ice","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "equipedConditions":["sword"]}
 		]
 	},
 	"302001504": {
@@ -4604,6 +4613,7 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","throwing","fist","hat","clothes"],
+		"enhancementSkills":["Desperate Strike","Master Thief","Twist of Fate"],
 		"skills": [
 			{"hp%":20, "atk%":10, "evade":{"physical":20}}
 		]
