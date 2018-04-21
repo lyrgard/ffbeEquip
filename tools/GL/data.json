@@ -1060,7 +1060,7 @@
 	{"id":"504101200", "name":"Counter", "type":"materia", "special":["[Counter|ability_68.png]:30% chance to counter a physical attack with an attack (1x, ATK)"], "tmrUnit":"206000403", "access":["TMR-3*"], "icon":"ability_68.png", "sortId":264},
 	{"id":"504101230", "name":"Evade", "type":"materia", "evade":{"physical":10}, "tmrUnit":"206000603", "access":["TMR-3*"], "icon":"ability_75.png", "sortId":267},
 	{"id":"504101350", "name":"Camouflage", "type":"materia", "special":["[Camouflage|ability_84.png]:Reduce chance of being targeted by 50%"], "tmrUnit":"100003602", "access":["TMR-2*"], "icon":"ability_84.png", "sortId":279},
-	{"id":"504101360", "name":"Doublehand", "type":"materia", "singleWieldingOneHanded":{"atk":50}, "accuracy":25, "special":["notStackable"], "tmrUnit":"205000103", "access":["TMR-3*","TMR-3*"], "icon":"ability_76.png", "sortId":280},
+	{"id":"504101360", "name":"Doublehand", "type":"materia", "singleWieldingOneHanded":{"atk":50}, "accuracy":25, "special":["notStackable"], "tmrUnit":"205000103", "access":["TMR-3*"], "icon":"ability_76.png", "sortId":280},
 	{"id":"504101370", "name":"Dual Wield", "type":"materia", "special":["dualWield"], "tmrUnit":"209000103", "access":["TMR-3*"], "eventName":"Gagazet", "icon":"ability_72.png", "sortId":281},
 	{"id":"504101410", "name":"HP Stroll", "type":"materia", "special":["[HP Stroll|ability_73.png]:During explorations, recover 5 HP every 3 steps"], "access":["chocobo"], "maxNumber":1, "icon":"ability_73.png", "sortId":657},
 	{"id":"504101500", "name":"HP +15%", "type":"materia", "hp%":15, "access":["recipe-event","event"], "icon":"ability_77.png", "sortId":449},
