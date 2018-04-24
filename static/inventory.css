@@ -107,3 +107,23 @@
     top: 10px;
     right: 20px;
 }
+
+.excludeFromExpeditionButton {
+    position: absolute;
+    right: 4px;
+    width: 28px;
+    top: 40px;
+    display: none;
+}
+
+.item:not(.notOwned).excludedFromExpeditions .excludeFromExpeditionButton {
+    display: block;   
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+}
+
+.item:not(.notOwned):hover .excludeFromExpeditionButton {
+    display: block;
+    opacity: 0.8;
+    filter: grayscale(100%);
+}

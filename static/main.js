@@ -144,32 +144,9 @@ var modifyFilterSummary = function() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
-    var html = "";
-    for (var index in items) {
-        var item = items[index];
-        html += '<div class="tr';
-        if (item.temp) {
-            html += ' userInputed';
-        }
-        html += '">';
-        html += displayItemLine(item);
-        if (itemInventory) {
-            html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
-            if (!itemInventory[item.id]) {
-                html+= "notPossessed";
-            }
-            html += '">';
-            html += '<span class="number badge badge-success">';
-            if (itemInventory[item.id]) {
-                html += itemInventory[item.id];
-            }
-            html += '</span>';
-            
-            html += '</div>';
-        }
-        html += "</div>";
-    }
-    $("#results .tbody").html(html);
+    var resultDiv = $("#results .tbody");
+    resultDiv.empty();
+    displayItemsAsync(items, 0, resultDiv);
     $("#resultNumber").html(items.length);
     $(baseStats).each(function(index, currentStat) {
         if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
@@ -197,6 +174,69 @@ var displayItems = function(items) {
         $("#results .thead .inventory").addClass("hidden");
     }
 };
+
+function displayItemsAsync(items, start, div) {
+    var html = '';
+    var end = Math.min(start + 20, items.length);
+    for (var index = start; index < end; index++) {
+        var item = items[index];
+        html += '<div class="tr';
+        if (item.temp) {
+            html += ' userInputed';
+        }
+        html += '">';
+        html += displayItemLine(item);
+        if (itemInventory) {
+            html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
+            if (!itemInventory[item.id]) {
+                html+= "notPossessed";
+            }
+            html += '">';
+            html += '<span class="number badge badge-success">';
+            if (itemInventory[item.id]) {
+                html += itemInventory[item.id];
+            }
+            html += '</span>';
+            
+            html += '</div>';
+        }
+        html += "</div>";
+    }
+    div.append(html);
+    if (index < items.length) {
+        setTimeout(displayItemsAsync, 0, items, index, div);
+    } else {
+        afterDisplay();
+    }
+}
+
+function afterDisplay() {
+    $(baseStats).each(function(index, currentStat) {
+        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
+            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
+        }
+    });
+    $(elementList).each(function(index, resist) {
+        if (elements.length != 0 && !elements.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(ailmentList).each(function(index, resist) {
+        if (ailments.length != 0 && !ailments.includes(resist)) {
+            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+        }
+    });
+    $(killerList).each(function(index, killer) {
+        if (killers.length != 0 && !killers.includes(killer)) {
+            $("#results .tbody .special .killer-" + killer).addClass("notSelected");
+        }
+    });
+    if (itemInventory) {
+        $("#results .thead .inventory").removeClass("hidden");
+    } else {
+        $("#results .thead .inventory").addClass("hidden");
+    }
+}
 
 // Displays selected unit's rarity by stars
 var displayUnitRarity = function(unit) {

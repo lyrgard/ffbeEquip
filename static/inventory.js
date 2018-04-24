@@ -25,7 +25,7 @@ function showMateria() {
     $("#sortType").text("Sorted by Name");
     $("#materiaCount").removeClass("hidden");
     // filter, sort and display the results
-    $("#results").html(displayItems(sort(materia)));
+    displayItems(sort(materia));
 }
 
 function showEquipments() {
@@ -35,7 +35,7 @@ function showEquipments() {
     $("#sortType").text("Sorted by Type (Strength)");
     $("#itemCount").removeClass("hidden");
     // filter, sort and display the results
-    $("#results").html(displayItems(sort(equipments)));
+    displayItems(sort(equipments));
 }
 
 function showSearch() {
@@ -45,7 +45,7 @@ function showSearch() {
     $(".nav-tabs li.search").addClass("active");
     $("#sortType").text("");
     // filter, sort and display the results
-    $("#results").html(displayItems(sort(search())));
+    displayItems(sort(search()));
 }
 
 function showHistory() {
@@ -100,8 +100,15 @@ function showSettings() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
+    var resultDiv = $("#results");
+    resultDiv.empty();
+    displayItemsAsync(items, 0, resultDiv);
+};
+
+function displayItemsAsync(items, start, div) {
     var html = '';
-    for (var index = 0, len = items.length; index < len; index++) {
+    var end = Math.min(start + 20, items.length);
+    for (var index = start; index < end; index++) {
         var item = items[index];
         html += '<div class="col-xs-6 item ' + escapeName(item.id);
         if (!itemInventory[item.id]) {
@@ -109,6 +116,9 @@ var displayItems = function(items) {
         }
         if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
             html += ' farmable';
+        }
+        if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
+            html += ' excludedFromExpeditions';
         }
         html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
         if (itemInventory) {
@@ -119,17 +129,39 @@ var displayItems = function(items) {
                 html += itemInventory[item.id];
             }
             html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + escapeQuote(item.id) + '\');" />';
+            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
             html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
+            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>'
             html += '</div>';
         }
         html += getImageHtml(item) + getNameColumnHtml(item);
         
         html += "</div>";
     }
-    return html;
+    div.append(html);
+    if (index < items.length) {
+        setTimeout(displayItemsAsync, 0, items, index, div);
+    }
+}
 
-};
+function excludeFromExpedition(id) {
+    var idString = String(id);
+    var itemDiv = $(".item." + escapeName(id));
+    if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(idString)) {
+        itemInventory.excludeFromExpeditions.splice(itemInventory.excludeFromExpeditions.indexOf(idString), 1);
+        itemDiv.removeClass("excludedFromExpeditions");
+    } else {
+        if (!itemInventory.excludeFromExpeditions) {
+            itemInventory.excludeFromExpeditions = [];
+        }
+        itemInventory.excludeFromExpeditions.push(idString);
+        itemDiv.addClass("excludedFromExpeditions");
+    }
+    saveNeeded = true;
+    if (saveTimeout) {clearTimeout(saveTimeout)}
+    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
+    $(".saveInventory").removeClass("hidden");
+}
 
 function findInventoryItemById(id) {
     var inventoryItem = equipments.find(equip => equip.id === String(id));
