@@ -34,6 +34,7 @@ var ownedUnits;
 
 var onlyUseOwnedItems = false;
 var onlyUseShopRecipeItems = false;
+var onlyUseOwnedItemsAvailableForExpeditions = false;
 var exludeEventEquipment;
 var excludeTMR5;
 var excludeNotReleasedYet;
@@ -430,6 +431,9 @@ function getOwnedNumber(item) {
     var totalNumber = 0;
     var totalOwnedNumber = 0;
     var availableNumber = 0;
+    if (onlyUseOwnedItemsAvailableForExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
+        return {"total":0,"available":0,"totalOwnedNumber":0}
+    }
     if (itemInventory[item.id]) {
         totalNumber = itemInventory[item.id];
     }
@@ -899,6 +903,9 @@ var displayUnitRarity = function(unit) {
 
 function inventoryLoaded() {
     $(".equipments select option[value=owned]").prop("disabled", false);
+    if (itemInventory.excludeFromExpeditions) {
+        $(".equipments select option[value=ownedAvailableForExpedition]").prop("disabled", false);
+    }
     if (!dataLoadedFromHash) {
         $(".equipments select").val("owned");
         onEquipmentsChange();
@@ -906,7 +913,7 @@ function inventoryLoaded() {
     
     var data = readStateHashData();
     
-    if (data && data.equipmentToUse == "owned") {
+    if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
         loadStateHashAndBuild(data);    
     }
 }
@@ -914,7 +921,7 @@ function inventoryLoaded() {
 function notLoaded() {
     var data = readStateHashData();
     
-    if (data && data.equipmentToUse == "owned") {
+    if (data && data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition") {
         alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
     }
 }
@@ -990,7 +997,7 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().addClass("hidden");
         onlyUseOwnedItems = false;
         onlyUseShopRecipeItems = false;
-    } else if (equipments == "owned") {
+    } else if (equipments == "owned" || equipments == "ownedAvailableForExpedition") {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
@@ -1004,6 +1011,11 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().removeClass("hidden");
         onlyUseOwnedItems = true;
         onlyUseShopRecipeItems = false;
+        if (equipments == "ownedAvailableForExpedition") {
+            onlyUseOwnedItemsAvailableForExpeditions = true;
+        } else {
+            onlyUseOwnedItemsAvailableForExpeditions = false;
+        }
     } else {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
@@ -1737,6 +1749,9 @@ function updateEspers() {
         for (var index in ownedEspers) {
             esperSource.push(getEsperItem(ownedEspers[index]));
         }
+    }
+    if (equipments == "ownedAvailableForExpedition") {
+        esperSource = [];
     }
     espersByName = {};
     for (var index = esperSource.length; index--;) {

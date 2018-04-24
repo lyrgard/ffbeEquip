@@ -32,12 +32,18 @@ class UnitBuild {
     getPartialDualWield() {
         for (var index = this.unit.skills.length; index--;) {
             if (this.unit.skills[index].partialDualWield) {
-                return this.unit.skills[index].partialDualWield;
+                if ((this.build[0] == null || this.unit.skills[index].partialDualWield.includes(this.build[0].type))
+                    && (this.build[1] == null || this.unit.skills[index].partialDualWield.includes(this.build[1].type))) {
+                    return this.unit.skills[index].partialDualWield;
+                }
             }
         }
         for (var index = 0; index < 10; index++) {
             if (this.build[index] && this.build[index].partialDualWield) {
-                return this.build[index].partialDualWield;
+                if ((this.build[0] == null || this.build[index].partialDualWield.includes(this.build[0].type))
+                    && (this.build[1] == null || this.build[index].partialDualWield.includes(this.build[1].type))) {
+                    return this.build[index].partialDualWield;
+                }
             }
         }
         return null;
