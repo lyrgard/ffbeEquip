@@ -54,10 +54,12 @@ function showHistory() {
     $(".nav-tabs li.history").addClass("active");
     $("#sortType").text("Sorted by release date");
     
-    var html = "";
+    var resultDiv = $("#results");
+    resultDiv.empty();
     for (var dateIndex in lastItemReleases) {
-        html += '<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>';
+        resultDiv.append('<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>');
         for (var sourceIndex in lastItemReleases[dateIndex].sources) {
+            var html = '';
             if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
                 html += '<div class="col-xs-12 source">';
                 for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
@@ -72,10 +74,10 @@ function showHistory() {
             } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event" || lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
                 html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
             }
-            html += displayItems(lastItemReleases[dateIndex].sources[sourceIndex].items);
+            resultDiv.append(html);
+            displayItemsAsync(lastItemReleases[dateIndex].sources[sourceIndex].items, 0, resultDiv);
         }
     }
-    $("#results").html(html);
 }
 
 function showSettings() {
@@ -105,9 +107,9 @@ var displayItems = function(items) {
     displayItemsAsync(items, 0, resultDiv);
 };
 
-function displayItemsAsync(items, start, div) {
+function displayItemsAsync(items, start, div, max = 20) {
     var html = '';
-    var end = Math.min(start + 20, items.length);
+    var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
         var item = items[index];
         html += '<div class="col-xs-6 item ' + escapeName(item.id);
