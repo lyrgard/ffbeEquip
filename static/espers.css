@@ -281,6 +281,12 @@
 
 .esperOtherStats {
     width: 200px;
+    position: relative;
+}
+
+.esperOtherStats .esperSkills {
+    position: absolute;
+    top: 65px;
 }
 
 .error {
