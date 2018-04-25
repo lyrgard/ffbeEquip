@@ -3678,6 +3678,7 @@
 	},
 	"100018305": {
 		"name":"フォルカ",
+		"jpname":"フォルカ",
 		"id":"100018305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -3694,6 +3695,7 @@
 		],
 		"6_form": {
 			"name":"フォルカ",
+			"jpname":"フォルカ",
 			"id":"100018305",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -3711,6 +3713,7 @@
 	},
 	"100018403": {
 		"name":"イコル",
+		"jpname":"イコル",
 		"id":"100018403",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -3727,6 +3730,7 @@
 	},
 	"100018504": {
 		"name":"ユベル",
+		"jpname":"ユベル",
 		"id":"100018504",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -3743,6 +3747,7 @@
 	},
 	"100018604": {
 		"name":"キハナ",
+		"jpname":"キハナ",
 		"id":"100018604",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4094,6 +4099,7 @@
 	},
 	"203000604": {
 		"name":"ドーガ",
+		"jpname":"ドーガ",
 		"id":"203000604",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4176,6 +4182,7 @@
 	},
 	"203001305": {
 		"name":"たまねぎ剣士レフィア",
+		"jpname":"たまねぎ剣士レフィア",
 		"id":"203001305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4192,6 +4199,7 @@
 		],
 		"6_form": {
 			"name":"たまねぎ剣士レフィア",
+			"jpname":"たまねぎ剣士レフィア",
 			"id":"203001305",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -4209,6 +4217,7 @@
 	},
 	"203001405": {
 		"name":"魔剣士ルーネス",
+		"jpname":"魔剣士ルーネス",
 		"id":"203001405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4225,6 +4234,7 @@
 		],
 		"6_form": {
 			"name":"魔剣士ルーネス",
+			"jpname":"魔剣士ルーネス",
 			"id":"203001405",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -4242,6 +4252,7 @@
 	},
 	"203001503": {
 		"name":"ウネ",
+		"jpname":"ウネ",
 		"id":"203001503",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -8509,6 +8520,150 @@
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
 		"skills": [
 			{"def%":10, "mag%":20, "spr%":10, "resist":[{"name":"poison","percent":50},{"name":"paralysis","percent":50},{"name":"petrification","percent":50}]}
+		]
+	},
+	"331000105": {
+		"name":"フェイ",
+		"id":"331000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4823,"mp":210,"atk":205,"def":192,"mag":165,"spr":184},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":40, "singleWielding":{"atk":50}, "killers":[{"name":"machine","physical":50,"magical":50}]},
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":80, "def%":80, "mag%":20, "spr%":70, "singleWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5},
+			{"atk%":20, "equipedConditions":["fist"]}
+		],
+		"6_form": {
+			"name":"フェイ",
+			"id":"331000105",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3710,"mp":162,"atk":158,"def":148,"mag":127,"spr":135},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","spear","mace","fist","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":20, "spr%":20, "singleWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5},
+				{"atk%":20, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"331000205": {
+		"name":"エリィ",
+		"id":"331000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4384,"mp":287,"atk":135,"def":131,"mag":219,"spr":204},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","staff","rod","bow","whip","gun","hat","clothes","robe"],
+		"tmrSkill": {},
+		"skills": [
+			{"hp%":20, "mp%":60, "mag%":170, "spr%":50, "dualWielding":{"mag":40}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":10}
+		],
+		"6_form": {
+			"name":"エリィ",
+			"id":"331000205",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3373,"mp":221,"atk":104,"def":101,"mag":169,"spr":150},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"equip":["dagger","staff","rod","bow","whip","gun","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":40, "mag%":120, "spr%":50, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":10}
+			]
+		}
+	},
+	"331000304": {
+		"name":"エメラダ",
+		"id":"331000304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3667,"mp":182,"atk":143,"def":141,"mag":135,"spr":144},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":20, "atk%":20, "def%":20, "mag%":80, "evade":{"physical":30}, "resist":[{"name":"dark","percent":20}], "mpRefresh":5}
+		]
+	},
+	"331000405": {
+		"name":"バルト",
+		"id":"331000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4613,"mp":198,"atk":201,"def":185,"mag":193,"spr":173},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","whip","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},
+		"skills": [
+			{"hp%":60, "mp%":30, "atk%":60, "def%":50, "spr%":20, "evade":{"physical":30}, "dualWielding":{"atk":60}, "lbFillRate":150, "resist":[{"name":"fire","percent":30}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":30, "equipedConditions":["whip"]},
+			{"atk%":50, "equipedConditions":["whip"]}
+		],
+		"6_form": {
+			"name":"バルト",
+			"id":"331000405",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3549,"mp":153,"atk":155,"def":136,"mag":149,"spr":127},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","sword","whip","fist","lightShield","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":30, "atk%":10, "def%":50, "spr%":20, "evade":{"physical":30}, "resist":[{"name":"fire","percent":30}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"atk%":30, "equipedConditions":["whip"]},
+				{"atk%":50, "equipedConditions":["whip"]}
+			]
+		}
+	},
+	"331000503": {
+		"name":"リコ",
+		"id":"331000503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2779,"mp":104,"atk":124,"def":114,"mag":67,"spr":71},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["axe","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "atk%":30, "def%":20, "spr%":20}
+		]
+	},
+	"331000603": {
+		"name":"チュチュ",
+		"id":"331000603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2082,"mp":131,"atk":91,"def":101,"mag":96,"spr":88},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
+		},
+		"equip":["whip","mace","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"mp%":20, "atk%":10, "mag%":30}
 		]
 	},
 	"332000105": {

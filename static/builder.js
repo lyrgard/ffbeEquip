@@ -1296,8 +1296,16 @@ var displaySearchResults = function(items) {
     } else {
         $("#fixItemModal").addClass("notLoggedIn");
     }
+    var div = $("#fixItemModal .results .tbody");
+    div.empty();
+    displaySearchResultsAsync(items, 0, div);
+    
+}
+
+function displaySearchResultsAsync(items, start, div) {
+    var end = Math.max(items.length, start + 20);
     var html = "";
-    for (var index in items) {
+    for (var index = start; index < end; index++) {
         var item = items[index];
         if (item) {
             html += '<div class="tr selectable" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ')">';
@@ -1322,8 +1330,10 @@ var displaySearchResults = function(items) {
             html += "</div>";
         }
     }
-    
-    $("#fixItemModal .results .tbody").html(html);
+    div.append(html);
+    if (end < items.length) {
+        setTimeout(displaySearchResultsAsync, 0, items, end, div);
+    }
 }
 
 function getStateHash() {
