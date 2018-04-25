@@ -1055,7 +1055,7 @@ function updateSearchResult() {
             // Don't display not applicable items
             continue;
         }
-        if (dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
+        if (dataWithOnlyOneOccurence.length > 0 && dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
             var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
             if (previousItem.equipedConditions) {
                 if (item.equipedConditions) {
