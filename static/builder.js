@@ -1219,7 +1219,7 @@ function removeFixedItemAt(slot) {
     var equip = builds[currentUnitIndex].getCurrentUnitEquip();
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].fixedItems[index];
-        if (item) {
+        if (item && !item.placeHolder) {
             if (!equip.includes(item.type)) {
                 removeFixedItemAt(index);
             } else {
