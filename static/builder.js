@@ -1133,7 +1133,7 @@ function fixItem(key, slotParam = -1) {
         item = getPlaceHolder(key);
     } else if (espersByName[key])  {
         item = espersByName[key]; 
-    } else if (key = "unavailable") {
+    } else if (key == "unavailable") {
         item = {"name":"Unavailable slot", "type":"unavailable"};
     } else {
         item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
