@@ -34,6 +34,8 @@ function getImageHtml(item) {
         html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";
     } else if (item.type == "esper") {
         html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
+    } else if (item.type == "unavailable") {
+        // no image
     } else {
         html += "<img src='img/" + item.type + ".png' class='icon'></img></div>";
     }
@@ -51,6 +53,8 @@ function getNameColumnHtml(item) {
         html += toLink(item.name, typeCategories[item.type]);
     } else if (item.wikiEntry) {
         html += toLink(item.name, item.wikiEntry);
+    } else if (item.type == "unavailable") {
+        // no name
     } else {
         html += toLink(item.name);
     }

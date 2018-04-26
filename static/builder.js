@@ -621,6 +621,10 @@ function getItemLine(index, short = false) {
         item = builds[currentUnitIndex].build[index];
     }
     
+    if (item && item.type == "unavailable") {
+        return "";
+    }
+    
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
         html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img></div>'
     } else if (!item) {
@@ -752,6 +756,11 @@ function onUnitChange() {
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
             $("#help").addClass("hidden");
+            if (selectedUnitData.materiaSlots ||  selectedUnitData.materiaSlots == 0) {
+                for (var i = 4 - selectedUnitData.materiaSlots; i --;) {
+                    fixItem("unavailable", 9 - i);
+                }
+            }
             recalculateApplicableSkills();
             logCurrentBuild();
         } else {
@@ -921,7 +930,7 @@ function inventoryLoaded() {
 function notLoaded() {
     var data = readStateHashData();
     
-    if (data && data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition") {
+    if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
         alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
     }
 }
@@ -1123,7 +1132,9 @@ function fixItem(key, slotParam = -1) {
     if (typeList.includes(key)) {
         item = getPlaceHolder(key);
     } else if (espersByName[key])  {
-        item = espersByName[key];
+        item = espersByName[key]; 
+    } else if (key = "unavailable") {
+        item = {"name":"Unavailable slot", "type":"unavailable"};
     } else {
         item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
     }
