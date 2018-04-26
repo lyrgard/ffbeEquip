@@ -520,8 +520,16 @@ function logBuild(build, value) {
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
     }
 
-    $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"]));
-    $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"]));
+    var pMitigation = 1;
+    if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.physical) {
+        pMitigation = 1 - (builds[currentUnitIndex].unit.mitigation.physical / 100);
+    }
+    var mMitigation = 1;
+    if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.magical) {
+        mMitigation = 1 - (builds[currentUnitIndex].unit.mitigation.magical / 100);
+    }
+    $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"] / pMitigation));
+    $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"] / mMitigation));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
     var evoMagResult = calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total;

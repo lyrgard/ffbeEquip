@@ -49,7 +49,15 @@ const abbreviations = {
     "I_DISEASE" : "R_DISEASE > 100",
     "I_PETRIFICATION" : "R_PETRIFICATION > 100",
     "I_DEATH" : "R_DEATH > 100",
-    "I_PHYSICAL" : "P_EVADE > 100"
+    "I_PHYSICAL" : "P_EVADE > 100",
+    "I_FIRE" : "R_FIRE > 100",
+    "I_ICE" : "R_ICE > 100",
+    "I_THUNDER" : "R_THUNDER > 100",
+    "I_WATER" : "R_WATER > 100",
+    "I_WIND" : "R_WIND > 100",
+    "I_EARTH" : "R_EARTH > 100",
+    "I_LIGHT" : "R_LIGHT > 100",
+    "I_DARK" : "R_DARK > 100",
 }
 
 function parseFormula(formula) {

@@ -161,6 +161,15 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
             if (unitData.ability_slots != 4) {
                 data["materiaSlots"] = unitData.ability_slots;
             }
+            if (unitData.physical_resist) {
+                data.mitigation = {"physical":unitData.physical_resist};
+            }
+            if (unitData.magical_resist) {
+                if (!data.mitigation) {
+                    data.mitigation = {};
+                }
+                data.mitigation.magical = unitData.magical_resist;  
+            }
             break;
         }
     }
@@ -672,6 +681,9 @@ function getUnitBasicInfo(unit, prefix = "") {
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
     if (unit.materiaSlots || unit.materiaSlots == 0) {
         result += "\n" + prefix + "\t\t\"materiaSlots\":" + unit.materiaSlots + ","
+    }
+    if (unit.mitigation) {
+        result += "\n\t\t\"mitigation\":" + JSON.stringify(unit.mitigation) + ","
     }
     result += "\n" + prefix + "\t\t\"stats\": {";
     result += "\n" + prefix + "\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
