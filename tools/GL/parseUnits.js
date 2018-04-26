@@ -611,7 +611,7 @@ function getUnitBasicInfo(unitId, unit) {
     result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
     result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","
     result += "\n\t\t\"sex\":\"" + unit.sex + "\","
-    if (unit.materiaSlots) {
+    if (unit.materiaSlots || unit.materiaSlots == 0) {
         result += "\n\t\t\"materiaSlots\":" + unit.materiaSlots + ","
     }
     result += "\n\t\t\"stats\": {";

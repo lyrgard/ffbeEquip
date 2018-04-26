@@ -670,7 +670,7 @@ function getUnitBasicInfo(unit, prefix = "") {
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
-    if (unit.materiaSlots) {
+    if (unit.materiaSlots || unit.materiaSlots == 0) {
         result += "\n" + prefix + "\t\t\"materiaSlots\":" + unit.materiaSlots + ","
     }
     result += "\n" + prefix + "\t\t\"stats\": {";
