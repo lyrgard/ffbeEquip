@@ -750,7 +750,7 @@ function onUnitChange() {
             selectedUnitData = units[unitId];    
         }
         if (selectedUnitData) {
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html(selectedUnitData.name);
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
             reinitBuild(currentUnitIndex);
             builds[currentUnitIndex].setUnit(selectedUnitData);
             updateUnitStats();
@@ -1381,7 +1381,7 @@ function getStateHash() {
     
     for (var index = 0; index < 10; index++) {
         var item = builds[currentUnitIndex].fixedItems[index];
-        if (item && !item.placeHolder) {
+        if (item && !item.placeHolder && !item.type == "unavailable") {
             if (!data.fixedItems) data.fixedItems = [];
             data.fixedItems.push(item.id);
         }
@@ -1442,7 +1442,7 @@ function loadStateHashAndBuild(data) {
         $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
     }
     $("#unitsSelect").combobox("refresh");
-    onUnitChange();        
+    onUnitChange();
     
     select("elements", data.innateElements);
     if (data.goal == "mag" || data.goal == "magicalDamage") {

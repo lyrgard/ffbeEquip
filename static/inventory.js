@@ -96,8 +96,6 @@ function showSettings() {
     html += '<button class="ui-button ui-corner-all ui-widget removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
     html += '</div></div>';
     $("#results").html(html);
-
-
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
