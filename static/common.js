@@ -363,7 +363,7 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
-    return wikiBaseUrl + encodeURIComponent(name.replace(' ', '_'));
+    return wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
 };
 
 var toLink = function(text, link = text) {
