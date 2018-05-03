@@ -4736,8 +4736,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["staff","rod","mace","fist","hat","clothes","robe"],
+		"enhancementSkills":["Dragonlord's Guard","Wave of Relief","Kafrizzle"],
 		"skills": [
-			{"hp%":20, "mag%":80}
+			{"hp%":50, "mp%":30, "mag%":80, "mpRefresh":10}
 		]
 	},
 	"306000204": {
@@ -4751,6 +4752,7 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["greatSword","katana","rod","fist","hat","clothes","robe"],
+		"enhancementSkills":["Super Muster Strength","C-C-Cold Breath","Shock and Claw"],
 		"skills": [
 			{"hp%":30, "atk%":60, "mag%":60}
 		]
@@ -4766,8 +4768,9 @@
 			"pots":{"hp":360,"mp":40,"atk":16,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Henchmen's Cheer","Smashing Slash"],
 		"skills": [
-			{"evade":{"physical":10}, "lbFillRate":100}
+			{"evade":{"physical":10}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}}
 		]
 	},
 	"306000404": {
@@ -4781,8 +4784,9 @@
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","fist","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Double Trouble","Unbridled Blade"],
 		"skills": [
-			{"hp%":20, "atk%":30}
+			{"hp%":20, "atk%":60, "special":["dualWield"]}
 		]
 	},
 	"306000503": {
@@ -4796,6 +4800,7 @@
 			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
 		},
 		"equip":["sword","greatSword","hammer","fist","heavyShield","helm","clothes","heavyArmor"],
+		"enhancementSkills":["Kabuff","Forbearance"],
 		"skills": [
 			{"hp%":30, "def%":30}
 		]
@@ -4812,6 +4817,7 @@
 			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
 		},
 		"equip":["dagger","sword","staff","rod","throwing","fist","hat","clothes"],
+		"enhancementSkills":["Sizzle","Zing"],
 		"skills": [
 		]
 	},
@@ -4828,8 +4834,9 @@
 			"pots":{"hp":0,"mp":0,"atk":16,"def":0,"mag":16,"spr":0}
 		},
 		"equip":[],
+		"enhancementSkills":["Metal Body","Kaboom"],
 		"skills": [
-			{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}
+			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "evade":{"physical":30}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}
 		]
 	},
 	"310000105": {
