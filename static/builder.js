@@ -527,11 +527,15 @@ function logBuild(build, value) {
 
     var pMitigation = 1;
     if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.physical) {
-        pMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.physical / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].physical / 100));
+        pMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.physical / 100));
     }
     var mMitigation = 1;
     if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.magical) {
-        mMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.magical / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].magical / 100));
+        mMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.magical / 100));
+    }
+    if (builds[currentUnitIndex].baseValues["mitigation"]) {
+        pMitigation = pMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].physical / 100));
+        mMitigation = mMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].magical / 100))
     }
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"] / pMitigation));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"] / mMitigation));
