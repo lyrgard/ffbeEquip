@@ -514,3 +514,31 @@
     margin-bottom: -10px;
     margin-left: -10px;
 }
+
+@media (max-width: 991px) {
+    
+    .panel.unit .panel-body {
+        display: none;
+    }
+    
+    .panel.monster {
+        display: none;
+    }
+    
+    .panel.equipments {
+        display: none;
+    }
+    
+    .expanded .panel.unit .panel-body {
+        display: block;
+    }
+    
+    .expanded .panel.monster {
+        display: block;
+    }
+    
+    .expanded .panel.equipments {
+        display: block;
+    }
+    
+}
