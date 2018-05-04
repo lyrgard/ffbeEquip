@@ -368,7 +368,7 @@ var toUrl = function(name) {
 
 var toLink = function(text, link = text) {
     if (server == "GL") {
-        return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
+        return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank" onclick="event.stopPropagation();"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
     } else {
         return "<span>" + text + "</span>";
     }
