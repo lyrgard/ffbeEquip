@@ -206,7 +206,7 @@
                             <div class="stat lbFillRate">
                                 <div class="inputWithIcon baseStat">
                                     <span class="leftIcon">LB gauge fill rate</span>
-                                    <input type="text" class="form-control"  readonly/>
+                                    <input type="text" class="form-control" tabindex="-1" readonly/>
                                 </div>
                                 <div class="inputWithIcon withPercent buff">
                                     <span class="leftIcon glyphicon glyphicon-upload"  title="buff"></span>
@@ -217,10 +217,43 @@
                             <div class="stat lbShardsPerTurn">
                                 <div class="inputWithIcon baseStat">
                                     <span class="leftIcon">Expected LB shards per turn</span>
-                                    <input type="text" class="form-control"  readonly/>
+                                    <input type="text" class="form-control" tabindex="-1" readonly/>
                                 </div>
                                 <div class="inputWithIcon buff">
                                     <input type="text" class="form-control" placeholder="4"/>
+                                </div>
+                            </div>
+                            <div class="stat pMitigation">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">Physical mitigation</span>
+                                    <input type="text" class="form-control"  tabindex="-1" readonly/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"  title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="stat mMitigation">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">Magical mitigation</span>
+                                    <input type="text" class="form-control"  tabindex="-1" readonly/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"  title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
+                                </div>
+                            </div>
+                            <div class="stat mitigation">
+                                <div class="inputWithIcon baseStat">
+                                    <span class="leftIcon">Global mitigation</span>
+                                    <input type="text" class="form-control" tabindex="-1" readonly/>
+                                </div>
+                                <div class="inputWithIcon withPercent buff">
+                                    <span class="leftIcon glyphicon glyphicon-upload"  title="buff"></span>
+                                    <span class="rightIcon">%</span>
+                                    <input type="text" class="form-control" placeholder="0"/>
                                 </div>
                             </div>
                         </div>

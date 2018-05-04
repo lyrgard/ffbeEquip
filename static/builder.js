@@ -270,6 +270,11 @@ function readStatsValues() {
         "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
+    builds[currentUnitIndex].baseValues["mitigation"] = {
+        "physical" : parseInt($(".unitStats .stat.pMitigation .buff input").val()) || 0,
+        "magical" : parseInt($(".unitStats .stat.mMitigation .buff input").val()) || 0,
+        "global" : parseInt($(".unitStats .stat.mitigation .buff input").val()) || 0
+    };
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
 }
 
@@ -522,11 +527,11 @@ function logBuild(build, value) {
 
     var pMitigation = 1;
     if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.physical) {
-        pMitigation = 1 - (builds[currentUnitIndex].unit.mitigation.physical / 100);
+        pMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.physical / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].physical / 100));
     }
     var mMitigation = 1;
     if (builds[currentUnitIndex].unit.mitigation && builds[currentUnitIndex].unit.mitigation.magical) {
-        mMitigation = 1 - (builds[currentUnitIndex].unit.mitigation.magical / 100);
+        mMitigation = (1 - (builds[currentUnitIndex].unit.mitigation.magical / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].magical / 100));
     }
     $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"] / pMitigation));
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"] / mMitigation));
@@ -801,6 +806,15 @@ function updateUnitStats() {
     } else {
         $(".unitStats .stat.lbFillRate .buff input").val("");
         $(".unitStats .stat.lbShardsPerTurn .buff input").val("");
+    }
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].baseValues["mitigation"]) {
+        $(".unitStats .stat.pMitigation .buff input").val(builds[currentUnitIndex].baseValues["mitigation"].physical);
+        $(".unitStats .stat.mMitigation .buff input").val(builds[currentUnitIndex].baseValues["mitigation"].magical);
+        $(".unitStats .stat.mitigation .buff input").val(builds[currentUnitIndex].baseValues["mitigation"].global);
+    } else {
+        $(".unitStats .stat.pMitigation .buff input").val("");
+        $(".unitStats .stat.mMitigation .buff input").val("");
+        $(".unitStats .stat.mitigation .buff input").val("");
     }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
@@ -1164,7 +1178,9 @@ function fixItem(key, slotParam = -1) {
                     return;
                 }
             } else {
-                alert("No more slot available for this item. Select another item or remove a pinned item of the same type.");
+                if (item.type != "unavailable") {
+                    alert("No more slot available for this item. Select another item or remove a pinned item of the same type.");
+                }
                 return;
             }
         }
@@ -1411,6 +1427,11 @@ function getStateHash() {
     }
     data.buff.lbFillRate = builds[currentUnitIndex].baseValues.lbFillRate.buff;
     data.lbShardsPerTurn = builds[currentUnitIndex].baseValues.lbFillRate.total;
+    data.mitigation = {
+        "physical":builds[currentUnitIndex].baseValues.mitigation.physical,
+        "magical":builds[currentUnitIndex].baseValues.mitigation.magical,
+        "global":builds[currentUnitIndex].baseValues.mitigation.global
+    }
     
     return data;
 }
@@ -1504,6 +1525,12 @@ function loadStateHashAndBuild(data) {
     if (data.lbShardsPerTurn) {
         $(".unitStats .stat.lbShardsPerTurn .buff input").val(data.lbShardsPerTurn);
     }
+    if (data.mitigation) {
+        $(".unitStats .stat.pMitigation .buff input").val(data.mitigation.physical);
+        $(".unitStats .stat.mMitigation .buff input").val(data.mitigation.magical);
+        $(".unitStats .stat.mitigation .buff input").val(data.mitigation.global);
+    }
+    
     dataLoadedFromHash = true;
     window.location.hash = "";
     if (data.runBuild) {
@@ -1762,8 +1789,12 @@ function onPotsChange(stat) {
 function onBuffChange(stat) {
     if (builds[currentUnitIndex].unit) {
         var value = parseInt($(".unitStats .stat." + stat + " .buff input").val()) || 0;
-        if (value > 600) {
-            $(".unitStats .stat." + stat + " .buff input").val(600);
+        var maxValue = 600;
+        if (stat == "pMitigation" || stat == "mMitigation" || stat == "mitigation") {
+            maxValue = 99;
+        }
+        if (value > maxValue) {
+            $(".unitStats .stat." + stat + " .buff input").val(maxValue);
         }
         logCurrentBuild();
     }
@@ -1890,6 +1921,9 @@ $(function() {
     }
     $(".unitStats .stat.lbFillRate .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate");}));
     $(".unitStats .stat.lbShardsPerTurn .buff input").on('input',$.debounce(300,function() {onBuffChange("lbFillRate")}));
+    $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
+    $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
+    $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
 });
 
 var counter = 0;
