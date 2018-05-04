@@ -29,6 +29,7 @@ route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, nex
         statusCode: err.code,
       }));
     }
+    console.log(tokens);
     req.OAuthSession.tokens = tokens;
     return res.redirect(state);
   });
