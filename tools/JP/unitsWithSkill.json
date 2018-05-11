@@ -3787,6 +3787,85 @@
 			{"mp%":30, "mag%":30, "equipedConditions":["rod"]}
 		]
 	},
+	"100018705": {
+		"name":"イグニシオ",
+		"id":"100018705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4992,"mp":201,"atk":205,"def":196,"mag":132,"spr":152},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"singleWielding":{"atk":100}},
+		"skills": [
+			{"hp%":100, "mp%":40, "atk%":80, "def%":70, "spr%":20, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["axe"]}
+		],
+		"6_form": {
+			"name":"イグニシオ",
+			"id":"100018705",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3840,"mp":154,"atk":157,"def":150,"mag":101,"spr":116},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":70, "mp%":40, "atk%":50, "def%":50, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["axe"]}
+			]
+		}
+	},
+	"100018804": {
+		"name":"スズメ",
+		"id":"100018804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3422,"mp":151,"atk":155,"def":121,"mag":110,"spr":121},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["katana","hat","clothes"],
+		"skills": [
+			{"atk%":50, "spr%":20, "evade":{"physical":10}},
+			{"atk%":30, "spr%":30, "equipedConditions":["katana"]}
+		]
+	},
+	"100018904": {
+		"name":"PNK-2",
+		"id":"100018904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3621,"mp":187,"atk":124,"def":128,"mag":112,"spr":128},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","hammer","throwing","mace","fist","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":50, "mp%":20, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"confuse","percent":100}]}
+		]
+	},
+	"100019003": {
+		"name":"ウェイハム",
+		"id":"100019003",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2914,"mp":115,"atk":105,"def":116,"mag":78,"spr":108},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","staff","hammer","throwing","gun","mace","fist","hat","clothes"],
+		"skills": [
+			{"mp%":10}
+		]
+	},
 	"199000101": {
 		"name":"Emma (Battle NPC)",
 		"jpname":"エマ（バトルNPC）",
@@ -6055,11 +6134,12 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["忠臣の意地","罪と混沌の慟哭","闇と暗黒の衝撃","黄昏の守護","暁の守護"],
 		"tmrSkill": {"def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"lightning","percent":50}]},
 		"skills": [
-			{"hp%":70, "mp%":20, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
-			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
-			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"hp%":90, "mp%":20, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
+			{"def%":40, "spr%":40, "equipedConditions":["lightShield"]},
+			{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]},
 			{"def%":20, "equipedConditions":["heavyArmor"]},
 			{"spr%":20, "equipedConditions":["lightArmor"]}
 		],
@@ -6075,10 +6155,11 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 			},
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["忠臣の意地","罪と混沌の慟哭","闇と暗黒の衝撃","黄昏の守護","暁の守護"],
 			"skills": [
-				{"hp%":40, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
-				{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
-				{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]}
+				{"hp%":60, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
+				{"def%":40, "spr%":40, "equipedConditions":["lightShield"]},
+				{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]}
 			]
 		}
 	},
@@ -6113,9 +6194,13 @@
 			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["ジャッジ・ガブラス","アグレッサー","百鬼・秋霜の破邪","プロセキュート"],
 		"tmrSkill": {"hp%":20, "mp%":20},
 		"skills": [
-			{"hp%":30, "atk%":50, "def%":50, "dualWielding":{"atk":30,"def":30}, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"hp%":50, "atk%":50, "def%":50, "dualWielding":{"atk":30,"def":30}, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["greatSword"]},
+			{"atk%":15, "def%":15, "equipedConditions":["sword"]},
+			{"def%":15, "spr%":15, "equipedConditions":["dagger"]},
 			{"atk%":40, "equipedConditions":["greatSword"]},
 			{"def%":20, "spr%":20, "equipedConditions":["dagger"]},
 			{"hp%":20, "equipedConditions":["heavyArmor"]},
@@ -6133,8 +6218,12 @@
 				"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 			},
 			"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ジャッジ・ガブラス","アグレッサー","百鬼・秋霜の破邪","プロセキュート"],
 			"skills": [
-				{"hp%":30, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+				{"hp%":50, "partialDualWield":["dagger","sword","greatSword"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+				{"atk%":30, "equipedConditions":["greatSword"]},
+				{"atk%":15, "def%":15, "equipedConditions":["sword"]},
+				{"def%":15, "spr%":15, "equipedConditions":["dagger"]},
 				{"atk%":40, "equipedConditions":["greatSword"]},
 				{"def%":20, "spr%":20, "equipedConditions":["dagger"]},
 				{"hp%":20, "equipedConditions":["heavyArmor"]},
@@ -6154,8 +6243,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["アルケイディア帝国皇帝","バマジク","カタスト"],
 		"skills": [
-			{"hp%":20, "atk%":20, "mag%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":20}]},
+			{"hp%":40, "atk%":40, "mag%":40, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":20}]},
 			{"hp%":15, "mp%":15, "equipedConditions":["fist"]}
 		]
 	},
@@ -6187,9 +6277,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["アキレス","第4局最高責任者","フレイムファント"],
 		"skills": [
 			{"hp%":10, "mp%":10, "mag%":20},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
+			{"atk%":70, "mag%":70, "equipedConditions":["sword"]}
 		]
 	},
 	"213000105": {
@@ -8338,9 +8429,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ジャイアントキル","デスパレート","剣の名手","リバーサル"],
 		"skills": [
 			{"hp%":20, "atk%":30, "def%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5},
-			{"atk%":30, "equipedConditions":["sword"]}
+			{"atk%":75, "equipedConditions":["sword"]}
 		]
 	},
 	"313000205": {
@@ -8355,9 +8447,10 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["パイメテオ","祈りを紡ぐ者","天使の加護","シャイニングハンマー"],
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":20, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"mp%":20, "spr%":30, "equipedConditions":["robe"]}
+			{"mp%":40, "spr%":70, "equipedConditions":["robe"]}
 		]
 	},
 	"313000305": {
@@ -8372,6 +8465,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","gun","fist","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["もう一度あなたと","巨大船","純愛十字砲火"],
 		"skills": [
 			{"mp%":20, "def%":10, "spr%":10},
 			{"hp%":20, "spr%":20, "equipedConditions":["dagger"]}
@@ -8389,8 +8483,9 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","axe","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["りょうてもち","行きがけの駄賃","馬の耳に念仏"],
 		"skills": [
-			{"hp%":10, "def%":10, "singleWieldingOneHanded":{"atk":50}},
+			{"hp%":10, "def%":10, "singleWieldingOneHanded":{"atk":100}},
 			{"atk%":50, "equipedConditions":["katana"]}
 		]
 	},
@@ -8406,9 +8501,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","spear","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["疾風のファルコン","6つ星の実力","剣の極意"],
 		"skills": [
 			{"hp%":20, "def%":10, "killers":[{"name":"demon","physical":50}]},
-			{"atk%":50, "equipedConditions":["sword"]}
+			{"atk%":100, "equipedConditions":["sword"]}
 		]
 	},
 	"314000203": {
@@ -8440,6 +8536,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["hat","clothes","robe"],
+		"enhancementSkills":["ジウスドラの罪","ギルタブリル","アマテラス"],
 		"skills": [
 			{"mp%":10, "mag%":10}
 		]
