@@ -515,6 +515,16 @@
     margin-left: -10px;
 }
 
+#help ul {
+    list-style-type: initial;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+#help ul ul {
+    list-style-type: '- ';
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
@@ -540,5 +550,6 @@
     .expanded .panel.equipments {
         display: block;
     }
+    
     
 }
