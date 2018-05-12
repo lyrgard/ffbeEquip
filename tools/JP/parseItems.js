@@ -170,6 +170,9 @@ function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
     var itemOut = {};
     itemOut.id = itemId;
+    if (itemId == "504219270") {
+        return; // Dual Wield+
+    }
     if (glNameById[itemId]) {
         itemOut.name = glNameById[itemId];
         itemOut.jpname = itemIn.name;
