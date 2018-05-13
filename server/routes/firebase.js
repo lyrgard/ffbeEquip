@@ -1,5 +1,6 @@
 const express = require('express');
 const firebase = require('../lib/firebase.js');
+const Joi = require('joi');
 const uuidV1 = require('uuid/v1');
 
 const route = express.Router();
