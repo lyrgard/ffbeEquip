@@ -1402,8 +1402,8 @@
 	{"id":"504224490", "name":"퀸테상스", "wikiEntry":"Quintessence", "type":"materia", "mag%":30, "special":["dualWield"], "equipedConditions":["rod","robe"], "tmrUnit":"100014005", "access":["not released yet","TMR-5*"], "icon":"ability_72.png", "sortId":742},
 	{"id":"504224840", "name":"장벽마도사의 맹세", "wikiEntry":"Barrier_Mage's Oath", "type":"materia", "spr%":25, "special":["notStackable"], "tmrUnit":"100013504", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":743},
 	{"id":"504224840", "name":"장벽마도사의 맹세", "wikiEntry":"Barrier_Mage's Oath", "type":"materia", "spr%":50, "special":["notStackable"], "equipedConditions":["staff"], "tmrUnit":"100013504", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":743},
-	{"id":"504224860", "name":"피뢰 희구", "wikiEntry":"Thunderous_Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"lightning","percent":5}], "access":["event"], "maxNumber":4, "eventName":"Nibelheim", "icon":"ability_13.png", "sortId":744},
-	{"id":"504224870", "name":"파암 희구", "wikiEntry":"Nebulous_Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"dark","percent":5}], "access":["event"], "maxNumber":4, "eventName":"Nibelheim", "icon":"ability_98.png", "sortId":745},
+	{"id":"504224860", "name":"피뢰 희구", "wikiEntry":"Thunderous_Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"lightning","percent":5}], "access":["event"], "maxNumber":8, "eventName":"Nibelheim", "icon":"ability_13.png", "sortId":744},
+	{"id":"504224870", "name":"파암 희구", "wikiEntry":"Nebulous_Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"dark","percent":5}], "access":["event"], "maxNumber":8, "eventName":"Nibelheim", "icon":"ability_98.png", "sortId":745},
 	{"id":"504224900", "name":"봄의 혼령", "wikiEntry":"Bomb_Spirit", "type":"materia", "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":-50}], "access":["not released yet"], "icon":"ability_11.png", "sortId":746},
 	{"id":"504224910", "name":"봄의 무기", "wikiEntry":"Bomb_Arms", "type":"materia", "special":["[Bomb Arms|봄의 무기|ability_21.png]:자신의 공격력 상승+물리공격에 불속성 부여"], "access":["not released yet"], "icon":"ability_21.png", "sortId":747},
 	{"id":"504224920", "name":"검 장착", "wikiEntry":"Equip_Sword", "type":"materia", "allowUseOf":"sword", "access":["not released yet"], "icon":"ability_96.png", "sortId":749},
@@ -1479,5 +1479,5 @@
 	{"id":"1500000047", "name":"악마 퇴치자", "wikiEntry":"Demon_Banisher", "type":"materia", "killers":[{"name":"demon","magical":50}], "special":["notStackable"], "access":["bundle"], "maxNumber":1, "icon":"ability_79.png", "sortId":90047},
 	{"id":"1500000048", "name":"나가의 수호", "wikiEntry":"Naga's_Protection", "type":"materia", "mp%":20, "spr%":20, "resist":[{"name":"water","percent":30}], "access":["premium"], "icon":"ability_77.png", "sortId":90048},
 	{"id":"1500000049", "name":"강렬한 투지", "wikiEntry":"Intense_Determination", "type":"materia", "mp%":15, "atk%":20, "access":["premium"], "icon":"ability_77.png", "sortId":90049},
-	{"id":"1500000050", "name":"모성애", "wikiEntry":"Motherly_Love", "type":"materia", "hp%":20, "def%":10, "access":["not released yet"], "icon":"ability_77.png", "sortId":90050}
+	{"id":"1500000050", "name":"모성애", "wikiEntry":"Motherly_Love", "type":"materia", "hp%":20, "def%":10, "access":["premium"], "icon":"ability_77.png", "sortId":90050}
 ]
