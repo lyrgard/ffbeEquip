@@ -1402,8 +1402,8 @@
 	{"id":"504224490", "name":"Quintessence", "type":"materia", "mag%":30, "special":["dualWield"], "equipedConditions":["rod","robe"], "tmrUnit":"100014005", "access":["not released yet","TMR-5*"], "icon":"ability_72.png", "sortId":742},
 	{"id":"504224840", "name":"Barrier Mage's Oath", "type":"materia", "spr%":25, "special":["notStackable"], "tmrUnit":"100013504", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":743},
 	{"id":"504224840", "name":"Barrier Mage's Oath", "type":"materia", "spr%":50, "special":["notStackable"], "equipedConditions":["staff"], "tmrUnit":"100013504", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":743},
-	{"id":"504224860", "name":"Thunderous Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"lightning","percent":5}], "access":["event"], "maxNumber":4, "eventName":"Nibelheim", "icon":"ability_13.png", "sortId":744},
-	{"id":"504224870", "name":"Nebulous Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"dark","percent":5}], "access":["event"], "maxNumber":4, "eventName":"Nibelheim", "icon":"ability_98.png", "sortId":745},
+	{"id":"504224860", "name":"Thunderous Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"lightning","percent":5}], "access":["event"], "maxNumber":8, "eventName":"Nibelheim", "icon":"ability_13.png", "sortId":744},
+	{"id":"504224870", "name":"Nebulous Avoidance", "type":"materia", "hp%":5, "mp%":5, "resist":[{"name":"dark","percent":5}], "access":["event"], "maxNumber":8, "eventName":"Nibelheim", "icon":"ability_98.png", "sortId":745},
 	{"id":"504224900", "name":"Bomb Spirit", "type":"materia", "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":-50}], "access":["not released yet"], "icon":"ability_11.png", "sortId":746},
 	{"id":"504224910", "name":"Bomb Arms", "type":"materia", "special":["[Bomb Arms|ability_21.png]:Increase ATK by 120% for 3 turns to caster, Add Fire element to physical attacks for 3 turn(s) to caster"], "access":["not released yet"], "icon":"ability_21.png", "sortId":747},
 	{"id":"504224920", "name":"Equip Sword", "type":"materia", "allowUseOf":"sword", "access":["not released yet"], "icon":"ability_96.png", "sortId":749},
@@ -1479,5 +1479,5 @@
 	{"id":"1500000047", "name":"Demon Banisher", "type":"materia", "killers":[{"name":"demon","magical":50}], "special":["notStackable"], "access":["bundle"], "maxNumber":1, "icon":"ability_79.png", "sortId":90047},
 	{"id":"1500000048", "name":"Naga's Protection", "type":"materia", "mp%":20, "spr%":20, "resist":[{"name":"water","percent":30}], "access":["premium"], "icon":"ability_77.png", "sortId":90048},
 	{"id":"1500000049", "name":"Intense Determination", "type":"materia", "mp%":15, "atk%":20, "access":["premium"], "icon":"ability_77.png", "sortId":90049},
-	{"id":"1500000050", "name":"Motherly Love", "type":"materia", "hp%":20, "def%":10, "access":["not released yet"], "icon":"ability_77.png", "sortId":90050}
+	{"id":"1500000050", "name":"Motherly Love", "type":"materia", "hp%":20, "def%":10, "access":["premium"], "icon":"ability_77.png", "sortId":90050}
 ]
