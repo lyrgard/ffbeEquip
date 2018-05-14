@@ -25,28 +25,36 @@ const statsSchema = [
     Joi.string().valid('spr')
 ];
 const partyBuildSchema = Joi.object().keys({
-    "units":Joi.array().items(Joi.object().keys({
-        "id": idSchema.required(),
-        "rarity": Joi.number().min(1).max(7),
-        "goal": Joi.string().length(200).required(),
-        "innateElements": Joi.array().items(elementsSchema),
-        "items": Joi.array().items(idSchema).length(10),
-        "esperId": idSchema,
-        "pots": Joi.array().items(Joi.object().keys({
-            "name": statsSchema,
-            "value": Joi.number().min(0).max(99)
-        })),
-        "buffs": Joi.array().items(Joi.object().keys({
-            "name": statsSchema.concat(Joi.string().valid('lbFillRate')),
-            "value": Joi.number().min(0).max(600)
-        })),
-        "lbShardsPerTurn": Joi.number().min(0).max(100),
-        "mitigation": Joi.object().keys({
-            "global": Joi.number().min(0).max(100),
-            "physical": Joi.number().min(0).max(100),
-            "magical": Joi.number().min(0).max(100)
-        })
-        
+    units: Joi.array().items(Joi.object().keys({
+        id: idSchema.required(),
+        rarity: Joi.number().min(1).max(7),
+        goal: Joi.string().max(200).required(),
+        innateElements: Joi.array().items(elementsSchema),
+        items: Joi.array().items(idSchema).max(10),
+        esperId: Joi.string().max(50),
+        pots: Joi.object().keys({
+            hp: Joi.number().min(0).max(99),
+            mp: Joi.number().min(0).max(99),
+            atk: Joi.number().min(0).max(99),
+            def: Joi.number().min(0).max(99),
+            mag: Joi.number().min(0).max(99),
+            spr: Joi.number().min(0).max(99),
+        }),
+        buffs: Joi.object().keys({
+            hp: Joi.number().min(0).max(600),
+            mp: Joi.number().min(0).max(600),
+            atk: Joi.number().min(0).max(600),
+            def: Joi.number().min(0).max(600),
+            mag: Joi.number().min(0).max(600),
+            spr: Joi.number().min(0).max(600),
+            lbFillRate: Joi.number().min(0).max(600)
+        }),
+        lbShardsPerTurn: Joi.number().min(0).max(100),
+        mitigation: Joi.object().keys({
+            global: Joi.number().min(0).max(100),
+            physical: Joi.number().min(0).max(100),
+            magical: Joi.number().min(0).max(100)
+        })    
     })).required(),
     "monster":Joi.object().keys({
         "races": Joi.array().items(
@@ -63,7 +71,7 @@ const partyBuildSchema = Joi.object().keys({
             Joi.string().valid('stone'),
             Joi.string().valid('spirit')
         ),
-        "elementalResist": Joi.array().items(
+        "elementalResist": Joi.array().max(8).items(
             Joi.object().keys({
                 "name":elementsSchema,
                 "value": Joi.number().integer().required()
@@ -72,9 +80,9 @@ const partyBuildSchema = Joi.object().keys({
         "def": Joi.number().integer(),
         "spr": Joi.number().integer(),
     }),
-    "itemSector": Joi.object().keys({
+    "itemSelector": Joi.object().keys({
         "mainSelector":[Joi.string().valid("all"),Joi.string().valid("owned"), Joi.string().valid("ownedAvailableForExpedition"), Joi.string().valid("shopRecipe")],
-        "additionalFilters": Joi.array().items([
+        "additionalFilters": Joi.array().max(5).items([
             Joi.string().valid("includeTMROfOwnedUnits"),
             Joi.string().valid("includeTrialRewards"),
             Joi.string().valid("exludeEvent"),
@@ -90,9 +98,9 @@ route.post('/:server/partyBuild', async (req, res) => {
   const { server } = req.params;
   const data = req.body;
 
+    
   const { error, value } = Joi.validate(data, partyBuildSchema);
 
-    console.log("TOTO");
     console.log(error);
   if (error) {
     return res.status(400).json({"id" : error});

@@ -31,7 +31,8 @@ app.use(bodyParser.json());
 app.use('/', oauth);
 app.use('/links', links);
 app.use('/', corrections);
-app.use('/', authRequired, firebase, drive);
+app.use('/', firebase);
+app.use('/', authRequired, drive);
 
 // Basic 404 handler
 app.use((req, res) => {
