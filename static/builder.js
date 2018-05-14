@@ -1375,66 +1375,81 @@ function displaySearchResultsAsync(items, start, div) {
     }
 }
 
-function getStateHash() {
+function getStateHash(onlyCurrent = true) {
+    var min = 0;
+    var num = builds.length;
+    if (onlyCurrent) {
+        min = currentUnitIndex;
+        num = 1;
+    }
     var data = {
-        "goal": builds[currentUnitIndex].goal,
-        "innateElements":getSelectedValuesFor("elements")
+        "units": []
     };
-
-    if (data.goal == "magicalDamage") {
-        data.attackType = $(".magicalSkillType select").val();
-    }
-    if (data.goal == "physicalDamage" || data.goal == "magicalDamage" || data.goal == "magicalDamageWithPhysicalMecanism" || data.goal == "hybridDamage" || data.goal == "jumpDamage" || data.goal == "sprDamageWithPhysicalMecanism" || data.goal == "custom") {
-        data.ennemyRaces = getSelectedValuesFor("races");
-        readEnnemyStats();
-        data.ennemyResists = ennemyStats.elementalResists;
-        data.monsterDef = ennemyStats.def;
-        data.monsterSpr = ennemyStats.spr;
-    }
-    
-    if (builds[currentUnitIndex].unit) {
-        data.unit = builds[currentUnitIndex].unit.id;
-        data.rarity = builds[currentUnitIndex].unit.max_rarity;
-    }
-    
-    
-    data.equipmentToUse = $(".equipments select").val();
-    if (data.equipmentToUse == "all") {
-        data.exludeEventEquipment = $("#exludeEvent").prop('checked');
-        data.excludeTMR5 = $("#excludeTMR5").prop('checked');
-        data.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
-        data.excludePremium = $("#excludePremium").prop('checked');
-        data.excludeSTMR = $("#excludeSTMR").prop('checked');
-    }
-    
-    for (var index = 0; index < 10; index++) {
-        var item = builds[currentUnitIndex].fixedItems[index];
-        if (item && !item.placeHolder && !item.type == "unavailable") {
-            if (!data.fixedItems) data.fixedItems = [];
-            data.fixedItems.push(item.id);
+    for (var i = min; i < min + num; i++) {
+        var build = builds[i];
+        var unit = {};
+        unit.id = build.unit.id
+        unit.rarity = build.unit.max_rarity;
+        unit.goal = formulaToString(build.formula);
+        unit.innateElements = getSelectedValuesFor("elements");
+        
+        // first fix allow Use of items
+        for (var index = 0; index < 10; index++) {
+            var item = builds[currentUnitIndex].build[index];
+            if (item && !item.placeHolder && !item.type == "unavailable" && item.allowUseOf) {
+                unit.items.push(item.id);
+            }
         }
+        // first fix dual wield items
+        for (var index = 0; index < 10; index++) {
+            var item = builds[currentUnitIndex].build[index];
+            if (item && !item.placeHolder && !item.type == "unavailable" && hasDualWieldOrPartialDualWield(item)) {
+                unit.items.push(item.id);
+            }
+        }
+        // then others items
+        for (var index = 0; index < 10; index++) {
+            var item = builds[currentUnitIndex].build[index];
+            if (item && !item.placeHolder && !item.type == "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
+                unit.items.push(item.id);
+            }
+            if (item && item.placeHolder) {
+                data.fixedItems.push(item.type);
+            }
+        }
+        
+        
+        unit.pots = {};
+        unit.buffs = {};
+        for (var index = baseStats.length; index--;) {
+            unit.pots[baseStats[index]] = build.baseValues[baseStats[index]].pots;
+            unit.buffs[baseStats[index]] = build.baseValues[baseStats[index]].buff;
+        }
+        unit.buffs.lbFillRate = build.baseValues.lbFillRate.buff;
+        unit.lbShardsPerTurn = build.baseValues.lbFillRate.total;
+        unit.mitigation = {
+            "physical":build.baseValues.mitigation.physical,
+            "magical":build.baseValues.mitigation.magical,
+            "global":build.baseValues.mitigation.global
+        }
+        data.units.push(unit);
     }
-    
-    if (builds[currentUnitIndex].build[10]) {
-        data.esper = builds[currentUnitIndex].build[10].name;
+    readEnnemyStats();
+    data.monster = {
+        "races": getSelectedValuesFor("races"),
+        elementalResist : ennemyStats.elementalResists,
+        def : ennemyStats.def,
+        spr : ennemyStats.spr
     }
-    
-    if (data.goal == "custom") {
-        data.customFormula = formulaToString(builds[currentUnitIndex].formula);
+    data.itemSelector = {
+        "mainSelector": $(".equipments select").val(),
+        "additionalFilters": []
     }
-    
-    data.pots = {};
-    data.buff = {};
-    for (var index = baseStats.length; index--;) {
-        data.pots[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].pots;
-        data.buff[baseStats[index]] = builds[currentUnitIndex].baseValues[baseStats[index]].buff;
-    }
-    data.buff.lbFillRate = builds[currentUnitIndex].baseValues.lbFillRate.buff;
-    data.lbShardsPerTurn = builds[currentUnitIndex].baseValues.lbFillRate.total;
-    data.mitigation = {
-        "physical":builds[currentUnitIndex].baseValues.mitigation.physical,
-        "magical":builds[currentUnitIndex].baseValues.mitigation.magical,
-        "global":builds[currentUnitIndex].baseValues.mitigation.global
+    var additionalFilters = ["includeTMROfOwnedUnits", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
+    for (var i = 0; i < additionalFilters.length; i++) {
+        if ($("#" + additionalFilters[i]).prop('checked')) {
+            data.itemSelector.additionalFilters.push(additionalFilters[i]);
+        }
     }
     
     return data;
@@ -1546,56 +1561,42 @@ function loadStateHashAndBuild(data) {
 
 function showBuildLink() {
     var data = getStateHash();
-    data.fixedItems = [];
     
-    // first fix allow Us of items
-    for (var index = 0; index < 10; index++) {
-        var item = builds[currentUnitIndex].build[index];
-        if (item && !item.placeHolder && item.allowUseOf) {
-            data.fixedItems.push(item.id);
-        }
-    }
-    // first fix dual wield items
-    for (var index = 0; index < 10; index++) {
-        var item = builds[currentUnitIndex].build[index];
-        if (item && !item.placeHolder && hasDualWieldOrPartialDualWield(item)) {
-            data.fixedItems.push(item.id);
-        }
-    }
-    // then others items
-    for (var index = 0; index < 10; index++) {
-        var item = builds[currentUnitIndex].build[index];
-        if (item && !item.placeHolder && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-            data.fixedItems.push(item.id);
-        }
-        if (item && item.placeHolder) {
-            data.fixedItems.push(item.type);
-        }
-    }
-    data.equipmentToUse = "all";
-    getShortUrl("http://ffbeEquip.lyrgard.fr/builder.html?server=" + server + "#" + btoa(JSON.stringify(data)), function(shortUrl) {
-        $('<div id="showLinkDialog" title="Build Link">' + 
-            '<input value="' + shortUrl + '"></input>' +
-            '<h4>This link will open the builder with this exact build displayed</h4>' +
-          '</div>' ).dialog({
-            modal: true,
-            open: function(event, ui) {
-                $(this).parent().css('position', 'fixed');
-                $("#showLinkDialog input").select();
-                try {
-                    var successful = document.execCommand('copy');
-                    if (successful) {
-                        $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                    } else {
-                        console.log('Oops, unable to copy');    
+    data.itemSelector.mainSelector = "all";
+    
+    $.ajax({
+        url: 'partyBuild',
+        method: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) {
+            $('<div id="showLinkDialog" title="Build Link">' + 
+                '<input value="http://ffbeEquip.lyrgard.fr/builder.html?server=' + server + '#' + data.id + '"></input>' +
+                '<h4>This link will open the builder with this exact build displayed</h4>' +
+              '</div>' ).dialog({
+                modal: true,
+                open: function(event, ui) {
+                    $(this).parent().css('position', 'fixed');
+                    $("#showLinkDialog input").select();
+                    try {
+                        var successful = document.execCommand('copy');
+                        if (successful) {
+                            $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                        } else {
+                            console.log('Oops, unable to copy');    
+                        }
+                    } catch (err) {
+                        console.log('Oops, unable to copy');
                     }
-                } catch (err) {
-                    console.log('Oops, unable to copy');
-                }
-            },
-            position: { my: 'top', at: 'top+150' },
-            width: 600
-        });
+                },
+                position: { my: 'top', at: 'top+150' },
+                width: 600
+            });
+        },
+        error: function(error) {
+            alert('Failed to generate url. Error = ' + JSON.stringify(error));
+        }
     });
 }
       

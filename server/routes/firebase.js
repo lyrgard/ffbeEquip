@@ -33,8 +33,8 @@ const partyBuildSchema = Joi.object().keys({
         items: Joi.array().items(idSchema).max(10),
         esperId: Joi.string().max(50),
         pots: Joi.object().keys({
-            hp: Joi.number().min(0).max(99),
-            mp: Joi.number().min(0).max(99),
+            hp: Joi.number().min(0).max(1000),
+            mp: Joi.number().min(0).max(1000),
             atk: Joi.number().min(0).max(99),
             def: Joi.number().min(0).max(99),
             mag: Joi.number().min(0).max(99),
@@ -71,12 +71,16 @@ const partyBuildSchema = Joi.object().keys({
             Joi.string().valid('stone'),
             Joi.string().valid('spirit')
         ),
-        "elementalResist": Joi.array().max(8).items(
-            Joi.object().keys({
-                "name":elementsSchema,
-                "value": Joi.number().integer().required()
-            })
-        ),
+        "elementalResist": Joi.object().keys({
+            fire:Joi.number().integer(),
+            ice:Joi.number().integer(),
+            water:Joi.number().integer(),
+            lightning:Joi.number().integer(),
+            earth:Joi.number().integer(),
+            wind:Joi.number().integer(),
+            light:Joi.number().integer(),
+            dark:Joi.number().integer()
+        }),
         "def": Joi.number().integer(),
         "spr": Joi.number().integer(),
     }),
@@ -94,24 +98,29 @@ const partyBuildSchema = Joi.object().keys({
     })
 });
 
-route.post('/:server/partyBuild', async (req, res) => {
+route.post('/partyBuild', async (req, res) => {
   const { server } = req.params;
   const data = req.body;
 
     
   const { error, value } = Joi.validate(data, partyBuildSchema);
 
-    console.log(error);
-  if (error) {
-    return res.status(400).json({"id" : error});
-  } else {
-    return res.status(200).json(value);    
-  }
-  /*var fileName = uuidV1();
-  var file = firebase.file("PartyBuilds/" + fileName); 
-  await file.save(JSON.stringify(data), {"contentType":"application/json"});*/
+  var id = uuidV1();
 
-  
+  if (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  } else {
+    var file = firebase.file("PartyBuilds/" + id + ".json"); 
+    file.save(JSON.stringify(value), {"contentType":"application/json"}, function(err) {
+        if (err) {
+            return res.status(500).json(err);    
+        } else {
+            return res.status(200).json({"id":id});    
+        }
+    });
+    
+  }
 });
 
 module.exports = route;
