@@ -48,9 +48,6 @@ class DataStorage {
         this.desiredEquipmentType = [];
         for (var index = 0, len = this.unitBuild.unit.skills.length; index < len; index++) {
             var skill = this.unitBuild.unit.skills[index];
-            if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !this.desirableElements.includes(skill.equipedConditions[0])) {
-                
-            }
             if (skill.equipedConditions) {
                 for (var i = skill.equipedConditions.length; i--;) {
                     var condition = skill.equipedConditions[i];
