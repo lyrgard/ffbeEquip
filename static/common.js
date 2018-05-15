@@ -470,7 +470,7 @@ function loadInventory() {
             position: { my: 'top', at: 'top+150' },
             buttons: {
                 Ok: function() {
-                    window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href);
+                    window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href.replace(".lyrgard.fr",".com"));
                 }
             }
         });
