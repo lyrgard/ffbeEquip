@@ -12,6 +12,7 @@ const configSchema = Joi.object({
   secret: Joi.string().required(),
   googleApiKey: Joi.string().required(),
   googleOAuthFile: Joi.string().required(),
+  firebaseConfFile: Joi.string().required()
 });
 
 const oauthSchema = Joi.object({
@@ -20,6 +21,18 @@ const oauthSchema = Joi.object({
     client_secret: Joi.string().required(),
     redirect_uris: Joi.array().min(1).required(),
   }).unknown().required(),
+});
+const firebaseConfSchema = Joi.object({
+    type: Joi.string().required(),
+    project_id: Joi.string().required(),
+    private_key_id: Joi.string().required(),
+    private_key: Joi.string().required(),
+    client_email: Joi.string().required(),
+    client_id: Joi.string().required(),
+    auth_uri: Joi.string().required(),
+    token_uri: Joi.string().required(),
+    auth_provider_x509_cert_url: Joi.string().required(),
+    client_x509_cert_url: Joi.string().required()
 });
 
 /**
@@ -97,6 +110,23 @@ const setupConfig = (currentConfig) => {
         }
       },
     },
+    {
+      type: 'input',
+      name: 'firebaseConfFile',
+      message: 'Firebase conf file path',
+      filter: (value) => {
+        return path.resolve(__dirname, value);
+      },
+      validate: (value) => {
+        try {
+          const firebaseConf = readJson(value);
+          Joi.assert(firebaseConf, firebaseConfSchema);
+          return true;
+        } catch (error) {
+          return `"${value}" is not valid`;
+        }
+      },
+    },
   ];
 
   return inquirer
@@ -126,6 +156,7 @@ if (require.main !== module) {
 
   // Dynamically load OAuth credentials
   config.googleOAuthCredential = readJson(config.googleOAuthFile);
+  config.firebaseConf = readJson(config.firebaseConfFile);
 
   // Env utils
   config.isDev = (config.env === 'development');

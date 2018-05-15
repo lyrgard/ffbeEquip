@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
 
 const config = require('./config.js');
+const firebase = require('./server/routes/firebase.js');
 const drive = require('./server/routes/drive.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
@@ -30,6 +31,7 @@ app.use(bodyParser.json());
 app.use('/', oauth);
 app.use('/links', links);
 app.use('/', corrections);
+app.use('/', firebase);
 app.use('/', authRequired, drive);
 
 // Basic 404 handler
