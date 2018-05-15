@@ -3,7 +3,6 @@ const OAuth = require('../lib/oauth.js');
 module.exports = (req, res, next) => {
   const { tokens } = req.OAuthSession;
   if (!tokens) {
-      console.log("No token found, send beck 401");
     return res.status(401).send();
   }
 
