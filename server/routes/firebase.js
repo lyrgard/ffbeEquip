@@ -5,7 +5,7 @@ const uuidV1 = require('uuid/v1');
 
 const route = express.Router();
 
-const idSchema = Joi.string().regex(/^[0-9]{9}$/, 'id');
+const idSchema = Joi.string().regex(/^[0-9]{9,10}$/, 'id');
 const elementsSchema = [
     Joi.string().valid('fire'),
     Joi.string().valid('ice'),
