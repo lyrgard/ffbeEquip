@@ -946,19 +946,19 @@ function inventoryLoaded() {
         onEquipmentsChange();
     }
     
-    var data = readStateHashData();
-    
-    if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
-        loadStateHashAndBuild(data);    
-    }
+    /*readStateHashData(function(data) {
+        if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
+            loadStateHashAndBuild(data);    
+        }    
+    });*/
 }
 
 function notLoaded() {
-    var data = readStateHashData();
-    
-    if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
-        alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
-    }
+    /*readStateHashData(function(data) {
+        if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
+            alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
+        }    
+    });*/
 }
 
 function onGoalChange() {
@@ -1393,28 +1393,29 @@ function getStateHash(onlyCurrent = true) {
         unit.goal = formulaToString(build.formula);
         unit.innateElements = getSelectedValuesFor("elements");
         
+        unit.items = [];
         // first fix allow Use of items
         for (var index = 0; index < 10; index++) {
-            var item = builds[currentUnitIndex].build[index];
-            if (item && !item.placeHolder && !item.type == "unavailable" && item.allowUseOf) {
+            var item = build.build[index];
+            if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
                 unit.items.push(item.id);
             }
         }
         // first fix dual wield items
         for (var index = 0; index < 10; index++) {
-            var item = builds[currentUnitIndex].build[index];
-            if (item && !item.placeHolder && !item.type == "unavailable" && hasDualWieldOrPartialDualWield(item)) {
+            var item = build.build[index];
+            if (item && !item.placeHolder && item.type != "unavailable" && hasDualWieldOrPartialDualWield(item)) {
                 unit.items.push(item.id);
             }
         }
         // then others items
         for (var index = 0; index < 10; index++) {
-            var item = builds[currentUnitIndex].build[index];
-            if (item && !item.placeHolder && !item.type == "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
+            var item = build.build[index];
+            if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
                 unit.items.push(item.id);
             }
             if (item && item.placeHolder) {
-                data.fixedItems.push(item.type);
+                data.items.push(item.type);
             }
         }
         
@@ -1455,108 +1456,123 @@ function getStateHash(onlyCurrent = true) {
     return data;
 }
 
-function readStateHashData() {
+function readStateHashData(callback) {
     if (window.location.hash.length > 1) {
-        return JSON.parse(atob(window.location.hash.substr(1)));
+        var hashValue = window.location.hash.substr(1);
+        if (hashValue.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)) {
+            $.ajax({
+                accepts: "application/json",
+                url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/PartyBuilds%2F" + hashValue + ".json?alt=media",
+                success: function (json) {
+                    console.log(json);
+                    callback(json);
+                },
+                error: function (textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        } else {
+            callback(oldLinkFormatToNew(JSON.parse(atob(hashValue))));
+        }
     } else {
-        return null;
+        callback(null);
     }
+}
+
+function oldLinkFormatToNew(oldData) {
+    
 }
     
 function loadStateHashAndBuild(data) {
     
-    if (data.equipmentToUse == "owned" && !itemInventory) {
+    if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
         return;
     }
     
     reinitBuild(0);
-    $('.goal select option').prop("selected", false);
-    $('.goal select option[value="' + data.goal + '"]').prop("selected", true);
-    if (data.customFormula) {
-        customFormula = parseFormula(data.customFormula);
-    }
-    onGoalChange();
-    var unitId = data.unit;
-    if (data.unitName) {
-        for (var unitId in units) {
-            if (units[unitId].name == data.unitName) {
-                break;
-            }
-        }
-    }
-    if (data.rarity == 6 && units[unitId]["6_form"]) {
-        $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
-    } else {
-        $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
-    }
-    $("#unitsSelect").combobox("refresh");
-    onUnitChange();
     
-    select("elements", data.innateElements);
-    if (data.goal == "mag" || data.goal == "magicalDamage") {
-        $('.magicalSkillType select option[value="' + data.attackType + '"]').prop("selected", true);
-    }
-    select("races", data.ennemyRaces);
-    for (var element in data.ennemyResists) {
-        if (data.ennemyResists[element] == 0) {
+    select("races", data.monster.races);
+    for (var element in data.monster.elementalResist) {
+        if (data.monster.elementalResist[element] == 0) {
             $("#elementalResists ." + element + " input").val("");
         } else {
-            $("#elementalResists ." + element + " input").val(data.ennemyResists[element]);
+            $("#elementalResists ." + element + " input").val(data.monster.elementalResist[element]);
         }
     }
-    $('.equipments select option[value="' + data.equipmentToUse + '"]').prop("selected", true);
-    if (data.equipmentToUse == "all") {
-        $("#exludeEvent").prop('checked', data.exludeEventEquipment);
-        $("#excludeTMR5").prop('checked', data.excludeTMR5);
-        $("#excludeNotReleasedYet").prop('checked', data.excludeNotReleasedYet);
-        $("#excludePremium").prop("checked", data.excludePremium);
-        $("#excludeSTMR").prop("checked", data.excludeSTMR);
+    $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
+    for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
+        $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
     }
-    if (data.fixedItems) {
-        for (var index in data.fixedItems) {
-            if (data.fixedItems[index]) {
-                fixItem(data.fixedItems[index]);
+    
+    if (data.monster.def) {
+        $("#monsterDef").val(data.monster.def);
+    }
+    if (data.monster.spr) {
+        $("#monsterSpr").val(data.monster.spr);
+    }
+    
+    $('.goal select option').prop("selected", false);
+    //$('.goal select option[value="' + data.goal + '"]').prop("selected", true);
+    for (var i = 0; i < 1; i++) {
+        var unit = data.units[i];
+        customFormula =  parseFormula(unit.goal);
+        onGoalChange();
+        var unitId = unit.id;
+
+        if (unit.rarity == 6 && units[unitId]["6_form"]) {
+            $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
+        } else {
+            $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
+        }
+        $("#unitsSelect").combobox("refresh");
+        onUnitChange();
+
+        select("elements", unit.innateElements);
+        
+        if (unit.items) {
+            for (var index in unit.items) {
+                if (unit.items[index]) {
+                    fixItem(unit.items[index]);
+                }
             }
         }
-    }
-    if (data.monsterDef) {
-        $("#monsterDef").val(data.monsterDef);
-    }
-    if (data.monsterSpr) {
-        $("#monsterSpr").val(data.monsterSpr);
-    }
-    if (data.esper) {
-        fixItem(data.esper);
-    }
-    if (data.pots) {
-        for (var index = baseStats.length; index--;) {
-            $(".unitStats .stat." + baseStats[index] + " .pots input").val(data.pots[baseStats[index]]);
+        
+        if (unit.esperId) {
+            fixItem(unit.esperId);
+        }
+        if (unit.pots) {
+            for (var index = baseStats.length; index--;) {
+                $(".unitStats .stat." + baseStats[index] + " .pots input").val(unit.pots[baseStats[index]]);
+            }
+        }
+        if (unit.buffs) {
+            for (var index = baseStats.length; index--;) {
+                $(".unitStats .stat." + baseStats[index] + " .buff input").val(unit.buffs[baseStats[index]]);
+            }
+            if (unit.buffs.lbFillRate) {
+                $(".unitStats .stat.lbFillRate .buff input").val(data.buffs.lbFillRate);
+            }
+        }
+        if (unit.lbShardsPerTurn) {
+            $(".unitStats .stat.lbShardsPerTurn .buff input").val(unit.lbShardsPerTurn);
+        }
+        if (unit.mitigation) {
+            $(".unitStats .stat.pMitigation .buff input").val(unit.mitigation.physical);
+            $(".unitStats .stat.mMitigation .buff input").val(unit.mitigation.magical);
+            $(".unitStats .stat.mitigation .buff input").val(unit.mitigation.global);
         }
     }
-    if (data.buff) {
-        for (var index = baseStats.length; index--;) {
-            $(".unitStats .stat." + baseStats[index] + " .buff input").val(data.buff[baseStats[index]]);
-        }
-        if (data.buff.lbFillRate) {
-            $(".unitStats .stat.lbFillRate .buff input").val(data.buff.lbFillRate);
-        }
-    }
-    if (data.lbShardsPerTurn) {
-        $(".unitStats .stat.lbShardsPerTurn .buff input").val(data.lbShardsPerTurn);
-    }
-    if (data.mitigation) {
-        $(".unitStats .stat.pMitigation .buff input").val(data.mitigation.physical);
-        $(".unitStats .stat.mMitigation .buff input").val(data.mitigation.magical);
-        $(".unitStats .stat.mitigation .buff input").val(data.mitigation.global);
-    }
+    
+    
+    
     
     dataLoadedFromHash = true;
     window.location.hash = "";
-    if (data.runBuild) {
+    /*if (data.runBuild) {
         build();
-    } else {
-        logCurrentBuild();
-    }
+    } else {*/
+    logCurrentBuild();
+    //}
 }
 
 function showBuildLink() {
@@ -1938,12 +1954,14 @@ function continueIfReady() {
         initWorkerNumber();
         initWorkers();
         
-        var hashData = readStateHashData();
-        if (hashData) {
-            loadStateHashAndBuild(hashData);
-        } else {
-            reinitBuild(currentUnitIndex);
-        }
+        var hashData = readStateHashData(function(hashData) {
+            if (hashData) {
+                loadStateHashAndBuild(hashData);
+            } else {
+                reinitBuild(currentUnitIndex);
+            }
+        });
+        
     }
 }
 
