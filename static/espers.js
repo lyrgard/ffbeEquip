@@ -527,6 +527,7 @@ function displayEspers() {
         for (var index in espers) {
             ownedEspers[espers[index].name] = {
                 "name":espers[index].name, 
+                "id":espers[index].id, 
                 "rarity":espers[index].maxLevel,
                 "level": maxLevelByStar[espers[index].maxLevel],
                 "selectedSkills":[], 
@@ -656,7 +657,7 @@ $(function() {
         } else {
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
-            ownedEspers[currentEsper] = {"name":currentEsper, "rarity":parseInt(value),"selectedSkills":[]};
+            ownedEspers[currentEsper] = {"name":currentEsper, "id":currentEsper, "rarity":parseInt(value),"selectedSkills":[]};
             ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[value]));
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
             $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));

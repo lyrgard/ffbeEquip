@@ -525,6 +525,20 @@
     list-style-type: '- ';
 }
 
+.closeTab {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-tabs > li.active:hover .closeTab {
+    display: block;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
