@@ -1439,8 +1439,8 @@ function getStateHash(onlyCurrent = true) {
                     data.items.push(item.type);
                 }
             }
-            if (builds[currentUnitIndex].build[10]) {
-                unit.esperId = builds[currentUnitIndex].build[10].name;
+            if (build.build[10]) {
+                unit.esperId = build.build[10].name;
             }
 
             unit.pots = {};
