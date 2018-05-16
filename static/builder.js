@@ -1655,7 +1655,7 @@ function showBuildLink(onlyCurrentUnit) {
         dataType: "json",
         success: function(data) {
             $('<div id="showLinkDialog" title="Build Link">' + 
-                '<input value="http://ffbeEquip.lyrgard.fr/builder.html?server=' + server + '#' + data.id + '"></input>' +
+                '<input value="http://ffbeEquip.com/builder.html?server=' + server + '#' + data.id + '"></input>' +
                 '<h4>This link will open the builder with this exact build displayed</h4>' +
               '</div>' ).dialog({
                 modal: true,
