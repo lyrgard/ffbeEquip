@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","magicalDamageWithPhysicalMecanism","hybridDamage","jumpDamage","sprDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism","summonerSkill"];
 const statsBonusCap = {
     "GL": 300,
     "JP": 400

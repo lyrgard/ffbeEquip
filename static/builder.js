@@ -4,10 +4,11 @@ var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "15
 const formulaByGoal = {
     "physicalDamage":                   {"type":"value","name":"physicalDamage"},
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
-    "magicalDamageWithPhysicalMecanism":{"type":"value","name":"magicalDamageWithPhysicalMecanism"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
     "jumpDamage":                       {"type":"value","name":"jumpDamage"},
+    "magDamageWithPhysicalMecanism":    {"type":"value","name":"magDamageWithPhysicalMecanism"},
     "sprDamageWithPhysicalMecanism":    {"type":"value","name":"sprDamageWithPhysicalMecanism"},
+    "defDamageWithPhysicalMecanism":    {"type":"value","name":"defDamageWithPhysicalMecanism"},
     "sprDamageWithMagicalMecanism":     {"type":"value","name":"sprDamageWithMagicalMecanism"},
     "summonerSkill":                    {"type":"value","name":"summonerSkill"},
     "def":                              {"type":"value","name":"def"},
@@ -232,12 +233,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].formula = customFormula;
     } else {
-        goal = $(".goal select").val();   
-        if (goal == "magicalDamage" && $(".magicalSkillType select").val() == "physicalMagic") {
-            builds[currentUnitIndex].goal = "magicalDamageWithPhysicalMecanism";
-        } else {
-            builds[currentUnitIndex].goal = goal;
-        }
+        builds[currentUnitIndex].goal = $(".goal select").val();   
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
 }
@@ -874,18 +870,8 @@ function loadBuild(buildIndex) {
             customFormula = build._formula;
         } else {
             customFormula = null;
-            if (build.goal == "magicalDamageWithPhysicalMecanism") {
-                $('.goal option[value="magicalDamage"]').prop("selected", true);   
-            } else {
-                $('.goal option[value="' + build.goal + '"]').prop("selected", true);
-            }
+            $('.goal option[value="' + build.goal + '"]').prop("selected", true);
         }
-    }
-    $(".magicalSkillType option").prop("selected", false);
-    if (build.goal == "magicalDamage") {
-        $('.magicalSkillType option[value="normal"]').prop("selected", true);
-    } else if (build.goal == "magicalDamageWithPhysicalMecanism") {
-        $('.magicalSkillType option[value="physicalMagic"]').prop("selected", true);
     }
     
     updateUnitStats();
@@ -989,7 +975,6 @@ function onGoalChange() {
     var goal = builds[currentUnitIndex].goal;
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
-    $(".magicalSkillType").addClass("hidden");
     if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
         || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
         || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
@@ -998,9 +983,6 @@ function onGoalChange() {
     }
     if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
-    }
-    if (goal == "magicalDamage") {
-        $(".magicalSkillType").removeClass("hidden");
     }
     
     if (customFormula) {

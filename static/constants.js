@@ -22,10 +22,11 @@ const percentValues = {
 const goalValuesCaract = {
     "physicalDamage":                   {"statsToMaximize":["atk"], "type": "physical"},
     "magicalDamage":                    {"statsToMaximize":["mag"], "type": "magical"},
-    "magicalDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "type": "physical"},
     "hybridDamage":                     {"statsToMaximize":["atk","mag"], "type": "physical"},
     "jumpDamage":                       {"statsToMaximize":["atk"], "type": "physical"},
+    "magDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "type": "physical"},
     "sprDamageWithPhysicalMecanism":    {"statsToMaximize":["spr"], "type": "physical"},
+    "defDamageWithPhysicalMecanism":    {"statsToMaximize":["def"], "type": "physical"},
     "sprDamageWithMagicalMecanism":     {"statsToMaximize":["spr"], "type": "magical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };

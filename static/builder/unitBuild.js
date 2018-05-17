@@ -1,10 +1,11 @@
 const involvedStatsByValue = {
     "physicalDamage":                   ["atk","weaponElement","physicalKiller","meanDamageVariance"],
     "magicalDamage":                    ["mag","magicalKiller"],
-    "magicalDamageWithPhysicalMecanism":["mag","weaponElement","physicalKiller","meanDamageVariance"],
     "hybridDamage":                     ["atk","mag","weaponElement","physicalKiller","meanDamageVariance"],
     "jumpDamage":                       ["atk","weaponElement","physicalKiller","meanDamageVariance","jumpDamage"],
+    "magDamageWithPhysicalMecanism":    ["mag","weaponElement","physicalKiller","meanDamageVariance"],
     "sprDamageWithPhysicalMecanism":    ["spr","weaponElement","physicalKiller","meanDamageVariance"],
+    "defDamageWithPhysicalMecanism":    ["def","weaponElement","physicalKiller","meanDamageVariance"],
     "sprDamageWithMagicalMecanism":     ["spr","magicalKiller"],
     "summonerSkill":                    ["mag","spr","evoMag"]
 }
