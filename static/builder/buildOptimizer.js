@@ -62,8 +62,8 @@ class BuildOptimizer {
         var itemsOfType = this.dataByType[type];
         var dataWithoutConditionIds = [];
         for (var index = itemsOfType.length; index--; ) {
-            if (!dataWithoutConditionIds.includes(itemsOfType[index].id)) {
-                dataWithoutConditionIds.push(itemsOfType[index].id);
+            if (!dataWithoutConditionIds.includes(itemsOfType[index].item.id)) {
+                dataWithoutConditionIds.push(itemsOfType[index].item.id);
             }
         }
         var tempResult = itemsOfType.slice();
@@ -80,7 +80,7 @@ class BuildOptimizer {
                     }
                 }
                 if (allFound) {
-                    if (dataWithoutConditionIds[type] && dataWithoutConditionIds[type].includes(entry.item.id)) {
+                    if (dataWithoutConditionIds && dataWithoutConditionIds.includes(entry.item.id)) {
                         // If we add a condition items that have a none conditioned version alreadty selected, remove that second version
                         for (var alreadyAddedIndex = tempResult.length; alreadyAddedIndex--;) {
                             if (tempResult[alreadyAddedIndex].item.id == entry.item.id) {
