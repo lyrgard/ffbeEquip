@@ -1617,7 +1617,7 @@
 	{"id":"504227930", "name":"絶対の忠義", "type":"materia", "hp%":50, "spr%":30, "special":["[絶対の忠義|ability_77.png]:30% chance to counter magic attacks with 絶対の忠義 (508210) to caster (max 1 / turn)"], "stmrUnit":"212000905", "access":["STMR"], "icon":"ability_77.png", "sortId":825},
 	{"id":"504227931", "name":"歪んだ英雄", "type":"materia", "atk%":80, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["katana"], "stmrUnit":"207001005", "access":["STMR"], "icon":"ability_95.png", "sortId":826},
 	{"id":"504228151", "name":"風含むたてがみ", "type":"materia", "hp%":30, "def%":20, "resist":[{"name":"wind","percent":30}], "tmrUnit":"100017204", "access":["TMR-4*"], "icon":"ability_77.png", "sortId":828},
-	{"id":"504228152", "name":"潜在せし魔力", "type":"materia", "mp%":10, "special":["[潜在せし魔力|ability_76.png]:Increase equipment MAG by 25% when armed with a single weapon"], "tmrUnit":"100017304", "access":["TMR-4*"], "icon":"ability_76.png", "sortId":829},
+	{"id":"504228152", "name":"潜在せし魔力", "type":"materia", "mp%":10, "singleWielding":{"mag":25}, "tmrUnit":"100017304", "access":["TMR-4*"], "icon":"ability_76.png", "sortId":829},
 	{"id":"504228161", "name":"源氏の兵法", "type":"materia", "atk%":20, "mag%":20, "lbFillRate":25, "access":["trial"], "maxNumber":1, "icon":"ability_78.png", "sortId":830},
 	{"id":"504228200", "name":"金剛不壊", "type":"materia", "hp%":50, "def%":10, "spr%":10, "access":["quest"], "maxNumber":1, "icon":"ability_77.png", "sortId":831},
 	{"id":"504228201", "name":"ミラクルマジック", "type":"materia", "mp%":50, "atk%":10, "mag%":10, "access":["quest"], "maxNumber":1, "icon":"ability_77.png", "sortId":832},

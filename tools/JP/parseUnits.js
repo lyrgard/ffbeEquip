@@ -115,28 +115,36 @@ getData('units.json', function (units) {
                 for (var unitId in nameData) {
                     glNameById[unitId] = nameData[unitId].name;
                 }
-                for (var index in enhancements) {
-                    var enhancement = enhancements[index];
-                    for (var unitIdIndex in enhancement.units) {
-                        var unitId = enhancement.units[unitIdIndex].toString();
-                        if (!enhancementsByUnitId[unitId]) {
-                            enhancementsByUnitId[unitId] = {};
+                fs.readFile('../../static/GL/units.json', function (err, nameDatacontent) {
+                    var nameData = JSON.parse(nameDatacontent);
+                    for (var unitId in nameData) {
+                        if (nameData[unitId].name != "undefined") {
+                            glNameById[unitId] = nameData[unitId].name;
                         }
-                        enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
                     }
-                }
-
-                var unitsOut = {};
-                for (var unitId in units) {
-                    var unitIn = units[unitId];
-                    if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                        var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                        unitsOut[unitOut.data.id] = unitOut.data;
+                    for (var index in enhancements) {
+                        var enhancement = enhancements[index];
+                        for (var unitIdIndex in enhancement.units) {
+                            var unitId = enhancement.units[unitIdIndex].toString();
+                            if (!enhancementsByUnitId[unitId]) {
+                                enhancementsByUnitId[unitId] = {};
+                            }
+                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                        }
                     }
-                }
 
-                fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
-                fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
+                    var unitsOut = {};
+                    for (var unitId in units) {
+                        var unitIn = units[unitId];
+                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                            var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
+                            unitsOut[unitOut.data.id] = unitOut.data;
+                        }
+                    }
+
+                    fs.writeFileSync('unitsWithSkill.json', formatOutput(unitsOut));
+                    fs.writeFileSync('units.json', formatSimpleOutput(unitsOut));
+                });
             });
         });
     });
