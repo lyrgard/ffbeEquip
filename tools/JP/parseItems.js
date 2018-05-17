@@ -535,6 +535,16 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(doublehandSkill, "mp", doublehandEffect[1]);
         }
         
+    // MAG DH
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 70) {
+        if (rawEffect[3][2] == 0) {
+            if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
+            addStat(item.singleWieldingOneHanded,"mag",rawEffect[3][0]);    
+        } else if (rawEffect[3][2] == 2) {
+            if (!item.singleWielding) {item.singleWielding = {}};
+            addStat(item.singleWielding,"mag",rawEffect[3][0]);    
+        }
+        
     // +EQ stat when dual wielding
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
         if (!item.dualWielding) {item.dualWielding = {}};
