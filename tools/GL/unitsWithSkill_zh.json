@@ -840,16 +840,17 @@
 	"100005703": {
 		"name":"海爾蒂克",
 		"id":"100005703",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":2122,"mp":149,"atk":94,"def":89,"mag":111,"spr":96},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
+			"maxStats":{"hp":2759,"mp":194,"atk":123,"def":116,"mag":145,"spr":125},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":20, "mpRefresh":3}
+			{"mp%":20, "mag%":20, "mpRefresh":3},
+			{"mp%":20, "mag%":30, "equipedConditions":["rod"]}
 		]
 	},
 	"100005805": {
@@ -888,16 +889,18 @@
 	"100006003": {
 		"name":"烏爾麗卡",
 		"id":"100006003",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2699,"mp":106,"atk":119,"def":96,"mag":83,"spr":92},
-			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":3509,"mp":138,"atk":155,"def":125,"mag":108,"spr":120},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "atk%":10, "def%":10}
+			{"hp%":40, "atk%":10, "def%":10, "singleWieldingOneHanded":{"atk":50}, "lbFillRate":300},
+			{"atk%":50, "equipedConditions":["hammer"]},
+			{"atk%":50, "equipedConditions":["axe"]}
 		]
 	},
 	"100006105": {
