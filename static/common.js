@@ -1186,6 +1186,9 @@ $(function() {
         }
     });
     $('.dropdown-submenu a.test').on("click", function(e){
+        $(this).parent().siblings().each(function(index, element) {
+            $(element).children('ul').hide();
+        });
         $(this).next('ul').toggle();
         e.stopPropagation();
         e.preventDefault();
