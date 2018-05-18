@@ -70,11 +70,12 @@ class DataStorage {
         var itemNumber = this.data.length;
         var tmrAbilityEnhancedItem = null;
 
+        
         for (var index = 0; index < itemNumber; index++) {
             var item;
             var availableNumber;
             if (index < this.data.length) {
-                item = this.data[index];
+                item = this.data[this.data.length - 1 - index];
                 availableNumber = getAvailableNumber(item);
             } else {
                 item = tmrAbilityEnhancedItem;
