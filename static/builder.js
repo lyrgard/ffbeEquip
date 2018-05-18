@@ -1088,6 +1088,20 @@ function updateSearchResult() {
     var dataWithOnlyOneOccurence = searchableEspers.slice();
     for (var index = 0, len = dataStorage.data.length; index < len; index++) {
         var item = dataStorage.data[index];
+        
+        // Manage tmr ability of 7*
+        if (builds[currentUnitIndex].unit.tmrSkill && item.tmrUnit && item.tmrUnit == builds[currentUnitIndex].unit.id) {
+            var tmrSkillAlreadyUsed = false;
+            for (var buildIndex = 0; buildIndex < 10; buildIndex++) {
+                if (builds[currentUnitIndex].build[buildIndex] && builds[currentUnitIndex].build[buildIndex].originalItem) {
+                    tmrSkillAlreadyUsed = true;
+                    break;
+                }
+            }
+            if (!tmrSkillAlreadyUsed) {
+                item = getItemWithTmrSkillIfApplicable(item, builds[currentUnitIndex].unit);
+            }
+        }
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
@@ -1201,6 +1215,8 @@ function fixItem(key, slotParam = -1) {
         if (builds[currentUnitIndex].build[slot] && builds[currentUnitIndex].build[slot].id != item.id) {
             removeItemAt(slot);
         }
+        
+        // Manage TMR ability of 7*
         if (item.originalItem) {
             var tmrSkillAlreadyUsed = false;
             for (var index = 0; index < 10; index++) {
@@ -1212,7 +1228,19 @@ function fixItem(key, slotParam = -1) {
             if (tmrSkillAlreadyUsed) {
                 item = item.originalItem;
             }
+        } else if (builds[currentUnitIndex].unit.tmrSkill && item.tmrUnit && item.tmrUnit == builds[currentUnitIndex].unit.id) {
+            var tmrSkillAlreadyUsed = false;
+            for (var index = 0; index < 10; index++) {
+                if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
+                    tmrSkillAlreadyUsed = true;
+                    break;
+                }
+            }
+            if (!tmrSkillAlreadyUsed) {
+                item = getItemWithTmrSkillIfApplicable(item, builds[currentUnitIndex].unit);
+            }
         }
+        
         builds[currentUnitIndex].fixedItems[slot] = item;
         builds[currentUnitIndex].build[slot] = item;
         if (slot < 10) {

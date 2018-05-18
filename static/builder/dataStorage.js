@@ -11,13 +11,6 @@ class DataStorage {
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
             var item = this.data[index];
-            if (item.originalItem) {
-                this.data[index] = item.originalItem;
-            }
-            if (this.unitBuild && this.unitBuild.unit) {
-                this.data[index] = getItemWithTmrSkillIfApplicable(this.data[index], this.unitBuild.unit);
-                item = this.data[index];
-            }
             item.meanDamageVariance = 1;
             if (item.damageVariance) {
                 item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
@@ -74,14 +67,31 @@ class DataStorage {
         var alreadyAddedIds = [];
         var alreadyAddedDualWieldSource = [];
         var equipable = this.unitBuild.getCurrentUnitEquip();
+        var itemNumber = this.data.length;
+        var tmrAbilityEnhancedItem = null;
 
-        for (var index = this.data.length; index--;) {
-            var item = this.data[index];
+        for (var index = 0; index < itemNumber; index++) {
+            var item;
+            var availableNumber;
+            if (index < this.data.length) {
+                item = this.data[index];
+                availableNumber = getAvailableNumber(item);
+            } else {
+                item = tmrAbilityEnhancedItem;
+                availableNumber = 1;
+            }
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
+            
+            if (this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
+                tmrAbilityEnhancedItem = getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit);
+                itemNumber = this.data.length + 1;
+                availableNumber--;
+            } 
+            
             this.prepareItem(item, this.unitBuild.baseValues, ennemyStats);
-            if (getAvailableNumber(item) > 0 && isApplicable(item, this.unitBuild.unit)) {
+            if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
                 if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
                     if (!alreadyAddedDualWieldSource.includes(item.id)) {
                         this.dualWieldSources.push(item);
@@ -99,11 +109,11 @@ class DataStorage {
                     if (item.equipedConditions) {
                         this.dataWithCondition.push(this.getItemEntry(item));
                     } else {
-                        if (!alreadyAddedIds.includes(item.id)) {
+                        if (!alreadyAddedIds.includes(item.id) ||item == tmrAbilityEnhancedItem) {
                             if (!this.dataByType[item.type]) {
                                 this.dataByType[item.type] = [];
                             }
-                            this.dataByType[item.type].push(this.getItemEntry(item));
+                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber));
                             alreadyAddedIds.push(item.id);
                         }
                     }
@@ -176,12 +186,12 @@ class DataStorage {
         }
     }
 
-    getItemEntry(item) {
+    getItemEntry(item, availableNumber = null) {
         return {
             "item":item, 
             "name":item.name, 
             "defenseValue":this.getDefenseValue(item),
-            "available":getAvailableNumber(item)
+            "available":availableNumber || getAvailableNumber(item)
         };
     }
     
