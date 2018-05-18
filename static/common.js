@@ -322,7 +322,7 @@ function displayItemLine(item) {
         html += ">" + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
-        html += '<div>' + toLink(units[item.tmrUnit].name) + '</div>';
+        html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
     }
     if (item.stmrUnit) {
         html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
