@@ -171,6 +171,9 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
         }
     }
     data["name"] = unitIn.names[languageId];
+    if (languageId != 0) {
+        data.wikiEntry = unitIn.name.replace(' ', '_');
+    }
     data["max_rarity"] = unitIn["rarity_max"];
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
@@ -617,6 +620,9 @@ function getUnitBasicInfo(unitId, unit) {
     result += "\n\t\"" + unitId + "\": {";
     result += "\n\t\t\"name\":\"" + unit.name + "\","
     result += "\n\t\t\"id\":\"" + unit.id + "\","
+    if (unit.wikiEntry) {
+        result += "\n\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\","
+    }
     result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\","
     result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\","
     result += "\n\t\t\"sex\":\"" + unit.sex + "\","
