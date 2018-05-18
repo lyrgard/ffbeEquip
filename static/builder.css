@@ -363,7 +363,7 @@
     padding: 0 5px;
 }
 
-#resultStats .resists {
+#resultStats .resists, #resultStats .killers {
     clear: both; 
     padding-left: 30px;
     padding-top: 5px;
@@ -394,6 +394,10 @@
 
 #resultStats .resists .resist.statToMaximize .value {
     color: chartreuse;
+}
+
+#resultStats .killers .killerValueGroup {
+    margin-right: 5px;
 }
 
 .checkboxGroup {
