@@ -1345,7 +1345,12 @@ function fixItem(key, slotParam = -1) {
                 if (index != slot) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
+                        var tmrAbilityEnhanced = !!itemTmp.originalItem;
                         var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+                        
+                        if (tmrAbilityEnhanced) {
+                            bestItemVersion = getItemWithTmrSkillIfApplicable(bestItemVersion, builds[currentUnitIndex].unit)
+                        }
                         
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
