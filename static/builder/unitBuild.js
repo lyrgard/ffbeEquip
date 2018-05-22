@@ -187,8 +187,10 @@ class UnitBuild {
                 }
             }
         } else if (formula.type == "conditions") {
-            for (var index = formula.conditions.length; index-- ;) {
-                this.calculateInvolvedStats(formula.conditions[index].value);    
+            if (formula.conditions.thresholds) {
+                for (var index = formula.conditions.thresholds.length; index-- ;) {
+                    this.calculateInvolvedStats(formula.conditions.thresholds[index].value);    
+                }
             }
             this.calculateInvolvedStats(formula.formula);    
         } else if (formula.type != "constant") {

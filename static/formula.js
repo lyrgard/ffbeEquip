@@ -1,4 +1,5 @@
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_SPR", "P_DAMAGE_DEF","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
+const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK"];
 const operators = ["/","*","+","-"];
 const attributeByVariable = {
     "HP":"hp",
@@ -141,13 +142,23 @@ function parseConditions(formula, pos) {
     if (separatorIndex == -1) {
         var condition = parseCondition(formula, pos);
         if (condition) {
-            return [condition];
+            if (condition.type == "threshold") {
+                return {"thresholds": [{"value":condition.value, "goal":condition.goal}]}
+            } else {
+                return {"elements": [condition.value]}
+            }
         }
     } else {
         var firstCondition = parseCondition(formula.substr(0,separatorIndex), 0);
         var otherConditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1);
         if (firstCondition && otherConditions) {
-            otherConditions.splice(0,0,firstCondition);
+            if (firstCondition.type == "threshold") {
+                if (!otherConditions.thresholds) { otherConditions.thresholds = []; }
+                otherConditions.thresholds.push({"value":firstCondition.value, "goal":firstCondition.goal})
+            } else {
+                if (!otherConditions.elements) { otherConditions.elements = []; }
+                otherConditions.elements.push(firstCondition.value)
+            }
             return otherConditions;
         }
     }
@@ -163,10 +174,15 @@ function parseCondition(formula, pos) {
         var expression = parseExpression(formula.substr(0,gtPos), pos);
         var constant = parseConstant(formula.substr(gtPos + 1), gtPos + 1);
         if (expression && constant) {
-            return {"value":expression, "goal":constant.value};
+            return {"type":"threshold" ,"value":expression, "goal":constant.value};
         }
     } else {
-        alert("Error at position " + pos + ". Condition does not contains \">\".");    
+        formula = formula.trim();
+        if (elementVariables.includes(formula)) {
+            return {"type":"element" ,"value":formula.substr(2).toLocaleLowerCase().replace("thunder", "lightning")};
+        } else {
+            alert("Error at position " + pos + ". Condition does not contains \">\".");       
+        }
     }
     
     return;
@@ -182,8 +198,15 @@ function formulaToString(formula) {
         return formula.value.toString();
     } else if (formula.type == "conditions") {
         var result = formulaToString(formula.formula);
-        for (var index = 0, len = formula.conditions.length; index < len ;index ++) {
-            result += "; " + formulaToString(formula.conditions[index].value) + ' > ' + formula.conditions[index].goal;
+        if (formula.conditions.thresholds) {
+            for (var index = 0, len = formula.conditions.thresholds.length; index < len ;index ++) {
+                result += "; " + formulaToString(formula.conditions.thresholds[index].value) + ' > ' + formula.conditions.thresholds[index].goal;
+            }
+        }
+        if (formula.conditions.elements) {
+            for (var index = 0, len = formula.conditions.elements.length; index < len ;index ++) {
+                result += "; E_" + formula.conditions.elements[index].replace("lightning","thunder").toUpperCase();
+            }
         }
         for (var abbreviation in abbreviations) {
             result = result.replace(abbreviations[abbreviation], abbreviation);
