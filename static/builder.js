@@ -614,7 +614,13 @@ function logBuild(build, value) {
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
                 physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png"/>';
             }
-            physicalKillerString += killerValues[i] + '%</span>';
+            var killerString;
+            if (killerValues[i] > 300) {
+                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
+            } else {
+                killerString = killerValues[i] + '%';
+            }
+            physicalKillerString += killerString + '</span>';
         }
         if (magicalRacesByValue[killerValues[i]]) {
             magicalKillerString += '<span class="killerValueGroup">'

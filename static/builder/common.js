@@ -80,6 +80,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             return alreadyCalculatedValues[formula.name];
         }
         if (damageFormulaNames.includes(formula.name)) {
+            var cumulatedKillerByRace = {'aquatic':0,'beast':0,'bird':0,'bug':0,'demon':0,'dragon':0,'human':0,'machine':0,'plant':0,'undead':0,'stone':0,'spirit':0};
             var cumulatedKiller = 0;
             var applicableKillerType = null;
             if (unitBuild.involvedStats.includes("physicalKiller")) {
@@ -93,9 +94,15 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                         for (var killerIndex = itemAndPassives[equipedIndex].killers.length; killerIndex--;) {
                             var killer = itemAndPassives[equipedIndex].killers[killerIndex];
                             if (ennemyStats.races.includes(killer.name) && killer[applicableKillerType]) {
-                                cumulatedKiller += killer[applicableKillerType];
+                                cumulatedKillerByRace[killer.name] = Math.min(300, cumulatedKillerByRace[killer.name] + killer[applicableKillerType]);
+                                
                             }
                         }
+                    }
+                }
+                if (ennemyStats.races.length > 0) {
+                    for (var raceIndex = ennemyStats.races.length; raceIndex--;) {
+                        cumulatedKiller += cumulatedKillerByRace[ennemyStats.races[raceIndex]];
                     }
                 }
             }
