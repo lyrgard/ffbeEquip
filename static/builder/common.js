@@ -184,10 +184,39 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     } else if (formula.type == "-") {
         return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
     } else if (formula.type == "conditions") {
-        for (var index = formula.conditions.length; index --; ) {
-            var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions[index].value, alreadyCalculatedValues);
-            if (value < formula.conditions[index].goal) {
+        if (formula.conditions.thresholds) {
+            for (var index = formula.conditions.thresholds.length; index --; ) {
+                var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions.thresholds[index].value, alreadyCalculatedValues);
+                if (value < formula.conditions.thresholds[index].goal) {
+                    return 0;
+                }
+            }
+        }
+        if (formula.conditions.elements) {
+            var elements = [];
+            if (unitBuild.involvedStats.includes("weaponElement")) {
+                if (itemAndPassives[0] && itemAndPassives[0].element) {
+                    for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
+                        if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
+                            elements.push(itemAndPassives[0].element[elementIndex]);       
+                        }
+                    }
+                };
+                if (itemAndPassives[1] && itemAndPassives[1].element) {
+                    for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
+                        if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
+                            elements.push(itemAndPassives[1].element[elementIndex]);       
+                        }
+                    }
+                };
+            }
+            if (formula.conditions.elements.length != elements.length) {
                 return 0;
+            }
+            for (var elementIndex = formula.conditions.elements.length; elementIndex--;) {
+                if (!elements.includes(formula.conditions.elements[elementIndex])) {
+                    return 0;
+                }
             }
         }
         return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, alreadyCalculatedValues)

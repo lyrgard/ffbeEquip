@@ -222,6 +222,11 @@ class DataStorage {
     }
 
     itemCanBeOfUseForGoal(item, ennemyStats) {
+        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements && item.element && !includeAll(builds[currentUnitIndex].formula.conditions.elements, item.element)) {
+            return false;
+        }
+        
+        
         var stats = builds[currentUnitIndex].involvedStats;
 
         for (var index = 0, len = stats.length; index < len; index++) {

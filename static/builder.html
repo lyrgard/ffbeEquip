@@ -749,6 +749,7 @@
                                             <tr><td class="token"><span class="code">P_DAMAGE; P_EVADE > 100; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
                                             <tr><td class="token"><span class="code">P_DAMAGE; I_PHYSICAL; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
                                             <tr><td class="token"><span class="code">HP; LB > 12</span></td><td>Maximize HP while insuring at least 12 LB points per turn</td></tr>
+                                            <tr><td class="token"><span class="code">P_DAMAGE; I_PHYSICAL; i_PARALYSIS; I_DEATH; E_LIGHT</span></td><td>Formula to carry Gilgamesh trial. 100% evasion, immunity to paralysis and death, Light elemental weapon and then maximize damage</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -778,6 +779,7 @@
                                             <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. I_XXX is a shortcut for R_XXX > 100</td></tr>
                                             <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
                                             <tr><td class="token">I_DISABLE</td><td>Immunity to all disabling ailments. This condition is a shortcut for I_SLEEP; I_PARALYSIS; I_CONFUSION; I_PETRIFICATION</td></tr>
+                                            <tr><td class="token">E_FIRE, E_ICE, E_THUNDER, E_WATER, E_EARTH, E_WIND, E_LIGHT, E_DARK</td><td>Those special conditions will force the resulting build to have the corresponding element(s) and no other elements</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
