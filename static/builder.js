@@ -260,7 +260,7 @@ function readStatsValues() {
     }
     var lbShardsPerTurn = parseInt($(".unitStats .stat.lbShardsPerTurn .buff input").val());
     if (isNaN(lbShardsPerTurn)) {
-        lbShardsPerTurn = 4;
+        lbShardsPerTurn = 0;
     }
     builds[currentUnitIndex].baseValues["lbFillRate"] = {
         "total" : lbShardsPerTurn,
