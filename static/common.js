@@ -18,9 +18,12 @@ var server = "GL";
 var language = "";
 var saveTimeout;
 var saveNeeded;
+var savePublicLinkTimeout;
+var savePublicLinkNeeded = false;
 var mustSaveUnits = false;
 var mustSaveInventory = false;
 var mustSaveEspers = false;
+var userSettings;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -1035,6 +1038,10 @@ function showTextPopup(title, text) {
     });
 }
 
+function isLinkId(value) {
+    return value.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+}
+
 function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     $(".saveInventory").addClass("hidden");
@@ -1132,6 +1139,9 @@ $(function() {
         if (notLoaded) {
             notLoaded();
         }
+    });
+    $.get(server + '/settings', function(result) {
+        userSettings = result;
     });
     $.get(server + '/units', function(result) {
         ownedUnits = result;
