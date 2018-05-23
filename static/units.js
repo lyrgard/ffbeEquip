@@ -1,7 +1,7 @@
 var releasedUnits;
 var lastItemReleases;
 
-var currentSort = showAlphabeticalSort;
+var currentSort = showRaritySort;
 
 var allUnits;
 var tmrNumberByUnitId = {};
@@ -9,6 +9,7 @@ var tmrNameByUnitId = {};
 
 var onlyShowOwnedUnits = false;
 var showNumberTMRFarmed = false;
+var readOnly;
 
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -166,16 +167,16 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (unit.summon_type === 'event') {
             html +='<span class="glyphicon glyphicon-time"/>';
         }
-        html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
+        html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')"></span>';
         html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span>';
-        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
-        html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToFarmableNumberFor(\'' + unit.id + '\')"></span>';
+        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();removeFromOwnedUnits(\'' + unit.id +'\');"></span></div>';
+        html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();addToFarmableNumberFor(\'' + unit.id + '\')"></span>';
         if (showNumberTMRFarmed) {
             html += '<span class="farmableNumber badge badge-success">' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + '</span>';
         } else {
             html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
         }
-        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
+        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();removeFromFarmableNumberFor(\'' + unit.id +'\');"></span></div>';
         html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
         html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + unit.max_rarity + '.png"/></div></div>';
         html +='<div class="unitName">';
@@ -205,6 +206,7 @@ function getRarity(minRarity, maxRarity) {
 
 
 function addToOwnedUnits(unitId) {
+    if (readOnly) return;
     if (!ownedUnits[unitId]) {
         ownedUnits[unitId] = {"number":1, "farmable":0};
         $(".unit." + unitId).addClass("owned");
@@ -223,6 +225,7 @@ function addToOwnedUnits(unitId) {
 }
 
 function removeFromOwnedUnits(unitId) {
+    if (readOnly) return;
     if (!ownedUnits[unitId]) {
         return;
     }
@@ -247,6 +250,7 @@ function removeFromOwnedUnits(unitId) {
 }
 
 function addToFarmableNumberFor(unitId) {
+    if (readOnly) return;
     if (!ownedUnits[unitId]) {
         return;
     } else {
@@ -258,13 +262,11 @@ function addToFarmableNumberFor(unitId) {
     }
     $(".unit." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
     $(".unit." + unitId).addClass("farmable");
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
-    $(".saveInventory").removeClass("hidden");
+    markSaveNeeded();
 }
 
 function removeFromFarmableNumberFor(unitId) {
+    if (readOnly) return;
     if (!ownedUnits[unitId] || ownedUnits[unitId].farmable == 0) {
         return;
     }
@@ -273,10 +275,7 @@ function removeFromFarmableNumberFor(unitId) {
     if (ownedUnits[unitId].farmable == 0) {
         $(".unit." + unitId).removeClass("farmable");
     }
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
-    $(".saveInventory").removeClass("hidden");
+    markSaveNeeded();
 }
 
 function farmedTMR(unitId) {
@@ -290,9 +289,75 @@ function farmedTMR(unitId) {
         }
     }
     removeFromFarmableNumberFor(unitId);
+    markSaveNeeded();
+}
+
+function markSaveNeeded() {
+    saveNeeded = true;
+    savePublicLinkNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
+    if (savePublicLinkTimeout) {clearTimeout(savePublicLinkTimeout)}
     mustSaveInventory = true;
     saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
+    savePublicLinkTimeout = setTimeout(savePublicLink, 10000);
+}
+
+function savePublicLink(callback) {
+    var publicUnitcollection = {};
+    for (var index = 0, len = units.length; index < len; index++) {
+        var unit = units[index];
+        if (ownedUnits[unit.id]) {
+            var publicUnit = {
+                "number": ownedUnits[unit.id].number,
+                "farmed": (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0)
+            }
+            publicUnitcollection[unit.id] = publicUnit;
+        }
+    }
+    
+    $.ajax({
+        url: server + '/publicUnitCollection',
+        method: 'PUT',
+        data: JSON.stringify(publicUnitcollection),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) { 
+            $.notify("Public link updated", "success"); 
+            savePublicLinkNeeded = false;
+            userSettings.unitCollection = data.id;
+            if (callback) {callback(data.id)} 
+        },
+        error: function() { $.notify("Error while updating public link", "error"); }
+    });
+}
+
+function showPublicUnitCollectionLink() {
+    if (savePublicLinkNeeded || !userSettings.unitCollection) {
+        savePublicLink(showPublicUnitCollectionLink)
+    } else {
+        $('<div id="showLinkDialog" title="Build Link">' + 
+            '<input value="http://ffbeEquip.com/units.html?server=' + server + '#' + userSettings.unitCollection + '"></input>' +
+            '<h4>This link will allow to visualize your unit collection</h4>' +
+            '</div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'fixed');
+                $("#showLinkDialog input").select();
+                try {
+                    var successful = document.execCommand('copy');
+                    if (successful) {
+                        $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                    } else {
+                        console.log('Oops, unable to copy');    
+                    }
+                } catch (err) {
+                    console.log('Oops, unable to copy');
+                }
+            },
+            position: { my: 'top', at: 'top+150' },
+            width: 600
+        });
+    }
 }
 
 function filterName(units) {
@@ -391,6 +456,7 @@ function notLoaded() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").removeClass("hidden");
     $("#inventory").addClass("hidden");
+    onDataReady();
 }
 
 function updateResults() {
@@ -398,10 +464,7 @@ function updateResults() {
 }
 
 function inventoryLoaded() {
-    if (units && data) {
-        prepareData();
-        showAlphabeticalSort();
-    }
+    onDataReady();
 }
 
 function prepareData() {
@@ -486,9 +549,40 @@ function exportAsText() {
     showTextPopup("Owned units", text);
 }
 
+function onDataReady() {
+    if (units && data) {
+        if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {
+            $.ajax({
+                accepts: "application/json",
+                url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/UnitCollections%2F" + window.location.hash.substr(1) + ".json?alt=media",
+                success: function (result) {
+                    ownedUnits = result;
+                    tmrNumberByUnitId = {};
+                    for (var id in ownedUnits) {
+                        tmrNumberByUnitId[id] = ownedUnits[id].farmed;
+                    }
+                    showNumberTMRFarmed= true;
+                    showRaritySort();
+                },
+                error: function (textStatus, errorThrown) {
+                    $.notify("Error : no data found", "error");
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        } else if (itemInventory && ownedUnits) {
+            prepareData();
+            showRaritySort();
+        }
+    } 
+}
+
 // will be called by jQuery at page load)
 $(function() {
-
+    if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {
+        $('body').addClass("readOnly");
+        readOnly = true;
+    }
+    
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(getLocalizedFileUrl("units"), function(unitResult) {
         allUnits = unitResult;
@@ -500,10 +594,7 @@ $(function() {
                     units.push(unitResult[unitId]);
                 }
             }
-            if (itemInventory && ownedUnits && data) {
-                prepareData();
-                showAlphabeticalSort();
-            }
+            onDataReady();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });
@@ -512,10 +603,7 @@ $(function() {
     });
     $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
-        if (itemInventory && units && ownedUnits) {
-            prepareData();
-            showAlphabeticalSort();
-        }
+        onDataReady();
         $.get(server + "/lastItemReleases.json", function(result) {
             lastItemReleases = result;
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
@@ -533,8 +621,12 @@ $(function() {
         if  (saveNeeded) {
             return "Unsaved change exists !"
         }
+        if (savePublicLinkNeeded) {
+            savePublicLink();
+        }
     });
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
 
 });
+    

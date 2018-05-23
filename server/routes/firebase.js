@@ -1,9 +1,11 @@
 const express = require('express');
 const firebase = require('../lib/firebase.js');
+const drive = require('../lib/drive.js');
 const Joi = require('joi');
 const uuidV1 = require('uuid/v1');
 
-const route = express.Router();
+const unAuthenticatedRoute = express.Router();
+const authenticatedRoute = express.Router();
 
 const idSchema = Joi.string().regex(/^[0-9]{9,10}$/, 'id');
 const elementsSchema = [
@@ -98,8 +100,7 @@ const partyBuildSchema = Joi.object().keys({
     })
 });
 
-route.post('/partyBuild', async (req, res) => {
-  const { server } = req.params;
+unAuthenticatedRoute.post('/partyBuild', async (req, res) => { 
   const data = req.body;
 
     
@@ -123,4 +124,37 @@ route.post('/partyBuild', async (req, res) => {
   }
 });
 
-module.exports = route;
+authenticatedRoute.put('/:server/publicUnitCollection', async (req, res) => { 
+  const { server } = req.params;
+  const data = req.body;
+  const auth = req.OAuth2Client;  
+    
+  let settings = await drive.readJson(auth, `settings_${server}.json`, {});
+  var id;
+  if (settings && settings.unitCollection) {
+      id = settings.unitCollection;
+  } else {
+      id = uuidV1();
+  }
+
+  var file = firebase.file("UnitCollections/" + id + ".json"); 
+  file.save(JSON.stringify(data), {"contentType":"application/json"}, async function(err) {
+    if (err) {
+      return res.status(500).json(err);    
+    } else {
+      if (!settings) {
+          settings = {};
+      }
+      if (settings.unitCollection != id) {
+          settings.unitCollection = id;
+          await drive.writeJson(auth, `settings_${server}.json`, settings);
+      }
+      return res.status(200).json({"id":id});    
+    }
+  });
+});
+
+module.exports = {
+    "unAuthenticatedRoute" : unAuthenticatedRoute,
+    "authenticatedRoute" : authenticatedRoute
+}

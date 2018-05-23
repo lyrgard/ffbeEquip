@@ -153,3 +153,29 @@
     top: 20px;
     left: 320px;
 }
+
+#showLinkDialog input {
+    width: 100%;
+}
+
+.readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv {
+    display: none;
+}
+
+.readOnly .modifyCounterButton {
+    visibility: hidden;
+}
+
+.readOnly .unit {
+    cursor: default;
+}
+.readOnly .unit.notOwned:hover {
+    background-color: #FFFFFF;
+}
+.readOnly .unit:hover {
+    background-color: #d2edf9;
+}
+
+.readOnly .unit:hover .glyphicon-time {
+    color: #999;
+}

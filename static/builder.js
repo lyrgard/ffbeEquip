@@ -1601,7 +1601,7 @@ function getStateHash(onlyCurrent = true) {
 function readStateHashData(callback) {
     if (window.location.hash.length > 1) {
         var hashValue = window.location.hash.substr(1);
-        if (hashValue.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)) {
+        if (isLinkId(hashValue)) {
             $.ajax({
                 accepts: "application/json",
                 url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/PartyBuilds%2F" + hashValue + ".json?alt=media",

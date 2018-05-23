@@ -18,6 +18,7 @@ route.get('/:server/:table', async (req, res) => {
   return res.status(200).json(db);
 });
 
+
 route.put('/:server/:table', async (req, res) => {
   const { server, table } = req.params;
   const auth = req.OAuth2Client;
