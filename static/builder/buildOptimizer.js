@@ -23,6 +23,14 @@ class BuildOptimizer {
     }
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
+        if (this._unitBuild.formula.type == "conditions" && this._unitBuild.formula.conditions.elements) {
+            for (var i = this._unitBuild.formula.conditions.elements.length; i--;) {
+                if (!this.desirableElements.includes(this._unitBuild.formula.conditions.elements[i])) {
+                    this.desirableElements.push(this._unitBuild.formula.conditions.elements[i])
+                }
+            }
+        }
+        
         this.betterBuildFoundCallback = betterBuildFoundCallback;
         var combinationsNumber = typeCombinations.length;
         for (var index = 0, len = combinationsNumber; index < len; index++) {
@@ -114,7 +122,7 @@ class BuildOptimizer {
                 numberNeeded++;
             }
         }
-        return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, typeCombination);
+        return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, typeCombination);
     }
     
     getElementBasedSkills() {
