@@ -192,12 +192,12 @@ body {
 
 .sideBarButton {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 25px;
+    right: 25px;
     z-index: 11;
     background-color: green;
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 75px;
     border-radius: 75px;
     outline:none;
 	border: 1px green;
@@ -206,7 +206,7 @@ body {
 }
 
 .sideBarButton span {
-    font-size: 80px !important;
+    font-size: 36px !important;
     color: white;
 }
 
@@ -489,4 +489,35 @@ nav .dropdown-menu li {
 
 nav .dropdown-menu li a {
     color: #777;
+}
+
+@media (max-width: 991px) {
+    
+    nav #inventoryStatus {
+        display: none;
+    }
+    
+    #inventoryDiv .buttonDiv {
+        height: 80px;
+        margin-right: 5px;
+        font-size: 18px;
+    }
+    
+    nav.col-xs-12 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    nav .dropdown-menu li {
+        height: 48px;
+    }
+    
+    .container-fluid, .col-xs-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .loginMessageDetail {
+        display: none;
+    }
 }
