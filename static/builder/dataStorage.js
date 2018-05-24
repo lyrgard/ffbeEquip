@@ -231,6 +231,8 @@ class DataStorage {
                 return false;
             } else if (!includeAll(builds[currentUnitIndex].formula.conditions.elements, item.element)) {
                 return false;
+            } else {
+                return true;
             }
         }
         
