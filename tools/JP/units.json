@@ -2347,7 +2347,7 @@
 		"equip":["dagger","sword","greatSword","staff","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","robe"]
 	},
 	"100014905": {
-		"name":"Madame",
+		"name":"Madam",
 		"jpname":"マダム",
 		"id":"100014905",
 		"max_rarity":"5",
@@ -3043,7 +3043,7 @@
 	},
 	"202000203": {
 		"name":"Maria",
-		"jpname":"マリア",
+		"jpname":"マリア(FFII)",
 		"id":"202000203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -6854,6 +6854,66 @@
 			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
 		},
 		"equip":["whip","mace","fist","lightShield","hat","clothes","lightArmor","robe"]
+	},
+	"331000705": {
+		"name":"シタン",
+		"id":"331000705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":215,"atk":206,"def":187,"mag":169,"spr":189},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","katana","gun","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"シタン",
+			"id":"331000705",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3731,"mp":166,"atk":159,"def":144,"mag":130,"spr":139},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","katana","gun","fist","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"331000805": {
+		"name":"マリア",
+		"id":"331000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4200,"mp":270,"atk":126,"def":126,"mag":210,"spr":195},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","rod","hammer","whip","mace","fist","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"マリア",
+			"id":"331000805",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3231,"mp":208,"atk":97,"def":97,"mag":162,"spr":143},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"equip":["dagger","rod","hammer","whip","mace","fist","lightShield","hat","clothes","robe"]
+		}
+	},
+	"331000904": {
+		"name":"ビリー",
+		"id":"331000904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3641,"mp":169,"atk":152,"def":135,"mag":131,"spr":148},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"]
 	},
 	"332000105": {
 		"name":"ララ・クロフト",
