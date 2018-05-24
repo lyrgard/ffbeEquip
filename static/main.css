@@ -45,7 +45,6 @@
 
 @media (max-width: 991px) {
     
-    
 	#results .thead .special{
 		display: none;
 	}
@@ -117,52 +116,6 @@
         width: 100% !important;
     }
     
-    nav #inventoryStatus {
-        display: none;
-    }
-    
-    #inventoryDiv .buttonDiv {
-        height: 80px;
-        margin-right: 5px;
-        font-size: 18px;
-    }
-    
-    nav.col-xs-12 {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    nav .dropdown-menu li {
-        height: 48px;
-    }
-    
-    .container-fluid, .col-xs-12 {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    .sideBarButton {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 11;
-        background-color: green;
-        width: 75;
-        height: 75;
-        border-radius: 75px;
-        outline: none;
-        border: 1px green;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        float: right;
-    }
-    
-    .sideBarButton span {
-        font-size: 36px !important;
-    }
-    
-    .loginMessageDetail {
-        display: none;
-    }
 }
 
 @media (min-width: 992px) {
