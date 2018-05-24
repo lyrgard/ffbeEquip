@@ -226,8 +226,12 @@ class DataStorage {
     }
 
     itemCanBeOfUseForGoal(item, ennemyStats) {
-        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements && item.element && !includeAll(builds[currentUnitIndex].formula.conditions.elements, item.element)) {
-            return false;
+        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements && item.element) {
+            if (builds[currentUnitIndex].formula.conditions.elements.includes("none") ) {
+                return false;
+            } else if (!includeAll(builds[currentUnitIndex].formula.conditions.elements, item.element)) {
+                return false;
+            }
         }
         
         

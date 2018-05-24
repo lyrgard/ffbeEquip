@@ -215,12 +215,18 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     }
                 }
             };
-            if (formula.conditions.elements.length != elements.length) {
-                return 0;
-            }
-            for (var elementIndex = formula.conditions.elements.length; elementIndex--;) {
-                if (!elements.includes(formula.conditions.elements[elementIndex])) {
+            if (formula.conditions.elements.includes("none")) {
+                if (elements.length > 0) {
                     return 0;
+                }
+            } else {
+                if (formula.conditions.elements.length != elements.length) {
+                    return 0;
+                }
+                for (var elementIndex = formula.conditions.elements.length; elementIndex--;) {
+                    if (!elements.includes(formula.conditions.elements[elementIndex])) {
+                        return 0;
+                    }
                 }
             }
         }
