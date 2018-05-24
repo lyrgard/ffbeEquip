@@ -2148,7 +2148,7 @@
 		]
 	},
 	"100014905": {
-		"name":"undefined",
+		"name":"Madam",
 		"id":"100014905",
 		"max_rarity":"5",
 		"min_rarity":"5",
@@ -2205,6 +2205,21 @@
 		"equip":["dagger","bow","whip","gun","fist","hat","clothes","lightArmor"],
 		"skills": [
 			{"mp%":20, "atk%":20, "resist":[{"name":"lightning","percent":30}]}
+		]
+	},
+	"100016605": {
+		"name":"Ukiyo",
+		"id":"100016605",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3448,"mp":177,"atk":91,"def":135,"mag":130,"spr":118},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"equip":["dagger","staff","rod","throwing","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":30, "mag%":90, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"light","percent":5},{"name":"dark","percent":5},{"name":"light","percent":10},{"name":"dark","percent":10},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"silence","percent":100},{"name":"disease","percent":100}]}
 		]
 	},
 	"199000101": {

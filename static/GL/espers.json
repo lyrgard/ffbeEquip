@@ -1,9 +1,9 @@
 [
     {"id":"Siren","name":"Siren","maxLevel":3,"hp":5400,"mp":6240,"atk":4200,"def":4680,"mag":6120,"spr":6120, "resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50},{"name":"sleep","percent":100}]},
     {"id":"Ifrit","name":"Ifrit","maxLevel":3,"hp":7000,"mp":4500,"atk":7480,"def":5060,"mag":3880,"spr":3800,"killers":[{"name":"beast","physical":125, "magical":75}, {"name":"plant","physical":125, "magical":75}], "resist":[{"name":"ice","percent":-50},{"name":"fire","percent":50},{"name":"blind","percent":50}]},
-    {"id":"Shiva","name":"Shiva","maxLevel":2,"hp":3300,"mp":5900,"atk":2100,"def":2300,"mag":5400,"spr":5400, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":50}]},
+    {"id":"Shiva","name":"Shiva","maxLevel":3,"hp":5800,"mp":7500,"atk":3960,"def":4460,"mag":7020,"spr":7020, "resist":[{"name":"fire","percent":-50},{"name":"ice","percent":50},{"name":"paralysis","percent":100}]},
     {"id":"Golem","name":"Golem","maxLevel":2,"hp":5500,"mp":4300,"atk":3200,"def":4500,"mag":1600,"spr":1600,"killers":[{"name":"stone","physical":50},{"name":"bug","physical":50}], "resist":[{"name":"wind","percent":-50},{"name":"earth","percent":50}]},
-    {"id":"Ramuh","name":"Ramuh","maxLevel":2,"hp":2800,"mp":6200,"atk":1600,"def":1100,"mag":5900,"spr":4500, "resist":[{"name":"water","percent":-50},{"name":"lightning","percent":50}]},
+    {"id":"Ramuh","name":"Ramuh","maxLevel":3,"hp":4480,"mp":8000,"atk":3600,"def":2920,"mag":7640,"spr":6440,"killers":[{"name":"stone", "magical":50},{"name":"demon", "magical":50}], "resist":[{"name":"water","percent":-50},{"name":"lightning","percent":50},{"name":"silence","percent":100}]},
     {"id":"Diabolos","name":"Diabolos","maxLevel":2,"hp":4300,"mp":6000,"atk":1500,"def":2300,"mag":5300,"spr":3100,"killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "resist":[{"name":"light","percent":-50},{"name":"dark","percent":50}]},
     {"id":"Carbuncle","name":"Carbuncle","maxLevel":2,"hp":3200,"mp":5700,"atk":1800,"def":3200,"mag":4300,"spr":6000, "resist":[{"name":"dark","percent":-50},{"name":"light","percent":50}]},
     {"id":"Odin","name":"Odin","maxLevel":2,"hp":5000,"mp":3900,"atk":6000,"def":4200,"mag":2000,"spr":2200,"killers":[{"name":"dragon","physical":50},{"name":"undead","physical":50}]},

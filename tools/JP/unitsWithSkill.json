@@ -3041,7 +3041,7 @@
 		]
 	},
 	"100014905": {
-		"name":"Madame",
+		"name":"Madam",
 		"jpname":"マダム",
 		"id":"100014905",
 		"max_rarity":"5",
@@ -3975,7 +3975,7 @@
 	},
 	"202000203": {
 		"name":"Maria",
-		"jpname":"マリア",
+		"jpname":"マリア(FFII)",
 		"id":"202000203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -8926,6 +8926,89 @@
 		"equip":["whip","mace","fist","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"mp%":20, "atk%":10, "mag%":30}
+		]
+	},
+	"331000705": {
+		"name":"シタン",
+		"id":"331000705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":215,"atk":206,"def":187,"mag":169,"spr":189},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","katana","gun","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"tmrSkill": {"killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
+		"skills": [
+			{"hp%":60, "mp%":50, "atk%":90, "def%":70, "mag%":20, "spr%":70, "singleWielding":{"atk":150}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
+			{"atk%":20, "equipedConditions":["fist"]},
+			{"atk%":10, "equipedConditions":["katana"]},
+			{"atk%":60, "equipedConditions":["katana"]}
+		],
+		"6_form": {
+			"name":"シタン",
+			"id":"331000705",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3731,"mp":166,"atk":159,"def":144,"mag":130,"spr":139},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","katana","gun","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":50, "singleWielding":{"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
+				{"atk%":20, "equipedConditions":["fist"]},
+				{"atk%":10, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"331000805": {
+		"name":"マリア",
+		"id":"331000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4200,"mp":270,"atk":126,"def":126,"mag":210,"spr":195},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","rod","hammer","whip","mace","fist","lightShield","hat","clothes","robe"],
+		"tmrSkill": {"mp%":20, "spr%":20, "dualWielding":{"mag":60}, "lbFillRate":100},
+		"skills": [
+			{"hp%":20, "mp%":30, "mag%":170, "spr%":20, "lbFillRate":50, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":10, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}
+		],
+		"6_form": {
+			"name":"マリア",
+			"id":"331000805",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3231,"mp":208,"atk":97,"def":97,"mag":162,"spr":143},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"equip":["dagger","rod","hammer","whip","mace","fist","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "mag%":80, "spr%":20, "lbFillRate":50, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":10, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}
+			]
+		}
+	},
+	"331000904": {
+		"name":"ビリー",
+		"id":"331000904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3641,"mp":169,"atk":152,"def":135,"mag":131,"spr":148},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "atk%":60, "def%":10, "spr%":10, "lbFillRate":25, "special":["dualWield"]},
+			{"atk%":20, "equipedConditions":["gun"]}
 		]
 	},
 	"332000105": {
