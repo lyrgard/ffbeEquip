@@ -1,5 +1,5 @@
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_SPR", "P_DAMAGE_DEF","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
-const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK"];
+const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-"];
 const attributeByVariable = {
     "HP":"hp",
@@ -157,6 +157,13 @@ function parseConditions(formula, pos) {
                 otherConditions.thresholds.push({"value":firstCondition.value, "goal":firstCondition.goal})
             } else {
                 if (!otherConditions.elements) { otherConditions.elements = []; }
+                if (firstCondition.value != "none" && otherConditions.elements.includes("none")) {
+                    alert("Error : impossible to force no element AND " + firstCondition.value + " element");
+                    return undefined;
+                } else if (firstCondition.value == "none" && otherConditions.elements.length >= 0) {
+                    alert("Error : impossible to force no element AND " + otherConditions.elements );
+                    return undefined;
+                }
                 otherConditions.elements.push(firstCondition.value)
             }
             return otherConditions;
