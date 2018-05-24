@@ -13,8 +13,24 @@
         <div class="container-fluid">
             <div class="col-xs-12">
                 <nav class="col-xs-12 navbar navbar-default">
-                    <div class="navbar-header">
-                        <div class="navbar-brand">FFBE Equip</div>
+                    <span id="navigationMenuButton" class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></span>
+                    <ul class="dropdown-menu">
+                        <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
+                        <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
+                        <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
+                        <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html"><span class="glyphicon glyphicon-chevron-right"></span> Builder</a></li>
+                        <li><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html"><span class="glyphicon glyphicon-chevron-right"></span> Contribute</a></li>
+                    </ul>
+                    <div id="navbar-header">
+                        <div id="navbar-brand">FFBE Equip</div>
+                        <div id="navbar-page">Search</div>
+                    </div>
+                    
+                    <div id="serverAndLanguagesSwitcher">
+                        <div class="switchServer btn-group">
+                            <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                            <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                        </div>
                         <div id="languages">
                             <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
                             <span class="lang-xs" lang="zh" onclick="switchToLanguage('zh')"></span>
@@ -24,29 +40,21 @@
                             <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
                         </div>
                     </div>
-                    <div class="switchServer btn-group">
-                        <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
-                        <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a></li>
-                        <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a></li>
-                        <li><a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a></li>
-                        <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a></li>
-                        <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a></li>
-                        <li><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a></li>
-                    </ul>
-                    <div class="jpWarning hidden" data-server="JP"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data may not be accurate</div>
-                    <div id="inventoryDiv" class="buttons account">
-                        <span>Inventory :&nbsp;</span>
-                        <span class="status"></span>
-                        <div class="loader"></div>
-                        <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                        <a href="/googleOAuthLogout">
-                          <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
-                        </a>
-                    </div>
 
+                    <div id="inventoryDiv" class="buttons account">
+                        <div class="buttonDiv">
+                            <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+                            <a href="/googleOAuthLogout">
+                              <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                            </a>
+                        </div>
+                        <div id="inventoryStatus">
+                            <span>Inventory :&nbsp;</span>
+                            <span class="status"></span>
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    
                 </nav>
             </div>
             <div class="col-xs-12 col-md-6">
@@ -190,27 +198,6 @@
 
             </div>
             <div  class="col-xs-12 col-md-6">
-                <div id="inventoryDiv" class="mobile panel panel-default collapse in">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="switchServer btn-group col-xs-2">
-                                <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
-                                <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
-                            </div>
-                            <div class="col-xs-6">
-                                <span>Inventory :&nbsp;</span>
-                                <span class="status"></span>
-                                <div class="loader"></div>
-                            </div>
-                            <div class="col-xs-4 text-right buttons">
-                                <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                                <div class="loader hidden"></div>
-                                <span class="message hidden"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div id="resultsDiv" class="panel panel-default collapse in">
                     <div class="panel-heading">
                         <div>Results : <span id="resultNumber"></span></div>
@@ -255,6 +242,7 @@
                 </div>
             </div>
         </div>
+        
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>

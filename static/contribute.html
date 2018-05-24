@@ -13,41 +13,48 @@
         <div class="container-fluid">
             <div class="col-xs-12">
                 <nav class="col-xs-12 navbar navbar-default">
-                        <div class="navbar-header">
-                            <div class="navbar-brand">FFBE Equip</div>
-                            <div id="languages">
-                                <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
-                                <span class="lang-xs" lang="zh" onclick="switchToLanguage('zh')"></span>
-                                <span class="lang-xs" lang="ko" onclick="switchToLanguage('ko')"></span>
-                                <span class="lang-xs" lang="fr" onclick="switchToLanguage('fr')"></span>
-                                <span class="lang-xs" lang="de" onclick="switchToLanguage('de')"></span>
-                                <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
-                            </div>
-                        </div>
+                    <span id="navigationMenuButton" class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></span>
+                    <ul class="dropdown-menu">
+                        <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Search</a></li>
+                        <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
+                        <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
+                        <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
+                        <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html"><span class="glyphicon glyphicon-chevron-right"></span> Builder</a></li>
+                    </ul>
+                    <div id="navbar-header">
+                        <div id="navbar-brand">FFBE Equip</div>
+                        <div id="navbar-page">Contribute</div>
+                    </div>
+                    
+                    <div id="serverAndLanguagesSwitcher">
                         <div class="switchServer btn-group">
                             <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
                             <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
                         </div>
-                        <ul class="nav navbar-nav">
-                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a></li>
-                            <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a></li>
-                            <li><a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a></li>
-                            <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a></li>
-                            <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a></li>
-                            <li class="active"><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a></li>
-                        </ul>
-                        <div class="jpWarning hidden" data-server="JP"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>The JP version is a work in progress<br/> The data may not be accurate</div>
-                        <!--<div id="inventoryDiv" class="buttons account">
-                            <span>Inventory :&nbsp;</span>
-                            <span class="status"></span>
-                            <div class="loader"></div>
+                        <div id="languages">
+                            <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
+                            <span class="lang-xs" lang="zh" onclick="switchToLanguage('zh')"></span>
+                            <span class="lang-xs" lang="ko" onclick="switchToLanguage('ko')"></span>
+                            <span class="lang-xs" lang="fr" onclick="switchToLanguage('fr')"></span>
+                            <span class="lang-xs" lang="de" onclick="switchToLanguage('de')"></span>
+                            <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
+                        </div>
+                    </div>
+
+                    <div id="inventoryDiv" class="buttons account">
+                        <div class="buttonDiv">
                             <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
                             <a href="/googleOAuthLogout">
                               <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
                             </a>
-                            <div class="loader hidden"></div>
-                            <span class="message hidden"/>
-                        </div>-->
+                        </div>
+                        <div>
+                            <span>Inventory :&nbsp;</span>
+                            <span class="status"></span>
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    
                 </nav>
             </div>
             <div class="col-xs-12 col-md-6">

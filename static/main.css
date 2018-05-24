@@ -145,12 +145,24 @@
         width: 100% !important;
     }
     
-    nav {
+    nav #inventoryStatus {
         display: none;
     }
     
-    #inventoryDiv.mobile {
-        display: block;
+    #navbar-header {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #navbar-header #navbar-brand:after{
+        content: " :";
+        margin-right: 10px;
+        
+    }
+    
+    #inventoryDiv .buttonDiv {
+        height: 80px;
+        margin-right: 15px;
     }
 }
 

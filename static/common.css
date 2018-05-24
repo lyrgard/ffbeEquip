@@ -263,44 +263,6 @@ img.icon {
     100% { transform: rotate(360deg); }
 }
 
-.account {
-    display: flex;
-    align-items: center;
-    float: right;
-    height: 50px;
-}
-
-.switchServer {
-    display: inline-flex;
-    align-items: center;
-    height: 50px;
-    float: left;
-    margin-right: 15px;
-}
-
-.switchServer .notSelected {
-    color: grey;
-}
-
-.jpWarning {
-    display: inline-flex;
-    align-items: center;
-    height: 50px;
-    float: left;
-}
-
-#inventoryDiv .btn {
-    margin-left: 10px;
-}
-
-.switchServer button.btn {
-    margin-left: 0 !important;
-}
-
-.logOut {
-    margin-left: 10px;
-    cursor: pointer;
-}
 
 .specialValueGroup {
     display: flex;
@@ -434,4 +396,96 @@ img.icon {
     line-height: 16px;
     vertical-align: middle;
     color: blue;
+}
+
+nav {
+    height: 80px;
+}
+
+#navigationMenuButton {
+    float: left;
+    line-height: 80px;
+    height: 80px;
+    font-size:24px;
+    color: #777;
+}
+
+#serverAndLanguagesSwitcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    margin-left: 15px;
+}
+
+
+#inventoryDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 80px;
+}
+
+#inventoryDiv .buttonDiv {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+#inventoryDiv .btn {
+    margin-left: 10px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    float: right;
+    height: 50px;
+}
+
+.switchServer {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.switchServer .notSelected {
+    color: grey;
+}
+
+.switchServer button.btn {
+    margin-left: 0 !important;
+}
+
+.logOut {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#navbar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    float: left;
+    justify-content: center;
+    height: 80px;
+    margin-left: 15px;
+    color: #777;
+}
+
+#navbar-brand {
+    font-size: 18px;
+}
+
+#navbar-page {
+    font-size: 24px;
+}
+
+nav .dropdown-menu li {
+    height: 34px;
+    font-size: 18px;
+}
+
+nav .dropdown-menu li a {
+    color: #777;
 }
