@@ -201,22 +201,20 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         }
         if (formula.conditions.elements) {
             var elements = [];
-            if (unitBuild.involvedStats.includes("weaponElement")) {
-                if (itemAndPassives[0] && itemAndPassives[0].element) {
-                    for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
-                        if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
-                            elements.push(itemAndPassives[0].element[elementIndex]);       
-                        }
+            if (itemAndPassives[0] && itemAndPassives[0].element) {
+                for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
+                    if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
+                        elements.push(itemAndPassives[0].element[elementIndex]);       
                     }
-                };
-                if (itemAndPassives[1] && itemAndPassives[1].element) {
-                    for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
-                        if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
-                            elements.push(itemAndPassives[1].element[elementIndex]);       
-                        }
+                }
+            };
+            if (itemAndPassives[1] && itemAndPassives[1].element) {
+                for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
+                    if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
+                        elements.push(itemAndPassives[1].element[elementIndex]);       
                     }
-                };
-            }
+                }
+            };
             if (formula.conditions.elements.length != elements.length) {
                 return 0;
             }

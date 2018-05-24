@@ -146,13 +146,17 @@ class DataStorage {
                 return entry1.item.id - entry2.item.id;
             }
         })
+        var desirableElements = null;
+        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements) {
+            desirableElements = builds[currentUnitIndex].formula.conditions.elements;
+        }
         for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
             var type = typeList[typeIndex];
             if (this.dataByType[type] && this.dataByType[type].length > 0) {
                 var numberNeeded = 1;
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
-                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats);
+                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, desirableElements);
                 this.dataByType[type] = [];
                 for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                     this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    

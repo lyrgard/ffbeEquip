@@ -215,14 +215,14 @@ class TreeComparator {
                             desirableElementsFromItem2.push(desirableElements[index]);
                         }
                     }
-                    if (includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
-                        if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                    if (TreeComparator.includeAll(desirableElementsFromItem1, desirableElementsFromItem2)) {
+                        if (TreeComparator.includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
                             return "equivalent";
                         } else {
                             return "strictlyWorse";
                         }
                     } else {
-                        if (includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
+                        if (TreeComparator.includeAll(desirableElementsFromItem2, desirableElementsFromItem1)) {
                             return "strictlyBetter";
                         } else {
                             return "sameLevel";
@@ -242,6 +242,7 @@ class TreeComparator {
 
     }
     
+    
         // Return true if the two arrays share at least one value
     static matches(array1, array2) {
         var match = false;
@@ -251,5 +252,14 @@ class TreeComparator {
             }
         }
         return match;
+    }
+    
+    static includeAll(array1, array2) {
+        for (var index in array2) {
+            if (!array1.includes(array2[index])) {
+                return false;
+            }
+        }
+        return true;
     }
 }
