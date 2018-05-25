@@ -261,8 +261,8 @@ function abilityIcon(text) {
         var vWithoutBrace = v.substring(1, v.length - 1);
         var token = vWithoutBrace.split("|");
         var result = "";
-        if (token.length == 2) {
-            result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
+        if (token.length >= 2) {
+            result += "<img class='icon' src='/img/items/" + token[token.length - 1] + "'></img>"
         }
         return result;
     });
@@ -272,7 +272,11 @@ function abilityName(text) {
     return text.replace(/(\[[^\]]*\])/g, function(v) {
         var vWithoutBrace = v.substring(1, v.length - 1);
         var token = vWithoutBrace.split("|");
-        return toLink(token[0]);
+        if (token.length == 3) {
+            return toLink(token[1], token[0]);
+        } else {
+            return toLink(token[0]);    
+        }
     });
 }
 
