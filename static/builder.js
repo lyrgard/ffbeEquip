@@ -1918,6 +1918,7 @@ function getItemLineAsText(prefix, slot) {
                     }
                 }
             }
+            statBonusCoef = Math.min(3, statBonusCoef);
         } 
         var resultText = prefix + ": " + item.name + " ";
         var first = true;
