@@ -156,6 +156,21 @@ var getStatDetail = function(item) {
     if (item.type == "monster") {
         statsToDisplay = ["def", "spr"];
     }
+    var statBonusCoef = 1;
+    if (item.type == "esper") {
+        if (item.esperStatsBonus) {
+            statBonusCoef += item.esperStatsBonus["hp"] / 100;
+        }
+        if (builds && builds[currentUnitIndex] && builds[currentUnitIndex].build) {
+            for (var i = 0; i < builds[currentUnitIndex].build.length; i++) {
+                if (i != 10) {
+                    if (builds[currentUnitIndex].build[i] && builds[currentUnitIndex].build[i].esperStatsBonus) {
+                        statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus["hp"] / 100;
+                    }
+                }
+            }
+        }
+    } 
     $(statsToDisplay).each(function(index, stat) {
         detail += "<span class='" + stat + "'>";
 
@@ -165,7 +180,7 @@ var getStatDetail = function(item) {
             } else {
                 detail += ', ';
             }
-            detail += stat + '+' + item[stat];
+            detail += stat + '+' + Math.floor(item[stat] * statBonusCoef);
         }
         if (item[stat+'%']) {
             if (first) {

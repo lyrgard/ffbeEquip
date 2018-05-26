@@ -1909,6 +1909,16 @@ function resetExcludeList() {
 function getItemLineAsText(prefix, slot) {
     var item = builds[currentUnitIndex].build[slot];
     if (item) {
+        var statBonusCoef = 1;
+        if (item.type == "esper") {
+            if (builds && builds[currentUnitIndex] && builds[currentUnitIndex].build) {
+                for (var i = 0; i < builds[currentUnitIndex].build.length; i++) {
+                    if (builds[currentUnitIndex].build[i] && builds[currentUnitIndex].build[i].esperStatsBonus) {
+                        statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus["hp"] / 100;
+                    }
+                }
+            }
+        } 
         var resultText = prefix + ": " + item.name + " ";
         var first = true;
         for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
@@ -1918,7 +1928,7 @@ function getItemLineAsText(prefix, slot) {
                 } else {
                     resultText += ", ";
                 }
-                resultText += baseStats[statIndex].toUpperCase() + "+" + item[baseStats[statIndex]];
+                resultText += baseStats[statIndex].toUpperCase() + "+" + Math.floor(item[baseStats[statIndex]] * statBonusCoef);
             }
             if (item[baseStats[statIndex] + "%"]) {
                 if (first) {
