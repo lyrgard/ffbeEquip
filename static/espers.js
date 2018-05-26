@@ -148,7 +148,11 @@ function updateStats() {
     }
     
     for (var index = 0; index < baseStats.length; index++) {
-        $("#esper_" + baseStats[index]).text(ownedEsper[baseStats[index]]);
+        var statBonusCoef = 1;
+        if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus[baseStats[index]]) {
+            statBonusCoef += ownedEsper.esperStatsBonus[baseStats[index]] / 100;
+        }
+        $("#esper_" + baseStats[index]).html(ownedEsper[baseStats[index]] + "&nbsp;(+" + Math.floor(ownedEsper[baseStats[index]] * statBonusCoef / 100) + ")");
     }
 }
 
