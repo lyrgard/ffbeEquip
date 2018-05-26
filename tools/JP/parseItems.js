@@ -438,6 +438,9 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         return false; // don't consider active skills
     }
     var rawEffect = skill.effects_raw[rawEffectIndex];
+    if (skill.name == "祈り子の夢") {
+        console.log(rawEffect);
+    }
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
         var effectData = rawEffect[3]            
