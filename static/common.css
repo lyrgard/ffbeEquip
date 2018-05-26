@@ -491,7 +491,63 @@ nav .dropdown-menu li a {
     color: #777;
 }
 
+#mobileMenu {
+    display: none;
+}
+
+#desktopMenu {
+    float:left;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#desktopMenu #navbar-brand {
+    height: 50px;
+    line-height: 50px;
+    color: #777;
+    font-size: 24px;
+}
+
+#desktopMenu #links {
+    padding-bottom: 3px;
+}
+
+#desktopMenu a {
+    padding-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    text-decoration: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#desktopMenu a.active {
+    color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#desktopMenu a:hover {
+    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 @media (max-width: 991px) {
+    
+    #mobileMenu {
+        display: block;
+    }
+
+    #desktopMenu {
+        display: none;
+    }
     
     nav #inventoryStatus {
         display: none;
