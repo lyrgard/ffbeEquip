@@ -170,6 +170,7 @@ var getStatDetail = function(item) {
                 }
             }
         }
+        statBonusCoef = Math.min(3, statBonusCoef);
     } 
     $(statsToDisplay).each(function(index, stat) {
         detail += "<span class='" + stat + "'>";
