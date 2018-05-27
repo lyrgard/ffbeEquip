@@ -31,6 +31,7 @@ onmessage = function(event) {
             optimizer.useEspers = messageData.useEspers;
             optimizer.espers = messageData.espers;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
+            optimizer.goalVariation = messageData.goalVariation;
             break;
         case "optimize":
             optimizer.optimizeFor(
