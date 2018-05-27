@@ -238,6 +238,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = $(".goal select").val();   
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
+    goalVariation = $("#goalVariance").val();
 }
 
 function readItemsExcludeInclude() {
