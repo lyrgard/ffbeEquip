@@ -16,7 +16,7 @@ class UnitBuild {
         this.unit = unit;
         this.fixedItems = fixedItems;
         this.build = fixedItems.slice();
-        this.buildValue = 0;
+        this.buildValue = {"min":0, "avg":0, "max":0};
         this.innateElements = [];
         this.baseValues = baseValues;
         this.fixedItemsIds = [];

@@ -3,6 +3,26 @@ const statsBonusCap = {
     "GL": 300,
     "JP": 400
 }
+const operatorsInFormula = ["/","*","+","-"];
+const weaponBaseDamageVariance = {
+    "dagger" : {"min":0.95,"avg":1,"max":1.05},
+    "sword" : {"min":0.9,"avg":1,"max":1.1},
+    "greatSword" : {"min":0.85,"avg":1,"max":1.15},
+    "katana" : {"min":0.9,"avg":1,"max":1.1},
+    "staff" : {"min":0.95,"avg":1,"max":1.05},
+    "rod" : {"min":0.95,"avg":1,"max":1.05},
+    "bow" : {"min":0.95,"avg":1,"max":1.05},
+    "axe" : {"min":0.7,"avg":1,"max":1.3},
+    "hammer" : {"min":0.8,"avg":1,"max":1.2},
+    "spear" : {"min":0.85,"avg":1,"max":1.15},
+    "harp" : {"min":0.9,"avg":1,"max":1.1},
+    "whip" : {"min":0.9,"avg":1,"max":1.1},
+    "throwing" : {"min":0.9,"avg":1,"max":1.1},
+    "gun" : {"min":0.95,"avg":1,"max":1.05},
+    "mace" : {"min":0.95,"avg":1,"max":1.05},
+    "fist" : {"min":1,"avg":1,"max":1},
+    "none" : {"min":1,"avg":1,"max":1}
+}
 
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
@@ -144,58 +164,119 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
-            damageMultiplier  = (1 + ((unitBuild.unit.max_rarity - 1)/5)) * 0.925; 
+            var levelCorrection = (1 + ((unitBuild.unit.max_rarity - 1)/5));
+            var damageMultiplier = {
+                "min": levelCorrection * 0.85,
+                "avg": levelCorrection * 0.925,
+                "max": levelCorrection
+            }
             
-            var total = 0;
+            var total = {
+                "min":0,
+                "avg":0,
+                "max":0
+            };
             for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
                 var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
                 var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
 
                 if ("atk" == stat) {
-                    var variance0 = 1;
-                    var variance1 = 1;
-                    if (itemAndPassives[0] && itemAndPassives[0].meanDamageVariance) {
-                        variance0 = itemAndPassives[0].meanDamageVariance;
+                    var variance0;
+                    var variance1;
+                    if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+                        if (itemAndPassives[0].damageVariance) {
+                            variance0 = itemAndPassives[0].damageVariance;
+                        } else {
+                            variance0 = weaponBaseDamageVariance[itemAndPassives[0].type];
+                        }    
+                    }  else {
+                        variance0 = weaponBaseDamageVariance["none"];
                     }
-                    if (itemAndPassives[1] && itemAndPassives[1].meanDamageVariance) {
-                        variance1 = itemAndPassives[1].meanDamageVariance;
+                    
+                    if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                        if (itemAndPassives[1].damageVariance) {
+                            variance1 = itemAndPassives[1].damageVariance;
+                        } else {
+                            variance1 = weaponBaseDamageVariance[itemAndPassives[1].type];
+                        }    
+                    }  else {
+                        variance1 = weaponBaseDamageVariance["none"];
                     }
-                    total += (calculatedValue.right * calculatedValue.right * variance0 + calculatedValue.left * calculatedValue.left * variance1) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier  / ennemyStats.def;
+                    total.min += (calculatedValue.right * calculatedValue.right * variance0.min + calculatedValue.left * calculatedValue.left * variance1.min) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min  / ennemyStats.def;
+                    total.avg += (calculatedValue.right * calculatedValue.right * variance0.avg + calculatedValue.left * calculatedValue.left * variance1.avg) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg  / ennemyStats.def;
+                    total.max += (calculatedValue.right * calculatedValue.right * variance0.max + calculatedValue.left * calculatedValue.left * variance1.max) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max  / ennemyStats.def;
                 } else {
                     var dualWieldCoef = 1;
                     if (goalValuesCaract[formula.name].type == "physical" && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                         dualWieldCoef = 2;
                     }
-                    total += (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * damageMultiplier  / ennemyStats.spr;
+                    var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyStats.spr;
+                    total.min += base * damageMultiplier.min;
+                    total.avg += base * damageMultiplier.avg;
+                    total.max += base * damageMultiplier.max;
                 }
             }
-            var value = total / goalValuesCaract[formula.name].statsToMaximize.length;
+            var value = {
+                "min": total.min / goalValuesCaract[formula.name].statsToMaximize.length,
+                "avg": total.avg / goalValuesCaract[formula.name].statsToMaximize.length,
+                "max": total.max / goalValuesCaract[formula.name].statsToMaximize.length
+            }
             alreadyCalculatedValues[formula.name] = value;
             return value;
         } else {
             var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
+            var result = {
+                "min": value,
+                "avg": value,
+                "max": value
+            }
             if (formula.name == "mpRefresh") {
                 value /= 100;
             }
-            alreadyCalculatedValues[formula.name] = value;
-            return value;
+            alreadyCalculatedValues[formula.name] = result;
+            return result;
         }   
     } else if (formula.type == "constant") {
-        return formula.value;
-    } else if (formula.type == "*") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) * calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
-    } else if (formula.type == "+") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) + calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
-    } else if (formula.type == "/") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) / calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
-    } else if (formula.type == "-") {
-        return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues) - calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        return {
+            "min": formula.value,
+            "avg": formula.value,
+            "max": formula.value,
+        };
+        formula.value;
+    } else if (operatorsInFormula.includes(formula.type)) {
+        var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues);
+        var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);
+        if (formula.type == "*") {
+            return {
+                "min": result1.min * result2.min,
+                "avg": result1.avg * result2.avg,
+                "max": result1.max * result2.max,
+            };
+        } else if (formula.type == "+") {
+            return {
+                "min": result1.min + result2.min,
+                "avg": result1.avg + result2.avg,
+                "max": result1.max + result2.max,
+            };
+        } else if (formula.type == "/") {
+            return {
+                "min": result1.min / result2.max,
+                "avg": result1.avg / result2.avg,
+                "max": result1.max / result2.min,
+            };
+        } else if (formula.type == "-") {
+            return {
+                "min": result1.min - result2.max,
+                "avg": result1.avg - result2.avg,
+                "max": result1.max - result2.min,
+            };
+        }
     } else if (formula.type == "conditions") {
         if (formula.conditions.thresholds) {
             for (var index = formula.conditions.thresholds.length; index --; ) {
                 var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions.thresholds[index].value, alreadyCalculatedValues);
                 if (value < formula.conditions.thresholds[index].goal) {
-                    return 0;
+                    return -1;
                 }
             }
         }
@@ -217,15 +298,15 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             };
             if (formula.conditions.elements.includes("none")) {
                 if (elements.length > 0) {
-                    return 0;
+                    return -1;
                 }
             } else {
                 if (formula.conditions.elements.length != elements.length) {
-                    return 0;
+                    return -1;
                 }
                 for (var elementIndex = formula.conditions.elements.length; elementIndex--;) {
                     if (!elements.includes(formula.conditions.elements[elementIndex])) {
-                        return 0;
+                        return -1;
                     }
                 }
             }

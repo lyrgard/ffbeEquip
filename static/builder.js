@@ -81,6 +81,7 @@ var dataStorage;
 var bestiary;
 var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
+var goalVariation = "min";
 
 function build() {
     if (running) {
@@ -147,7 +148,8 @@ function optimize() {
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":alreadyUsedEspers,
             "useEspers":!onlyUseShopRecipeItems,
-            "ennemyStats":ennemyStats
+            "ennemyStats":ennemyStats,
+            "goalVariation": goalVariation
         }));
     }
     
@@ -561,7 +563,7 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        value = calculateBuildValue(build);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
     }
     
     var killers = [];
@@ -647,36 +649,54 @@ function logBuild(build, value) {
     if (importantStats.includes("atk")) {
         $("#resultStats .physicalDamageResult").removeClass("hidden");
         physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"]);
-        $("#resultStats .physicalDamageResult .calcValue").text(Math.floor(physicalDamageResult));
+        $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
     }
     if (importantStats.includes("mag")) {
         $("#resultStats .magicalDamageResult").removeClass("hidden");
         magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"]);
-        $("#resultStats .magicalDamageResult .calcValue").text(Math.floor(magicalDamageResult));
+        $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
     }
     if (importantStats.includes("atk") && importantStats.includes("mag")) {
         $("#resultStats .hybridDamageResult").removeClass("hidden");
         hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"]);
-        $("#resultStats .hybridDamageResult .calcValue").text(Math.floor(hybridDamageResult));
+        $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
     }
     if (importantStats.includes("mag") && importantStats.includes("spr")) {
         $("#resultStats .healingResult").removeClass("hidden");
         healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"]);
-        $("#resultStats .healingResult .calcValue").text(Math.floor(healingResult));
+        $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
     }
-    if (value != physicalDamageResult && value != magicalDamageResult && value != hybridDamageResult && value != healingResult) {
+    if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
         $("#resultStats .buildResult").removeClass("hidden");
-        var valueToDisplay;
+        var valueToDisplay = value[goalVariation];
         if (value < 100) {
-            valueToDisplay = Math.floor(value*10)/10;
+            valueToDisplay = Math.floor(valueToDisplay*10)/10;
         } else {
-            valueToDisplay = Math.floor(value);
+            valueToDisplay = Math.floor(valueToDisplay);
         }
         $("#resultStats .buildResult .calcValue").text(valueToDisplay);
     }
     $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
     $("#resultStats .damageCoef").html("1x");
+}
+
+function getValueWithVariationHtml(value) {
+    var valueString = "";
+    if (value.min == value.max) {
+        var valueToDisplay = value[goalVariation];
+        if (valueToDisplay < 100) {
+            valueToDisplay = Math.floor(valueToDisplay*10)/10;
+        } else {
+            valueToDisplay = Math.floor(valueToDisplay);
+        }
+        valueString = '<span class="goal">' + valueToDisplay + '</span>';
+    } else {
+        valueString = '<span class="min ' + ((goalVariation == "min") ? "goal":"")  + '">' + Math.floor(value.min) + "</span> - " +
+            '<span class="avg ' + ((goalVariation == "avg") ? "goal":"")  + '">' + Math.floor(value.avg) + "</span> - " +
+            '<span class="max ' + ((goalVariation == "max") ? "goal":"")  + '">' + Math.floor(value.max) + "</span>";
+    }
+    return valueString;
 }
 
 function addKiller(killers, newKiller) {
@@ -2158,7 +2178,7 @@ function initWorkers() {
             var messageData = JSON.parse(event.data);
             switch(messageData.type) {
                 case "betterBuildFound":
-                    if (!builds[currentUnitIndex].buildValue || builds[currentUnitIndex].buildValue < messageData.value) {
+                    if (!builds[currentUnitIndex].buildValue[goalVariation] || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]) {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
                         logCurrentBuild();

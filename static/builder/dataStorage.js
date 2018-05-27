@@ -13,7 +13,8 @@ class DataStorage {
             var item = this.data[index];
             item.meanDamageVariance = 1;
             if (item.damageVariance) {
-                item.meanDamageVariance = (item.damageVariance.min + item.damageVariance.max) / 2
+                item.damageVariance.avg = (item.damageVariance.min + item.damageVariance.max) / 2;
+                item.meanDamageVariance = item.damageVariance.avg;
             }
             if (item.id != currentId) {
                 if (currentItemVersions.length > 1 || (currentItemVersions.length == 1 && currentItemVersions[0].equipedConditions)) {

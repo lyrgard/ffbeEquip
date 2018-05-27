@@ -1,6 +1,7 @@
 class BuildOptimizer {
     constructor(allItemVersions) {
         this.allItemVersions = allItemVersions;
+        this.goalVariation = "avg";
     }
     
     set unitBuild(unitBuild) {
@@ -270,7 +271,7 @@ class BuildOptimizer {
     tryEsper(build, esper) {
         build[10] = esper;
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula);
-        if ((value != 0 && this._unitBuild.buildValue == 0) || value > this._unitBuild.buildValue) {
+        if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == 0) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             this._unitBuild.build = build.slice();
             this._unitBuild.buildValue = value;
             this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue);
