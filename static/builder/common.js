@@ -275,7 +275,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         if (formula.conditions.thresholds) {
             for (var index = formula.conditions.thresholds.length; index --; ) {
                 var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions.thresholds[index].value, alreadyCalculatedValues);
-                if (value < formula.conditions.thresholds[index].goal) {
+                if (value.avg < formula.conditions.thresholds[index].goal) {
                     return -1;
                 }
             }
