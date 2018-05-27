@@ -610,12 +610,12 @@ function logBuild(build, value) {
             }
         }
     }
-    killerValues = killerValues.sort().reverse();
+    killerValues = killerValues.sort((a, b) => b - a);
     for (var i = 0; i < killerValues.length; i++) {
         if (physicalRacesByValue[killerValues[i]]) {
             physicalKillerString += '<span class="killerValueGroup">'
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png"/>';
+                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
             }
             var killerString;
             if (killerValues[i] > 300) {
@@ -628,7 +628,7 @@ function logBuild(build, value) {
         if (magicalRacesByValue[killerValues[i]]) {
             magicalKillerString += '<span class="killerValueGroup">'
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png"/>';
+                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
             }
             magicalKillerString += killerValues[i] + '%</span>';
         }
