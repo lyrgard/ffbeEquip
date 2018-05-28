@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast","summonerSkill"];
 const statsBonusCap = {
     "GL": 300,
     "JP": 400
@@ -202,6 +202,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     }  else {
                         variance1 = weaponBaseDamageVariance["none"];
                     }
+                    
+                    if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
+                        calculatedValue.left = 0; // ignore atk from left hand
+                    }
+                    
                     total.min += (calculatedValue.right * calculatedValue.right * variance0.min + calculatedValue.left * calculatedValue.left * variance1.min) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min  / ennemyStats.def;
                     total.avg += (calculatedValue.right * calculatedValue.right * variance0.avg + calculatedValue.left * calculatedValue.left * variance1.avg) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg  / ennemyStats.def;
                     total.max += (calculatedValue.right * calculatedValue.right * variance0.max + calculatedValue.left * calculatedValue.left * variance1.max) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max  / ennemyStats.def;
@@ -242,7 +247,6 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             "avg": formula.value,
             "max": formula.value,
         };
-        formula.value;
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, alreadyCalculatedValues);
         var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, alreadyCalculatedValues);

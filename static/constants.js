@@ -24,9 +24,11 @@ const goalValuesCaract = {
     "magicalDamage":                    {"statsToMaximize":["mag"], "type": "magical"},
     "hybridDamage":                     {"statsToMaximize":["atk","mag"], "type": "physical"},
     "jumpDamage":                       {"statsToMaximize":["atk"], "type": "physical"},
-    "magDamageWithPhysicalMecanism":{"statsToMaximize":["mag"], "type": "physical"},
+    "magDamageWithPhysicalMecanism":    {"statsToMaximize":["mag"], "type": "physical"},
     "sprDamageWithPhysicalMecanism":    {"statsToMaximize":["spr"], "type": "physical"},
     "defDamageWithPhysicalMecanism":    {"statsToMaximize":["def"], "type": "physical"},
     "sprDamageWithMagicalMecanism":     {"statsToMaximize":["spr"], "type": "magical"},
+    "atkDamageWithFixedMecanism":       {"statsToMaximize":["atk"], "type": "none"},
+    "physicalDamageMultiCast":          {"statsToMaximize":["atk"], "type": "physical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };
