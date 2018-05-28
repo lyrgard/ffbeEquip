@@ -24,6 +24,8 @@ class BuildOptimizer {
     }
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
+        this.testSwapingWeapons = this.needToTestSwapingWeapons(this._unitBuild.formula);
+        
         if (this._unitBuild.formula.type == "conditions" && this._unitBuild.formula.conditions.elements) {
             for (var i = this._unitBuild.formula.conditions.elements.length; i--;) {
                 if (!this.desirableElements.includes(this._unitBuild.formula.conditions.elements[i])) {
@@ -275,6 +277,32 @@ class BuildOptimizer {
             this._unitBuild.build = build.slice();
             this._unitBuild.buildValue = value;
             this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue);
+        }
+        if (this.testSwapingWeapons && build[0] && weaponList.includes(build[0].type) && build[1] && weaponList.includes(build[1].type)) {
+            var tmp = build[0];
+            build[0] = build[1];
+            build[1] = tmp;
+            value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula);
+            if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == 0) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
+                this._unitBuild.build = build.slice();
+                this._unitBuild.buildValue = value;
+                this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue);
+            }
+            var tmp = build[0];
+            build[0] = build[1];
+            build[1] = tmp;
+        }
+    }
+        
+    needToTestSwapingWeapons(formula) {
+        if (formula.type == "value") {
+            return (damageFormulaNames.includes(formula.name) && goalValuesCaract[formula.name].statsToMaximize.includes("atk") && (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast"));
+        } else if (formula.type == "constant") {
+            return false;
+        } else if (operatorsInFormula.includes(formula.type)) {
+            return this.needToTestSwapingWeapons(formula.value1) || this.needToTestSwapingWeapons(formula.value2);
+        } else if (formula.type == "conditions") {
+            return this.needToTestSwapingWeapons(formula.formula);
         }
     }
 }
