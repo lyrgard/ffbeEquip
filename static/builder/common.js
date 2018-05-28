@@ -230,13 +230,13 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             return value;
         } else {
             var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
+            if (formula.name == "mpRefresh") {
+                value /= 100;
+            }
             var result = {
                 "min": value,
                 "avg": value,
                 "max": value
-            }
-            if (formula.name == "mpRefresh") {
-                value /= 100;
             }
             alreadyCalculatedValues[formula.name] = result;
             return result;
