@@ -214,7 +214,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                             }
                             calculatedValue.left = 0;
                         } else {
-                            switchWeapons = (variance[goalVariance] < variance1[goalVariance]);
+                            switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || ((variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
                             if (switchWeapons) {
                                 variance = variance1;
                                 var tmp = calculatedValue.left;
