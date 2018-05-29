@@ -1802,6 +1802,7 @@ function showBuildLink(onlyCurrentUnit) {
                 modal: true,
                 open: function(event, ui) {
                     $(this).parent().css('position', 'fixed');
+                    $(this).parent().css('top', '150px');
                     $("#showLinkDialog input").select();
                     try {
                         var successful = document.execCommand('copy');
@@ -1814,8 +1815,7 @@ function showBuildLink(onlyCurrentUnit) {
                         console.log('Oops, unable to copy');
                     }
                 },
-                position: { my: 'top', at: 'top+150' },
-                width: 600
+                width: (($(window).width() > 600) ? 600: $(window).width())
             });
         },
         error: function(error) {
@@ -1865,8 +1865,11 @@ function showExcludedItems() {
         '<div class="table items">' + text + '</div>' +
       '</div>' ).dialog({
         modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        width: 600
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $(this).parent().css('top', '150px');
+        },
+        width: (($(window).width() > 600) ? 600: $(window).width())
     });
 }
 
@@ -1890,8 +1893,11 @@ function showMonsterList() {
         '<div class="table items monsters">' + text + '</div>' +
       '</div>' ).dialog({
         modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        width: 800
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $(this).parent().css('top', '0');
+        },
+        width: (($(window).width() > 800) ? 800: $(window).width())
     });
 }
 

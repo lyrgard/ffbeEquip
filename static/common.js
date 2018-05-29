@@ -1050,7 +1050,7 @@ function showTextPopup(title, text) {
                 console.log('Oops, unable to copy');
             }
         },
-        width: 600
+        width: (($(window).width() > 600) ? 600: $(window).width())
     });
 }
 
