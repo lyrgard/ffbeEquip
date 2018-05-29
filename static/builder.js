@@ -1907,7 +1907,8 @@ function showMonsterList() {
             $(this).parent().css('position', 'fixed');
             $(this).parent().css('top', '0');
         },
-        width: (($(window).width() > 800) ? 800: $(window).width())
+        width: (($(window).width() > 800) ? 800: $(window).width()),
+        height: $(window).height()
     });
 }
 
