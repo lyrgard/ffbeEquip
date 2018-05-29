@@ -20,7 +20,7 @@
                     <div id="mobileMenu">
                         <span id="navigationMenuButton" class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></span>
                         <ul class="dropdown-menu">
-                            <li><a id="linkToInventory" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Search</a></li>
+                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Search</a></li>
                             <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
                             <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
                             <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
@@ -34,7 +34,7 @@
                     <div id="desktopMenu">
                         <div id="navbar-brand">FFBE Equip</div>
                         <div id="links">
-                            <a id="linkToInventory" href="index.html" data-internal-link="index.html">Search</a>
+                            <a id="linkToSearch" href="index.html" data-internal-link="index.html">Search</a>
                             <a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a>
                             <a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a>
                             <a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a>
@@ -422,11 +422,11 @@
                                     <div class="physical"></div>
                                     <div class="magical"></div>
                                 </div>
+                                <div class="resultLine buildResult hidden">Build goal calculated value: <span class="calcValue"></span></div>
                                 <div class="resultLine physicalDamageResult hidden">Physical damage on a <span class="monsterDefValue"></span> DEF enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine magicalDamageResult hidden">Magical damage on a <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine hybridDamageResult hidden">Hybrid damage on a <span class="monsterDefValue"></span> DEF <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine healingResult hidden">Healing coef: <span class="calcValue"></span></div>
-                                <div class="resultLine buildResult hidden">Build goal calculated value: <span class="calcValue"></span></div>
                             </div>
                             <div class="buildLinks hidden">
                                 <div id="detailedViewLink" class="col-xs-6 link text-center">
@@ -807,6 +807,8 @@
                                             <tr><td class="token">P_DAMAGE_MAG</td><td>Same as P_DAMAGE but use MAG scalling</td></tr>
                                             <tr><td class="token">P_DAMAGE_SPR</td><td>Same as P_DAMAGE but use SPR scalling</td></tr>
                                             <tr><td class="token">M_DAMAGE_SPR</td><td>Same as M_DAMAGE but use SPR scalling</td></tr>
+                                            <tr><td class="token">F_DAMAGE_ATK</td><td>Fixed damage that use ATK scalling</td></tr>
+                                            <tr><td class="token">P_DAMAGE_MULTICAST</td><td>Physical damage used with W- or T-ability</td></tr>
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
                                             <tr><td class="token">I_PHYSICAL</td><td>Immunity to physical attacks. This is a shortcut to P_EVADE > 100</td></tr>
                                             <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
