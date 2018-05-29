@@ -678,6 +678,16 @@ function logBuild(build, value) {
             valueToDisplay = Math.floor(valueToDisplay);
         }
         $("#resultStats .buildResult .calcValue").text(valueToDisplay);
+        
+        $("#resultStats .physicalDamageResult").addClass("secondary");
+        $("#resultStats .magicalDamageResult").addClass("secondary");
+        $("#resultStats .hybridDamageResult").addClass("secondary");
+        $("#resultStats .healingResult").addClass("secondary");
+    } else {
+        $("#resultStats .physicalDamageResult").removeClass("secondary");
+        $("#resultStats .magicalDamageResult").removeClass("secondary");
+        $("#resultStats .hybridDamageResult").removeClass("secondary");
+        $("#resultStats .healingResult").removeClass("secondary");
     }
     $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
