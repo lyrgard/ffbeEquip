@@ -24,6 +24,7 @@ if (config.isDev) {
 app.use(sessions({
   cookieName: 'OAuthSession',
   secret: config.secret,
+  duration: 7 * 24 * 60 * 60 * 1000
 }));
 app.use(bodyParser.json());
 
