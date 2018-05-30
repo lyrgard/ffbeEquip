@@ -158,7 +158,12 @@
     width: 100%;
 }
 
-.readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv,.readOnly .explanation {
+
+.readOnly .explanation.readOnly {
+    display: block;
+}
+
+.readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv,.readOnly .explanation, .explanation.readOnly {
     display: none;
 }
 
