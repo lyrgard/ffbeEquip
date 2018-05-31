@@ -431,6 +431,7 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","axe","whip","mace","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Barthundaga","Barfiraga","Barblizzaga","Heart of Light"],
 		"skills": [
 			{"mp%":30, "mpRefresh":5}
 		]
@@ -1409,6 +1410,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["spear","hat"],
+		"enhancementSkills":["Mog Barrage","Curaga","Mog Waltz"],
 		"skills": [
 			{"hp%":10, "mp%":10, "atk%":10, "def%":10, "mag%":10, "spr%":10, "singleWieldingOneHanded":{"atk":50}, "lbPerTurn":{"min":2,"max":2}}
 		]
@@ -2902,9 +2904,9 @@
 		]
 	},
 	"204001605": {
-		"name":"Kain élite draconarius",
+		"name":"Kain, dragontino redentor",
 		"id":"204001605",
-		"wikiEntry":"Studious_Dragoon Kain",
+		"wikiEntry":"Atoning_Dragoon Kain",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4283,12 +4285,16 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Stone Throw","Branded Heretic","True Justice","Blade of Justice","True Hero"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"mag%":50, "equipedConditions":["robe"]},
+			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15}], "mpRefresh":5},
+			{"mag%":50, "spr%":50, "equipedConditions":["robe"]},
+			{"atk%":50, "def%":50, "equipedConditions":["lightArmor"]},
+			{"atk%":50, "def%":50, "equipedConditions":["heavyArmor"]},
 			{"def%":50, "equipedConditions":["helm"]},
 			{"atk%":50, "equipedConditions":["hat"]},
-			{"def%":15, "spr%":15, "equipedConditions":["lightShield"]}
+			{"def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyShield"]}
 		]
 	},
 	"253000205": {
@@ -4320,10 +4326,11 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["War Hero","Commanding Blade","Black Sheep Knight"],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"atk%":30, "equipedConditions":["sword"]},
-			{"atk%":20, "equipedConditions":["heavyArmor"]}
+			{"hp%":30, "atk%":60, "def%":20, "lbFillRate":50, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+			{"atk%":60, "equipedConditions":["sword"]},
+			{"atk%":40, "equipedConditions":["heavyArmor"]}
 		]
 	},
 	"253000304": {
@@ -4427,8 +4434,9 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["sword","greatSword","katana","bow","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Sacred Knight","Crush Armor","Crush Weapon","Heaven's Blessing","Chantage"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":10, "def%":20, "spr%":20, "mpRefresh":5}
+			{"hp%":20, "mp%":20, "atk%":10, "def%":60, "spr%":40, "mpRefresh":10}
 		]
 	},
 	"253001103": {
@@ -4459,8 +4467,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Nameless Song","Writer of History","Durai Papers"],
 		"skills": [
-			{"mp%":20, "mag%":20, "spr%":40}
+			{"mp%":20, "mag%":20, "spr%":60, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}
 		]
 	},
 	"254000105": {
@@ -5700,9 +5709,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Pike Master","Mystic Thrust","Death Crimson"],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":250, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
+			{"atk%":100, "equipedConditions":["spear"]}
 		]
 	},
 	"401001804": {
@@ -5717,6 +5727,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Blood Scar","Blood Rage","Blood Rend","Blood Pulsar"],
 		"skills": [
 			{"mp%":20, "mag%":10, "resist":[{"name":"silence","percent":50},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":25,"magical":50}]},
 			{"mag%":20, "equipedConditions":["rod"]},
