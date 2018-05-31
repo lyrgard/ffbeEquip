@@ -1587,7 +1587,7 @@ function getStateHash(onlyCurrent = true) {
                     unit.items.push(item.id);
                 }
                 if (item && item.placeHolder) {
-                    data.items.push(item.type);
+                    unit.items.push(item.type);
                 }
             }
             if (build.build[10]) {
