@@ -272,7 +272,7 @@ class BuildOptimizer {
     tryEsper(build, esper) {
         build[10] = esper;
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
-        if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == 0) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
+        if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             this._unitBuild.build = build.slice();
             if (value.switchWeapons) {
                 var tmp = this._unitBuild.build[0];
