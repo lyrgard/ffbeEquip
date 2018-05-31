@@ -4618,7 +4618,7 @@
 		}
 	},
 	"204001605": {
-		"name":"Studious Dragoon Kain",
+		"name":"Atoning Dragoon Kain",
 		"jpname":"究道の竜騎士カイン",
 		"id":"204001605",
 		"max_rarity":"7",
@@ -4637,7 +4637,7 @@
 			{"atk%":30, "equipedConditions":["spear"]}
 		],
 		"6_form": {
-			"name":"Studious Dragoon Kain",
+			"name":"Atoning Dragoon Kain",
 			"jpname":"究道の竜騎士カイン",
 			"id":"204001605",
 			"max_rarity":"6",
@@ -7055,6 +7055,21 @@
 			{"atk%":10}
 		]
 	},
+	"253000704": {
+		"name":"レーゼ",
+		"id":"253000704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4633,"mp":172,"atk":186,"def":143,"mag":242,"spr":130},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["axe","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mag%":20, "spr%":10, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50},{"name":"dragon","physical":50,"magical":50}]}
+		]
+	},
 	"253000805": {
 		"name":"Orlandeau",
 		"jpname":"オルランドゥ",
@@ -7113,6 +7128,37 @@
 			{"hp%":20, "mp%":20, "def%":60, "spr%":40, "mpRefresh":10}
 		]
 	},
+	"253001005": {
+		"name":"ベイオウーフ",
+		"id":"253001005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4628,"mp":226,"atk":198,"def":168,"mag":194,"spr":189},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"hp%":30, "mp%":30, "dualWielding":{"atk":30,"mag":30}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":110, "def%":50, "mag%":110, "spr%":60, "evade":{"physical":10}, "lbFillRate":100, "resist":[{"name":"light","percent":20}], "killers":[{"name":"human","physical":100,"magical":100},{"name":"dragon","physical":100,"magical":100}], "mpRefresh":5}
+		],
+		"6_form": {
+			"name":"ベイオウーフ",
+			"id":"253001005",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3560,"mp":173,"atk":152,"def":129,"mag":149,"spr":145},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":80, "def%":30, "mag%":80, "spr%":30, "evade":{"physical":10}, "resist":[{"name":"light","percent":20}], "killers":[{"name":"human","physical":50,"magical":50},{"name":"dragon","physical":50,"magical":50}], "mpRefresh":5}
+			]
+		}
+	},
 	"253001103": {
 		"name":"Ovelia",
 		"jpname":"オヴェリア",
@@ -7144,6 +7190,53 @@
 		"enhancementSkills":["名もなき詩","歴史の綴り手","デュライ白書"],
 		"skills": [
 			{"mp%":20, "mag%":20, "spr%":40, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}
+		]
+	},
+	"253001305": {
+		"name":"聖天使アルテマ",
+		"id":"253001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4416,"mp":289,"atk":138,"def":128,"mag":219,"spr":197},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
+		"tmrSkill": {"mag%":30, "dualWielding":{"mag":60}},
+		"skills": [
+			{"hp%":20, "mp%":70, "mag%":150, "spr%":60, "evade":{"magical":20}, "resist":[{"name":"earth","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]}
+		],
+		"6_form": {
+			"name":"聖天使アルテマ",
+			"id":"253001305",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3396,"mp":222,"atk":106,"def":98,"mag":168,"spr":151},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":50, "mag%":80, "spr%":30, "evade":{"magical":20}, "resist":[{"name":"earth","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]}
+			]
+		}
+	},
+	"253001403": {
+		"name":"労働八号",
+		"id":"253001403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"mitigation":{"physical":30,"magical":30},
+		"stats": {
+			"maxStats":{"hp":3948,"mp":128,"atk":158,"def":218,"mag":8,"spr":308},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+		},
+		"equip":[],
+		"skills": [
+			{"hp%":20, "def%":10, "spr%":10, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}]}
 		]
 	},
 	"254000105": {
@@ -8930,6 +9023,7 @@
 	},
 	"331000705": {
 		"name":"シタン",
+		"jpname":"シタン",
 		"id":"331000705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8948,6 +9042,7 @@
 		],
 		"6_form": {
 			"name":"シタン",
+			"jpname":"シタン",
 			"id":"331000705",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -8966,6 +9061,7 @@
 	},
 	"331000805": {
 		"name":"マリア",
+		"jpname":"マリア",
 		"id":"331000805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8981,6 +9077,7 @@
 		],
 		"6_form": {
 			"name":"マリア",
+			"jpname":"マリア",
 			"id":"331000805",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -8997,6 +9094,7 @@
 	},
 	"331000904": {
 		"name":"ビリー",
+		"jpname":"ビリー",
 		"id":"331000904",
 		"max_rarity":"6",
 		"min_rarity":"4",
