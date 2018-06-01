@@ -849,9 +849,9 @@ function getSlotIcon(index) {
 function getSlotName(index) {
     switch(index) {
         case 0:
-            return "Left hand";
-        case 1:
             return "Right hand";
+        case 1:
+            return "Left hand";
         case 2:
             return "Head";
         case 3:
