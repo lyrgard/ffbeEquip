@@ -84,6 +84,7 @@ var bestiary;
 var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
 var goalVariation = "min";
+var initialPinnedWeapons;
 
 function build() {
     if (running) {
@@ -135,6 +136,7 @@ function optimize() {
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
     dataStorage.prepareData(itemsToExclude, ennemyStats);
+    
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
@@ -160,6 +162,8 @@ function optimize() {
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
+    
+    initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
     
     processedCount = 0
     typeCombinationsCount = remainingTypeCombinations.length;
@@ -2202,8 +2206,8 @@ function initWorkers() {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
                         // if the resulting build inverted weapond, invert the pinned weapon if needed
-                        if (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[0].id != builds[currentUnitIndex].fixedItems[0].id ||
-                            builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].build[1] && builds[currentUnitIndex].build[1].id != builds[currentUnitIndex].fixedItems[1].id) {
+                        if (builds[currentUnitIndex].fixedItems[0] && (builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[0].id != builds[currentUnitIndex].fixedItems[0].id || !builds[currentUnitIndex].build[0]) ||
+                            builds[currentUnitIndex].fixedItems[1] && (builds[currentUnitIndex].build[1] && builds[currentUnitIndex].build[1].id != builds[currentUnitIndex].fixedItems[1].id || !builds[currentUnitIndex].build[1]))  {
                             var tmp = builds[currentUnitIndex].fixedItems[0];
                             builds[currentUnitIndex].fixedItems[0] = builds[currentUnitIndex].fixedItems[1];
                             builds[currentUnitIndex].fixedItems[1] = tmp;
@@ -2226,6 +2230,10 @@ function initWorkers() {
                         console.timeEnd("optimize");
                         if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
                             alert("The condition set in the goal are impossible to meet.");
+                        }
+                        if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
+                           initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
+                            $.notify("Weapons hands were switched to optimize build", "info");
                         }
                         running = false;
                         $("#buildButton").text("Build !");
