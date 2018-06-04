@@ -194,7 +194,9 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                         variance = weaponBaseDamageVariance["none"];
                     }
                     
-                    if (goalVariance && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                    if (goalVariance && 
+                        itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) &&
+                        itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
                         var variance1;
                         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
                             if (itemAndPassives[1].damageVariance) {

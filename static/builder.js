@@ -2201,6 +2201,13 @@ function initWorkers() {
                     if (!builds[currentUnitIndex].buildValue[goalVariation] || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]) {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
+                        // if the resulting build inverted weapond, invert the pinned weapon if needed
+                        if (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[0].id != builds[currentUnitIndex].fixedItems[0].id ||
+                            builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].build[1] && builds[currentUnitIndex].build[1].id != builds[currentUnitIndex].fixedItems[1].id) {
+                            var tmp = builds[currentUnitIndex].fixedItems[0];
+                            builds[currentUnitIndex].fixedItems[0] = builds[currentUnitIndex].fixedItems[1];
+                            builds[currentUnitIndex].fixedItems[1] = tmp;
+                        }
                         logCurrentBuild();
                     }
                     break;
