@@ -365,11 +365,18 @@ function filterName(units) {
     var textToSearch = $("#searchBox").val();
     if (textToSearch) {
         textToSearch = textToSearch.toLowerCase();
-        for (var index = units.length; index--;) {
-            var unit = units[index];
-            if (unit.name.toLowerCase().indexOf(textToSearch) >= 0) {
-                result.push(unit);
+        var tokens = textToSearch.split(' ');
+        for (var i = 0; i < tokens.length; i++){
+            tokens[i] = tokens[i].toLowerCase();
+        }
+        unitLoop: for (var index = units.length; index--;) {
+            for (var i = 0; i < tokens.length; i++){
+                var unit = units[index];
+                if (unit.name.toLowerCase().indexOf(tokens[i]) < 0 && !unit.equip.includes(tokens[i])) {
+                    continue unitLoop;
+                }
             }
+            result.push(unit);
         }
     } else {
         return units;
