@@ -165,7 +165,7 @@ function optimize() {
     
     initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
     
-    document.title = progress + "0% - FFBE Equip - Builder";
+    document.title = "0% - FFBE Equip - Builder";
     
     processedCount = 0
     typeCombinationsCount = remainingTypeCombinations.length;
