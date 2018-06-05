@@ -165,6 +165,8 @@ function optimize() {
     
     initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
     
+    document.title = progress + "0% - FFBE Equip - Builder";
+    
     processedCount = 0
     typeCombinationsCount = remainingTypeCombinations.length;
     for (var index = workers.length; index--; index) {
@@ -1004,13 +1006,13 @@ function loadBuild(buildIndex) {
         }
     }
     
-    $(".goal option").prop("selected", false);
+    $(".goal #normalGoalChoices option").prop("selected", false);
     if (build.goal) {
         if (build.goal == "custom") {
             customFormula = build._formula;
         } else {
             customFormula = null;
-            $('.goal option[value="' + build.goal + '"]').prop("selected", true);
+            $('.goal #normalGoalChoices option[value="' + build.goal + '"]').prop("selected", true);
         }
     }
     
