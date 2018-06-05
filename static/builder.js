@@ -241,7 +241,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].formula = customFormula;
     } else {
-        builds[currentUnitIndex].goal = $(".goal select").val();   
+        builds[currentUnitIndex].goal = $(".goal #normalGoalChoices select").val();   
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
@@ -1729,7 +1729,7 @@ function loadStateHashAndBuild(data) {
         $("#monsterSpr").val(data.monster.spr);
     }
     
-    $('.goal select option').prop("selected", false);
+    $('.goal #normalGoalChoices select option').prop("selected", false);
     
     
     var first = true;
@@ -2224,6 +2224,7 @@ function initWorkers() {
                         progress = newProgress;
                         progressElement.width(progress + "%");
                         progressElement.text(progress + "%");    
+                        document.title = progress + "% - FFBE Equip - Builder";
                     }
                     if (workerWorkingCount == 0) {
                         progressElement.addClass("finished");
