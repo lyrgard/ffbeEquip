@@ -1145,72 +1145,75 @@ function saveInventory(successCallback, errorCallback) {
 
 $(function() {
     readUrlParams();
-    $.get(server + '/itemInventory', function(result) {
-        itemInventory = result;
-        onUnitsOrInventoryLoaded();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $(".loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
-        if (notLoaded) {
-            notLoaded();
-        }
-    });
-    $.get(server + '/settings', function(result) {
-        userSettings = result;
-    });
-    $.get(server + '/units', function(result) {
-        ownedUnits = result;
-        if (result.version && result.version == 3) {
-            $.get(server + "/units.json", function(allUnitResult) {
-                for (var unitSerieId in allUnitResult) {
-                    var unit = allUnitResult[unitSerieId];
-                    var maxUnitId = unitSerieId.substr(0, unitSerieId.length-1) + unit.max_rarity;
-                    if (ownedUnits[maxUnitId]) {
-                        ownedUnits[unitSerieId] = ownedUnits[maxUnitId];
-                        delete ownedUnits[maxUnitId];
-                    }
-                }
-                ownedUnits.version = 4;
-                saveUnits(
-                    function() {
-                        $.notify("Owned units data successfuly migrated to v4", "success");
-                        onUnitsOrInventoryLoaded();
-                    },
-                    function() {
-                        alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                        alert( errorThrown );
-                    }
-                );
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                alert( errorThrown );
-            });
-        } else {
+    if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
+        notLoaded();
+    } else {
+        $.get(server + '/itemInventory', function(result) {
+            itemInventory = result;
             onUnitsOrInventoryLoaded();
-        }
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            $(".loadInventory").removeClass("hidden");
+            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .loader").addClass("hidden");
+            if (notLoaded) {
+                notLoaded();
+            }
+        });
+        $.get(server + '/settings', function(result) {
+            userSettings = result;
+        });
+        $.get(server + '/units', function(result) {
+            ownedUnits = result;
+            if (result.version && result.version == 3) {
+                $.get(server + "/units.json", function(allUnitResult) {
+                    for (var unitSerieId in allUnitResult) {
+                        var unit = allUnitResult[unitSerieId];
+                        var maxUnitId = unitSerieId.substr(0, unitSerieId.length-1) + unit.max_rarity;
+                        if (ownedUnits[maxUnitId]) {
+                            ownedUnits[unitSerieId] = ownedUnits[maxUnitId];
+                            delete ownedUnits[maxUnitId];
+                        }
+                    }
+                    ownedUnits.version = 4;
+                    saveUnits(
+                        function() {
+                            $.notify("Owned units data successfuly migrated to v4", "success");
+                            onUnitsOrInventoryLoaded();
+                        },
+                        function() {
+                            alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
+                            alert( errorThrown );
+                        }
+                    );
+                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                    alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
+                    alert( errorThrown );
+                });
+            } else {
+                onUnitsOrInventoryLoaded();
+            }
 
 
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $(".loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
-        if (notLoaded) {
-            notLoaded();
-        }
-    });
-    readUrlParams();
-    $.get(server + '/espers', function(result) {
-        ownedEspers = result;
-        onUnitsOrInventoryLoaded();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        $(".loadInventory").removeClass("hidden");
-        $("#inventoryDiv .status").text("not loaded");
-        $("#inventoryDiv .loader").addClass("hidden");
-        if (notLoaded) {
-            notLoaded();
-        }
-    });
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            $(".loadInventory").removeClass("hidden");
+            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .loader").addClass("hidden");
+            if (notLoaded) {
+                notLoaded();
+            }
+        });
+        $.get(server + '/espers', function(result) {
+            ownedEspers = result;
+            onUnitsOrInventoryLoaded();
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            $(".loadInventory").removeClass("hidden");
+            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .loader").addClass("hidden");
+            if (notLoaded) {
+                notLoaded();
+            }
+        });
+    }
     $('.dropdown-submenu a.test').on("click", function(e){
         $(this).parent().siblings().each(function(index, element) {
             $(element).children('ul').hide();
