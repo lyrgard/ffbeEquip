@@ -336,7 +336,7 @@ function showPublicUnitCollectionLink() {
         savePublicLink(showPublicUnitCollectionLink)
     } else {
         $('<div id="showLinkDialog" title="Build Link">' + 
-            '<input value="http://ffbeEquip.com/units.html?server=' + server + '#' + userSettings.unitCollection + '"></input>' +
+            '<input value="http://ffbeEquip.com/units.html?server=' + server + '&o#' + userSettings.unitCollection + '"></input>' +
             '<h4>This link will allow to visualize your unit collection</h4>' +
             '</div>' ).dialog({
             modal: true,

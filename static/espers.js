@@ -6,6 +6,7 @@ var espers;
 var ownedEspers;
 var currentEsper;
 var esperBoards;
+var linkMode = false;
 
 var gridContainer;
 
@@ -530,7 +531,7 @@ function findPathTo(x,y, fromNode, currentPath = []) {
 }
 
 function displayEspers() {
-    if (!logged) {
+    if (!logged && !linkMode) {
         ownedEspers = {};
         for (var index in espers) {
             ownedEspers[espers[index].name] = {
@@ -543,10 +544,13 @@ function displayEspers() {
         }
     }
     
-    var tabs = ""
-    for (var index = 0; index < espers.length; index++) {
-        var escapedName = escapeName(espers[index].name);
-        tabs += "<li class=\"" + escapedName + "\" onclick=\"show('" + espers[index].name + "')\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
+    if (!linkMode) {
+        var tabs = "";
+        for (var index = 0; index < espers.length; index++) {
+            var escapedName = escapeName(espers[index].name);
+            tabs += "<li class=\"" + escapedName + "\" onclick=\"show('" + espers[index].name + "')\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
+        }
+        $("#espers #tabs").html(tabs);
     }
     var boardHtml = "";
     for (var i = 0; i < 81; i++) {
@@ -568,14 +572,20 @@ function displayEspers() {
         boardHtml += ' " onclick="selectNode(' + x + ',' + y + ')" onmouseover="onMouseOverNode(' + x + ',' + y + ')" onmouseout="onMouseOutNode()"></div></li>';
     }
     $("#grid").html(boardHtml);
-    $("#espers #tabs").html(tabs);
+    
     $("#espers").removeClass("hidden");
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
-    if (!logged) {
+    if (!logged && !linkMode) {
         $("#notLoginWarningMessage").removeClass("hidden");
     }
-    show(escapeName(espers[0].name));
+    
+    if (linkMode) {
+        show(Object.keys(ownedEspers)[0]);
+    } else {
+        show(espers[0].name);
+    }
+    
 }
 
 function distance(x1, y1) {
@@ -599,7 +609,15 @@ function getPositionString(x, y) {
 }
 
 function notLoaded() {
-    ownedEspers = {};
+    if (window.location.hash.length > 1) {
+        var hashValue = window.location.hash.substr(1);
+        ownedEspers = JSON.parse(atob(hashValue));
+        $('.navbar').addClass("hidden");
+        linkMode = true;
+    } else {
+        ownedEspers = {};    
+    }
+    
     if (esperBoards) {
         displayEspers();
     }
@@ -626,9 +644,46 @@ function onLevelChange() {
     prepareSave();
 }
 
+function getPublicEsperLink() {
+    var esperToExport = {};
+    esperToExport[currentEsper] = {
+        "name":ownedEspers[currentEsper].name,
+        "rarity":ownedEspers[currentEsper].rarity,
+        "level":ownedEspers[currentEsper].level,
+        "selectedSkills":ownedEspers[currentEsper].selectedSkills,
+    };
+    
+    $('<div id="showLinkDialog" title="Esper Link">' + 
+        '<input value="http://ffbeEquip.com/espers.html?server=' + server + '&o#' + btoa(JSON.stringify(esperToExport)) + '"></input>' +
+        '<h4>This link will allow to visualize this esper build</h4>' +
+        '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'fixed');
+            $("#showLinkDialog input").select();
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
+                } else {
+                    console.log('Oops, unable to copy');    
+                }
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        },
+        position: { my: 'top', at: 'top+150' },
+        width: 600
+    });
+}
+
+
 // will be called by jQuery at page load)
 $(function() {
-
+    if (window.location.hash.length > 1) {
+        $("#pleaseWaitMessage").addClass("hidden");
+        $("#loginMessage").addClass("hidden");
+    }
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     $.get(server + "/espers.json", function(result) {
         espers = result;
