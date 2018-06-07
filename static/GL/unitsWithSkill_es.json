@@ -2758,17 +2758,18 @@
 		"name":"Rosa",
 		"id":"204000304",
 		"wikiEntry":"Rosa",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2260,"mp":153,"atk":88,"def":89,"mag":93,"spr":129},
-			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+			"maxStats":{"hp":3298,"mp":185,"atk":114,"def":117,"mag":132,"spr":154},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","bow","harp","whip","hat","clothes","robe"],
 		"enhancementSkills":["Sharpshot","Bless"],
 		"skills": [
-			{"mp%":20, "spr%":30}
+			{"hp%":20, "mp%":20, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]},
+			{"atk%":30, "spr%":30, "equipedConditions":["bow"]}
 		]
 	},
 	"204000403": {
@@ -2805,7 +2806,7 @@
 		]
 	},
 	"204000603": {
-		"name":"Gilberto",
+		"name":"Edward",
 		"id":"204000603",
 		"wikiEntry":"Edward",
 		"max_rarity":"5",
@@ -2900,7 +2901,8 @@
 		},
 		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":50, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "esperStatsBonus":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}
+			{"mp%":30, "mag%":30, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "esperStatsBonus":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},
+			{"mag%":50, "equipedConditions":["rod"]}
 		]
 	},
 	"204001605": {
@@ -2916,7 +2918,7 @@
 		},
 		"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":220, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":50}]},
+			{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":220, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":75,"magical":75}]},
 			{"atk%":20, "equipedConditions":["spear"]},
 			{"atk%":50, "equipedConditions":["spear"]}
 		]
@@ -2933,7 +2935,7 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Boco's Pendant","Life Giver","Wind Shear"],
+		"enhancementSkills":["Boko's Pendant","Life Giver","Wind Shear"],
 		"skills": [
 			{"hp%":30, "mp%":10, "atk%":30, "def%":30, "mag%":10, "spr%":10, "lbFillRate":150, "mpRefresh":5},
 			{"atk%":20, "mag%":20, "equipedConditions":["sword"]}
@@ -3901,7 +3903,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"enhancementSkills":["Area Blitz","Crushing Blow","Lightspeed"],
+		"enhancementSkills":["Blitz","Crushing Blow","Lightspeed"],
 		"skills": [
 			{"hp%":20, "atk%":30, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]}
 		]
@@ -4686,7 +4688,7 @@
 			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
-		"enhancementSkills":["Steal Time","Thief's Mastery","Mercy Stroke"],
+		"enhancementSkills":["Steal Time","Bandit","Mercy Stroke"],
 		"skills": [
 		]
 	},
