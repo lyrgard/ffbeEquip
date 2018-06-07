@@ -3,6 +3,8 @@ var materia;
 var lastItemReleases;
 var allUnits;
 
+var displayId = 0;
+
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
@@ -49,6 +51,7 @@ function showSearch() {
 }
 
 function showHistory() {
+    displayId++;
     beforeShow();
 
     $(".nav-tabs li.history").addClass("active");
@@ -75,7 +78,7 @@ function showHistory() {
                 html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
             }
             resultDiv.append(html);
-            displayItemsAsync(lastItemReleases[dateIndex].sources[sourceIndex].items, 0, resultDiv);
+            displayItemsAsync(lastItemReleases[dateIndex].sources[sourceIndex].items, 0, resultDiv, displayId);
         }
     }
 }
@@ -102,10 +105,11 @@ function showSettings() {
 var displayItems = function(items) {
     var resultDiv = $("#results");
     resultDiv.empty();
-    displayItemsAsync(items, 0, resultDiv);
+    displayId++;
+    displayItemsAsync(items, 0, resultDiv, displayId);
 };
 
-function displayItemsAsync(items, start, div, max = 20) {
+function displayItemsAsync(items, start, div, id, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
@@ -138,10 +142,13 @@ function displayItemsAsync(items, start, div, max = 20) {
         
         html += "</div>";
     }
-    div.append(html);
-    if (index < items.length) {
-        setTimeout(displayItemsAsync, 0, items, index, div);
+    if (id == displayId) {
+        div.append(html);
+        if (index < items.length) {
+            setTimeout(displayItemsAsync, 0, items, index, div, id);
+        }    
     }
+    
 }
 
 function excludeFromExpedition(id) {
