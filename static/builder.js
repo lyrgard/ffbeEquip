@@ -137,11 +137,20 @@ function optimize() {
     dataStorage.itemsToExclude = itemsToExclude;
     dataStorage.prepareData(itemsToExclude, ennemyStats);
     
+    var espersToSend = {};
+    var esperNames = Object.keys(espersByName);
+    for (var esperNameIndex in esperNames) {
+        var esperName = esperNames[esperNameIndex];
+        if (!itemsToExclude.includes(esperName)) {
+            espersToSend[esperName] = espersByName[esperName];
+        }
+    }
+    
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
             "server": server,
-            "espers":espersByName,
+            "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit, 
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
@@ -786,9 +795,7 @@ function getItemLine(index, short = false) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         html += '<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem(\'' + item.id +'\',' + index + ',false);" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
-        if (item.type != "esper") {
-            html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
-        }
+        html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
         html += '</div>';
     } else {
         html += '<div class="td"></div>'
@@ -1466,7 +1473,7 @@ function removeItemAt(slot) {
 
 function excludeItem(itemId) {
     if (!itemsToExclude.includes(itemId)) {
-        for (var index = 0; index < 10; index++) {
+        for (var index = 0; index < 11; index++) {
             if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].id == itemId) {
                 removeItemAt(index);
             }
@@ -1864,8 +1871,9 @@ function showExcludedItems() {
     
     var text = "";
     var idAlreadyTreated = [];
-    for (var index = 0, len = data.length; index < len; index++) {
-        var item = data[index];
+    var dataToSearch = data.concat(espers);
+    for (var index = 0, len = dataToSearch.length; index < len; index++) {
+        var item = dataToSearch[index];
         if (itemsToExclude.includes(item.id) && !idAlreadyTreated.includes(item.id)) {
             text += '<div class="tr id_' + item.id +'">' +
                 '<div class="td actions"><span class="excludeItem glyphicon glyphicon-remove" onclick="removeItemFromExcludeList(\'' + item.id +'\')"></span></div>' +
