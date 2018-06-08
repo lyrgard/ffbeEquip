@@ -1,3 +1,13 @@
+:root {
+    --search-color-background:#ffb3ba;
+    --inventory-color-background:#baffc9;
+    --units-color-background:#b19cd9;
+    --espers-color-background:#bae1ff;
+    --builder-color-background:#ffffba;
+    --contribute-color-background:#ffffff;
+    
+}
+
 .navbar-header {
     display: flex;
     flex-direction: column;
@@ -542,6 +552,62 @@ nav .dropdown-menu li a {
 #showLinkDialog input {
     width: 100%;
 }
+
+#navigationButtons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: -85px;
+    z-index: 5;
+}
+
+#navigationButtons a {
+    transform: rotate(-90deg);
+    width: 100px;
+    height: 90px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #cdcdcd;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 18px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#navigationButtons a:hover {
+    margin-left: 30px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#linkToSearch {
+    background-color: #ffb3ba;
+}
+
+#linkToInventory {
+    background-color: #baffc9;
+}
+
+#linkToUnits {
+    background-color: #b19cd9;
+}
+
+#linkToEspers {
+    background-color: #bae1ff;
+}
+
+#linkToBuilder {
+    background-color: #ffffba;
+}
+
+#linkToContribute {
+    background-color: #ffffff;
+}
+
+
 
 @media (max-width: 991px) {
     
