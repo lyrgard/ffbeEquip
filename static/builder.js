@@ -2081,7 +2081,7 @@ $(function() {
         alert( errorThrown );
     });
     
-    $.get(server + "/espers.json", function(result) {
+    $.get(server + "/defaultBuilderEspers.json", function(result) {
         espers = [];
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))

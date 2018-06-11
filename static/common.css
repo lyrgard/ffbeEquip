@@ -395,8 +395,12 @@ img.icon {
     margin-left: 2px;
     font-size: 11px;
     line-height: 16px;
-    vertical-align: middle;
+    vertical-align: baseline;
     color: blue;
+}
+
+.buildLink {
+    margin-left: 10px;  
 }
 
 nav {
