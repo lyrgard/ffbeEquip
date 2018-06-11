@@ -306,20 +306,7 @@ function selectNode(x,y) {
                 var posString = getPositionString(path[index].position[0], path[index].position[1]);
                 if (!ownedEspers[currentEsper].selectedSkills.includes(posString)) {
                     ownedEspers[currentEsper].selectedSkills.push(posString);
-                    if (path[index].killers) {
-                        addKillers(ownedEspers[currentEsper], path[index].killers);
-                    }
-                    if (path[index].resist) {
-                        addElementalResist(ownedEspers[currentEsper], path[index].resist);
-                    }
-                    if (path[index].esperStatsBonus) {
-                        addEsperStatsBonus(ownedEspers[currentEsper], path[index].esperStatsBonus);
-                    }
-                    for (var i = baseStats.length; i--;) {
-                        if (path[index][percentValues[baseStats[i]]]) {
-                            addToStat(ownedEspers[currentEsper], percentValues[baseStats[i]], path[index][percentValues[baseStats[i]]]);
-                        }
-                    }
+                    addNodeStatToEsper(ownedEspers[currentEsper], path[index]);
                     $("#grid li." + posString + " .hexagon").addClass("selected");
                 }
             }
@@ -330,6 +317,23 @@ function selectNode(x,y) {
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
     prepareSave();
+}
+
+function addNodeStatToEsper(esper, node) {
+    if (node.killers) {
+        addKillers(esper, node.killers);
+    }
+    if (node.resist) {
+        addElementalResist(esper, node.resist);
+    }
+    if (node.esperStatsBonus) {
+        addEsperStatsBonus(esper, node.esperStatsBonus);
+    }
+    for (var i = baseStats.length; i--;) {
+        if (node[percentValues[baseStats[i]]]) {
+            addToStat(esper, percentValues[baseStats[i]], node[percentValues[baseStats[i]]]);
+        }
+    }
 }
 
 function unselectNodeAndChildren(node) {
@@ -543,6 +547,19 @@ function displayEspers() {
                 "resist":JSON.parse(JSON.stringify(esperBoards[espers[index].name].resist[espers[index].maxLevel]))};
         }
     }
+    if (linkMode) {
+        // init esper from link mode
+        
+        var esperName = Object.keys(ownedEspers)[0];
+        ownedEspers[esperName].resist = JSON.parse(JSON.stringify(esperBoards[esperName].resist[ownedEspers[esperName].rarity]));
+        for (var i = 0, len = ownedEspers[esperName].selectedSkills.length; i < len; i++) {
+            var pos = getPositionFromString(ownedEspers[esperName].selectedSkills[i]);
+            var path = findPathTo(pos.x,pos.y,esperBoards[esperName]);
+            if (path) {
+                addNodeStatToEsper(ownedEspers[esperName], path[path.length - 1]);
+            }
+        }
+    }
     
     if (!linkMode) {
         var tabs = "";
@@ -608,10 +625,27 @@ function getPositionString(x, y) {
     return posString;
 }
 
+function getPositionFromString(posString) {
+    var result = {};
+    var tokens = posString.split("_");
+    if (tokens[0].startsWith("m")) {
+        result.x = - Number.parseInt(tokens[0].substr(1));
+    } else {
+        result.x = Number.parseInt(tokens[0]);
+    }
+    if (tokens[1].startsWith("m")) {
+        result.y = - Number.parseInt(tokens[1].substr(1));
+    } else {
+        result.y = Number.parseInt(tokens[1]);
+    }
+    return result;
+}
+
 function notLoaded() {
     if (window.location.hash.length > 1) {
         var hashValue = window.location.hash.substr(1);
         ownedEspers = JSON.parse(atob(hashValue));
+        
         $('.navbar').addClass("hidden");
         linkMode = true;
     } else {
