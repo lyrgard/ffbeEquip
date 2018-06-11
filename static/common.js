@@ -64,7 +64,9 @@ function getNameColumnHtml(item) {
     if (item.level) {
         html += '<span class="rarity"> level ' + item.level + '</span> ';
     }
-
+    if (item.buildLink) {
+        html += '<a href="' + item.buildLink + '" target="blank" class="buildLink"><span class="glyphicon glyphicon-th wikiLink"></span></a>';
+    }
     if (item.outclassedBy) {
         html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
@@ -80,8 +82,8 @@ function getNameColumnHtml(item) {
     if (item.userPseudo) {
         html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
     }
+    
     html += "</div>";
-
 
     return html;
 }
