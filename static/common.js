@@ -729,16 +729,21 @@ var calculateValue = function(item, baseStat, stat, ailments, elements, killers)
         calculatedValue = maxValue;
     }
     if (stat == 'resist' && (item.resist)) {
-        var maxValue = 0;
+        var maxValue = -999;
+        var ignoreAilments = elements.length > 0 && ailments.length == 0;
+        var ignoreElements = ailments.length > 0 && elements.length == 0;
         $(item.resist).each(function(index, res) {
-            if (ailmentList.includes(res.name) && (ailments.length == 0 || ailments.includes(res.name)) && res.percent > maxValue) {
+            if (!ignoreAilments && ailmentList.includes(res.name) && (ailments.length == 0 || ailments.includes(res.name)) && res.percent > maxValue) {
                 maxValue = res.percent;
             }
-            if (elementList.includes(res.name) && (elements.length == 0 || elements.includes(res.name)) && res.percent > maxValue) {
+            if (!ignoreElements && elementList.includes(res.name) && (elements.length == 0 || elements.includes(res.name)) && res.percent > maxValue) {
                 maxValue = res.percent;
             }
         });
         calculatedValue = maxValue;
+        if (calculatedValue == -999) {
+            calculatedValue = 0;
+        }
     }
     item['calculatedValue'] = calculatedValue;
 };
