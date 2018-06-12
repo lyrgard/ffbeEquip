@@ -69,7 +69,6 @@ class DataStorage {
         var alreadyAddedDualWieldSource = [];
         var equipable = this.unitBuild.getCurrentUnitEquip();
         var itemNumber = this.data.length;
-        var tmrAbilityEnhancedItem = null;
 
         
         for (var index = 0; index < itemNumber; index++) {
@@ -78,49 +77,17 @@ class DataStorage {
             if (index < this.data.length) {
                 item = this.data[this.data.length - 1 - index];
                 availableNumber = getAvailableNumber(item);
-            } else {
-                item = tmrAbilityEnhancedItem;
-                availableNumber = 1;
-            }
+            } 
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
             
             if (this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                tmrAbilityEnhancedItem = getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit);
-                itemNumber = this.data.length + 1;
+                this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
                 availableNumber--;
             } 
             
-            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats);
-            if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
-                if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
-                    if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                        this.dualWieldSources.push(item);
-                        alreadyAddedDualWieldSource.push(item.id);
-                    }
-                }
-                if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
-                    this.equipSources.push(item);
-                } 
-                if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
-                    if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
-                        adventurersAvailable[item.id] = item;
-                        continue;
-                    }
-                    if (item.equipedConditions) {
-                        this.dataWithCondition.push(this.getItemEntry(item));
-                    } else {
-                        if (!alreadyAddedIds.includes(item.id) ||item == tmrAbilityEnhancedItem) {
-                            if (!this.dataByType[item.type]) {
-                                this.dataByType[item.type] = [];
-                            }
-                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber));
-                            alreadyAddedIds.push(item.id);
-                        }
-                    }
-                }
-            }
+            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable);
         }
         var adventurerAlreadyPinned = false;
         for (var index = 6; index < 10; index++) {
@@ -215,7 +182,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats) {
+    prepareItem(item, baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, tmrAbilityEnhancedItem = false) {
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
@@ -223,6 +190,37 @@ class DataStorage {
             item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
         } else {
             item.elementType = "neutral"
+        }
+        if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
+            if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
+                if (!alreadyAddedDualWieldSource.includes(item.id)) {
+                    this.dualWieldSources.push(item);
+                    alreadyAddedDualWieldSource.push(item.id);
+                }
+            }
+            if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
+                this.equipSources.push(item);
+            } 
+            if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
+                if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
+                    adventurersAvailable[item.id] = item;
+                    return;
+                }
+                if (item.equipedConditions) {
+
+                    this.dataWithCondition.push(this.getItemEntry(item));
+                } else {
+                    if (!alreadyAddedIds.includes(item.id)) {
+                        if (!this.dataByType[item.type]) {
+                            this.dataByType[item.type] = [];
+                        }
+                        this.dataByType[item.type].push(this.getItemEntry(item, availableNumber));
+                        if (!tmrAbilityEnhancedItem) {
+                            alreadyAddedIds.push(item.id);
+                        }
+                    }
+                }
+            }
         }
     }
 
