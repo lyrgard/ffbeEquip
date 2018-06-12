@@ -207,7 +207,7 @@ function treatItem(items, itemId, result, skills) {
         var unitId = unitIdBySTmrId[itemOut.id];
         var access = "STMR";
         addAccess(itemOut,access);
-        
+        console.log(unitIdBySTmrId[itemOut.id]);
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
     }
     if (itemIn.requirements) {

@@ -180,3 +180,11 @@
 .readOnly .unit:hover .glyphicon-time {
     color: #999;
 }
+
+.farmable:hover .farmedButton {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    height: 45px;
+}

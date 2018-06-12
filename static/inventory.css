@@ -127,3 +127,22 @@
     opacity: 0.8;
     filter: grayscale(100%);
 }
+
+.farmable:hover .farmedButton {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    height: 45px;
+}
+
+.itemWorldButton {
+    display: none;
+}
+
+.item:hover .itemWorldButton {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
