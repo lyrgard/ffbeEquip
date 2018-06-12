@@ -2825,8 +2825,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["精神防壁","リダクション","ブローディアウォール"],
 		"skills": [
-			{"mp%":10, "def%":50, "spr%":30}
+			{"mp%":10, "def%":50, "spr%":60}
 		]
 	},
 	"100013805": {
@@ -2900,10 +2901,13 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["永遠の魔女","ロッドの極意","フリーズ","ゾブリザ"],
 		"tmrSkill": {"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
 		"skills": [
 			{"hp%":30, "mp%":40, "mag%":60, "spr%":30, "dualWielding":{"mag":50}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "mpRefresh":5},
-			{"mag%":50, "equipedConditions":["rod"]}
+			{"spr%":20, "equipedConditions":["hat"]},
+			{"mag%":20, "equipedConditions":["robe"]},
+			{"mag%":100, "equipedConditions":["rod"]}
 		],
 		"6_form": {
 			"name":"Mediena",
@@ -2917,9 +2921,12 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["永遠の魔女","ロッドの極意","フリーズ","ゾブリザ"],
 			"skills": [
 				{"hp%":30, "mp%":20, "mag%":30, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-				{"mag%":50, "equipedConditions":["rod"]}
+				{"spr%":20, "equipedConditions":["hat"]},
+				{"mag%":20, "equipedConditions":["robe"]},
+				{"mag%":100, "equipedConditions":["rod"]}
 			]
 		}
 	},
@@ -2986,10 +2993,11 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","staff","rod","spear","whip","mace","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["紅き死神","空戦巧者","大きく息を吸い込む"],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":50, "jumpDamage":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":20},{"name":"dark","percent":20}], "mpRefresh":10},
 			{"mag%":30, "equipedConditions":["helm"]},
-			{"atk%":20, "mag%":20, "equipedConditions":["heavyArmor"]}
+			{"atk%":60, "mag%":60, "equipedConditions":["heavyArmor"]}
 		]
 	},
 	"100014504": {
@@ -3004,8 +3012,9 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","harp","whip","throwing","fist","hat","clothes","robe"],
+		"enhancementSkills":["あやしいおどり","激励の舞","エンドレスターン"],
 		"skills": [
-			{"mp%":45, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			{"mp%":60, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 		]
 	},
 	"100014604": {
@@ -3020,6 +3029,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","whip","throwing","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["MPを盗む","時は金なり","一石二鳥"],
 		"skills": [
 			{"hp%":10, "mp%":20, "atk%":20, "evade":{"physical":10,"magical":10}, "lbFillRate":100, "special":["dualWield"]}
 		]
@@ -3870,6 +3880,129 @@
 		"skills": [
 			{"mp%":10}
 		]
+	},
+	"100019505": {
+		"name":"CG Cid",
+		"jpname":"シド",
+		"id":"100019505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4802,"mp":204,"atk":203,"def":165,"mag":154,"spr":195},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"singleWielding":{"atk":100}, "jumpDamage":50, "killers":[{"name":"beast","physical":75,"magical":75}]},
+		"skills": [
+			{"hp%":60, "mp%":20, "atk%":70, "def%":30, "spr%":20, "singleWielding":{"atk":50}, "jumpDamage":150, "lbFillRate":50, "resist":[{"name":"wind","percent":50},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["spear"]},
+			{"atk%":20, "def%":20, "equipedConditions":["spear"]}
+		],
+		"6_form": {
+			"name":"CG Cid",
+			"jpname":"シド",
+			"id":"100019505",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":156,"atk":156,"def":126,"mag":118,"spr":150},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":60, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":50}, "jumpDamage":150, "resist":[{"name":"wind","percent":50},{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["spear"]},
+				{"atk%":20, "def%":20, "equipedConditions":["spear"]}
+			]
+		}
+	},
+	"100019604": {
+		"name":"Melete",
+		"jpname":"メレッテ",
+		"id":"100019604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3492,"mp":192,"atk":111,"def":121,"mag":119,"spr":142},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["dagger","staff","rod","harp","whip","throwing","hat","clothes","robe"],
+		"skills": [
+			{"mp%":40, "spr%":50, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5}
+		]
+	},
+	"100019704": {
+		"name":"Nagulfa",
+		"jpname":"ナグルファ",
+		"id":"100019704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3721,"mp":185,"atk":124,"def":132,"mag":115,"spr":128},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["axe","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "def%":60, "resist":[{"name":"earth","percent":30},{"name":"earth","percent":20}], "killers":[{"name":"machine","physical":50}]},
+			{"hp%":20, "equipedConditions":["hammer"]}
+		]
+	},
+	"100019803": {
+		"name":"Farma",
+		"jpname":"ファーマ",
+		"id":"100019803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2752,"mp":118,"atk":121,"def":113,"mag":75,"spr":92},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "def%":10, "spr%":10, "resist":[{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"blind","percent":100}]}
+		]
+	},
+	"100019905": {
+		"name":"Karlotte",
+		"jpname":"カルエラート",
+		"id":"100019905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":30, "mag%":30, "singleWielding":{"atk":50}},
+		"skills": [
+			{"hp%":20, "mp%":50, "atk%":80, "mag%":80, "spr%":30, "singleWielding":{"atk":25}, "lbFillRate":100, "mpRefresh":10},
+			{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
+			{"atk%":50, "mag%":25, "equipedConditions":["spear"]}
+		],
+		"6_form": {
+			"name":"Karlotte",
+			"jpname":"カルエラート",
+			"id":"100019905",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"atk":25}, "lbFillRate":100, "mpRefresh":5},
+				{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
+				{"atk%":50, "mag%":25, "equipedConditions":["spear"]}
+			]
+		}
 	},
 	"199000101": {
 		"name":"Emma (Battle NPC)",
@@ -6671,9 +6804,11 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["魂無き者への鉄槌","スピアーアーツ","エア・イナヴェート","急降下攻撃"],
 		"tmrSkill": {"atk%":40, "singleWielding":{"atk":50}},
 		"skills": [
-			{"hp%":50, "mp%":20, "def%":50, "evade":{"magical":20}, "singleWielding":{"atk":100}, "jumpDamage":150, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
+			{"hp%":50, "mp%":20, "def%":50, "evade":{"magical":20}, "singleWielding":{"atk":100}, "jumpDamage":150, "killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["spear"]},
 			{"atk%":50, "equipedConditions":["spear"]}
 		],
 		"6_form": {
@@ -6688,8 +6823,10 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["魂無き者への鉄槌","スピアーアーツ","エア・イナヴェート","急降下攻撃"],
 			"skills": [
-				{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"atk":100}, "jumpDamage":100, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
+				{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"atk":100}, "jumpDamage":100, "killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}], "mpRefresh":5},
+				{"atk%":30, "equipedConditions":["spear"]},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
 		}
@@ -6706,10 +6843,11 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー"],
 		"tmrSkill": {"singleWielding":{"atk":100}, "dualWielding":{"atk":50}},
 		"skills": [
 			{"mp%":30, "spr%":20, "evade":{"physical":20}, "lbFillRate":100, "partialDualWield":["dagger","gun"]},
-			{"atk%":50, "equipedConditions":["gun"]},
+			{"atk%":100, "equipedConditions":["gun"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["dagger"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["gun"]}
 		],
@@ -6725,9 +6863,10 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー"],
 			"skills": [
 				{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-				{"atk%":50, "equipedConditions":["gun"]}
+				{"atk%":100, "equipedConditions":["gun"]}
 			]
 		}
 	},
