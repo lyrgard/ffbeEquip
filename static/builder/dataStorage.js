@@ -221,7 +221,7 @@ class DataStorage {
                 }
                 if (item.equipedConditions) {
 
-                    this.dataWithCondition.push(this.getItemEntry(item));
+                    this.dataWithCondition.push(this.getItemEntry(item, availableNumber));
                 } else {
                     if (!alreadyAddedIds.includes(item.id)) {
                         if (!this.dataByType[item.type]) {
