@@ -109,6 +109,19 @@ class DataStorage {
         }
         this.dataWithCondition.sort(function(entry1, entry2) {
             if (entry1.item.id == entry2.item.id) {
+                if (entry1.item.originalItem) {
+                    if (entry2.item.originalItem) {
+                        return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length; 
+                    } else {
+                        return -1;
+                    }
+                } else {
+                    if (entry2.item.originalItem) {
+                        return 1;
+                    } else {
+                        return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
+                    }
+                }
                 return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
             } else {
                 return entry1.item.id - entry2.item.id;
