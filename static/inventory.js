@@ -134,8 +134,9 @@ function displayItemsAsync(items, start, div, id, max = 20) {
             }
             html += '</span>';
             html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
-            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
-            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>'
+            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
+            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
+            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
             html += '</div>';
         }
         html += getImageHtml(item) + getNameColumnHtml(item);
@@ -491,6 +492,20 @@ function updateCounts() {
     }
     $("#itemCount").text(" - " + itemCount + " slots");
     $("#materiaCount").text(" - " + materiaCount + " slots");
+}
+
+function showItemEnhancements(itemId) {
+    if (itemInventory[itemId]) {
+        var totalCount = itemInventory[itemId];
+        var notEnchantedCount = totalCount;
+        if (itemInventory.enchantments[itemId]) {
+            notEnchantedCount = totalCount - itemInventory.enchantments[itemId].length;
+        }
+        var html = "";
+        if (notEnchantedCount > 0) {
+            html += '<div class="col-xs-6 item">' + getImageHtml(item) + getNameColumnHtml(item) + "</div>";
+        }
+    }
 }
 
 function inventoryLoaded() {

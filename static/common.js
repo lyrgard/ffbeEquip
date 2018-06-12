@@ -1157,6 +1157,9 @@ $(function() {
     } else {
         $.get(server + '/itemInventory', function(result) {
             itemInventory = result;
+            if (!itemInventory.enchantments) {
+                itemInventory.enchantments = {};
+            }
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
