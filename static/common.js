@@ -83,6 +83,10 @@ function getNameColumnHtml(item) {
         html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
     }
     
+    if (item.enhancements) {
+        html += getEnhancements(item);
+    }
+    
     html += "</div>";
 
     return html;
@@ -199,6 +203,26 @@ var getStatDetail = function(item) {
     });
     return detail;
 };
+
+function getEnhancements(item) {
+    var html = '<div class="enhancements">';
+    var first = true;
+    for (var i = 0, len = item.enhancements.length; i < len; i++) {
+        if (first) {
+            first = false;
+        } else {
+            html += ", ";
+        }
+        var enhancement = item.enhancements[i];
+        if (enhancement == "rare") {
+            html += itemEnhancementLabels["rare"][item.type];
+        } else {
+            html += itemEnhancementLabels[enhancement];
+        }
+    }
+    html += '</div>';
+    return html;
+}
 
 function getEquipedConditionHtml(item) {
     var conditions = "";
@@ -841,6 +865,12 @@ function escapeQuote(string) {
     return String(string).replace(/[']/g, function (s) {
         return "\\'";
     });
+}
+
+function applyEnhancements(item, enhancements) {
+    var result = JSON.parse(JSON.stringify(item));
+    result.enhancements = enhancements.slice();
+    return result;
 }
 
 function prepareSearch(data) {

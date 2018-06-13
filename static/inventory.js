@@ -3,6 +3,9 @@ var materia;
 var lastItemReleases;
 var allUnits;
 
+var currentEnhancementItem;
+var currentEnhancementItemPos;
+
 var displayId = 0;
 
 function beforeShow() {
@@ -125,6 +128,9 @@ function displayItemsAsync(items, start, div, id, max = 20) {
         if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
             html += ' farmable';
         }
+        if (itemInventory.enchantments[item.id]) {
+            html += ' enhanced';
+        }
         if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
             html += ' excludedFromExpeditions';
         }
@@ -139,7 +145,9 @@ function displayItemsAsync(items, start, div, id, max = 20) {
             html += '</span>';
             html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
             html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
-            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
+            if (server == "JP" &&  weaponList.includes(item.type)) {
+                html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
+            }
             html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
             html += '</div>';
         }
@@ -169,9 +177,7 @@ function excludeFromExpedition(id) {
         itemInventory.excludeFromExpeditions.push(idString);
         itemDiv.addClass("excludedFromExpeditions");
     }
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
+    willSave();
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -202,12 +208,16 @@ function addToInventory(id, showAlert = true) {
         inventoryDiv.find(".number").text(itemInventory[id]);
         $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
     }
+    willSave();
+    updateCounts();
+    return true;
+}
+
+function willSave() {
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
     saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
     $(".saveInventory").removeClass("hidden");
-    updateCounts();
-    return true;
 }
 
 function showAddAllToInventoryDialog() {
@@ -294,11 +304,8 @@ function removeFromInventory(id) {
             itemInventory[id] = itemInventory[id] - 1;
             inventoryDiv.find(".number").text(itemInventory[id]);
         }
-        saveNeeded = true;
         mustSaveUnits = true;
-        if (saveTimeout) {clearTimeout(saveTimeout)}
-        saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
-        $(".saveInventory").removeClass("hidden");
+        willSave();
         updateCounts();
     }
 }
@@ -319,9 +326,8 @@ function farmedTMR(unitId) {
     if (ownedUnits[unitId].farmable == 0) {
         $(".item." + escapeName(item.id)).removeClass("farmable");
     }
-    if (saveTimeout) {clearTimeout(saveTimeout)}
     mustSaveUnits = true;
-    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
+    willSave();
 }
 
 function search() {
@@ -508,30 +514,94 @@ function showItemEnhancements(itemId) {
             }
         }
         if (!item) {return}
+        currentEnhancementItem = item;
         var totalCount = itemInventory[itemId];
         var notEnchantedCount = totalCount;
         if (itemInventory.enchantments[itemId]) {
             notEnchantedCount = totalCount - itemInventory.enchantments[itemId].length;
         }
-        var html = '<div class="btn" onclick="$(\'#results\').removeClass(\'hidden\');$(\'#itemEnhancement\').addClass(\'hidden\');"><span class="glyphicon glyphicon-chevron-left"></span>Back to list</div>';
+        var html = '<div class="btn" onclick="showEquipments()"><span class="glyphicon glyphicon-chevron-left"></span>Back to list</div>';
         if (notEnchantedCount > 0) {
             html += '<div><div class="col-xs-6 item">';
-            html += '<div class="td inventory"><span class="number badge badge-success">3</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
+            html += '<div class="td inventory"><span class="number badge badge-success">' + notEnchantedCount + '</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
             html += getImageHtml(item) + getNameColumnHtml(item);
             html += "</div></div>";
+        }
+        if (itemInventory.enchantments[itemId]) {
+            for (var i = 0, len = itemInventory.enchantments[itemId].length; i < len; i++) {
+                var enhancedItem = applyEnhancements(item, itemInventory.enchantments[itemId][i]);
+                html += '<div><div class="col-xs-6 item enhanced">';
+                html += '<div class="td inventory"><span class="number badge badge-success">1</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ', ' + i + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
+                html += getImageHtml(enhancedItem) + getNameColumnHtml(enhancedItem);
+                html += "</div></div>";
+            }
         }
         $("#results").addClass("hidden");
         $("#itemEnhancement").html(html);
         $("#itemEnhancement").removeClass("hidden");
-        $("#modifyEnhancementModal").modal();
+        var popupAlreadyDisplayed = ($("#modifyEnhancementModal").data('bs.modal') || {}).isShown
+        if (!popupAlreadyDisplayed && notEnchantedCount == totalCount) {
+            modifyItemEnhancements(item.id);
+        }
     }
 }
 
 function modifyItemEnhancements(itemId, enhancementPos) {
-    if (typeof myVar != 'undefined') {
-        
+    
+    currentEnhancementItemPos = enhancementPos;
+    var popupAlreadyDisplayed = ($("#modifyEnhancementModal").data('bs.modal') || {}).isShown
+    if (!popupAlreadyDisplayed) {
+        $("#modifyEnhancementModal").modal();
     }
+    
+    $("#modifyEnhancementModal .value").removeClass("selected");
+    var item = currentEnhancementItem;
+    if (typeof currentEnhancementItemPos != 'undefined') {
+        var enhancements = itemInventory.enchantments[currentEnhancementItem.id][currentEnhancementItemPos];
+        for (var i = enhancements.length; i--;) {
+            $("#modifyEnhancementModal .value." + enhancements[i]).addClass("selected");
+        }
+        item = applyEnhancements(currentEnhancementItem, enhancements);
+    }
+    $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(item) + getNameColumnHtml(item));
+    $("#modifyEnhancementModal .value.rare").html(itemEnhancementLabels["rare"][item.type]);
 }
+
+function toggleItemEnhancement(enhancement) {
+    if (!itemInventory.enchantments[currentEnhancementItem.id]) {
+        itemInventory.enchantments[currentEnhancementItem.id] = [];
+    }
+    if (typeof currentEnhancementItemPos == 'undefined') {
+        itemInventory.enchantments[currentEnhancementItem.id].push([]);
+        currentEnhancementItemPos = itemInventory.enchantments[currentEnhancementItem.id].length - 1;
+    }
+    var enhancements = itemInventory.enchantments[currentEnhancementItem.id][currentEnhancementItemPos];
+    if (enhancements.includes(enhancement)) {
+        enhancements.splice(enhancements.indexOf(enhancement), 1);
+        if (enhancements.length == 0) {
+            itemInventory.enchantments[currentEnhancementItem.id].splice(currentEnhancementItemPos, 1);
+            currentEnhancementItemPos = undefined;
+            if (itemInventory.enchantments[currentEnhancementItem.id].length == 0) {
+                delete itemInventory.enchantments[currentEnhancementItem.id];
+            }
+        }
+    } else {
+        if (enhancements.length == 3) {
+            $.notify("No more than 3 item enhancements can be selected", "warning");
+            return;   
+        }
+        enhancements.push(enhancement);
+    }
+    modifyItemEnhancements(currentEnhancementItem.id, currentEnhancementItemPos);
+    showItemEnhancements(currentEnhancementItem.id);
+    if (itemInventory.enchantments[currentEnhancementItem.id]) {
+        $("#results .items." + currentEnhancementItem.id).addClass("enhanced");
+    } else {
+        $("#results .items." + currentEnhancementItem.id).removeClass("enhanced");
+    }
+    willSave();
+}
+
 
 function inventoryLoaded() {
     if (data) {
