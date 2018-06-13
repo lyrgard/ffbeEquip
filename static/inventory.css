@@ -138,9 +138,16 @@ item.notOwned {
 
 .itemWorldButton {
     display: none;
+    opacity: 0.8;
+    filter: grayscale(100%);
 }
 
-.item:hover .itemWorldButton, #itemEnhancement .itemWorldButton {
+.item.enhanced .itemWorldButton {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.item:not(.notOwned):hover .itemWorldButton, .item.enhanced .itemWorldButton, #itemEnhancement .itemWorldButton {
     display: block;
     position: absolute;
     top: 2px;
@@ -166,9 +173,20 @@ item.notOwned {
     padding: 5px;
 }
 
+.enhancementType .value.selected {
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .enhancementType .value:hover {
     background-color: lightgray;
     border-radius: 10px;
     cursor: pointer;
 }
 
+#modifyEnhancementModal .modal-header .title.item {
+    width: 400px;
+    display: inline-flex;
+}
