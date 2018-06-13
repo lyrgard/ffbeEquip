@@ -205,10 +205,10 @@ function treatItem(items, itemId, result, skills) {
     }
     if (unitIdBySTmrId[itemOut.id]) {
         var unitId = unitIdBySTmrId[itemOut.id];
-        var access = "STMR";
-        addAccess(itemOut,access);
-        console.log(unitIdBySTmrId[itemOut.id]);
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
+        addAccess(itemOut,"STMR");
+        
+        
     }
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
