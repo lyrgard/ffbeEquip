@@ -182,7 +182,11 @@ class TypeCombinationGenerator {
     }
 
     tryType(index, typeCombination, type, combinations, forcedItems) {
-        if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes(type))) {
+        if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes(type))) { // if force dualwield, need 2 weapons
+            return;
+        }
+        if (index == 1 && weaponList.includes(type) && weaponList.includes(typeCombination[0]) // dualwield, ensure both type has at least one one-handed weapon available
+           && (!this.weaponsByTypeAndHands[typeCombination[0]][1] || !this.weaponsByTypeAndHands[type][1])) { 
             return;
         }
         typeCombination[index] = type;

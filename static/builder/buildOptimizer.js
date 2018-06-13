@@ -227,7 +227,11 @@ class BuildOptimizer {
                 }
                 build[index] == null;
             } else {
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, tmrSkillUsed);
+                var item = null;
+                if (typeCombination[index]) {
+                    item = {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true};
+                }
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed);
             }
         }
         build[index] = null;

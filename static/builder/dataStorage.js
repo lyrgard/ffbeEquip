@@ -7,7 +7,6 @@ class DataStorage {
     prepareAllItemsVersion() {
         this.allItemVersions = {};
         this.itemWithVariation = {};
-        this.weaponsByTypeAndHands = {};
         var currentId = 0;
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
@@ -26,19 +25,6 @@ class DataStorage {
                 currentItemVersions = [];
             }
             currentItemVersions.push(item);
-            if (weaponList.includes(item.type)) {
-                if (!this.weaponsByTypeAndHands[item.type]) {
-                    this.weaponsByTypeAndHands[item.type] = {};
-                }
-                var handNumber = 1;
-                if (item.special && item.special.includes("twoHanded")) {
-                    handNumber = 2;   
-                }
-                if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
-                    this.weaponsByTypeAndHands[item.type][handNumber] = 0;
-                }
-                this.weaponsByTypeAndHands[item.type][handNumber]++;
-            }
         }
         if (currentItemVersions.length > 1) {
             this.itemWithVariation[currentId] = currentItemVersions;
@@ -77,6 +63,7 @@ class DataStorage {
         this.dataWithCondition = [];
         this.dualWieldSources = [];
         this.equipSources = [];
+        this.weaponsByTypeAndHands = {};
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
@@ -86,12 +73,8 @@ class DataStorage {
 
         
         for (var index = 0; index < itemNumber; index++) {
-            var item;
-            var availableNumber;
-            if (index < this.data.length) {
-                item = this.data[this.data.length - 1 - index];
-                availableNumber = getAvailableNumber(item);
-            } 
+            var item = this.data[this.data.length - 1 - index];
+            var availableNumber = getAvailableNumber(item);
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
@@ -247,6 +230,19 @@ class DataStorage {
                         }
                     }
                 }
+            }
+            if (weaponList.includes(item.type)) {
+                if (!this.weaponsByTypeAndHands[item.type]) {
+                    this.weaponsByTypeAndHands[item.type] = {};
+                }
+                var handNumber = 1;
+                if (item.special && item.special.includes("twoHanded")) {
+                    handNumber = 2;   
+                }
+                if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
+                    this.weaponsByTypeAndHands[item.type][handNumber] = 0;
+                }
+                this.weaponsByTypeAndHands[item.type][handNumber]++;
             }
         }
     }
