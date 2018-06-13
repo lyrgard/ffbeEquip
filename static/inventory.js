@@ -12,12 +12,16 @@ function beforeShow() {
     $("#searchBox").addClass("hidden");
     $("#itemCount").addClass("hidden");
     $("#materiaCount").addClass("hidden");
+    $("#itemEnhancement").addClass("hidden");
+    $("#results").removeClass("hidden");
     
     $(".nav-tabs li.equipment").removeClass("active");
     $(".nav-tabs li.materia").removeClass("active");
     $(".nav-tabs li.search").removeClass("active");
     $(".nav-tabs li.history").removeClass("active");
     $(".nav-tabs li.settings").removeClass("active");
+    
+    
 }
 
 function showMateria() {
@@ -496,15 +500,36 @@ function updateCounts() {
 
 function showItemEnhancements(itemId) {
     if (itemInventory[itemId]) {
+        var item = null;
+        for (var i = 0, len = equipments.length; i < len; i++) {
+            if (equipments[i].id == itemId) {
+                item = equipments[i];
+                break;
+            }
+        }
+        if (!item) {return}
         var totalCount = itemInventory[itemId];
         var notEnchantedCount = totalCount;
         if (itemInventory.enchantments[itemId]) {
             notEnchantedCount = totalCount - itemInventory.enchantments[itemId].length;
         }
-        var html = "";
+        var html = '<div class="btn" onclick="$(\'#results\').removeClass(\'hidden\');$(\'#itemEnhancement\').addClass(\'hidden\');"><span class="glyphicon glyphicon-chevron-left"></span>Back to list</div>';
         if (notEnchantedCount > 0) {
-            html += '<div class="col-xs-6 item">' + getImageHtml(item) + getNameColumnHtml(item) + "</div>";
+            html += '<div><div class="col-xs-6 item">';
+            html += '<div class="td inventory"><span class="number badge badge-success">3</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
+            html += getImageHtml(item) + getNameColumnHtml(item);
+            html += "</div></div>";
         }
+        $("#results").addClass("hidden");
+        $("#itemEnhancement").html(html);
+        $("#itemEnhancement").removeClass("hidden");
+        $("#modifyEnhancementModal").modal();
+    }
+}
+
+function modifyItemEnhancements(itemId, enhancementPos) {
+    if (typeof myVar != 'undefined') {
+        
     }
 }
 

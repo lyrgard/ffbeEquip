@@ -1,4 +1,4 @@
-#results .item {
+.item {
     display: flex;
     flex-direction: row;
     border-radius: 10px;
@@ -10,27 +10,27 @@
     border-style: solid;
 }
 
-#results .item.notOwned {
+item.notOwned {
     background-color: white;
 }
 
-#results .item.notOwned .type, #results .item.notOwned .name{
+.item.notOwned .type, #results .item.notOwned .name{
     opacity: 0.3;
 }
 
-#results .item:hover {
+.item:hover {
     background-color: #337ab7;
     color: white;
     cursor: pointer;
 }
 
-#results .item:hover a, #results .item:hover .rarity {
+.item:hover a, #results .item:hover .rarity {
     color: white;
 }
 
 
 
-#results .item .name{
+.item .name{
     flex-grow: 1;
 }
 
@@ -48,15 +48,15 @@
     font-size: 1.2em;
 }
 
-#results .item .inventory .glyphicon {
+.item .inventory .glyphicon {
     color: #d2edf9;
 }
 
-#results .item.notOwned .inventory .glyphicon {
+.item.notOwned .inventory .glyphicon {
     color: white;
 }
 
-#results .item:hover .inventory .glyphicon {
+.item:hover .inventory .glyphicon {
     cursor: pointer;
     color: #d2edf9;
     font-size: 0.8em;
@@ -140,9 +140,35 @@
     display: none;
 }
 
-.item:hover .itemWorldButton {
+.item:hover .itemWorldButton, #itemEnhancement .itemWorldButton {
     display: block;
     position: absolute;
     top: 2px;
     right: 5px;
 }
+
+.enhancementTypes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.enhancementType {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enhancementType .title {
+    font-weight: bold;
+}
+
+.enhancementType .value {
+    padding: 5px;
+}
+
+.enhancementType .value:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
