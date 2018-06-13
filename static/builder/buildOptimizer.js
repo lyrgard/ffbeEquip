@@ -223,11 +223,11 @@ class BuildOptimizer {
                     }
                 }
                 if (!foundAnItem) {
-                    this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, tmrSkillUsed);
+                    this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, tmrSkillUsed);
                 }
                 build[index] == null;
             } else {
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, tmrSkillUsed);
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, tmrSkillUsed);
             }
         }
         build[index] = null;

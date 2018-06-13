@@ -1,5 +1,5 @@
 class TypeCombinationGenerator {
-    constructor(forceDoubleHand, forceDualWield, tryEquipSources, unitBuild, dualWieldSources, equipSources, dataByType) {
+    constructor(forceDoubleHand, forceDualWield, tryEquipSources, unitBuild, dualWieldSources, equipSources, dataByType, weaponsByTypeAndHands) {
         this.forceDoubleHand = forceDoubleHand;
         this.forceDualWield = forceDualWield;
         this.unitBuild = unitBuild;
@@ -12,6 +12,7 @@ class TypeCombinationGenerator {
             this.equipSourcesByType[equipSources[index].allowUseOf].push(equipSources[index]);
         }
         this.dataByType = dataByType;
+        this.weaponsByTypeAndHands = weaponsByTypeAndHands;
         this.tryEquipSources = tryEquipSources;
     }
     

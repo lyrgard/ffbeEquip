@@ -7,6 +7,7 @@ class DataStorage {
     prepareAllItemsVersion() {
         this.allItemVersions = {};
         this.itemWithVariation = {};
+        this.weaponsByTypeAndHands = {};
         var currentId = 0;
         var currentItemVersions = [];
         for (var index = 0, len = this.data.length; index < len; index++) {
@@ -25,6 +26,19 @@ class DataStorage {
                 currentItemVersions = [];
             }
             currentItemVersions.push(item);
+            if (weaponList.includes(item.type)) {
+                if (!this.weaponsByTypeAndHands[item.type]) {
+                    this.weaponsByTypeAndHands[item.type] = {};
+                }
+                var handNumber = 1;
+                if (item.special && item.special.includes("twoHanded")) {
+                    handNumber = 2;   
+                }
+                if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
+                    this.weaponsByTypeAndHands[item.type][handNumber] = 0;
+                }
+                this.weaponsByTypeAndHands[item.type][handNumber]++;
+            }
         }
         if (currentItemVersions.length > 1) {
             this.itemWithVariation[currentId] = currentItemVersions;
