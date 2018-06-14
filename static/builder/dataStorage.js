@@ -64,6 +64,9 @@ class DataStorage {
         this.dualWieldSources = [];
         this.equipSources = [];
         this.weaponsByTypeAndHands = {};
+        for (var i = weaponList.length; i--;) {
+            this.weaponsByTypeAndHands[weaponList[i]] = {};
+        }
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
