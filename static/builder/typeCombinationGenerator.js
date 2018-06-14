@@ -191,7 +191,7 @@ class TypeCombinationGenerator {
         }
         typeCombination[index] = type;
         if (index == 9) {
-            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems, "forcedItems": forcedItems});
+            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems.slice(), "forcedItems": forcedItems});
         } else {
             this.buildTypeCombination(index+1, typeCombination, combinations, forcedItems);
         }
