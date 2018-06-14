@@ -64,6 +64,9 @@ class DataStorage {
         this.dualWieldSources = [];
         this.equipSources = [];
         this.weaponsByTypeAndHands = {};
+        for (var i = weaponList.length; i--;) {
+            this.weaponsByTypeAndHands[weaponList[i]] = {};
+        }
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
@@ -232,9 +235,6 @@ class DataStorage {
                 }
             }
             if (weaponList.includes(item.type)) {
-                if (!this.weaponsByTypeAndHands[item.type]) {
-                    this.weaponsByTypeAndHands[item.type] = {};
-                }
                 var handNumber = 1;
                 if (item.special && item.special.includes("twoHanded")) {
                     handNumber = 2;   
