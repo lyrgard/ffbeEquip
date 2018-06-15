@@ -50,7 +50,7 @@ class BuildOptimizer {
                     applicableSkills.push(skill);
                 }
             }
-
+            
             var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills());
         }
