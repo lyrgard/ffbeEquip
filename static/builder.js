@@ -35,25 +35,10 @@ var espersByName = {};
 var units;
 var ownedUnits;
 
-var onlyUseOwnedItems = false;
-var onlyUseShopRecipeItems = false;
-var onlyUseOwnedItemsAvailableForExpeditions = false;
-var exludeEventEquipment;
-var excludeTMR5;
-var excludeNotReleasedYet;
-var excludePremium;
-var excludeSTMR;
-var includeTMROfOwnedUnits;
-var includeTrialRewards;
-
 var ennemyStats;
 
 var builds = [];
 var currentUnitIndex = 0;
-
-var alreadyUsedItems = {};
-var unstackablePinnedItems = [];
-var alreadyUsedEspers = [];
 
 var searchType = [];
 var searchStat = "";
@@ -112,7 +97,7 @@ function build() {
     readEnnemyStats();
     readGoal();
     
-    calculateAlreadyUsedItems();
+    dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
     readItemsExcludeInclude();
     readStatsValues();
     
@@ -159,8 +144,8 @@ function optimize() {
             "dataByType":dataStorage.dataByType,
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
-            "alreadyUsedEspers":alreadyUsedEspers,
-            "useEspers":!onlyUseShopRecipeItems,
+            "alreadyUsedEspers":dataStorage.alreadyUsedEspers,
+            "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation
         }));
@@ -202,50 +187,6 @@ function processTypeCombinations(workerIndex) {
     workerWorkingCount++;
 }
 
-function calculateAlreadyUsedItems() {
-    alreadyUsedItems = {};
-    alreadyUsedInThisBuildItems = {};
-    unstackablePinnedItems = [];
-    alreadyUsedEspers = [];
-    for (var i = 0, len = builds.length; i < len; i++) {
-        if (i != currentUnitIndex) {
-            var build = builds[i].build;
-            for (var j = 0, len2 = build.length; j < len2; j++) {
-                var item = build[j];
-                if (item) {
-                    if (alreadyUsedItems[item.id]) {
-                        alreadyUsedItems[item.id]++;
-                    } else {
-                        alreadyUsedItems[item.id] = 1;
-                    }
-                }
-            }
-            if (build[10]) {
-                alreadyUsedEspers.push(build[10].id);
-            }
-        } else {
-            for (var index = 0; index < 10; index++) {
-                if (builds[i].fixedItems[index]) {
-                    var item = builds[i].fixedItems[index];
-                    if (item) {
-                        if (alreadyUsedItems[item.id]) {
-                            alreadyUsedItems[item.id]++;
-                        } else {
-                            alreadyUsedItems[item.id] = 1;
-                        }
-                        if (!isStackable(item)) {
-                            unstackablePinnedItems.push(item.id);
-                        }
-                    }   
-                }
-            }
-            if (builds[i].build[10]) {
-                alreadyUsedEspers.push(builds[i].build[10].id);
-            }
-        }
-    }
-}
-
 function readGoal(index = currentUnitIndex) {
     var goal;
     if (customFormula) {
@@ -259,14 +200,13 @@ function readGoal(index = currentUnitIndex) {
 }
 
 function readItemsExcludeInclude() {
-    exludeEventEquipment = $("#exludeEvent").prop('checked');
-    excludeTMR5 = $("#excludeTMR5").prop('checked');
-    excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
-    excludePremium = $("#excludePremium").prop("checked");
-    excludeSTMR = $("#excludeSTMR").prop("checked");
-    onlyShopRecipe = $("#onlyShopRecipe").prop("checked");
-    includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
-    includeTrialRewards = $("#includeTrialRewards").prop("checked");
+    dataStorage.exludeEventEquipment = $("#exludeEvent").prop('checked');
+    dataStorage.excludeTMR5 = $("#excludeTMR5").prop('checked');
+    dataStorage.excludeNotReleasedYet = $("#excludeNotReleasedYet").prop('checked');
+    dataStorage.excludePremium = $("#excludePremium").prop("checked");
+    dataStorage.excludeSTMR = $("#excludeSTMR").prop("checked");
+    dataStorage.includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
+    dataStorage.includeTrialRewards = $("#includeTrialRewards").prop("checked");
 }
 
 function readStatsValues() {
@@ -384,105 +324,6 @@ function getFixedItemItemSlot(item, equipable, fixedItems) {
     return slot;
 }
 
-
-function getAvailableNumber(item) {
-    var number = 0;
-    if (onlyUseOwnedItems) {
-        number = getOwnedNumber(item).available;
-    } else {
-        if (onlyUseShopRecipeItems) {
-            if (item.maxNumber || adventurerIds.includes(item.id)) {
-                return 0;
-            }
-            var shopRecipe = false;
-            for (var index = item.access.length; index--;) {
-                var access = item.access[index];
-                if (access.startsWith("recipe") || access == "shop") {
-                    if (access.endsWith("event")) {
-                        return 0;
-                    }       
-                    shopRecipe = true;
-                    if (!exludeEventEquipment) {
-                        break;
-                    }
-                } 
-            }
-            if (shopRecipe) {
-                return 4;
-            } else {
-                return 0;
-            }
-        } else {
-            if (excludeNotReleasedYet || excludeTMR5 || exludeEventEquipment || excludePremium || excludeSTMR) {
-                for (var index = item.access.length; index--;) {
-                    var access = item.access[index];
-                    if ((excludeNotReleasedYet && access == "not released yet")
-                       || (excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
-                       || (exludeEventEquipment && access.endsWith("event"))
-                       || (excludePremium && access == "premium")
-                       || (excludeSTMR && access == "STMR")) {
-                        return 0;
-                    }        
-                }
-            }
-            number = 4;
-            if (item.maxNumber) {
-                if (alreadyUsedItems[item.id]) {
-                    number = item.maxNumber - alreadyUsedItems[item.id];
-                } else {
-                    number = item.maxNumber;
-                }
-            }
-            if (!isStackable(item)) {
-                if (unstackablePinnedItems.includes(item.id)) {
-                    number = 0;
-                } else {
-                    number = 1;
-                }
-            }
-        }
-    }
-    if (!isStackable(item)) {
-        number = Math.min(number,1);
-    }
-    return number;
-}
-
-function getOwnedNumber(item) {
-    var totalNumber = 0;
-    var totalOwnedNumber = 0;
-    var availableNumber = 0;
-    if (onlyUseOwnedItemsAvailableForExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
-        return {"total":0,"available":0,"totalOwnedNumber":0}
-    }
-    if (itemInventory[item.id]) {
-        totalNumber = itemInventory[item.id];
-    }
-    totalOwnedNumber = totalNumber;
-    if (includeTMROfOwnedUnits) {
-        if (item.tmrUnit && ownedUnits[item.tmrUnit]) {
-            totalNumber += ownedUnits[item.tmrUnit].farmable;
-        }
-    }
-    if (includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
-        totalNumber += 1;
-    }
-    
-    if (alreadyUsedItems[item.id]) {
-        availableNumber = Math.max(0, totalNumber - alreadyUsedItems[item.id]);
-        if (!isStackable(item)) {
-            if (unstackablePinnedItems.includes(item.id)) {
-                availableNumber = 0
-            } else {
-                availableNumber = Math.min(1, availableNumber);
-            }
-        }
-    } else{
-        availableNumber = totalNumber;
-    }
-    return {"total":totalNumber,"available":availableNumber,"totalOwnedNumber":totalOwnedNumber};
-}
-
 function logCurrentBuild() {
     readStatsValues();
     readGoal();
@@ -492,7 +333,6 @@ function logCurrentBuild() {
 
 function logBuild(build, value) {
     var html = "";
-    //calculateAlreadyUsedItems();
     readItemsExcludeInclude();
 
     for (var index = 0; index < 11; index++) {
@@ -807,13 +647,13 @@ function getItemLine(index, short = false) {
         } else {
             html += displayItemLine(item);
         }
-        if (!item.placeHolder && index < 10 && onlyUseOwnedItems) {
+        if (!item.placeHolder && index < 10 && dataStorage.onlyUseOwnedItems) {
             var alreadyUsed = 0;
-            if (alreadyUsedItems[item.id]) {
-                alreadyUsed = alreadyUsedItems[item.id];
+            if (dataStorage.alreadyUsedItems[item.id]) {
+                alreadyUsed = dataStorage.alreadyUsedItems[item.id];
             }
             alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex], index, item);
-            if (getOwnedNumber(item).totalOwnedNumber <= alreadyUsed && getOwnedNumber(item).total > alreadyUsed) {
+            if (dataStorage.getOwnedNumber(item).totalOwnedNumber <= alreadyUsed && getOwnedNumber(item).total > alreadyUsed) {
                 if (item.tmrUnit) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + units[item.tmrUnit].name + '"/></div>'
                 } else if (item.access.includes("trial")) {
@@ -1092,6 +932,7 @@ var displayUnitRarity = function(unit) {
 };
 
 function inventoryLoaded() {
+    dataStorage.itemInventory = itemInventory;
     $(".equipments select option[value=owned]").prop("disabled", false);
     if (itemInventory.excludeFromExpeditions) {
         $(".equipments select option[value=ownedAvailableForExpedition]").prop("disabled", false);
@@ -1181,8 +1022,8 @@ function onEquipmentsChange() {
         }
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
-        onlyUseOwnedItems = false;
-        onlyUseShopRecipeItems = false;
+        dataStorage.onlyUseOwnedItems = false;
+        dataStorage.onlyUseShopRecipeItems = false;
     } else if (equipments == "owned" || equipments == "ownedAvailableForExpedition") {
         $("#exludeEvent").parent().addClass("hidden");
         $("#excludePremium").parent().addClass("hidden");
@@ -1195,12 +1036,12 @@ function onEquipmentsChange() {
             $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         }
         $("#includeTrialRewards").parent().removeClass("hidden");
-        onlyUseOwnedItems = true;
-        onlyUseShopRecipeItems = false;
+        dataStorage.onlyUseOwnedItems = true;
+        dataStorage.onlyUseShopRecipeItems = false;
         if (equipments == "ownedAvailableForExpedition") {
-            onlyUseOwnedItemsAvailableForExpeditions = true;
+            dataStorage.onlyUseOwnedItemsAvailableForExpeditions = true;
         } else {
-            onlyUseOwnedItemsAvailableForExpeditions = false;
+            dataStorage.onlyUseOwnedItemsAvailableForExpeditions = false;
         }
     } else {
         $("#exludeEvent").parent().addClass("hidden");
@@ -1212,8 +1053,8 @@ function onEquipmentsChange() {
         }
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
-        onlyUseOwnedItems = false;
-        onlyUseShopRecipeItems = true;
+        dataStorage.onlyUseOwnedItems = false;
+        dataStorage.onlyUseShopRecipeItems = true;
     }
     updateEspers();
 }
@@ -1308,7 +1149,7 @@ function displayFixItemModal(index) {
     
     populateItemType(builds[currentUnitIndex].equipable[index]);
     
-    calculateAlreadyUsedItems();
+    dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
     $("#searchText").val("");
     $("#fixItemModal .results .tbody").html("");
     
@@ -1535,7 +1376,7 @@ function displaySearchResultsAsync(items, start, div) {
             html += displayItemLine(item);
             if (itemInventory) {
                 var notEnoughClass = "";
-                var numbers = getOwnedNumber(item);
+                var numbers = dataStorage.getOwnedNumber(item);
                 var owned = "";
                 if (numbers.total > 0) {
                     owned += numbers.available;
