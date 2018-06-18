@@ -2,6 +2,21 @@ class DataStorage {
     constructor(data) {
         this.data = data;
         this.prepareAllItemsVersion();
+        this.onlyUseOwnedItems = false;
+        this.onlyUseShopRecipeItems = false;
+        this.exludeEventEquipment = false;
+        this.excludeNotReleasedYet = true;
+        this.excludeTMR5 = false;
+        this.exludeEventEquipment = false;
+        this.excludePremium = false;
+        this.excludeSTMR = false;
+        this.onlyUseOwnedItemsAvailableForExpeditions = false;
+        this.includeTrialRewards = false;
+        this.includeTMROfOwnedUnits = false;
+        this.alreadyUsedItems = {};
+        this.unstackablePinnedItems = [];
+        this.alreadyUsedEspers = [];
+        this.itemInventory;
     }
     
     prepareAllItemsVersion() {
@@ -74,7 +89,7 @@ class DataStorage {
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];
-            var availableNumber = getAvailableNumber(item);
+            var availableNumber = this.getAvailableNumber(item);
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
@@ -174,7 +189,7 @@ class DataStorage {
             "item":item, 
             "name":item.name, 
             "defenseValue":this.getDefenseValue(item),
-            "available":availableNumber || getAvailableNumber(item)
+            "available":availableNumber || this.getAvailableNumber(item)
         };
     }
     
@@ -297,5 +312,146 @@ class DataStorage {
             }
         }
         return cumulatedKiller / ennemyStats.races.length;
+    }
+    
+    getAvailableNumber(item) {
+        var number = 0;
+        if (this.onlyUseOwnedItems) {
+            number = this.getOwnedNumber(item).available;
+        } else {
+            if (this.onlyUseShopRecipeItems) {
+                if (item.maxNumber || adventurerIds.includes(item.id)) {
+                    return 0;
+                }
+                var shopRecipe = false;
+                for (var index = item.access.length; index--;) {
+                    var access = item.access[index];
+                    if (access.startsWith("recipe") || access == "shop") {
+                        if (access.endsWith("event")) {
+                            return 0;
+                        }       
+                        shopRecipe = true;
+                        if (!this.exludeEventEquipment) {
+                            break;
+                        }
+                    } 
+                }
+                if (shopRecipe) {
+                    return 4;
+                } else {
+                    return 0;
+                }
+            } else {
+                if (this.excludeNotReleasedYet || this.excludeTMR5 || this.exludeEventEquipment || this.excludePremium || this.excludeSTMR) {
+                    for (var index = item.access.length; index--;) {
+                        var access = item.access[index];
+                        if ((this.excludeNotReleasedYet && access == "not released yet")
+                           || (this.excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
+                           || (this.exludeEventEquipment && access.endsWith("event"))
+                           || (this.excludePremium && access == "premium")
+                           || (this.excludeSTMR && access == "STMR")) {
+                            return 0;
+                        }        
+                    }
+                }
+                number = 4;
+                if (item.maxNumber) {
+                    if (this.alreadyUsedItems[item.id]) {
+                        number = item.maxNumber - this.alreadyUsedItems[item.id];
+                    } else {
+                        number = item.maxNumber;
+                    }
+                }
+                if (!isStackable(item)) {
+                    if (thisunstackablePinnedItems.includes(item.id)) {
+                        number = 0;
+                    } else {
+                        number = 1;
+                    }
+                }
+            }
+        }
+        if (!isStackable(item)) {
+            number = Math.min(number,1);
+        }
+        return number;
+    }
+
+    getOwnedNumber(item) {
+        var totalNumber = 0;
+        var totalOwnedNumber = 0;
+        var availableNumber = 0;
+        if (this.onlyUseOwnedItemsAvailableForExpeditions && this.itemInventory.excludeFromExpeditions.includes(item.id)) {
+            return {"total":0,"available":0,"totalOwnedNumber":0}
+        }
+        if (this.itemInventory[item.id]) {
+            totalNumber = this.itemInventory[item.id];
+        }
+        totalOwnedNumber = totalNumber;
+        if (this.includeTMROfOwnedUnits) {
+            if (item.tmrUnit && ownedUnits[item.tmrUnit]) {
+                totalNumber += ownedUnits[item.tmrUnit].farmable;
+            }
+        }
+        if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
+            totalNumber += 1;
+        }
+
+        if (this.alreadyUsedItems[item.id]) {
+            availableNumber = Math.max(0, totalNumber - this.alreadyUsedItems[item.id]);
+            if (!isStackable(item)) {
+                if (this.unstackablePinnedItems.includes(item.id)) {
+                    availableNumber = 0
+                } else {
+                    availableNumber = Math.min(1, availableNumber);
+                }
+            }
+        } else{
+            availableNumber = totalNumber;
+        }
+        return {"total":totalNumber,"available":availableNumber,"totalOwnedNumber":totalOwnedNumber};
+    }
+    
+    calculateAlreadyUsedItems(builds, currentUnitIndex) {
+        this.alreadyUsedItems = {};
+        this.unstackablePinnedItems = [];
+        this.alreadyUsedEspers = [];
+        for (var i = 0, len = builds.length; i < len; i++) {
+            if (i != currentUnitIndex) {
+                var build = builds[i].build;
+                for (var j = 0, len2 = build.length; j < len2; j++) {
+                    var item = build[j];
+                    if (item) {
+                        if (this.alreadyUsedItems[item.id]) {
+                            this.alreadyUsedItems[item.id]++;
+                        } else {
+                            this.alreadyUsedItems[item.id] = 1;
+                        }
+                    }
+                }
+                if (build[10]) {
+                    this.alreadyUsedEspers.push(build[10].id);
+                }
+            } else {
+                for (var index = 0; index < 10; index++) {
+                    if (builds[i].fixedItems[index]) {
+                        var item = builds[i].fixedItems[index];
+                        if (item) {
+                            if (this.alreadyUsedItems[item.id]) {
+                                this.alreadyUsedItems[item.id]++;
+                            } else {
+                                this.alreadyUsedItems[item.id] = 1;
+                            }
+                            if (!isStackable(item)) {
+                                this.unstackablePinnedItems.push(item.id);
+                            }
+                        }   
+                    }
+                }
+                if (builds[i].build[10]) {
+                    this.alreadyUsedEspers.push(builds[i].build[10].id);
+                }
+            }
+        }
     }
 }
