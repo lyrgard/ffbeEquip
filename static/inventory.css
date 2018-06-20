@@ -140,6 +140,9 @@ item.notOwned {
     display: none;
     opacity: 0.8;
     filter: grayscale(100%);
+    position: absolute;
+    top: 2px;
+    right: 5px;
 }
 
 .item.enhanced .itemWorldButton {
@@ -149,9 +152,6 @@ item.notOwned {
 
 .item:not(.notOwned):hover .itemWorldButton, .item.enhanced .itemWorldButton, #itemEnhancement .itemWorldButton {
     display: block;
-    position: absolute;
-    top: 2px;
-    right: 5px;
 }
 
 .enhancementTypes {
@@ -189,4 +189,26 @@ item.notOwned {
 #modifyEnhancementModal .modal-header .title.item {
     width: 400px;
     display: inline-flex;
+}
+
+@media (max-width: 991px) {
+    .farmable .farmedButton {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 30px;
+        height: 45px;
+        opacity: 0.8;
+        filter: grayscale(100%);
+    }
+    
+    .item:not(.notOwned) .excludeFromExpeditionButton {
+        display: block;
+        opacity: 0.8;
+        filter: grayscale(100%);
+    }
+    
+    .itemWorldButton {
+        display: block;
+    }
 }
