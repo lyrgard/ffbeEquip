@@ -942,19 +942,9 @@ function inventoryLoaded() {
         onEquipmentsChange();
     }
     
-    /*readStateHashData(function(data) {
-        if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
-            loadStateHashAndBuild(data);    
-        }    
-    });*/
 }
 
 function notLoaded() {
-    /*readStateHashData(function(data) {
-        if (data && (data.equipmentToUse == "owned" || data.equipmentToUse == "ownedAvailableForExpedition")) {
-            alert("The link you opened require you to be logged in the be able to be displayed. Please log in");
-        }    
-    });*/
 }
 
 function onGoalChange() {
