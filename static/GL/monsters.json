@@ -1,4 +1,6 @@
 [
+    {"name":"Iron Giant","wikiEntry":"Armor_of_Oppression","hp":80000000,"mp":10000,"atk":2400,"def":300,"mag":500,"spr":35,"races":["human"], "special":["Vulnerable to all breaks"]},
+    {"name":"Intangir","wikiEntry":"Scorn_of_the_Intangir","hp":45000000,"mp":100000,"atk":1300,"def":80,"mag":850,"spr":35,"races":["beast"], "special":["Vulnerable to ATK/MAG breaks"]},
     {"name":"Kain","wikiEntry":"Crystal_Chamber_-_Battle_with_Kain","hp":4000000,"mp":5000,"atk":700,"def":180,"mag":480,"spr":150,"races":["human"]},
     {"name":"Tegmine","wikiEntry":"Chamber_of_Arms_-_Tegmine","hp":5500000,"mp":4000,"atk":1000,"def":400,"mag":900,"spr":240,"races":["stone","undead"],"resist":[{"name":"fire","percent":-100}, {"name":"ice","percent":-100}, {"name":"lightning","percent":-100}, {"name":"water","percent":999}, {"name":"earth","percent":-100}, {"name":"wind","percent":-100}, {"name":"light","percent":999}, {"name":"dark","percent":-100}], "special":["Vulnerable to ATK/SPR break", "Absorbs Water and Light"]},
     {"name":"Tolfidan (Conqueror of Izander)","wikiEntry":"Conqueror_of_Izander","hp":4000000,"mp":10000,"atk":240,"def":70,"mag":210,"spr":70,"races":["dragon"],"resist":[{"name":"fire","percent":50}, {"name":"dark","percent":50}],"special":["Vulnerable to ATK/DEF/MAG/SPR break"]},
