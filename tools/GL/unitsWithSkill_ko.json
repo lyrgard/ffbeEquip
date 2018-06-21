@@ -6122,7 +6122,7 @@
 		]
 	},
 	"401004005": {
-		"name":"undefined",
+		"name":"리코 로드리게즈",
 		"id":"401004005",
 		"wikiEntry":"Rico_Rodriguez",
 		"max_rarity":"6",
@@ -6134,9 +6134,58 @@
 		},
 		"equip":["dagger","bow","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"mp%":30, "atk%":30, "def%":30, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"mp%":30, "atk%":30, "def%":30, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":30, "equipedConditions":["gun"]},
 			{"atk%":30, "equipedConditions":["fist"]}
+		]
+	},
+	"401004104": {
+		"name":"마리오 프리고",
+		"id":"401004104",
+		"wikiEntry":"Mario_Frigo",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3550,"mp":155,"atk":140,"def":130,"mag":101,"spr":118},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","throwing","gun","hat","clothes"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "singleWieldingOneHanded":{"atk":50}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}},
+			{"atk%":50, "equipedConditions":["gun"]}
+		]
+	},
+	"401004203": {
+		"name":"아니카 스벤슨",
+		"id":"401004203",
+		"wikiEntry":"Annika_Svennson",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2764,"mp":115,"atk":123,"def":102,"mag":88,"spr":92},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":10, "atk%":20, "killers":[{"name":"machine","physical":50}]}
+		]
+	},
+	"401004303": {
+		"name":"테오",
+		"id":"401004303",
+		"wikiEntry":"Teo",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2495,"mp":132,"atk":113,"def":120,"mag":85,"spr":118},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","hammer","gun","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"mp%":20, "atk%":10, "def%":10, "mag%":10, "spr%":10}
 		]
 	}
 }
