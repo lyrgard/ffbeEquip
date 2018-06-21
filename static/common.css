@@ -8,6 +8,18 @@
     
 }
 
+.bannerImg {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.navbar {
+    margin-top: 10px;
+    margin-bottom: 34px;
+}
+
 .navbar-header {
     display: flex;
     flex-direction: column;
@@ -501,10 +513,6 @@ nav .dropdown-menu li a {
     color: #777;
 }
 
-#mobileMenu {
-    display: none;
-}
-
 #desktopMenu {
     float:left;
     display: flex;
@@ -522,11 +530,11 @@ nav .dropdown-menu li a {
 }
 
 #desktopMenu #links {
-    padding-bottom: 3px;
+    position: absolute;
+    bottom: -26px;
 }
 
 #desktopMenu a {
-    padding-top: 5px;
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 2px;
@@ -535,8 +543,10 @@ nav .dropdown-menu li a {
     color: rgba(0, 0, 0, 0.5);
     font-size: 18px;
     text-decoration: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
 }
 
 #desktopMenu a.active {
@@ -553,71 +563,11 @@ nav .dropdown-menu li a {
     width: 100%;
 }
 
-#navigationButtons {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100px;
-    left: -85px;
-    z-index: 5;
+.loadInventory {
+    z-index: 2;
 }
-
-#navigationButtons a {
-    transform: rotate(-90deg);
-    width: 100px;
-    height: 90px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 1px solid #cdcdcd;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    font-size: 18px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-#navigationButtons a:hover {
-    margin-left: 30px;
-    color: rgba(0, 0, 0, 0.6);
-}
-
-#linkToSearch {
-    background-color: #ffb3ba;
-}
-
-#linkToInventory {
-    background-color: #baffc9;
-}
-
-#linkToUnits {
-    background-color: #b19cd9;
-}
-
-#linkToEspers {
-    background-color: #bae1ff;
-}
-
-#linkToBuilder {
-    background-color: #ffffba;
-}
-
-#linkToContribute {
-    background-color: #ffffff;
-}
-
-
 
 @media (max-width: 991px) {
-    
-    #mobileMenu {
-        display: block;
-    }
-
-    #desktopMenu {
-        display: none;
-    }
     
     nav #inventoryStatus {
         display: none;
