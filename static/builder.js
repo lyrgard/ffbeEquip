@@ -1998,7 +1998,7 @@ function getItemLineAsText(prefix, slot) {
                 resultText += baseStats[statIndex].toUpperCase() + "+" + item[baseStats[statIndex]+"%"] + "%";
             }
         }
-        return resultText + "  \n";
+        return resultText + "\n";
     } else {
         return "";
     }
