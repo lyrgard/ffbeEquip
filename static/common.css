@@ -100,6 +100,13 @@ ul {
     font-weight: bold;
     font-size: small;
     color: darkviolet;
+    display: flex;
+    align-items: center;
+}
+
+.item .enhancements img {
+    height: 24px;
+    margin-right: 5px;
 }
 
 #statTitle {
@@ -543,6 +550,43 @@ nav .dropdown-menu li a {
 
 #showLinkDialog input {
     width: 100%;
+}
+
+.enhancementTypes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.enhancementType {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enhancementType .title {
+    font-weight: bold;
+}
+
+.enhancementType .value {
+    padding: 5px;
+}
+
+.enhancementType .value.selected {
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.enhancementType .value:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#modifyEnhancementModal .modal-header .title.item {
+    width: 400px;
+    display: inline-flex;
 }
 
 @media (max-width: 991px) {

@@ -210,6 +210,7 @@ function getEnhancements(item) {
     for (var i = 0, len = item.enhancements.length; i < len; i++) {
         if (first) {
             first = false;
+            html += '<img src="img/dwarf.png"/>'
         } else {
             html += ", ";
         }

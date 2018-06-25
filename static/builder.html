@@ -449,24 +449,24 @@
                             </div>
                             <div id="buildResult" class="notSorted items results">
                                 <div class="line">
-                                    <div class='buildLine buildLine_0'></div>
-                                    <div class='buildLine buildLine_1'></div>
+                                    <div class='buildLine buildLine_0 item'></div>
+                                    <div class='buildLine buildLine_1 item'></div>
                                 </div>
                                 <div class="line">
-                                    <div class='buildLine buildLine_2'></div>
-                                    <div class='buildLine buildLine_3'></div>
+                                    <div class='buildLine buildLine_2 item'></div>
+                                    <div class='buildLine buildLine_3 item'></div>
                                 </div>
                                 <div class="line">
-                                    <div class='buildLine buildLine_4'></div>
-                                    <div class='buildLine buildLine_5'></div>
+                                    <div class='buildLine buildLine_4 item'></div>
+                                    <div class='buildLine buildLine_5 item'></div>
                                 </div>
                                 <div class="line">
-                                    <div class='buildLine buildLine_6'></div>
-                                    <div class='buildLine buildLine_7'></div>
+                                    <div class='buildLine buildLine_6 item'></div>
+                                    <div class='buildLine buildLine_7 item'></div>
                                 </div>
                                 <div class="line">
-                                    <div class='buildLine buildLine_8'></div>
-                                    <div class='buildLine buildLine_9'></div>
+                                    <div class='buildLine buildLine_8 item'></div>
+                                    <div class='buildLine buildLine_9 item'></div>
                                 </div>
                                 <div class="line">
                                     <div class='buildLine buildLine_10'></div>
@@ -593,6 +593,7 @@
                                     <div id="statTitle" class="td value sort">Value</div>
                                     <div class="td special">Special</div>
 									<div class="td access">Access</div>
+                                    <div class="td enchantement"></div>
                                     <div class="td inventory">Owned</div>
                                 </div>
                             </div>
@@ -830,6 +831,116 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="modifyEnhancementModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="title item"></span>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="enhancementTypes">
+                            <div class="enhancementType">
+                                <div class="title">Rare</div>
+                                <div class="rareEnhancement value rare" onclick="toggleItemEnhancement('rare')">HP/ATK +15%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">HP</div>
+                                <div class="value hp_15" onclick="toggleItemEnhancement('hp_15')">15%</div>
+                                <div class="value hp_12" onclick="toggleItemEnhancement('hp_12')">12%</div>
+                                <div class="value hp_10" onclick="toggleItemEnhancement('hp_10')">10%</div>
+                                <div class="value hp_7" onclick="toggleItemEnhancement('hp_7')">7%</div>
+                                <div class="value hp_5" onclick="toggleItemEnhancement('hp_5')">5%</div>
+                                <div class="value hp_3" onclick="toggleItemEnhancement('hp_3')">3%</div>
+                                <div class="value hp_1" onclick="toggleItemEnhancement('hp_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">MP</div>
+                                <div class="value mp_15" onclick="toggleItemEnhancement('mp_15')">15%</div>
+                                <div class="value mp_12" onclick="toggleItemEnhancement('mp_12')">12%</div>
+                                <div class="value mp_10" onclick="toggleItemEnhancement('mp_10')">10%</div>
+                                <div class="value mp_7" onclick="toggleItemEnhancement('mp_7')">7%</div>
+                                <div class="value mp_5" onclick="toggleItemEnhancement('mp_5')">5%</div>
+                                <div class="value mp_3" onclick="toggleItemEnhancement('mp_3')">3%</div>
+                                <div class="value mp_1" onclick="toggleItemEnhancement('mp_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">ATK</div>
+                                <div class="value atk_15" onclick="toggleItemEnhancement('atk_15')">15%</div>
+                                <div class="value atk_12" onclick="toggleItemEnhancement('atk_12')">12%</div>
+                                <div class="value atk_10" onclick="toggleItemEnhancement('atk_10')">10%</div>
+                                <div class="value atk_7" onclick="toggleItemEnhancement('atk_7')">7%</div>
+                                <div class="value atk_5" onclick="toggleItemEnhancement('atk_5')">5%</div>
+                                <div class="value atk_3" onclick="toggleItemEnhancement('atk_3')">3%</div>
+                                <div class="value atk_1" onclick="toggleItemEnhancement('atk_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">DEF</div>
+                                <div class="value def_15" onclick="toggleItemEnhancement('def_15')">15%</div>
+                                <div class="value def_12" onclick="toggleItemEnhancement('def_12')">12%</div>
+                                <div class="value def_10" onclick="toggleItemEnhancement('def_10')">10%</div>
+                                <div class="value def_7" onclick="toggleItemEnhancement('def_7')">7%</div>
+                                <div class="value def_5" onclick="toggleItemEnhancement('def_5')">5%</div>
+                                <div class="value def_3" onclick="toggleItemEnhancement('def_3')">3%</div>
+                                <div class="value def_1" onclick="toggleItemEnhancement('def_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">MAG</div>
+                                <div class="value mag_15" onclick="toggleItemEnhancement('mag_15')">15%</div>
+                                <div class="value mag_12" onclick="toggleItemEnhancement('mag_12')">12%</div>
+                                <div class="value mag_10" onclick="toggleItemEnhancement('mag_10')">10%</div>
+                                <div class="value mag_7" onclick="toggleItemEnhancement('mag_7')">7%</div>
+                                <div class="value mag_5" onclick="toggleItemEnhancement('mag_5')">5%</div>
+                                <div class="value mag_3" onclick="toggleItemEnhancement('mag_3')">3%</div>
+                                <div class="value mag_1" onclick="toggleItemEnhancement('mag_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">SPR</div>
+                                <div class="value spr_15" onclick="toggleItemEnhancement('spr_15')">15%</div>
+                                <div class="value spr_12" onclick="toggleItemEnhancement('spr_12')">12%</div>
+                                <div class="value spr_10" onclick="toggleItemEnhancement('spr_10')">10%</div>
+                                <div class="value spr_7" onclick="toggleItemEnhancement('spr_7')">7%</div>
+                                <div class="value spr_5" onclick="toggleItemEnhancement('spr_5')">5%</div>
+                                <div class="value spr_3" onclick="toggleItemEnhancement('spr_3')">3%</div>
+                                <div class="value spr_1" onclick="toggleItemEnhancement('spr_1')">1%</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">Auto-Regen</div>
+                                <div class="value autoRegen_4" onclick="toggleItemEnhancement('autoRegen_4')">Lvl. 4</div>
+                                <div class="value autoRegen_3" onclick="toggleItemEnhancement('autoRegen_3')">Lvl. 3</div>
+                                <div class="value autoRegen_2" onclick="toggleItemEnhancement('autoRegen_2')">Lvl. 2</div>
+                                <div class="value autoRegen_1" onclick="toggleItemEnhancement('autoRegen_1')">Lvl. 1</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">Auto-Refresh</div>
+                                <div class="value autoRefresh_2" onclick="toggleItemEnhancement('autoRefresh_2')">Lvl. 2</div>
+                                <div class="value autoRefresh_1" onclick="toggleItemEnhancement('autoRefresh_1')">Lvl. 1</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">Auto-Protect</div>
+                                <div class="value autoProtect_5" onclick="toggleItemEnhancement('autoProtect_5')">Lvl. 5</div>
+                                <div class="value autoProtect_4" onclick="toggleItemEnhancement('autoProtect_4')">Lvl. 4</div>
+                                <div class="value autoProtect_3" onclick="toggleItemEnhancement('autoProtect_3')">Lvl. 3</div>
+                                <div class="value autoProtect_2" onclick="toggleItemEnhancement('autoProtect_2')">Lvl. 2</div>
+                                <div class="value autoProtect_1" onclick="toggleItemEnhancement('autoProtect_1')">Lvl. 1</div>
+                            </div>
+                            <div class="enhancementType">
+                                <div class="title">Auto-Shell</div>
+                                <div class="value autoShell_5" onclick="toggleItemEnhancement('autoShell_5')">Lvl. 5</div>
+                                <div class="value autoShell_4" onclick="toggleItemEnhancement('autoShell_4')">Lvl. 4</div>
+                                <div class="value autoShell_3" onclick="toggleItemEnhancement('autoShell_3')">Lvl. 3</div>
+                                <div class="value autoShell_2" onclick="toggleItemEnhancement('autoShell_2')">Lvl. 2</div>
+                                <div class="value autoShell_1" onclick="toggleItemEnhancement('autoShell_1')">Lvl. 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="pinChosenEnchantment();">OK</button>
                     </div>
                 </div>
             </div>
