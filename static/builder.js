@@ -70,6 +70,7 @@ var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
 var goalVariation = "min";
 var initialPinnedWeapons;
+var currentEnchantmentItem;
 
 function build() {
     if (running) {
@@ -1151,16 +1152,20 @@ function displayFixItemModal(index) {
 
 function fixItem(key, slotParam = -1) {
     var item;
-    if (typeList.includes(key)) {
-        item = getPlaceHolder(key);
-    } else if (espersByName[key])  {
-        item = espersByName[key]; 
-    } else if (key == "unavailable") {
-        item = {"name":"Unavailable slot", "type":"unavailable", "placeHolder":true};
+    if (typeof key === 'object') {
+        item = key;
     } else {
-        item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+        if (typeList.includes(key)) {
+            item = getPlaceHolder(key);
+        } else if (espersByName[key])  {
+            item = espersByName[key]; 
+        } else if (key == "unavailable") {
+            item = {"name":"Unavailable slot", "type":"unavailable", "placeHolder":true};
+        } else {
+            item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+        }
     }
-    
+        
     if (item) {
         builds[currentUnitIndex].prepareEquipable();
         var slot = slotParam;
@@ -1247,6 +1252,7 @@ function fixItem(key, slotParam = -1) {
         logCurrentBuild();
     }
     $('#fixItemModal').modal('hide');
+    $('#modifyEnhancementModal').modal('hide');
 }
 
 function removeFixedItemAt(slot) {
@@ -1364,6 +1370,11 @@ function displaySearchResultsAsync(items, start, div) {
         if (item) {
             html += '<div class="tr selectable" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ')">';
             html += displayItemLine(item);
+            html+= "<div class='td enchantment'>";
+            if (weaponList.includes(item.type)) {
+                html += '<img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+            }
+            html+= "</div>";
             if (itemInventory) {
                 var notEnoughClass = "";
                 var numbers = dataStorage.getOwnedNumber(item);
@@ -1388,6 +1399,57 @@ function displaySearchResultsAsync(items, start, div) {
     if (end < items.length) {
         setTimeout(displaySearchResultsAsync, 0, items, end, div);
     }
+}
+
+function selectEnchantedItem(itemId) {
+    /*if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[itemId]) {
+        
+    } else {*/
+        var item = null;
+        for (var i = 0, len = dataStorage.data.length; i < len; i++) {
+            if (dataStorage.data[i].id == itemId) {
+                item = dataStorage.data[i];
+                break;
+            }
+        }
+        selectEnchantement(item);
+    //}
+}
+
+function selectEnchantement(item) {
+    currentEnchantmentItem = JSON.parse(JSON.stringify(item));
+    if (!currentEnchantmentItem.enhancements) {
+        currentEnchantmentItem.enhancements = [];
+    }
+    var popupAlreadyDisplayed = ($("#modifyEnhancementModal").data('bs.modal') || {}).isShown
+    if (!popupAlreadyDisplayed) {
+        $("#modifyEnhancementModal").modal();
+    }
+    $("#modifyEnhancementModal .value").removeClass("selected");
+    for (var i = currentEnchantmentItem.enhancements.length; i--;) {
+        $("#modifyEnhancementModal .value." + currentEnchantmentItem.enhancements[i]).addClass("selected");
+    }
+    $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(currentEnchantmentItem) + getNameColumnHtml(currentEnchantmentItem));
+    $("#modifyEnhancementModal .value.rare").html(itemEnhancementLabels["rare"][currentEnchantmentItem.type]);
+}
+
+function toggleItemEnhancement(enhancement) {
+    var enhancements = currentEnchantmentItem.enhancements;
+    if (enhancements.includes(enhancement)) {
+        enhancements.splice(enhancements.indexOf(enhancement), 1);
+    } else {
+        if (enhancements.length == 3) {
+            $.notify("No more than 3 item enhancements can be selected", "warning");
+            return;   
+        }
+        enhancements.push(enhancement);
+    }
+    selectEnchantement(currentEnchantmentItem);
+}
+
+function pinChosenEnchantment() {
+    fixItem(currentEnchantmentItem, currentItemSlot);
+    
 }
 
 function getStateHash(onlyCurrent = true) {

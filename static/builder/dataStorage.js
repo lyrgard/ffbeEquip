@@ -99,6 +99,13 @@ class DataStorage {
                 availableNumber--;
             } 
             
+            if (this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
+                for (var i = this.itemInventory.enchantments[item.id].length; i--;) {
+                    this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
+                    availableNumber--;
+                }
+            }
+            
             this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable);
         }
         var adventurerAlreadyPinned = false;
