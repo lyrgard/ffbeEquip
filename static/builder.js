@@ -621,9 +621,10 @@ function escapeDot(statName) {
 function getItemLine(index, short = false) {
     var html = "";
     
-    var item = builds[currentUnitIndex].fixedItems[index];
-    if (!item) {
-        item = builds[currentUnitIndex].build[index];
+    
+    var item = builds[currentUnitIndex].build[index];
+    if (!item && builds[currentUnitIndex].fixedItems[index]) {
+        item = builds[currentUnitIndex].fixedItems[index];    
     }
     
     if (item && item.type == "unavailable") {
@@ -654,7 +655,8 @@ function getItemLine(index, short = false) {
                 alreadyUsed = dataStorage.alreadyUsedItems[item.id];
             }
             alreadyUsed += getNumberOfItemAlreadyUsedInThisBuild(builds[currentUnitIndex], index, item);
-            if (dataStorage.getOwnedNumber(item).totalOwnedNumber <= alreadyUsed && getOwnedNumber(item).total > alreadyUsed) {
+            var ownNumber = dataStorage.getOwnedNumber(item);
+            if (ownNumber.totalOwnedNumber <= alreadyUsed && ownNumber.total > alreadyUsed) {
                 if (item.tmrUnit) {
                     html += '<div class="td"><span class="glyphicon glyphicon-screenshot" title="TMR you may want to farm. TMR of ' + units[item.tmrUnit].name + '"/></div>'
                 } else if (item.access.includes("trial")) {
@@ -1448,7 +1450,7 @@ function toggleItemEnhancement(enhancement) {
 }
 
 function pinChosenEnchantment() {
-    fixItem(currentEnchantmentItem, currentItemSlot);
+    fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
     
 }
 

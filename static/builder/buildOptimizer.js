@@ -253,7 +253,7 @@ class BuildOptimizer {
         }
         if (index == 9) {
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
-                if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1)) {
+                if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1 || fixedItems[fixedItemIndex].access.includes("Conditions not met"))) {
                     build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions, this._unitBuild.unit);
                 }
             }
