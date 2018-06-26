@@ -1,3 +1,25 @@
+:root {
+    --search-color-background:#ffb3ba;
+    --inventory-color-background:#baffc9;
+    --units-color-background:#b19cd9;
+    --espers-color-background:#bae1ff;
+    --builder-color-background:#ffffba;
+    --contribute-color-background:#ffffff;
+    
+}
+
+.bannerImg {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.navbar {
+    margin-top: 10px;
+    margin-bottom: 34px;
+}
+
 .navbar-header {
     display: flex;
     flex-direction: column;
@@ -461,6 +483,7 @@ nav {
 
 .switchServer .notSelected {
     color: grey;
+    opacity: 1;
 }
 
 .switchServer button.btn {
@@ -500,11 +523,7 @@ nav .dropdown-menu li a {
     color: #777;
 }
 
-#mobileMenu {
-    display: none;
-}
-
-#desktopMenu {
+#navigationMenu {
     float:left;
     display: flex;
     flex-direction: column;
@@ -513,19 +532,21 @@ nav .dropdown-menu li a {
     justify-content: space-between;
 }
 
-#desktopMenu #navbar-brand {
+#navigationMenu #navbar-brand {
     height: 50px;
     line-height: 50px;
     color: #777;
     font-size: 24px;
 }
 
-#desktopMenu #links {
-    padding-bottom: 3px;
+#navigationMenu #links {
+    position: absolute;
+    bottom: -26px;
+    left: 5px;
 }
 
-#desktopMenu a {
-    padding-top: 5px;
+#navigationMenu #links > a, #navigationMenu #mobileMenu {
+    display: inline;
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 2px;
@@ -534,16 +555,22 @@ nav .dropdown-menu li a {
     color: rgba(0, 0, 0, 0.5);
     font-size: 18px;
     text-decoration: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
 }
 
-#desktopMenu a.active {
+#navigationMenu #mobileMenu {
+    display: none;
+}
+
+#navigationMenu a.active {
     color: rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-#desktopMenu a:hover {
+#navigationMenu a:hover {
     color: rgba(0, 0, 0, 0.6);
     background-color: rgba(0, 0, 0, 0.05);
 }
@@ -589,13 +616,17 @@ nav .dropdown-menu li a {
     display: inline-flex;
 }
 
+.loadInventory {
+    z-index: 2;
+}
+
 @media (max-width: 991px) {
     
-    #mobileMenu {
-        display: block;
+    #navigationMenu #mobileMenu {
+        display: inline;
     }
-
-    #desktopMenu {
+    
+    #navigationMenu #links > a {
         display: none;
     }
     
@@ -625,5 +656,9 @@ nav .dropdown-menu li a {
     
     .loginMessageDetail {
         display: none;
+    }
+    
+    .lang-xs.selected {
+        box-shadow: 0px 0px 5px 2px white;
     }
 }
