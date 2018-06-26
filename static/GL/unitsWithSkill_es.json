@@ -1787,16 +1787,17 @@
 		"name":"Charie",
 		"id":"100011103",
 		"wikiEntry":"Charie",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2296,"mp":140,"atk":98,"def":84,"mag":109,"spr":99},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":2985,"mp":182,"atk":128,"def":110,"mag":142,"spr":129},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","staff","harp","whip","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "spr%":10}
+			{"mp%":20, "spr%":30},
+			{"def%":20, "spr%":20, "equipedConditions":["clothes"]}
 		]
 	},
 	"100011203": {
@@ -5922,9 +5923,12 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["The Stuff of Legend","Sword Mastery","Order of the Blue Wing","Sacred Strike"],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50}], "killers":[{"name":"dragon","physical":50}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["sword"]}
+			{"hp%":30, "atk%":30, "def%":50, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50}], "killers":[{"name":"dragon","physical":50}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["sword"]},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":50, "equipedConditions":["katana"]}
 		]
 	},
 	"401003004": {
@@ -5939,6 +5943,7 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","fist","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Force Field - Magic","Force Field - Attack","Adventurer's Guardian","Protector of Olthea"],
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":20, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"earth","percent":20}], "killers":[{"name":"dragon","physical":50}]},
 			{"hp%":30, "def%":30, "equipedConditions":["lightShield"]},
@@ -5957,8 +5962,9 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Path of Wizardry","Promotion","Icicle Press"],
 		"skills": [
-			{"mp%":30, "mag%":20, "spr%":30, "singleWieldingOneHanded":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
+			{"mp%":50, "mag%":70, "spr%":50, "singleWieldingOneHanded":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
 		]
 	},
 	"401003203": {
@@ -5973,6 +5979,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
+		"enhancementSkills":["Sleight of Hand","Grand Larceny"],
 		"skills": [
 			{"atk%":20, "def%":15, "evade":{"physical":30}, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
@@ -6112,6 +6119,73 @@
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":20, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"bird","physical":25},{"name":"dragon","physical":25}]},
 			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "equipedConditions":["bow"]}
+		]
+	},
+	"401004005": {
+		"name":"Rico Rodríguez",
+		"id":"401004005",
+		"wikiEntry":"Rico_Rodriguez",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3621,"mp":153,"atk":157,"def":136,"mag":110,"spr":121},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","bow","throwing","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"mp%":30, "atk%":30, "def%":30, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50},{"name":"machine","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":30, "equipedConditions":["gun"]},
+			{"atk%":30, "equipedConditions":["fist"]}
+		]
+	},
+	"401004104": {
+		"name":"Mario Frigo",
+		"id":"401004104",
+		"wikiEntry":"Mario_Frigo",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3550,"mp":155,"atk":140,"def":130,"mag":101,"spr":118},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","throwing","gun","hat","clothes"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "singleWieldingOneHanded":{"atk":50}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}},
+			{"atk%":50, "equipedConditions":["gun"]}
+		]
+	},
+	"401004203": {
+		"name":"Annika Svennson",
+		"id":"401004203",
+		"wikiEntry":"Annika_Svennson",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2764,"mp":115,"atk":123,"def":102,"mag":88,"spr":92},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":10, "atk%":20, "killers":[{"name":"machine","physical":50}]}
+		]
+	},
+	"401004303": {
+		"name":"Teo",
+		"id":"401004303",
+		"wikiEntry":"Teo",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2495,"mp":132,"atk":113,"def":120,"mag":85,"spr":118},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","hammer","gun","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"mp%":20, "atk%":10, "def%":10, "mag%":10, "spr%":10}
 		]
 	}
 }

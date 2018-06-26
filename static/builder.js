@@ -1195,6 +1195,10 @@ function fixItem(key, slotParam = -1, enhancements) {
                 return;
             }
         }
+        if (isTwoHanded(item) && builds[currentUnitIndex].build[1 - slot]) {
+            alert("Trying to equip a two-handed weapon when another weapon is already equiped is not possible");
+            return;
+        }
         if (!isStackable(item)) {
             for(var index = 6; index < 10; index++) {
                 if (index != slot && builds[currentUnitIndex].build[index]&& builds[currentUnitIndex].build[index].id == item.id) {
