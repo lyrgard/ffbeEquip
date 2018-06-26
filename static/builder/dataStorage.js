@@ -94,13 +94,25 @@ class DataStorage {
                 continue;
             }
             
-            if (this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
+            if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
                 this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
                 availableNumber--;
             } 
             
-            if (this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
-                for (var i = this.itemInventory.enchantments[item.id].length; i--;) {
+            if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
+                var enhancementsAvailables = this.itemInventory.enchantments[item.id].slice();
+                if (this.alreadyUsedItems.enhancements[item.id]) {
+                    for (var i = this.alreadyUsedItems.enhancements[item.id].length; i--;) {
+                        var enhancementString = JSON.stringify(this.alreadyUsedItems.enhancements[item.id][i]);
+                        for (var j = enhancementsAvailables.length; j--;) {
+                            if (enhancementString == JSON.stringify(this.itemInventory.enchantments[item.id][j])) {
+                                enhancementsAvailables.splice(j, 1);
+                                break;
+                            }
+                        }
+                    }
+                }
+                for (var i = enhancementsAvailables.length; i--;) {
                     this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
                     availableNumber--;
                 }
@@ -420,7 +432,7 @@ class DataStorage {
     }
     
     calculateAlreadyUsedItems(builds, currentUnitIndex) {
-        this.alreadyUsedItems = {};
+        this.alreadyUsedItems = {"enhancements":{}};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
         for (var i = 0, len = builds.length; i < len; i++) {
@@ -433,6 +445,12 @@ class DataStorage {
                             this.alreadyUsedItems[item.id]++;
                         } else {
                             this.alreadyUsedItems[item.id] = 1;
+                        }
+                        if (item.enhancements) {
+                            if (!this.alreadyUsedItems.enhancements[item.id]) {
+                                this.alreadyUsedItems.enhancements[item.id] = [];
+                            }
+                            this.alreadyUsedItems.enhancements[item.id].push(item.enhancements);
                         }
                     }
                 }
@@ -448,6 +466,12 @@ class DataStorage {
                                 this.alreadyUsedItems[item.id]++;
                             } else {
                                 this.alreadyUsedItems[item.id] = 1;
+                            }
+                            if (item.enhancements) {
+                                if (!this.alreadyUsedItems.enhancements[item.id]) {
+                                    this.alreadyUsedItems.enhancements[item.id] = [];
+                                }
+                                this.alreadyUsedItems.enhancements[item.id].push(item.enhancements);
                             }
                             if (!isStackable(item)) {
                                 this.unstackablePinnedItems.push(item.id);

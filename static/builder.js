@@ -1053,6 +1053,7 @@ function onEquipmentsChange() {
 }
      
 function updateSearchResult() {
+    $("#fixItemModal").removeClass("showEnhancements");
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
         $("#fixItemModal .results .tbody").html("");    
@@ -1152,7 +1153,7 @@ function displayFixItemModal(index) {
     updateSearchResult();
 }
 
-function fixItem(key, slotParam = -1) {
+function fixItem(key, slotParam = -1, enhancements) {
     var item;
     if (typeof key === 'object') {
         item = key;
@@ -1165,6 +1166,9 @@ function fixItem(key, slotParam = -1) {
             item = {"name":"Unavailable slot", "type":"unavailable", "placeHolder":true};
         } else {
             item = findBestItemVersion(builds[currentUnitIndex].build, dataStorage.allItemVersions[key][0], dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
+            if (enhancements) {
+                item = applyEnhancements(item, enhancements);
+            }
         }
     }
         
@@ -1370,11 +1374,19 @@ function displaySearchResultsAsync(items, start, div) {
     for (var index = start; index < end; index++) {
         var item = items[index];
         if (item) {
-            html += '<div class="tr selectable" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ')">';
+            var enhancementString = "null";
+            if (item.enhancements) {
+                enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
+            }
+            html += '<div class="tr selectable item" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
             html += displayItemLine(item);
             html+= "<div class='td enchantment'>";
             if (weaponList.includes(item.type)) {
-                html += '<img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+                html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+                if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
+                    html += "<span class='badge'>" + itemInventory.enchantments[item.id].length + "</span>"
+                }
+                html += "</div>"
             }
             html+= "</div>";
             if (itemInventory) {
@@ -1404,22 +1416,35 @@ function displaySearchResultsAsync(items, start, div) {
 }
 
 function selectEnchantedItem(itemId) {
-    /*if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[itemId]) {
-        
-    } else {*/
-        var item = null;
-        for (var i = 0, len = dataStorage.data.length; i < len; i++) {
-            if (dataStorage.data[i].id == itemId) {
-                item = dataStorage.data[i];
-                break;
-            }
+    var item = null;
+    for (var i = 0, len = dataStorage.data.length; i < len; i++) {
+        if (dataStorage.data[i].id == itemId) {
+            item = dataStorage.data[i];
+            break;
         }
-        selectEnchantement(item);
-    //}
+    }
+    if (item) {
+        if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[itemId]) {
+            var enhancedItems = [];
+            if (itemInventory[itemId] > itemInventory.enchantments[itemId].length) {
+                enhancedItems.push(item);
+            }
+            for (var i = 0, len = itemInventory.enchantments[itemId].length; i < len; i++) {
+                enhancedItems.push(applyEnhancements(item, itemInventory.enchantments[itemId][i]));
+            }
+            $("#fixItemModal").addClass("showEnhancements");
+            displaySearchResults(enhancedItems);
+            currentEnchantmentItem = JSON.parse(JSON.stringify(item));
+        } else {
+            selectEnchantement(item);
+        }
+    }
 }
 
 function selectEnchantement(item) {
-    currentEnchantmentItem = JSON.parse(JSON.stringify(item));
+    if (item) {
+        currentEnchantmentItem = JSON.parse(JSON.stringify(item));
+    }
     if (!currentEnchantmentItem.enhancements) {
         currentEnchantmentItem.enhancements = [];
     }
