@@ -788,7 +788,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exviusdb.com/asset_files/global/item_item1_common/82/" + icon ,filePath);
+        download("http://diffs.exviusdb.com/asset_files/global/item_item1_common/85/" + icon ,filePath);
     }
 }
 

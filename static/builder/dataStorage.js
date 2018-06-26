@@ -79,12 +79,21 @@ class DataStorage {
         this.dualWieldSources = [];
         this.equipSources = [];
         this.weaponsByTypeAndHands = {};
+        for (var i = weaponList.length; i--;) {
+            this.weaponsByTypeAndHands[weaponList[i]] = {};
+        }
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
         var alreadyAddedDualWieldSource = [];
         var equipable = this.unitBuild.getCurrentUnitEquip();
         var itemNumber = this.data.length;
+        var pinnedItemIds = [];
+        for (var i = 0; i < 10; i++) {
+            if (this.unitBuild.fixedItems[i]) {
+                pinnedItemIds.push(this.unitBuild.fixedItems[i].id);
+            }
+        }
 
         
         for (var index = 0; index < itemNumber; index++) {
@@ -95,7 +104,7 @@ class DataStorage {
             }
             
             if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
+                this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
                 availableNumber--;
             } 
             
@@ -113,12 +122,12 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds);
+                    this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
                     availableNumber--;
                 }
             }
             
-            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable);
+            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds);
         }
         var adventurerAlreadyPinned = false;
         for (var index = 6; index < 10; index++) {
@@ -226,7 +235,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, tmrAbilityEnhancedItem = false) {
+    prepareItem(item, baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
@@ -266,21 +275,29 @@ class DataStorage {
                 }
             }
             if (weaponList.includes(item.type)) {
-                if (!this.weaponsByTypeAndHands[item.type]) {
-                    this.weaponsByTypeAndHands[item.type] = {};
-                }
-                var handNumber = 1;
-                if (item.special && item.special.includes("twoHanded")) {
-                    handNumber = 2;   
-                }
-                if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
-                    this.weaponsByTypeAndHands[item.type][handNumber] = 0;
-                }
-                this.weaponsByTypeAndHands[item.type][handNumber]++;
+                this.addToWeaponsByTypeAndHands(item);
             }
+        } else if (pinnedItemIds.includes(item.id)) {
+            this.addToWeaponsByTypeAndHands(item);
         }
     }
 
+    addToWeaponsByTypeAndHands(item) {
+        if (weaponList.includes(item.type)) {
+            if (!this.weaponsByTypeAndHands[item.type]) {
+                this.weaponsByTypeAndHands[item.type] = {};
+            }
+            var handNumber = 1;
+            if (item.special && item.special.includes("twoHanded")) {
+                handNumber = 2;   
+            }
+            if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
+                this.weaponsByTypeAndHands[item.type][handNumber] = 0;
+            }
+            this.weaponsByTypeAndHands[item.type][handNumber]++;
+        }
+    }
+    
     itemCanBeOfUseForGoal(item, ennemyStats) {
         if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements && item.element) {
             if (builds[currentUnitIndex].formula.conditions.elements.includes("none") ) {

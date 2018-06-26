@@ -3881,6 +3881,105 @@
 			{"mp%":10}
 		]
 	},
+	"100019105": {
+		"name":"ナギ",
+		"id":"100019105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4751,"mp":222,"atk":202,"def":189,"mag":209,"spr":181},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":50, "mag%":50, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":50, "spr%":20, "evade":{"physical":30}, "dualWielding":{"mag":50}, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+			{"mag%":20, "equipedConditions":["fist"]},
+			{"atk%":20, "mag%":20, "equipedConditions":["fist"]}
+		],
+		"6_form": {
+			"name":"ナギ",
+			"id":"100019105",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3655,"mp":171,"atk":156,"def":146,"mag":161,"spr":133},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+				{"mag%":20, "equipedConditions":["fist"]},
+				{"atk%":20, "mag%":20, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"100019205": {
+		"name":"イーゴ",
+		"id":"100019205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4790,"mp":209,"atk":204,"def":192,"mag":163,"spr":187},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":50, "singleWielding":{"atk":50}},
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":80, "def%":50, "mag%":20, "spr%":50, "singleWielding":{"atk":50}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":100,"magical":100},{"name":"plant","physical":100,"magical":100}], "mpRefresh":5},
+			{"atk%":20, "equipedConditions":["whip"]}
+		],
+		"6_form": {
+			"name":"イーゴ",
+			"id":"100019205",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3685,"mp":161,"atk":157,"def":148,"mag":126,"spr":137},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":80, "def%":50, "mag%":20, "spr%":50, "singleWielding":{"atk":50}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"plant","physical":50,"magical":50}], "mpRefresh":5}
+			]
+		}
+	},
+	"100019304": {
+		"name":"ゾルル&デルル",
+		"id":"100019304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3640,"mp":165,"atk":149,"def":136,"mag":130,"spr":141},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","bow","spear","harp","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "mp%":10, "atk%":50, "def%":30, "spr%":10},
+			{"atk%":20, "equipedConditions":["harp"]},
+			{"atk%":20, "equipedConditions":["bow"]}
+		]
+	},
+	"100019403": {
+		"name":"ガーラス",
+		"id":"100019403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2899,"mp":115,"atk":118,"def":113,"mag":71,"spr":76},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","sword","greatSword","axe","hammer","hat","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":10, "atk%":50, "killers":[{"name":"human","physical":25}]}
+		]
+	},
 	"100019505": {
 		"name":"CG Cid",
 		"jpname":"シド",
