@@ -567,6 +567,45 @@
     cursor: pointer;
 }
 
+#backToAllItems {
+    display: none;
+}
+
+.td.enchantment .enchantment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#fixItemModal .results .td.enchantment .enchantment .badge {
+    margin-top: 5px;
+}
+
+.customEnchantment {
+    display: none;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    font-size: 24px;
+    justify-content: center;
+}
+
+.customEnchantment img {
+    margin-left: 10px;
+}
+
+.showEnhancements #backToAllItems {
+    display: block;
+}
+
+.showEnhancements .customEnchantment {
+    display: flex;
+}
+
+.showEnhancements #searchText, .showEnhancements .dropdown.stat, .showEnhancements .nav.nav-tabs.type, .showEnhancements .enchantment, .showEnhancements .inventory {
+    display: none !important;
+} 
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
