@@ -399,7 +399,7 @@ class DataStorage {
                     }
                 }
                 if (!isStackable(item)) {
-                    if (thisunstackablePinnedItems.includes(item.id)) {
+                    if (this.unstackablePinnedItems.includes(item.id)) {
                         number = 0;
                     } else {
                         number = 1;
