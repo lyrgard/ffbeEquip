@@ -582,6 +582,10 @@
     margin-top: 5px;
 }
 
+#fixItemModal .results .td.mobile .menu {
+    position: relative;
+}
+
 .customEnchantment {
     display: none;
     border-top: 1px solid #ddd;
@@ -634,5 +638,22 @@
     
     .unitStats .stat {
         width: 100%;
+    }
+    
+    #fixItemModal .results .td.access {
+        display: none;
+    }
+    
+    #fixItemModal .results .td.mobile .td.access {
+        display: block;
+    }
+    
+    #fixItemModal .results .td.mobile .dropdown-menu {
+        padding: 0;
+    }
+    
+    #fixItemModal .results .td.mobile .dropdown-menu li {
+        margin-bottom: 5px;
+        margin-left: 5px;
     }
 }

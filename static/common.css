@@ -582,6 +582,7 @@ nav .dropdown-menu li a {
 .enhancementTypes {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .enhancementType {
@@ -620,10 +621,22 @@ nav .dropdown-menu li a {
     z-index: 2;
 }
 
+.mobile {
+    display: none;
+}
+
 @media (max-width: 991px) {
     
     #navigationMenu #mobileMenu {
         display: inline;
+    }
+    
+    .mobile {
+        display: block;
+    }
+    
+    .desktop {
+        display: none !important;
     }
     
     #navigationMenu #links > a {
