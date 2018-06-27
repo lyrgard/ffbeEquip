@@ -1384,14 +1384,8 @@ function displaySearchResultsAsync(items, start, div) {
             }
             html += '<div class="tr selectable item" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
             html += displayItemLine(item);
-            html+= "<div class='td enchantment'>";
-            if (weaponList.includes(item.type)) {
-                html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
-                if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
-                    html += "<span class='badge'>" + itemInventory.enchantments[item.id].length + "</span>"
-                }
-                html += "</div>"
-            }
+            html+= "<div class='td enchantment desktop'>";
+            html+= getItemEnhancementLink(item);
             html+= "</div>";
             if (itemInventory) {
                 var notEnoughClass = "";
@@ -1406,9 +1400,18 @@ function displaySearchResultsAsync(items, start, div) {
                         }
                     }
                 }
-                html+= "<div class='td inventory text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
+                html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
+                
+                html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
+                html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
+                html+=      '<ul class="dropdown-menu pull-right">';
+                html+=          '<li>' + getAccessHtml(item) + '</li>';
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                html+=          '<li class="inventory"><span class="badge' + notEnoughClass + '">' + owned + '</span></li>';
+                html+=      '</ul>';
+                html+= '</div></div>';
             } else {
-                html+= "<div class='td inventory'/>"
+                html+= "<div class='td enchantment'/><div class='td inventory'/>"
             }
             html += "</div>";
         }
@@ -1417,6 +1420,18 @@ function displaySearchResultsAsync(items, start, div) {
     if (end < items.length) {
         setTimeout(displaySearchResultsAsync, 0, items, end, div);
     }
+}
+
+function getItemEnhancementLink(item) {
+    var html = "";
+    if (weaponList.includes(item.type)) {
+        html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+        if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
+            html += "<span class='badge'>" + itemInventory.enchantments[item.id].length + "</span>"
+        }
+        html += "</div>"
+    }
+    return html;
 }
 
 function selectEnchantedItem(itemId) {

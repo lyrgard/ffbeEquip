@@ -359,7 +359,12 @@ function displayItemLine(item) {
 
 
     //access
-    html += '<div class="td access">';
+    html += getAccessHtml(item);
+    return html;
+}
+
+function getAccessHtml(item) {
+    var html = '<div class="td access">';
     $(item.access).each(function(index, itemAccess) {
         html += "<div";
         if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
