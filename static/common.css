@@ -625,6 +625,25 @@ nav .dropdown-menu li a {
     display: none;
 }
 
+.mobileMenuArrow {
+    position: absolute;
+    top: 65px;
+    left: 42px;
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobileMenuLogo {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    cursor: pointer;
+}
+
 @media (max-width: 991px) {
     
     #navigationMenu #mobileMenu {
@@ -673,5 +692,13 @@ nav .dropdown-menu li a {
     
     .lang-xs.selected {
         box-shadow: 0px 0px 5px 2px white;
+    }
+    
+    .navbar {
+        margin-bottom: 16px;
+    }
+    
+    .container-fluid {
+        overflow: hidden;
     }
 }
