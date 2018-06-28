@@ -132,11 +132,7 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        console.log(JSON.stringify(typeCombination) + fixedString);
-        console.log(includeSingleWielding);
-        console.log(includeDualWielding);
         var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, typeCombination, includeSingleWielding, includeDualWielding);
-        ItemTreeComparator.logTree(resultTree);
         return resultTree;
     }
     
