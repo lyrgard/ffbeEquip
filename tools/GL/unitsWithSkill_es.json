@@ -649,6 +649,7 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["fist","hat","clothes"],
+		"enhancementSkills":["Counter","Perfect Balance","Unleashed Chakra"],
 		"skills": [
 			{"hp%":20, "atk%":50, "resist":[{"name":"blind","percent":100}]},
 			{"atk%":50, "equipedConditions":["unarmed"]}
@@ -1131,7 +1132,7 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes"],
-		"enhancementSkills":["Two-handed","Killer Bullet","Disorder"],
+		"enhancementSkills":["Dual Guns","Killer Bullet","Disorder"],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "partialDualWield":["gun","fist"]},
 			{"atk%":20, "def%":20, "equipedConditions":["gun"]},
@@ -3714,9 +3715,10 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["Meditate","Power Seeker","Heaven's Fury"],
 		"skills": [
 			{"hp%":10, "mp%":20, "mag%":30, "mpRefresh":5},
-			{"atk%":50, "mag%":50, "equipedConditions":["sword"]}
+			{"hp%":20, "mp%":20, "atk%":80, "mag%":80, "equipedConditions":["sword"]}
 		]
 	},
 	"212000403": {
@@ -3816,9 +3818,11 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["All Resist Light","Royal Obligation","Vanguard Slasher"],
 		"skills": [
 			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100}]},
-			{"def%":50, "equipedConditions":["heavyArmor"]},
+			{"hp%":20, "def%":50, "spr%":30, "equipedConditions":["heavyArmor"]},
+			{"hp%":20, "def%":50, "spr%":30, "equipedConditions":["lightArmor"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
@@ -5600,16 +5604,17 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["sword","greatSword","katana","hammer","spear","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Authority","Word of Law","Rejuvenate","Archadian Light"],
 		"skills": [
 			{"hp%":30, "def%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"light","percent":50},{"name":"dark","percent":-50}], "mpRefresh":5},
 			{"spr%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
-			{"atk%":30, "equipedConditions":["sword"]},
-			{"atk%":30, "equipedConditions":["greatSword"]},
-			{"mag%":30, "equipedConditions":["katana"]},
-			{"mag%":30, "equipedConditions":["hammer"]},
-			{"mag%":30, "equipedConditions":["spear"]},
+			{"hp%":20, "atk%":50, "def%":20, "equipedConditions":["sword"]},
+			{"hp%":20, "atk%":50, "def%":20, "equipedConditions":["greatSword"]},
+			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["katana"]},
+			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["hammer"]},
+			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["spear"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
 			{"mp%":20, "mag%":20, "equipedConditions":["fire"]}
 		]
