@@ -124,7 +124,20 @@ class BuildOptimizer {
                 numberNeeded++;
             }
         }
-        return ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, typeCombination);
+        var includeSingleWielding = !typeCombination[0] || !typeCombination[1];
+        var includeDualWielding = typeCombination[0] && typeCombination[1] && weaponList.includes(typeCombination[0]) && weaponList.includes(typeCombination[1]);
+        var fixedString = "";
+        for (var i = 0; i < fixedItems.lenght; i++) {
+            if (fixedItems[i]) {
+                fixedString += ' - ' + fixedItems[i].name;
+            }
+        }
+        console.log(JSON.stringify(typeCombination) + fixedString);
+        console.log(includeSingleWielding);
+        console.log(includeDualWielding);
+        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, typeCombination, includeSingleWielding, includeDualWielding);
+        ItemTreeComparator.logTree(resultTree);
+        return resultTree;
     }
     
     getElementBasedSkills() {

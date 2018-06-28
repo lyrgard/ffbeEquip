@@ -364,16 +364,20 @@ function logBuild(build, value) {
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
         var bonusPercent;
         if (result.bonusPercent > statsBonusCap[server]) {
-            bonusPercent = "<span style='color:red;' title='Only 300% taken into account'>" + result.bonusPercent + "%</span>";
+            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
         if (baseStats.includes(statsToDisplay[statIndex])) {
-            var equipmentFlatStatBonus = Math.floor((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
+            var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
                 bonusPercent += "&nbsp;-&nbsp;";
-                if (equipmentFlatStatBonus > 300) {
-                    bonusPercent += "<span style='color:red;' title='Only 300% taken into account'>" + equipmentFlatStatBonus + "%</span>";
+                var cap = 300;
+                if (build[0] && build[1] && weaponList.includes(build[0].type) && weaponList.includes(build[1].type)) {
+                    cap = 100;
+                }
+                if (equipmentFlatStatBonus > cap) {
+                    bonusPercent += "<span style='color:red;' title='Only " + cap + " taken into account'>" + equipmentFlatStatBonus + "%</span>";
                 } else {
                     bonusPercent += equipmentFlatStatBonus + "%";
                 }
@@ -528,7 +532,7 @@ function logBuild(build, value) {
     if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
         $("#resultStats .buildResult").removeClass("hidden");
         var valueToDisplay = value[goalVariation];
-        if (value < 100) {
+        if (valueToDisplay < 100) {
             valueToDisplay = Math.floor(valueToDisplay*10)/10;
         } else {
             valueToDisplay = Math.floor(valueToDisplay);

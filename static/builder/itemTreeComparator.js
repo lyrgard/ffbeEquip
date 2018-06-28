@@ -1,6 +1,6 @@
 class ItemTreeComparator {
     
-    static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null) {
+    static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null, includeSingleWielding = true, includeDualWielding = true) {
         var result = [];
         var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
         if (itemsOfType.length > 0) {
@@ -16,7 +16,7 @@ class ItemTreeComparator {
 
                 var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
                 //console.log("Considering " + entry.item.name);
-                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, 10, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth);
+                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, 10, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth, includeSingleWielding, includeDualWielding);
                 //logTree(keptItemsRoot);
             }
         }
@@ -27,9 +27,12 @@ class ItemTreeComparator {
         return keptItemsRoot;
     }
     
-    static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements) {
+    static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements, includeSingleWielding, includeDualWielding) {
         if (treeNode1.root) {
             return "strictlyWorse"; 
+        }
+        if (treeNode1.equivalents[0].item.name == "Gladiator's Shield" || treeNode2.equivalents[0].item.name == "Gladiator's Shield") {
+            console.log('!!');
         }
         var comparisionStatus = [];
         for (var index = stats.length; index--;) {
@@ -47,8 +50,13 @@ class ItemTreeComparator {
             } else {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, stats[index]));
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "total_" + stats[index]));
-                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWielding." + stats[index]));
-                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHanded." + stats[index]));
+                if (includeSingleWielding) {
+                    comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWielding." + stats[index]));
+                    comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "singleWieldingOneHanded." + stats[index]));
+                }
+                if (includeDualWielding) {
+                    comparisionStatus.push(TreeComparator.compareByValue(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, "dualWielding." + stats[index]));
+                }
             }
         }
         if (desirableElements && desirableElements.length != 0) {
@@ -116,6 +124,49 @@ class ItemTreeComparator {
         for (var index = treeItem.equivalents.length; index--;) {
             if (!treeItem.equivalents[index].item.notStackableSkills) {
                 result += treeItem.equivalents[index].available;
+            }
+        }
+        return result;
+    }
+    
+    static logTree(tree, currentBranch) {
+        if (tree.root) {
+            for (var index = 0, len = tree.children.length; index < len; index++) {
+                ItemTreeComparator.logTree(tree.children[index], "");
+            }
+        } else {
+            var line = Array(currentBranch.length + 1).join(" ");
+            for (var i = 0, len = tree.equivalents.length - 1; i < len; i++) {
+                if (i == 0) {
+                    console.log(currentBranch + " - " + ItemTreeComparator.getNormalizedItemName(tree.equivalents[i].item));
+                } else {
+                    console.log(line + " | " + ItemTreeComparator.getNormalizedItemName(tree.equivalents[i].item));    
+                }
+            }    
+            var lastIndex = tree.equivalents.length - 1;
+            var nextline;
+            if (lastIndex == 0) {
+                nextline = currentBranch + " - " + ItemTreeComparator.getNormalizedItemName(tree.equivalents[lastIndex].item);
+            } else {
+                nextline = line + " | " + ItemTreeComparator.getNormalizedItemName(tree.equivalents[lastIndex].item);    
+            }
+            if (tree.children.length > 0) {
+                for (var index = 0, len = tree.children.length; index < len; index++) {
+                    ItemTreeComparator.logTree(tree.children[index], nextline);
+                }
+            } else {
+                console.log(nextline);
+            }
+        }
+    }
+    
+    static getNormalizedItemName(item) {
+        var result = item.name;
+        if (result.length > 20) {
+            result = result.substr(0,20);
+        } else if (result.length < 20) {
+            for (var i = 20 - result.length; i--;) {
+                result += " ";
             }
         }
         return result;
