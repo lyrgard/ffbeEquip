@@ -257,6 +257,9 @@ class DataStorage {
             if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
                 this.equipSources.push(item);
             } 
+            if (item.name == "Fryevia's Needle") {
+                console.log("!!");
+            }
             if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                     adventurersAvailable[item.id] = item;
@@ -317,7 +320,7 @@ class DataStorage {
 
         for (var index = 0, len = stats.length; index < len; index++) {
             if (stats[index] == "weaponElement") {
-                if (item.element && getElementCoef(item.element, ennemyStats) >= 0) return true;
+                if (item.element && getElementCoef(item.element, ennemyStats) < 0) return true;
             } else if (stats[index] == "physicalKiller") {
                 if (this.getKillerCoef(item, "physical") > 0) return true;
             } else if (stats[index] == "magicalKiller") {

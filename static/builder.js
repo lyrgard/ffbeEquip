@@ -12,6 +12,7 @@ const formulaByGoal = {
     "sprDamageWithMagicalMecanism":     {"type":"value","name":"sprDamageWithMagicalMecanism"},
     "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
+    "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
     "summonerSkill":                    {"type":"value","name":"summonerSkill"},
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
