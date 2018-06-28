@@ -64,7 +64,7 @@ var workerWorkingCount = 0;
 var processedCount = 0
 var typeCombinationsCount;
 var remainingTypeCombinations;
-var dataStorage;
+var dataStorage = new DataStorage();
 var bestiary;
 var typeCombinationChunckSizeDefault = 2;
 var typeCombinationChunckSize = typeCombinationChunckSizeDefault;
@@ -2011,7 +2011,7 @@ $(function() {
     progressElement = $("#buildProgressBar .progressBar");
     $.get(getLocalizedFileUrl("data"), function(result) {
         data = result;
-        dataStorage = new DataStorage(data);
+        dataStorage.setData(data);
         $.get(getLocalizedFileUrl("unitsWithSkill"), function(result) {
             units = result;
             populateUnitSelect();
