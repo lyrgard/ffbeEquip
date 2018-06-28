@@ -1,7 +1,5 @@
 class DataStorage {
-    constructor(data) {
-        this.data = data;
-        this.prepareAllItemsVersion();
+    constructor() {
         this.onlyUseOwnedItems = false;
         this.onlyUseShopRecipeItems = false;
         this.exludeEventEquipment = false;
@@ -17,6 +15,11 @@ class DataStorage {
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
         this.itemInventory;
+    }
+    
+    setData(data) {
+        this.data = data;
+        this.prepareAllItemsVersion();
     }
     
     prepareAllItemsVersion() {
