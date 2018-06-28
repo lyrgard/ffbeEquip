@@ -21,7 +21,7 @@ class ItemTreeComparator {
             }
         }
         
-        ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepthWithoutNotStackableSkillsItems);
+        ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(keptItemsRoot, numberNeeded, unitBuild.involvedStats, ItemTreeComparator.getDepthWithoutNotStackableSkillsItems);
         
         TreeComparator.cutUnderMaxDepth(keptItemsRoot, numberNeeded, ItemTreeComparator.getDepth, 0);
         return keptItemsRoot;
@@ -30,9 +30,6 @@ class ItemTreeComparator {
     static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements, includeSingleWielding, includeDualWielding) {
         if (treeNode1.root) {
             return "strictlyWorse"; 
-        }
-        if (treeNode1.equivalents[0].item.name == "Gladiator's Shield" || treeNode2.equivalents[0].item.name == "Gladiator's Shield") {
-            console.log('!!');
         }
         var comparisionStatus = [];
         for (var index = stats.length; index--;) {
@@ -67,7 +64,7 @@ class ItemTreeComparator {
         return TreeComparator.combineComparison(comparisionStatus);
     }
     
-    static moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree = treeRoot, currentDepth = 0) {
+    static moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, involvedStats, getDepth, currentTree = treeRoot, currentDepth = 0) {
         
         if (currentDepth > maxDepth) {
             return;
@@ -79,8 +76,27 @@ class ItemTreeComparator {
             while (index < currentTree.equivalents.length) {
                 var entry = currentTree.equivalents[index];
                 if (entry.item.notStackableSkills) {
-                    entryToAddToRoot.push(entry);
-                    currentTree.equivalents.splice(index,1);
+                    var usefullNotStackableSkill = false;
+                    var skillsIds = Object.keys(entry.item.notStackableSkills);
+                    usefullNotStackableSkillPresenceCheck : for (var i = skillsIds.length; i--;) {
+                        var notStackableSkill = entry.item.notStackableSkills[skillsIds[i]];
+                        for (var j = involvedStats.length; j--;) {
+                            var stat = involvedStats[j];
+                            if (stat == "lbPerTurn" && (getValue(notStackableSkill, "lbFillRate") > 0 || getValue(notStackableSkill, "lbPerTurn.min") > 0)) {
+                                usefullNotStackableSkill = true;
+                                break usefullNotStackableSkillPresenceCheck;
+                            } else if ((stat == "evade.physical" || stat == "evade.magical" || stat == "mpRefresh") && getValue(notStackableSkill, stat) > 0) {
+                                usefullNotStackableSkill = true;
+                                break usefullNotStackableSkillPresenceCheck;
+                            }
+                        }
+                    }
+                    if (usefullNotStackableSkill) {
+                        entryToAddToRoot.push(entry);
+                        currentTree.equivalents.splice(index,1);
+                    } else {
+                        index++;
+                    }
                 } else {
                     index++;
                 }
@@ -90,13 +106,13 @@ class ItemTreeComparator {
             for (var index = currentTree.children.length; index--;) {
                 currentTree.parent.children.push(currentTree.children[index]);
                 currentTree.children[index].parent = currentTree.parent;
-                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], currentDepth);
+                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, involvedStats, getDepth, currentTree.children[index], currentDepth);
             }
             currentTree.children = [];
             currentTree.parent.children.splice(currentTree.parent.children.indexOf(currentTree), 1);
         } else {
             for (var index = currentTree.children.length; index--;) {
-                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, getDepth, currentTree.children[index], depth);
+                ItemTreeComparator.moveToRootItemsWithExcludingSkillsNotUnderMaxDepth(treeRoot, maxDepth, involvedStats, getDepth, currentTree.children[index], depth);
             }
         }
         

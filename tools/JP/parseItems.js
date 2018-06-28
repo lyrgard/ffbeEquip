@@ -562,7 +562,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             dualWieldingStat = "spr";
         }
         addStat(item.dualWielding, dualWieldingStat, rawEffect[3][1]);
-        console.log(item);
+        console.log(item)
         
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
