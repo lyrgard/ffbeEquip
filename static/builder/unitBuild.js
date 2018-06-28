@@ -9,6 +9,7 @@ const involvedStatsByValue = {
     "sprDamageWithMagicalMecanism":     ["spr","magicalKiller"],
     "atkDamageWithFixedMecanism":       ["atk","meanDamageVariance"],
     "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance"],
+    "fixedDamageWithPhysicalMecanism":  ["weaponElement", "physicalKiller"],
     "summonerSkill":                    ["mag","spr","evoMag"]
 }
 

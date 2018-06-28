@@ -30,6 +30,7 @@ const goalValuesCaract = {
     "sprDamageWithMagicalMecanism":     {"statsToMaximize":["spr"], "type": "magical"},
     "atkDamageWithFixedMecanism":       {"statsToMaximize":["atk"], "type": "none"},
     "physicalDamageMultiCast":          {"statsToMaximize":["atk"], "type": "physical"},
+    "fixedDamageWithPhysicalMecanism":  {"statsToMaximize":[], "type": "physical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };
 const itemEnhancementLabels = {
