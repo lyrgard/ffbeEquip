@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
 const statsBonusCap = {
     "GL": 300,
     "JP": 400
@@ -177,79 +177,90 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 "max":0,
                 "switchWeapons": false
             };
-            for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
-                var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
-                var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
+            var value;
+            if (formula.name == "fixedDamageWithPhysicalMecanism") {
+                var damage = 1000 * (1 - resistModifier) * killerMultiplicator
+                value = {
+                    "min": damage,
+                    "avg": damage,
+                    "max": damage,
+                    "switchWeapons": false
+                }
+            } else {
+                for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
+                    var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
+                    var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
 
-                if ("atk" == stat) {
-                    var variance;
-                    var switchWeapons = false;
-                    if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
-                        if (itemAndPassives[0].damageVariance) {
-                            variance = itemAndPassives[0].damageVariance;
-                        } else {
-                            variance = weaponBaseDamageVariance[itemAndPassives[0].type];
-                        }    
-                    }  else {
-                        variance = weaponBaseDamageVariance["none"];
-                    }
-                    
-                    if (goalVariance && 
-                        itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) &&
-                        itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                        var variance1;
-                        if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
-                            if (itemAndPassives[1].damageVariance) {
-                                variance1 = itemAndPassives[1].damageVariance;
+                    if ("atk" == stat) {
+                        var variance;
+                        var switchWeapons = false;
+                        if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+                            if (itemAndPassives[0].damageVariance) {
+                                variance = itemAndPassives[0].damageVariance;
                             } else {
-                                variance1 = weaponBaseDamageVariance[itemAndPassives[1].type];
+                                variance = weaponBaseDamageVariance[itemAndPassives[0].type];
                             }    
                         }  else {
-                            variance1 = weaponBaseDamageVariance["none"];
+                            variance = weaponBaseDamageVariance["none"];
                         }
-                        
-                        if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
-                            switchWeapons = ((calculatedValue.right * calculatedValue.right * variance[goalVariance]) < (calculatedValue.left * calculatedValue.left * variance1[goalVariance]));
-                            if (switchWeapons) {
-                                variance = variance1;
-                                calculatedValue.right = calculatedValue.left;
+
+                        if (goalVariance && 
+                            itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) &&
+                            itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                            var variance1;
+                            if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                                if (itemAndPassives[1].damageVariance) {
+                                    variance1 = itemAndPassives[1].damageVariance;
+                                } else {
+                                    variance1 = weaponBaseDamageVariance[itemAndPassives[1].type];
+                                }    
+                            }  else {
+                                variance1 = weaponBaseDamageVariance["none"];
                             }
-                            calculatedValue.left = 0;
+
+                            if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
+                                switchWeapons = ((calculatedValue.right * calculatedValue.right * variance[goalVariance]) < (calculatedValue.left * calculatedValue.left * variance1[goalVariance]));
+                                if (switchWeapons) {
+                                    variance = variance1;
+                                    calculatedValue.right = calculatedValue.left;
+                                }
+                                calculatedValue.left = 0;
+                            } else {
+                                switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || ((variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
+                                if (switchWeapons) {
+                                    variance = variance1;
+                                    var tmp = calculatedValue.left;
+                                    calculatedValue.left = calculatedValue.right;
+                                    calculatedValue.right = tmp;
+                                }    
+                            }
                         } else {
-                            switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || ((variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
-                            if (switchWeapons) {
-                                variance = variance1;
-                                var tmp = calculatedValue.left;
-                                calculatedValue.left = calculatedValue.right;
-                                calculatedValue.right = tmp;
-                            }    
+                            if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
+                                calculatedValue.left = 0;
+                            }
                         }
+
+                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min / ennemyStats.def;
+                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg / ennemyStats.def;
+                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max / ennemyStats.def;
+                        total.switchWeapons = total.switchWeapons || switchWeapons;
                     } else {
-                        if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
-                            calculatedValue.left = 0;
+                        var dualWieldCoef = 1;
+                        if (goalValuesCaract[formula.name].type == "physical" && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
+                            dualWieldCoef = 2;
                         }
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyStats.spr;
+                        total.min += base * damageMultiplier.min;
+                        total.avg += base * damageMultiplier.avg;
+                        total.max += base * damageMultiplier.max;
                     }
-                    
-                    total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min / ennemyStats.def;
-                    total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg / ennemyStats.def;
-                    total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max / ennemyStats.def;
-                    total.switchWeapons = total.switchWeapons || switchWeapons;
-                } else {
-                    var dualWieldCoef = 1;
-                    if (goalValuesCaract[formula.name].type == "physical" && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                        dualWieldCoef = 2;
-                    }
-                    var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyStats.spr;
-                    total.min += base * damageMultiplier.min;
-                    total.avg += base * damageMultiplier.avg;
-                    total.max += base * damageMultiplier.max;
                 }
-            }
-            var value = {
-                "min": total.min / goalValuesCaract[formula.name].statsToMaximize.length,
-                "avg": total.avg / goalValuesCaract[formula.name].statsToMaximize.length,
-                "max": total.max / goalValuesCaract[formula.name].statsToMaximize.length,
-                "switchWeapons": total.switchWeapons
+                value = {
+                    "min": total.min / goalValuesCaract[formula.name].statsToMaximize.length,
+                    "avg": total.avg / goalValuesCaract[formula.name].statsToMaximize.length,
+                    "max": total.max / goalValuesCaract[formula.name].statsToMaximize.length,
+                    "switchWeapons": total.switchWeapons
+                }
             }
             alreadyCalculatedValues[formula.name] = value;
             return value;
