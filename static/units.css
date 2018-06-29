@@ -188,3 +188,41 @@
     right: -6px;
     height: 45px;
 }
+
+.stats {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats h4 {
+    margin-top: 20px;
+}
+
+.stats .crystal {
+    height: 24px;
+    margin-right: 5px;
+}
+
+.stats .value {
+    width: 30px;
+    display: inline-block;
+    justify-content: center;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.stats .total {
+    width: 30px;
+    display: inline-block;
+    justify-content: center;
+    text-align: end;
+}
+
+.stats .number {
+    width: 50px;
+    display: inline-block;
+    justify-content: center;
+    text-align: end;
+}
