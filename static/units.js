@@ -107,6 +107,76 @@ function showHistory() {
     $("#results").html(html);
 }
 
+function displayStats() {
+    var stats = {
+        "all": {
+            "5": {"different":0, "total":0, "number":0},
+            "4": {"different":0, "total":0, "number":0},
+            "3": {"different":0, "total":0, "number":0},
+        },
+        "timeLimited": {
+            "5": {"different":0, "total":0, "number":0},
+            "4": {"different":0, "total":0, "number":0},
+            "3": {"different":0, "total":0, "number":0},
+        }
+    }
+    var unitIds = Object.keys(units);
+    for (var i = unitIds.length; i--;) {
+        var unit = units[unitIds[i]];
+        if (unit.min_rarity >= 3) {
+            stats.all[unit.min_rarity].total++;
+            if (ownedUnits[unit.id]) {
+                stats.all[unit.min_rarity].number += ownedUnits[unit.id].number;
+                stats.all[unit.min_rarity].different++;
+            }
+            if (unit.summon_type == "event") {
+                stats.timeLimited[unit.min_rarity].total++;
+                if (ownedUnits[unit.id]) {
+                    stats.timeLimited[unit.min_rarity].number += ownedUnits[unit.id].number;
+                    stats.timeLimited[unit.min_rarity].different++;
+                }
+            }
+        }
+    }
+    $(".stats .all .star5 .value").text(stats.all["5"].different);
+    $(".stats .all .star5 .total").text(stats.all["5"].total);
+    $(".stats .all .star5 .number").text("(" + stats.all["5"].number + ")");
+    
+    $(".stats .all .star4 .value").text(stats.all["4"].different);
+    $(".stats .all .star4 .total").text(stats.all["4"].total);
+    $(".stats .all .star4 .number").text("(" + stats.all["4"].number + ")");
+    
+    $(".stats .all .star3 .value").text(stats.all["3"].different);
+    $(".stats .all .star3 .total").text(stats.all["3"].total);
+    $(".stats .all .star3 .number").text("(" + stats.all["3"].number + ")");
+    
+    $(".stats .withoutTimeLimited .star5 .value").text(stats.all["5"].different - stats.timeLimited["5"].different);
+    $(".stats .withoutTimeLimited .star5 .total").text(stats.all["5"].total - stats.timeLimited["5"].total);
+    $(".stats .withoutTimeLimited .star5 .number").text("(" + (stats.all["5"].number - stats.timeLimited["5"].number) + ")");
+    
+    $(".stats .withoutTimeLimited .star4 .value").text(stats.all["4"].different - stats.timeLimited["4"].different);
+    $(".stats .withoutTimeLimited .star4 .total").text(stats.all["4"].total - stats.timeLimited["4"].total);
+    $(".stats .withoutTimeLimited .star4 .number").text("(" + (stats.all["4"].number - stats.timeLimited["4"].number) + ")");
+    
+    $(".stats .withoutTimeLimited .star3 .value").text(stats.all["3"].different - stats.timeLimited["3"].different);
+    $(".stats .withoutTimeLimited .star3 .total").text(stats.all["3"].total - stats.timeLimited["3"].total);
+    $(".stats .withoutTimeLimited .star3 .number").text("(" + (stats.all["3"].number - stats.timeLimited["3"].number) + ")");
+    
+    $(".stats .timeLimited .star5 .value").text(stats.timeLimited["5"].different);
+    $(".stats .timeLimited .star5 .total").text(stats.timeLimited["5"].total);
+    $(".stats .timeLimited .star5 .number").text("(" + stats.timeLimited["5"].number + ")");
+    
+    $(".stats .timeLimited .star4 .value").text(stats.timeLimited["4"].different);
+    $(".stats .timeLimited .star4 .total").text(stats.timeLimited["4"].total);
+    $(".stats .timeLimited .star4 .number").text("(" + stats.timeLimited["4"].number + ")");
+    
+    $(".stats .timeLimited .star3 .value").text(stats.timeLimited["3"].different);
+    $(".stats .timeLimited .star3 .total").text(stats.timeLimited["3"].total);
+    $(".stats .timeLimited .star3 .number").text("(" + stats.timeLimited["3"].number + ")");
+    
+    $(".stats").removeClass("hidden");
+}
+
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayUnits = function(units, useTmrName = false) {
     var html = '<div class="unitList">';
@@ -570,6 +640,7 @@ function onDataReady() {
                     }
                     showNumberTMRFarmed= true;
                     showRaritySort();
+                    displayStats();
                 },
                 error: function (textStatus, errorThrown) {
                     $.notify("Error : no data found", "error");
@@ -579,6 +650,7 @@ function onDataReady() {
         } else if (itemInventory && ownedUnits) {
             prepareData();
             showRaritySort();
+            displayStats();
         }
     } 
 }
