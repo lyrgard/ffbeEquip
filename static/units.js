@@ -339,13 +339,15 @@ function getRarity(minRarity, maxRarity) {
 
 function addToOwnedUnits(unitId) {
     if (readOnly) return;
-    if (!ownedUnits[unitId] || ownedUnits[unitId].number == 0) {
-        ownedUnits[unitId] = {"number":1, "farmable":0};
+    if (!ownedUnits[unitId]) {
+        ownedUnits[unitId] = {"number":0, "farmable":0};
+    }
+    if (ownedUnits[unitId].number == 0) {
         $(".unit.notSevenStars." + unitId).addClass("owned");
         $(".unit.notSevenStars." + unitId).removeClass("notOwned");
-    } else {
-        ownedUnits[unitId].number += 1;
     }
+    
+    ownedUnits[unitId].number += 1;
     if (ownedUnits[unitId].number >= 2 && allUnits[unitId].max_rarity == 7) {
         $(".unit.notSevenStars." + unitId).addClass("awakenable");
     }
