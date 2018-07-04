@@ -329,6 +329,9 @@ function addNodeStatToEsper(esper, node) {
     if (node.esperStatsBonus) {
         addEsperStatsBonus(esper, node.esperStatsBonus);
     }
+    if (node.lbPerTurn) {
+        esper.lbPerTurn = node.lbPerTurn;
+    }
     for (var i = baseStats.length; i--;) {
         if (node[percentValues[baseStats[i]]]) {
             addToStat(esper, percentValues[baseStats[i]], node[percentValues[baseStats[i]]]);
