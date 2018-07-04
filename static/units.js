@@ -523,10 +523,7 @@ function awaken(unitId) {
     ownedUnits[unitId].farmableStmr++;
     currentSort();
 
-    saveNeeded = true;
-    if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
-    $(".saveInventory").removeClass("hidden");
+    markSaveNeeded();
 }
 
 function markSaveNeeded() {
@@ -547,6 +544,10 @@ function savePublicLink(callback) {
             var publicUnit = {
                 "number": ownedUnits[unit.id].number,
                 "farmed": (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0)
+            }
+            if (ownedUnits[unit.id].sevenStar) {
+                publicUnit.sevenStar = ownedUnits[unit.id].sevenStar;
+                publicUnit.farmedStmr = (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0)
             }
             publicUnitcollection[unit.id] = publicUnit;
         }
@@ -812,6 +813,7 @@ function exportAsText() {
 function onDataReady() {
     if (units && data) {
         if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {
+            $("#mode").addClass('hidden');
             $.ajax({
                 accepts: "application/json",
                 url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/UnitCollections%2F" + window.location.hash.substr(1) + ".json?alt=media",
@@ -820,6 +822,7 @@ function onDataReady() {
                     tmrNumberByUnitId = {};
                     for (var id in ownedUnits) {
                         tmrNumberByUnitId[id] = ownedUnits[id].farmed;
+                        stmrNumberByUnitId[id] = ownedUnits[id].farmedStmr;
                     }
                     showNumberTMRFarmed= true;
                     showRaritySort();
