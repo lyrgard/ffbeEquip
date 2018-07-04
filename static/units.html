@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="units.css?version=3">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="/img/heavyArmor.png">
         <title>FFBE Equip : Units</title>
     </head>
@@ -74,22 +75,29 @@
                 <div class="stats hidden">
                     <h4>All units</h4>
                     <div class="all">
+                        <div class="star7"><img class="crystal" src="img/redCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                     </div>
                     <h4>Not-limited units</h4>
                     <div class="withoutTimeLimited">
+                        <div class="star7"><img class="crystal" src="img/redCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                     </div>
                     <h4>Time-limited units</h4>
                     <div class="timeLimited">
+                        <div class="star7"><img class="crystal" src="img/redCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                         <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
                     </div>
+                </div>
+                <div id="mode">
+                    <input id="modeToggle" type="checkbox">
+                    <span class="info">(Switch to Edit mode to have full control on each unit numbers)</span>
                 </div>
             </div>
             <div  class="col-xs-10 col-lg-8">
@@ -127,7 +135,7 @@
                             <div class="col-xs-12">
                                 <input id="searchBox" type="text" class="form-control" placeholder="Enter unit name"/>
                             </div>
-                            <div id="results" class="col-xs-12">
+                            <div id="results" class="col-xs-12 simpleMode">
 
                             </div>
                         </div>
@@ -154,6 +162,7 @@
 		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="lib/FileSaver.min.js"></script>
         <script src="lib/html2canvas.min.js"></script>
