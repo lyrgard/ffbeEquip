@@ -34,6 +34,8 @@ class EsperTreeComparator {
                 comparisionStatus.push(TreeComparator.compareByKillers(treeNode1.esper, treeNode2.esper,"magical", ennemyStats.races));
             } else if (stats[index].startsWith("resist")) {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
+            } else if (stats[index] == "lbPerTurn") {
+                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, "lbPerTurn.min"));
             }
         }
         return TreeComparator.combineComparison(comparisionStatus);
