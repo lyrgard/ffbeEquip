@@ -914,28 +914,33 @@ function prepareSearch(data) {
             }
         }
         if (item["resist"]) {
-            $(item["resist"]).each(function (index, resist) {
-                textToSearch += "|" + resist.name;
-            });
+            for (var i = item.resist.length; i--;) {
+                textToSearch += "|" + item.resist[i].name;
+            }
+        }
+        if (item["element"]) {
+            for (var i = item.element.length; i--;) {
+                textToSearch += "|" + item.element[i];
+            }
         }
         if (item["ailments"]) {
-            $(item["ailments"]).each(function (index, ailment) {
-                textToSearch += "|" + ailment.name;
-            });
+            for (var i = item.ailments.length; i--;) {
+                textToSearch += "|" + item.ailments[i].name;
+            }
         }
         if (item["exclusiveUnits"]) {
             textToSearch += "|Only ";
             var first = true;
-            $(item.exclusiveUnits).each(function(index, exclusiveUnitId) {
-                if (units[exclusiveUnitId]) {
+            for (var i = 0, len = item.exclusiveUnits.length; i < len;i++) {
+                if (units[item.exclusiveUnits[i]]) {
                     if (first) {
                         first = false;
                     } else {
                         textToSearch += ", ";
                     }
-                    textToSearch += units[exclusiveUnitId].name;
+                    textToSearch += units[item.exclusiveUnits[i]].name;
                 }
-            });
+            }
         }
         if (item["exclusiveSex"]) {
             textToSearch += "|Only " + item["exclusiveSex"];
@@ -947,21 +952,21 @@ function prepareSearch(data) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
         }
         if (item["special"]) {
-            $(item["special"]).each(function (index, special) {
-                textToSearch += "|" + special;
-            });
+            for (var i = 0, len = item.special.length; i < len;i++) {
+                textToSearch += "|" + item.special[i];
+            }
         }
         if (item.singleWielding) {
             for (var index in baseStats) {
                 if (item.singleWielding[baseStats[index]]) {
-                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when dual wielding"
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when single wielding"
                 }
             }
         }
         if (item.singleWieldingOneHanded) {
             for (var index in baseStats) {
                 if (item.singleWieldingOneHanded[baseStats[index]]) {
-                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWieldingOneHanded[baseStats[index]] + "%) when dual wielding"
+                    textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon"
                 }
             }
         }
@@ -973,9 +978,9 @@ function prepareSearch(data) {
             }
         }
         if (item.killers) {
-            $(item["killers"]).each(function (index, killer) {
-                textToSearch += "|killer " + killer.name;
-            });
+            for (var i = 0, len = item.killers.length; i < len;i++) {
+                textToSearch += "|killer " + item.killers[i].name;
+            }
         }
 
         if (item.jumpDamage) {
@@ -1007,6 +1012,12 @@ function prepareSearch(data) {
         }
         for (var index in item.access) {
             textToSearch += "|" + item.access[index];
+        }
+        if (item.partialDualWield) {
+            textToSearch += "|partial dual wield";
+            for (var i = 0, len = item.partialDualWield.length; i < len;i++) {
+                textToSearch += " " + item.partialDualWield[i];
+            }
         }
         item.searchString = textToSearch;
     }
