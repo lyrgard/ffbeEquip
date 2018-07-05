@@ -637,12 +637,19 @@ function getItemLine(index, short = false) {
     }
     
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img></div>'
+        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
+        if (weaponList.includes(item.type)) {
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
+        }
+        html += '</div>';
     } else if (!item) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         html += '<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem(\'' + item.id +'\',' + index + ',false);" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
         html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
+        if (weaponList.includes(item.type)) {
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
+        }
         html += '</div>';
     } else {
         html += '<div class="td"></div>'
@@ -1465,6 +1472,20 @@ function selectEnchantedItem(itemId) {
     }
 }
 
+function getRawItemForEnhancements(item) {
+    if (item.enhancements) {
+        for (var i = dataStorage.data.length; i--;) {
+            if (dataStorage.data[i].id == item.id) {
+                var rawItem = JSON.parse(JSON.stringify(dataStorage.data[i]));
+                rawItem.enhancements = item.enhancements;
+                return rawItem;
+            }
+        }
+    } else {
+        return item;
+    }
+}
+
 function selectEnchantement(item) {
     if (item) {
         currentEnchantmentItem = JSON.parse(JSON.stringify(item));
@@ -1500,7 +1521,6 @@ function toggleItemEnhancement(enhancement) {
 
 function pinChosenEnchantment() {
     fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
-    
 }
 
 function getStateHash(onlyCurrent = true) {
