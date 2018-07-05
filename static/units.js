@@ -43,13 +43,13 @@ function showAlphabeticalSort() {
     });
 }
 
-function showRaritySort(only5Star = false) {
+function showRaritySort(minRarity = 1) {
     beforeShow();
     currentSort = showRaritySort;
     $("#searchBox").removeClass("hidden");
     $(".nav-tabs li.raritySort").addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(units)), only5Star));
+    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(units)), minRarity));
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -219,20 +219,18 @@ var displayUnits = function(units, useTmrName = false) {
 
 };
 
-function displayUnitsByRarity(units, only5Star = false) {
+function displayUnitsByRarity(units, minRarity = 1) {
     var lastMinRarity, lastMaxRarity;
     var first = true;
 
     var html = '';
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
-        if (only5Star && unit.min_rarity < 5) {
+        if (unit.min_rarity < minRarity) {
             continue;
         }
         if (first) {
-            if (!only5Star) {
-                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
-            }
+            html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
             html += '<div class="unitList">';
             first = false;
         } else {
@@ -748,13 +746,13 @@ function prepareData() {
     }
 }
 
-function exportAsImage(only5Star = false) {
+function exportAsImage(minRarity = 1) {
     $("#loaderGlassPanel").removeClass("hidden");
     var savedSort = currentSort;
     onlyShowOwnedUnits = true;
     showNumberTMRFarmed = true;
-    showRaritySort(only5Star);
-    if (only5Star) {
+    showRaritySort(minRarity);
+    if (minRarity != 1) {
         $("#results").addClass("hackForImage5");
     } else {
         $("#results").addClass("hackForImage");
