@@ -657,7 +657,7 @@ function getItemWithTmrSkillIfApplicable(item, unit) {
     }
 }
 
-var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","lbPerTurn","mpRefresh"];
+var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","mpRefresh"];
 
 function combineTwoItems(item1, item2) {
     var sum = JSON.parse(JSON.stringify(item1));
@@ -681,6 +681,9 @@ function combineTwoItems(item1, item2) {
     }
     if (item2.resist) {
         addResist(sum, item2.resist);
+    }
+    if (item2.lbPerTurn) {
+        addLbPerTurn(sum, item2.lbPerTurn);
     }
     if (item2.killers) {
         for (var index = item2.killers.length; index--;) {
@@ -795,4 +798,12 @@ function addEqStatBonus(item, doubleHandType, values) {
         var stat = stats[index];
         addToStat(item[doubleHandType], stat, values[stat]);
     }
+}
+
+function addLbPerTurn(item, lbPerTurn) {
+    if (!item.lbPerTurn) {
+        item.lbPerTurn = {"min":0, "max":0};
+    }
+    item.lbPerTurn.min += lbPerTurn.min;
+    item.lbPerTurn.max += lbPerTurn.max;
 }
