@@ -286,7 +286,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         
         var removeFunction = (is7Stars ? "removeFrom7Stars" : "removeFromOwnedUnits");
         html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFunction + '(\'' + unit.id +'\');"></span></div>';
-        var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumber");
+        var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumberFpr");
         html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addToFarmableNumberFunction + '(\'' + unit.id + '\')"></span>';
         if (is7Stars) {
             if (showNumberTMRFarmed) {
