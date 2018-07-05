@@ -272,7 +272,12 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notSevenStars';
         }
-        html +='" onclick="addToOwnedUnits(\'' + unit.id + '\')">';
+        html += '"';
+        if (!is7Stars) {
+            html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
+        }
+        html += '>';
+        
         if (unit.summon_type === 'event') {
             html +='<span class="glyphicon glyphicon-time"/>';
         }
@@ -387,9 +392,9 @@ function removeFromOwnedUnits(unitId) {
         removeFromFarmableNumberFor(unitId);
         if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0 && (!ownedUnits[unitId].sevenStar || !ownedUnits[unitId].sevenStar == 0)) {
             delete ownedUnits[unitId];
+            $(".unit.notSevenStars." + unitId).removeClass("owned");
+            $(".unit.notSevenStars." + unitId).addClass("notOwned");
         }
-        $(".unit.notSevenStars." + unitId).removeClass("owned");
-        $(".unit.notSevenStars." + unitId).addClass("notOwned");
         $(".unit.notSevenStars." + unitId + " .numberOwnedDiv .badge").html("0");
     } else {
         $(".unit.notSevenStars." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
