@@ -150,12 +150,20 @@
     height: 100%
 }
 
-.td.actions .pin:hover {
-    cursor: pointer;
+.td.actions .itemEnchantmentButton {
+    margin-top: 2px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.td.actions .itemEnchantmentButton:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
 .td.actions img {
     width: 20px;
+    cursor: pointer;
 }
 
 .td.actions .pin.fixed:hover {
