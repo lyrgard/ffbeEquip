@@ -432,11 +432,7 @@ function addToFarmableNumberFor(unitId) {
     if (!ownedUnits[unitId]) {
         return;
     } else {
-        if (ownedUnits[unitId].farmable < ownedUnits[unitId].number) {
-            ownedUnits[unitId].farmable += 1;
-        } else {
-            return;
-        }
+        ownedUnits[unitId].farmable += 1;
     }
     $(".unit.notSevenStars." + unitId + " .farmableTMRDiv .badge").html(ownedUnits[unitId].farmable);
     $(".unit.notSevenStars." + unitId).addClass("farmable");
