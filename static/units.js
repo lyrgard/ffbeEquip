@@ -286,7 +286,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         
         var removeFunction = (is7Stars ? "removeFrom7Stars" : "removeFromOwnedUnits");
         html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFunction + '(\'' + unit.id +'\');"></span></div>';
-        var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumberFpr");
+        var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumberFor");
         html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addToFarmableNumberFunction + '(\'' + unit.id + '\')"></span>';
         if (is7Stars) {
             if (showNumberTMRFarmed) {
@@ -379,10 +379,15 @@ function removeFromOwnedUnits(unitId) {
     if (!ownedUnits[unitId]) {
         return;
     }
+    if (ownedUnits[unitId].number == 0) {
+        return;
+    }
     ownedUnits[unitId].number -= 1;
     if (ownedUnits[unitId].number == 0) {
         removeFromFarmableNumberFor(unitId);
-        delete ownedUnits[unitId].number;
+        if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0 && (!ownedUnits[unitId].sevenStar || !ownedUnits[unitId].sevenStar == 0)) {
+            delete ownedUnits[unitId];
+        }
         $(".unit.notSevenStars." + unitId).removeClass("owned");
         $(".unit.notSevenStars." + unitId).addClass("notOwned");
         $(".unit.notSevenStars." + unitId + " .numberOwnedDiv .badge").html("0");
