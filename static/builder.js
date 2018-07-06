@@ -772,8 +772,10 @@ function onUnitChange() {
             var unitData = selectedUnitData;
             if (unitData.enhancements) {
                 unitData = JSON.parse(JSON.stringify(unitData));
+                unitData.enhancementLevels = [];
                 for (var i = unitData.enhancements.length; i--;) {
                     unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[unitData.enhancements[i].levels.length - 1]);
+                    unitData.enhancementLevels[i] = unitData.enhancements[i].levels.length - 1;
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
@@ -793,7 +795,29 @@ function onUnitChange() {
             updateUnitStats();
         }
         displayUnitRarity(selectedUnitData);
+        displayUnitEnhancements();
     });
+}
+
+function displayUnitEnhancements() {
+    $('#unitEnhancements').empty();
+    
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.enhancements) {
+        var html = "";
+        for (var i = 0, len = builds[currentUnitIndex].unit.enhancements.length; i < len; i++) {
+            var enhancement = builds[currentUnitIndex].unit.enhancements[i];
+            html += '<div class="col-xs-6"><select class="form-control" id="enhancement_' + i + '">';
+            for (var j = 0, lenJ = enhancement.levels.length; j < lenJ; j++) {
+                html += '<option value="'+ j + '"';
+                if (builds[currentUnitIndex].unit.enhancementLevels[i] == j) {
+                    html += " selected";
+                }
+                html += '>' + enhancement.name + ' +' + j + '</option>';
+            }
+            html += '</select></div>';
+        }
+        $('#unitEnhancements').html(html);
+    }
 }
 
 function updateUnitStats() {
@@ -1964,6 +1988,23 @@ function getItemLineAsText(prefix, slot) {
                 }
                 resultText += baseStats[statIndex].toUpperCase() + "+" + item[baseStats[statIndex]+"%"] + "%";
             }
+        }
+        if (item.enhancements) {
+            resultText += " (IW :";
+            first = true;
+            for (var i = 0, len = item.enhancements.length; i < len; i++) {
+                if (first) {
+                    first = false;
+                } else {
+                    resultText += ", ";
+                }
+                if (item.enhancements[i] == "rare") {
+                    resultText += "Rare";
+                } else {
+                    resultText += itemEnhancementLabels[item.enhancements[i]];
+                }
+            }
+            resultText += ")";
         }
         return resultText + "  \n";
     } else {

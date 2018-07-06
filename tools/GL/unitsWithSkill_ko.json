@@ -69,9 +69,6 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Retaliate","Ultima","Dystopia"],
-		"enhancements": [
-			{"name":"Retaliate","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 		]
@@ -676,10 +673,6 @@
 		},
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Royal Armlet","Lift Spirits","Immortal Spirit","Grandshelt Shield"],
-		"enhancements": [
-			{"name":"Royal Armlet","levels":[[],[],[]]},
-			{"name":"Immortal Spirit","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":25, "atk%":10, "def%":30, "spr%":10, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
@@ -1138,9 +1131,6 @@
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Cheer","Instant Cure","Raise","Refreshing Ale"],
-		"enhancements": [
-			{"name":"Instant Cure","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"mp%":20, "spr%":10, "resist":[{"name":"water","percent":30}]}
 		]
@@ -1157,9 +1147,6 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
-		"enhancements": [
-			{"name":"Retaliate","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 		]
@@ -3198,8 +3185,7 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Mage of Destruction","Roar of Laughter","Light of Judgment"],
 		"enhancements": [
-			{"name":"Mage of Destruction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}]]},
-			{"name":"Roar of Laughter","levels":[[],[],[]]}
+			{"name":"Mage of Destruction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}]]}
 		],
 		"skills": [
 			{"mp%":20, "mag%":20, "evade":{"physical":20}}
@@ -3284,9 +3270,6 @@
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Focus Magic","Proof of Life","Doomsday"],
-		"enhancements": [
-			{"name":"Proof of Life","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":10, "mp%":20, "lbFillRate":100},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -3610,9 +3593,6 @@
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","mace","fist","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Counter Break","Biohazard","Assault Strike"],
-		"enhancements": [
-			{"name":"Counter Break","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":15}, "killers":[{"name":"bird","physical":50}]}
 		]
@@ -3833,10 +3813,6 @@
 		},
 		"equip":["dagger","throwing","mace","fist","lightShield","hat","clothes"],
 		"enhancementSkills":["Counter","Fighting Spirit","Battle Roar"],
-		"enhancements": [
-			{"name":"Counter","levels":[[],[],[]]},
-			{"name":"Fighting Spirit","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":30, "def%":20},
 			{"atk%":50, "equipedConditions":["unarmed"]}
@@ -3977,7 +3953,6 @@
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["Kata","Howling Fist","Fists of Fire"],
 		"enhancements": [
-			{"name":"Kata","levels":[[],[],[]]},
 			{"name":"Fists of Fire","levels":[[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["fist"],"atk%":20}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"singleWieldingOneHanded":{"atk":50}},{"equipedConditions":["fist"],"atk%":20}]]}
 		],
 		"skills": [
@@ -4419,7 +4394,6 @@
 		"equip":["dagger","sword","greatSword","hat","clothes"],
 		"enhancementSkills":["Magic Martyr","Berserk","Justice Guard","Devastate"],
 		"enhancements": [
-			{"name":"Berserk","levels":[[],[],[]]},
 			{"name":"Justice Guard","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}]]}
 		],
 		"skills": [
@@ -4608,9 +4582,6 @@
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
 		"enhancementSkills":["Steal Time","Bandit","Mercy Stroke"],
-		"enhancements": [
-			{"name":"Bandit","levels":[[],[],[]]}
-		],
 		"skills": [
 		]
 	},
@@ -4744,8 +4715,7 @@
 		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
 		"enhancements": [
 			{"name":"Rune Protector","levels":[[{"equipedConditions":["rod"],"mag%":15},{"equipedConditions":["lightShield"],"def%":15},{"equipedConditions":["heavyShield"],"def%":15}],[{"equipedConditions":["rod"],"mag%":25},{"equipedConditions":["lightShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyShield"],"def%":25,"spr%":25}],[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["lightShield"],"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"def%":50,"spr%":50}]]},
-			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]},
-			{"name":"Winter Palisade","levels":[[],[],[]]}
+			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]}
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}]}
@@ -4764,9 +4734,7 @@
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer's Resolve","Divine Grace"],
 		"enhancements": [
-			{"name":"Blessed Heart","levels":[[],[],[]]},
-			{"name":"Heart of Conviction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":30,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":10,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":50,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":80,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
-			{"name":"Divine Grace","levels":[[],[],[]]}
+			{"name":"Heart of Conviction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":30,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":10,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":50,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":80,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]}
 		],
 		"skills": [
 			{"hp%":20, "spr%":20, "resist":[{"name":"ice","percent":25}]}
@@ -4866,8 +4834,7 @@
 		"equip":["hammer","gun","hat","clothes","lightArmor"],
 		"enhancementSkills":["Shattering Shot","Heavy Arms Proficiency","Mortar Beacon","True Shot"],
 		"enhancements": [
-			{"name":"Heavy Arms Proficiency","levels":[[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}],[{"singleWieldingOneHanded":{"atk":150}},{"equipedConditions":["gun"],"atk%":30}]]},
-			{"name":"Mortar Beacon","levels":[[],[],[]]}
+			{"name":"Heavy Arms Proficiency","levels":[[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}],[{"singleWieldingOneHanded":{"atk":150}},{"equipedConditions":["gun"],"atk%":30}]]}
 		],
 		"skills": [
 			{"hp%":20, "atk%":30, "spr%":20, "lbFillRate":200, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
@@ -4907,9 +4874,6 @@
 		},
 		"equip":["dagger","sword","throwing","fist","hat","clothes"],
 		"enhancementSkills":["Desperate Strike","Master Thief","Twist of Fate"],
-		"enhancements": [
-			{"name":"Master Thief","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":20, "atk%":10, "evade":{"physical":20}}
 		]
@@ -5656,9 +5620,6 @@
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Blood Scar","Blood Rage","Blood Rend","Blood Pulsar"],
-		"enhancements": [
-			{"name":"Blood Rage","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"mp%":20, "mag%":10, "resist":[{"name":"silence","percent":50},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":25,"magical":50}]},
 			{"mag%":20, "equipedConditions":["rod"]},

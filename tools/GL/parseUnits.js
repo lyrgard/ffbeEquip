@@ -72,7 +72,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     }
 });
 
-function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
+function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -128,10 +128,10 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId) {
         }
     }
     
-    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], unitIn.rarity_max, unitData, data);
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData, data);
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
-    if (maxRariry == 7) {
+    if (unitIn.rarity_max == 7) {
         data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
     }
     

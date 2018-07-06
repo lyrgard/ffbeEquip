@@ -107,9 +107,6 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["リタリエイト","アルテマ","ディストピア"],
-		"enhancements": [
-			{"name":"リタリエイト","levels":[[],[],[]]}
-		],
 		"tmrSkill": {"hp%":30, "mag%":50, "resist":[{"name":"dark","percent":50}]},
 		"skills": [
 			{"mp%":30, "def%":25, "mag%":50, "spr%":25, "dualWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
@@ -128,9 +125,6 @@
 			},
 			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 			"enhancementSkills":["リタリエイト","アルテマ","ディストピア"],
-		"enhancements": [
-			{"name":"リタリエイト","levels":[[],[],[]]}
-		],
 			"skills": [
 				{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 			]
@@ -851,10 +845,6 @@
 		},
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ロイヤルガード","士気高揚","不滅の闘志"],
-		"enhancements": [
-			{"name":"ロイヤルガード","levels":[[],[],[]]},
-			{"name":"不滅の闘志","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":25, "atk%":10, "def%":30, "spr%":10, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
@@ -1176,8 +1166,6 @@
 		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["リベンジ","魔法にリベンジ","斧の極意","りょうてもち"],
 		"enhancements": [
-			{"name":"リベンジ","levels":[[],[],[]]},
-			{"name":"魔法にリベンジ","levels":[[],[],[]]},
 			{"name":"斧の極意","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]},
 			{"name":"りょうてもち","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":100}}]]}
 		],
@@ -1438,9 +1426,6 @@
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["はげます","インスタントキュア","レイズ"],
-		"enhancements": [
-			{"name":"インスタントキュア","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"mp%":20, "spr%":10, "resist":[{"name":"water","percent":30}]}
 		]
@@ -1458,9 +1443,6 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["フィジカルフォール","リタリエイト","アルテマ"],
-		"enhancements": [
-			{"name":"リタリエイト","levels":[[],[],[]]}
-		],
 		"tmrSkill": {"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}]},
 		"skills": [
 			{"mp%":30, "mag%":50, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
@@ -1479,9 +1461,6 @@
 			},
 			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 			"enhancementSkills":["フィジカルフォール","リタリエイト","アルテマ"],
-		"enhancements": [
-			{"name":"リタリエイト","levels":[[],[],[]]}
-		],
 			"skills": [
 				{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 			]
@@ -1692,8 +1671,7 @@
 		"enhancementSkills":["斧の極意","劫火","鼓舞","高揚"],
 		"enhancements": [
 			{"name":"斧の極意","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]},
-			{"name":"劫火","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":40,"def%":20}]]},
-			{"name":"高揚","levels":[[],[],[]]}
+			{"name":"劫火","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":40,"def%":20}]]}
 		],
 		"tmrSkill": {"hp%":20, "mp%":20},
 		"skills": [
@@ -1715,8 +1693,7 @@
 			"enhancementSkills":["斧の極意","劫火","鼓舞","高揚"],
 		"enhancements": [
 			{"name":"斧の極意","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]},
-			{"name":"劫火","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":40,"def%":20}]]},
-			{"name":"高揚","levels":[[],[],[]]}
+			{"name":"劫火","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":40,"def%":20}]]}
 		],
 			"skills": [
 				{"hp%":30, "mp%":10, "atk%":20, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
@@ -2298,8 +2275,7 @@
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["博覧強記","医学知識","オブジェクション"],
 		"enhancements": [
-			{"name":"医学知識","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
-			{"name":"オブジェクション","levels":[[],[],[]]}
+			{"name":"医学知識","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]}
 		],
 		"skills": [
 			{"mp%":20, "spr%":20}
@@ -2398,7 +2374,6 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["魔法誘壁","精神防壁","ブローディアウォール"],
 		"enhancements": [
-			{"name":"魔法誘壁","levels":[[],[],[]]},
 			{"name":"精神防壁","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":30}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":40}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":60}]]}
 		],
 		"skills": [
@@ -2513,9 +2488,6 @@
 		},
 		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["大立ち回り","武辺者","修羅の咆哮"],
-		"enhancements": [
-			{"name":"武辺者","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":30, "atk%":50}
 		]
@@ -5128,6 +5100,7 @@
 	},
 	"204001705": {
 		"name":"漆黒の魔道士ゴルベーザ",
+		"jpname":"漆黒の魔道士ゴルベーザ",
 		"id":"204001705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5143,6 +5116,7 @@
 		],
 		"6_form": {
 			"name":"漆黒の魔道士ゴルベーザ",
+			"jpname":"漆黒の魔道士ゴルベーザ",
 			"id":"204001705",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -5159,6 +5133,7 @@
 	},
 	"204001805": {
 		"name":"ルビカンテ",
+		"jpname":"ルビカンテ",
 		"id":"204001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5174,6 +5149,7 @@
 		],
 		"6_form": {
 			"name":"ルビカンテ",
+			"jpname":"ルビカンテ",
 			"id":"204001805",
 			"max_rarity":"6",
 			"min_rarity":"5",
@@ -5190,6 +5166,7 @@
 	},
 	"204001904": {
 		"name":"バルバリシア",
+		"jpname":"バルバリシア",
 		"id":"204001904",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5207,6 +5184,7 @@
 	},
 	"204002003": {
 		"name":"スカルミリョーネ",
+		"jpname":"スカルミリョーネ",
 		"id":"204002003",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5222,6 +5200,7 @@
 	},
 	"204002104": {
 		"name":"カイナッツォ",
+		"jpname":"カイナッツォ",
 		"id":"204002104",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5645,8 +5624,7 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["破壊の魔導士","高笑い","裁きの光"],
 		"enhancements": [
-			{"name":"破壊の魔導士","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}]]},
-			{"name":"高笑い","levels":[[],[],[]]}
+			{"name":"破壊の魔導士","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}]]}
 		],
 		"skills": [
 			{"mp%":20, "mag%":20, "evade":{"physical":20}}
@@ -5970,9 +5948,6 @@
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["魔力をためる","生の証明","ジハード"],
-		"enhancements": [
-			{"name":"生の証明","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":10, "mp%":20, "lbFillRate":100},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -6305,8 +6280,7 @@
 		"enhancementSkills":["火星の印","マジカル・モグ","スタンバイ・水","フラッド"],
 		"enhancements": [
 			{"name":"火星の印","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":30,"spr%":0,"resist":[{"name":"fire","percent":30}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"resist":[{"name":"fire","percent":40}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":50,"spr%":0,"resist":[{"name":"fire","percent":50}]}]]},
-			{"name":"マジカル・モグ","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":50}],[{"equipedConditions":["rod"],"mag%":60}]]},
-			{"name":"スタンバイ・水","levels":[[],[],[]]}
+			{"name":"マジカル・モグ","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":50}],[{"equipedConditions":["rod"],"mag%":60}]]}
 		],
 		"tmrSkill": {"mag%":50, "lbPerTurn":{"min":1,"max":1}, "mpRefresh":5},
 		"skills": [
@@ -6327,8 +6301,7 @@
 			"enhancementSkills":["火星の印","マジカル・モグ","スタンバイ・水","フラッド"],
 		"enhancements": [
 			{"name":"火星の印","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":30,"spr%":0,"resist":[{"name":"fire","percent":30}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"resist":[{"name":"fire","percent":40}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":50,"spr%":0,"resist":[{"name":"fire","percent":50}]}]]},
-			{"name":"マジカル・モグ","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":50}],[{"equipedConditions":["rod"],"mag%":60}]]},
-			{"name":"スタンバイ・水","levels":[[],[],[]]}
+			{"name":"マジカル・モグ","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":50}],[{"equipedConditions":["rod"],"mag%":60}]]}
 		],
 			"skills": [
 				{"mp%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
@@ -6668,9 +6641,6 @@
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","mace","fist","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["カウンターブレイク","シックハザード","アサルトストライク"],
-		"enhancements": [
-			{"name":"カウンターブレイク","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":15}, "killers":[{"name":"bird","physical":50}]}
 		]
@@ -7014,10 +6984,6 @@
 		},
 		"equip":["dagger","throwing","mace","fist","lightShield","hat","clothes"],
 		"enhancementSkills":["カウンター","闘志","闘気発散"],
-		"enhancements": [
-			{"name":"カウンター","levels":[[],[],[]]},
-			{"name":"闘志","levels":[[],[],[]]}
-		],
 		"skills": [
 			{"hp%":30, "def%":20},
 			{"atk%":50, "equipedConditions":["unarmed"]}
@@ -7162,7 +7128,6 @@
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["型","空鳴拳","紅蓮の構え"],
 		"enhancements": [
-			{"name":"型","levels":[[],[],[]]},
 			{"name":"紅蓮の構え","levels":[[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["fist"],"atk%":20}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"singleWieldingOneHanded":{"atk":50}},{"equipedConditions":["fist"],"atk%":20}]]}
 		],
 		"skills": [
@@ -7694,7 +7659,6 @@
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["復讐の刃","黒羊の騎士","謀略の剣"],
 		"enhancements": [
-			{"name":"復讐の刃","levels":[[],[],[]]},
 			{"name":"黒羊の騎士","levels":[[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":20}],[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":40}],[{"equipedConditions":["sword"],"atk%":60},{"equipedConditions":["heavyArmor"],"atk%":40}]]}
 		],
 		"tmrSkill": {"atk%":20, "def%":20, "mag%":20, "spr%":20},
@@ -7715,7 +7679,6 @@
 			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["復讐の刃","黒羊の騎士","謀略の剣"],
 		"enhancements": [
-			{"name":"復讐の刃","levels":[[],[],[]]},
 			{"name":"黒羊の騎士","levels":[[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":20}],[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":40}],[{"equipedConditions":["sword"],"atk%":60},{"equipedConditions":["heavyArmor"],"atk%":40}]]}
 		],
 			"skills": [
@@ -8047,9 +8010,6 @@
 		},
 		"equip":["dagger","sword","greatSword","hat","clothes"],
 		"enhancementSkills":["エナジーシェア","羅刹","デバステート"],
-		"enhancements": [
-			{"name":"羅刹","levels":[[],[],[]]}
-		],
 		"tmrSkill": {"singleWielding":{"atk":100}, "lbFillRate":100},
 		"skills": [
 			{"hp%":40, "mp%":20, "atk%":20, "def%":40, "mag%":20, "spr%":20, "mpRefresh":5},
@@ -8068,9 +8028,6 @@
 			},
 			"equip":["dagger","sword","greatSword","hat","clothes"],
 			"enhancementSkills":["エナジーシェア","羅刹","デバステート"],
-		"enhancements": [
-			{"name":"羅刹","levels":[[],[],[]]}
-		],
 			"skills": [
 				{"hp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5}
 			]
@@ -8391,9 +8348,6 @@
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
 		"enhancementSkills":["盗賊の極意","マーシーストローク"],
-		"enhancements": [
-			{"name":"盗賊の極意","levels":[[],[],[]]}
-		],
 		"skills": [
 		]
 	},
@@ -8557,7 +8511,6 @@
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["ライトボール","閃き","皇帝"],
 		"enhancements": [
-			{"name":"閃き","levels":[[],[],[]]},
 			{"name":"皇帝","levels":[[{"hp%":20,"mp%":0,"atk%":20,"def%":20,"mag%":0,"spr%":0}],[{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20}],[{"hp%":25,"mp%":25,"atk%":25,"def%":25,"mag%":25,"spr%":25}]]}
 		],
 		"skills": [
@@ -9062,7 +9015,6 @@
 		"enhancementSkills":["宿星:歳星","閃き","勇猛なる剣士"],
 		"enhancements": [
 			{"name":"宿星:歳星","levels":[[{"hp%":20,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0}],[{"hp%":30,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":30,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}]]},
-			{"name":"閃き","levels":[[],[],[]]},
 			{"name":"勇猛なる剣士","levels":[[{"mpRefresh":5},{"equipedConditions":["sword"],"atk%":50}],[{"mpRefresh":5},{"equipedConditions":["sword"],"atk%":70}],[{"mpRefresh":10},{"equipedConditions":["sword"],"atk%":90}]]}
 		],
 		"skills": [
@@ -9084,9 +9036,7 @@
 		"enhancementSkills":["宿星:辰星","閃き","大剣の極意","秘めたる想い"],
 		"enhancements": [
 			{"name":"宿星:辰星","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":20}],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":30}],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":30,"lbFillRate":50}]]},
-			{"name":"閃き","levels":[[],[],[]]},
-			{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]},
-			{"name":"秘めたる想い","levels":[[],[],[]]}
+			{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
 		],
 		"skills": [
 			{"hp%":10, "mp%":10, "def%":10, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]}
@@ -9107,7 +9057,6 @@
 		"enhancementSkills":["宿星:太白","閃き","トルネード"],
 		"enhancements": [
 			{"name":"宿星:太白","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":20,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":30,"def%":30,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":30,"def%":30,"mag%":0,"spr%":0}]]},
-			{"name":"閃き","levels":[[],[],[]]},
 			{"name":"トルネード","levels":[[{"evade":{"physical":20}},{"equipedConditions":["sword"],"atk%":50}],[{"evade":{"physical":20}},{"equipedConditions":["sword"],"atk%":75}],[{"evade":{"physical":20}},{"equipedConditions":["sword"],"atk%":75}]]}
 		],
 		"skills": [
@@ -9312,8 +9261,7 @@
 		"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"],
 		"enhancements": [
 			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"atk%":75}],[{"equipedConditions":["fist"],"atk%":100}]]},
-			{"name":"獣人王の息子","levels":[[{"equipedConditions":["unarmed"],"atk%":200}],[{"equipedConditions":["unarmed"],"atk%":250}],[{"hp%":20,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["unarmed"],"atk%":300}]]},
-			{"name":"獣化","levels":[[],[],[]]}
+			{"name":"獣人王の息子","levels":[[{"equipedConditions":["unarmed"],"atk%":200}],[{"equipedConditions":["unarmed"],"atk%":250}],[{"hp%":20,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["unarmed"],"atk%":300}]]}
 		],
 		"tmrSkill": {"hp%":30, "mp%":30, "def%":30, "singleWielding":{"atk":50}, "dualWielding":{"atk":40}},
 		"skills": [
@@ -9334,8 +9282,7 @@
 			"enhancementSkills":["格闘の極意","獣人王の息子","リーフセイバー","獣化"],
 		"enhancements": [
 			{"name":"格闘の極意","levels":[[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"atk%":75}],[{"equipedConditions":["fist"],"atk%":100}]]},
-			{"name":"獣人王の息子","levels":[[{"equipedConditions":["unarmed"],"atk%":200}],[{"equipedConditions":["unarmed"],"atk%":250}],[{"hp%":20,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["unarmed"],"atk%":300}]]},
-			{"name":"獣化","levels":[[],[],[]]}
+			{"name":"獣人王の息子","levels":[[{"equipedConditions":["unarmed"],"atk%":200}],[{"equipedConditions":["unarmed"],"atk%":250}],[{"hp%":20,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["unarmed"],"atk%":300}]]}
 		],
 			"skills": [
 				{"hp%":30, "atk%":30, "mag%":20, "mpRefresh":5}
@@ -9373,8 +9320,7 @@
 		"equip":["sword","greatSword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["ジャイアントキル","デスパレート","剣の名手","リバーサル"],
 		"enhancements": [
-			{"name":"剣の名手","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":50}],[{"equipedConditions":["sword"],"atk%":75}]]},
-			{"name":"リバーサル","levels":[[],[],[]]}
+			{"name":"剣の名手","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":50}],[{"equipedConditions":["sword"],"atk%":75}]]}
 		],
 		"skills": [
 			{"hp%":20, "atk%":30, "def%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
@@ -9432,8 +9378,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","axe","spear","fist","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["りょうてもち","行きがけの駄賃","馬の耳に念仏"],
 		"enhancements": [
-			{"name":"りょうてもち","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":100}}]]},
-			{"name":"馬の耳に念仏","levels":[[],[],[]]}
+			{"name":"りょうてもち","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":100}}]]}
 		],
 		"skills": [
 			{"hp%":10, "def%":10},
@@ -9454,7 +9399,6 @@
 		"equip":["dagger","sword","greatSword","katana","bow","axe","spear","gun","lightShield","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["疾風のファルコン","6つ星の実力","剣の極意"],
 		"enhancements": [
-			{"name":"6つ星の実力","levels":[[],[],[]]},
 			{"name":"剣の極意","levels":[[{"equipedConditions":["sword"],"atk%":50}],[{"equipedConditions":["sword"],"atk%":75}],[{"equipedConditions":["sword"],"atk%":100}]]}
 		],
 		"skills": [

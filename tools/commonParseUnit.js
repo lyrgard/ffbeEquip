@@ -113,7 +113,16 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 }
                 enhancementData.levels.push(enhancementSkillsOut);
             }
-            unitOut.enhancements.push(enhancementData);
+            var empty = true;
+            for (var i = enhancementData.levels.length; i--;) {
+                if (Object.keys(enhancementData.levels[i]).length > 0) {
+                    empty = false;
+                    break;
+                }
+            }
+            if (!empty) {
+                unitOut.enhancements.push(enhancementData);
+            }
             continue;
         }
         
