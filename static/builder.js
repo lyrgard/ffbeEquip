@@ -769,12 +769,19 @@ function onUnitChange() {
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
             reinitBuild(currentUnitIndex);
-            builds[currentUnitIndex].setUnit(selectedUnitData);
+            var unitData = selectedUnitData;
+            if (unitData.enhancements) {
+                unitData = JSON.parse(JSON.stringify(unitData));
+                for (var i = unitData.enhancements.length; i--;) {
+                    unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[unitData.enhancements[i].levels.length - 1]);
+                }
+            }
+            builds[currentUnitIndex].setUnit(unitData);
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
             $("#help").addClass("hidden");
-            if (selectedUnitData.materiaSlots ||  selectedUnitData.materiaSlots == 0) {
-                for (var i = 4 - selectedUnitData.materiaSlots; i --;) {
+            if (unitData.materiaSlots ||  unitData.materiaSlots == 0) {
+                for (var i = 4 - unitData.materiaSlots; i --;) {
                     fixItem("unavailable", 9 - i);
                 }
             }
