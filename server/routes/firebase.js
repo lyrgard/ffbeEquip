@@ -26,13 +26,29 @@ const statsSchema = [
     Joi.string().valid('mag'),
     Joi.string().valid('spr')
 ];
+
+const itemEnchantmentsSchema =  [
+    Joi.string().valid('rare'),
+    Joi.string().valid('hp_15'),Joi.string().valid('hp_12'),Joi.string().valid('hp_10'),Joi.string().valid('hp_7'),Joi.string().valid('hp_5'),Joi.string().valid('hp_3'),Joi.string().valid('hp_1'),
+    Joi.string().valid('mp_15'),Joi.string().valid('mp_12'),Joi.string().valid('mp_10'),Joi.string().valid('mp_7'),Joi.string().valid('mp_5'),Joi.string().valid('mp_3'),Joi.string().valid('mp_1'),
+    Joi.string().valid('atk_15'),Joi.string().valid('atk_12'),Joi.string().valid('atk_10'),Joi.string().valid('atk_7'),Joi.string().valid('atk_5'),Joi.string().valid('atk_3'),Joi.string().valid('atk_1'),
+    Joi.string().valid('def_15'),Joi.string().valid('def_12'),Joi.string().valid('def_10'),Joi.string().valid('def_7'),Joi.string().valid('def_5'),Joi.string().valid('def_3'),Joi.string().valid('def_1'),
+    Joi.string().valid('mag_15'),Joi.string().valid('mag_12'),Joi.string().valid('mag_10'),Joi.string().valid('mag_7'),Joi.string().valid('mag_5'),Joi.string().valid('mag_3'),Joi.string().valid('mag_1'),
+    Joi.string().valid('spr_15'),Joi.string().valid('spr_12'),Joi.string().valid('spr_10'),Joi.string().valid('spr_7'),Joi.string().valid('spr_5'),Joi.string().valid('spr_3'),Joi.string().valid('spr_1'),
+    Joi.string().valid('autoRegen_4'),Joi.string().valid('autoRegen_3'),Joi.string().valid('autoRegen_2'),Joi.string().valid('autoRegen_1'),
+    Joi.string().valid('autoRefresh_4'),Joi.string().valid('autoRefresh_3'),Joi.string().valid('autoRefresh_2'),Joi.string().valid('autoRefresh_1'),
+    Joi.string().valid('autoProtect_5'),Joi.string().valid('autoProtect_4'),Joi.string().valid('autoProtect_3'),Joi.string().valid('autoProtect_2'),Joi.string().valid('autoProtect_1'),
+    Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
+];
 const partyBuildSchema = Joi.object().keys({
     units: Joi.array().items(Joi.object().keys({
         id: idSchema.required(),
         rarity: Joi.number().min(1).max(7),
+        enhancementLevels: Joi.array().items(Joi.number().min(0).max(2)).max(6),
         goal: Joi.string().max(200).required(),
         innateElements: Joi.array().items(elementsSchema),
         items: Joi.array().items(idSchema).max(10),
+        itemEnchantments: Joi.array().items([Joi.allow(null), Joi.array().items(itemEnchantmentsSchema).max(3)]).max(10),
         esperId: Joi.string().max(50),
         pots: Joi.object().keys({
             hp: Joi.number().min(0).max(1000),

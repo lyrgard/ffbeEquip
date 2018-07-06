@@ -768,14 +768,19 @@ function onUnitChange() {
         }
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
+            var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.max_rarity == selectedUnitData.max_rarity);
             reinitBuild(currentUnitIndex);
             var unitData = selectedUnitData;
             if (unitData.enhancements) {
                 unitData = JSON.parse(JSON.stringify(unitData));
                 unitData.enhancementLevels = [];
                 for (var i = unitData.enhancements.length; i--;) {
-                    unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[unitData.enhancements[i].levels.length - 1]);
-                    unitData.enhancementLevels[i] = unitData.enhancements[i].levels.length - 1;
+                    var enhancementLevel = unitData.enhancements[i].levels.length - 1;
+                    if (sameUnit) {
+                        enhancementLevel = $("#enhancement_" + i).val();
+                    }
+                    unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
+                    unitData.enhancementLevels[i] = enhancementLevel;
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
@@ -806,7 +811,7 @@ function displayUnitEnhancements() {
         var html = "";
         for (var i = 0, len = builds[currentUnitIndex].unit.enhancements.length; i < len; i++) {
             var enhancement = builds[currentUnitIndex].unit.enhancements[i];
-            html += '<div class="col-xs-6"><select class="form-control" id="enhancement_' + i + '">';
+            html += '<div class="col-xs-6"><select class="form-control" onchange="onUnitChange();" id="enhancement_' + i + '">';
             for (var j = 0, lenJ = enhancement.levels.length; j < lenJ; j++) {
                 html += '<option value="'+ j + '"';
                 if (builds[currentUnitIndex].unit.enhancementLevels[i] == j) {
@@ -910,6 +915,7 @@ function loadBuild(buildIndex) {
     }
     
     updateUnitStats();
+    displayUnitEnhancements();
     
     onGoalChange();
     
@@ -1570,6 +1576,7 @@ function getStateHash(onlyCurrent = true) {
             var unit = {};
             unit.id = build.unit.id
             unit.rarity = build.unit.max_rarity;
+            unit.enhancementLevels = build.unit.enhancementLevels;
             unit.goal = formulaToString(build.formula);
             unit.innateElements = getSelectedValuesFor("elements");
 
@@ -1579,13 +1586,15 @@ function getStateHash(onlyCurrent = true) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
                     unit.items.push(item.id);
+                    addEnhancementsIfAny(item, unit);
                 }
             }
             // first fix dual wield items
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
-                if (item && !item.placeHolder && item.type != "unavailable" && hasDualWieldOrPartialDualWield(item)) {
+                if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
                     unit.items.push(item.id);
+                    addEnhancementsIfAny(item, unit);
                 }
             }
             // then others items
@@ -1593,6 +1602,7 @@ function getStateHash(onlyCurrent = true) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
                     unit.items.push(item.id);
+                    addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
                     unit.items.push(item.type);
@@ -1637,6 +1647,17 @@ function getStateHash(onlyCurrent = true) {
     }
     
     return data;
+}
+
+function addEnhancementsIfAny(item, unit) {
+    if (!unit.itemEnchantments) {
+        unit.itemEnchantments = [];
+    }
+    if (item.enhancements) {
+        unit.itemEnchantments.push(item.enhancements);
+    } else {
+        unit.itemEnchantments.push(null);
+    }
 }
 
 function readStateHashData(callback) {
@@ -1758,13 +1779,23 @@ function loadStateHashAndBuild(data) {
         }
         $("#unitsSelect").combobox("refresh");
         onUnitChange();
+        
+        if (unit.enhancementLevels) {
+            builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
+            displayUnitEnhancements();
+            onUnitChange();
+        }
 
         select("elements", unit.innateElements);
         
         if (unit.items) {
             for (var index in unit.items) {
                 if (unit.items[index]) {
-                    fixItem(unit.items[index]);
+                    if (unit.itemEnchantments && unit.itemEnchantments[index]) {
+                        fixItem(unit.items[index], -1, unit.itemEnchantments[index]);
+                    } else {
+                        fixItem(unit.items[index]);
+                    }
                 }
             }
         }
