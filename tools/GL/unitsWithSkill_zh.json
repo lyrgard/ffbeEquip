@@ -3,7 +3,6 @@
 	"100000102": {
 		"name":"雷因",
 		"id":"100000102",
-		"wikiEntry":"Rain",
 		"max_rarity":"6",
 		"min_rarity":"2",
 		"sex":"male",
@@ -13,14 +12,16 @@
 		},
 		"equip":["dagger","sword","greatSword","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Lava Floor","Blazing Soul","Leadership"],
+		"enhancements": [
+			{"name":"Blazing Soul","levels":[[{"lbFillRate":100}],[{"lbFillRate":100,"resist":[{"name":"fire","percent":50}]}],[{"lbFillRate":100,"resist":[{"name":"fire","percent":50}],"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":10, "def%":20, "evoMag":20, "lbFillRate":100, "resist":[{"name":"fire","percent":50}], "mpRefresh":5}
+			{"hp%":10, "def%":20, "evoMag":20}
 		]
 	},
 	"100000202": {
 		"name":"拉斯韋爾",
 		"id":"100000202",
-		"wikiEntry":"Lasswell",
 		"max_rarity":"6",
 		"min_rarity":"2",
 		"sex":"male",
@@ -30,15 +31,16 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Mirror of Equity","Heir to the Blade","Blade Flash - Awakened"],
+		"enhancements": [
+			{"name":"Heir to the Blade","levels":[[{"equipedConditions":["katana"],"atk%":20,"def%":10,"mag%":20,"spr%":10}],[{"equipedConditions":["katana"],"atk%":30,"def%":10,"mag%":20,"spr%":10}],[{"equipedConditions":["katana"],"atk%":40,"def%":10,"mag%":20,"spr%":10}]]}
+		],
 		"skills": [
-			{"atk%":30, "lbFillRate":100},
-			{"atk%":40, "def%":10, "mag%":20, "spr%":10, "equipedConditions":["katana"]}
+			{"atk%":30, "lbFillRate":100}
 		]
 	},
 	"100000302": {
 		"name":"菲娜",
 		"id":"100000302",
-		"wikiEntry":"Fina",
 		"max_rarity":"6",
 		"min_rarity":"2",
 		"sex":"female",
@@ -48,15 +50,16 @@
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Curada","Cheer","Innocent Shot"],
+		"enhancements": [
+			{"name":"Innocent Shot","levels":[[{"equipedConditions":["bow"],"spr%":20}],[{"equipedConditions":["bow"],"spr%":50}],[{"lbFillRate":100},{"equipedConditions":["bow"],"spr%":50}]]}
+		],
 		"skills": [
-			{"mp%":30, "spr%":30, "lbFillRate":100},
-			{"spr%":50, "equipedConditions":["bow"]}
+			{"mp%":30, "spr%":30}
 		]
 	},
 	"100000315": {
 		"name":"魔人菲娜",
 		"id":"100000315",
-		"wikiEntry":"Dark_Fina",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -66,6 +69,9 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Retaliate","Ultima","Dystopia"],
+		"enhancements": [
+			{"name":"Retaliate","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 		]
@@ -73,7 +79,6 @@
 	"100000403": {
 		"name":"尼科爾",
 		"id":"100000403",
-		"wikiEntry":"Nichol",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -90,7 +95,6 @@
 	"100000503": {
 		"name":"里德",
 		"id":"100000503",
-		"wikiEntry":"Lid",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -107,7 +111,6 @@
 	"100000603": {
 		"name":"櫻",
 		"id":"100000603",
-		"wikiEntry":"Sakura",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -124,7 +127,6 @@
 	"100000703": {
 		"name":"傑科",
 		"id":"100000703",
-		"wikiEntry":"Jake",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -141,7 +143,6 @@
 	"100000901": {
 		"name":"賴澤",
 		"id":"100000901",
-		"wikiEntry":"Rizer",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -158,7 +159,6 @@
 	"100001001": {
 		"name":"莉亞",
 		"id":"100001001",
-		"wikiEntry":"Leah",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"female",
@@ -174,7 +174,6 @@
 	"100001101": {
 		"name":"特倫",
 		"id":"100001101",
-		"wikiEntry":"Tronn",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -190,7 +189,6 @@
 	"100001201": {
 		"name":"埃爾丹",
 		"id":"100001201",
-		"wikiEntry":"Eldin",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -206,7 +204,6 @@
 	"100001301": {
 		"name":"博格",
 		"id":"100001301",
-		"wikiEntry":"Baurg",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -224,7 +221,6 @@
 	"100001401": {
 		"name":"吉姆利",
 		"id":"100001401",
-		"wikiEntry":"Gimlee",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -241,7 +237,6 @@
 	"100001501": {
 		"name":"馬克塞爾",
 		"id":"100001501",
-		"wikiEntry":"Maxell",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"male",
@@ -258,7 +253,6 @@
 	"100001601": {
 		"name":"莉薩",
 		"id":"100001601",
-		"wikiEntry":"Liza",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"female",
@@ -275,7 +269,6 @@
 	"100001702": {
 		"name":"式",
 		"id":"100001702",
-		"wikiEntry":"Shiki",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -292,7 +285,6 @@
 	"100001802": {
 		"name":"米澤爾",
 		"id":"100001802",
-		"wikiEntry":"Mizell",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -308,7 +300,6 @@
 	"100001902": {
 		"name":"羅納爾",
 		"id":"100001902",
-		"wikiEntry":"Ronaldo",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -324,7 +315,6 @@
 	"100002002": {
 		"name":"梅爾",
 		"id":"100002002",
-		"wikiEntry":"Mel",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"female",
@@ -341,7 +331,6 @@
 	"100002103": {
 		"name":"克萊因",
 		"id":"100002103",
-		"wikiEntry":"Clyne",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -358,7 +347,6 @@
 	"100002203": {
 		"name":"安塞爾姆",
 		"id":"100002203",
-		"wikiEntry":"Anzelm",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -373,7 +361,6 @@
 	"100002303": {
 		"name":"露娜",
 		"id":"100002303",
-		"wikiEntry":"Luna",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"female",
@@ -390,7 +377,6 @@
 	"100002403": {
 		"name":"貝迪爾",
 		"id":"100002403",
-		"wikiEntry":"Bedile",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -406,7 +392,6 @@
 	"100002503": {
 		"name":"杜安",
 		"id":"100002503",
-		"wikiEntry":"Duane",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -422,7 +407,6 @@
 	"100002603": {
 		"name":"賽利亞斯",
 		"id":"100002603",
-		"wikiEntry":"Cerius",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -439,7 +423,6 @@
 	"100002703": {
 		"name":"羅塞莉亞",
 		"id":"100002703",
-		"wikiEntry":"Roselia",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -449,14 +432,16 @@
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Pray","Curaga","White Light's Protection"],
+		"enhancements": [
+			{"name":"White Light's Protection","levels":[[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
+			{"hp%":20, "mp%":30, "def%":10, "spr%":20, "lbFillRate":100}
 		]
 	},
 	"100002803": {
 		"name":"梅迪亞斯",
 		"id":"100002803",
-		"wikiEntry":"Medius",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -466,15 +451,17 @@
 		},
 		"equip":["throwing","gun","hat","clothes","lightArmor"],
 		"enhancementSkills":["Auto-Limit","Gun Master","Hyper Fire"],
+		"enhancements": [
+			{"name":"Auto-Limit","levels":[[{"lbPerTurn":{"min":1,"max":1}}],[{"lbPerTurn":{"min":2,"max":2}}],[{"lbPerTurn":{"min":2,"max":2},"lbFillRate":100}]]},
+			{"name":"Gun Master","levels":[[{"equipedConditions":["gun"],"atk%":20}],[{"equipedConditions":["gun"],"atk%":30}],[{"partialDualWield":["gun"]},{"equipedConditions":["gun"],"atk%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["gun"]},
-			{"atk%":30, "equipedConditions":["gun"]}
+			{"hp%":20}
 		]
 	},
 	"100002901": {
 		"name":"薩拉伊",
 		"id":"100002901",
-		"wikiEntry":"Sarai",
 		"max_rarity":"2",
 		"min_rarity":"1",
 		"sex":"female",
@@ -491,7 +478,6 @@
 	"100003002": {
 		"name":"波拉",
 		"id":"100003002",
-		"wikiEntry":"Paula",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"female",
@@ -507,7 +493,6 @@
 	"100003202": {
 		"name":"健遊",
 		"id":"100003202",
-		"wikiEntry":"Kenyu",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -524,7 +509,6 @@
 	"100003302": {
 		"name":"奧里",
 		"id":"100003302",
-		"wikiEntry":"Ollie",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -541,7 +525,6 @@
 	"100003402": {
 		"name":"卡里",
 		"id":"100003402",
-		"wikiEntry":"Carrie",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"female",
@@ -557,7 +540,6 @@
 	"100003502": {
 		"name":"斯卡哈",
 		"id":"100003502",
-		"wikiEntry":"Skaha",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"female",
@@ -574,7 +556,6 @@
 	"100003602": {
 		"name":"蒙塔納",
 		"id":"100003602",
-		"wikiEntry":"Montana",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -590,7 +571,6 @@
 	"100003703": {
 		"name":"拉塞爾",
 		"id":"100003703",
-		"wikiEntry":"Russell",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -607,7 +587,6 @@
 	"100003803": {
 		"name":"美雪",
 		"id":"100003803",
-		"wikiEntry":"Miyuki",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -623,7 +602,6 @@
 	"100003903": {
 		"name":"吉爾貝",
 		"id":"100003903",
-		"wikiEntry":"Gilbert",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -640,7 +618,6 @@
 	"100004003": {
 		"name":"曉",
 		"id":"100004003",
-		"wikiEntry":"Xiao",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -650,6 +627,9 @@
 		},
 		"equip":["fist","hat","clothes"],
 		"enhancementSkills":["Counter","Perfect Balance","Unleashed Chakra"],
+		"enhancements": [
+			{"name":"Counter","levels":[[],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
 			{"hp%":20, "atk%":50, "resist":[{"name":"blind","percent":100}]},
 			{"atk%":50, "equipedConditions":["unarmed"]}
@@ -658,7 +638,6 @@
 	"100004103": {
 		"name":"羅刹",
 		"id":"100004103",
-		"wikiEntry":"Rakshasa",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -673,7 +652,6 @@
 	"100004203": {
 		"name":"柳德米拉",
 		"id":"100004203",
-		"wikiEntry":"Ludmille",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -689,7 +667,6 @@
 	"100004303": {
 		"name":"夏洛特",
 		"id":"100004303",
-		"wikiEntry":"Charlotte",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -699,6 +676,10 @@
 		},
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Royal Armlet","Lift Spirits","Immortal Spirit","Grandshelt Shield"],
+		"enhancements": [
+			{"name":"Royal Armlet","levels":[[],[],[]]},
+			{"name":"Immortal Spirit","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"hp%":25, "atk%":10, "def%":30, "spr%":10, "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}]}
 		]
@@ -706,7 +687,6 @@
 	"100004403": {
 		"name":"阿特米奧",
 		"id":"100004403",
-		"wikiEntry":"Artemios",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -723,7 +703,6 @@
 	"100004604": {
 		"name":"千鶴",
 		"id":"100004604",
-		"wikiEntry":"Chizuru",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -733,15 +712,18 @@
 		},
 		"equip":["dagger","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["High Tide","Molt","Phantom Shadow"],
+		"enhancements": [
+			{"name":"High Tide","levels":[[{"lbFillRate":100}],[{"lbFillRate":200}],[{"lbFillRate":300}]]},
+			{"name":"Molt","levels":[[{"evade":{"physical":20}}],[{"evade":{"physical":30}}],[{"evade":{"physical":40}}]]}
+		],
 		"skills": [
-			{"atk%":20, "evade":{"physical":40}, "lbFillRate":300},
+			{"atk%":20},
 			{"atk%":25, "def%":25, "mag%":25, "spr%":25, "equipedConditions":["katana"]}
 		]
 	},
 	"100004703": {
 		"name":"疾風",
 		"id":"100004703",
-		"wikiEntry":"Hayate",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -758,7 +740,6 @@
 	"100004903": {
 		"name":"艾爾",
 		"id":"100004903",
-		"wikiEntry":"Elle",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -775,7 +756,6 @@
 	"100005004": {
 		"name":"露露卡",
 		"id":"100005004",
-		"wikiEntry":"Luka",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -785,14 +765,16 @@
 		},
 		"equip":["staff","harp","mace","hat","clothes","robe"],
 		"enhancementSkills":["Regenerate","Aqua Refresh","Priestess Miracle"],
+		"enhancements": [
+			{"name":"Aqua Refresh","levels":[[{"mpRefresh":5}],[{"mpRefresh":5,"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"mpRefresh":10,"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "spr%":30, "mpRefresh":10}
+			{"mp%":20, "spr%":30}
 		]
 	},
 	"100005104": {
 		"name":"梅塞德絲",
 		"id":"100005104",
-		"wikiEntry":"Mercedes",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -802,15 +784,16 @@
 		},
 		"equip":["dagger","sword","axe","hammer","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Axe Mastery","Warcry","Sea King's Chop"],
+		"enhancements": [
+			{"name":"Axe Mastery","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "killers":[{"name":"aquatic","physical":50}]},
-			{"atk%":100, "equipedConditions":["axe"]}
+			{"hp%":20, "atk%":20, "killers":[{"name":"aquatic","physical":50}]}
 		]
 	},
 	"100005203": {
 		"name":"勞倫斯",
 		"id":"100005203",
-		"wikiEntry":"Lawrence",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -826,7 +809,6 @@
 	"100005304": {
 		"name":"索蕾莜",
 		"id":"100005304",
-		"wikiEntry":"Soleil",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -836,14 +818,16 @@
 		},
 		"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
 		"enhancementSkills":["Endless Turn","Schwert Dance","Cannon Dance","Panzer Dance","Shooting Dance"],
+		"enhancements": [
+			{"name":"Endless Turn","levels":[[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"hp%":0,"mp%":15,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"hp%":0,"mp%":15,"atk%":0,"def%":0,"mag%":0,"spr%":0,"evade":{"physical":20}}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"hp%":0,"mp%":15,"atk%":0,"def%":0,"mag%":0,"spr%":0,"evade":{"physical":30},"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":35, "spr%":20, "evade":{"physical":30}, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			{"hp%":10, "mp%":20, "spr%":20}
 		]
 	},
 	"100005404": {
 		"name":"夏因",
 		"id":"100005404",
-		"wikiEntry":"Shine",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -853,14 +837,16 @@
 		},
 		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"],
 		"enhancementSkills":["Surprise Attack","Dark Resident","Into Darkness"],
+		"enhancements": [
+			{"name":"Dark Resident","levels":[[{"evade":{"physical":10}}],[{"evade":{"physical":20}}],[{"evade":{"physical":30},"resist":[{"name":"blind","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "evade":{"physical":30}, "resist":[{"name":"blind","percent":100}]}
+			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20}
 		]
 	},
 	"100005503": {
 		"name":"榭拉",
 		"id":"100005503",
-		"wikiEntry":"Shera",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -877,7 +863,6 @@
 	"100005604": {
 		"name":"索澤",
 		"id":"100005604",
-		"wikiEntry":"Sozhe",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -887,15 +872,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Defense Order","Zoldaad Guard","Hell Shaft"],
+		"enhancements": [
+			{"name":"Zoldaad Guard","levels":[[{"resist":[{"name":"fire","percent":50}]},{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30}],[{"resist":[{"name":"fire","percent":70}]},{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30}],[{"resist":[{"name":"fire","percent":70}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30}]]}
+		],
 		"skills": [
-			{"hp%":50, "atk%":20, "def%":20, "resist":[{"name":"fire","percent":70}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50}]},
-			{"atk%":30, "def%":30, "equipedConditions":["heavyArmor"]}
+			{"hp%":30, "atk%":20, "def%":20, "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50}]}
 		]
 	},
 	"100005703": {
 		"name":"海爾蒂克",
 		"id":"100005703",
-		"wikiEntry":"Heltich",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -912,7 +898,6 @@
 	"100005805": {
 		"name":"瑪麗",
 		"id":"100005805",
-		"wikiEntry":"Marie",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -929,7 +914,6 @@
 	"100005905": {
 		"name":"艾琳",
 		"id":"100005905",
-		"wikiEntry":"Aileen",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -939,15 +923,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Recovery Oil","Analysis","Piledriver"],
+		"enhancements": [
+			{"name":"Analysis","levels":[[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}]}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}]}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}]},{"equipedConditions":["spear"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":60, "killers":[{"name":"machine","physical":75},{"name":"stone","physical":75}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"hp%":20, "mp%":20, "atk%":30, "mpRefresh":5}
 		]
 	},
 	"100006003": {
 		"name":"烏爾麗卡",
 		"id":"100006003",
-		"wikiEntry":"Ulrica",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -965,7 +950,6 @@
 	"100006105": {
 		"name":"維魯赫魯姆",
 		"id":"100006105",
-		"wikiEntry":"Wilhelm",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -975,16 +959,16 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["General's Command","Imperial Lance","Protector","General's Battlecry","Impregnable"],
+		"enhancements": [
+			{"name":"Protector","levels":[[{"equipedConditions":["heavyShield"],"def%":25},{"equipedConditions":["heavyArmor"],"def%":25}],[{"equipedConditions":["heavyShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyArmor"],"def%":25,"spr%":25}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["heavyShield"],"def%":40,"spr%":40},{"equipedConditions":["heavyArmor"],"def%":40,"spr%":40}]]}
+		],
 		"skills": [
-			{"hp%":60, "def%":30, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]},
-			{"def%":40, "spr%":40, "equipedConditions":["heavyShield"]},
-			{"def%":40, "spr%":40, "equipedConditions":["heavyArmor"]}
+			{"hp%":30, "def%":30, "spr%":20, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}
 		]
 	},
 	"100006204": {
 		"name":"格蕾斯",
 		"id":"100006204",
-		"wikiEntry":"Grace",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -994,14 +978,16 @@
 		},
 		"equip":["dagger","sword","staff","rod","gun","fist","lightShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["Whole Fist","Battle Cyborg","Destroy Arm","Unlimited"],
+		"enhancements": [
+			{"name":"Battle Cyborg","levels":[[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15}]}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]}],[{"hp%":30,"mp%":0,"atk%":30,"def%":30,"mag%":0,"spr%":0,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":60, "atk%":30, "def%":30, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]}
+			{"hp%":30}
 		]
 	},
 	"100006303": {
 		"name":"阿貝爾",
 		"id":"100006303",
-		"wikiEntry":"Abel",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1017,7 +1003,6 @@
 	"100006404": {
 		"name":"剛健",
 		"id":"100006404",
-		"wikiEntry":"Goken",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1036,7 +1021,6 @@
 	"100006503": {
 		"name":"瓊",
 		"id":"100006503",
-		"wikiEntry":"Jean",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1052,7 +1036,6 @@
 	"100006603": {
 		"name":"卡米爾",
 		"id":"100006603",
-		"wikiEntry":"Camille",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1069,7 +1052,6 @@
 	"100006704": {
 		"name":"伊利亞斯",
 		"id":"100006704",
-		"wikiEntry":"Ilias",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1079,14 +1061,16 @@
 		},
 		"equip":["dagger","sword","staff","throwing","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Special Recipe","Pharmacology+","Extract"],
+		"enhancements": [
+			{"name":"Pharmacology+","levels":[[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":30}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":30}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":40, "spr%":50}
+			{"hp%":10, "mp%":20, "spr%":20}
 		]
 	},
 	"100006805": {
 		"name":"福倫",
 		"id":"100006805",
-		"wikiEntry":"Fohlen",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1096,15 +1080,16 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Spear Mastery","Aggravate","Vortex","Sonic Blast"],
+		"enhancements": [
+			{"name":"Spear Mastery","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
-			{"atk%":100, "equipedConditions":["spear"]}
+			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
 		]
 	},
 	"100006904": {
 		"name":"維多利亞",
 		"id":"100006904",
-		"wikiEntry":"Victoria",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1114,16 +1099,16 @@
 		},
 		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Seductive Witch","Overflow","Meteor"],
+		"enhancements": [
+			{"name":"Seductive Witch","levels":[[{"equipedConditions":["hat"],"mag%":20},{"equipedConditions":["robe"],"mag%":20}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["hat"],"mag%":20},{"equipedConditions":["robe"],"mag%":20}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["hat"],"mag%":30},{"equipedConditions":["robe"],"mag%":30}]]}
+		],
 		"skills": [
-			{"mp%":50, "mag%":30, "mpRefresh":5},
-			{"mag%":30, "equipedConditions":["hat"]},
-			{"mag%":30, "equipedConditions":["robe"]}
+			{"mp%":30, "mag%":30, "mpRefresh":5}
 		]
 	},
 	"100007004": {
 		"name":"艾美利亞",
 		"id":"100007004",
-		"wikiEntry":"Amelia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1133,17 +1118,17 @@
 		},
 		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes"],
 		"enhancementSkills":["Dual Guns","Killer Bullet","Disorder"],
+		"enhancements": [
+			{"name":"Dual Guns","levels":[[{"partialDualWield":["gun"]}],[{"partialDualWield":["gun","fist"]}],[{"partialDualWield":["gun","fist"]},{"equipedConditions":["gun"],"atk%":20},{"equipedConditions":["fist"],"atk%":20}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":20, "partialDualWield":["gun","fist"]},
-			{"atk%":20, "def%":20, "equipedConditions":["gun"]},
-			{"atk%":20, "equipedConditions":["gun"]},
-			{"atk%":20, "equipedConditions":["fist"]}
+			{"hp%":20, "atk%":20, "def%":20},
+			{"atk%":20, "def%":20, "equipedConditions":["gun"]}
 		]
 	},
 	"100007104": {
 		"name":"海邊的菲娜",
 		"id":"100007104",
-		"wikiEntry":"Beach_Time Fina",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1153,6 +1138,9 @@
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Cheer","Instant Cure","Raise","Refreshing Ale"],
+		"enhancements": [
+			{"name":"Instant Cure","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"mp%":20, "spr%":10, "resist":[{"name":"water","percent":30}]}
 		]
@@ -1160,7 +1148,6 @@
 	"100007205": {
 		"name":"涼爽魔人菲娜",
 		"id":"100007205",
-		"wikiEntry":"Seabreeze_Dark Fina",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1170,6 +1157,9 @@
 		},
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
+		"enhancements": [
+			{"name":"Retaliate","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5}
 		]
@@ -1177,7 +1167,6 @@
 	"100007303": {
 		"name":"常夏里德",
 		"id":"100007303",
-		"wikiEntry":"Summer_Lid",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1193,7 +1182,6 @@
 	"100007404": {
 		"name":"布蘭",
 		"id":"100007404",
-		"wikiEntry":"Bran",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1203,15 +1191,16 @@
 		},
 		"equip":["dagger","sword","greatSword","spear","fist","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Noble Elf","Lightning Shield","Thunder Clap"],
+		"enhancements": [
+			{"name":"Noble Elf","levels":[[{"resist":[{"name":"lightning","percent":50},{"name":"light","percent":50}]}],[{"resist":[{"name":"lightning","percent":50},{"name":"light","percent":50}]},{"equipedConditions":["sword"],"atk%":30}],[{"resist":[{"name":"lightning","percent":50},{"name":"light","percent":50}]},{"equipedConditions":["sword"],"atk%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100}]},
-			{"atk%":30, "equipedConditions":["sword"]}
+			{"hp%":20, "atk%":30, "resist":[{"name":"paralysis","percent":100}]}
 		]
 	},
 	"100007505": {
 		"name":"盧內拉",
 		"id":"100007505",
-		"wikiEntry":"Lunera",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1221,16 +1210,17 @@
 		},
 		"equip":["dagger","staff","rod","bow","harp","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Elven Song","Elf Superior","Bran's Love","Aureole Ray"],
+		"enhancements": [
+			{"name":"Elf Superior","levels":[[{"resist":[{"name":"wind","percent":50},{"name":"light","percent":50}]},{"equipedConditions":["bow"],"mag%":50,"spr%":50}],[{"resist":[{"name":"wind","percent":50},{"name":"light","percent":50}]},{"equipedConditions":["bow"],"mag%":50,"spr%":50},{"equipedConditions":["harp"],"def%":30,"spr%":80}],[{"resist":[{"name":"wind","percent":50},{"name":"light","percent":50}]},{"equipedConditions":["bow"],"mag%":150,"spr%":150},{"equipedConditions":["harp"],"def%":30,"spr%":80}]]},
+			{"name":"Bran's Love","levels":[[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"demon","physical":75,"magical":75}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":30, "spr%":20, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"demon","physical":75,"magical":75}], "mpRefresh":5},
-			{"mag%":150, "spr%":150, "equipedConditions":["bow"]},
-			{"def%":30, "spr%":80, "equipedConditions":["harp"]}
+			{"mp%":30, "mag%":30, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"100007603": {
 		"name":"拉格爾斯",
 		"id":"100007603",
-		"wikiEntry":"Ruggles",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1240,8 +1230,11 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","harp","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dwarven Force","Song of Memories","Manufacture"],
+		"enhancements": [
+			{"name":"Dwarven Force","levels":[[{"resist":[{"name":"earth","percent":30}]}],[{"resist":[{"name":"earth","percent":30}],"hp%":0,"mp%":0,"atk%":15,"def%":0,"mag%":0,"spr%":0}],[{"resist":[{"name":"earth","percent":30}],"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"stone","physical":50}]}]]}
+		],
 		"skills": [
-			{"hp%":50, "atk%":40, "singleWieldingOneHanded":{"atk":50}, "resist":[{"name":"earth","percent":30},{"name":"earth","percent":20}], "killers":[{"name":"stone","physical":50}]},
+			{"hp%":50, "atk%":10, "singleWieldingOneHanded":{"atk":50}, "resist":[{"name":"earth","percent":20}]},
 			{"hp%":20, "atk%":20, "equipedConditions":["axe"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["hammer"]}
 		]
@@ -1249,7 +1242,6 @@
 	"100007705": {
 		"name":"常暗之維利亞斯",
 		"id":"100007705",
-		"wikiEntry":"Veritas_of the Dark",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1266,7 +1258,6 @@
 	"100007804": {
 		"name":"天風之維利亞斯",
 		"id":"100007804",
-		"wikiEntry":"Veritas_of the Heavens",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1282,7 +1273,6 @@
 	"100007904": {
 		"name":"水華之維利亞斯",
 		"id":"100007904",
-		"wikiEntry":"Veritas_of the Waters",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1300,7 +1290,6 @@
 	"100008005": {
 		"name":"劫火之維利亞斯",
 		"id":"100008005",
-		"wikiEntry":"Veritas_of the Flame",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1317,7 +1306,6 @@
 	"100008104": {
 		"name":"王土之維利亞斯",
 		"id":"100008104",
-		"wikiEntry":"Veritas_of the Earth",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1333,7 +1321,6 @@
 	"100008205": {
 		"name":"光輝之維利亞斯",
 		"id":"100008205",
-		"wikiEntry":"Veritas_of the Light",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1351,7 +1338,6 @@
 	"100008504": {
 		"name":"海倫娜",
 		"id":"100008504",
-		"wikiEntry":"Helena",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1361,15 +1347,16 @@
 		},
 		"equip":["dagger","sword","katana","bow","hammer","spear","harp","whip","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["Best Shot","Endless Dream","Ace Adventurer"],
+		"enhancements": [
+			{"name":"Ace Adventurer","levels":[[{"partialDualWield":["dagger","whip","throwing","gun"]}],[{"partialDualWield":["dagger","whip","throwing","gun"]},{"equipedConditions":["gun"],"atk%":20}],[{"partialDualWield":["dagger","whip","throwing","gun"],"lbFillRate":100},{"equipedConditions":["gun"],"atk%":40}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":20, "def%":10, "spr%":10, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1.5,"max":1.5}, "partialDualWield":["dagger","whip","throwing","gun"]},
-			{"atk%":40, "equipedConditions":["gun"]}
+			{"hp%":10, "mp%":10, "atk%":20, "def%":10, "spr%":10, "evade":{"physical":20}, "lbPerTurn":{"min":1.5,"max":1.5}}
 		]
 	},
 	"100008605": {
 		"name":"彩花",
 		"id":"100008605",
-		"wikiEntry":"Ayaka",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1386,7 +1373,6 @@
 	"100008703": {
 		"name":"蒂姆",
 		"id":"100008703",
-		"wikiEntry":"Timothy",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1402,7 +1388,6 @@
 	"100008804": {
 		"name":"莫古利",
 		"id":"100008804",
-		"wikiEntry":"Moogle",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"other",
@@ -1419,7 +1404,6 @@
 	"100008903": {
 		"name":"格羅姆",
 		"id":"100008903",
-		"wikiEntry":"Guromu",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1435,7 +1419,6 @@
 	"100009004": {
 		"name":"阿烏拉",
 		"id":"100009004",
-		"wikiEntry":"Aura",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1452,7 +1435,6 @@
 	"100009105": {
 		"name":"洛倫",
 		"id":"100009105",
-		"wikiEntry":"Loren",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1469,7 +1451,6 @@
 	"100009204": {
 		"name":"庫啵露卡",
 		"id":"100009204",
-		"wikiEntry":"Kupolkan",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1485,7 +1466,6 @@
 	"100009304": {
 		"name":"阿修特羅傑",
 		"id":"100009304",
-		"wikiEntry":"Ashteroze",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1501,7 +1481,6 @@
 	"100009405": {
 		"name":"凱爾蘇斯",
 		"id":"100009405",
-		"wikiEntry":"Kelsus",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1517,7 +1496,6 @@
 	"100009504": {
 		"name":"喵露露",
 		"id":"100009504",
-		"wikiEntry":"Nyalu",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1534,7 +1512,6 @@
 	"100009604": {
 		"name":"桑迪",
 		"id":"100009604",
-		"wikiEntry":"Sandee",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1550,7 +1527,6 @@
 	"100009704": {
 		"name":"格林菲爾德",
 		"id":"100009704",
-		"wikiEntry":"Grinfield",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1567,7 +1543,6 @@
 	"100009805": {
 		"name":"艾爾弗里德",
 		"id":"100009805",
-		"wikiEntry":"Elfreeda",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1585,7 +1560,6 @@
 	"100009903": {
 		"name":"孔拉德",
 		"id":"100009903",
-		"wikiEntry":"Conrad",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1601,7 +1575,6 @@
 	"100010005": {
 		"name":"雷根",
 		"id":"100010005",
-		"wikiEntry":"Raegen",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1621,7 +1594,6 @@
 	"100010104": {
 		"name":"希爾維婭",
 		"id":"100010104",
-		"wikiEntry":"Silvia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1638,7 +1610,6 @@
 	"100010203": {
 		"name":"神威",
 		"id":"100010203",
-		"wikiEntry":"Kamui",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1654,7 +1625,6 @@
 	"100010303": {
 		"name":"百合",
 		"id":"100010303",
-		"wikiEntry":"Yuri",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1670,7 +1640,6 @@
 	"100010405": {
 		"name":"羅伊",
 		"id":"100010405",
-		"wikiEntry":"Roy",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1688,7 +1657,6 @@
 	"100010504": {
 		"name":"威廉",
 		"id":"100010504",
-		"wikiEntry":"William",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1705,7 +1673,6 @@
 	"100010604": {
 		"name":"克羅耶",
 		"id":"100010604",
-		"wikiEntry":"Chloe",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1721,7 +1688,6 @@
 	"100010703": {
 		"name":"艾米",
 		"id":"100010703",
-		"wikiEntry":"Amy",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1737,7 +1703,6 @@
 	"100010805": {
 		"name":"杜克",
 		"id":"100010805",
-		"wikiEntry":"Duke",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1754,7 +1719,6 @@
 	"100010904": {
 		"name":"奧利弗",
 		"id":"100010904",
-		"wikiEntry":"Olif",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1771,7 +1735,6 @@
 	"100011004": {
 		"name":"米斯提亞",
 		"id":"100011004",
-		"wikiEntry":"Mystea",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1787,7 +1750,6 @@
 	"100011103": {
 		"name":"夏莉",
 		"id":"100011103",
-		"wikiEntry":"Charie",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1804,7 +1766,6 @@
 	"100011203": {
 		"name":"柳南",
 		"id":"100011203",
-		"wikiEntry":"Ryunan",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1820,7 +1781,6 @@
 	"100011305": {
 		"name":"自來也",
 		"id":"100011305",
-		"wikiEntry":"Jiraiya",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1837,7 +1797,6 @@
 	"100011404": {
 		"name":"楓",
 		"id":"100011404",
-		"wikiEntry":"Kaede",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1854,7 +1813,6 @@
 	"100011504": {
 		"name":"王牙",
 		"id":"100011504",
-		"wikiEntry":"Ohga",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -1870,7 +1828,6 @@
 	"100011603": {
 		"name":"音霧",
 		"id":"100011603",
-		"wikiEntry":"Otogiri",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -1886,7 +1843,6 @@
 	"100011705": {
 		"name":"冰炎騎士拉斯韋爾",
 		"id":"100011705",
-		"wikiEntry":"Pyro_Glacial Lasswell",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1905,7 +1861,6 @@
 	"100011805": {
 		"name":"白蓮魔道士菲娜",
 		"id":"100011805",
-		"wikiEntry":"Lotus_Mage Fina",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1925,7 +1880,6 @@
 	"100011905": {
 		"name":"星虹技師里德",
 		"id":"100011905",
-		"wikiEntry":"Heavenly_Technician Lid",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1942,7 +1896,6 @@
 	"100012005": {
 		"name":"無名槍士傑科",
 		"id":"100012005",
-		"wikiEntry":"Nameless_Gunner Jake",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1959,7 +1912,6 @@
 	"100012104": {
 		"name":"埃米利亞",
 		"id":"100012104",
-		"wikiEntry":"Emilia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -1976,7 +1928,6 @@
 	"100012203": {
 		"name":"萊利",
 		"id":"100012203",
-		"wikiEntry":"Riley",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -1992,7 +1943,6 @@
 	"100012304": {
 		"name":"奧澤塔",
 		"id":"100012304",
-		"wikiEntry":"Ozetta",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2010,7 +1960,6 @@
 	"100012405": {
 		"name":"櫻雲賢者櫻",
 		"id":"100012405",
-		"wikiEntry":"Blossom_Sage Sakura",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2027,7 +1976,6 @@
 	"100012505": {
 		"name":"洸洋軍師尼科爾",
 		"id":"100012505",
-		"wikiEntry":"Maritime_Strategist Nichol",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2045,7 +1993,6 @@
 	"100012605": {
 		"name":"庫西拉",
 		"id":"100012605",
-		"wikiEntry":"Kunshira",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2063,7 +2010,6 @@
 	"100012704": {
 		"name":"瓦多",
 		"id":"100012704",
-		"wikiEntry":"Wadow",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2081,7 +2027,6 @@
 	"100013004": {
 		"name":"維倫",
 		"id":"100013004",
-		"wikiEntry":"Verun",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2097,7 +2042,6 @@
 	"100013104": {
 		"name":"賽德娜",
 		"id":"100013104",
-		"wikiEntry":"Cedona",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2115,7 +2059,6 @@
 	"100013203": {
 		"name":"亞溫",
 		"id":"100013203",
-		"wikiEntry":"Erwin",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2131,7 +2074,6 @@
 	"100013305": {
 		"name":"榭拉皇帝",
 		"id":"100013305",
-		"wikiEntry":"Emperor_Shera",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2150,7 +2092,6 @@
 	"100013404": {
 		"name":"希里安",
 		"id":"100013404",
-		"wikiEntry":"Killian",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2167,7 +2108,6 @@
 	"100013504": {
 		"name":"希爾特",
 		"id":"100013504",
-		"wikiEntry":"Shylt",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2183,7 +2123,6 @@
 	"100013805": {
 		"name":"利拉",
 		"id":"100013805",
-		"wikiEntry":"Lila",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2204,7 +2143,6 @@
 	"100013903": {
 		"name":"米姆",
 		"id":"100013903",
-		"wikiEntry":"Mim",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2220,7 +2158,6 @@
 	"100014005": {
 		"name":"美迪愛娜",
 		"id":"100014005",
-		"wikiEntry":"Mediena",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2237,7 +2174,6 @@
 	"100014104": {
 		"name":"萊基薩",
 		"id":"100014104",
-		"wikiEntry":"Lexa",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2255,7 +2191,6 @@
 	"100014204": {
 		"name":"艾爾比斯",
 		"id":"100014204",
-		"wikiEntry":"Elbis",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2272,7 +2207,6 @@
 	"100014303": {
 		"name":"梅拉路德",
 		"id":"100014303",
-		"wikiEntry":"Merald",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2288,7 +2222,6 @@
 	"100014905": {
 		"name":"null",
 		"id":"100014905",
-		"wikiEntry":"Madam",
 		"max_rarity":"5",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2303,7 +2236,6 @@
 	"100015104": {
 		"name":"魯米努依",
 		"id":"100015104",
-		"wikiEntry":"Ryumynui",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2320,7 +2252,6 @@
 	"100015204": {
 		"name":"扎伊爾",
 		"id":"100015204",
-		"wikiEntry":"Zile",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2336,7 +2267,6 @@
 	"100015303": {
 		"name":"魯西爾",
 		"id":"100015303",
-		"wikiEntry":"Lucille",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2352,7 +2282,6 @@
 	"100016605": {
 		"name":"浮世",
 		"id":"100016605",
-		"wikiEntry":"Ukiyo",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2368,7 +2297,6 @@
 	"199000101": {
 		"name":"埃瑪（戰鬥NPC）",
 		"id":"199000101",
-		"wikiEntry":"Emma_(Battle NPC)",
 		"max_rarity":"1",
 		"min_rarity":"1",
 		"sex":"female",
@@ -2384,7 +2312,6 @@
 	"201000104": {
 		"name":"光之戰士",
 		"id":"201000104",
-		"wikiEntry":"Warrior_of Light",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2394,14 +2321,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Hope","Brave Presence","Light is with us!"],
+		"enhancements": [
+			{"name":"Hope","levels":[[],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":20}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":20}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":30, "spr%":20, "resist":[{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}]}
+			{"hp%":20, "def%":30, "resist":[{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}]}
 		]
 	},
 	"201000203": {
 		"name":"加蘭德",
 		"id":"201000203",
-		"wikiEntry":"Garland",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2411,8 +2340,11 @@
 		},
 		"equip":["sword","greatSword","katana","axe","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Doublehand","Dark Awakening","Dark Spiral"],
+		"enhancements": [
+			{"name":"Doublehand","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "singleWieldingOneHanded":{"atk":125}, "killers":[{"name":"human","physical":50}]},
+			{"hp%":20, "atk%":20, "killers":[{"name":"human","physical":50}]},
 			{"atk%":25, "equipedConditions":["greatSword"]},
 			{"atk%":25, "equipedConditions":["helm"]}
 		]
@@ -2420,7 +2352,6 @@
 	"201000302": {
 		"name":"塞拉",
 		"id":"201000302",
-		"wikiEntry":"Sarah",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"female",
@@ -2437,7 +2368,6 @@
 	"202000103": {
 		"name":"弗利奧尼爾",
 		"id":"202000103",
-		"wikiEntry":"Firion",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2447,8 +2377,11 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Lance","Fin Briar","Legend Killer"],
+		"enhancements": [
+			{"name":"Legend Killer","levels":[[{"killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"dragon","physical":75}]}],[{"killers":[{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"dragon","physical":75},{"name":"human","physical":75},{"name":"undead","physical":75}]}],[{"killers":[{"name":"beast","physical":100},{"name":"demon","physical":100},{"name":"dragon","physical":100},{"name":"human","physical":100},{"name":"undead","physical":100}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":10, "def%":10, "killers":[{"name":"plant","physical":125},{"name":"bug","physical":125},{"name":"bird","physical":125},{"name":"dragon","physical":150},{"name":"demon","physical":150},{"name":"beast","physical":150},{"name":"human","physical":100},{"name":"undead","physical":100}]},
+			{"hp%":20, "atk%":10, "def%":10, "killers":[{"name":"plant","physical":125},{"name":"bug","physical":125},{"name":"bird","physical":125},{"name":"dragon","physical":50},{"name":"demon","physical":50},{"name":"beast","physical":50}]},
 			{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["rod"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["harp"]},
@@ -2470,7 +2403,6 @@
 	"202000203": {
 		"name":"瑪利亞",
 		"id":"202000203",
-		"wikiEntry":"Maria",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2487,7 +2419,6 @@
 	"202000303": {
 		"name":"卡伊",
 		"id":"202000303",
-		"wikiEntry":"Guy",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2503,7 +2434,6 @@
 	"202000404": {
 		"name":"萊昂哈特",
 		"id":"202000404",
-		"wikiEntry":"Leon",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2513,15 +2443,16 @@
 		},
 		"equip":["dagger","sword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Battle Prep","Phantom"],
+		"enhancements": [
+			{"name":"Battle Prep","levels":[[{"equipedConditions":["sword"],"atk%":30,"def%":20}],[{"equipedConditions":["sword"],"atk%":40,"def%":20}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["sword"],"atk%":50,"def%":20}]]}
+		],
 		"skills": [
-			{"hp%":40, "atk%":20, "def%":20},
-			{"atk%":50, "def%":20, "equipedConditions":["sword"]}
+			{"hp%":10, "atk%":20, "def%":20}
 		]
 	},
 	"202000505": {
 		"name":"皇帝",
 		"id":"202000505",
-		"wikiEntry":"Emperor",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2531,15 +2462,17 @@
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Fire From Below","I'll never die!","Insolent fools!","Control"],
+		"enhancements": [
+			{"name":"I'll never die!","levels":[[{"mpRefresh":10}],[{"mpRefresh":10,"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"mpRefresh":10,"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Insolent fools!","levels":[[],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["rod"],"mag%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10},
-			{"mag%":50, "equipedConditions":["rod"]}
+			{"mp%":20, "mag%":30}
 		]
 	},
 	"202001402": {
 		"name":"保羅",
 		"id":"202001402",
-		"wikiEntry":"Paul",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -2555,7 +2488,6 @@
 	"203000105": {
 		"name":"洋蔥劍士",
 		"id":"203000105",
-		"wikiEntry":"Onion_Knight",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2572,7 +2504,6 @@
 	"203000205": {
 		"name":"路涅斯",
 		"id":"203000205",
-		"wikiEntry":"Luneth",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2582,18 +2513,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Sword Master","Cut Through","Advance"],
+		"enhancements": [
+			{"name":"Sword Master","levels":[[{"equipedConditions":["sword"],"atk%":20}],[{"equipedConditions":["sword"],"atk%":50}],[{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["katana"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
-			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"atk%":50, "equipedConditions":["katana"]}
+			{"hp%":20, "atk%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]}
 		]
 	},
 	"203000303": {
 		"name":"亞爾柯",
 		"id":"203000303",
-		"wikiEntry":"Arc",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2609,7 +2538,6 @@
 	"203000404": {
 		"name":"蕾菲雅",
 		"id":"203000404",
-		"wikiEntry":"Refia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2619,14 +2547,16 @@
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Kazus Pendant","Embolden","Full-Life"],
+		"enhancements": [
+			{"name":"Kazus Pendant","levels":[[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":20, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			{"hp%":10, "mp%":20, "spr%":30}
 		]
 	},
 	"203000503": {
 		"name":"英格茲",
 		"id":"203000503",
-		"wikiEntry":"Ingus",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2642,7 +2572,6 @@
 	"203000704": {
 		"name":"德修",
 		"id":"203000704",
-		"wikiEntry":"Desch",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2658,7 +2587,6 @@
 	"203000803": {
 		"name":"暗黑之雲",
 		"id":"203000803",
-		"wikiEntry":"Cloud_of Darkness",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2668,14 +2596,16 @@
 		},
 		"equip":["staff","rod","throwing","mace","hat","clothes","robe"],
 		"enhancementSkills":["Barrage","Man-Eater+","Omni-Veil"],
+		"enhancements": [
+			{"name":"Man-Eater+","levels":[[{"killers":[{"name":"human","physical":75,"magical":75}]}],[{"killers":[{"name":"human","physical":100,"magical":100}]}],[{"killers":[{"name":"human","physical":125,"magical":125}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":50, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":30},{"name":"blind","percent":30},{"name":"sleep","percent":30},{"name":"silence","percent":30},{"name":"paralysis","percent":30},{"name":"confuse","percent":30},{"name":"disease","percent":30},{"name":"petrification","percent":30}], "killers":[{"name":"human","physical":175,"magical":125}]}
+			{"hp%":20, "atk%":50, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"poison","percent":30},{"name":"blind","percent":30},{"name":"sleep","percent":30},{"name":"silence","percent":30},{"name":"paralysis","percent":30},{"name":"confuse","percent":30},{"name":"disease","percent":30},{"name":"petrification","percent":30}], "killers":[{"name":"human","physical":50}]}
 		]
 	},
 	"203000904": {
 		"name":"艾麗婭",
 		"id":"203000904",
-		"wikiEntry":"Aria",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2691,7 +2621,6 @@
 	"203001003": {
 		"name":"莎拉",
 		"id":"203001003",
-		"wikiEntry":"Sara",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2707,7 +2636,6 @@
 	"204000103": {
 		"name":"塞西爾",
 		"id":"204000103",
-		"wikiEntry":"Cecil",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2717,14 +2645,17 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
+		"enhancements": [
+			{"name":"Holy Light","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":0,"resist":[{"name":"light","percent":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":20,"resist":[{"name":"light","percent":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":20,"resist":[{"name":"light","percent":50}]}]]},
+			{"name":"Saintly Wall","levels":[[],[{"resist":[{"name":"light","percent":30}]}],[{"resist":[{"name":"light","percent":30}],"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "def%":50, "spr%":20, "lbFillRate":100, "resist":[{"name":"light","percent":50},{"name":"light","percent":30},{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":20, "def%":30, "lbFillRate":100, "resist":[{"name":"light","percent":50}], "killers":[{"name":"demon","physical":50}]}
 		]
 	},
 	"204000115": {
 		"name":"暗黑騎士塞西爾",
 		"id":"204000115",
-		"wikiEntry":"Dark_Knight Cecil",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2734,14 +2665,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dark Cannon","Shikkoku","Soul Eater"],
+		"enhancements": [
+			{"name":"Shikkoku","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"dark","percent":50}]}],[{"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"dark","percent":75}]}],[{"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"dark","percent":75}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "resist":[{"name":"dark","percent":75},{"name":"dark","percent":50}], "mpRefresh":5}
+			{"hp%":20, "atk%":30, "def%":20, "resist":[{"name":"dark","percent":50}], "mpRefresh":5}
 		]
 	},
 	"204000203": {
 		"name":"凱因",
 		"id":"204000203",
-		"wikiEntry":"Kain",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2751,15 +2684,17 @@
 		},
 		"equip":["dagger","sword","katana","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dragoon Spirit","Dragon Dive"],
+		"enhancements": [
+			{"name":"Dragoon Spirit","levels":[[{"jumpDamage":120}],[{"jumpDamage":150}],[{"jumpDamage":150,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":10, "atk%":20, "jumpDamage":250, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "killers":[{"name":"dragon","physical":50}]},
+			{"hp%":10, "atk%":20, "jumpDamage":100, "killers":[{"name":"dragon","physical":50}]},
 			{"atk%":20, "equipedConditions":["spear"]}
 		]
 	},
 	"204000304": {
 		"name":"羅莎",
 		"id":"204000304",
-		"wikiEntry":"Rosa",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -2777,7 +2712,6 @@
 	"204000403": {
 		"name":"莉迪亞",
 		"id":"204000403",
-		"wikiEntry":"Rydia",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2794,7 +2728,6 @@
 	"204000503": {
 		"name":"泰拉",
 		"id":"204000503",
-		"wikiEntry":"Tellah",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2810,7 +2743,6 @@
 	"204000603": {
 		"name":"吉爾伯特",
 		"id":"204000603",
-		"wikiEntry":"Edward",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2826,7 +2758,6 @@
 	"204000704": {
 		"name":"楊",
 		"id":"204000704",
-		"wikiEntry":"Yang",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -2844,7 +2775,6 @@
 	"204001103": {
 		"name":"艾吉",
 		"id":"204001103",
-		"wikiEntry":"Edge",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2860,7 +2790,6 @@
 	"204001302": {
 		"name":"喬特",
 		"id":"204001302",
-		"wikiEntry":"King_Giott",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -2877,7 +2806,6 @@
 	"204001403": {
 		"name":"高貝扎",
 		"id":"204001403",
-		"wikiEntry":"Golbez",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2893,7 +2821,6 @@
 	"204001505": {
 		"name":"無瑕召喚士莉迪亞",
 		"id":"204001505",
-		"wikiEntry":"Pure_Summoner Rydia",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2910,7 +2837,6 @@
 	"204001605": {
 		"name":"極致龍騎士凱因",
 		"id":"204001605",
-		"wikiEntry":"Atoning_Dragoon Kain",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2928,7 +2854,6 @@
 	"205000103": {
 		"name":"巴茲",
 		"id":"205000103",
-		"wikiEntry":"Bartz",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2938,15 +2863,17 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Boko's Pendant","Life Giver","Wind Shear"],
+		"enhancements": [
+			{"name":"Boko's Pendant","levels":[[{"hp%":10,"mp%":10,"atk%":10,"def%":10,"mag%":10,"spr%":10}],[{"hp%":10,"mp%":10,"atk%":10,"def%":10,"mag%":10,"spr%":10}],[{"hp%":10,"mp%":10,"atk%":10,"def%":10,"mag%":10,"spr%":10,"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":30, "def%":30, "mag%":10, "spr%":10, "lbFillRate":150, "mpRefresh":5},
+			{"hp%":20, "atk%":20, "def%":20, "lbFillRate":150},
 			{"atk%":20, "mag%":20, "equipedConditions":["sword"]}
 		]
 	},
 	"205000203": {
 		"name":"蕾娜",
 		"id":"205000203",
-		"wikiEntry":"Lenna",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2962,7 +2889,6 @@
 	"205000303": {
 		"name":"加拉夫",
 		"id":"205000303",
-		"wikiEntry":"Galuf",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -2979,7 +2905,6 @@
 	"205000403": {
 		"name":"法利斯",
 		"id":"205000403",
-		"wikiEntry":"Faris",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -2995,7 +2920,6 @@
 	"205000503": {
 		"name":"可露兒",
 		"id":"205000503",
-		"wikiEntry":"Krile",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3005,15 +2929,16 @@
 		},
 		"equip":["dagger","sword","staff","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Bluff","Dual Front"],
+		"enhancements": [
+			{"name":"Dual Front","levels":[[{"equipedConditions":["staff"],"mag%":30}],[{"equipedConditions":["staff"],"mag%":50}],[{"equipedConditions":["staff"],"mag%":50,"spr%":50}]]}
+		],
 		"skills": [
-			{"mp%":20},
-			{"mag%":50, "spr%":50, "equipedConditions":["staff"]}
+			{"mp%":20}
 		]
 	},
 	"205000703": {
 		"name":"艾克斯迪司",
 		"id":"205000703",
-		"wikiEntry":"Exdeath",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3023,14 +2948,16 @@
 		},
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Transcender","Meteor","Wicked Light"],
+		"enhancements": [
+			{"name":"Transcender","levels":[[{"killers":[{"name":"human","magical":30},{"name":"bird","magical":30},{"name":"beast","magical":30},{"name":"plant","magical":30},{"name":"bug","magical":30}]}],[{"killers":[{"name":"human","magical":40},{"name":"bird","magical":40},{"name":"beast","magical":40},{"name":"plant","magical":40},{"name":"bug","magical":40}]}],[{"killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}]}]]}
+		],
 		"skills": [
-			{"mp%":20, "mag%":30, "resist":[{"name":"light","percent":-50},{"name":"poison","percent":10}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}]}
+			{"mp%":20, "mag%":30, "resist":[{"name":"light","percent":-50},{"name":"poison","percent":10}]}
 		]
 	},
 	"205000805": {
 		"name":"吉爾伽美什",
 		"id":"205000805",
-		"wikiEntry":"Gilgamesh",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3040,19 +2967,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Snowpetal","Weapon Collector","Tri-Attack"],
+		"enhancements": [
+			{"name":"Weapon Collector","levels":[[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":40},{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["dagger"],"atk%":20},{"equipedConditions":["spear"],"atk%":20}],[{"equipedConditions":["katana"],"atk%":50},{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["dagger"],"atk%":50},{"equipedConditions":["spear"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["katana"]},
-			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"hp%":30, "atk%":20, "def%":20, "jumpDamage":100, "mpRefresh":5}
 		]
 	},
 	"206000103": {
 		"name":"蒂娜",
 		"id":"206000103",
-		"wikiEntry":"Terra",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3062,14 +2986,17 @@
 		},
 		"equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes"],
 		"enhancementSkills":["Guardian Mog","Lifesaver","Unlock Magic"],
+		"enhancements": [
+			{"name":"Guardian Mog","levels":[[],[{"resist":[{"name":"poison","percent":25},{"name":"blind","percent":25},{"name":"sleep","percent":25},{"name":"silence","percent":25},{"name":"paralysis","percent":25},{"name":"confuse","percent":25},{"name":"disease","percent":25},{"name":"petrification","percent":25}]}],[{"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}]]},
+			{"name":"Lifesaver","levels":[[{"lbFillRate":100,"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0}],[{"lbFillRate":100,"hp%":15,"mp%":15,"atk%":0,"def%":0,"mag%":20,"spr%":0}],[{"lbFillRate":100,"hp%":15,"mp%":15,"atk%":0,"def%":0,"mag%":20,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":15, "mp%":35, "mag%":50, "lbFillRate":100, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}
+			{"mp%":20, "mag%":30}
 		]
 	},
 	"206000113": {
 		"name":"魔導兵器蒂娜",
 		"id":"206000113",
-		"wikiEntry":"Magitek_Armor Terra",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3085,7 +3012,6 @@
 	"206000125": {
 		"name":"入神蒂娜",
 		"id":"206000125",
-		"wikiEntry":"Trance_Terra",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3095,14 +3021,16 @@
 		},
 		"equip":["dagger","sword","staff","rod","gun","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Chaos Wave","Inherited Power","Ultima","Magical Activation"],
+		"enhancements": [
+			{"name":"Inherited Power","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":30,"spr%":30,"resist":[{"name":"silence","percent":100}]}],[{"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":30,"spr%":30,"resist":[{"name":"silence","percent":100}]}],[{"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":80,"spr%":30,"resist":[{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":110, "spr%":50, "evade":{"physical":30}, "resist":[{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "mpRefresh":5}
+			{"mp%":30, "mag%":30, "spr%":20, "evade":{"physical":30}, "mpRefresh":5}
 		]
 	},
 	"206000203": {
 		"name":"洛克",
 		"id":"206000203",
-		"wikiEntry":"Locke",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3117,7 +3045,6 @@
 	"206000303": {
 		"name":"埃德加",
 		"id":"206000303",
-		"wikiEntry":"Edgar",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3133,7 +3060,6 @@
 	"206000403": {
 		"name":"馬修",
 		"id":"206000403",
-		"wikiEntry":"Sabin",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3151,7 +3077,6 @@
 	"206000503": {
 		"name":"暗影",
 		"id":"206000503",
-		"wikiEntry":"Shadow",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3168,7 +3093,6 @@
 	"206000603": {
 		"name":"凱嚴",
 		"id":"206000603",
-		"wikiEntry":"Cyan",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3185,7 +3109,6 @@
 	"206000703": {
 		"name":"塞麗絲",
 		"id":"206000703",
-		"wikiEntry":"Celes",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3201,7 +3124,6 @@
 	"206000804": {
 		"name":"塞策",
 		"id":"206000804",
-		"wikiEntry":"Setzer",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3211,15 +3133,16 @@
 		},
 		"equip":["dagger","sword","throwing","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Double Dice","Quick Gamble","Red Card"],
+		"enhancements": [
+			{"name":"Quick Gamble","levels":[[{"evade":{"physical":10}},{"equipedConditions":["throwing"],"atk%":50}],[{"evade":{"physical":20},"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["throwing"],"atk%":50}],[{"evade":{"physical":30},"hp%":20,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["throwing"],"mp%":20,"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":20, "spr%":20, "evade":{"physical":30}},
-			{"mp%":20, "atk%":50, "equipedConditions":["throwing"]}
+			{"mp%":20, "atk%":20, "spr%":20}
 		]
 	},
 	"206001103": {
 		"name":"嘎嗚",
 		"id":"206001103",
-		"wikiEntry":"Gau",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3235,7 +3158,6 @@
 	"206001502": {
 		"name":"魏吉",
 		"id":"206001502",
-		"wikiEntry":"Wedge",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -3251,7 +3173,6 @@
 	"206001602": {
 		"name":"比格斯",
 		"id":"206001602",
-		"wikiEntry":"Biggs",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -3267,7 +3188,6 @@
 	"206001703": {
 		"name":"凱夫卡",
 		"id":"206001703",
-		"wikiEntry":"Kefka",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3277,14 +3197,17 @@
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Mage of Destruction","Roar of Laughter","Light of Judgment"],
+		"enhancements": [
+			{"name":"Mage of Destruction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0,"killers":[{"name":"human","magical":50}]}]]},
+			{"name":"Roar of Laughter","levels":[[],[],[]]}
+		],
 		"skills": [
-			{"mp%":20, "mag%":60, "evade":{"physical":20}, "killers":[{"name":"human","magical":50}]}
+			{"mp%":20, "mag%":20, "evade":{"physical":20}}
 		]
 	},
 	"206001803": {
 		"name":"利奧",
 		"id":"206001803",
-		"wikiEntry":"Leo",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3301,7 +3224,6 @@
 	"207000105": {
 		"name":"克勞德",
 		"id":"207000105",
-		"wikiEntry":"Cloud",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3317,7 +3239,6 @@
 	"207001005": {
 		"name":"賽菲羅斯",
 		"id":"207001005",
-		"wikiEntry":"Sephiroth",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3334,7 +3255,6 @@
 	"209000103": {
 		"name":"吉坦",
 		"id":"209000103",
-		"wikiEntry":"Zidane",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3344,17 +3264,17 @@
 		},
 		"equip":["dagger","sword","throwing","mace","hat","clothes","lightArmor"],
 		"enhancementSkills":["Dual Edge","Soul Blade","Free Energy"],
+		"enhancements": [
+			{"name":"Dual Edge","levels":[[{"partialDualWield":["dagger","throwing"]}],[{"partialDualWield":["dagger","throwing"]},{"equipedConditions":["dagger"],"atk%":15},{"equipedConditions":["throwing"],"atk%":15}],[{"partialDualWield":["dagger","throwing"]},{"equipedConditions":["dagger"],"atk%":30},{"equipedConditions":["throwing"],"atk%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":10, "evade":{"physical":20}, "partialDualWield":["dagger","throwing"], "resist":[{"name":"confuse","percent":100},{"name":"sleep","percent":100}]},
-			{"atk%":30, "equipedConditions":["dagger"]},
-			{"atk%":30, "equipedConditions":["throwing"]},
+			{"hp%":20, "def%":10, "evade":{"physical":20}, "resist":[{"name":"confuse","percent":100},{"name":"sleep","percent":100}]},
 			{"atk%":50, "equipedConditions":["dagger"]}
 		]
 	},
 	"209000203": {
 		"name":"比比",
 		"id":"209000203",
-		"wikiEntry":"Vivi",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3364,6 +3284,9 @@
 		},
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Focus Magic","Proof of Life","Doomsday"],
+		"enhancements": [
+			{"name":"Proof of Life","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"hp%":10, "mp%":20, "lbFillRate":100},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -3372,7 +3295,6 @@
 	"209000304": {
 		"name":"嘉妮特",
 		"id":"209000304",
-		"wikiEntry":"Garnet",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -3382,14 +3304,17 @@
 		},
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["EVO MAG +30%","Raise","Curaga","Princess of Alexandria"],
+		"enhancements": [
+			{"name":"EVO MAG +30%","levels":[[{"evoMag":30}],[{"evoMag":40}],[{"evoMag":50}]]},
+			{"name":"Princess of Alexandria","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":20,"evoMag":10}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":50,"evoMag":10}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":50,"evoMag":10,"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "spr%":80, "evoMag":70, "evade":{"magical":20}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":5}
+			{"hp%":20, "mp%":30, "spr%":30, "evoMag":10, "evade":{"magical":20}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100}], "mpRefresh":5}
 		]
 	},
 	"209000404": {
 		"name":"斯坦納",
 		"id":"209000404",
-		"wikiEntry":"Steiner",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3407,7 +3332,6 @@
 	"209000503": {
 		"name":"芙萊雅",
 		"id":"209000503",
-		"wikiEntry":"Freya",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3423,7 +3347,6 @@
 	"209000705": {
 		"name":"艾可",
 		"id":"209000705",
-		"wikiEntry":"Eiko",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3439,7 +3362,6 @@
 	"209000803": {
 		"name":"薩拉曼達",
 		"id":"209000803",
-		"wikiEntry":"Amarant",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3455,7 +3377,6 @@
 	"209000903": {
 		"name":"拉妮",
 		"id":"209000903",
-		"wikiEntry":"Lani",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3471,7 +3392,6 @@
 	"209001003": {
 		"name":"庫加",
 		"id":"209001003",
-		"wikiEntry":"Kuja",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3488,7 +3408,6 @@
 	"209001105": {
 		"name":"貝特麗克絲",
 		"id":"209001105",
-		"wikiEntry":"Beatrix",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3506,7 +3425,6 @@
 	"209001203": {
 		"name":"黑色華爾滋3號",
 		"id":"209001203",
-		"wikiEntry":"Black_Waltz 3",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3522,7 +3440,6 @@
 	"210000105": {
 		"name":"提達",
 		"id":"210000105",
-		"wikiEntry":"Tidus",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3532,15 +3449,17 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Tackle Slip","Get pumped!","Sun Crest","Quick Hit"],
+		"enhancements": [
+			{"name":"Tackle Slip","levels":[[{"evade":{"physical":30}}],[{"evade":{"physical":30,"magical":10}}],[{"evade":{"physical":30,"magical":20}}]]},
+			{"name":"Sun Crest","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}]}],[{"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}]}],[{"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0,"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}]},{"equipedConditions":["sword"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":70, "evade":{"physical":30,"magical":20}, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["sword"]}
+			{"hp%":30, "mp%":20, "atk%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "mpRefresh":5}
 		]
 	},
 	"210000205": {
 		"name":"優娜",
 		"id":"210000205",
-		"wikiEntry":"Yuna",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3556,7 +3475,6 @@
 	"210000303": {
 		"name":"瓦卡",
 		"id":"210000303",
-		"wikiEntry":"Wakka",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3572,7 +3490,6 @@
 	"210000405": {
 		"name":"露露",
 		"id":"210000405",
-		"wikiEntry":"Lulu",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3589,7 +3506,6 @@
 	"210000704": {
 		"name":"琉克",
 		"id":"210000704",
-		"wikiEntry":"Rikku",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -3599,16 +3515,16 @@
 		},
 		"equip":["dagger","throwing","fist","lightShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["Tidal Wave","Mix","Drive Boost"],
+		"enhancements": [
+			{"name":"Drive Boost","levels":[[{"lbFillRate":100}],[{"lbFillRate":100},{"equipedConditions":["fist"],"atk%":15},{"equipedConditions":["lightShield"],"mp%":15}],[{"lbFillRate":100},{"equipedConditions":["fist"],"atk%":30},{"equipedConditions":["lightShield"],"mp%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":10, "atk%":20, "evade":{"physical":20}, "lbFillRate":100},
-			{"atk%":30, "equipedConditions":["fist"]},
-			{"mp%":30, "equipedConditions":["lightShield"]}
+			{"hp%":20, "mp%":10, "atk%":20, "evade":{"physical":20}}
 		]
 	},
 	"210000804": {
 		"name":"希摩爾",
 		"id":"210000804",
-		"wikiEntry":"Seymour",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3624,7 +3540,6 @@
 	"211000103": {
 		"name":"香托托",
 		"id":"211000103",
-		"wikiEntry":"Shantotto",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3639,7 +3554,6 @@
 	"211000204": {
 		"name":"韋萊",
 		"id":"211000204",
-		"wikiEntry":"Werei",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3656,7 +3570,6 @@
 	"211000303": {
 		"name":"庫皮皮",
 		"id":"211000303",
-		"wikiEntry":"Kupipi",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3672,7 +3585,6 @@
 	"211000405": {
 		"name":"普利修",
 		"id":"211000405",
-		"wikiEntry":"Prishe",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3689,7 +3601,6 @@
 	"212000103": {
 		"name":"梵恩",
 		"id":"212000103",
-		"wikiEntry":"Vaan",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3699,6 +3610,9 @@
 		},
 		"equip":["dagger","sword","greatSword","staff","rod","axe","hammer","spear","mace","fist","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Counter Break","Biohazard","Assault Strike"],
+		"enhancements": [
+			{"name":"Counter Break","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":15}, "killers":[{"name":"bird","physical":50}]}
 		]
@@ -3706,7 +3620,6 @@
 	"212000204": {
 		"name":"雅雪",
 		"id":"212000204",
-		"wikiEntry":"Ashe",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -3716,15 +3629,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Meditate","Power Seeker","Heaven's Fury"],
+		"enhancements": [
+			{"name":"Power Seeker","levels":[[{"equipedConditions":["sword"],"atk%":50,"mag%":50}],[{"equipedConditions":["sword"],"mp%":20,"atk%":50,"mag%":50}],[{"equipedConditions":["sword"],"hp%":20,"mp%":20,"atk%":80,"mag%":80}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":20, "mag%":30, "mpRefresh":5},
-			{"hp%":20, "mp%":20, "atk%":80, "mag%":80, "equipedConditions":["sword"]}
+			{"hp%":10, "mp%":20, "mag%":30, "mpRefresh":5}
 		]
 	},
 	"212000403": {
 		"name":"潘妮蘿",
 		"id":"212000403",
-		"wikiEntry":"Penelo",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3741,7 +3655,6 @@
 	"212000505": {
 		"name":"巴爾弗雷亞",
 		"id":"212000505",
-		"wikiEntry":"Balthier",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3758,7 +3671,6 @@
 	"212000603": {
 		"name":"芙蘭",
 		"id":"212000603",
-		"wikiEntry":"Fran",
 		"max_rarity":"4",
 		"min_rarity":"3",
 		"sex":"female",
@@ -3774,7 +3686,6 @@
 	"212000702": {
 		"name":"阿納斯塔西斯",
 		"id":"212000702",
-		"wikiEntry":"Anastasis",
 		"max_rarity":"3",
 		"min_rarity":"2",
 		"sex":"male",
@@ -3791,7 +3702,6 @@
 	"212000905": {
 		"name":"巴修",
 		"id":"212000905",
-		"wikiEntry":"Basch",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3809,7 +3719,6 @@
 	"212001004": {
 		"name":"拉斯勒",
 		"id":"212001004",
-		"wikiEntry":"Rasler",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3819,17 +3728,17 @@
 		},
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["All Resist Light","Royal Obligation","Vanguard Slasher"],
+		"enhancements": [
+			{"name":"Vanguard Slasher","levels":[[{"equipedConditions":["heavyArmor"],"def%":50}],[{"equipedConditions":["heavyArmor"],"def%":50,"spr%":30}],[{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":30},{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":30}]]}
+		],
 		"skills": [
 			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"light","percent":50},{"name":"light","percent":50},{"name":"blind","percent":100}]},
-			{"hp%":20, "def%":50, "spr%":30, "equipedConditions":["heavyArmor"]},
-			{"hp%":20, "def%":50, "spr%":30, "equipedConditions":["lightArmor"]},
 			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
 	"212001105": {
 		"name":"加布藍斯",
 		"id":"212001105",
-		"wikiEntry":"Gabranth",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -3849,7 +3758,6 @@
 	"212001204": {
 		"name":"裴因",
 		"id":"212001204",
-		"wikiEntry":"Vayne",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3866,7 +3774,6 @@
 	"212001303": {
 		"name":"拉薩",
 		"id":"212001303",
-		"wikiEntry":"Larsa",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3882,7 +3789,6 @@
 	"212001404": {
 		"name":"朵芮絲",
 		"id":"212001404",
-		"wikiEntry":"Drace",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -3899,7 +3805,6 @@
 	"213000105": {
 		"name":"雷光",
 		"id":"213000105",
-		"wikiEntry":"Lightning",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -3909,14 +3814,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Blitz","Crushing Blow","Lightspeed"],
+		"enhancements": [
+			{"name":"Lightspeed","levels":[[{"evade":{"physical":30}}],[{"evade":{"physical":30,"magical":10}}],[{"evade":{"physical":30,"magical":20}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "evade":{"physical":30,"magical":20}, "mpRefresh":5, "special":["dualWield"]}
+			{"hp%":20, "atk%":30, "mpRefresh":5, "special":["dualWield"]}
 		]
 	},
 	"213000204": {
 		"name":"冰雪",
 		"id":"213000204",
-		"wikiEntry":"Snow",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3926,6 +3833,10 @@
 		},
 		"equip":["dagger","throwing","mace","fist","lightShield","hat","clothes"],
 		"enhancementSkills":["Counter","Fighting Spirit","Battle Roar"],
+		"enhancements": [
+			{"name":"Counter","levels":[[],[],[]]},
+			{"name":"Fighting Spirit","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"hp%":30, "def%":20},
 			{"atk%":50, "equipedConditions":["unarmed"]}
@@ -3934,7 +3845,6 @@
 	"213000304": {
 		"name":"班尼拉",
 		"id":"213000304",
-		"wikiEntry":"Vanille",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -3951,7 +3861,6 @@
 	"213000403": {
 		"name":"薩茲",
 		"id":"213000403",
-		"wikiEntry":"Sazh",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -3968,7 +3877,6 @@
 	"213000504": {
 		"name":"霍普",
 		"id":"213000504",
-		"wikiEntry":"Hope",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -3978,14 +3886,16 @@
 		},
 		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Waterga","Aeroga","MAG +20%"],
+		"enhancements": [
+			{"name":"MAG +20%","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":20,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":60,"spr%":0}]]}
+		],
 		"skills": [
-			{"mp%":20, "def%":20, "mag%":60}
+			{"mp%":20, "def%":20}
 		]
 	},
 	"213000603": {
 		"name":"牙",
 		"id":"213000603",
-		"wikiEntry":"Fang",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4002,7 +3912,6 @@
 	"214000105": {
 		"name":"雅・修特拉",
 		"id":"214000105",
-		"wikiEntry":"Y'shtola",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4012,14 +3921,15 @@
 		},
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Cleric Stance","Shroud of Saints","Holy","Benediction"],
+		"enhancements": [
+			{"name":"Shroud of Saints","levels":[[{"mpRefresh":5}],[{"mpRefresh":5,"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"mpRefresh":5,"hp%":20,"mp%":20,"atk%":0,"def%":20,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "def%":20, "mpRefresh":5}
 		]
 	},
 	"214000203": {
 		"name":"桑克瑞德",
 		"id":"214000203",
-		"wikiEntry":"Thancred",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4029,14 +3939,15 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","harp","throwing","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Fast Blade","Featherfoot","Savage Blade"],
+		"enhancements": [
+			{"name":"Featherfoot","levels":[[{"evade":{"physical":20}}],[{"evade":{"physical":30}}],[{"evade":{"physical":30},"hp%":30,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "evade":{"physical":30}}
 		]
 	},
 	"214000304": {
 		"name":"敏菲利亞",
 		"id":"214000304",
-		"wikiEntry":"Minfilia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4046,14 +3957,16 @@
 		},
 		"equip":["dagger","sword","staff","whip","hat","clothes","robe"],
 		"enhancementSkills":["Assault Order","Guard Order","The Echo","Leader's Disposition"],
+		"enhancements": [
+			{"name":"The Echo","levels":[[{"hp%":10,"mp%":10,"atk%":10,"def%":10,"mag%":10,"spr%":10}],[{"hp%":10,"mp%":10,"atk%":10,"def%":10,"mag%":10,"spr%":10,"mpRefresh":5}],[{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20,"mpRefresh":10}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
 		]
 	},
 	"214000404": {
 		"name":"伊達",
 		"id":"214000404",
-		"wikiEntry":"Yda",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4063,15 +3976,17 @@
 		},
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["Kata","Howling Fist","Fists of Fire"],
+		"enhancements": [
+			{"name":"Kata","levels":[[],[],[]]},
+			{"name":"Fists of Fire","levels":[[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["fist"],"atk%":20}],[{"hp%":20,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"singleWieldingOneHanded":{"atk":50}},{"equipedConditions":["fist"],"atk%":20}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":20,"magical":10}, "singleWieldingOneHanded":{"atk":50}},
-			{"atk%":20, "equipedConditions":["fist"]}
+			{"def%":20, "evade":{"physical":20,"magical":10}}
 		]
 	},
 	"214000504": {
 		"name":"帕帕力莫",
 		"id":"214000504",
-		"wikiEntry":"Papalymo",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4088,7 +4003,6 @@
 	"215000105": {
 		"name":"諾克提斯",
 		"id":"215000105",
-		"wikiEntry":"Noctis",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4098,8 +4012,11 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["Fish","Link","Chosen King","Warp Strike"],
+		"enhancements": [
+			{"name":"Chosen King","levels":[[{"hp%":30,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"hp%":30,"mp%":30,"atk%":0,"def%":30,"mag%":0,"spr%":30}],[{"hp%":30,"mp%":30,"atk%":30,"def%":30,"mag%":30,"spr%":30,"lbFillRate":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":30, "evade":{"physical":20,"magical":10}, "lbFillRate":50, "mpRefresh":5},
+			{"evade":{"physical":20,"magical":10}, "mpRefresh":5},
 			{"atk%":30, "def%":30, "equipedConditions":["dagger"]},
 			{"atk%":40, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":40, "def%":20, "equipedConditions":["greatSword"]},
@@ -4114,7 +4031,6 @@
 	"215000205": {
 		"name":"格拉迪歐藍斯",
 		"id":"215000205",
-		"wikiEntry":"Gladiolus",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4133,7 +4049,6 @@
 	"215000304": {
 		"name":"柯爾",
 		"id":"215000304",
-		"wikiEntry":"Cor",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4150,7 +4065,6 @@
 	"215000403": {
 		"name":"伊莉絲",
 		"id":"215000403",
-		"wikiEntry":"Iris",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4166,7 +4080,6 @@
 	"215000605": {
 		"name":"艾拉妮亞",
 		"id":"215000605",
-		"wikiEntry":"Aranea",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4183,7 +4096,6 @@
 	"215000705": {
 		"name":"普羅恩普特",
 		"id":"215000705",
-		"wikiEntry":"Prompto",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4200,7 +4112,6 @@
 	"215001105": {
 		"name":"尼克斯",
 		"id":"215001105",
-		"wikiEntry":"Nyx",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4217,7 +4128,6 @@
 	"215001204": {
 		"name":"格拉烏卡",
 		"id":"215001204",
-		"wikiEntry":"Glauca",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4234,7 +4144,6 @@
 	"215001304": {
 		"name":"克羅",
 		"id":"215001304",
-		"wikiEntry":"Crowe",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4250,7 +4159,6 @@
 	"215001403": {
 		"name":"利波特斯",
 		"id":"215001403",
-		"wikiEntry":"Libertus",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4266,7 +4174,6 @@
 	"253000105": {
 		"name":"拉姆薩",
 		"id":"253000105",
-		"wikiEntry":"Ramza",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4283,7 +4190,6 @@
 	"253000115": {
 		"name":"傭兵拉姆薩",
 		"id":"253000115",
-		"wikiEntry":"Mercenary_Ramza",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4293,21 +4199,20 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","harp","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Stone Throw","Branded Heretic","True Justice","Blade of Justice","True Hero"],
+		"enhancements": [
+			{"name":"Branded Heretic","levels":[[{"equipedConditions":["robe"],"mag%":50}],[{"equipedConditions":["robe"],"mag%":50,"spr%":50}],[{"equipedConditions":["robe"],"mag%":50,"spr%":50},{"equipedConditions":["lightArmor"],"atk%":50,"def%":50},{"equipedConditions":["heavyArmor"],"atk%":50,"def%":50}]]},
+			{"name":"True Justice","levels":[[{"equipedConditions":["lightShield"],"def%":15,"spr%":15}],[{"equipedConditions":["lightShield"],"def%":15,"spr%":15},{"equipedConditions":["heavyShield"],"def%":15,"spr%":15}],[{"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["lightShield"],"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"def%":30,"spr%":30}]]},
+			{"name":"True Hero","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15}]}]]}
+		],
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15}], "mpRefresh":5},
-			{"mag%":50, "spr%":50, "equipedConditions":["robe"]},
-			{"atk%":50, "def%":50, "equipedConditions":["lightArmor"]},
-			{"atk%":50, "def%":50, "equipedConditions":["heavyArmor"]},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"def%":50, "equipedConditions":["helm"]},
-			{"atk%":50, "equipedConditions":["hat"]},
-			{"def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-			{"def%":30, "spr%":30, "equipedConditions":["heavyShield"]}
+			{"atk%":50, "equipedConditions":["hat"]}
 		]
 	},
 	"253000205": {
 		"name":"迪利塔",
 		"id":"253000205",
-		"wikiEntry":"Delita",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4324,7 +4229,6 @@
 	"253000215": {
 		"name":"騎士迪利塔",
 		"id":"253000215",
-		"wikiEntry":"Knight_Delita",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4334,16 +4238,17 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["War Hero","Commanding Blade","Black Sheep Knight"],
+		"enhancements": [
+			{"name":"War Hero","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}],"lbFillRate":25,"hp%":0,"mp%":0,"atk%":15,"def%":0,"mag%":0,"spr%":0}],[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}],"lbFillRate":50,"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Black Sheep Knight","levels":[[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":20}],[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["heavyArmor"],"atk%":40}],[{"killers":[{"name":"human","physical":50}]},{"equipedConditions":["sword"],"atk%":60},{"equipedConditions":["heavyArmor"],"atk%":40}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":60, "def%":20, "lbFillRate":50, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
-			{"atk%":60, "equipedConditions":["sword"]},
-			{"atk%":40, "equipedConditions":["heavyArmor"]}
+			{"hp%":30, "atk%":30, "def%":20, "mpRefresh":5}
 		]
 	},
 	"253000304": {
 		"name":"阿格莉亞絲",
 		"id":"253000304",
-		"wikiEntry":"Agrias",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4353,16 +4258,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Full Break","Knighthood","Divine Ruination"],
+		"enhancements": [
+			{"name":"Knighthood","levels":[[{"equipedConditions":["lightShield"],"def%":30,"spr%":30}],[{"equipedConditions":["lightShield"],"def%":30,"spr%":30},{"equipedConditions":["greatSword"],"atk%":20}],[{"equipedConditions":["lightShield"],"def%":30,"spr%":30},{"equipedConditions":["greatSword"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":20, "def%":10},
-			{"def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-			{"atk%":50, "equipedConditions":["greatSword"]}
+			{"hp%":30, "atk%":20, "def%":10}
 		]
 	},
 	"253000403": {
 		"name":"阿魯瑪",
 		"id":"253000403",
-		"wikiEntry":"Alma",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4379,7 +4284,6 @@
 	"253000504": {
 		"name":"加夫加利安",
 		"id":"253000504",
-		"wikiEntry":"Gaffgarion",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4389,14 +4293,16 @@
 		},
 		"equip":["dagger","sword","hammer","spear","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Divine Knight","Self-Sacrifice","Abyssal Blade"],
+		"enhancements": [
+			{"name":"Divine Knight","levels":[[{"killers":[{"name":"human","physical":50}],"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"killers":[{"name":"human","physical":50}],"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0}],[{"killers":[{"name":"human","physical":75}],"hp%":0,"mp%":0,"atk%":50,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":70, "killers":[{"name":"human","physical":75}]}
+			{"hp%":20, "atk%":20}
 		]
 	},
 	"253000603": {
 		"name":"姆斯達迪奧",
 		"id":"253000603",
-		"wikiEntry":"Mustadio",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4412,7 +4318,6 @@
 	"253000805": {
 		"name":"奧爾蘭多",
 		"id":"253000805",
-		"wikiEntry":"Orlandeau",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4422,17 +4327,16 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Crush Weapon","Black Lion's Crest","Divine Ruination"],
+		"enhancements": [
+			{"name":"Black Lion's Crest","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]},{"equipedConditions":["greatSword"],"atk%":40}],[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["greatSword"],"atk%":40}],[{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["katana"],"atk%":40}]]}
+		],
 		"skills": [
-			{"hp%":50, "atk%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"atk%":40, "equipedConditions":["greatSword"]},
-			{"atk%":40, "equipedConditions":["sword"]},
-			{"atk%":40, "equipedConditions":["katana"]}
+			{"hp%":30, "atk%":30, "lbFillRate":200, "mpRefresh":5}
 		]
 	},
 	"253000904": {
 		"name":"梅麗亞杜爾",
 		"id":"253000904",
-		"wikiEntry":"Meliadoul",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4442,14 +4346,16 @@
 		},
 		"equip":["sword","greatSword","katana","bow","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Sacred Knight","Crush Armor","Crush Weapon","Heaven's Blessing","Chantage"],
+		"enhancements": [
+			{"name":"Sacred Knight","levels":[[{"mpRefresh":5,"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":20}],[{"mpRefresh":5,"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":20}],[{"mpRefresh":10,"hp%":0,"mp%":0,"atk%":0,"def%":40,"mag%":0,"spr%":40}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":10, "def%":60, "spr%":40, "mpRefresh":10}
+			{"hp%":20, "mp%":20, "atk%":10, "def%":20}
 		]
 	},
 	"253001103": {
 		"name":"奧薇莉亞",
 		"id":"253001103",
-		"wikiEntry":"Ovelia",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4465,7 +4371,6 @@
 	"253001204": {
 		"name":"奧蘭",
 		"id":"253001204",
-		"wikiEntry":"Orran",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4475,14 +4380,16 @@
 		},
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Nameless Song","Writer of History","Durai Papers"],
+		"enhancements": [
+			{"name":"Writer of History","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":40}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":40}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":60,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}]]}
+		],
 		"skills": [
-			{"mp%":20, "mag%":20, "spr%":60, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}
+			{"mp%":20, "mag%":20}
 		]
 	},
 	"254000105": {
 		"name":"艾斯",
 		"id":"254000105",
-		"wikiEntry":"Ace",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4492,14 +4399,16 @@
 		},
 		"equip":["dagger","rod","throwing","hat","clothes","robe"],
 		"enhancementSkills":["Devotion","Spirit Hand","Tri-beam Laser"],
+		"enhancements": [
+			{"name":"Devotion","levels":[[{"lbFillRate":200}],[{"lbFillRate":200,"lbPerTurn":{"min":2,"max":2}}],[{"lbFillRate":200,"lbPerTurn":{"min":2,"max":2},"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":40,"spr%":0}]]}
+		],
 		"skills": [
-			{"mp%":10, "mag%":70, "spr%":20, "lbFillRate":200, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":5}
+			{"mp%":10, "mag%":30, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"254000205": {
 		"name":"葵因",
 		"id":"254000205",
-		"wikiEntry":"Queen",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4509,14 +4418,17 @@
 		},
 		"equip":["dagger","sword","greatSword","hat","clothes"],
 		"enhancementSkills":["Magic Martyr","Berserk","Justice Guard","Devastate"],
+		"enhancements": [
+			{"name":"Berserk","levels":[[],[],[]]},
+			{"name":"Justice Guard","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":50, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
+			{"hp%":20, "atk%":50, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"254000304": {
 		"name":"奈恩",
 		"id":"254000304",
-		"wikiEntry":"Nine",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4526,15 +4438,17 @@
 		},
 		"equip":["dagger","spear","hat","clothes"],
 		"enhancementSkills":["Double Recover","Spear Adept","Clean Sweep","Hyper Dive"],
+		"enhancements": [
+			{"name":"Double Recover","levels":[[],[],[{"mpRefresh":5}]]},
+			{"name":"Spear Adept","levels":[[{"equipedConditions":["spear"],"atk%":30}],[{"equipedConditions":["spear"],"atk%":40}],[{"equipedConditions":["spear"],"atk%":60}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":40, "def%":10, "spr%":20, "jumpDamage":260, "killers":[{"name":"demon","physical":50}], "mpRefresh":5},
-			{"atk%":60, "equipedConditions":["spear"]}
+			{"hp%":20, "atk%":40, "def%":10, "spr%":20, "jumpDamage":260, "killers":[{"name":"demon","physical":50}]}
 		]
 	},
 	"254000403": {
 		"name":"托雷",
 		"id":"254000403",
-		"wikiEntry":"Trey",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4550,7 +4464,6 @@
 	"254000503": {
 		"name":"莘柯",
 		"id":"254000503",
-		"wikiEntry":"Cinque",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4566,7 +4479,6 @@
 	"254000603": {
 		"name":"傑克",
 		"id":"254000603",
-		"wikiEntry":"Jack",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4583,7 +4495,6 @@
 	"254000704": {
 		"name":"瑟溫",
 		"id":"254000704",
-		"wikiEntry":"Seven",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4593,14 +4504,16 @@
 		},
 		"equip":["dagger","sword","whip","hat","clothes"],
 		"enhancementSkills":["Yakabe","Osmoselash","Elementalash"],
+		"enhancements": [
+			{"name":"Yakabe","levels":[[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}]}],[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":10, "def%":20, "mag%":30, "spr%":10, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}
+			{"hp%":20, "atk%":10, "def%":20, "mag%":30, "spr%":10}
 		]
 	},
 	"254000905": {
 		"name":"蕾姆",
 		"id":"254000905",
-		"wikiEntry":"Rem",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4610,15 +4523,16 @@
 		},
 		"equip":["dagger","sword","staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Sharp Resolution","Curaga","Dagger Boomerang","Raise","Undying Wish"],
+		"enhancements": [
+			{"name":"Sharp Resolution","levels":[[{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":50,"spr%":50}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},{"equipedConditions":["dagger"],"mag%":80,"spr%":80}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5},
-			{"mag%":80, "spr%":80, "equipedConditions":["dagger"]}
+			{"mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "mpRefresh":5}
 		]
 	},
 	"254001003": {
 		"name":"艾特",
 		"id":"254001003",
-		"wikiEntry":"Eight",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4635,7 +4549,6 @@
 	"254001204": {
 		"name":"金恩",
 		"id":"254001204",
-		"wikiEntry":"King",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4645,14 +4558,17 @@
 		},
 		"equip":["dagger","throwing","gun","hat","clothes"],
 		"enhancementSkills":["Hi-Cap Magazine","Point-Blank Shot","Hi-Cap Magazine II","Indomitable"],
+		"enhancements": [
+			{"name":"Hi-Cap Magazine","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Hi-Cap Magazine II","levels":[[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":50,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":80,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":120, "def%":20, "partialDualWield":["gun"]}
+			{"hp%":20, "atk%":20, "def%":20, "partialDualWield":["gun"]}
 		]
 	},
 	"254001403": {
 		"name":"薩絲",
 		"id":"254001403",
-		"wikiEntry":"Sice",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4668,7 +4584,6 @@
 	"255000104": {
 		"name":"曲藝士",
 		"id":"255000104",
-		"wikiEntry":"Juggler",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4684,7 +4599,6 @@
 	"255000204": {
 		"name":"竊賊",
 		"id":"255000204",
-		"wikiEntry":"Thief",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4694,13 +4608,15 @@
 		},
 		"equip":["dagger","sword","throwing","hat","clothes","lightArmor"],
 		"enhancementSkills":["Steal Time","Bandit","Mercy Stroke"],
+		"enhancements": [
+			{"name":"Bandit","levels":[[],[],[]]}
+		],
 		"skills": [
 		]
 	},
 	"255000304": {
 		"name":"劍士",
 		"id":"255000304",
-		"wikiEntry":"Fencer",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4710,15 +4626,16 @@
 		},
 		"equip":["dagger","sword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Checkmate","Manastrike","Blade Adept"],
+		"enhancements": [
+			{"name":"Blade Adept","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":45}],[{"killers":[{"name":"human","physical":50}]},{"equipedConditions":["sword"],"atk%":60}]]}
+		],
 		"skills": [
-			{"atk%":20, "killers":[{"name":"human","physical":50}]},
-			{"atk%":60, "equipedConditions":["sword"]}
+			{"atk%":20}
 		]
 	},
 	"302000104": {
 		"name":"媞莉絲",
 		"id":"302000104",
-		"wikiEntry":"Tilith",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4734,7 +4651,6 @@
 	"302000204": {
 		"name":"卡爾",
 		"id":"302000204",
-		"wikiEntry":"Karl",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4751,7 +4667,6 @@
 	"302000304": {
 		"name":"榭莉雅",
 		"id":"302000304",
-		"wikiEntry":"Seria",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4768,7 +4683,6 @@
 	"302000405": {
 		"name":"瓦爾加斯",
 		"id":"302000405",
-		"wikiEntry":"Vargas",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4785,7 +4699,6 @@
 	"302000505": {
 		"name":"麥斯威爾",
 		"id":"302000505",
-		"wikiEntry":"Maxwell",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4801,7 +4714,6 @@
 	"302000605": {
 		"name":"艾爾莎",
 		"id":"302000605",
-		"wikiEntry":"Elza",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4811,15 +4723,16 @@
 		},
 		"equip":["spear","hat","clothes","lightArmor"],
 		"enhancementSkills":["Ravaging Blow","Dark Reaper","Madness Rush"],
+		"enhancements": [
+			{"name":"Dark Reaper","levels":[[{"resist":[{"name":"dark","percent":50}]},{"equipedConditions":["spear"],"atk%":50}],[{"resist":[{"name":"dark","percent":75}]},{"equipedConditions":["spear"],"atk%":75}],[{"resist":[{"name":"dark","percent":100}]},{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "resist":[{"name":"dark","percent":100}], "killers":[{"name":"human","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
-			{"atk%":100, "equipedConditions":["spear"]}
+			{"hp%":20, "atk%":20, "killers":[{"name":"human","physical":50},{"name":"demon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"302000705": {
 		"name":"白騎士諾埃爾",
 		"id":"302000705",
-		"wikiEntry":"White_Knight Noel",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4829,20 +4742,18 @@
 		},
 		"equip":["staff","rod","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
+		"enhancements": [
+			{"name":"Rune Protector","levels":[[{"equipedConditions":["rod"],"mag%":15},{"equipedConditions":["lightShield"],"def%":15},{"equipedConditions":["heavyShield"],"def%":15}],[{"equipedConditions":["rod"],"mag%":25},{"equipedConditions":["lightShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyShield"],"def%":25,"spr%":25}],[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["lightShield"],"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"def%":50,"spr%":50}]]},
+			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]},
+			{"name":"Winter Palisade","levels":[[],[],[]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}]},
-			{"mag%":50, "equipedConditions":["rod"]},
-			{"def%":50, "spr%":50, "equipedConditions":["lightShield"]},
-			{"def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
-			{"hp%":20, "def%":50, "spr%":50, "equipedConditions":["lightArmor"]},
-			{"hp%":20, "def%":50, "spr%":50, "equipedConditions":["heavyArmor"]},
-			{"mp%":20, "mag%":50, "spr%":50, "equipedConditions":["robe"]}
+			{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}]}
 		]
 	},
 	"302000804": {
 		"name":"聖人羅塞莉亞",
 		"id":"302000804",
-		"wikiEntry":"Santa_Roselia",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4852,14 +4763,18 @@
 		},
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["Blessed Heart","Heart of Conviction","Healer's Resolve","Divine Grace"],
+		"enhancements": [
+			{"name":"Blessed Heart","levels":[[],[],[]]},
+			{"name":"Heart of Conviction","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":30,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":10,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":50,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":80,"lbPerTurn":{"min":1,"max":1},"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
+			{"name":"Divine Grace","levels":[[],[],[]]}
+		],
 		"skills": [
-			{"hp%":50, "spr%":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":25}], "mpRefresh":5}
+			{"hp%":20, "spr%":20, "resist":[{"name":"ice","percent":25}]}
 		]
 	},
 	"302000905": {
 		"name":"雲",
 		"id":"302000905",
-		"wikiEntry":"Yun",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4869,16 +4784,17 @@
 		},
 		"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"],
 		"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"],
+		"enhancements": [
+			{"name":"No Pressure Friend","levels":[[{"equipedConditions":["clothes"],"atk%":50},{"equipedConditions":["lightArmor"],"atk%":50}],[{"evade":{"physical":10}},{"equipedConditions":["clothes"],"atk%":50},{"equipedConditions":["lightArmor"],"atk%":50}],[{"evade":{"physical":20}},{"equipedConditions":["clothes"],"atk%":50},{"equipedConditions":["lightArmor"],"atk%":50}]]},
+			{"name":"Two-Hit Combo","levels":[[],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"partialDualWield":["dagger","whip","mace","fist"]}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "partialDualWield":["dagger","whip","mace","fist"], "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"beast","physical":50}]},
-			{"atk%":50, "equipedConditions":["clothes"]},
-			{"atk%":50, "equipedConditions":["lightArmor"]}
+			{"hp%":30, "atk%":30, "def%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"beast","physical":50}]}
 		]
 	},
 	"302001004": {
 		"name":"鈴",
 		"id":"302001004",
-		"wikiEntry":"Ling",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -4888,14 +4804,16 @@
 		},
 		"equip":["dagger","hat","clothes","robe"],
 		"enhancementSkills":["Beauty","Feint Step","Daunting Step","Invigorating Dance"],
+		"enhancements": [
+			{"name":"Beauty","levels":[[],[{"hp%":10,"mp%":10,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"hp%":30,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":50, "evade":{"physical":40}, "lbFillRate":100, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
+			{"mp%":20, "evade":{"physical":40}, "lbFillRate":100, "resist":[{"name":"fire","percent":50},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
 		]
 	},
 	"302001104": {
 		"name":"愛神阿特米奧",
 		"id":"302001104",
-		"wikiEntry":"Cupid_Artemios",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4905,8 +4823,12 @@
 		},
 		"equip":["dagger","bow","throwing","hat","clothes","lightArmor"],
 		"enhancementSkills":["Rose Custodian","Flash Barrage","Sun Cupid","Lux Magna"],
+		"enhancements": [
+			{"name":"Rose Custodian","levels":[[],[],[{"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Sun Cupid","levels":[[{"resist":[{"name":"light","percent":25},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"light","percent":50},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}],"hp%":0,"mp%":0,"atk%":10,"def%":0,"mag%":0,"spr%":0}],[{"resist":[{"name":"light","percent":75},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}],"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":50, "atk%":65, "def%":25, "resist":[{"name":"light","percent":75},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"undead","physical":50},{"name":"demon","physical":50}]},
+			{"hp%":30, "atk%":25, "def%":25, "killers":[{"name":"beast","physical":50},{"name":"undead","physical":50},{"name":"demon","physical":50}]},
 			{"atk%":75, "equipedConditions":["bow"]},
 			{"atk%":30, "equipedConditions":["throwing"]},
 			{"atk%":30, "equipedConditions":["dagger"]}
@@ -4915,7 +4837,6 @@
 	"302001203": {
 		"name":"愛神露娜",
 		"id":"302001203",
-		"wikiEntry":"Cupid_Luna",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -4925,14 +4846,16 @@
 		},
 		"equip":["bow","gun","hat","clothes"],
 		"enhancementSkills":["Twilight Bolt","Chainsaw","Nightwalker"],
+		"enhancements": [
+			{"name":"Nightwalker","levels":[[{"resist":[{"name":"dark","percent":25}],"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":20,"spr%":0}],[{"resist":[{"name":"dark","percent":35}],"hp%":0,"mp%":0,"atk%":35,"def%":0,"mag%":35,"spr%":0}],[{"resist":[{"name":"dark","percent":50}],"hp%":0,"mp%":0,"atk%":50,"def%":0,"mag%":50,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":110, "mag%":100, "resist":[{"name":"dark","percent":50}], "killers":[{"name":"spirit","physical":50},{"name":"human","physical":50}]}
+			{"hp%":20, "atk%":60, "mag%":50, "killers":[{"name":"spirit","physical":50},{"name":"human","physical":50}]}
 		]
 	},
 	"302001305": {
 		"name":"奧利芙",
 		"id":"302001305",
-		"wikiEntry":"Olive",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4942,16 +4865,18 @@
 		},
 		"equip":["hammer","gun","hat","clothes","lightArmor"],
 		"enhancementSkills":["Shattering Shot","Heavy Arms Proficiency","Mortar Beacon","True Shot"],
+		"enhancements": [
+			{"name":"Heavy Arms Proficiency","levels":[[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}],[{"singleWieldingOneHanded":{"atk":150}},{"equipedConditions":["gun"],"atk%":30}]]},
+			{"name":"Mortar Beacon","levels":[[],[],[]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "spr%":20, "singleWieldingOneHanded":{"atk":150}, "lbFillRate":200, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
-			{"atk%":30, "equipedConditions":["gun"]},
+			{"hp%":20, "atk%":30, "spr%":20, "lbFillRate":200, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
 	},
 	"302001405": {
 		"name":"弗雷比亞",
 		"id":"302001405",
-		"wikiEntry":"Fryevia",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4961,16 +4886,18 @@
 		},
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
+		"enhancements": [
+			{"name":"Cold and Confident","levels":[[{"hp%":0,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"ice","percent":20}]}],[{"hp%":10,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"ice","percent":30}]}],[{"hp%":30,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"ice","percent":50}]}]]},
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"atk":100,"mag":100}}],[{"singleWielding":{"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "singleWielding":{"atk":100,"mag":100}, "resist":[{"name":"ice","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "equipedConditions":["sword"]}
+			{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		]
 	},
 	"302001504": {
 		"name":"索恩",
 		"id":"302001504",
-		"wikiEntry":"Xon",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -4980,6 +4907,9 @@
 		},
 		"equip":["dagger","sword","throwing","fist","hat","clothes"],
 		"enhancementSkills":["Desperate Strike","Master Thief","Twist of Fate"],
+		"enhancements": [
+			{"name":"Master Thief","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"hp%":20, "atk%":10, "evade":{"physical":20}}
 		]
@@ -4987,7 +4917,6 @@
 	"302001603": {
 		"name":"艾迪恩",
 		"id":"302001603",
-		"wikiEntry":"Aiden",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -4997,14 +4926,16 @@
 		},
 		"equip":["dagger","staff","rod","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Mind Shield","Burst Heal"],
+		"enhancements": [
+			{"name":"Mind Shield","levels":[[{"hp%":0,"mp%":0,"atk%":0,"def%":10,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":10}],[{"hp%":0,"mp%":0,"atk%":0,"def%":30,"mag%":0,"spr%":20}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":40, "spr%":40}
+			{"hp%":20, "def%":10, "spr%":20}
 		]
 	},
 	"304000105": {
 		"name":"蘭迪",
 		"id":"304000105",
-		"wikiEntry":"Randi",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5014,15 +4945,18 @@
 		},
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
+		"enhancements": [
+			{"name":"Auto-Charge","levels":[[{"lbPerTurn":{"min":2,"max":2}}],[{"lbPerTurn":{"min":4,"max":4}}],[{"lbPerTurn":{"min":6,"max":6},"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Mana's Bond","levels":[[{"hp%":0,"mp%":0,"atk%":10,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"poison","percent":25},{"name":"blind","percent":25},{"name":"sleep","percent":25},{"name":"silence","percent":25},{"name":"paralysis","percent":25},{"name":"confuse","percent":25},{"name":"disease","percent":25},{"name":"petrification","percent":25}]}],[{"hp%":0,"mp%":0,"atk%":10,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}],[{"hp%":0,"mp%":0,"atk%":10,"def%":0,"mag%":0,"spr%":0,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
+			{"name":"Hero of Legend","levels":[[{"equipedConditions":["sword"],"atk%":35,"def%":20,"spr%":20}],[{"equipedConditions":["sword"],"atk%":50,"def%":35,"spr%":35}],[{"singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}},{"equipedConditions":["sword"],"atk%":70,"def%":35,"spr%":35}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":60, "def%":20, "evade":{"physical":15}, "singleWieldingOneHanded":{"atk":100,"def":50,"spr":50}, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}], "mpRefresh":5},
-			{"atk%":70, "def%":35, "spr%":35, "equipedConditions":["sword"]}
+			{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":15}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]}
 		]
 	},
 	"304000204": {
 		"name":"普利姆",
 		"id":"304000204",
-		"wikiEntry":"Primm",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5032,14 +4966,16 @@
 		},
 		"equip":["sword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"enhancementSkills":["Healing Waters","Invigorate","Haunting Guard","Saintly Beam"],
+		"enhancements": [
+			{"name":"Haunting Guard","levels":[[{"hp%":0,"mp%":0,"atk%":15,"def%":0,"mag%":15,"spr%":15,"mpRefresh":3}],[{"hp%":0,"mp%":0,"atk%":40,"def%":0,"mag%":40,"spr%":40,"mpRefresh":5}],[{"hp%":0,"mp%":0,"atk%":80,"def%":0,"mag%":80,"spr%":80,"mpRefresh":10}]]}
+		],
 		"skills": [
-			{"atk%":100, "mag%":100, "spr%":100, "mpRefresh":10}
+			{"atk%":20, "mag%":20, "spr%":20}
 		]
 	},
 	"304000303": {
 		"name":"波波伊",
 		"id":"304000303",
-		"wikiEntry":"Popoi",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"other",
@@ -5056,7 +4992,6 @@
 	"306000105": {
 		"name":"龍王",
 		"id":"306000105",
-		"wikiEntry":"Dragonlord",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"other",
@@ -5066,14 +5001,16 @@
 		},
 		"equip":["staff","rod","mace","fist","hat","clothes","robe"],
 		"enhancementSkills":["Dragonlord's Guard","Wave of Relief","Kafrizzle"],
+		"enhancements": [
+			{"name":"Dragonlord's Guard","levels":[[],[{"mpRefresh":10}],[{"mpRefresh":10,"hp%":30,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]}
+		],
 		"skills": [
-			{"hp%":50, "mp%":30, "mag%":80, "mpRefresh":10}
+			{"hp%":20, "mag%":80}
 		]
 	},
 	"306000204": {
 		"name":"八俁遠呂智",
 		"id":"306000204",
-		"wikiEntry":"Orochi",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"other",
@@ -5090,7 +5027,6 @@
 	"306000303": {
 		"name":"甘達坦",
 		"id":"306000303",
-		"wikiEntry":"Robbin'_'Ood",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -5100,14 +5036,16 @@
 		},
 		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["Henchmen's Cheer","Smashing Slash"],
+		"enhancements": [
+			{"name":"Henchmen's Cheer","levels":[[{"lbFillRate":100}],[{"lbFillRate":100}],[{"lbFillRate":100,"lbPerTurn":{"min":2,"max":2}}]]}
+		],
 		"skills": [
-			{"evade":{"physical":10}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}}
+			{"evade":{"physical":10}}
 		]
 	},
 	"306000404": {
 		"name":"殺戮機器",
 		"id":"306000404",
-		"wikiEntry":"Killing_Machine",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"other",
@@ -5117,14 +5055,16 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","spear","fist","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Double Trouble","Unbridled Blade"],
+		"enhancements": [
+			{"name":"Double Trouble","levels":[[],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":30,"def%":0,"mag%":0,"spr%":0,"special":["dualWield"]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":60, "special":["dualWield"]}
+			{"hp%":20, "atk%":30}
 		]
 	},
 	"306000503": {
 		"name":"巨像兵",
 		"id":"306000503",
-		"wikiEntry":"Golem",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"other",
@@ -5141,7 +5081,6 @@
 	"306000603": {
 		"name":"史萊姆",
 		"id":"306000603",
-		"wikiEntry":"Slime",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"other",
@@ -5158,7 +5097,6 @@
 	"306000804": {
 		"name":"流浪金屬史萊姆",
 		"id":"306000804",
-		"wikiEntry":"Liquid_Metal Slime",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"other",
@@ -5170,14 +5108,15 @@
 		},
 		"equip":[],
 		"enhancementSkills":["Metal Body","Kaboom"],
+		"enhancements": [
+			{"name":"Metal Body","levels":[[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}],[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"evade":{"physical":30}}],[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"evade":{"physical":30},"hp%":0,"mp%":0,"atk%":30,"def%":30,"mag%":30,"spr%":30,"lbPerTurn":{"min":5,"max":5}}]]}
+		],
 		"skills": [
-			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "evade":{"physical":30}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}
 		]
 	},
 	"310000105": {
 		"name":"2B",
 		"id":"310000105",
-		"wikiEntry":"2B",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5193,7 +5132,6 @@
 	"310000204": {
 		"name":"9S",
 		"id":"310000204",
-		"wikiEntry":"9S",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5209,7 +5147,6 @@
 	"310000304": {
 		"name":"亞當",
 		"id":"310000304",
-		"wikiEntry":"Adam",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5225,7 +5162,6 @@
 	"310000403": {
 		"name":"21O",
 		"id":"310000403",
-		"wikiEntry":"21O",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -5241,7 +5177,6 @@
 	"313000105": {
 		"name":"提茲",
 		"id":"313000105",
-		"wikiEntry":"Tiz",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5257,7 +5192,6 @@
 	"313000205": {
 		"name":"艾尼亞絲",
 		"id":"313000205",
-		"wikiEntry":"Agnès",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5272,7 +5206,6 @@
 	"313000305": {
 		"name":"兔女郎艾尼亞絲",
 		"id":"313000305",
-		"wikiEntry":"Bravo_Bunny Agnès",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5287,7 +5220,6 @@
 	"313000404": {
 		"name":"伊迪婭",
 		"id":"313000404",
-		"wikiEntry":"Edea",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5302,7 +5234,6 @@
 	"314000104": {
 		"name":"尤",
 		"id":"314000104",
-		"wikiEntry":"Yew",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5317,7 +5248,6 @@
 	"314000203": {
 		"name":"瑪古諾利婭",
 		"id":"314000203",
-		"wikiEntry":"Magnolia",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -5332,7 +5262,6 @@
 	"315000104": {
 		"name":"林奈",
 		"id":"315000104",
-		"wikiEntry":"Rinne",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"other",
@@ -5347,7 +5276,6 @@
 	"316000103": {
 		"name":"拉提庫斯",
 		"id":"316000103",
-		"wikiEntry":"Roddick",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -5362,7 +5290,6 @@
 	"317000105": {
 		"name":"蕾娜",
 		"id":"317000105",
-		"wikiEntry":"Rena",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5377,7 +5304,6 @@
 	"318000105": {
 		"name":"菲特",
 		"id":"318000105",
-		"wikiEntry":"Fayt",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5392,7 +5318,6 @@
 	"319000104": {
 		"name":"蕾米",
 		"id":"319000104",
-		"wikiEntry":"Reimi",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5407,7 +5332,6 @@
 	"320000104": {
 		"name":"菲德爾",
 		"id":"320000104",
-		"wikiEntry":"Fidel",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5422,7 +5346,6 @@
 	"401000104": {
 		"name":"危險・亞莉安娜",
 		"id":"401000104",
-		"wikiEntry":"Dangerous_Ariana",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5438,7 +5361,6 @@
 	"401000205": {
 		"name":"惡魔雷因",
 		"id":"401000205",
-		"wikiEntry":"Demon_Rain",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5448,14 +5370,18 @@
 		},
 		"equip":["sword","greatSword","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Counter","Defend","Demonic Fury","Doublehand","Ignite"],
+		"enhancements": [
+			{"name":"Counter","levels":[[],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Demonic Fury","levels":[[],[],[{"hp%":30,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0}]]},
+			{"name":"Doublehand","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":100}}],[{"singleWielding":{"atk":150}}]]}
+		],
 		"skills": [
-			{"hp%":40, "evoMag":20, "singleWielding":{"atk":150}, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25},{"name":"paralysis","percent":25}]}
+			{"hp%":10, "evoMag":20, "resist":[{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25},{"name":"paralysis","percent":25}]}
 		]
 	},
 	"401000305": {
 		"name":"吸血鬼拉斯韋爾",
 		"id":"401000305",
-		"wikiEntry":"Dracu_Lasswell",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5465,15 +5391,17 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Bat Form","ATK +20%","Bloodlust","Black Mist","Nightmare Assault"],
+		"enhancements": [
+			{"name":"Bat Form","levels":[[],[{"evade":{"physical":10}}],[{"evade":{"physical":20,"magical":10}}]]},
+			{"name":"ATK +20%","levels":[[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0}],[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["katana"],"atk%":30}],[{"hp%":0,"mp%":0,"atk%":20,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["katana"],"hp%":30,"atk%":60}]]}
+		],
 		"skills": [
-			{"atk%":30, "evade":{"physical":20,"magical":10}, "resist":[{"name":"fire","percent":-25},{"name":"light","percent":-25},{"name":"dark","percent":50},{"name":"sleep","percent":25}]},
-			{"hp%":30, "atk%":60, "equipedConditions":["katana"]}
+			{"atk%":10, "resist":[{"name":"fire","percent":-25},{"name":"light","percent":-25},{"name":"dark","percent":50},{"name":"sleep","percent":25}]}
 		]
 	},
 	"401000404": {
 		"name":"白魔女菲娜",
 		"id":"401000404",
-		"wikiEntry":"White_Witch Fina",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5483,14 +5411,16 @@
 		},
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Divine Burst","Entrust","Raise","SPR +20%, MP +10%","Ritual"],
+		"enhancements": [
+			{"name":"SPR +20%, MP +10%","levels":[[{"hp%":0,"mp%":10,"atk%":0,"def%":0,"mag%":0,"spr%":20}],[{"hp%":0,"mp%":10,"atk%":0,"def%":0,"mag%":0,"spr%":30}],[{"hp%":0,"mp%":30,"atk%":0,"def%":0,"mag%":0,"spr%":50,"singleWielding":{"spr":100}}]]}
+		],
 		"skills": [
-			{"mp%":50, "spr%":60, "singleWielding":{"spr":100}, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
+			{"mp%":20, "spr%":10, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
 		]
 	},
 	"401000503": {
 		"name":"黑貓里德",
 		"id":"401000503",
-		"wikiEntry":"Black_Cat Lid",
 		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
@@ -5500,15 +5430,17 @@
 		},
 		"equip":["staff","rod","bow","axe","hammer","gun","mace","hat","clothes","lightArmor"],
 		"enhancementSkills":["Hex Strike","Ultimate Blow","Sturdy Cat","Nature Protector"],
+		"enhancements": [
+			{"name":"Sturdy Cat","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":0}],[{"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"hp%":20,"mp%":0,"atk%":0,"def%":30,"mag%":0,"spr%":0}],[{"resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100}],"hp%":50,"mp%":0,"atk%":0,"def%":50,"mag%":0,"spr%":0}]]},
+			{"name":"Nature Protector","levels":[[{"killers":[{"name":"demon","physical":50},{"name":"undead","physical":50},{"name":"machine","physical":50}]}],[{"killers":[{"name":"demon","physical":50},{"name":"undead","physical":50},{"name":"machine","physical":50}]},{"equipedConditions":["hammer"],"atk%":50}],[{"killers":[{"name":"demon","physical":75},{"name":"undead","physical":75},{"name":"machine","physical":75}]},{"equipedConditions":["hammer"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":70, "atk%":20, "def%":50, "spr%":10, "evade":{"physical":10}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"lightning","percent":25},{"name":"confuse","percent":25}], "killers":[{"name":"undead","physical":125},{"name":"machine","physical":125},{"name":"demon","physical":75}]},
-			{"atk%":100, "equipedConditions":["hammer"]}
+			{"hp%":20, "atk%":20, "spr%":10, "evade":{"physical":10}, "resist":[{"name":"lightning","percent":25},{"name":"confuse","percent":25}], "killers":[{"name":"undead","physical":50},{"name":"machine","physical":50}]}
 		]
 	},
 	"401000604": {
 		"name":"工匠里德",
 		"id":"401000604",
-		"wikiEntry":"Artisan_Lid",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5524,7 +5456,6 @@
 	"401000704": {
 		"name":"劍士拉斯韋爾",
 		"id":"401000704",
-		"wikiEntry":"Swordsman_Lasswell",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5543,7 +5474,6 @@
 	"401000804": {
 		"name":"拉拉隊菲娜",
 		"id":"401000804",
-		"wikiEntry":"Cheerleader_Fina",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5560,7 +5490,6 @@
 	"401000904": {
 		"name":"少女櫻",
 		"id":"401000904",
-		"wikiEntry":"Maiden_Sakura",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5576,7 +5505,6 @@
 	"401001004": {
 		"name":"牛仔傑科",
 		"id":"401001004",
-		"wikiEntry":"Cowboy_Jake",
 		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5595,7 +5523,6 @@
 	"401001105": {
 		"name":"查格博斯",
 		"id":"401001105",
-		"wikiEntry":"Zargabaath",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5605,16 +5532,14 @@
 		},
 		"equip":["sword","greatSword","katana","hammer","spear","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Authority","Word of Law","Rejuvenate","Archadian Light"],
+		"enhancements": [
+			{"name":"Authority","levels":[[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":30},{"equipedConditions":["katana"],"mag%":30},{"equipedConditions":["hammer"],"mag%":30},{"equipedConditions":["spear"],"mag%":30}],[{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["katana"],"mag%":40},{"equipedConditions":["hammer"],"mag%":40},{"equipedConditions":["spear"],"mag%":40}],[{"equipedConditions":["sword"],"hp%":20,"atk%":50,"def%":20},{"equipedConditions":["greatSword"],"hp%":20,"atk%":50,"def%":20},{"equipedConditions":["katana"],"mp%":20,"mag%":50,"spr%":20},{"equipedConditions":["hammer"],"mp%":20,"mag%":50,"spr%":20},{"equipedConditions":["spear"],"mp%":20,"mag%":50,"spr%":20}]]}
+		],
 		"skills": [
 			{"hp%":30, "def%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"light","percent":50},{"name":"dark","percent":-50}], "mpRefresh":5},
 			{"spr%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
-			{"hp%":20, "atk%":50, "def%":20, "equipedConditions":["sword"]},
-			{"hp%":20, "atk%":50, "def%":20, "equipedConditions":["greatSword"]},
-			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["katana"]},
-			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["hammer"]},
-			{"mp%":20, "mag%":50, "spr%":20, "equipedConditions":["spear"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
 			{"mp%":20, "mag%":20, "equipedConditions":["fire"]}
 		]
@@ -5622,7 +5547,6 @@
 	"401001205": {
 		"name":"A2",
 		"id":"401001205",
-		"wikiEntry":"A2",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5642,7 +5566,6 @@
 	"401001304": {
 		"name":"夏娃",
 		"id":"401001304",
-		"wikiEntry":"Eve",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5658,7 +5581,6 @@
 	"401001405": {
 		"name":"巴爾巴莉希亞",
 		"id":"401001405",
-		"wikiEntry":"Barbariccia",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5676,7 +5598,6 @@
 	"401001504": {
 		"name":"盧比坎特",
 		"id":"401001504",
-		"wikiEntry":"Rubicante",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5692,7 +5613,6 @@
 	"401001604": {
 		"name":"凱納槽",
 		"id":"401001604",
-		"wikiEntry":"Cagnazzo",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5708,7 +5628,6 @@
 	"401001705": {
 		"name":"蕾貝爾塔",
 		"id":"401001705",
-		"wikiEntry":"Reberta",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5718,15 +5637,16 @@
 		},
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Pike Master","Mystic Thrust","Death Crimson"],
+		"enhancements": [
+			{"name":"Pike Master","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"jumpDamage":50},{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":250, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
-			{"atk%":100, "equipedConditions":["spear"]}
+			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]}
 		]
 	},
 	"401001804": {
 		"name":"扎拉斯",
 		"id":"401001804",
-		"wikiEntry":"Zyrus",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5736,6 +5656,9 @@
 		},
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["Blood Scar","Blood Rage","Blood Rend","Blood Pulsar"],
+		"enhancements": [
+			{"name":"Blood Rage","levels":[[],[],[]]}
+		],
 		"skills": [
 			{"mp%":20, "mag%":10, "resist":[{"name":"silence","percent":50},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":25,"magical":50}]},
 			{"mag%":20, "equipedConditions":["rod"]},
@@ -5745,7 +5668,6 @@
 	"401001903": {
 		"name":"斯卡米留尼",
 		"id":"401001903",
-		"wikiEntry":"Scarmiglione",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -5761,7 +5683,6 @@
 	"401002005": {
 		"name":"冷血貴族櫻",
 		"id":"401002005",
-		"wikiEntry":"Grim_Lord Sakura",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5779,7 +5700,6 @@
 	"401002104": {
 		"name":"幻術師尼科爾",
 		"id":"401002104",
-		"wikiEntry":"Illusionist_Nichol",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5797,7 +5717,6 @@
 	"401002204": {
 		"name":"海盜傑科",
 		"id":"401002204",
-		"wikiEntry":"Pirate_Jake",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5815,7 +5734,6 @@
 	"401002304": {
 		"name":"時尚亞莉安娜",
 		"id":"401002304",
-		"wikiEntry":"Chic_Ariana",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5832,7 +5750,6 @@
 	"401002405": {
 		"name":"迷人小貓亞莉安娜",
 		"id":"401002405",
-		"wikiEntry":"Charming_Kitty Ariana",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5850,7 +5767,6 @@
 	"401002504": {
 		"name":"運動女孩亞莉安娜",
 		"id":"401002504",
-		"wikiEntry":"Sportive_Ariana",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5867,7 +5783,6 @@
 	"401002605": {
 		"name":"克莉絲汀",
 		"id":"401002605",
-		"wikiEntry":"Christine",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5883,7 +5798,6 @@
 	"401002705": {
 		"name":"克里菈",
 		"id":"401002705",
-		"wikiEntry":"Kryla",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5901,7 +5815,6 @@
 	"401002804": {
 		"name":"機械工匠凱莉",
 		"id":"401002804",
-		"wikiEntry":"Tinkerer_Carrie",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -5919,7 +5832,6 @@
 	"401002905": {
 		"name":"雷佳克",
 		"id":"401002905",
-		"wikiEntry":"Ray_Jack",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5929,17 +5841,17 @@
 		},
 		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["The Stuff of Legend","Sword Mastery","Order of the Blue Wing","Sacred Strike"],
+		"enhancements": [
+			{"name":"Sword Mastery","levels":[[{"equipedConditions":["sword"],"atk%":50}],[{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":25},{"equipedConditions":["katana"],"atk%":25}],[{"equipedConditions":["sword"],"atk%":50},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["katana"],"atk%":50}]]},
+			{"name":"Order of the Blue Wing","levels":[[],[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":20}],[{"hp%":0,"mp%":0,"atk%":0,"def%":20,"mag%":0,"spr%":20}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":50, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50}], "killers":[{"name":"dragon","physical":50}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"atk%":50, "equipedConditions":["katana"]}
+			{"hp%":30, "atk%":30, "def%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50}], "killers":[{"name":"dragon","physical":50}], "mpRefresh":5}
 		]
 	},
 	"401003004": {
 		"name":"巴魯薩",
 		"id":"401003004",
-		"wikiEntry":"Barusa",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5958,7 +5870,6 @@
 	"401003104": {
 		"name":"卡里瓦",
 		"id":"401003104",
-		"wikiEntry":"Kaliva",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -5968,14 +5879,16 @@
 		},
 		"equip":["staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Path of Wizardry","Promotion","Icicle Press"],
+		"enhancements": [
+			{"name":"Path of Wizardry","levels":[[{"singleWieldingOneHanded":{"mag":100}}],[{"singleWieldingOneHanded":{"mag":100},"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":25,"spr%":0}],[{"singleWieldingOneHanded":{"mag":100},"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":50,"spr%":20}]]}
+		],
 		"skills": [
-			{"mp%":50, "mag%":70, "spr%":50, "singleWieldingOneHanded":{"mag":100}, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
+			{"mp%":30, "mag%":20, "spr%":30, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}
 		]
 	},
 	"401003203": {
 		"name":"托比",
 		"id":"401003203",
-		"wikiEntry":"Toby",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -5992,7 +5905,6 @@
 	"401003303": {
 		"name":"法老阿貝爾",
 		"id":"401003303",
-		"wikiEntry":"Pharaoh_Abel",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
@@ -6008,7 +5920,6 @@
 	"401003404": {
 		"name":"女神索蕾莜",
 		"id":"401003404",
-		"wikiEntry":"Divine_Soleil",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -6024,7 +5935,6 @@
 	"401003505": {
 		"name":"探險家艾琳",
 		"id":"401003505",
-		"wikiEntry":"Explorer_Aileen",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -6050,7 +5960,6 @@
 	"401003605": {
 		"name":"蘿拉·卡芙特",
 		"id":"401003605",
-		"wikiEntry":"Lara_Croft",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
@@ -6077,7 +5986,6 @@
 	"401003704": {
 		"name":"燕",
 		"id":"401003704",
-		"wikiEntry":"Yan",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"female",
@@ -6094,7 +6002,6 @@
 	"401003805": {
 		"name":"球球",
 		"id":"401003805",
-		"wikiEntry":"Chow",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -6112,7 +6019,6 @@
 	"401003905": {
 		"name":"昂",
 		"id":"401003905",
-		"wikiEntry":"Ang",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -6129,7 +6035,6 @@
 	"401004005": {
 		"name":"瑞科·羅德里格茲",
 		"id":"401004005",
-		"wikiEntry":"Rico_Rodriguez",
 		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
@@ -6147,7 +6052,6 @@
 	"401004104": {
 		"name":"馬里奧·弗瑞格",
 		"id":"401004104",
-		"wikiEntry":"Mario_Frigo",
 		"max_rarity":"6",
 		"min_rarity":"4",
 		"sex":"male",
@@ -6164,7 +6068,6 @@
 	"401004203": {
 		"name":"安妮卡·斯文森",
 		"id":"401004203",
-		"wikiEntry":"Annika_Svennson",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"female",
@@ -6180,7 +6083,6 @@
 	"401004303": {
 		"name":"特奧",
 		"id":"401004303",
-		"wikiEntry":"Teo",
 		"max_rarity":"5",
 		"min_rarity":"3",
 		"sex":"male",
