@@ -572,7 +572,7 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
         if (isApplicable(item, unit) && (!item.equipedConditions || areConditionOK(item, build))) {
             return item;    
         } else {
-            return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
+            return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
         }
     } else {
         itemVersions.sort(function (item1, item2) {
@@ -594,11 +594,15 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
         });
         for (var index in itemVersions) {
             if (isApplicable(itemVersions[index], unit) && areConditionOK(itemVersions[index], build)) {
-                return itemVersions[index];
+                if (item.enhancements) {
+                    return applyEnhancements(itemVersions[index], item.enhancements);
+                } else {
+                    return itemVersions[index];
+                }
             }
         }
         var item = itemVersions[0];
-        return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"]};
+        return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
     }
 }
 
