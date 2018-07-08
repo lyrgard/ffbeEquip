@@ -817,7 +817,16 @@ function displayUnitEnhancements() {
                 if (builds[currentUnitIndex].unit.enhancementLevels[i] == j) {
                     html += " selected";
                 }
-                html += '>' + enhancement.name + ' +' + j + '</option>';
+                if (enhancement.levels.length == 2 && enhancement.levels[0].length == 0) {
+                    // unlocked skills
+                    if (j == 0) {
+                        html += '>' + enhancement.name + ' not unlocked</option>';
+                    } else {
+                        html += '>' + enhancement.name + ' unlocked</option>';
+                    }
+                } else {
+                    html += '>' + enhancement.name + ' +' + j + '</option>';    
+                }
             }
             html += '</select></div>';
         }

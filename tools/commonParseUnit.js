@@ -68,6 +68,15 @@ var elementsMap = {
     8: 'dark'
 }
 
+var unlockedSkills = {
+    "100011705": "225960",
+    "100011805": "226000",
+    "100012005": "225990",
+    "100012405": "226010",
+    "100011905": "507050",
+    "100012505": "225970"
+}
+
 function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData, unitOut) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
@@ -134,6 +143,24 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             effect = baseEffects;
         }
         getPassive(skillIn, effect, skillsOut);
+    }
+    if (unlockedSkills[unitId]) {
+        if (!unitOut.enhancements) {
+            unitOut.enhancements = [];
+        }
+        
+        var skillId = unlockedSkills[unitId];
+        var skillIn = skills[skillId];
+        
+        var enhancementData = {"name":skillIn.name, "levels":[[]]}
+        var enhancementBaseEffects = {};
+        var enhancementSkillsOut = [enhancementBaseEffects];
+        getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut);
+        if (Object.keys(enhancementBaseEffects).length === 0) {
+            enhancementSkillsOut.splice(0,1);
+        }
+        enhancementData.levels.push(enhancementSkillsOut);
+        unitOut.enhancements.push(enhancementData);
     }
     addElementalResist(baseEffects, unitData.element_resist);
     addAilmentResist(baseEffects, unitData.status_resist);
