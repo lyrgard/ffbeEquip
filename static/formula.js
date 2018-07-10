@@ -1,6 +1,12 @@
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-"];
+const operatorPrecedence = {
+    "/": 2,
+    "*": 2,
+    "+": 1,
+    "-": 1
+}
 const attributeByVariable = {
     "HP":"hp",
     "MP":"mp",
@@ -83,45 +89,94 @@ function parseFormula(formula) {
 }
 
 function parseExpression(formula, pos) {
-    for (var index = operators.length; index--; ) {
-        var operatorPosition = formula.indexOf(operators[index]);
-        if (operatorPosition > -1) {
-            var value1 = parseExpression(formula.substr(0,operatorPosition), pos);
-            var value2 = parseExpression(formula.substr(operatorPosition + operators[index].length), pos + operatorPosition + operators[index].length);
-            if (value1 && value2) {
-                return {"type":operators[index], "value1":value1, "value2":value2};
+    var currentVar = "";
+    var outputQueue = [];
+    var operatorStack = [];
+    var tokenInfo;
+    while(tokenInfo = getNextToken(formula)) {
+        var token = tokenInfo.token;
+        
+        if (baseVariables.includes(token)) {
+            outputQueue.push({"type":"value", "name":attributeByVariable[token]});
+        } else if (!isNaN(token)) {
+            outputQueue.push({"type":"constant", "value":+token});
+        } else if (operators.includes(token)) {
+            while (operatorStack[operatorStack.length-1] != "(" && operatorPrecedence[operatorStack[operatorStack.length-1]] >= operatorPrecedence[token]) {
+                popOperator(operatorStack, outputQueue);
+            }
+            operatorStack.push(token);
+        } else if (token == "(") {
+            operatorStack.push(token);
+        } else if (token == ")") {
+            while (operatorStack[operatorStack.length-1] != "(") {
+                popOperator(operatorStack, outputQueue);
+            }
+            if (operatorStack[operatorStack.length-1] == "(") {
+                operatorStack.pop();
             } else {
+                alert("Error. Mismatched parentheses.");
                 return;
             }
+        } else {
+            alert("Error at position " + pos + ". " + token + " is not a valid variable.");
+            return;
+        }
+        formula = formula.substr(tokenInfo.read);
+        pos += tokenInfo.read;
+    }
+    while (operatorStack.length > 0) {
+        if (operatorStack[operatorStack.length-1] == "(") {
+            alert("Error. Mismatched parentheses.");
+            return;
+        } else {
+            popOperator(operatorStack, outputQueue);
         }
     }
-    while (formula.startsWith(" ")) {
-        formula = formula.substr(1);
-        pos++;
-    }
-    if (formula == "") {
-        alert("Error at position " + pos + ". Expected variable.");
+    if (outputQueue.length != 1) {
+        alert("Error. Malformed expression.");
         return;
     }
-    for (var index = baseVariables.length; index--; ) {
-        if (formula.startsWith(baseVariables[index])) {
-            formula = formula.substr(baseVariables[index].length);
-            pos += baseVariables[index].length;
-            while (formula.startsWith(" ")) {
-                formula = formula.substr(1);
-                pos++;
+    return outputQueue[0];
+}
+
+function getNextToken(formula) {
+    var currentVar = "";
+    var pos = 0;
+    while(pos < formula.length) {
+        var char = formula.substr(pos, 1);
+        pos++;
+        if (char == " ") {
+            if (currentVar.length != 0) {
+                return {"token": currentVar, "read":pos - 1};
             }
-            if (formula != "") {
-                alert("Error at position " + pos + ". Expected operator.");
-                return;
+            continue;
+        }
+        if (operators.includes(char) || char === "(" || char === ")") {
+            if (currentVar.length != 0) {
+                return {"token": currentVar, "read":pos - 1};
+            } else {
+                return {"token": char, "read":pos};
             }
-            return {"type":"value", "name":attributeByVariable[baseVariables[index]]};
+        } else {
+            currentVar += char;
         }
     }
-    var constant = parseConstant(formula, pos);
-    if (constant) {
-        return constant;
+    if (currentVar.length != 0) {
+        return {"token": currentVar, "read":pos};
+    } else {
+        null;
     }
+}
+
+function popOperator(operatorStack, outputQueue) {
+    var operator = operatorStack.pop();
+    if (outputQueue.length < 2) {
+        alert("Error. Malformed expression.");
+        return;
+    }
+    var value2 = outputQueue.pop();
+    var value1 = outputQueue.pop();
+    outputQueue.push({"type":operator, "value1":value1, "value2":value2});
 }
 
 function parseConstant(formula, pos) {
@@ -198,7 +253,7 @@ function parseCondition(formula, pos) {
     return;
 }
 
-function formulaToString(formula) {
+function formulaToString(formula, useParentheses = false) {
     if (!formula) {
         return "EMPTY FORMULA";
     }
@@ -224,7 +279,15 @@ function formulaToString(formula) {
         result = result.replace(abbreviations["I_AILMENTS"], "I_AILMENTS");
         return result;
     } else {
-        return formulaToString(formula.value1) + ' ' + formula.type + ' ' + formulaToString(formula.value2);
+        var result = "";
+        if (useParentheses) {
+            result += "(";
+        }
+        result += formulaToString(formula.value1, true) + ' ' + formula.type + ' ' + formulaToString(formula.value2, true);
+        if (useParentheses) {
+            result += ")";
+        }
+        return result;
     }
 }
 

@@ -257,9 +257,6 @@ class DataStorage {
             if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
                 this.equipSources.push(item);
             } 
-            if (item.name == "Fryevia's Needle") {
-                console.log("!!");
-            }
             if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                     adventurersAvailable[item.id] = item;
