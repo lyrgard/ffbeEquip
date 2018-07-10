@@ -102,14 +102,20 @@ function parseExpression(formula, pos) {
             outputQueue.push({"type":"constant", "value":+token});
         } else if (operators.includes(token)) {
             while (operatorStack[operatorStack.length-1] != "(" && operatorPrecedence[operatorStack[operatorStack.length-1]] >= operatorPrecedence[token]) {
-                popOperator(operatorStack, outputQueue);
+                var popResult = popOperator(operatorStack, outputQueue);
+                if (!popResult) {
+                    return;
+                }
             }
             operatorStack.push(token);
         } else if (token == "(") {
             operatorStack.push(token);
         } else if (token == ")") {
             while (operatorStack[operatorStack.length-1] != "(") {
-                popOperator(operatorStack, outputQueue);
+                var popResult = popOperator(operatorStack, outputQueue);
+                if (!popResult) {
+                    return;
+                }
             }
             if (operatorStack[operatorStack.length-1] == "(") {
                 operatorStack.pop();
@@ -129,7 +135,10 @@ function parseExpression(formula, pos) {
             alert("Error. Mismatched parentheses.");
             return;
         } else {
-            popOperator(operatorStack, outputQueue);
+            var popResult = popOperator(operatorStack, outputQueue);
+            if (!popResult) {
+                return;
+            }
         }
     }
     if (outputQueue.length != 1) {
@@ -172,11 +181,12 @@ function popOperator(operatorStack, outputQueue) {
     var operator = operatorStack.pop();
     if (outputQueue.length < 2) {
         alert("Error. Malformed expression.");
-        return;
+        return false;
     }
     var value2 = outputQueue.pop();
     var value1 = outputQueue.pop();
     outputQueue.push({"type":operator, "value1":value1, "value2":value2});
+    return true;
 }
 
 function parseConstant(formula, pos) {
