@@ -304,9 +304,9 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             };
         } else if (formula.type == "/") {
             return {
-                "min": result1.min / result2.max,
-                "avg": result1.avg / result2.avg,
-                "max": result1.max / result2.min,
+                "min": result1.min / (result2.max == 0 ? 0.00001 : result2.max),
+                "avg": result1.avg / (result2.avg == 0 ? 0.00001 : result2.avg),
+                "max": result1.max / (result2.min == 0 ? 0.00001 : result2.min),
                 "switchWeapons": result1.switchWeapons || result2.switchWeapons
             };
         } else if (formula.type == "-") {
