@@ -70,7 +70,7 @@
                     
                 </nav>
             </div>
-            <button class="hidden-md hidden-lg sideBarButton" type="button" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('body').toggleClass('expanded'); $('#actionButtonIcon').toggleClass('glyphicon-tasks glyphicon-th-large');">
+            <button class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('body').toggleClass('expanded'); $('#actionButtonIcon').toggleClass('glyphicon-tasks glyphicon-th-large');">
                 <span id="actionButtonIcon" class="glyphicon glyphicon-tasks"></span>&nbsp;
             </button>
             <div class="col-xs-12 col-md-6">

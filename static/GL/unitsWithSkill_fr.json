@@ -2238,6 +2238,23 @@
 		"skills": [
 		]
 	},
+	"100015005": {
+		"name":"Rain, chevalier vagabond",
+		"id":"100015005",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3881,"mp":151,"atk":134,"def":140,"mag":114,"spr":125},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":30, "def%":30, "evoMag":20, "lbFillRate":100, "mpRefresh":5},
+			{"def%":10, "spr%":10, "equipedConditions":["lightArmor"]},
+			{"atk%":30, "def%":30, "equipedConditions":["greatSword"]}
+		]
+	},
 	"100015104": {
 		"name":"Ryumynui",
 		"id":"100015104",
@@ -2284,6 +2301,185 @@
 			{"mp%":20, "atk%":20, "resist":[{"name":"lightning","percent":30}]}
 		]
 	},
+	"100015405": {
+		"name":"null",
+		"id":"100015405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"tmrSkill": {"atk%":25, "singleWielding":{"atk":50}},
+		"skills": [
+			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]},
+			{"atk%":50, "equipedConditions":["spear"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"100015405",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4708,"mp":194,"atk":199,"def":164,"mag":148,"spr":172},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"skills": [
+				{"hp%":30, "atk%":30, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]},
+				{"atk%":50, "equipedConditions":["spear"]}
+			]
+		}
+	},
+	"100015504": {
+		"name":"null",
+		"id":"100015504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3476,"mp":162,"atk":141,"def":125,"mag":106,"spr":146},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "dualWielding":{"atk":30}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}]}
+		]
+	},
+	"100015604": {
+		"name":"null",
+		"id":"100015604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3390,"mp":170,"atk":144,"def":132,"mag":116,"spr":120},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","whip","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "atk%":20, "resist":[{"name":"poison","percent":100}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["whip"]}
+		]
+	},
+	"100015703": {
+		"name":"null",
+		"id":"100015703",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2649,"mp":108,"atk":120,"def":109,"mag":81,"spr":107},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","sword","greatSword","katana","gun","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "resist":[{"name":"lightning","percent":50}]}
+		]
+	},
+	"100015805": {
+		"name":"Rain éveillé",
+		"id":"100015805",
+		"max_rarity":"6",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3856,"mp":172,"atk":130,"def":139,"mag":107,"spr":153},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":30, "def%":60, "mag%":30, "spr%":60, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50}], "mpRefresh":5, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
+			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
+			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
+		]
+	},
+	"100016205": {
+		"name":"null",
+		"id":"100016205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4762,"mp":211,"atk":203,"def":180,"mag":142,"spr":170},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"singleWielding":{"atk":100}},
+		"skills": [
+			{"hp%":50, "mp%":20, "atk%":30, "spr%":20, "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":30, "equipedConditions":["greatSword"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"100016205",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4762,"mp":211,"atk":203,"def":180,"mag":142,"spr":170},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":20, "atk%":30, "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"100016304": {
+		"name":"null",
+		"id":"100016304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3852,"mp":163,"atk":122,"def":132,"mag":108,"spr":134},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "def%":20, "spr%":10, "lbPerTurn":{"min":1,"max":1}},
+			{"def%":20, "spr%":20, "equipedConditions":["axe"]}
+		]
+	},
+	"100016403": {
+		"name":"null",
+		"id":"100016403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2642,"mp":118,"atk":112,"def":91,"mag":90,"spr":98},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","hammer","throwing","gun","mace","fist","hat","clothes"],
+		"skills": [
+			{"mp%":10, "atk%":20, "evade":{"physical":10}, "resist":[{"name":"wind","percent":50}], "killers":[{"name":"human","physical":50}]}
+		]
+	},
+	"100016503": {
+		"name":"null",
+		"id":"100016503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2612,"mp":110,"atk":114,"def":93,"mag":85,"spr":104},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":10, "mp%":10, "lbFillRate":50},
+			{"atk%":40, "equipedConditions":["mace"]}
+		]
+	},
 	"100016605": {
 		"name":"Ukiyo",
 		"id":"100016605",
@@ -2298,6 +2494,68 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":90, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"light","percent":5},{"name":"dark","percent":5},{"name":"light","percent":10},{"name":"dark","percent":10},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"silence","percent":100},{"name":"disease","percent":100}]}
 		]
+	},
+	"100016704": {
+		"name":"null",
+		"id":"100016704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3543,"mp":185,"atk":128,"def":125,"mag":118,"spr":125},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","bow","hammer","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"skills": [
+			{"hp%":20, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]},
+			{"atk%":50, "equipedConditions":["gun"]}
+		]
+	},
+	"100016803": {
+		"name":"null",
+		"id":"100016803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2532,"mp":125,"atk":101,"def":85,"mag":101,"spr":95},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","staff","rod","harp","throwing","gun","mace","fist","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "mp%":10, "atk%":10, "mag%":10, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}
+		]
+	},
+	"100016905": {
+		"name":"null",
+		"id":"100016905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4605,"mp":250,"atk":142,"def":142,"mag":198,"spr":198},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"equip":["dagger","staff","rod","harp","whip","gun","mace","hat","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"mag%":30, "spr%":30, "evoMag":50, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":20, "mag%":30, "spr%":30, "evoMag":60, "dualWielding":{"mag":20,"spr":20}, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["staff","rod"], "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "esperStatsBonus":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"100016905",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4605,"mp":250,"atk":142,"def":142,"mag":198,"spr":198},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+			},
+			"equip":["dagger","staff","rod","harp","whip","gun","mace","hat","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "mag%":30, "spr%":30, "evoMag":60, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "esperStatsBonus":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}}
+			]
+		}
 	},
 	"199000101": {
 		"name":"Emma (PNJ de combat)",
@@ -3240,6 +3498,101 @@
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}
 		]
 	},
+	"207000204": {
+		"name":"null",
+		"id":"207000204",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3728,"mp":159,"atk":155,"def":136,"mag":81,"spr":118},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["axe","hammer","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "atk%":20, "def%":20, "singleWielding":{"atk":50}, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100}]}
+		]
+	},
+	"207000305": {
+		"name":"null",
+		"id":"207000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {"atk%":30, "dualWielding":{"atk":40}},
+		"skills": [
+			{"hp%":50, "mp%":20, "atk%":50, "def%":50, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
+			{"atk%":50, "equipedConditions":["fist"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"207000305",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4692,"mp":209,"atk":199,"def":175,"mag":146,"spr":187},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "atk%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
+				{"atk%":50, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"207000703": {
+		"name":"null",
+		"id":"207000703",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2890,"mp":108,"atk":107,"def":116,"mag":74,"spr":79},
+			"pots":{"hp":360,"mp":40,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["dagger","staff","rod","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":10, "mp%":10, "def%":10, "spr%":10}
+		]
+	},
+	"207000805": {
+		"name":"null",
+		"id":"207000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":199,"atk":203,"def":192,"mag":164,"spr":155},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}]},
+		"skills": [
+			{"hp%":50, "mp%":20, "atk%":60, "def%":60, "spr%":50, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["gun"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"207000805",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4806,"mp":199,"atk":203,"def":192,"mag":164,"spr":155},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":20, "atk%":30, "def%":30, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5}
+			]
+		}
+	},
 	"207001005": {
 		"name":"Séphiroth",
 		"id":"207001005",
@@ -3254,6 +3607,91 @@
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]}
+		]
+	},
+	"208000105": {
+		"name":"null",
+		"id":"208000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4808,"mp":211,"atk":203,"def":172,"mag":152,"spr":178},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"tmrSkill": {"atk%":30, "lbFillRate":50},
+		"skills": [
+			{"hp%":30, "mp%":50, "def%":50, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
+			{"atk%":50, "equipedConditions":["gun"]},
+			{"atk%":50, "equipedConditions":["greatSword"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"208000105",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4808,"mp":211,"atk":203,"def":172,"mag":152,"spr":178},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":50, "def%":30, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+				{"atk%":50, "equipedConditions":["gun"]},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"208000205": {
+		"name":"null",
+		"id":"208000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4475,"mp":271,"atk":162,"def":158,"mag":203,"spr":193},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+		"tmrSkill": {},
+		"skills": [
+			{"hp%":40, "mp%":40, "mag%":70, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
+			{"atk%":50, "mag%":50, "equipedConditions":["throwing"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"208000205",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":4475,"mp":271,"atk":162,"def":158,"mag":203,"spr":193},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mag%":30, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
+				{"atk%":50, "mag%":50, "equipedConditions":["throwing"]}
+			]
+		}
+	},
+	"208000404": {
+		"name":"null",
+		"id":"208000404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3487,"mp":151,"atk":145,"def":130,"mag":98,"spr":132},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":30, "spr%":20, "evade":{"physical":10}, "resist":[{"name":"paralysis","percent":100}], "mpRefresh":5, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":30, "equipedConditions":["fist"]}
 		]
 	},
 	"209000103": {
@@ -3597,6 +4035,85 @@
 		"skills": [
 			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
 			{"atk%":30, "spr%":30, "equipedConditions":["fist"]}
+		]
+	},
+	"211000805": {
+		"name":"null",
+		"id":"211000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"tmrSkill": {},
+		"skills": [
+			{"def%":20, "mag%":120, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"211000805",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3073,"mp":289,"atk":137,"def":145,"mag":204,"spr":195},
+				"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			},
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"skills": [
+				{"mag%":80, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+			]
+		}
+	},
+	"211000905": {
+		"name":"null",
+		"id":"211000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4812,"mp":180,"atk":202,"def":186,"mag":149,"spr":166},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
+		"skills": [
+			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"dark","percent":100}]},
+			{"atk%":50, "equipedConditions":["sword"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"211000905",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4812,"mp":180,"atk":202,"def":186,"mag":149,"spr":166},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
+				{"atk%":50, "equipedConditions":["sword"]}
+			]
+		}
+	},
+	"211001004": {
+		"name":"null",
+		"id":"211001004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3243,"mp":154,"atk":108,"def":126,"mag":126,"spr":139},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "def%":30, "spr%":30, "resist":[{"name":"confuse","percent":100}]}
 		]
 	},
 	"212000103": {
@@ -4070,6 +4587,37 @@
 			{"hp%":30, "mp%":10, "def%":10, "spr%":20, "mpRefresh":5}
 		]
 	},
+	"215000505": {
+		"name":"null",
+		"id":"215000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4728,"mp":217,"atk":187,"def":160,"mag":193,"spr":200},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"tmrSkill": {},
+		"skills": [
+			{"hp%":20, "mp%":50, "atk%":50, "def%":20, "mag%":100, "spr%":90, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100}], "mpRefresh":5}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"215000505",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":4728,"mp":217,"atk":187,"def":160,"mag":193,"spr":200},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			]
+		}
+	},
 	"215000605": {
 		"name":"Aranea",
 		"id":"215000605",
@@ -4100,6 +4648,21 @@
 		"skills": [
 			{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
 			{"atk%":50, "equipedConditions":["gun"]}
+		]
+	},
+	"215001004": {
+		"name":"null",
+		"id":"215001004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3276,"mp":165,"atk":148,"def":130,"mag":121,"spr":123},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "atk%":50, "def%":20, "resist":[{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":10}]}
 		]
 	},
 	"215001105": {
@@ -5094,6 +5657,117 @@
 			{"name":"Metal Body","levels":[[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]}],[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"evade":{"physical":30}}],[{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"evade":{"physical":30},"hp%":0,"mp%":0,"atk%":30,"def%":30,"mag%":30,"spr%":30,"lbPerTurn":{"min":5,"max":5}}]]}
 		],
 		"skills": [
+		]
+	},
+	"306000905": {
+		"name":"null",
+		"id":"306000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4786,"mp":182,"atk":199,"def":173,"mag":157,"spr":172},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
+		"tmrSkill": {"hp%":30, "mp%":30, "atk%":50},
+		"skills": [
+			{"hp%":20, "atk%":70, "def%":20, "dualWielding":{"atk":30}, "mpRefresh":15, "special":["dualWield"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"306000905",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":4786,"mp":182,"atk":199,"def":173,"mag":157,"spr":172},
+				"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			},
+			"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "atk%":70, "special":["dualWield"]}
+			]
+		}
+	},
+	"306001005": {
+		"name":"null",
+		"id":"306001005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4583,"mp":204,"atk":195,"def":199,"mag":144,"spr":185},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
+		"tmrSkill": {"hp%":30, "mag%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":40, "def%":50, "mag%":20, "spr%":40},
+			{"atk%":50, "equipedConditions":["fist"]},
+			{"atk%":50, "equipedConditions":["fist"]}
+		],
+		"6_form": {
+			"name":"null",
+			"id":"306001005",
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":4583,"mp":204,"atk":195,"def":199,"mag":144,"spr":185},
+				"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+			},
+			"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":40, "def%":20, "mag%":20, "spr%":20},
+				{"atk%":50, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"306001104": {
+		"name":"null",
+		"id":"306001104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"mitigation":{"physical":10,"magical":10},
+		"stats": {
+			"maxStats":{"hp":3444,"mp":143,"atk":155,"def":125,"mag":110,"spr":115},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"equip":["dagger","sword","katana","staff","rod","bow","hammer","lightShield","hat","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":30, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5, "special":["dualWield"]}
+		]
+	},
+	"306001204": {
+		"name":"null",
+		"id":"306001204",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3540,"mp":180,"atk":142,"def":135,"mag":125,"spr":120},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","greatSword","lightShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"mp%":10, "atk%":20, "mag%":20, "evade":{"physical":10}, "mpRefresh":3}
+		]
+	},
+	"306001303": {
+		"name":"null",
+		"id":"306001303",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2011,"mp":125,"atk":73,"def":77,"mag":105,"spr":85},
+			"pots":{"hp":240,"mp":60,"atk":16,"def":16,"mag":16,"spr":16}
+		},
+		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"mp%":10, "mag%":10}
 		]
 	},
 	"310000105": {
