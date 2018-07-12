@@ -131,7 +131,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
     data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData, data);
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
-    if (unitIn.rarity_max == 7) {
+    if (maxRariry == 7) {
         data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
     }
     

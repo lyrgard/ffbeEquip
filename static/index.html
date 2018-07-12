@@ -79,7 +79,7 @@
 
                 <div id="filterSummary" class="hidden-md hidden-lg">
                 </div>
-                <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg sideBarButton" type="button" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
+                <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
                     <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
                 </button>
 
