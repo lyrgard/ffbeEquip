@@ -108,13 +108,19 @@ getData('units.json', function (units) {
         var glData = JSON.parse(glDatacontent);
         var unitsOut = {};
         var result = "{\n";
+        var first = true;
         for (var unitId in units) {
             var unitIn = units[unitId];
             if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                if (glData[unitId]) {
-                    result += "\n\t\"" + unitId + "\": {\"type\":\"" + glData[unitId].type + "\",\"name\":\"" + glData[unitId].name + "\",\"jpname\":\"" +  unitIn.name + "\"},";
+                if (first) {
+                    first = false;
                 } else {
-                    result += "\n\t\"" + unitId + "\": {\"type\":\"unknown\",\"name\":\"" + unitIn.name + "\"},";
+                    result += ",";
+                }
+                if (glData[unitId]) {
+                    result += "\n\t\"" + unitId + "\": {\"type\":\"" + glData[unitId].type + "\",\"name\":\"" + glData[unitId].name + "\",\"jpname\":\"" +  unitIn.name + "\"}";
+                } else {
+                    result += "\n\t\"" + unitId + "\": {\"type\":\"unknown\",\"name\":\"" + unitIn.name + "\"}";
                 }
             }
         }
@@ -123,43 +129,3 @@ getData('units.json', function (units) {
     });
 });
 
-
-function formatSimpleOutput(units) {
-    var result = "{\n";
-    var first = true;
-    for (var unitId in units) {
-        var unit = units[unitId]
-        if (first) {
-            first = false;
-        } else {
-            result += ",";
-        }
-        result += getUnitBasicInfo(unitId, unit);
-        result += "\n\t}";
-    }
-    result += "\n}";
-    return result;
-}
-
-function getUnitBasicInfo(unitId, unit) {
-    var result = "";
-    result += "\n\t\"" + unitId + "\": {";
-    result += "\n\t\t\"name\":\"" + unit.name + "\",";
-    if (unit.jpname) {
-        result += "\n\t\t\"jpname\":\"" + unit.jpname + "\",";
-    }
-    result += "\n\t\t\"id\":\"" + unit.id + "\",";
-    result += "\n\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
-    result += "\n\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
-    result += "\n\t\t\"sex\":\"" + unit.sex + "\",";
-    result += "\n\t\t\"stats\": {";
-    result += "\n\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
-    result += "\n\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
-    result += "\n\t\t},";
-    result += "\n\t\t\"equip\":" + JSON.stringify(unit.equip);
-    if (unit.enhancementSkills.length > 0) {
-        result += ",\n\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);
-    }
-    
-    return result;
-}
