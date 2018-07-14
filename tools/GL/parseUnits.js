@@ -81,7 +81,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
     
     var unitStats = {"maxStats":{}, "pots":{}};
     for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == unitIn["rarity_max"]) {
+        if (unitIn.entries[entryId].rarity == maxRariry) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in commonParse.stats) {
                 var stat = commonParse.stats[statIndex];
