@@ -6200,6 +6200,31 @@
 		"equip":["dagger","sword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["チェックメイト","剣の名手"]
 	},
+	"256000101": {
+		"name":"リコ（リコドキッ！）",
+		"id":"256000101",
+		"max_rarity":"6",
+		"min_rarity":"1",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3575,"mp":183,"atk":104,"def":109,"mag":124,"spr":136},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","staff","rod","hammer","harp","hat","clothes","lightArmor","robe"]
+	},
+	"256000301": {
+		"name":"にくじゃがのビジョン",
+		"id":"256000301",
+		"max_rarity":"1",
+		"min_rarity":"1",
+		"sex":"other",
+		"materiaSlots":0,
+		"stats": {
+			"maxStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
+			"pots":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0}
+		},
+		"equip":[null]
+	},
 	"301000103": {
 		"name":"Samatha・Λ",
 		"jpname":"サマサ",
@@ -7356,6 +7381,78 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"]
+	},
+	"334000105": {
+		"name":"プリムロゼ",
+		"id":"334000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4461,"mp":276,"atk":124,"def":161,"mag":193,"spr":205},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"プリムロゼ",
+			"id":"334000105",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3432,"mp":213,"atk":96,"def":124,"mag":149,"spr":158},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"334000205": {
+		"name":"オルベリク",
+		"id":"334000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5021,"mp":206,"atk":189,"def":206,"mag":136,"spr":198},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"オルベリク",
+			"id":"334000205",
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3863,"mp":159,"atk":146,"def":159,"mag":105,"spr":153},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"334000304": {
+		"name":"テリオン",
+		"id":"334000304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3590,"mp":163,"atk":154,"def":130,"mag":124,"spr":144},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"equip":["dagger","sword","whip","throwing","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"334000403": {
+		"name":"トレサ",
+		"id":"334000403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2862,"mp":118,"atk":110,"def":104,"mag":70,"spr":105},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"equip":["dagger","bow","spear","whip","lightShield","hat","helm","clothes"]
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
