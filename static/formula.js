@@ -1,11 +1,15 @@
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
-const operators = ["/","*","+","-"];
+const operators = ["/","*","+","-",">", "OR", "AND"];
+const booleanResultOperators=[">", "OR", "AND"];
 const operatorPrecedence = {
-    "/": 2,
-    "*": 2,
-    "+": 1,
-    "-": 1
+    "/": 4,
+    "*": 4,
+    "+": 3,
+    "-": 3,
+    ">": 2
+    "OR": 1,
+    "AND": 1
 }
 const attributeByVariable = {
     "HP":"hp",
@@ -71,7 +75,10 @@ const abbreviations = {
     "I_DARK" : "R_DARK > 100",
 }
 
+var elementVariablesUsed = [];
+
 function parseFormula(formula) {
+    elementVariablesUsed = [];
     formula = formula.toUpperCase();
     for (var abbreviation in abbreviations) {
         formula = formula.replace(abbreviation, abbreviations[abbreviation]);
@@ -81,10 +88,16 @@ function parseFormula(formula) {
         return parseExpression(formula, 0);
     } else {
         var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0);
-        var conditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1);
+        var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1);
+        
         if (parsedFormula && conditions) {
-            return {"type":"conditions", "conditions":conditions, "formula":parsedFormula};
+            var result = {"type":"condition", "condition":condition, "formula":parsedFormula};
+            if (elementVariablesUsed.length > 0) {
+                result.elements = elementVariablesUsed;
+            }
+            return result;
         }
+        
     }
 }
 
@@ -98,6 +111,12 @@ function parseExpression(formula, pos) {
         
         if (baseVariables.includes(token)) {
             outputQueue.push({"type":"value", "name":attributeByVariable[token]});
+        } else if (elementVariables.includes(token)) {
+            var element = token.substr(2).toLocaleLowerCase().replace("thunder", "lightning");
+            outputQueue.push({"type":"elementCondition", "element":element});
+            if (!elementVariablesUsed.includes(element)) {
+                elementVariablesUsed.push(element);   
+            }
         } else if (!isNaN(token)) {
             outputQueue.push({"type":"constant", "value":+token});
         } else if (operators.includes(token)) {
@@ -185,6 +204,34 @@ function popOperator(operatorStack, outputQueue) {
     }
     var value2 = outputQueue.pop();
     var value1 = outputQueue.pop();
+    if (operator == "OR" || operator == "AND") {
+        if (value1.type != "elementCondition" && !booleanResultOperators.includes(value1.type)) {
+            alert("Error. Left part of a " + operator + " must evaluate to a boolean.");
+            return false;
+        }
+        if (value2.type != "elementCondition" && !booleanResultOperators.includes(value1.type)) {
+            alert("Error. Right part of a " + operator + " must evaluate to a boolean.");
+            return false;
+        }
+    } else if (operator == ">") {
+        if (value1.type != "value" && !operators.includes(value1.type))) {
+            alert("Error. Right part of a " + operator + " must evaluate to a value.");
+            return false;
+        }
+        if (value1.type != "constant") {
+            alert("Error. left part of a " + operator + " must evaluate to a constant.");
+            return false;
+        }
+    } else {
+        if (booleanResultOperators.includes(value1.type)) {
+            alert("Error. left part of a " + operator + " must not evaluate to a boolean.");
+            return false;
+        }
+        if (booleanResultOperators.includes(value2.type)) {
+            alert("Error. left part of a " + operator + " must not evaluate to a boolean.");
+            return false;
+        }
+    }
     outputQueue.push({"type":operator, "value1":value1, "value2":value2});
     return true;
 }
@@ -271,18 +318,10 @@ function formulaToString(formula, useParentheses = false) {
         return getVariableName(formula.name);
     } else if (formula.type == "constant") {
         return formula.value.toString();
-    } else if (formula.type == "conditions") {
-        var result = formulaToString(formula.formula);
-        if (formula.conditions.thresholds) {
-            for (var index = 0, len = formula.conditions.thresholds.length; index < len ;index ++) {
-                result += "; " + formulaToString(formula.conditions.thresholds[index].value) + ' > ' + formula.conditions.thresholds[index].goal;
-            }
-        }
-        if (formula.conditions.elements) {
-            for (var index = 0, len = formula.conditions.elements.length; index < len ;index ++) {
-                result += "; E_" + formula.conditions.elements[index].replace("lightning","thunder").toUpperCase();
-            }
-        }
+    } else if (formula.type == "elementCondition") {
+        return "E_" + formula.element.replace("lightning","thunder").toUpperCase();    
+    } else if (formula.type == "condition") {
+        var result = formulaToString(formula.formula) + "; " + formulaToString(formula.condition);
         for (var abbreviation in abbreviations) {
             result = result.replace(abbreviations[abbreviation], abbreviation);
         }

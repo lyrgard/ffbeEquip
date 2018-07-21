@@ -284,7 +284,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             "avg": formula.value,
             "max": formula.value,
             "switchWeapons": false
-        };
+        };     
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, alreadyCalculatedValues);
         var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
@@ -316,46 +316,41 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 "max": result1.max - result2.min,
                 "switchWeapons": result1.switchWeapons || result2.switchWeapons
             };
+        } else if (formula.type == ">") {
+            return result1[goalVariance] >= result2[goalVariance];
+        } else if (formula.type == "OR") {
+            return result1 || result2;
+        } else if (formula.type == "AND") {
+            return result1 && result2;
         }
-    } else if (formula.type == "conditions") {
-        if (formula.conditions.thresholds) {
-            for (var index = formula.conditions.thresholds.length; index --; ) {
-                var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.conditions.thresholds[index].value, goalVariance, alreadyCalculatedValues);
-                if (value.avg < formula.conditions.thresholds[index].goal) {
-                    return -1;
+    } else if (formula.type == "elementCondition") {
+        var elements = [];
+        if (itemAndPassives[0] && itemAndPassives[0].element) {
+            for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
+                if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
+                    elements.push(itemAndPassives[0].element[elementIndex]);       
                 }
             }
-        }
-        if (formula.conditions.elements) {
-            var elements = [];
-            if (itemAndPassives[0] && itemAndPassives[0].element) {
-                for (var elementIndex = itemAndPassives[0].element.length; elementIndex--;) {
-                    if (!elements.includes(itemAndPassives[0].element[elementIndex])) {
-                        elements.push(itemAndPassives[0].element[elementIndex]);       
-                    }
-                }
-            };
-            if (itemAndPassives[1] && itemAndPassives[1].element) {
-                for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
-                    if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
-                        elements.push(itemAndPassives[1].element[elementIndex]);       
-                    }
-                }
-            };
-            if (formula.conditions.elements.includes("none")) {
-                if (elements.length > 0) {
-                    return -1;
-                }
-            } else {
-                if (formula.conditions.elements.length != elements.length) {
-                    return -1;
-                }
-                for (var elementIndex = formula.conditions.elements.length; elementIndex--;) {
-                    if (!elements.includes(formula.conditions.elements[elementIndex])) {
-                        return -1;
-                    }
+        };
+        if (itemAndPassives[1] && itemAndPassives[1].element) {
+            for (var elementIndex = itemAndPassives[1].element.length; elementIndex--;) {
+                if (!elements.includes(itemAndPassives[1].element[elementIndex])) {
+                    elements.push(itemAndPassives[1].element[elementIndex]);       
                 }
             }
+        };
+        if (formula.element == "none" && elements.length > 0) {
+            return false;
+        } else {
+            if (elements.length == 0 || !elements.includes(formula.element)) {
+                return false;
+            }
+        }
+        return true;
+    } else if (formula.type == "condition") {
+        var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.condition, goalVariance, alreadyCalculatedValues);
+        if (!value) {
+            return -1;
         }
         return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, alreadyCalculatedValues)
     }

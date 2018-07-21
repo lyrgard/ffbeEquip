@@ -25,7 +25,7 @@ class BuildOptimizer {
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
         
-        if (this._unitBuild.formula.type == "conditions" && this._unitBuild.formula.conditions.elements) {
+        if (this._unitBuild.formula.type == "condition" && this._unitBuild.formula.elements) {
             for (var i = this._unitBuild.formula.conditions.elements.length; i--;) {
                 if (!this.desirableElements.includes(this._unitBuild.formula.conditions.elements[i])) {
                     this.desirableElements.push(this._unitBuild.formula.conditions.elements[i])

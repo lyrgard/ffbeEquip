@@ -189,12 +189,8 @@ class UnitBuild {
                     this.involvedStats.push(name);
                 }
             }
-        } else if (formula.type == "conditions") {
-            if (formula.conditions.thresholds) {
-                for (var index = formula.conditions.thresholds.length; index-- ;) {
-                    this.calculateInvolvedStats(formula.conditions.thresholds[index].value);    
-                }
-            }
+        } else if (formula.type == "condition") {
+            this.calculateInvolvedStats(formula.condition);
             this.calculateInvolvedStats(formula.formula);    
         } else if (formula.type != "constant") {
             this.calculateInvolvedStats(formula.value1);
