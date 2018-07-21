@@ -171,7 +171,7 @@ class DataStorage {
             }
         })
         var desirableElements = null;
-        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements) {
+        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
             desirableElements = builds[currentUnitIndex].formula.conditions.elements;
         }
         for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
@@ -302,10 +302,10 @@ class DataStorage {
     }
     
     itemCanBeOfUseForGoal(item, ennemyStats) {
-        if (builds[currentUnitIndex].formula.type == "conditions" && builds[currentUnitIndex].formula.conditions.elements && item.element) {
-            if (builds[currentUnitIndex].formula.conditions.elements.includes("none") ) {
+        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements && item.element) {
+            if (builds[currentUnitIndex].formula.elements.includes("none") ) {
                 return false;
-            } else if (!includeAll(builds[currentUnitIndex].formula.conditions.elements, item.element)) {
+            } else if (!includeAll(builds[currentUnitIndex].formula.elements, item.element)) {
                 return false;
             } else {
                 return true;
