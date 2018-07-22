@@ -618,7 +618,7 @@
     display: none !important;
 } 
 
-#customFormulaModal .dropdown-submenu .dropdown-menu {
+#customFormulaModal .dropdown-submenu.firstLevel > .dropdown-menu {
     left: initial;
     right:100%;
 }
