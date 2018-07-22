@@ -172,7 +172,7 @@ class DataStorage {
         })
         var desirableElements = null;
         if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
-            desirableElements = builds[currentUnitIndex].formula.conditions.elements;
+            desirableElements = builds[currentUnitIndex].formula.elements;
         }
         for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
             var type = typeList[typeIndex];

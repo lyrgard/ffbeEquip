@@ -3,7 +3,7 @@ const statsBonusCap = {
     "GL": 300,
     "JP": 400
 }
-const operatorsInFormula = ["/","*","+","-"];
+const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance = {
     "dagger" : {"min":0.95,"avg":1,"max":1.05},
     "sword" : {"min":0.9,"avg":1,"max":1.1},
