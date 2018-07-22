@@ -7,7 +7,7 @@ const operatorPrecedence = {
     "*": 4,
     "+": 3,
     "-": 3,
-    ">": 2
+    ">": 2,
     "OR": 1,
     "AND": 1
 }
@@ -90,7 +90,7 @@ function parseFormula(formula) {
         var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0);
         var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1);
         
-        if (parsedFormula && conditions) {
+        if (parsedFormula && condition) {
             var result = {"type":"condition", "condition":condition, "formula":parsedFormula};
             if (elementVariablesUsed.length > 0) {
                 result.elements = elementVariablesUsed;
@@ -214,21 +214,21 @@ function popOperator(operatorStack, outputQueue) {
             return false;
         }
     } else if (operator == ">") {
-        if (value1.type != "value" && !operators.includes(value1.type))) {
-            alert("Error. Right part of a " + operator + " must evaluate to a value.");
+        if (value1.type != "value" && !operators.includes(value1.type)) {
+            alert("Error. Left part of a " + operator + " must evaluate to a value.");
             return false;
         }
-        if (value1.type != "constant") {
-            alert("Error. left part of a " + operator + " must evaluate to a constant.");
+        if (value2.type != "constant") {
+            alert("Error. Right part of a " + operator + " must evaluate to a constant.");
             return false;
         }
     } else {
         if (booleanResultOperators.includes(value1.type)) {
-            alert("Error. left part of a " + operator + " must not evaluate to a boolean.");
+            alert("Error. Left part of a " + operator + " must not evaluate to a boolean.");
             return false;
         }
         if (booleanResultOperators.includes(value2.type)) {
-            alert("Error. left part of a " + operator + " must not evaluate to a boolean.");
+            alert("Error. Right part of a " + operator + " must not evaluate to a boolean.");
             return false;
         }
     }

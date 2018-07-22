@@ -192,7 +192,7 @@ class UnitBuild {
         } else if (formula.type == "condition") {
             this.calculateInvolvedStats(formula.condition);
             this.calculateInvolvedStats(formula.formula);    
-        } else if (formula.type != "constant") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }
