@@ -607,6 +607,9 @@ function getUnitBasicInfo(unit, prefix = "") {
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname + "\",";
     }
+    if (unit.wikiEntry) {
+        result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
+    }
     result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
