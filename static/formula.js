@@ -81,6 +81,7 @@ function parseFormula(formula) {
     formula = formula.toUpperCase();
     formula = formula.replace("MAXIMIZE","");
     formula = formula.replace("WITH",";");
+    formula = formula.replace("|"," OR ");
     elementVariablesUsed = [];
     
     for (var abbreviation in abbreviations) {
