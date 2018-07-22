@@ -327,6 +327,10 @@ function formulaToString(formula, useParentheses = false) {
     if (!formula) {
         return "EMPTY FORMULA";
     }
+    return "Maximize " + innerFormulaToString(formula);
+}
+
+function innerFormulaToString(formula, useParentheses = false) {
     if (formula.type == "value") {
         return getVariableName(formula.name);
     } else if (formula.type == "constant") {
@@ -334,7 +338,7 @@ function formulaToString(formula, useParentheses = false) {
     } else if (formula.type == "elementCondition") {
         return "E_" + formula.element.replace("lightning","thunder").toUpperCase();    
     } else if (formula.type == "condition") {
-        var result = "Maximize " + formulaToString(formula.formula) + " with " + formulaToString(formula.condition);
+        var result = innerFormulaToString(formula.formula) + " with " + innerFormulaToString(formula.condition);
         for (var abbreviation in abbreviations) {
             result = result.replace(abbreviations[abbreviation], abbreviation);
         }
@@ -345,7 +349,7 @@ function formulaToString(formula, useParentheses = false) {
         if (useParentheses) {
             result += "(";
         }
-        result += formulaToString(formula.value1, true) + ' ' + formula.type + ' ' + formulaToString(formula.value2, true);
+        result += innerFormulaToString(formula.value1, true) + ' ' + formula.type + ' ' + innerFormulaToString(formula.value2, true);
         if (useParentheses) {
             result += ")";
         }
