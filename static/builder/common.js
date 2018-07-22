@@ -811,3 +811,25 @@ function addLbPerTurn(item, lbPerTurn) {
     item.lbPerTurn.min += lbPerTurn.min;
     item.lbPerTurn.max += lbPerTurn.max;
 }
+
+function applyEnhancements(item, enhancements) {
+    if (enhancements) {
+        var result = JSON.parse(JSON.stringify(item));
+        result.enhancements = enhancements.slice();
+        for (var i = enhancements.length; i--;) {
+            var enhancement = enhancements[i];
+            var enhancementValue;
+            if (enhancement == "rare") {
+                enhancementValue = itemEnhancementAbilities[enhancement][item.type];
+            } else {
+                enhancementValue = itemEnhancementAbilities[enhancement];
+            }
+            if (enhancementValue) {
+                result = combineTwoItems(result, enhancementValue);
+            }
+        }
+        return result;
+    } else {
+        return item;
+    }
+}
