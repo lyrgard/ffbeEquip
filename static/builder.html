@@ -619,180 +619,193 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="inputDiv input-group">
-                            <span class="input-group-btn">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown-submenu">
-                                            <a class="test" tabindex="-1" href="#">Healing<span class="caret-right"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('2500 + 9*SPR + 1.8*MAG')">Curaja</a></li>
-                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('1000 + 1.7*SPR + 0.34*MAG')">Curaga</a></li>
-                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('0.5*SPR + 0.1*MAG')">Base healing coef</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown-submenu">
-                                            <a class="test" tabindex="-1" href="#">Expeditions<span class="caret-right"></span></a>
+                        <div style="display:flex;">
+                            <div style="display: flex;flex-direction: column;height: 68px;justify-content: space-around;align-items: flex-end;padding-right: 5px;">
+                                <span>Maximize </span>
+                                <span>With </span>
+                            </div>
+                            <div style="display:flex; flex-direction:column; flex:1;">
+                                <div class="inputDiv">
+                                    <span style="display:flex;">
+                                        <input type="text" class="form-control" id="formulaInput" placeholder="Enter value to maximize (for instance, HP * DEF) - mandatory">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">D Rank<span class="caret-right"></span></a>
+                                                    <a class="test" tabindex="-1" href="#">Healing<span class="caret-right"></span></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze I</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze II</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze III</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/3.12')">Strange Encounters</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12 + SPR/Equippable: Clothes')">Shirts and Skins</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/3.12')">Put to the Test</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Needle in a Haystack</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + DEF/4.16')">Merchant Guard</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + DEF/4.16')">Guard Duty</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">Mouse Trapped</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12 + SPR/Black Magic: 2')">Farmer's Dismay</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/3.9')">Cause for Celebration</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">What Might Happen?</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Flame Fighters</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/3.9')">Devilish Arms</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Can't Beat Free</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12')">To the Rescue</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12')">Heavy Objects Collide</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">Lightning Rod</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/5.2 + SPR/4.16')">Dream Job</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/5.2 + SPR/4.16')">No Sheep to Count</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/4.16 + SPR/4.16')">Poker Tournament</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + MP/5.2')">Winter Retreat</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('2500 + 9*SPR + 1.8*MAG')">Curaja</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('1000 + 1.7*SPR + 0.34*MAG')">Curaga</a></li>
+                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('0.5*SPR + 0.1*MAG')">Base healing coef</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">C Rank<span class="caret-right"></span></a>
+                                                    <a class="test" tabindex="-1" href="#">Expeditions<span class="caret-right"></span></a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/7.76')">Buzzkill</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25 + MAG/13.8')">Just Cause</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + DEF/13.8')">Bad to the Bone</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/7.76')">Volcano on Ice</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/7.76')">Leave No Stones Unturned</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/345 + ATK/13.8')">Precious Lumber</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + ATK/16.92 + DEF/16.92')">Test Your Strength</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92')">Targeted</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + DEF/13.8')">Call to Arms</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25')">Grand Theft Carriage</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/7.76')">Paging All White Mages</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/7.76')">The Mage-Off</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/345 + MP/17.25')">Crab Battle</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25 + SPR/13.8')">None Shall Starve</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + MAG/13.8')">Stop the Horde!</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/13.8 + SPR/13.8')">Arms on Fire!</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92')">Lost in Fantasy</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92Series: FFBE')">Time to Relax</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/8.62 + DEF/17.24')">Parley?</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/8.62 + SPR/17.24')">Lightning Returns?</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">B Rank<span class="caret-right"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/39.72 + DEF/39.72 + SPR/39.72')">Plumbers Paradise</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + MAG/39.72')">Spelunking Splendor</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/505.5 + MP/50.55')">Will to Survive</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + MAG/39.72 + SPR/39.72')">Unpleasant Dreams</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + MAG/39.72')">Egg Hunt</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + MAG/39.72 + SPR/39.72')">Back to the Sands</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + MP/49.65 + SPR/39.72')">Weathering the Weather</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/505.5 + ATK/40.44')">Quarry Quickness</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1159 + MP/28.98 + SPR/46.36')">Cat Lost</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + ATK/39.72 + MAG/39.72')">Monster Tamer</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/20.22 + MAG/40.44')">Run, Cactuar, Run</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1011 + ATK/20.22')">A Certain Set of Skills</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + DEF/39.72')">Basher's Brawl</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/50.55 + SPR/20.22')">Undead Rising</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/50.55 + MAG/20.22')">Will It Hold?</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + MP/49.65 + SPR/39.72')">Crying Over Spilt Milk</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1159 + ATK/23.18 + DEF/46.36')">Sword in the Stone</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + MP/58.25 + ATK/46.6 + DEF/46.6')">Join the Circus</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/57.95 + MAG/23.18 + SPR/46.36')">Hot Topic</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/46.6 + DEF/46.6 + MAG/46.6 + SPR/46.6')">Impact from Above</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">A Rank<span class="caret-right"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + SPR/29.39')">General Hospitality</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + MAG/29.39')">Stranger Stuff</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">He Who Smelt It</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2164 + MP/54.1 + SPR/43.28')">Full House</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/108.2 + ATK/43.28 + MAG/43.28')">A Beast's Bounty</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1082 + ATK/43.28 + DEF/86.56')">Child's Play</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2172 + MP/108.6 + ATK/86.88 + DEF/86.88 + MAG/86.88')">A Priest, a Monk, and a Paladin</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/54.1 + MAG/86.56 + SPR/43.28')">Shopping for Medicine</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/107.1 + MAG/42.84 + SPR/85.68')">The Missing Key</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">Across the Desert</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + ATK/95.56 + MAG/47.78 + SPR/95.56')">Cook Off</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2429 + MP/121.45 + ATK/97.16 + DEF/97.16 + MAG/97.16 + SPR/97.16')">Tavern Cleanup</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + ATK/47.78 + DEF/95.56 + MAG/95.56 + SPR/95.56')">Too Many Coeurls</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + ATK/95.2 + DEF/47.6 + SPR/95.2')">Lost in the Dark</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Anger Management</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">Wrath in the Wreckage</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Seven Years Bad Luck</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Ghost Busted</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">What's Her Secret?</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Braving the Elements</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">S Rank<span class="caret-right"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Lost in the World</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hotline Grandshelt</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Break Time</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Reinventing the Wheel</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Winter is Coming</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hide your wallets!</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Paper, Please!</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Wherefore Art Thou, Father</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">A "Legendary" Challenge</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Where's My Mommy?</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Be the Best</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Hot Ice</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Save the Children</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Magi in Danger</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="test" tabindex="-1" href="#">Supercite<span class="caret-right"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + ATK/46.6 + MAG/46.6 + SPR/46.6')">Supercites of Red and Blue</a></li>
-                                                        <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + MP/58.25 + MAG/46.6 + SPR/46.6')">Supercites of Violet and Yellow</a></li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">D Rank<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze I</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze II</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1')">Relic Hunting Craze III</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/3.12')">Strange Encounters</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12 + SPR/Equippable: Clothes')">Shirts and Skins</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/3.12')">Put to the Test</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Needle in a Haystack</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + DEF/4.16')">Merchant Guard</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + DEF/4.16')">Guard Duty</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">Mouse Trapped</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12 + SPR/Black Magic: 2')">Farmer's Dismay</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/3.9')">Cause for Celebration</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">What Might Happen?</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Flame Fighters</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/3.9')">Devilish Arms</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/3.12')">Can't Beat Free</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12')">To the Rescue</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/3.12')">Heavy Objects Collide</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/3.12')">Lightning Rod</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/5.2 + SPR/4.16')">Dream Job</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/5.2 + SPR/4.16')">No Sheep to Count</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/4.16 + SPR/4.16')">Poker Tournament</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/104 + MP/5.2')">Winter Retreat</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">C Rank<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/7.76')">Buzzkill</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25 + MAG/13.8')">Just Cause</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + DEF/13.8')">Bad to the Bone</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/7.76')">Volcano on Ice</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/7.76')">Leave No Stones Unturned</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/345 + ATK/13.8')">Precious Lumber</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + ATK/16.92 + DEF/16.92')">Test Your Strength</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92')">Targeted</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + DEF/13.8')">Call to Arms</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25')">Grand Theft Carriage</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('SPR/7.76')">Paging All White Mages</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/7.76')">The Mage-Off</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/345 + MP/17.25')">Crab Battle</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/17.25 + SPR/13.8')">None Shall Starve</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/13.8 + MAG/13.8')">Stop the Horde!</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('DEF/13.8 + SPR/13.8')">Arms on Fire!</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92')">Lost in Fantasy</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/423 + DEF/16.92 + SPR/16.92Series: FFBE')">Time to Relax</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/8.62 + DEF/17.24')">Parley?</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MAG/8.62 + SPR/17.24')">Lightning Returns?</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">B Rank<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/39.72 + DEF/39.72 + SPR/39.72')">Plumbers Paradise</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + MAG/39.72')">Spelunking Splendor</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/505.5 + MP/50.55')">Will to Survive</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + MAG/39.72 + SPR/39.72')">Unpleasant Dreams</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + MAG/39.72')">Egg Hunt</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + MAG/39.72 + SPR/39.72')">Back to the Sands</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + MP/49.65 + SPR/39.72')">Weathering the Weather</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/505.5 + ATK/40.44')">Quarry Quickness</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1159 + MP/28.98 + SPR/46.36')">Cat Lost</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/49.65 + ATK/39.72 + MAG/39.72')">Monster Tamer</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/20.22 + MAG/40.44')">Run, Cactuar, Run</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1011 + ATK/20.22')">A Certain Set of Skills</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + ATK/39.72 + DEF/39.72')">Basher's Brawl</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/50.55 + SPR/20.22')">Undead Rising</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/50.55 + MAG/20.22')">Will It Hold?</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/993 + MP/49.65 + SPR/39.72')">Crying Over Spilt Milk</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1159 + ATK/23.18 + DEF/46.36')">Sword in the Stone</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + MP/58.25 + ATK/46.6 + DEF/46.6')">Join the Circus</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/57.95 + MAG/23.18 + SPR/46.36')">Hot Topic</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/46.6 + DEF/46.6 + MAG/46.6 + SPR/46.6')">Impact from Above</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">A Rank<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + SPR/29.39')">General Hospitality</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/55.1 + MAG/29.39')">Stranger Stuff</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">He Who Smelt It</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2164 + MP/54.1 + SPR/43.28')">Full House</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/108.2 + ATK/43.28 + MAG/43.28')">A Beast's Bounty</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1082 + ATK/43.28 + DEF/86.56')">Child's Play</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2172 + MP/108.6 + ATK/86.88 + DEF/86.88 + MAG/86.88')">A Priest, a Monk, and a Paladin</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/54.1 + MAG/86.56 + SPR/43.28')">Shopping for Medicine</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/107.1 + MAG/42.84 + SPR/85.68')">The Missing Key</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2142 + MP/53.55 + MAG/85.68 + SPR/85.68')">Across the Desert</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + ATK/95.56 + MAG/47.78 + SPR/95.56')">Cook Off</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2429 + MP/121.45 + ATK/97.16 + DEF/97.16 + MAG/97.16 + SPR/97.16')">Tavern Cleanup</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + ATK/47.78 + DEF/95.56 + MAG/95.56 + SPR/95.56')">Too Many Coeurls</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + ATK/95.2 + DEF/47.6 + SPR/95.2')">Lost in the Dark</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Anger Management</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">Wrath in the Wreckage</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Seven Years Bad Luck</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/95.56 + SPR/47.78')">Ghost Busted</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2389 + MP/119.45 + DEF/95.56 + MAG/47.78 + SPR/95.56')">What's Her Secret?</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1190 + MP/59.5 + DEF/95.2 + SPR/95.2')">Braving the Elements</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">S Rank<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Lost in the World</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hotline Grandshelt</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Break Time</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Reinventing the Wheel</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Winter is Coming</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Hide your wallets!</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Paper, Please!</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/2298 + MP/229.8 + ATK/91.92 + DEF/91.92')">Wherefore Art Thou, Father</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">A "Legendary" Challenge</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4596 + MP/114.9 + MAG/91.92 + SPR/91.92')">Where's My Mommy?</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/228.75 + ATK/91.5 + DEF/91.5 + SPR/183')">Be the Best</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('MP/114.9 + DEF/183.84 + MAG/91.92 + SPR/91.92')">Hot Ice</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4447 + MP/222.35 + ATK/59.29 + DEF/177.88 + SPR/177.88')">Save the Children</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/4575 + MP/114.38 + ATK/183 + MAG/91.5 + SPR/183')">Magi in Danger</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                            <a class="test" tabindex="-1" href="#">Supercite<span class="caret-right"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + ATK/46.6 + MAG/46.6 + SPR/46.6')">Supercites of Red and Blue</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + MP/58.25 + MAG/46.6 + SPR/46.6')">Supercites of Violet and Yellow</a></li>
+                                                            </ul>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </span>
                                 </div>
-                            </span>
-                            <input type="text" class="form-control" id="formulaInput" placeholder="Enter formula (for instance, HP * DEF)">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" onclick="chooseCustomFormula()">OK</button>
-                            </span>
+                                
+                                <div>
+                                    <input type="text" class="form-control" id="formulaConditionInput" placeholder="Enter condition(s) to meet (for instance, R_FIRE > 50 AND I_PARALYSIS) - optional">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" style="margin-left:10px;" onclick="chooseCustomFormula()">OK</button>
                         </div>
+                        
                         <h4>How to use this:</h4>
                         <ul>
-                            <li>A formula contains 1 or more <span class="code">EXPRESSION</span>, seprated by semicolons <span class="code">;</span> (without semicolon after the last one)</li>
-                            <li>The first <span class="code">EXPRESSION</span> is used to note a stat to maximize in order to be able to compare builds. It can use one or more <span class="code">VARIABLES</span> with the multiply <span class="code">*</span>, divide <span class="code">/</span> or add <span class="code">+</span> operators between them</li>
-                            <li>Any <span class="code">EXPRESSION</span> after the first is a <span class="code">CONDITION</span>. <span class="code">CONDITION</span> must be in the form <span class="code">VARIABLE > VALUE</span>, for instance : <span class="code">HP > 6000</span>. The exceptions to this rule are the short-cuts, starting with <span class="code">I</span> (like <span class="code">I_CONFUSION</span>), which are translated into <span class="code">VARIABLE > VALUE</span> form</li>
+                            <li>The "Maximize" field must contain an <span class="code">EXPRESSION</span>, that the builder will try to maximize</li>
+                            <li>The "With" field can contain a <span class="code">CONDITION</span> that the builder will try to meet</li>
+                            <li>An <span class="code">EXPRESSION</span> must resolve to a number, so it can only contain <span class="code">+ - * /</span> and <span class="code">VALUE VARIABLES</span>, no <span class="code">OR AND</span> or <span class="code">CONDITIONS</span></li>
+                            <li>A <span class="code">CONDITION</span> must resolve to true or false. It can contain <span class="code">CONDITIONS</span> assembled by <span class="code">AND OR</span>, or be of the form <span class="code">EXPRESSION &gt; CONSTANT</span></li>
                             <li>
                                 <h5>Some valid formula :</h5>
                                 <div class="tokenList">
                                     <table class="table">
                                         <tbody>
-                                            <tr><td class="token"><span class="code">HP</span></td><td>Maximize HP</td></tr>
-                                            <tr><td class="token"><span class="code">DEF * HP</span></td><td>Maximize the product of HP by DEF (physical eHP)</td></tr>
-                                            <tr><td class="token"><span class="code">SPR * HP</span></td><td>Maximize the product of HP by SPR (magical eHP)</td></tr>
-                                            <tr><td class="token"><span class="code">MP * MP_REFRESH</span></td><td>Maximize the number of MP regained each turn</td></tr>
-                                            <tr><td class="token"><span class="code">M_DAMAGE; HP > 6000</span></td><td>Maximize Magical Damage while keeping HP > 6000</td></tr>
-                                            <tr><td class="token"><span class="code">P_DAMAGE; P_EVADE > 100; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
-                                            <tr><td class="token"><span class="code">P_DAMAGE; I_PHYSICAL; HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
-                                            <tr><td class="token"><span class="code">HP; LB > 12</span></td><td>Maximize HP while insuring at least 12 LB points per turn</td></tr>
-                                            <tr><td class="token"><span class="code">P_DAMAGE; I_PHYSICAL; i_PARALYSIS; I_DEATH; E_LIGHT</span></td><td>Formula to carry Gilgamesh trial. 100% evasion, immunity to paralysis and death, Light elemental weapon and then maximize damage</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze HP</span></td><td>Maximize HP</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize DEF * HP</span></td><td>Maximize the product of HP by DEF (physical eHP)</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze SPR * HP</span></td><td>Maximize the product of HP by SPR (magical eHP)</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze MP * MP_REFRESH</span></td><td>Maximize the number of MP regained each turn</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze M_DAMAGE With HP > 6000</span></td><td>Maximize Magical Damage while keeping HP > 6000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With P_EVADE > 100 AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With I_PHYSICAL AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze HP With LB > 12</span></td><td>Maximize HP while insuring at least 12 LB points per turn</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With I_PHYSICAL AND i_PARALYSIS AND I_DEATH AND E_LIGHT</span></td><td>Formula to carry Gilgamesh trial. 100% evasion, immunity to paralysis and death, Light elemental weapon and then maximize damage</td></tr>
+                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With E_LIGHT OR E_FIRE</span></td><td>Maximize physical damage with a light or fire weapon (or both)</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -817,14 +830,23 @@
                                             <tr><td class="token">F_DAMAGE_ATK</td><td>Fixed damage that use ATK scalling</td></tr>
                                             <tr><td class="token">P_DAMAGE_MULTICAST</td><td>Physical damage used with W- or T-ability</td></tr>
                                             <tr><td class="token">P_EVADE</td><td>Physical evade</td></tr>
-                                            <tr><td class="token">I_PHYSICAL</td><td>Immunity to physical attacks. This is a shortcut to P_EVADE > 100</td></tr>
                                             <tr><td class="token">M_EVADE</td><td>Magical evade</td></tr>
                                             <tr><td class="token">LB</td><td>Number of LB point generated each turn. Note that this number is heavilly dependant on the expected number of LB shards gained per turn.</td></tr>
                                             <tr><td class="token">R_FIRE, R_ICE, R_THUNDER, R_WATER, R_EARTH, R_WIND, R_LIGHT, R_DARK</td><td>Corresponding elemental resistance</td></tr>
                                             <tr><td class="token">R_POISON, R_BLIND, R_SLEEP, R_SILENCE, R_PARALYSIS, R_CONFUSION, R_DISEASE, R_PETRIFICATION, R_DEATH</td><td>Corresponding ailment resistance</td></tr>
-                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>Corresponding ailment immunity. I_XXX is a shortcut for R_XXX > 100</td></tr>
-                                            <tr><td class="token">I_AILMENTS</td><td>Immunity to all ailments. This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
-                                            <tr><td class="token">I_DISABLE</td><td>Immunity to all disabling ailments. This condition is a shortcut for I_SLEEP; I_PARALYSIS; I_CONFUSION; I_PETRIFICATION</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                            <li>
+                                <h5>Condition variables and Condition shortcuts</h5>
+                                <div class="tokenList">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr><td class="token">I_PHYSICAL</td><td>Shortcut for P_EVADE > 100</td></tr>
+                                            <tr><td class="token">I_POISON, I_BLIND, I_SLEEP, I_SILENCE, I_PARALYSIS, I_CONFUSION, I_DISEASE, I_PETRIFICATION, I_DEATH</td><td>I_XXX is a shortcut for R_XXX > 100</td></tr>
+                                            <tr><td class="token">I_AILMENTS</td><td>This condition is a shortcut for all R_&lt;ailment&gt; > 100</td></tr>
+                                            <tr><td class="token">I_DISABLE</td><td>This condition is a shortcut for I_SLEEP; I_PARALYSIS; I_CONFUSION; I_PETRIFICATION</td></tr>
                                             <tr><td class="token">E_FIRE, E_ICE, E_THUNDER, E_WATER, E_EARTH, E_WIND, E_LIGHT, E_DARK</td><td>Those special conditions will force the resulting build to have the corresponding element(s) and no other elements</td></tr>
                                             <tr><td class="token">E_NONE</td><td>Force a none elemental build. This condition is not compatible with E_FIRE, E_ICE, ...</td></tr>
                                         </tbody>
