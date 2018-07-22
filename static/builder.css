@@ -618,6 +618,11 @@
     display: none !important;
 } 
 
+#customFormulaModal .dropdown-submenu .dropdown-menu {
+    left: initial;
+    right:100%;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
