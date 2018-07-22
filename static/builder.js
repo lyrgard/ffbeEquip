@@ -1041,7 +1041,11 @@ function openCustomGoalModal() {
 }
 
 function chooseCustomFormula() {
-    var formulaString = $("#customFormulaModal input").val();
+    var formulaString = $("#customFormulaModal #formulaInput").val();
+    var formulaConditionString = $("#customFormulaModal #formulaConditionInput").val();
+    if (formulaConditionString && formulaConditionString.length > 0) {
+        formulaString += ";" + formulaConditionString;
+    }
     var formula = parseFormula(formulaString);
     if (formula) {
         customFormula = formula;
@@ -2180,7 +2184,7 @@ $(function() {
         $('#searchText').focus();
     })  
     $("#customFormulaModal").on('shown.bs.modal', function () {
-        $("#customFormulaModal input").focus();
+        $("#customFormulaModal #formulaInput").focus();
     })
     
     

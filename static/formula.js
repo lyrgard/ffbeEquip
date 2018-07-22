@@ -78,18 +78,30 @@ const abbreviations = {
 var elementVariablesUsed = [];
 
 function parseFormula(formula) {
-    elementVariablesUsed = [];
     formula = formula.toUpperCase();
+    formula = formula.replace("MAXIMIZE","");
+    formula = formula.replace("WITH",";");
+    elementVariablesUsed = [];
+    
     for (var abbreviation in abbreviations) {
         formula = formula.replace(abbreviation, abbreviations[abbreviation]);
     }
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
-        return parseExpression(formula, 0);
+        var parsedFormula = parseExpression(formula, 0);
+        if (booleanResultOperators.includes(parsedFormula.type)) {
+            alert("Maximize goal must result to a value, not to a boolean");
+            return;
+        }
+        return parsedFormula;
     } else {
         var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0);
         var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1);
         
+        if (booleanResultOperators.includes(parsedFormula.type)) {
+            alert("Maximize goal must result to a value, not to a boolean");
+            return;
+        }
         if (parsedFormula && condition) {
             var result = {"type":"condition", "condition":condition, "formula":parsedFormula};
             if (elementVariablesUsed.length > 0) {
@@ -321,7 +333,7 @@ function formulaToString(formula, useParentheses = false) {
     } else if (formula.type == "elementCondition") {
         return "E_" + formula.element.replace("lightning","thunder").toUpperCase();    
     } else if (formula.type == "condition") {
-        var result = formulaToString(formula.formula) + "; " + formulaToString(formula.condition);
+        var result = "Maximize " + formulaToString(formula.formula) + " with " + formulaToString(formula.condition);
         for (var abbreviation in abbreviations) {
             result = result.replace(abbreviations[abbreviation], abbreviation);
         }

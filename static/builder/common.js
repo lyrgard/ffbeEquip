@@ -288,40 +288,51 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, alreadyCalculatedValues);
         var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
-        if (formula.type == "*") {
-            return {
-                "min": result1.min * result2.min,
-                "avg": result1.avg * result2.avg,
-                "max": result1.max * result2.max,
-                "switchWeapons": result1.switchWeapons || result2.switchWeapons
-            };
-        } else if (formula.type == "+") {
-            return {
-                "min": result1.min + result2.min,
-                "avg": result1.avg + result2.avg,
-                "max": result1.max + result2.max,
-                "switchWeapons": result1.switchWeapons || result2.switchWeapons
-            };
-        } else if (formula.type == "/") {
-            return {
-                "min": result1.min / (result2.max == 0 ? 0.00001 : result2.max),
-                "avg": result1.avg / (result2.avg == 0 ? 0.00001 : result2.avg),
-                "max": result1.max / (result2.min == 0 ? 0.00001 : result2.min),
-                "switchWeapons": result1.switchWeapons || result2.switchWeapons
-            };
-        } else if (formula.type == "-") {
-            return {
-                "min": result1.min - result2.max,
-                "avg": result1.avg - result2.avg,
-                "max": result1.max - result2.min,
-                "switchWeapons": result1.switchWeapons || result2.switchWeapons
-            };
-        } else if (formula.type == ">") {
-            return result1[goalVariance] >= result2[goalVariance];
-        } else if (formula.type == "OR") {
-            return result1 || result2;
+        if (formula.type == "OR") {
+            if (result1) {
+                return true;
+            } else {
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+            }
         } else if (formula.type == "AND") {
-            return result1 && result2;
+            if (result1) {
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+            } else {
+                return false;
+            }
+        } else {
+            var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+            if (formula.type == "*") {
+                return {
+                    "min": result1.min * result2.min,
+                    "avg": result1.avg * result2.avg,
+                    "max": result1.max * result2.max,
+                    "switchWeapons": result1.switchWeapons || result2.switchWeapons
+                };
+            } else if (formula.type == "+") {
+                return {
+                    "min": result1.min + result2.min,
+                    "avg": result1.avg + result2.avg,
+                    "max": result1.max + result2.max,
+                    "switchWeapons": result1.switchWeapons || result2.switchWeapons
+                };
+            } else if (formula.type == "/") {
+                return {
+                    "min": result1.min / (result2.max == 0 ? 0.00001 : result2.max),
+                    "avg": result1.avg / (result2.avg == 0 ? 0.00001 : result2.avg),
+                    "max": result1.max / (result2.min == 0 ? 0.00001 : result2.min),
+                    "switchWeapons": result1.switchWeapons || result2.switchWeapons
+                };
+            } else if (formula.type == "-") {
+                return {
+                    "min": result1.min - result2.max,
+                    "avg": result1.avg - result2.avg,
+                    "max": result1.max - result2.min,
+                    "switchWeapons": result1.switchWeapons || result2.switchWeapons
+                };
+            } else if (formula.type == ">") {
+                return result1[goalVariance] >= result2[goalVariance];
+            }
         }
     } else if (formula.type == "elementCondition") {
         var elements = [];
