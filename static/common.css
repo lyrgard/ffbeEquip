@@ -644,6 +644,10 @@ nav .dropdown-menu li a {
     cursor: pointer;
 }
 
+.item.enhanced {
+    border: 2px solid brown !important;
+}
+
 @media (max-width: 991px) {
     
     #navigationMenu #mobileMenu {
