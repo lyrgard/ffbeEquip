@@ -739,6 +739,8 @@ function getSlotName(index) {
 
 function redrawBuildLine(index) {
     $("#buildResult .buildLine_" + index).html(getItemLine(index, conciseView));
+    var item = builds[currentUnitIndex].build[index];
+    $("#buildResult .buildLine_" + index).toggleClass("enhanced", !!((item && item.enhancements)));
 }
 
 // Populate the unit html select with a line per unit
@@ -1445,7 +1447,11 @@ function displaySearchResultsAsync(items, start, div) {
             if (item.enhancements) {
                 enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
             }
-            html += '<div class="tr selectable item" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            html += '<div class="tr selectable item';
+            if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
+                html += " enhanced";
+            }
+            html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
             html += displayItemLine(item);
             html+= "<div class='td enchantment desktop'>";
             html+= getItemEnhancementLink(item);
