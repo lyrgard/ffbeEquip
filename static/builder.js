@@ -765,7 +765,6 @@ function onUnitChange() {
         var selectedUnitData;
         if (unitId.endsWith("-6")) {
             selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
-            selectedUnitData.sixstarForm = true;
         } else {
             selectedUnitData = units[unitId];    
         }
@@ -907,7 +906,7 @@ function loadBuild(buildIndex) {
     
     $("#unitsSelect option").prop("selected", false);
     if (build.unit) {
-        $('#unitsSelect option[value="' + build.unit.id + (build.unit.sixstarForm ? '-6' : '') + '"]').prop("selected", true);
+        $('#unitsSelect option[value="' + build.unit.id + (build.unit.sixStarForm ? '-6' : '') + '"]').prop("selected", true);
     }
     $("#unitsSelect").combobox("refresh");
     $(".unitAttackElement div.elements label").removeClass("active");
@@ -1595,8 +1594,12 @@ function getStateHash(onlyCurrent = true) {
         var build = builds[i];
         if (build && build.unit && build.unit.id) {
             var unit = {};
-            unit.id = build.unit.id
-            unit.rarity = build.unit.max_rarity;
+            unit.id = build.unit.id;
+            if (build.unit.sixStarForm) {
+                unit.rarity = 6;
+            } else {
+                unit.rarity = build.unit.max_rarity;    
+            }
             unit.enhancementLevels = build.unit.enhancementLevels;
             unit.goal = formulaToString(build.formula);
             unit.innateElements = getSelectedValuesFor("elements");

@@ -530,8 +530,8 @@ function formatOutput(units) {
     return result;
 }
 
-function formatUnit(unit, prefix = "") {
-    result = getUnitBasicInfo(unit,prefix) + ",";
+function formatUnit(unit, prefix = "", sixStarForm = false) {
+    result = getUnitBasicInfo(unit,prefix, sixStarForm) + ",";
     if (unit.enhancements && unit.enhancements.length > 0) {
         result += "\n\t\t\"enhancements\": [";
         for (var i = 0, len = unit.enhancements.length; i < len; i++) {
@@ -558,7 +558,7 @@ function formatUnit(unit, prefix = "") {
     }
     result += "\n" + prefix + "\t\t]";
     if (unit["6_form"]) {
-        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t") + "\n\t\t}";
+        result += ",\n\t\t\"6_form\": {" + formatUnit(unit["6_form"], "\t", true) + "\n\t\t}";
     }
     return result;
 }
@@ -594,7 +594,7 @@ function formatSimpleOutput(units) {
         result += "\n\t\"" + unitId + "\": {";
         result += getUnitBasicInfo(unit);
         if (unit["6_form"]) {
-            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t") + "\n\t\t}";
+            result += ",\n\t\t\"6_form\": {" + getUnitBasicInfo(unit["6_form"], "\t", true) + "\n\t\t}";
         }
         result += "\n\t}";
     }
@@ -602,7 +602,7 @@ function formatSimpleOutput(units) {
     return result;
 }
 
-function getUnitBasicInfo(unit, prefix = "") {
+function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
     var result = "\n" + prefix + "\t\t\"name\":\"" + unit.name + "\",";
     if (unit.jpname) {
         result += "\n" + prefix + "\t\t\"jpname\":\"" + unit.jpname + "\",";
@@ -611,6 +611,9 @@ function getUnitBasicInfo(unit, prefix = "") {
         result += "\n" + prefix + "\t\t\"wikiEntry\":\"" + unit.wikiEntry + "\",";
     }
     result += "\n" + prefix + "\t\t\"id\":\"" + unit.id + "\",";
+    if (sixStarForm) {
+        result += "\n" + prefix + "\t\t\"sixStarForm\":true,";
+    }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
