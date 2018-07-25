@@ -1588,6 +1588,7 @@ function getStateHash(onlyCurrent = true) {
         num = 1;
     }
     var data = {
+        "version": 1,
         "units": []
     };
     for (var i = min; i < min + num; i++) {
@@ -1753,7 +1754,8 @@ function oldLinkFormatToNew(oldData) {
 }
     
 function loadStateHashAndBuild(data) {
-    
+    var dataVersion = data.version ? data.version : 0;
+
     if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
         return;
     }
@@ -1815,7 +1817,11 @@ function loadStateHashAndBuild(data) {
         if (unit.items) {
             for (var index in unit.items) {
                 if (unit.items[index]) {
-                    fixItem(unit.items[index].id, unit.items[index].slot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
+                    if(dataVersion >= 1) {
+                        fixItem(unit.items[index].id, unit.items[index].slot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
+                    } else {
+                        fixItem(unit.items[index], -1, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
+                    }
                 }
             }
         }

@@ -45,6 +45,7 @@ const itemEnchantmentsSchema =  [
     Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
 ];
 const partyBuildSchema = Joi.object().keys({
+    version: Joi.number().min(0),
     units: Joi.array().items(Joi.object().keys({
         id: idSchema.required(),
         rarity: Joi.number().min(1).max(7),
