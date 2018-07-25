@@ -101,9 +101,6 @@ class DataStorage {
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];
-            if (item.id == "301001600") {
-                console.log("!!");
-            }
             var availableNumber = this.getAvailableNumber(item);
             if (itemsToExclude.includes(item.id)) {
                 continue;
