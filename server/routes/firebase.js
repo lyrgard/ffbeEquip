@@ -8,6 +8,10 @@ const unAuthenticatedRoute = express.Router();
 const authenticatedRoute = express.Router();
 
 const idSchema = Joi.string().regex(/^([0-9]{9,10}$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia)$/, 'id');
+const itemSlotSchema = {
+    slot:Joi.number().min(0).max(9),
+    id:idSchema
+};
 const elementsSchema = [
     Joi.string().valid('fire'),
     Joi.string().valid('ice'),
@@ -41,13 +45,14 @@ const itemEnchantmentsSchema =  [
     Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
 ];
 const partyBuildSchema = Joi.object().keys({
+    version: Joi.number().min(0),
     units: Joi.array().items(Joi.object().keys({
         id: idSchema.required(),
         rarity: Joi.number().min(1).max(7),
         enhancementLevels: Joi.array().items(Joi.number().min(0).max(2)).max(6),
         goal: Joi.string().max(200).required(),
         innateElements: Joi.array().items(elementsSchema),
-        items: Joi.array().items(idSchema).max(10),
+        items: Joi.array().items(itemSlotSchema).max(10),
         itemEnchantments: Joi.array().items([Joi.allow(null), Joi.array().items(itemEnchantmentsSchema).max(3)]).max(10),
         esperId: Joi.string().max(50),
         pots: Joi.object().keys({

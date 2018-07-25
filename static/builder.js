@@ -1588,6 +1588,7 @@ function getStateHash(onlyCurrent = true) {
         num = 1;
     }
     var data = {
+        "version": 1,
         "units": []
     };
     for (var i = min; i < min + num; i++) {
@@ -1609,7 +1610,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1617,7 +1618,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1625,11 +1626,11 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
-                    unit.items.push(item.type);
+                    unit.items.push({slot:index, id:item.type});
                 }
             }
             if (build.build[10]) {
@@ -1753,7 +1754,8 @@ function oldLinkFormatToNew(oldData) {
 }
     
 function loadStateHashAndBuild(data) {
-    
+    var dataVersion = data.version ? data.version : 0;
+
     if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
         return;
     }
@@ -1815,11 +1817,9 @@ function loadStateHashAndBuild(data) {
         if (unit.items) {
             for (var index in unit.items) {
                 if (unit.items[index]) {
-                    if (unit.itemEnchantments && unit.itemEnchantments[index]) {
-                        fixItem(unit.items[index], -1, unit.itemEnchantments[index]);
-                    } else {
-                        fixItem(unit.items[index]);
-                    }
+                    var itemId = dataVersion >= 1 ? unit.items[index].id : units.item[index];
+                    var itemSlot = dataVersion >= 1 ? unit.items[index].slot : -1;
+                    fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
                 }
             }
         }
