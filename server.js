@@ -9,6 +9,7 @@ const firebase = require('./server/routes/firebase.js');
 const drive = require('./server/routes/drive.js');
 const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
+const clientConfig = require('./server/routes/clientConfig.js');
 const corrections = require('./server/routes/corrections.js');
 const errorHandler = require('./server/middlewares/boom.js');
 const authRequired = require('./server/middlewares/oauth.js');
@@ -30,6 +31,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/', oauth);
+app.use('/clientConfig', clientConfig);
 app.use('/links', links);
 app.use('/', corrections);
 app.use('/', firebase.unAuthenticatedRoute);
