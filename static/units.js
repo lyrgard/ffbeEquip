@@ -822,7 +822,7 @@ function onDataReady() {
             $("#mode").addClass('hidden');
             $.ajax({
                 accepts: "application/json",
-                url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/UnitCollections%2F" + window.location.hash.substr(1) + ".json?alt=media",
+                url: "https://firebasestorage.googleapis.com/v0/b/" + window.clientConfig.firebaseBucketUri + "/o/UnitCollections%2F" + window.location.hash.substr(1) + ".json?alt=media",
                 success: function (result) {
                     ownedUnits = result;
                     tmrNumberByUnitId = {};

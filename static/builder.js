@@ -906,7 +906,7 @@ function loadBuild(buildIndex) {
     
     $("#unitsSelect option").prop("selected", false);
     if (build.unit) {
-        $('#unitsSelect option[value="' + build.unit.id + '"]').prop("selected", true);
+        $('#unitsSelect option[value="' + build.unit.id + (build.unit.sixStarForm ? '-6' : '') + '"]').prop("selected", true);
     }
     $("#unitsSelect").combobox("refresh");
     $(".unitAttackElement div.elements label").removeClass("active");
@@ -1594,8 +1594,12 @@ function getStateHash(onlyCurrent = true) {
         var build = builds[i];
         if (build && build.unit && build.unit.id) {
             var unit = {};
-            unit.id = build.unit.id
-            unit.rarity = build.unit.max_rarity;
+            unit.id = build.unit.id;
+            if (build.unit.sixStarForm) {
+                unit.rarity = 6;
+            } else {
+                unit.rarity = build.unit.max_rarity;    
+            }
             unit.enhancementLevels = build.unit.enhancementLevels;
             unit.goal = formulaToString(build.formula);
             unit.innateElements = getSelectedValuesFor("elements");
@@ -1686,7 +1690,7 @@ function readStateHashData(callback) {
         if (isLinkId(hashValue)) {
             $.ajax({
                 accepts: "application/json",
-                url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/PartyBuilds%2F" + hashValue + ".json?alt=media",
+                url: "https://firebasestorage.googleapis.com/v0/b/" + window.clientConfig.firebaseBucketUri + "/o/PartyBuilds%2F" + hashValue + ".json?alt=media",
                 success: function (json) {
                     console.log(json);
                     callback(json);
@@ -1799,7 +1803,7 @@ function loadStateHashAndBuild(data) {
         }
         $("#unitsSelect").combobox("refresh");
         onUnitChange();
-        
+
         if (unit.enhancementLevels) {
             builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
             displayUnitEnhancements();
