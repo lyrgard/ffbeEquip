@@ -1817,11 +1817,9 @@ function loadStateHashAndBuild(data) {
         if (unit.items) {
             for (var index in unit.items) {
                 if (unit.items[index]) {
-                    if(dataVersion >= 1) {
-                        fixItem(unit.items[index].id, unit.items[index].slot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
-                    } else {
-                        fixItem(unit.items[index], -1, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
-                    }
+                    var itemId = dataVersion >= 1 ? unit.items[index].id : units.item[index];
+                    var itemSlot = dataVersion >= 1 ? unit.items[index].slot : -1;
+                    fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
                 }
             }
         }
