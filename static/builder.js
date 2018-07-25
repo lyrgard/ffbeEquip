@@ -1630,7 +1630,7 @@ function getStateHash(onlyCurrent = true) {
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
-                    unit.items.push({slot:-1, id:item.type});
+                    unit.items.push({slot:index, id:item.type});
                 }
             }
             if (build.build[10]) {
