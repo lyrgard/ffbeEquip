@@ -12,7 +12,9 @@ const configSchema = Joi.object({
   secret: Joi.string().required(),
   googleApiKey: Joi.string().required(),
   googleOAuthFile: Joi.string().required(),
-  firebaseConfFile: Joi.string().required()
+  firebaseConfFile: Joi.string().required(),
+  firebaseBucketUri: Joi.string().required(),
+  firebaseDatabaseId: Joi.string().required()
 });
 
 const oauthSchema = Joi.object({
@@ -125,6 +127,22 @@ const setupConfig = (currentConfig) => {
         } catch (error) {
           return `"${value}" is not valid`;
         }
+      },
+    },
+    {
+      type: 'input',
+      name: 'firebaseBucketUri',
+      message: 'Firebase bucket URI',
+      validate: (value) => {
+        return !!value || `"${value}" is not valid`;
+      },
+    },
+    {
+      type: 'input',
+      name: 'firebaseDatabaseId',
+      message: 'Firebase database Id',
+      validate: (value) => {
+        return !!value || `"${value}" is not valid`;
       },
     },
   ];
