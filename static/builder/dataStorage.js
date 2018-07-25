@@ -101,13 +101,18 @@ class DataStorage {
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];
+            if (item.id == "301001600") {
+                console.log("!!");
+            }
             var availableNumber = this.getAvailableNumber(item);
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
             
+            var addedToItems = false;
+            
             if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
+                addedToItems = addedToItems || this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
                 availableNumber--;
             } 
             
@@ -125,12 +130,17 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
+                    addedToItems = addedToItems || this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
                     availableNumber--;
                 }
             }
             
-            this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds);
+            if (availableNumber > 0) {
+                addedToItems = addedToItems || this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds);  
+            }
+            if (addedToItems && !alreadyAddedIds.includes(item.id)) {
+                alreadyAddedIds.push(item.id);
+            }
         }
         var adventurerAlreadyPinned = false;
         for (var index = 6; index < 10; index++) {
@@ -239,6 +249,7 @@ class DataStorage {
     }
 
     prepareItem(item, baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
+        var added = false;
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
@@ -274,6 +285,7 @@ class DataStorage {
                         if (!tmrAbilityEnhancedItem) {
                             alreadyAddedIds.push(item.id);
                         }
+                        added = true;
                     }
                 }
             }
@@ -283,6 +295,7 @@ class DataStorage {
         } else if (pinnedItemIds.includes(item.id)) {
             this.addToWeaponsByTypeAndHands(item);
         }
+        return added;
     }
 
     addToWeaponsByTypeAndHands(item) {
