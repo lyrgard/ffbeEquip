@@ -127,7 +127,7 @@ function parseExpression(formula, pos) {
         } else if (elementVariables.includes(token)) {
             var element = token.substr(2).toLocaleLowerCase().replace("thunder", "lightning");
             outputQueue.push({"type":"elementCondition", "element":element});
-            if (!elementVariablesUsed.includes(element)) {
+            if (!elementVariablesUsed.includes(element) && element != "none") {
                 elementVariablesUsed.push(element);   
             }
         } else if (!isNaN(token)) {
