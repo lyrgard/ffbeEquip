@@ -4,9 +4,9 @@ var serviceAccount = require(config.firebaseConfFile);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://ffbeequip.firebaseio.com"
+  databaseURL: "https://" + config.firebaseDatabaseId + ".firebaseio.com"
 });
 
-var bucket = admin.storage().bucket("gs://ffbeequip.appspot.com");
+var bucket = admin.storage().bucket("gs://" + config.firebaseBucketUri);
 
 module.exports = bucket;

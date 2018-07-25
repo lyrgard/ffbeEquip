@@ -1690,7 +1690,7 @@ function readStateHashData(callback) {
         if (isLinkId(hashValue)) {
             $.ajax({
                 accepts: "application/json",
-                url: "https://firebasestorage.googleapis.com/v0/b/ffbeequip.appspot.com/o/PartyBuilds%2F" + hashValue + ".json?alt=media",
+                url: "https://firebasestorage.googleapis.com/v0/b/" + window.clientConfig.firebaseBucketUri + "/o/PartyBuilds%2F" + hashValue + ".json?alt=media",
                 success: function (json) {
                     console.log(json);
                     callback(json);
