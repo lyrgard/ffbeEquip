@@ -350,8 +350,8 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                 }
             }
         };
-        if (formula.element == "none" && elements.length > 0) {
-            return false;
+        if (formula.element == "none") {
+            return elements.length == 0; 
         } else {
             if (elements.length == 0 || !elements.includes(formula.element)) {
                 return false;
