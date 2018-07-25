@@ -1609,7 +1609,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1617,7 +1617,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1625,11 +1625,11 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-                    unit.items.push(item.id);
+                    unit.items.push({slot:index, id:item.id});
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
-                    unit.items.push(item.type);
+                    unit.items.push({slot:-1, id:item.type});
                 }
             }
             if (build.build[10]) {
@@ -1815,11 +1815,7 @@ function loadStateHashAndBuild(data) {
         if (unit.items) {
             for (var index in unit.items) {
                 if (unit.items[index]) {
-                    if (unit.itemEnchantments && unit.itemEnchantments[index]) {
-                        fixItem(unit.items[index], -1, unit.itemEnchantments[index]);
-                    } else {
-                        fixItem(unit.items[index]);
-                    }
+                    fixItem(unit.items[index].id, unit.items[index].slot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
                 }
             }
         }
