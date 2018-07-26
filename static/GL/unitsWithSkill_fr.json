@@ -1311,6 +1311,10 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","spear","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Darklord","Impact","Dark Punishment","Dark Edge"],
+		"enhancements": [
+			{"name":"Darklord","levels":[[],[],[{"singleWieldingOneHanded":{"atk":100}},{"equipedConditions":["heavyArmor"],"hp%":30,"atk%":30}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
@@ -1328,6 +1332,10 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","spear","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Spineshatter Dive 1","Spineshatter Dive 2","Spineshatter Dive 3","Heavenlord","Spineshatter Dive 0"],
+		"enhancements": [
+			{"name":"Heavenlord","levels":[[],[],[{"killers":[{"physical":[50,50,50,50,50],"magical":[0,0,0,0,0]}]},{"equipedConditions":["heavyArmor"],"hp%":10,"atk%":30}]]}
+		],
 		"skills": [
 			{"mp%":20, "atk%":20, "mag%":20, "jumpDamage":100, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}]}
 		]
@@ -1344,6 +1352,10 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"equip":["staff","rod","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Mind Blast","Waterlord","Forbidden Arts"],
+		"enhancements": [
+			{"name":"Waterlord","levels":[[],[],[{"equipedConditions":["heavyArmor"],"mag%":25,"spr%":25}]]}
+		],
 		"skills": [
 			{"mp%":20, "mag%":20, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
 			{"mag%":25, "equipedConditions":["rod"]},
@@ -1362,9 +1374,13 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","throwing","gun","mace","fist","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Axe Mastery","Flamelord","Heavy Stomp","Uplift"],
+		"enhancements": [
+			{"name":"Axe Mastery","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]},
+			{"name":"Flamelord","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":40,"def%":20}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":20, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["axe"]}
+			{"hp%":30, "mp%":10, "atk%":20, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 		]
 	},
 	"100008104": {
@@ -1379,6 +1395,10 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","hammer","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Earthlord","Guardian","Incinerating Press"],
+		"enhancements": [
+			{"name":"Earthlord","levels":[[],[],[{"equipedConditions":["heavyArmor"],"hp%":25,"def%":25}]]}
+		],
 		"skills": [
 			{"hp%":30, "def%":30, "spr%":20, "resist":[{"name":"paralysis","percent":100}]}
 		]
@@ -1395,8 +1415,13 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["sword","rod","throwing","gun","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Splendor","Ultima","License to Kill","Divine Shot"],
+		"enhancements": [
+			{"name":"Splendor","levels":[[],[],[{"equipedConditions":["heavyArmor"],"atk%":30,"mag%":30}]]},
+			{"name":"License to Kill","levels":[[{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]}],[{"killers":[{"name":"demon","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}]}],[{"killers":[{"name":"demon","physical":100,"magical":100},{"name":"machine","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100},{"name":"undead","physical":100,"magical":100}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "mag%":30, "spr%":10, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"machine","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "mag%":30, "spr%":10, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["throwing"]},
 			{"atk%":50, "equipedConditions":["gun"]}
 		]
@@ -4249,9 +4274,13 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"equip":["dagger","sword","greatSword","katana","axe","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Doublehand","Master Fencer","Stone Fall"],
+		"enhancements": [
+			{"name":"Doublehand","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}]]},
+			{"name":"Master Fencer","levels":[[{"resist":[{"name":"blind","percent":100}]},{"equipedConditions":["greatSword"],"atk%":20}],[{"resist":[{"name":"blind","percent":100}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["greatSword"],"atk%":20},{"equipedConditions":["axe"],"atk%":20}],[{"resist":[{"name":"blind","percent":100}],"hp%":20,"mp%":0,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["greatSword"],"atk%":50},{"equipedConditions":["axe"],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "singleWieldingOneHanded":{"atk":50}, "lbFillRate":100, "resist":[{"name":"earth","percent":50},{"name":"blind","percent":100}]},
-			{"atk%":20, "equipedConditions":["greatSword"]}
+			{"hp%":20, "atk%":30, "lbFillRate":100, "resist":[{"name":"earth","percent":50}]}
 		]
 	},
 	"211000303": {
@@ -4282,9 +4311,12 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"equip":["dagger","staff","rod","mace","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Will to Live","Flawless","Tornado Kick"],
+		"enhancements": [
+			{"name":"Flawless","levels":[[{"equipedConditions":["fist"],"atk%":30,"spr%":30}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["fist"],"atk%":30,"spr%":30}],[{"hp%":0,"mp%":20,"atk%":0,"def%":0,"mag%":0,"spr%":0},{"equipedConditions":["fist"],"atk%":40,"spr%":40},{"equipedConditions":["hat"],"atk%":40,"spr%":40}]]}
+		],
 		"skills": [
-			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"atk%":30, "spr%":30, "equipedConditions":["fist"]}
+			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5}
 		]
 	},
 	"211000805": {
@@ -6308,6 +6340,8 @@
 		},
 		"equip":["dagger","sword","greatSword","spear","throwing","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
+			{"atk%":30, "evade":{"physical":5}, "lbFillRate":50},
+			{"hp%":10, "mp%":10, "equipedConditions":["sword"]}
 		]
 	},
 	"317000105": {
@@ -6323,6 +6357,8 @@
 		},
 		"equip":["dagger","staff","fist","hat","clothes","robe"],
 		"skills": [
+			{"def%":30, "spr%":30, "evade":{"physical":10}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100}], "mpRefresh":5},
+			{"hp%":30, "spr%":50, "equipedConditions":["fist"]}
 		]
 	},
 	"318000105": {
@@ -6338,6 +6374,8 @@
 		},
 		"equip":["dagger","sword","greatSword","katana","mace","hat","clothes","lightArmor"],
 		"skills": [
+			{"hp%":20, "atk%":30, "def%":30, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
+			{"atk%":50, "equipedConditions":["sword"]}
 		]
 	},
 	"319000104": {
@@ -6353,6 +6391,8 @@
 		},
 		"equip":["dagger","bow","harp","throwing","gun","hat","clothes","lightArmor","robe"],
 		"skills": [
+			{"mp%":20, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"bird","physical":50},{"name":"plant","physical":50}]},
+			{"atk%":50, "equipedConditions":["bow"]}
 		]
 	},
 	"320000104": {
@@ -6368,6 +6408,8 @@
 		},
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
+			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["sword"]}
 		]
 	},
 	"401000104": {
