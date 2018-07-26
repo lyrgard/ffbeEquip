@@ -40,11 +40,17 @@ class TreeComparator {
                 treeItem.equivalents.push(newTreeItem.equivalents[0]);
 
                 treeItem.equivalents.sort(function(entry1, entry2) {
-                    if (entry1.defenseValue == entry2.defenseValue) {
-                        return entry2.available - entry1.available;    
+                    if (entry1.owned && !entry2.owned) {
+                        return -1;
+                    } else if (!entry1.owned && entry2.owned) {
+                        return 1;
                     } else {
-                        return entry2.defenseValue - entry1.defenseValue;    
-                    }
+                        if (entry1.defenseValue == entry2.defenseValue) {
+                            return entry2.available - entry1.available;    
+                        } else {
+                            return entry2.defenseValue - entry1.defenseValue;    
+                        }
+                    }   
                 });
                 //console.log("Inserted " + newTreeItem.entry.name + "("+ newTreeItem.hp + " - " + newTreeItem.def +") as equivalent of " + treeItem.entry.name + "("+ treeItem.hp + " - " + treeItem.def +")");
                 break;
