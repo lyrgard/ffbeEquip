@@ -36,8 +36,8 @@ function getImageHtml(item, exclusionDisplayType = ExclusionDisplayType.NONE) {
 
     if(exclusionDisplayType != ExclusionDisplayType.NONE) {
         var excluded = exclusionDisplayType == ExclusionDisplayType.EXCLUDED;
-        html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + item.id + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); excludeItem(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
-        html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + item.id + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); removeItemFromExcludeList(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
+        html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + item.id + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + item.id + '\');"></span>';
+        html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + item.id + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + item.id + '\');"></span>';
     }
 
     if (item.special && item.special.includes("notStackable")) {

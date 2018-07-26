@@ -45,7 +45,8 @@ var searchType = [];
 var searchStat = "";
 var ClickBehaviors = {
     EQUIP: 0,
-    IGNORE: 1
+    IGNORE: 1,
+    EXCLUDE: 2
 };
 var searchClickBehavior = ClickBehaviors.EQUIP;
 var currentItemSlot;
@@ -1200,7 +1201,7 @@ function updateSearchResult(clickBehavior = ClickBehaviors.EQUIP) {
     });
 }
 
-function displayEquippableItemList() {
+function displayEquipableItemList() {
     if (!builds[currentUnitIndex].unit) {
         alert("Please select an unit");
         return;
@@ -1230,7 +1231,7 @@ function displayEquippableItemList() {
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
-    updateSearchResult(ClickBehaviors.IGNORE);
+    updateSearchResult(ClickBehaviors.EXCLUDE);
 }
 
 function displayFixItemModal(index) {
@@ -1481,6 +1482,16 @@ var displaySearchResults = function(items) {
     
 }
 
+function toggleExclusionFromSearch(itemId) {
+    if(itemsToExclude.includes(itemId)) {
+        removeItemFromExcludeList(itemId);
+    } else {
+        excludeItem(itemId);
+    }
+    
+    toggleExclusionIcon(itemId);
+}
+
 function displaySearchResultsAsync(items, start, div) {
     var end = Math.max(items.length, start + 20);
     var html = "";
@@ -1496,18 +1507,24 @@ function displaySearchResultsAsync(items, start, div) {
                 html += " enhanced";
             }
             
+            var excluded = itemsToExclude.includes(item.id);
+
             if(searchClickBehavior == ClickBehaviors.EQUIP) {
                 html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+                html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
             } else {
                 html += '" >';
             }
 
-            var excluded = itemsToExclude.includes(item.id);
-
             html += displayItemLine(item, excluded ? ExclusionDisplayType.EXCLUDED : ExclusionDisplayType.INCLUDED);
-            html+= "<div class='td enchantment desktop'>";
-            html+= getItemEnhancementLink(item);
-            html+= "</div>";
+            
+            if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+                html+= "<div class='td enchantment desktop'>";
+                html+= getItemEnhancementLink(item);
+                html+= "</div>";
+            }
+
             if (itemInventory) {
                 var notEnoughClass = "";
                 var numbers = dataStorage.getOwnedNumber(item);
@@ -1526,8 +1543,8 @@ function displaySearchResultsAsync(items, start, div) {
                 html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
                 html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
                 html+=      '<ul class="dropdown-menu pull-right">';
-                html+=          '<li>' + getAccessHtml(item) + '</li>';
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                html+=          '<li>' + getAccessHtml(item) + '</li>';               
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';                
                 html+=          '<li class="inventory"><span class="badge' + notEnoughClass + '">' + owned + '</span></li>';
                 html+=      '</ul>';
                 html+= '</div></div>';
