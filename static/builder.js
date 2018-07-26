@@ -1517,7 +1517,11 @@ function displaySearchResultsAsync(items, start, div) {
                 html += '" >';
             }
 
-            html += displayItemLine(item, excluded ? ExclusionDisplayType.EXCLUDED : ExclusionDisplayType.INCLUDED);
+            html += "<div class='td exclude'>";
+            html += getItemExclusionLink(item.id, excluded);
+            html += "</div>";
+
+            html += displayItemLine(item);
             
             if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
                 html+= "<div class='td enchantment desktop'>";
@@ -1574,12 +1578,10 @@ function getItemEnhancementLink(item) {
     return html;
 }
 
-function getItemExclusionLink(item, excluded) {
+function getItemExclusionLink(itemId, excluded) {
     var html = "";
-
-    html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle itemid' + item.id + '" style="color:red;' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); excludeItem(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
-    html += '<span title="Include this item in builds again" class="excludeItem glyphicon glyphicon-ok-circle itemid' + item.id + '" style="color:green;' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); removeItemFromExcludeList(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
-
+    html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
+    html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
     return html;
 }
 

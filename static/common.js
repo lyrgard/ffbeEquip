@@ -25,20 +25,8 @@ var mustSaveInventory = false;
 var mustSaveEspers = false;
 var userSettings;
 
-var ExclusionDisplayType = {
-    NONE: 0,
-    EXCLUDED: 1,
-    INCLUDED: 2
-};
-
-function getImageHtml(item, exclusionDisplayType = ExclusionDisplayType.NONE) {
+function getImageHtml(item) {
     var html = '<div class="td type">';
-
-    if(exclusionDisplayType != ExclusionDisplayType.NONE) {
-        var excluded = exclusionDisplayType == ExclusionDisplayType.EXCLUDED;
-        html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + item.id + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + item.id + '\');"></span>';
-        html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + item.id + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + item.id + '\');"></span>';
-    }
 
     if (item.special && item.special.includes("notStackable")) {
         html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
@@ -252,10 +240,10 @@ function getEquipedConditionHtml(item) {
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
 
-function displayItemLine(item, exclusionDisplayType = ExclusionDisplayType.NONE) {
+function displayItemLine(item) {
     html = "";
     // type
-    html += getImageHtml(item, exclusionDisplayType);
+    html += getImageHtml(item);
 
     // name
     html += getNameColumnHtml(item);
