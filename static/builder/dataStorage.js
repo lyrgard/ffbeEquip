@@ -101,7 +101,9 @@ class DataStorage {
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];
-            var availableNumber = this.getAvailableNumber(item);
+            var availableNumbers = this.getAvailableNumbers(item);
+            var availableNumber = availableNumbers.available;
+            var ownedAvailableNumber = Math.max(availableNumber - availableNumbers.total + availableNumbers.totalOwnedNumber, 0);
             if (itemsToExclude.includes(item.id)) {
                 continue;
             }
@@ -109,8 +111,11 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                addedToItems = addedToItems || this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
+                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                 availableNumber--;
+                if (ownedAvailableNumber > 0) {
+                    ownedAvailableNumber--;
+                }
             } 
             
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
@@ -127,13 +132,16 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    addedToItems = addedToItems || this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true);
+                    addedToItems = this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                     availableNumber--;
+                    if (ownedAvailableNumber > 0) {
+                        ownedAvailableNumber--;
+                    }
                 }
             }
             
             if (availableNumber > 0) {
-                addedToItems = addedToItems || this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds);  
+                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;  
             }
             if (addedToItems && !alreadyAddedIds.includes(item.id)) {
                 alreadyAddedIds.push(item.id);
@@ -152,7 +160,11 @@ class DataStorage {
                     if (!this.dataByType["materia"]) {
                         this.dataByType["materia"] = [];
                     }
-                    this.dataByType["materia"].push(this.getItemEntry(adventurersAvailable[adventurerIds[index]]));
+                    var item = adventurersAvailable[adventurerIds[index]];
+                    var availableNumbers = this.getAvailableNumbers(item);
+                    var availableNumber = availableNumbers.available;
+                    var ownedAvailableNumber = Math.max(availableNumber - availableNumbers.total + availableNumbers.totalOwnedNumber, 0);
+                    this.dataByType["materia"].push(this.getItemEntry(item, availableNumber, ownedAvailableNumber > 0));
                     break;
                 }
             }
@@ -222,12 +234,13 @@ class DataStorage {
         }
     }
 
-    getItemEntry(item, availableNumber = null) {
+    getItemEntry(item, availableNumber = null, owned = false) {
         return {
             "item":item, 
             "name":item.name, 
             "defenseValue":this.getDefenseValue(item),
-            "available":availableNumber || this.getAvailableNumber(item)
+            "available":availableNumber || this.getAvailableNumbers(item).available,
+            "owned": owned
         };
     }
     
@@ -235,7 +248,7 @@ class DataStorage {
         var hpBaseValue = this.unitBuild.baseValues.hp.total;
         var defBaseValue = this.unitBuild.baseValues.def.total;
         var sprBaseValue = this.unitBuild.baseValues.spr.total;
-        return this.getStatValueIfExists(item, "hp", hpBaseValue) + this.getStatValueIfExists(item, "def", hpBaseValue) + this.getStatValueIfExists(item, "spr", hpBaseValue);
+        return this.getStatValueIfExists(item, "hp", hpBaseValue) + this.getStatValueIfExists(item, "def", defBaseValue) + this.getStatValueIfExists(item, "spr", sprBaseValue);
     }
     
     getStatValueIfExists(item, stat, baseStat) {
@@ -245,7 +258,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats, availableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
+    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
         var added = false;
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
@@ -271,14 +284,27 @@ class DataStorage {
                     return;
                 }
                 if (item.equipedConditions) {
-
-                    this.dataWithCondition.push(this.getItemEntry(item, availableNumber));
+                        if (ownedAvailableNumber < availableNumber) {
+                            if (ownedAvailableNumber > 0) {
+                                this.dataWithCondition.push(this.getItemEntry(item, ownedAvailableNumber, true));
+                            }
+                            this.dataWithCondition.push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
+                        } else {
+                            this.dataWithCondition.push(this.getItemEntry(item, availableNumber, true));
+                        }
                 } else {
                     if (!alreadyAddedIds.includes(item.id)) {
                         if (!this.dataByType[item.type]) {
                             this.dataByType[item.type] = [];
                         }
-                        this.dataByType[item.type].push(this.getItemEntry(item, availableNumber));
+                        if (ownedAvailableNumber < availableNumber) {
+                            if (ownedAvailableNumber > 0) {
+                                this.dataByType[item.type].push(this.getItemEntry(item, ownedAvailableNumber, true));
+                            }
+                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
+                        } else {
+                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber, true));
+                        }
                         if (!tmrAbilityEnhancedItem) {
                             alreadyAddedIds.push(item.id);
                         }
@@ -363,21 +389,25 @@ class DataStorage {
         return cumulatedKiller / ennemyStats.races.length;
     }
     
-    getAvailableNumber(item) {
-        var number = 0;
+    getAvailableNumbers(item) {
         if (this.onlyUseOwnedItems) {
-            number = this.getOwnedNumber(item).available;
+            var numbers = this.getOwnedNumber(item);
+            if (!isStackable(item)) {
+                numbers.available = Math.min(numbers.available,1);
+            }
+            return numbers;
         } else {
+            var number;
             if (this.onlyUseShopRecipeItems) {
                 if (item.maxNumber || adventurerIds.includes(item.id)) {
-                    return 0;
+                    return {"total":0,"available":0,"totalOwnedNumber":0};
                 }
                 var shopRecipe = false;
                 for (var index = item.access.length; index--;) {
                     var access = item.access[index];
                     if (access.startsWith("recipe") || access == "shop") {
                         if (access.endsWith("event")) {
-                            return 0;
+                            return {"total":0,"available":0,"totalOwnedNumber":0};
                         }       
                         shopRecipe = true;
                         if (!this.exludeEventEquipment) {
@@ -386,9 +416,9 @@ class DataStorage {
                     } 
                 }
                 if (shopRecipe) {
-                    return 4;
+                    return {"total":4,"available":4,"totalOwnedNumber":0};
                 } else {
-                    return 0;
+                    return {"total":0,"available":0,"totalOwnedNumber":0};
                 }
             } else {
                 if (this.excludeNotReleasedYet || this.excludeTMR5 || this.exludeEventEquipment || this.excludePremium || this.excludeSTMR) {
@@ -399,7 +429,7 @@ class DataStorage {
                            || (this.exludeEventEquipment && access.endsWith("event"))
                            || (this.excludePremium && access == "premium")
                            || (this.excludeSTMR && access == "STMR")) {
-                            return 0;
+                            return {"total":0,"available":0,"totalOwnedNumber":0};
                         }        
                     }
                 }
@@ -419,11 +449,11 @@ class DataStorage {
                     }
                 }
             }
+            if (!isStackable(item)) {
+                number = Math.min(number,1);
+            }
+            return {"total":number,"available":number,"totalOwnedNumber":0};
         }
-        if (!isStackable(item)) {
-            number = Math.min(number,1);
-        }
-        return number;
     }
 
     getOwnedNumber(item) {
