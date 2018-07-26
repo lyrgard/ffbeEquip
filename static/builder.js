@@ -43,6 +43,11 @@ var currentUnitIndex = 0;
 
 var searchType = [];
 var searchStat = "";
+var ClickBehaviors = {
+    EQUIP: 0,
+    IGNORE: 1
+};
+var searchClickBehavior = ClickBehaviors.EQUIP;
 var currentItemSlot;
 
 var searchableEspers;
@@ -1117,7 +1122,9 @@ function onEquipmentsChange() {
     updateEspers();
 }
      
-function updateSearchResult() {
+function updateSearchResult(clickBehavior = ClickBehaviors.EQUIP) {
+    selectSearchClickBehavior(clickBehavior);
+
     $("#fixItemModal").removeClass("showEnhancements");
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
@@ -1191,6 +1198,39 @@ function updateSearchResult() {
             }
         }
     });
+}
+
+function displayEquippableItemList() {
+    if (!builds[currentUnitIndex].unit) {
+        alert("Please select an unit");
+        return;
+    }
+    
+    builds[currentUnitIndex].prepareEquipable();
+
+    types = [];
+    for(var index = 0; index < 10; ++index) {
+        var equipableSlot = builds[currentUnitIndex].equipable[index];
+        if (equipableSlot.length == 0) {
+            continue;
+        }
+        
+        dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
+        for(var i = 0; i < equipableSlot.length; ++i) {
+            if(!types.includes(equipableSlot[i])) {
+                types.push(equipableSlot[i]);
+            }
+        }
+    }
+
+    $("#searchText").val("");
+    $("#fixItemModal .results .tbody").html("");
+    
+    $("#fixItemModal").modal();
+    populateItemType(types);
+    selectSearchType(types);
+    selectSearchStat(searchStat);
+    updateSearchResult(ClickBehaviors.IGNORE);
 }
 
 function displayFixItemModal(index) {
@@ -1425,6 +1465,10 @@ function selectSearchStat(stat) {
     }
 }
 
+function selectSearchClickBehavior(desiredBehavior) {
+    searchClickBehavior = desiredBehavior;
+}
+
 var displaySearchResults = function(items) {
     if (itemInventory) {
         $("#fixItemModal").removeClass("notLoggedIn");
@@ -1451,8 +1495,16 @@ function displaySearchResultsAsync(items, start, div) {
             if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
                 html += " enhanced";
             }
-            html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
-            html += displayItemLine(item);
+            
+            if(searchClickBehavior == ClickBehaviors.EQUIP) {
+                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            } else {
+                html += '" >';
+            }
+
+            var excluded = itemsToExclude.includes(item.id);
+
+            html += displayItemLine(item, excluded ? ExclusionDisplayType.EXCLUDED : ExclusionDisplayType.INCLUDED);
             html+= "<div class='td enchantment desktop'>";
             html+= getItemEnhancementLink(item);
             html+= "</div>";
@@ -1493,6 +1545,7 @@ function displaySearchResultsAsync(items, start, div) {
 
 function getItemEnhancementLink(item) {
     var html = "";
+    
     if (weaponList.includes(item.type)) {
         html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
         if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
@@ -1500,7 +1553,23 @@ function getItemEnhancementLink(item) {
         }
         html += "</div>"
     }
+
     return html;
+}
+
+function getItemExclusionLink(item, excluded) {
+    var html = "";
+
+    html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle itemid' + item.id + '" style="color:red;' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); excludeItem(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
+    html += '<span title="Include this item in builds again" class="excludeItem glyphicon glyphicon-ok-circle itemid' + item.id + '" style="color:green;' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); removeItemFromExcludeList(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
+
+    return html;
+}
+
+function toggleExclusionIcon(itemId) {
+    var excluded = itemsToExclude.includes(itemId);
+    $('.excludeItem.glyphicon-ban-circle.' + !excluded + '.itemid' + itemId).css('display', 'none');
+    $('.excludeItem.glyphicon-ban-circle.' + excluded + '.itemid' + itemId).css('display', 'inline');
 }
 
 function selectEnchantedItem(itemId) {
