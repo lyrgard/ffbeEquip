@@ -1123,9 +1123,7 @@ function onEquipmentsChange() {
     updateEspers();
 }
      
-function updateSearchResult(clickBehavior = ClickBehaviors.EQUIP) {
-    selectSearchClickBehavior(clickBehavior);
-
+function updateSearchResult() {
     $("#fixItemModal").removeClass("showEnhancements");
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
@@ -1231,7 +1229,8 @@ function displayEquipableItemList() {
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
-    updateSearchResult(ClickBehaviors.EXCLUDE);
+    selectSearchClickBehavior(ClickBehaviors.EXCLUDE);
+    updateSearchResult();
 }
 
 function displayFixItemModal(index) {
@@ -1256,6 +1255,7 @@ function displayFixItemModal(index) {
     $("#fixItemModal").modal();
     selectSearchStat(searchStat);
     selectSearchType(builds[currentUnitIndex].equipable[index]);
+    selectSearchClickBehavior(ClickBehaviors.EQUIP);
     updateSearchResult();
 }
 
@@ -1509,12 +1509,12 @@ function displaySearchResultsAsync(items, start, div) {
             
             var excluded = itemsToExclude.includes(item.id);
 
-            if(searchClickBehavior == ClickBehaviors.EQUIP) {
-                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            if(searchClickBehavior == ClickBehaviors.IGNORE) {
+                html += '" >';
             } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
                 html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
             } else {
-                html += '" >';
+                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
             }
 
             html += "<div class='td exclude'>";
