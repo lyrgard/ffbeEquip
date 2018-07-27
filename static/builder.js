@@ -43,6 +43,12 @@ var currentUnitIndex = 0;
 
 var searchType = [];
 var searchStat = "";
+var ClickBehaviors = {
+    EQUIP: 0,
+    IGNORE: 1,
+    EXCLUDE: 2
+};
+var searchClickBehavior = ClickBehaviors.EQUIP;
 var currentItemSlot;
 
 var searchableEspers;
@@ -1193,6 +1199,40 @@ function updateSearchResult() {
     });
 }
 
+function displayEquipableItemList() {
+    if (!builds[currentUnitIndex].unit) {
+        alert("Please select an unit");
+        return;
+    }
+    
+    builds[currentUnitIndex].prepareEquipable();
+
+    types = [];
+    for(var index = 0; index < 10; ++index) {
+        var equipableSlot = builds[currentUnitIndex].equipable[index];
+        if (equipableSlot.length == 0) {
+            continue;
+        }
+        
+        dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
+        for(var i = 0; i < equipableSlot.length; ++i) {
+            if(!types.includes(equipableSlot[i])) {
+                types.push(equipableSlot[i]);
+            }
+        }
+    }
+
+    $("#searchText").val("");
+    $("#fixItemModal .results .tbody").html("");
+    
+    $("#fixItemModal").modal();
+    populateItemType(types);
+    selectSearchType(types);
+    selectSearchStat(searchStat);
+    selectSearchClickBehavior(ClickBehaviors.EXCLUDE);
+    updateSearchResult();
+}
+
 function displayFixItemModal(index) {
     if (!builds[currentUnitIndex].unit) {
         alert("Please select an unit");
@@ -1215,6 +1255,7 @@ function displayFixItemModal(index) {
     $("#fixItemModal").modal();
     selectSearchStat(searchStat);
     selectSearchType(builds[currentUnitIndex].equipable[index]);
+    selectSearchClickBehavior(ClickBehaviors.EQUIP);
     updateSearchResult();
 }
 
@@ -1425,6 +1466,10 @@ function selectSearchStat(stat) {
     }
 }
 
+function selectSearchClickBehavior(desiredBehavior) {
+    searchClickBehavior = desiredBehavior;
+}
+
 var displaySearchResults = function(items) {
     if (itemInventory) {
         $("#fixItemModal").removeClass("notLoggedIn");
@@ -1435,6 +1480,16 @@ var displaySearchResults = function(items) {
     div.empty();
     displaySearchResultsAsync(items, 0, div);
     
+}
+
+function toggleExclusionFromSearch(itemId) {
+    if(itemsToExclude.includes(itemId)) {
+        removeItemFromExcludeList(itemId);
+    } else {
+        excludeItem(itemId);
+    }
+    
+    toggleExclusionIcon(itemId);
 }
 
 function displaySearchResultsAsync(items, start, div) {
@@ -1451,11 +1506,29 @@ function displaySearchResultsAsync(items, start, div) {
             if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
                 html += " enhanced";
             }
-            html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            
+            var excluded = itemsToExclude.includes(item.id);
+
+            if(searchClickBehavior == ClickBehaviors.IGNORE) {
+                html += '" >';
+            } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+                html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
+            } else {
+                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            }
+
+            html += "<div class='td exclude'>";
+            html += getItemExclusionLink(item.id, excluded);
+            html += "</div>";
+
             html += displayItemLine(item);
-            html+= "<div class='td enchantment desktop'>";
-            html+= getItemEnhancementLink(item);
-            html+= "</div>";
+            
+            if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+                html+= "<div class='td enchantment desktop'>";
+                html+= getItemEnhancementLink(item);
+                html+= "</div>";
+            }
+
             if (itemInventory) {
                 var notEnoughClass = "";
                 var numbers = dataStorage.getOwnedNumber(item);
@@ -1474,8 +1547,8 @@ function displaySearchResultsAsync(items, start, div) {
                 html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
                 html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
                 html+=      '<ul class="dropdown-menu pull-right">';
-                html+=          '<li>' + getAccessHtml(item) + '</li>';
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                html+=          '<li>' + getAccessHtml(item) + '</li>';               
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';                
                 html+=          '<li class="inventory"><span class="badge' + notEnoughClass + '">' + owned + '</span></li>';
                 html+=      '</ul>';
                 html+= '</div></div>';
@@ -1493,6 +1566,7 @@ function displaySearchResultsAsync(items, start, div) {
 
 function getItemEnhancementLink(item) {
     var html = "";
+    
     if (weaponList.includes(item.type)) {
         html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
         if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
@@ -1500,7 +1574,21 @@ function getItemEnhancementLink(item) {
         }
         html += "</div>"
     }
+
     return html;
+}
+
+function getItemExclusionLink(itemId, excluded) {
+    var html = "";
+    html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
+    html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
+    return html;
+}
+
+function toggleExclusionIcon(itemId) {
+    var excluded = itemsToExclude.includes(itemId);
+    $('.excludeItem.glyphicon-ban-circle.' + !excluded + '.itemid' + itemId).css('display', 'none');
+    $('.excludeItem.glyphicon-ban-circle.' + excluded + '.itemid' + itemId).css('display', 'inline');
 }
 
 function selectEnchantedItem(itemId) {

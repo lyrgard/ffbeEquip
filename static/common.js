@@ -27,6 +27,7 @@ var userSettings;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
+
     if (item.special && item.special.includes("notStackable")) {
         html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
     }
