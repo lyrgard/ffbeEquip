@@ -111,7 +111,7 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, own, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                 availableNumber--;
                 if (ownedAvailableNumber > 0) {
                     ownedAvailableNumber--;
@@ -267,9 +267,6 @@ class DataStorage {
             item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
         } else {
             item.elementType = "neutral"
-        }
-        if (item.name == "Pure-bred Summoner") {
-            console.log("!!");
         }
         if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
             if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
