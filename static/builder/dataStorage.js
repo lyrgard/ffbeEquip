@@ -132,7 +132,7 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    addedToItems = this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                     availableNumber--;
                     if (ownedAvailableNumber > 0) {
                         ownedAvailableNumber--;
