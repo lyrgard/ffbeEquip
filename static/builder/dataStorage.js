@@ -212,11 +212,11 @@ class DataStorage {
         for (var i = this.dualWieldSources.length; i--;) {
             var entry = this.dualWieldSources[i];
             if (entry.item.partialDualWield) {
-                if (!partialDualWieldByType[entry.item.type + "partial"]) {
-                    partialDualWieldByType[entry.item.type + "partial"] = [];
+                if (!dualWieldByType[entry.item.type + "partial"]) {
+                    dualWieldByType[entry.item.type + "partial"] = [];
                 }
                 
-                partialDualWieldByType[entry.item.type].push(entry);
+                dualWieldByType[entry.item.type].push(entry);
             } else {
                 if (!dualWieldByType[entry.item.type]) {
                     dualWieldByType[entry.item.type] = [];
