@@ -216,7 +216,7 @@ class DataStorage {
                     dualWieldByType[entry.item.type + "partial"] = [];
                 }
                 
-                dualWieldByType[entry.item.type].push(entry);
+                dualWieldByType[entry.item.type + "partial"].push(entry);
             } else {
                 if (!dualWieldByType[entry.item.type]) {
                     dualWieldByType[entry.item.type] = [];
