@@ -210,18 +210,18 @@ class DataStorage {
         // Manage dual wield sources
         var dualWieldByType = {};
         for (var i = this.dualWieldSources.length; i--;) {
-            var item = this.dualWieldSources[i];
-            if (item.partialDualWield) {
-                if (!partialDualWieldByType[item.type + "partial"]) {
-                    partialDualWieldByType[item.type + "partial"] = [];
+            var entry = this.dualWieldSources[i];
+            if (entry.item.partialDualWield) {
+                if (!partialDualWieldByType[entry.item.type + "partial"]) {
+                    partialDualWieldByType[entry.item.type + "partial"] = [];
                 }
                 
-                partialDualWieldByType[item.type].push(item);
+                partialDualWieldByType[entry.item.type].push(entry);
             } else {
-                if (!dualWieldByType[item.type]) {
-                    dualWieldByType[item.type] = [];
+                if (!dualWieldByType[entry.item.type]) {
+                    dualWieldByType[entry.item.type] = [];
                 }
-                dualWieldByType[item.type].push(item);
+                dualWieldByType[entry.item.type].push(entry);
             }
         }
         var types = Object.keys(dualWieldByType);
