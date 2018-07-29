@@ -635,6 +635,10 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
     return result;
 }
 
+function formatForSearch(units) {
+    
+}
+
 
 module.exports = {
     getPassives: getPassives,
@@ -643,6 +647,7 @@ module.exports = {
     getEquip: getEquip,
     formatSimpleOutput: formatSimpleOutput,
     formatOutput: formatOutput,
+    formatForSearch:formatForSearch,
     stats: stats,
     elements: elements,
     ailments: ailments
