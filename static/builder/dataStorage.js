@@ -229,7 +229,7 @@ class DataStorage {
         for (var i = types.length; i--;) {
             var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, desirableElements);
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
-                this.addEntriesToResult(tree.children[index], this.dualWieldSources, 0, false);    
+                this.dualWieldSources.push(tree.children[index].equivalents[0].item);
             }
         }
     }
