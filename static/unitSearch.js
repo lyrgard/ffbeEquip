@@ -3,6 +3,7 @@ var defaultFilter = {};
 var itemInventory = null;
 var saveNeeded = false;
 var onlyShowOwnedUnits = false;
+var unitSearch = [];
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -19,7 +20,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayUnits(filterUnits(units, onlyShowOwnedUnits, searchText, types, elements, ailments, killers));
+    displayUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, killers));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -34,28 +35,39 @@ var update = function() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filterUnits = function(units, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], killers = []) {
+var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], killers = []) {
     var result = [];
-    var unitIds = Object.keys(units);
-    for (var index = 0, len = unitIds.length; index < len; index++) {
-        var unit = units[unitIds[index]];
+    for (var index = 0, len = searchUnits.length; index < len; index++) {
+        var unit = searchUnits[index];
         if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
             if (types.length == 0 || includeAll(unit.equip, types)) {
-                    /*if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
-                        if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
-                            if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
-                                if (searchText.length == 0 || containsText(searchText, item)) {*/
-                                    result.push(unit);
-                                /*}
-                            }
+                if (elements.length == 0 || containAllKeyPositive(unit.elementalResist, elements)) {
+                    if (ailments.length == 0 || containAllKeyPositive(unit.ailmentResist, ailments)) {
+                        if (killers.length == 0 || containAllKeyPositive(unit.physicalKillers, killers) || containAllKeyPositive(unit.magicalKillers, killers)) {
+                            /*if (searchText.length == 0 || containsText(searchText, item)) {*/
+                                result.push(units[unit.id]);
+                            /*}*/
                         }
-                    }*/
+                    }
+                }
             }
         }
     }
     return result;
 };
 
+var containAllKeyPositive = function(object, array) {
+    if (!object) {
+        return false;
+    }
+    for (var index = array.length; index--;) {
+        if (!object[array[index]] || object[array[index]] <= 0) {
+            return false;
+        }
+    }
+    return true;
+};
+                
 // Read filter values into the corresponding variables
 var readFilterValues = function() {
 	searchText = $("#searchText").val();
@@ -181,7 +193,12 @@ $(function() {
         data = result;
         $.get(getLocalizedFileUrl("units"), function(result) {
             units = result;
-            update();
+            $.get(server + "/unitSearch.json", function(result) {
+                unitSearch = result;
+                update();
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                alert( errorThrown );
+            });
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });

@@ -636,7 +636,72 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
 }
 
 function formatForSearch(units) {
-    
+    var result = "[\n";
+    var first = true;
+    for (var unitId in units) {
+        var unit = units[unitId];
+        if (unit.id) {
+            var skills = unit.skills.slice();
+            if (unit.tmrSkill) {
+                skills.push(unit.tmrSkill);
+            }
+            if (unit.enhancements) {
+                for (var i = unit.enhancements.length; i--;) {
+                    var enhancement = unit.enhancements[i];
+                    for (var j = enhancement.levels[enhancement.levels.length - 1].length; j--;) {
+                        skills.push(enhancement.levels[enhancement.levels.length - 1][j]);
+                    }
+                }
+            }
+            var unitOut = {};
+            for (var i = skills.length; i--;) {
+                var skill = skills[i];
+                if (skill.resist) {
+                    for (var resistIndex = skill.resist.length; resistIndex--;) {
+                        var resist = skill.resist[resistIndex];
+                        if (elements.includes(resist.name)) {
+                            if (!unitOut.elementalResist) {
+                                unitOut.elementalResist = {};
+                            }
+                            addToStat(unitOut.elementalResist, resist.name, resist.percent);
+                        } else {
+                            if (!unitOut.ailmentResist) {
+                                unitOut.ailmentResist = {};
+                            }
+                            addToStat(unitOut.ailmentResist, resist.name, resist.percent);
+                        }
+                    }
+                }
+                if (skill.killers) {
+                    for (var killerIndex = skill.killers.length; killerIndex--;) {
+                        var killer = skill.killers[killerIndex];
+                        if (killer.physical) {
+                            if (!unitOut.physicalKillers) {
+                                unitOut.physicalKillers = {};
+                            }
+                            addToStat(unitOut.physicalKillers, killer.name, killer.physical);
+                        }
+                        if (killer.magical) {
+                            if (!unitOut.magicalKillers) {
+                                unitOut.magicalKillers = {};
+                            }
+                            addToStat(unitOut.magicalKillers, killer.name, killer.magical);
+                        }
+                    }
+                }
+            }
+            unitOut.equip = unit.equip;
+            unitOut.id = unit.id;
+            if (first) {
+                first = false;
+            } else {
+                result += ",\n";
+            }
+            result += "\t" + JSON.stringify(unitOut);
+        }
+    }
+    result += "\n]";
+    return result;
 }
 
 
