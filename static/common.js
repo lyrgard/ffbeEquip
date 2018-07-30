@@ -506,7 +506,7 @@ function addTextChoiceTo(target, name, type, value, label) {
 
 // Add one image choice to a filter
 function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
-	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+ imagePrefix + value+'.png"/></label>');
+	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img style="height:38px;" src="img/'+ imagePrefix + value+'.png" title="' + value + '"/></label>');
 }
 
 function loadInventory() {
@@ -874,6 +874,102 @@ function escapeQuote(string) {
     });
 }
 
+function addKiller(killers, newKiller) {
+    var race = newKiller.name;
+    var physicalPercent = newKiller.physical || 0;
+    var magicalPercent = newKiller.magical || 0;
+    
+    var killerData = null;
+    for (var index in killers) {
+        if (killers[index].name == race) {
+            killerData = killers[index];
+            break;
+        }
+    }
+    
+    if (!killerData) {
+        killerData = {"name":race};
+        killers.push(killerData);
+    }
+    if (physicalPercent != 0) {
+        if (killerData.physical) {
+            killerData.physical += physicalPercent;
+        } else {
+            killerData.physical = physicalPercent;
+        }
+    }
+    if (magicalPercent != 0) {
+        if (killerData.magical) {
+            killerData.magical += magicalPercent;
+        } else {
+            killerData.magical = magicalPercent;
+        }
+    }
+}
+
+
+function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = killerList) {
+    var physicalKillerString = "";
+    var magicalKillerString = "";
+    var killerValues = [];
+    var physicalRacesByValue = {};
+    var magicalRacesByValue = {};
+    for (var i = 0, len = killerList.length; i < len; i++) {
+        var race = killerList[i];
+        var killerData = null;
+        for (var index in killers) {
+            if (killers[index].name == race) {
+                killerData = killers[index];
+                break;
+            }
+        }
+        if (killerData) {
+            if (killerData.physical && physicalKiller.includes(killerData.name) ) {
+                if (!killerValues.includes(killerData.physical)) {
+                    killerValues.push(killerData.physical);
+                }
+                if (!physicalRacesByValue[killerData.physical]) {
+                    physicalRacesByValue[killerData.physical] = [];
+                }
+                physicalRacesByValue[killerData.physical].push(race);
+            }
+            if (killerData.magical  && magicalKillers.includes(killerData.name)) {
+                if (!killerValues.includes(killerData.magical)) {
+                    killerValues.push(killerData.magical);
+                }
+                if (!magicalRacesByValue[killerData.magical]) {
+                    magicalRacesByValue[killerData.magical] = [];
+                }
+                magicalRacesByValue[killerData.magical].push(race);
+            }
+        }
+    }
+    killerValues = killerValues.sort((a, b) => b - a);
+    for (var i = 0; i < killerValues.length; i++) {
+        if (physicalRacesByValue[killerValues[i]]) {
+            physicalKillerString += '<span class="killerValueGroup">'
+            for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
+                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
+            }
+            var killerString;
+            if (killerValues[i] > 300) {
+                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
+            } else {
+                killerString = killerValues[i] + '%';
+            }
+            physicalKillerString += killerString + '</span>';
+        }
+        if (magicalRacesByValue[killerValues[i]]) {
+            magicalKillerString += '<span class="killerValueGroup">'
+            for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
+                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
+            }
+            magicalKillerString += killerValues[i] + '%</span>';
+        }
+    }
+    return {"physical" : physicalKillerString, "magical": magicalKillerString}
+}
+
 function prepareSearch(data) {
     for (var index in data) {
         var item = data[index];
@@ -1026,7 +1122,6 @@ function getLocalizedFileUrl(name) {
     name += ".json";
     return server + "/" + name;
 }
-
 
 function onUnitsOrInventoryLoaded() {
     if (itemInventory && ownedUnits && ownedEspers) {
@@ -1192,7 +1287,55 @@ function saveInventory(successCallback, errorCallback) {
     });
 }
 
+function getStaticData(name, localized, callback) {
+    if (localized) {
+        name = getLocalizedFileUrl(name);
+    } else {
+        name = server + "/" + name + ".json";
+    }
+    var dataString = localStorage.getItem(name);
+    if (dataString) {
+        callback(JSON.parse(dataString));
+    } else {
+        $.get(name, function(result) {
+            localStorage.setItem(name, JSON.stringify(result));
+            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+            if (!savedFiles.includes(name)) {
+                savedFiles.push(name);
+                localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+            }
+            callback(result);
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });    
+    }
+    
+}
+
 $(function() {
+    $.get(server + '/dataVersion.json', function(result) {
+        var dataVersion = result.version;
+        var storedDataVersion = localStorage.getItem("dataVersion");
+        if (storedDataVersion) {
+            if (storedDataVersion < dataVersion) {
+                var savedFilesString = localStorage.getItem("savedFiles");
+                if (savedFilesString) {
+                    var savedFiles = JSON.parse(savedFilesString);
+                    for (var index = savedFiles.length; index--;) {
+                        localStorage.removeItem(savedFiles[index]);
+                    }
+                }
+                localStorage.setItem("dataVersion", "" + dataVersion);
+                localStorage.setItem("savedFiles", "[]");
+            }
+        } else {
+            localStorage.setItem("dataVersion", "" + dataVersion);
+            localStorage.setItem("savedFiles", "[]");
+        }
+        startPage();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
     readUrlParams();
     if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
         notLoaded();
@@ -1217,7 +1360,7 @@ $(function() {
         $.get(server + '/units', function(result) {
             ownedUnits = result;
             if (result.version && result.version == 3) {
-                $.get(server + "/units.json", function(allUnitResult) {
+                getStaticData("units", false, function(allUnitResult) {
                     for (var unitSerieId in allUnitResult) {
                         var unit = allUnitResult[unitSerieId];
                         var maxUnitId = unitSerieId.substr(0, unitSerieId.length-1) + unit.max_rarity;
@@ -1237,9 +1380,6 @@ $(function() {
                             alert( errorThrown );
                         }
                     );
-                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                    alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                    alert( errorThrown );
                 });
             } else {
                 onUnitsOrInventoryLoaded();

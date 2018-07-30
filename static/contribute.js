@@ -187,14 +187,14 @@ function sendToServer() {
     });
 }
 
-// will be called by jQuery at page load)
-$(function() {
-	$.get(getLocalizedFileUrl("data"), function(result) {
+// will be called by common.js at page load
+function startPage() {
+	getStaticData("data", true, function(result) {
         data = keepOnlyOneInstance(result);
         for (var index = data.length; index--;) {
             dataById[data[index].id] = data[index];
         }
-        $.get(getLocalizedFileUrl("units"), function(result) {
+        getStaticData("units", true, function(result) {
             units = result;
             $.get(server + "/corrections.json", function(result) {
                 corrections = result;
@@ -214,11 +214,7 @@ $(function() {
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
                 alert( errorThrown );
             });    
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
     // Triggers on search text box change
@@ -229,7 +225,7 @@ $(function() {
         setAccess(itemId, getSelectedValuesFor("accessList"));
     });
     addTextChoicesTo("accessList",'checkbox',{ 'Shop':'shop', 'Chest':'chest', 'Quest':'quest', 'Key':'key', 'Colosseum':'colosseum', 'Event':'event', 'Recipe':'recipe', 'Event Recipe':'recipe-event', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'STMR':'STMR', 'Not released yet':'not released yet'});
-});
+}
   
 function inventoryLoaded() {
 }

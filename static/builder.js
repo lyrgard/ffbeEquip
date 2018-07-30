@@ -437,8 +437,6 @@ function logBuild(build, value) {
     }
     
     var killers = [];
-    var physicalKillerString = "";
-    var magicalKillerString = "";
     for (var i = build.length; i--;) {
         if (build[i] && build[i].killers) {
             for (var j = 0; j < build[i].killers.length; j++) {
@@ -446,65 +444,10 @@ function logBuild(build, value) {
             }
         }
     }
-    var killerValues = [];
-    var physicalRacesByValue = {};
-    var magicalRacesByValue = {};
-    for (var i = 0, len = killerList.length; i < len; i++) {
-        var race = killerList[i];
-        var killerData = null;
-        for (var index in killers) {
-            if (killers[index].name == race) {
-                killerData = killers[index];
-                break;
-            }
-        }
-        if (killerData) {
-            if (killerData.physical) {
-                if (!killerValues.includes(killerData.physical)) {
-                    killerValues.push(killerData.physical);
-                }
-                if (!physicalRacesByValue[killerData.physical]) {
-                    physicalRacesByValue[killerData.physical] = [];
-                }
-                physicalRacesByValue[killerData.physical].push(race);
-            }
-            if (killerData.magical) {
-                if (!killerValues.includes(killerData.magical)) {
-                    killerValues.push(killerData.magical);
-                }
-                if (!magicalRacesByValue[killerData.magical]) {
-                    magicalRacesByValue[killerData.magical] = [];
-                }
-                magicalRacesByValue[killerData.magical].push(race);
-            }
-        }
-    }
-    killerValues = killerValues.sort((a, b) => b - a);
-    for (var i = 0; i < killerValues.length; i++) {
-        if (physicalRacesByValue[killerValues[i]]) {
-            physicalKillerString += '<span class="killerValueGroup">'
-            for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
-            }
-            var killerString;
-            if (killerValues[i] > 300) {
-                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
-            } else {
-                killerString = killerValues[i] + '%';
-            }
-            physicalKillerString += killerString + '</span>';
-        }
-        if (magicalRacesByValue[killerValues[i]]) {
-            magicalKillerString += '<span class="killerValueGroup">'
-            for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
-            }
-            magicalKillerString += killerValues[i] + '%</span>';
-        }
-    }
+    var killersHtml = getKillerHtml(killers);
     
-    $("#resultStats .killers .physical").html(physicalKillerString);
-    $("#resultStats .killers .magical").html(magicalKillerString);
+    $("#resultStats .killers .physical").html(killersHtml.physical);
+    $("#resultStats .killers .magical").html(killersHtml.magical);
     
     var physicalDamageResult = 0;
     var magicalDamageResult = 0;
@@ -579,38 +522,6 @@ function getValueWithVariationHtml(value) {
     return valueString;
 }
 
-function addKiller(killers, newKiller) {
-    var race = newKiller.name;
-    var physicalPercent = newKiller.physical || 0;
-    var magicalPercent = newKiller.magical || 0;
-    
-    var killerData = null;
-    for (var index in killers) {
-        if (killers[index].name == race) {
-            killerData = killers[index];
-            break;
-        }
-    }
-    
-    if (!killerData) {
-        killerData = {"name":race};
-        killers.push(killerData);
-    }
-    if (physicalPercent != 0) {
-        if (killerData.physical) {
-            killerData.physical += physicalPercent;
-        } else {
-            killerData.physical = physicalPercent;
-        }
-    }
-    if (magicalPercent != 0) {
-        if (killerData.magical) {
-            killerData.magical += magicalPercent;
-        } else {
-            killerData.magical = magicalPercent;
-        }
-    }
-}
 
 function switchView(conciseViewParam) {
     conciseView = conciseViewParam;
@@ -1025,13 +936,13 @@ function onGoalChange() {
     var goal = builds[currentUnitIndex].goal;
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
-    if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
+    if (builds[currentUnitIndex].involvedStats && (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
         || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
-        || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+        || builds[currentUnitIndex].involvedStats.includes("weaponElement"))) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
     }
-    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+    if (builds[currentUnitIndex].involvedStats && builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
     }
     
@@ -2219,24 +2130,21 @@ function updateEspers() {
     prepareSearch(searchableEspers);
 }
 
-$(function() {
+// will be called by common.js at page load
+function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
-        $.get(getLocalizedFileUrl("unitsWithSkill"), function(result) {
+        getStaticData("unitsWithSkill", true, function(result) {
             units = result;
             populateUnitSelect();
             prepareSearch(data);
             continueIfReady();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
-    $.get(server + "/defaultBuilderEspers.json", function(result) {
+    getStaticData("defaultBuilderEspers", false, function(result) {
         espers = [];
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))
@@ -2244,18 +2152,15 @@ $(function() {
         updateEspers();
         
         continueIfReady();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     $.get(server + "/units", function(result) {
         ownedUnits = result;
         onEquipmentsChange();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
-    $.get(server + "/monsters.json", function(result) {
+    getStaticData("monsters", false, function(result) {
         bestiary = new Bestiary(result);
         $("#monsterListLink").removeClass("hidden");
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     
     builds[currentUnitIndex] = {};
@@ -2318,7 +2223,7 @@ $(function() {
     $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
-});
+}
 
 var counter = 0;
 function continueIfReady() {

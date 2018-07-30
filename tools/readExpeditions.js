@@ -60,11 +60,13 @@
 "Sword in the Stone;B;1159;;23.18;46.36;;;Series: FFIV;+6%;16%|"+
 "Join the Circus;B;1165;58.25;46.6;46.6;;;Series: FFIX;+6%;16%|"+
 "Hot Topic;B;;57.95;;;23.18;46.36;Series: FFVI;+6%;16%|"+
-"Impact from Above;B;;;46.6;46.6;46.6;46.6;Series: FFV;+6%;16%|";*/
+"Impact from Above;B;;;46.6;46.6;46.6;46.6;Series: FFV;+6%;16%|"
+"Lightning Returns?;C;;;;;8.62;17.24;Series: FFXIII;+10%;20%|"+ 
+"Supercites of Red and Blue;B;1165;;46.6;;46.6;46.6;;Series: FFBE;+6%;16%|"+ 
+"Supercites of Violet and Yellow;B;1165;58.25;;;46.6;46.6;Series: FFBE;+6%;16%|";*/
 
-var data = "Lightning Returns?;C;;;;;8.62;17.24;Series: FFXIII;+10%;20%|"+ 
-    "Supercites of Red and Blue;B;1165;;46.6;;46.6;46.6;;Series: FFBE;+6%;16%|"+ 
-    "Supercites of Violet and Yellow;B;1165;58.25;;;46.6;46.6;Series: FFBE;+6%;16%|";
+var data = "Supercites of Orange and White;B;;;23.18;46.36;;;Series: FFBE;+6%;16%|"+ 
+    "Supercites of Green and Black;B;579.5;;;46.6;;46.6;Series: FFV;+6%;16%|";
 
 var result = "";
 var lines = data.split("|");
