@@ -446,8 +446,8 @@ function logBuild(build, value) {
     }
     var killersHtml = getKillerHtml(killers);
     
-    $("#resultStats .killers .physical").html(physicalKillerString);
-    $("#resultStats .killers .magical").html(magicalKillerString);
+    $("#resultStats .killers .physical").html(killersHtml.physical);
+    $("#resultStats .killers .magical").html(killersHtml.magical);
     
     var physicalDamageResult = 0;
     var magicalDamageResult = 0;
