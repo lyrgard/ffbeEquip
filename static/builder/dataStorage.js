@@ -88,7 +88,6 @@ class DataStorage {
         var tempData = {};
         var adventurersAvailable = {};
         var alreadyAddedIds = [];
-        var alreadyAddedDualWieldSource = [];
         var equipable = this.unitBuild.getCurrentUnitEquip();
         var itemNumber = this.data.length;
         var pinnedItemIds = [];
@@ -111,7 +110,7 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                 availableNumber--;
                 if (ownedAvailableNumber > 0) {
                     ownedAvailableNumber--;
@@ -132,7 +131,7 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    addedToItems = this.prepareItem(applyEnhancements(item, this.itemInventory.enchantments[item.id][i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
                     availableNumber--;
                     if (ownedAvailableNumber > 0) {
                         ownedAvailableNumber--;
@@ -141,7 +140,7 @@ class DataStorage {
             }
             
             if (availableNumber > 0) {
-                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;  
+                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;  
             }
             if (addedToItems && !alreadyAddedIds.includes(item.id)) {
                 alreadyAddedIds.push(item.id);
@@ -208,6 +207,31 @@ class DataStorage {
                 this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
             }
         }
+        // Manage dual wield sources
+        var dualWieldByType = {};
+        for (var i = this.dualWieldSources.length; i--;) {
+            var entry = this.dualWieldSources[i];
+            if (entry.item.partialDualWield) {
+                if (!dualWieldByType[entry.item.type + "partial"]) {
+                    dualWieldByType[entry.item.type + "partial"] = [];
+                }
+                
+                dualWieldByType[entry.item.type + "partial"].push(entry);
+            } else {
+                if (!dualWieldByType[entry.item.type]) {
+                    dualWieldByType[entry.item.type] = [];
+                }
+                dualWieldByType[entry.item.type].push(entry);
+            }
+        }
+        var types = Object.keys(dualWieldByType);
+        this.dualWieldSources = [];
+        for (var i = types.length; i--;) {
+            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, desirableElements);
+            for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
+                this.dualWieldSources.push(tree.children[index].equivalents[0].item);
+            }
+        }
     }
     
     addEntriesToResult(tree, result, keptNumber, keepEntry) {
@@ -258,7 +282,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, alreadyAddedDualWieldSource, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
+    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
         var added = false;
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
@@ -270,10 +294,7 @@ class DataStorage {
         }
         if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
             if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
-                if (!alreadyAddedDualWieldSource.includes(item.id)) {
-                    this.dualWieldSources.push(item);
-                    alreadyAddedDualWieldSource.push(item.id);
-                }
+                this.dualWieldSources.push(this.getItemEntry(item, 1, ownedAvailableNumber > 0));
             }
             if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
                 this.equipSources.push(item);
