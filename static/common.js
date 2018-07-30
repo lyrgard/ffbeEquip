@@ -506,7 +506,7 @@ function addTextChoiceTo(target, name, type, value, label) {
 
 // Add one image choice to a filter
 function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
-	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img src="img/'+ imagePrefix + value+'.png"/></label>');
+	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img style="height:38px;" src="img/'+ imagePrefix + value+'.png" title="' + value + '"/></label>');
 }
 
 function loadInventory() {
@@ -872,6 +872,102 @@ function escapeQuote(string) {
     return String(string).replace(/[']/g, function (s) {
         return "\\'";
     });
+}
+
+function addKiller(killers, newKiller) {
+    var race = newKiller.name;
+    var physicalPercent = newKiller.physical || 0;
+    var magicalPercent = newKiller.magical || 0;
+    
+    var killerData = null;
+    for (var index in killers) {
+        if (killers[index].name == race) {
+            killerData = killers[index];
+            break;
+        }
+    }
+    
+    if (!killerData) {
+        killerData = {"name":race};
+        killers.push(killerData);
+    }
+    if (physicalPercent != 0) {
+        if (killerData.physical) {
+            killerData.physical += physicalPercent;
+        } else {
+            killerData.physical = physicalPercent;
+        }
+    }
+    if (magicalPercent != 0) {
+        if (killerData.magical) {
+            killerData.magical += magicalPercent;
+        } else {
+            killerData.magical = magicalPercent;
+        }
+    }
+}
+
+
+function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = killerList) {
+    var physicalKillerString = "";
+    var magicalKillerString = "";
+    var killerValues = [];
+    var physicalRacesByValue = {};
+    var magicalRacesByValue = {};
+    for (var i = 0, len = killerList.length; i < len; i++) {
+        var race = killerList[i];
+        var killerData = null;
+        for (var index in killers) {
+            if (killers[index].name == race) {
+                killerData = killers[index];
+                break;
+            }
+        }
+        if (killerData) {
+            if (killerData.physical && physicalKiller.includes(killerData.name) ) {
+                if (!killerValues.includes(killerData.physical)) {
+                    killerValues.push(killerData.physical);
+                }
+                if (!physicalRacesByValue[killerData.physical]) {
+                    physicalRacesByValue[killerData.physical] = [];
+                }
+                physicalRacesByValue[killerData.physical].push(race);
+            }
+            if (killerData.magical  && magicalKillers.includes(killerData.name)) {
+                if (!killerValues.includes(killerData.magical)) {
+                    killerValues.push(killerData.magical);
+                }
+                if (!magicalRacesByValue[killerData.magical]) {
+                    magicalRacesByValue[killerData.magical] = [];
+                }
+                magicalRacesByValue[killerData.magical].push(race);
+            }
+        }
+    }
+    killerValues = killerValues.sort((a, b) => b - a);
+    for (var i = 0; i < killerValues.length; i++) {
+        if (physicalRacesByValue[killerValues[i]]) {
+            physicalKillerString += '<span class="killerValueGroup">'
+            for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
+                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
+            }
+            var killerString;
+            if (killerValues[i] > 300) {
+                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
+            } else {
+                killerString = killerValues[i] + '%';
+            }
+            physicalKillerString += killerString + '</span>';
+        }
+        if (magicalRacesByValue[killerValues[i]]) {
+            magicalKillerString += '<span class="killerValueGroup">'
+            for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
+                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
+            }
+            magicalKillerString += killerValues[i] + '%</span>';
+        }
+    }
+    return {"physical" : physicalKillerString, "magical": magicalKillerString}
 }
 
 function prepareSearch(data) {

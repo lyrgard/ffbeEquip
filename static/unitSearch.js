@@ -11,16 +11,16 @@ var update = function() {
 	readFilterValues();
 	updateFilterHeadersDisplay();
     
-    if (!onlyShowOwnedUnits && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0) {
+    if (!onlyShowOwnedUnits && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers == 0 && magicalKillers == 0) {
 		// Empty filters => no results
-        $("#results .tbody").html("");
+        $("#results").html("");
         $("#results").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
         return;
     }
     
 	// filter, sort and display the results
-    displayUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, killers));
+    displayUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -35,7 +35,7 @@ var update = function() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], killers = []) {
+var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = []) {
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
@@ -43,10 +43,12 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
             if (types.length == 0 || includeAll(unit.equip, types)) {
                 if (elements.length == 0 || containAllKeyPositive(unit.elementalResist, elements)) {
                     if (ailments.length == 0 || containAllKeyPositive(unit.ailmentResist, ailments)) {
-                        if (killers.length == 0 || containAllKeyPositive(unit.physicalKillers, killers) || containAllKeyPositive(unit.magicalKillers, killers)) {
-                            /*if (searchText.length == 0 || containsText(searchText, item)) {*/
-                                result.push(units[unit.id]);
-                            /*}*/
+                        if (physicalKillers.length == 0 || containAllKeyPositive(unit.physicalKillers, physicalKillers)) {
+                            if (magicalKillers.length == 0 || containAllKeyPositive(unit.magicalKillers, magicalKillers)) {
+                                /*if (searchText.length == 0 || containsText(searchText, item)) {*/
+                                    result.push({"searchData": unit, "unit": units[unit.id]});
+                                /*}*/
+                            }
                         }
                     }
                 }
@@ -75,7 +77,8 @@ var readFilterValues = function() {
     types = getSelectedValuesFor("types");
     elements = getSelectedValuesFor("elements");
     ailments = getSelectedValuesFor("ailments");
-    killers = getSelectedValuesFor("killers");
+    physicalKillers = getSelectedValuesFor("physicalKillers");
+    magicalKillers = getSelectedValuesFor("magicalKillers");
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
@@ -120,8 +123,27 @@ function displayUnitsAsync(units, start, div) {
     var html = '';
     var end = Math.min(start + 20, units.length);
     for (var index = start; index < end; index++) {
-        var unit = units[index];
-        html += '<div class="unit">' + unit.name + '</div>';
+        var unitData = units[index];
+        html += '<div class="unit">'
+        html += '<div class="unitImage"><img src="img/units/unit_ills_' + unitData.unit.id + '.png"/></div>';
+        html += '<div class="unitDescriptionLines"><span class="unitName">' + unitData.unit.name + '</span>';
+        html += '<div class="killers">';
+        
+        var killers = [];
+        for (var i = killerList.length; i--;) {
+            if (unitData.searchData.physicalKillers && unitData.searchData.physicalKillers[killerList[i]]) {
+                addKiller(killers, {"name":killerList[i], "physical":unitData.searchData.physicalKillers[killerList[i]]});
+            }
+            if (unitData.searchData.magicalKillers && unitData.searchData.magicalKillers[killerList[i]]) {
+                addKiller(killers, {"name":killerList[i], "magical":unitData.searchData.magicalKillers[killerList[i]]});
+            }
+        }
+        var killersHtml = getKillerHtml(killers, physicalKillers, magicalKillers);
+        html += killersHtml.physical;
+        html += killersHtml.magical;
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
     }
     div.append(html);
     if (index < units.length) {
@@ -193,7 +215,7 @@ function startPage() {
         data = result;
         getStaticData("units", true, function(result) {
             units = result;
-            getStaticData("unitSearch.json", false, function(result) {
+            getStaticData("unitSearch", false, function(result) {
                 unitSearch = result;
                 update();
             });
@@ -209,7 +231,8 @@ function startPage() {
 	// Ailments
 	addImageChoicesTo("ailments",ailmentList);
 	// Killers
-	addTextChoicesTo("killers",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+	addImageChoicesTo("physicalKillers",killerList, type="checkbox", "physicalKiller_");
+    addImageChoicesTo("magicalKillers",killerList, type="checkbox", "magicalKiller_");
 	
     
     $("#results").addClass(server);
