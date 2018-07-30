@@ -715,25 +715,21 @@ function getPublicEsperLink() {
 }
 
 
-// will be called by jQuery at page load)
-$(function() {
+// will be called by common.js at page load
+function startPage() {
     if (window.location.hash.length > 1) {
         $("#pleaseWaitMessage").addClass("hidden");
         $("#loginMessage").addClass("hidden");
     }
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(server + "/espers.json", function(result) {
+    getStaticData("espers", false, function(result) {
         espers = result;
-        $.get(server + "/esperBoards.json", function(result) {
+        getStaticData("esperBoards", false, function(result) {
             esperBoards = result;
             if (ownedEspers) {
                 displayEspers();
             }
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
 
 
@@ -769,4 +765,4 @@ $(function() {
         prepareSave();
     });
     $("#esper #level").on("input", $.debounce(300,onLevelChange));
-});
+}
