@@ -437,8 +437,6 @@ function logBuild(build, value) {
     }
     
     var killers = [];
-    var physicalKillerString = "";
-    var magicalKillerString = "";
     for (var i = build.length; i--;) {
         if (build[i] && build[i].killers) {
             for (var j = 0; j < build[i].killers.length; j++) {
@@ -446,62 +444,7 @@ function logBuild(build, value) {
             }
         }
     }
-    var killerValues = [];
-    var physicalRacesByValue = {};
-    var magicalRacesByValue = {};
-    for (var i = 0, len = killerList.length; i < len; i++) {
-        var race = killerList[i];
-        var killerData = null;
-        for (var index in killers) {
-            if (killers[index].name == race) {
-                killerData = killers[index];
-                break;
-            }
-        }
-        if (killerData) {
-            if (killerData.physical) {
-                if (!killerValues.includes(killerData.physical)) {
-                    killerValues.push(killerData.physical);
-                }
-                if (!physicalRacesByValue[killerData.physical]) {
-                    physicalRacesByValue[killerData.physical] = [];
-                }
-                physicalRacesByValue[killerData.physical].push(race);
-            }
-            if (killerData.magical) {
-                if (!killerValues.includes(killerData.magical)) {
-                    killerValues.push(killerData.magical);
-                }
-                if (!magicalRacesByValue[killerData.magical]) {
-                    magicalRacesByValue[killerData.magical] = [];
-                }
-                magicalRacesByValue[killerData.magical].push(race);
-            }
-        }
-    }
-    killerValues = killerValues.sort((a, b) => b - a);
-    for (var i = 0; i < killerValues.length; i++) {
-        if (physicalRacesByValue[killerValues[i]]) {
-            physicalKillerString += '<span class="killerValueGroup">'
-            for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
-            }
-            var killerString;
-            if (killerValues[i] > 300) {
-                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
-            } else {
-                killerString = killerValues[i] + '%';
-            }
-            physicalKillerString += killerString + '</span>';
-        }
-        if (magicalRacesByValue[killerValues[i]]) {
-            magicalKillerString += '<span class="killerValueGroup">'
-            for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
-            }
-            magicalKillerString += killerValues[i] + '%</span>';
-        }
-    }
+    var killersHtml = getKillerHtml(killers);
     
     $("#resultStats .killers .physical").html(physicalKillerString);
     $("#resultStats .killers .magical").html(magicalKillerString);
@@ -579,38 +522,6 @@ function getValueWithVariationHtml(value) {
     return valueString;
 }
 
-function addKiller(killers, newKiller) {
-    var race = newKiller.name;
-    var physicalPercent = newKiller.physical || 0;
-    var magicalPercent = newKiller.magical || 0;
-    
-    var killerData = null;
-    for (var index in killers) {
-        if (killers[index].name == race) {
-            killerData = killers[index];
-            break;
-        }
-    }
-    
-    if (!killerData) {
-        killerData = {"name":race};
-        killers.push(killerData);
-    }
-    if (physicalPercent != 0) {
-        if (killerData.physical) {
-            killerData.physical += physicalPercent;
-        } else {
-            killerData.physical = physicalPercent;
-        }
-    }
-    if (magicalPercent != 0) {
-        if (killerData.magical) {
-            killerData.magical += magicalPercent;
-        } else {
-            killerData.magical = magicalPercent;
-        }
-    }
-}
 
 function switchView(conciseViewParam) {
     conciseView = conciseViewParam;
