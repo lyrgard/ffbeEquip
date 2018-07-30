@@ -16,8 +16,8 @@ You will need to set up google api credentials for saving state.
 2) Create Credentials
 3) OAuth client ID
 4) Web Application
-5) Under Authorized Javascript origins: http://127.0.0.1:3000
-6) Under Authorised redirect URIs: http://127.0.0.1:3000/googleOAuthSuccess
+5) Under Authorized Javascript origins: http://localhost:3000
+6) Under Authorised redirect URIs: http://localhost:3000/googleOAuthSuccess
 7) Download the OAuth 2.0 client IDs (as JSON)
 8) Move saved file to <GitRoot>/googleOAuth/client_secret.json
 9) Go to Dashboard -> Enable APIs -> search for Google Drive -> Make sure it is enabled
