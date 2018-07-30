@@ -8,17 +8,18 @@
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="icon" type="image/png" href="/img/heavyArmor.png">
-        <title>FFBE Equip - Item Encyclopedia</title>
+        <title>FFBE Equip - Unit Search</title>
     </head>
     <body>
         <div class="container-fluid">
             <div class="col-xs-12">
                 <nav class="col-xs-12 navbar navbar-default">
-                    <img class="bannerImg" src="img/page_item_encyclopedia.jpg"/>
+                    <img class="bannerImg" src="img/page_unit_search.jpg"/>
                     <div  class="mobile">
                         <div class="mobileMenuLogo" data-toggle="dropdown" class="dropdown-toggle"></div>
                         <span data-toggle="dropdown" class="dropdown-toggle glyphicon glyphicon-chevron-down mobileMenuArrow"></span>
                         <ul class="dropdown-menu">
+                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia</a></li>
                             <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
                             <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
                             <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
@@ -28,6 +29,7 @@
                     </div>
                     <div id="navigationMenu">
                         <div id="links">
+                            <a id="linkToSearch" href="index.html" data-internal-link="index.html">Encyclopedia</a>
                             <a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a>
                             <a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a>
                             <a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a>
@@ -72,7 +74,7 @@
                     <div class="panel-heading">
                         <div class="input-group">
                             <span class="input-group-addon">Search</span>
-                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
+                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in unit names, skill names, skill effects, ...">
                         </div>
 					</div>
                 </div>
@@ -85,76 +87,9 @@
 
                 <div id="advancedSearch" class="collapse">
 
-                    <div class="panel panel-default unit">
-                        <div class="panel-heading">
-                            <form class="form-inline">
-                                <div class="form-group flex-form-group">
-                                    <span>Target unit</span>
-                                    <select id="unitsSelect" name="units" class="form-control"></select>
-                                    <div class="unit-rarity">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">HP</span>
-                                    <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MP</span>
-                                    <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">ATK</span>
-                                    <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">DEF</span>
-                                    <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MAG</span>
-                                    <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">SPR</span>
-                                    <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default stat">
-                        <div class="panel-heading">
-                            <span>Desired stat (filter and sort)</span>
-                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group colors choice" data-toggle="buttons" id="stats">
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="panel panel-default types">
                         <div class="panel-heading">
                             <span>Equipment types</span>
-                            <a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
-                            <a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
-                            <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
-                            <a class="buttonLink forUnit" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
                             <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
                         </div>
                         <div class="panel-body">
@@ -164,7 +99,7 @@
                     </div>
 
                     <div class="panel panel-default elements">
-                        <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                        <div class="panel-heading"><span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                             </div>
@@ -172,7 +107,7 @@
                     </div>
 
                     <div class="panel panel-default ailments">
-                        <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                        <div class="panel-heading"><span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
                         <div class="panel-body">
                             <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
                             </div>
@@ -186,22 +121,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="panel panel-default accessToRemove">
-                        <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default additionalStat">
-                        <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
 
@@ -211,24 +130,12 @@
                     <div class="panel-heading">
                         <div>Results : <span id="resultNumber"></span></div>
                         <div class="checkbox-inline userInputedResultsChoice">
-                            <div id="onlyShowOwnedItemsDiv" class="hidden"><input id="onlyShowOwnedItems" type="checkbox" value="" onchange="update();"><label>Only show owned items</label></div>
+                            <div id="onlyShowOwnedUnitsDiv" class="hidden"><input id="onlyShowOwnedUnits" type="checkbox" value="" onchange="update();"><label>Only show owned items</label></div>
                             <div><input id="showNotReleasedYet" type="checkbox" value="" onchange="update();"><label>Show not release yet items</label></div>
                         </div>
                     </div>
                     <div class="panel-body" style="padding:0;">
-                        <div id="results" class="table notSorted items results">
-							<div class="thead">
-                                <div class="tr">
-                                    <div class="td type">&nbsp;</div>
-                                    <div class="td name">Name</div>
-                                    <div id="statTitle" class="td value sort">Value</div>
-                                    <div class="td special">Special</div>
-									<div class="td access">Access</div>
-                                </div>
-                            </div>
-                            <div class="tbody">
-
-                            </div>
+                        <div id="results" class="results">
                         </div>
                     </div>
                 </div>
@@ -257,7 +164,7 @@
         <script src="lib/notify.min.js"></script>
         <script src="constants.js"></script>
         <script src="common.js?version=8"></script>
-		<script src="main.js?version=8"></script>
+        <script src="unitSearch.js"></script>
         <script src="googleAnalytics.js"></script>
     </body>
 </html>

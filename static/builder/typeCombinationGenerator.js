@@ -185,9 +185,18 @@ class TypeCombinationGenerator {
         if (index == 1 && this.forceDualWield && (type == null || !weaponList.includes(type))) { // if force dualwield, need 2 weapons
             return;
         }
-        if (index == 1 && weaponList.includes(type) && weaponList.includes(typeCombination[0]) // dualwield, ensure both type has at least one one-handed weapon available
-           && (!this.weaponsByTypeAndHands[typeCombination[0]][1] || !this.weaponsByTypeAndHands[type][1])) { 
-            return;
+        if (index == 1 && weaponList.includes(type) && weaponList.includes(typeCombination[0])) {
+            
+            if (!this.weaponsByTypeAndHands[typeCombination[0]][1]) {
+                if (!this.unitBuild.fixedItems[0] || this.unitBuild.fixedItems[0].special && this.unitBuild.fixedItems[0].special.includes("twoHanded")) {
+                    return;    
+                }
+            }
+            if (!this.weaponsByTypeAndHands[type][1] ) {
+                if (!this.unitBuild.fixedItems[1] || this.unitBuild.fixedItems[1].special && this.unitBuild.fixedItems[1].special.includes("twoHanded")) {
+                    return;    
+                }
+            }
         }
         typeCombination[index] = type;
         if (index == 9) {

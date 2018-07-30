@@ -64,6 +64,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                                 filename = 'units_' + languages[languageId] +'.json';
                             }
                             fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+                            fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
                         }
                     }
                 });

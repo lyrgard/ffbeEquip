@@ -45,7 +45,8 @@ var searchType = [];
 var searchStat = "";
 var ClickBehaviors = {
     EQUIP: 0,
-    IGNORE: 1
+    IGNORE: 1,
+    EXCLUDE: 2
 };
 var searchClickBehavior = ClickBehaviors.EQUIP;
 var currentItemSlot;
@@ -1122,9 +1123,7 @@ function onEquipmentsChange() {
     updateEspers();
 }
      
-function updateSearchResult(clickBehavior = ClickBehaviors.EQUIP) {
-    selectSearchClickBehavior(clickBehavior);
-
+function updateSearchResult() {
     $("#fixItemModal").removeClass("showEnhancements");
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
@@ -1200,7 +1199,7 @@ function updateSearchResult(clickBehavior = ClickBehaviors.EQUIP) {
     });
 }
 
-function displayEquippableItemList() {
+function displayEquipableItemList() {
     if (!builds[currentUnitIndex].unit) {
         alert("Please select an unit");
         return;
@@ -1230,7 +1229,8 @@ function displayEquippableItemList() {
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
-    updateSearchResult(ClickBehaviors.IGNORE);
+    selectSearchClickBehavior(ClickBehaviors.EXCLUDE);
+    updateSearchResult();
 }
 
 function displayFixItemModal(index) {
@@ -1255,6 +1255,7 @@ function displayFixItemModal(index) {
     $("#fixItemModal").modal();
     selectSearchStat(searchStat);
     selectSearchType(builds[currentUnitIndex].equipable[index]);
+    selectSearchClickBehavior(ClickBehaviors.EQUIP);
     updateSearchResult();
 }
 
@@ -1481,6 +1482,16 @@ var displaySearchResults = function(items) {
     
 }
 
+function toggleExclusionFromSearch(itemId) {
+    if(itemsToExclude.includes(itemId)) {
+        removeItemFromExcludeList(itemId);
+    } else {
+        excludeItem(itemId);
+    }
+    
+    toggleExclusionIcon(itemId);
+}
+
 function displaySearchResultsAsync(items, start, div) {
     var end = Math.max(items.length, start + 20);
     var html = "";
@@ -1496,18 +1507,28 @@ function displaySearchResultsAsync(items, start, div) {
                 html += " enhanced";
             }
             
-            if(searchClickBehavior == ClickBehaviors.EQUIP) {
-                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
-            } else {
-                html += '" >';
-            }
-
             var excluded = itemsToExclude.includes(item.id);
 
-            html += displayItemLine(item, excluded ? ExclusionDisplayType.EXCLUDED : ExclusionDisplayType.INCLUDED);
-            html+= "<div class='td enchantment desktop'>";
-            html+= getItemEnhancementLink(item);
-            html+= "</div>";
+            if(searchClickBehavior == ClickBehaviors.IGNORE) {
+                html += '" >';
+            } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+                html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
+            } else {
+                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+            }
+
+            html += "<div class='td exclude'>";
+            html += getItemExclusionLink(item.id, excluded);
+            html += "</div>";
+
+            html += displayItemLine(item);
+            
+            if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+                html+= "<div class='td enchantment desktop'>";
+                html+= getItemEnhancementLink(item);
+                html+= "</div>";
+            }
+
             if (itemInventory) {
                 var notEnoughClass = "";
                 var numbers = dataStorage.getOwnedNumber(item);
@@ -1526,8 +1547,8 @@ function displaySearchResultsAsync(items, start, div) {
                 html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
                 html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
                 html+=      '<ul class="dropdown-menu pull-right">';
-                html+=          '<li>' + getAccessHtml(item) + '</li>';
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                html+=          '<li>' + getAccessHtml(item) + '</li>';               
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';                
                 html+=          '<li class="inventory"><span class="badge' + notEnoughClass + '">' + owned + '</span></li>';
                 html+=      '</ul>';
                 html+= '</div></div>';
@@ -1557,12 +1578,10 @@ function getItemEnhancementLink(item) {
     return html;
 }
 
-function getItemExclusionLink(item, excluded) {
+function getItemExclusionLink(itemId, excluded) {
     var html = "";
-
-    html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle itemid' + item.id + '" style="color:red;' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); excludeItem(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
-    html += '<span title="Include this item in builds again" class="excludeItem glyphicon glyphicon-ok-circle itemid' + item.id + '" style="color:green;' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); removeItemFromExcludeList(\'' + item.id + '\'); toggleExclusionIcon(\'' + item.id + '\');"></span>';
-
+    html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
+    html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
     return html;
 }
 
