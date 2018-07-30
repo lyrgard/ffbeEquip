@@ -440,7 +440,7 @@ function logBuild(build, value) {
     for (var i = build.length; i--;) {
         if (build[i] && build[i].killers) {
             for (var j = 0; j < build[i].killers.length; j++) {
-                addKiller(killers, build[i].killers[j]);
+                addToKiller(killers, build[i].killers[j]);
             }
         }
     }

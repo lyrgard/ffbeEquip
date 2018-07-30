@@ -132,10 +132,10 @@ function displayUnitsAsync(units, start, div) {
         var killers = [];
         for (var i = killerList.length; i--;) {
             if (unitData.searchData.physicalKillers && unitData.searchData.physicalKillers[killerList[i]]) {
-                addKiller(killers, {"name":killerList[i], "physical":unitData.searchData.physicalKillers[killerList[i]]});
+                addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.physicalKillers[killerList[i]]});
             }
             if (unitData.searchData.magicalKillers && unitData.searchData.magicalKillers[killerList[i]]) {
-                addKiller(killers, {"name":killerList[i], "magical":unitData.searchData.magicalKillers[killerList[i]]});
+                addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.magicalKillers[killerList[i]]});
             }
         }
         var killersHtml = getKillerHtml(killers, physicalKillers, magicalKillers);
