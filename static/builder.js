@@ -936,13 +936,13 @@ function onGoalChange() {
     var goal = builds[currentUnitIndex].goal;
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
-    if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
+    if (builds[currentUnitIndex].involvedStats && (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
         || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
-        || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+        || builds[currentUnitIndex].involvedStats.includes("weaponElement"))) {
         $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
     }
-    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+    if (builds[currentUnitIndex].involvedStats && builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
     }
     
