@@ -874,7 +874,7 @@ function escapeQuote(string) {
     });
 }
 
-function addKiller(killers, newKiller) {
+function addToKiller(killers, newKiller) {
     var race = newKiller.name;
     var physicalPercent = newKiller.physical || 0;
     var magicalPercent = newKiller.magical || 0;
