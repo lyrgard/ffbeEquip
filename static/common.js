@@ -1027,7 +1027,6 @@ function getLocalizedFileUrl(name) {
     return server + "/" + name;
 }
 
-
 function onUnitsOrInventoryLoaded() {
     if (itemInventory && ownedUnits && ownedEspers) {
         if (ownedUnits.version && ownedUnits.version < 3) {
@@ -1192,7 +1191,55 @@ function saveInventory(successCallback, errorCallback) {
     });
 }
 
+function getStaticData(name, localized, callback) {
+    if (localized) {
+        name = getLocalizedFileUrl(name);
+    } else {
+        name = server + "/" + name + ".json";
+    }
+    var dataString = localStorage.getItem(name);
+    if (dataString) {
+        callback(JSON.parse(dataString));
+    } else {
+        $.get(name, function(result) {
+            localStorage.setItem(name, JSON.stringify(result));
+            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+            if (!savedFiles.includes(name)) {
+                savedFiles.push(name);
+                localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+            }
+            callback(result);
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });    
+    }
+    
+}
+
 $(function() {
+    $.get(server + '/dataVersion.json', function(result) {
+        var dataVersion = result.version;
+        var storedDataVersion = localStorage.getItem("dataVersion");
+        if (storedDataVersion) {
+            if (storedDataVersion < dataVersion) {
+                var savedFilesString = localStorage.getItem("savedFiles");
+                if (savedFilesString) {
+                    var savedFiles = JSON.parse(savedFilesString);
+                    for (var index = savedFiles.length; index--;) {
+                        localStorage.removeItem(savedFiles[index]);
+                    }
+                }
+                localStorage.setItem("dataVersion", "" + dataVersion);
+                localStorage.setItem("savedFiles", "[]");
+            }
+        } else {
+            localStorage.setItem("dataVersion", "" + dataVersion);
+            localStorage.setItem("savedFiles", "[]");
+        }
+        startPage();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });
     readUrlParams();
     if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
         notLoaded();
@@ -1217,7 +1264,7 @@ $(function() {
         $.get(server + '/units', function(result) {
             ownedUnits = result;
             if (result.version && result.version == 3) {
-                $.get(server + "/units.json", function(allUnitResult) {
+                getStaticData("units", false, function(allUnitResult) {
                     for (var unitSerieId in allUnitResult) {
                         var unit = allUnitResult[unitSerieId];
                         var maxUnitId = unitSerieId.substr(0, unitSerieId.length-1) + unit.max_rarity;
@@ -1237,9 +1284,6 @@ $(function() {
                             alert( errorThrown );
                         }
                     );
-                }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                    alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                    alert( errorThrown );
                 });
             } else {
                 onUnitsOrInventoryLoaded();

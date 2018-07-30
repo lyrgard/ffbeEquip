@@ -2219,24 +2219,21 @@ function updateEspers() {
     prepareSearch(searchableEspers);
 }
 
-$(function() {
+// will be called by common.js at page load
+function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
-        $.get(getLocalizedFileUrl("unitsWithSkill"), function(result) {
+        getStaticData("unitsWithSkill", true, function(result) {
             units = result;
             populateUnitSelect();
             prepareSearch(data);
             continueIfReady();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
-    $.get(server + "/defaultBuilderEspers.json", function(result) {
+    getStaticData("defaultBuilderEspers", false, function(result) {
         espers = [];
         for (var index = result.length; index--;) {
             espers.push(getEsperItem(result[index]))
@@ -2244,18 +2241,15 @@ $(function() {
         updateEspers();
         
         continueIfReady();
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     $.get(server + "/units", function(result) {
         ownedUnits = result;
         onEquipmentsChange();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
-    $.get(server + "/monsters.json", function(result) {
+    getStaticData("monsters", false, function(result) {
         bestiary = new Bestiary(result);
         $("#monsterListLink").removeClass("hidden");
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
     
     builds[currentUnitIndex] = {};
@@ -2318,7 +2312,7 @@ $(function() {
     $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
-});
+}
 
 var counter = 0;
 function continueIfReady() {

@@ -691,13 +691,13 @@ function exportAsCsv() {
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
-// will be called by jQuery at page load)
-$(function() {
+// will be called by common.js at page load
+function startPage() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
-        $.get(getLocalizedFileUrl("units"), function(unitResult) {
+        getStaticData("units", true, function(unitResult) {
             allUnits = unitResult;
             prepareSearch(data);
             equipments = keepOnlyOneOfEachEquipement();
@@ -706,17 +706,11 @@ $(function() {
                 showEquipments();
                 updateCounts();
             }
-            $.get(server + "/lastItemReleases.json", function(result) {
+            getStaticData("lastItemReleases", false, function(result) {
                 lastItemReleases = result;
                 prepareLastItemReleases();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
             });
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
     
@@ -732,4 +726,4 @@ $(function() {
     
     $("#searchBox").on("input", $.debounce(300,showSearch));
     
-});
+}

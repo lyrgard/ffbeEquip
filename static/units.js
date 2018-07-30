@@ -847,17 +847,17 @@ function onDataReady() {
     } 
 }
 
-// will be called by jQuery at page load)
-$(function() {
+// will be called by common.js at page load
+function startPage() {
     if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {
         $('body').addClass("readOnly");
         readOnly = true;
     }
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(getLocalizedFileUrl("units"), function(unitResult) {
+    getStaticData("units", true, function(unitResult) {
         allUnits = unitResult;
-        $.get(server + "/releasedUnits.json", function(releasedUnitResult) {
+        getStaticData("releasedUnits", false, function(releasedUnitResult) {
             units = [];
             for (var unitId in unitResult) {
                 if (releasedUnitResult[unitId]) {
@@ -866,22 +866,14 @@ $(function() {
                 }
             }
             onDataReady();
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
         onDataReady();
-        $.get(server + "/lastItemReleases.json", function(result) {
+        getStaticData("lastItemReleases", false, function(result) {
             lastItemReleases = result;
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
 
 
@@ -910,5 +902,5 @@ $(function() {
       $("#results").toggleClass("simpleMode");
     });
 
-});
+}
     

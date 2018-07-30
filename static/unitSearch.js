@@ -178,8 +178,8 @@ function notLoaded() {
     
 }
 
-// will be called by jQuery at page load)
-$(function() {
+// will be called by common.js at page load
+function startPage() {
     // Triggers on unit base stats change
 	$(baseStats).each(function (index, value) {
         $("#baseStat_" + value).on("input", $.debounce(300,update));
@@ -189,21 +189,15 @@ $(function() {
     $("#searchText").on("input", $.debounce(300,update));
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
-        $.get(getLocalizedFileUrl("units"), function(result) {
+        getStaticData("units", true, function(result) {
             units = result;
-            $.get(server + "/unitSearch.json", function(result) {
+            getStaticData("unitSearch.json", false, function(result) {
                 unitSearch = result;
                 update();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
             });
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
 	
 	// Populates the various filters
@@ -223,4 +217,4 @@ $(function() {
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
     
-});
+}
