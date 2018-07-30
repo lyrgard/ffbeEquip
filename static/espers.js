@@ -717,6 +717,7 @@ function getPublicEsperLink() {
 
 // will be called by common.js at page load
 function startPage() {
+    gridContainer = $("#gridContainer");
     if (window.location.hash.length > 1) {
         $("#pleaseWaitMessage").addClass("hidden");
         $("#loginMessage").addClass("hidden");
@@ -734,7 +735,7 @@ function startPage() {
 
 
     $("#results").addClass(server);
-    gridContainer = $("#gridContainer");
+    
 
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
