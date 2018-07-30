@@ -8,6 +8,9 @@ var currentEnhancementItemPos;
 
 var displayId = 0;
 
+var equipmentLastSearch = "";
+var materiaLastSearch = "";
+
 function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
@@ -34,10 +37,10 @@ function showMateria() {
     $(".nav-tabs li.materia").addClass("active");
     $("#sortType").text("Sorted by Name");
     $("#materiaCount").removeClass("hidden");
-    $("#searchBox").val("");
+    $("#searchBox").val(materiaLastSearch);
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
-    displayItems(sort(materia));
+    showSearch();
 }
 
 function showEquipments() {
@@ -46,10 +49,10 @@ function showEquipments() {
     $(".nav-tabs li.equipment").addClass("active");
     $("#sortType").text("Sorted by Type (Strength)");
     $("#itemCount").removeClass("hidden");
-    $("#searchBox").val("");
+    $("#searchBox").val(equipmentLastSearch);
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
-    displayItems(sort(equipments));
+    showSearch();
 }
 
 function showSearch() {
@@ -337,8 +340,17 @@ function farmedTMR(unitId) {
 function search() {
     var result = [];
     var textToSearch = $("#searchBox").val();
-    var itemsToSearch = $(".nav-tabs li.equipment").hasClass("active") ? equipments : materia;
+    var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     
+    var itemsToSearch = [];
+    if(inEquipment) {
+        itemsToSearch = equipments;
+        equipmentLastSearch = textToSearch;
+    } else {
+        itemsToSearch = materia;
+        materiaLastSearch = textToSearch;
+    }
+
     if (textToSearch) {
         for (var index in itemsToSearch) {
             var item = itemsToSearch[index];
