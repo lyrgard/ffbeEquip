@@ -1,4 +1,4 @@
-const assert = require('power-assert');
+const assert = require('assert');
 const migration = require('../../../server/lib/migration.js');
 
 describe('lib.migration', () => {
