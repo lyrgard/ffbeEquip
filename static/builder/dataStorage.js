@@ -109,14 +109,6 @@ class DataStorage {
             
             var addedToItems = false;
             
-            if (availableNumber > 0 && this.unitBuild && this.unitBuild.unit && this.unitBuild.unit.tmrSkill && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id && !item.originalItem) {
-                addedToItems = this.prepareItem(getItemWithTmrSkillIfApplicable(item, this.unitBuild.unit), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
-                availableNumber--;
-                if (ownedAvailableNumber > 0) {
-                    ownedAvailableNumber--;
-                }
-            } 
-            
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
                 var enhancementsAvailables = this.itemInventory.enchantments[item.id].slice();
                 if (this.alreadyUsedItems.enhancements[item.id]) {
@@ -170,20 +162,7 @@ class DataStorage {
         }
         this.dataWithCondition.sort(function(entry1, entry2) {
             if (entry1.item.id == entry2.item.id) {
-                if (entry1.item.originalItem) {
-                    if (entry2.item.originalItem) {
-                        return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length; 
-                    } else {
-                        return -1;
-                    }
-                } else {
-                    if (entry2.item.originalItem) {
-                        return 1;
-                    } else {
-                        return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
-                    }
-                }
-                return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length;
+                return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length; 
             } else {
                 return entry1.item.id - entry2.item.id;
             }
@@ -198,7 +177,7 @@ class DataStorage {
                 var numberNeeded = 1;
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
-                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, desirableElements);
+                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, desirableElements, this.unitBuild.desirableItemIds);
                 this.dataByType[type] = [];
                 for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                     this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    
@@ -227,7 +206,7 @@ class DataStorage {
         var types = Object.keys(dualWieldByType);
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
-            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, desirableElements);
+            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, desirableElements, this.unitBuild.desirableItemIds);
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 this.dualWieldSources.push(tree.children[index].equivalents[0].item);
             }
@@ -395,6 +374,9 @@ class DataStorage {
         }
         if (this.desiredEquipmentType.length != 0) {
             if (item.type && this.desiredEquipmentType.includes(item.type)) return true;
+        }
+        if (this.unitBuild.desirableItemIds.length != 0) {
+            if (this.unitBuild.desirableItemIds.includes(item.id)) return true;
         }
     }
     

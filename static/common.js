@@ -259,9 +259,6 @@ function displayItemLine(item) {
     html += '<div class="td special">';
 
     var special = "";
-    if (item.originalItem) {
-        special += "<li><b>Item enhanced by the unit TMR ability</b></li>";
-    }
     
     if (item.element) {
         special += getElementHtml(item.element);

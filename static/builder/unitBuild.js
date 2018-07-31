@@ -31,6 +31,7 @@ class UnitBuild {
         this.goal = null;
         this._formula = null;
         this.involvedStats = [];
+        this.desirableItemIds = [];
     }
     
     getPartialDualWield() {
@@ -91,6 +92,19 @@ class UnitBuild {
             var partialDualWield = this.getPartialDualWield() || [];
             if (partialDualWield.length > 0 && this.build[0] && partialDualWield.includes(this.build[0].type)) {
                 this.equipable[1] = partialDualWield.concat(this.equipable[1]);
+            }
+        }
+        this.desirableItemIds = [];
+        if (this.unit) {
+            for (var i = this.unit.skills.length; i--;) {
+                var skill = this.unit.skills[i];
+                if (skill.equipedConditions) {
+                    for (var j = skill.equipedConditions.length; j--;) {
+                        if (!typeList.includes(skill.equipedConditions[j]) && !elementList.includes(skill.equipedConditions[j]) && !this.desirableItemIds.includes(skill.equipedConditions[j])) {
+                            this.desirableItemIds.push(skill.equipedConditions[j]);
+                        }
+                    }
+                }
             }
         }
         return this.equipable;

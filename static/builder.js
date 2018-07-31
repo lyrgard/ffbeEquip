@@ -1055,19 +1055,6 @@ function updateSearchResult() {
     for (var index = 0, len = dataStorage.data.length; index < len; index++) {
         var item = dataStorage.data[index];
         
-        // Manage tmr ability of 7*
-        if (builds[currentUnitIndex].unit.tmrSkill && item.tmrUnit && item.tmrUnit == builds[currentUnitIndex].unit.id) {
-            var tmrSkillAlreadyUsed = false;
-            for (var buildIndex = 0; buildIndex < 10; buildIndex++) {
-                if (builds[currentUnitIndex].build[buildIndex] && builds[currentUnitIndex].build[buildIndex].originalItem) {
-                    tmrSkillAlreadyUsed = true;
-                    break;
-                }
-            }
-            if (!tmrSkillAlreadyUsed) {
-                item = getItemWithTmrSkillIfApplicable(item, builds[currentUnitIndex].unit);
-            }
-        }
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
             continue;
@@ -1228,31 +1215,6 @@ function fixItem(key, slotParam = -1, enhancements) {
             removeItemAt(slot);
         }
         
-        // Manage TMR ability of 7*
-        if (item.originalItem) {
-            var tmrSkillAlreadyUsed = false;
-            for (var index = 0; index < 10; index++) {
-                if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
-                    tmrSkillAlreadyUsed = true;
-                    break;
-                }
-            }
-            if (tmrSkillAlreadyUsed) {
-                item = item.originalItem;
-            }
-        } else if (builds[currentUnitIndex].unit.tmrSkill && item.tmrUnit && item.tmrUnit == builds[currentUnitIndex].unit.id) {
-            var tmrSkillAlreadyUsed = false;
-            for (var index = 0; index < 10; index++) {
-                if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
-                    tmrSkillAlreadyUsed = true;
-                    break;
-                }
-            }
-            if (!tmrSkillAlreadyUsed) {
-                item = getItemWithTmrSkillIfApplicable(item, builds[currentUnitIndex].unit);
-            }
-        }
-        
         builds[currentUnitIndex].fixedItems[slot] = item;
         builds[currentUnitIndex].build[slot] = item;
         if (slot < 10) {
@@ -1260,13 +1222,8 @@ function fixItem(key, slotParam = -1, enhancements) {
                 if (index != slot) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
-                        var tmrAbilityEnhanced = !!itemTmp.originalItem;
                         var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
-                        
-                        if (tmrAbilityEnhanced) {
-                            bestItemVersion = getItemWithTmrSkillIfApplicable(bestItemVersion, builds[currentUnitIndex].unit)
-                        }
-                        
+                                                
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
@@ -1303,14 +1260,6 @@ function removeItemAt(slot) {
     builds[currentUnitIndex].build[slot] = null;
     builds[currentUnitIndex].prepareEquipable();
     
-    var tmrSkillAlreadyUsed = false;
-    for (var index = 0; index < 10; index++) {
-        if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].originalItem) {
-            tmrSkillAlreadyUsed = true;
-            break;
-        }
-    }
-    
     for (var index = 0; index < 10; index ++) {
         var item = builds[currentUnitIndex].build[index];
         if (item && !item.placeHolder) {
@@ -1318,12 +1267,6 @@ function removeItemAt(slot) {
                 removeItemAt(index);
             } else {
                 var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, item, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
-                if (!tmrSkillAlreadyUsed) {
-                    bestItemVersion = getItemWithTmrSkillIfApplicable(bestItemVersion, builds[currentUnitIndex].unit);
-                    if (bestItemVersion.originalItem) {
-                        tmrSkillAlreadyUsed = true;
-                    }
-                }
                 builds[currentUnitIndex].build[index] = bestItemVersion;
                 if (builds[currentUnitIndex].fixedItems[index]) {
                     builds[currentUnitIndex].fixedItems[index] = builds[currentUnitIndex].build[index];
