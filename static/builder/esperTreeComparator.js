@@ -5,7 +5,7 @@ class EsperTreeComparator {
         for (var index in espers) {
             if (!alreadyUsedEspers.includes(espers[index].id)) {
                 var newTreeEsper = {"esper":espers[index],"parent":null,"children":[],"equivalents":[]};
-                TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, ennemyStats, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
+                TreeComparator.insertItemIntoTree(keptEsperRoot, newTreeEsper, involvedStats, ennemyStats, null, null, 1, EsperTreeComparator.getComparison, EsperTreeComparator.getDepth);
             }
         }
         return keptEsperRoot;

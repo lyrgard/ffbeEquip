@@ -2477,10 +2477,10 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
-		"tmrSkill": {"atk%":25, "singleWielding":{"atk":50}},
 		"skills": [
 			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":100},{"name":"bug","physical":100},{"name":"plant","physical":100}]},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"atk%":50, "equipedConditions":["spear"]},
+			{"atk%":25, "singleWielding":{"atk":50}, "equipedConditions":["504226900"]}
 		],
 		"6_form": {
 			"name":"나루",
@@ -2582,10 +2582,10 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"tmrSkill": {"singleWielding":{"atk":100}},
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":30, "spr%":20, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"singleWielding":{"atk":100}, "equipedConditions":["405004900"]},
 			{"atk%":30, "equipedConditions":["greatSword"]}
 		],
 		"6_form": {
@@ -2718,9 +2718,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"equip":["dagger","staff","rod","harp","whip","gun","mace","hat","clothes","lightArmor","heavyArmor","robe"],
-		"tmrSkill": {"mag%":30, "spr%":30, "evoMag":50, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
 		"skills": [
-			{"hp%":30, "mp%":30, "def%":20, "mag%":30, "spr%":30, "evoMag":60, "dualWielding":{"mag":20,"spr":20}, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["staff","rod"], "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "esperStatsBonus":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}}
+			{"hp%":30, "mp%":30, "def%":20, "mag%":30, "spr%":30, "evoMag":60, "dualWielding":{"mag":20,"spr":20}, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["staff","rod"], "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "esperStatsBonus":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}},
+			{"mag%":30, "spr%":30, "evoMag":50, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}, "equipedConditions":["504227666"]}
 		],
 		"6_form": {
 			"name":"시트라",
@@ -3764,10 +3764,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
-		"tmrSkill": {"atk%":30, "dualWielding":{"atk":40}},
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":50, "def%":50, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["fist"]}
+			{"atk%":50, "equipedConditions":["fist"]},
+			{"atk%":30, "dualWielding":{"atk":40}, "equipedConditions":["504227847"]}
 		],
 		"6_form": {
 			"name":"티파",
@@ -3816,9 +3816,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
-		"tmrSkill": {"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}]},
 		"skills": [
 			{"hp%":50, "mp%":20, "atk%":60, "def%":60, "spr%":50, "singleWielding":{"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "mpRefresh":5},
+			{"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}], "equipedConditions":["504227865"]},
 			{"atk%":50, "equipedConditions":["gun"]}
 		],
 		"6_form": {
@@ -3868,11 +3868,11 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
-		"tmrSkill": {"atk%":30, "lbFillRate":50},
 		"skills": [
 			{"hp%":30, "mp%":50, "def%":50, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
 			{"atk%":50, "equipedConditions":["gun"]},
-			{"atk%":50, "equipedConditions":["greatSword"]}
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":30, "lbFillRate":50, "equipedConditions":["303004000"]}
 		],
 		"6_form": {
 			"name":"스퀄",
@@ -3906,10 +3906,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
-		"tmrSkill": {},
 		"skills": [
 			{"hp%":40, "mp%":40, "mag%":70, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
-			{"atk%":50, "mag%":50, "equipedConditions":["throwing"]}
+			{"atk%":50, "mag%":50, "equipedConditions":["throwing"]},
+			{"equipedConditions":["315021900"]}
 		],
 		"6_form": {
 			"name":"리노아",
@@ -4331,9 +4331,9 @@
 			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-		"tmrSkill": {},
 		"skills": [
-			{"def%":20, "mag%":120, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+			{"def%":20, "mag%":120, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"equipedConditions":["310003700"]}
 		],
 		"6_form": {
 			"name":"분노한 샨토토",
@@ -4365,10 +4365,10 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-		"tmrSkill": {"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
 			{"hp%":30, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"dark","percent":100}]},
-			{"atk%":50, "equipedConditions":["sword"]}
+			{"atk%":50, "equipedConditions":["sword"]},
+			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "equipedConditions":["504227237"]}
 		],
 		"6_form": {
 			"name":"암흑의 왕",
@@ -4915,9 +4915,9 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
-		"tmrSkill": {},
 		"skills": [
-			{"hp%":20, "mp%":50, "atk%":50, "def%":20, "mag%":100, "spr%":90, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100}], "mpRefresh":5}
+			{"hp%":20, "mp%":50, "atk%":50, "def%":20, "mag%":100, "spr%":90, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"blind","percent":100}], "mpRefresh":5},
+			{"equipedConditions":["409020400"]}
 		],
 		"6_form": {
 			"name":"이그니스",
@@ -6049,9 +6049,9 @@
 			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
 		"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
-		"tmrSkill": {"hp%":30, "mp%":30, "atk%":50},
 		"skills": [
-			{"hp%":20, "atk%":70, "def%":20, "dualWielding":{"atk":30}, "mpRefresh":15, "special":["dualWield"]}
+			{"hp%":20, "atk%":70, "def%":20, "dualWielding":{"atk":30}, "mpRefresh":15, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":["504226980"]}
 		],
 		"6_form": {
 			"name":"에스타크",
@@ -6083,10 +6083,10 @@
 			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
-		"tmrSkill": {"hp%":30, "mag%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":40, "def%":50, "mag%":20, "spr%":40},
 			{"atk%":50, "equipedConditions":["fist"]},
+			{"hp%":30, "mag%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":["309002900"]},
 			{"atk%":50, "equipedConditions":["fist"]}
 		],
 		"6_form": {
