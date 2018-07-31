@@ -73,6 +73,7 @@ getData('units.json', function (units) {
 
                     fs.writeFileSync('unitsWithSkill.json', commonParse.formatOutput(unitsOut));
                     fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
+                    fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
                 });
             });
         });
@@ -155,7 +156,7 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/10/unit_ills_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/11/unit_ills_" + unitId + ".png",filePath);
         }
     }
 }
