@@ -80,7 +80,6 @@ var unlockedSkills = {
 function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData, unitOut) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
-    var tmrSkill = null;
     
     
     for (skillIndex in skillsIn) {
@@ -135,14 +134,7 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             continue;
         }
         
-        var effect;
-        if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
-            tmrSkill = {}
-            effect = tmrSkill;
-        } else {
-            effect = baseEffects;
-        }
-        getPassive(skillIn, effect, skillsOut);
+        getPassive(skillIn, baseEffects, skillsOut);
     }
     if (unlockedSkills[unitId]) {
         if (!unitOut.enhancements) {
@@ -169,14 +161,14 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         skillsOut.splice(0,1);
     }
     
-    if (tmrSkill) {
-        unitOut.tmrSkill = tmrSkill;
-    }
-    
     return skillsOut;
 }
 
 function getPassive(skillIn, baseEffects, skillsOut) {
+    if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
+        baseEffects = {"equipedConditions":[skillIn.requirements[1].toString()]}
+        skillsOut.push(baseEffects);
+    }
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
@@ -415,6 +407,57 @@ function getPassive(skillIn, baseEffects, skillsOut) {
             addToStat(baseEffects.esperStatsBonus, "def", esperStatsBonus[3]);
             addToStat(baseEffects.esperStatsBonus, "mag", esperStatsBonus[4]);
             addToStat(baseEffects.esperStatsBonus, "spr", esperStatsBonus[5]);
+            
+        // Gilgamesh multi equip skill
+        } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
+            for (var i = rawEffect[3][0].length; i--;) {
+                var gilgameshSkill = {"equipedConditions":[rawEffect[3][0][i].toString()]};
+                gilgameshSkill["hp%"] = rawEffect[3][1];
+                gilgameshSkill["mp%"] = rawEffect[3][2];
+                gilgameshSkill["atk%"] = rawEffect[3][3];
+                gilgameshSkill["def%"] = rawEffect[3][4];
+                gilgameshSkill["mag%"] = rawEffect[3][5];
+                gilgameshSkill["spr%"] = rawEffect[3][6];
+                skillsOut.push(gilgameshSkill);
+            }
+            
+        // equipment type conditionned killers
+        } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 75) {
+            var typeArray;
+            if (Array.isArray(rawEffect[3][0])) {
+                typeArray = rawEffect[3][0];
+            } else {
+                typeArray = [rawEffect[3][0]];
+            }
+            for (var i = typeArray.length; i--;) {
+                var conditionnedKillerSKill = {"equipedConditions":[typeMap[typeArray[i]]]};
+                var killerData = rawEffect[3];
+
+                var killerRace = raceMap[killerData[1]];
+                var physicalPercent = killerData[2];
+                var magicalPercent = killerData[3];
+                addKiller(conditionnedKillerSKill, killerRace, physicalPercent, magicalPercent);
+
+                skillsOut.push(conditionnedKillerSKill);
+            }
+            
+        // equipment type conditionned element resistance
+        } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 76) {
+            var typeArray;
+            if (Array.isArray(rawEffect[3][0])) {
+                typeArray = rawEffect[3][0];
+            } else {
+                typeArray = [rawEffect[3][0]];
+            }
+            for (var i = typeArray.length; i--;) {
+                var conditionnedElementalResistSKill = {"equipedConditions":[typeMap[typeArray[i]]]};
+                
+                var elementalResist = rawEffect[3].slice();
+                elementalResist.splice(0,1);
+                addElementalResist(conditionnedElementalResistSKill, elementalResist);
+
+                skillsOut.push(conditionnedElementalResistSKill);
+            }
         }
     }
 }
@@ -541,9 +584,6 @@ function formatUnit(unit, prefix = "", sixStarForm = false) {
             }
         }
         result += "\n\t\t],";
-    }
-    if (unit.tmrSkill) {
-        result += "\n" + prefix + "\t\t\"tmrSkill\": " + formatSkill(unit.tmrSkill, "") + ",";
     }
     result += "\n" + prefix + "\t\t\"skills\": [";
     var firstSkill = true;
