@@ -11,7 +11,7 @@ var update = function() {
 	readFilterValues();
 	updateFilterHeadersDisplay();
     
-    if (!onlyShowOwnedUnits && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers == 0 && magicalKillers == 0) {
+    if (searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers == 0 && magicalKillers == 0) {
 		// Empty filters => no results
         $("#results").html("");
         $("#results").addClass("notSorted");
@@ -126,7 +126,7 @@ function displayUnitsAsync(units, start, div) {
         var unitData = units[index];
         html += '<div class="unit">'
         html += '<div class="unitImage"><img src="img/units/unit_ills_' + unitData.unit.id + '.png"/></div>';
-        html += '<div class="unitDescriptionLines"><span class="unitName">' + unitData.unit.name + '</span>';
+        html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
         html += '<div class="killers">';
         
         var killers = [];
@@ -225,9 +225,9 @@ function startPage() {
 	// Populates the various filters
 	
 	// Item types
-	addImageChoicesTo("types",typeList);
+	addImageChoicesTo("types",typeList.slice(0,typeList.length-2));
 	// Elements
-	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"]);
+	addImageChoicesTo("elements",elementList);
 	// Ailments
 	addImageChoicesTo("ailments",ailmentList);
 	// Killers
