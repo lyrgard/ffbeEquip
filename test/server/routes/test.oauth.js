@@ -1,5 +1,5 @@
 const { URL } = require('url');
-const assert = require('power-assert');
+const assert = require('assert');
 const request = require('supertest');
 const express = require('express');
 const utils = require('../utils.js');
