@@ -86,7 +86,11 @@ var readFilterValues = function() {
 var updateFilterHeadersDisplay = function() {
 	$(filters).each(function(index, filter) {
 		// If filter has a value selected, display "unselect all" link
-        $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
+        if (filter == "killers") {
+            $("."+ filter + " .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
+        } else {
+            $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
+        }
     });
 }
 
@@ -125,13 +129,13 @@ function displayUnitsAsync(units, start, div) {
     for (var index = start; index < end; index++) {
         var unitData = units[index];
         html += '<div class="unit">'
-        html += '<div class="unitImage"><img src="img/units/unit_ills_' + unitData.unit.id + '.png"/></div>';
+        html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id + '.png"/></div>';
         html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
-        html += '<div class="elementalResistance">';
+        html += '<div class="elementalResistances">';
         if (unitData.searchData.elementalResist && elements.length > 0) {
             for (var i = 0, len = elementList.length; i < len; i++) {
                 if (elements.includes(elementList[i]) && unitData.searchData.elementalResist[elementList[i]]) {
-                    html+= '<img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%';
+                    html+= '<span class="elementalResistance"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%</span>';
                 }
             }
         }

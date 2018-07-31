@@ -158,6 +158,10 @@ function verifyImage(serieId, minRarity, maxRarity) {
         if (!fs.existsSync(filePath)) {
             download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/11/unit_ills_" + unitId + ".png",filePath);
         }
+        var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
+        if (!fs.existsSync(filePath)) {
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/11/unit_icon_" + unitId + ".png",filePath);
+        }
     }
 }
 
