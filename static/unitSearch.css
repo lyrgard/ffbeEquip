@@ -1,13 +1,21 @@
 .unit {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .unitImage {
-    width: 100px;
-    display: flex;
-    justify-content: center;
+    padding: 5px;
 }
 
 .unitName {
     font-weight: bold;
+}
+
+.elementalResistances img {
+    width: 30px;
+    margin-right: 2px;
+}
+
+.elementalResistance {
+    margin-right: 5px;
 }
