@@ -20,7 +20,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers));
+    displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -57,6 +57,52 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     }
     return result;
 };
+
+function sortUnits(units) {
+    units.sort(function (unit1, unit2) {
+        if (physicalKillers) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = physicalKillers.length; i--;) {
+                value1 += unit1.searchData.physicalKillers[physicalKillers[i]];
+                value2 += unit2.searchData.physicalKillers[physicalKillers[i]];
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        if (magicalKillers) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = magicalKillers.length; i--;) {
+                value1 += unit1.searchData.magicalKillers[magicalKillers[i]];
+                value2 += unit2.searchData.magicalKillers[magicalKillers[i]];
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        if (elements) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = elements.length; i--;) {
+                value1 += unit1.searchData.elementalResist[elements[i]];
+                value2 += unit2.searchData.elementalResist[elements[i]];
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        return 1;
+    });
+    return units;
+}
 
 var containAllKeyPositive = function(object, array) {
     if (!object) {
@@ -131,19 +177,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="unit">'
         html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id + '.png"/></div>';
         html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
-        html += '<div class="elementalResistances">';
-        if (unitData.searchData.elementalResist && elements.length > 0) {
-            for (var i = 0, len = elementList.length; i < len; i++) {
-                if (elements.includes(elementList[i]) && unitData.searchData.elementalResist[elementList[i]]) {
-                    html+= '<span class="elementalResistance"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%</span>';
-                }
-            }
-        }
-        html += '</div>';
         html += '<div class="killers">';
-        
-        
-        
         var killers = [];
         for (var i = killerList.length; i--;) {
             if (unitData.searchData.physicalKillers && unitData.searchData.physicalKillers[killerList[i]]) {
@@ -156,6 +190,15 @@ function displayUnitsAsync(units, start, div) {
         var killersHtml = getKillerHtml(killers, physicalKillers, magicalKillers);
         html += killersHtml.physical;
         html += killersHtml.magical;
+        html += '</div>';
+        html += '<div class="elementalResistances">';
+        if (unitData.searchData.elementalResist && elements.length > 0) {
+            for (var i = 0, len = elementList.length; i < len; i++) {
+                if (elements.includes(elementList[i]) && unitData.searchData.elementalResist[elementList[i]]) {
+                    html+= '<span class="elementalResistance"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%</span>';
+                }
+            }
+        }
         html += '</div>';
         html += '</div>';
         html += '</div>';
