@@ -1,4 +1,4 @@
-const assert = require('power-assert');
+const assert = require('assert');
 const utils = require('../utils.js');
 const shortener = require('../../../server/lib/shortener.js');
 
