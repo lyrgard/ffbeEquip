@@ -127,7 +127,18 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="unit">'
         html += '<div class="unitImage"><img src="img/units/unit_ills_' + unitData.unit.id + '.png"/></div>';
         html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
+        html += '<div class="elementalResistance">';
+        if (unitData.searchData.elementalResist && elements.length > 0) {
+            for (var i = 0, len = elementList.length; i < len; i++) {
+                if (elements.includes(elementList[i]) && unitData.searchData.elementalResist[elementList[i]]) {
+                    html+= '<img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%';
+                }
+            }
+        }
+        html += '</div>';
         html += '<div class="killers">';
+        
+        
         
         var killers = [];
         for (var i = killerList.length; i--;) {
