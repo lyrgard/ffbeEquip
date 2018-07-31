@@ -82,7 +82,7 @@ class BuildOptimizer {
         for (var index = 0, len = this.dataWithCondition.length; index < len; index++) {
             var entry = this.dataWithCondition[index];
             var item = entry.item;
-            if (item.type == type && (entry.owned && !dataWithConditionKeyAlreadyAddedOwned.includes(item.id)) || (!entry.owned && !dataWithConditionKeyAlreadyAddedNotOwned.includes(item.id)))  {
+            if (item.type == type && ((entry.owned && !dataWithConditionKeyAlreadyAddedOwned.includes(item.id)) || (!entry.owned && !dataWithConditionKeyAlreadyAddedNotOwned.includes(item.id))))  {
                 var allFound = true;
                 for (var conditionIndex in item.equipedConditions) {
                     if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
