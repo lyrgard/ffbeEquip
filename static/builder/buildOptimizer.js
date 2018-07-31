@@ -77,11 +77,12 @@ class BuildOptimizer {
             }
         }
         var tempResult = itemsOfType.slice();
-        var dataWithConditionKeyAlreadyAdded = [];
+        var dataWithConditionKeyAlreadyAddedOwned = [];
+        var dataWithConditionKeyAlreadyAddedNotOwned = [];
         for (var index = 0, len = this.dataWithCondition.length; index < len; index++) {
             var entry = this.dataWithCondition[index];
             var item = entry.item;
-            if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item.id)) {
+            if (item.type == type && (entry.owned && !dataWithConditionKeyAlreadyAddedOwned.includes(item.id)) || (!entry.owned && !dataWithConditionKeyAlreadyAddedNotOwned.includes(item.id)))  {
                 var allFound = true;
                 for (var conditionIndex in item.equipedConditions) {
                     if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
@@ -101,7 +102,12 @@ class BuildOptimizer {
                     }
 
                     tempResult.push(entry);
-                    dataWithConditionKeyAlreadyAdded.push(item.id);
+                    if (entry.owned) {
+                        dataWithConditionKeyAlreadyAddedOwned.push(item.id);    
+                    } else {
+                        dataWithConditionKeyAlreadyAddedNotOwned.push(item.id);    
+                    }
+                    
 
                 }
             }
