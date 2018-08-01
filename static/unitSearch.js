@@ -4,6 +4,7 @@ var itemInventory = null;
 var saveNeeded = false;
 var onlyShowOwnedUnits = false;
 var unitSearch = [];
+var imperils;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -11,7 +12,7 @@ var update = function() {
 	readFilterValues();
 	updateFilterHeadersDisplay();
     
-    if (searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers == 0 && magicalKillers == 0) {
+    if (searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers == 0 && magicalKillers == 0 && imperils.length == 0) {
 		// Empty filters => no results
         $("#results").html("");
         $("#results").addClass("notSorted");
@@ -45,9 +46,11 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                     if (ailments.length == 0 || containAllKeyPositive(unit.ailmentResist, ailments)) {
                         if (physicalKillers.length == 0 || containAllKeyPositive(unit.physicalKillers, physicalKillers)) {
                             if (magicalKillers.length == 0 || containAllKeyPositive(unit.magicalKillers, magicalKillers)) {
-                                /*if (searchText.length == 0 || containsText(searchText, item)) {*/
-                                    result.push({"searchData": unit, "unit": units[unit.id]});
-                                /*}*/
+                                if (imperils.length == 0 || containAllKeyNegative(unit.imperil, imperils)) {
+                                    if (searchText.length == 0 || containsText(searchText, units[unit.id].name)) {
+                                        result.push({"searchData": unit, "unit": units[unit.id]});
+                                    }
+                                }
                             }
                         }
                     }
@@ -86,6 +89,19 @@ function sortUnits(units) {
                 return 1
             }
         }
+        if (imperils) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = imperils.length; i--;) {
+                value1 += unit1.searchData.imperil[imperils[i]];
+                value2 += unit2.searchData.imperil[imperils[i]];
+            }
+            if (value1 < value2) {
+                return -1;
+            } else if (value2 < value1) {
+                return 1
+            }
+        }
         if (elements) {
             var value1 = 0;
             var value2 = 0;
@@ -113,6 +129,7 @@ function sortUnits(units) {
             }
         }
         
+        
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
@@ -129,6 +146,18 @@ var containAllKeyPositive = function(object, array) {
     }
     return true;
 };
+
+var containAllKeyNegative = function(object, array) {
+    if (!object) {
+        return false;
+    }
+    for (var index = array.length; index--;) {
+        if (!object[array[index]] || object[array[index]] >= 0) {
+            return false;
+        }
+    }
+    return true;
+};
                 
 // Read filter values into the corresponding variables
 var readFilterValues = function() {
@@ -139,19 +168,17 @@ var readFilterValues = function() {
     ailments = getSelectedValuesFor("ailments");
     physicalKillers = getSelectedValuesFor("physicalKillers");
     magicalKillers = getSelectedValuesFor("magicalKillers");
+    imperils = getSelectedValuesFor("imperils");
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
 var updateFilterHeadersDisplay = function() {
-	$(filters).each(function(index, filter) {
-		// If filter has a value selected, display "unselect all" link
-        if (filter == "killers") {
-            $("."+ filter + " .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
-        } else {
-            $("."+ filter + " .unselectAll").toggleClass("hidden", window[filter].length == 0); 
-        }
-    });
+    $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
+    $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
+    $(".elements .unselectAll").toggleClass("hidden", elements.length == 0); 
+    $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
+    $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0); 
 }
 
 
@@ -250,6 +277,36 @@ function displayUnitsAsync(units, start, div) {
             }
         html += '</div>';
         
+        html += '<div class="actives">';
+            for (var i = 0, len = unitData.unit.actives.length; i < len; i++) {
+                var active = unitData.unit.actives[i];
+                if (mustDisplaySkill(active)) {
+                    html += '<div class="skill">';
+                    html += '<div><img class="skillIcon" src="img/items/' + active.icon + '"/></div>'
+                    html += '<div class="nameAndEffects"><span class="name">' + active.name + '</span>'
+                    for (var j = active.effects.length; j--;) {
+                        html += '<span class="effect">' + active.effects[j].desc + '</span>';
+                    }
+                    html += '</div></div>';            
+                }
+            }
+        html += '</div>';
+        
+        html += '<div class="magics">';
+            for (var i = 0, len = unitData.unit.magics.length; i < len; i++) {
+                var magic = unitData.unit.magics[i];
+                if (mustDisplaySkill(magic)) {
+                    html += '<div class="skill">';
+                    html += '<div><img class="skillIcon" src="img/items/' + magic.icon + '"/></div>'
+                    html += '<div class="nameAndEffects"><span class="name">' + magic.name + '</span>'
+                    for (var j = magic.effects.length; j--;) {
+                        html += '<span class="effect">' + magic.effects[j].desc + '</span>';
+                    }
+                    html += '</div></div>';            
+                }
+            }
+        html += '</div>';
+        
         html += '</div>';
         html += '</div>';
     }
@@ -279,6 +336,9 @@ function mustDisplaySkill(skill) {
                 return true;
             }
             if (magicalKillers.length > 0 && effect.effect.killers && matches(magicalKillers, effect.effect.killers.map(function(killer){return killer.name;}))) {
+                return true;
+            }
+            if (imperils.length > 0 && effect.effect.imperil && matches(imperils, effect.effect.imperil.elements.map(function(element){return element.name;}))) {
                 return true;
             }
         }
@@ -366,7 +426,8 @@ function startPage() {
 	// Killers
 	addImageChoicesTo("physicalKillers",killerList, type="checkbox", "physicalKiller_");
     addImageChoicesTo("magicalKillers",killerList, type="checkbox", "magicalKiller_");
-	
+	// Imperils
+	addImageChoicesTo("imperils",elementList);
     
     $("#results").addClass(server);
     
