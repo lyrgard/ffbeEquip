@@ -95,14 +95,14 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
         }
         var skillIn = skills[skillId];
         if (skillIn.active && skillIn.type != "MAGIC") {
-            unitOut.actives.push(parseActiveSkill(skillIn));
+            unitOut.actives.push(parseActiveSkill(skillIn, skills));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillIn);
+                    var skill = parseActiveSkill(skillIn, skills);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.actives.push(skill);
                 } 
@@ -110,14 +110,14 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             continue;
         } 
         if (skillIn.type == "MAGIC") {
-            unitOut.magics.push(parseActiveSkill(skillIn));
+            unitOut.magics.push(parseActiveSkill(skillIn, skills));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillIn);
+                    var skill = parseActiveSkill(skillIn, skills);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.magics.push(skill);
                 } 
@@ -591,33 +591,62 @@ function parsePassiveRawEffet(rawEffect, baseEffects, skillsOut) {
     return null;
 }
 
-function parseActiveSkill(skillIn) {
+function parseActiveSkill(skillIn, skills) {
     var skill = {"name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect);
+        var effect = parseActiveRawEffect(rawEffect, skills);
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     return skill;
 }
 
-function parseActiveRawEffect(rawEffect) {
-    var result = {};
+function parseActiveRawEffect(rawEffect, skills) {
+    var result = null;
     
     // Imperil
     if ((rawEffect[0] == 1 || rawEffect[0] == 2)  && rawEffect[1] == 1 && rawEffect[2] == 33) { 
+        result = {};
         var imperilData = rawEffect[3];
         addImperil(result, imperilData);
-        if (rawEffect[0] == 1) {
-            result.target = "ST";
-        } else {
-            result.target = "AOE";
+    
+    // break
+    } else if (rawEffect[2] == 24) { 
+        result = {};
+        addBreak(result, rawEffect[3]);
+    
+    // Randomly use skills
+    } else if (rawEffect[2] == 29) { 
+        result = {"randomlyUse": []};
+        for (var i = 0, len = rawEffect[3].length; i < len; i++) {
+            var data = rawEffect[3][i];
+            if (data && data[0] && skills[data[0]]) {
+                var skillIn = skills[data[0]];
+                var skill = parseActiveSkill(skillIn, skills);
+                result.randomlyUse.push({"skill":skill, "percent":data[1]});
+            }
         }
-        return result;
     }
-    return null;
+    if (result) {
+        if (rawEffect[0] == 1) {
+            result.area = "ST";
+        } else if (rawEffect[0] == 2) {
+            result.area = "AOE";
+        } else {
+            console.log("unknown area : " + JSON.stringify(rawEffect));
+        }
+        
+        if (rawEffect[1] == 1) {
+            result.target = "ENEMY";
+        } else if (rawEffect[1] == 2) {
+            result.target = "ALLY";
+        } else {
+            console.log("unknown target : " + JSON.stringify(rawEffect));
+        }
+    }
+    return result;
 }
 
 function addToStat(skill, stat, value) {
@@ -701,10 +730,29 @@ function addImperil(item, values) {
             if (!item.imperil) {
                 item.imperil = {"elements":[]};
             }
-            item.imperil.elements.push({"name":elements[index],"percent":values[index]})
+            item.imperil.elements.push({"name":elements[index],"percent":-values[index]})
         }
     }
     item.imperil.turns = values[9];
+}
+
+function addBreak(item, values) {
+    if (!item.break) {
+        item.break = {};
+    }
+    if (values[0]) {
+        item.break.atk = -values[0];
+    }
+    if (values[1]) {
+        item.break.def = -values[1];
+    }
+    if (values[2]) {
+        item.break.mag = -values[2];
+    }
+    if (values[3]) {
+        item.break.spr = -values[3];
+    }
+    item.break.turns = values[4];
 }
 
 function addLbPerTurn(item, min, max) {
@@ -906,21 +954,7 @@ function formatForSearch(units) {
             var activeAndMagic = unit.actives.concat(unit.magics);
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
-                for (var j = skill.effects.length; j--;) {
-                    var effect = skill.effects[j];
-                    if (effect.effect) {
-                        if (effect.effect.imperil) {
-                            if (!unitOut.imperil) {
-                                unitOut.imperil = {};
-                            }
-                            for (var k = effect.effect.imperil.elements.length; k--;) {
-                                if (!unitOut.imperil[effect.effect.imperil.elements[k].name] || unitOut.imperil[effect.effect.imperil.elements[k].name] > effect.effect.imperil.elements[k].percent) {
-                                    unitOut.imperil[effect.effect.imperil.elements[k].name] = effect.effect.imperil.elements[k].percent;
-                                }
-                            }
-                        }
-                    }
-                }
+                addSkillEffectToSearch(skill, unitOut);
             }
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
@@ -934,6 +968,44 @@ function formatForSearch(units) {
     }
     result += "\n]";
     return result;
+}
+
+function addSkillEffectToSearch(skill, unitOut) {
+    for (var i = skill.effects.length; i--;) {
+        var effect = skill.effects[i];
+        if (effect.effect) {
+            if (effect.effect.imperil) {
+                if (!unitOut.imperil) {
+                    unitOut.imperil = {};
+                }
+                for (var j = effect.effect.imperil.elements.length; j--;) {
+                    if (!unitOut.imperil[effect.effect.imperil.elements[j].name] || unitOut.imperil[effect.effect.imperil.elements[j].name] > effect.effect.imperil.elements[j].percent) {
+                        unitOut.imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
+                    }
+                }
+            } else if (effect.effect.randomlyUse) {
+                for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
+                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill, unitOut);
+                }
+            } else if (effect.effect.break && effect.effect.target == "ENEMY") {
+                if (!unitOut.break) {
+                    unitOut.break = {};
+                }
+                if (!unitOut.break.atk || unitOut.break.atk < effect.effect.break.atk) {
+                    unitOut.break.atk = effect.effect.break.atk;
+                }
+                if (!unitOut.break.def || unitOut.break.def < effect.effect.break.def) {
+                    unitOut.break.def = effect.effect.break.def;
+                }
+                if (!unitOut.break.mag || unitOut.break.atk < effect.effect.break.mag) {
+                    unitOut.break.mag = effect.effect.break.mag;
+                }
+                if (!unitOut.break.spr || unitOut.break.spr < effect.effect.break.spr) {
+                    unitOut.break.spr = effect.effect.break.spr;
+                }
+            }
+        }
+    }
 }
 
 function formatForSkills(units) {
