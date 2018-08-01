@@ -99,7 +99,8 @@ function sortUnits(units) {
                 return 1
             }
         }
-        return 1;
+        
+        return unit1.unit.name.localeCompare(unit2.unit.name);
     });
     return units;
 }
