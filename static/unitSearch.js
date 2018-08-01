@@ -47,7 +47,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                         if (physicalKillers.length == 0 || containAllKeyPositive(unit.physicalKillers, physicalKillers)) {
                             if (magicalKillers.length == 0 || containAllKeyPositive(unit.magicalKillers, magicalKillers)) {
                                 if (imperils.length == 0 || containAllKeyNegative(unit.imperil, imperils)) {
-                                    if (searchText.length == 0 || containsText(searchText, units[unit.id].name)) {
+                                    if (searchText.length == 0 || units[unit.id].name.indexOf(searchText) >= 0 ) {
                                         result.push({"searchData": unit, "unit": units[unit.id]});
                                     }
                                 }
