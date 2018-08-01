@@ -56,7 +56,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
 
                             var filename = 'unitsWithPassives.json';
                             if (languageId != 0) {
-                                filename = 'unitsWithPassives' + languages[languageId] +'.json';
+                                filename = 'unitsWithPassives_' + languages[languageId] +'.json';
                             }
                             fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
                             filename = 'units.json';
