@@ -905,7 +905,7 @@ function addToKiller(killers, newKiller) {
 }
 
 
-function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = killerList) {
+function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = killerList) {
     var physicalKillerString = "";
     var magicalKillerString = "";
     var killerValues = [];
