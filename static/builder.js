@@ -2079,7 +2079,7 @@ function startPage() {
     getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
-        getStaticData("unitsWithSkill", true, function(result) {
+        getStaticData("unitsWithPassives", true, function(result) {
             units = result;
             populateUnitSelect();
             prepareSearch(data);

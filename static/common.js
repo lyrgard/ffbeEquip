@@ -921,7 +921,7 @@ function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = ki
             }
         }
         if (killerData) {
-            if (killerData.physical && physicalKiller.includes(killerData.name) ) {
+            if (killerData.physical) {
                 if (!killerValues.includes(killerData.physical)) {
                     killerValues.push(killerData.physical);
                 }
@@ -930,7 +930,7 @@ function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = ki
                 }
                 physicalRacesByValue[killerData.physical].push(race);
             }
-            if (killerData.magical  && magicalKillers.includes(killerData.name)) {
+            if (killerData.magical) {
                 if (!killerValues.includes(killerData.magical)) {
                     killerValues.push(killerData.magical);
                 }
@@ -944,10 +944,16 @@ function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = ki
     killerValues = killerValues.sort((a, b) => b - a);
     for (var i = 0; i < killerValues.length; i++) {
         if (physicalRacesByValue[killerValues[i]]) {
-            physicalKillerString += '<span class="killerValueGroup">'
+            physicalKillerString += '<span class="killerValueGroup physical ';
+            var imgs = ""
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                physicalKillerString += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
+                imgs += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
+                physicalKillerString + physicalRacesByValue[killerValues[i]][j] + " ";
             }
+            if (matches(physicalKillers, physicalRacesByValue[killerValues[i]])) {
+                physicalKillerString += "selected";
+            }
+            physicalKillerString += '">' + imgs;
             var killerString;
             if (killerValues[i] > 300) {
                 killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
@@ -957,11 +963,23 @@ function getKillerHtml(killers, physicalKiller = killerList, magicalKillers = ki
             physicalKillerString += killerString + '</span>';
         }
         if (magicalRacesByValue[killerValues[i]]) {
-            magicalKillerString += '<span class="killerValueGroup">'
+            magicalKillerString += '<span class="killerValueGroup magical ';
+            var imgs = ""
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                magicalKillerString += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
+                imgs += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
+                magicalKillerString + magicalRacesByValue[killerValues[i]][j] + " ";
             }
-            magicalKillerString += killerValues[i] + '%</span>';
+            if (matches(magicalKillers, magicalRacesByValue[killerValues[i]])) {
+                magicalKillerString += "selected";
+            }
+            magicalKillerString += '">' + imgs;
+            var killerString;
+            if (killerValues[i] > 300) {
+                killerString = '<span style="color:red;" title="Only 300% taken into account">' + killerValues[i] + '%</span>';
+            } else {
+                killerString = killerValues[i] + '%';
+            }
+            magicalKillerString += killerString + '</span>';
         }
     }
     return {"physical" : physicalKillerString, "magical": magicalKillerString}

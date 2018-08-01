@@ -54,9 +54,9 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                                 }
                             }
 
-                            var filename = 'unitsWithSkill.json';
+                            var filename = 'unitsWithPassives.json';
                             if (languageId != 0) {
-                                filename = 'unitsWithSkill_' + languages[languageId] +'.json';
+                                filename = 'unitsWithPassives' + languages[languageId] +'.json';
                             }
                             fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
                             filename = 'units.json';
@@ -64,7 +64,11 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                                 filename = 'units_' + languages[languageId] +'.json';
                             }
                             fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-                            fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                            
+                            if (languageId == 0) {
+                                fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                            }
                         }
                     }
                 });

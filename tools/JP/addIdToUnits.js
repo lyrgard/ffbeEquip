@@ -5,7 +5,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     if (!error && response.statusCode == 200) {
         console.log("units.json downloaded");
         var unitsBase = JSON.parse(body);
-        fs.readFile('../static/GL/unitsWithSkill.json', function (err, content) {
+        fs.readFile('../static/GL/unitsWithPassives.json', function (err, content) {
             var oldUnits = JSON.parse(content);
             for (var index in unitsBase) {
                 var baseUnit = unitsBase[index];
@@ -23,7 +23,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                     unit.id = id;
                 }
             }
-            fs.writeFileSync('unitsWithSkill.json', JSON.stringify(oldUnits));
+            fs.writeFileSync('unitsWithPassives.json', JSON.stringify(oldUnits));
         });
     }
 });
