@@ -1,5 +1,7 @@
 .unit {
     display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
     margin-bottom: 10px;
 }
 
@@ -18,4 +20,54 @@
 
 .elementalResistance {
     margin-right: 5px;
+    opacity: 0.5;
+}
+
+.elementalResistance.selected {
+    opacity: 1;
+}
+
+.ailmentResistances img {
+    width: 30px;
+    margin-right: 2px;
+}
+
+.ailmentResistance {
+    margin-right: 5px;
+    opacity: 0.5;
+}
+
+.ailmentResistance.selected {
+    opacity: 1;
+}
+
+.killerValueGroup {
+    opacity: 0.5;
+}
+
+.killerValueGroup.selected {
+    opacity: 1;
+}
+
+.skill {
+    display: flex;
+}
+
+.skill .skillIcon {
+    width: 45px;
+}
+
+.nameAndEffects {
+    display: flex;
+    flex-direction: column;
+    font-size: 90%;
+    padding-top: 5px;
+}
+
+.nameAndEffects .name {
+    font-weight: bold;
+}
+
+#results .selected {
+    font-weight: bold;
 }

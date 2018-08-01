@@ -99,6 +99,19 @@ function sortUnits(units) {
                 return 1
             }
         }
+        if (ailments) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = ailments.length; i--;) {
+                value1 += unit1.searchData.ailmentResist[ailments[i]];
+                value2 += unit2.searchData.ailmentResist[ailments[i]];
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
         
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
@@ -168,6 +181,7 @@ var displayUnits = function(units) {
     } else {
         $("#results .thead .inventory").addClass("hidden");
     }
+    
 };
 
 function displayUnitsAsync(units, start, div) {
@@ -192,15 +206,50 @@ function displayUnitsAsync(units, start, div) {
         html += killersHtml.physical;
         html += killersHtml.magical;
         html += '</div>';
+        
         html += '<div class="elementalResistances">';
-        if (unitData.searchData.elementalResist && elements.length > 0) {
+        if (unitData.searchData.elementalResist) {
             for (var i = 0, len = elementList.length; i < len; i++) {
-                if (elements.includes(elementList[i]) && unitData.searchData.elementalResist[elementList[i]]) {
-                    html+= '<span class="elementalResistance"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%</span>';
+                if (unitData.searchData.elementalResist[elementList[i]]) {
+                    html+= '<span class="elementalResistance ' + elementList[i];
+                    if (elements.includes(elementList[i])) {
+                        html+= " selected";
+                    }
+                    html+= '"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.elementalResist[elementList[i]] + '%</span>';
                 }
             }
         }
         html += '</div>';
+        
+        html += '<div class="ailmentResistances">';
+        if (unitData.searchData.ailmentResist) {
+            for (var i = 0, len = ailmentList.length; i < len; i++) {
+                if (unitData.searchData.ailmentResist[ailmentList[i]]) {
+                    html+= '<span class="ailmentResistance ' + ailmentList[i];
+                    if (ailments.includes(ailmentList[i])) {
+                        html+= " selected";
+                    }
+                    html+= '"><img src="img/' + ailmentList[i] + '.png"/>' + unitData.searchData.ailmentResist[ailmentList[i]] + '%</span>';
+                }
+            }
+        }
+        html += '</div>';
+        
+        html += '<div class="passives">';
+            for (var i = 0, len = unitData.unit.passives.length; i < len; i++) {
+                var passive = unitData.unit.passives[i];
+                if (mustDisplaySkill(passive)) {
+                    html += '<div class="skill">';
+                    html += '<div><img class="skillIcon" src="img/items/' + passive.icon + '"/></div>'
+                    html += '<div class="nameAndEffects"><span class="name">' + passive.name + '</span>'
+                    for (var j = passive.effects.length; j--;) {
+                        html += '<span class="effect">' + passive.effects[j].desc + '</span>';
+                    }
+                    html += '</div></div>';            
+                }
+            }
+        html += '</div>';
+        
         html += '</div>';
         html += '</div>';
     }
@@ -208,7 +257,31 @@ function displayUnitsAsync(units, start, div) {
     if (index < units.length) {
         setTimeout(displayUnitsAsync, 0, units, index, div);
     } else {
-        afterDisplay();
+        setTimeout(afterDisplay, 0);
+    }
+}
+
+function mustDisplaySkill(skill) {
+    var mustBeDisplayed = false;
+    for (var j = skill.effects.length; j--;) {
+        var effect = skill.effects[j];
+        if (effect.effect) {
+            if (types.length > 0 && effect.effect.equipedConditions && matches(effect.effect.equipedConditions, types)) {
+                return true;
+            }
+            if (elements.length > 0 && effect.effect.resist && matches(elements, effect.effect.resist.map(function(resist){return resist.name;}))) {
+                return true;
+            }
+            if (ailments.length > 0 && effect.effect.resist && matches(ailments, effect.effect.resist.map(function(resist){return resist.name;}))) {
+                return true;
+            }
+            if (physicalKillers.length > 0 && effect.effect.killers && matches(physicalKillers, effect.effect.killers.map(function(killer){return killer.name;}))) {
+                return true;
+            }
+            if (magicalKillers.length > 0 && effect.effect.killers && matches(magicalKillers, effect.effect.killers.map(function(killer){return killer.name;}))) {
+                return true;
+            }
+        }
     }
 }
 
@@ -233,6 +306,7 @@ function afterDisplay() {
     } else {
         $("#results .thead .inventory").addClass("hidden");
     }
+    
 }
 
 // Unselect all values for a filter of the given type. if runUpdate = true, then call update() function
@@ -272,9 +346,9 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
-        getStaticData("units", true, function(result) {
+        getStaticData("unitsWithSkill", false, function(result) {
             units = result;
-            getStaticData("unitSearch", false, function(result) {
+            getStaticData("unitSearch", false, function(result) {    
                 unitSearch = result;
                 update();
             });

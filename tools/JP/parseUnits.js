@@ -71,9 +71,10 @@ getData('units.json', function (units) {
                         }
                     }
 
-                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatOutput(unitsOut));
+                    fs.writeFileSync('unitsWithPassives.json', commonParse.formatOutput(unitsOut));
                     fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
                     fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
                 });
             });
         });
