@@ -491,6 +491,7 @@ function farmedTMR(unitId) {
             } else {
                 itemInventory[data[index].id] = 1;
             }
+            break;
         }
     }
     removeFromFarmableNumberFor(unitId);
@@ -505,6 +506,7 @@ function farmedSTMR(unitId) {
             } else {
                 itemInventory[data[index].id] = 1;
             }
+            break;
         }
     }
     removeFromStmrFarmableNumberFor(unitId);
