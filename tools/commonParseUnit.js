@@ -607,9 +607,14 @@ function parseActiveRawEffect(rawEffect) {
     var result = {};
     
     // Imperil
-    if (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 33) { 
+    if ((rawEffect[0] == 1 || rawEffect[0] == 2)  && rawEffect[1] == 1 && rawEffect[2] == 33) { 
         var imperilData = rawEffect[3];
         addImperil(result, imperilData);
+        if (rawEffect[0] == 1) {
+            result.target = "ST";
+        } else {
+            result.target = "AOE";
+        }
         return result;
     }
     return null;
@@ -700,9 +705,6 @@ function addImperil(item, values) {
         }
     }
     item.imperil.turns = values[9];
-    if (values[8] == 1) {
-        item.imperil.target = "ST";
-    }
 }
 
 function addLbPerTurn(item, min, max) {
