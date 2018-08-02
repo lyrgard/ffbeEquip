@@ -136,8 +136,8 @@ getData('equipment.json', function (items) {
                                 if (!unit.names) {
                                     continue;
                                 }
-                                unitNamesById[unitIndex] = {"name":unit.names[languageId], "minRarity":unit.rarity_min};
-
+                                unitNamesById[unitIndex] = {"name":unit.names[languageId], "minRarity":unit.rarity_min, "maxRarity":unit.rarity_max};
+                                
                                 if (unit.TMR) {
                                     unitIdByTmrId[unit.TMR[1]] = unitIndex;
                                     if (unit.rarity_min > 3 && !unit.is_summonable) {
@@ -224,13 +224,12 @@ function treatItem(items, itemId, result, skills) {
     }
     if (unitIdBySTmrId[itemOut.id]) {
         var unitId = unitIdBySTmrId[itemOut.id];
-        var unit = unitNamesById[uitId];
+        var unit = unitNamesById[unitId];
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
         addAccess(itemOut,"STMR");   
-        if (!releasedUnits[uitId] || unit.max_rarity < 7) {
+        if (!releasedUnits[unitId] || unit.maxRarity < 7) {
             addAccess(itemOut,"not released yet");
         }
-        console.log(itemOut);
     }
     
     if (itemIn.requirements) {
