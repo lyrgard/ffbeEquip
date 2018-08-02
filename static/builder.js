@@ -144,7 +144,8 @@ function optimize() {
             "type":"setData", 
             "server": server,
             "espers":espersToSend,
-            "unit":builds[currentUnitIndex].unit, 
+            "unit":builds[currentUnitIndex].unit,
+            "level":builds[currentUnitIndex]._level,
             "fixedItems":builds[currentUnitIndex].fixedItems, 
             "baseValues":builds[currentUnitIndex].baseValues,
             "innateElements":builds[currentUnitIndex].innateElements,
@@ -703,6 +704,13 @@ function onUnitChange() {
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
+            if (unitData.max_rarity == 7 && !unitData.sixStarForm) {
+                $("#unitLevel").removeClass("hidden");
+                $("#unitLevel select").val("120");
+                builds[currentUnitIndex].setLevel(120);
+            } else {
+                $("#unitLevel").addClass("hidden");
+            }
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
             $("#help").addClass("hidden");
@@ -730,7 +738,7 @@ function displayUnitEnhancements() {
         var html = "";
         for (var i = 0, len = builds[currentUnitIndex].unit.enhancements.length; i < len; i++) {
             var enhancement = builds[currentUnitIndex].unit.enhancements[i];
-            html += '<div class="col-xs-6"><select class="form-control" onchange="onUnitChange();" id="enhancement_' + i + '">';
+            html += '<div class="col-xs-6 unitEnhancement"><select class="form-control" onchange="onUnitChange();" id="enhancement_' + i + '">';
             for (var j = 0, lenJ = enhancement.levels.length; j < lenJ; j++) {
                 html += '<option value="'+ j + '"';
                 if (builds[currentUnitIndex].unit.enhancementLevels[i] == j) {
@@ -756,7 +764,7 @@ function displayUnitEnhancements() {
 function updateUnitStats() {
     $(baseStats).each(function (index, stat) {
         if (builds[currentUnitIndex].unit) {
-            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].unit.stats.maxStats[stat]);
+            $(".unitStats .stat." + stat + " .baseStat input").val(builds[currentUnitIndex].getStat(stat));
             if (builds[currentUnitIndex].baseValues[stat]) {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].baseValues[stat].pots);
                 $(".unitStats .stat." + stat + " .buff input").val(builds[currentUnitIndex].baseValues[stat].buff);
@@ -1290,7 +1298,7 @@ function recalculateApplicableSkills() {
     builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,11);
     for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
         var skill = builds[currentUnitIndex].unit.skills[skillIndex];
-        if (areConditionOK(skill, builds[currentUnitIndex].build)) {
+        if (areConditionOK(skill, builds[currentUnitIndex].build, builds[currentUnitIndex]._level)) {
             builds[currentUnitIndex].build.push(skill);
         }
     }
@@ -2162,6 +2170,12 @@ function startPage() {
     $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
+    $("#unitLevel select").change(function() {
+        builds[currentUnitIndex].setLevel($("#unitLevel select").val());
+        updateUnitStats();
+        recalculateApplicableSkills();
+        logCurrentBuild();
+    });
 }
 
 var counter = 0;
