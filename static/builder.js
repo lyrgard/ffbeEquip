@@ -1596,6 +1596,9 @@ function getStateHash(onlyCurrent = true) {
                 "magical":build.baseValues.mitigation.magical,
                 "global":build.baseValues.mitigation.global
             }
+            if (build._level) {
+                unit.level = build._level;
+            }
             data.units.push(unit);
         }
     }
@@ -1756,6 +1759,13 @@ function loadStateHashAndBuild(data) {
             builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
             displayUnitEnhancements();
             onUnitChange();
+        }
+        
+        if (unit.level) {
+            $("#unitLevel select").val(unit.level);
+            builds[currentUnitIndex].setLevel(unit.level);
+            updateUnitStats();
+            recalculateApplicableSkills();
         }
 
         select("elements", unit.innateElements);

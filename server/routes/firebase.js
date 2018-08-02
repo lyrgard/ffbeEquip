@@ -77,7 +77,8 @@ const partyBuildSchema = Joi.object().keys({
             global: Joi.number().min(0).max(100),
             physical: Joi.number().min(0).max(100),
             magical: Joi.number().min(0).max(100)
-        })    
+        }),
+        level: Joi.number().min(0).max(120)
     })).required(),
     "monster":Joi.object().keys({
         "races": Joi.array().items(
