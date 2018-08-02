@@ -7,10 +7,21 @@ class BuildOptimizer {
     set unitBuild(unitBuild) {
         this._unitBuild = unitBuild;
         this.desirableElements = [];
+        this.desirableItemIds = [];
         for (var index = 0, len = this._unitBuild.unit.skills.length; index < len; index++) {
             var skill = this._unitBuild.unit.skills[index];
-            if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !this.desirableElements.includes(skill.equipedConditions[0])) {
-                this.desirableElements.push(skill.equipedConditions[0]);
+            if (skill.equipedConditions) {
+                for (var i = skill.equipedConditions.length; i--;) {
+                    if (elementList.includes(skill.equipedConditions[i])) {
+                        if (!this.desirableElements.includes(skill.equipedConditions[i])) {
+                            this.desirableElements.push(skill.equipedConditions[i]);            
+                        }
+                    } else if (!typeList.includes(skill.equipedConditions[i])) {
+                        if (!this.desirableItemIds.includes(skill.equipedConditions[i])) {
+                            this.desirableItemIds.push(skill.equipedConditions[i]);            
+                        }
+                    }
+                }
             }
         }
     }
@@ -138,7 +149,7 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this._unitBuild.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
+        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
         return resultTree;
     }
     
