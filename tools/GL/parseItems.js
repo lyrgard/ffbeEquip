@@ -76,6 +76,7 @@ const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
+var unitIdBySTmrId = {};
 var oldItemsAccessById = {};
 var oldItemsEventById = {};
 var oldItemsMaxNumberById = {};
@@ -143,10 +144,10 @@ getData('equipment.json', function (items) {
                                         unitNamesById[unitIndex].event = true;
                                     }
                                 }
+                                if (unit.sTMR) {
+                                    unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                }
                             }
-
-                            
-
 
 
                             var result = {"items":[]};
@@ -221,6 +222,13 @@ function treatItem(items, itemId, result, skills) {
 
         itemOut.tmrUnit = unitIdByTmrId[itemOut.id];
     }
+    if (unitIdBySTmrId[itemOut.id]) {
+        var unitId = unitIdBySTmrId[itemOut.id];
+        itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
+        addAccess(itemOut,"STMR");   
+        console.log(itemOut);
+    }
+    
     if (itemIn.requirements) {
         if (itemIn.requirements[0] == "SEX") {
             if (itemIn.requirements[1] == 1) {
@@ -756,7 +764,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
@@ -788,7 +796,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exviusdb.com/asset_files/global/item_item1_common/89/" + icon ,filePath);
+        download("http://diffs.exviusdb.com/asset_files/global/item_item1_common/90/" + icon ,filePath);
     }
 }
 
