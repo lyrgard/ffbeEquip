@@ -547,7 +547,10 @@ function isApplicable(item, unit) {
     return true;
 }
 
-function areConditionOK(item, equiped) {
+function areConditionOK(item, equiped, level = 0) {
+    if (level && item.levelCondition && item.levelCondition > level) {
+        return false;
+    }
     if (item.equipedConditions) {
         var found = 0;
         for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {

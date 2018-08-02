@@ -80,6 +80,7 @@ var unlockedSkills = {
 function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData, unitOut) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
+    var skillsOutSave = skillsOut;
     unitOut.passives = [];
     unitOut.actives = [];
     unitOut.magics = [];
@@ -139,6 +140,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             if (Object.keys(enhancementBaseEffects).length === 0) {
                 enhancementSkillsOut.splice(0,1);
             }
+            if (skillsIn[skillIndex].level > 101) {
+                for (var i = enhancementSkillsOut.length; i--;) {
+                    enhancementSkillsOut[i].levelCondition = skillsIn[skillIndex].level;
+                }   
+            }
             enhancementData.levels.push(enhancementSkillsOut);
             var enhancementLevel = 0;
             while(enhancements[skillId]) {
@@ -153,6 +159,11 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
                 
                 if (Object.keys(enhancementBaseEffects).length === 0) {
                     enhancementSkillsOut.splice(0,1);
+                }
+                if (skillsIn[skillIndex].level > 101) {
+                    for (var i = enhancementSkillsOut.length; i--;) {
+                        enhancementSkillsOut[i].levelCondition = skillsIn[skillIndex].level;
+                    }   
                 }
                 enhancementData.levels.push(enhancementSkillsOut);
             }
@@ -169,7 +180,21 @@ function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData
             continue;
         }
         
-        var skill = getPassive(skillIn, baseEffects, skillsOut);
+        if (skillsIn[skillIndex].level > 101) {
+            baseEffectsLevelCondition = {};
+            skillsOutLevelCondition = [];
+            var skill = getPassive(skillIn, baseEffectsLevelCondition, skillsOutLevelCondition);
+            if (!(Object.keys(baseEffectsLevelCondition).length === 0)) {
+                baseEffectsLevelCondition.levelCondition = skillsIn[skillIndex].level;
+                skillsOut.push(baseEffectsLevelCondition);
+            }
+            for (var i = skillsOutLevelCondition.length; i--;) {
+                skillsOutLevelCondition[i].levelCondition = skillsIn[skillIndex].level;
+                skillsOut.push(skillsOutLevelCondition[i]);
+            }
+        } else {
+            var skill = getPassive(skillIn, baseEffects, skillsOut);
+        }
         unitOut.passives.push(skill);
     }
     if (unlockedSkills[unitId]) {
@@ -645,7 +670,7 @@ function parseActiveRawEffect(rawEffect, skills) {
         } else if (rawEffect[0] == 2) {
             result.area = "AOE";
         } else {
-            console.log("unknown area : " + JSON.stringify(rawEffect));
+            //console.log("unknown area : " + JSON.stringify(rawEffect));
         }
         
         if (rawEffect[1] == 1) {
@@ -653,7 +678,7 @@ function parseActiveRawEffect(rawEffect, skills) {
         } else if (rawEffect[1] == 2) {
             result.target = "ALLY";
         } else {
-            console.log("unknown target : " + JSON.stringify(rawEffect));
+            //console.log("unknown target : " + JSON.stringify(rawEffect));
         }
     }
     return result;
@@ -783,7 +808,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
@@ -896,6 +921,7 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
     }
     result += "\n" + prefix + "\t\t\"stats\": {";
     result += "\n" + prefix + "\t\t\t\"maxStats\":" + JSON.stringify(unit.stats.maxStats) + ",";
+    result += "\n" + prefix + "\t\t\t\"minStats\":" + JSON.stringify(unit.stats.minStats) + ",";
     result += "\n" + prefix + "\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
     result += "\n" + prefix + "\t\t},";
     result += "\n" + prefix + "\t\t\"equip\":" + JSON.stringify(unit.equip);
