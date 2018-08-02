@@ -259,7 +259,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notOwned';
         }
-        if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
+        if (ownedUnits[unit.id] && (!is7Stars  && ownedUnits[unit.id].farmable > 0) || (is7Stars && ownedUnits[unit.id].farmableStmr > 0)) {
             html += ' farmable';
         }
         if (!is7Stars && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 2) {
@@ -307,7 +307,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         var removeFromFarmableFunction = (is7Stars ? "removeFromStmrFarmableNumberFor" : "removeFromFarmableNumberFor");
         html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFromFarmableFunction + '(\'' + unit.id +'\');"></span></div>';
         var farmedFunction = (is7Stars ? "farmedSTMR" : "farmedTMR");
-        html += '<img class="farmedButton" onclick="event.stopPropagation();' + farmedFunction + '(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>'
+        html += '<img class="farmedButton" onclick="event.stopPropagation();' + farmedFunction + '(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="' +  (is7Stars ? 'STMR acquired !' : 'TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1') + '"></img>';
         html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/redCrystal.png" title="Awaken this unit !"></img>'
         var formToDisplay = unit.max_rarity;
         if (formToDisplay == 7 && unit.min_rarity != 7) {
