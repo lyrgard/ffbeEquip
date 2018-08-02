@@ -51,7 +51,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                 if (magicalKillers.length == 0 || containAllKeyPositive(unit.magicalKillers, magicalKillers)) {
                                     if (imperils.length == 0 || containAllKeyPositive(unit.imperil, imperils)) {
                                         if (breaks.length == 0 || containAllKeyPositive(unit.break, breaks)) {                                    
-                                            if (searchText.length == 0 || units[unit.id].name.indexOf(searchText) >= 0 ) {
+                                            if (searchText.length == 0 || units[unit.id].name.toLowerCase().indexOf(searchText) >= 0 ) {
                                                 result.push({"searchData": unit, "unit": units[unit.id]});
                                             }
                                         }
@@ -168,7 +168,7 @@ var containAllKeyPositive = function(object, array) {
                 
 // Read filter values into the corresponding variables
 var readFilterValues = function() {
-	searchText = $("#searchText").val();
+	searchText = $("#searchText").val().toLocaleLowerCase();
     
     types = getSelectedValuesFor("types");
     elements = getSelectedValuesFor("elements");
