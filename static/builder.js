@@ -992,9 +992,7 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().removeClass("hidden");
         $("#excludeTMR5").parent().removeClass("hidden");
         $("#excludeNotReleasedYet").parent().removeClass("hidden");
-        if (server == "JP") {
-            $("#excludeSTMR").parent().removeClass("hidden");
-        }
+        $("#excludeSTMR").parent().removeClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
@@ -1023,9 +1021,7 @@ function onEquipmentsChange() {
         $("#excludePremium").parent().addClass("hidden");
         $("#excludeTMR5").parent().addClass("hidden");
         $("#excludeNotReleasedYet").parent().addClass("hidden");
-        if (server == "JP") {
-            $("#excludeSTMR").parent().addClass("hidden");
-        }
+        $("#excludeSTMR").parent().addClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
