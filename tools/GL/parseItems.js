@@ -224,8 +224,12 @@ function treatItem(items, itemId, result, skills) {
     }
     if (unitIdBySTmrId[itemOut.id]) {
         var unitId = unitIdBySTmrId[itemOut.id];
+        var unit = unitNamesById[uitId];
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
         addAccess(itemOut,"STMR");   
+        if (!releasedUnits[uitId] || unit.max_rarity < 7) {
+            addAccess(itemOut,"not released yet");
+        }
         console.log(itemOut);
     }
     
