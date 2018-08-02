@@ -74,7 +74,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Retaliate","Ultima","Dystopia"],
 		"skills": [
-			{"mp%":30, "def%":25, "mag%":50, "spr%":25, "dualWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
+			{"mp%":30, "def%":25, "mag%":50, "spr%":25, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"hp%":30, "mag%":50, "resist":[{"name":"dark","percent":50}], "equipedConditions":["504204590"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
 		],
@@ -1278,7 +1278,7 @@
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
 		"skills": [
-			{"mp%":30, "mag%":50, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
+			{"mp%":30, "mag%":50, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
 			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "equipedConditions":["405002000"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip"]}
 		],
@@ -4095,7 +4095,7 @@
 		"skills": [
 			{"hp%":40, "mp%":40, "mag%":70, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},
 			{"atk%":50, "mag%":50, "equipedConditions":["throwing"]},
-			{"dualWielding":{"mag":50}, "equipedConditions":["315021900"]}
+			{"singleWielding":{"mag":60}, "dualWielding":{"mag":50}, "equipedConditions":["315021900"]}
 		],
 		"6_form": {
 			"name":"莉諾雅",
@@ -4518,7 +4518,7 @@
 		},
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"def%":20, "mag%":120, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"def%":20, "mag%":120, "spr%":30, "singleWielding":{"mag":60}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"equipedConditions":["310003700"]}
 		],
 		"6_form": {

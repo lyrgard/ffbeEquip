@@ -426,6 +426,16 @@ function parsePassiveRawEffet(rawEffect, baseEffects, skillsOut) {
         }
         return result;
 
+    // MAG DH
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 70) {
+        if (rawEffect[3][2] == 0) {
+            if (!baseEffects.singleWieldingOneHanded) {baseEffects.singleWieldingOneHanded = {}};
+            addToStat(baseEffects.singleWieldingOneHanded,"mag",rawEffect[3][0]);    
+        } else if (rawEffect[3][2] == 2) {
+            if (!baseEffects.singleWielding) {baseEffects.singleWielding = {}};
+            addToStat(baseEffects.singleWielding,"mag",rawEffect[3][0]);    
+        }
+        
     // +EQ stat when dual wielding
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
         if (!baseEffects.dualWielding) {baseEffects.dualWielding = {}};
