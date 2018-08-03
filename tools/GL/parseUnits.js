@@ -94,6 +94,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
                 unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
             }
+            data["stats_pattern"] = unitData.stat_pattern;
             if (unitData.ability_slots != 4) {
                 data["materiaSlots"] = unitData.ability_slots;
             }
@@ -146,7 +147,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
 
 
 function verifyImage(serieId, minRarity, maxRarity) {
-    /*for (var i = minRarity; i <= maxRarity; i++) {
+    for (var i = minRarity; i <= maxRarity; i++) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
@@ -156,7 +157,7 @@ function verifyImage(serieId, minRarity, maxRarity) {
         if (!fs.existsSync(filePath)) {
             download("http://diffs.exviusdb.com/asset_files/global/unit_unit6_common/8/unit_icon_" + unitId + ".png",filePath);
         }
-    }*/
+    }
 }
 
 var download = function(uri, filename, callback){
