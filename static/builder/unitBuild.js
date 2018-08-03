@@ -260,7 +260,7 @@ class UnitBuild {
                     "atk": this.unit.stats.minStats.atk + Math.round((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * this._level / 120),
                     "def": this.unit.stats.minStats.def + Math.round((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * this._level / 120),
                     "mag": this.unit.stats.minStats.mag + Math.round((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * this._level / 120),
-                    "spr": this.unit.stats.minStats.hp + Math.round((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * this._level / 120),
+                    "spr": this.unit.stats.minStats.spr + Math.round((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * this._level / 120),
                 };
             } else {
                 this.stats = this.unit.stats.maxStats;
