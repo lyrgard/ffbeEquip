@@ -79,6 +79,9 @@ var goalVariation = "min";
 var initialPinnedWeapons;
 var currentEnchantmentItem;
 
+var savedBuilds = null;
+var currentSavedBuildIndex = -1;
+
 function build() {
     if (running) {
         for (var index = workers.length; index--; index) {
@@ -721,6 +724,10 @@ function onUnitChange() {
             }
             recalculateApplicableSkills();
             logCurrentBuild();
+            
+            if (itemInventory) {
+                $("#saveTeamButton").removeClass("hidden");
+            }
         } else {
             builds[currentUnitIndex].setUnit(null);
             reinitBuild(currentUnitIndex); 
@@ -865,7 +872,7 @@ function loadBuild(buildIndex) {
 function addNewUnit() {
     $("#unitTabs li").removeClass("active");
     let newId = builds.length;
-    var newTab = $("<li class='active tab_" + newId + "'><a href='#'>Select unit</a><span class=\"closeTab glyphicon glyphicon-remove\" onclick=\"closeCurrentTab()\"></span></li>");
+    var newTab = $("<li class='active tab_" + newId + "'><a href='#'>Select unit</a><span class=\"closeTab glyphicon glyphicon-remove\" onclick=\"closeTab()\"></span></li>");
     $("#unitTabs .tab_" + (newId - 1)).after(newTab);
     newTab.click(function() {
         selectUnitTab(newId);
@@ -888,19 +895,23 @@ function selectUnitTab(index) {
     loadBuild(index);
 }
 
-function closeCurrentTab() {
+function closeTab(index = currentUnitIndex) {
     
-    $("#unitTabs .tab_" + currentUnitIndex).remove();
-    for (var i = currentUnitIndex + 1; i < builds.length; i++) {
+    $("#unitTabs .tab_" + index).remove();
+    for (var i = index + 1; i < builds.length; i++) {
         let newId = i-1;
         $("#unitTabs .tab_" + i).removeClass("tab_" + i).addClass("tab_" + newId).off('click').click(function() {
             selectUnitTab(newId);
         });
         
     }
-    builds.splice(currentUnitIndex, 1);
-    currentUnitIndex--;
-    selectUnitTab(currentUnitIndex);
+    builds.splice(index, 1);
+    if (index == currentUnitIndex) {
+        currentUnitIndex--;
+        selectUnitTab(currentUnitIndex);    
+    } else if (index < currentUnitIndex) {
+        currentUnitIndex--;
+    }
 }
 
 // Displays selected unit's rarity by stars
@@ -930,7 +941,7 @@ function inventoryLoaded() {
         $(".equipments select").val("owned");
         onEquipmentsChange();
     }
-    
+    $("#savedTeamPanel").removeClass("hidden");
 }
 
 function notLoaded() {
@@ -1842,7 +1853,7 @@ function showBuildLink(onlyCurrentUnit) {
               '</div>' ).dialog({
                 modal: true,
                 open: function(event, ui) {
-                    $(this).parent().css('position', 'fixed');
+                    $(this).parent().css('position', 'absolute');
                     $(this).parent().css('top', '150px');
                     $("#showLinkDialog input").select();
                     try {
@@ -1908,7 +1919,7 @@ function showExcludedItems() {
       '</div>' ).dialog({
         modal: true,
         open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
+            $(this).parent().css('position', 'absolute');
             $(this).parent().css('top', '150px');
         },
         width: (($(window).width() > 600) ? 600: $(window).width())
@@ -1936,7 +1947,7 @@ function showMonsterList() {
       '</div>' ).dialog({
         modal: true,
         open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
+            $(this).parent().css('position', 'absolute');
             $(this).parent().css('top', '0');
         },
         width: (($(window).width() > 800) ? 800: $(window).width()),
@@ -2097,6 +2108,147 @@ function updateEspers() {
     }
     
     prepareSearch(searchableEspers);
+}
+
+function getSavedBuilds(callback) {
+    if (savedBuilds) {
+        callback(savedBuilds);
+    } else {
+        $.get(server + '/savedTeams', function(result) {
+            savedBuilds = result;
+            if (!savedBuilds.teams) {
+                savedBuilds.teams = [];
+            }
+            callback(savedBuilds);
+        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            alert( errorThrown );
+        });
+    }
+}
+
+function saveTeam(name = null) {
+    if (currentSavedBuildIndex < 0) {
+        if (name) {
+            getSavedBuilds(function(savedBuilds) {
+                savedBuilds.teams.push({
+                    "name": name,
+                    "team": getStateHash(false)
+                });
+                writeSavedTeams();
+                currentSavedBuildIndex = savedBuilds.teams.length;
+                $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
+                $("#saveTeamAsButton").removeClass("hidden");
+            });
+        } else {
+            showSaveAsPopup();    
+        }
+    } else {
+        savedBuilds.teams[currentSavedBuildIndex].team = getStateHash(false);
+        writeSavedTeams();
+    }
+}
+
+function writeSavedTeams() {
+    $.ajax({
+        url: server + '/savedTeams',
+        method: 'PUT',
+        data: JSON.stringify(savedBuilds),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function() { $.notify("Team saved", "success");},
+        error: function() { alert("Error while saving Team")}
+    });
+}
+
+function showSaveAsPopup() {
+    $('<div id="showSaveBuildNameInput" title="Save team as...">' +
+        '<div>Build name :</div>' +
+        '<input class="form-control"></input>' +
+        '<div style="width: 100%;display: flex;justify-content: center;margin-top: 10px;"><div onclick="validateTeamName();" class="btn btn-primary">OK</div></div>' +
+      '</div>' ).dialog({
+        modal: true,
+        open: function(event, ui) {
+            $(this).parent().css('position', 'absolute');
+            $(this).parent().css('top', '150px');
+            $("#showSaveBuildNameInput input").select();
+        },
+        width: (($(window).width() > 600) ? 600: $(window).width())
+    });
+}
+
+function validateTeamName() {
+    var name = $("#showSaveBuildNameInput input").val();
+    if (name && name.length > 0) {
+        saveTeam(name);
+        $('#showSaveBuildNameInput').dialog('close'); ;
+    } else {
+        alert("Please enter a name");
+    }
+}
+
+function loadSavedTeam(index = -1) {
+    if (index < 0) {
+        showSavedTeams();
+    } else {
+        getSavedBuilds(function(savedBuilds) {
+            for (var i = builds.length; i-- > 1; ) {
+                closeTab(i);
+            }
+            currentSavedBuildIndex = index;
+            loadStateHashAndBuild(savedBuilds.teams[index].team);
+            $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
+            
+            $("#saveTeamAsButton").removeClass("hidden");
+            $("#showSavedTeamsDialog").dialog("destroy");
+        });
+        
+    }
+}
+
+function showSavedTeams() {
+    getSavedBuilds(function(savedBuilds) {
+        
+        $('<div id="showSavedTeamsDialog" title="Saved teams"></div>' ).dialog({
+            modal: true,
+            open: function(event, ui) {
+                $(this).parent().css('position', 'absolute');
+                $(this).parent().css('top', '150px');
+                updateSavedTeamList();
+            },
+            close: function() {
+                $("#showSavedTeamsDialog").dialog("destroy");
+            },
+            width: (($(window).width() > 600) ? 600: $(window).width())
+        });
+    });
+}
+
+function updateSavedTeamList() {
+    var html = "";
+    for (var i = 0, len = savedBuilds.teams.length; i < len; i++) {
+        html += '<div class="savedTeam"><div>'
+        html += '<div class="name">' + savedBuilds.teams[i].name + '</div><div class="team">';
+        for (var j = 0, lenJ = savedBuilds.teams[i].team.units.length; j < lenJ; j++) {
+            html += '<img class="unit" src="img/units/unit_icon_' + savedBuilds.teams[i].team.units[j].id + '.png">';
+        }
+        html += '</div></div><div><div class="btn" onclick="loadSavedTeam(' + i + ');">Load</div><div class="btn" onclick="deleteSavedTeam(' + i + ')"><span class="glyphicon glyphicon-remove"></span></div></div></div>'
+    }
+    $("#showSavedTeamsDialog").html(html);
+}
+
+function deleteSavedTeam(index) {
+    savedBuilds.teams.splice(index, 1);
+    if (currentSavedBuildIndex >= 0) {
+        if (currentSavedBuildIndex == index) {
+            $("#saveTeamAsButton").addClass("hidden");
+            $(".savedTeamName").text("New team");
+            currentSavedBuildIndex = -1;
+        } else if (currentSavedBuildIndex > index) {
+            currentSavedBuildIndex--;
+        }
+    }
+    updateSavedTeamList();
+    writeSavedTeams();
 }
 
 // will be called by common.js at page load

@@ -409,6 +409,16 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
+                <div id="savedTeamPanel" class="panel panel-default hidden">
+                    <div class="panel-heading">
+                        <span class="savedTeamName">New team</span>
+                        <div>
+                            <div id="saveTeamButton" class="btn hidden" onclick="saveTeam()" title="Save"><span class="glyphicon glyphicon-floppy-disk"></span></div>
+                            <div id="saveTeamAsButton" class="btn hidden" onclick="showSaveAsPopup()" title="Save as..."><span class="glyphicon glyphicon-floppy-save"></span></div>
+                            <div id="openSavedTeamsButton" class="btn" onclick="showSavedTeams()" title="Show saved teams list"><span class="glyphicon glyphicon-th-list"></span></div>
+                        </div>
+                    </div>
+                </div>
                 <div id="buildDiv" class="hidden">
                     <ul id="unitTabs" class="nav nav-tabs">
                         <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
@@ -463,7 +473,7 @@
                                 <div id="conciseViewLink" class="col-xs-6 hidden link text-center">
                                     <a onclick="switchView(true);"><span class="glyphicon glyphicon-zoom-out"></span> Concise View</a>
                                 </div>
-                                <div class="col-xs-6 text-center">
+                                <div id="shareLinksMenu" class="col-xs-6 text-center ">
                                     <div class="dropdown">
                                         <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share this build<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
