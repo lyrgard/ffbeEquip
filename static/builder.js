@@ -707,13 +707,7 @@ function onUnitChange() {
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
-            if (unitData.max_rarity == 7 && !unitData.sixStarForm) {
-                $("#unitLevel").removeClass("hidden");
-                $("#unitLevel select").val("120");
-                builds[currentUnitIndex].setLevel(120);
-            } else {
-                $("#unitLevel").addClass("hidden");
-            }
+            updateUnitLevelDisplay();
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
             $("#help").addClass("hidden");
@@ -736,6 +730,20 @@ function onUnitChange() {
         displayUnitRarity(selectedUnitData);
         displayUnitEnhancements();
     });
+}
+
+function updateUnitLevelDisplay() {
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.max_rarity == 7 && !builds[currentUnitIndex].unit.sixStarForm) {
+        $("#unitLevel").removeClass("hidden");
+        if (builds[currentUnitIndex]._level) {
+            $("#unitLevel select").val(builds[currentUnitIndex]._level.toString());
+        } else {
+            $("#unitLevel select").val("120");
+            builds[currentUnitIndex].setLevel(120);    
+        }
+    } else {
+        $("#unitLevel").addClass("hidden");
+    }
 }
 
 function displayUnitEnhancements() {
@@ -858,6 +866,7 @@ function loadBuild(buildIndex) {
         }
     }
     
+    updateUnitLevelDisplay();
     updateUnitStats();
     displayUnitEnhancements();
     
