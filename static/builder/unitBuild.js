@@ -255,12 +255,12 @@ class UnitBuild {
         if (this.unit) {
             if (this._level > 100) {
                 this.stats = {
-                    "hp": this.unit.stats.minStats.hp + Math.round((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * this._level / 120),
-                    "mp": this.unit.stats.minStats.mp + Math.round((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * this._level / 120),
-                    "atk": this.unit.stats.minStats.atk + Math.round((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * this._level / 120),
-                    "def": this.unit.stats.minStats.def + Math.round((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * this._level / 120),
-                    "mag": this.unit.stats.minStats.mag + Math.round((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * this._level / 120),
-                    "spr": this.unit.stats.minStats.spr + Math.round((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * this._level / 120),
+                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * this._level / 120),
+                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * this._level / 120),
+                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * this._level / 120),
+                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * this._level / 120),
+                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * this._level / 120),
+                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * this._level / 120),
                 };
             } else {
                 this.stats = this.unit.stats.maxStats;
