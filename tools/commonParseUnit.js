@@ -924,6 +924,7 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
     result += "\n" + prefix + "\t\t\t\"minStats\":" + JSON.stringify(unit.stats.minStats) + ",";
     result += "\n" + prefix + "\t\t\t\"pots\":" + JSON.stringify(unit.stats.pots);
     result += "\n" + prefix + "\t\t},";
+    result += "\n" + prefix + "\t\t\"stats_pattern\":" + unit.stats_pattern + ",";
     result += "\n" + prefix + "\t\t\"equip\":" + JSON.stringify(unit.equip);
     if (unit.enhancementSkills.length > 0) {
         result += ",\n" + prefix + "\t\t\"enhancementSkills\":" + JSON.stringify(unit.enhancementSkills);

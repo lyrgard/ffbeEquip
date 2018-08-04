@@ -164,7 +164,17 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
-            var levelCorrection = (1 + ((unitBuild.unit.max_rarity - 1)/5));
+            var level;
+            if (unitBuild._level) {
+                level = unitBuild._level;
+            } else {
+                if (unitBuild.unit.sixStarForm) {
+                    level = 100;
+                } else {
+                    level = (unitBuild.unit.max_rarity - 1) * 20;
+                }
+            }
+            var levelCorrection = (1 + (level/100));
             var damageMultiplier = {
                 "min": levelCorrection * 0.85,
                 "avg": levelCorrection * 0.925,
