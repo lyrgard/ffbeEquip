@@ -641,14 +641,10 @@ function parseActiveSkill(skillIn, skills) {
 function parseActiveRawEffect(rawEffect, skills) {
     var result = null;
     
-    // Imperil
-    if ((rawEffect[0] == 1 || rawEffect[0] == 2)  && rawEffect[1] == 1 && rawEffect[2] == 33) { 
-        result = {};
-        var imperilData = rawEffect[3];
-        addImperil(result, imperilData);
+    
     
     // break
-    } else if (rawEffect[2] == 24) { 
+    if (rawEffect[2] == 24) { 
         result = {};
         addBreak(result, rawEffect[3]);
     
@@ -663,22 +659,39 @@ function parseActiveRawEffect(rawEffect, skills) {
                 result.randomlyUse.push({"skill":skill, "percent":data[1]});
             }
         }
+        
+        // Imperil
+    } else if (rawEffect[2] == 33) { 
+        result = {};
+        var imperilData = rawEffect[3];
+        addImperil(result, imperilData);
     }
+
     if (result) {
-        if (rawEffect[0] == 1) {
+        if (rawEffect[0] == 0) {
+            result.area = "SELF";
+        } else if (rawEffect[0] == 1) {
             result.area = "ST";
         } else if (rawEffect[0] == 2) {
             result.area = "AOE";
         } else {
-            //console.log("unknown area : " + JSON.stringify(rawEffect));
+            result.area = "RND";
         }
         
         if (rawEffect[1] == 1) {
             result.target = "ENEMY";
         } else if (rawEffect[1] == 2) {
             result.target = "ALLY";
+        } else if (rawEffect[1] == 3) {
+            result.target = "CASTER";
+        } else if (rawEffect[1] == 4) {
+            result.target = "ALLY";
+        } else if (rawEffect[1] == 5) {
+            result.target = "ALLY_BUT_CASTER";
+        } else if (rawEffect[1] == 6) {
+            result.target = "ANY";
         } else {
-            //console.log("unknown target : " + JSON.stringify(rawEffect));
+            console.log("unknown target : " + JSON.stringify(rawEffect));
         }
     }
     return result;
