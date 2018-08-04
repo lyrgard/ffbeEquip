@@ -1537,7 +1537,7 @@ function getStateHash(onlyCurrent = true) {
         num = 1;
     }
     var data = {
-        "version": 1,
+        "version": 2,
         "units": []
     };
     for (var i = min; i < min + num; i++) {
@@ -1559,7 +1559,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1567,7 +1567,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
-                    unit.items.push({slot:index, id:item.id});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -1575,15 +1575,16 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
-                    unit.items.push({slot:index, id:item.type});
+                    unit.items.push({slot:index, id:item.type, pinned: false});
                 }
             }
             if (build.build[10]) {
                 unit.esperId = build.build[10].name;
+                unit.esperPinned = (build.fixedItems[10] != null);
             }
 
             unit.pots = {};
@@ -1778,8 +1779,8 @@ function loadStateHashAndBuild(data) {
                 if (unit.items[index]) {
                     var itemId = dataVersion >= 1 ? unit.items[index].id : unit.items[index];
                     var itemSlot = dataVersion >= 1 ? unit.items[index].slot : -1;
-                    if (dataVersion >= 1) {
-                        fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined), false);
+                    if (dataVersion >= 2) {
+                        fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined), unit.items[index].pinned);
                     } else {
                         fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
                     }
@@ -1788,7 +1789,11 @@ function loadStateHashAndBuild(data) {
         }
         
         if (unit.esperId) {
-            fixItem(unit.esperId, -1, undefined, false);
+            if (dataVersion >= 2) {
+                fixItem(unit.esperId, -1, undefined, unit.esperPinned)
+            } else {
+                fixItem(unit.esperId, -1, undefined, true);
+            }
         }
         if (unit.pots) {
             for (var index = baseStats.length; index--;) {

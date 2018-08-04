@@ -10,7 +10,8 @@ const authenticatedRoute = express.Router();
 const idSchema = Joi.string().regex(/^([0-9]{9,10}$|dagger|sword|greatSword|katana|staff|rod|bow|axe|hammer|spear|harp|whip|throwing|gun|mace|fist|lightShield|heavyShield|hat|helm|clothes|lightArmor|heavyArmor|robe|accessory|materia|unavailable)$/, 'id');
 const itemSlotSchema = {
     slot:Joi.number().min(0).max(9),
-    id:idSchema
+    id:idSchema,
+    pinned:Joi.boolean()
 };
 const elementsSchema = [
     Joi.string().valid('fire'),
@@ -55,6 +56,7 @@ const partyBuildSchema = Joi.object().keys({
         items: Joi.array().items(itemSlotSchema).max(10),
         itemEnchantments: Joi.array().items([Joi.allow(null), Joi.array().items(itemEnchantmentsSchema).max(3)]).max(10),
         esperId: Joi.string().max(50),
+        esperPinned: Joi.boolean(),
         pots: Joi.object().keys({
             hp: Joi.number().min(0).max(1000),
             mp: Joi.number().min(0).max(1000),
