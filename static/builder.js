@@ -1161,7 +1161,7 @@ function displayFixItemModal(index) {
     updateSearchResult();
 }
 
-function fixItem(key, slotParam = -1, enhancements) {
+function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
     var item;
     if (typeof key === 'object') {
         item = key;
@@ -1219,7 +1219,11 @@ function fixItem(key, slotParam = -1, enhancements) {
             removeItemAt(slot);
         }
         
-        builds[currentUnitIndex].fixedItems[slot] = item;
+        if (pinItem) {
+            builds[currentUnitIndex].fixedItems[slot] = item;
+        } else {
+            builds[currentUnitIndex].fixedItems[slot] = null;
+        }
         builds[currentUnitIndex].build[slot] = item;
         if (slot < 10) {
             for (var index = 0; index < 10; index++) {
@@ -1227,7 +1231,6 @@ function fixItem(key, slotParam = -1, enhancements) {
                     var itemTmp = builds[currentUnitIndex].build[index];
                     if (itemTmp  && !itemTmp.placeHolder && index != slot) {
                         var bestItemVersion = findBestItemVersion(builds[currentUnitIndex].build, itemTmp, dataStorage.itemWithVariation, builds[currentUnitIndex].unit);
-                                                
                         if (builds[currentUnitIndex].fixedItems[index]) {
                             builds[currentUnitIndex].fixedItems[index] = bestItemVersion;
                         }
@@ -1775,13 +1778,13 @@ function loadStateHashAndBuild(data) {
                 if (unit.items[index]) {
                     var itemId = dataVersion >= 1 ? unit.items[index].id : unit.items[index];
                     var itemSlot = dataVersion >= 1 ? unit.items[index].slot : -1;
-                    fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined));
+                    fixItem(itemId, itemSlot, (unit.itemEnchantments && unit.itemEnchantments[index] ? unit.itemEnchantments[index] : undefined), false);
                 }
             }
         }
         
         if (unit.esperId) {
-            fixItem(unit.esperId);
+            fixItem(unit.esperId, -1, undefined, false);
         }
         if (unit.pots) {
             for (var index = baseStats.length; index--;) {
