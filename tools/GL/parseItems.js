@@ -271,6 +271,9 @@ function treatItem(items, itemId, result, skills) {
     }
     if (!itemOut.eventName && oldItemsEventById[itemOut.id]) {
         itemOut.eventName = oldItemsEventById[itemOut.id];
+        if (!itemOut.access || !itemOut.access.includes("event")) {
+            addAccess(itemOut, "event");
+        }
     }
     if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
