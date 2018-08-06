@@ -28,48 +28,54 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
             if (!error && response.statusCode == 200) {
                 console.log("skills.json downloaded");
                 var skills = JSON.parse(body);
-                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
+                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/limitbursts.json', function (error, response, body) {
                     if (!error && response.statusCode == 200) {
-                        console.log("enhancements.json downloaded");
-                        var enhancements = JSON.parse(body);
-                        
-                        for (languageId = 0; languageId < languages.length; languageId++) {
-                            for (var index in enhancements) {
-                                var enhancement = enhancements[index];
-                                for (var unitIdIndex in enhancement.units) {
-                                    var unitId = enhancement.units[unitIdIndex].toString();
-                                    if (!enhancementsByUnitId[unitId]) {
-                                        enhancementsByUnitId[unitId] = {};
+                        console.log("skills.json downloaded");
+                        var lbs = JSON.parse(body);
+                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
+                            if (!error && response.statusCode == 200) {
+                                console.log("enhancements.json downloaded");
+                                var enhancements = JSON.parse(body);
+
+                                for (languageId = 0; languageId < languages.length; languageId++) {
+                                    for (var index in enhancements) {
+                                        var enhancement = enhancements[index];
+                                        for (var unitIdIndex in enhancement.units) {
+                                            var unitId = enhancement.units[unitIdIndex].toString();
+                                            if (!enhancementsByUnitId[unitId]) {
+                                                enhancementsByUnitId[unitId] = {};
+                                            }
+                                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                        }
                                     }
-                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+
+                                    var unitsOut = {};
+                                    for (var unitId in units) {
+                                        var unitIn = units[unitId];
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                            var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
+                                            unitsOut[unitOut.data.id] = unitOut.data;
+                                        }
+                                    }
+
+                                    var filename = 'unitsWithPassives.json';
+                                    if (languageId != 0) {
+                                        filename = 'unitsWithPassives_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
+                                    filename = 'units.json';
+                                    if (languageId != 0) {
+                                        filename = 'units_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+
+                                    if (languageId == 0) {
+                                        fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                        fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                    }
                                 }
                             }
-
-                            var unitsOut = {};
-                            for (var unitId in units) {
-                                var unitIn = units[unitId];
-                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                    var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                    unitsOut[unitOut.data.id] = unitOut.data;
-                                }
-                            }
-
-                            var filename = 'unitsWithPassives.json';
-                            if (languageId != 0) {
-                                filename = 'unitsWithPassives_' + languages[languageId] +'.json';
-                            }
-                            fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                            filename = 'units.json';
-                            if (languageId != 0) {
-                                filename = 'units_' + languages[languageId] +'.json';
-                            }
-                            fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-                            
-                            if (languageId == 0) {
-                                fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                                fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
-                            }
-                        }
+                        });
                     }
                 });
             }
@@ -77,7 +83,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     }
 });
 
-function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
+function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -135,7 +141,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
         }
     }
     
-    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData, data);
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRariry == 7) {

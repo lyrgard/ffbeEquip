@@ -2144,8 +2144,8 @@ function saveTeam(name = null) {
                     "team": getStateHash(false)
                 });
                 writeSavedTeams();
-                currentSavedBuildIndex = savedBuilds.teams.length;
-                $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
+                currentSavedBuildIndex = savedBuilds.teams.length - 1;
+                $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
                 $("#saveTeamAsButton").removeClass("hidden");
             });
         } else {
