@@ -77,7 +77,7 @@ var unlockedSkills = {
     "100012505": "225970"
 }
 
-function getPassives(unitId, skillsIn, skills, enhancements, maxRarity, unitData, unitOut) {
+function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, unitData, unitOut) {
     var baseEffects = {};
     var skillsOut = [baseEffects];
     var skillsOutSave = skillsOut;
