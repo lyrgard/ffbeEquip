@@ -1726,31 +1726,33 @@ function oldLinkFormatToNew(oldData) {
     return data;
 }
     
-function loadStateHashAndBuild(data) {
+function loadStateHashAndBuild(data, importMode = false) {
     var dataVersion = data.version ? data.version : 0;
 
     if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
         return;
     }
     
-    select("races", data.monster.races);
-    for (var element in data.monster.elementalResist) {
-        if (data.monster.elementalResist[element] == 0) {
-            $("#elementalResists ." + element + " input").val("");
-        } else {
-            $("#elementalResists ." + element + " input").val(data.monster.elementalResist[element]);
+    if (!importMode) {
+        select("races", data.monster.races);
+        for (var element in data.monster.elementalResist) {
+            if (data.monster.elementalResist[element] == 0) {
+                $("#elementalResists ." + element + " input").val("");
+            } else {
+                $("#elementalResists ." + element + " input").val(data.monster.elementalResist[element]);
+            }
         }
-    }
-    $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
-    for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
-        $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
-    }
-    
-    if (data.monster.def) {
-        $("#monsterDef").val(data.monster.def);
-    }
-    if (data.monster.spr) {
-        $("#monsterSpr").val(data.monster.spr);
+        $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
+        for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
+            $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
+        }
+
+        if (data.monster.def) {
+            $("#monsterDef").val(data.monster.def);
+        }
+        if (data.monster.spr) {
+            $("#monsterSpr").val(data.monster.spr);
+        }
     }
     
     $('.goal #normalGoalChoices select option').prop("selected", false);
@@ -1760,7 +1762,11 @@ function loadStateHashAndBuild(data) {
     for (var i = 0; i < data.units.length; i++) {
         
         if (first) {
-            reinitBuild(0);
+            if (importMode && (builds.length > 1 || builds[0].unit != null)) {
+                addNewUnit();
+            } else {
+                reinitBuild(0);
+            }
             first = false;
         } else {
             addNewUnit();
@@ -2199,19 +2205,44 @@ function loadSavedTeam(index = -1) {
     if (index < 0) {
         showSavedTeams();
     } else {
-        getSavedBuilds(function(savedBuilds) {
-            for (var i = builds.length; i-- > 1; ) {
-                closeTab(i);
+        if (builds.length > 1 || builds[0].unit != null) {
+            var r = confirm("Loading this team will remove the units you currently have in the builder.");
+            if (r == true) {
+                doLoadSavedTeam(index);
             }
-            currentSavedBuildIndex = index;
-            loadStateHashAndBuild(savedBuilds.teams[index].team);
-            $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
-            
-            $("#saveTeamAsButton").removeClass("hidden");
-            $("#showSavedTeamsDialog").dialog("destroy");
-        });
-        
+        } else {
+            doLoadSavedTeam(index)
+        }
     }
+}
+
+function doLoadSavedTeam(index) {
+    getSavedBuilds(function(savedBuilds) {
+        for (var i = builds.length; i-- > 1; ) {
+            closeTab(i);
+        }
+        currentSavedBuildIndex = index;
+        loadStateHashAndBuild(savedBuilds.teams[index].team);
+        $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
+
+        $("#saveTeamAsButton").removeClass("hidden");
+        $("#showSavedTeamsDialog").dialog("destroy");
+    });
+}
+
+function importSavedTeam(index) {
+    getSavedBuilds(function(savedBuilds) {
+        var currentUnitCount = builds.length;
+        if (builds.length == 1 && builds[0].unit == null) {
+            currentUnitCount--;
+        }
+        if (currentUnitCount + savedBuilds.teams[index].team.units.length > 10) {
+            alert("Importing this team would result in more than 10 units. Please remove some units before doing that.");
+            return;
+        }
+        loadStateHashAndBuild(savedBuilds.teams[index].team, true);
+        $("#showSavedTeamsDialog").dialog("destroy");
+    });
 }
 
 function showSavedTeams() {
@@ -2240,7 +2271,11 @@ function updateSavedTeamList() {
         for (var j = 0, lenJ = savedBuilds.teams[i].team.units.length; j < lenJ; j++) {
             html += '<img class="unit" src="img/units/unit_icon_' + savedBuilds.teams[i].team.units[j].id + '.png">';
         }
-        html += '</div></div><div><div class="btn" onclick="loadSavedTeam(' + i + ');">Load</div><div class="btn" onclick="deleteSavedTeam(' + i + ')"><span class="glyphicon glyphicon-remove"></span></div></div></div>'
+        html += '</div></div><div>' +
+            '<div class="btn" onclick="importSavedTeam(' + i + ');" title="Add this team to your current team">Import</div>' +
+            '<div class="btn" onclick="loadSavedTeam(' + i + ');" title="Load this team, to modify it">Load</div>' +
+            '<div class="btn" onclick="deleteSavedTeam(' + i + ')" title="Delete this team"><span class="glyphicon glyphicon-remove"></span>' +
+            '</div></div></div>'
     }
     $("#showSavedTeamsDialog").html(html);
 }
