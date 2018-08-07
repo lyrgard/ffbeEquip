@@ -1,0 +1,187 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9, user-scalable=no">
+		<meta charset="UTF-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="unitSearch.css">
+        <link rel="stylesheet" type="text/css" href="languages.css">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="icon" type="image/png" href="/img/heavyArmor.png">
+        <title>FFBE Equip - Unit Search</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="col-xs-12">
+                <nav class="col-xs-12 navbar navbar-default">
+                    <img class="bannerImg" src="img/page_unit_search.jpg"/>
+                    <div  class="mobile">
+                        <div class="mobileMenuLogo" data-toggle="dropdown" class="dropdown-toggle"></div>
+                        <span data-toggle="dropdown" class="dropdown-toggle glyphicon glyphicon-chevron-down mobileMenuArrow"></span>
+                        <ul class="dropdown-menu">
+                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia</a></li>
+                            <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
+                            <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
+                            <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
+                            <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html"><span class="glyphicon glyphicon-chevron-right"></span> Builder</a></li>
+                            <li><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html"><span class="glyphicon glyphicon-chevron-right"></span> Contribute</a></li>
+                        </ul>
+                    </div>
+                    <div id="navigationMenu">
+                        <div id="links">
+                            <a id="linkToSearch" href="index.html" data-internal-link="index.html">Encyclopedia</a>
+                            <a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a>
+                            <a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a>
+                            <a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a>
+                            <a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a>
+                            <a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a>
+                        </div>
+                    </div>
+                    <div id="serverAndLanguagesSwitcher">
+                        <div class="switchServer btn-group">
+                            <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                            <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                        </div>
+                        <div id="languages">
+                            <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
+                            <span class="lang-xs" lang="zh" onclick="switchToLanguage('zh')"></span>
+                            <span class="lang-xs" lang="ko" onclick="switchToLanguage('ko')"></span>
+                            <span class="lang-xs" lang="fr" onclick="switchToLanguage('fr')"></span>
+                            <span class="lang-xs" lang="de" onclick="switchToLanguage('de')"></span>
+                            <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
+                        </div>
+                    </div>
+
+                    <div id="inventoryDiv" class="buttons account">
+                        <div class="buttonDiv">
+                            <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
+                            <a href="/googleOAuthLogout">
+                              <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
+                            </a>
+                        </div>
+                        <div id="inventoryStatus">
+                            <span>Inventory :&nbsp;</span>
+                            <span class="status"></span>
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            <div class="col-xs-12 col-md-6">
+                <div class="h5"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>Unit Search is a Work in Progress. The result may not be complete yet, and more search criteria will be added.</div>
+                <div class="panel panel-default search">
+                    <div class="panel-heading">
+                        <div class="input-group">
+                            <span class="input-group-addon">Search</span>
+                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in unit names, skill names, skill effects, ...">
+                        </div>
+					</div>
+                </div>
+
+                <div id="filterSummary" class="hidden-md hidden-lg">
+                </div>
+                <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
+                    <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
+                </button>
+
+                <div id="advancedSearch" class="collapse">
+
+                    <div class="panel panel-default types">
+                        <div class="panel-heading">
+                            <span>Equipment types</span>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group types choice" data-toggle="buttons" id="types">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default elements">
+                        <div class="panel-heading"><span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default ailments">
+                        <div class="panel-heading"><span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default killers">
+                        <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
+                            <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default imperils">
+                        <div class="panel-heading"><span>Imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imperils')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group imperils choice" data-toggle="buttons" id="imperils">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default breaks">
+                        <div class="panel-heading"><span>Breaks</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('breaks')">unselect all</a></div>
+                        <div class="panel-body">
+                            <div class="btn-group breaks choice" data-toggle="buttons" id="breaks">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div  class="col-xs-12 col-md-6">
+                <div id="resultsDiv" class="panel panel-default collapse in">
+                    <div class="panel-heading">
+                        <div>Results : <span id="resultNumber"></span></div>
+                        <div class="checkbox-inline userInputedResultsChoice">
+                            <div id="onlyShowOwnedUnitsDiv" class="hidden"><input id="onlyShowOwnedUnits" type="checkbox" value="" onchange="update();"><label>Only show owned units</label></div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="padding:0;">
+                        <div id="results" class="results">
+                        </div>
+                    </div>
+                </div>
+                <div class="footerButtons">
+                    <div>
+                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank">Send me a message on reddit</a><a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank">chat on FFBE Equip discord server</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank">Buy me a coffee</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank">Become my patron on Patreon</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank">JP units and items images are a courtesy of EXVIUS DB</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="lib/notify.min.js"></script>
+        <script src="constants.js"></script>
+        <script src="common.js?version=8"></script>
+        <script src="unitSearch.js"></script>
+        <script src="googleAnalytics.js"></script>
+    </body>
+</html>

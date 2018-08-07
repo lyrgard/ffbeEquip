@@ -8,23 +8,27 @@ var currentEnhancementItemPos;
 
 var displayId = 0;
 
-function beforeShow() {
+var equipmentLastSearch = "";
+var materiaLastSearch = "";
+
+function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#inventory").removeClass("hidden");
-    $("#searchBox").addClass("hidden");
     $("#itemCount").addClass("hidden");
     $("#materiaCount").addClass("hidden");
     $("#itemEnhancement").addClass("hidden");
     $("#results").removeClass("hidden");
     
-    $(".nav-tabs li.equipment").removeClass("active");
-    $(".nav-tabs li.materia").removeClass("active");
-    $(".nav-tabs li.search").removeClass("active");
-    $(".nav-tabs li.history").removeClass("active");
-    $(".nav-tabs li.settings").removeClass("active");
-    
-    
+    // Hidden by default, enabled by materia and equipment tabs
+    $("#searchBox").addClass("hidden");
+
+    if(clearTabSelection) {
+        $(".nav-tabs li.equipment").removeClass("active");
+        $(".nav-tabs li.materia").removeClass("active");
+        $(".nav-tabs li.history").removeClass("active");
+        $(".nav-tabs li.settings").removeClass("active");
+    }
 }
 
 function showMateria() {
@@ -33,8 +37,10 @@ function showMateria() {
     $(".nav-tabs li.materia").addClass("active");
     $("#sortType").text("Sorted by Name");
     $("#materiaCount").removeClass("hidden");
+    $("#searchBox").val(materiaLastSearch);
+    $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
-    displayItems(sort(materia));
+    showSearch();
 }
 
 function showEquipments() {
@@ -43,15 +49,16 @@ function showEquipments() {
     $(".nav-tabs li.equipment").addClass("active");
     $("#sortType").text("Sorted by Type (Strength)");
     $("#itemCount").removeClass("hidden");
+    $("#searchBox").val(equipmentLastSearch);
+    $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
-    displayItems(sort(equipments));
+    showSearch();
 }
 
 function showSearch() {
-    beforeShow();
+    beforeShow(false);
 
     $("#searchBox").removeClass("hidden");
-    $(".nav-tabs li.search").addClass("active");
     $("#sortType").text("");
     // filter, sort and display the results
     displayItems(sort(search()));
@@ -333,20 +340,28 @@ function farmedTMR(unitId) {
 function search() {
     var result = [];
     var textToSearch = $("#searchBox").val();
-    if (textToSearch) {
-        for (var index in equipments) {
-            var item = equipments[index];
-            if (containsText(textToSearch, item)) {
-                result.push(item);
-            }
-        }
-        for (var index in materia) {
-            var item = materia[index];
-            if (containsText(textToSearch, item)) {
-                result.push(item);
-            }
-        }
+    var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
+    
+    var itemsToSearch = [];
+    if(inEquipment) {
+        itemsToSearch = equipments;
+        equipmentLastSearch = textToSearch;
+    } else {
+        itemsToSearch = materia;
+        materiaLastSearch = textToSearch;
     }
+
+    if (textToSearch) {
+        for (var index in itemsToSearch) {
+            var item = itemsToSearch[index];
+            if (containsText(textToSearch, item)) {
+                result.push(item);
+            }
+        }
+    } else {
+        result = itemsToSearch;
+    }
+    
     return result;
 }
 
@@ -691,13 +706,13 @@ function exportAsCsv() {
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
-// will be called by jQuery at page load)
-$(function() {
+// will be called by common.js at page load
+function startPage() {
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
-    $.get(getLocalizedFileUrl("data"), function(result) {
+    getStaticData("data", true, function(result) {
         data = result;
-        $.get(getLocalizedFileUrl("units"), function(unitResult) {
+        getStaticData("units", true, function(unitResult) {
             allUnits = unitResult;
             prepareSearch(data);
             equipments = keepOnlyOneOfEachEquipement();
@@ -706,17 +721,11 @@ $(function() {
                 showEquipments();
                 updateCounts();
             }
-            $.get(server + "/lastItemReleases.json", function(result) {
+            getStaticData("lastItemReleases", false, function(result) {
                 lastItemReleases = result;
                 prepareLastItemReleases();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
             });
-        }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
         });
-    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
     });
     
     
@@ -732,4 +741,4 @@ $(function() {
     
     $("#searchBox").on("input", $.debounce(300,showSearch));
     
-});
+}

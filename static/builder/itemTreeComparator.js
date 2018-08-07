@@ -1,6 +1,6 @@
 class ItemTreeComparator {
     
-    static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, typeCombination = null, includeSingleWielding = true, includeDualWielding = true) {
+    static sort(itemsOfType, numberNeeded, unitBuild, ennemyStats, desirableElements, desirableItemIds, typeCombination = null, includeSingleWielding = true, includeDualWielding = true) {
         var result = [];
         var keptItemsRoot = {"parent":null,"children":[],"root":true,"available":0};
         if (itemsOfType.length > 0) {
@@ -16,7 +16,7 @@ class ItemTreeComparator {
 
                 var newTreeItem = {"parent":null,"children":[],"equivalents":[entry], "currentEquivalentIndex":0};
                 //console.log("Considering " + entry.item.name);
-                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, 10, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth, includeSingleWielding, includeDualWielding);
+                TreeComparator.insertItemIntoTree(keptItemsRoot, newTreeItem, unitBuild.involvedStats, ennemyStats, desirableElements, desirableItemIds, 10, ItemTreeComparator.getComparison, ItemTreeComparator.getDepth, includeSingleWielding, includeDualWielding);
                 //logTree(keptItemsRoot);
             }
         }
@@ -27,7 +27,7 @@ class ItemTreeComparator {
         return keptItemsRoot;
     }
     
-    static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements, includeSingleWielding, includeDualWielding) {
+    static getComparison(treeNode1, treeNode2, stats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) {
         if (treeNode1.root) {
             return "strictlyWorse"; 
         }
@@ -58,6 +58,9 @@ class ItemTreeComparator {
         }
         if (desirableElements && desirableElements.length != 0) {
             comparisionStatus.push(TreeComparator.compareByEquipedElementCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, desirableElements));
+        }
+        if (desirableItemIds && desirableItemIds.length != 0) {
+            comparisionStatus.push(TreeComparator.compareByDesirableItemIdsCondition(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item, desirableItemIds));
         }
         comparisionStatus.push(TreeComparator.compareByNumberOfHandsNeeded(treeNode1.equivalents[0].item, treeNode2.equivalents[0].item));
 

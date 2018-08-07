@@ -4,15 +4,15 @@ class TreeComparator {
         return {"parent":null,"children":[],"root":true,"available":0};
     }
 
-    static insertItemIntoTree(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction, includeSingleWielding = true, includeDualWielding = true, currentDepth = 0) {
-        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, includeSingleWielding, includeDualWielding);
+    static insertItemIntoTree(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding = true, includeDualWielding = true, currentDepth = 0) {
+        var comparison = comparisonFunction(treeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding);
         switch (comparison) {
             case "strictlyWorse":
                 // Entry is strictly worse than treeItem
                 if (currentDepth < maxDepth) {
                     var inserted = false
                     for (var index = 0, len = treeItem.children.length; index < len; index++) {
-                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(treeItem.children[index], currentDepth));
+                        inserted = inserted || TreeComparator.insertItemIntoTree(treeItem.children[index], newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(treeItem.children[index], currentDepth));
                     }
 
                     if (!inserted) {
@@ -24,9 +24,9 @@ class TreeComparator {
                         var indexToRemove = [];
                         for (var index = 0, len = treeItem.children.length; index < len; index++) {
                             var oldTreeItem = treeItem.children[index]
-                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, includeSingleWielding, includeDualWielding) == "strictlyBetter") {
+                            if (oldTreeItem != newTreeItem && comparisonFunction(oldTreeItem, newTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) == "strictlyBetter") {
                                 indexToRemove.push(index);
-                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, ennemyStats, desirableElements, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(newTreeItem, currentDepth));
+                                TreeComparator.insertItemIntoTree(newTreeItem, oldTreeItem, involvedStats, ennemyStats, desirableElements, desirableItemIds, maxDepth, comparisonFunction, depthFunction, includeSingleWielding, includeDualWielding, depthFunction(newTreeItem, currentDepth));
                             }
                         }
                         for (var index = indexToRemove.length - 1; index >= 0; index--) {
@@ -246,6 +246,26 @@ class TreeComparator {
             }
         }
 
+    }
+    
+    static compareByDesirableItemIdsCondition(item1, item2, desirableItemIds) {
+        if (desirableItemIds.length == 0) {
+            return "equivalent";
+        } else {
+            if (desirableItemIds.includes(item1.id)) {
+                if (desirableItemIds.includes(item2.id)) {
+                    return "sameLevel";
+                } else {
+                    return "strictlyWorse";
+                }
+            } else {
+                if (desirableItemIds.includes(item2.id)) {
+                    return "strictlyBetter";
+                } else {
+                    return "equivalent";
+                }
+            }
+        }
     }
     
     

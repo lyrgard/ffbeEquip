@@ -218,7 +218,7 @@
 }
 
 .awakenButton {
-    height: 32px;
+    height: 28px;
     position: absolute;
     top: 2px;
     left: 7px;
@@ -265,4 +265,18 @@
     display: inline-block;
     justify-content: center;
     text-align: end;
+}
+
+.star7 {
+    position: relative;
+}
+
+.star7 .crystal {
+    position: absolute;
+    height: 20px;
+    left: -4px;
+}
+
+.star7 .value {
+    margin-left: 18px;
 }

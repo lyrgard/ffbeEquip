@@ -7,10 +7,21 @@ class BuildOptimizer {
     set unitBuild(unitBuild) {
         this._unitBuild = unitBuild;
         this.desirableElements = [];
+        this.desirableItemIds = [];
         for (var index = 0, len = this._unitBuild.unit.skills.length; index < len; index++) {
             var skill = this._unitBuild.unit.skills[index];
-            if (skill.equipedConditions && skill.equipedConditions.length == 1 && elementList.includes(skill.equipedConditions[0]) && !this.desirableElements.includes(skill.equipedConditions[0])) {
-                this.desirableElements.push(skill.equipedConditions[0]);
+            if (skill.equipedConditions) {
+                for (var i = skill.equipedConditions.length; i--;) {
+                    if (elementList.includes(skill.equipedConditions[i])) {
+                        if (!this.desirableElements.includes(skill.equipedConditions[i])) {
+                            this.desirableElements.push(skill.equipedConditions[i]);            
+                        }
+                    } else if (!typeList.includes(skill.equipedConditions[i])) {
+                        if (!this.desirableItemIds.includes(skill.equipedConditions[i])) {
+                            this.desirableItemIds.push(skill.equipedConditions[i]);            
+                        }
+                    }
+                }
             }
         }
     }
@@ -46,13 +57,13 @@ class BuildOptimizer {
             var applicableSkills = [];
             for (var skillIndex = this._unitBuild.unit.skills.length; skillIndex--;) {
                 var skill = this._unitBuild.unit.skills[skillIndex];
-                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination)) {
+                if (this.areConditionOKBasedOnTypeCombination(skill, typeCombinations[index].combination, this._unitBuild._level)) {
                     applicableSkills.push(skill);
                 }
             }
             
             var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
-            this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills());
+            this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills(), this.getItemBasedSkills());
         }
     }
     
@@ -77,11 +88,12 @@ class BuildOptimizer {
             }
         }
         var tempResult = itemsOfType.slice();
-        var dataWithConditionKeyAlreadyAdded = [];
+        var dataWithConditionKeyAlreadyAddedOwned = [];
+        var dataWithConditionKeyAlreadyAddedNotOwned = [];
         for (var index = 0, len = this.dataWithCondition.length; index < len; index++) {
             var entry = this.dataWithCondition[index];
             var item = entry.item;
-            if (item.type == type && !dataWithConditionKeyAlreadyAdded.includes(item.id)) {
+            if (item.type == type && ((entry.owned && !dataWithConditionKeyAlreadyAddedOwned.includes(item.id)) || (!entry.owned && !dataWithConditionKeyAlreadyAddedNotOwned.includes(item.id))))  {
                 var allFound = true;
                 for (var conditionIndex in item.equipedConditions) {
                     if (!typeCombination.includes(item.equipedConditions[conditionIndex])) {
@@ -101,7 +113,12 @@ class BuildOptimizer {
                     }
 
                     tempResult.push(entry);
-                    dataWithConditionKeyAlreadyAdded.push(item.id);
+                    if (entry.owned) {
+                        dataWithConditionKeyAlreadyAddedOwned.push(item.id);    
+                    } else {
+                        dataWithConditionKeyAlreadyAddedNotOwned.push(item.id);    
+                    }
+                    
 
                 }
             }
@@ -132,7 +149,7 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, typeCombination, includeSingleWielding, includeDualWielding);
+        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
         return resultTree;
     }
     
@@ -152,7 +169,26 @@ class BuildOptimizer {
         return elementBasedSkills;
     }
     
-    areConditionOKBasedOnTypeCombination(item, typeCombination) {
+    getItemBasedSkills() {
+        var itemBasedSkills = [];
+        for (var skillIndex = this._unitBuild.unit.skills.length; skillIndex--;) {
+            var skill = this._unitBuild.unit.skills[skillIndex];
+            if (skill.equipedConditions) {
+                for (var conditionIndex in skill.equipedConditions) {
+                    if (!elementList.includes(skill.equipedConditions[conditionIndex]) && !typeList.includes(skill.equipedConditions[conditionIndex])) {
+                        itemBasedSkills.push(skill);
+                        break;
+                    }
+                }
+            }
+        }
+        return itemBasedSkills;
+    }
+    
+    areConditionOKBasedOnTypeCombination(item, typeCombination, level) {
+        if (level && item.levelCondition && item.levelCondition > level) {
+            return false;
+        }
         if (item.equipedConditions) {
             for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
                 if (elementList.includes(item.equipedConditions[conditionIndex])) {
@@ -169,7 +205,7 @@ class BuildOptimizer {
     
     
     
-    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, tmrSkillUsed = false) {
+    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills) {
         if (index == 2) {
             // weapon set, try elemental based skills
             for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
@@ -186,7 +222,7 @@ class BuildOptimizer {
         }
 
         if (fixedItems[index]) {
-            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, tmrSkillUsed);
+            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, itemBasedSkills);
         } else {
             if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
                 var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
@@ -221,7 +257,7 @@ class BuildOptimizer {
                             }
                         }
                         entry.available--;
-                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed);
+                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills);
                         entry.available++;
                         //dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
                         currentChild.currentEquivalentIndex = currentEquivalentIndex;
@@ -232,7 +268,7 @@ class BuildOptimizer {
                     }
                 }
                 if (!foundAnItem) {
-                    this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, tmrSkillUsed);
+                    this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, itemBasedSkills);
                 }
                 build[index] == null;
             } else {
@@ -240,30 +276,42 @@ class BuildOptimizer {
                 if (typeCombination[index]) {
                     item = {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true};
                 }
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed);
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills);
             }
         }
         build[index] = null;
     }
 
-    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, tmrSkillUsed) {
+    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills) {
         if (index == 0 && item && isTwoHanded(item) && typeCombination[1]) {
             return; // Two handed weapon only accepted on DH builds
         }
         if (index == 1 && !item && typeCombination[1]) {
             return; // don't accept null second hand in DW builds
         }
-        if (tmrSkillUsed && item && item.originalItem) {
-            item = item.originalItem;
-        }
         build[index] = item;
-        if (item && item.originalItem) {
-            tmrSkillUsed = true;
-        }
         if (index == 9) {
             for (var fixedItemIndex = 0; fixedItemIndex < 10; fixedItemIndex++) {
                 if (fixedItems[fixedItemIndex] && (!this.allItemVersions[fixedItems[fixedItemIndex].id] || this.allItemVersions[fixedItems[fixedItemIndex].id].length > 1 || fixedItems[fixedItemIndex].access.includes("Conditions not met"))) {
                     build[fixedItemIndex] = findBestItemVersion(build, fixedItems[fixedItemIndex], this.allItemVersions, this._unitBuild.unit);
+                }
+            }
+            if (itemBasedSkills.length > 0) {
+                // all set, try item based skills
+                var equipedItemsIds = [];
+                for (var i = 0; i < 9; i++) {
+                    if (build[i] && !equipedItemsIds.includes(build[i].id)) {
+                        equipedItemsIds.push(build[i].id);
+                    }
+                }
+                for (var skillIndex = itemBasedSkills.length; skillIndex--;) {
+                    if (build.includes(itemBasedSkills[skillIndex])) {
+                        if (!areConditionOK(itemBasedSkills[skillIndex], build)) {
+                            build.splice(build.indexOf(itemBasedSkills[skillIndex]),1);
+                        }
+                    } else if (areConditionOK(itemBasedSkills[skillIndex], build)){
+                        build.push(itemBasedSkills[skillIndex]);
+                    }
                 }
             }
             if (fixedItems[10]) {
@@ -278,7 +326,7 @@ class BuildOptimizer {
                 }
             }
         } else {
-            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, tmrSkillUsed);
+            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills);
         }
     }
 
