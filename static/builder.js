@@ -1645,7 +1645,7 @@ function getStateHash(onlyCurrent = true) {
         "mainSelector": $(".equipments select").val(),
         "additionalFilters": []
     }
-    var additionalFilters = ["includeTMROfOwnedUnits", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
+    var additionalFilters = ["includeEasilyObtainableItems", "includeChocoboItems", "includeTMROfOwnedUnits", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
     for (var i = 0; i < additionalFilters.length; i++) {
         if ($("#" + additionalFilters[i]).prop('checked')) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
