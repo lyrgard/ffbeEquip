@@ -1,5 +1,5 @@
 // Constants
-const DataStorageEasilyObtainableItems = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest"];
+const DATA_STORAGE_EASILY_OBTAINABLE_ITEMS = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest"];
 
 class DataStorage {
     constructor() {
@@ -483,7 +483,7 @@ class DataStorage {
         if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
             totalNumber += 1;
         }
-        if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DataStorageEasilyObtainableItems.includes(type))) {
+        if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DATA_STORAGE_EASILY_OBTAINABLE_ITEMS.includes(type))) {
             totalNumber += 1;
         }
         if (this.includeChocoboItems && totalNumber == 0 && item.access.includes("chocobo")) {
