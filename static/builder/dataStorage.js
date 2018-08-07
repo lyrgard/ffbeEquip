@@ -1,5 +1,5 @@
 // Constants
-const DataStorageEasilyObtainableItems = ["shop", "chest", "recipe"];
+const DataStorageEasilyObtainableItems = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest"];
 
 class DataStorage {
     constructor() {
