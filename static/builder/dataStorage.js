@@ -1,3 +1,6 @@
+// Constants
+const DataStorageEasilyObtainableItems = ["shop", "chest", "recipe"];
+
 class DataStorage {
     constructor() {
         this.onlyUseOwnedItems = false;
@@ -11,6 +14,8 @@ class DataStorage {
         this.onlyUseOwnedItemsAvailableForExpeditions = false;
         this.includeTrialRewards = false;
         this.includeTMROfOwnedUnits = false;
+        this.includeEasilyObtainableItems = false;
+        this.includeChocoboItems = false;
         this.alreadyUsedItems = {};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
@@ -476,6 +481,12 @@ class DataStorage {
             }
         }
         if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
+            totalNumber += 1;
+        }
+        if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DataStorageEasilyObtainableItems.includes(type))) {
+            totalNumber += 1;
+        }
+        if (this.includeChocoboItems && totalNumber == 0 && item.access.includes("chocobo")) {
             totalNumber += 1;
         }
 
