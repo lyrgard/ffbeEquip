@@ -885,12 +885,17 @@ function startPage() {
 
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
-            return "Unsaved change exists !"
+            return "Unsaved change exists !";
         }
         if (savePublicLinkNeeded) {
             savePublicLink();
         }
-    });
+    }).on('keyup', function (e) {
+        // Reset search if escape is used
+        if (e.keyCode === 27) {
+            $("#searchBox").val('').trigger('input');
+        }
+    });;
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
     
