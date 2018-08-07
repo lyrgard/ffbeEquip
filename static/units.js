@@ -315,13 +315,13 @@ function getUnitDisplay(unit, useTmrName = false) {
             formToDisplay = 6;
         }
         html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div></div>';
-        html +='<div class="unitName">';
+        html +='<div class="unitName"><div>';
         if (useTmrName) {
-            html += tmrNameByUnitId[unit.id];
+            html += toLink(tmrNameByUnitId[unit.id]);
         } else {
-            html += unit.name;
+            html += toLink(unit.name);
         }
-        html += '</div>';
+        html += '</div></div>';
         html += '<div class="unitRarity">'
         html += getRarity(unit.min_rarity, unit.max_rarity);
         html += '</div></div>';
