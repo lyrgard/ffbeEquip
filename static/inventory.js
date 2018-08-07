@@ -735,7 +735,12 @@ function startPage() {
 	
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
-            return "Unsaved change exists !"
+            return "Unsaved change exists !";
+        }
+    }).on('keyup', function (e) {
+        // Reset search if escape is used
+        if (e.keyCode === 27) {
+            $("#searchBox").val('').trigger('input');
         }
     });
     
