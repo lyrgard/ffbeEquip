@@ -12,6 +12,8 @@
     margin: 5px;
     cursor: pointer;
     position: relative;
+    height: 140px;
+    width: 130px;
 }
 
 .unit.owned {
@@ -82,7 +84,8 @@
 }
 
 .unitRarity {
-    margin-bottom: 5px;
+    position: absolute;
+    bottom: 5px;
 }
 
 .result-tab-pane {
@@ -279,4 +282,16 @@
 
 .star7 .value {
     margin-left: 18px;
+}
+
+.unitName {
+    position: absolute;
+    bottom: 18px;
+    height: 34px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 14px;
+    text-align: center;
+    font-weight: bold;
 }
