@@ -273,6 +273,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '"';
         if (!is7Stars) {
             html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
+            html += ' title="Add one ' + unit.name + ' to your collection"';
         }
         html += '>';
         
@@ -280,7 +281,7 @@ function getUnitDisplay(unit, useTmrName = false) {
             html +='<span class="glyphicon glyphicon-time"/>';
         }
         var addFunction = (is7Stars ? "addTo7Stars" : "addToOwnedUnits");
-        html +='<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addFunction + '(\'' + unit.id + '\')"></span>';
+        html += '<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addFunction + '(\'' + unit.id + '\')" title="Add one ' + unit.name + ' to your collection"></span>';
         var numberOwned = (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0);
         if (is7Stars) {
             numberOwned = ownedUnits[unit.id].sevenStar;
@@ -288,9 +289,9 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '<span class="ownedNumber badge badge-success">' + numberOwned + '</span>';
         
         var removeFunction = (is7Stars ? "removeFrom7Stars" : "removeFromOwnedUnits");
-        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFunction + '(\'' + unit.id +'\');"></span></div>';
+        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFunction + '(\'' + unit.id + '\');" title="Remove one ' + unit.name + ' from your collection"></span></div>';
         var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumberFor");
-        html +='<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addToFarmableNumberFunction + '(\'' + unit.id + '\')"></span>';
+        html += '<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addToFarmableNumberFunction + '(\'' + unit.id + '\')" title="Augment by one the number of TMR remaining"></span>';
         if (is7Stars) {
             if (showNumberTMRFarmed) {
                 html += '<span class="farmableNumber badge badge-success">' + (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) + '</span>';
@@ -305,7 +306,7 @@ function getUnitDisplay(unit, useTmrName = false) {
             }
         }
         var removeFromFarmableFunction = (is7Stars ? "removeFromStmrFarmableNumberFor" : "removeFromFarmableNumberFor");
-        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFromFarmableFunction + '(\'' + unit.id +'\');"></span></div>';
+        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFromFarmableFunction + '(\'' + unit.id + '\');" title="Reduce by one the number of TMR remaining"></span></div>';
         var farmedFunction = (is7Stars ? "farmedSTMR" : "farmedTMR");
         html += '<img class="farmedButton" onclick="event.stopPropagation();' + farmedFunction + '(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="' +  (is7Stars ? 'STMR acquired !' : 'TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1') + '"></img>';
         html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/sevenStarCrystal.png" title="Awaken this unit !"></img>'
