@@ -164,7 +164,17 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
-            var levelCorrection = (1 + ((unitBuild.unit.max_rarity - 1)/5));
+            var level;
+            if (unitBuild._level) {
+                level = unitBuild._level;
+            } else {
+                if (unitBuild.unit.sixStarForm) {
+                    level = 100;
+                } else {
+                    level = (unitBuild.unit.max_rarity - 1) * 20;
+                }
+            }
+            var levelCorrection = (1 + (level/100));
             var damageMultiplier = {
                 "min": levelCorrection * 0.85,
                 "avg": levelCorrection * 0.925,
@@ -547,7 +557,10 @@ function isApplicable(item, unit) {
     return true;
 }
 
-function areConditionOK(item, equiped) {
+function areConditionOK(item, equiped, level = 0) {
+    if (level && item.levelCondition && item.levelCondition > level) {
+        return false;
+    }
     if (item.equipedConditions) {
         var found = 0;
         for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
@@ -556,9 +569,16 @@ function areConditionOK(item, equiped) {
                 if ((equiped[0] && equiped[0].element && equiped[0].element.includes(neededElement)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(neededElement))) {
                     found ++;
                 }
-            } else {
+            } else if (typeList.includes(item.equipedConditions[conditionIndex])) {
                 for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
                     if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
+                        found ++;
+                        break;
+                    }
+                }
+            } else {
+                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+                    if (equiped[equipedIndex] && equiped[equipedIndex].id == item.equipedConditions[conditionIndex]) {
                         found ++;
                         break;
                     }
@@ -652,19 +672,6 @@ function getEsperItem(esper) {
         }
     }
     return item;
-}
-
-function getItemWithTmrSkillIfApplicable(item, unit) {
-    if (unit.tmrSkill && item.tmrUnit && item.tmrUnit == unit.id) {
-        if (item.originalItem) {
-            item = item.originalItem;
-        }
-        var sum = combineTwoItems(item, unit.tmrSkill);
-        sum.originalItem = item;
-        return sum;
-    } else {
-        return item;
-    }
 }
 
 var simpleAddCombineProperties = ["hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","accuracy","jumpDamage","lbFillRate","mpRefresh"];

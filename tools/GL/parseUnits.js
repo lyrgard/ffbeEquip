@@ -28,43 +28,54 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
             if (!error && response.statusCode == 200) {
                 console.log("skills.json downloaded");
                 var skills = JSON.parse(body);
-                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
+                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/limitbursts.json', function (error, response, body) {
                     if (!error && response.statusCode == 200) {
-                        console.log("enhancements.json downloaded");
-                        var enhancements = JSON.parse(body);
-                        
-                        for (languageId = 0; languageId < languages.length; languageId++) {
-                            for (var index in enhancements) {
-                                var enhancement = enhancements[index];
-                                for (var unitIdIndex in enhancement.units) {
-                                    var unitId = enhancement.units[unitIdIndex].toString();
-                                    if (!enhancementsByUnitId[unitId]) {
-                                        enhancementsByUnitId[unitId] = {};
+                        console.log("skills.json downloaded");
+                        var lbs = JSON.parse(body);
+                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
+                            if (!error && response.statusCode == 200) {
+                                console.log("enhancements.json downloaded");
+                                var enhancements = JSON.parse(body);
+
+                                for (languageId = 0; languageId < languages.length; languageId++) {
+                                    for (var index in enhancements) {
+                                        var enhancement = enhancements[index];
+                                        for (var unitIdIndex in enhancement.units) {
+                                            var unitId = enhancement.units[unitIdIndex].toString();
+                                            if (!enhancementsByUnitId[unitId]) {
+                                                enhancementsByUnitId[unitId] = {};
+                                            }
+                                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                        }
                                     }
-                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+
+                                    var unitsOut = {};
+                                    for (var unitId in units) {
+                                        var unitIn = units[unitId];
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                            var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
+                                            unitsOut[unitOut.data.id] = unitOut.data;
+                                        }
+                                    }
+
+                                    var filename = 'unitsWithPassives.json';
+                                    if (languageId != 0) {
+                                        filename = 'unitsWithPassives_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
+                                    filename = 'units.json';
+                                    if (languageId != 0) {
+                                        filename = 'units_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+
+                                    if (languageId == 0) {
+                                        fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                        fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                    }
                                 }
                             }
-
-                            var unitsOut = {};
-                            for (var unitId in units) {
-                                var unitIn = units[unitId];
-                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                    var unitOut = treatUnit(unitId, unitIn, skills, enhancementsByUnitId);
-                                    unitsOut[unitOut.data.id] = unitOut.data;
-                                }
-                            }
-
-                            var filename = 'unitsWithSkill.json';
-                            if (languageId != 0) {
-                                filename = 'unitsWithSkill_' + languages[languageId] +'.json';
-                            }
-                            fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                            filename = 'units.json';
-                            if (languageId != 0) {
-                                filename = 'units_' + languages[languageId] +'.json';
-                            }
-                            fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-                        }
+                        });
                     }
                 });
             }
@@ -72,22 +83,24 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     }
 });
 
-function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
+function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
     var data = unit.data;
     var unitData;
     
-    var unitStats = {"maxStats":{}, "pots":{}};
+    var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
     for (entryId in unitIn.entries) {
         if (unitIn.entries[entryId].rarity == maxRariry) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in commonParse.stats) {
                 var stat = commonParse.stats[statIndex];
+                unitStats.minStats[stat.toLowerCase()] = unitData["stats"][stat][0];
                 unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
                 unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
             }
+            data["stats_pattern"] = unitData.stat_pattern;
             if (unitData.ability_slots != 4) {
                 data["materiaSlots"] = unitData.ability_slots;
             }
@@ -128,7 +141,7 @@ function treatUnit(unitId, unitIn, skills, enhancementsByUnitId, maxRariry = uni
         }
     }
     
-    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, enhancementsByUnitId[unitId], maxRariry, unitData, data);
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRariry == 7) {
@@ -145,6 +158,10 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
             download("http://diffs.exviusdb.com/asset_files/global/unit_unit6_common/8/unit_ills_" + unitId + ".png",filePath);
+        }
+        var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
+        if (!fs.existsSync(filePath)) {
+            download("http://diffs.exviusdb.com/asset_files/global/unit_unit6_common/8/unit_icon_" + unitId + ".png",filePath);
         }
     }
 }

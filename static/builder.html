@@ -23,6 +23,7 @@
                         <span data-toggle="dropdown" class="dropdown-toggle glyphicon glyphicon-chevron-down mobileMenuArrow"></span>
                         <ul class="dropdown-menu">
                             <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia</a></li>
+                            <li><a id="linkToUnitSearch" href="unitSearch.html" data-internal-link="unitSearch.html"><span class="glyphicon glyphicon-chevron-right"></span> Unit Search</a></li>
                             <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
                             <li><a id="linkToUnits" href="units.html" data-internal-link="units.html"><span class="glyphicon glyphicon-chevron-right"></span> Units</a></li>
                             <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
@@ -32,6 +33,7 @@
                     <div id="navigationMenu">
                         <div id="links">
                             <a id="linkToSearch" href="index.html" data-internal-link="index.html">Encyclopedia</a>
+                            <a id="linkToUnitSearch" href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
                             <a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a>
                             <a id="linkToUnits" href="units.html" data-internal-link="units.html">Units</a>
                             <a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a>
@@ -141,7 +143,34 @@
                         </span>
                         <span class="unitEquipable armors">
                         </span>
-                        <div id="unitEnhancements" class="col-xs-12"></div>
+                        <div class="col-xs-12">
+                            <div id="unitLevel" class="hidden col-xs-6 form-inline">
+                                Unit level : 
+                                <select class="form-control">
+                                    <option value="101">101</option>
+                                    <option value="102">102</option>
+                                    <option value="103">103</option>
+                                    <option value="104">104</option>
+                                    <option value="105">105</option>
+                                    <option value="106">106</option>
+                                    <option value="107">107</option>
+                                    <option value="108">108</option>
+                                    <option value="109">109</option>
+                                    <option value="110">110</option>
+                                    <option value="111">111</option>
+                                    <option value="112">112</option>
+                                    <option value="113">113</option>
+                                    <option value="114">114</option>
+                                    <option value="115">115</option>
+                                    <option value="116">116</option>
+                                    <option value="117">117</option>
+                                    <option value="118">118</option>
+                                    <option value="119">119</option>
+                                    <option value="120" selected>120</option>
+                                </select>
+                            </div>
+                            <div id="unitEnhancements"></div>
+                        </div>
                         <div class="unitStats">
                             <div class="stat hp">
                                 <div class="inputWithIcon baseStat">
@@ -372,14 +401,24 @@
                         <div class="checkboxGroup"><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
                         <div class="checkboxGroup"><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
                         <div class="checkboxGroup"><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
-                        <div class="checkboxGroup" data-server="JP"><input id="excludeSTMR" type="checkbox"/><label>Exclude STMR</label></div>
+                        <div class="checkboxGroup"><input id="excludeSTMR" type="checkbox"/><label>Exclude STMR</label></div>
                         <div class="checkboxGroup"><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude not released yet equipments</label></div>
-                        <div><a class="link" onclick="displayEquippableItemList();">Select items to exclude</a></div>
+                        <div><a class="link" onclick="displayEquipableItemList();">Select items to exclude</a></div>
                         <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
+                <div id="savedTeamPanel" class="panel panel-default hidden">
+                    <div class="panel-heading">
+                        <span class="savedTeamName">New team</span>
+                        <div>
+                            <div id="saveTeamButton" class="btn hidden" onclick="saveTeam()" title="Save"><span class="glyphicon glyphicon-floppy-disk"></span></div>
+                            <div id="saveTeamAsButton" class="btn hidden" onclick="showSaveAsPopup()" title="Save as..."><span class="glyphicon glyphicon-floppy-save"></span></div>
+                            <div id="openSavedTeamsButton" class="btn" onclick="showSavedTeams()" title="Show saved teams list"><span class="glyphicon glyphicon-th-list"></span></div>
+                        </div>
+                    </div>
+                </div>
                 <div id="buildDiv" class="hidden">
                     <ul id="unitTabs" class="nav nav-tabs">
                         <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
@@ -434,7 +473,7 @@
                                 <div id="conciseViewLink" class="col-xs-6 hidden link text-center">
                                     <a onclick="switchView(true);"><span class="glyphicon glyphicon-zoom-out"></span> Concise View</a>
                                 </div>
-                                <div class="col-xs-6 text-center">
+                                <div id="shareLinksMenu" class="col-xs-6 text-center ">
                                     <div class="dropdown">
                                         <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share this build<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
@@ -556,10 +595,10 @@
                         <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank">Send me a message on reddit</a><a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank">chat on FFBE Equip discord server</a>
                     </div>
                     <div>
-                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank">Donate</a>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank">Buy me a coffee</a>
                     </div>
                     <div>
-                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank">Become a Patron</a>
+                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank">Become my patron on Patreon</a>
                     </div>
                     <div>
                         <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank">JP units and items images are a courtesy of EXVIUS DB</a>
@@ -770,6 +809,8 @@
                                                             <ul class="dropdown-menu">
                                                                 <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + ATK/46.6 + MAG/46.6 + SPR/46.6')">Supercites of Red and Blue</a></li>
                                                                 <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/1165 + MP/58.25 + MAG/46.6 + SPR/46.6')">Supercites of Violet and Yellow</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('ATK/23.18 + DEF/46.36')">Supercites of Orange and White</a></li>
+                                                                <li><a tabindex="-1" href="#" onclick="addToCustomFormula('HP/579.5 + DEF/46.6 + SPR/46.6')">Supercites of Green and Black</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -797,16 +838,16 @@
                                 <div class="tokenList">
                                     <table class="table">
                                         <tbody>
-                                            <tr><td class="token"><span class="code">Maximze HP</span></td><td>Maximize HP</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize HP</span></td><td>Maximize HP</td></tr>
                                             <tr><td class="token"><span class="code">Maximize DEF * HP</span></td><td>Maximize the product of HP by DEF (physical eHP)</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze SPR * HP</span></td><td>Maximize the product of HP by SPR (magical eHP)</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze MP * MP_REFRESH</span></td><td>Maximize the number of MP regained each turn</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze M_DAMAGE With HP > 6000</span></td><td>Maximize Magical Damage while keeping HP > 6000</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With P_EVADE > 100 AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With I_PHYSICAL AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze HP With LB > 12</span></td><td>Maximize HP while insuring at least 12 LB points per turn</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With I_PHYSICAL AND i_PARALYSIS AND I_DEATH AND E_LIGHT</span></td><td>Formula to carry Gilgamesh trial. 100% evasion, immunity to paralysis and death, Light elemental weapon and then maximize damage</td></tr>
-                                            <tr><td class="token"><span class="code">Maximze P_DAMAGE With E_LIGHT OR E_FIRE</span></td><td>Maximize physical damage with a light or fire weapon (or both)</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize SPR * HP</span></td><td>Maximize the product of HP by SPR (magical eHP)</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize MP * MP_REFRESH</span></td><td>Maximize the number of MP regained each turn</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize M_DAMAGE With HP > 6000</span></td><td>Maximize Magical Damage while keeping HP > 6000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize P_DAMAGE With P_EVADE > 100 AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize P_DAMAGE With I_PHYSICAL AND HP > 5000</span></td><td>Maximize Physical Damage while reaching 100% physical evade and HP > 5000</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize HP With LB > 12</span></td><td>Maximize HP while insuring at least 12 LB points per turn</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize P_DAMAGE With I_PHYSICAL AND i_PARALYSIS AND I_DEATH AND E_LIGHT</span></td><td>Formula to carry Gilgamesh trial. 100% evasion, immunity to paralysis and death, Light elemental weapon and then maximize damage</td></tr>
+                                            <tr><td class="token"><span class="code">Maximize P_DAMAGE With E_LIGHT OR E_FIRE</span></td><td>Maximize physical damage with a light or fire weapon (or both)</td></tr>
                                         </tbody>
                                     </table>
                                 </div>

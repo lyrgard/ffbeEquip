@@ -623,6 +623,34 @@
     right:100%;
 }
 
+#savedTeamPanel .panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.savedTeam {
+    padding: 5px;
+    border-top: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.savedTeam .name {
+    font-weight: bold;
+}
+
+.savedTeam .btn {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+}
+.savedTeam .btn:hover {
+    background-color: #CDCDCD;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {

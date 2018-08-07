@@ -13,6 +13,8 @@ const involvedStatsByValue = {
     "summonerSkill":                    ["mag","spr","evoMag"]
 }
 
+const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100];
+
 class UnitBuild {
     
     constructor(unit, fixedItems, baseValues) {
@@ -23,6 +25,7 @@ class UnitBuild {
         this.innateElements = [];
         this.baseValues = baseValues;
         this.fixedItemsIds = [];
+        this._level = 0;
         for (var index = 0; index < 10; index++) {
             if (this.fixedItems[index] && !this.fixedItemsIds.includes(this.fixedItems[index].id)) {
                 this.fixedItemsIds.push(this.fixedItems[index].id);
@@ -31,6 +34,12 @@ class UnitBuild {
         this.goal = null;
         this._formula = null;
         this.involvedStats = [];
+        this.desirableItemIds = [];
+        if (this.unit) {
+            this.stats = this.unit.stats.maxStats;
+        } else {
+            this.stats = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
+        }
     }
     
     getPartialDualWield() {
@@ -91,6 +100,19 @@ class UnitBuild {
             var partialDualWield = this.getPartialDualWield() || [];
             if (partialDualWield.length > 0 && this.build[0] && partialDualWield.includes(this.build[0].type)) {
                 this.equipable[1] = partialDualWield.concat(this.equipable[1]);
+            }
+        }
+        this.desirableItemIds = [];
+        if (this.unit) {
+            for (var i = this.unit.skills.length; i--;) {
+                var skill = this.unit.skills[i];
+                if (skill.equipedConditions) {
+                    for (var j = skill.equipedConditions.length; j--;) {
+                        if (!typeList.includes(skill.equipedConditions[j]) && !elementList.includes(skill.equipedConditions[j]) && !this.desirableItemIds.includes(skill.equipedConditions[j])) {
+                            this.desirableItemIds.push(skill.equipedConditions[j]);
+                        }
+                    }
+                }
             }
         }
         return this.equipable;
@@ -223,5 +245,32 @@ class UnitBuild {
     setUnit(unit) {
         this.unit = unit;
         this.prepareEquipable();
+        if (this.unit) {
+            this.stats = this.unit.stats.maxStats;
+        } else {
+            this.stats = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
+        }
+    }
+    
+    setLevel(level) {
+        this._level = level;
+        if (this.unit) {
+            if (this._level > 100) {
+                this.stats = {
+                    "hp": this.unit.stats.minStats.hp + Math.floor((this.unit.stats.maxStats.hp - this.unit.stats.minStats.hp) * statProgression[this._level - 101] / 100),
+                    "mp": this.unit.stats.minStats.mp + Math.floor((this.unit.stats.maxStats.mp - this.unit.stats.minStats.mp) * statProgression[this._level - 101] / 100),
+                    "atk": this.unit.stats.minStats.atk + Math.floor((this.unit.stats.maxStats.atk - this.unit.stats.minStats.atk) * statProgression[this._level - 101] / 100),
+                    "def": this.unit.stats.minStats.def + Math.floor((this.unit.stats.maxStats.def - this.unit.stats.minStats.def) * statProgression[this._level - 101] / 100),
+                    "mag": this.unit.stats.minStats.mag + Math.floor((this.unit.stats.maxStats.mag - this.unit.stats.minStats.mag) * statProgression[this._level - 101] / 100),
+                    "spr": this.unit.stats.minStats.spr + Math.floor((this.unit.stats.maxStats.spr - this.unit.stats.minStats.spr) * statProgression[this._level - 101] / 100),
+                };
+            } else {
+                this.stats = this.unit.stats.maxStats;
+            }
+        }
+    }
+    
+    getStat(stat) {
+        return this.stats[stat];
     }
 }
