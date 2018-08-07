@@ -1,5 +1,5 @@
 // Constants
-const DATA_STORAGE_EASILY_OBTAINABLE_ITEMS = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest"];
+const DATA_STORAGE_EASILY_OBTAINABLE_ITEMS = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest", "recipe-shop", "recipe-colosseum"];
 
 class DataStorage {
     constructor() {
@@ -484,10 +484,10 @@ class DataStorage {
             totalNumber += 1;
         }
         if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DATA_STORAGE_EASILY_OBTAINABLE_ITEMS.includes(type))) {
-            totalNumber += 1;
+            totalNumber += item.maxNumber ? item.maxNumber : 4;
         }
         if (this.includeChocoboItems && totalNumber == 0 && item.access.includes("chocobo")) {
-            totalNumber += 1;
+            totalNumber += item.maxNumber ? item.maxNumber : 4;
         }
 
         if (this.alreadyUsedItems[item.id]) {
