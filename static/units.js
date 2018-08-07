@@ -219,25 +219,33 @@ var displayUnits = function(units, useTmrName = false) {
 
 };
 
+function buildRarityID(min_rarity, max_rarity)
+{
+    return "rarity-" + min_rarity + "-of-" + max_rarity;
+}
+
 function displayUnitsByRarity(units, minRarity = 1) {
     var lastMinRarity, lastMaxRarity;
     var first = true;
 
     var html = '';
+    var rarity_list = []; // will gather rarity to display a jump list later
     for (var index = 0, len = units.length; index < len; index++) {
         var unit = units[index];
         if (unit.min_rarity < minRarity) {
             continue;
         }
         if (first) {
-            html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
+            html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, unit.max_rarity) + '">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
             html += '<div class="unitList">';
             first = false;
+            rarity_list.push(unit);
         } else {
             if (unit.max_rarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
                 html += '</div>';
-                html += '<div class="raritySeparator">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
+                html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, unit.max_rarity) + '">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
                 html += '<div class="unitList">';
+                rarity_list.push(unit);
             }
         }
         lastMaxRarity = unit.max_rarity;
@@ -245,7 +253,20 @@ function displayUnitsByRarity(units, minRarity = 1) {
         html += getUnitDisplay(unit);
     }
     html += '</div>';
-    return html;
+    
+    // Jump list display
+    rarity_jump_html = '<div class="rarityJumpList">';
+    rarity_jump_html += '<span>Jump to </span>';
+    // Loop from end to begin, to show smaller star first
+    // Also, do not show index 0 because it's the one just below, so don't need to jump...
+    for (index = rarity_list.length - 1; index > 0; index--) {
+        rarity_jump_html += '<a class="rarityJump" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
+        rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) ;
+        rarity_jump_html += "</a>";
+    }
+    rarity_jump_html += '</div>';
+
+    return rarity_jump_html + html;
 
 };
 
