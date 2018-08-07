@@ -154,6 +154,17 @@
     display: block;
 }
 
+.itemList {
+    overflow: hidden;
+}
+
+.itemSeparator {
+    clear: both;
+    overflow: hidden;
+    margin: 30px 0 15px 0;
+    text-align: center;
+}
+
 @media (max-width: 991px) {
     .farmable .farmedButton {
         display: block;
