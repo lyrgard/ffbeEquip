@@ -2210,21 +2210,21 @@ function writeSavedTeams() {
 function showSaveAsPopup() {
     $('<div id="showSaveBuildNameInput" title="Save team as...">' +
         '<div>Build name :</div>' +
-        '<input class="form-control"></input>' +
+        '<input id="teamName" class="form-control"></input>' +
         '<div style="width: 100%;display: flex;justify-content: center;margin-top: 10px;"><div onclick="validateTeamName();" class="btn btn-primary">OK</div></div>' +
       '</div>' ).dialog({
         modal: true,
         open: function(event, ui) {
             $(this).parent().css('position', 'absolute');
             $(this).parent().css('top', '150px');
-            $("#showSaveBuildNameInput input").select();
+            $("#teamName").select();
         },
         width: (($(window).width() > 600) ? 600: $(window).width())
     });
 }
 
 function validateTeamName() {
-    var name = $("#showSaveBuildNameInput input").val();
+    var name = $("#teamName").val();
     if (name && name.length > 0) {
         saveTeamAs(name);
     } else {
