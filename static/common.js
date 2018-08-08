@@ -24,6 +24,9 @@ var mustSaveUnits = false;
 var mustSaveInventory = false;
 var mustSaveEspers = false;
 var userSettings;
+var lazyLoader = new LazyLoad({
+    elements_selector: 'img.lazyload'
+});
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
