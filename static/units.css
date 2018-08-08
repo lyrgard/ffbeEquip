@@ -123,6 +123,44 @@
     margin-top: 30px;
 }
 
+.rarityJumpList {
+    margin-top: 20px;
+    font-size: 0.9em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.rarityJumpList > span {
+    color: #808080;
+}
+
+.rarityJumpList > span,
+.rarityJumpList > a {
+    margin: 5px 0;
+}
+
+.rarityJumpList .rarityJump {
+    margin-left: 10px;
+    padding: 4px 6px;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.rarityJumpList .rarityJump:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+}
+
+.rarityJumpList .rarityJump img {
+    width: 12px;
+    height: 12px;
+}
+
 .numberDiv {
     position: absolute;
     top: 40px;
