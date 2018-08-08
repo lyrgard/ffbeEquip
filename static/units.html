@@ -13,6 +13,7 @@
         <title>FFBE Equip : Units</title>
     </head>
     <body>
+        <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
         <div id="loaderGlassPanel" class="hidden">
             <div id="loader"></div>
         </div>
@@ -75,33 +76,35 @@
                 </nav>
             </div>
 
-            <div class="col-xs-2 ">
-                <div class="stats hidden">
-                    <h4>All units</h4>
-                    <div class="all">
-                        <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+            <div class="col-xs-2">
+                <div class="unitsSidebar">
+                    <div class="stats hidden">
+                        <h4>All units</h4>
+                        <div class="all">
+                            <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                        </div>
+                        <h4>Not-limited units</h4>
+                        <div class="withoutTimeLimited">
+                            <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                        </div>
+                        <h4>Time-limited units</h4>
+                        <div class="timeLimited">
+                            <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                            <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                        </div>
                     </div>
-                    <h4>Not-limited units</h4>
-                    <div class="withoutTimeLimited">
-                        <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
+                    <div id="mode">
+                        <input id="modeToggle" type="checkbox">
+                        <span class="info">(Switch to Edit mode to have full control on each unit numbers)</span>
                     </div>
-                    <h4>Time-limited units</h4>
-                    <div class="timeLimited">
-                        <div class="star7"><img class="crystal" src="img/sevenStarCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star5"><img class="crystal" src="img/rainbowCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star4"><img class="crystal" src="img/goldCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                        <div class="star3"><img class="crystal" src="img/blueCrystal.png"/><span class="value"></span>/<span class="total"></span><span class="number"></span></div>
-                    </div>
-                </div>
-                <div id="mode">
-                    <input id="modeToggle" type="checkbox">
-                    <span class="info">(Switch to Edit mode to have full control on each unit numbers)</span>
                 </div>
             </div>
             <div  class="col-xs-10 col-lg-8">
