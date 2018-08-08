@@ -903,6 +903,8 @@ function startPage() {
 
     $("#results").addClass(server);
 
+    var $unitsSidebar = $('.unitsSidebar');
+    var unitsSidebarTopPos = $unitsSidebar.offset().top;
 
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {
@@ -916,7 +918,14 @@ function startPage() {
         if (e.keyCode === 27) {
             $("#searchBox").val('').trigger('input').focus();
         }
-    });;
+    }).on('scroll', $.debounce(50, function(){
+        // Detect when user scroll, and fix the sidebar to be always accessible
+        if ($(this).scrollTop() > unitsSidebarTopPos) { 
+            $unitsSidebar.addClass('fixed');
+        } else { 
+            $unitsSidebar.removeClass('fixed');
+        } 
+    }));;
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
     
