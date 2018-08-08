@@ -1430,4 +1430,23 @@ $(function() {
         e.stopPropagation();
         e.preventDefault();
     });
+
+    /* Back to top button feature */
+    var $scroll = $('#scrollToTopButton');
+    if ($scroll) {
+        // Detect when user start to scroll down
+        $(window).scroll($.debounce(100, function(){ 
+            if ($(this).scrollTop() > 100) { 
+                $scroll.fadeIn(200);
+            } else { 
+                $scroll.fadeOut(200);
+            } 
+        }));
+
+        // Back to top when clicking on link
+        $scroll.click(function(){ 
+            $("html, body").animate({ scrollTop: 0 }, 400); 
+            return false; 
+        }); 
+    }
 });

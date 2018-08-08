@@ -669,6 +669,35 @@ nav .dropdown-menu li a {
     padding: 3px 6px;
 }
 
+#scrollToTopButton {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #052464;
+    opacity: 0.5;
+}
+
+#scrollToTopButton:hover {
+    opacity: 1;
+}
+
+#scrollToTopButton span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -12px;
+    height: 0;
+    width: 0;
+    border: 8px solid transparent;
+    border-bottom-color: #ffffff;
+}
+
 @media (max-width: 991px) {
     
     #navigationMenu #mobileMenu {
