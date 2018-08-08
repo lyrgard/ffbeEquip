@@ -429,7 +429,7 @@ var toUrl = function(name) {
 
 var toLink = function(text, link = text) {
     if (server == "GL") {
-        return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank" onclick="event.stopPropagation();"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
+        return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank" rel="noreferrer" onclick="event.stopPropagation();"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
     } else {
         return "<span>" + text + "</span>";
     }
@@ -521,8 +521,8 @@ function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "")
 function loadInventory() {
     $.get('googleOAuthUrl', function(result) {
         $('<div id="dialog" title="Authentication">' +
-            '<h4>You\'ll be redirected to a google authentication page</h4><h5 class="loginMessageDetail">This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</h5>' +
-            '<h5 class="loginMessageDetail">The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</h5>' +
+            '<h4>You\'ll be redirected to a google authentication page</h4><h5 class="loginMessageDetail">This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</h5>' +
+            '<h5 class="loginMessageDetail">The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank" rel="noreferrer">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</h5>' +
           '</div>' ).dialog({
             modal: true,
             open: function(event, ui) {
