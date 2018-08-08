@@ -37,8 +37,8 @@ onmessage = function(event) {
         case "optimize":
             optimizer.optimizeFor(
                 messageData.typeCombinations, 
-                function(build, value) {
-                    postMessage(JSON.stringify({"type":"betterBuildFound","build":build,"value":value}));
+                function(build, value, freeSlots) {
+                    postMessage(JSON.stringify({"type":"betterBuildFound","build":build,"value":value, "freeSlots": freeSlots}));
                 }
             );
             postMessage(JSON.stringify({"type":"finished", "number":number}));

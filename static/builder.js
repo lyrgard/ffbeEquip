@@ -2464,9 +2464,12 @@ function initWorkers() {
             var messageData = JSON.parse(event.data);
             switch(messageData.type) {
                 case "betterBuildFound":
-                    if (!builds[currentUnitIndex].buildValue[goalVariation] || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]) {
+                    if (!builds[currentUnitIndex].buildValue[goalVariation] 
+                            || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]
+                            || (builds[currentUnitIndex].buildValue[goalVariation] == messageData.value[goalVariation] && messageData.freeSlots > builds[currentUnitIndex].freeSlots)) {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
+                        builds[currentUnitIndex].freeSlots = messageData.freeSlots;
                         // if the resulting build inverted weapond, invert the pinned weapon if needed
                         if (builds[currentUnitIndex].fixedItems[0] && (builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[0].id != builds[currentUnitIndex].fixedItems[0].id || !builds[currentUnitIndex].build[0]) ||
                             builds[currentUnitIndex].fixedItems[1] && (builds[currentUnitIndex].build[1] && builds[currentUnitIndex].build[1].id != builds[currentUnitIndex].fixedItems[1].id || !builds[currentUnitIndex].build[1]))  {
