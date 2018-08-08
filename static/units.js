@@ -259,7 +259,7 @@ function displayUnitsByRarity(units, minRarity = 1) {
     rarity_jump_html += '<span>Jump to </span>';
     // Loop from end to begin, to show smaller star first
     // Also, do not show index 0 because it's the one just below, so don't need to jump...
-    for (index = rarity_list.length - 1; index > 0; index--) {
+    for (index = 1, len = rarity_list.length; index < len; index++) {
         rarity_jump_html += '<a class="rarityJump" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
         rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) ;
         rarity_jump_html += "</a>";
