@@ -160,8 +160,10 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
         // Add the jump and the all items to the DOM
         jumpDiv.append(htmlTypeJump);
         div.append(html);
+        // Update lazyloader only for first and last run
+        if (start === 0 || index >= items.length) lazyLoader.update();
+        // Launch next run of type
         if (index < items.length) {
-            // Launch next run of type
             setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
         }
     }
@@ -175,7 +177,11 @@ function displayItemsAsync(items, start, div, id, max = 20) {
     }
 
     if (id == displayId) {
+        // Add items to the DOM
         div.append(html);
+        // Update lazyloader only for first and last run
+        if (start === 0 || index >= items.length) lazyLoader.update();
+        // Launch next run of type
         if (index < items.length) {
             setTimeout(displayItemsAsync, 0, items, index, div, id);
         }    
@@ -265,7 +271,7 @@ function addToInventory(id, showAlert = true) {
         itemInventory[id] = 1;
         inventoryDiv.removeClass('notOwned');
         inventoryDiv.find(".number").text(itemInventory[id]);
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+        updateUnitAndItemCount();
     }
     willSave();
     updateCounts();
@@ -313,8 +319,8 @@ function showRemoveAllToInventoryDialog() {
         buttons: {
             "Empty inventory": function () {
                 itemInventory = {};
+                updateUnitAndItemCount();
                 saveUserData(true, false);
-                $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
                 $(this).dialog("close");
             },
             Cancel: function () {
@@ -358,7 +364,7 @@ function removeFromInventory(id) {
             delete itemInventory[id];
             inventoryDiv.addClass('notOwned');
             inventoryDiv.find(".number").text("");
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+            updateUnitAndItemCount();
         } else {
             itemInventory[id] = itemInventory[id] - 1;
             inventoryDiv.find(".number").text(itemInventory[id]);

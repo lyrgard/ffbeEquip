@@ -702,6 +702,9 @@ function onUnitChange() {
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
             var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.max_rarity == selectedUnitData.max_rarity);
+            var oldValues = builds[currentUnitIndex].baseValues;
+            var oldLevel = builds[currentUnitIndex]._level;
+            
             reinitBuild(currentUnitIndex);
             var unitData = selectedUnitData;
             if (unitData.enhancements) {
@@ -717,6 +720,10 @@ function onUnitChange() {
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
+            if(sameUnit) {
+                builds[currentUnitIndex].baseValues = oldValues;
+                builds[currentUnitIndex].setLevel(oldLevel);
+            }
             updateUnitLevelDisplay();
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
@@ -2160,23 +2167,32 @@ function getSavedBuilds(callback) {
 function saveTeam(name = null) {
     if (currentSavedBuildIndex < 0) {
         if (name) {
-            getSavedBuilds(function(savedBuilds) {
-                savedBuilds.teams.push({
-                    "name": name,
-                    "team": getStateHash(false)
-                });
-                writeSavedTeams();
-                currentSavedBuildIndex = savedBuilds.teams.length - 1;
-                $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
-                $("#saveTeamAsButton").removeClass("hidden");
-            });
+            saveTeamAs(name);
         } else {
             showSaveAsPopup();    
         }
     } else {
-        savedBuilds.teams[currentSavedBuildIndex].team = getStateHash(false);
-        writeSavedTeams();
+        if (name) {
+            saveTeamAs(name);
+        } else {
+            savedBuilds.teams[currentSavedBuildIndex].team = getStateHash(false);
+            writeSavedTeams();    
+        }
     }
+}
+
+function saveTeamAs(name) {
+    getSavedBuilds(function(savedBuilds) {
+        savedBuilds.teams.push({
+            "name": name,
+            "team": getStateHash(false)
+        });
+        writeSavedTeams();
+        currentSavedBuildIndex = savedBuilds.teams.length - 1;
+        $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
+        $("#saveTeamAsButton").removeClass("hidden");
+        $('#showSaveBuildNameInput').dialog('destroy');
+    });
 }
 
 function writeSavedTeams() {
@@ -2210,8 +2226,7 @@ function showSaveAsPopup() {
 function validateTeamName() {
     var name = $("#showSaveBuildNameInput input").val();
     if (name && name.length > 0) {
-        saveTeam(name);
-        $('#showSaveBuildNameInput').dialog('close'); ;
+        saveTeamAs(name);
     } else {
         alert("Please enter a name");
     }
@@ -2464,9 +2479,12 @@ function initWorkers() {
             var messageData = JSON.parse(event.data);
             switch(messageData.type) {
                 case "betterBuildFound":
-                    if (!builds[currentUnitIndex].buildValue[goalVariation] || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]) {
+                    if (!builds[currentUnitIndex].buildValue[goalVariation] 
+                            || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]
+                            || (builds[currentUnitIndex].buildValue[goalVariation] == messageData.value[goalVariation] && messageData.freeSlots > builds[currentUnitIndex].freeSlots)) {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
+                        builds[currentUnitIndex].freeSlots = messageData.freeSlots;
                         // if the resulting build inverted weapond, invert the pinned weapon if needed
                         if (builds[currentUnitIndex].fixedItems[0] && (builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[0].id != builds[currentUnitIndex].fixedItems[0].id || !builds[currentUnitIndex].build[0]) ||
                             builds[currentUnitIndex].fixedItems[1] && (builds[currentUnitIndex].build[1] && builds[currentUnitIndex].build[1].id != builds[currentUnitIndex].fixedItems[1].id || !builds[currentUnitIndex].build[1]))  {

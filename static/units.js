@@ -41,6 +41,7 @@ function showAlphabeticalSort() {
             }
         }
     });
+    lazyLoader.update();
 }
 
 function showRaritySort(minRarity = 1) {
@@ -58,6 +59,7 @@ function showRaritySort(minRarity = 1) {
             }
         }
     });
+    lazyLoader.update();
 }
 
 function showTMRAlphabeticalSort() {
@@ -77,6 +79,7 @@ function showTMRAlphabeticalSort() {
             }
         }
     });
+    lazyLoader.update();
 }
 
 function showHistory() {
@@ -107,6 +110,7 @@ function showHistory() {
         }
     }
     $("#results").html(html);
+    lazyLoader.update();
 }
 
 function displayStats() {
@@ -335,7 +339,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (formToDisplay == 7 && unit.min_rarity != 7) {
             formToDisplay = 6;
         }
-        html += '<div class="unitImageWrapper"><div><img class="unitImage" src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div></div>';
+        html += '<div class="unitImageWrapper"><div><img class="unitImage lazyload" data-src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div></div>';
         html +='<div class="unitName"><div>';
         if (useTmrName) {
             html += toLink(tmrNameByUnitId[unit.id]);
