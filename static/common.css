@@ -711,6 +711,12 @@ img[data-src] {
 
 
 @media (max-width: 991px) {
+
+    /* Adapt scroll button with button sidebar */
+    #scrollToTopButton.withButtonSideBar {
+        bottom: 110px; /* 25px margin + 75px height + 10px */
+        right: 37px; /* 25px margin + 75px width/2 - 50px width/2 */
+    }
     
     #navigationMenu #mobileMenu {
         display: inline;
