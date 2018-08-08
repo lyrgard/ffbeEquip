@@ -372,7 +372,11 @@ function getAccessHtml(item) {
         html += ">" + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
-        html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
+        if (units[item.tmrUnit]) {
+            html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
+        } else {
+            html += '<div>not released yet unit</div>';
+        }
     }
     if (item.stmrUnit) {
         html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';

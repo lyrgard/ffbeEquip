@@ -2160,23 +2160,32 @@ function getSavedBuilds(callback) {
 function saveTeam(name = null) {
     if (currentSavedBuildIndex < 0) {
         if (name) {
-            getSavedBuilds(function(savedBuilds) {
-                savedBuilds.teams.push({
-                    "name": name,
-                    "team": getStateHash(false)
-                });
-                writeSavedTeams();
-                currentSavedBuildIndex = savedBuilds.teams.length - 1;
-                $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
-                $("#saveTeamAsButton").removeClass("hidden");
-            });
+            saveTeamAs(name);
         } else {
             showSaveAsPopup();    
         }
     } else {
-        savedBuilds.teams[currentSavedBuildIndex].team = getStateHash(false);
-        writeSavedTeams();
+        if (name) {
+            saveTeamAs(name);
+        } else {
+            savedBuilds.teams[currentSavedBuildIndex].team = getStateHash(false);
+            writeSavedTeams();    
+        }
     }
+}
+
+function saveTeamAs(name) {
+    getSavedBuilds(function(savedBuilds) {
+        savedBuilds.teams.push({
+            "name": name,
+            "team": getStateHash(false)
+        });
+        writeSavedTeams();
+        currentSavedBuildIndex = savedBuilds.teams.length - 1;
+        $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
+        $("#saveTeamAsButton").removeClass("hidden");
+        $('#showSaveBuildNameInput').dialog('destroy');
+    });
 }
 
 function writeSavedTeams() {
@@ -2210,8 +2219,7 @@ function showSaveAsPopup() {
 function validateTeamName() {
     var name = $("#showSaveBuildNameInput input").val();
     if (name && name.length > 0) {
-        saveTeam(name);
-        $('#showSaveBuildNameInput').dialog('close'); ;
+        saveTeamAs(name);
     } else {
         alert("Please enter a name");
     }
