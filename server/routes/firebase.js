@@ -113,6 +113,8 @@ const partyBuildSchema = Joi.object().keys({
     "itemSelector": Joi.object().keys({
         "mainSelector":[Joi.string().valid("all"),Joi.string().valid("owned"), Joi.string().valid("ownedAvailableForExpedition"), Joi.string().valid("shopRecipe")],
         "additionalFilters": Joi.array().max(5).items([
+            Joi.string().valid("includeEasilyObtainableItems"),
+            Joi.string().valid("includeChocoboItems"),
             Joi.string().valid("includeTMROfOwnedUnits"),
             Joi.string().valid("includeTrialRewards"),
             Joi.string().valid("exludeEvent"),

@@ -219,6 +219,8 @@ function readItemsExcludeInclude() {
     dataStorage.excludeSTMR = $("#excludeSTMR").prop("checked");
     dataStorage.includeTMROfOwnedUnits = $("#includeTMROfOwnedUnits").prop("checked");
     dataStorage.includeTrialRewards = $("#includeTrialRewards").prop("checked");
+    dataStorage.includeEasilyObtainableItems = $("#includeEasilyObtainableItems").prop("checked");
+    dataStorage.includeChocoboItems = $("#includeChocoboItems").prop("checked");
 }
 
 function readStatsValues() {
@@ -1031,6 +1033,8 @@ function onEquipmentsChange() {
         $("#excludeSTMR").parent().removeClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
+        $("#includeChocoboItems").parent().addClass("hidden");
+        $("#includeEasilyObtainableItems").parent().addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = false;
     } else if (equipments == "owned" || equipments == "ownedAvailableForExpedition") {
@@ -1045,6 +1049,8 @@ function onEquipmentsChange() {
             $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         }
         $("#includeTrialRewards").parent().removeClass("hidden");
+        $("#includeChocoboItems").parent().removeClass("hidden");
+        $("#includeEasilyObtainableItems").parent().removeClass("hidden");
         dataStorage.onlyUseOwnedItems = true;
         dataStorage.onlyUseShopRecipeItems = false;
         if (equipments == "ownedAvailableForExpedition") {
@@ -1060,6 +1066,8 @@ function onEquipmentsChange() {
         $("#excludeSTMR").parent().addClass("hidden");
         $("#includeTMROfOwnedUnits").parent().addClass("hidden");
         $("#includeTrialRewards").parent().addClass("hidden");
+        $("#includeChocoboItems").parent().addClass("hidden");
+        $("#includeEasilyObtainableItems").parent().addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = true;
     }
@@ -1645,7 +1653,7 @@ function getStateHash(onlyCurrent = true) {
         "mainSelector": $(".equipments select").val(),
         "additionalFilters": []
     }
-    var additionalFilters = ["includeTMROfOwnedUnits", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
+    var additionalFilters = ["includeEasilyObtainableItems", "includeChocoboItems", "includeTMROfOwnedUnits", "includeTrialRewards", "exludeEvent", "excludePremium", "excludeTMR5", "excludeSTMR", "excludeNotReleasedYet"];
     for (var i = 0; i < additionalFilters.length; i++) {
         if ($("#" + additionalFilters[i]).prop('checked')) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
