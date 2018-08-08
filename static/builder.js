@@ -2217,7 +2217,7 @@ function showSaveAsPopup() {
         open: function(event, ui) {
             $(this).parent().css('position', 'absolute');
             $(this).parent().css('top', '150px');
-            $("#showSaveBuildNameInput input").select();
+            $("#teamName").select();
         },
         width: (($(window).width() > 600) ? 600: $(window).width())
     });
