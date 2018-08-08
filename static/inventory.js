@@ -213,7 +213,7 @@ function addToInventory(id, showAlert = true) {
         itemInventory[id] = 1;
         inventoryDiv.removeClass('notOwned');
         inventoryDiv.find(".number").text(itemInventory[id]);
-        $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+        updateUnitAndItemCount();
     }
     willSave();
     updateCounts();
@@ -261,8 +261,8 @@ function showRemoveAllToInventoryDialog() {
         buttons: {
             "Empty inventory": function () {
                 itemInventory = {};
+                updateUnitAndItemCount();
                 saveUserData(true, false);
-                $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
                 $(this).dialog("close");
             },
             Cancel: function () {
@@ -306,7 +306,7 @@ function removeFromInventory(id) {
             delete itemInventory[id];
             inventoryDiv.addClass('notOwned');
             inventoryDiv.find(".number").text("");
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+            updateUnitAndItemCount();
         } else {
             itemInventory[id] = itemInventory[id] - 1;
             inventoryDiv.find(".number").text(itemInventory[id]);
