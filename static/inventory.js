@@ -126,9 +126,9 @@ var displayItems = function(items, byType = false) {
     else displayItemsAsync(items, 0, resultDiv, displayId);
 };
 
-function displayItemsByTypeAsync(items, start, div, id, currentItemType = null) {
-    // Set first item type
-    if (!currentItemType) currentItemType = items[0].type;
+function displayItemsByTypeAsync(items, start, div, id) {
+    // Set item type for this run
+    var currentItemType = items[start].type;
 
     var html = '<div class="itemSeparator"><img src="img/' + currentItemType + '.png"/></div>';
     html += '<div class="itemList">';
@@ -138,7 +138,6 @@ function displayItemsByTypeAsync(items, start, div, id, currentItemType = null) 
         if (item.type === currentItemType) {
             html += getItemDisplay(item);
         } else {
-            currentItemType = item.type;
             break;
         }
     }
@@ -147,7 +146,8 @@ function displayItemsByTypeAsync(items, start, div, id, currentItemType = null) 
     if (id == displayId) {
         div.append(html);
         if (index < items.length) {
-            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, currentItemType);
+            // Launch next run of type
+            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id);
         }
     }
 };
