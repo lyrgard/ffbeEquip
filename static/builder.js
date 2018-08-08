@@ -372,16 +372,22 @@ function logBuild(build, value) {
     for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
         var result = calculateStatValue(build, statsToDisplay[statIndex], builds[currentUnitIndex]);
         values[statsToDisplay[statIndex]] = result.total;
+        
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
+        var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
+
         var bonusPercent;
         if (result.bonusPercent > statsBonusCap[server]) {
             bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
+        
+        var upperCaseStat = statsToDisplay[statIndex].toUpperCase();
         if (baseStats.includes(statsToDisplay[statIndex])) {
             var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
+                bonusTextElement.attr("title", `(${upperCaseStat} increase % - Equipped ${upperCaseStat} (DH) increase %) modifiers, capped individually.`);
                 bonusPercent += "&nbsp;-&nbsp;";
                 var cap = 300;
                 if (build[0] && build[1] && weaponList.includes(build[0].type) && weaponList.includes(build[1].type)) {
@@ -392,6 +398,8 @@ function logBuild(build, value) {
                 } else {
                     bonusPercent += equipmentFlatStatBonus + "%";
                 }
+            } else {
+                bonusTextElement.attr("title", `${upperCaseStat} increase % modifier.`);
             }
         }
         $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
