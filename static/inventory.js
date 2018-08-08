@@ -160,8 +160,10 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
         // Add the jump and the all items to the DOM
         jumpDiv.append(htmlTypeJump);
         div.append(html);
+        // Update lazyloader only for first and last run
+        if (start === 0 || index >= items.length) lazyLoader.update();
+        // Launch next run of type
         if (index < items.length) {
-            // Launch next run of type
             setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
         }
     }
@@ -175,7 +177,11 @@ function displayItemsAsync(items, start, div, id, max = 20) {
     }
 
     if (id == displayId) {
+        // Add items to the DOM
         div.append(html);
+        // Update lazyloader only for first and last run
+        if (start === 0 || index >= items.length) lazyLoader.update();
+        // Launch next run of type
         if (index < items.length) {
             setTimeout(displayItemsAsync, 0, items, index, div, id);
         }    
