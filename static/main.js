@@ -372,6 +372,13 @@ function startPage() {
 	$(baseStats).each(function (index, value) {
         $("#baseStat_" + value).on("input", $.debounce(300,update));
 	});
+    
+    // Reset search if escape is used
+    $(window).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            $("#searchText").val('').trigger('input').focus();
+        }
+    });
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
