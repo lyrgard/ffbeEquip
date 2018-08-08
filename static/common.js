@@ -148,7 +148,11 @@ function getExclusiveUnitsHtml(item) {
         } else {
             html += ", ";
         }
-        html += toLink(units[exclusiveUnitId].name);
+        if (units[exclusiveUnitId]) {
+            html += toLink(units[exclusiveUnitId].name);
+        } else {
+            html += "Not released yet unit";
+        }
     });
     html += "</div>";
     return html;
