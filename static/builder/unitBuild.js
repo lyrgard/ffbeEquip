@@ -35,6 +35,7 @@ class UnitBuild {
         this._formula = null;
         this.involvedStats = [];
         this.desirableItemIds = [];
+        this.freeSlots = 0;
         if (this.unit) {
             this.stats = this.unit.stats.maxStats;
         } else {

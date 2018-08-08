@@ -292,6 +292,7 @@ body {
 
 .td.type img.icon {
     width: 64px;
+    height: 64px;
     border-radius: 5px;
 }
 
@@ -698,6 +699,16 @@ nav .dropdown-menu li a {
     border: 8px solid transparent;
     border-bottom-color: #ffffff;
 }
+
+
+/* Lazyload workaround for Edge 
+   See https://www.andreaverlicchi.eu/lazyload/#dealing-with-microsoft-edge-problems
+*/
+img[data-src] {
+  display: block;
+  min-height: 1px;
+}
+
 
 @media (max-width: 991px) {
     

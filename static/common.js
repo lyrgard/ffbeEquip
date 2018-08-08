@@ -24,6 +24,9 @@ var mustSaveUnits = false;
 var mustSaveInventory = false;
 var mustSaveEspers = false;
 var userSettings;
+var lazyLoader = (window.LazyLoad) ? new LazyLoad({
+    elements_selector: 'img.lazyload'
+}) : null;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -34,14 +37,18 @@ function getImageHtml(item) {
     if (item.special && item.special.includes("twoHanded")) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
+
+    var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
+    var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
+
     if (item.icon) {
-        html += "<img src='img/items/" + item.icon + "' class='icon'></img>";
+        html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
-        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img>";
+        html += "<img "+src_attr+"='img/" + escapeName(item.name) + ".png' class='"+class_attr+"'></img>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img src='img/" + item.type + ".png' class='icon'></img>";
+        html += "<img "+src_attr+"='img/" + item.type + ".png' class='"+class_attr+"'></img>";
     }
     html += "</div>";
     return html;
@@ -372,7 +379,11 @@ function getAccessHtml(item) {
         html += ">" + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
-        html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
+        if (units[item.tmrUnit]) {
+            html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
+        } else {
+            html += '<div>not released yet unit</div>';
+        }
     }
     if (item.stmrUnit) {
         html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
@@ -1177,17 +1188,39 @@ function onUnitsOrInventoryLoaded() {
             });
 
         } else {
+            // Fix older versions/missing data
             for (var index in ownedUnits) {
                 if (ownedUnits[index] != "version" && typeof ownedUnits[index] === 'number') {
                     ownedUnits[index] = {"number":ownedUnits[index], "farmable":0};
                 }
             }
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+
+            updateUnitAndItemCount();
+
             $("#inventoryDiv .loader").addClass("hidden");
             $(".logOut").removeClass("hidden");
             inventoryLoaded();
         }
     }
+}
+
+function updateUnitAndItemCount() {
+    // Count units
+    var unitCount = 0;
+    Object.values(ownedUnits).forEach(unit => { unitCount += (unit.number || 0) + (unit.sevenStar || 0); });
+
+    // Count items (by slots occupied, not by amount)
+    var itemCount = Object.keys(itemInventory).length;
+    var enchantedItems = itemInventory["enchantments"];
+    if(enchantedItems) {
+        // Remove the "enchantments" key that was counted in the length above
+        itemCount -= 1;
+
+        // Add every enhancement, if it exists in items (old bug, remove this check after a reasonable amount of time when all saved data has already been fixed)
+        Object.keys(enchantedItems).forEach(enchantment => itemInventory[enchantment] ? itemCount += enchantedItems[enchantment].length : 0);
+    }
+
+    $("#inventoryDiv .status").text(`loaded (${itemCount} items, ${unitCount} units)`);
 }
 
 function showTextPopup(title, text) {
@@ -1251,6 +1284,7 @@ function saveSuccess() {
     if (mustSaveEspers) {
         mustSaveEspers = false;
     }
+    updateUnitAndItemCount();
     $("#inventoryDiv .loader").addClass("hidden");
     $.notify("Data saved", "success");
 }
@@ -1267,7 +1301,15 @@ function saveError() {
     }
 }
 
+function sanitizeItemInventory() {
+    // Sanitize inventory by removing non-existing enchantments
+    var enchantments = itemInventory["enchantments"];
+    Object.keys(enchantments || {}).forEach(enchantment => { if(!itemInventory[enchantment]) delete enchantments[enchantment]; });
+}
+
 function saveInventory(successCallback, errorCallback) {
+    sanitizeItemInventory();
+
     $.ajax({
         url: server + '/itemInventory',
         method: 'PUT',
@@ -1361,6 +1403,7 @@ $(function() {
             if (!itemInventory.enchantments) {
                 itemInventory.enchantments = {};
             }
+            sanitizeItemInventory();
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
