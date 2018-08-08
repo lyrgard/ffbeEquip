@@ -2224,7 +2224,7 @@ function showSaveAsPopup() {
 }
 
 function validateTeamName() {
-    var name = $("#showSaveBuildNameInput input").val();
+    var name = $("#teamName").val();
     if (name && name.length > 0) {
         saveTeamAs(name);
     } else {
