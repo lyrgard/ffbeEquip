@@ -57,11 +57,13 @@ function showEquipments() {
 
 function showSearch() {
     beforeShow(false);
+    
+    var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
 
     $("#searchBox").removeClass("hidden");
     $("#sortType").text("");
     // filter, sort and display the results
-    displayItems(sort(search()));
+    displayItems(sort(search()), inEquipment);
 }
 
 function showHistory() {
@@ -116,59 +118,109 @@ function showSettings() {
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
-var displayItems = function(items) {
+var displayItems = function(items, byType = false) {
     var resultDiv = $("#results");
     resultDiv.empty();
     displayId++;
-    displayItemsAsync(items, 0, resultDiv, displayId);
+    if (byType) {
+        // Jump list display
+        htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
+        htmlTypeJump += '<span>Jump to </span>';
+        htmlTypeJump += '</div>';
+        resultDiv.append(htmlTypeJump);
+
+        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'));
+    } else {
+        displayItemsAsync(items, 0, resultDiv, displayId);
+    }
+};
+
+function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
+    // Set item type for this run and various useful vars
+    var currentItemType = items[start].type;
+    var currentItemTypeImgHtml = '<img src="img/' + currentItemType + '.png"/>';
+    var currentItemTypeAnchor = 'itemType' + currentItemType;
+
+    var htmlTypeJump = '<a class="typeJump" href="#' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</a>';
+
+    var html = '<div class="itemSeparator" id="' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</div>';
+    html += '<div class="itemList">';
+    for (var index = start, len = items.length; index < len; index++) {
+        var item = items[index];
+
+        if (item.type === currentItemType) {
+            html += getItemDisplay(item);
+        } else {
+            break;
+        }
+    }
+    html += '</div>';
+
+    if (id == displayId) {
+        // Add the jump and the all items to the DOM
+        jumpDiv.append(htmlTypeJump);
+        div.append(html);
+        if (index < items.length) {
+            // Launch next run of type
+            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
+        }
+    }
 };
 
 function displayItemsAsync(items, start, div, id, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
-        var item = items[index];
-        html += '<div class="col-xs-6 item ' + escapeName(item.id);
-        if (!itemInventory[item.id]) {
-            html += ' notOwned ';
-        }
-        if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
-            html += ' farmable';
-        }
-        if (itemInventory.enchantments[item.id]) {
-            html += ' enhanced';
-        }
-        if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
-            html += ' excludedFromExpeditions';
-        }
-        html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
-        if (itemInventory) {
-            html+= '<div class="td inventory">';
-            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
-            html += '<span class="number badge badge-success">';
-            if (itemInventory[item.id]) {
-                html += itemInventory[item.id];
-            }
-            html += '</span>';
-            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
-            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
-            if (weaponList.includes(item.type)) {
-                html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
-            }
-            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
-            html += '</div>';
-        }
-        html += getImageHtml(item) + getNameColumnHtml(item);
-        
-        html += "</div>";
+        html += getItemDisplay(items[index]);
     }
+
     if (id == displayId) {
         div.append(html);
         if (index < items.length) {
             setTimeout(displayItemsAsync, 0, items, index, div, id);
         }    
     }
+}
+
+function getItemDisplay(item)
+{
+    var html = "";
+
+    html += '<div class="col-xs-6 item ' + escapeName(item.id);
+    if (!itemInventory[item.id]) {
+        html += ' notOwned ';
+    }
+    if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
+        html += ' farmable';
+    }
+    if (itemInventory.enchantments[item.id]) {
+        html += ' enhanced';
+    }
+    if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
+        html += ' excludedFromExpeditions';
+    }
+    html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
+    if (itemInventory) {
+        html+= '<div class="td inventory">';
+        html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
+        html += '<span class="number badge badge-success">';
+        if (itemInventory[item.id]) {
+            html += itemInventory[item.id];
+        }
+        html += '</span>';
+        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
+        html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
+        if (weaponList.includes(item.type)) {
+            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
+        }
+        html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
+        html += '</div>';
+    }
+    html += getImageHtml(item) + getNameColumnHtml(item);
     
+    html += "</div>";
+
+    return html;
 }
 
 function excludeFromExpedition(id) {

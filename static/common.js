@@ -35,14 +35,15 @@ function getImageHtml(item) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
     if (item.icon) {
-        html += "<img src='img/items/" + item.icon + "' class='icon'></img></div>";
+        html += "<img src='img/items/" + item.icon + "' class='icon'></img>";
     } else if (item.type == "esper") {
-        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img></div>";
+        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img src='img/" + item.type + ".png' class='icon'></img></div>";
+        html += "<img src='img/" + item.type + ".png' class='icon'></img>";
     }
+    html += "</div>";
     return html;
 }
 
@@ -79,9 +80,9 @@ function getNameColumnHtml(item) {
     if (item.type != "esper" && item.type != "monster") {
         html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
     }
-    html += getStatDetail(item) + "</div>"
+    html += getStatDetail(item) + "</div>";
     if (item.userPseudo) {
-        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>"
+        html += "<div class='userPseudo'>item added by " + item.userPseudo + "</div>";
     }
     
     if (item.enhancements) {
