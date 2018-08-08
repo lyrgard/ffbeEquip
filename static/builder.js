@@ -702,6 +702,9 @@ function onUnitChange() {
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
             var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.max_rarity == selectedUnitData.max_rarity);
+            var oldValues = builds[currentUnitIndex].baseValues;
+            var oldLevel = builds[currentUnitIndex]._level;
+            
             reinitBuild(currentUnitIndex);
             var unitData = selectedUnitData;
             if (unitData.enhancements) {
@@ -717,6 +720,10 @@ function onUnitChange() {
                 }
             }
             builds[currentUnitIndex].setUnit(unitData);
+            if(sameUnit) {
+                builds[currentUnitIndex].baseValues = oldValues;
+                builds[currentUnitIndex].setLevel(oldLevel);
+            }
             updateUnitLevelDisplay();
             updateUnitStats();
             dataStorage.setUnitBuild(builds[currentUnitIndex]);
