@@ -1,3 +1,6 @@
+// Constants
+const DATA_STORAGE_EASILY_OBTAINABLE_ITEMS = ["shop", "chest", "quest", "key", "colosseum", "recipe", "recipe-chest", "recipe-key", "recipe-quest", "recipe-shop", "recipe-colosseum"];
+
 class DataStorage {
     constructor() {
         this.onlyUseOwnedItems = false;
@@ -11,6 +14,8 @@ class DataStorage {
         this.onlyUseOwnedItemsAvailableForExpeditions = false;
         this.includeTrialRewards = false;
         this.includeTMROfOwnedUnits = false;
+        this.includeEasilyObtainableItems = false;
+        this.includeChocoboItems = false;
         this.alreadyUsedItems = {};
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
@@ -477,6 +482,12 @@ class DataStorage {
         }
         if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
             totalNumber += 1;
+        }
+        if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DATA_STORAGE_EASILY_OBTAINABLE_ITEMS.includes(type))) {
+            totalNumber += item.maxNumber ? item.maxNumber : 4;
+        }
+        if (this.includeChocoboItems && totalNumber == 0 && item.access.includes("chocobo")) {
+            totalNumber += item.maxNumber ? item.maxNumber : 4;
         }
 
         if (this.alreadyUsedItems[item.id]) {
