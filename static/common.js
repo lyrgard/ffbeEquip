@@ -1176,17 +1176,39 @@ function onUnitsOrInventoryLoaded() {
             });
 
         } else {
+            // Fix older versions/missing data
             for (var index in ownedUnits) {
                 if (ownedUnits[index] != "version" && typeof ownedUnits[index] === 'number') {
                     ownedUnits[index] = {"number":ownedUnits[index], "farmable":0};
                 }
             }
-            $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+
+            updateUnitAndItemCount();
+
             $("#inventoryDiv .loader").addClass("hidden");
             $(".logOut").removeClass("hidden");
             inventoryLoaded();
         }
     }
+}
+
+function updateUnitAndItemCount() {
+    // Count units
+    var unitCount = 0;
+    Object.values(ownedUnits).forEach(unit => { unitCount += (unit.number || 0) + (unit.sevenStar || 0); });
+
+    // Count items (by slots occupied, not by amount)
+    var itemCount = Object.keys(itemInventory).length;
+    var enchantedItems = itemInventory["enchantments"];
+    if(enchantedItems) {
+        // Remove the "enchantments" key that was counted in the length above
+        itemCount -= 1;
+
+        // Add every enhancement, if it exists in items (old bug, remove this check after a reasonable amount of time when all saved data has already been fixed)
+        Object.keys(enchantedItems).forEach(enchantment => itemInventory[enchantment] ? itemCount += enchantedItems[enchantment].length : 0);
+    }
+
+    $("#inventoryDiv .status").text(`loaded (${itemCount} items, ${unitCount} units)`);
 }
 
 function showTextPopup(title, text) {
@@ -1250,6 +1272,7 @@ function saveSuccess() {
     if (mustSaveEspers) {
         mustSaveEspers = false;
     }
+    updateUnitAndItemCount();
     $("#inventoryDiv .loader").addClass("hidden");
     $.notify("Data saved", "success");
 }
@@ -1266,7 +1289,15 @@ function saveError() {
     }
 }
 
+function sanitizeItemInventory() {
+    // Sanitize inventory by removing non-existing enchantments
+    var enchantments = itemInventory["enchantments"];
+    Object.keys(enchantments || {}).forEach(enchantment => { if(!itemInventory[enchantment]) delete enchantments[enchantment]; });
+}
+
 function saveInventory(successCallback, errorCallback) {
+    sanitizeItemInventory();
+
     $.ajax({
         url: server + '/itemInventory',
         method: 'PUT',
@@ -1360,6 +1391,7 @@ $(function() {
             if (!itemInventory.enchantments) {
                 itemInventory.enchantments = {};
             }
+            sanitizeItemInventory();
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
