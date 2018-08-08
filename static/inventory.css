@@ -154,6 +154,58 @@
     display: block;
 }
 
+.itemList {
+    overflow: hidden;
+}
+
+.itemSeparator {
+    clear: both;
+    overflow: hidden;
+    margin: 30px 0 15px 0;
+    text-align: center;
+}
+
+.typeJumpList {
+    margin: 20px auto 0 auto;
+    padding: 0 10px;
+    max-width: 70%;
+    font-size: 0.9em;
+    clear: both;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.typeJumpList > span {
+    color: #808080;
+}
+
+.typeJumpList > span,
+.typeJumpList > a {
+    margin: 4px 0;
+}
+
+.typeJumpList .typeJump {
+    margin-left: 8px;
+    padding: 5px;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.typeJumpList .typeJump:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+}
+
+.typeJumpList .typeJump img {
+    width: 18px;
+    height: 18px;
+}
+
 @media (max-width: 991px) {
     .farmable .farmedButton {
         display: block;
