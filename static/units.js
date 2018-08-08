@@ -255,7 +255,7 @@ function displayUnitsByRarity(units, minRarity = 1) {
     html += '</div>';
     
     // Jump list display
-    rarity_jump_html = '<div class="rarityJumpList">';
+    rarity_jump_html = '<div class="rarityJumpList" data-html2canvas-ignore>';
     rarity_jump_html += '<span>Jump to </span>';
     // Loop from end to begin, to show smaller star first
     // Also, do not show index 0 because it's the one just below, so don't need to jump...
