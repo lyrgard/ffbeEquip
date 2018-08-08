@@ -24,6 +24,9 @@ var mustSaveUnits = false;
 var mustSaveInventory = false;
 var mustSaveEspers = false;
 var userSettings;
+var lazyLoader = (window.LazyLoad) ? new LazyLoad({
+    elements_selector: 'img.lazyload'
+}) : null;
 
 function getImageHtml(item) {
     var html = '<div class="td type">';
@@ -34,14 +37,18 @@ function getImageHtml(item) {
     if (item.special && item.special.includes("twoHanded")) {
         html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
     }
+
+    var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
+    var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
+
     if (item.icon) {
-        html += "<img src='img/items/" + item.icon + "' class='icon'></img>";
+        html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
-        html += "<img src='img/" + escapeName(item.name) + ".png' class='icon'></img>";
+        html += "<img "+src_attr+"='img/" + escapeName(item.name) + ".png' class='"+class_attr+"'></img>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img src='img/" + item.type + ".png' class='icon'></img>";
+        html += "<img "+src_attr+"='img/" + item.type + ".png' class='"+class_attr+"'></img>";
     }
     html += "</div>";
     return html;
