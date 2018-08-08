@@ -122,15 +122,28 @@ var displayItems = function(items, byType = false) {
     var resultDiv = $("#results");
     resultDiv.empty();
     displayId++;
-    if (byType) displayItemsByTypeAsync(items, 0, resultDiv, displayId);
-    else displayItemsAsync(items, 0, resultDiv, displayId);
+    if (byType) {
+        // Jump list display
+        htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
+        htmlTypeJump += '<span>Jump to </span>';
+        htmlTypeJump += '</div>';
+        resultDiv.append(htmlTypeJump);
+
+        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'));
+    } else {
+        displayItemsAsync(items, 0, resultDiv, displayId);
+    }
 };
 
-function displayItemsByTypeAsync(items, start, div, id) {
-    // Set item type for this run
+function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
+    // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
+    var currentItemTypeImgHtml = '<img src="img/' + currentItemType + '.png"/>';
+    var currentItemTypeAnchor = 'itemType' + currentItemType;
 
-    var html = '<div class="itemSeparator"><img src="img/' + currentItemType + '.png"/></div>';
+    var htmlTypeJump = '<a class="typeJump" href="#' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</a>';
+
+    var html = '<div class="itemSeparator" id="' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</div>';
     html += '<div class="itemList">';
     for (var index = start, len = items.length; index < len; index++) {
         var item = items[index];
@@ -144,10 +157,12 @@ function displayItemsByTypeAsync(items, start, div, id) {
     html += '</div>';
 
     if (id == displayId) {
+        // Add the jump and the all items to the DOM
+        jumpDiv.append(htmlTypeJump);
         div.append(html);
         if (index < items.length) {
             // Launch next run of type
-            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id);
+            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
         }
     }
 };
