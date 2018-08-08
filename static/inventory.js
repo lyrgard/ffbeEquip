@@ -740,7 +740,7 @@ function startPage() {
     }).on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
-            $("#searchBox").val('').trigger('input');
+            $("#searchBox").val('').trigger('input').focus();
         }
     });
     
