@@ -1,3 +1,67 @@
+
+.unitsWrapper {
+    clear: both; /* needed because of floating header above */
+    display: flex;
+    align-items: stretch;
+}
+
+.unitsSidebar .unitsSidebarButton {
+    display: block;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 20px auto 0 auto;
+    color: #747474;
+    opacity: 0.5;
+}
+
+.unitsSidebar .unitsSidebarButton:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+    opacity: 1;
+}
+
+.unitsContent {
+    position: relative;
+}
+
+.unitsSidebar {
+    padding: 0 10px;
+    overflow: hidden;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 250px;
+}
+
+.unitsSidebar .unitsSidebarButton .glyphicon {
+    transition: transform .3s;
+}
+
+.unitsSidebar.collapsed {
+    width: 100px;
+}
+
+.unitsSidebar.collapsed .unitsSidebarButton {
+    opacity: 0.85;
+}
+
+.unitsSidebar.collapsed .unitsSidebarButton .glyphicon {
+    transform: rotate(180deg);
+}
+
+.unitsSidebar.collapsed .collapsedHidden {
+    display: none;
+}
+
+.unitsSidebar .unitsSidebarInternal.fixed {
+    position: fixed;
+    top: 5px;
+    left: 15px;
+    z-index: 9999;
+    padding: 0 10px;
+}
+
 .unitList {
     display: flex;
     flex-wrap: wrap;
@@ -211,18 +275,34 @@
     padding-left: 15px;
 }
 
-.explanation {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-}
-
 #exportLinks {
     position: absolute;
     top: 20px;
     left: 320px;
+    z-index: 1;
 }
 
+#exportLinks a.dropdown-toggle {
+    margin-left: 10px;
+    padding: 4px 6px;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+#exportLinks a.dropdown-toggle:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+    text-decoration: none;
+}
+
+.explanation {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 0.9em;
+}
 
 .readOnly .explanation.readOnly {
     display: block;
@@ -277,8 +357,19 @@
     align-items: center;
 }
 
+.stats .statsGroup {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.stats .statsGroup > div {
+    display: inline-block;
+}
+
+
 .stats h4 {
-    margin-top: 20px;
+    font-size: 1.2em;
+    margin-top: 15px;
 }
 
 .stats .crystal {
@@ -334,11 +425,135 @@
     font-weight: bold;
 }
 
-.unitsSidebar.fixed {
-    position: fixed;
-    width: 16.66666667%;
-    top: 10px;
-    left: 15px;
-    padding: 0 15px;
-    z-index: 9999;
+/* For small screen, show stats in line and mode fixed lower right */
+@media (max-width: 768px) {
+    
+    .unitsWrapper {
+        display: block;
+    }
+
+    .unitsSidebar {
+        width: auto;
+    }
+
+    .unitsSidebar .unitsSidebarButton {
+        margin: 5px 0 15px 0;
+    }
+    
+    .unitsSidebar .unitsSidebarButton .glyphicon {
+        transform: rotate(-90deg);
+    }
+
+    .unitsSidebar.collapsed {
+        width: auto;
+    }
+
+    .unitsSidebar.collapsed .toggle.btn .collapsedHidden,
+    .unitsSidebar.collapsed .unitsSidebarButton .collapsedHidden {
+        display: inline;
+    }
+
+    .unitsSidebar.collapsed .unitsSidebarButton .glyphicon {
+        transform: rotate(90deg);
+    }
+
+    .stats {
+        margin-top: 0;
+        margin-bottom: 20px;
+        flex-direction: row;
+    }
+
+    .stats h4 {
+        margin-top: 0;
+    }
+
+    #mode {
+        position: fixed;
+        z-index: 9999;
+        right: 10px;
+        bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 10px;
+        border: none;
+        background: none;
+        opacity: 0.75;
+    }
+
+    #mode:hover {
+        opacity: 1;
+    }
+
+    #mode .info {
+        display: none;
+    }
+    
+    #exportLinks a.dropdown-toggle {
+        padding: 6px 8px;
+    }
+    
+    /* Adapt scroll button with mode toggle selector */
+    #scrollToTopButton.withToggleSelector {
+        bottom: 67px; /* 20px margin + 37px height + 10px */
+        right: 15px; 
+    }
+
+    .unit .modifyCounterButton {
+        color: #337ab7;
+    }
+
+    .unit:hover .modifyCounterButton {
+        color: #d2edf9;
+    }
+}
+
+@media (min-width: 768px) {
+    .unitsSidebar.collapsed #mode .toggle.btn {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .unitsContent {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .unitsSidebar .unitsSidebarInternal.fixed {
+        left: 0px;
+    }
+}
+
+@media (max-width: 550px) {
+    .stats {
+        font-size: 0.75em;
+    }
+    
+    #exportLinks {
+        display: none;
+    }
+
+    .explanation {
+        display: none;
+    }
+
+    .stats .star7,
+    .stats .star5,
+    .stats .star4,
+    .stats .star3 {
+        white-space: nowrap;
+    }
+
+    .stats .value {
+        width: 10px;
+        margin-right: 2px;
+    }
+    
+    .stats .total {
+        width: 15px;
+    }
+    
+    .stats .number {
+        width: 30px;
+    }
 }
