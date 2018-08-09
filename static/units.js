@@ -208,7 +208,7 @@ function displayStats() {
     $(".stats .timeLimited .star3 .total").text(stats.timeLimited["3"].total);
     $(".stats .timeLimited .star3 .number").text("(" + stats.timeLimited["3"].number + ")");
     
-    $(".stats").removeClass("hidden");
+    $(".unitsSidebar .hidden").removeClass("hidden");
 }
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
@@ -916,35 +916,61 @@ function startPage() {
 
     $("#results").addClass(server);
 
-    var $unitsSidebar = $('.unitsSidebar');
-    var unitsSidebarTopPos = $unitsSidebar.offset().top;
+    var $window = $(window);
 
-    $(window).on("beforeunload", function () {
+    $window.on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !";
         }
         if (savePublicLinkNeeded) {
             savePublicLink();
         }
-    }).on('keyup', function (e) {
+    });
+    
+    $window.on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
             $("#searchBox").val('').trigger('input').focus();
         }
-    }).on('scroll', $.debounce(50, function(){
+    });
+    
+    var $unitsSidebar = $('.unitsSidebar');
+    var $unitsSidebarInternal = $unitsSidebar.find('.unitsSidebarInternal');
+    var unitsSidebarTopPos = $unitsSidebar.offset().top;
+    var sidebarFixedWidthLimit = 768;
+
+    $window.on('scroll', $.debounce(50, function(){
         // Detect when user scroll, and fix the sidebar to be always accessible
-        if ($(this).scrollTop() > unitsSidebarTopPos) { 
-            $unitsSidebar.addClass('fixed');
+        if ($(this).scrollTop() > unitsSidebarTopPos && $window.outerWidth() > sidebarFixedWidthLimit) {
+            if (!$unitsSidebarInternal.hasClass('fixed')) {
+                $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
+                $unitsSidebarInternal.addClass('fixed');
+            }
         } else { 
-            $unitsSidebar.removeClass('fixed');
+            if ($unitsSidebarInternal.hasClass('fixed')) {
+                $unitsSidebarInternal.css('width', '');
+                $unitsSidebarInternal.removeClass('fixed');
+            }
         } 
-    }));;
+    }));
+    $window.on('resize', $.debounce(150, function(){
+        if ($unitsSidebarInternal.hasClass('fixed') && $window.outerWidth() <= sidebarFixedWidthLimit) {
+            $unitsSidebarInternal.css('width', '');
+            $unitsSidebarInternal.removeClass('fixed');
+        }
+    }));
+    $('.unitsSidebarButton').click(function() {
+        $unitsSidebar.toggleClass('collapsed');
+        if ($unitsSidebarInternal.hasClass('fixed')) {
+            $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
+        }
+    });
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
     
     $('#modeToggle').bootstrapToggle({
-        on: 'Simple Mode',
-        off: 'Edit Mode',
+        on: 'Simple <span class="collapsedHidden">Mode</span>',
+        off: 'Edit <span class="collapsedHidden">Mode</span>',
         onstyle: "default",
         offstyle: "default"
     });
