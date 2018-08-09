@@ -576,7 +576,8 @@ function getItemLine(index, short = false) {
     } else if (!item) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
-        html += '<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem(\'' + item.id +'\',' + index + ',false);" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
+        var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
+        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/delete.png"></img>`;
         html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
         if (weaponList.includes(item.type)) {
             html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
