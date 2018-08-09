@@ -497,12 +497,20 @@
         right: 15px; 
     }
 
-    .unit .modifyCounterButton {
+    .unit .numberDiv .glyphicon {
         color: #337ab7;
     }
 
-    .unit:hover .modifyCounterButton {
+    .unit:hover .numberDiv .glyphicon {
         color: #d2edf9;
+    }
+    
+    .unit.sevenStars .numberDiv .glyphicon {
+        color: #A67D85;
+    }
+    
+    .unit.sevenStars:hover .numberDiv .glyphicon {
+        color: #F9D2DA;
     }
 }
 
