@@ -330,8 +330,7 @@
     color: #999;
 }
 
-.farmable:hover .farmedButton {
-    display: block;
+.farmable .farmedButton {
     position: absolute;
     top: -5px;
     right: -6px;
@@ -346,7 +345,8 @@
     display: none;
 }
 
-.awakenable:hover .awakenButton {
+.awakenable:hover .awakenButton,
+.farmable:hover .farmedButton {
     display: block;
 }
 
@@ -511,6 +511,11 @@
     
     .unit.sevenStars:hover .numberDiv .glyphicon {
         color: #F9D2DA;
+    }
+    
+    .farmable .farmedButton,
+    .awakenable .awakenButton {
+        display: block;
     }
 }
 
