@@ -441,7 +441,7 @@
     }
     
     .unitsSidebar .unitsSidebarButton .glyphicon {
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
     }
 
     .unitsSidebar.collapsed {
@@ -454,7 +454,7 @@
     }
 
     .unitsSidebar.collapsed .unitsSidebarButton .glyphicon {
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
     }
 
     .stats {
