@@ -2538,7 +2538,7 @@ function initWorkers() {
                                     overcapedStats.push(percentValues[baseStats[i]]);
                                 }
                             }
-                            if (overcapedStats.length > 0) {
+                            if (overcapedStats.length > 0 && $("#tryReduceOverCap input").prop('checked')) {
                                 secondaryOptimization = true;
                                 secondaryOptimizationFixedItemSave = builds[currentUnitIndex].fixedItems.slice();
                                 secondaryOptimizationFormulaSave = JSON.parse(JSON.stringify(builds[currentUnitIndex].formula));
@@ -2558,7 +2558,7 @@ function initWorkers() {
                                                 "value1" : builds[currentUnitIndex].formula.formula,
                                                 "value2": {
                                                     "type": "constant",
-                                                    "vaue": builds[currentUnitIndex].buildValue[goalVariation]
+                                                    "value": Math.floor(builds[currentUnitIndex].buildValue[goalVariation])
                                                 }
                                             },
                                             "value2": builds[currentUnitIndex].formula.condition,
@@ -2573,11 +2573,12 @@ function initWorkers() {
                                             "value1" : builds[currentUnitIndex].formula,
                                             "value2": {
                                                 "type": "constant",
-                                                "vaue": builds[currentUnitIndex].buildValue[goalVariation]
+                                                "value": Math.floor(builds[currentUnitIndex].buildValue[goalVariation])
                                             }
                                         }
                                     }
                                 }
+                                builds[currentUnitIndex].buildValue[goalVariation] = 0;
                                 optimize();
                             } else {
                                 running = false;
