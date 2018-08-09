@@ -1,0 +1,30 @@
+---
+- hosts: all
+  vars:
+    git_repository: git@github.com:lyrgard/ffbeEquip.git
+    git_directory: /opt/ffbe-equip
+    git_commit: master
+  tasks:
+    - name: git checkout
+      git: >
+        repo={{ git_repository }}
+        dest={{ git_directory }}
+        version={{ git_commit }}
+        accept_hostkey=yes
+        force=yes
+      register: git_co_res
+
+    - name: git diff
+      shell: git diff --name-only {{ git_co_res.after }} {{ git_co_res.before }} | grep 'server' | cat
+      register: git_diff_res
+      args:
+        chdir: "{{ git_directory }}"
+
+    - name: npm install
+      command: npm install --production
+      args:
+        chdir: "{{ git_directory }}"
+
+    - name: restart node
+      command: sudo service ffbeEquip restart
+      when: git_diff_res.stdout_lines
