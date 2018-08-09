@@ -767,7 +767,7 @@ function prepareData() {
         }
         if (item.stmrUnit) {
             if (itemInventory[item.id]) {
-                stmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
+                stmrNumberByUnitId[item.stmrUnit] = itemInventory[item.id];
             }
             stmrNameByUnitId[item.tmrUnit] = item.name;
         }
@@ -803,12 +803,18 @@ function exportAsImage(minRarity = 1) {
 }
 
 function exportAsCsv() {
-    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR owned;Number of TMR still farmable\n";
+    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR/STMR owned;Number of TMR/STMR still farmable\n";
     var sortedUnits = sortByRarity(units);
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
         var unit = sortedUnits[index];
         if (ownedUnits[unit.id]) {
-            csv +=  "\"" + unit.id + "\";" + "\"" + unit.name + "\";" + unit.min_rarity + ';' + unit.max_rarity + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + ';' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + ';' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + "\n";
+            csv +=  "\"" + unit.id + "\";" + 
+                "\"" + unit.name + "\";" + 
+                unit.min_rarity + ';' + 
+                unit.max_rarity + ';' + 
+                (unit.min_rarity == 7 ? ownedUnits[unit.id].sevenStar : ownedUnits[unit.id].number) + ';' + 
+                (unit.min_rarity == 7 ? (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) : (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0)) + ';' + 
+                (unit.min_rarity == 7 ? ownedUnits[unit.id].farmableStmr : ownedUnits[unit.id].farmable) + "\n";
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
