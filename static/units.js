@@ -786,16 +786,19 @@ function exportAsImage(minRarity = 1) {
         $("#results").addClass("hackForImage");
     }
     setTimeout(function() {
-        html2canvas($("#results")[0]).then(function(canvas) {
-            canvas.toBlob(function (blob) {
-                saveAs(blob, "FFBE_Equip - Unit collection.png");
-                onlyShowOwnedUnits = false;
-                showNumberTMRFarmed = false;
-                savedSort();
-                $("#results").removeClass("hackForImage");
-                $("#results").removeClass("hackForImage5");
+        lazyLoader.loadAll();
+        setTimeout(function() {
+            html2canvas($("#results")[0]).then(function(canvas) {
+                canvas.toBlob(function (blob) {
+                    saveAs(blob, "FFBE_Equip - Unit collection.png");
+                    onlyShowOwnedUnits = false;
+                    showNumberTMRFarmed = false;
+                    savedSort();
+                    $("#results").removeClass("hackForImage");
+                    $("#results").removeClass("hackForImage5");
 
-                $("#loaderGlassPanel").addClass("hidden");
+                    $("#loaderGlassPanel").addClass("hidden");
+                });
             });
         });
     }, 1);
