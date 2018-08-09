@@ -29,7 +29,10 @@ const goalValuesCaract = {
     "defDamageWithPhysicalMecanism":    {"statsToMaximize":["def"], "type": "physical"},
     "sprDamageWithMagicalMecanism":     {"statsToMaximize":["spr"], "type": "magical"},
     "atkDamageWithFixedMecanism":       {"statsToMaximize":["atk"], "type": "none"},
-    "physicalDamageMultiCast":          {"statsToMaximize":["atk"], "type": "physical"},
+    "physicalDamageMultiCast":          {"statsToMaximize":["atk"], "type": "physical", "multicast":true},
+    "magDamageWithPhysicalMecanismMultiCast":          {"statsToMaximize":["mag"], "type": "physical", "multicast":true},
+    "sprDamageWithPhysicalMecanismMultiCast":          {"statsToMaximize":["spr"], "type": "physical", "multicast":true},
+    "defDamageWithPhysicalMecanismMultiCast":          {"statsToMaximize":["def"], "type": "physical", "multicast":true},
     "fixedDamageWithPhysicalMecanism":  {"statsToMaximize":[], "type": "physical"},
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };
