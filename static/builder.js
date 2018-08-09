@@ -82,7 +82,12 @@ var currentEnchantmentItem;
 var savedBuilds = null;
 var currentSavedBuildIndex = -1;
 
+var secondaryOptimization = false;
+var secondaryOptimizationFixedItemSave;
+var secondaryOptimizationFormulaSave;
+
 function build() {
+    secondaryOptimization = false;
     if (running) {
         for (var index = workers.length; index--; index) {
             workers[index].terminate();
@@ -2508,17 +2513,82 @@ function initWorkers() {
                         document.title = progress + "% - FFBE Equip - Builder";
                     }
                     if (workerWorkingCount == 0) {
-                        progressElement.addClass("finished");
-                        console.timeEnd("optimize");
-                        if (!builds[currentUnitIndex].buildValue && builds[currentUnitIndex].formula.conditions) {
+                        if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
                             alert("The condition set in the goal are impossible to meet.");
                         }
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
                             $.notify("Weapons hands were switched to optimize build", "info");
                         }
-                        running = false;
-                        $("#buildButton").text("Build !");
+                        
+                        if (secondaryOptimization) {
+                            builds[currentUnitIndex].fixedItems = secondaryOptimizationFixedItemSave;
+                            builds[currentUnitIndex].formula = secondaryOptimizationFormulaSave;
+                            running = false;
+                            progressElement.addClass("finished");
+                            console.timeEnd("optimize");
+                            $("#buildButton").text("Build !"); 
+                            logCurrentBuild();
+                        } else {
+                            
+                            var overcapedStats = [];
+                            for (var i = baseStats.length; i--;) {
+                                var percent = calculateStatValue(builds[currentUnitIndex].build, baseStats[i], builds[currentUnitIndex]).bonusPercent;
+                                if (percent > statsBonusCap[server]) {
+                                    overcapedStats.push(percentValues[baseStats[i]]);
+                                }
+                            }
+                            if (overcapedStats.length > 0) {
+                                secondaryOptimization = true;
+                                secondaryOptimizationFixedItemSave = builds[currentUnitIndex].fixedItems.slice();
+                                secondaryOptimizationFormulaSave = JSON.parse(JSON.stringify(builds[currentUnitIndex].formula));
+                                for (var i = 0; i < 10; i++) {
+                                    if (builds[currentUnitIndex].build[i] && !builds[currentUnitIndex].fixedItems[i] && !overcapedStats.some(stat => builds[currentUnitIndex].build[i][stat])) {
+                                        builds[currentUnitIndex].fixedItems[i] = builds[currentUnitIndex].build[i];
+                                    }
+                                }
+                                if (builds[currentUnitIndex].formula.type == "condition") {
+                                    builds[currentUnitIndex].formula = {
+                                        "type": "condition",
+                                        "formula": {"type": "value", "name": "hp"},
+                                        "condition": {
+                                            "type":"AND",
+                                            "value1": {
+                                                "type": ">",
+                                                "value1" : builds[currentUnitIndex].formula.formula,
+                                                "value2": {
+                                                    "type": "constant",
+                                                    "vaue": builds[currentUnitIndex].buildValue[goalVariation]
+                                                }
+                                            },
+                                            "value2": builds[currentUnitIndex].formula.condition,
+                                        }
+                                    }
+                                } else {
+                                    builds[currentUnitIndex].formula = {
+                                        "type": "condition",
+                                        "formula": {"type": "value", "name": "hp"},
+                                        "condition": {
+                                            "type": ">",
+                                            "value1" : builds[currentUnitIndex].formula,
+                                            "value2": {
+                                                "type": "constant",
+                                                "vaue": builds[currentUnitIndex].buildValue[goalVariation]
+                                            }
+                                        }
+                                    }
+                                }
+                                optimize();
+                            } else {
+                                running = false;
+                                progressElement.addClass("finished");
+                                console.timeEnd("optimize");
+                                $("#buildButton").text("Build !"); 
+                            }
+                            
+                        }
+                        
+                        
                     }
                     break;
             }
