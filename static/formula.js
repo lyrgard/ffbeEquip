@@ -1,4 +1,4 @@
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND"];
 const booleanResultOperators=[">", "OR", "AND"];
@@ -30,6 +30,9 @@ const attributeByVariable = {
     "P_DAMAGE_MAG":"magDamageWithPhysicalMecanism",
     "P_DAMAGE_SPR":"sprDamageWithPhysicalMecanism",
     "P_DAMAGE_DEF":"defDamageWithPhysicalMecanism",
+    "P_DAMAGE_MAG_MULTICAST":"magDamageWithPhysicalMecanismMultiCast",
+    "P_DAMAGE_SPR_MULTICAST":"sprDamageWithPhysicalMecanismMultiCast",
+    "P_DAMAGE_DEF_MULTICAST":"defDamageWithPhysicalMecanismMultiCast",
     "F_DAMAGE_ATK":"atkDamageWithFixedMecanism",
     "M_DAMAGE_SPR":"sprDamageWithMagicalMecanism",
     "S_DAMAGE":"summonerSkill",
