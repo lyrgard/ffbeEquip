@@ -541,10 +541,6 @@
     .stats {
         font-size: 0.75em;
     }
-    
-    #exportLinks {
-        display: none;
-    }
 
     .stats table {
         max-width: 120px;
@@ -563,5 +559,16 @@
 
     .explanation {
         display: none;
+    }
+    
+    #exportLinks {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px 0;
+    }
+    
+    #exportLinks .text {
+        display: inline-block !important;
     }
 }

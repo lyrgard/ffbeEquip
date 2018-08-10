@@ -202,18 +202,12 @@
                     <span id="pleaseWaitMessage" class="h4">Please wait for your units to be loaded</span>
                     <span id="loginMessage" class="h4 hidden">Log-in to display your units</span>
                     <div id="units" class="hidden">
-                        <ul id="tabs" class="nav nav-tabs">
-                            <li class="raritySort" onclick="showRaritySort()"><a><img src="img/star_icon.png"/></a></li>
-                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><img src="img/sort-a-z.png"/></a></li>
-                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><img src="img/sort-tmr.png"/></a></li>
-                            <li class="history" onclick="showHistory()"><a><img src="img/history.png"/></a></li>
-                        </ul>
                         <div id="exportLinks" class="dropdown">
                             <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-share-alt"></span> 
-                                <span class="hidden-xs hidden-sm">
+                                <span class="text hidden-xs hidden-sm">
                                     Share unit collection<span class="caret"></span>
-                            </span>
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="link" onclick="exportAsImage();"><span class="glyphicon glyphicon-camera"></span> Export as image</a></li>
@@ -224,6 +218,12 @@
                                 <li><a class="link" onclick="showPublicUnitCollectionLink()"><span class="glyphicon glyphicon-link"></span> Get public unit collection link</a></li>
                             </ul>
                         </div>
+                        <ul id="tabs" class="nav nav-tabs">
+                            <li class="raritySort" onclick="showRaritySort()"><a><img src="img/star_icon.png"/></a></li>
+                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><img src="img/sort-a-z.png"/></a></li>
+                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><img src="img/sort-tmr.png"/></a></li>
+                            <li class="history" onclick="showHistory()"><a><img src="img/history.png"/></a></li>
+                        </ul>
                         <div class="explanation hidden-xs hidden-sm hidden-md">
                             <div>Left number: how many time you own this unit</div>
                             <div>Right number: how many time you can still farm the TMR</div>
