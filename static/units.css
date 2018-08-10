@@ -360,58 +360,47 @@
 
 .stats .statsGroup {
     flex-grow: 1;
+    width: 100%;
+    max-width: 180px;
     text-align: center;
 }
-
-.stats .statsGroup > div {
-    display: inline-block;
-}
-
 
 .stats h4 {
     font-size: 1.2em;
     margin-top: 15px;
 }
 
-.stats .crystal {
-    height: 24px;
-    margin-right: 5px;
+.stats table {
+    font-size: 1em;
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
 }
 
-.stats .value {
-    width: 30px;
-    display: inline-block;
-    justify-content: center;
-    text-align: end;
-    margin-right: 10px;
-}
-
-.stats .total {
-    width: 30px;
-    display: inline-block;
-    justify-content: center;
-    text-align: end;
-}
-
-.stats .number {
-    width: 50px;
-    display: inline-block;
-    justify-content: center;
-    text-align: end;
-}
-
-.star7 {
-    position: relative;
-}
-
-.star7 .crystal {
-    position: absolute;
+.stats table .crystal img {
     height: 20px;
-    left: -4px;
+    margin: 1px 5px;
 }
 
-.star7 .value {
-    margin-left: 18px;
+.stats table .star7 .crystal img {
+    margin: 1px 0;
+}
+
+.stats table .crystal {
+    width: 28px;
+    text-align: center;
+}
+
+.stats table .value,
+.stats table .total,
+.stats table .separator,
+.stats table .number {
+    text-align: right;
+    padding-left: 5px;
+}
+
+.stats table .number {
+    color: #808080;
 }
 
 .unitName {
@@ -462,6 +451,16 @@
         margin-top: 0;
         margin-bottom: 20px;
         flex-direction: row;
+    }
+
+    .stats .statsGroup {
+        width: auto;
+        max-width: none;
+        padding: 0 4px;
+    }
+
+    .stats table {
+        max-width: 150px;
     }
 
     .stats h4 {
@@ -547,27 +546,22 @@
         display: none;
     }
 
+    .stats table {
+        max-width: 120px;
+    }
+
+    .stats table .crystal {
+        width: 22px;
+    }
+
+    .stats table .value,
+    .stats table .total,
+    .stats table .separator,
+    .stats table .number {
+        padding-left: 2px;
+    }
+
     .explanation {
         display: none;
-    }
-
-    .stats .star7,
-    .stats .star5,
-    .stats .star4,
-    .stats .star3 {
-        white-space: nowrap;
-    }
-
-    .stats .value {
-        width: 10px;
-        margin-right: 2px;
-    }
-    
-    .stats .total {
-        width: 15px;
-    }
-    
-    .stats .number {
-        width: 30px;
     }
 }
