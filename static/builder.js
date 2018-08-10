@@ -2537,20 +2537,36 @@ function initWorkers() {
                                 if (percent > statsBonusCap[server]) {
                                     overcapedStats.push(percentValues[baseStats[i]]);
                                 }
+                                var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(builds[currentUnitIndex].build, baseStats[i], false) - 1) * 100);
+                                if (equipmentFlatStatBonus > 0) {
+                                    if (builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[1] && weaponList.includes(builds[currentUnitIndex].build[0].type) && weaponList.includes(builds[currentUnitIndex].build[1].type)) {
+                                        if (equipmentFlatStatBonus > 100) {
+                                            overcapedStats.push("dualWielding." + baseStats[i]);
+                                        }
+                                    } else {
+                                        if (equipmentFlatStatBonus > 300) {
+                                            if (!isTwoHanded(builds[currentUnitIndex].build[0]) && !isTwoHanded(builds[currentUnitIndex].build[0])) {
+                                                overcapedStats.push("singleWieldingOneHanded." + baseStats[i]);    
+                                            }
+                                            overcapedStats.push("singleWielding." + baseStats[i]);
+                                        }
+                                    }
+                                }
                             }
                             if (overcapedStats.length > 0 && $("#tryReduceOverCap input").prop('checked')) {
                                 secondaryOptimization = true;
                                 secondaryOptimizationFixedItemSave = builds[currentUnitIndex].fixedItems.slice();
                                 secondaryOptimizationFormulaSave = JSON.parse(JSON.stringify(builds[currentUnitIndex].formula));
                                 for (var i = 0; i < 10; i++) {
-                                    if (builds[currentUnitIndex].build[i] && !builds[currentUnitIndex].fixedItems[i] && !overcapedStats.some(stat => builds[currentUnitIndex].build[i][stat])) {
+                                    if (builds[currentUnitIndex].build[i] && !builds[currentUnitIndex].fixedItems[i] && !overcapedStats.some(stat => getValue(builds[currentUnitIndex].build[i], stat) > 0)) {
                                         builds[currentUnitIndex].fixedItems[i] = builds[currentUnitIndex].build[i];
                                     }
                                 }
+                                var statToFavor = $("#tryReduceOverCap select").val();
                                 if (builds[currentUnitIndex].formula.type == "condition") {
                                     builds[currentUnitIndex].formula = {
                                         "type": "condition",
-                                        "formula": {"type": "value", "name": "hp"},
+                                        "formula": {"type": "value", "name": statToFavor},
                                         "condition": {
                                             "type":"AND",
                                             "value1": {
@@ -2567,7 +2583,7 @@ function initWorkers() {
                                 } else {
                                     builds[currentUnitIndex].formula = {
                                         "type": "condition",
-                                        "formula": {"type": "value", "name": "hp"},
+                                        "formula": {"type": "value", "name": statToFavor},
                                         "condition": {
                                             "type": ">",
                                             "value1" : builds[currentUnitIndex].formula,

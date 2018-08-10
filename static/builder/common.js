@@ -79,7 +79,7 @@ function isStackable(item) {
 }
 
 function isTwoHanded(item) {
-    return (item.special && item.special.includes("twoHanded"));
+    return (item && item.special && item.special.includes("twoHanded"));
 }
 
 function hasDualWieldOrPartialDualWield(item) {
