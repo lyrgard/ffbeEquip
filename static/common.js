@@ -1211,7 +1211,7 @@ function onUnitsOrInventoryLoaded() {
 function updateUnitAndItemCount() {
     // Count units
     var unitCount = 0;
-    Object.values(ownedUnits).forEach(unit => { unitCount += (unit.number || 0) + (unit.sevenStar || 0); });
+    Object.keys(ownedUnits).forEach(key => { unitCount += (ownedUnits[key].number || 0) + (ownedUnits[key].sevenStar || 0); });
 
     // Count items (by slots occupied, not by amount)
     var itemCount = Object.keys(itemInventory).length;
