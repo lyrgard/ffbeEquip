@@ -342,11 +342,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     "switchWeapons": result1.switchWeapons || result2.switchWeapons
                 };
             } else if (formula.type == ">") {
-                var result =  result1[goalVariance] >= result2[goalVariance];
-                if (result) {
-                    console.log("!!")
-                }
-                return result;
+                return result1[goalVariance] >= result2[goalVariance];
             }
         }
     } else if (formula.type == "elementCondition") {

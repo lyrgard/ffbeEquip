@@ -502,9 +502,7 @@ function sort(items) {
             }
             var name1 = item1.jpname || item1.name;
             var name2 = item2.jpname || item2.name;
-            if (name1.startsWith("Anti-Eau") && name2.startsWith("ATT +10%")) {
-                console.log("!!");
-            }
+
             var result = compareName(name1, name2);
             
             return result;
