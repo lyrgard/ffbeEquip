@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "vagrant"
+  config.vm.box = "debian/jessie64"
+  config.vm.box_version = "8.10.0"
+  config.vm.box_check_update = false
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.playbook = "../ansible/install.yml"
+    ansible.extra_vars = {
+        acme_ssl: false
+    }
+  end
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "ffbe-vagrant"
+    v.customize ["modifyvm", :id, "--cpuexecutioncap", "100"]
+    v.customize ["modifyvm", :id, "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--cpus", "1"]
+    v.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
+   end
+end
