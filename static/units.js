@@ -980,6 +980,11 @@ function startPage() {
             $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
         }
     });
+    
+    // Start stats collapse for small screen
+    if ($window.outerWidth() < 990) {
+        $unitsSidebar.addClass("collapsed");
+    }
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
     
@@ -993,6 +998,5 @@ function startPage() {
     $('#modeToggle').change(function() {
       $("#results").toggleClass("simpleMode");
     });
-
 }
     
