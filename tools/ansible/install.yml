@@ -40,7 +40,11 @@
         - proxy_http
 
     - name: apache2 | ssl bootstrap
-      file: path=/etc/apache2/ssl/{{ item[0]|lower }}.{{ item[1] }} state=touch
+      copy:
+        src=/etc/ssl/private/ssl-cert-snakeoil.key
+        dest=/etc/apache2/ssl/{{ item[0]|lower }}.{{ item[1] }}
+        remote_src=yes
+        force=no
       with_nested:
         - "{{ [server_name] + server_alias }}"
         - ["fullchain.cer", "key"]
@@ -53,11 +57,11 @@
       notify: apache2 | restart
 
     - name: apache2 | vhost server
-      template: src=templates/apache2/vhost.server.conf.j2 dest=/etc/apache2/sites-enabled/{{ server_name.split('.')[::-1]|join('.') }}.conf.j2
+      template: src=templates/apache2/vhost.server.conf.j2 dest=/etc/apache2/sites-enabled/{{ server_name.split('.')[::-1]|join('.') }}.conf
       notify: apache2 | restart
 
     - name: apache2 | vhost alias
-      template: src=templates/apache2/vhost.alias.conf.j2 dest=/etc/apache2/sites-enabled/{{ item.split('.')[::-1]|join('.') }}.conf.j2
+      template: src=templates/apache2/vhost.alias.conf.j2 dest=/etc/apache2/sites-enabled/{{ item.split('.')[::-1]|join('.') }}.conf
       with_items: "{{ server_alias }}"
       notify: apache2 | restart
 
