@@ -50,19 +50,35 @@
         - ["fullchain.cer", "key"]
 
     - name: apache2 | conf
-      template: src=templates/apache2/conf.{{ item }}.conf.j2 dest=/etc/apache2/conf-enabled/{{ item }}.conf
-      with_items:
-        - acme
-        - ssl
+      template: src=templates/apache2/conf.{{ item }}.conf.j2 dest=/etc/apache2/conf-available/{{ item }}.conf
+      with_items: ["acme", "ssl"]
+      notify: apache2 | restart
+
+    - name: apache2 | conf enable
+      file:
+        src=../conf-available/{{ item }}.conf
+        dest=/etc/apache2/conf-enabled/{{ item }}.conf
+        force=yes
+        state=link
+      with_items: ["acme", "ssl"]
       notify: apache2 | restart
 
     - name: apache2 | vhost server
-      template: src=templates/apache2/vhost.server.conf.j2 dest=/etc/apache2/sites-enabled/{{ server_name.split('.')[::-1]|join('.') }}.conf
+      template: src=templates/apache2/vhost.server.conf.j2 dest=/etc/apache2/sites-available/{{ server_name.split('.')[::-1]|join('.') }}.conf
       notify: apache2 | restart
 
     - name: apache2 | vhost alias
-      template: src=templates/apache2/vhost.alias.conf.j2 dest=/etc/apache2/sites-enabled/{{ item.split('.')[::-1]|join('.') }}.conf
+      template: src=templates/apache2/vhost.alias.conf.j2 dest=/etc/apache2/sites-available/{{ item.split('.')[::-1]|join('.') }}.conf
       with_items: "{{ server_alias }}"
+      notify: apache2 | restart
+
+    - name: apache2 | vhost enable
+      file:
+        src=../sites-available/{{ item.split('.')[::-1]|join('.') }}.conf
+        dest=/etc/apache2/sites-enabled/{{ item.split('.')[::-1]|join('.') }}.conf
+        force=yes
+        state=link
+      with_items: "{{ [server_name] + server_alias }}"
       notify: apache2 | restart
 
     - meta: flush_handlers
