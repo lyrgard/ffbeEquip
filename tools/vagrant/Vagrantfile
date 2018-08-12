@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
     ansible.compatibility_mode = "2.0"
     ansible.playbook = "../ansible/install.yml"
     ansible.extra_vars = {
-        acme_ssl: false
+        acme_ssl: false,
+        https_port: 443,
     }
   end
 
