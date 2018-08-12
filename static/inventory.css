@@ -1,3 +1,68 @@
+
+.itemsWrapper {
+    clear: both; /* needed because of floating header above */
+    display: flex;
+    align-items: stretch;
+}
+
+.itemsSidebar .itemsSidebarButton {
+    display: block;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 20px auto 0 auto;
+    color: #747474;
+    opacity: 0.5;
+}
+
+.itemsSidebar .itemsSidebarButton:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+    opacity: 1;
+}
+
+.itemsContent {
+    position: relative;
+    flex-grow: 1;
+}
+
+.itemsSidebar {
+    padding: 0 10px;
+    overflow: hidden;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 250px;
+}
+
+.itemsSidebar .itemsSidebarButton .glyphicon {
+    transition: transform .3s;
+}
+
+.itemsSidebar.collapsed {
+    width: 100px;
+}
+
+.itemsSidebar.collapsed .itemsSidebarButton {
+    opacity: 0.85;
+}
+
+.itemsSidebar.collapsed .itemsSidebarButton .glyphicon {
+    transform: rotate(180deg);
+}
+
+.itemsSidebar.collapsed .collapsedHidden {
+    display: none;
+}
+
+.unitList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
 .item {
     display: flex;
     flex-direction: row;
@@ -102,12 +167,6 @@
     margin-top: 10px;
 }
 
-#exportAsCsv {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
 .excludeFromExpeditionButton {
     position: absolute;
     right: 4px;
@@ -206,6 +265,87 @@
     height: 18px;
 }
 
+.stats {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stats .statsGroup {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 180px;
+    text-align: center;
+}
+
+.stats table {
+    font-size: 1em;
+    margin: 0 auto;
+}
+
+.stats table .itemType {
+    width: 25px;
+    text-align: center;
+}
+
+.stats table .itemType img {
+    height: 18px;
+    margin: 1px 4px;
+}
+.stats table .value,
+.stats table .separator,
+.stats table .total,
+.stats table .number {
+    text-align: right;
+}
+
+.stats table .separator {
+    width: 20px;
+}
+
+.stats table .value,
+.stats table .total {
+    width: 30px;
+}
+
+.stats table .number {
+    color: #808080;
+    font-size: 0.9em;
+    width: 50px;
+}
+
+a#exportLinks {
+    position: absolute;
+    top: 15px;
+    left: 320px;
+    z-index: 1;
+    margin-left: 10px;
+    padding: 4px 6px;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+a#exportLinks:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+    text-decoration: none;
+}
+
+@media (min-width: 991px) {
+    
+    .stats .statsGroup.statsGroupMateria {
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+}
+
 @media (max-width: 991px) {
     .farmable .farmedButton {
         display: block;
@@ -225,5 +365,61 @@
     
     .itemWorldButton {
         display: block;
+    }
+    
+    .itemsWrapper {
+        display: block;
+    }
+
+    .itemsSidebar {
+        width: auto;
+    }
+
+    .itemsSidebar .itemsSidebarButton {
+        margin: 5px 0 15px 0;
+    }
+    
+    .itemsSidebar .itemsSidebarButton .glyphicon {
+        transform: rotate(90deg);
+    }
+
+    .itemsSidebar.collapsed {
+        width: auto;
+    }
+
+    .itemsSidebar.collapsed .toggle.btn .collapsedHidden,
+    .itemsSidebar.collapsed .itemsSidebarButton .collapsedHidden {
+        display: inline;
+    }
+
+    .itemsSidebar.collapsed .itemsSidebarButton .glyphicon {
+        transform: rotate(-90deg);
+    }
+
+    .stats {
+        margin-top: 0;
+        margin-bottom: 20px;
+        flex-direction: row;
+    }
+
+    .stats .statsGroup {
+        padding: 0 4px;
+    }
+}
+
+@media (max-width: 500px) {
+    a#exportLinks {
+        display: inline-block;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-left:10px;
+        margin-bottom:10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .stats {
+        justify-content: center;
     }
 }
