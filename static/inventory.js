@@ -41,6 +41,7 @@ function showMateria() {
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
     showSearch();
+    displayStats();
 }
 
 function showEquipments() {
@@ -53,6 +54,7 @@ function showEquipments() {
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
     showSearch();
+    displayStats();
 }
 
 function showSearch() {
@@ -192,7 +194,7 @@ function getItemDisplay(item)
 {
     var html = "";
 
-    html += '<div class="col-xs-6 item ' + escapeName(item.id);
+    html += '<div class="col-xs-12 col-sm-6 col-lg-4 item ' + escapeName(item.id);
     if (!itemInventory[item.id]) {
         html += ' notOwned ';
     }
@@ -275,6 +277,7 @@ function addToInventory(id, showAlert = true) {
     }
     willSave();
     updateCounts();
+    displayStats();
     return true;
 }
 
@@ -344,6 +347,7 @@ function addAllToInventory(items, amount) {
         }
     }
     showSettings();
+    displayStats();
     updateCounts();
 }
 
@@ -353,6 +357,7 @@ function undoAddAllToInventory() {
     }
     itemsAddedWithAddAll = [];
     showSettings();
+    displayStats();
     updateCounts();
 }
 
@@ -371,6 +376,7 @@ function removeFromInventory(id) {
         }
         mustSaveUnits = true;
         willSave();
+        displayStats();
         updateCounts();
     }
 }
@@ -762,8 +768,60 @@ function exportAsCsv() {
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
+function displayStats() {
+    var stats = {};
+
+    for (var index = 0, len = equipments.length; index < len; index++) {
+        var item = equipments[index];
+
+        // Ini stats for item type if not existing
+        if (stats[item.type] === undefined) {
+                stats[item.type] = {
+                'different': 0,
+                'total': 0,
+                'number': 0
+            };
+        }
+        stats[item.type].total++;
+
+        if (itemInventory[item.id]) {
+            stats[item.type].different++;
+            stats[item.type].number += itemInventory[item.id];
+        }
+    }
+
+    // Add materia
+    stats['materia'] = {
+        'different': 0,
+        'total': 0,
+        'number': 0
+    };
+    for (index = 0, len = materia.length; index < len; index++) {
+        var item = materia[index];
+
+        stats['materia'].total++;
+
+        if (itemInventory[item.id]) {
+            stats['materia'].different++;
+            stats['materia'].number += itemInventory[item.id];
+        }
+    }
+
+    var $stats = $(".stats");
+    for (var statType in stats) {
+        var $item = $stats.find('.stats_' + statType);
+        $item.find(".value").text(stats[statType].different);
+        $item.find(".total").text(stats[statType].total);
+        $item.find(".number").text('(' + stats[statType].number + ')');
+    }
+    
+    $(".itemsSidebar .hidden").removeClass("hidden");
+}
+
 // will be called by common.js at page load
 function startPage() {
+
+    var $window = $(window);
 
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
@@ -783,23 +841,31 @@ function startPage() {
             });
         });
     });
-    
-    
 	
     $("#results").addClass(server);
     
 	
-    $(window).on("beforeunload", function () {
+    $window.on("beforeunload", function () {
         if  (saveNeeded) {
             return "Unsaved change exists !";
         }
-    }).on('keyup', function (e) {
+    });
+    
+    $window.on('keyup', function (e) {
         // Reset search if escape is used
         if (e.keyCode === 27) {
             $("#searchBox").val('').trigger('input').focus();
         }
     });
+
+    $('.itemsSidebarButton').click(function() {
+        $('.itemsSidebar').toggleClass('collapsed');
+    });
     
     $("#searchBox").on("input", $.debounce(300,showSearch));
-    
+
+    // Start stats collapse for small screen
+    if ($window.outerWidth() < 990) {
+        $(".itemsSidebar").addClass("collapsed");
+    }
 }
