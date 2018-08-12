@@ -1,11 +1,11 @@
-<VirtualHost *:80>
+<VirtualHost *:{{ http_port }}>
 	ServerName {{ server_name|lower }}
 
 	RewriteEngine On
 	RewriteCond %{REQUEST_URI} !^/\.well\-known/acme\-challenge/
 	RewriteRule (.*) https://{{ server_name|lower }}%{REQUEST_URI} [R=301,L]
 </VirtualHost>
-<VirtualHost *:443>
+<VirtualHost *:{{ https_port }}>
 	ServerName {{ server_name|lower }}
 
 	SSLEngine On
@@ -16,8 +16,8 @@
 
 	ProxyPreserveHost On
 	ProxyPass /.well-known !
-	ProxyPass / http://localhost:3000
-	ProxyPassReverse / http://localhost:3000
+	ProxyPass / {{ backend_url }}
+	ProxyPassReverse / {{ backend_url }}
 
 	CustomLog ${APACHE_LOG_DIR}/{{ server_name|lower }}.log combined
 </VirtualHost>
