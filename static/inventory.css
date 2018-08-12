@@ -227,7 +227,7 @@
 .typeJumpList {
     margin: 20px auto 0 auto;
     padding: 0 10px;
-    max-width: 70%;
+    max-width: 80%;
     font-size: 0.9em;
     clear: both;
 
@@ -405,6 +405,10 @@ a#exportLinks:hover {
     .stats .statsGroup {
         padding: 0 4px;
     }
+    
+    .typeJumpList {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 500px) {
@@ -415,6 +419,13 @@ a#exportLinks:hover {
         left: 0;
         margin-left:10px;
         margin-bottom:10px;
+    }
+    
+    .typeJumpList {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+        margin-right: 5px;
     }
 }
 
