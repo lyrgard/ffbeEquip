@@ -1,0 +1,90 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  vars:
+    server_name: ffbeEquip.com
+    server_alias: [ffbeEquip.lyrgard.fr]
+    acme_ssl: true
+
+  handlers:
+    - name: apache2 | restart
+      service:
+        name: apache2
+        state: restarted
+
+  tasks:
+    - name: apache2 | install
+      apt:
+        name=apache2
+        state=latest
+        update_cache=yes
+        cache_valid_time=3600
+
+    - name: apache2 | directories
+      file: path={{ item }} state=directory
+      with_items:
+        - /etc/apache2/ssl
+        - /etc/apache2/conf-enabled
+        - /etc/apache2/sites-enabled
+
+    - name: apache2 | a2enmod
+      command: a2enmod {{ item }}
+      with_items:
+        - ssl
+        - headers
+        - rewrite
+        - proxy
+        - proxy_http
+
+    - name: apache2 | ssl bootstrap
+      file: path=/etc/apache2/ssl/{{ item[0]|lower }}.{{ item[1] }} state=touch
+      with_nested:
+        - "{{ [server_name] + server_alias }}"
+        - ["fullchain.cer", "key"]
+
+    - name: apache2 | conf
+      template: src=templates/apache2/conf.{{ item }}.conf.j2 dest=/etc/apache2/conf-enabled/{{ item }}.conf
+      with_items:
+        - acme
+        - ssl
+      notify: apache2 | restart
+
+    - name: apache2 | vhost server
+      template: src=templates/apache2/vhost.server.conf.j2 dest=/etc/apache2/sites-enabled/{{ server_name.split('.')[::-1]|join('.') }}.conf.j2
+      notify: apache2 | restart
+
+    - name: apache2 | vhost alias
+      template: src=templates/apache2/vhost.alias.conf.j2 dest=/etc/apache2/sites-enabled/{{ item.split('.')[::-1]|join('.') }}.conf.j2
+      with_items: "{{ server_alias }}"
+      notify: apache2 | restart
+
+    - meta: flush_handlers
+
+    - name: acme.sh | installer
+      get_url:
+        url: https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh
+        dest: /usr/local/bin/acme-install
+        mode: 0755
+
+    - name: acme.sh | install
+      command: /usr/local/bin/acme-install
+      environment:
+        INSTALLONLINE: 1
+      args:
+        creates: /root/.acme.sh/acme.sh
+
+    - name: acme.sh | issue certs
+      command: /root/.acme.sh/acme.sh
+        --issue -d {{ item|lower }}
+        --webroot /var/www/acme
+        --fullchain-file /etc/apache2/ssl/{{ item|lower }}.fullchain.cer
+        --key-file /etc/apache2/ssl/{{ item|lower }}.key
+        --reloadcmd "service apache2 restart"
+      when: acme_ssl
+      with_items: "{{ [server_name] + server_alias }}"
+      args:
+        creates: /root/.acme.sh/{{ item|lower }}/{{ item|lower }}.cer
+      notify: apache2 | restart
