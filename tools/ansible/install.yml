@@ -5,9 +5,12 @@
   become_method: sudo
 
   vars:
+    acme_ssl: true
+    http_port: 80
+    https_port: 2443
     server_name: ffbeEquip.com
     server_alias: [ffbeEquip.lyrgard.fr]
-    acme_ssl: true
+    backend_url: http://localhost:3000/
 
   handlers:
     - name: apache2 | restart
