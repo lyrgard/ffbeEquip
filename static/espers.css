@@ -1,12 +1,56 @@
-#espers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+#esper {
+    position:relative;
+    width: 100%;
+    margin: 0 auto;
 }
 
-#espers .result-tab-pane {
+#espers .tabsWrapper {
+    position:relative;
+    margin: 0 auto;
     width: 100%;
-    max-width: 1024px;
+    max-width: 1300px;
+    overflow: hidden;
+}
+
+#espers .tabsWrapper:before,
+#espers .tabsWrapper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    z-index: 1;
+    pointer-events: none;
+}
+#espers .tabsWrapper:before {
+    left: 0;
+    background: linear-gradient(to right,#ffffff,rgba(248,247,238,0));
+}
+#espers .tabsWrapper:after {
+    right: 0;
+    background: linear-gradient(to left,#ffffff,rgba(248,247,238,0));
+}
+
+#espers #tabs {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+#espers #tabs li {
+    cursor: pointer;
+}
+
+#espers #tabs li:first-child {
+    padding-left: 30px;
+}
+
+#espers #tabs li:last-child {
+    padding-right: 30px;
 }
 
 #espers #tabs img {
@@ -34,9 +78,54 @@
     border-color: white;
 }
 
+#panWrapper {
+    overflow: auto;
+    padding: 8px;
+}
+
+#gridTrimmer {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#gridTrimmer.star1 {
+    width:540px;
+    height:470px;
+}
+
+#gridTrimmer.star1 #gridContainer {
+    margin-left: -180px;
+    margin-top: -170px;
+}
+
+#gridTrimmer.star2 {
+    width:740px;
+    height:660px;
+}
+
+#gridTrimmer.star2 #gridContainer {
+    margin-left: -90px;
+    margin-top: -80px;
+}
+
+#gridTrimmer.star3 {
+    width:940px;
+    height:860px;
+}
+
+#gridTrimmer.star3 #gridContainer {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
 #gridContainer {
     position: relative;
-    margin-right: -10%;
+    width:1000px;
+    height:1000px;
+}
+
+#grid {
+    overflow: hidden;
 }
 
 #grid li {
@@ -130,7 +219,9 @@
   margin: 0 1%;
 }
 
-#grid li:nth-child(18n+10), #grid li:nth-child(18n+11), #grid li:nth-child(18n+12), #grid li:nth-child(18n+13), #grid li:nth-child(18n+14), #grid li:nth-child(18n+15), #grid li:nth-child(18n+16), #grid li:nth-child(18n+17), #grid li:nth-child(18n+18) {
+#grid li:nth-child(18n+10), #grid li:nth-child(18n+11), #grid li:nth-child(18n+12), 
+#grid li:nth-child(18n+13), #grid li:nth-child(18n+14), #grid li:nth-child(18n+15), 
+#grid li:nth-child(18n+16), #grid li:nth-child(18n+17), #grid li:nth-child(18n+18) {
     margin-top: -2%;
     margin-bottom: -2%;
     -o-transform: translateX(50%) rotate(-60deg) skewY(30deg);
@@ -166,16 +257,9 @@
     align-items: center;
 }
 
-#grid.star1 li .hexagon.star2, #grid.star1 li .hexagon.star3, #grid.star2 li .hexagon.star3, #grid.star1 li .hexagon.star2 *, #grid.star1 li .hexagon.star3 *, #grid.star2 li .hexagon.star3 * {
+#grid.star1 li .hexagon.star2, #grid.star1 li .hexagon.star3, #grid.star2 li .hexagon.star3, 
+#grid.star1 li .hexagon.star2 *, #grid.star1 li .hexagon.star3 *, #grid.star2 li .hexagon.star3 * {
     visibility: hidden;
-}
-
-#grid.star1 {
-    margin-top: -17%
-}
-
-#grid.star2 {
-    margin-top: -8.5%
 }
 
 .line {
@@ -244,12 +328,15 @@
 .esperHeader {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 10px;
-    justify-content: space-between;
+    padding-right: 30px;
+    min-height: 150px;
 }
 
 .esperChoice {
-    width: 400px;
+    min-width: 280px;
 }
 
 .formGroup {
@@ -263,8 +350,7 @@
 }
 
 .formLabel {
-    width: 100px;
-    min-width: 100px;
+    min-width: 75px;
     line-height: 34px;
     text-align: right;
     padding-right: 5px;
@@ -275,13 +361,67 @@
     padding-left: 5px;
 }
 
-.formLine.stats .formGroup {
-    width: 150px;
+.formValue .statsBonus {
+    color: #19983d;
 }
 
 .esperOtherStats {
-    width: 200px;
     position: relative;
+    padding-left: 40px;
+    padding-bottom: 15px;
+}
+
+.esperOtherStats .esperSkills {
+    position: absolute;
+    top: 65px;
+}
+
+.shareLink a {
+    display: inline-block;
+    margin: 0 auto 15px auto;
+    padding: 4px 6px;
+    border: 1px solid #c8c8c8;
+    background: #f7f7f7;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.shareLink a:hover {
+    border: 1px solid #808080;
+    background: #f0f0f0;
+    text-decoration: none;
+}
+
+.error {
+    font-weight: bold;
+    color: red;
+}
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLine {
+    display: flex;
+    flex-direction: row;
+}
+
+.formLabel {
+    min-width: 75px;
+    line-height: 34px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.formValue {
+    line-height: 34px;
+    padding-left: 5px;
+}
+
+.esperOtherStats {
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 15px;
 }
 
 .esperOtherStats .esperSkills {
@@ -301,3 +441,106 @@
     font-weight: bold;
     color: red;
 }
+
+#spFixed {
+    display: none;
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    opacity: 0.5;
+    z-index: 9999;
+    background-color: #052464;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: help;
+}
+
+#spFixed:hover {
+    opacity: 1;
+}
+
+#spFixed .name {
+    font-weight: bold;
+}
+
+#toggleGrid {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    background-color: #052464;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+#toggleGrid:hover {
+    opacity: 1;
+}
+
+#toggleGrid span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 30px;
+    margin-left: -13px;
+    margin-top: -14px;
+}
+
+@media (max-width: 990px) {
+    
+    #esper #panWrapper {
+        box-shadow: inset 0 1px 5px #00000040;
+    }
+}
+
+@media (max-height: 700px) {
+    #toggleGrid {
+        display: block;
+    }
+    
+    #esper #panWrapper {
+        position: absolute;
+        top: -100000px;
+        left: -100000px;
+    }
+
+    #esper.viewingTrainingGrid .esperHeader,
+    #esper.viewingTrainingGrid .shareLink {
+        display: none;
+    }
+
+    #esper.viewingTrainingGrid #panWrapper {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media (max-height: 700px) and (min-width: 920px) {
+    #panWrapper.star1,
+    #panWrapper.star2,
+    #panWrapper.star3 {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-height: 700px) and (min-width: 720px) {
+    #panWrapper.star1,
+    #panWrapper.star2 {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-height: 700px) and (min-width: 520px) {
+    #panWrapper.star1 {
+        overflow-x: hidden;
+    }
+}
+
