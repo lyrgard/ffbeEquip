@@ -245,6 +245,11 @@
     margin: 4px 0;
 }
 
+.typeJumpList > a.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .typeJumpList .typeJump {
     margin-left: 8px;
     padding: 5px;
