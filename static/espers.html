@@ -1,6 +1,11 @@
 <html lang="en">
     <head>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FFBE Equip : Espers</title>
+        <link rel="icon" type="image/png" href="/img/heavyArmor.png">
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" 
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="common.css?version=3">
@@ -8,11 +13,12 @@
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
               integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="/img/heavyArmor.png">
-        <title>FFBE Equip : Espers</title>
     </head>
     <body>
-        <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
+        <a href="#" id="toggleGrid" class="hidden" title="Toggle Esper training grid">
+            <span class="glyphicon glyphicon-th"></span>
+            <span class="glyphicon glyphicon-list hidden"></span>
+        </a>
         <div id="loaderGlassPanel" class="hidden">
             <div id="loader"></div>
         </div>
@@ -74,73 +80,81 @@
                     
                 </nav>
             </div>
-
-            <div  class="col-xs-12">
-
+            <div class="" style="clear: both">
                 <span id="pleaseWaitMessage" class="h4">Please wait for your espers to be loaded</span>
                 <span id="loginMessage" class="h4 hidden">Log-in to display your espers</span>
-                <div id="notLoginWarningMessage" class="h5 hidden"><span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>You are not logged in. Changes made won't be saved</div>
+                <div id="notLoginWarningMessage" class="h5 hidden">
+                    <span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>You are not logged in. Changes made won't be saved
+                </div>
                 <div id="espers" class="hidden">
-                    <ul id="tabs" class="nav nav-tabs">
-                    </ul>
-                    <div class="result-tab-pane">
-                        <div class="panel-body" style="padding:0;">
-                            <div id="esper">
-                                <div class="esperHeader">
-                                    <div class="formGroup esperChoice">
-                                        <div class="formLine">
-                                            <label  for="esperStar" class="formLabel">Rarity</label>
-                                            <select id="esperStar" class="form-control formInput"></select>
-                                        </div>
+                    <div class="tabsWrapper">
+                        <ul id="tabs" class="nav nav-tabs"></ul>
+                    </div>
+                    <div id="esper">
+                        <div class="esperHeader">
+                            <div class="formGroup esperChoice">
+                                <div class="formLine">
+                                    <label for="esperStar" class="formLabel">Rarity</label>
+                                    <select id="esperStar" class="form-control formInput"></select>
+                                </div>
 
-                                        <div class="formLine levelLine">
-                                            <label  for="level" class="formLabel">Level</label>
-                                            <input id="level" type="number" class="form-control formInput"/>
-                                        </div>
-                                            
-                                        <div class="formLine spLine">
-                                            <label  for="sp" class="formLabel">SP</label>
-                                            <span id="sp" class="formValue"></span> 
-                                        </div>
+                                <div class="formLine levelLine">
+                                    <label for="level" class="formLabel">Level</label>
+                                    <input id="level" type="number" class="form-control formInput"/>
+                                </div>
+                                    
+                                <div class="formLine spLine">
+                                    <label for="sp" class="formLabel">SP</label>
+                                    <span id="sp" class="formValue spUsed"></span> 
+                                </div>
+                            </div>
+                            <div class="formLine stats invisible">
+                                <div class="formGroup">
+                                    <div class="formLine">
+                                        <label class="formLabel">HP</label>
+                                        <span id="esper_hp" class="formValue"></span> 
                                     </div>
-                                    <div class="formLine stats invisible">
-                                        <div class="formGroup">
-                                            <div class="formLine">
-                                                <label class="formLabel">HP</label>
-                                                <span id="esper_hp" class="formValue"></span> 
-                                            </div>
-                                            <div class="formLine">
-                                                <label class="formLabel">ATK</label>
-                                                <span id="esper_atk" class="formValue"></span> 
-                                            </div>
-                                            <div class="formLine">
-                                                <label class="formLabel">MAG</label>
-                                                <span id="esper_mag" class="formValue"></span>
-                                            </div>
-                                        </div>
-                                        <div class="formGroup">
-                                            <div class="formLine">
-                                                <label class="formLabel">MP</label>
-                                                <span id="esper_mp" class="formValue"></span> 
-                                            </div>
-                                            <div class="formLine">
-                                                <label class="formLabel">DEF</label>
-                                                <span id="esper_def" class="formValue"></span>  
-                                            </div>
-                                            <div class="formLine">
-                                                <label class="formLabel">SPR</label>
-                                                <span id="esper_spr" class="formValue"></span> 
-                                            </div>
-                                        </div>
+                                    <div class="formLine">
+                                        <label class="formLabel">ATK</label>
+                                        <span id="esper_atk" class="formValue"></span> 
                                     </div>
-                                    <div class="formGroup esperOtherStats invisible">
-                                        <span id="esperResist" class="formLine"></span>                                            
-                                        <span id="esperSkills" class="formLine"></span> 
+                                    <div class="formLine">
+                                        <label class="formLabel">MAG</label>
+                                        <span id="esper_mag" class="formValue"></span>
                                     </div>
                                 </div>
-                                <div class="formLine shareLink">
-                                    <a onclick="getPublicEsperLink()"><span class="glyphicon glyphicon-link"></span> share this esper</a>
+                                <div class="formGroup">
+                                    <div class="formLine">
+                                        <label class="formLabel">MP</label>
+                                        <span id="esper_mp" class="formValue"></span> 
+                                    </div>
+                                    <div class="formLine">
+                                        <label class="formLabel">DEF</label>
+                                        <span id="esper_def" class="formValue"></span>  
+                                    </div>
+                                    <div class="formLine">
+                                        <label class="formLabel">SPR</label>
+                                        <span id="esper_spr" class="formValue"></span> 
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="formGroup esperOtherStats invisible">
+                                <span id="esperResist" class="formLine"></span>                                            
+                                <span id="esperSkills" class="formLine"></span> 
+                            </div>
+                        </div>
+                        <div class="formLine shareLink">
+                            <a onclick="getPublicEsperLink()">
+                                <span class="glyphicon glyphicon-link"></span> 
+                                Get a link to this Esper build
+                            </a>
+                        </div>
+                        <div id="panWrapper">
+                            <div id="spFixed">
+                                <span class="name">SP</span>
+                                <span class="spUsed"></span> 
+                            </div>
+                            <div id="gridTrimmer">
                                 <div id="gridContainer">
                                     <ul id="grid" class="clear">
                                     </ul>
@@ -149,20 +163,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="footerButtons">
-                    <div>
-                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                        <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                        <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="footerButtons">
+            <div>
+                <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
+                <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
+                <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
+            </div>
+            <div>
+                <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
+                <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
+            </div>
+            <div>
+                <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" 
