@@ -128,6 +128,14 @@ var displayItems = function(items, byType = false) {
         // Jump list display
         htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
         htmlTypeJump += '<span>Jump to </span>';
+        var currentItemType = null;
+        for (var index = 0, len = items.length; index < len; index++) {
+            var itemType = items[index].type;
+            if (itemType !== currentItemType) {
+                htmlTypeJump += '<a class="typeJump ' + itemType + ' disabled"><img src="img/' + itemType + '.png"/></a>';
+                currentItemType = itemType;
+            }
+        }
         htmlTypeJump += '</div>';
         resultDiv.append(htmlTypeJump);
 
@@ -141,11 +149,8 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
     var currentItemTypeImgHtml = '<img src="img/' + currentItemType + '.png"/>';
-    var currentItemTypeAnchor = 'itemType' + currentItemType;
 
-    var htmlTypeJump = '<a class="typeJump" href="#' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</a>';
-
-    var html = '<div class="itemSeparator" id="' + currentItemTypeAnchor + '">' + currentItemTypeImgHtml + '</div>';
+    var html = '<div class="itemSeparator" id="' + currentItemType + '">' + currentItemTypeImgHtml + '</div>';
     html += '<div class="itemList">';
     for (var index = start, len = items.length; index < len; index++) {
         var item = items[index];
@@ -159,9 +164,10 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     html += '</div>';
 
     if (id == displayId) {
-        // Add the jump and the all items to the DOM
-        jumpDiv.append(htmlTypeJump);
+        // Add all items to the DOM
         div.append(html);
+        // Enable jumper
+        jumpDiv.find("a.typeJump." + currentItemType).attr('href', '#' + currentItemType).removeClass('disabled');
         // Update lazyloader only for first and last run
         if (start === 0 || index >= items.length) lazyLoader.update();
         // Launch next run of type
