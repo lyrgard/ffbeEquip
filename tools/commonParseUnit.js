@@ -244,6 +244,66 @@ function getPassive(skillIn, baseEffects, skillsOut) {
     return skill;
 }
 
+function addEffectToEffectList(effectList, effect) {
+    if (effect.equipedConditions || effect.exclusiveUnits || effect.exclusiveSex) {
+        effectList.push(effect);
+    } else {
+        for (var i = baseStats.length: i--;) {
+            if (effect[baseStat[i]]) {
+                addToStat(effectList[0], baseStats[i], effect[baseStats[i]]);
+            }
+            if (effect[baseStat[i] + "%"]) {
+                addToStat(effectList[0], baseStats[i] + "%", effect[baseStats[i]]);
+            }
+        }
+        if (effect.special) {
+            for (var i = effect.special.length; i--;) {
+                addToList(effectList[0],"special",effect.special[i]);
+            }
+        }
+        if (effect.element) {
+            for (var i = effect.element.length; i--;) {
+                addToList(effectList[0],"element",effect.element[i]);
+            }
+        }   
+        if (effect.killers) {
+            for (var i = effect.killers.length; i--;) {
+                addKiller(effectList[0], effect.killers[i].name, effect.killers[i].physical || 0, effect.killers[i].magical || 0);
+            }
+        }
+        if (effect.resist) {
+            for (var i = effect.resist.length; i--;) {
+                addToResistList(effectList[0], effect.resist[i]);
+            }
+        }
+        if (effect.ailments) {
+            for (var i = effect.ailments.length; i--;) {
+                addToAilmentsList(effectList[0], effect.ailments[i]);
+            }
+        }
+        const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh"];
+        for (var i = simpleValues.length: i--;) {
+            if (effect[simpleValues[i]]) {
+                addToStat(effectList[0], simpleValues[i], effect[simpleValues[i]]);
+            }
+        }
+        const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding","esperStatsBonus"];
+        for (var i = baseStatsBasedValues.length: i--;) {
+            if (effect[baseStatsBasedValues[i]]) {
+                if (!effectList[0][baseStatsBasedValues[i]]) {
+                    effectList[0][baseStatsBasedValues[i]] = {};
+                }
+                for (var j = baseStats.length: j--;) {
+                    if (effect[baseStatsBasedValues[i]][baseStats[j]]) {
+                        addToStat(effectList[0][baseStatsBasedValues[i]], baseStats[j], effect[baseStatsBasedValues[i]][baseStats[j]]);
+                    }
+                }
+            }
+        }
+        // TODO "evade",,"damageVariance","lbPerTurn","element","partialDualWield",
+    }
+}
+
 function parsePassiveRawEffet(rawEffect, baseEffects, skillsOut) {
     var result = {};
     // stat bonus
@@ -745,6 +805,32 @@ function addKiller(skill, race, physicalPercent, magicalPercent) {
             killerData.magical = magicalPercent;
         }
     }
+}
+
+function addToResistList(item, resist) {
+    if (!item.resist) {
+        item.resist = [];
+    }
+    for (var i = item.resist.length; i--;) {
+        if (item.resist[i].name == resist.name) {
+            item.resist[i].percent += resist.percent;
+            return;
+        }
+    }
+    item.resist.push(resist);
+}
+
+function addToAilmentsList(item, ailment) {
+    if (!item.ailments) {
+        item.ailments = [];
+    }
+    for (var i = item.ailments.length; i--;) {
+        if (item.ailments[i].name == ailment.name) {
+            item.ailments[i].percent += ailment.percent;
+            return;
+        }
+    }
+    item.ailments.push(ailment);
 }
 
 function addElementalResist(item, values) {
