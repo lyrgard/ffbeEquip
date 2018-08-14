@@ -30,7 +30,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                 var skills = JSON.parse(body);
                 request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/limitbursts.json', function (error, response, body) {
                     if (!error && response.statusCode == 200) {
-                        console.log("skills.json downloaded");
+                        console.log("limitburst.json downloaded");
                         var lbs = JSON.parse(body);
                         request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/enhancements.json', function (error, response, body) {
                             if (!error && response.statusCode == 200) {
@@ -57,7 +57,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
                                             unitsOut[unitOut.data.id] = unitOut.data;
                                         }
                                     }
-
+                                    
                                     var filename = 'unitsWithPassives.json';
                                     if (languageId != 0) {
                                         filename = 'unitsWithPassives_' + languages[languageId] +'.json';
@@ -83,7 +83,7 @@ request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json
     }
 });
 
-function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry = unitIn["rarity_max"]) {
+function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -92,7 +92,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
     for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == maxRariry) {
+        if (unitIn.entries[entryId].rarity == maxRarity) {
             unitData = unitIn.entries[entryId];
             for (var statIndex in commonParse.stats) {
                 var stat = commonParse.stats[statIndex];
@@ -141,11 +141,11 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
         }
     }
     
-    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRariry, unitData, data);
+    data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRarity, unitData, data);
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
-    if (maxRariry == 7) {
-        data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
+    if (maxRarity == 7) {
+        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
     }
     
     return unit;
