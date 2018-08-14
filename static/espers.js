@@ -59,6 +59,7 @@ function show(esperName) {
             showBoard(esper.name, ownedEspers[esperName].rarity);
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
+            $("#esper .shareLink").removeClass("hidden");
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
@@ -66,6 +67,7 @@ function show(esperName) {
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
+            $("#esper .shareLink").addClass("hidden");
             $(".stats").addClass("invisible");
             $(".esperOtherStats").addClass("invisible");
             gridContainer.addClass("hidden");
@@ -77,13 +79,12 @@ function showBoard(esperName, star) {
     nodes.removeClass("hp mp atk def mag spr ability resist killer selected");
     $(".line").remove();
     
-    var grid = $("#grid");
-    grid.removeClass("star1 star2 star3");
+    $("#grid,#gridTrimmer").removeClass("star1 star2 star3");
     gridContainer.removeClass("hidden");
     
     var escapedName = escapeName(esperName);
     $("#grid li.0_0 .hexagon").html('<img class="esperCenterIcon" src=\"img/' + escapedName +'.png\"/>');
-    $("#grid").addClass("star" + star);
+    $("#grid,#gridTrimmer").addClass("star" + star);
     var board = esperBoards[esperName];
     var rootNode = $("#grid li.0_0 .hexagon");
     rootNode.addClass("selected");
@@ -124,11 +125,11 @@ function updateSp() {
     
     sp[0] = usedSp;
     sp[1] = availableSP;
-    $("#sp").text(usedSp + " / " +availableSP);
+    $(".spUsed").text(usedSp + " / " +availableSP);
     if (usedSp > availableSP) {
-        $("#sp").addClass("error");
+        $(".spUsed").addClass("error");
     } else {
-        $("#sp").removeClass("error");
+        $(".spUsed").removeClass("error");
     }
 }
 
@@ -153,7 +154,12 @@ function updateStats() {
         if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus[baseStats[index]]) {
             statBonusCoef += ownedEsper.esperStatsBonus[baseStats[index]] / 100;
         }
-        $("#esper_" + baseStats[index]).html(ownedEsper[baseStats[index]] + "&nbsp;(+" + Math.floor(ownedEsper[baseStats[index]] * statBonusCoef / 100) + ")");
+        var bonusValue = Math.floor(ownedEsper[baseStats[index]] * statBonusCoef / 100);
+        $("#esper_" + baseStats[index]).html(
+            ownedEsper[baseStats[index]] + "&nbsp;"+
+            "<span class='statsBonus' title='Gives a bonus of +"+bonusValue+" "+ baseStats[index].toUpperCase() +" to unit equipped with this Esper'>"+
+            "(+" + bonusValue + ")" +
+            "</span>");
     }
 }
 
@@ -479,7 +485,9 @@ function removeEsperStatsBonus(item, bonus) {
     for (var i = 0; i < baseStats.length; i++) {
         item.esperStatsBonus[baseStats[i]] -= bonus[baseStats[i]];
     }
-    if (item.esperStatsBonus.hp == 0 && item.esperStatsBonus.mp == 0 && item.esperStatsBonus.atk == 0 && item.esperStatsBonus.def == 0 && item.esperStatsBonus.mag == 0 && item.esperStatsBonus.spr == 0) {
+    if (item.esperStatsBonus.hp == 0 && item.esperStatsBonus.mp == 0 && item.esperStatsBonus.atk == 0 && 
+        item.esperStatsBonus.def == 0 && item.esperStatsBonus.mag == 0 && item.esperStatsBonus.spr == 0) 
+    {
         delete item.esperStatsBonus;
     }
 }
@@ -568,7 +576,7 @@ function displayEspers() {
         var tabs = "";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
-            tabs += "<li class=\"" + escapedName + "\" onclick=\"show('" + espers[index].name + "')\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
+            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\"><a><img src=\"img/" + escapedName +".png\"/></a></li>";
         }
         $("#espers #tabs").html(tabs);
     }
@@ -696,7 +704,15 @@ function getPublicEsperLink() {
         '</div>' ).dialog({
         modal: true,
         open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
+            var $dlg = $(this).parent();
+            $dlg.css('position', 'fixed');
+            if ($(window).outerWidth() < $dlg.outerWidth()) {
+                $dlg.css({
+                    width: '94%',
+                    left: '3%'
+                });
+            }
+
             $("#showLinkDialog input").select();
             try {
                 var successful = document.execCommand('copy');
@@ -717,11 +733,14 @@ function getPublicEsperLink() {
 
 // will be called by common.js at page load
 function startPage() {
+    var $window = $(window);
     gridContainer = $("#gridContainer");
+
     if (window.location.hash.length > 1) {
         $("#pleaseWaitMessage").addClass("hidden");
         $("#loginMessage").addClass("hidden");
     }
+
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("espers", false, function(result) {
         espers = result;
@@ -730,18 +749,19 @@ function startPage() {
             if (ownedEspers) {
                 displayEspers();
             }
+
+            $('#toggleGrid').removeClass('hidden');
         });
     });
 
-
     $("#results").addClass(server);
     
-
-    $(window).on("beforeunload", function () {
+    $window.on("beforeunload", function () {
         if  (saveNeeded) {
-            return "Unsaved change exists !"
+            return "Unsaved change exists !";
         }
     });
+
     $("#esper #esperStar").change(function () {
         var value = $("#esper #esperStar").val();
         if (value == "notOwned") {
@@ -765,5 +785,85 @@ function startPage() {
         }
         prepareSave();
     });
-    $("#esper #level").on("input", $.debounce(300,onLevelChange));
+
+    $("#esper #level").on("input", $.debounce(300, onLevelChange));
+
+    var setCurrentScrollToCenter = function($pan) {
+        var $centerIcon = $pan.find('#gridContainer li.0_0');
+        var centerIconOffsetRel = $centerIcon.position();
+        var centerIconHeight = $centerIcon.outerHeight();
+        var centerIconWidth = $centerIcon.outerWidth();
+        var panHeight = $pan.outerHeight();
+        var WindowWidth = $window.outerWidth();
+
+        var originTop = centerIconOffsetRel.top + parseInt(gridContainer.css('marginTop'), 10) + centerIconHeight / 2;
+        var originLeft = centerIconOffsetRel.left + parseInt(gridContainer.css('marginLeft'), 10) + centerIconWidth / 2;
+
+        currentScrollTop = Math.abs((panHeight / 2) - originTop);
+        currentScrollLeft = Math.abs((WindowWidth / 2) - originLeft);
+    };
+
+    /* Grid show toggle */
+    var currentScrollTop = null;
+    var currentScrollLeft = null;
+    $('#toggleGrid').on('click', function() {
+        if ($('#esperStar').val() === 'notOwned') {
+            $('#esperStar').focus();
+        } else {
+            var $esper = $('#esper');
+            var $pan = $esper.find('#panWrapper');
+
+            // Define height with remaining space
+            $pan.height($window.outerHeight() - $esper.offset().top - 15);
+
+            if (currentScrollTop === null || currentScrollLeft === null) {
+                setCurrentScrollToCenter($pan);
+            } 
+            
+            if ($esper.hasClass('viewingTrainingGrid')) {
+                currentScrollTop = $pan.scrollTop();
+                currentScrollLeft = $pan.scrollLeft();
+                $('#spFixed').hide();
+            } else {
+                $('#spFixed').show();
+            }
+            
+            $esper.toggleClass('viewingTrainingGrid');
+
+            $pan.scrollTop(currentScrollTop);
+            $pan.scrollLeft(currentScrollLeft);
+
+            // Change icon
+            $(this).find('span').toggleClass('hidden');
+        }
+    });
+
+    /* Tabs esper selection */
+    $("#espers #tabs").on('click', function(e) {
+        var $elem = $(e.target).parents('li[data-esper]');
+        var esperName = $elem.attr('data-esper');
+        var $esper = $('#esper');
+        var $pan = $esper.find('#panWrapper');
+        $pan.scrollTop(0);
+        $pan.scrollLeft(0);
+
+        // Reset toggle if needed
+        if ($esper.hasClass('viewingTrainingGrid')) {
+            $('#toggleGrid').click();
+        }
+
+        show(esperName);
+
+        setTimeout(function() { setCurrentScrollToCenter($pan); }, 0);
+    });
+    
+    $window.on('scroll', $.debounce(50, function(){
+        if (!$('#esper').hasClass('viewingTrainingGrid')) {
+            if ($(this).scrollTop() > $('#sp').offset().top) {
+                $('#spFixed').fadeIn();
+            } else { 
+                $('#spFixed').fadeOut();
+            }
+        }
+    }));
 }
