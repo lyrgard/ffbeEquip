@@ -24,10 +24,6 @@
     display: none;
 }
 
-#inventoryDiv.mobile {
-    display: none;
-}
-
 #resultsDiv .panel-heading {
     display: flex;
     flex-direction: row;
@@ -108,12 +104,6 @@
     }
     .userInputedResultsChoice label{
         padding-left: 15px;
-    }
-    .ui-dialog h4 {font-size: 36px!important; }
-    .ui-dialog h5 {font-size: 30px!important; }
-    .ui-dialog {
-        left:0 !important;
-        width: 100% !important;
     }
     
 }

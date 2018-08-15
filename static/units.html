@@ -20,63 +20,99 @@
         <div id="loaderGlassPanel" class="hidden">
             <div id="loader"></div>
         </div>
-        <div class="container-fluid">
-            <div class="col-xs-12">
-                <nav class="col-xs-12 navbar navbar-default">
-                    <img class="bannerImg" src="img/page_units.jpg"/>
-                    <div class="mobile">
-                        <div class="mobileMenuLogo" data-toggle="dropdown" class="dropdown-toggle"></div>
-                        <span data-toggle="dropdown" class="dropdown-toggle glyphicon glyphicon-chevron-down mobileMenuArrow"></span>
-                        <ul class="dropdown-menu">
-                            <li><a id="linkToSearch" href="index.html" data-internal-link="index.html"><span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia</a></li>
-                            <li><a id="linkToUnitSearch" href="index.html" data-internal-link="unitSearch.html"><span class="glyphicon glyphicon-chevron-right"></span> Unit Search</a></li>
-                            <li><a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html"><span class="glyphicon glyphicon-chevron-right"></span> Inventory</a></li>
-                            <li><a id="linkToEspers" href="espers.html" data-internal-link="espers.html"><span class="glyphicon glyphicon-chevron-right"></span> Espers</a></li>
-                            <li><a id="linkToBuilder" href="builder.html" data-internal-link="builder.html"><span class="glyphicon glyphicon-chevron-right"></span> Builder</a></li>
-                            <li><a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html"><span class="glyphicon glyphicon-chevron-right"></span> Contribute</a></li>
-                        </ul>
-                    </div>
-                    <div id="navigationMenu">
-                        <div id="links">
-                            <a id="linkToSearch" href="index.html" data-internal-link="index.html">Encyclopedia</a>
-                            <a id="linkToUnitSearch" href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
-                            <a id="linkToInventory" href="inventory.html" data-internal-link="inventory.html">Inventory</a>
-                            <a id="linkToEspers" href="espers.html" data-internal-link="espers.html">Espers</a>
-                            <a id="linkToBuilder" href="builder.html" data-internal-link="builder.html">Builder</a>
-                            <a id="linkToContribute" href="contribute.html" data-internal-link="contribute.html">Contribute</a>
-                        </div>
-                    </div>
-                    
-                    <div id="serverAndLanguagesSwitcher">
-                        <div class="switchServer btn-group">
-                            <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
-                            <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
-                        </div>
-                        <div id="languages">
-                            <span class="lang-xs" lang="en" onclick="switchToLanguage('en')"></span>
-                            <span class="lang-xs" lang="zh" onclick="switchToLanguage('zh')"></span>
-                            <span class="lang-xs" lang="ko" onclick="switchToLanguage('ko')"></span>
-                            <span class="lang-xs" lang="fr" onclick="switchToLanguage('fr')"></span>
-                            <span class="lang-xs" lang="de" onclick="switchToLanguage('de')"></span>
-                            <span class="lang-xs" lang="es" onclick="switchToLanguage('es')"></span>
-                        </div>
-                    </div>
-
-                    <div id="inventoryDiv" class="buttons account">
-                        <div class="buttonDiv">
-                            <button class="hidden btn btn-default loadInventory" onclick="loadInventory()">Log in</button>
-                            <a href="/googleOAuthLogout">
-                            <span class="hidden glyphicon glyphicon-off logOut" title="logout"></span>
-                            </a>
-                        </div>
-                        <div id="inventoryStatus">
-                            <span>Inventory :&nbsp;</span>
-                            <span class="status"></span>
+        
+        <div id="header" class="headerRain">
+            <div class="headerContent">
+                <div class="headerTitle">
+                    Units
+                </div>
+                <div id="inventoryDiv" class="btn-group" role="group">
+                    <button type="button" class="btn btn-default hidden logOut" onclick="location.href='/googleOAuthLogout';">
+                        <span class="glyphicon glyphicon-off" title="logout"></span>
+                    </button>
+                    <button type="button" class="btn btn-default hidden loadInventory" onclick="loadInventory()">
+                        Log in
+                    </button>
+                    <button type="button" class="btn btn-default inventoryStatus">
+                            <span class="status">Checking inventory...</span>
+                            <span class="label label-default unitsNumber hidden">? units</span>
+                            <span class="label label-default itemsNumber hidden">? items</span>
                             <div class="loader"></div>
-                        </div>
-                    </div>
-                </nav>
+                    </button>
+                </div>
             </div>
+            <div class="navigationMenu">
+                <div class="desktop">
+                    <a href="index.html" data-internal-link="index.html">Encyclopedia</a>
+                    <a href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
+                    <a href="inventory.html" data-internal-link="inventory.html">Inventory</a>
+                    <a class="active" href="units.html" data-internal-link="units.html">Units</a>
+                    <a href="espers.html" data-internal-link="espers.html">Espers</a>
+                    <a href="builder.html" data-internal-link="builder.html">Builder</a>
+                    <a href="contribute.html" data-internal-link="contribute.html">Contribute</a>
+                </div>
+                <div class="mobile">
+                    <div class="menuToggle" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="index.html" data-internal-link="index.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia
+                            </a>
+                        </li>
+                        <li>
+                            <a href="unitSearch.html" data-internal-link="unitSearch.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Unit Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="inventory.html" data-internal-link="inventory.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Inventory
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="units.html" data-internal-link="units.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Units
+                            </a>
+                        </li>
+                        <li>
+                            <a href="espers.html" data-internal-link="espers.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Espers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="builder.html" data-internal-link="builder.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Builder
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contribute.html" data-internal-link="contribute.html">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Contribute
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerTopButtons">
+                <div id="languages">
+                    <span class="lang lang-sm" lang="en" onclick="switchToLanguage('en')"></span>
+                    <span class="lang lang-sm" lang="zh" onclick="switchToLanguage('zh')"></span>
+                    <span class="lang lang-sm" lang="ko" onclick="switchToLanguage('ko')"></span>
+                    <span class="lang lang-sm" lang="fr" onclick="switchToLanguage('fr')"></span>
+                    <span class="lang lang-sm" lang="de" onclick="switchToLanguage('de')"></span>
+                    <span class="lang lang-sm" lang="es" onclick="switchToLanguage('es')"></span>
+                </div>
+                <div class="switchServer btn-group">
+                    <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                    <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                </div>
+            </div>
+            <div class="bannerBackground"></div>
+            <div class="bannerPicture"></div>
+            <div class="bannerPicturePerson"></div>
+        </div>
+        <div class="container-fluid">
             <div class="unitsWrapper">
                 <div class="unitsSidebar">
                     <div class="unitsSidebarInternal">

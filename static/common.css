@@ -1,3 +1,4 @@
+
 :root {
     --search-color-background:#ffb3ba;
     --inventory-color-background:#baffc9;
@@ -5,43 +6,248 @@
     --espers-color-background:#bae1ff;
     --builder-color-background:#ffffba;
     --contribute-color-background:#ffffff;
-    
 }
 
-.bannerImg {
-    height: 100px;
+#header {
+    position: relative;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+#header .bannerPicture,
+#header .bannerPicturePerson {
     position: absolute;
-    bottom: 0;
+    top: 2px;
     left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: auto 110px;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+#header .bannerPicture {
+    background-image: url(/img/banner/banner_blank.png);
+}
+
+#header .bannerPicturePerson {
+    left: 110px;
+}
+
+#header .bannerBackground {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 83px;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    z-index: -1;
+}
+
+#header .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 82px;
+    padding-left: 150px;
+    padding-right: 12px;
+}
+
+#header .headerTitle {
+    font-size: 2.5em;
+    line-height: 1em;
+    font-weight: 300;
+    color: white;
+}
+
+#header .headerTopButtons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 30px;
+}
+
+#header .switchServer {
+    padding: 0 12px 0 16px;
+}
+
+#header .switchServer .btn {
+    padding: 1px 8px;
+}
+
+#header .switchServer .notSelected {
+    color: grey;
+    opacity: 1;
+}
+
+#header .switchServer button.btn {
+    margin-left: 0 !important;
+}
+
+#header.headerSakura .bannerPicturePerson {
+    background-image: url(/img/banner/Sakura.png) ;
+}
+#header.headerSakura .headerContent {
+    padding-left: 350px;
+}
+
+#header.headerLasswell .bannerPicturePerson {
+    background-image: url(/img/banner/Lasswell.png) ;
+}
+#header.headerLasswell .headerContent {
+    padding-left: 300px;
+}
+
+#header.headerJake .bannerPicturePerson {
+    background-image: url(/img/banner/Jake.png) ;
+}
+#header.headerJake .headerContent {
+    padding-left: 360px;
+}
+
+#header.headerRain .bannerPicturePerson {
+    background-image: url(/img/banner/Rain.png) ;
+}
+#header.headerRain .headerContent {
+    padding-left: 340px;
+}
+
+#header.headerNichol .bannerPicturePerson {
+    background-image: url(/img/banner/Nichol.png) ;
+}
+#header.headerNichol .headerContent {
+    padding-left: 330px;
+}
+
+#header.headerLid .bannerPicturePerson {
+    background-image: url(/img/banner/Lid.png) ;
+}
+#header.headerLid .headerContent {
+    padding-left: 325px;
+}
+
+#header.headerFina .bannerPicturePerson {
+    background-image: url(/img/banner/Fina.png) ;
+}
+#header.headerFina .headerContent {
+    padding-left: 330px;
+}
+
+#languages .lang {
+    margin: 0 2px;
+}
+
+#languages .lang.selected {
+    box-shadow: 0px 0px 5px 2px #3166ff;
+}
+
+#languages .lang:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 2px #d0d0d0;
+}
+
+#inventoryDiv {
+    flex-shrink: 0;
+}
+
+#inventoryDiv button {
+    height: 50px;
+}
+
+#inventoryDiv button.loadInventory {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+#inventoryDiv button.inventoryStatus {
+    text-align: left;
+    color: #333 !important;
+    background-color: #fff !important;
+    border-color: #ccc !important;
+    cursor: auto !important;
+    -ms-touch-action: auto;
+    touch-action: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
+#inventoryDiv button.inventoryStatus .status {
+    display: block;
+    font-size: 0.85em;
+    color: #aeaeae;
+}
+
+.navigationMenu .desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 25px;
+}
+
+.navigationMenu .desktop a {
+    display: inline;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    text-decoration: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+}
+
+.navigationMenu .desktop a.active {
+    border-color: #d1d2d5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigationMenu .desktop a:hover {
+    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navigationMenu .mobile {
+    display: none;
+}
+
+.navigationMenu .mobile .menuToggle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 12px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.navigationMenu .mobile .menuToggle span {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-left: -12px;
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 
+                 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    font-size: 24px;
+}
+
+.navigationMenu .mobile .dropdown-menu {
+    left: 8px;
+    margin-top: 8px;
 }
 
 .navbar {
     margin-top: 10px;
     margin-bottom: 34px;
-}
-
-.navbar-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
-    align-items: center;
-}
-
-.navbar-brand {
-    padding: 0;
-    height: 20px;
-}
-
-.lang-xs.selected {
-    box-shadow: 0px 0px 5px 2px #3166ff;
-}
-
-.lang-xs:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 5px 2px #d0d0d0;
 }
 
 h5 {
@@ -189,7 +395,7 @@ ul {
     white-space:nowrap;
 }
 .footerButtons {
-    margin-top: 10px;
+    margin: 15px 0;
 }
 
 .noWrap {
@@ -204,10 +410,6 @@ mark {
 }
 .exclusive {
     font-weight: bold;
-}
-
-body {
-    padding-top: 15px;
 }
 
 .unit .col-xs-12 {
@@ -452,67 +654,6 @@ nav {
     height: 80px;
 }
 
-#navigationMenuButton {
-    float: left;
-    line-height: 80px;
-    height: 80px;
-    font-size:24px;
-    color: #777;
-}
-
-#serverAndLanguagesSwitcher {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    float: right;
-    margin-left: 15px;
-}
-
-
-#inventoryDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    height: 80px;
-}
-
-#inventoryDiv .buttonDiv {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-#inventoryDiv .btn {
-    margin-left: 10px;
-}
-
-.account {
-    display: flex;
-    align-items: center;
-    float: right;
-    height: 50px;
-}
-
-.switchServer {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-.switchServer .notSelected {
-    color: grey;
-    opacity: 1;
-}
-
-.switchServer button.btn {
-    margin-left: 0 !important;
-}
-
-.logOut {
-    margin-left: 10px;
-    cursor: pointer;
-}
-
 #navbar-header {
     display: flex;
     flex-direction: column;
@@ -532,65 +673,13 @@ nav {
     font-size: 24px;
 }
 
-nav .dropdown-menu li {
-    height: 34px;
-    font-size: 18px;
+.dropdown-menu li {
+    height: 40px;
+    font-size: 1.4em;
 }
 
-nav .dropdown-menu li a {
+.dropdown-menu li a {
     color: #777;
-}
-
-#navigationMenu {
-    float:left;
-    display: flex;
-    flex-direction: column;
-    height: 80px;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-#navigationMenu #navbar-brand {
-    height: 50px;
-    line-height: 50px;
-    color: #777;
-    font-size: 24px;
-}
-
-#navigationMenu #links {
-    position: absolute;
-    bottom: -26px;
-    left: 5px;
-}
-
-#navigationMenu #links > a, #navigationMenu #mobileMenu {
-    display: inline;
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-bottom: 2px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 18px;
-    text-decoration: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: #f8f8f8;
-    border: 1px solid #e7e7e7;
-}
-
-#navigationMenu #mobileMenu {
-    display: none;
-}
-
-#navigationMenu a.active {
-    color: rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-#navigationMenu a:hover {
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.05);
 }
 
 #showLinkDialog input {
@@ -633,33 +722,6 @@ nav .dropdown-menu li a {
 #modifyEnhancementModal .modal-header .title.item {
     width: 400px;
     display: inline-flex;
-}
-
-.loadInventory {
-    z-index: 2;
-}
-
-.mobile {
-    display: none;
-}
-
-.mobileMenuArrow {
-    position: absolute;
-    top: 65px;
-    left: 42px;
-    color: white;
-    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.mobileMenuLogo {
-    width: 90px;
-    height: 90px;
-    position: absolute;
-    top: -18px;
-    left: 10px;
-    cursor: pointer;
 }
 
 .item.enhanced {
@@ -718,32 +780,6 @@ img[data-src] {
         right: 37px; /* 25px margin + 75px width/2 - 50px width/2 */
     }
     
-    #navigationMenu #mobileMenu {
-        display: inline;
-    }
-    
-    .mobile {
-        display: block;
-    }
-    
-    .desktop {
-        display: none !important;
-    }
-    
-    #navigationMenu #links > a {
-        display: none;
-    }
-    
-    nav #inventoryStatus {
-        display: none;
-    }
-    
-    #inventoryDiv .buttonDiv {
-        height: 80px;
-        margin-right: 5px;
-        font-size: 18px;
-    }
-    
     nav.col-xs-12 {
         padding-left: 15px;
         padding-right: 15px;
@@ -751,11 +787,6 @@ img[data-src] {
     
     nav .dropdown-menu li {
         height: 48px;
-    }
-    
-    .container-fluid, .col-xs-12 {
-        padding-left: 0;
-        padding-right: 0;
     }
     
     .loginMessageDetail {
@@ -772,5 +803,187 @@ img[data-src] {
     
     .container-fluid {
         overflow: hidden;
+    }
+
+    #header .headerContent {
+        padding-left: 110px;
+    }
+
+    #header .headerContent {
+        height: 68px;
+    }
+
+    #header .bannerPicture,
+    #header .bannerPicturePerson {
+        background-size: auto 90px;
+        top: 8px;
+    }
+
+    #header .bannerPicturePerson {
+        left: 90px;
+    }
+
+    #header.headerSakura .headerContent {
+        padding-left: 290px;
+    }
+    #header.headerLasswell .headerContent {
+        padding-left: 240px;
+    }
+    #header.headerJake .headerContent {
+        padding-left: 300px;
+    }
+    #header.headerRain .headerContent {
+        padding-left: 280px;
+    }
+    #header.headerNichol .headerContent {
+        padding-left: 270px;
+    }
+    #header.headerLid .headerContent {
+        padding-left: 265px;
+    }
+    #header.headerFina .headerContent {
+        padding-left: 270px;
+    }
+
+    #header .bannerBackground {
+        display: none;
+    }
+
+    #header .headerTitle {
+        font-size: 1.85em;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #header .headerTitle {
+        font-size: 1.6em;
+    }
+
+    .navigationMenu .desktop {
+        display: none;
+    }
+
+    .navigationMenu .mobile {
+        display: block;
+    }
+
+    .ui-dialog h4 {font-size: 36px!important; }
+    .ui-dialog h5 {font-size: 30px!important; }
+    .ui-dialog {
+        left: 3% !important;
+        width: 94% !important;
+    }
+    
+    .container-fluid, 
+    .col-xs-12 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #header .bannerPicturePerson {
+        background-size: auto 80px;
+        top: 18px;
+        left: 80px;
+    }
+    #header.headerSakura .headerContent {
+        padding-left: 260px;
+    }
+    #header.headerLasswell .headerContent {
+        padding-left: 210px;
+    }
+    #header.headerJake .headerContent {
+        padding-left: 270px;
+    }
+    #header.headerRain .headerContent {
+        padding-left: 250px;
+    }
+    #header.headerNichol .headerContent {
+        padding-left: 240px;
+    }
+    #header.headerLid .headerContent {
+        padding-left: 235px;
+    }
+    #header.headerFina .headerContent {
+        padding-left: 240px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #header .headerContent {
+        height: 52px;
+    }
+
+    #header .headerContent,
+    #header.headerSakura .headerContent,
+    #header.headerLasswell .headerContent,
+    #header.headerJake .headerContent,
+    #header.headerRain .headerContent,
+    #header.headerNichol .headerContent,
+    #header.headerLid .headerContent,
+    #header.headerFina .headerContent {
+        padding-left: 85px;
+    }
+
+    #header .bannerPicture {
+        background-size: auto 70px;
+        top: 12px;
+    }
+
+    #header .bannerPicturePerson {
+        display: none;
+    }
+
+    #languages .lang {
+        margin: 0 1px;
+    }
+
+    #header .headerTitle {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    #inventoryDiv button {
+        height: 40px;
+    }
+    
+    #inventoryDiv button.inventoryStatus {
+        padding: 0 6px;
+    }
+    
+    #inventoryDiv button.inventoryStatus .status {
+        display: none;
+    }
+    
+    #inventoryDiv button.inventoryStatus span {
+        display: block;
+        margin-top: 3px;
+    }
+
+    .navigationMenu .mobile .menuToggle {
+        width: 65px;
+        height: 62px;
+        top: 16px;
+        left: 16px;
+    }
+
+    .navigationMenu .mobile .dropdown-menu {
+        margin-top: 15px;
+    }
+    
+    .container-fluid, 
+    .col-xs-12 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    #header .headerTitle {
+        font-size: 1em;
+        font-weight: bold;
     }
 }
