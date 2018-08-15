@@ -14,7 +14,7 @@ var materiaLastSearch = "";
 function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
-    $("#inventory").removeClass("hidden");
+    $("#itemsWrapper").removeClass("hidden");
     $("#itemCount").addClass("hidden");
     $("#materiaCount").addClass("hidden");
     $("#itemEnhancement").addClass("hidden");
@@ -696,7 +696,7 @@ function inventoryLoaded() {
 function notLoaded() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").removeClass("hidden");
-    $("#inventory").addClass("hidden");
+    $("#itemsWrapper").addClass("hidden");
 }
 
 function prepareSearch(data) {

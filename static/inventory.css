@@ -1,6 +1,5 @@
 
-.itemsWrapper {
-    clear: both; /* needed because of floating header above */
+#itemsWrapper {
     display: flex;
     align-items: stretch;
 }
@@ -371,7 +370,7 @@ a#exportLinks:hover {
         display: block;
     }
     
-    .itemsWrapper {
+    #itemsWrapper {
         display: block;
     }
 
