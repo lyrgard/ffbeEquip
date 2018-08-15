@@ -1375,11 +1375,26 @@ function getStaticData(name, localized, callback) {
 }
 
 $(function() {
+    readUrlParams();
     $.get(server + '/dataVersion.json', function(result) {
         var dataVersion = result.version;
+        var selectedLanguage = language;
+        if (!selectedLanguage) {
+            selectedLanguage = "en";
+        }
         var storedDataVersion = localStorage.getItem("dataVersion");
         if (storedDataVersion) {
-            if (storedDataVersion < dataVersion) {
+            var goodVersion = true;
+            if (!storedDataVersion.startsWith("{")) {
+                goodVersion = false;
+            } else {
+                var storedDataVersion = JSON.parse(storedDataVersion);
+                if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
+                    goodVersion = false;
+                }
+            }
+            
+            if (!goodVersion) {
                 var savedFilesString = localStorage.getItem("savedFiles");
                 if (savedFilesString) {
                     var savedFiles = JSON.parse(savedFilesString);
@@ -1387,18 +1402,18 @@ $(function() {
                         localStorage.removeItem(savedFiles[index]);
                     }
                 }
-                localStorage.setItem("dataVersion", "" + dataVersion);
+                localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
                 localStorage.setItem("savedFiles", "[]");
             }
         } else {
-            localStorage.setItem("dataVersion", "" + dataVersion);
+            localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
             localStorage.setItem("savedFiles", "[]");
         }
         startPage();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
-    readUrlParams();
+    
     if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
         notLoaded();
     } else {
