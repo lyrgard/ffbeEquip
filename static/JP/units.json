@@ -2551,6 +2551,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["格闘術・操気天衝","格闘の極意","格闘術・闘神連撃","内丹術"],
 		"6_form": {
 			"name":"Lila",
 			"jpname":"リーラ",
@@ -2565,7 +2566,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"]
+			"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["格闘術・操気天衝","格闘の極意","格闘術・闘神連撃","内丹術"]
 		}
 	},
 	"100013903": {
@@ -2629,7 +2631,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["ウィンドスウェイ","デコレートマイロッド","トルネド"]
 	},
 	"100014204": {
 		"name":"Elbis",
@@ -2644,7 +2647,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"]
+		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["無敵筋肉","りょうてもち改","フレアインパクト"]
 	},
 	"100014303": {
 		"name":"Merald",
@@ -3731,6 +3735,98 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+	},
+	"100020505": {
+		"name":"Summer Fina & Lid 2018",
+		"jpname":"フィーナ&リド2018夏",
+		"id":"100020505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":260,"atk":121,"def":178,"mag":176,"spr":208},
+			"minStats":{"hp":1584,"mp":86,"atk":40,"def":59,"mag":58,"spr":69},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
+		"6_form": {
+			"name":"Summer Fina & Lid 2018",
+			"jpname":"フィーナ&リド2018夏",
+			"id":"100020505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3692,"mp":200,"atk":93,"def":136,"mag":135,"spr":160},
+				"minStats":{"hp":1218,"mp":66,"atk":31,"def":45,"mag":45,"spr":53},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"]
+		}
+	},
+	"100020605": {
+		"name":"Crimson",
+		"jpname":"クリムゾン",
+		"id":"100020605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4758,"mp":218,"atk":204,"def":198,"mag":170,"spr":185},
+			"minStats":{"hp":1570,"mp":72,"atk":67,"def":65,"mag":56,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Crimson",
+			"jpname":"クリムゾン",
+			"id":"100020605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3660,"mp":167,"atk":156,"def":152,"mag":130,"spr":142},
+				"minStats":{"hp":1208,"mp":55,"atk":51,"def":50,"mag":43,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"100020704": {
+		"name":"Kyanos",
+		"jpname":"キュアノス",
+		"id":"100020704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3542,"mp":158,"atk":152,"def":138,"mag":105,"spr":121},
+			"minStats":{"hp":1169,"mp":52,"atk":50,"def":46,"mag":35,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","axe","spear","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"100020803": {
+		"name":"Milfas",
+		"jpname":"ミルファス",
+		"id":"100020803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2711,"mp":132,"atk":110,"def":109,"mag":89,"spr":101},
+			"minStats":{"hp":895,"mp":44,"atk":36,"def":36,"mag":29,"spr":33},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","harp","hat","clothes","robe"]
 	},
 	"199000101": {
 		"name":"Emma (Battle NPC)",
@@ -4997,7 +5093,7 @@
 		}
 	},
 	"207000405": {
-		"name":"エアリス",
+		"name":"Aerith",
 		"jpname":"エアリス",
 		"id":"207000405",
 		"max_rarity":"7",
@@ -5011,7 +5107,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"エアリス",
+			"name":"Aerith",
 			"jpname":"エアリス",
 			"id":"207000405",
 			"sixStarForm":true,
@@ -5028,7 +5124,7 @@
 		}
 	},
 	"207000505": {
-		"name":"レッドXIII",
+		"name":"Red XIII",
 		"jpname":"レッドXIII",
 		"id":"207000505",
 		"max_rarity":"7",
@@ -5042,7 +5138,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
 		"6_form": {
-			"name":"レッドXIII",
+			"name":"Red XIII",
 			"jpname":"レッドXIII",
 			"id":"207000505",
 			"sixStarForm":true,
@@ -5182,6 +5278,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+		"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"],
 		"6_form": {
 			"name":"Rinoa",
 			"jpname":"リノア",
@@ -5196,7 +5293,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"]
+			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+			"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"]
 		}
 	},
 	"208000404": {
@@ -5212,7 +5310,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["fist","hat","clothes","lightArmor"]
+		"equip":["fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["弱虫ゼル","格闘王愛読家","G.F."]
 	},
 	"209000103": {
 		"name":"Zidane",
@@ -8646,7 +8745,7 @@
 		"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"]
 	},
 	"334000105": {
-		"name":"プリムロゼ",
+		"name":"Primrose",
 		"jpname":"プリムロゼ",
 		"id":"334000105",
 		"max_rarity":"7",
@@ -8660,7 +8759,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"プリムロゼ",
+			"name":"Primrose",
 			"jpname":"プリムロゼ",
 			"id":"334000105",
 			"sixStarForm":true,
@@ -8677,7 +8776,7 @@
 		}
 	},
 	"334000205": {
-		"name":"オルベリク",
+		"name":"Olberic",
 		"jpname":"オルベリク",
 		"id":"334000205",
 		"max_rarity":"7",
@@ -8691,7 +8790,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"オルベリク",
+			"name":"Olberic",
 			"jpname":"オルベリク",
 			"id":"334000205",
 			"sixStarForm":true,
@@ -8723,7 +8822,7 @@
 		"equip":["dagger","sword","whip","throwing","lightShield","hat","helm","clothes","lightArmor"]
 	},
 	"334000403": {
-		"name":"トレサ",
+		"name":"Tressa",
 		"jpname":"トレサ",
 		"id":"334000403",
 		"max_rarity":"5",

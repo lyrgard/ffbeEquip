@@ -148,7 +148,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
     verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRariry == 7) {
-        data["6_form"] = treatUnit(unitId, unitIn, skills, enhancementsByUnitId, 6).data;
+        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
     }
     
     return unit;
@@ -161,11 +161,11 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/11/unit_ills_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/12/unit_ills_" + unitId + ".png",filePath);
         }
         var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/11/unit_icon_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/12/unit_icon_" + unitId + ".png",filePath);
         }
     }
 }
