@@ -1027,7 +1027,7 @@ function chooseCustomFormula() {
 }
 
 function addToCustomFormula(string) {
-    $("#customFormulaModal input").val($("#customFormulaModal input").val() + string);
+    $("#customFormulaModal #formulaInput").val($("#customFormulaModal #formulaInput").val() + string);
 }
 
 function removeCustomGoal() {
