@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
+const helmet = require('helmet')
 
 const config = require('./config.js');
 const firebase = require('./server/routes/firebase.js');
@@ -15,7 +16,35 @@ const errorHandler = require('./server/middlewares/boom.js');
 const authRequired = require('./server/middlewares/oauth.js');
 
 const app = express();
-app.disable('x-powered-by');
+
+// Helmet Middleware
+app.use(helmet());
+
+app.use(helmet.referrerPolicy({ policy: 'origin-when-cross-origin' }));
+
+var cspDirectives =  {
+  defaultSrc: ["'none'"],
+  scriptSrc: ["'self'", "'unsafe-inline'",
+              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 
+              'pagead2.googlesyndication.com', 'adservice.google.fr', 'adservice.google.com', 'www.google-analytics.com'],
+  styleSrc: ["'self'", "'unsafe-inline'",
+             'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io'],
+  imgSrc: ["'self'", 'www.google-analytics.co'],
+  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+  connectSrc: ["'self'", 'www.google-analytics.com'],
+  mediaSrc: ["'none'"],
+  objectSrc: ["'none'"],
+  childSrc: ["'none'"],
+  workerSrc: ["'self'"],
+  frameSrc: ['googleads.g.doubleclick.net'],
+  frameAncestors: ["'none'"],
+  formAction: ["'self'"],
+  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
+  blockAllMixedContent: !config.isDev,
+  upgradeInsecureRequests: !config.isDev
+};
+
+app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
 // Middlewares
 app.use(express.static(path.join(__dirname, '/static/')));
