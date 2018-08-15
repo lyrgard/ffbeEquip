@@ -1179,7 +1179,9 @@ function onUnitsOrInventoryLoaded() {
                     }
 
                     alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
-                    $("#inventoryDiv .status").text("loaded (" + Object.keys(itemInventory).length + " items, "+ Object.keys(ownedUnits).length + " units)");
+                    $("#inventoryDiv .status").text("Inventory loaded");
+                    $("#inventoryDiv .unitsNumber").text(Object.keys(ownedUnits).length + " units").removeClass('hidden');
+                    $("#inventoryDiv .itemsNumber").text(Object.keys(itemInventory).length + " items").removeClass('hidden');
                     $("#inventoryDiv .loader").addClass("hidden");
                     $(".logOut").removeClass("hidden");
                     inventoryLoaded();
@@ -1224,7 +1226,9 @@ function updateUnitAndItemCount() {
         Object.keys(enchantedItems).forEach(enchantment => itemInventory[enchantment] ? itemCount += enchantedItems[enchantment].length : 0);
     }
 
-    $("#inventoryDiv .status").text(`loaded (${itemCount} items, ${unitCount} units)`);
+    $("#inventoryDiv .status").text("Inventory loaded");
+    $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : '')).removeClass('hidden');
+    $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : '')).removeClass('hidden');
 }
 
 function showTextPopup(title, text) {
@@ -1426,7 +1430,7 @@ $(function() {
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .status").text("Inventory not loaded");
             $("#inventoryDiv .loader").addClass("hidden");
             if (notLoaded) {
                 notLoaded();
@@ -1466,7 +1470,7 @@ $(function() {
 
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .status").text("Inventory not loaded");
             $("#inventoryDiv .loader").addClass("hidden");
             if (notLoaded) {
                 notLoaded();
@@ -1477,7 +1481,7 @@ $(function() {
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("not loaded");
+            $("#inventoryDiv .status").text("Inventory not loaded");
             $("#inventoryDiv .loader").addClass("hidden");
             if (notLoaded) {
                 notLoaded();
