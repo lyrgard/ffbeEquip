@@ -525,8 +525,9 @@ function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "")
 function loadInventory() {
     $.get('googleOAuthUrl', function(result) {
         $('<div id="dialog" title="Authentication">' +
-            '<h4>You\'ll be redirected to a google authentication page</h4><h5 class="loginMessageDetail">This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</h5>' +
-            '<h5 class="loginMessageDetail">The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank" rel="noreferrer">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</h5>' +
+            '<p>You\'ll be redirected to a google authentication page</p>'+
+            '<p class="loginMessageDetail">This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</p>' +
+            '<p class="loginMessageDetail">The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank" rel="noreferrer">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</p>' +
           '</div>' ).dialog({
             modal: true,
             open: function(event, ui) {
@@ -1177,13 +1178,13 @@ function onUnitsOrInventoryLoaded() {
                         if (tmrNumberByUnitId[unitId]) { tmrOwned = tmrNumberByUnitId[unitId];}
                         ownedUnits[unitId] = {"number":ownedUnits[unitId],"farmable":Math.max(0, unitOwned - tmrOwned)};
                     }
+                    var itemCount = Object.keys(itemInventory).length;
+                    var unitCount = Object.keys(ownedUnits).length;
 
                     alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
-                    $("#inventoryDiv .status").text("Inventory loaded");
-                    $("#inventoryDiv .unitsNumber").text(Object.keys(ownedUnits).length + " units").removeClass('hidden');
-                    $("#inventoryDiv .itemsNumber").text(Object.keys(itemInventory).length + " items").removeClass('hidden');
-                    $("#inventoryDiv .loader").addClass("hidden");
-                    $(".logOut").removeClass("hidden");
+                    $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
+                    $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : ''));
+                    $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : ''));
                     inventoryLoaded();
                     saveUnits();
                 }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
@@ -1203,8 +1204,7 @@ function onUnitsOrInventoryLoaded() {
 
             updateUnitAndItemCount();
 
-            $("#inventoryDiv .loader").addClass("hidden");
-            $(".logOut").removeClass("hidden");
+            $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
             inventoryLoaded();
         }
     }
@@ -1226,9 +1226,9 @@ function updateUnitAndItemCount() {
         Object.keys(enchantedItems).forEach(enchantment => itemInventory[enchantment] ? itemCount += enchantedItems[enchantment].length : 0);
     }
 
-    $("#inventoryDiv .status").text("Inventory loaded");
-    $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : '')).removeClass('hidden');
-    $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : '')).removeClass('hidden');
+    $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
+    $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : ''));
+    $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : ''));
 }
 
 function showTextPopup(title, text) {
@@ -1261,9 +1261,7 @@ function isLinkId(value) {
 
 function saveUserData(mustSaveInventory, mustSaveUnits, mustSaveEspers = false) {
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    $(".saveInventory").addClass("hidden");
-    $("#inventoryDiv .loader").removeClass("hidden");
-    $("#inventoryDiv .message").addClass("hidden");
+    $("#inventoryDiv").addClass("Inventoryloading").removeClass("Inventoryloaded");
     saveNeeded = false;
     if (mustSaveInventory) {
         if (mustSaveUnits) {
@@ -1292,19 +1290,18 @@ function saveSuccess() {
     if (mustSaveEspers) {
         mustSaveEspers = false;
     }
+    $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
     updateUnitAndItemCount();
-    $("#inventoryDiv .loader").addClass("hidden");
     $.notify("Data saved", "success");
 }
 
 function saveError() {
-    $("#inventoryDiv .loader").addClass("hidden");
+    $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
     if (error.status == 401) {
         alert('You have been disconnected. The data was not saved. The page will be reloaded.');
         window.location.reload();
     } else {
         saveNeeded = true;
-        $(".saveInventory").removeClass("hidden");
         alert('error while saving the user data. Please click on "Save" to try again');
     }
 }
@@ -1414,9 +1411,7 @@ $(function() {
             sanitizeItemInventory();
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("Inventory not loaded");
-            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();
             }
@@ -1454,9 +1449,7 @@ $(function() {
 
 
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("Inventory not loaded");
-            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();
             }
@@ -1465,9 +1458,7 @@ $(function() {
             ownedEspers = result;
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            $(".loadInventory").removeClass("hidden");
-            $("#inventoryDiv .status").text("Inventory not loaded");
-            $("#inventoryDiv .loader").addClass("hidden");
+            $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();
             }

@@ -122,6 +122,7 @@
     position: relative;
     width:1000px;
     height:1000px;
+    transform-origin:50% 50%;
 }
 
 #grid {
@@ -493,6 +494,16 @@
     margin-top: -14px;
 }
 
+@media (max-width: 768px) {
+    #espers #tabs img {
+        width: 35px;
+    }
+
+    .nav > li > a {
+        padding: 6px 8px;
+    }
+}
+
 @media (max-width: 990px) {
     
     #esper #panWrapper {
@@ -521,9 +532,43 @@
         top: 0;
         left: 0;
     }
+
+    #gridContainer {
+        transform: scale(0.7);
+    }
+    
+    #gridTrimmer.star1 {
+        width:378px;
+        height:330px;
+    }
+
+    #gridTrimmer.star1 #gridContainer {
+        margin-left: -280px;
+        margin-top: -270px;
+    }
+
+    #gridTrimmer.star2 {
+        width:518px;
+        height:462px;
+    }
+
+    #gridTrimmer.star2 #gridContainer {
+        margin-left: -210px;
+        margin-top: -205px;
+    }
+
+    #gridTrimmer.star3 {
+        width:658px;
+        height:602px;
+    }
+
+    #gridTrimmer.star3 #gridContainer {
+        margin-left: -140px;
+        margin-top: -135px;
+    }
 }
 
-@media (max-height: 700px) and (min-width: 920px) {
+@media (max-height: 700px) and (min-width: 650px) {
     #panWrapper.star1,
     #panWrapper.star2,
     #panWrapper.star3 {
@@ -531,14 +576,14 @@
     }
 }
 
-@media (max-height: 700px) and (min-width: 720px) {
+@media (max-height: 700px) and (min-width: 500px) {
     #panWrapper.star1,
     #panWrapper.star2 {
         overflow-x: hidden;
     }
 }
 
-@media (max-height: 700px) and (min-width: 520px) {
+@media (max-height: 700px) and (min-width: 360px) {
     #panWrapper.star1 {
         overflow-x: hidden;
     }
