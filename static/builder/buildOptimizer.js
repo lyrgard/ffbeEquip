@@ -335,7 +335,7 @@ class BuildOptimizer {
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
-            var slotsRemoved = this.tryLessSlots(build, value);
+            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems);
             
             this._unitBuild.build = build.slice();
             if (value.switchWeapons) {
@@ -347,7 +347,7 @@ class BuildOptimizer {
             this._unitBuild.freeSlots = slotsRemoved;
             this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, slotsRemoved);
         } else if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] == this._unitBuild.buildValue[this.goalVariation]) {
-            var slotsRemoved = this.tryLessSlots(build, value);
+            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems);
             
             if (slotsRemoved > this._unitBuild.freeSlots) {
                 this._unitBuild.build = build.slice();
@@ -362,10 +362,14 @@ class BuildOptimizer {
         }
     }
     
-    tryLessSlots(build, value) {
+    tryLessSlots(build, value, fixedItems) {
         var slotToRemove = 9;
         var slotsRemoved = 0;
         while(slotToRemove > 5) {
+            if (fixedItems[slotToRemove]) {
+                slotToRemove--;
+                continue;
+            }
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
             var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
