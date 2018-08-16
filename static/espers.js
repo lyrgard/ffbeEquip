@@ -270,6 +270,16 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
+    if (node.evade && node.evade.physical) {
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.physical + '% physical evasion<a href="http://exvius.gamepedia.com/Air_Step" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
+    if (node.evade && node.evade.magical) {
+        var html = '<span class="iconHolder"><img class="icon" src="/img/items/ability_97.png"></img></span><span class="text">' + node.evade.magical + '% magical evasion<a href="http://exvius.gamepedia.com/Air_Wall" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-new-window wikiLink"></span></a></span><span class="cost">' + node.cost+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         nodeHtml.addClass("selected");
     }
@@ -352,6 +362,14 @@ function addNodeStatToEsper(esper, node) {
     if (node.lbPerTurn) {
         esper.lbPerTurn = node.lbPerTurn;
     }
+    if (node.evade && node.evade.physical) {
+        if (!esper.evade) {esper.evade = {};}
+        esper.evade.physical = node.evade.physical;
+    }
+    if (node.evade && node.evade.magical) {
+        if (!esper.evade) {esper.evade = {};}
+        esper.evade.magical = node.evade.magical;
+    }
     for (var i = baseStats.length; i--;) {
         if (node[percentValues[baseStats[i]]]) {
             addToStat(esper, percentValues[baseStats[i]], node[percentValues[baseStats[i]]]);
@@ -373,6 +391,18 @@ function unselectNodeAndChildren(node) {
         }
         if (node.esperStatsBonus) {
             removeEsperStatsBonus(ownedEspers[currentEsper], node.esperStatsBonus);
+        }
+        if (node.lbPerTurn) {
+            delete esper.lbPerTurn;
+        }
+        if (node.evade && node.evade.physical) {
+            delete esper.evade.physical;
+        }
+        if (node.evade && node.evade.magical) {
+            delete esper.evade.magical;
+        }
+        if (node.evade && !node.evade.physical && !node.evade.magical) {
+            delete esper.evade;
         }
         for (var i = baseStats.length; i--;) {
             if (node[percentValues[baseStats[i]]]) {
