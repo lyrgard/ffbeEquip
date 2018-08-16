@@ -857,6 +857,16 @@ function startPage() {
         } else {
             var $esper = $('#esper');
             var $pan = $esper.find('#panWrapper');
+            
+            if ($esper.hasClass('viewingTrainingGrid')) {
+                currentScrollTop = $pan.scrollTop();
+                currentScrollLeft = $pan.scrollLeft();
+                $('#spFixed').hide();
+                $('.tabsWrapper').show();
+            } else {
+                $('#spFixed').show();
+                $('.tabsWrapper').hide();
+            }
 
             // Define height with remaining space
             $pan.height($window.outerHeight() - $esper.offset().top - 15);
@@ -864,14 +874,6 @@ function startPage() {
             if (currentScrollTop === null || currentScrollLeft === null) {
                 setCurrentScrollToCenter($pan);
             } 
-            
-            if ($esper.hasClass('viewingTrainingGrid')) {
-                currentScrollTop = $pan.scrollTop();
-                currentScrollLeft = $pan.scrollLeft();
-                $('#spFixed').hide();
-            } else {
-                $('#spFixed').show();
-            }
             
             $esper.toggleClass('viewingTrainingGrid');
 
