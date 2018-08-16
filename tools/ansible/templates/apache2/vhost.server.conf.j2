@@ -8,11 +8,14 @@
 <VirtualHost *:{{ https_port }}>
 	ServerName {{ server_name|lower }}
 
+	# Reduce Server HTTP Header to Apache
+	ServerTokens ProductOnly
+	# Remove the footer from error pages
+	ServerSignature Off
+
 	SSLEngine On
 	SSLCertificateFile /etc/apache2/ssl/{{ server_name|lower }}.fullchain.cer
 	SSLCertificateKeyFile /etc/apache2/ssl/{{ server_name|lower }}.key
-
-	Header always set Strict-Transport-Security "max-age=15768000"
 
 	ProxyPreserveHost On
 	ProxyPass /.well-known !

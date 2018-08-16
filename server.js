@@ -20,7 +20,12 @@ const app = express();
 // Helmet Middleware
 app.use(helmet());
 
-app.use(helmet.referrerPolicy({ policy: 'origin-when-cross-origin' }));
+app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
+app.use(helmet.hsts({
+  maxAge: 63072000, // 2 years
+  includeSubDomains: true,
+  preload: true
+}));
 
 var cspDirectives =  {
   defaultSrc: ["'none'"],
