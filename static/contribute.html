@@ -22,18 +22,20 @@
                 <div class="headerTitle">
                     Contribute
                 </div>
-                <div id="inventoryDiv" class="btn-group" role="group">
-                    <button type="button" class="btn btn-default hidden logOut" onclick="location.href='/googleOAuthLogout';">
+                <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
+                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
                         <span class="glyphicon glyphicon-off" title="logout"></span>
                     </button>
-                    <button type="button" class="btn btn-default hidden loadInventory" onclick="loadInventory()">
+                    <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
                         Log in
                     </button>
                     <button type="button" class="btn btn-default inventoryStatus">
-                        <span class="status">Checking inventory...</span>
-                        <span class="label label-default unitsNumber hidden">? units</span>
-                        <span class="label label-default itemsNumber hidden">? items</span>
+                        <span class="status loading">Loading inventory</span>
+                        <span class="status loaded">Inventory loaded</span>
+                        <span class="status notLoaded">Inventory not loaded</span>
                         <div class="loader"></div>
+                        <span class="label label-default unitsNumber">? units</span>
+                        <span class="label label-default itemsNumber">? items</span>
                     </button>
                 </div>
             </div>

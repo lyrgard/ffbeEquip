@@ -74,6 +74,19 @@ function show(esperName) {
         }
     }
 }
+
+function findCurrentScale()
+{
+    var transformStr = gridContainer.css('transform');
+    if (!transformStr) return 1;
+    var transformMatrix = transformStr.replace(/matrix\(/i, "").replace(")", "").split(',');
+    if (!transformMatrix.length) return 1;
+    var scale = parseFloat(transformMatrix[0]);
+    if (!scale) return 1;
+    console.log('Found scale ' + scale);
+    return scale;
+}
+
 function showBoard(esperName, star) {
     var nodes = $("#grid li .hexagon");
     nodes.removeClass("hp mp atk def mag spr ability resist killer selected");
@@ -88,8 +101,9 @@ function showBoard(esperName, star) {
     var board = esperBoards[esperName];
     var rootNode = $("#grid li.0_0 .hexagon");
     rootNode.addClass("selected");
+    var scale = findCurrentScale();
     for (var index in board.nodes) {
-        showNode(board.nodes[index], rootNode, star);
+        showNode(board.nodes[index], rootNode, star, scale);
     }
 }
 
@@ -189,19 +203,19 @@ function calculateUsedSp(node) {
     return cost;
 }
 
-function getCenterX(node) {
+function getCenterX(node, scale=1) {
     var offset = node.offset();
     var width = node.width();
-    return offset.left - gridContainer.offset().left + width / 2;
+    return (offset.left - gridContainer.offset().left + width / 2) / scale;
 }
 
-function getCenterY(node) {
+function getCenterY(node, scale=1) {
     var offset = node.offset();
     var height = node.height();
-    return offset.top - gridContainer.offset().top + height / 2;
+    return (offset.top - gridContainer.offset().top + height / 2) / scale;
 }
 
-function showNode(node, parentNodeHtml, star) {
+function showNode(node, parentNodeHtml, star, scale=1) {
     var posString = getPositionString(node.position[0], node.position[1]);
     var nodeHtml = $("#grid li." + posString + " .hexagon");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
@@ -260,10 +274,10 @@ function showNode(node, parentNodeHtml, star) {
         nodeHtml.addClass("selected");
     }
     if (distance(node.position[0], node.position[1]) <= star + 1) {
-        gridContainer.line(getCenterX(parentNodeHtml), getCenterY(parentNodeHtml), getCenterX(nodeHtml), getCenterY(nodeHtml));
+        gridContainer.line(getCenterX(parentNodeHtml, scale), getCenterY(parentNodeHtml, scale), getCenterX(nodeHtml, scale), getCenterY(nodeHtml, scale));
     }
     for (var i= 0; i < node.children.length; i++) {
-        showNode(node.children[i], nodeHtml, star);
+        showNode(node.children[i], nodeHtml, star, scale);
     }
 }
 
@@ -789,15 +803,16 @@ function startPage() {
     $("#esper #level").on("input", $.debounce(300, onLevelChange));
 
     var setCurrentScrollToCenter = function($pan) {
+        var scale = findCurrentScale();
         var $centerIcon = $pan.find('#gridContainer li.0_0');
         var centerIconOffsetRel = $centerIcon.position();
-        var centerIconHeight = $centerIcon.outerHeight();
-        var centerIconWidth = $centerIcon.outerWidth();
+        var centerIconHeight = $centerIcon.outerHeight() / scale;
+        var centerIconWidth = $centerIcon.outerWidth() / scale;
         var panHeight = $pan.outerHeight();
         var WindowWidth = $window.outerWidth();
 
-        var originTop = centerIconOffsetRel.top + parseInt(gridContainer.css('marginTop'), 10) + centerIconHeight / 2;
-        var originLeft = centerIconOffsetRel.left + parseInt(gridContainer.css('marginLeft'), 10) + centerIconWidth / 2;
+        var originTop = centerIconOffsetRel.top / scale + parseInt(gridContainer.css('marginTop'), 10) + centerIconHeight / 2;
+        var originLeft = centerIconOffsetRel.left / scale + parseInt(gridContainer.css('marginLeft'), 10) + centerIconWidth / 2;
 
         currentScrollTop = Math.abs((panHeight / 2) - originTop);
         currentScrollLeft = Math.abs((WindowWidth / 2) - originLeft);

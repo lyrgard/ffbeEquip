@@ -1,8 +1,15 @@
 
-.unitsWrapper {
-    clear: both; /* needed because of floating header above */
+#unitsWrapper {
     display: flex;
     align-items: stretch;
+}
+
+/* Avoid display:none for this one because it messes with the toggle button */
+#unitsWrapper.hidden {
+    display: block !important;
+    position: absolute;
+    left: -999999px;
+    top: -999999px;
 }
 
 .unitsSidebar .unitsSidebarButton {
@@ -419,7 +426,7 @@
 /* For small screen, show stats in line and mode fixed lower right */
 @media (max-width: 768px) {
     
-    .unitsWrapper {
+    #unitsWrapper {
         display: block;
     }
 

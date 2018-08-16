@@ -175,12 +175,50 @@
     -moz-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
+    white-space: nowrap;
 }
 
 #inventoryDiv button.inventoryStatus .status {
     display: block;
     font-size: 0.85em;
     color: #aeaeae;
+}
+
+/* defaut is inventory not loaded */
+#inventoryDiv button.logOut,
+#inventoryDiv button.inventoryStatus .label,
+#inventoryDiv button.inventoryStatus .loader,
+#inventoryDiv button.inventoryStatus .status.loading,
+#inventoryDiv button.inventoryStatus .status.loaded {
+    display: none;
+}
+/* inventory loading */
+#inventoryDiv.Inventoryloading button.loadInventory,
+#inventoryDiv.Inventoryloading button.inventoryStatus .status.notLoaded,
+#inventoryDiv.Inventoryloading button.inventoryStatus .status.loaded {
+    display: none;
+}
+#inventoryDiv.Inventoryloading button.inventoryStatus,
+#inventoryDiv.Inventoryloading button.inventoryStatus .status.loading,
+#inventoryDiv.Inventoryloading button.inventoryStatus .loader {
+    display: block;
+}
+#inventoryDiv.Inventoryloading button.inventoryStatus {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+/* inventory loaded */
+#inventoryDiv.Inventoryloaded button.loadInventory,
+#inventoryDiv.Inventoryloaded button.inventoryStatus .status.notLoaded {
+    display: none;
+}
+#inventoryDiv.Inventoryloaded button.inventoryStatus,
+#inventoryDiv.Inventoryloaded button.logOut,
+#inventoryDiv.Inventoryloaded button.inventoryStatus .status.loaded {
+    display: block;
+}
+#inventoryDiv.Inventoryloaded button.inventoryStatus .label {
+    display: inline-block;
 }
 
 .navigationMenu .desktop {
@@ -762,6 +800,17 @@ nav {
     border-bottom-color: #ffffff;
 }
 
+.ui-dialog .loginMessageDetail {
+    font-size: 0.9em;
+}
+
+.alert .glyphicon {
+    margin-right: 10px;
+}
+
+.alert.alert-inline {
+    display: inline-block;
+}
 
 /* Lazyload workaround for Edge 
    See https://www.andreaverlicchi.eu/lazyload/#dealing-with-microsoft-edge-problems
@@ -787,10 +836,6 @@ img[data-src] {
     
     nav .dropdown-menu li {
         height: 48px;
-    }
-    
-    .loginMessageDetail {
-        display: none;
     }
     
     .lang-xs.selected {
@@ -857,6 +902,14 @@ img[data-src] {
 
 @media (max-width: 768px) {
 
+    .alert {
+        padding: 6px;
+        margin-bottom: 10px; 
+    }
+    .alert .glyphicon {
+        margin-right: 6px;
+    }
+
     #header .headerTitle {
         font-size: 1.6em;
     }
@@ -869,8 +922,6 @@ img[data-src] {
         display: block;
     }
 
-    .ui-dialog h4 {font-size: 36px!important; }
-    .ui-dialog h5 {font-size: 30px!important; }
     .ui-dialog {
         left: 3% !important;
         width: 94% !important;
@@ -912,6 +963,10 @@ img[data-src] {
 
 @media (max-width: 600px) {
 
+    .alert.alert-inline {
+        display: block;
+    }
+
     #header .headerContent {
         height: 52px;
     }
@@ -952,15 +1007,6 @@ img[data-src] {
     #inventoryDiv button.inventoryStatus {
         padding: 0 6px;
     }
-    
-    #inventoryDiv button.inventoryStatus .status {
-        display: none;
-    }
-    
-    #inventoryDiv button.inventoryStatus span {
-        display: block;
-        margin-top: 3px;
-    }
 
     .navigationMenu .mobile .menuToggle {
         width: 65px;
@@ -981,6 +1027,23 @@ img[data-src] {
 }
 
 @media (max-width: 380px) {
+    
+    #inventoryDiv button.inventoryStatus,
+    #inventoryDiv.Inventoryloading button.inventoryStatus .status.loading,
+    #inventoryDiv.Inventoryloaded button.inventoryStatus .status.loaded {
+        display: none;
+    }
+    
+    #inventoryDiv button.inventoryStatus span,
+    #inventoryDiv.Inventoryloaded button.inventoryStatus .label {
+        display: block;
+        margin-top: 3px;
+    }
+
+    #inventoryDiv button.loadInventory {
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+    }
 
     #header .headerTitle {
         font-size: 1em;

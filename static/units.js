@@ -16,7 +16,7 @@ var readOnly;
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
-    $("#units").removeClass("hidden");
+    $("#unitsWrapper").removeClass("hidden");
     $("#searchBox").addClass("hidden");
 
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
@@ -743,7 +743,7 @@ function sortByRarity(units) {
             return unit2.max_rarity - unit1.max_rarity;
         }
     });
-};
+}
 
 function sortByBaseRarity(units) {
     return units.sort(function (unit1, unit2){
@@ -753,13 +753,12 @@ function sortByBaseRarity(units) {
             return unit2.min_rarity - unit1.min_rarity;
         }
     });
-};
-
+}
 
 function notLoaded() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").removeClass("hidden");
-    $("#inventory").addClass("hidden");
+    $("#unitsWrapper").addClass("hidden");
     onDataReady();
 }
 
@@ -951,12 +950,11 @@ function startPage() {
     
     var $unitsSidebar = $('.unitsSidebar');
     var $unitsSidebarInternal = $unitsSidebar.find('.unitsSidebarInternal');
-    var unitsSidebarTopPos = $unitsSidebar.offset().top;
     var sidebarFixedWidthLimit = 768;
 
     $window.on('scroll', $.debounce(50, function(){
         // Detect when user scroll, and fix the sidebar to be always accessible
-        if ($(this).scrollTop() > unitsSidebarTopPos && $window.outerWidth() > sidebarFixedWidthLimit) {
+        if ($(this).scrollTop() > $unitsSidebar.offset().top && $window.outerWidth() > sidebarFixedWidthLimit) {
             if (!$unitsSidebarInternal.hasClass('fixed')) {
                 $unitsSidebarInternal.css('width', $unitsSidebar.outerWidth() + 'px');
                 $unitsSidebarInternal.addClass('fixed');
