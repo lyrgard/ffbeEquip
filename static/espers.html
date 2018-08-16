@@ -28,18 +28,20 @@
                 <div class="headerTitle">
                     Espers
                 </div>
-                <div id="inventoryDiv" class="btn-group" role="group">
-                    <button type="button" class="btn btn-default hidden logOut" onclick="location.href='/googleOAuthLogout';">
+                <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
+                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
                         <span class="glyphicon glyphicon-off" title="logout"></span>
                     </button>
-                    <button type="button" class="btn btn-default hidden loadInventory" onclick="loadInventory()">
+                    <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
                         Log in
                     </button>
                     <button type="button" class="btn btn-default inventoryStatus">
-                            <span class="status">Checking inventory...</span>
-                            <span class="label label-default unitsNumber hidden">? units</span>
-                            <span class="label label-default itemsNumber hidden">? items</span>
-                            <div class="loader"></div>
+                        <span class="status loading">Loading inventory</span>
+                        <span class="status loaded">Inventory loaded</span>
+                        <span class="status notLoaded">Inventory not loaded</span>
+                        <div class="loader"></div>
+                        <span class="label label-default unitsNumber">? units</span>
+                        <span class="label label-default itemsNumber">? items</span>
                     </button>
                 </div>
             </div>
@@ -115,85 +117,91 @@
             <div class="bannerPicturePerson"></div>
         </div>
         <div class="container-fluid">
-            <div class="" style="clear: both">
-                <span id="pleaseWaitMessage" class="h4">Please wait for your espers to be loaded</span>
-                <span id="loginMessage" class="h4 hidden">Log-in to display your espers</span>
-                <div id="notLoginWarningMessage" class="h5 hidden">
-                    <span class="glyphicon glyphicon-alert" style="margin-right:10px"></span>You are not logged in. Changes made won't be saved
+            <div style="text-align: center">
+                <div id="pleaseWaitMessage" class="alert alert-info alert-inline" role="alert">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                    Please wait for your Espers to load
                 </div>
-                <div id="espers" class="hidden">
-                    <div class="tabsWrapper">
-                        <ul id="tabs" class="nav nav-tabs"></ul>
-                    </div>
-                    <div id="esper">
-                        <div class="esperHeader">
-                            <div class="formGroup esperChoice">
-                                <div class="formLine">
-                                    <label for="esperStar" class="formLabel">Rarity</label>
-                                    <select id="esperStar" class="form-control formInput"></select>
-                                </div>
+                <div id="loginMessage" class="alert alert-danger alert-inline hidden" role="alert">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    You need to be logged-in to manage your Espers. 
+                    <span id="notLoginWarningMessage" class="hidden">
+                        <strong>Changes made won't be saved.</strong>
+                    </span>
+                </div>
+            </div>
+            <div id="espers" class="hidden">
+                <div class="tabsWrapper">
+                    <ul id="tabs" class="nav nav-tabs"></ul>
+                </div>
+                <div id="esper">
+                    <div class="esperHeader">
+                        <div class="formGroup esperChoice">
+                            <div class="formLine">
+                                <label for="esperStar" class="formLabel">Rarity</label>
+                                <select id="esperStar" class="form-control formInput"></select>
+                            </div>
 
-                                <div class="formLine levelLine">
-                                    <label for="level" class="formLabel">Level</label>
-                                    <input id="level" type="number" class="form-control formInput"/>
-                                </div>
-                                    
-                                <div class="formLine spLine">
-                                    <label for="sp" class="formLabel">SP</label>
-                                    <span id="sp" class="formValue spUsed"></span> 
-                                </div>
+                            <div class="formLine levelLine">
+                                <label for="level" class="formLabel">Level</label>
+                                <input id="level" type="number" class="form-control formInput"/>
                             </div>
-                            <div class="formLine stats invisible">
-                                <div class="formGroup">
-                                    <div class="formLine">
-                                        <label class="formLabel">HP</label>
-                                        <span id="esper_hp" class="formValue"></span> 
-                                    </div>
-                                    <div class="formLine">
-                                        <label class="formLabel">ATK</label>
-                                        <span id="esper_atk" class="formValue"></span> 
-                                    </div>
-                                    <div class="formLine">
-                                        <label class="formLabel">MAG</label>
-                                        <span id="esper_mag" class="formValue"></span>
-                                    </div>
-                                </div>
-                                <div class="formGroup">
-                                    <div class="formLine">
-                                        <label class="formLabel">MP</label>
-                                        <span id="esper_mp" class="formValue"></span> 
-                                    </div>
-                                    <div class="formLine">
-                                        <label class="formLabel">DEF</label>
-                                        <span id="esper_def" class="formValue"></span>  
-                                    </div>
-                                    <div class="formLine">
-                                        <label class="formLabel">SPR</label>
-                                        <span id="esper_spr" class="formValue"></span> 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="formGroup esperOtherStats invisible">
-                                <span id="esperResist" class="formLine"></span>                                            
-                                <span id="esperSkills" class="formLine"></span> 
+                                
+                            <div class="formLine spLine">
+                                <label for="sp" class="formLabel">SP</label>
+                                <span id="sp" class="formValue spUsed"></span> 
                             </div>
                         </div>
-                        <div class="formLine shareLink">
-                            <a onclick="getPublicEsperLink()">
-                                <span class="glyphicon glyphicon-link"></span> 
-                                Get a link to this Esper build
-                            </a>
-                        </div>
-                        <div id="panWrapper">
-                            <div id="spFixed">
-                                <span class="name">SP</span>
-                                <span class="spUsed"></span> 
-                            </div>
-                            <div id="gridTrimmer">
-                                <div id="gridContainer">
-                                    <ul id="grid" class="clear">
-                                    </ul>
+                        <div class="formLine stats invisible">
+                            <div class="formGroup">
+                                <div class="formLine">
+                                    <label class="formLabel">HP</label>
+                                    <span id="esper_hp" class="formValue"></span> 
                                 </div>
+                                <div class="formLine">
+                                    <label class="formLabel">ATK</label>
+                                    <span id="esper_atk" class="formValue"></span> 
+                                </div>
+                                <div class="formLine">
+                                    <label class="formLabel">MAG</label>
+                                    <span id="esper_mag" class="formValue"></span>
+                                </div>
+                            </div>
+                            <div class="formGroup">
+                                <div class="formLine">
+                                    <label class="formLabel">MP</label>
+                                    <span id="esper_mp" class="formValue"></span> 
+                                </div>
+                                <div class="formLine">
+                                    <label class="formLabel">DEF</label>
+                                    <span id="esper_def" class="formValue"></span>  
+                                </div>
+                                <div class="formLine">
+                                    <label class="formLabel">SPR</label>
+                                    <span id="esper_spr" class="formValue"></span> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formGroup esperOtherStats invisible">
+                            <span id="esperResist" class="formLine"></span>                                            
+                            <span id="esperSkills" class="formLine"></span> 
+                        </div>
+                    </div>
+                    <div class="formLine shareLink">
+                        <a onclick="getPublicEsperLink()">
+                            <span class="glyphicon glyphicon-link"></span> 
+                            Get a link to this Esper build
+                        </a>
+                    </div>
+                    <div id="panWrapper">
+                        <div id="spFixed">
+                            <span class="name">SP</span>
+                            <span class="spUsed"></span> 
+                        </div>
+                        <div id="gridTrimmer">
+                            <div id="gridContainer">
+                                <ul id="grid" class="clear">
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -22,18 +22,20 @@
                 <div class="headerTitle">
                     Inventory
                 </div>
-                <div id="inventoryDiv" class="btn-group" role="group">
-                    <button type="button" class="btn btn-default hidden logOut" onclick="location.href='/googleOAuthLogout';">
+                <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
+                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
                         <span class="glyphicon glyphicon-off" title="logout"></span>
                     </button>
-                    <button type="button" class="btn btn-default hidden loadInventory" onclick="loadInventory()">
+                    <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
                         Log in
                     </button>
                     <button type="button" class="btn btn-default inventoryStatus">
-                            <span class="status">Checking inventory...</span>
-                            <span class="label label-default unitsNumber hidden">? units</span>
-                            <span class="label label-default itemsNumber hidden">? items</span>
-                            <div class="loader"></div>
+                        <span class="status loading">Loading inventory</span>
+                        <span class="status loaded">Inventory loaded</span>
+                        <span class="status notLoaded">Inventory not loaded</span>
+                        <div class="loader"></div>
+                        <span class="label label-default unitsNumber">? units</span>
+                        <span class="label label-default itemsNumber">? items</span>
                     </button>
                 </div>
             </div>
@@ -110,7 +112,15 @@
         </div>
 
         <div class="container-fluid">
-            <div class="itemsWrapper">
+            <div id="pleaseWaitMessage" class="alert alert-info alert-inline" role="alert">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Please wait for your inventory to load
+            </div>
+            <div id="loginMessage" class="alert alert-danger alert-inline hidden" role="alert">
+                <span class="glyphicon glyphicon-alert"></span>
+                You need to be logged-in to manage your inventory
+            </div>
+            <div id="itemsWrapper" class="hidden">
                 <div class="itemsSidebar">
                     <button class="itemsSidebarButton hidden" title="Toggle sidebar">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -354,9 +364,7 @@
                     </div>
                 </div>
                 <div class="itemsContent">
-                    <span id="pleaseWaitMessage" class="h4">Please wait for your inventory to be loaded</span>
-                    <span id="loginMessage" class="h4 hidden">Log-in to display your inventory</span>
-                    <div id="inventory" class="hidden">
+                    <div id="inventory">
                         <a id="exportLinks" class="link" onclick="exportAsCsv()">
                             <span class="glyphicon glyphicon-share-alt"></span>
                             Export as CSV
