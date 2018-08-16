@@ -7,12 +7,15 @@
 </VirtualHost>
 <VirtualHost *:{{ https_port }}>
 	ServerName {{ item|lower }}
+	
+	# Reduce Server HTTP Header to Apache
+	ServerTokens ProductOnly
+	# Remove the footer from error pages
+	ServerSignature Off
 
 	SSLEngine On
 	SSLCertificateFile /etc/apache2/ssl/{{ item|lower }}.fullchain.cer
 	SSLCertificateKeyFile /etc/apache2/ssl/{{ item|lower }}.key
-
-	Header always set Strict-Transport-Security "max-age=15768000"
 
 	RewriteEngine On
 	RewriteCond %{REQUEST_URI} !^/\.well\-known/acme\-challenge/
