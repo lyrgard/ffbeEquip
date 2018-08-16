@@ -664,6 +664,9 @@ function getEsperItem(esper) {
     if (esper.lbPerTurn) {
         item.lbPerTurn = esper.lbPerTurn;
     }
+    if (esper.evade) {
+        item.evade = esper.evade;
+    }
     if (esper.buildLink) {
         item.buildLink = esper.buildLink;
     }
