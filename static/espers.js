@@ -395,10 +395,10 @@ function unselectNodeAndChildren(node) {
         if (node.lbPerTurn) {
             delete esper.lbPerTurn;
         }
-        if (node.evade && node.evade.physical) {
+        if (node.evade && node.evade.physical && esper.evade && esper.evade.physical) {
             delete esper.evade.physical;
         }
-        if (node.evade && node.evade.magical) {
+        if (node.evade && node.evade.magical && esper.evade && esper.evade.magical) {
             delete esper.evade.magical;
         }
         if (node.evade && !node.evade.physical && !node.evade.magical) {
