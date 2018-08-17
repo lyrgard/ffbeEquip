@@ -704,6 +704,9 @@ function prepareSearch(data) {
     for (var index in data) {
         var item = data[index];
         item.searchString = item.name;
+        if (item.jpname) {
+            item.searchString += "|" + item.jpname;
+        }
         if (item.tmrUnit && allUnits[item.tmrUnit]) {
             item.searchString += "|" + allUnits[item.tmrUnit].name;
         }
