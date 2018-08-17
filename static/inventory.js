@@ -175,7 +175,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
             setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
         }
     }
-};
+}
 
 function displayItemsAsync(items, start, div, id, max = 20) {
     var html = '';
@@ -596,7 +596,7 @@ function showItemEnhancements(itemId) {
                 break;
             }
         }
-        if (!item) {return}
+        if (!item) { return; }
         currentEnhancementItem = item;
         var totalCount = itemInventory[itemId];
         var notEnchantedCount = totalCount;
@@ -626,6 +626,7 @@ function showItemEnhancements(itemId) {
         if (!popupAlreadyDisplayed && notEnchantedCount == totalCount) {
             modifyItemEnhancements(item.id);
         }
+        lazyLoader.update();
     }
 }
 
