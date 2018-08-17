@@ -6,7 +6,7 @@ var commonParse = require('../commonParseUnit');
 
 
 filterGame = [20001, 20002, 20007, 20008, 20011, 20012];
-filterUnits = ["100014604","100014504","100014703","100014405"]
+filterUnits = ["100014604","100014504","100014703","100014405", "199000101"]
 
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
