@@ -573,19 +573,19 @@ function getItemLine(index, short = false) {
     }
     
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
+        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/icons/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/icons/delete.png"></img>';
         if (weaponList.includes(item.type)) {
-            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
         }
         html += '</div>';
     } else if (!item) {
-        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
+        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/icons/slots/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
-        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/delete.png"></img>`;
+        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/icons/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/icons/delete.png"></img>`;
         html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
         if (weaponList.includes(item.type)) {
-            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
         }
         html += '</div>';
     } else {
@@ -1369,10 +1369,10 @@ function selectSearchType(types) {
 function selectSearchStat(stat) {
     if (!stat) {
         searchStat = "";
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-a-z.png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/icons/sort/sort-a-z.png");
     } else {
         searchStat = stat;
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-" + stat + ".png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/icons/sort/sort-" + stat + ".png");
     }
 }
 
@@ -1478,7 +1478,7 @@ function getItemEnhancementLink(item) {
     var html = "";
     
     if (weaponList.includes(item.type)) {
-        html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+        html += '<div class="enchantment"><img src="img/icons/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
         if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
             html += "<span class='badge'>" + itemInventory.enchantments[item.id].length + "</span>"
         }
@@ -2376,7 +2376,7 @@ function startPage() {
     
     
     // Elements
-	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"]);
+	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "icons/elements-ailments/");
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -2623,18 +2623,18 @@ function populateUnitEquip() {
             var target = $(".unitEquipable.weapons2");
             target.html("");
         }
-        target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
+        target.append('<img src="img/icons/equipments/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
 	}
     var target = $(".unitEquipable.armors");
     target.html("");
     for (var key in shieldList) {
-        target.append('<img src="img/' + shieldList[key] + '.png" class="notEquipable ' + shieldList[key] +'"/>');
+        target.append('<img src="img/icons/equipments/' + shieldList[key] + '.png" class="notEquipable ' + shieldList[key] +'"/>');
 	}
     for (var key in headList) {
-        target.append('<img src="img/' + headList[key] + '.png" class="notEquipable ' + headList[key] +'"/>');
+        target.append('<img src="img/icons/equipments/' + headList[key] + '.png" class="notEquipable ' + headList[key] +'"/>');
 	}
     for (var key in bodyList) {
-        target.append('<img src="img/' + bodyList[key] + '.png" class="notEquipable ' + bodyList[key] +'"/>');
+        target.append('<img src="img/icons/equipments/' + bodyList[key] + '.png" class="notEquipable ' + bodyList[key] +'"/>');
 	}
 }
     
@@ -2642,10 +2642,10 @@ function populateItemType(equip) {
     var target = $("#fixItemModal .modal-body .nav.type");
     target.html("");
     if (equip.length > 1) {
-        target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/all.png'/></a></li>");
+        target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/icons/all.png'/></a></li>");
     }
 	for (var key in equip) {
-        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();"><img src="img/' + equip[key] + '.png"/></a></li>');
+        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();"><img src="img/icons/equipments/' + equip[key] + '.png"/></a></li>');
 	}
     
 }
@@ -2653,19 +2653,19 @@ function populateItemType(equip) {
 function populateItemStat() {
     var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
     var target = $("#fixItemModal .stat .dropdown-menu");
-    target.append('<img src="img/sort-a-z.png" onclick="selectSearchStat();updateSearchResult();" class="btn btn-default"/>');
+    target.append('<img src="img/icons/sort/sort-a-z.png" onclick="selectSearchStat();updateSearchResult();" class="btn btn-default"/>');
 	for (var key in statList) {
-        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
+        target.append('<img src="img/icons/sort/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
 	}
 }
 
 function populateResists() {
     var div = $("#resultStats .resists .elements");
     for (var index in elementList) {
-        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '"><img src="img/' + elementList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '"><img src="img/icons/elements-ailments/' + elementList[index] + '.png"><div class="value">0%<div></div>');
     }
     var div = $("#resultStats .resists .ailments");
     for (var index in ailmentList) {
-        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'"><img src="img/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'"><img src="img/icons/elements-ailments/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
     }
 }

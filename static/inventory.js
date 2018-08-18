@@ -132,7 +132,7 @@ var displayItems = function(items, byType = false) {
         for (var index = 0, len = items.length; index < len; index++) {
             var itemType = items[index].type;
             if (itemType !== currentItemType) {
-                htmlTypeJump += '<a class="typeJump ' + itemType + ' disabled"><img src="img/' + itemType + '.png"/></a>';
+                htmlTypeJump += '<a class="typeJump ' + itemType + ' disabled"><img src="img/icons/equipments/' + itemType + '.png"/></a>';
                 currentItemType = itemType;
             }
         }
@@ -148,7 +148,7 @@ var displayItems = function(items, byType = false) {
 function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
-    var currentItemTypeImgHtml = '<img src="img/' + currentItemType + '.png"/>';
+    var currentItemTypeImgHtml = '<img src="img/icons/equipments/' + currentItemType + '.png"/>';
 
     var html = '<div class="itemSeparator" id="' + currentItemType + '">' + currentItemTypeImgHtml + '</div>';
     html += '<div class="itemList">';
@@ -225,9 +225,9 @@ function getItemDisplay(item)
         html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
         html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
         if (weaponList.includes(item.type)) {
-            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></img>';
+            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></img>';
         }
-        html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
+        html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
         html += '</div>';
     }
     html += getImageHtml(item) + getNameColumnHtml(item);
@@ -606,7 +606,7 @@ function showItemEnhancements(itemId) {
         var html = '<div class="btn" onclick="showEquipments()"><span class="glyphicon glyphicon-chevron-left"></span>Back to list</div>';
         if (notEnchantedCount > 0) {
             html += '<div><div class="col-xs-6 item">';
-            html += '<div class="td inventory"><span class="number badge badge-success">' + notEnchantedCount + '</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
+            html += '<div class="td inventory"><span class="number badge badge-success">' + notEnchantedCount + '</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></div>';
             html += getImageHtml(item) + getNameColumnHtml(item);
             html += "</div></div>";
         }
@@ -614,7 +614,7 @@ function showItemEnhancements(itemId) {
             for (var i = 0, len = itemInventory.enchantments[itemId].length; i < len; i++) {
                 var enhancedItem = applyEnhancements(item, itemInventory.enchantments[itemId][i]);
                 html += '<div><div class="col-xs-6 item enhanced">';
-                html += '<div class="td inventory"><span class="number badge badge-success">1</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ', ' + i + ')" src="/img/dwarf.png" title="Open item management popup"></div>';
+                html += '<div class="td inventory"><span class="number badge badge-success">1</span><img class="itemWorldButton" onclick="event.stopPropagation();modifyItemEnhancements(' + item.id + ', ' + i + ')" src="/img/icons/dwarf.png" title="Open item management popup"></div>';
                 html += getImageHtml(enhancedItem) + getNameColumnHtml(enhancedItem);
                 html += "</div></div>";
             }

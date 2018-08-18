@@ -270,7 +270,7 @@ function displayUnitsAsync(units, start, div) {
                     if (elements.values.includes(elementList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+                    html+= '"><img src="img/icons/elements-ailments/' + elementList[i] + '.png"/>' + unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
                 }
             }
         }
@@ -284,7 +284,7 @@ function displayUnitsAsync(units, start, div) {
                     if (ailments.values.includes(ailmentList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/' + ailmentList[i] + '.png"/>' + unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+                    html+= '"><img src="img/icons/elements-ailments/' + ailmentList[i] + '.png"/>' + unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
                 }
             }
         }
@@ -503,16 +503,16 @@ function startPage() {
 	// Populates the various filters
 	
 	// Item types
-	addImageChoicesTo("types",typeList.slice(0,typeList.length-2));
+	addImageChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "icons/equipments/");
 	// Elements
-	addImageChoicesTo("elements",elementList);
+	addImageChoicesTo("elements", elementList, "checkbox", "icons/elements-ailments/");
 	// Ailments
-	addImageChoicesTo("ailments",ailmentList);
+	addImageChoicesTo("ailments", ailmentList, "checkbox", "icons/elements-ailments/");
 	// Killers
-	addImageChoicesTo("physicalKillers",killerList, type="checkbox", "physicalKiller_");
-    addImageChoicesTo("magicalKillers",killerList, type="checkbox", "magicalKiller_");
+	addImageChoicesTo("physicalKillers", killerList, "checkbox", "icons/killers/physicalKiller_");
+    addImageChoicesTo("magicalKillers", killerList, "checkbox", "icons/killers/magicalKiller_");
 	// Imperils
-	addImageChoicesTo("imperils",elementList);
+	addImageChoicesTo("imperils", elementList, "checkbox", "icons/elements-ailments/");
     // Breaks
 	addTextChoicesTo("breaks",'checkbox',{'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
     

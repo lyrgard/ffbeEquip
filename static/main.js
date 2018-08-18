@@ -123,21 +123,21 @@ var modifyFilterSummary = function() {
     var html = "";
     if (types.length != 0) {
         for (var index in types) {
-			html += '<img src="img/' + types[index] + '.png"></img>'
+			html += '<img src="img/icons/equipments/' + types[index] + '.png"></img>'
         }
     }
     if (elements.length != 0) {
         for (var index in elements) {
-			html += '<img src="img/' + elements[index] + '.png"></img>'
+			html += '<img src="img/icons/elements-ailments/' + elements[index] + '.png"></img>'
         }
     }
     if (ailments.length != 0) {
         for (var index in ailments) {
-			html += '<img src="img/' + ailments[index] + '.png"></img>'
+			html += '<img src="img/icons/elements-ailments/' + ailments[index] + '.png"></img>'
         }
     }
     if (killers.length != 0) {
-        html += '<img src="img/killer.png"></img>'
+        html += '<img src="img/icons/killer.png"></img>'
     }
     $("#filterSummary").html(html);
 }
@@ -399,13 +399,13 @@ function startPage() {
 	
 	// Desired Stats
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
-    addImageChoicesTo("stats",["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"],"radio","sort-");
+    addImageChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "icons/sort/sort-");
 	// Item types
-	addImageChoicesTo("types",typeList);
+	addImageChoicesTo("types", typeList, "checkbox", "icons/equipments/");
 	// Elements
-	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"]);
+	addImageChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "icons/elements-ailments/");
 	// Ailments
-	addImageChoicesTo("ailments",ailmentList);
+	addImageChoicesTo("ailments", ailmentList, "checkbox", "icons/elements-ailments/");
 	// Killers
 	addTextChoicesTo("killers",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
 	// Access to remove
