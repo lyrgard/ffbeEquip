@@ -679,13 +679,13 @@ function parseLb(lb, unit, skills) {
         var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, skills);
-        unit.lb.minEffects.push({"effect":effect, "desc": lb.min_level[rawEffectIndex]});
+        unit.lb.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.max_level["effects_raw"]) {
         var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, skills);
-        unit.lb.minEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
+        unit.lb.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
     }
 }
 
@@ -1043,22 +1043,22 @@ function formatForSearch(units) {
                     }
                 }
             }
-            var unitOut = {};
+            var unitOut = {"passives":{}, "actives":{}, "lb":{}};
             for (var i = skills.length; i--;) {
                 var skill = skills[i];
                 if (skill.resist) {
                     for (var resistIndex = skill.resist.length; resistIndex--;) {
                         var resist = skill.resist[resistIndex];
                         if (elements.includes(resist.name)) {
-                            if (!unitOut.elementalResist) {
-                                unitOut.elementalResist = {};
+                            if (!unitOut.passives.elementalResist) {
+                                unitOut.passives.elementalResist = {};
                             }
-                            addToStat(unitOut.elementalResist, resist.name, resist.percent);
+                            addToStat(unitOut.passives.elementalResist, resist.name, resist.percent);
                         } else {
-                            if (!unitOut.ailmentResist) {
-                                unitOut.ailmentResist = {};
+                            if (!unitOut.passives.ailmentResist) {
+                                unitOut.passives.ailmentResist = {};
                             }
-                            addToStat(unitOut.ailmentResist, resist.name, resist.percent);
+                            addToStat(unitOut.passives.ailmentResist, resist.name, resist.percent);
                         }
                     }
                 }
@@ -1066,16 +1066,16 @@ function formatForSearch(units) {
                     for (var killerIndex = skill.killers.length; killerIndex--;) {
                         var killer = skill.killers[killerIndex];
                         if (killer.physical) {
-                            if (!unitOut.physicalKillers) {
-                                unitOut.physicalKillers = {};
+                            if (!unitOut.passives.physicalKillers) {
+                                unitOut.passives.physicalKillers = {};
                             }
-                            addToStat(unitOut.physicalKillers, killer.name, killer.physical);
+                            addToStat(unitOut.passives.physicalKillers, killer.name, killer.physical);
                         }
                         if (killer.magical) {
-                            if (!unitOut.magicalKillers) {
-                                unitOut.magicalKillers = {};
+                            if (!unitOut.passives.magicalKillers) {
+                                unitOut.passives.magicalKillers = {};
                             }
-                            addToStat(unitOut.magicalKillers, killer.name, killer.magical);
+                            addToStat(unitOut.passives.magicalKillers, killer.name, killer.magical);
                         }
                     }
                 }
@@ -1083,8 +1083,9 @@ function formatForSearch(units) {
             var activeAndMagic = unit.actives.concat(unit.magics);
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
-                addSkillEffectToSearch(skill, unitOut);
+                addSkillEffectToSearch(skill.effects, unitOut.actives);
             }
+            addSkillEffectToSearch(unit.lb.maxEffects, unitOut.lb);
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
             if (first) {
@@ -1099,9 +1100,9 @@ function formatForSearch(units) {
     return result;
 }
 
-function addSkillEffectToSearch(skill, unitOut) {
-    for (var i = skill.effects.length; i--;) {
-        var effect = skill.effects[i];
+function addSkillEffectToSearch(effects, unitOut) {
+    for (var i = effects.length; i--;) {
+        var effect = effects[i];
         if (effect.effect) {
             if (effect.effect.imperil) {
                 if (!unitOut.imperil) {
@@ -1114,7 +1115,7 @@ function addSkillEffectToSearch(skill, unitOut) {
                 }
             } else if (effect.effect.randomlyUse) {
                 for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
-                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill, unitOut);
+                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, unitOut);
                 }
             } else if (effect.effect.break && effect.effect.target == "ENEMY") {
                 if (!unitOut.break) {
