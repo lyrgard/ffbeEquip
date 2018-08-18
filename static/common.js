@@ -32,10 +32,10 @@ function getImageHtml(item) {
     var html = '<div class="td type">';
 
     if (item.special && item.special.includes("notStackable")) {
-        html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+        html += "<img class='miniIcon left' src='img/icons/notStackable.png' title='Not stackable'>";
     }
     if (item.special && item.special.includes("twoHanded")) {
-        html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+        html += "<img class='miniIcon left' src='img/icons/twoHanded.png' title='Two-handed'>";
     }
 
     var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
@@ -44,11 +44,11 @@ function getImageHtml(item) {
     if (item.icon) {
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
-        html += "<img "+src_attr+"='img/" + escapeName(item.name) + ".png' class='"+class_attr+"'></img>";
+        html += "<img "+src_attr+"='img/espers/" + escapeName(item.name) + ".png' class='"+class_attr+"'></img>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img "+src_attr+"='img/" + item.type + ".png' class='"+class_attr+"'></img>";
+        html += "<img "+src_attr+"='img/icons/equipments/" + item.type + ".png' class='"+class_attr+"'></img>";
     }
     html += "</div>";
     return html;
@@ -77,7 +77,7 @@ function getNameColumnHtml(item) {
         html += '<a href="' + item.buildLink + '" target="blank" class="buildLink"><span class="glyphicon glyphicon-th wikiLink"></span></a>';
     }
     if (item.outclassedBy) {
-        html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
+        html += '<img src="img/icons/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
     html += "</div>";
     if (item.jpname) {
@@ -85,7 +85,7 @@ function getNameColumnHtml(item) {
     }
     html += "<div class='detail'>";
     if (item.type != "esper" && item.type != "monster") {
-        html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
+        html += "<img src='img/icons/equipments/" + item.type + ".png' class='miniIcon'></img>";
     }
     html += getStatDetail(item) + "</div>";
     if (item.userPseudo) {
@@ -104,7 +104,7 @@ function getNameColumnHtml(item) {
 function getElementHtml(elements) {
     var html = "<div class='specialValueGroup'>";
     for (var index in elements) {
-        html += "<div class='specialValueItem'><div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + elements[index] + ".png'></img></div></div>"
+        html += "<div class='specialValueItem'><div class='specialImg'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img src='img/icons/elements-ailments/" + elements[index] + ".png'></img></div></div>"
     }
     html += "</div>"
     return html;
@@ -113,7 +113,7 @@ function getElementHtml(elements) {
 function getAilmentsHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.ailments).each(function(index, ailment) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img></div><div class='specialValue'>" + ailment.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img class='imageWithText' src='img/icons/elements-ailments/" + ailment.name + ".png'></img></div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
     html += "</div>"
     return html;
@@ -121,7 +121,7 @@ function getAilmentsHtml(item) {
 function getResistHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img></div><div class='specialValue'>" + resist.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/icons/equipments/heavyShield.png'></img><img class='imageWithText' src='img/icons/elements-ailments/" + resist.name + ".png'></img></div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
     html += "</div>"
     return html;
@@ -130,10 +130,10 @@ function getKillersHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img class='imageWithText' src='img/icons/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/icons/equipments/rod.png'></img><img class='imageWithText' src='img/icons/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
     html += "</div>"
@@ -223,7 +223,7 @@ function getEnhancements(item) {
     for (var i = 0, len = item.enhancements.length; i < len; i++) {
         if (first) {
             first = false;
-            html += '<img src="img/dwarf.png"/>'
+            html += '<img src="img/icons/dwarf.png"/>'
         } else {
             html += ", ";
         }
@@ -247,7 +247,7 @@ function getEquipedConditionHtml(item) {
         } else {
             conditions += " and ";
         }
-        conditions += "<img src='img/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
+        conditions += "<img src='img/icons/equipments/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
     }
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
@@ -292,12 +292,12 @@ function displayItemLine(item) {
     if (item.partialDualWield) {
         special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
         for (var index in item.partialDualWield) {
-            special += "<img src='img/" + item.partialDualWield[index] + ".png'></img>";
+            special += "<img src='img/icons/equipments/" + item.partialDualWield[index] + ".png'></img>";
         }
         special += "</li>";
     }
     if (item.allowUseOf) {
-        special += "<li>Allow use of <img src='img/" + item.allowUseOf + ".png'></img></li>";
+        special += "<li>Allow use of <img src='img/icons/equipments/" + item.allowUseOf + ".png'></img></li>";
     }
     if (item.evade) {
         if (item.evade.physical) {
@@ -964,7 +964,7 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
             physicalKillerString += '<span class="killerValueGroup physical ';
             var imgs = ""
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
+                imgs += '<img src="img/icons/killers/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
                 physicalKillerString + physicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(physicalKillers, physicalRacesByValue[killerValues[i]])) {
@@ -983,7 +983,7 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
             magicalKillerString += '<span class="killerValueGroup magical ';
             var imgs = ""
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
+                imgs += '<img src="img/icons/killers/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
                 magicalKillerString + magicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(magicalKillers, magicalRacesByValue[killerValues[i]])) {
