@@ -8,6 +8,11 @@ const LISTING = [
         className: 'esper',
         basePath: '../static/img/espers', 
         outPath: '../static/css-img/espers.css'
+    },
+    {
+        className: 'crystal',
+        basePath: '../static/img/icons/crystals', 
+        outPath: '../static/css-img/crystals.css'
     }
 ];
 
