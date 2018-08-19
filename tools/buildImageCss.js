@@ -13,6 +13,11 @@ const LISTING = [
         className: 'crystal',
         basePath: '../static/img/icons/crystals', 
         outPath: '../static/css-img/crystals.css'
+    },
+    {
+        className: 'equipment',
+        basePath: '../static/img/icons/equipments', 
+        outPath: '../static/css-img/equipments.css'
     }
 ];
 

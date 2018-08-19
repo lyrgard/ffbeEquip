@@ -38,10 +38,9 @@ function getImageHtml(item) {
         html += "<img class='miniIcon left' src='img/icons/twoHanded.png' title='Two-handed'>";
     }
 
-    var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
-    var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
-
     if (item.icon) {
+        var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
+        var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
         // no lazyload for espers (uses CSS background)
@@ -49,7 +48,7 @@ function getImageHtml(item) {
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img "+src_attr+"='img/icons/equipments/" + item.type + ".png' class='"+class_attr+"'></img>";
+        html += "<i class='img img-equipment-" + item.type + " icon'></i>";
     }
     html += "</div>";
     return html;
@@ -86,7 +85,7 @@ function getNameColumnHtml(item) {
     }
     html += "<div class='detail'>";
     if (item.type != "esper" && item.type != "monster") {
-        html += "<img src='img/icons/equipments/" + item.type + ".png' class='miniIcon'></img>";
+        html += "<i class='img img-equipment-" + item.type + " miniIcon'></i>";
     }
     html += getStatDetail(item) + "</div>";
     if (item.userPseudo) {
@@ -105,39 +104,54 @@ function getNameColumnHtml(item) {
 function getElementHtml(elements) {
     var html = "<div class='specialValueGroup'>";
     for (var index in elements) {
-        html += "<div class='specialValueItem'><div class='specialImg'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img src='img/icons/elements-ailments/" + elements[index] + ".png'></img></div></div>"
+        html += "<div class='specialValueItem'><div class='specialImg'>"+
+                "<i class='img img-equipment-sword miniIcon'></i>"+
+                "<img src='img/icons/elements-ailments/" + elements[index] + ".png'></img>"+
+                "</div></div>";
     }
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 
 function getAilmentsHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.ailments).each(function(index, ailment) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img class='imageWithText' src='img/icons/elements-ailments/" + ailment.name + ".png'></img></div><div class='specialValue'>" + ailment.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
+                "<i class='img img-equipment-sword miniIcon'></i>"+
+                "<img class='imageWithText' src='img/icons/elements-ailments/" + ailment.name + ".png'></img>"+
+                "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getResistHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/icons/equipments/heavyShield.png'></img><img class='imageWithText' src='img/icons/elements-ailments/" + resist.name + ".png'></img></div><div class='specialValue'>" + resist.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
+                "<i class='img img-equipment-heavyShield miniIcon'></i>"+
+                "<img class='imageWithText' src='img/icons/elements-ailments/" + resist.name + ".png'></img>"+
+                "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getKillersHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/icons/equipments/sword.png'></img><img class='imageWithText' src='img/icons/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+                    "<i class='img img-equipment-sword miniIcon'></i>"+
+                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/icons/equipments/rod.png'></img><img class='imageWithText' src='img/icons/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+                    "<i class='img img-equipment-rod miniIcon'></i>"+
+                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getExclusiveUnitsHtml(item) {
@@ -248,7 +262,7 @@ function getEquipedConditionHtml(item) {
         } else {
             conditions += " and ";
         }
-        conditions += "<img src='img/icons/equipments/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
+        conditions += "<i class='img img-equipment-" + item.equipedConditions[equipedConditionsIndex] + "'></i>";
     }
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
@@ -293,12 +307,12 @@ function displayItemLine(item) {
     if (item.partialDualWield) {
         special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
         for (var index in item.partialDualWield) {
-            special += "<img src='img/icons/equipments/" + item.partialDualWield[index] + ".png'></img>";
+            special += "<i class='img img-equipment-" + item.partialDualWield[index] + " inline'></i>";
         }
         special += "</li>";
     }
     if (item.allowUseOf) {
-        special += "<li>Allow use of <img src='img/icons/equipments/" + item.allowUseOf + ".png'></img></li>";
+        special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
     }
     if (item.evade) {
         if (item.evade.physical) {
@@ -512,6 +526,12 @@ function addImageChoicesTo(targetId, valueList,type="checkbox",imagePrefix = "")
 		addImageChoiceTo(target, targetId, valueList[i], type, imagePrefix);
 	}
 }
+function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "") {
+	var target = $("#" + targetId);
+	for (i = 0; i < valueList.length; i++) {
+		addIconChoiceTo(target, targetId, valueList[i], type, iconType);
+	}
+}
 
 // Add one text choice to a filter
 function addTextChoiceTo(target, name, type, value, label) {
@@ -521,6 +541,12 @@ function addTextChoiceTo(target, name, type, value, label) {
 // Add one image choice to a filter
 function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
 	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img style="height:38px;" src="img/'+ imagePrefix + value+'.png" title="' + value + '"/></label>');
+}
+function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
+    target.append('<label class="btn btn-default iconChoice">'+
+                  '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
+                  '<i class="img img-'+iconType+'-'+value+'" title="'+value+'"></i>'+
+                  '</label>');
 }
 
 function loadInventory() {

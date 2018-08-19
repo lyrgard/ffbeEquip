@@ -503,7 +503,7 @@ function startPage() {
 	// Populates the various filters
 	
 	// Item types
-	addImageChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "icons/equipments/");
+	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment");
 	// Elements
 	addImageChoicesTo("elements", elementList, "checkbox", "icons/elements-ailments/");
 	// Ailments
