@@ -956,7 +956,7 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.empty();
 
         for (var i = 0; i < rarity; i++) {
-            rarityWrapper.append('<i class="rarity-star" />');
+            rarityWrapper.append('<i class="rarity-star"></i>');
         }
     } else {
         rarityWrapper.hide();
