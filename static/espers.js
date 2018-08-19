@@ -96,7 +96,7 @@ function showBoard(esperName, star) {
     gridContainer.removeClass("hidden");
     
     var escapedName = escapeName(esperName);
-    $("#grid li.0_0 .hexagon").html('<img class="esperCenterIcon" src=\"img/espers/' + escapedName +'.jpg\"/>');
+    $("#grid li.0_0 .hexagon").html('<i class="esperCenterIcon img img-esper-' + escapedName +'"/>');
     $("#grid,#gridTrimmer").addClass("star" + star);
     var board = esperBoards[esperName];
     var rootNode = $("#grid li.0_0 .hexagon");
@@ -620,7 +620,9 @@ function displayEspers() {
         var tabs = "";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
-            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\"><a><img src=\"img/espers/" + escapedName +".jpg\"/></a></li>";
+            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\"><a>"
+            tabs += "<i class='img img-esper-" + escapedName +"'/>";
+            tabs += "</a></li>";
         }
         $("#espers #tabs").html(tabs);
     }
