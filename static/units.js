@@ -350,7 +350,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         var farmedFunction = (is7Stars ? "farmedSTMR" : "farmedTMR");
         html += '<img class="farmedButton" onclick="event.stopPropagation();' + farmedFunction + '(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="' +  (is7Stars ? 'STMR acquired !' : 'TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1') + '"></img>';
         //html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>'
-        html += '<i class="img img-crystal-sevenStarCrystal awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" title="Awaken this unit !"/>';
+        html += '<i class="img img-crystal-sevenStarCrystal awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" title="Awaken this unit !"></i>';
         var formToDisplay = unit.max_rarity;
         if (formToDisplay == 7 && unit.min_rarity != 7) {
             formToDisplay = 6;

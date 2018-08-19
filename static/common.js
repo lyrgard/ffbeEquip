@@ -45,7 +45,7 @@ function getImageHtml(item) {
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
         // no lazyload for espers (uses CSS background)
-        html += "<i class='img img-esper-" + escapeName(item.name) +" icon'/>";
+        html += "<i class='img img-esper-" + escapeName(item.name) +" icon'></i>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
