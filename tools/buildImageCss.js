@@ -22,8 +22,8 @@ var CssTemplate = function(className, filename, dimensions, base64Data) {
     var filetype = fileparsed.ext.replace('.', '');
 
     return `
-i.img.img-${className}-${filenameNoExt} {
-    width: ${dimensions.width}; height: ${dimensions.height};
+.img-${className}-${filenameNoExt} {
+    width: ${dimensions.width}px; height: ${dimensions.height}px;
     background-image: url(data:image/${filetype};base64,${base64Data});
 }`;
 };
