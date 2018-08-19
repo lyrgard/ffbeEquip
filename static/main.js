@@ -123,7 +123,7 @@ var modifyFilterSummary = function() {
     var html = "";
     if (types.length != 0) {
         for (var index in types) {
-			html += '<img src="img/icons/equipments/' + types[index] + '.png"></img>'
+			html += '<i src="img img-equipment-' + types[index] + '"></i>';
         }
     }
     if (elements.length != 0) {
@@ -401,7 +401,7 @@ function startPage() {
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
     addImageChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "icons/sort/sort-");
 	// Item types
-	addImageChoicesTo("types", typeList, "checkbox", "icons/equipments/");
+	addIconChoicesTo("types", typeList, "checkbox", "equipment");
 	// Elements
 	addImageChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "icons/elements-ailments/");
 	// Ailments

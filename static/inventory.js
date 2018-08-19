@@ -132,7 +132,7 @@ var displayItems = function(items, byType = false) {
         for (var index = 0, len = items.length; index < len; index++) {
             var itemType = items[index].type;
             if (itemType !== currentItemType) {
-                htmlTypeJump += '<a class="typeJump ' + itemType + ' disabled"><img src="img/icons/equipments/' + itemType + '.png"/></a>';
+                htmlTypeJump += '<a class="typeJump '+itemType+' disabled"><i class="img img-equipment-'+itemType+'"></i></a>';
                 currentItemType = itemType;
             }
         }
@@ -148,7 +148,7 @@ var displayItems = function(items, byType = false) {
 function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
-    var currentItemTypeImgHtml = '<img src="img/icons/equipments/' + currentItemType + '.png"/>';
+    var currentItemTypeImgHtml = '<i class="img img-equipment-' + currentItemType + '"/>';
 
     var html = '<div class="itemSeparator" id="' + currentItemType + '">' + currentItemTypeImgHtml + '</div>';
     html += '<div class="itemList">';

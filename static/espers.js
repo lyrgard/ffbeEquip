@@ -245,10 +245,10 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         var killer = node.killers[0];
         var html = '<span class="iconHolder">';
         if (killer.physical) {
-            html+= '<img class="miniIcon physical" src="img/icons/equipments/sword.png">';
+            html+= '<i class="img img-equipment-sword miniIcon physical"></i>';
         }
         if (killer.magical) {
-            html+= '<img class="miniIcon magical" src="img/icons/equipments/rod.png">';
+            html+= '<i class="img img-equipment-rod miniIcon magical"></i>';
         }
         html += '<img class="icon" src="/img/items/ability_79.png"></img></span><span class="text"><span class="capitalize">' + killer.name + '</span> ';
         if (killer.physical) {

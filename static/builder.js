@@ -833,7 +833,7 @@ function updateUnitStats() {
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
         for (var index in builds[currentUnitIndex].unit.equip) {
-            $(".unitEquipable img." + builds[currentUnitIndex].unit.equip[index]).removeClass("notEquipable");
+            $(".unitEquipable i.img-equipment-" + builds[currentUnitIndex].unit.equip[index]).removeClass("notEquipable");
         }
     }
     if (builds[currentUnitIndex].unit) {
@@ -2623,18 +2623,18 @@ function populateUnitEquip() {
             var target = $(".unitEquipable.weapons2");
             target.html("");
         }
-        target.append('<img src="img/icons/equipments/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+weaponList[key]+' notEquipable"></i>');
 	}
     var target = $(".unitEquipable.armors");
     target.html("");
     for (var key in shieldList) {
-        target.append('<img src="img/icons/equipments/' + shieldList[key] + '.png" class="notEquipable ' + shieldList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+shieldList[key]+' notEquipable"></i>');
 	}
     for (var key in headList) {
-        target.append('<img src="img/icons/equipments/' + headList[key] + '.png" class="notEquipable ' + headList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+headList[key]+' notEquipable"></i>');
 	}
     for (var key in bodyList) {
-        target.append('<img src="img/icons/equipments/' + bodyList[key] + '.png" class="notEquipable ' + bodyList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+bodyList[key]+' notEquipable"></i>');
 	}
 }
     
@@ -2645,7 +2645,9 @@ function populateItemType(equip) {
         target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/icons/all.png'/></a></li>");
     }
 	for (var key in equip) {
-        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();"><img src="img/icons/equipments/' + equip[key] + '.png"/></a></li>');
+        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();">'+
+                      '<i class="img img-equipment-' + equip[key] + '"></i>'+
+                      '</a></li>');
 	}
     
 }

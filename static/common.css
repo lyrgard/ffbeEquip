@@ -378,9 +378,11 @@ ul {
 #statTitle {
     text-transform: uppercase;
 }
+
 .miniIcon {
     position: absolute;
     width: 22px;
+    height: 22px;
     margin-top: 19px;
     margin-left: 19px;
     border-radius: 5px;
@@ -831,6 +833,12 @@ i.img {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+}
+
+i.img.inline {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
 }
 
 @media (max-width: 991px) {
