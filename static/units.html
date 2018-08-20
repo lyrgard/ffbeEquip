@@ -5,11 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>FFBE Equip : Units</title>
-        <link rel="icon" type="image/png" href="/img/heavyArmor.png">
+        <link rel="icon" type="image/png" href="/img/icons/equipments/heavyArmor.png">
         
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+        <link rel="stylesheet" type="text/css" href="css-img/crystals.css">
+        <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
         <link rel="stylesheet" type="text/css" href="units.css?version=3">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
@@ -138,28 +140,28 @@
                                 <table class="all">
                                     <tbody>
                                         <tr class="star7">
-                                            <td class="crystal"><img src="img/sevenStarCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-sevenStarCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star5">
-                                            <td class="crystal"><img src="img/rainbowCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-rainbowCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star4">
-                                            <td class="crystal"><img src="img/goldCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-goldCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star3">
-                                            <td class="crystal"><img src="img/blueCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-blueCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
@@ -173,28 +175,28 @@
                                 <table class="withoutTimeLimited">
                                     <tbody>
                                         <tr class="star7">
-                                            <td class="crystal"><img src="img/sevenStarCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-sevenStarCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star5">
-                                            <td class="crystal"><img src="img/rainbowCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-rainbowCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star4">
-                                            <td class="crystal"><img src="img/goldCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-goldCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star3">
-                                            <td class="crystal"><img src="img/blueCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-blueCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
@@ -208,28 +210,28 @@
                                 <table class="timeLimited">
                                     <tbody>
                                         <tr class="star7">
-                                            <td class="crystal"><img src="img/sevenStarCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-sevenStarCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star5">
-                                            <td class="crystal"><img src="img/rainbowCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-rainbowCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star4">
-                                            <td class="crystal"><img src="img/goldCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-goldCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
                                             <td class="number"></td>
                                         </tr>
                                         <tr class="star3">
-                                            <td class="crystal"><img src="img/blueCrystal.png"/></td>
+                                            <td class="crystal"><i class="img img-crystal-blueCrystal"></i></td>
                                             <td class="value"></td>
                                             <td class="separator">/</td>
                                             <td class="total"></td>
@@ -264,10 +266,10 @@
                             </ul>
                         </div>
                         <ul id="tabs" class="nav nav-tabs">
-                            <li class="raritySort" onclick="showRaritySort()"><a><img src="img/star_icon.png"/></a></li>
-                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><img src="img/sort-a-z.png"/></a></li>
-                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><img src="img/sort-tmr.png"/></a></li>
-                            <li class="history" onclick="showHistory()"><a><img src="img/history.png"/></a></li>
+                            <li class="raritySort" onclick="showRaritySort()"><a><img src="img/icons/star_icon.png"/></a></li>
+                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><i class="img img-sort-a-z"></i></a></li>
+                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><i class="img img-sort-tmr"></i></a></li>
+                            <li class="history" onclick="showHistory()"><a><img src="img/icons/history.png"/></a></li>
                         </ul>
                         <div class="explanation hidden-xs hidden-sm hidden-md">
                             <div>Left number: how many time you own this unit</div>
