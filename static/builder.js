@@ -573,19 +573,19 @@ function getItemLine(index, short = false) {
     }
     
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/delete.png"></img>';
+        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/icons/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/icons/delete.png"></img>';
         if (weaponList.includes(item.type)) {
-            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
         }
         html += '</div>';
     } else if (!item) {
-        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
+        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');">'+ getSlotIcon(index) + '</div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
-        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/delete.png"></img>`;
+        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/icons/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/icons/delete.png"></img>`;
         html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
         if (weaponList.includes(item.type)) {
-            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
+            html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
         }
         html += '</div>';
     } else {
@@ -629,26 +629,36 @@ function getNumberOfItemAlreadyUsedInThisBuild(unitBuild, index, item) {
 }
 
 function getSlotIcon(index) {
+    var icon = '<i class="img img-slot-';
     switch(index) {
         case 0:
-            return "rightHandSlot.png";
+            icon += "hand";
+            break;
         case 1:
-            return "leftHandSlot.png";
+            icon += "hand leftHand";
+            break;
         case 2:
-            return "headSlot.png";
+            icon += "head";
+            break;
         case 3:
-            return "bodySlot.png";
+            icon += "body";
+            break;
         case 4:
         case 5:
-            return "accessorySlot.png";
+            icon += "accessory";
+            break;
         case 6:
         case 7:
         case 8:
         case 9:
-            return "materiaSlot.png";
+            icon += "materia";
+            break;
         case 10:
-            return "esperSlot.png";
+            icon += "esper";
+            break;
     }
+    icon += ' icon"></i>';
+    return icon;
 }
 
 function getSlotName(index) {
@@ -833,7 +843,7 @@ function updateUnitStats() {
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
         for (var index in builds[currentUnitIndex].unit.equip) {
-            $(".unitEquipable img." + builds[currentUnitIndex].unit.equip[index]).removeClass("notEquipable");
+            $(".unitEquipable i.img-equipment-" + builds[currentUnitIndex].unit.equip[index]).removeClass("notEquipable");
         }
     }
     if (builds[currentUnitIndex].unit) {
@@ -956,7 +966,7 @@ var displayUnitRarity = function(unit) {
         rarityWrapper.empty();
 
         for (var i = 0; i < rarity; i++) {
-            rarityWrapper.append('<i class="rarity-star" />');
+            rarityWrapper.append('<i class="rarity-star"></i>');
         }
     } else {
         rarityWrapper.hide();
@@ -1367,12 +1377,17 @@ function selectSearchType(types) {
 }
 
 function selectSearchStat(stat) {
+    // Remove any img-sort-* class
+    $("#fixItemModal .modal-header .stat .dropdown-toggle").attr('class', function(i, c){
+        return c.replace(/(^|\s)img-sort-\S+/g, '');
+    });
+
     if (!stat) {
         searchStat = "";
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-a-z.png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-a-z");
     } else {
         searchStat = stat;
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/sort-" + stat + ".png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-" + stat);
     }
 }
 
@@ -1478,7 +1493,7 @@ function getItemEnhancementLink(item) {
     var html = "";
     
     if (weaponList.includes(item.type)) {
-        html += '<div class="enchantment"><img src="img/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
+        html += '<div class="enchantment"><img src="img/icons/dwarf.png" onclick="event.stopPropagation();selectEnchantedItem(\'' + item.id + '\')">';
         if (itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
             html += "<span class='badge'>" + itemInventory.enchantments[item.id].length + "</span>"
         }
@@ -2376,7 +2391,7 @@ function startPage() {
     
     
     // Elements
-	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"]);
+	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "elem-ailm");
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -2623,18 +2638,18 @@ function populateUnitEquip() {
             var target = $(".unitEquipable.weapons2");
             target.html("");
         }
-        target.append('<img src="img/' + weaponList[key] + '.png" class="notEquipable ' + weaponList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+weaponList[key]+' notEquipable"></i>');
 	}
     var target = $(".unitEquipable.armors");
     target.html("");
     for (var key in shieldList) {
-        target.append('<img src="img/' + shieldList[key] + '.png" class="notEquipable ' + shieldList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+shieldList[key]+' notEquipable"></i>');
 	}
     for (var key in headList) {
-        target.append('<img src="img/' + headList[key] + '.png" class="notEquipable ' + headList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+headList[key]+' notEquipable"></i>');
 	}
     for (var key in bodyList) {
-        target.append('<img src="img/' + bodyList[key] + '.png" class="notEquipable ' + bodyList[key] +'"/>');
+        target.append('<i class="img img-equipment-'+bodyList[key]+' notEquipable"></i>');
 	}
 }
     
@@ -2642,10 +2657,12 @@ function populateItemType(equip) {
     var target = $("#fixItemModal .modal-body .nav.type");
     target.html("");
     if (equip.length > 1) {
-        target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/all.png'/></a></li>");
+        target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/icons/all.png'/></a></li>");
     }
 	for (var key in equip) {
-        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();"><img src="img/' + equip[key] + '.png"/></a></li>');
+        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();">'+
+                      '<i class="img img-equipment-' + equip[key] + '"></i>'+
+                      '</a></li>');
 	}
     
 }
@@ -2653,19 +2670,25 @@ function populateItemType(equip) {
 function populateItemStat() {
     var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
     var target = $("#fixItemModal .stat .dropdown-menu");
-    target.append('<img src="img/sort-a-z.png" onclick="selectSearchStat();updateSearchResult();" class="btn btn-default"/>');
+    target.append('<button class="btn btn-default" onclick="selectSearchStat();updateSearchResult();"><i class="img img-sort-a-z"></i></button>');
 	for (var key in statList) {
-        target.append('<img src="img/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
+        target.append('<button class="btn btn-default" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();">'+
+                      '<i class="img img-sort-' + statList[key] + '"></i>' + 
+                      '</button>');
 	}
 }
 
 function populateResists() {
     var div = $("#resultStats .resists .elements");
     for (var index in elementList) {
-        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '"><img src="img/' + elementList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '">'+
+                   '<i class="img img-elem-ailm-' + elementList[index] + '"></i>'+
+                   '<div class="value">0%<div></div>');
     }
     var div = $("#resultStats .resists .ailments");
     for (var index in ailmentList) {
-        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'"><img src="img/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'">'+
+                   '<i class="img img-elem-ailm-' + ailmentList[index] + '"></i>'+
+                   '<div class="value">0%<div></div>');
     }
 }

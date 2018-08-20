@@ -378,9 +378,11 @@ ul {
 #statTitle {
     text-transform: uppercase;
 }
+
 .miniIcon {
     position: absolute;
     width: 22px;
+    height: 22px;
     margin-top: 19px;
     margin-left: 19px;
     border-radius: 5px;
@@ -469,8 +471,9 @@ mark {
     margin-left: 4px;
     width: 20px;
     height: 20px;
-    background-image: url('./img/star_icon.svg');
+    background-image: url('./img/icons/star_icon.png');
     background-repeat: no-repeat;
+    background-size: 20px;
 }
 
 .form-inline {
@@ -530,7 +533,8 @@ mark {
     border-radius: 5px;
 }
 
-.td.type img.icon {
+.td.type img.icon,
+.td.type i.img.icon {
     width: 64px;
     height: 64px;
     border-radius: 5px;
@@ -538,6 +542,12 @@ mark {
 
 img.icon {
     width: 38px;
+    border-radius: 5px;
+}
+
+i.icon {
+    width: 38px;
+    height: 38px;
     border-radius: 5px;
 }
 
@@ -816,6 +826,21 @@ img[data-src] {
   min-height: 1px;
 }
 
+/* Image using backround image
+ * Found in static/css-img folder
+ */
+i.img {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    vertical-align: middle;
+}
+
+i.img.inline {
+    width: 26px;
+    height: 26px;
+}
 
 @media (max-width: 991px) {
 

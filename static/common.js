@@ -32,23 +32,23 @@ function getImageHtml(item) {
     var html = '<div class="td type">';
 
     if (item.special && item.special.includes("notStackable")) {
-        html += "<img class='miniIcon left' src='img/notStackable.png' title='Not stackable'>";
+        html += "<img class='miniIcon left' src='img/icons/notStackable.png' title='Not stackable'>";
     }
     if (item.special && item.special.includes("twoHanded")) {
-        html += "<img class='miniIcon left' src='img/twoHanded.png' title='Two-handed'>";
+        html += "<img class='miniIcon left' src='img/icons/twoHanded.png' title='Two-handed'>";
     }
 
-    var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
-    var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
-
     if (item.icon) {
+        var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
+        var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
-        html += "<img "+src_attr+"='img/" + escapeName(item.name) + ".png' class='"+class_attr+"'></img>";
+        // no lazyload for espers (uses CSS background)
+        html += "<i class='img img-esper-" + escapeName(item.name) +" icon'></i>";
     } else if (item.type == "unavailable") {
         // no image
     } else {
-        html += "<img "+src_attr+"='img/" + item.type + ".png' class='"+class_attr+"'></img>";
+        html += "<i class='img img-equipment-" + item.type + " icon'></i>";
     }
     html += "</div>";
     return html;
@@ -77,7 +77,7 @@ function getNameColumnHtml(item) {
         html += '<a href="' + item.buildLink + '" target="blank" class="buildLink"><span class="glyphicon glyphicon-th wikiLink"></span></a>';
     }
     if (item.outclassedBy) {
-        html += '<img src="img/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
+        html += '<img src="img/icons/gil.png" class="outclassedByIcon" title="Can be sold. Strictly outclassed by ' + item.outclassedBy + '"></img>';
     }
     html += "</div>";
     if (item.jpname) {
@@ -85,7 +85,7 @@ function getNameColumnHtml(item) {
     }
     html += "<div class='detail'>";
     if (item.type != "esper" && item.type != "monster") {
-        html += "<img src='img/" + item.type + ".png' class='miniIcon'></img>";
+        html += "<i class='img img-equipment-" + item.type + " miniIcon'></i>";
     }
     html += getStatDetail(item) + "</div>";
     if (item.userPseudo) {
@@ -104,39 +104,54 @@ function getNameColumnHtml(item) {
 function getElementHtml(elements) {
     var html = "<div class='specialValueGroup'>";
     for (var index in elements) {
-        html += "<div class='specialValueItem'><div class='specialImg'><img class='miniIcon' src='img/sword.png'></img><img src='img/" + elements[index] + ".png'></img></div></div>"
+        html += "<div class='specialValueItem'><div class='specialImg'>"+
+                "<i class='img img-equipment-sword miniIcon'></i>"+
+                "<i class='img img-elem-ailm-" + elements[index] + "'></i>"+
+                "</div></div>";
     }
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 
 function getAilmentsHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.ailments).each(function(index, ailment) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/" + ailment.name + ".png'></img></div><div class='specialValue'>" + ailment.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
+                "<i class='img img-equipment-sword miniIcon'></i>"+
+                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText'></i>"+
+                "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getResistHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'><img class='miniIcon' src='img/heavyShield.png'></img><img class='imageWithText' src='img/" + resist.name + ".png'></img></div><div class='specialValue'>" + resist.percent + "%</div></div>";
+        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
+                "<i class='img img-equipment-heavyShield miniIcon'></i>"+
+                "<i class='img img-elem-ailm-" + resist.name + " imageWithText'></i>"+
+                "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getKillersHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/sword.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+                    "<i class='img img-equipment-sword miniIcon'></i>"+
+                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'><img class='miniIcon' src='img/rod.png'></img><img class='imageWithText' src='img/killer.png'></img></div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+                    "<i class='img img-equipment-rod miniIcon'></i>"+
+                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
-    html += "</div>"
+    html += "</div>";
     return html;
 }
 function getExclusiveUnitsHtml(item) {
@@ -223,7 +238,7 @@ function getEnhancements(item) {
     for (var i = 0, len = item.enhancements.length; i < len; i++) {
         if (first) {
             first = false;
-            html += '<img src="img/dwarf.png"/>'
+            html += '<img src="img/icons/dwarf.png"/>'
         } else {
             html += ", ";
         }
@@ -247,7 +262,7 @@ function getEquipedConditionHtml(item) {
         } else {
             conditions += " and ";
         }
-        conditions += "<img src='img/" + item.equipedConditions[equipedConditionsIndex] + ".png'></img>";
+        conditions += "<i class='img img-equipment-" + item.equipedConditions[equipedConditionsIndex] + "'></i>";
     }
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
@@ -292,12 +307,12 @@ function displayItemLine(item) {
     if (item.partialDualWield) {
         special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
         for (var index in item.partialDualWield) {
-            special += "<img src='img/" + item.partialDualWield[index] + ".png'></img>";
+            special += "<i class='img img-equipment-" + item.partialDualWield[index] + " inline'></i>";
         }
         special += "</li>";
     }
     if (item.allowUseOf) {
-        special += "<li>Allow use of <img src='img/" + item.allowUseOf + ".png'></img></li>";
+        special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
     }
     if (item.evade) {
         if (item.evade.physical) {
@@ -518,6 +533,12 @@ function addImageChoicesTo(targetId, valueList,type="checkbox",imagePrefix = "")
 		addImageChoiceTo(target, targetId, valueList[i], type, imagePrefix);
 	}
 }
+function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "") {
+	var target = $("#" + targetId);
+	for (i = 0; i < valueList.length; i++) {
+		addIconChoiceTo(target, targetId, valueList[i], type, iconType);
+	}
+}
 
 // Add one text choice to a filter
 function addTextChoiceTo(target, name, type, value, label) {
@@ -527,6 +548,12 @@ function addTextChoiceTo(target, name, type, value, label) {
 // Add one image choice to a filter
 function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
 	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img style="height:38px;" src="img/'+ imagePrefix + value+'.png" title="' + value + '"/></label>');
+}
+function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
+    target.append('<label class="btn btn-default iconChoice">'+
+                  '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
+                  '<i class="img img-'+iconType+'-'+value+'" title="'+value+'"></i>'+
+                  '</label>');
 }
 
 function loadInventory() {
@@ -969,10 +996,10 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
     for (var i = 0; i < killerValues.length; i++) {
         if (physicalRacesByValue[killerValues[i]]) {
             physicalKillerString += '<span class="killerValueGroup physical ';
-            var imgs = ""
+            var imgs = "";
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
-                physicalKillerString + physicalRacesByValue[killerValues[i]][j] + " ";
+                imgs += '<i class="img img-killer-physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '" title="' + physicalRacesByValue[killerValues[i]][j] + ' physical killer"></i>';
+                physicalKillerString += physicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(physicalKillers, physicalRacesByValue[killerValues[i]])) {
                 physicalKillerString += "selected";
@@ -988,10 +1015,10 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
         }
         if (magicalRacesByValue[killerValues[i]]) {
             magicalKillerString += '<span class="killerValueGroup magical ';
-            var imgs = ""
+            var imgs = "";
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
-                magicalKillerString + magicalRacesByValue[killerValues[i]][j] + " ";
+                imgs += '<i class="img img-killer-magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '" title="' + magicalRacesByValue[killerValues[i]][j] + ' magical killer"></i>';
+                magicalKillerString += magicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(magicalKillers, magicalRacesByValue[killerValues[i]])) {
                 magicalKillerString += "selected";
