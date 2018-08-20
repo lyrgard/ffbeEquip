@@ -45,6 +45,11 @@ const LISTING = [
         className: 'elem-ailm',
         basePath: '../static/img/icons/elements-ailments', 
         outPath: '../static/css-img/elements-ailments.css'
+    },
+    {
+        className: '', // there is already "sort" in the file name
+        basePath: '../static/img/icons/sort', 
+        outPath: '../static/css-img/sorts.css'
     }
 ];
 
@@ -53,8 +58,10 @@ var CssTemplate = function(className, filename, dimensions, base64Data) {
     var filenameNoExt = fileparsed.name;
     var filetype = fileparsed.ext.replace('.', '');
 
+    if (className) className += '-';
+
     return `
-.img-${className}-${filenameNoExt} {
+.img-${className}${filenameNoExt} {
     width: ${dimensions.width}px; height: ${dimensions.height}px;
     background-image: url(data:image/${filetype};base64,${base64Data});
 }`;

@@ -399,7 +399,7 @@ function startPage() {
 	
 	// Desired Stats
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
-    addImageChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "icons/sort/sort-");
+    addIconChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "sort");
 	// Item types
 	addIconChoicesTo("types", typeList, "checkbox", "equipment");
 	// Elements
