@@ -55,6 +55,11 @@ const LISTING = [
         className: 'killer',
         basePath: '../static/img/icons/killers', 
         outPath: '../static/css-img/killers.css'
+    },
+    {
+        className: 'slot',
+        basePath: '../static/img/icons/slots', 
+        outPath: '../static/css-img/slots.css'
     }
 ];
 

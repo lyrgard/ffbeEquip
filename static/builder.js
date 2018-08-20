@@ -579,7 +579,7 @@ function getItemLine(index, short = false) {
         }
         html += '</div>';
     } else if (!item) {
-        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');"><img src="img/icons/slots/'+ getSlotIcon(index) + '" class="icon"></img></div><div class="td name slot">'+ getSlotName(index) + '</div>'
+        html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');">'+ getSlotIcon(index) + '</div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
         html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/icons/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/icons/delete.png"></img>`;
@@ -629,26 +629,36 @@ function getNumberOfItemAlreadyUsedInThisBuild(unitBuild, index, item) {
 }
 
 function getSlotIcon(index) {
+    var icon = '<i class="img img-slot-';
     switch(index) {
         case 0:
-            return "rightHandSlot.png";
+            icon += "hand";
+            break;
         case 1:
-            return "leftHandSlot.png";
+            icon += "hand leftHand";
+            break;
         case 2:
-            return "headSlot.png";
+            icon += "head";
+            break;
         case 3:
-            return "bodySlot.png";
+            icon += "body";
+            break;
         case 4:
         case 5:
-            return "accessorySlot.png";
+            icon += "accessory";
+            break;
         case 6:
         case 7:
         case 8:
         case 9:
-            return "materiaSlot.png";
+            icon += "materia";
+            break;
         case 10:
-            return "esperSlot.png";
+            icon += "esper";
+            break;
     }
+    icon += ' icon"></i>';
+    return icon;
 }
 
 function getSlotName(index) {
