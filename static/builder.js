@@ -98,6 +98,7 @@ function build() {
         workerWorkingCount = 0;
         running = false;
         $("#buildButton").text("Build !");
+        $("body").removeClass("building");
         return;
     }
     
@@ -118,9 +119,15 @@ function build() {
     readStatsValues();
     
     running = true;
+    $("body").addClass("building");
     $("#buildButton").text("STOP");
     
-    optimize();
+    try {
+        optimize();
+    } catch(error) {
+        console.error(error);
+        alert(error);
+    }
 }
 
 function optimize() {
@@ -2541,6 +2548,7 @@ function initWorkers() {
                             builds[currentUnitIndex].formula = secondaryOptimizationFormulaSave;
                             running = false;
                             progressElement.addClass("finished");
+                            $("body").removeClass("building");
                             console.timeEnd("optimize");
                             $("#buildButton").text("Build !"); 
                             logCurrentBuild();
@@ -2616,6 +2624,7 @@ function initWorkers() {
                                 progressElement.addClass("finished");
                                 console.timeEnd("optimize");
                                 $("#buildButton").text("Build !"); 
+                                $("body").removeClass("building");
                             }
                             
                         }
