@@ -833,12 +833,12 @@ i.img {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    vertical-align: middle;
 }
 
 i.img.inline {
     width: 26px;
     height: 26px;
-    vertical-align: middle;
 }
 
 @media (max-width: 991px) {

@@ -1,3 +1,25 @@
+/* 
+ * FBBE Equip Script
+ * Generates CSS files containing all image from specific folders as background Data URI
+ * Good for performance (less HTTP request on server)
+ * 
+ * Image are found in static/img folder
+ * Generated CSS are found in static/css-img folder
+ * See the LISTING constants
+ * 
+ * Usage in code:
+ *      <i class="img img-[CLASSNAME]-[IMGNAME]"></i>
+ *         With:
+ *            [CLASSNAME] depending on the CSS file
+ *            [IMGNAME] depending on the desired image
+ * 
+ * By default, the icon has the same size as the image.
+ * To resize it, you need to override *both* width/height rules by CSS.
+ * 
+ * Note: The generated CSS should be placed in HTML head before any 
+ *       other css file (before common.css, for instance).
+ *       It allows to easily override size rules.
+ */
 
 var fs = require( 'fs' );
 var path = require( 'path' );
@@ -18,6 +40,11 @@ const LISTING = [
         className: 'equipment',
         basePath: '../static/img/icons/equipments', 
         outPath: '../static/css-img/equipments.css'
+    },
+    {
+        className: 'elem-ailm',
+        basePath: '../static/img/icons/elements-ailments', 
+        outPath: '../static/css-img/elements-ailments.css'
     }
 ];
 
