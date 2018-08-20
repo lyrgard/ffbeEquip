@@ -667,6 +667,38 @@ i.img.img-slot-hand.leftHand {
     background-color: #CDCDCD;
 }
 
+.glassPanel {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    background-color: black;
+    z-index: 100;
+    cursor: wait;
+    display: none;
+}
+
+.building .glassPanel {
+    display: block;
+}
+
+/* elements visible over the glasspanel */
+.building #detailedViewLink, .building #conciseViewLink, .building #buildButton {
+    z-index: 110;
+}
+
+.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a {
+    box-shadow: 0 0 5px 5px #FFFFFF;
+}
+
+.building #detailedViewLink a, .building #conciseViewLink a {
+    background-color: white;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {

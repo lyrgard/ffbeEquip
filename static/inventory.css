@@ -123,8 +123,6 @@
 .item:hover .inventory .glyphicon {
     cursor: pointer;
     color: #d2edf9;
-    font-size: 0.8em;
-    margin: 2px;
 }
 
 #results .inventoryTools {
@@ -338,6 +336,13 @@ a#exportLinks:hover {
     border: 1px solid #808080;
     background: #f0f0f0;
     text-decoration: none;
+}
+
+.item .glyphicon-plus, .item .glyphicon-minus {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 15px;
 }
 
 @media (min-width: 991px) {
