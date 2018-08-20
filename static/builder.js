@@ -1367,12 +1367,17 @@ function selectSearchType(types) {
 }
 
 function selectSearchStat(stat) {
+    // Remove any img-sort-* class
+    $("#fixItemModal .modal-header .stat .dropdown-toggle").attr('class', function(i, c){
+        return c.replace(/(^|\s)img-sort-\S+/g, '');
+    });
+
     if (!stat) {
         searchStat = "";
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/icons/sort/sort-a-z.png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-a-z");
     } else {
         searchStat = stat;
-        $("#fixItemModal .modal-header .stat .dropdown-toggle").prop("src","img/icons/sort/sort-" + stat + ".png");
+        $("#fixItemModal .modal-header .stat .dropdown-toggle").addClass("img-sort-" + stat);
     }
 }
 
@@ -2655,9 +2660,11 @@ function populateItemType(equip) {
 function populateItemStat() {
     var statList = ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"];
     var target = $("#fixItemModal .stat .dropdown-menu");
-    target.append('<img src="img/icons/sort/sort-a-z.png" onclick="selectSearchStat();updateSearchResult();" class="btn btn-default"/>');
+    target.append('<button class="btn btn-default" onclick="selectSearchStat();updateSearchResult();"><i class="img img-sort-a-z"></i></button>');
 	for (var key in statList) {
-        target.append('<img src="img/icons/sort/sort-' + statList[key] + '.png" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();" class="btn btn-default"/>');
+        target.append('<button class="btn btn-default" onclick="selectSearchStat(\'' + statList[key] + '\');updateSearchResult();">'+
+                      '<i class="img img-sort-' + statList[key] + '"></i>' + 
+                      '</button>');
 	}
 }
 
