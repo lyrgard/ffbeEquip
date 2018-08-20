@@ -145,7 +145,15 @@
                     </div>
 
                     <div class="panel panel-default elements">
-                        <div class="panel-heading"><span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                        <div class="panel-heading">
+                            <span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="elementsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="elementsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                             </div>
@@ -153,7 +161,15 @@
                     </div>
 
                     <div class="panel panel-default ailments">
-                        <div class="panel-heading"><span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                        <div class="panel-heading">
+                            <span>Ailment resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="ailmentsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="ailmentsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel-body">
                             <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
                             </div>
@@ -161,7 +177,13 @@
                     </div>
 
                     <div class="panel panel-default killers">
-                        <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a></div>
+                        <div class="panel-heading">
+                            <span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="killersSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
                             <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
@@ -171,8 +193,11 @@
                     <div class="panel panel-default imperils">
                         <div class="panel-heading">
                             <span>Imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imperils')">unselect all</a>
-                            <div class="subFilter choice">
-                                <input type="checkbox" class="excludeLb"/><span>Exclude Limit Burst</span>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="imperilsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="imperilsSkillTypes" data-toggle="buttons">
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -182,7 +207,15 @@
                     </div>
                     
                     <div class="panel panel-default breaks">
-                        <div class="panel-heading"><span>Breaks</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('breaks')">unselect all</a></div>
+                        <div class="panel-heading">
+                            <span>Breaks</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('breaks')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="breaksTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="breaksSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel-body">
                             <div class="btn-group breaks choice" data-toggle="buttons" id="breaks">
                             </div>

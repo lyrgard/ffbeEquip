@@ -496,6 +496,13 @@ function unselectAll(type) {
     });
 }
 
+function selectAll(type) {
+    $("input[name='"+ type +"']").each(function(index, checkbox) {
+        $(checkbox).prop('checked', true);
+        $(checkbox).parent().addClass('active');
+    });
+}
+
 // Add text choices to a filter. Type can be 'radio' of 'checkbox', depending if you want only one selection, or allow many.
 function addTextChoicesTo(targetId, type, valueMap) {
 	var target = $("#" + targetId);
