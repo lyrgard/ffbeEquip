@@ -70,7 +70,7 @@
     width: 40px;
 }
 
-.subFilter {
+.panel-heading .filters {
     float: right;
     display: flex;
     align-items: center;
@@ -89,4 +89,9 @@
 
 #results .selected {
     font-weight: bold;
+}
+
+.panel-heading .choice {
+    margin-left: 10px;
+    margin-top: -4px;
 }
