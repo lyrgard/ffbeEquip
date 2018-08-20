@@ -423,6 +423,13 @@
     font-weight: bold;
 }
 
+
+.unit .glyphicon-plus, .unit .glyphicon-minus {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 15px;
+}
 /* For small screen, show stats in line and mode fixed lower right */
 @media (max-width: 768px) {
     
