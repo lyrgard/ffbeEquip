@@ -512,9 +512,9 @@ function startPage() {
 	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm");
 	// Ailments
 	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
-	// Killers
-	addImageChoicesTo("physicalKillers", killerList, "checkbox", "icons/killers/physicalKiller_");
-    addImageChoicesTo("magicalKillers", killerList, "checkbox", "icons/killers/magicalKiller_");
+    // Killers
+	addIconChoicesTo("physicalKillers", killerList.map(function(v){return 'physicalKiller_'+v}), "checkbox", "killer");
+    addIconChoicesTo("magicalKillers", killerList.map(function(v){return 'magicalKiller_'+v}), "checkbox", "killer");
 	// Imperils
 	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm");
     // Breaks

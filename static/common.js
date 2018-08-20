@@ -989,10 +989,10 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
     for (var i = 0; i < killerValues.length; i++) {
         if (physicalRacesByValue[killerValues[i]]) {
             physicalKillerString += '<span class="killerValueGroup physical ';
-            var imgs = ""
+            var imgs = "";
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/icons/killers/physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '.png" title="' + physicalRacesByValue[killerValues[i]][j] + '"/>';
-                physicalKillerString + physicalRacesByValue[killerValues[i]][j] + " ";
+                imgs += '<i class="img img-killer-physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '" title="' + physicalRacesByValue[killerValues[i]][j] + ' physical killer"></i>';
+                physicalKillerString += physicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(physicalKillers, physicalRacesByValue[killerValues[i]])) {
                 physicalKillerString += "selected";
@@ -1008,10 +1008,10 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
         }
         if (magicalRacesByValue[killerValues[i]]) {
             magicalKillerString += '<span class="killerValueGroup magical ';
-            var imgs = ""
+            var imgs = "";
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<img src="img/icons/killers/magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '.png" title="' + magicalRacesByValue[killerValues[i]][j] + '"/>';
-                magicalKillerString + magicalRacesByValue[killerValues[i]][j] + " ";
+                imgs += '<i class="img img-killer-magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '" title="' + magicalRacesByValue[killerValues[i]][j] + ' magical killer"></i>';
+                magicalKillerString += magicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(magicalKillers, magicalRacesByValue[killerValues[i]])) {
                 magicalKillerString += "selected";
