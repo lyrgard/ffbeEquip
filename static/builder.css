@@ -275,7 +275,7 @@
     display: inline-block;
 }
 
-.unitEquipable img.notEquipable {
+.unitEquipable .notEquipable {
     opacity: 0.2;
 }
 
@@ -339,12 +339,28 @@
     opacity: 0.7;
 }
 
-.buildLine .type.slot img {
+.buildLine .type.slot i.img {
     -webkit-filter: grayscale(100%);
        -moz-filter: grayscale(100%);
          -o-filter: grayscale(100%);
         -ms-filter: grayscale(100%);
             filter: grayscale(100%);
+}
+
+.buildLine .type.slot:hover i.img {
+    -webkit-filter: none;
+       -moz-filter: none;
+         -o-filter: none;
+        -ms-filter: none;
+            filter: none;
+}
+
+i.img.img-slot-hand.leftHand {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
 
 .buildLine .slot {

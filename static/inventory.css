@@ -263,7 +263,7 @@
     background: #f0f0f0;
 }
 
-.typeJumpList .typeJump img {
+.typeJumpList .typeJump i.img {
     width: 18px;
     height: 18px;
 }
@@ -294,8 +294,9 @@
     text-align: center;
 }
 
-.stats table .itemType img {
+.stats table .itemType i {
     height: 18px;
+    width: 18px;
     margin: 1px 4px;
 }
 .stats table .value,

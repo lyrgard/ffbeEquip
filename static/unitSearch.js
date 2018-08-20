@@ -321,7 +321,9 @@ function displayUnitsAsync(units, start, div) {
                     if (elements.values.includes(elementList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/' + elementList[i] + '.png"/>' + unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+                    html+= '">';
+                    html+= '<i class="img img-elem-ailm-' + elementList[i] + '"></i>';
+                    html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
                 }
             }
         }
@@ -335,7 +337,9 @@ function displayUnitsAsync(units, start, div) {
                     if (ailments.values.includes(ailmentList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/' + ailmentList[i] + '.png"/>' + unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+                    html+= '">';
+                    html+= '<i class="img img-elem-ailm-' + ailmentList[i] + '"></i>';
+                    html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
                 }
             }
         }
@@ -562,30 +566,30 @@ function startPage() {
 	// Populates the various filters
 	
 	// Item types
-	addImageChoicesTo("types",typeList.slice(0,typeList.length-2));
+	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment");
     
 	// Elements
-	addImageChoicesTo("elements",elementList);
+	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm");
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'ST':'ST', 'AOE':'AOE'});
     selectAll("elementsSkillTypes");
     selectAll("elementsTargetAreaTypes");
     
 	// Ailments
-	addImageChoicesTo("ailments",ailmentList);
+	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'ST':'ST', 'AOE':'AOE'});
     selectAll("ailmentsSkillTypes");
     selectAll("ailmentsTargetAreaTypes");
     
 	// Killers
-	addImageChoicesTo("physicalKillers",killerList, type="checkbox", "physicalKiller_");
-    addImageChoicesTo("magicalKillers",killerList, type="checkbox", "magicalKiller_");
+	addIconChoicesTo("physicalKillers", killerList.map(function(v){return 'physicalKiller_'+v}), "checkbox", "killer");
+    addIconChoicesTo("magicalKillers", killerList.map(function(v){return 'magicalKiller_'+v}), "checkbox", "killer");
     addTextChoicesTo("killersSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     selectAll("killersSkillTypes");
     
 	// Imperils
-	addImageChoicesTo("imperils",elementList);
+	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm");
     addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'ST':'ST', 'AOE':'AOE'});
     selectAll("imperilsSkillTypes");
