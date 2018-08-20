@@ -345,7 +345,7 @@
     height: 45px;
 }
 
-.awakenButton {
+i.awakenButton {
     height: 28px;
     position: absolute;
     top: 2px;
@@ -384,13 +384,8 @@
     margin: 0 auto;
 }
 
-.stats table .crystal img {
-    height: 20px;
-    margin: 1px 5px;
-}
-
-.stats table .star7 .crystal img {
-    margin: 1px 0;
+.stats table .crystal i {
+    margin: 1px;
 }
 
 .stats table .crystal {

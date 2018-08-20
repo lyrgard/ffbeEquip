@@ -29,7 +29,7 @@ var cspDirectives =  {
               'pagead2.googlesyndication.com', 'adservice.google.fr', 'adservice.google.com', 'www.google-analytics.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io'],
-  imgSrc: ["'self'", 'www.google-analytics.co'],
+  imgSrc: ["'self'", "data:", 'www.google-analytics.co'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
   connectSrc: ["'self'", 'www.google-analytics.com'],
   mediaSrc: ["'none'"],
