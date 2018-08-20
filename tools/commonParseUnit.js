@@ -692,12 +692,14 @@ function parseLb(lb, unit, skills) {
 function parseActiveRawEffect(rawEffect, skills) {
     var result = null;
     
-    
-    
     // break
     if (rawEffect[2] == 24) { 
         result = {};
-        addBreak(result, rawEffect[3]);
+        if (rawEffect[1] == 1) {
+            addBreak(result, rawEffect[3]);
+        } else {
+            addStatsBuff(result, rawEffect[3]);
+        }
     
     // Randomly use skills
     } else if (rawEffect[2] == 29) { 
@@ -711,11 +713,45 @@ function parseActiveRawEffect(rawEffect, skills) {
             }
         }
         
-        // Imperil
+    // Imperil
     } else if (rawEffect[2] == 33) { 
         result = {};
         var imperilData = rawEffect[3];
-        addImperil(result, imperilData);
+        if (rawEffect[1] == 1) {
+            addImperil(result, imperilData);
+        } else {
+            addElementalResist(result, imperilData);
+            result.turns = imperilData[9];
+        }
+    
+    // Status ailment resistance
+    } else if (rawEffect[2] == 7) { 
+        result = {};
+        var ailmentsData = rawEffect[3];
+        addAilmentResist(result, ailmentsData);
+        result.turns = ailmentsData[9];
+        
+    // Killers
+    } else if (rawEffect[2] == 92) { 
+        result = {};
+        var killersData = rawEffect[3];
+        for (var i = 0; i < 8; i++) {
+            if (killersData[i] == -1) {
+                break;
+            }
+            addKiller(result, raceMap[killersData[i][0]], killersData[i][1], 0);
+        }
+        result.turns = killersData[8];
+    } else if (rawEffect[2] == 93) { 
+        result = {};
+        var killersData = rawEffect[3];
+        for (var i = 0; i < 8; i++) {
+            if (killersData[i] == -1) {
+                break;
+            }
+            addKiller(result, raceMap[killersData[i][0]], 0, killersData[i][1]);
+        }
+        result.turns = killersData[8];
     }
 
     if (result) {
@@ -729,16 +765,18 @@ function parseActiveRawEffect(rawEffect, skills) {
             result.area = "RND";
         }
         
-        if (rawEffect[1] == 1) {
+        if (rawEffect[1] == 0) {
+            result.target = "SELF";
+        } else if (rawEffect[1] == 1) {
             result.target = "ENEMY";
         } else if (rawEffect[1] == 2) {
             result.target = "ALLY";
         } else if (rawEffect[1] == 3) {
-            result.target = "CASTER";
+            result.target = "SELF";
         } else if (rawEffect[1] == 4) {
             result.target = "ALLY";
         } else if (rawEffect[1] == 5) {
-            result.target = "ALLY_BUT_CASTER";
+            result.target = "ALLY_BUT_SELF";
         } else if (rawEffect[1] == 6) {
             result.target = "ANY";
         } else {
@@ -854,10 +892,11 @@ function addImperil(item, values) {
     }
     for (var index in elements) {
         if (values[index]) {
-            if (!item.imperil) {
-                item.imperil = {"elements":[]};
+            item.imperil.elements.push({"name":elements[index],"percent":-values[index]});
+            if (values[index] > 0) {
+                console.log("Positive imperil !");
+                console.log(values);
             }
-            item.imperil.elements.push({"name":elements[index],"percent":-values[index]})
         }
     }
     item.imperil.turns = values[9];
@@ -880,6 +919,25 @@ function addBreak(item, values) {
         item.break.spr = -values[3];
     }
     item.break.turns = values[4];
+}
+
+function addStatsBuff(item, values) {
+    if (!item.statsBuff) {
+        item.statsBuff = {};
+    }
+    if (values[0]) {
+        item.statsBuff.atk = values[0];
+    }
+    if (values[1]) {
+        item.statsBuff.def = values[1];
+    }
+    if (values[2]) {
+        item.statsBuff.mag = values[2];
+    }
+    if (values[3]) {
+        item.statsBuff.spr = values[3];
+    }
+    item.statsBuff.turns = values[4];
 }
 
 function addLbPerTurn(item, min, max) {
@@ -1043,7 +1101,7 @@ function formatForSearch(units) {
                     }
                 }
             }
-            var unitOut = {"passives":{}, "actives":{}, "lb":{}};
+            var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}};
             for (var i = skills.length; i--;) {
                 var skill = skills[i];
                 if (skill.resist) {
@@ -1085,7 +1143,9 @@ function formatForSearch(units) {
                 var skill = activeAndMagic[i];
                 addSkillEffectToSearch(skill.effects, unitOut.actives);
             }
-            addSkillEffectToSearch(unit.lb.maxEffects, unitOut.lb);
+            if (unit.lb) {
+                addSkillEffectToSearch(unit.lb.maxEffects, unitOut.lb);
+            }
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
             if (first) {
@@ -1105,33 +1165,79 @@ function addSkillEffectToSearch(effects, unitOut) {
         var effect = effects[i];
         if (effect.effect) {
             if (effect.effect.imperil) {
-                if (!unitOut.imperil) {
-                    unitOut.imperil = {};
+                if (!unitOut[effect.effect.area].imperil) {
+                    unitOut[effect.effect.area].imperil = {};
                 }
                 for (var j = effect.effect.imperil.elements.length; j--;) {
-                    if (!unitOut.imperil[effect.effect.imperil.elements[j].name] || unitOut.imperil[effect.effect.imperil.elements[j].name] > effect.effect.imperil.elements[j].percent) {
-                        unitOut.imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
+                    if (!unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] || unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
+                        unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
                     }
+                }
+             } else if (effect.effect.resist) {
+                for (var j = effect.effect.resist.length; j--;) {
+                    if (ailments.includes(effect.effect.resist[j].name)) {
+                        if (!unitOut[effect.effect.area].ailmentResist) {unitOut[effect.effect.area].ailmentResist = {};}
+                        if (!unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                            unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        }
+                    } else {
+                        if (!unitOut[effect.effect.area].elementalResist) {unitOut[effect.effect.area].elementalResist = {};}
+                        if (!unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] || unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                            unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        }
+                    }
+                    
+                }
+            } else if (effect.effect.killers) {
+                for (var j = effect.effect.killers.length; j--;) {
+                    if (effect.effect.killers[j].physical) {
+                        if (!unitOut[effect.effect.area].physicalKillers) {unitOut[effect.effect.area].physicalKillers = {};}
+                        if (!unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] || unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].physical) {
+                            unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].physical;
+                        }  
+                    } 
+                    if (effect.effect.killers[j].magical) {
+                        if (!unitOut[effect.effect.area].magicalKillers) {unitOut[effect.effect.area].magicalKillers = {};}
+                        if (!unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] || unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].magical) {
+                            unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].magical;
+                        }    
+                    } 
                 }
             } else if (effect.effect.randomlyUse) {
                 for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
                     addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, unitOut);
                 }
-            } else if (effect.effect.break && effect.effect.target == "ENEMY") {
-                if (!unitOut.break) {
-                    unitOut.break = {};
+            } else if (effect.effect.break) {
+                if (!unitOut[effect.effect.area].break) {
+                    unitOut[effect.effect.area].break = {};
                 }
-                if (!unitOut.break.atk || unitOut.break.atk < effect.effect.break.atk) {
-                    unitOut.break.atk = effect.effect.break.atk;
+                if (!unitOut[effect.effect.area].break.atk || unitOut[effect.effect.area].break.atk < effect.effect.break.atk) {
+                    unitOut[effect.effect.area].break.atk = effect.effect.break.atk;
                 }
-                if (!unitOut.break.def || unitOut.break.def < effect.effect.break.def) {
-                    unitOut.break.def = effect.effect.break.def;
+                if (!unitOut[effect.effect.area].break.def || unitOut[effect.effect.area].break.def < effect.effect.break.def) {
+                    unitOut[effect.effect.area].break.def = effect.effect.break.def;
                 }
-                if (!unitOut.break.mag || unitOut.break.atk < effect.effect.break.mag) {
-                    unitOut.break.mag = effect.effect.break.mag;
+                if (!unitOut[effect.effect.area].break.mag || unitOut[effect.effect.area].break.atk < effect.effect.break.mag) {
+                    unitOut[effect.effect.area].break.mag = effect.effect.break.mag;
                 }
-                if (!unitOut.break.spr || unitOut.break.spr < effect.effect.break.spr) {
-                    unitOut.break.spr = effect.effect.break.spr;
+                if (!unitOut[effect.effect.area].break.spr || unitOut[effect.effect.area].break.spr < effect.effect.break.spr) {
+                    unitOut[effect.effect.area].break.spr = effect.effect.break.spr;
+                }
+            } else if (effect.effect.statsBuff) {
+                if (!unitOut[effect.effect.area].statsBuff) {
+                    unitOut[effect.effect.area].statsBuff = {};
+                }
+                if (!unitOut[effect.effect.area].statsBuff.atk || unitOut[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.atk) {
+                    unitOut[effect.effect.area].statsBuff.atk = effect.effect.statsBuff.atk;
+                }
+                if (!unitOut[effect.effect.area].statsBuff.def || unitOut[effect.effect.area].statsBuff.def < effect.effect.statsBuff.def) {
+                    unitOut[effect.effect.area].statsBuff.def = effect.effect.statsBuff.def;
+                }
+                if (!unitOut[effect.effect.area].statsBuff.mag || unitOut[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.mag) {
+                    unitOut[effect.effect.area].statsBuff.mag = effect.effect.statsBuff.mag;
+                }
+                if (!unitOut[effect.effect.area].statsBuff.spr || unitOut[effect.effect.area].statsBuff.spr < effect.effect.statsBuff.spr) {
+                    unitOut[effect.effect.area].statsBuff.spr = effect.effect.statsBuff.spr;
                 }
             }
         }
