@@ -50,6 +50,11 @@ const LISTING = [
         className: '', // there is already "sort" in the file name
         basePath: '../static/img/icons/sort', 
         outPath: '../static/css-img/sorts.css'
+    },
+    {
+        className: 'killer',
+        basePath: '../static/img/icons/killers', 
+        outPath: '../static/css-img/killers.css'
     }
 ];
 
