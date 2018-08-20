@@ -5,12 +5,12 @@ var saveNeeded = false;
 var onlyShowOwnedUnits = false;
 var unitSearch = [];
 var releasedUnits;
-var imperils = {values: [], "actives": true, "lb":true};
-var breaks = {values: [], "actives": true, "lb":true};
-var elements = {values: [], "actives": true, "passives": true, "lb":true};
-var ailments = {values: [], "actives": true, "passives": true, "lb":true};
-var physicalKillers = {values: [], "actives": true, "passives": true, "lb":true};
-var magicalKillers = {values: [], "actives": true, "passives": true, "lb":true};
+var imperils = {values: [], "targetAreaTypes": [], "skillTypes": ["active", "lb"]};
+var breaks = {values: [], "targetAreaTypes": [], "skillTypes": ["active", "lb"]};
+var elements = {values: [], "targetAreaTypes": [], "skillTypes": []};
+var ailments = {values: [], "targetAreaTypes": [], "skillTypes": []};
+var physicalKillers = {values: [], "targetAreaTypes": [], "skillTypes": ["active", "passive", "lb"]};
+var magicalKillers = {values: [], "targetAreaTypes": [], "skillTypes": ["active", "passive", "lb"]};
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -49,12 +49,12 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
         if (releasedUnits[unit.id]) {
             if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
                 if (types.length == 0 || includeAll(unit.equip, types)) {
-                    if (elements.values.length == 0 || elements.passives && containAllKeyPositive(unit.passives.elementalResist, elements.values) || elements.actives && containAllKeyPositive(unit.actives.elementalResist, elements.values) || elements.lb && containAllKeyPositive(unit.lb.elementalResist, elements.values)) {
-                        if (ailments.values.length == 0 || ailments.passives && containAllKeyPositive(unit.passives.ailmentResist, ailments.values) || ailments.actives && containAllKeyPositive(unit.actives.ailmentResist, ailments.values) || ailments.lb && containAllKeyPositive(unit.lb.ailmentResist, ailments.values)) {
-                            if (physicalKillers.values.length == 0 || physicalKillers.passives && containAllKeyPositive(unit.passives.physicalKillers, physicalKillers.values) || physicalKillers.actives && containAllKeyPositive(unit.actives.physicalKillers, physicalKillers.values) || physicalKillers.lb && containAllKeyPositive(unit.lb.physicalKillers, physicalKillers.values)) {
-                                if (magicalKillers.values.length == 0 || magicalKillers.passives && containAllKeyPositive(unit.passives.magicalKillers, magicalKillers.values) || magicalKillers.actives && containAllKeyPositive(unit.actives.magicalKillers, magicalKillers.values) || magicalKillers.lb && containAllKeyPositive(unit.lb.magicalKillers, magicalKillers.values)) {
-                                    if (imperils.values.length == 0 || imperils.actives && containAllKeyPositive(unit.actives.imperil, imperils.values) || imperils.lb && containAllKeyPositive(unit.lb.imperil, imperils.values)) {
-                                        if (breaks.values.length == 0 || breaks.actives && containAllKeyPositive(unit.break, breaks.values) || breaks.lb && containAllKeyPositive(unit.lb.break, breaks.values)) {                                    
+                    if (elements.values.length == 0 || elements.skillTypes.includes("passive") && containAllKeyPositive(unit.passives.elementalResist, elements.values) || elements.skillTypes.includes("active") && containAllKeyPositive(unit.actives.elementalResist, elements.values) || elements.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.elementalResist, elements.values)) {
+                        if (ailments.values.length == 0 || ailments.skillTypes.includes("passive") && containAllKeyPositive(unit.passives.ailmentResist, ailments.values) || ailments.skillTypes.includes("active") && containAllKeyPositive(unit.actives.ailmentResist, ailments.values) || ailments.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.ailmentResist, ailments.values)) {
+                            if (physicalKillers.values.length == 0 || physicalKillers.skillTypes.includes("passive") && containAllKeyPositive(unit.passives.physicalKillers, physicalKillers.values) || physicalKillers.skillTypes.includes("active") && containAllKeyPositive(unit.actives.physicalKillers, physicalKillers.values) || physicalKillers.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.physicalKillers, physicalKillers.values)) {
+                                if (magicalKillers.values.length == 0 || magicalKillers.skillTypes.includes("passive") && containAllKeyPositive(unit.passives.magicalKillers, magicalKillers.values) || magicalKillers.skillTypes.includes("active") && containAllKeyPositive(unit.actives.magicalKillers, magicalKillers.values) || magicalKillers.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.magicalKillers, magicalKillers.values)) {
+                                    if (imperils.values.length == 0 || imperils.skillTypes.includes("active") && containAllKeyPositive(unit.actives.imperil, imperils.values) || imperils.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.imperil, imperils.values)) {
+                                        if (breaks.values.length == 0 || breaks.skillTypes.includes("active") && containAllKeyPositive(unit.break, breaks.values) || breaks.skillTypes.includes("lb") && containAllKeyPositive(unit.lb.break, breaks.values)) {                                    
                                             if (searchText.length == 0 || units[unit.id].name.toLowerCase().indexOf(searchText) >= 0 ) {
                                                 result.push({"searchData": unit, "unit": units[unit.id]});
                                             }
@@ -160,13 +160,13 @@ function sortUnits(units) {
 
 function getValue(unit, type, filterValues, index) {
     var result = 0;
-    if (filterValues.passives && unit.passives[type] && unit.passives[type][filterValues.values[index]]) {
+    if (filterValues.skillTypes.includes("passive") && unit.passives[type] && unit.passives[type][filterValues.values[index]]) {
         result = unit.passives[type][filterValues.values[index]];
     }
-    if (filterValues.actives && unit.actives[type] && unit.actives[type][filterValues.values[index]]) {
+    if (filterValues.skillTypes.includes("active") && unit.actives[type] && unit.actives[type][filterValues.values[index]]) {
         result = Math.max(result, unit.actives[type][filterValues.values[index]]);
     }
-    if (filterValues.lb && unit.lb[type] && unit.lb[type][filterValues.values[index]]) {
+    if (filterValues.skillTypes.includes("lb") && unit.lb[type] && unit.lb[type][filterValues.values[index]]) {
         result = Math.max(result, unit.lb[type][filterValues.values[index]]);
     }
     return result;
@@ -189,12 +189,18 @@ var readFilterValues = function() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
     
     types = getSelectedValuesFor("types");
+    
     elements.values = getSelectedValuesFor("elements");
+    elements.targetAreaTypes = getSelectedValuesFor("elementsTargetAreaTypes");
+    elements.skillTypes = getSelectedValuesFor("elementsSkillTypes");
+    
     ailments.values = getSelectedValuesFor("ailments");
+    ailments.targetAreaTypes = getSelectedValuesFor("ailmentsTargetAreaTypes");
+    ailments.skillTypes = getSelectedValuesFor("ailmentsSkillTypes");
+    
     physicalKillers.values = getSelectedValuesFor("physicalKillers");
     magicalKillers.values = getSelectedValuesFor("magicalKillers");
     imperils.values = getSelectedValuesFor("imperils");
-    imperils.lb = !$(".imperils .excludeLb").prop("checked");
     breaks.values = getSelectedValuesFor("breaks");
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
@@ -506,8 +512,16 @@ function startPage() {
 	addImageChoicesTo("types",typeList.slice(0,typeList.length-2));
 	// Elements
 	addImageChoicesTo("elements",elementList);
+    addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passive', 'Active':'active', 'LB':'lb'});
+    addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'ST':'st', 'AOE':'AOE'});
+    selectAll("elementsSkillTypes");
+    selectAll("elementsTargetAreaTypes");
 	// Ailments
 	addImageChoicesTo("ailments",ailmentList);
+    addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passive', 'Active':'active', 'LB':'lb'});
+    addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'ST':'st', 'AOE':'AOE'});
+    selectAll("ailmentsSkillTypes");
+    selectAll("ailmentsTargetAreaTypes");
 	// Killers
 	addImageChoicesTo("physicalKillers",killerList, type="checkbox", "physicalKiller_");
     addImageChoicesTo("magicalKillers",killerList, type="checkbox", "magicalKiller_");
