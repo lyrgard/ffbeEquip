@@ -128,12 +128,12 @@ var modifyFilterSummary = function() {
     }
     if (elements.length != 0) {
         for (var index in elements) {
-			html += '<img src="img/icons/elements-ailments/' + elements[index] + '.png"></img>'
+			html += '<i class="img img-elem-ailm-' + elements[index] + '"></i>';
         }
     }
     if (ailments.length != 0) {
         for (var index in ailments) {
-			html += '<img src="img/icons/elements-ailments/' + ailments[index] + '.png"></img>'
+			html += '<i class="img img-elem-ailm-' + ailments[index] + '"></i>';
         }
     }
     if (killers.length != 0) {
@@ -403,9 +403,9 @@ function startPage() {
 	// Item types
 	addIconChoicesTo("types", typeList, "checkbox", "equipment");
 	// Elements
-	addImageChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "elem-ailm");
 	// Ailments
-	addImageChoicesTo("ailments", ailmentList, "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
 	// Killers
 	addTextChoicesTo("killers",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
 	// Access to remove

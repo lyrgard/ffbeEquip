@@ -270,7 +270,9 @@ function displayUnitsAsync(units, start, div) {
                     if (elements.values.includes(elementList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/icons/elements-ailments/' + elementList[i] + '.png"/>' + unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+                    html+= '">';
+                    html+= '<i class="img img-elem-ailm-' + elementList[i] + '"></i>';
+                    html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
                 }
             }
         }
@@ -284,7 +286,9 @@ function displayUnitsAsync(units, start, div) {
                     if (ailments.values.includes(ailmentList[i])) {
                         html+= " selected";
                     }
-                    html+= '"><img src="img/icons/elements-ailments/' + ailmentList[i] + '.png"/>' + unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+                    html+= '">';
+                    html+= '<i class="img img-elem-ailm-' + ailmentList[i] + '"></i>';
+                    html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
                 }
             }
         }
@@ -505,14 +509,14 @@ function startPage() {
 	// Item types
 	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment");
 	// Elements
-	addImageChoicesTo("elements", elementList, "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm");
 	// Ailments
-	addImageChoicesTo("ailments", ailmentList, "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
 	// Killers
 	addImageChoicesTo("physicalKillers", killerList, "checkbox", "icons/killers/physicalKiller_");
     addImageChoicesTo("magicalKillers", killerList, "checkbox", "icons/killers/magicalKiller_");
 	// Imperils
-	addImageChoicesTo("imperils", elementList, "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm");
     // Breaks
 	addTextChoicesTo("breaks",'checkbox',{'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
     

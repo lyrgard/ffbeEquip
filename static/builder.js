@@ -2376,7 +2376,7 @@ function startPage() {
     
     
     // Elements
-	addImageChoicesTo("elements",["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "icons/elements-ailments/");
+	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "elem-ailm");
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -2664,10 +2664,14 @@ function populateItemStat() {
 function populateResists() {
     var div = $("#resultStats .resists .elements");
     for (var index in elementList) {
-        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '"><img src="img/icons/elements-ailments/' + elementList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '">'+
+                   '<i class="img img-elem-ailm-' + elementList[index] + '"></i>'+
+                   '<div class="value">0%<div></div>');
     }
     var div = $("#resultStats .resists .ailments");
     for (var index in ailmentList) {
-        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'"><img src="img/icons/elements-ailments/' + ailmentList[index] + '.png"><div class="value">0%<div></div>');
+        div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'">'+
+                   '<i class="img img-elem-ailm-' + ailmentList[index] + '"></i>'+
+                   '<div class="value">0%<div></div>');
     }
 }

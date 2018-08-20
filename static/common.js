@@ -106,7 +106,7 @@ function getElementHtml(elements) {
     for (var index in elements) {
         html += "<div class='specialValueItem'><div class='specialImg'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<img src='img/icons/elements-ailments/" + elements[index] + ".png'></img>"+
+                "<i class='img img-elem-ailm-" + elements[index] + "'></i>"+
                 "</div></div>";
     }
     html += "</div>";
@@ -118,7 +118,7 @@ function getAilmentsHtml(item) {
     $(item.ailments).each(function(index, ailment) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<img class='imageWithText' src='img/icons/elements-ailments/" + ailment.name + ".png'></img>"+
+                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText'></i>"+
                 "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
     html += "</div>";
@@ -129,7 +129,7 @@ function getResistHtml(item) {
     $(item.resist).each(function(index, resist) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
                 "<i class='img img-equipment-heavyShield miniIcon'></i>"+
-                "<img class='imageWithText' src='img/icons/elements-ailments/" + resist.name + ".png'></img>"+
+                "<i class='img img-elem-ailm-" + resist.name + " imageWithText'></i>"+
                 "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
     html += "</div>";
