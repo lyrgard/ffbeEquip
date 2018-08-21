@@ -10,8 +10,6 @@ var linkMode = false;
 
 var gridContainer;
 
-var sp;
-
 var logged = false;
 
 const maxLevelByStar = {
@@ -30,10 +28,70 @@ function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
     $(".nav-tabs li").removeClass("active");
+    $("#noEsperMessage").addClass('hidden');
+}
+
+function showAll() {
+    beforeShow();
+    $(".nav-tabs li.ALL").addClass("active");
+    var $allEspers = $('#allEspers').show();
+    $("#esper").hide();
+    $("#toggleGrid").addClass('hidden');
+    
+    // Reset sorting cols to first one
+    $('#allEspers table thead th').removeClass('active desc').first().addClass('active');
+
+    if ($.isEmptyObject(ownedEspers)) {
+        $("#noEsperMessage").removeClass('hidden');
+        $("#noEsperMessage").removeClass('hidden');
+        $allEspers.find(".panel").hide();
+    } else {
+        var html = "";
+        for (var index in espers) {
+            // Skip if esper not in owned object
+            if (!ownedEspers[espers[index].name]) continue;
+
+            var esper = ownedEspers[espers[index].name];
+            var escapedName = escapeName(esper.name);
+            var sp = calculateSp(esper.level, esper.rarity, esper.name);
+            addStats(esper.level, esper.rarity, esper.name);
+
+            html += "<tr data-esper=" + esper.name + ">";
+
+            // First cell: image, name, points
+            html += "<td class='esperDesc index'>";
+            html += "<i class='img img-esper-" + escapedName +"'></i>";
+            html += "<div class='name'>" + esper.name + " <span class='rarity'>" + Array(esper.rarity+1).join("★") +"</span></div>";
+            html += "<div class='sp'>" + sp.used + " / "+ sp.available +"</div>";
+            html += "<span class='hidden sortValue'>" + index + "</span>";
+            html += "</td>";
+            
+            html += "<td class='level'>" + esper.level + "</td>";
+
+            // Next cells: stats
+            html += "<td class='stats hp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'hp') + "</span> ("+ esper.hp +")</td>";
+            html += "<td class='stats mp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mp') + "</span> ("+ esper.mp +")</td>";
+            html += "<td class='stats atk'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'atk') + "</span> ("+ esper.atk +")</td>";
+            html += "<td class='stats def'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'def') + "</span> ("+ esper.def +")</td>";
+            html += "<td class='stats mag'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mag') + "</span> ("+ esper.mag +")</td>";
+            html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
+            html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
+            html += "<td class='killers'>" + getKillersHtml(esper) + "</td>";
+
+            html += "</tr>";
+        }
+        $allEspers.find("table tbody").html(html);
+        $allEspers.find(".panel").show();
+    }
+
 }
 
 function show(esperName) {
     beforeShow();
+    $('#allEspers').hide();
+    $("#esper").show();
+    $('#toggleGrid').removeClass('hidden');
+    
     currentEsper = esperName;
     var escapedName = escapeName(esperName);
     $(".nav-tabs li." + escapedName).addClass("active");
@@ -53,6 +111,7 @@ function show(esperName) {
             optionsHtml += '<option value="' + i + '">' + i + ' ★</option>';
         }
         $("#esper #esperStar").html(optionsHtml);
+        $("#esper #esperName").html(esperName);
         if (ownedEspers[esperName]) {
             $("#esper #esperStar option[value=" + ownedEspers[esperName].rarity + "]").prop('selected', true);
             setEsperLevel(ownedEspers[esperName].level);
@@ -73,6 +132,63 @@ function show(esperName) {
             gridContainer.addClass("hidden");
         }
     }
+}
+
+function sortTableBy(colName)
+{
+    // Identify some useful elements
+    var $th = $('#allEspers table thead th');
+    var $tableBody = $('#allEspers table tbody');
+
+    // Remove active sort
+    $th.removeClass('active');
+
+    // Add active sort, and toggle asc/desc
+    var isDescending = $th.filter('.'+colName).toggleClass('desc').addClass('active').hasClass('desc');
+    
+    // Remove sorting on non active cols
+    $th.not('.active').removeClass('desc');
+
+    // Retrieve all table rows and values
+    var rows = [];
+    $tableBody.find('tr').each(function() {
+        // Identify the column
+        var $col = $(this).find('td.' + colName);
+        if (colName === 'resists' || colName === 'killers') {
+            // For these "special" column, simply count the number of specialValueItem
+            value = $col.find('.specialValueItem').length;
+        } else {
+            // Try to find a sort value inside
+            var $sortValue = $col.find('.sortValue');
+            if ($sortValue.length > 0) {
+                // A sort value is set, use it
+                value = parseInt($sortValue.html().replace(/\D/g,''));
+            } else {
+                // For others values, parse all col content as int
+                value = parseInt($col.html().replace(/\D/g,''));
+            }
+        }
+        rows.push({
+            html: this.outerHTML,
+            value: value
+        });
+    });
+
+    // Sort it!
+    rows.sort(function(objA, objB) {
+        if (objA.value > objB.value) return isDescending ? -1 : 1;
+        if (objA.value < objB.value) return isDescending ? 1 : -1;
+        return 0;
+    });
+    
+    // Empty body and append each rows
+    $tableBody.html('').append(function(){
+        var html = '';
+        $.each(rows, function(idx, row) {
+            html += row.html;
+        });
+        return html;
+    });
 }
 
 function findCurrentScale()
@@ -113,34 +229,15 @@ function setEsperLevel(level) {
     updateSp();
     updateStats();
 }
-    
+
 function updateSp() {
     var level = parseInt($("#level").val());
     var star = parseInt($("#esperStar").val());
-    var board = esperBoards[currentEsper];
-    sp = [];
-    var availableSP = 0;
-    for (var i = 1; i < star; i++) {
-        var progression = board.progression[i.toString()];
-        for (var j = 0; j < progression.length; j++) {
-            availableSP += progression[j];
-        }
-    }
-    var progression = board.progression[star];
-    for (var j = 0; j < level; j++) {
-        availableSP += progression[j];
-    }
     
-    var board = esperBoards[currentEsper];
-    var usedSp = 0;
-    for (var index in board.nodes) {
-        usedSp += calculateUsedSp(board.nodes[index]);
-    }
+    var sp = calculateSp(level, star, currentEsper);
     
-    sp[0] = usedSp;
-    sp[1] = availableSP;
-    $(".spUsed").text(usedSp + " / " +availableSP);
-    if (usedSp > availableSP) {
+    $(".spUsed").text(sp.used + " / " + sp.available);
+    if (sp.used > sp.available) {
         $(".spUsed").addClass("error");
     } else {
         $(".spUsed").removeClass("error");
@@ -150,36 +247,50 @@ function updateSp() {
 function updateStats() {
     var level = parseInt($("#level").val());
     var star = parseInt($("#esperStar").val());
-    var board = esperBoards[currentEsper];
-    var ownedEsper = ownedEspers[currentEsper];
     
+    // Update esper stats
+    addStats(level, star, currentEsper);
+    
+    // Print all stats, with bonus
     for (var index = 0; index < baseStats.length; index++) {
-        var minStat = board.stats[star][baseStats[index].toUpperCase()][0];
-        var maxStat = board.stats[star][baseStats[index].toUpperCase()][1];
-        ownedEsper[baseStats[index]] = minStat + (maxStat - minStat) / maxStatLevelByStar[star] * level;
-    }
-    
-    for (var index in board.nodes) {
-        addStatsOfSelectedNodes(board.nodes[index], ownedEsper);
-    }
-    
-    for (var index = 0; index < baseStats.length; index++) {
-        var statBonusCoef = 1;
-        if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus[baseStats[index]]) {
-            statBonusCoef += ownedEsper.esperStatsBonus[baseStats[index]] / 100;
-        }
-        var bonusValue = Math.floor(ownedEsper[baseStats[index]] * statBonusCoef / 100);
-        $("#esper_" + baseStats[index]).html(
-            ownedEsper[baseStats[index]] + "&nbsp;"+
-            "<span class='statsBonus' title='Gives a bonus of +"+bonusValue+" "+ baseStats[index].toUpperCase() +" to unit equipped with this Esper'>"+
+        var baseStat = baseStats[index];
+        var bonusValue = calculateStatBonus(currentEsper, baseStat);
+        $("#esper_" + baseStat).html(
+            ownedEspers[currentEsper][baseStat] + "&nbsp;"+
+            "<span class='statsBonus' title='Gives a bonus of +"+bonusValue+" "+ baseStat.toUpperCase() +" to unit equipped with this Esper'>"+
             "(+" + bonusValue + ")" +
             "</span>");
     }
 }
 
+function addStats(level, star, esperName) {
+    var board = esperBoards[esperName];
+    var ownedEsper = ownedEspers[esperName];
+    var index;
+
+    for (index = 0; index < baseStats.length; index++) {
+        var minStat = board.stats[star][baseStats[index].toUpperCase()][0];
+        var maxStat = board.stats[star][baseStats[index].toUpperCase()][1];
+        ownedEsper[baseStats[index]] = minStat + (maxStat - minStat) / maxStatLevelByStar[star] * level;
+    }
+    
+    for (index in board.nodes) {
+        addStatsOfSelectedNodes(board.nodes[index], ownedEsper);
+    }
+}
+
+function calculateStatBonus(esperName, baseStat) {
+    var ownedEsper = ownedEspers[esperName];
+    var statBonusCoef = 1;
+    if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus[baseStat]) {
+        statBonusCoef += ownedEsper.esperStatsBonus[baseStat] / 100;
+    }
+    return Math.floor(ownedEsper[baseStat] * statBonusCoef / 100);
+}
+
 function addStatsOfSelectedNodes(node, ownedEsper) {
     var posString = getPositionString(node.position[0], node.position[1]);
-    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+    if (ownedEsper.selectedSkills.includes(posString)) {
         for (var index = 0; index < baseStats.length; index++) {
             if (node[baseStats[index]]) {
                 ownedEsper[baseStats[index]] += node[baseStats[index]];
@@ -191,13 +302,43 @@ function addStatsOfSelectedNodes(node, ownedEsper) {
     }
 }
 
-function calculateUsedSp(node) {
+function calculateSp(level, star, esperName)
+{
+    var progression;
+    var availableSP = 0;
+    var usedSp = 0;
+    var board = esperBoards[esperName];
+    var selectedSkills = ownedEspers[esperName].selectedSkills;
+
+    for (var i = 1; i < star; i++) {
+        progression = board.progression[i.toString()];
+        for (var j = 0; j < progression.length; j++) {
+            availableSP += progression[j];
+        }
+    }
+
+    progression = board.progression[star];
+    for (i = 0; i < level; i++) {
+        availableSP += progression[i];
+    }
+    
+    for (var index in board.nodes) {
+        usedSp += calculateUsedSpNode(board.nodes[index], selectedSkills);
+    }
+    
+    return {
+        used: usedSp,
+        available: availableSP
+    };
+}
+
+function calculateUsedSpNode(node, skills) {
     var cost = 0;
     var posString = getPositionString(node.position[0], node.position[1]);
-    if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
+    if (skills.includes(posString)) {
         cost += node.cost;
         for(var i = 0; i < node.children.length; i++) {
-            cost += calculateUsedSp(node.children[i]);
+            cost += calculateUsedSpNode(node.children[i], skills);
         }
     }
     return cost;
@@ -618,9 +759,11 @@ function displayEspers() {
     
     if (!linkMode) {
         var tabs = "";
+        
+        tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
-            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\"><a>"
+            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\" title=\"" + espers[index].name + "\"><a>";
             tabs += "<i class='img img-esper-" + escapedName +"'></i>";
             tabs += "</a></li>";
         }
@@ -657,7 +800,7 @@ function displayEspers() {
     if (linkMode) {
         show(Object.keys(ownedEspers)[0]);
     } else {
-        show(espers[0].name);
+        showAll();
     }
     
 }
@@ -795,8 +938,6 @@ function startPage() {
             if (ownedEspers) {
                 displayEspers();
             }
-
-            $('#toggleGrid').removeClass('hidden');
         });
     });
 
@@ -893,6 +1034,7 @@ function startPage() {
         var esperName = $elem.attr('data-esper');
         var $esper = $('#esper');
         var $pan = $esper.find('#panWrapper');
+        $window.scrollTop(0);
         $pan.scrollTop(0);
         $pan.scrollLeft(0);
 
@@ -901,9 +1043,25 @@ function startPage() {
             $('#toggleGrid').click();
         }
 
-        show(esperName);
+        if (esperName === "ALL") {
+            showAll();
+        } else {
+            show(esperName);
+        }
 
         setTimeout(function() { setCurrentScrollToCenter($pan); }, 0);
+    });
+    
+    /* Esper selection in table */
+    $("#allEspers table.allEspers").on('click', '.esperDesc', function(e) {
+        var $tr = $(e.target).parents('tr[data-esper]');
+        var esperName = $tr.attr('data-esper');
+        var $tab = $("#espers #tabs").find("[data-esper="+esperName+"]");
+        var tabScrollLeftPos = $tab.position().left - $window.outerWidth() / 2 + 30;
+        // Scroll
+        $("#espers #tabs").scrollLeft(tabScrollLeftPos);
+        // Simulate click
+        $tab.find("a").click();
     });
     
     $window.on('scroll', $.debounce(50, function(){
