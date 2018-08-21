@@ -20,6 +20,7 @@ route.get('/googleOAuthUrl', (req, res) => {
 const callbackSchema = Joi.object({
   code: Joi.string().required(),
   state: Joi.string().uri().required(),
+  scope: Joi.string(),
 });
 route.get('/googleOAuthSuccess', validator.query(callbackSchema), (req, res, next) => {
   const { state, code } = req.query;
