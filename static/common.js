@@ -527,12 +527,6 @@ function addTextChoicesTo(targetId, type, valueMap) {
 }
 
 // Add image choices to a filter.
-function addImageChoicesTo(targetId, valueList,type="checkbox",imagePrefix = "") {
-	var target = $("#" + targetId);
-	for (i = 0; i < valueList.length; i++) {
-		addImageChoiceTo(target, targetId, valueList[i], type, imagePrefix);
-	}
-}
 function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "") {
 	var target = $("#" + targetId);
 	for (i = 0; i < valueList.length; i++) {
@@ -546,9 +540,6 @@ function addTextChoiceTo(target, name, type, value, label) {
 }
 
 // Add one image choice to a filter
-function addImageChoiceTo(target, name, value, type="checkbox",imagePrefix = "") {
-	target.append('<label class="btn btn-default"><input type="' + type + '" name="' + name + '" value="'+value+'" autocomplete="off"><img style="height:38px;" src="img/'+ imagePrefix + value+'.png" title="' + value + '"/></label>');
-}
 function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
     target.append('<label class="btn btn-default iconChoice">'+
                   '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
@@ -998,7 +989,7 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
             physicalKillerString += '<span class="killerValueGroup physical ';
             var imgs = "";
             for (var j = 0; j < physicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<i class="img img-killer-physicalKiller_' + physicalRacesByValue[killerValues[i]][j] + '" title="' + physicalRacesByValue[killerValues[i]][j] + ' physical killer"></i>';
+                imgs += '<i class="img img-killer-physical-' + physicalRacesByValue[killerValues[i]][j] + '" title="' + physicalRacesByValue[killerValues[i]][j] + ' physical killer"></i>';
                 physicalKillerString += physicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(physicalKillers, physicalRacesByValue[killerValues[i]])) {
@@ -1017,7 +1008,7 @@ function getKillerHtml(killers, physicalKillers = killerList, magicalKillers = k
             magicalKillerString += '<span class="killerValueGroup magical ';
             var imgs = "";
             for (var j = 0; j < magicalRacesByValue[killerValues[i]].length; j++) {
-                imgs += '<i class="img img-killer-magicalKiller_' + magicalRacesByValue[killerValues[i]][j] + '" title="' + magicalRacesByValue[killerValues[i]][j] + ' magical killer"></i>';
+                imgs += '<i class="img img-killer-magical-' + magicalRacesByValue[killerValues[i]][j] + '" title="' + magicalRacesByValue[killerValues[i]][j] + ' magical killer"></i>';
                 magicalKillerString += magicalRacesByValue[killerValues[i]][j] + " ";
             }
             if (matches(magicalKillers, magicalRacesByValue[killerValues[i]])) {
