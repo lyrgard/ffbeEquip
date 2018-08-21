@@ -5,6 +5,81 @@
     margin: 0 auto;
 }
 
+#allEspers {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+#allEspers .panel {
+    margin: 1.5em 0.85em;
+}
+
+table.allEspers > thead > tr > th {
+    cursor: pointer;
+}
+
+table.allEspers > tbody > tr > td {
+    vertical-align: middle;
+}
+
+table.allEspers > tbody > tr > td.index {
+    white-space: nowrap;
+}
+
+table.allEspers > tbody > tr > td.resists,
+table.allEspers > tbody > tr > td.killers {
+    min-width: 135px;
+}
+
+table.allEspers .esperDesc {
+    position: relative;
+    padding-left: 70px;
+    cursor: pointer;
+}
+
+table.allEspers .esperDesc i.img{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, .5));
+}
+
+table.allEspers .esperDesc .name {
+    font-weight: bold;
+}
+
+table.allEspers .esperDesc .sp {
+    color: #8a8a8a;
+    font-size: 0.85em;
+}
+
+table.allEspers > thead > tr > th::after {
+    content: "↑";
+    z-index: 1;
+    color: #d3d3d3;
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+table.allEspers > thead > tr > th.desc::after {
+    content: "↓";
+}
+
+table.allEspers > thead > tr > th.active::after {
+    color: #3b3b3b;
+}
+
+table.allEspers > tbody > tr > td.stats {
+    color: #8a8a8a;
+}
+
+table.allEspers > tbody > tr > td.stats .bonus {
+    color: #19983d;
+}
+
 #espers .tabsWrapper {
     position:relative;
     margin: 0 auto;
@@ -57,7 +132,7 @@
     width: 40px;
     height: 40px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* filter allows to contour PNG file */
 }
 
 #espers #tabs li.active a {
@@ -495,6 +570,49 @@
     margin-top: -14px;
 }
 
+@media (max-width: 1200px) {
+    #allEspers {
+        max-width: none;
+    }
+}
+
+@media (max-width: 960px) {
+
+    #allEspers .panel {
+        margin: 0.85em 0;
+        overflow-x:auto;
+    }
+
+    table.allEspers > tbody > tr > td {
+        padding: 2px 6px;
+    }
+
+    table.allEspers .esperDesc {
+        padding-left: 38px;
+    }
+
+    table.allEspers .esperDesc i.img {
+        width: 30px;
+        height: 30px;
+        left: 4px;
+        margin-top: -15px;
+    }
+
+    table.allEspers > tbody > tr > td .specialValueItem {
+        font-size: 0.8em;
+        margin: 0;
+    }
+
+    table.allEspers > tbody > tr > td .specialValueItem .specialImg{
+        transform: scale(0.6);
+    }
+
+    table.allEspers > tbody > tr > td .specialValueItem .specialValue{
+        margin-top: -6px;
+    }
+
+}
+
 @media (max-width: 768px) {
     #espers #tabs img {
         width: 35px;
@@ -502,6 +620,34 @@
 
     .nav > li > a {
         padding: 6px 8px;
+    }
+
+    table.allEspers {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 500px) {
+
+    table.allEspers .esperDesc {
+        padding-left: 2px;
+    }
+
+    table.allEspers .esperDesc i.img {
+        display: none;
+    }
+
+    table.allEspers > thead > tr > th {
+        font-weight: normal;
+        font-size: 0.9em;
+    }
+
+    table.allEspers > tbody > tr > td {
+        padding: 1px 6px;
+    }
+
+    table.allEspers > thead > tr > th::after {
+        display: none;
     }
 }
 
