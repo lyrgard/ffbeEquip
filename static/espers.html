@@ -138,9 +138,42 @@
                 <div class="tabsWrapper">
                     <ul id="tabs" class="nav nav-tabs"></ul>
                 </div>
-                <div id="esper">
+                <div id="allEspers">
+
+                    <div id="noEsperMessage" class="alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        You don't own any espers yet...
+                    </div>
+
+                    <div class="panel panel-default">
+                        <table class='allEspers table'>
+                            <thead>
+                                <tr>
+                                    <th class="index active desc" onclick="sortTableBy('index')">Esper</th>
+                                    <th class="level" onclick="sortTableBy('level')">Level</th>
+                                    <th class="hp" onclick="sortTableBy('hp')">HP</th>
+                                    <th class="mp" onclick="sortTableBy('mp')">MP</th>
+                                    <th class="atk" onclick="sortTableBy('atk')">ATK</th>
+                                    <th class="def" onclick="sortTableBy('def')">DEF</th>
+                                    <th class="mag" onclick="sortTableBy('mag')">MAG</th>
+                                    <th class="spr" onclick="sortTableBy('spr')">SPR</th>
+                                    <th class="resists" onclick="sortTableBy('resists')">Resists</th>
+                                    <th class="killers" onclick="sortTableBy('killers')">Killers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filled by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="esper" class="hidden">
                     <div class="esperHeader">
                         <div class="formGroup esperChoice">
+                            <div class="formLine">
+                                <label for="esperName" class="formLabel">Name</label>
+                                <span id="esperName" class="formValue"></span>
+                            </div>
                             <div class="formLine">
                                 <label for="esperStar" class="formLabel">Rarity</label>
                                 <select id="esperStar" class="form-control formInput"></select>
