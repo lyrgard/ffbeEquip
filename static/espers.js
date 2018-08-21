@@ -36,6 +36,7 @@ function showAll() {
     $(".nav-tabs li.ALL").addClass("active");
     var $allEspers = $('#allEspers').show();
     $("#esper").hide();
+    $("#toggleGrid").addClass('hidden');
 
     if ($.isEmptyObject(ownedEspers)) {
         $("#noEsperMessage").removeClass('hidden');
@@ -86,6 +87,8 @@ function show(esperName) {
     beforeShow();
     $('#allEspers').hide();
     $("#esper").show();
+    $('#toggleGrid').removeClass('hidden');
+    
     currentEsper = esperName;
     var escapedName = escapeName(esperName);
     $(".nav-tabs li." + escapedName).addClass("active");
@@ -932,8 +935,6 @@ function startPage() {
             if (ownedEspers) {
                 displayEspers();
             }
-
-            $('#toggleGrid').removeClass('hidden');
         });
     });
 
