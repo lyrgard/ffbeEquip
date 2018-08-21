@@ -583,8 +583,8 @@ function startPage() {
     selectAll("ailmentsTargetAreaTypes");
     
 	// Killers
-	addIconChoicesTo("physicalKillers", killerList.map(function(v){return 'physicalKiller_'+v}), "checkbox", "killer");
-    addIconChoicesTo("magicalKillers", killerList.map(function(v){return 'magicalKiller_'+v}), "checkbox", "killer");
+	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical");
+    addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical");
     addTextChoicesTo("killersSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     selectAll("killersSkillTypes");
     
