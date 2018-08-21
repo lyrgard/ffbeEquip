@@ -28,6 +28,7 @@ function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
     $(".nav-tabs li").removeClass("active");
+    $("#noEsperMessage").addClass('hidden');
 }
 
 function showAll() {
@@ -36,42 +37,49 @@ function showAll() {
     var $allEspers = $('#allEspers').show();
     $("#esper").hide();
 
-    var html = "";
-    for (var index in espers) {
-        // Skip if esper not in owned object
-        if (!ownedEspers[espers[index].name]) continue;
+    if ($.isEmptyObject(ownedEspers)) {
+        $("#noEsperMessage").removeClass('hidden');
+        $("#noEsperMessage").removeClass('hidden');
+        $allEspers.find(".panel").hide();
+    } else {
+        var html = "";
+        for (var index in espers) {
+            // Skip if esper not in owned object
+            if (!ownedEspers[espers[index].name]) continue;
 
-        var esper = ownedEspers[espers[index].name];
-        var escapedName = escapeName(esper.name);
-        var sp = calculateSp(esper.level, esper.rarity, esper.name);
-        addStats(esper.level, esper.rarity, esper.name);
+            var esper = ownedEspers[espers[index].name];
+            var escapedName = escapeName(esper.name);
+            var sp = calculateSp(esper.level, esper.rarity, esper.name);
+            addStats(esper.level, esper.rarity, esper.name);
 
-        html += "<tr data-esper=" + esper.name + ">";
+            html += "<tr data-esper=" + esper.name + ">";
 
-        // First cell: image, name, points
-        html += "<td class='esperDesc index'>";
-        html += "<i class='img img-esper-" + escapedName +"'></i>";
-        html += "<div class='name'>" + esper.name + " <span class='rarity'>" + Array(esper.rarity+1).join("★") +"</span></div>";
-        html += "<div class='sp'>" + sp.used + " / "+ sp.available +"</div>";
-        html += "<span class='hidden sortValue'>" + index + "</span>";
-        html += "</td>";
-        
-        html += "<td class='level'>" + esper.level + "</td>";
+            // First cell: image, name, points
+            html += "<td class='esperDesc index'>";
+            html += "<i class='img img-esper-" + escapedName +"'></i>";
+            html += "<div class='name'>" + esper.name + " <span class='rarity'>" + Array(esper.rarity+1).join("★") +"</span></div>";
+            html += "<div class='sp'>" + sp.used + " / "+ sp.available +"</div>";
+            html += "<span class='hidden sortValue'>" + index + "</span>";
+            html += "</td>";
+            
+            html += "<td class='level'>" + esper.level + "</td>";
 
-        // Next cells: stats
-        html += "<td class='stats hp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'hp') + "</span> ("+ esper.hp +")</td>";
-        html += "<td class='stats mp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mp') + "</span> ("+ esper.mp +")</td>";
-        html += "<td class='stats atk'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'atk') + "</span> ("+ esper.atk +")</td>";
-        html += "<td class='stats def'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'def') + "</span> ("+ esper.def +")</td>";
-        html += "<td class='stats mag'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mag') + "</span> ("+ esper.mag +")</td>";
-        html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
-        html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
-        html += "<td class='killers'>" + getKillersHtml(esper) + "</td>";
+            // Next cells: stats
+            html += "<td class='stats hp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'hp') + "</span> ("+ esper.hp +")</td>";
+            html += "<td class='stats mp'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mp') + "</span> ("+ esper.mp +")</td>";
+            html += "<td class='stats atk'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'atk') + "</span> ("+ esper.atk +")</td>";
+            html += "<td class='stats def'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'def') + "</span> ("+ esper.def +")</td>";
+            html += "<td class='stats mag'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mag') + "</span> ("+ esper.mag +")</td>";
+            html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
+            html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
+            html += "<td class='killers'>" + getKillersHtml(esper) + "</td>";
 
-        html += "</tr>";
+            html += "</tr>";
+        }
+        $allEspers.find("table tbody").html(html);
+        $allEspers.find(".panel").show();
     }
 
-    $allEspers.find("table tbody").html(html);
 }
 
 function show(esperName) {
@@ -97,6 +105,7 @@ function show(esperName) {
             optionsHtml += '<option value="' + i + '">' + i + ' ★</option>';
         }
         $("#esper #esperStar").html(optionsHtml);
+        $("#esper #esperName").html(esperName);
         if (ownedEspers[esperName]) {
             $("#esper #esperStar option[value=" + ownedEspers[esperName].rarity + "]").prop('selected', true);
             setEsperLevel(ownedEspers[esperName].level);
@@ -745,10 +754,10 @@ function displayEspers() {
     if (!linkMode) {
         var tabs = "";
         
-        tabs += "<li class='ALL' data-esper='ALL'><a><i class='img img-esper-ALL'></i></a></li>";
+        tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
-            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\"><a>";
+            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\" title=\"" + espers[index].name + "\"><a>";
             tabs += "<i class='img img-esper-" + escapedName +"'></i>";
             tabs += "</a></li>";
         }

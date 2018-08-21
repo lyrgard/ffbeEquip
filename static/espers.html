@@ -139,6 +139,12 @@
                     <ul id="tabs" class="nav nav-tabs"></ul>
                 </div>
                 <div id="allEspers">
+
+                    <div id="noEsperMessage" class="alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        You don't own any espers yet...
+                    </div>
+
                     <div class="panel panel-default">
                         <table class='allEspers table'>
                             <thead>
@@ -164,6 +170,10 @@
                 <div id="esper" class="hidden">
                     <div class="esperHeader">
                         <div class="formGroup esperChoice">
+                            <div class="formLine">
+                                <label for="esperName" class="formLabel">Name</label>
+                                <span id="esperName" class="formValue"></span>
+                            </div>
                             <div class="formLine">
                                 <label for="esperStar" class="formLabel">Rarity</label>
                                 <select id="esperStar" class="form-control formInput"></select>
