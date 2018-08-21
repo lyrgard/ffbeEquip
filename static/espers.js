@@ -1034,8 +1034,8 @@ function startPage() {
     });
 
     /* Tabs esper selection */
-    $("#espers #tabs").on('click', function(e) {
-        var $elem = $(e.target).parents('li[data-esper]');
+    $("#espers #tabs").on('click', 'li[data-esper]', function(e) {
+        var $elem = $(this);
         var esperName = $elem.attr('data-esper');
         var $esper = $('#esper');
         var $pan = $esper.find('#panWrapper');
