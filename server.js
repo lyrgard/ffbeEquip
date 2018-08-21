@@ -20,7 +20,12 @@ const app = express();
 // Helmet Middleware
 app.use(helmet());
 
-app.use(helmet.referrerPolicy({ policy: 'origin-when-cross-origin' }));
+app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
+app.use(helmet.hsts({
+  maxAge: 63072000, // 2 years
+  includeSubDomains: true,
+  preload: true
+}));
 
 var cspDirectives =  {
   defaultSrc: ["'none'"],
@@ -29,12 +34,12 @@ var cspDirectives =  {
               'pagead2.googlesyndication.com', 'adservice.google.fr', 'adservice.google.com', 'www.google-analytics.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io'],
-  imgSrc: ["'self'", "data:", 'www.google-analytics.co'],
-  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+  imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
+  fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
   connectSrc: ["'self'", 'www.google-analytics.com'],
   mediaSrc: ["'none'"],
   objectSrc: ["'none'"],
-  childSrc: ["'none'"],
+  childSrc: ["'self'"],
   workerSrc: ["'self'"],
   frameSrc: ['googleads.g.doubleclick.net'],
   frameAncestors: ["'none'"],
