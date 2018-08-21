@@ -4,7 +4,7 @@ var PNG = require('pngjs').PNG;
 var commonParse = require('../commonParseUnit');
 
 filterGame = [];
-filterUnits = []
+filterUnits = ["199000101", "256000301"]
 
 var unitNamesById = {};
 var unitIdByTmrId = {};
@@ -161,11 +161,11 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/12/unit_ills_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit9/1/unit_ills_" + unitId + ".png",filePath);
         }
         var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit8/12/unit_icon_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit9/1/unit_icon_" + unitId + ".png",filePath);
         }
     }
 }

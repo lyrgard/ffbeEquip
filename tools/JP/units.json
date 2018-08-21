@@ -3828,22 +3828,6 @@
 		"stats_pattern":1,
 		"equip":["dagger","staff","harp","hat","clothes","robe"]
 	},
-	"199000101": {
-		"name":"Emma (Battle NPC)",
-		"jpname":"エマ（バトルNPC）",
-		"id":"199000101",
-		"max_rarity":"1",
-		"min_rarity":"1",
-		"sex":"female",
-		"materiaSlots":0,
-		"stats": {
-			"maxStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"minStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"pots":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0}
-		},
-		"stats_pattern":1,
-		"equip":[null]
-	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -5154,6 +5138,37 @@
 			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"]
 		}
 	},
+	"207000605": {
+		"name":"Yuffie",
+		"jpname":"ユフィ",
+		"id":"207000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4748,"mp":217,"atk":205,"def":185,"mag":178,"spr":178},
+			"minStats":{"hp":1567,"mp":72,"atk":68,"def":61,"mag":59,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Yuffie",
+			"jpname":"ユフィ",
+			"id":"207000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3653,"mp":167,"atk":158,"def":143,"mag":137,"spr":137},
+				"minStats":{"hp":1205,"mp":55,"atk":52,"def":47,"mag":45,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","throwing","fist","lightShield","hat","clothes","lightArmor"]
+		}
+	},
 	"207000703": {
 		"name":"Cait Sith",
 		"jpname":"ケット・シー",
@@ -5231,6 +5246,37 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["刀の極意","伝説のソルジャー","天舞輪廻斬","リユニオン","攻撃+20%"]
+		}
+	},
+	"207001105": {
+		"name":"Zack",
+		"jpname":"ザックス",
+		"id":"207001105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4833,"mp":211,"atk":209,"def":189,"mag":170,"spr":171},
+			"minStats":{"hp":1595,"mp":70,"atk":68,"def":62,"mag":56,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Zack",
+			"jpname":"ザックス",
+			"id":"207001105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3718,"mp":163,"atk":159,"def":146,"mag":131,"spr":132},
+				"minStats":{"hp":1227,"mp":54,"atk":52,"def":48,"mag":43,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	},
 	"208000105": {
@@ -7368,7 +7414,7 @@
 		"enhancementSkills":["チェックメイト","剣の名手"]
 	},
 	"256000101": {
-		"name":"リコ（リコドキッ！）",
+		"name":"Riko",
 		"jpname":"リコ（リコドキッ！）",
 		"id":"256000101",
 		"max_rarity":"6",
@@ -7381,22 +7427,6 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","hammer","harp","hat","clothes","lightArmor","robe"]
-	},
-	"256000301": {
-		"name":"にくじゃがのビジョン",
-		"jpname":"にくじゃがのビジョン",
-		"id":"256000301",
-		"max_rarity":"1",
-		"min_rarity":"1",
-		"sex":"other",
-		"materiaSlots":0,
-		"stats": {
-			"maxStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"minStats":{"hp":100,"mp":0,"atk":5,"def":5,"mag":5,"spr":5},
-			"pots":{"hp":0,"mp":0,"atk":0,"def":0,"mag":0,"spr":0}
-		},
-		"stats_pattern":1,
-		"equip":[null]
 	},
 	"301000103": {
 		"name":"Samatha・Λ",
@@ -8807,7 +8837,7 @@
 		}
 	},
 	"334000304": {
-		"name":"テリオン",
+		"name":"Therion",
 		"jpname":"テリオン",
 		"id":"334000304",
 		"max_rarity":"6",
