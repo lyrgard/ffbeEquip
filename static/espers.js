@@ -37,6 +37,9 @@ function showAll() {
     var $allEspers = $('#allEspers').show();
     $("#esper").hide();
     $("#toggleGrid").addClass('hidden');
+    
+    // Reset sorting cols to first one
+    $('#allEspers table thead th').removeClass('active desc').first().addClass('active');
 
     if ($.isEmptyObject(ownedEspers)) {
         $("#noEsperMessage").removeClass('hidden');
