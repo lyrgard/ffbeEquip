@@ -7,6 +7,7 @@ var itemInventory = null;
 var saveNeeded = false;
 var onlyShowOwnedItems = false;
 var showNotReleasedYet = false;
+var filterReady = false;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -366,6 +367,13 @@ function notLoaded() {
     
 }
 
+function tryToLoadHash() {
+    if (filterReady && units) {
+        loadHash();
+        update();
+    }
+}
+
 // will be called by common.js at page load
 function startPage() {
     // Triggers on unit base stats change
@@ -390,8 +398,7 @@ function startPage() {
             units = result;
             populateUnitSelect();
             prepareSearch(data);
-            loadHash();
-            update();
+            tryToLoadHash();
         });
     });
 	
@@ -413,7 +420,9 @@ function startPage() {
 	// Additional stat filter
 	addTextChoicesTo("additionalStat",'checkbox',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
 	
-	
+    filterReady = true;
+	tryToLoadHash();
+    
     
     $("#results").addClass(server);
     
