@@ -687,15 +687,15 @@ i.img.img-slot-hand.leftHand {
 }
 
 /* elements visible over the glasspanel */
-.building #detailedViewLink, .building #conciseViewLink, .building #buildButton {
+.building #detailedViewLink, .building #conciseViewLink, .building #buildButton, .building #buildResult .wikiLink {
     z-index: 110;
 }
 
-.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a {
+.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink {
     box-shadow: 0 0 5px 5px #FFFFFF;
 }
 
-.building #detailedViewLink a, .building #conciseViewLink a {
+.building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink {
     background-color: white;
 }
 

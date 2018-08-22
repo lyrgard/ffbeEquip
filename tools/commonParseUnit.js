@@ -752,6 +752,20 @@ function parseActiveRawEffect(rawEffect, skills) {
             addKiller(result, raceMap[killersData[i][0]], 0, killersData[i][1]);
         }
         result.turns = killersData[8];
+        
+        
+    // Imbue
+    } else if (rawEffect[2] == 95) { 
+        result = {"imbue":[]};
+        var imbueData = rawEffect[3];
+        for (var index in elements) {
+            if (imbueData[index]) {
+                result.imbue.push(elements[index]);
+            }
+        }
+        result.turns = imbueData[8];
+        
+        
     }
 
     if (result) {
@@ -773,6 +787,7 @@ function parseActiveRawEffect(rawEffect, skills) {
             result.target = "ALLY";
         } else if (rawEffect[1] == 3) {
             result.target = "SELF";
+            result.area = "SELF";
         } else if (rawEffect[1] == 4) {
             result.target = "ALLY";
         } else if (rawEffect[1] == 5) {
@@ -1163,7 +1178,7 @@ function formatForSearch(units) {
 function addSkillEffectToSearch(effects, unitOut) {
     for (var i = effects.length; i--;) {
         var effect = effects[i];
-        if (effect.effect) {
+        if (effect.effect && unitOut[effect.effect.area]) {
             if (effect.effect.imperil) {
                 if (!unitOut[effect.effect.area].imperil) {
                     unitOut[effect.effect.area].imperil = {};
@@ -1238,6 +1253,15 @@ function addSkillEffectToSearch(effects, unitOut) {
                 }
                 if (!unitOut[effect.effect.area].statsBuff.spr || unitOut[effect.effect.area].statsBuff.spr < effect.effect.statsBuff.spr) {
                     unitOut[effect.effect.area].statsBuff.spr = effect.effect.statsBuff.spr;
+                }
+            } else if (effect.effect.imbue) {
+                if (!unitOut[effect.effect.area].imbue) {
+                    unitOut[effect.effect.area].imbue = [];
+                }
+                for (var j = 0, lenj = effect.effect.imbue.length; j < lenj; j++) {
+                    if (!unitOut[effect.effect.area].imbue.includes(effect.effect.imbue[j])) {
+                        unitOut[effect.effect.area].imbue.push(effect.effect.imbue[j]);
+                    }
                 }
             }
         }
