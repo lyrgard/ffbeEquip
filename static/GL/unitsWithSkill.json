@@ -180,11 +180,11 @@
 			{"name":"Dystopia","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage 160 (+2.8x, MAG) with consecutive damage increase (max. 2 times, +1.6x MAG each, 6x total) to all enemies"}]},
 			{"name":"Dystopia +1","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage 200 (+3.2x, MAG) with consecutive damage increase (max. 2 times, +2x MAG each, 7.2x total) to all enemies"}]},
 			{"name":"Dystopia +2","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage 250 (+4.1x, MAG) with consecutive damage increase (max. 2 times, +2.5x MAG each, 9.1x total) to all enemies"}]},
-			{"name":"Diastrophism","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Diastrophism (507330) on turn 2 [2 turns CD]"}]},
-			{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Boreas Gale (507331) on turn 2 [2 turns CD]"}]},
+			{"name":"Diastrophism","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Diastrophism","icon":"ability_105.png","effects":[{"effect":null,"desc":"Magic earth damage (8.5x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"earth","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Earth by 60% for 3 turns to all enemies"}]},"cooldownTurns":2,"startTurn":2,"area":"AOE","target":"ENEMY"},"desc":"Unlock Diastrophism (507330) on turn 2 [2 turns CD]"}]},
+			{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":null,"desc":"Magic wind damage (7.6x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 60% for 3 turns to all enemies"}]},"cooldownTurns":2,"startTurn":2,"area":"AOE","target":"ENEMY"},"desc":"Unlock Boreas Gale (507331) on turn 2 [2 turns CD]"}]},
 			{"name":"Flirt","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Charm (20%) on one enemy for one turn"}]},
 			{"name":"Enfer Wall","icon":"ability_9.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 100% for 3 turns to all allies"},{"effect":{"resist":[{"name":"fire","percent":70},{"name":"wind","percent":70},{"name":"earth","percent":70},{"name":"dark","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire, Wind, Earth and Dark by 70% for 3 turns to all allies"}]},
-			{"name":"Lost Paradise","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Lost Paradise (507333) on turn 1 [10 turns CD]"}]}
+			{"name":"Lost Paradise","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Lost Paradise","icon":"ability_105.png","effects":[{"effect":{"imperil":{"elements":[{"name":"dark","percent":120}],"turns":8},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 120% for 8 turns to all enemies"},{"effect":null,"desc":"Auto-revive (80% HP) for 8 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 8 turns to caster"},{"effect":null,"desc":"Restore 180 MP split over 8 turns to caster"}]},"cooldownTurns":10,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Lost Paradise (507333) on turn 1 [10 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Waterga","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage (1.8x, MAG) to all enemies"}]},
@@ -1974,9 +1974,9 @@
 			{"name":"Love You All","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all elements by 50% for 3 turns to all allies"}]},
 			{"name":"Love You All +1","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all elements by 50% for 3 turns to all allies"},{"effect":null,"desc":"Restore 6000 (+9x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"Love You All +2","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all elements by 50% for 5 turns to all allies"},{"effect":null,"desc":"Restore 10000 (+15x, Heal) HP split over 5 turns to all allies"}]},
-			{"name":"Sprinkles of Love","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Sprinkles of Love (911183) on turn 1 [4 turns CD]"}]},
+			{"name":"Sprinkles of Love","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Sprinkles of Love","icon":"ability_105.png","effects":[{"effect":null,"desc":"Grant a 2000 HP shield to all allies for 3 turns"},{"effect":null,"desc":"Restore 45 MP to all allies"}]},"cooldownTurns":4,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Sprinkles of Love (911183) on turn 1 [4 turns CD]"}]},
 			{"name":"Monochrome Shield","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"light","percent":70},{"name":"dark","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light and Dark by 70% for 3 turns to all allies"}]},
-			{"name":"Excessive Lover","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Excessive Lover (507350) on turn 1 [6 turns CD]"}]}
+			{"name":"Excessive Lover","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Excessive Lover","icon":"ability_105.png","effects":[{"effect":{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"turns":1,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all elements by 100% for one turn to all allies"},{"effect":null,"desc":"Increase DEF and SPR by 200% for one turn to all allies"},{"effect":null,"desc":"Reduce damage taken by 50% to all allies for one turn"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Excessive Lover (507350) on turn 1 [6 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Barfiraga","icon":"ability_11.png","effects":[{"effect":{"resist":[{"name":"fire","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 70% for 3 turns to all allies"}]},
@@ -2125,7 +2125,7 @@
 			{"name":"The empire is with us!","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"D Sword Crusher","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
 			{"name":"D Rod Crusher","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
-			{"name":"Absolute Defense","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Absolute Defense (507400) on turn 1 [4 turns CD]"}]}
+			{"name":"Absolute Defense","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Absolute Defense","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 90% to caster for one turn"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Absolute Defense (507400) on turn 1 [4 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -2590,10 +2590,10 @@
 			{"name":"Utopia +1","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage 200 (+3.2x, MAG) with consecutive damage increase (max. 2 times, +2x MAG each, 7.2x total) to all enemies"}]},
 			{"name":"Utopia +2","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage 250 (+4.1x, MAG) with consecutive damage increase (max. 2 times, +2.5x MAG each, 9.1x total) to all enemies"}]},
 			{"name":"Sexy Charm","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Charm (20%) on one enemy for one turn"}]},
-			{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Boreas Gale (507331) on turn 2 [2 turns CD]"}]},
-			{"name":"Meereszorn","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Meereszorn (507410) on turn 2 [2 turns CD]"}]},
+			{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Boreas Gale","icon":"ability_105.png","effects":[{"effect":null,"desc":"Magic wind damage (7.6x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 60% for 3 turns to all enemies"}]},"cooldownTurns":2,"startTurn":2,"area":"AOE","target":"ENEMY"},"desc":"Unlock Boreas Gale (507331) on turn 2 [2 turns CD]"}]},
+			{"name":"Meereszorn","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Meereszorn","icon":"ability_105.png","effects":[{"effect":null,"desc":"Magic water damage (9x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"water","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 60% for 3 turns to all enemies"}]},"cooldownTurns":2,"startTurn":2,"area":"AOE","target":"ENEMY"},"desc":"Unlock Meereszorn (507410) on turn 2 [2 turns CD]"}]},
 			{"name":"Hexenlied","icon":"ability_9.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 100% for 3 turns to all allies"},{"effect":{"resist":[{"name":"lightning","percent":70},{"name":"water","percent":70},{"name":"wind","percent":70},{"name":"earth","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Lightning, Water, Wind and Earth by 70% for 3 turns to all allies"}]},
-			{"name":"Sommerferien","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Sommerferien (507412) on turn 1 [10 turns CD]"}]}
+			{"name":"Sommerferien","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Sommerferien","icon":"ability_105.png","effects":[{"effect":{"imperil":{"elements":[{"name":"water","percent":110}],"turns":8},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 110% for 8 turns to all enemies"},{"effect":null,"desc":"Auto-revive (80% HP) for 8 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 8 turns to caster"},{"effect":null,"desc":"Restore 180 MP split over 8 turns to caster"}]},"cooldownTurns":10,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Sommerferien (507412) on turn 1 [10 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Thundaga","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.8x, MAG) to all enemies"}]},
@@ -5411,7 +5411,7 @@
 			{"name":"Wild Battlecry","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 100% for 3 turns to all allies"},{"effect":{"resist":[{"name":"lightning","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Lightning by 70% for 3 turns to all allies"}]},
 			{"name":"Lightning Spear Jab","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (4x, ATK) to one enemy"},{"effect":{"imbue":["lightning"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Lightning element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"Thunder Spear","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 60% for 3 turns to one enemy"}]},
-			{"name":"Thunder Fang","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Thunder Fang (507490) on turn 3 [3 turns CD]"}]}
+			{"name":"Thunder Fang","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Thunder Fang","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical lightning damage (11x, ATK) to all enemies"}]},"cooldownTurns":3,"startTurn":3,"area":"AOE","target":"ENEMY"},"desc":"Unlock Thunder Fang (507490) on turn 3 [3 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -5602,8 +5602,8 @@
 			{"name":"ルースレスブレイド","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Physical damage (1.5x, ATK) to all enemies"}]},
 			{"name":"構えなおす","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove ATK, DEF, MAG and SPR debuff from caster"},{"effect":null,"desc":"Gain 3 uses of the following skills for one turn:\n\tServant of the Blade (227280)\n\tアンノウントレイター (227285)\n\tファントムブレイド (227292)\n\tフレイムブレイド (227282)\n\tルースレスブレイド (227281)\n\tヴォルトブレイド (227283)\n\t命絶剣 (227284)"}]},
 			{"name":"Servant of the Blade","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (0.5x, ATK) to one enemy"},{"effect":null,"desc":"Physical damage (3.6x, ATK) to all enemies (ignore cover)"}]},
-			{"name":"ファントムブレイド","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock ファントムブレイド (507742) on turn 5 [5 turns CD]"}]},
-			{"name":"Way of the Void","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Way of the Void (507743) on turn 1 [5 turns CD]"}]}
+			{"name":"ファントムブレイド","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ファントムブレイド","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (5.6x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Physical damage (5.6x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":100},{"name":"lightning","percent":100}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Lightning by 100% for 3 turns to all enemies"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock ファントムブレイド (507742) on turn 5 [5 turns CD]"}]},
+			{"name":"Way of the Void","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Way of the Void","icon":"ability_105.png","effects":[{"effect":null,"desc":"Gain 3 uses of the following skills for 2 turns:\n\tServant of the Blade (227280)\n\tアンノウントレイター (227285)\n\tファントムブレイド (227292)\n\tフレイムブレイド (227282)\n\tルースレスブレイド (227281)\n\tヴォルトブレイド (227283)\n\t命絶剣 (227284)"},{"effect":null,"desc":"Increase ATK by 200% for 3 turns to caster"},{"effect":null,"desc":"Restore 100% HP to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Way of the Void (507743) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Firaga","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic fire damage (1.8x, MAG) to all enemies"}]},
@@ -5869,7 +5869,7 @@
 			{"name":"Holy Mind","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (3.5x, SPR) to all enemies"},{"effect":null,"desc":"Fill Esper gauge by 2-4"},{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},
 			{"name":"喚起・滅光","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (20x, MAG/SPR/Evo MAG) to one enemy"}]},
 			{"name":"喚起・深魔源","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 130 MP to all allies"}]},
-			{"name":"喚起・絶覇光","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock 喚起・絶覇光 (508095) on turn 6 [6 turns CD]"}]}
+			{"name":"喚起・絶覇光","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"喚起・絶覇光","icon":"ability_105.png","effects":[{"effect":null,"desc":"Magic* damage (25x, MAG/SPR/Evo MAG) to all enemies"}]},"cooldownTurns":6,"startTurn":6,"area":"AOE","target":"ENEMY"},"desc":"Unlock 喚起・絶覇光 (508095) on turn 6 [6 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Holy","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (2.3x, SPR) to one enemy"}]},
@@ -6302,7 +6302,7 @@
 			{"name":"Advance +1","icon":"ability_77.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK by 60% for 3 turns to caster"},{"effect":{"statsBuff":{"def":-30,"turns":3},"area":"SELF","target":"SELF"},"desc":"Reduce DEF by 30% for 3 turns to caster"}]},
 			{"name":"Advance +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK by 100% for 2 turns to caster"},{"effect":{"statsBuff":{"def":-30,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce DEF by 30% for 2 turns to caster"}]},
 			{"name":"Blade Torrent","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage 200 (+4x, ATK) with consecutive damage increase (max. 3 times, +2x ATK each, 10x total) to one enemy"}]},
-			{"name":"Swordshower","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Swordshower (507280) on turn 3 [3 turns CD]"}]}
+			{"name":"Swordshower","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Swordshower","icon":"ability_105.png","effects":[{"effect":null,"desc":"8 physical attacks (1.8x each, 14.4x total, ATK) to one random enemy"}]},"cooldownTurns":3,"startTurn":3,"area":"RND","target":"ENEMY"},"desc":"Unlock Swordshower (507280) on turn 3 [3 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -6663,7 +6663,7 @@
 			{"name":"Soul Eater +1","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical* dark damage (3.2x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to one enemy"}]},
 			{"name":"Soul Eater +2","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical* dark damage (7.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to one enemy"}]},
 			{"name":"Ominous Aura","icon":"ability_63.png","effects":[{"effect":null,"desc":"Restore 50% HP and MP to one ally"},{"effect":null,"desc":"Reduce damage taken by 50% to one ally for one turn"}]},
-			{"name":"Soul Over","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Soul Over (507261) on turn 1 [5 turns CD]"}]}
+			{"name":"Soul Over","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Soul Over","icon":"ability_105.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"human","physical":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Humans by 100% to caster for 3 turns"},{"effect":null,"desc":"Physical damage (13x, ATK) to one enemy"}]},"cooldownTurns":5,"startTurn":1,"area":"ST","target":"ENEMY"},"desc":"Unlock Soul Over (507261) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -7361,7 +7361,7 @@
 			{"name":"Tri-Attack","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
 			{"name":"Tri-Attack +1","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
 			{"name":"Tri-Attack +2","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
-			{"name":"I suppose I misjudged!","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock I suppose I misjudged! (507930) on turn 1 [5 turns CD]"}]},
+			{"name":"I suppose I misjudged!","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"I suppose I misjudged!","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills for one turn:\n\tFighting all four of you... (507931)"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock I suppose I misjudged! (507930) on turn 1 [5 turns CD]"}]},
 			{"name":"Secret Sword Art - Excalipoor","icon":"ability_54.png","effects":[{"effect":null,"desc":"Fixed* damage (1) to one enemy"},{"effect":{"break":{"atk":55,"def":55,"mag":55,"spr":55,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 55% for 3 turns to one enemy"}]},
 			{"name":"Secret Sword Art - Kotetsu","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (5.5x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"}]},
 			{"name":"Secret Sword Art - Naginata","icon":"ability_54.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3-5 to all allies"}]}
@@ -7978,8 +7978,8 @@
 			{"name":"Meteor Strike","icon":"ability_29.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to all enemies"},{"effect":null,"desc":"Increase LB gauge by 3-6 to caster"}]},
 			{"name":"ザンガンコンビネーション","icon":"ability_51.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"ファイナルヘヴン","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage 75 (+5.75x, ATK) with consecutive damage increase (max. 7 times, +0.75x ATK each, 11x total) to one enemy"}]},
-			{"name":"オーバードライブ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock オーバードライブ (508160) on turn 1 [5 turns CD]"}]},
-			{"name":"セブンスヘブン","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock セブンスヘブン (508162) on turn 3 [3 turns CD]"}]}
+			{"name":"オーバードライブ","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"オーバードライブ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 15000 HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 300 MP split over 3 turns to caster"},{"effect":null,"desc":"Increase ATK by 200% for 3 turns to caster"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to caster"},{"effect":null,"desc":"Gain access to following skills (1 use):\n\tオーバードライブ・プラス (508161)"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock オーバードライブ (508160) on turn 1 [5 turns CD]"}]},
+			{"name":"セブンスヘブン","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"セブンスヘブン","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (13.4x, ATK) to all enemies (ignore cover)"}]},"cooldownTurns":3,"startTurn":3,"area":"AOE","target":"ENEMY"},"desc":"Unlock セブンスヘブン (508162) on turn 3 [3 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -8046,7 +8046,7 @@
 			{"name":"スプラッタコンボ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (6.7x, ATK) to one enemy"}]},
 			{"name":"Nightmare","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Sleep (100%) and Poison, Blind, Silence, Paralyze, Confusion, Disease and Petrify (30%) on one enemy"}]},
 			{"name":"カオスセイバー","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.5x, ATK) to all enemies (ignore cover)"}]},
-			{"name":"ルクレツィアリグレット","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock ルクレツィアリグレット (508180) on turn 1 [6 turns CD]"}]}
+			{"name":"ルクレツィアリグレット","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ルクレツィアリグレット","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase ATK by 250% for 5 turns to caster"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 5 turns to caster"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock ルクレツィアリグレット (508180) on turn 1 [6 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -8126,7 +8126,7 @@
 			{"name":"Light Barret","icon":"ability_5.png","effects":[{"effect":null,"desc":"Physical light damage (2.25x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"light","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 60% for 3 turns to one enemy"}]},
 			{"name":"Blasting Zone","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to all enemies (ignore cover)"}]},
 			{"name":"Keen Edge","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy (ignore cover)"}]},
-			{"name":"Lion's Might","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Lion's Might (507190) on turn 4 [4 turns CD]"}]}
+			{"name":"Lion's Might","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Lion's Might","icon":"ability_105.png","effects":[{"effect":null,"desc":"Remove all debuffs from caster"},{"effect":null,"desc":"Restore 100% HP and 50% MP to caster"},{"effect":null,"desc":"Increase LB gauge by 30 to caster"}]},"cooldownTurns":4,"startTurn":4,"area":"SELF","target":"SELF"},"desc":"Unlock Lion's Might (507190) on turn 4 [4 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -8165,7 +8165,7 @@
 			{"name":"Armor Slicer","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
 			{"name":"Arms Slicer","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":45,"mag":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"}]},
 			{"name":"Angelo Tackle","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic damage 300 (+4.5x, MAG) with consecutive damage increase (max. 8 times, +3x MAG each, 28.5x total) to one enemy"}]},
-			{"name":"Angel Wing","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Angel Wing (507207) on turn 1 [6 turns CD]"}]}
+			{"name":"Angel Wing","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Angel Wing","icon":"ability_105.png","effects":[{"effect":null,"desc":"Remove all debuffs from caster"},{"effect":null,"desc":"Grant Triple-cast all magic for 3 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Increase MAG by an additional 300% (max 300%) for the next skill to caster"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Angel Wing (507207) on turn 1 [6 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Libra","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"}]},
@@ -9125,7 +9125,7 @@
 			{"name":"コロッサル・シャントット","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic dark damage (3.2x, MAG) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":null,"desc":"Increase DEF and SPR by 120% for one turn to caster"}]},
 			{"name":"エンピリカルリサーチ","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (10.8x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60},{"name":"wind","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning and Wind by 60% for 3 turns to one enemy"}]},
 			{"name":"ファイナルエクザム","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (11.5x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60},{"name":"light","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Light by 60% for 3 turns to one enemy"}]},
-			{"name":"魔力の泉","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock 魔力の泉 (507690) on turn 1 [12 turns CD]"}]}
+			{"name":"魔力の泉","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"魔力の泉","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 3996 MP split over 4 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},"cooldownTurns":12,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock 魔力の泉 (507690) on turn 1 [12 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Stone I","icon":"ability_28.png","effects":[{"effect":null,"desc":"Magic earth damage 100 (+3x, MAG) with consecutive damage increase (max. 5 times, +1x MAG each, 8x total) to one enemy"}]},
@@ -9174,7 +9174,7 @@
 			{"name":"スペルウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 150 MP split over 3 turns to caster"}]},
 			{"name":"ダイナミクインプロージョン","icon":"ability_26.png","effects":[{"effect":null,"desc":"Use ダイナミクインプロージョン (507708), or ダイナミクインプロージョン (507709), if used after Blood Weapon (227231)"}]},
 			{"name":"ドゥームアーク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use ドゥームアーク (507710), or ドゥームアーク (507711), if used after Blood Weapon (227231)"}]},
-			{"name":"Blood Weapon","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Blood Weapon (507712) on turn 1 [4 turns CD]"}]},
+			{"name":"Blood Weapon","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Blood Weapon","icon":"ability_105.png","effects":[{"effect":null,"desc":"30% HP damage to caster"},{"effect":null,"desc":"Increase ATK by 250% for 2 turns to caster"},{"effect":{"statsBuff":{"def":-50,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce DEF by 50% for 2 turns to caster"},{"effect":null,"desc":"Restore 19998 HP split over 2 turns to caster"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Blood Weapon (507712) on turn 1 [4 turns CD]"}]},
 			{"name":"スポーンシャドウ","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to caster"}]}
 		],
 		"magics": [
@@ -9205,7 +9205,7 @@
 			{"name":"魔道士のバラード","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 魔道士のバラード (507722), or 魔道士のバラード (507723), if used after Soul Voice (227246)"}]},
 			{"name":"剣闘士のマドリガル","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 剣闘士のマドリガル (507730), or 剣闘士のマドリガル (507731), if used after Soul Voice (227246)"}]},
 			{"name":"無敵の進撃マーチ","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 無敵の進撃マーチ (507728), or 無敵の進撃マーチ (507729), if used after Soul Voice (227246)"}]},
-			{"name":"Soul Voice","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Soul Voice (507732) on turn 1 [3 turns CD]"}]}
+			{"name":"Soul Voice","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Soul Voice","icon":"ability_105.png","effects":[{"effect":null,"desc":"No effect"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Soul Voice (507732) on turn 1 [3 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Cure","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 150 (+3x, Heal) HP to target"}]},
@@ -9712,7 +9712,7 @@
 			{"name":"Ice Blitz","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (1.9x, ATK) to all enemies"}]},
 			{"name":"Electric Blitz","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (2x, ATK) to all enemies"}]},
 			{"name":"Aero Blitz","icon":"ability_25.png","effects":[{"effect":null,"desc":"Physical wind damage (1.9x, ATK) to all enemies"}]},
-			{"name":"Lightning Strike","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Lightning Strike (507240) on turn 2 [2 turns CD]"}]},
+			{"name":"Lightning Strike","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Lightning Strike","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (11x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":100}],"turns":1},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for one turn to one enemy"}]},"cooldownTurns":2,"startTurn":2,"area":"ST","target":"ENEMY"},"desc":"Unlock Lightning Strike (507240) on turn 2 [2 turns CD]"}]},
 			{"name":"Endless Army","icon":"ability_10.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 150% for 3 turns to caster"},{"effect":null,"desc":"Physical damage (7.2x, ATK) to one enemy"}]}
 		],
 		"magics": [
@@ -10317,8 +10317,8 @@
 			{"name":"ギャザリング","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3000 (+3x, Heal) HP to all allies"},{"effect":null,"desc":"Restore 9000 (+3x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"ファイナルアタック","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use ファイナルアタック (507870), or ラウンドアサルト (507871), if used after ファイナルアタック (507870)"}]},
 			{"name":"エンハンス","icon":"ability_39.png","effects":[{"effect":{"imperil":{"elements":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 50% for 3 turns to one enemy"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"}]},
-			{"name":"オーバーブースト","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock オーバーブースト (507882) on turn 1 [6 turns CD]"}]},
-			{"name":"父王たちのご馳走カナッペ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock 父王たちのご馳走カナッペ (507881) on turn 1 [6 turns CD]"}]}
+			{"name":"オーバーブースト","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"オーバーブースト","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 200% for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 9 to caster"},{"effect":null,"desc":"Gain 2 uses of the following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock オーバーブースト (507882) on turn 1 [6 turns CD]"}]},
+			{"name":"父王たちのご馳走カナッペ","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"父王たちのご馳走カナッペ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 150% for 3 turns to all allies"},{"effect":null,"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock 父王たちのご馳走カナッペ (507881) on turn 1 [6 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -10629,7 +10629,7 @@
 			{"name":"Spirit Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"spr":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 60% for 5 turns to one enemy"}]},
 			{"name":"Defense Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"def":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 60% for 5 turns to one enemy"}]},
 			{"name":"Northern Sky Apprentice","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy"}]},
-			{"name":"Morale Boost","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Morale Boost (507251) on turn 1 [3 turns CD]"}]}
+			{"name":"Morale Boost","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Morale Boost","icon":"ability_105.png","effects":[{"effect":null,"desc":"Grant a 2000 HP shield to all allies for 3 turns"}]},"cooldownTurns":3,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Morale Boost (507251) on turn 1 [3 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Protect","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% for 3 turns to one ally"}]},
@@ -10738,7 +10738,7 @@
 			{"name":"Meditate +1","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 45% for 5 turns to all allies"}]},
 			{"name":"Meditate +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 65% for 5 turns to all allies"},{"effect":null,"desc":"Restore 20 (+0.5x, Heal) MP split over 5 turns to all allies"}]},
 			{"name":"Northern Sky Apprentice","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy"}]},
-			{"name":"Karma Blade","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Karma Blade (507260) on turn 2 [2 turns CD]"}]}
+			{"name":"Karma Blade","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Karma Blade","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (11x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":120}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Dark by 120% for 3 turns to one enemy"}]},"cooldownTurns":2,"startTurn":2,"area":"ST","target":"ENEMY"},"desc":"Unlock Karma Blade (507260) on turn 2 [2 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -10979,7 +10979,7 @@
 			{"name":"Divine Ruination +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.6x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"light","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 50% for 3 turns to one enemy"}]},
 			{"name":"Divine Ruination +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (5.2x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"light","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 50% for 3 turns to one enemy"}]},
 			{"name":"Blade of Creation","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (4.2x, ATK) to all enemies"},{"effect":null,"desc":"Increase LB gauge by 6 to caster"}]},
-			{"name":"Perfect Ultima Sword","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Perfect Ultima Sword (507340) on turn 4 [4 turns CD]"}]}
+			{"name":"Perfect Ultima Sword","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Perfect Ultima Sword","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (15x, ATK) to one enemy (ignore cover)"}]},"cooldownTurns":4,"startTurn":4,"area":"ST","target":"ENEMY"},"desc":"Unlock Perfect Ultima Sword (507340) on turn 4 [4 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -12197,8 +12197,8 @@
 			{"name":"True Shot +1","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (5.4x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"True Shot +2","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (7x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"Empowering Shot","icon":"ability_79.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase ATK by 150% for 3 turns to caster"},{"effect":{"killers":[{"name":"machine","physical":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas by 100% to caster for 3 turns"}]},
-			{"name":"Vanguard Force","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Vanguard Force (911187) on turn 1 [5 turns CD]"}]},
-			{"name":"Immolation Blast","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock Immolation Blast (911189) on turn 1 [5 turns CD]"}]}
+			{"name":"Vanguard Force","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Vanguard Force","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase LB gauge by 10 to the rest of the party"},{"effect":null,"desc":"Auto-revive (100% HP) for 5 turns to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Unlock Vanguard Force (911187) on turn 1 [5 turns CD]"}]},
+			{"name":"Immolation Blast","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Immolation Blast","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (15x, ATK) to all enemies"},{"effect":{"break":{"def":70,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":100},{"name":"lightning","percent":100}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Lightning by 100% for 3 turns to all enemies"},{"effect":null,"desc":"Instant KO (100%) to caster (Unknown value: 1)"}]},"cooldownTurns":5,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Immolation Blast (911189) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -12770,8 +12770,8 @@
 			{"name":"真・やいばくだき","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
 			{"name":"帝王のかまえ","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 200% for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 10 to caster"}]},
 			{"name":"帝王の一閃","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"}]},
-			{"name":"ジゴスパーク","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock ジゴスパーク (507531) on turn 5 [5 turns CD]"}]},
-			{"name":"真・完全覚醒","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock 真・完全覚醒 (507530) on turn 1 [5 turns CD]"}]}
+			{"name":"ジゴスパーク","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ジゴスパーク","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (10x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":100}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to all enemies"},{"effect":{"imbue":["dark"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Dark element to physical attacks for 3 turn(s) to caster"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ENEMY"},"desc":"Unlock ジゴスパーク (507531) on turn 5 [5 turns CD]"}]},
+			{"name":"真・完全覚醒","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"真・完全覚醒","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all elements by 100% for 3 turns to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock 真・完全覚醒 (507530) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -12811,7 +12811,7 @@
 			{"name":"マヒャド","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (4x, MAG) to all enemies"}]},
 			{"name":"Sword Dance","icon":"ability_61.png","effects":[{"effect":null,"desc":"4-8 physical attacks (0.55x each, 3.3x avg, ATK) to one random enemy"}]},
 			{"name":"せいけんづき","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.3x, ATK) to one enemy (ignore cover)"}]},
-			{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock 魔人百獣拳 (507543) on turn 5 [5 turns CD]"}]},
+			{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"def":60,"mag":60,"spr":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 60% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock 魔人百獣拳 (507543) on turn 5 [5 turns CD]"}]},
 			{"name":"はげしいきりさき","icon":"ability_54.png","effects":[{"effect":null,"desc":"2 physical attacks (1.8x each, 3.6x total, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
 			{"name":"百獣闘気","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
 			{"name":"ブリザーラッシュ","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (7x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 3 turn(s) to caster"}]}

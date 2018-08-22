@@ -765,6 +765,14 @@ function parseActiveRawEffect(rawEffect, skills) {
         }
         result.turns = imbueData[8];
         
+    // Cooldown skills
+    } else if (rawEffect[2] == 130) { 
+        result = {};
+        var skillIn = skills[rawEffect[3][0]];
+        result.cooldownSkill = parseActiveSkill(skillIn, skills);
+        result.cooldownTurns = rawEffect[3][2][0] + 1;
+        result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+        
         
     }
 
@@ -1263,6 +1271,8 @@ function addSkillEffectToSearch(effects, unitOut) {
                         unitOut[effect.effect.area].imbue.push(effect.effect.imbue[j]);
                     }
                 }
+            } else if (effect.effect.cooldownSkill) {
+                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, unitOut)
             }
         }
     }
