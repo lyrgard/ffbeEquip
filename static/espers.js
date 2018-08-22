@@ -763,7 +763,10 @@ function displayEspers() {
         tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
-            tabs += "<li class=\"" + escapedName + "\" data-esper=\"" + espers[index].name + "\" title=\"" + espers[index].name + "\"><a>";
+            var owned = ownedEspers[espers[index].name] ? true : false;
+            tabs += "<li class=\"" + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
+                    "data-esper=\"" + espers[index].name + "\" "+
+                    "title=\"" + espers[index].name + (owned ? " (owned)" : " (not owned)") + "\"><a>";
             tabs += "<i class='img img-esper-" + escapedName +"'></i>";
             tabs += "</a></li>";
         }
@@ -958,6 +961,7 @@ function startPage() {
             gridContainer.addClass("hidden");
             $(".stats").addClass("invisible");
             $(".esperOtherStats").addClass("invisible");
+            $("#tabs li."+currentEsper).addClass("notOwned");
         } else {
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
@@ -969,6 +973,7 @@ function startPage() {
             showBoard(currentEsper, parseInt(value));
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
+            $("#tabs li."+currentEsper).removeClass("notOwned");
         }
         prepareSave();
     });
@@ -1029,8 +1034,8 @@ function startPage() {
     });
 
     /* Tabs esper selection */
-    $("#espers #tabs").on('click', function(e) {
-        var $elem = $(e.target).parents('li[data-esper]');
+    $("#espers #tabs").on('click', 'li[data-esper]', function(e) {
+        var $elem = $(this);
         var esperName = $elem.attr('data-esper');
         var $esper = $('#esper');
         var $pan = $esper.find('#panWrapper');
