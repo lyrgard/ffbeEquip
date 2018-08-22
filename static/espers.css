@@ -136,6 +136,14 @@ table.allEspers > tbody > tr > td.stats .bonus {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* filter allows to contour PNG file */
 }
 
+#espers #tabs li.notOwned {
+    opacity: 0.5;
+}
+
+#espers #tabs li.notOwned i.img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) grayscale(1);
+}
+
 #espers #tabs li.active a {
     background-color: #337ab7;
     border-bottom-color: rgb(221, 221, 221);
