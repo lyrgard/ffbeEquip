@@ -439,6 +439,11 @@ function getSkillHtml(skill) {
                 html += getSkillHtml(randomSkill.skill);
                 html += '</div>';
             }
+        } else if (skill.effects[j].effect && skill.effects[j].effect.cooldownSkill) {
+            html += '<span class="effect">Available turn ' + skill.effects[j].effect.startTurn + ' (' + skill.effects[j].effect.cooldownTurns + ' turns cooldown):</span>';
+            lenj = skill.effects[j].effect.cooldownSkill.effects.length;
+            skill = skill.effects[j].effect.cooldownSkill;
+            j = -1;
         } else {
             html += '<span class="effect">' + skill.effects[j].desc + '</span>';    
         }
@@ -506,6 +511,11 @@ function mustDisplaySkill(effects, type) {
                     if (mustDisplaySkill(effect.effect.randomlyUse[i].skill.effects, type)) {
                         return true;
                     }
+                }
+            }
+            if (effect.effect.cooldownSkill) {
+                if (mustDisplaySkill(effect.effect.cooldownSkill.effects, type)) {
+                    return true;
                 }
             }
         }
