@@ -17,10 +17,10 @@ var physicalKillers;
 var magicalKillers;
 
 var defaultFilter = {
-    "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb"]},
-    "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb"]},
-    "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
-    "ailments": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
+    "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
+    "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
+    "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
+    "ailments": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
     "imbues": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb"]},
     "physicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "magicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]}
@@ -288,12 +288,12 @@ var updateFilterHeadersDisplay = function() {
     $(".imperils .filters").toggleClass("hidden", imperils.values.length == 0);
     $(".breaks .filters").toggleClass("hidden", breaks.values.length == 0);
     $(".imbues .filters").toggleClass("hidden", imbues.values.length == 0);
-    $("#elementsTargetAreaTypes").toggleClass("hidden", !elements.skillTypes.includes("actives") && !elements.skillTypes.includes("lb"));
-    $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb"));
-    $("#killersTargetAreaTypes").toggleClass("hidden", !physicalKillers.skillTypes.includes("actives") && !physicalKillers.skillTypes.includes("lb"));
-    $("#imperilsTargetAreaTypes").toggleClass("hidden", !imperils.skillTypes.includes("actives") && !imperils.skillTypes.includes("lb"));
-    $("#breaksTargetAreaTypes").toggleClass("hidden", !breaks.skillTypes.includes("actives") && !breaks.skillTypes.includes("lb"));
-    $("#imbuesTargetAreaTypes").toggleClass("hidden", !imbues.skillTypes.includes("actives") && !imbues.skillTypes.includes("lb"));
+    $("#elementsTargetAreaTypes").toggleClass("hidden", !elements.skillTypes.includes("actives") && !elements.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#killersTargetAreaTypes").toggleClass("hidden", !physicalKillers.skillTypes.includes("actives") && !physicalKillers.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#imperilsTargetAreaTypes").toggleClass("hidden", !imperils.skillTypes.includes("actives") && !imperils.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#breaksTargetAreaTypes").toggleClass("hidden", !breaks.skillTypes.includes("actives") && !breaks.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#imbuesTargetAreaTypes").toggleClass("hidden", !imbues.skillTypes.includes("actives") && !imbues.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
 }
 
 
@@ -439,6 +439,11 @@ function getSkillHtml(skill) {
                 html += getSkillHtml(randomSkill.skill);
                 html += '</div>';
             }
+        } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
+            html += '<span class="effect">' + skill.effects[j].effect.percent + '% of chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
+            html += '<div class="subSkill">';
+            html += getSkillHtml(skill.effects[j].effect.counterSkill);
+            html += '</div>';
         } else if (skill.effects[j].effect && skill.effects[j].effect.cooldownSkill) {
             html += '<span class="effect">Available turn ' + skill.effects[j].effect.startTurn + ' (' + skill.effects[j].effect.cooldownTurns + ' turns cooldown):</span>';
             lenj = skill.effects[j].effect.cooldownSkill.effects.length;
@@ -515,6 +520,11 @@ function mustDisplaySkill(effects, type) {
             }
             if (effect.effect.cooldownSkill) {
                 if (mustDisplaySkill(effect.effect.cooldownSkill.effects, type)) {
+                    return true;
+                }
+            }
+            if (effect.effect.counterSkill) {
+                if (mustDisplaySkill(effect.effect.counterSkill.effects, "counter")) {
                     return true;
                 }
             }
@@ -648,12 +658,12 @@ function startPage() {
     
 	// Elements
 	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm");
-    addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Ailments
 	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
-    addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
 	// Killers
@@ -664,12 +674,12 @@ function startPage() {
     
 	// Imperils
 	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm");
-    addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Breaks
 	addTextChoicesTo("breaks",'checkbox',{'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
-    addTextChoicesTo("breaksSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("breaksSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("breaksTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Imbues
