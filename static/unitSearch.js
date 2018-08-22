@@ -593,6 +593,9 @@ function initFilters() {
         select(unitSearchFilters[i] + "SkillTypes", window[unitSearchFilters[i]].skillTypes);
         select(unitSearchFilters[i] + "TargetAreaTypes", window[unitSearchFilters[i]].targetAreaTypes);
     }
+    
+    select("killersSkillTypes", physicalKillers.skillTypes);
+    select("killersTargetAreaTypes", physicalKillers.targetAreaTypes);
 }
 
 function updateHash() {
