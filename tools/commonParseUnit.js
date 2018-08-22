@@ -136,7 +136,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             var enhancementData = {"name":skills[skillId].name, "levels":[]}
             var enhancementBaseEffects = {};
             var enhancementSkillsOut = [enhancementBaseEffects];
-            var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut);
+            var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut, skills);
             unitOut.passives.push(skill);
             if (Object.keys(enhancementBaseEffects).length === 0) {
                 enhancementSkillsOut.splice(0,1);
@@ -154,7 +154,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillIn = skills[skillId];
                 var enhancementBaseEffects = {};
                 var enhancementSkillsOut = [enhancementBaseEffects];
-                var skill = getPassive(skills[skillId], enhancementBaseEffects, enhancementSkillsOut);
+                var skill = getPassive(skills[skillId], enhancementBaseEffects, enhancementSkillsOut, skills);
                 skill.name = skill.name + " +" + enhancementLevel;
                 unitOut.passives.push(skill);
                 
@@ -184,7 +184,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         if (skillsIn[skillIndex].level > 101) {
             baseEffectsLevelCondition = {};
             skillsOutLevelCondition = [baseEffectsLevelCondition];
-            var skill = getPassive(skillIn, baseEffectsLevelCondition, skillsOutLevelCondition);
+            var skill = getPassive(skillIn, baseEffectsLevelCondition, skillsOutLevelCondition, skills);
             if (!(Object.keys(skillsOutLevelCondition[0]).length === 0)) {
                 baseEffectsLevelCondition.levelCondition = skillsIn[skillIndex].level;
                 skillsOut.push(baseEffectsLevelCondition);
@@ -194,7 +194,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillsOut.push(skillsOutLevelCondition[i]);
             }
         } else {
-            var skill = getPassive(skillIn, baseEffects, skillsOut);
+            var skill = getPassive(skillIn, baseEffects, skillsOut, skills);
         }
         unitOut.passives.push(skill);
     }
@@ -209,7 +209,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         var enhancementData = {"name":skillIn.name, "levels":[[]]}
         var enhancementBaseEffects = {};
         var enhancementSkillsOut = [enhancementBaseEffects];
-        var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut);
+        var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut, skills);
         unitOut.passives.push(skill);
         if (Object.keys(enhancementBaseEffects).length === 0) {
             enhancementSkillsOut.splice(0,1);
@@ -232,14 +232,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     return skillsOut;
 }
 
-function getPassive(skillIn, baseEffects, skillsOut) {
+function getPassive(skillIn, baseEffects, skillsOut, skills) {
     var skill = {"name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effects = parsePassiveRawEffet(rawEffect);
+        var effects = parsePassiveRawEffet(rawEffect, skills);
         if (effects) {
             if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
                 tmrAbilityEffects = tmrAbilityEffects.concat(effects);
@@ -350,7 +350,7 @@ function addEffectsToEffectList(effectList, effects) {
     }
 }
 
-function parsePassiveRawEffet(rawEffect) {
+function parsePassiveRawEffet(rawEffect, skills) {
     var result = {};
     // stat bonus
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
@@ -601,6 +601,25 @@ function parsePassiveRawEffet(rawEffect) {
         addToStat(result.esperStatsBonus, "spr", esperStatsBonus[5]);
         return [result];
 
+    // Counter
+    } else if (rawEffect[2] == 49) { 
+        result = {};
+        var skillIn = skills[rawEffect[3][2]];
+        if (skillIn) {
+            result.counterSkill = parseActiveSkill(skillIn, skills);
+            result.counterType = "physical";
+            result.percent = rawEffect[3][0];
+            return [result];
+        }
+        
+    } else if (rawEffect[2] == 50) { 
+        result = {};
+        var skillIn = skills[rawEffect[3][2]];
+        result.counterSkill = parseActiveSkill(skillIn, skills);
+        result.counterType = "magical";
+        result.percent = rawEffect[3][0];
+        return [result];
+        
     // Gilgamesh multi equip skill
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
         var result = [];
@@ -772,7 +791,6 @@ function parseActiveRawEffect(rawEffect, skills) {
         result.cooldownSkill = parseActiveSkill(skillIn, skills);
         result.cooldownTurns = rawEffect[3][2][0] + 1;
         result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
-        
         
     }
 
@@ -1124,7 +1142,7 @@ function formatForSearch(units) {
                     }
                 }
             }
-            var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}};
+            var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
             for (var i = skills.length; i--;) {
                 var skill = skills[i];
                 if (skill.resist) {
@@ -1161,6 +1179,14 @@ function formatForSearch(units) {
                     }
                 }
             }
+            for (var i = unit.passives.length; i--;) {
+                var skill = unit.passives[i];
+                for (var j = skill.effects.length; j--;) {
+                    if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
+                        addSkillEffectToSearch(skill.effects[j].effect.counterSkill.effects, unitOut.counter);
+                    }
+                }
+            }
             var activeAndMagic = unit.actives.concat(unit.magics);
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
@@ -1183,30 +1209,30 @@ function formatForSearch(units) {
     return result;
 }
 
-function addSkillEffectToSearch(effects, unitOut) {
+function addSkillEffectToSearch(effects, effectType) {
     for (var i = effects.length; i--;) {
         var effect = effects[i];
-        if (effect.effect && unitOut[effect.effect.area]) {
+        if (effect.effect && effectType[effect.effect.area]) {
             if (effect.effect.imperil) {
-                if (!unitOut[effect.effect.area].imperil) {
-                    unitOut[effect.effect.area].imperil = {};
+                if (!effectType[effect.effect.area].imperil) {
+                    effectType[effect.effect.area].imperil = {};
                 }
                 for (var j = effect.effect.imperil.elements.length; j--;) {
-                    if (!unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] || unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
-                        unitOut[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
+                    if (!effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] || effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
+                        effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
                     }
                 }
              } else if (effect.effect.resist) {
                 for (var j = effect.effect.resist.length; j--;) {
                     if (ailments.includes(effect.effect.resist[j].name)) {
-                        if (!unitOut[effect.effect.area].ailmentResist) {unitOut[effect.effect.area].ailmentResist = {};}
-                        if (!unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
-                            unitOut[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        if (!effectType[effect.effect.area].ailmentResist) {effectType[effect.effect.area].ailmentResist = {};}
+                        if (!effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                            effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
                         }
                     } else {
-                        if (!unitOut[effect.effect.area].elementalResist) {unitOut[effect.effect.area].elementalResist = {};}
-                        if (!unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] || unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
-                            unitOut[effect.effect.area].elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        if (!effectType[effect.effect.area].elementalResist) {effectType[effect.effect.area].elementalResist = {};}
+                        if (!effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] || effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                            effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
                         }
                     }
                     
@@ -1214,65 +1240,65 @@ function addSkillEffectToSearch(effects, unitOut) {
             } else if (effect.effect.killers) {
                 for (var j = effect.effect.killers.length; j--;) {
                     if (effect.effect.killers[j].physical) {
-                        if (!unitOut[effect.effect.area].physicalKillers) {unitOut[effect.effect.area].physicalKillers = {};}
-                        if (!unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] || unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].physical) {
-                            unitOut[effect.effect.area].physicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].physical;
+                        if (!effectType[effect.effect.area].physicalKillers) {effectType[effect.effect.area].physicalKillers = {};}
+                        if (!effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] || effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].physical) {
+                            effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].physical;
                         }  
                     } 
                     if (effect.effect.killers[j].magical) {
-                        if (!unitOut[effect.effect.area].magicalKillers) {unitOut[effect.effect.area].magicalKillers = {};}
-                        if (!unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] || unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].magical) {
-                            unitOut[effect.effect.area].magicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].magical;
+                        if (!effectType[effect.effect.area].magicalKillers) {effectType[effect.effect.area].magicalKillers = {};}
+                        if (!effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] || effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].magical) {
+                            effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].magical;
                         }    
                     } 
                 }
             } else if (effect.effect.randomlyUse) {
                 for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
-                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, unitOut);
+                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, effectType);
                 }
             } else if (effect.effect.break) {
-                if (!unitOut[effect.effect.area].break) {
-                    unitOut[effect.effect.area].break = {};
+                if (!effectType[effect.effect.area].break) {
+                    effectType[effect.effect.area].break = {};
                 }
-                if (!unitOut[effect.effect.area].break.atk || unitOut[effect.effect.area].break.atk < effect.effect.break.atk) {
-                    unitOut[effect.effect.area].break.atk = effect.effect.break.atk;
+                if (!effectType[effect.effect.area].break.atk || effectType[effect.effect.area].break.atk < effect.effect.break.atk) {
+                    effectType[effect.effect.area].break.atk = effect.effect.break.atk;
                 }
-                if (!unitOut[effect.effect.area].break.def || unitOut[effect.effect.area].break.def < effect.effect.break.def) {
-                    unitOut[effect.effect.area].break.def = effect.effect.break.def;
+                if (!effectType[effect.effect.area].break.def || effectType[effect.effect.area].break.def < effect.effect.break.def) {
+                    effectType[effect.effect.area].break.def = effect.effect.break.def;
                 }
-                if (!unitOut[effect.effect.area].break.mag || unitOut[effect.effect.area].break.atk < effect.effect.break.mag) {
-                    unitOut[effect.effect.area].break.mag = effect.effect.break.mag;
+                if (!effectType[effect.effect.area].break.mag || effectType[effect.effect.area].break.atk < effect.effect.break.mag) {
+                    effectType[effect.effect.area].break.mag = effect.effect.break.mag;
                 }
-                if (!unitOut[effect.effect.area].break.spr || unitOut[effect.effect.area].break.spr < effect.effect.break.spr) {
-                    unitOut[effect.effect.area].break.spr = effect.effect.break.spr;
+                if (!effectType[effect.effect.area].break.spr || effectType[effect.effect.area].break.spr < effect.effect.break.spr) {
+                    effectType[effect.effect.area].break.spr = effect.effect.break.spr;
                 }
             } else if (effect.effect.statsBuff) {
-                if (!unitOut[effect.effect.area].statsBuff) {
-                    unitOut[effect.effect.area].statsBuff = {};
+                if (!effectType[effect.effect.area].statsBuff) {
+                    effectType[effect.effect.area].statsBuff = {};
                 }
-                if (!unitOut[effect.effect.area].statsBuff.atk || unitOut[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.atk) {
-                    unitOut[effect.effect.area].statsBuff.atk = effect.effect.statsBuff.atk;
+                if (!effectType[effect.effect.area].statsBuff.atk || effectType[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.atk) {
+                    effectType[effect.effect.area].statsBuff.atk = effect.effect.statsBuff.atk;
                 }
-                if (!unitOut[effect.effect.area].statsBuff.def || unitOut[effect.effect.area].statsBuff.def < effect.effect.statsBuff.def) {
-                    unitOut[effect.effect.area].statsBuff.def = effect.effect.statsBuff.def;
+                if (!effectType[effect.effect.area].statsBuff.def || effectType[effect.effect.area].statsBuff.def < effect.effect.statsBuff.def) {
+                    effectType[effect.effect.area].statsBuff.def = effect.effect.statsBuff.def;
                 }
-                if (!unitOut[effect.effect.area].statsBuff.mag || unitOut[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.mag) {
-                    unitOut[effect.effect.area].statsBuff.mag = effect.effect.statsBuff.mag;
+                if (!effectType[effect.effect.area].statsBuff.mag || effectType[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.mag) {
+                    effectType[effect.effect.area].statsBuff.mag = effect.effect.statsBuff.mag;
                 }
-                if (!unitOut[effect.effect.area].statsBuff.spr || unitOut[effect.effect.area].statsBuff.spr < effect.effect.statsBuff.spr) {
-                    unitOut[effect.effect.area].statsBuff.spr = effect.effect.statsBuff.spr;
+                if (!effectType[effect.effect.area].statsBuff.spr || effectType[effect.effect.area].statsBuff.spr < effect.effect.statsBuff.spr) {
+                    effectType[effect.effect.area].statsBuff.spr = effect.effect.statsBuff.spr;
                 }
             } else if (effect.effect.imbue) {
-                if (!unitOut[effect.effect.area].imbue) {
-                    unitOut[effect.effect.area].imbue = [];
+                if (!effectType[effect.effect.area].imbue) {
+                    effectType[effect.effect.area].imbue = [];
                 }
                 for (var j = 0, lenj = effect.effect.imbue.length; j < lenj; j++) {
-                    if (!unitOut[effect.effect.area].imbue.includes(effect.effect.imbue[j])) {
-                        unitOut[effect.effect.area].imbue.push(effect.effect.imbue[j]);
+                    if (!effectType[effect.effect.area].imbue.includes(effect.effect.imbue[j])) {
+                        effectType[effect.effect.area].imbue.push(effect.effect.imbue[j]);
                     }
                 }
             } else if (effect.effect.cooldownSkill) {
-                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, unitOut)
+                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, effectType)
             }
         }
     }
