@@ -8358,5 +8358,123 @@
 		"skills": [
 			{"mp%":20, "atk%":10, "def%":10, "mag%":10, "spr%":10}
 		]
+	},
+	"401004905": {
+		"name":"아담 젠슨",
+		"wikiEntry":"Adam_Jensen",
+		"id":"401004905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4780,"mp":220,"atk":203,"def":180,"mag":140,"spr":170},
+			"minStats":{"hp":1577,"mp":73,"atk":67,"def":59,"mag":46,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":50, "atk%":50, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"blind","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":20, "def%":20, "spr%":20, "dualWielding":{"atk":60}, "equipedConditions":["1500000064"]},
+			{"hp%":10, "def%":20, "levelCondition":115},
+			{"atk%":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"아담 젠슨",
+			"wikiEntry":"Adam_Jensen",
+			"id":"401004905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3660,"mp":170,"atk":160,"def":140,"mag":100,"spr":133},
+				"minStats":{"hp":1208,"mp":56,"atk":53,"def":46,"mag":33,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+			"skills": [
+				{"hp%":50, "atk%":50, "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"blind","percent":100}], "mpRefresh":10, "special":["dualWield"]}
+			]
+		}
+	},
+	"401005005": {
+		"name":"빅토르 마르첸코",
+		"wikiEntry":"Viktor_Marchenko",
+		"id":"401005005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4950,"mp":225,"atk":202,"def":208,"mag":142,"spr":162},
+			"minStats":{"hp":1634,"mp":74,"atk":67,"def":69,"mag":47,"spr":53},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":20, "def%":30, "spr%":20, "special":["dualWield"]},
+			{"def%":50, "equipedConditions":["heavyArmor"]},
+			{"atk%":30, "def%":30, "dualWielding":{"def":40}, "equipedConditions":["1500000065"]},
+			{"spr%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "def%":20, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"빅토르 마르첸코",
+			"wikiEntry":"Viktor_Marchenko",
+			"id":"401005005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3807,"mp":173,"atk":155,"def":160,"mag":109,"spr":124},
+				"minStats":{"hp":1256,"mp":57,"atk":51,"def":53,"mag":36,"spr":41},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","axe","hammer","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "atk%":20, "def%":30, "spr%":20, "special":["dualWield"]},
+				{"def%":50, "equipedConditions":["heavyArmor"]}
+			]
+		}
+	},
+	"401005104": {
+		"name":"바클라프 콜러",
+		"wikiEntry":"Václav_Koller",
+		"id":"401005104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3462,"mp":158,"atk":145,"def":128,"mag":82,"spr":123},
+			"minStats":{"hp":1142,"mp":52,"atk":48,"def":42,"mag":27,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "evade":{"physical":10}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"lightning","percent":30}]}
+		]
+	},
+	"401005203": {
+		"name":"프랭크 프릿차드",
+		"wikiEntry":"Frank_Pritchard",
+		"id":"401005203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2135,"mp":124,"atk":84,"def":85,"mag":90,"spr":98},
+			"minStats":{"hp":705,"mp":41,"atk":28,"def":28,"mag":30,"spr":32},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5}
+		]
 	}
 }
