@@ -147,7 +147,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity 
     }
     
     data.skills = commonParse.getPassives(unitId, unitIn.skills, skills, lbs, enhancementsByUnitId[unitId], maxRarity, unitData, data);
-    //verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
+    verifyImage(unitId, data["min_rarity"], data["max_rarity"]);
     
     if (maxRarity == 7) {
         data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
@@ -162,11 +162,11 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
         var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/global/unit_unit6_common/8/unit_ills_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/global/unit_unit7_common/3/unit_ills_" + unitId + ".png",filePath);
         }
         var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/global/unit_unit6_common/8/unit_icon_" + unitId + ".png",filePath);
+            download("http://diffs.exviusdb.com/asset_files/global/unit_unit7_common/3/unit_icon_" + unitId + ".png",filePath);
         }
     }
 }

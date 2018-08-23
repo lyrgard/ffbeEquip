@@ -686,7 +686,7 @@
 		"lb": {"name":"Mana Tonic","minEffects":[{"effect":null,"desc":"Increase MAG by 20% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase MAG by 29% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"Pharmacology","icon":"ability_70.png","effects":[{"effect":null,"desc":"Increase healing power of items by 100% during battle"}]},
-			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Auto-Limit","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]}
 		],
 		"actives": [
@@ -1419,7 +1419,7 @@
 		"enhancementSkills":["Royal Armlet","Lift Spirits","Immortal Spirit","Grandshelt Shield"],
 		"lb": {"name":"Fortify","minEffects":[{"effect":null,"desc":"Restore 500 (+1.8x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 50% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 500 (+3x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to all allies"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
@@ -1625,8 +1625,8 @@
 		"lb": {"name":"River Veil","minEffects":[{"effect":null,"desc":"Restore 1000 (+1.8x, Heal) HP to all allies"},{"effect":null,"desc":"Increase SPR by 40% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 1120 (+3x, Heal) HP to all allies"},{"effect":null,"desc":"Increase SPR by 64% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
-			{"name":"Aqua Refresh","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"Aqua Refresh +1","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
+			{"name":"Aqua Refresh","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Aqua Refresh +1","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"Aqua Refresh +2","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (10124) at the start of a battle or when revived"},{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"SPR +30%","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]}
 		],
@@ -1867,7 +1867,7 @@
 			{"name":"Dragon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":50}]},"desc":"Increase physical damage against Dragons by 50%"}]},
 			{"name":"Zoldaad Guard","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30},"desc":"Increase ATK and DEF by 30% when equipped with a Heavy Armor"},{"effect":{"resist":[{"name":"fire","percent":50}]},"desc":"Increase resistance to Fire by 50%"}]},
 			{"name":"Zoldaad Guard +1","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30},"desc":"Increase ATK and DEF by 30% when equipped with a Heavy Armor"},{"effect":{"resist":[{"name":"fire","percent":70}]},"desc":"Increase resistance to Fire by 70%"}]},
-			{"name":"Zoldaad Guard +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30},"desc":"Increase ATK and DEF by 30% when equipped with a Heavy Armor"},{"effect":{"resist":[{"name":"fire","percent":70}]},"desc":"Increase resistance to Fire by 70%"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Zoldaad Guard +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["heavyArmor"],"atk%":30,"def%":30},"desc":"Increase ATK and DEF by 30% when equipped with a Heavy Armor"},{"effect":{"resist":[{"name":"fire","percent":70}]},"desc":"Increase resistance to Fire by 70%"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]}
 		],
@@ -2858,7 +2858,7 @@
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"Heavenlord","icon":"ability_77.png","effects":[{"effect":null,"desc":"Absorb Wind elemental attacks"},{"effect":null,"desc":"Increase ATK by 110% when HP drops below 30% (max 9000x)"}]},
 			{"name":"Heavenlord +1","icon":"ability_77.png","effects":[{"effect":null,"desc":"Absorb Wind elemental attacks"},{"effect":null,"desc":"Increase ATK by 110% when HP drops below 50% (max 9000x)"}]},
-			{"name":"Heavenlord +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Absorb Wind elemental attacks"},{"effect":null,"desc":"Increase ATK by 110% when HP drops below 50% (max 9000x)"},{"effect":{"equipedConditions":["heavyArmor"],"hp%":10,"atk%":30},"desc":"Increase ATK by 30% and HP by 10% when equipped with a Heavy Armor"},{"effect":{"killers":[{"physical":[50,50,50,50,50],"magical":[0,0,0,0,0]}]},"desc":"Increase physical damage against Beasts, Aquatics, Humans, Stones and Plantoids by 50/50/50/50/50%"}]}
+			{"name":"Heavenlord +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Absorb Wind elemental attacks"},{"effect":null,"desc":"Increase ATK by 110% when HP drops below 50% (max 9000x)"},{"effect":{"equipedConditions":["heavyArmor"],"hp%":10,"atk%":30},"desc":"Increase ATK by 30% and HP by 10% when equipped with a Heavy Armor"},{"effect":{"killers":[{"physical":[50,50,50,50,50],"magical":[0,0,0,0,0]}]},"desc":"Increase physical damage against Beasts, Aquatics, Humans, Stones and Plants by 50/50/50/50/50%"}]}
 		],
 		"actives": [
 			{"name":"Spineshatter Dive 1","icon":"ability_80.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy after a one turn jump delay"}]},
@@ -3041,7 +3041,7 @@
 		"passives": [
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
 			{"name":"Eternity","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep, Silence and Petrify by 100%"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"Light Retribution","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Light Retribution","icon":"ability_39.png","effects":[{"effect":{"imperil":{"elements":[{"name":"light","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 100% for 3 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Light Retribution (501790) to caster"}]},
 			{"name":"Dual Shooter","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["throwing","gun"]},"desc":"Enable unit to equip two one-handed throwing weapons and guns"}]},
@@ -3182,7 +3182,7 @@
 		"equip":["harp","hat","clothes","robe"],
 		"lb": {"name":"Tinkle Trick","minEffects":[{"effect":{"break":{"atk":40,"def":40,"mag":40,"spr":40,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 40% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"break":{"atk":59,"def":59,"mag":59,"spr":59,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 59% for 3 turns to one enemy"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
 			{"name":"Auto-Protect","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Protect (Auto) (30091) at the start of a battle or when revived"}]},
@@ -3250,9 +3250,9 @@
 			{"name":"Moogle March","icon":"ability_19.png","effects":[{"effect":null,"desc":"Increase Stop resistance by 100% for 3 turns to all allies"}]},
 			{"name":"Mog Dark","icon":"ability_26.png","effects":[{"effect":null,"desc":"Physical dark damage (1x, ATK) to one enemy"},{"effect":{"imbue":["dark"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Dark element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"Mog Light","icon":"ability_5.png","effects":[{"effect":null,"desc":"Physical light damage (1x, ATK) to one enemy"},{"effect":{"imbue":["light"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Light element to physical attacks for 5 turn(s) to caster"}]},
-			{"name":"Mog Waltz","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills (1 use):\n\tMog Waltz (501570)"},{"effect":null,"desc":"Restore 30% HP and MP to caster"}]},
-			{"name":"Mog Waltz +1","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills (1 use):\n\tMog Waltz+1 (507481)"},{"effect":null,"desc":"Restore 40% HP and MP to caster"}]},
-			{"name":"Mog Waltz +2","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills (1 use):\n\tMog Waltz+2 (507482)"},{"effect":null,"desc":"Restore 50% HP and MP to caster"},{"effect":null,"desc":"Grant Dual-cast White magic for 3 turns to caster"}]}
+			{"name":"Mog Waltz","icon":"ability_60.png","effects":[{"effect":null,"desc":"Grant access to following skills (1 use) to one ally:\n\tMog Waltz (501570)"},{"effect":null,"desc":"Restore 30% HP and MP to caster"}]},
+			{"name":"Mog Waltz +1","icon":"ability_60.png","effects":[{"effect":null,"desc":"Grant access to following skills (1 use) to one ally:\n\tMog Waltz+1 (507481)"},{"effect":null,"desc":"Restore 40% HP and MP to caster"}]},
+			{"name":"Mog Waltz +2","icon":"ability_60.png","effects":[{"effect":null,"desc":"Grant access to following skills (1 use) to one ally:\n\tMog Waltz+2 (507482)"},{"effect":null,"desc":"Restore 50% HP and MP to caster"},{"effect":null,"desc":"Grant Dual-cast White magic for 3 turns to caster"}]}
 		],
 		"magics": [
 			{"name":"Stona","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure Petrify for one ally"}]},
@@ -3282,7 +3282,7 @@
 		"passives": [
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Fan of Challenge","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% when HP drops below 30% (max 9000x)"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
@@ -3358,7 +3358,7 @@
 			{"name":"Gap Closer","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Full Break+","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy"},{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Full Break+ (501990) to caster"}]},
 			{"name":"Unbreakable Heart","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 100% when HP drops below 30% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 100% when HP drops below 30% (max 9000x)"}]},
 			{"name":"Sword Mastery","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"High Tide","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]}
 		],
 		"actives": [
@@ -3430,7 +3430,7 @@
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"Hybrid Lady","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"disease","percent":100}]},"desc":"Increase resistance to Disease by 100%"},{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
-			{"name":"Toxic Transformation","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100}]},"desc":"Increase resistance to Poison by 100%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]}
+			{"name":"Toxic Transformation","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100}]},"desc":"Increase resistance to Poison by 100%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]}
 		],
 		"actives": [
 			{"name":"Poison","icon":"ability_24.png","effects":[{"effect":null,"desc":"Physical dark damage (1.2x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Poison (30%) on one enemy"}]},
@@ -3808,14 +3808,14 @@
 			{"name":"Anti-Insect Stance","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (1x, 2.1x to Insect monsters, ATK) to all enemies."}]},
 			{"name":"Tremor","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid earth damage (2.1x, ATK & MAG) to all enemies"}]},
 			{"name":"Illude","icon":"ability_64.png","effects":[{"effect":null,"desc":"Inflict Confusion (30%) on one enemy"}]},
-			{"name":"Anti-Plantoid Stance","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (1x, 2.1x to Plantoid monsters, ATK) to all enemies."}]},
+			{"name":"Anti-Plantoid Stance","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (1x, 2.1x to Plant monsters, ATK) to all enemies."}]},
 			{"name":"Whirlwind Evasion","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid wind damage (2.1x, ATK & MAG) to all enemies"}]},
 			{"name":"Hide","icon":"ability_42.png","effects":[{"effect":null,"desc":"Remove caster from fight for 3-5 turns"}]},
 			{"name":"Throw","icon":"ability_47.png","effects":[{"effect":null,"desc":"Allow use of throwable items"}]},
 			{"name":"Earthsplit Evasion","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid earth damage (3x, ATK & MAG) to all enemies"}]},
 			{"name":"Fujin 2","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid wind damage (4.5x, ATK & MAG) to one enemy"}]},
 			{"name":"Doton 2","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid earth damage (4x, ATK & MAG) to all enemies"}]},
-			{"name":"Secret Herbicide","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"killers":[{"name":"plant","physical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Plantoids by 100% to caster for 2 turns"},{"effect":{"killers":[{"name":"plant","magical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase magic damage against Plantoids by 100% to caster for 2 turns"}]},
+			{"name":"Secret Herbicide","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"killers":[{"name":"plant","physical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Plants by 100% to caster for 2 turns"},{"effect":{"killers":[{"name":"plant","magical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase magic damage against Plants by 100% to caster for 2 turns"}]},
 			{"name":"Secret Pesticide","icon":"ability_64.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"killers":[{"name":"bug","physical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Insects by 100% to caster for 2 turns"},{"effect":{"killers":[{"name":"bug","magical":100}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase magic damage against Insects by 100% to caster for 2 turns"}]},
 			{"name":"Whirlwind Evasion 2","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid wind damage (4x, ATK & MAG) to all enemies"}]},
 			{"name":"Earthsplit Evasion 2","icon":"ability_64.png","effects":[{"effect":null,"desc":"Hybrid earth damage (4.25x, ATK & MAG) to all enemies"}]},
@@ -3839,7 +3839,7 @@
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
 		"lb": {"name":"Dragon's Madrigal","minEffects":[{"effect":null,"desc":"Increase all stats by 100% for 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 1150 (+8x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 20 (+0.5x, Heal) MP split over 3 turns to all allies while singing"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 124% for 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 1150 (+8x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 20 (+0.5x, Heal) MP split over 3 turns to all allies while singing"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"Pizzicato Tonic","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"},{"effect":{"resist":[{"name":"silence","percent":100}]},"desc":"Increase resistance to Silence by 100%"}]},
 			{"name":"SPR +30%","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]},
@@ -3928,7 +3928,7 @@
 			{"name":"Anti-Light Method","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 70% for 3 turns to all allies"}]},
 			{"name":"Anti-Dark Method","icon":"ability_98.png","effects":[{"effect":{"resist":[{"name":"dark","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Dark by 70% for 3 turns to all allies"}]},
 			{"name":"Elemental Rule","icon":"ability_39.png","effects":[{"effect":{"imperil":{"elements":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to all elements by 30% for 3 turns to all enemies"}]},
-			{"name":"Plantoid Research","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","magical":50}],"turns":2,"area":"ST","target":"ALLY"},"desc":"Increase magic damage against Plantoids by 50% to one ally for 2 turns"}]},
+			{"name":"Plantoid Research","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","magical":50}],"turns":2,"area":"ST","target":"ALLY"},"desc":"Increase magic damage against Plants by 50% to one ally for 2 turns"}]},
 			{"name":"Stone Research","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"stone","magical":50}],"turns":2,"area":"ST","target":"ALLY"},"desc":"Increase magic damage against Stones by 50% to one ally for 2 turns"}]}
 		],
 		"magics": [
@@ -4065,7 +4065,7 @@
 			{"name":"Physical Barrier","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"},{"effect":null,"desc":"Gain Shell (Auto) (30141) at the start of a battle or when revived"}]},
 			{"name":"MP +30%","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}]},
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
-			{"name":"Spiritual Barrier","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]}
+			{"name":"Spiritual Barrier","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]}
 		],
 		"actives": [
 			{"name":"Mind Fortress","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 80% for 2 turns to the rest of the party"}]},
@@ -4097,7 +4097,7 @@
 		"equip":["dagger","staff","harp","whip","hat","clothes","robe"],
 		"lb": {"name":"Dragon's Dance","minEffects":[{"effect":null,"desc":"Restore 1700 (+12x, Heal) HP split over 5 turns to all allies"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 5 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 1700 (+14.4x, Heal) HP split over 5 turns to all allies"},{"effect":null,"desc":"Increase DEF and SPR by 74% for 5 turns to all allies"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
@@ -4412,7 +4412,7 @@
 		"passives": [
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"Airbag","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"}]},
-			{"name":"AL Type Generator","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"AL Type Generator","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Machine Killer+","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":75,"magical":75}]},"desc":"Increase physical and magic damage against Machinas by 75%"}]},
 			{"name":"Genius Mechanic","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["hammer"],"hp%":30,"atk%":30},"desc":"Increase ATK and HP by 30% when equipped with a Hammer"}]},
 			{"name":"Bore Up","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
@@ -4454,7 +4454,7 @@
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
 			{"name":"Resistance Leader","icon":"ability_91.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
 			{"name":"You've ticked me off!","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 110% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase DEF by 110% for 2 turns when HP drops below 50% (max 9999x)"}]},
-			{"name":"Tough Guy","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"def%":30},"desc":"Increase DEF and HP by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Tough Guy","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"def%":30},"desc":"Increase DEF and HP by 30%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Dual Wield","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"}]},
 			{"name":"Gun Mastery","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["gun"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Gun"}]},
 			{"name":"I'll Show You My Guts!","icon":"ability_41.png","effects":[{"effect":null,"desc":"100% chance to ignore fatal damage when HP is above 30% (max 1 times)"}]},
@@ -4809,7 +4809,7 @@
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Proceed Forth","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Proceed Forth","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 100% for 2 turns to caster"}]},"counterType":"physical","percent":10},"desc":"10% chance to counter physical attacks with Proceed Forth (504310) to caster (max 1 / turn)"}]},
 			{"name":"Competetive Spirit","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 20% when HP drops below 80% (max 9999x)"},{"effect":null,"desc":"Increase DEF by 20% when HP drops below 80% (max 9999x)"}]},
-			{"name":"Colosseum Star","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"spirit","physical":50}]},"desc":"Increase physical damage against Fairies by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"},{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
+			{"name":"Colosseum Star","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"spirit","physical":50}]},"desc":"Increase physical damage against Fairies by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"},{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"My Turn","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"My Turn","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 100% for 2 turns to caster"}]},"counterType":"physical","percent":10},"desc":"10% chance to counter physical attacks with My Turn (504320) to caster (max 1 / turn)"}]},
 			{"name":"Courage","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Courage","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 150% for 2 turns to caster"}]},"counterType":"physical","percent":5},"desc":"5% chance to counter physical attacks with Courage (504330) to caster (max 1 / turn)"}]},
 			{"name":"Battle Spirit","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"aquatic","physical":50}]},"desc":"Increase physical damage against Aquatics by 50%"},{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"},{"effect":{"killers":[{"name":"machine","physical":50}]},"desc":"Increase physical damage against Machinas by 50%"},{"effect":{"killers":[{"name":"stone","physical":50}]},"desc":"Increase physical damage against Stones by 50%"}]},
@@ -4892,7 +4892,7 @@
 			{"name":"Emperor's Capacity","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"},{"effect":null,"desc":"Use Emperor's Vessel (505810) at the start of a battle"}]},
 			{"name":"Demon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
 			{"name":"Dragon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":50}]},"desc":"Increase physical damage against Dragons by 50%"}]},
-			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Blade Adept","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Sword"}]},
 			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
@@ -4930,7 +4930,7 @@
 		"lb": {"name":"Blazing Drive","minEffects":[{"effect":null,"desc":"Physical fire damage (6x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 60% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical fire damage (8.4x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":84}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 84% for 3 turns to all enemies"}]},
 		"passives": [
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
-			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Acknowledging Danger","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"disease","percent":100}]},"desc":"Increase resistance to Disease by 100%"},{"effect":{"resist":[{"name":"fire","percent":30}]},"desc":"Increase resistance to Fire by 30%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Stone Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"stone","physical":50}]},"desc":"Increase physical damage against Stones by 50%"}]},
@@ -4965,7 +4965,7 @@
 		"lb": {"name":"Ether Crust","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":{"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light and Dark by 30% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 42% to all allies for 3 turns"},{"effect":{"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light and Dark by 30% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"Magic Barrier","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept magic attacks on an ally, reducing all damage by 50%"}]},
-			{"name":"Spiritual Barrier","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Spiritual Barrier","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Mind Repulse","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Mind Repulse","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic damage (1x, SPR) to one enemy"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with Mind Repulse (506820) to caster (max 5 / turn)"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"MP +10%","icon":"ability_77.png","effects":[{"effect":{"mp%":10},"desc":"Increase MP by 10%"}]},
@@ -5046,7 +5046,7 @@
 			{"name":"Auto-Protect","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Protect (Auto) (30091) at the start of a battle or when revived"}]},
 			{"name":"Auto-Shell","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Shell (Auto) (30141) at the start of a battle or when revived"}]},
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Cheeky One","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]}
 		],
 		"actives": [
@@ -5252,7 +5252,7 @@
 			{"name":"EVO MAG +20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Incorruptible Armor","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["lightArmor"],"def%":10,"spr%":10},"desc":"Increase DEF and SPR by 10% when equipped with a Light Armor"}]},
-			{"name":"Flexible","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Flexible","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"ATK +30%","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
 			{"name":"Knight's Pride","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects after battle"}]},
 			{"name":"Undefeated","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]},
@@ -5331,7 +5331,7 @@
 		"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
 		"lb": {"name":"Knightly Crossfire!","minEffects":[{"effect":null,"desc":"Physical damage (14.8x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (17.2x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Bombardier's Intuition","icon":"ability_76.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"singleWielding":{"atk":50}},"desc":"Increase equipment ATK by 50% when armed with a single weapon"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]}
@@ -5395,12 +5395,12 @@
 		"passives": [
 			{"name":"Wild Instincts","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
 			{"name":"Fearless","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]},"desc":"Increase resistance to Poison, Blind, Paralyze and Disease by 100%"},{"effect":null,"desc":"Gain Regen (10124) at the start of a battle or when revived"}]},
-			{"name":"Hunting Expertise","icon":"ability_79.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"killers":[{"name":"beast","physical":50}]},"desc":"Increase physical damage against Beasts by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Hunting Expertise","icon":"ability_79.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"killers":[{"name":"beast","physical":50}]},"desc":"Increase physical damage against Beasts by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Lightning Spear Mastery","icon":"ability_95.png","effects":[{"effect":{"resist":[{"name":"lightning","percent":30}]},"desc":"Increase resistance to Lightning by 30%"},{"effect":{"equipedConditions":["spear"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Spear"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"Self-taught Spear Art","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":100}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"}]},
 			{"name":"Spear Stance","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":50}},"desc":"Increase equipment ATK by 50% when armed with a single weapon"},{"effect":{"atk%":25},"desc":"Increase Accuracy by 25% when armed with a single weapon"}],"equipedConditions":["504226900"]},
-			{"name":"Forest Wanderer","icon":"ability_79.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"},{"effect":{"killers":[{"name":"beast","physical":50}]},"desc":"Increase physical damage against Beasts by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Forest Wanderer","icon":"ability_79.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"},{"effect":{"killers":[{"name":"beast","physical":50}]},"desc":"Increase physical damage against Beasts by 50%"},{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"},{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"Bond with Est","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase the damage of the following skills by (0.7x):\n\tBlaster (226911)\n\tLightning Spear Jab (226912)\n\tPanther Strike (226910)\n\tThunder Fang (507490)\n\tThunder Spear (226913)"}]}
 		],
@@ -5541,7 +5541,7 @@
 			{"name":"Guardian's Fighting Spirit","icon":"ability_69.png","effects":[{"effect":{"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30%"},{"effect":null,"desc":"30% chance to intercept magic attacks on an ally, reducing all damage by 50%"}]},
 			{"name":"Awakening Power","icon":"ability_77.png","effects":[{"effect":{"hp%":50,"mp%":50,"atk%":30,"def%":30,"mag%":30,"spr%":30},"desc":"Increase HP and MP by 50% and ATK, DEF, MAG and SPR by 30%"}]},
 			{"name":"Raging Blood of Aldore","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 120% for 3 turns when HP drops below 50% (max 99999x)"}]},
-			{"name":"Blazing Technique","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Blazing Technique","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Shield Expertise","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["lightShield"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Heavy Shield"}]},
 			{"name":"Blazing Soul","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
 			{"name":"Esper Covenant","icon":"ability_77.png","effects":[{"effect":{"esperStatsBonus":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},"desc":"Increase stat bonus from espers by 10%"}]},
@@ -6014,10 +6014,10 @@
 		"enhancementSkills":["Lance","Fin Briar","Legend Killer"],
 		"lb": {"name":"Sword of Rebellion","minEffects":[{"effect":null,"desc":"Physical damage (3.1x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (4.3x, ATK) to one enemy"}]},
 		"passives": [
-			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Bug Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"bug","physical":50}]},"desc":"Increase physical damage against Insects by 50%"}]},
 			{"name":"Bird Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"bird","physical":50}]},"desc":"Increase physical damage against Avians by 50%"}]},
-			{"name":"Forest Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"bird","physical":75}]},"desc":"Increase physical damage against Avians by 75%"},{"effect":{"killers":[{"name":"bug","physical":75}]},"desc":"Increase physical damage against Insects by 75%"},{"effect":{"killers":[{"name":"plant","physical":75}]},"desc":"Increase physical damage against Plantoids by 75%"}]},
+			{"name":"Forest Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"bird","physical":75}]},"desc":"Increase physical damage against Avians by 75%"},{"effect":{"killers":[{"name":"bug","physical":75}]},"desc":"Increase physical damage against Insects by 75%"},{"effect":{"killers":[{"name":"plant","physical":75}]},"desc":"Increase physical damage against Plants by 75%"}]},
 			{"name":"Great Support","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["staff"],"mag%":30,"spr%":30},"desc":"Increase MAG and SPR by 30% when equipped with a Staff"},{"effect":{"equipedConditions":["rod"],"mag%":30,"spr%":30},"desc":"Increase MAG and SPR by 30% when equipped with a Rod"},{"effect":{"equipedConditions":["harp"],"mag%":30,"spr%":30},"desc":"Increase MAG and SPR by 30% when equipped with a Instrument"},{"effect":{"equipedConditions":["mace"],"mag%":30,"spr%":30},"desc":"Increase MAG and SPR by 30% when equipped with a Mace"}]},
 			{"name":"Dragon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":50}]},"desc":"Increase physical damage against Dragons by 50%"}]},
 			{"name":"Multi-Shooter","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["bow"],"atk%":25,"spr%":30},"desc":"Increase SPR by 30% and ATK by 25% when equipped with a Bow"},{"effect":{"equipedConditions":["whip"],"atk%":25,"spr%":30},"desc":"Increase SPR by 30% and ATK by 25% when equipped with a Whip"},{"effect":{"equipedConditions":["throwing"],"atk%":25,"spr%":30},"desc":"Increase SPR by 30% and ATK by 25% when equipped with a Throwing"},{"effect":{"equipedConditions":["gun"],"atk%":25,"spr%":30},"desc":"Increase SPR by 30% and ATK by 25% when equipped with a Gun"}]},
@@ -6135,8 +6135,8 @@
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"Battle Prep","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":30,"def%":20},"desc":"Increase ATK by 30% and DEF by 20% when equipped with a Sword"}]},
-			{"name":"Battle Prep +1","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":40,"def%":20},"desc":"Increase ATK by 40% and DEF by 20% when equipped with a Sword"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"Battle Prep +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50,"def%":20},"desc":"Increase ATK by 50% and DEF by 20% when equipped with a Sword"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
+			{"name":"Battle Prep +1","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":40,"def%":20},"desc":"Increase ATK by 40% and DEF by 20% when equipped with a Sword"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
+			{"name":"Battle Prep +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50,"def%":20},"desc":"Increase ATK by 50% and DEF by 20% when equipped with a Sword"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]}
 		],
 		"actives": [
@@ -6172,8 +6172,8 @@
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"MAG +30%","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}]},
 			{"name":"I'll never die!","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"}]},
-			{"name":"I'll never die! +1","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"I'll never die! +2","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
+			{"name":"I'll never die! +1","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
+			{"name":"I'll never die! +2","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
 			{"name":"Insolent fools!","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 75%"}]},
 			{"name":"Insolent fools! +1","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 75%"},{"effect":{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Silence and Confusion by 100%"}]},
 			{"name":"Insolent fools! +2","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 75%"},{"effect":{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Silence and Confusion by 100%"},{"effect":{"equipedConditions":["rod"],"mag%":50},"desc":"Increase MAG by 50% when equipped with a Rod"}]}
@@ -7287,10 +7287,10 @@
 		"lb": {"name":"Grand Cross","minEffects":[{"effect":null,"desc":"Magic dark damage (2.7x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 4 random status effects (50%) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Magic dark damage (3.9x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 4 random status effects (74%) to all enemies"}]},
 		"passives": [
 			{"name":"MAG +30%","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"Transcender","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":30}]},"desc":"Increase magic damage against Humans by 30%"},{"effect":{"killers":[{"name":"bird","magical":30}]},"desc":"Increase magic damage against Avians by 30%"},{"effect":{"killers":[{"name":"beast","magical":30}]},"desc":"Increase magic damage against Beasts by 30%"},{"effect":{"killers":[{"name":"plant","magical":30}]},"desc":"Increase magic damage against Plantoids by 30%"},{"effect":{"killers":[{"name":"bug","magical":30}]},"desc":"Increase magic damage against Insects by 30%"}]},
-			{"name":"Transcender +1","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":40}]},"desc":"Increase magic damage against Humans by 40%"},{"effect":{"killers":[{"name":"bird","magical":40}]},"desc":"Increase magic damage against Avians by 40%"},{"effect":{"killers":[{"name":"beast","magical":40}]},"desc":"Increase magic damage against Beasts by 40%"},{"effect":{"killers":[{"name":"plant","magical":40}]},"desc":"Increase magic damage against Plantoids by 40%"},{"effect":{"killers":[{"name":"bug","magical":40}]},"desc":"Increase magic damage against Insects by 40%"}]},
-			{"name":"Transcender +2","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":50}]},"desc":"Increase magic damage against Humans by 50%"},{"effect":{"killers":[{"name":"bird","magical":50}]},"desc":"Increase magic damage against Avians by 50%"},{"effect":{"killers":[{"name":"beast","magical":50}]},"desc":"Increase magic damage against Beasts by 50%"},{"effect":{"killers":[{"name":"plant","magical":50}]},"desc":"Increase magic damage against Plantoids by 50%"},{"effect":{"killers":[{"name":"bug","magical":50}]},"desc":"Increase magic damage against Insects by 50%"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
+			{"name":"Transcender","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":30}]},"desc":"Increase magic damage against Humans by 30%"},{"effect":{"killers":[{"name":"bird","magical":30}]},"desc":"Increase magic damage against Avians by 30%"},{"effect":{"killers":[{"name":"beast","magical":30}]},"desc":"Increase magic damage against Beasts by 30%"},{"effect":{"killers":[{"name":"plant","magical":30}]},"desc":"Increase magic damage against Plants by 30%"},{"effect":{"killers":[{"name":"bug","magical":30}]},"desc":"Increase magic damage against Insects by 30%"}]},
+			{"name":"Transcender +1","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":40}]},"desc":"Increase magic damage against Humans by 40%"},{"effect":{"killers":[{"name":"bird","magical":40}]},"desc":"Increase magic damage against Avians by 40%"},{"effect":{"killers":[{"name":"beast","magical":40}]},"desc":"Increase magic damage against Beasts by 40%"},{"effect":{"killers":[{"name":"plant","magical":40}]},"desc":"Increase magic damage against Plants by 40%"},{"effect":{"killers":[{"name":"bug","magical":40}]},"desc":"Increase magic damage against Insects by 40%"}]},
+			{"name":"Transcender +2","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","magical":50}]},"desc":"Increase magic damage against Humans by 50%"},{"effect":{"killers":[{"name":"bird","magical":50}]},"desc":"Increase magic damage against Avians by 50%"},{"effect":{"killers":[{"name":"beast","magical":50}]},"desc":"Increase magic damage against Beasts by 50%"},{"effect":{"killers":[{"name":"plant","magical":50}]},"desc":"Increase magic damage against Plants by 50%"},{"effect":{"killers":[{"name":"bug","magical":50}]},"desc":"Increase magic damage against Insects by 50%"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]}
 		],
 		"actives": [
@@ -8070,7 +8070,7 @@
 			{"name":"Purgatorial Wave","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
 			{"name":"Katana Mastery","icon":"ability_53.png","effects":[{"effect":{"equipedConditions":["katana"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Katana"}]},
 			{"name":"Legendary SOLDIER","icon":"ability_77.png","effects":[{"effect":{"hp%":50,"mp%":50,"atk%":30,"def%":30,"mag%":30,"spr%":30},"desc":"Increase HP and MP by 50% and ATK, DEF, MAG and SPR by 30%"}]},
-			{"name":"Rebirth Force","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
+			{"name":"Rebirth Force","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
 			{"name":"Scintilla","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Scintilla","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to all enemies"}]},"counterType":"physical","percent":50},"desc":"50% chance to counter physical attacks with Scintilla (506780) to caster (max 1 / turn)"}]},
 			{"name":"The Chosen","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 150% for 3 turns when HP drops below 1% (max 1x)"},{"effect":{"killers":[{"name":"human","physical":75,"magical":75}]},"desc":"Increase physical and magic damage against Humans by 75%"}]}
 		],
@@ -8388,7 +8388,7 @@
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"lb": {"name":"Flare Blade","minEffects":[{"effect":null,"desc":"Physical damage (7x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":null,"desc":"Physical damage (9.4x, ATK) to one enemy (ignore cover)"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Jelly","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
 			{"name":"Bright Eyes","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100}]},"desc":"Increase resistance to Blind by 100%"}]},
 			{"name":"Doublehand","icon":"ability_76.png","effects":[{"effect":{"singleWieldingOneHanded":{"atk":50}},"desc":"Increase equipment ATK by 50% when armed with a single one-handed weapon"}]},
@@ -9020,7 +9020,7 @@
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"lb": {"name":"Kupipi's Prize","minEffects":[{"effect":null,"desc":"Restore 800 (+1.6x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF and SPR by 30% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 895 (+2.55x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF and SPR by 49% for 3 turns to all allies"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]}
 		],
@@ -9101,31 +9101,31 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
-		"lb": {"name":"ブチ切れ","minEffects":[{"effect":null,"desc":"Magic damage (18.2x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 40% for 3 turns to one enemy"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}],"maxEffects":[{"effect":null,"desc":"Magic damage (24x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":70},{"name":"ice","percent":70},{"name":"lightning","percent":70},{"name":"water","percent":70},{"name":"wind","percent":70},{"name":"earth","percent":70}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 70% for 3 turns to one enemy"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},
+		"lb": {"name":"Play Rough","minEffects":[{"effect":null,"desc":"Magic damage (18.2x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"earth","percent":40}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 40% for 3 turns to one enemy"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}],"maxEffects":[{"effect":null,"desc":"Magic damage (24x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":70},{"name":"ice","percent":70},{"name":"lightning","percent":70},{"name":"water","percent":70},{"name":"wind","percent":70},{"name":"earth","percent":70}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 70% for 3 turns to one enemy"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},
 		"passives": [
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
-			{"name":"レジストサイレス","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"silence","percent":100}]},"desc":"Increase resistance to Silence by 100%"}]},
-			{"name":"レジストパライズ","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
-			{"name":"レジストペトリ","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
-			{"name":"『口の院』元院長","icon":"ability_77.png","effects":[{"effect":{"mp%":50,"mag%":30,"spr%":30},"desc":"Increase MP by 50% and MAG and SPR by 30%"}]},
+			{"name":"Resist Silence","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"silence","percent":100}]},"desc":"Increase resistance to Silence by 100%"}]},
+			{"name":"Resist Paralyze","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
+			{"name":"Resist Petrify","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
+			{"name":"Former Orastery Minister","icon":"ability_77.png","effects":[{"effect":{"mp%":50,"mag%":30,"spr%":30},"desc":"Increase MP by 50% and MAG and SPR by 30%"}]},
 			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"クリアマインド","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
-			{"name":"精霊魔法スキル・A+","icon":"ability_77.png","effects":[{"effect":{"mag%":50},"desc":"Increase MAG by 50%"}]},
-			{"name":"ファストキャスト","icon":"ability_26.png","effects":[{"effect":null,"desc":"Gain Dual-cast all magic"}]},
-			{"name":"連続魔","icon":"ability_26.png","effects":[{"effect":null,"desc":"Gain Triple-cast all magic"}],"equipedConditions":["310003700"]},
-			{"name":"両手棍スキル・A+","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"mag":60}},"desc":"Increase equipment MAG by 60% when armed with a single weapon"}]},
+			{"name":"Clear Mind","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
+			{"name":"Spirit Magic Skill: A+","icon":"ability_77.png","effects":[{"effect":{"mag%":50},"desc":"Increase MAG by 50%"}]},
+			{"name":"Fast Cast","icon":"ability_26.png","effects":[{"effect":null,"desc":"Gain Dual-cast all magic"}]},
+			{"name":"Chainspell","icon":"ability_26.png","effects":[{"effect":null,"desc":"Gain Triple-cast all magic"}],"equipedConditions":["310003700"]},
+			{"name":"Doublehand Staff Skill: A+","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"mag":60}},"desc":"Increase equipment MAG by 60% when armed with a single weapon"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"わたくし、ブチ切れますわよ？","icon":"ability_68.png","effects":[{"effect":{"mag%":40},"desc":"Increase MAG by 40%"},{"effect":{"counterSkill":{"name":"わたくし、ブチ切れますわよ？","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with わたくし、ブチ切れますわよ？ (507691) to caster (max 1 / turn)"},{"effect":{"counterSkill":{"name":"わたくし、ブチ切れますわよ？","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with わたくし、ブチ切れますわよ？ (507691) to caster (max 1 / turn)"}]}
+			{"name":"You're making me lose my temper, dear!","icon":"ability_68.png","effects":[{"effect":{"mag%":40},"desc":"Increase MAG by 40%"},{"effect":{"counterSkill":{"name":"You're making me lose my temper, dear!","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with You're making me lose my temper, dear! (507691) to caster (max 1 / turn)"},{"effect":{"counterSkill":{"name":"You're making me lose my temper, dear!","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with You're making me lose my temper, dear! (507691) to caster (max 1 / turn)"}]}
 		],
 		"actives": [
-			{"name":"精霊の印","icon":"ability_87.png","effects":[{"effect":null,"desc":"Gain access to following skills for 2 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"},{"effect":null,"desc":"Increase MAG by an additional 300% (max 300%) for the next skill to caster"}]},
-			{"name":"ドクターオーダー","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (11.2x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"earth","percent":60},{"name":"dark","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Earth and Dark by 60% for 3 turns to one enemy"}]},
-			{"name":"レッスンインペイン","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage (11x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":60},{"name":"water","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice and Water by 60% for 3 turns to one enemy"}]},
-			{"name":"マナウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for 2 turns"},{"effect":null,"desc":"Grant a 500 HP shield to all allies for 2 turns"}]},
-			{"name":"コロッサル・シャントット","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic dark damage (3.2x, MAG) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":null,"desc":"Increase DEF and SPR by 120% for one turn to caster"}]},
-			{"name":"エンピリカルリサーチ","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (10.8x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60},{"name":"wind","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning and Wind by 60% for 3 turns to one enemy"}]},
-			{"name":"ファイナルエクザム","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (11.5x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60},{"name":"light","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Light by 60% for 3 turns to one enemy"}]},
-			{"name":"魔力の泉","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"魔力の泉","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 3996 MP split over 4 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},"cooldownTurns":12,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock 魔力の泉 (507690) on turn 1 [12 turns CD]"}]}
+			{"name":"Elemental Seal","icon":"ability_87.png","effects":[{"effect":null,"desc":"Gain access to following skills for 2 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"},{"effect":null,"desc":"Increase MAG by an additional 300% (max 300%) for the next skill to caster"}]},
+			{"name":"Doctor's Orders","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (11.2x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"earth","percent":60},{"name":"dark","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Earth and Dark by 60% for 3 turns to one enemy"}]},
+			{"name":"Lesson in Pain","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage (11x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":60},{"name":"water","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice and Water by 60% for 3 turns to one enemy"}]},
+			{"name":"Mana Wall","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for 2 turns"},{"effect":null,"desc":"Grant a 500 HP shield to all allies for 2 turns"}]},
+			{"name":"Colossal Shantotto","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic dark damage (3.2x, MAG) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":null,"desc":"Increase DEF and SPR by 120% for one turn to caster"}]},
+			{"name":"Empirical Research","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (10.8x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60},{"name":"wind","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning and Wind by 60% for 3 turns to one enemy"}]},
+			{"name":"Final Exam","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (11.5x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60},{"name":"light","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Light by 60% for 3 turns to one enemy"}]},
+			{"name":"Mana Spring","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Manafont","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 3996 MP split over 4 turns to caster"},{"effect":null,"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},"cooldownTurns":12,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Manafont (507690) on turn 1 [12 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Stone I","icon":"ability_28.png","effects":[{"effect":null,"desc":"Magic earth damage 100 (+3x, MAG) with consecutive damage increase (max. 5 times, +1x MAG each, 8x total) to one enemy"}]},
@@ -9153,29 +9153,29 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-		"lb": {"name":"テラスラッシュ","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (15.1x, ATK) (ignore cover) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (80%) or deal physical damage (18x, ATK) (ignore cover) to all enemies"}]},
+		"lb": {"name":"Tera Slash","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (15.1x, ATK) (ignore cover) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (80%) or deal physical damage (18x, ATK) (ignore cover) to all enemies"}]},
 		"passives": [
 			{"name":"Sword Mastery","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"}]},
-			{"name":"語り部の憎悪","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Increase ATK by 150% for 3 turns when HP drops below 50% (max 9999x)"}]},
-			{"name":"闇の守護者","icon":"ability_98.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"dark","percent":100}]},"desc":"Increase resistance to Dark by 100%"}]},
-			{"name":"全てを否定する力","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":null,"desc":"Increase the damage of the following skills by (1x):\n\tオブリビオンスマッシュ (507704, 507705)\n\tクロススマッシュ (507706, 507707)\n\tダイナミクアサルト (507700, 507701)\n\tダイナミクインプロージョン (507708, 507709)\n\tドゥームアーク (507710, 507711)\n\tバイオレントラプチャー (507702, 507703)"}],"equipedConditions":["504227237"]},
-			{"name":"シャドウロード","icon":"ability_77.png","effects":[{"effect":{"singleWielding":{"atk":100}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase Accuracy by 25% when armed with a single weapon"}]},
+			{"name":"Hatred for the Talekeeper","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Increase ATK by 150% for 3 turns when HP drops below 50% (max 9999x)"}]},
+			{"name":"Guardian of Shadows","icon":"ability_98.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"dark","percent":100}]},"desc":"Increase resistance to Dark by 100%"}]},
+			{"name":"Unforgiving Power","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":null,"desc":"Increase the damage of the following skills by (1x):\n\tCross Smash (507706, 507707)\n\tDoom Arc (507710, 507711)\n\tDynamic Assault (507700, 507701)\n\tDynamic Implosion (507708, 507709)\n\tOblivion Smash (507704, 507705)\n\tViolent Rupture (507702, 507703)"}],"equipedConditions":["504227237"]},
+			{"name":"Shadow Lord","icon":"ability_77.png","effects":[{"effect":{"singleWielding":{"atk":100}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase Accuracy by 25% when armed with a single weapon"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
-			{"name":"不滅の理","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]}
+			{"name":"Immortal Justice","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]}
 		],
 		"actives": [
-			{"name":"ダイナミクアサルト","icon":"ability_10.png","effects":[{"effect":null,"desc":"Use ダイナミクアサルト (507700), or ダイナミクアサルト (507701), if used after Blood Weapon (227231)"}]},
-			{"name":"トランスフュージョン","icon":"ability_6.png","effects":[{"effect":null,"desc":"Physical damage (2x) as HP drain (30%) to one enemy"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"}]},
-			{"name":"バイオレントラプチャー","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use バイオレントラプチャー (507702), or バイオレントラプチャー (507703), if used after Blood Weapon (227231)"}]},
-			{"name":"マナシュトロム","icon":"ability_6.png","effects":[{"effect":null,"desc":"Physical damage (2x) as MP drain (30%) to one enemy"},{"effect":null,"desc":"Increase ATK and MAG by 80% for 3 turns to caster"}]},
-			{"name":"オブリビオンスマッシュ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Use オブリビオンスマッシュ (507704), or オブリビオンスマッシュ (507705), if used after Blood Weapon (227231)"}]},
-			{"name":"ソーマウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 10000 HP split over 3 turns to caster"}]},
-			{"name":"クロススマッシュ","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use クロススマッシュ (507706), or クロススマッシュ (507707), if used after Blood Weapon (227231)"}]},
-			{"name":"スペルウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 150 MP split over 3 turns to caster"}]},
-			{"name":"ダイナミクインプロージョン","icon":"ability_26.png","effects":[{"effect":null,"desc":"Use ダイナミクインプロージョン (507708), or ダイナミクインプロージョン (507709), if used after Blood Weapon (227231)"}]},
-			{"name":"ドゥームアーク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use ドゥームアーク (507710), or ドゥームアーク (507711), if used after Blood Weapon (227231)"}]},
+			{"name":"Dynamic Assault","icon":"ability_10.png","effects":[{"effect":null,"desc":"Use Dynamic Assault (507700), or Dynamic Assault (507701), if used after Blood Weapon (227231)"}]},
+			{"name":"Transfusion","icon":"ability_6.png","effects":[{"effect":null,"desc":"Physical damage (2x) as HP drain (30%) to one enemy"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"}]},
+			{"name":"Violent Rupture","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Violent Rupture (507702), or Violent Rupture (507703), if used after Blood Weapon (227231)"}]},
+			{"name":"Manastrom","icon":"ability_6.png","effects":[{"effect":null,"desc":"Physical damage (2x) as MP drain (30%) to one enemy"},{"effect":null,"desc":"Increase ATK and MAG by 80% for 3 turns to caster"}]},
+			{"name":"Oblivion Smash","icon":"ability_10.png","effects":[{"effect":null,"desc":"Use Oblivion Smash (507704), or Oblivion Smash (507705), if used after Blood Weapon (227231)"}]},
+			{"name":"Soma Wall","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 10000 HP split over 3 turns to caster"}]},
+			{"name":"Cross Smash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Cross Smash (507706), or Cross Smash (507707), if used after Blood Weapon (227231)"}]},
+			{"name":"Spell Wall","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 150 MP split over 3 turns to caster"}]},
+			{"name":"Dynamic Implosion","icon":"ability_26.png","effects":[{"effect":null,"desc":"Use Dynamic Implosion (507708), or Dynamic Implosion (507709), if used after Blood Weapon (227231)"}]},
+			{"name":"Doom Arc","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Doom Arc (507710), or Doom Arc (507711), if used after Blood Weapon (227231)"}]},
 			{"name":"Blood Weapon","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Blood Weapon","icon":"ability_105.png","effects":[{"effect":null,"desc":"30% HP damage to caster"},{"effect":null,"desc":"Increase ATK by 250% for 2 turns to caster"},{"effect":{"statsBuff":{"def":-50,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce DEF by 50% for 2 turns to caster"},{"effect":null,"desc":"Restore 19998 HP split over 2 turns to caster"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Blood Weapon (507712) on turn 1 [4 turns CD]"}]},
-			{"name":"スポーンシャドウ","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to caster"}]}
+			{"name":"Spawn Shadow","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to caster"}]}
 		],
 		"magics": [
 		]
@@ -9193,18 +9193,18 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
-		"lb": {"name":"救世を願う歌","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to all allies while singing"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 124% for 3 turns to all allies while singing"}]},
+		"lb": {"name":"Prayer of Salvation","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to all allies while singing"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 124% for 3 turns to all allies while singing"}]},
 		"passives": [
-			{"name":"トラバーサー石の供給者","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":30},"desc":"Increase DEF by 30% and HP by 20%"}]},
-			{"name":"アビセアからの来訪者","icon":"ability_19.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"}]}
+			{"name":"Traverser Stone Supplier","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":30},"desc":"Increase DEF by 30% and HP by 20%"}]},
+			{"name":"Visitor from Abyssea","icon":"ability_19.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"}]}
 		],
 		"actives": [
-			{"name":"戦士達のピーアン","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 戦士達のピーアン (507720), or 戦士達のピーアン (507721), if used after Soul Voice (227246)"}]},
-			{"name":"重装騎兵のミンネ","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 重装騎兵のミンネ (507726), or 重装騎兵のミンネ (507727), if used after Soul Voice (227246)"}]},
-			{"name":"猛者のメヌエット","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 猛者のメヌエット (507724), or 猛者のメヌエット (507725), if used after Soul Voice (227246)"}]},
-			{"name":"魔道士のバラード","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 魔道士のバラード (507722), or 魔道士のバラード (507723), if used after Soul Voice (227246)"}]},
-			{"name":"剣闘士のマドリガル","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 剣闘士のマドリガル (507730), or 剣闘士のマドリガル (507731), if used after Soul Voice (227246)"}]},
-			{"name":"無敵の進撃マーチ","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use 無敵の進撃マーチ (507728), or 無敵の進撃マーチ (507729), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Army's Paeon","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Army's Paeon (507720), or Scroll of Army's Paeon (507721), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Knight's Minne","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Knight's Minne (507726), or Scroll of Knight's Minne (507727), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Valor Minuet","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Valor Minuet (507724), or Scroll of Valor Minuet (507725), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Mage's Ballad","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Mage's Ballad (507722), or Scroll of Mage's Ballad (507723), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Sword Madrigal","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Sword Madrigal (507730), or Scroll of Sword Madrigal (507731), if used after Soul Voice (227246)"}]},
+			{"name":"Scroll of Advancing March","icon":"ability_100.png","effects":[{"effect":null,"desc":"Use Scroll of Advancing March (507728), or Scroll of Advancing March (507729), if used after Soul Voice (227246)"}]},
 			{"name":"Soul Voice","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Soul Voice","icon":"ability_105.png","effects":[{"effect":null,"desc":"No effect"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Soul Voice (507732) on turn 1 [3 turns CD]"}]}
 		],
 		"magics": [
@@ -10191,7 +10191,7 @@
 		"passives": [
 			{"name":"Survival","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Reflex","icon":"ability_68.png","effects":[{"effect":null,"desc":"20% chance to counter a physical attack with an attack (1x, ATK)"},{"effect":null,"desc":"20% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"King's Shield","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},"desc":"Increase DEF, SPR and HP by 30% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30},"desc":"Increase DEF, SPR and HP by 30% when equipped with a Heavy Shield"}]},
@@ -10226,7 +10226,7 @@
 		"equip":["dagger","sword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"Lion's Roar","minEffects":[{"effect":null,"desc":"Physical damage (7x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"atk":20,"def":20,"mag":20,"spr":20,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 20% for 3 turns to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (9.4x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"atk":44,"def":44,"mag":44,"spr":44,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 44% for 3 turns to one enemy"}]},
 		"passives": [
-			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"White Knight","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},"desc":"Increase resistance to Blind, Confusion and Disease by 100%"}]},
 			{"name":"The Immortal","icon":"ability_41.png","effects":[{"effect":null,"desc":"100% chance to ignore fatal damage when HP is above 30% (max 1 times)"},{"effect":{"counterSkill":{"name":"The Immortal","icon":"ability_41.png","effects":[{"effect":null,"desc":"Restore 400 (+2x, Heal) HP to caster"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with The Immortal (503020) to caster"},{"effect":{"counterSkill":{"name":"The Immortal","icon":"ability_41.png","effects":[{"effect":null,"desc":"Restore 400 (+2x, Heal) HP to caster"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with The Immortal (503020) to caster"}]},
 			{"name":"Katana Mastery+","icon":"ability_53.png","effects":[{"effect":{"equipedConditions":["katana"],"atk%":80},"desc":"Increase ATK by 80% when equipped with a Katana"}]},
@@ -10762,7 +10762,7 @@
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"ATK +30%","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
-			{"name":"Guard from Beyond","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Guard from Beyond","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Revenging Edge","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Revenging Edge","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Revenging Edge (501370) to caster"}]},
 			{"name":"War Hero","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Blind, Sleep and Paralyze by 100%"}]},
 			{"name":"War Hero +1","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Blind, Sleep and Paralyze by 100%"},{"effect":{"lbFillRate":25},"desc":"Increase the limit burst gauge fill rate by 25%"},{"effect":{"atk%":15},"desc":"Increase ATK by 15%"}]},
@@ -11226,8 +11226,8 @@
 			{"name":"High Jump","icon":"ability_80.png","effects":[{"effect":{"jumpDamage":100},"desc":"Increase damage dealt by jump attacks by 100%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"Double Recover","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"}]},
-			{"name":"Double Recover +1","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"Double Recover +2","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Double Recover +1","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
+			{"name":"Double Recover +2","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Impulsive","icon":"ability_77.png","effects":[{"effect":{"atk%":20,"spr%":20},"desc":"Increase ATK and SPR by 20%"}]},
 			{"name":"Demon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
 			{"name":"Spear Adept","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Spear"}]},
@@ -11680,7 +11680,7 @@
 			{"name":"MAG +10%","icon":"ability_77.png","effects":[{"effect":{"mag%":10},"desc":"Increase MAG by 10%"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
-			{"name":"Pretty Aura","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Pretty Aura","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"Eternal Rainbow","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
 			{"name":"Sacred Ground","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 75%"}]}
@@ -12354,7 +12354,7 @@
 			{"name":"Undead Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"Mana's Bond","icon":"ability_97.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"},{"effect":{"resist":[{"name":"poison","percent":25},{"name":"blind","percent":25},{"name":"sleep","percent":25},{"name":"silence","percent":25},{"name":"paralysis","percent":25},{"name":"confuse","percent":25},{"name":"disease","percent":25},{"name":"petrification","percent":25}]},"desc":"Increase resistance to all status effects by 25%"}]},
 			{"name":"Mana's Bond +1","icon":"ability_97.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"},{"effect":{"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]},"desc":"Increase resistance to all status effects by 50%"}]},
-			{"name":"Mana's Bond +2","icon":"ability_97.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Mana's Bond +2","icon":"ability_97.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Third Eye","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":15}},"desc":"15% chance of evading physical attacks"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
@@ -12506,9 +12506,9 @@
 			{"name":"Wave of Relief","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for all allies"}]},
 			{"name":"Wave of Relief +1","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for all allies"},{"effect":null,"desc":"Restore 1000 (+2x, Heal) HP to all allies"}]},
 			{"name":"Wave of Relief +2","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for all allies"},{"effect":null,"desc":"Restore 2000 (+3x, Heal) HP to all allies"}]},
-			{"name":"Kafrizzle","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle (507551), or Kafrizzle (507554), if used after 超魔力かくせい (227031)"}]},
-			{"name":"Kafrizzle +1","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+1 (507552), or Kafrizzle+1 (507555), if used after 超魔力かくせい (227031)"}]},
-			{"name":"Kafrizzle +2","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+2 (507553), or Kafrizzle+2 (507556), if used after 超魔力かくせい (227031)"}]}
+			{"name":"Kafrizzle","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle (507551), or Kafrizzle (507554), if used after Super Channel Anger (227031)"}]},
+			{"name":"Kafrizzle +1","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+1 (507552), or Kafrizzle+1 (507555), if used after Super Channel Anger (227031)"}]},
+			{"name":"Kafrizzle +2","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+2 (507553), or Kafrizzle+2 (507556), if used after Super Channel Anger (227031)"}]}
 		],
 		"magics": [
 		]
@@ -12642,7 +12642,7 @@
 		"enhancementSkills":["Kabuff","Forbearance"],
 		"lb": {"name":"Meditation","minEffects":[{"effect":null,"desc":"Restore 60% HP to caster"},{"effect":null,"desc":"Increase DEF by 40% for 3 turns to caster"}],"maxEffects":[{"effect":null,"desc":"Restore 79% HP to caster"},{"effect":null,"desc":"Increase DEF by 59% for 3 turns to caster"}]},
 		"passives": [
-			{"name":"Auto HP Recovery","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
+			{"name":"Auto HP Recovery","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
 			{"name":"DEF +30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]}
 		],
@@ -12753,25 +12753,25 @@
 		"lb": {"name":"Death Blow","minEffects":[{"effect":null,"desc":"Physical damage (16.65x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (21x, ATK) to one enemy"}]},
 		"passives": [
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"闘気","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"},{"effect":{"atk%":40},"desc":"Increase ATK by 40%"}]},
+			{"name":"Fighting Spirit","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"},{"effect":{"atk%":40},"desc":"Increase ATK by 40%"}]},
 			{"name":"Critical Stance","icon":"ability_77.png","effects":[{"effect":{},"desc":"Increase crit. chance by 40%"}]},
 			{"name":"ATK +30%","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
-			{"name":"秘めたるチカラ","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mp%":30,"atk%":50},"desc":"Increase ATK by 50% and HP and MP by 30%"}],"equipedConditions":["504226980"]},
-			{"name":"怒涛の太刀筋","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase the damage of 帝王の一閃 (226981) by (0.9x)"}]},
+			{"name":"Untold Power","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mp%":30,"atk%":50},"desc":"Increase ATK by 50% and HP and MP by 30%"}],"equipedConditions":["504226980"]},
+			{"name":"Rush of Rage","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase the damage of Lordly Thrust (226981) by (0.9x)"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"帝王の闘気","icon":"ability_72.png","effects":[{"effect":{"dualWielding":{"atk":30}},"desc":"Increase equipment ATK by 30% when armed with two weapons"},{"effect":{"mpRefresh":15},"desc":"Recover MP (15%) per turn"}]}
+			{"name":"Lordly Fighting Spirit","icon":"ability_72.png","effects":[{"effect":{"dualWielding":{"atk":30}},"desc":"Increase equipment ATK by 30% when armed with two weapons"},{"effect":{"mpRefresh":15},"desc":"Recover MP (15%) per turn"}]}
 		],
 		"actives": [
-			{"name":"たたきつぶし","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (50%) for 3 turns on one enemy"}]},
-			{"name":"帝王の乱撃","icon":"ability_54.png","effects":[{"effect":null,"desc":"4 physical attacks (1x each, 4x total, ATK) to one random enemy"}]},
-			{"name":"いてつくはどう","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}]},
-			{"name":"アサシンアタック","icon":"ability_54.png","effects":[{"effect":null,"desc":"Cast Death (40%) or deal physical damage (2.5x, ATK) to all enemies"}]},
+			{"name":"Crushing Smash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (50%) for 3 turns on one enemy"}]},
+			{"name":"Lordly Barrage","icon":"ability_54.png","effects":[{"effect":null,"desc":"4 physical attacks (1x each, 4x total, ATK) to one random enemy"}]},
+			{"name":"Disruptive Wave","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}]},
+			{"name":"Assassin's Stab","icon":"ability_54.png","effects":[{"effect":null,"desc":"Cast Death (40%) or deal physical damage (2.5x, ATK) to all enemies"}]},
 			{"name":"Complete Awakening","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
-			{"name":"真・やいばくだき","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
-			{"name":"帝王のかまえ","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 200% for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 10 to caster"}]},
-			{"name":"帝王の一閃","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"}]},
-			{"name":"ジゴスパーク","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ジゴスパーク","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (10x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":100}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to all enemies"},{"effect":{"imbue":["dark"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Dark element to physical attacks for 3 turn(s) to caster"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ENEMY"},"desc":"Unlock ジゴスパーク (507531) on turn 5 [5 turns CD]"}]},
-			{"name":"真・完全覚醒","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"真・完全覚醒","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all elements by 100% for 3 turns to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock 真・完全覚醒 (507530) on turn 1 [5 turns CD]"}]}
+			{"name":"True Attack Attacker","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
+			{"name":"Lordly Stance","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 200% for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 10 to caster"}]},
+			{"name":"Lordly Thrust","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"}]},
+			{"name":"Lightning Storm","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Lightning Storm","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (10x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":100}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to all enemies"},{"effect":{"imbue":["dark"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Dark element to physical attacks for 3 turn(s) to caster"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ENEMY"},"desc":"Unlock Lightning Storm (507531) on turn 5 [5 turns CD]"}]},
+			{"name":"True Complete Awakening","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"True Complete Awakening","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"resist":[{"name":"fire","percent":100},{"name":"ice","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":100},{"name":"light","percent":100},{"name":"dark","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all elements by 100% for 3 turns to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock True Complete Awakening (507530) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -12791,30 +12791,30 @@
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
 		"lb": {"name":"Blizzard Blast","minEffects":[{"effect":null,"desc":"Physical ice damage (15.1x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical ice damage (18x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"ちからじまん","icon":"ability_95.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"},{"effect":{"equipedConditions":["fist"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Fist"}]},
-			{"name":"つねにバイキルト","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Oomph) (30212) at the start of a battle or when revived"}]},
-			{"name":"超くじけぬ心","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
-			{"name":"支配するもの","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
-			{"name":"星のいかり","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"星のいかり","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with 星のいかり (507541) to caster (max 2 / turn)"},{"effect":{"counterSkill":{"name":"星のいかり","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with 星のいかり (507542) to caster (max 2 / turn)"}]},
-			{"name":"邪悪なる秘術","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mag%":30},"desc":"Increase MAG and HP by 30%"},{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep, Confusion and Petrify by 100%"}],"equipedConditions":["309002900"]},
+			{"name":"Meathead","icon":"ability_95.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"},{"effect":{"equipedConditions":["fist"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Fist"}]},
+			{"name":"Constant Oomph","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Oomph) (30212) at the start of a battle or when revived"}]},
+			{"name":"Restless Heart","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
+			{"name":"Ruler","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Starry Wrath","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Starry Wrath (507541) to caster (max 2 / turn)"},{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Starry Wrath (507542) to caster (max 2 / turn)"}]},
+			{"name":"Dark Arts","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mag%":30},"desc":"Increase MAG and HP by 30%"},{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep, Confusion and Petrify by 100%"}],"equipedConditions":["309002900"]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
-			{"name":"百獣王","icon":"ability_95.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"},{"effect":{"equipedConditions":["fist"],"atk%":50,"levelCondition":120},"desc":"Increase ATK by 50% when equipped with a Fist"}]}
+			{"name":"King of the Jungle","icon":"ability_95.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"},{"effect":{"equipedConditions":["fist"],"atk%":50,"levelCondition":120},"desc":"Increase ATK by 50% when equipped with a Fist"}]}
 		],
 		"actives": [
 			{"name":"Multifists","icon":"ability_51.png","effects":[{"effect":null,"desc":"4 physical attacks (0.7x each, 2.8x total, ATK) to one random enemy"}]},
 			{"name":"Sizzle","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
 			{"name":"Total War Cry","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (1.33x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Inflict Stop (30%) for 3 turns on all enemies"}]},
 			{"name":"Kacrackle Slash","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (1.6x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (30%) for 3 turns on one enemy"}]},
-			{"name":"メッタ斬り","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 3 turns to one enemy"}]},
+			{"name":"Wild Animaul","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 3 turns to one enemy"}]},
 			{"name":"Kafrizz","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic fire damage (1.8x, MAG) to one enemy"}]},
-			{"name":"こごえる吹雪","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (2.5x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 60% for 3 turns to all enemies"}]},
-			{"name":"マヒャド","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (4x, MAG) to all enemies"}]},
+			{"name":"Freezing Blizzard","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (2.5x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":60}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 60% for 3 turns to all enemies"}]},
+			{"name":"Kacrack","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (4x, MAG) to all enemies"}]},
 			{"name":"Sword Dance","icon":"ability_61.png","effects":[{"effect":null,"desc":"4-8 physical attacks (0.55x each, 3.3x avg, ATK) to one random enemy"}]},
-			{"name":"せいけんづき","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.3x, ATK) to one enemy (ignore cover)"}]},
-			{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"def":60,"mag":60,"spr":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 60% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock 魔人百獣拳 (507543) on turn 5 [5 turns CD]"}]},
-			{"name":"はげしいきりさき","icon":"ability_54.png","effects":[{"effect":null,"desc":"2 physical attacks (1.8x each, 3.6x total, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
-			{"name":"百獣闘気","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
-			{"name":"ブリザーラッシュ","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (7x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 3 turn(s) to caster"}]}
+			{"name":"Knuckle Sandwich","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.3x, ATK) to one enemy (ignore cover)"}]},
+			{"name":"Fiendish Fauna Fist","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Fiendish Fauna Fist","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"def":60,"mag":60,"spr":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 60% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Fiendish Fauna Fist (507543) on turn 5 [5 turns CD]"}]},
+			{"name":"Rough Cuts","icon":"ability_54.png","effects":[{"effect":null,"desc":"2 physical attacks (1.8x each, 3.6x total, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
+			{"name":"Fauna Fighting Spirit","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
+			{"name":"Blizzard Slash","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (7x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 3 turn(s) to caster"}]}
 		],
 		"magics": [
 		]
@@ -12835,14 +12835,14 @@
 		"equip":["dagger","sword","katana","staff","rod","bow","hammer","lightShield","hat","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"Code Zero","minEffects":[{"effect":null,"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (10.2x, ATK) to all enemies"},{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}]},
 		"passives": [
-			{"name":"ライトメタルボディ","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},"desc":"Increase resistance to all elements by 10%"}]},
+			{"name":"Light Metal Body","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]},"desc":"Increase resistance to all elements by 10%"}]},
 			{"name":"Double Trouble","icon":"ability_54.png","effects":[{"effect":null,"desc":"Normal attacks hit 2 times"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Critical Stance","icon":"ability_77.png","effects":[{"effect":{},"desc":"Increase crit. chance by 40%"}]},
 			{"name":"ATK +30%","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
-			{"name":"オートリペア","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (10124) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"ひん死でちからため","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 100% for 3 turns when HP drops below 20% (max 99999x)"}]},
-			{"name":"二刀の心得","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"}]}
+			{"name":"Auto-Repair","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (10124) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Emergency Muster Strength","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 100% for 3 turns when HP drops below 20% (max 99999x)"}]},
+			{"name":"Dual Sword Mastery","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"}]}
 		],
 		"actives": [
 			{"name":"Metal Slash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Fixed damage (2000) to one enemy"}]},
@@ -12850,12 +12850,12 @@
 			{"name":"Thunder Slash","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (1.6x, ATK) to one enemy"}]},
 			{"name":"Flame Slash","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (1.6x, ATK) to one enemy"}]},
 			{"name":"Kacrackle Slash","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (1.6x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (30%) for 3 turns on one enemy"}]},
-			{"name":"大魔神斬り","icon":"ability_10.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"大魔神斬り","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage 1 to one enemy"}]},"percent":20},{"skill":{"name":"大魔神斬り","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy"}]},"percent":40},{"skill":{"name":"大魔神斬り","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.25x, ATK) to one enemy"}]},"percent":40}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n20%: 大魔神斬り (507570)\n40%: 大魔神斬り (507571)\n40%: 大魔神斬り (507572)"}]},
-			{"name":"さみだれ斬り","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.6x, ATK) to one enemy"}]},
-			{"name":"ドラゴン斬り","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"dragon","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Dragons by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
-			{"name":"あくま斬り","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"demon","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Demons by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
-			{"name":"ゾンビ斬り","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"undead","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Reapers by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
-			{"name":"鉄球ぶんまわし","icon":"ability_10.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"human","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Humans by 50% to caster for one turn"},{"effect":null,"desc":"2 physical attacks (1.6x each, 3.2x total, ATK) to all enemies"}]}
+			{"name":"Executioner's Slash","icon":"ability_10.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Executioner's Slash","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage 1 to one enemy"}]},"percent":20},{"skill":{"name":"Executioner's Slash","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy"}]},"percent":40},{"skill":{"name":"Executioner's Slash","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.25x, ATK) to one enemy"}]},"percent":40}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n20%: Executioner's Slash (507570)\n40%: Executioner's Slash (507571)\n40%: Executioner's Slash (507572)"}]},
+			{"name":"Multislash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.6x, ATK) to one enemy"}]},
+			{"name":"Dragon Slash","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"dragon","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Dragons by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
+			{"name":"Demon Demeaner","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"demon","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Demons by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
+			{"name":"Undead Undoer","icon":"ability_79.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"undead","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Reapers by 50% to caster for one turn"},{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
+			{"name":"Mace Helichopter","icon":"ability_10.png","effects":[{"effect":null,"desc":"No effect"},{"effect":{"killers":[{"name":"human","physical":50}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Humans by 50% to caster for one turn"},{"effect":null,"desc":"2 physical attacks (1.6x each, 3.2x total, ATK) to all enemies"}]}
 		],
 		"magics": [
 		]
@@ -12878,21 +12878,21 @@
 			{"name":"MP +10%","icon":"ability_77.png","effects":[{"effect":{"mp%":10},"desc":"Increase MP by 10%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"MAG +20%","icon":"ability_77.png","effects":[{"effect":{"mag%":20},"desc":"Increase MAG by 20%"}]},
-			{"name":"自動MP回復","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":3},"desc":"Recover MP (3%) per turn"}]},
+			{"name":"Auto MP Recovery","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":3},"desc":"Recover MP (3%) per turn"}]},
 			{"name":"Artful Dodger","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"}]},
-			{"name":"超はやぶさ斬り","icon":"ability_8.png","effects":[{"effect":null,"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tひょうけつ斬り (227043)\n\tふうじん斬り (227042)\n\t超もろば斬り (227041)"}]}
+			{"name":"Gyrfalcon Slash","icon":"ability_8.png","effects":[{"effect":null,"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tFrost Slash (227043)\n\tGale Slash (227042)\n\tSuper Double-Edged Slash (227041)"}]}
 		],
 		"actives": [
 			{"name":"Heal","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 150 (+3x, Heal) HP to one ally"}]},
 			{"name":"Thunder Slash","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (1.6x, ATK) to one enemy"}]},
 			{"name":"Sizz","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.3x, MAG) to all enemies"}]},
-			{"name":"ひょうけつ斬り","icon":"ability_22.png","effects":[{"effect":null,"desc":"Hybrid ice damage (1.8x, ATK & MAG) to one enemy"}]},
+			{"name":"Frost Slash","icon":"ability_22.png","effects":[{"effect":null,"desc":"Hybrid ice damage (1.8x, ATK & MAG) to one enemy"}]},
 			{"name":"Midheal","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1500 (+3.4x, Heal) HP to one ally"}]},
 			{"name":"Sizzle","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
 			{"name":"Unbridled Blade","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
-			{"name":"ふうじん斬り","icon":"ability_25.png","effects":[{"effect":null,"desc":"Hybrid wind damage (3.8x, ATK & MAG) to one enemy"}]},
+			{"name":"Gale Slash","icon":"ability_25.png","effects":[{"effect":null,"desc":"Hybrid wind damage (3.8x, ATK & MAG) to one enemy"}]},
 			{"name":"Multiheal","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 600 (+3x, Heal) HP to all allies"}]},
-			{"name":"超もろば斬り","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 50% HP to deal physical* damage (6x, ATK) to one enemy"}]}
+			{"name":"Super Double-Edged Slash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 50% HP to deal physical* damage (6x, ATK) to one enemy"}]}
 		],
 		"magics": [
 		]
@@ -12916,17 +12916,17 @@
 			{"name":"MAG +10%","icon":"ability_77.png","effects":[{"effect":{"mag%":10},"desc":"Increase MAG by 10%"}]}
 		],
 		"actives": [
-			{"name":"バギ","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.4x, MAG) to all enemies"}]},
+			{"name":"Woosh","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.4x, MAG) to all enemies"}]},
 			{"name":"Bang","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic damage (1.4x, MAG) to all enemies"}]},
-			{"name":"バギマ","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.9x, MAG) to all enemies"}]},
-			{"name":"ドルマ","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (1.5x, MAG) to one enemy"}]},
-			{"name":"マホトラ","icon":"ability_6.png","effects":[{"effect":null,"desc":"Magic damage (0.3x) as MP drain (30%) to one enemy"}]},
+			{"name":"Swoosh","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.9x, MAG) to all enemies"}]},
+			{"name":"Zam","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (1.5x, MAG) to one enemy"}]},
+			{"name":"Drain Magic","icon":"ability_6.png","effects":[{"effect":null,"desc":"Magic damage (0.3x) as MP drain (30%) to one enemy"}]},
 			{"name":"Sizzle","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
-			{"name":"ドルクマ","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (1.8x, MAG) to one enemy"}]},
+			{"name":"Zammle","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (1.8x, MAG) to one enemy"}]},
 			{"name":"Dazzleflash","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Blind (30%) on all enemies"}]},
 			{"name":"Snooze","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Sleep (40%) on one enemy"}]},
 			{"name":"Kazam","icon":"ability_26.png","effects":[{"effect":null,"desc":"Magic dark damage (2.2x, MAG) to one enemy"}]},
-			{"name":"まりょくのうた","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase MAG by 50% for 3 turns to all allies while singing"}]}
+			{"name":"Magical Melody","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase MAG by 50% for 3 turns to all allies while singing"}]}
 		],
 		"magics": [
 		]
@@ -13338,7 +13338,7 @@
 			{"name":"Bird Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"bird","physical":50}]},"desc":"Increase physical damage against Avians by 50%"}]},
 			{"name":"Sound Judgment","icon":"ability_68.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"},{"effect":null,"desc":"Increase chance of countering by 25%"}]},
 			{"name":"Descendant of Muah","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]},"desc":"Increase resistance to all status effects by 50%"},{"effect":null,"desc":"Cure all status effects after battle"}]},
-			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plantoids by 50%"}]},
+			{"name":"Plant Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"plant","physical":50}]},"desc":"Increase physical damage against Plants by 50%"}]},
 			{"name":"Single-Shot","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["bow"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Bow"}]}
 		],
 		"actives": [
@@ -14415,7 +14415,7 @@
 			{"name":"Frost Fall","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
 			{"name":"Ice Shards","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (4.4x, MAG) to one enemy (ignore cover and reflect)"}]},
 			{"name":"Frozen Armor","icon":"global_ability_10020.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to one ally for one turn"},{"effect":{"resist":[{"name":"ice","percent":100}],"turns":1,"area":"ST","target":"ALLY"},"desc":"Increase resistance to Ice by 100% for one turn to one ally"},{"effect":null,"desc":"Inflict Stop (100%) for one turn on one ally"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"resist":[{"name":"ice","percent":100}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase resistance to Ice by 100% for one turn to caster"}]},
-			{"name":"Hand in Hand","icon":"global_ability_10021.png","effects":[{"effect":null,"desc":"Gain access to following skills for 2 turns:\n\tIce Shards (910643)"}]},
+			{"name":"Hand in Hand","icon":"global_ability_10021.png","effects":[{"effect":null,"desc":"Grant access to following skills for 2 turns to one ally:\n\tIce Shards (910643)"}]},
 			{"name":"Glacial Storm","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (2x, MAG) to all enemies"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 100% for 3 turns to caster"}]},
 			{"name":"Absolute Zero","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage 150 (+3x, MAG) with consecutive damage increase (max. 4 times, +1.5x MAG each, 9x total) to one enemy"}]},
 			{"name":"Winter Fall","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tSnow Burial (910654)"},{"effect":null,"desc":"Gain 2 uses of the following skills for 3 turns:\n\tAbsolute Zero (910652)\n\tSnow Burial (910654)"}]}
@@ -14481,7 +14481,7 @@
 			{"name":"MP +10%","icon":"ability_77.png","effects":[{"effect":{"mp%":10},"desc":"Increase MP by 10%"}]},
 			{"name":"Tinkerer","icon":"ability_79.png","effects":[{"effect":{"equipedConditions":["gun"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Gun"},{"effect":{"killers":[{"name":"machine","physical":50}]},"desc":"Increase physical damage against Machinas by 50%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
-			{"name":"Secret of the Wings","icon":"ability_19.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"},{"effect":{"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30}]},"desc":"Increase resistance to Ice and Wind by 30%"}]},
+			{"name":"Secret of the Wings","icon":"ability_19.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"},{"effect":{"resist":[{"name":"ice","percent":30},{"name":"wind","percent":30}]},"desc":"Increase resistance to Ice and Wind by 30%"}]},
 			{"name":"Inner Strength","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["bow"],"atk%":40,"spr%":40},"desc":"Increase ATK and SPR by 40% when equipped with a Bow"},{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]}
 		],
 		"actives": [
@@ -15075,6 +15075,163 @@
 			{"name":"Medication","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},
 			{"name":"Antitoxin","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure Poison, Blind, Sleep, Silence, Paralyze and Confusion for one ally"}]},
 			{"name":"Invader","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":50}],"turns":3,"area":"ST","target":"ALLY"},"desc":"Increase physical damage against Machinas by 50% to one ally for 3 turns"}]}
+		],
+		"magics": [
+		]
+	},
+	"401004905": {
+		"name":"Adam Jensen",
+		"id":"401004905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4780,"mp":220,"atk":203,"def":180,"mag":140,"spr":170},
+			"minStats":{"hp":1577,"mp":73,"atk":67,"def":59,"mag":46,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+		"lb": {"name":"Icarus Dash - Charged Dash","minEffects":[{"effect":null,"desc":"Physical damage (15x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (20.8x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}]},
+		"passives": [
+			{"name":"Mechanical Augmentations","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"},{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
+			{"name":"Augmented","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"disease","percent":100}]},"desc":"Increase resistance to Poison and Disease by 100%"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
+			{"name":"Flash Suppressant","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100}]},"desc":"Increase resistance to Blind by 100%"},{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
+			{"name":"Energy Converter","icon":"ability_77.png","effects":[{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"}]},
+			{"name":"Health System","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Gain Regen (Champion) (10122) at the start of a battle or when revived"}]},
+			{"name":"Juggernaut Collective Agent","icon":"ability_77.png","effects":[{"effect":{"dualWielding":{"atk":60}},"desc":"Increase equipment ATK by 60% when armed with two weapons"},{"effect":{"atk%":20,"def%":20,"spr%":20},"desc":"Increase ATK, DEF and SPR by 20%"},{"effect":null,"desc":"Use Juggernaut Collective Agent (911250) at the start of a battle"}],"equipedConditions":["1500000064"]},
+			{"name":"Rhino Dermal Armor","icon":"ability_77.png","effects":[{"effect":{"hp%":10,"def%":20},"desc":"Increase DEF by 20% and HP by 10%"}]},
+			{"name":"Focus Enhancement","icon":"ability_77.png","effects":[{"effect":{"atk%":50},"desc":"Increase ATK by 50%"},{"effect":null,"desc":"Increase the damage of the following skills by (2x):\n\tNanoblade (911206)\n\tP.E.P.S. Knockback (911196)\n\tQuicksilver Reflex Booster (911204)\n\tTESLA (911199)"}]}
+		],
+		"actives": [
+			{"name":"Stealth Enhancer","icon":"ability_84.png","effects":[{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}]},
+			{"name":"Wall Breaker","icon":"ability_68.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":{"break":{"def":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to one enemy"}]},
+			{"name":"P.E.P.S. Knockback","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
+			{"name":"Smart Vision","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"},{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to one enemy"}]},
+			{"name":"TESLA","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (3.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 50% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Paralyze (60%) on one enemy"}]},
+			{"name":"Wideband Frequency-Jammer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas by 100% to caster for 3 turns"},{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"}]},
+			{"name":"Implanted Rebreather","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for caster"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from caster"},{"effect":null,"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to caster"}]},
+			{"name":"Quicksilver Reflex Booster","icon":"ability_54.png","effects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (3x, ATK) to one enemy"}]},
+			{"name":"TITAN","icon":"ability_77.png","effects":[{"effect":null,"desc":"Grant a 3500 HP shield to caster for 3 turns"}]},
+			{"name":"Nanoblade","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage 100 (+3x, ATK) with consecutive damage increase (max. 11 times, +1x ATK each, 14x total) to one enemy"}]},
+			{"name":"Explosive Heat Blade","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Explosive Heat Blade","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical fire damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":100}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 100% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ENEMY"},"desc":"Unlock Explosive Heat Blade (911239) on turn 5 [5 turns CD]"}]},
+			{"name":"Typhoon Explosive System","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Typhoon Explosive System","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical fire damage (12x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to one enemy"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Typhoon Explosive System (911240) on turn 1 [6 turns CD]"}]},
+			{"name":"Remote Hacking","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Remote Hacking","icon":"ability_105.png","effects":[{"effect":{"killers":[{"name":"machine","physical":75}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas by 75% to caster for one turn"},{"effect":null,"desc":"Physical damage (17x, ATK) to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Remote Hacking (911241) on turn 5 [5 turns CD]"}]}
+		],
+		"magics": [
+		]
+	},
+	"401005005": {
+		"name":"Viktor Marchenko",
+		"id":"401005005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4950,"mp":225,"atk":202,"def":208,"mag":142,"spr":162},
+			"minStats":{"hp":1634,"mp":74,"atk":67,"def":69,"mag":47,"spr":53},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","throwing","gun","mace","fist","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"lb": {"name":"Hyperion Plasma Blast","minEffects":[{"effect":null,"desc":"Physical damage (12.1x, DEF) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (15x, DEF) to all enemies"}]},
+		"passives": [
+			{"name":"Cybernetic Prosthesis","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"},{"effect":{"hp%":20,"atk%":20},"desc":"Increase ATK and HP by 20%"}]},
+			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
+			{"name":"Revolutionist","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 150% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase DEF by 150% for 2 turns when HP drops below 50% (max 9999x)"}]},
+			{"name":"TITAN Armor","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["heavyArmor"],"def%":50},"desc":"Increase DEF by 50% when equipped with a Heavy Armor"}]},
+			{"name":"Augmented Prosthetics","icon":"ability_77.png","effects":[{"effect":{"def%":30,"spr%":20},"desc":"Increase DEF by 30% and SPR by 20%"}]},
+			{"name":"Secrets of OldBlueEye","icon":"ability_77.png","effects":[{"effect":{"atk%":30,"def%":30},"desc":"Increase ATK and DEF by 30%"},{"effect":{"dualWielding":{"def":40}},"desc":"Increase equipment DEF by 40% when armed with two weapons"}],"equipedConditions":["1500000065"]},
+			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
+			{"name":"Mark of the Illuminati","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"def%":20},"desc":"Increase DEF, HP and MP by 20%"},{"effect":null,"desc":"Increase the damage of the following skills by (2x):\n\tPro-Augmentation (911226)\n\tPro-Human (911227)\n\tTakedown (911229)"}]}
+		],
+		"actives": [
+			{"name":"P.E.P.S. Knockback","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
+			{"name":"EMP Grenade","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":50,"spr":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG and SPR by 50% for 3 turns to all enemies"}]},
+			{"name":"Stun Grenade","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":50,"def":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 50% for 3 turns to all enemies"}]},
+			{"name":"Orchid","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) per turn to one enemy for 5 turns"}]},
+			{"name":"Showdown","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Increase ATK and DEF by 100% for 5 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 1-4 to caster"}]},
+			{"name":"Implanted Rebreather","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for caster"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from caster"},{"effect":null,"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to caster"}]},
+			{"name":"Biocell Restoration","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 10000 HP and 200 MP to caster"}]},
+			{"name":"Pro-Augmentation","icon":"ability_79.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"killers":[{"name":"human","physical":75}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Humans by 75% to caster for 3 turns"}]},
+			{"name":"Pro-Human","icon":"ability_79.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"killers":[{"name":"machine","physical":75}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas by 75% to caster for 3 turns"}]},
+			{"name":"Confrontation","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 5 turns"}]},
+			{"name":"Takedown","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (7.5x, DEF) to one enemy"}]},
+			{"name":"Security System","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, DEF) to all enemies"}]},
+			{"name":"Icarus Dash","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Icarus Dash","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (18.5x, DEF) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 75% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Icarus Dash (911242) on turn 5 [5 turns CD]"}]},
+			{"name":"Plasma Bolt","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Plasma Bolt","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (18.5x, DEF) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Plasma Bolt (911243) on turn 5 [5 turns CD]"}]},
+			{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 2 turns"},{"effect":null,"desc":"Grant a 4000 HP shield to caster for 2 turns"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Augmented TITAN (911244) on turn 1 [3 turns CD]"}]}
+		],
+		"magics": [
+		]
+	},
+	"401005104": {
+		"name":"Václav Koller",
+		"id":"401005104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3462,"mp":158,"atk":145,"def":128,"mag":82,"spr":123},
+			"minStats":{"hp":1142,"mp":52,"atk":48,"def":42,"mag":27,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor","robe"],
+		"lb": {"name":"Augmentation Revolution","minEffects":[{"effect":null,"desc":"Physical lightning damage (3x, ATK) to all enemies"},{"effect":null,"desc":"Increase ATK by 40% for 3 turns to caster"},{"effect":{"break":{"atk":28,"mag":28,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 28% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical lightning damage (4.2x, ATK) to all enemies"},{"effect":null,"desc":"Increase ATK by 64% for 3 turns to caster"},{"effect":{"break":{"atk":52,"mag":52,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 52% for 3 turns to all enemies"}]},
+		"passives": [
+			{"name":"Praxis Earner","icon":"ability_74.png","effects":[{"effect":null,"desc":"Increase gil obtained by 100%"}]},
+			{"name":"Black Market Seller","icon":"ability_77.png","effects":[{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"}]},
+			{"name":"Experimental Augmentations","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Blind and Paralyze by 100%"}]},
+			{"name":"Self-Taught Genius","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"},{"effect":{"resist":[{"name":"lightning","percent":30}]},"desc":"Increase resistance to Lightning by 30%"}]},
+			{"name":"Nikoaladze's Protection","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 60% (max 1 times)"}]},
+			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
+			{"name":"Augmentation's Obsession","icon":"ability_77.png","effects":[{"effect":{"mp%":20,"def%":20},"desc":"Increase DEF and MP by 20%"}]}
+		],
+		"actives": [
+			{"name":"Reboot System","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Paralyze and Confusion (50%) on one enemy"}]},
+			{"name":"Toy Gun Experimentation","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"}]},
+			{"name":"Mass Remote Hacking","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Confusion (50%) on all enemies"}]},
+			{"name":"Crippling Experimentation","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 10% to all allies for 3 turns"}]},
+			{"name":"Defensive Enhancements","icon":"ability_43.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 50% for one turn to one ally"},{"effect":null,"desc":"Physical damage (5x, ATK) to all enemies after a one turn delay"}]},
+			{"name":"Augmentation Tuning","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to all enemies"}]},
+			{"name":"Augmentation Fortification","icon":"ability_43.png","effects":[{"effect":null,"desc":"Restore 2000 HP split over 3 turns to caster"},{"effect":null,"desc":"Increase DEF and SPR by 70% for one turn to caster"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tBlack Market Augmentations (911131)"}]},
+			{"name":"Controversial Augmentations","icon":"ability_20.png","effects":[{"effect":{"imperil":{"elements":[{"name":"lightning","percent":50}],"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 50% for 5 turns to one enemy"},{"effect":{"imbue":["lightning"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Lightning element to physical attacks for 5 turn(s) to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tFull Augmentation Potential (911132)"}]}
+		],
+		"magics": [
+		]
+	},
+	"401005203": {
+		"name":"Frank Pritchard",
+		"id":"401005203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2135,"mp":124,"atk":84,"def":85,"mag":90,"spr":98},
+			"minStats":{"hp":705,"mp":41,"atk":28,"def":28,"mag":30,"spr":32},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"lb": {"name":"Time To Hit It Home!","minEffects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 20% for 3 turns to all allies"},{"effect":{"break":{"atk":20,"def":20,"mag":20,"spr":20,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 20% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 39% for 3 turns to all allies"},{"effect":{"break":{"atk":39,"def":39,"mag":39,"spr":39,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 39% for 3 turns to all enemies"}]},
+		"passives": [
+			{"name":"Light Foot","icon":"ability_71.png","effects":[{"effect":null,"desc":"During explorations, reduce chance of encounters by 25%"}]},
+			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
+			{"name":"NuclearSnake","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
+			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"Cyberboost Energy Bar","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"}]},
+			{"name":"Biomechanical","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Sleep and Paralyze by 100%"}]}
+		],
+		"actives": [
+			{"name":"Misinformation","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Blind and Confusion (50%) on one enemy"}]},
+			{"name":"Just Watch Yourself!","icon":"ability_19.png","effects":[{"effect":null,"desc":"Increase break resistance to DEF and SPR by 100% for 3 turns to all allies"},{"effect":{"resist":[{"name":"poison","percent":30},{"name":"blind","percent":30},{"name":"sleep","percent":30},{"name":"silence","percent":30},{"name":"paralysis","percent":30},{"name":"confuse","percent":30},{"name":"disease","percent":30},{"name":"petrification","percent":30}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all status effects by 30% for all allies for 3 turns"}]},
+			{"name":"Scan Hacking","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"},{"effect":{"break":{"def":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 3 turns to one enemy"}]},
+			{"name":"Ex-head of Cyber-Security","icon":"ability_20.png","effects":[{"effect":{"imbue":["lightning"],"turns":1,"area":"ST","target":"ALLY"},"desc":"Add Lightning element to physical attacks for 1 turn(s) to one ally"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":30}],"turns":1},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 30% for one turn to all enemies"}]},
+			{"name":"Blade of Shintaro","icon":"ability_42.png","effects":[{"effect":null,"desc":"Use Blade of Shintaro (911106), or Rewire Processors (911107), if used after Blade of Shintaro (911106)"}]},
+			{"name":"You Really Owe Me One!","icon":"ability_43.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"You Really Owe Me One!","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 20% to all allies for 3 turns"}]},"percent":70},{"skill":{"name":"You Really Owe Me One!","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 25% to all allies for 3 turns"}]},"percent":20},{"skill":{"name":"You Really Owe Me One!","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"}]},"percent":10}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n70%: You Really Owe Me One! (911111)\n20%: You Really Owe Me One! (911112)\n10%: You Really Owe Me One! (911113)"}]},
+			{"name":"That's Our Target!","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":50}],"turns":3,"area":"ST","target":"ALLY"},"desc":"Increase physical damage against Machinas by 50% to one ally for 3 turns"}]}
 		],
 		"magics": [
 		]
