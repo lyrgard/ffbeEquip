@@ -1451,22 +1451,28 @@ Modal = {
         var $buttons = $modal.find("button[data-callback]");
     
         // Enable modal mode, and add hidden event handler
-        $modal.modal()
+        $modal.modal({ keyboard: false })
                 .on('hidden.bs.modal', function (e) {
                     if (conf.onClose) conf.onClose($modal);
                     // When modal is hidden, remove all event handlers attached and remove from DOM
                     $buttons.off();
                     $modal.off().remove();
                 }).on('keyup', function(e) {
-                    // Hanle press ENTER
-                    // Automatically click on submit if only one user button is defined
-                    // Otherwise, do nothing, we don't know which one to prefer...
                     if (e.keyCode == 13) {
+                        // Hanle press ENTER
+                        // Automatically click on submit if only one user button is defined
+                        // Otherwise, do nothing, we don't know which one to prefer...
                         if ($buttons.length === 1) {
+                            e.stopImmediatePropagation();
                             $buttons.click();
                         }
+                    } else if (e.keyCode === 27) {
+                        // Hanle press ESCAPE
+                        // Close modal
+                        e.stopImmediatePropagation();
+                        $modal.modal('hide');
                     }
-                });;
+                });
     
         // Add buttons event handler
         $buttons.on('click', function (e) {
