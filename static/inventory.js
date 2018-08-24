@@ -17,6 +17,7 @@ function beforeShow(clearTabSelection = true) {
     $("#itemsWrapper").removeClass("hidden");
     $("#itemEnhancement").addClass("hidden");
     $("#results").removeClass("hidden");
+    $("#loadMore").addClass('hidden');
     
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
@@ -74,14 +75,19 @@ function showHistory() {
     $(".nav-tabs li.history").addClass("active");
     $("#sortType").text("Sorted by release date");
     
-    var resultDiv = $("#results");
-    resultDiv.empty();
+    var $resultDiv = $("#results").empty();
     displayId++;
-    displayItemsByHistoryAsync(lastItemReleases, 0, resultDiv, displayId);
+    displayItemsByHistoryAsync(0, 4, displayId, $resultDiv);
 }
 
-function displayItemsByHistoryAsync(lastItemReleases, dateIndex, div, id) {
+function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $loadMore) {
+    if ($resultDiv == undefined) $resultDiv = $("#results");
+    if ($loadMore == undefined) $loadMore = $("#loadMore");
+    // Get current item release
     var currentItemReleases = lastItemReleases[dateIndex];
+    // Hide LoadMore button
+    // Make sure max index is below length
+    dateIndexMax = Math.min(lastItemReleases.length, dateIndexMax);
     
     // Display date
     var html = '<div class="col-xs-12 date">' + currentItemReleases.date+'</div>';
@@ -111,15 +117,23 @@ function displayItemsByHistoryAsync(lastItemReleases, dateIndex, div, id) {
     }
 
     if (id == displayId) {
-        // Add all items to the DOM
-        div.append(html);
         //Increment current date index
         dateIndex++;
+        // Check if we are at the max and not at the end
+        if ((dateIndex === dateIndexMax) && (dateIndexMax !== lastItemReleases.length)) {
+            $loadMore.removeClass('hidden');
+            $loadMore.find('button.btn-primary').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(dateIndex+10)+", "+id+")");
+            $loadMore.find('button.btn-warning').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(lastItemReleases.length)+", "+id+")");
+        } else {
+            $loadMore.addClass('hidden');
+        }
+        // Add all items to the DOM
+        $resultDiv.append(html);
         // Update lazyloader only for first and last run
-        if (dateIndex === 1 || dateIndex >= lastItemReleases.length) lazyLoader.update();
+        if (dateIndex === 1 || dateIndex >= dateIndexMax) lazyLoader.update();
         // Launch next run of type
-        if (dateIndex < lastItemReleases.length) {
-            setTimeout(displayItemsByHistoryAsync, 0, lastItemReleases, dateIndex, div, id);
+        if (dateIndex < dateIndexMax) {
+            setTimeout(displayItemsByHistoryAsync, 0, dateIndex, dateIndexMax, id, $resultDiv, $loadMore);
         }
     }
 }
