@@ -76,26 +76,50 @@ function showHistory() {
     
     var resultDiv = $("#results");
     resultDiv.empty();
-    for (var dateIndex in lastItemReleases) {
-        resultDiv.append('<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>');
-        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
-            var html = '';
-            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
-                html += '<div class="col-xs-12 source">';
-                for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
-                    if (lastItemReleases[dateIndex].sources[sourceIndex].units.length > 1 && unitIndex == lastItemReleases[dateIndex].sources[sourceIndex].units.length -1) {
-                        html += " and ";
-                    } else if (unitIndex > 0) {
-                        html += ", ";
-                    }
-                    html += allUnits[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]].name;
+    displayId++;
+    displayItemsByHistoryAsync(lastItemReleases, 0, resultDiv, displayId);
+}
+
+function displayItemsByHistoryAsync(lastItemReleases, dateIndex, div, id) {
+    var currentItemReleases = lastItemReleases[dateIndex];
+    
+    // Display date
+    var html = '<div class="col-xs-12 date">' + currentItemReleases.date+'</div>';
+    for (var sourceIndex in currentItemReleases.sources) {
+        var items = currentItemReleases.sources[sourceIndex].items;
+        if (currentItemReleases.sources[sourceIndex].type == "banner") {
+            // Display banner unit list
+            html += '<div class="col-xs-12 source">';
+            for (var unitIndex in currentItemReleases.sources[sourceIndex].units) {
+                if (currentItemReleases.sources[sourceIndex].units.length > 1 && unitIndex == currentItemReleases.sources[sourceIndex].units.length -1) {
+                    html += " and ";
+                } else if (unitIndex > 0) {
+                    html += ", ";
                 }
-                html += "</div>";
-            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event" || lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
-                html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
+                html += allUnits[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
             }
-            resultDiv.append(html);
-            displayItemsAsync(lastItemReleases[dateIndex].sources[sourceIndex].items, 0, resultDiv, displayId);
+            html += "</div>";
+        } else if (currentItemReleases.sources[sourceIndex].type == "event" || currentItemReleases.sources[sourceIndex].type == "storyPart") {
+            // Display event name
+            html += '<div class="col-xs-12 source">' + currentItemReleases.sources[sourceIndex].name + "</div>";
+        }
+        // Display items list
+        for (var index = 0; index < items.length; index++) {
+            if (items[index] === undefined) continue;
+            html += getItemDisplay(items[index]);
+        }
+    }
+
+    if (id == displayId) {
+        // Add all items to the DOM
+        div.append(html);
+        //Increment current date index
+        dateIndex++;
+        // Update lazyloader only for first and last run
+        if (dateIndex === 1 || dateIndex >= lastItemReleases.length) lazyLoader.update();
+        // Launch next run of type
+        if (dateIndex < lastItemReleases.length) {
+            setTimeout(displayItemsByHistoryAsync, 0, lastItemReleases, dateIndex, div, id);
         }
     }
 }
