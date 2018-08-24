@@ -2516,6 +2516,8 @@ function initWorkers() {
                             console.timeEnd("optimize");
                             $("#buildButton").text("Build !"); 
                             logCurrentBuild();
+                            dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
+                            builds[currentUnitIndex].prepareEquipable();
                         } else {
                             
                             var overcapedStats = [];
@@ -2544,9 +2546,11 @@ function initWorkers() {
                                 secondaryOptimization = true;
                                 secondaryOptimizationFixedItemSave = builds[currentUnitIndex].fixedItems.slice();
                                 secondaryOptimizationFormulaSave = JSON.parse(JSON.stringify(builds[currentUnitIndex].formula));
-                                for (var i = 0; i < 10; i++) {
+                                for (var i = 0; i < 11; i++) {
                                     if (builds[currentUnitIndex].build[i] && !builds[currentUnitIndex].fixedItems[i] && !overcapedStats.some(stat => getValue(builds[currentUnitIndex].build[i], stat) > 0)) {
                                         builds[currentUnitIndex].fixedItems[i] = builds[currentUnitIndex].build[i];
+                                    } else {
+                                        builds[currentUnitIndex].build[i] = null;
                                     }
                                 }
                                 var statToFavor = $("#tryReduceOverCap select").val();
@@ -2582,6 +2586,8 @@ function initWorkers() {
                                     }
                                 }
                                 builds[currentUnitIndex].buildValue[goalVariation] = 0;
+                                dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
+                                builds[currentUnitIndex].prepareEquipable();
                                 optimize();
                             } else {
                                 running = false;
