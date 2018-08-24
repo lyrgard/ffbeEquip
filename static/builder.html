@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>FFBE Equip - Builder</title>
-        <link rel="icon" type="image/png" href="/img/icons/equipments/heavyArmor.png">
+        <link rel="icon" type="image/png" href="img/icons/equipments/heavyArmor.png">
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,14 +20,14 @@
         <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
         <link rel="stylesheet" type="text/css" href="css-img/killers.css">
         <link rel="stylesheet" type="text/css" href="css-img/slots.css">
-		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="builder.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
     </head>
     <body>
         <div class="glassPanel"></div>
         <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
-        
+
         <div id="header" class="headerLid">
             <div class="headerContent">
                 <div class="headerTitle">
@@ -155,7 +155,7 @@
                                     <option value="mpRefresh">MP/turn</option>
                                     <option value="heal">Heal</option>
                                 </select>
-                            </div>    
+                            </div>
                             <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
                             <span class="customGoalChoice hidden">Custom Goal: </span>
                             <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
@@ -196,7 +196,7 @@
                         </span>
                         <div class="col-xs-12">
                             <div id="unitLevel" class="hidden col-xs-6 form-inline">
-                                Unit level : 
+                                Unit level :
                                 <select class="form-control">
                                     <option value="101">101</option>
                                     <option value="102">102</option>
@@ -628,7 +628,7 @@
                         <li>Profit</li>
                     </ol>
                     <h4>Advanced Usage</h4>
-                    
+
                     <h5>More options</h5>
                     <ul>
                         <li>If you plan to use an attack with innate element(s), you can select the corresponding element(s) in the "Skill innate element(s)" section (for instance, you'll want to select Ice if you plan to use Fryevia's Frost Flower Blitz.</li>
@@ -638,7 +638,7 @@
                         <li>Custom Formula allows to create tailored-made builds. More information on how to use it when you click on it.</li>
                         <li>Some pre-set custom formula can be found on the custom formula popup. Click on the arrow on the left of the text field to get access to various healing and expedition custom formula.</li>
                     </ul>
-                    
+
                     <h5>Equipment selection :</h5>
                     <ul>
                         <li>All Equipments :
@@ -923,14 +923,14 @@
                                         </div>
                                     </span>
                                 </div>
-                                
+
                                 <div>
                                     <input type="text" class="form-control" id="formulaConditionInput" placeholder="Enter condition(s) to meet (for instance, R_FIRE > 50 AND I_PARALYSIS) - optional">
                                 </div>
                             </div>
                             <button class="btn btn-primary" style="margin-left:10px;" onclick="chooseCustomFormula()">OK</button>
                         </div>
-                        
+
                         <h4>How to use this:</h4>
                         <ul>
                             <li>The "Maximize" field must contain an <span class="code">EXPRESSION</span>, that the builder will try to maximize</li>
@@ -1008,7 +1008,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="modifyEnhancementModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -1119,11 +1119,11 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" 
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
+        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
