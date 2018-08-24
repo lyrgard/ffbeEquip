@@ -676,6 +676,19 @@ function parsePassiveRawEffet(rawEffect, skills) {
             result.push(conditionnedElementalResistSKill);
         }
         return result;
+    
+    // Auto cast at start of fight
+    } else if (rawEffect[2] == 56) { 
+        result = {};
+        var skillIn = skills[rawEffect[3][2]];
+        if (skillIn) {
+            var autoCastedSkill = parseActiveSkill(skillIn, skills);
+            if (autoCastedSkill.resist && autoCastedSkill.turns == -1) {
+                result.resist = autoCastedSkill.resist;
+            }
+            return [result];
+        }
+        
     }
     return null;
 }
@@ -749,6 +762,29 @@ function parseActiveRawEffect(rawEffect, skills) {
         var ailmentsData = rawEffect[3];
         addAilmentResist(result, ailmentsData);
         result.turns = ailmentsData[9];
+        
+    // Break, stop and charm resistance
+    } else if (rawEffect[2] == 89) { 
+        result = {resist:[]};
+        if (rawEffect[3][0]) {
+            result.resist.push({"name":"atkBreak", "percent":rawEffect[3][0]})
+        }
+        if (rawEffect[3][1]) {
+            result.resist.push({"name":"defBreak", "percent":rawEffect[3][1]})
+        }
+        if (rawEffect[3][2]) {
+            result.resist.push({"name":"magBreak", "percent":rawEffect[3][2]})
+        }
+        if (rawEffect[3][3]) {
+            result.resist.push({"name":"sprBreak", "percent":rawEffect[3][3]})
+        }
+        if (rawEffect[3][4]) {
+            result.resist.push({"name":"stop", "percent":rawEffect[3][4]})
+        }
+        if (rawEffect[3][5]) {
+            result.resist.push({"name":"charm", "percent":rawEffect[3][5]})
+        }
+        result.turns = rawEffect[3][6];
         
     // Killers
     } else if (rawEffect[2] == 92) { 
