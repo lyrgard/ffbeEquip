@@ -102,6 +102,7 @@ function showHistory() {
 
 function showSettings() {
     beforeShow();
+    displayId++;
     $(".nav-tabs li.settings").addClass("active");
     $("#sortType").text("");
     var html = "";
