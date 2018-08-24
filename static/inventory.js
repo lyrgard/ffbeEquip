@@ -59,9 +59,12 @@ function showSearch() {
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
 
     $("#searchBox").removeClass("hidden");
-    $("#sortType").text("");
     // filter, sort and display the results
-    displayItems(sort(search()), inEquipment);
+    var textToSearch = $("#searchBox").val();
+    displayItems(sort(search(textToSearch)), inEquipment);
+    if (textToSearch) {
+        $("#sortType").text("");
+    }
 }
 
 function showHistory() {
@@ -399,9 +402,8 @@ function farmedTMR(unitId) {
     willSave();
 }
 
-function search() {
+function search(textToSearch) {
     var result = [];
-    var textToSearch = $("#searchBox").val();
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     
     var itemsToSearch = [];
