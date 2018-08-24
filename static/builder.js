@@ -1960,7 +1960,7 @@ function showExcludedItems() {
     Modal.show({
         title: "Excluded items",
         body: '<button class="btn btn-warning" onclick="resetExcludeList();">Reset item exclusion list</button>'+
-              '<div class="table items">' + text + '</div>',
+              '<div id="showExcludedItemsDialog"><div class="table items">' + text + '</div></div>',
         size: 'large',
         withCancelButton: false
     });
