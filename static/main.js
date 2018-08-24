@@ -298,7 +298,7 @@ function loadHash() {
             }
         }
         if (selectedUnitId) {
-            $('#unitsSelect option[value="' + selectedUnitId + '"]').prop("selected", "selected");
+            $('#unitsSelect').val(selectedUnitId).trigger('change.select2');
             displayUnitRarity(units[selectedUnitId]);
         }
     }
@@ -336,7 +336,7 @@ function populateUnitSelect() {
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(function() {
-        $( "#unitsSelect option:selected" ).each(function() {
+        $(this).find(':selected').each(function() {
             var selectedUnitData = units[$(this).val()];
             if (selectedUnitData) {
                 selectedUnitId = $(this).val();
@@ -353,6 +353,10 @@ function populateUnitSelect() {
             displayUnitRarity(selectedUnitData);
         });
         update();
+    });
+    $('#unitsSelect').select2({
+        placeholder: 'Select a unit...',
+        theme: 'bootstrap'
     });
 }
 
