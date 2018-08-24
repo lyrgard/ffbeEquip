@@ -30,8 +30,7 @@ app.use(helmet.hsts({
 var cspDirectives =  {
   defaultSrc: ["'none'"],
   scriptSrc: ["'self'", "'unsafe-inline'",
-              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 
-              'pagead2.googlesyndication.com', 'adservice.google.fr', 'adservice.google.com', 'www.google-analytics.com'],
+              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
@@ -41,7 +40,7 @@ var cspDirectives =  {
   objectSrc: ["'none'"],
   childSrc: ["'self'"],
   workerSrc: ["'self'"],
-  frameSrc: ['googleads.g.doubleclick.net'],
+  frameSrc: ["'none'"],
   frameAncestors: ["'none'"],
   formAction: ["'self'"],
   reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',

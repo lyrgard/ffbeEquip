@@ -29662,7 +29662,7 @@
             ],
             "desc": [
                 "Restore HP and boost DEF and SPR for all allies",
-                "恢復全體隊員的HP+提高防禦精神的數值",
+                "恢復全體隊員的HP+提高防禦精神",
                 "아군 전체의 HP 회복+방어력과 정신력 상승",
                 "Restaure les PV et augmente la DEF et la PSY de tous les alliés",
                 "Regeneriert LP und erhöht ABW und PSY aller Verb.",
@@ -29671,7 +29671,7 @@
         }
     },
     "211000306": {
-        "name": "クピピのとっておき",
+        "name": "Kupipi's Prize",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -29697,14 +29697,21 @@
             "effects_raw": [[2, 2, 2, [0,  0,  2500,  1200,  100]], [2, 2, 3, [0,  104,  0,  104,  3,  1]]]},
         "strings": {
             "name": [
-                null,
+                "Kupipi's Prize",
                 "庫皮皮珍藏品",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Restore HP and boost DEF and SPR for all allies",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000405": {
@@ -29833,7 +29840,7 @@
         }
     },
     "211000805": {
-        "name": "ブチ切れ",
+        "name": "Play Rough",
         "cost": 0,
         "attack_count": [7],
         "attack_damage": [[10,  10,  10,  10,  10,  10,  40]],
@@ -29861,18 +29868,25 @@
             "effects_raw": [[1, 1, 70, [0,  0,  600,  50]], [1, 1, 33, [-50,  -50,  -50,  -50,  -50,  -50,  0,  0,  1,  3]], [0, 3, 100, [[1,  1,  1,  1,  1,  1], [20630,  20640,  20650,  20660,  20670,  20680], 9999, 2, 1, 1]]]},
         "strings": {
             "name": [
-                null,
+                "Play Rough",
                 "爆發",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Deal partial unmitigated magic damage and reduce fire, ice, lightning, water, wind, earth resistance for one enemy and enable firaga V, blizzaga V, thundaga V, waterga V, aeroga V and stonega V for one turn",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000806": {
-        "name": "ブチ切れ",
+        "name": "Play Rough",
         "cost": 0,
         "attack_count": [7],
         "attack_damage": [[10,  10,  10,  10,  10,  10,  40]],
@@ -29900,18 +29914,25 @@
             "effects_raw": [[1, 1, 70, [0,  0,  900,  50]], [1, 1, 33, [-60,  -60,  -60,  -60,  -60,  -60,  0,  0,  1,  3]], [0, 3, 100, [[1,  1,  1,  1,  1,  1], [20630,  20640,  20650,  20660,  20670,  20680], 9999, 3, 1, 1]]]},
         "strings": {
             "name": [
-                null,
+                "Play Rough",
                 "爆發",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Deal partial unmitigated magic damage and reduce fire, ice, lightning, water, wind, earth resistance for one enemy and enable firaga V, blizzaga V, thundaga V, waterga V, aeroga V and stonega V for 2 turns",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000807": {
-        "name": "ブチ切れ",
+        "name": "Play Rough",
         "cost": 0,
         "attack_count": [7],
         "attack_damage": [[10,  10,  10,  10,  10,  10,  40]],
@@ -29939,18 +29960,25 @@
             "effects_raw": [[1, 1, 70, [0,  0,  1200,  50]], [1, 1, 33, [-70,  -70,  -70,  -70,  -70,  -70,  0,  0,  1,  3]], [0, 3, 100, [[1,  1,  1,  1,  1,  1], [20630,  20640,  20650,  20660,  20670,  20680], 9999, 4, 1, 1]]]},
         "strings": {
             "name": [
-                null,
+                "Play Rough",
                 "爆發",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Deal partial unmitigated magic damage and reduce fire, ice, lightning, water, wind, earth resistance for one enemy and enable firaga V, blizzaga V, thundaga V, waterga V, aeroga V and stonega V for 3 turns",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000905": {
-        "name": "テラスラッシュ",
+        "name": "Tera Slash",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -29970,18 +29998,25 @@
             "effects_raw": [[2, 1, 112, [450,  40,  100,  -50]]]},
         "strings": {
             "name": [
-                null,
+                "Tera Slash",
                 "大地斬擊",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Chance of instantly KO'ing one enemy or deal partial unmitigated damage to all enemies",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000906": {
-        "name": "テラスラッシュ",
+        "name": "Tera Slash",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -30001,18 +30036,25 @@
             "effects_raw": [[2, 1, 112, [600,  60,  100,  -50]]]},
         "strings": {
             "name": [
-                null,
+                "Tera Slash",
                 "大地斬擊",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Chance of instantly KO'ing one enemy or deal partial unmitigated damage to all enemies",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211000907": {
-        "name": "テラスラッシュ",
+        "name": "Tera Slash",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -30032,18 +30074,25 @@
             "effects_raw": [[2, 1, 112, [900,  80,  100,  -50]]]},
         "strings": {
             "name": [
-                null,
+                "Tera Slash",
                 "大地斬擊",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Chance of instantly KO'ing one enemy or deal partial unmitigated damage to all enemies",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211001004": {
-        "name": "救世を願う歌",
+        "name": "Prayer of Salvation",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -30073,18 +30122,25 @@
             "effects_raw": [[2, 2, 101, [10,  3,  1]], [2, 2, 56, [600,  1,  850,  3]], [2, 2, 57, [30,  1,  10,  3]], [2, 2, 58, [0,  114,  0,  114,  3,  1]]]},
         "strings": {
             "name": [
-                null,
+                "Prayer of Salvation",
                 "救世祈願歌",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Reduce damage taken for three turns, and boost DEF and SPR and gradually restore HP and MP for all allies while singing",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211001005": {
-        "name": "救世を願う歌",
+        "name": "Prayer of Salvation",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -30114,18 +30170,25 @@
             "effects_raw": [[2, 2, 101, [20,  3,  1]], [2, 2, 56, [600,  1,  850,  3]], [2, 2, 57, [30,  1,  10,  3]], [2, 2, 58, [0,  119,  0,  119,  3,  1]]]},
         "strings": {
             "name": [
-                null,
+                "Prayer of Salvation",
                 "救世祈願歌",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Reduce damage taken for three turns, and boost DEF and SPR and gradually restore HP and MP for all allies while singing",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "211001006": {
-        "name": "救世を願う歌",
+        "name": "Prayer of Salvation",
         "cost": 0,
         "attack_count": [1],
         "attack_damage": [[100]],
@@ -30155,14 +30218,21 @@
             "effects_raw": [[2, 2, 101, [30,  3,  1]], [2, 2, 56, [600,  1,  850,  3]], [2, 2, 57, [30,  1,  10,  3]], [2, 2, 58, [0,  124,  0,  124,  3,  1]]]},
         "strings": {
             "name": [
-                null,
+                "Prayer of Salvation",
                 "救世祈願歌",
                 null,
                 null,
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Reduce damage taken for three turns, and boost DEF and SPR and gradually restore HP and MP for all allies while singing",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "212000103": {
@@ -39871,7 +39941,14 @@
                 null,
                 null
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Damage and inflict poison, blind, sleep, silence, paralysis, confusion, disease, or stone on random on all enemies",
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         }
     },
     "306000204": {
@@ -40601,12 +40678,19 @@
             "name": [
                 "Death Blow",
                 "必殺一擊",
+                "필살의 일격",
                 null,
-                null,
-                null,
+                "Gnadenstoß",
                 "Golpe mortal"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Critical damage to one enemy",
+                "對1名敵人發動暴擊攻擊",
+                "적 1명에게 크리티컬 피해",
+                null,
+                "Fügt einem Gegner kritischen Schaden zu.",
+                "Daño crítico a un enemigo"
+            ]
         }
     },
     "306000906": {
@@ -40632,12 +40716,19 @@
             "name": [
                 "Death Blow",
                 "必殺一擊",
+                "필살의 일격",
                 null,
-                null,
-                null,
+                "Gnadenstoß",
                 "Golpe mortal"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Critical damage to one enemy",
+                "對1名敵人發動暴擊攻擊",
+                "적 1명에게 크리티컬 피해",
+                null,
+                "Fügt einem Gegner kritischen Schaden zu.",
+                "Daño crítico a un enemigo"
+            ]
         }
     },
     "306000907": {
@@ -40663,12 +40754,19 @@
             "name": [
                 "Death Blow",
                 "必殺一擊",
+                "필살의 일격",
                 null,
-                null,
-                null,
+                "Gnadenstoß",
                 "Golpe mortal"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Critical damage to one enemy",
+                "對1名敵人發動暴擊攻擊",
+                "적 1명에게 크리티컬 피해",
+                null,
+                "Fügt einem Gegner kritischen Schaden zu.",
+                "Daño crítico a un enemigo"
+            ]
         }
     },
     "306001005": {
@@ -40694,12 +40792,19 @@
             "name": [
                 "Blizzard Blast",
                 "極寒凍結",
+                "극한동결",
                 null,
-                null,
-                null,
+                "Gefrierfrost",
                 "Ráfaga glacial"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Ice damage to all enemies",
+                "對全體敵人發動冰屬性攻擊",
+                "적 전체에 얼음속성 피해",
+                null,
+                "Fügt allen Gegnern Eisschaden zu.",
+                "Daño de hielo a todos los enemigos"
+            ]
         }
     },
     "306001006": {
@@ -40725,12 +40830,19 @@
             "name": [
                 "Blizzard Blast",
                 "極寒凍結",
+                "극한동결",
                 null,
-                null,
-                null,
+                "Gefrierfrost",
                 "Ráfaga glacial"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Ice damage to all enemies",
+                "對全體敵人發動冰屬性攻擊",
+                "적 전체에 얼음속성 피해",
+                null,
+                "Fügt allen Gegnern Eisschaden zu.",
+                "Daño de hielo a todos los enemigos"
+            ]
         }
     },
     "306001007": {
@@ -40756,12 +40868,19 @@
             "name": [
                 "Blizzard Blast",
                 "極寒凍結",
+                "극한동결",
                 null,
-                null,
-                null,
+                "Gefrierfrost",
                 "Ráfaga glacial"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Ice damage to all enemies",
+                "對全體敵人發動冰屬性攻擊",
+                "적 전체에 얼음속성 피해",
+                null,
+                "Fügt allen Gegnern Eisschaden zu.",
+                "Daño de hielo a todos los enemigos"
+            ]
         }
     },
     "306001104": {
@@ -40793,12 +40912,19 @@
             "name": [
                 "Code Zero",
                 "代碼復位",
+                "코드 제로",
                 null,
-                null,
-                null,
+                "Code Zero",
                 "Código Cero"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Damage and remove some status effects from all enemies",
+                "攻擊全體敵人+解除部分狀態效果",
+                "적 전체에 피해+일부 능력치 효과 해제",
+                null,
+                "Fügt allen Gegnern Schaden zu und entfernt einige Statuseffekte.",
+                "Daña y anula todos los estados alterados de todos los enemigos"
+            ]
         }
     },
     "306001105": {
@@ -40830,12 +40956,19 @@
             "name": [
                 "Code Zero",
                 "代碼復位",
+                "코드 제로",
                 null,
-                null,
-                null,
+                "Code Zero",
                 "Código Cero"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Damage and remove some status effects from all enemies",
+                "攻擊全體敵人+解除部分狀態效果",
+                "적 전체에 피해+일부 능력치 효과 해제",
+                null,
+                "Fügt allen Gegnern Schaden zu und entfernt einige Statuseffekte.",
+                "Daña y anula todos los estados alterados de todos los enemigos"
+            ]
         }
     },
     "306001106": {
@@ -40867,12 +41000,19 @@
             "name": [
                 "Code Zero",
                 "代碼復位",
+                "코드 제로",
                 null,
-                null,
-                null,
+                "Code Zero",
                 "Código Cero"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Damage and remove some status effects from all enemies",
+                "攻擊全體敵人+解除部分狀態效果",
+                "적 전체에 피해+일부 능력치 효과 해제",
+                null,
+                "Fügt allen Gegnern Schaden zu und entfernt einige Statuseffekte.",
+                "Daña y anula todos los estados alterados de todos los enemigos"
+            ]
         }
     },
     "306001204": {
@@ -40898,12 +41038,19 @@
             "name": [
                 "Hallowed Slash",
                 "神聖之刃",
+                "홀리 엣지",
                 null,
-                null,
-                null,
+                "Klerikale Klinge",
                 "Estocada sagrada"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Lightning damage to one enemy",
+                "對1名敵人發動雷屬性攻擊",
+                "적 1명에게 번개속성 피해",
+                null,
+                "Fügt einem Gegner Blitzschaden zu.",
+                "Daño de rayo a un enemigo"
+            ]
         }
     },
     "306001205": {
@@ -40929,12 +41076,19 @@
             "name": [
                 "Hallowed Slash",
                 "神聖之刃",
+                "홀리 엣지",
                 null,
-                null,
-                null,
+                "Klerikale Klinge",
                 "Estocada sagrada"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Lightning damage to one enemy",
+                "對1名敵人發動雷屬性攻擊",
+                "적 1명에게 번개속성 피해",
+                null,
+                "Fügt einem Gegner Blitzschaden zu.",
+                "Daño de rayo a un enemigo"
+            ]
         }
     },
     "306001206": {
@@ -40960,12 +41114,19 @@
             "name": [
                 "Hallowed Slash",
                 "神聖之刃",
+                "홀리 엣지",
                 null,
-                null,
-                null,
+                "Klerikale Klinge",
                 "Estocada sagrada"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Lightning damage to one enemy",
+                "對1名敵人發動雷屬性攻擊",
+                "적 1명에게 번개속성 피해",
+                null,
+                "Fügt einem Gegner Blitzschaden zu.",
+                "Daño de rayo a un enemigo"
+            ]
         }
     },
     "306001303": {
@@ -40991,12 +41152,19 @@
             "name": [
                 "Channel Anger",
                 "魔力覺醒",
+                "마력 각성",
                 null,
-                null,
-                null,
+                "Magische Säuberung",
                 "Canalizar furia"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Boost caster's magic damage once next turn",
+                "下一回合提高1次自身魔法攻擊的威力",
+                "다음 턴에 자신의 마법 공격 피해량 1회 상승",
+                null,
+                "Erhöht eignen mag. Schaden in der folgenden Runde.",
+                "Aumenta el daño mágico del usuario una vez al turno siguiente"
+            ]
         }
     },
     "306001304": {
@@ -41022,12 +41190,19 @@
             "name": [
                 "Channel Anger",
                 "魔力覺醒",
+                "마력 각성",
                 null,
-                null,
-                null,
+                "Magische Säuberung",
                 "Canalizar furia"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Boost caster's magic damage once next turn",
+                "下一回合提高1次自身魔法攻擊的威力",
+                "다음 턴에 자신의 마법 공격 피해량 1회 상승",
+                null,
+                "Erhöht eignen mag. Schaden in der folgenden Runde.",
+                "Aumenta el daño mágico del usuario una vez al turno siguiente"
+            ]
         }
     },
     "306001305": {
@@ -41053,12 +41228,19 @@
             "name": [
                 "Channel Anger",
                 "魔力覺醒",
+                "마력 각성",
                 null,
-                null,
-                null,
+                "Magische Säuberung",
                 "Canalizar furia"
             ],
-            "desc": [null, null, null, null, null, null]
+            "desc": [
+                "Boost caster's magic damage once next turn",
+                "下一回合提高1次自身魔法攻擊的威力",
+                "다음 턴에 자신의 마법 공격 피해량 1회 상승",
+                null,
+                "Erhöht eignen mag. Schaden in der folgenden Runde.",
+                "Aumenta el daño mágico del usuario una vez al turno siguiente"
+            ]
         }
     },
     "307000105": {
@@ -49346,6 +49528,522 @@
                 "Dégâts à un ennemi et augmente toutes les résistances élémentaires de tous les alliés pendant 3 tours",
                 "Fügt einem Gegner Schaden zu und erhöht 3 Runden lang alle Elementarres. aller Verb.",
                 "Daña a un enemigo y aumenta la resistencia de los aliados a todos los elementos durante 3 turnos"
+            ]
+        }
+    },
+    "401004905": {
+        "name": "Icarus Dash - Charged Dash",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[90]],
+        "effect_frames": [[1,  20,  41,  45,  45,  58,  70]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 20,
+        "min_level": {
+            "cost": 30,
+            "effects": [
+                "Physical damage (6x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 80% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  300,  -50]], [1, 1, 33, [0,  0,  -80,  0,  0,  0,  0,  0,  1,  3]]]},
+        "max_level": {
+            "cost": 30,
+            "effects": [
+                "Physical damage (9.8x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 80% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  490,  -50]], [1, 1, 33, [0,  0,  -80,  0,  0,  0,  0,  0,  1,  3]]]},
+        "strings": {
+            "name": [
+                "Icarus Dash - Charged Dash",
+                "伊卡洛斯衝刺 - 蓄力衝刺",
+                "이카루스 대쉬 - 전력 질주",
+                "Accélération Icarus - Accélération chargée",
+                "Ikarus-Sprint: Beschleunigen",
+                "Esprint de Ícaro - Carga"
+            ],
+            "desc": [
+                "Deal damage and reduce lightning resistance for one enemy",
+                "攻擊1名敵人+降低雷屬性耐性",
+                "적 1명에게 피해+번개속성 저항력 감소",
+                "Inflige des dégâts et réduit la résistance à la foudre d'un ennemi",
+                "Fügt einem Gegner Schaden zu und verringert seine Blitzresistenz.",
+                "Daña y reduce la resistencia al rayo de un enemigo"
+            ]
+        }
+    },
+    "401004906": {
+        "name": "Icarus Dash - Charged Dash",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[100]],
+        "effect_frames": [[1,  0,  43,  45,  45,  53]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 25,
+        "min_level": {
+            "cost": 32,
+            "effects": [
+                "Physical damage (10x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 90% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  500,  -50]], [1, 1, 33, [0,  0,  -90,  0,  0,  0,  0,  0,  1,  3]]]},
+        "max_level": {
+            "cost": 32,
+            "effects": [
+                "Physical damage (14.8x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 90% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  740,  -50]], [1, 1, 33, [0,  0,  -90,  0,  0,  0,  0,  0,  1,  3]]]},
+        "strings": {
+            "name": [
+                "Icarus Dash - Charged Dash",
+                "伊卡洛斯衝刺 - 蓄力衝刺",
+                "이카루스 대쉬 - 전력 질주",
+                "Accélération Icarus - Accélération chargée",
+                "Ikarus-Sprint: Beschleunigen",
+                "Esprint de Ícaro - Carga"
+            ],
+            "desc": [
+                "Deal damage and reduce lightning resistance for one enemy",
+                "攻擊1名敵人+降低雷屬性耐性",
+                "적 1명에게 피해+번개속성 저항력 감소",
+                "Inflige des dégâts et réduit la résistance à la foudre d'un ennemi",
+                "Fügt einem Gegner Schaden zu und verringert seine Blitzresistenz.",
+                "Daña y reduce la resistencia al rayo de un enemigo"
+            ]
+        }
+    },
+    "401004907": {
+        "name": "Icarus Dash - Charged Dash",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[126]],
+        "effect_frames": [[1,  1,  43,  45,  45,  85,  96,  105,  60,  55,  0]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 30,
+        "min_level": {
+            "cost": 34,
+            "effects": [
+                "Physical damage (15x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 100% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  750,  -50]], [1, 1, 33, [0,  0,  -100,  0,  0,  0,  0,  0,  1,  3]]]},
+        "max_level": {
+            "cost": 34,
+            "effects": [
+                "Physical damage (20.8x, ATK) to one enemy (ignore cover)",
+                "Reduce resistance to Lightning by 100% for 3 turns to one enemy"
+            ],
+            "effects_raw": [[1, 1, 21, [0,  0,  1040,  -50]], [1, 1, 33, [0,  0,  -100,  0,  0,  0,  0,  0,  1,  3]]]},
+        "strings": {
+            "name": [
+                "Icarus Dash - Charged Dash",
+                "伊卡洛斯衝刺 - 蓄力衝刺",
+                "이카루스 대쉬 - 전력 질주",
+                "Accélération Icarus - Accélération chargée",
+                "Ikarus-Sprint: Beschleunigen",
+                "Esprint de Ícaro - Carga"
+            ],
+            "desc": [
+                "Deal damage and reduce lightning resistance for one enemy",
+                "攻擊1名敵人+降低雷屬性耐性",
+                "적 1명에게 피해+번개속성 저항력 감소",
+                "Inflige des dégâts et réduit la résistance à la foudre d'un ennemi",
+                "Fügt einem Gegner Schaden zu und verringert seine Blitzresistenz.",
+                "Daña y reduce la resistencia al rayo de un enemigo"
+            ]
+        }
+    },
+    "401005005": {
+        "name": "Hyperion Plasma Blast",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[260]],
+        "effect_frames": [[190,  222,  250,  140]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 20,
+        "min_level": {
+            "cost": 14,
+            "effects": ["Physical damage (4.1x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  410]]]},
+        "max_level": {
+            "cost": 14,
+            "effects": ["Physical damage (6x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  600]]]},
+        "strings": {
+            "name": [
+                "Hyperion Plasma Blast",
+                "太陽神等離子爆破",
+                "하이페리온 플라즈마 블래스트",
+                "Explosion à plasma Hyperion",
+                "Hyperion-Plasmablitz",
+                "Explosión de plasma Hiperión"
+            ],
+            "desc": [
+                "Deal damage to all enemies",
+                "攻擊全體敵人",
+                "적 전체에 피해",
+                "Dégâts à tous les ennemis",
+                "Fügt allen Gegnern Schaden zu.",
+                "Daña a todos los enemigos"
+            ]
+        }
+    },
+    "401005006": {
+        "name": "Hyperion Plasma Blast",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[260]],
+        "effect_frames": [[190,  222,  250,  70]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 25,
+        "min_level": {
+            "cost": 18,
+            "effects": ["Physical damage (6.1x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  610]]]},
+        "max_level": {
+            "cost": 18,
+            "effects": ["Physical damage (8.5x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  850]]]},
+        "strings": {
+            "name": [
+                "Hyperion Plasma Blast",
+                "太陽神等離子爆破",
+                "하이페리온 플라즈마 블래스트",
+                "Explosion à plasma Hyperion",
+                "Hyperion-Plasmablitz",
+                "Explosión de plasma Hiperión"
+            ],
+            "desc": [
+                "Deal damage to all enemies",
+                "攻擊全體敵人",
+                "적 전체에 피해",
+                "Dégâts à tous les ennemis",
+                "Fügt allen Gegnern Schaden zu.",
+                "Daña a todos los enemigos"
+            ]
+        }
+    },
+    "401005007": {
+        "name": "Hyperion Plasma Blast",
+        "cost": 0,
+        "attack_count": [1],
+        "attack_damage": [[100]],
+        "attack_frames": [[260]],
+        "effect_frames": [[190,  222,  250,  50,  20]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": null,
+        "levels": 30,
+        "min_level": {
+            "cost": 22,
+            "effects": ["Physical damage (12.1x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  1210]]]},
+        "max_level": {
+            "cost": 22,
+            "effects": ["Physical damage (15x, DEF) to all enemies"],
+            "effects_raw": [[2, 1, 102, [100,  99999,  1500]]]},
+        "strings": {
+            "name": [
+                "Hyperion Plasma Blast",
+                "太陽神等離子爆破",
+                "하이페리온 플라즈마 블래스트",
+                "Explosion à plasma Hyperion",
+                "Hyperion-Plasmablitz",
+                "Explosión de plasma Hiperión"
+            ],
+            "desc": [
+                "Deal damage to all enemies",
+                "攻擊全體敵人",
+                "적 전체에 피해",
+                "Dégâts à tous les ennemis",
+                "Fügt allen Gegnern Schaden zu.",
+                "Daña a todos los enemigos"
+            ]
+        }
+    },
+    "401005104": {
+        "name": "Augmentation Revolution",
+        "cost": 0,
+        "attack_count": [4],
+        "attack_damage": [[25,  25,  25,  25]],
+        "attack_frames": [[304,  306,  308,  310]],
+        "effect_frames": [[270,  105,  265,  280]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": ["Lightning"],
+        "levels": 15,
+        "min_level": {
+            "cost": 12,
+            "effects": [
+                "Physical lightning damage (2x, ATK) to all enemies",
+                "Increase ATK by 20% for 3 turns to caster",
+                "Reduce ATK and MAG by 18% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  200]], [0, 3, 3, [20,  0,  0,  0,  3,  0]], [2, 1, 24, [-18,  0,  -18,  0,  3,  1]]]},
+        "max_level": {
+            "cost": 12,
+            "effects": [
+                "Physical lightning damage (2.7x, ATK) to all enemies",
+                "Increase ATK by 34% for 3 turns to caster",
+                "Reduce ATK and MAG by 32% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  270]], [0, 3, 3, [34,  0,  0,  0,  3,  0]], [2, 1, 24, [-32,  0,  -32,  0,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Augmentation Revolution",
+                "強化革命",
+                "증강 혁명",
+                "Révolution de l'augmentation",
+                "Augmentierungsrevolution",
+                "Revolución de los aumentos"
+            ],
+            "desc": [
+                "Deal lightning damage and reduce ATK and DEF for all enemies for 3 turns, and boost own ATK for 3 turns",
+                "對全體敵人發動雷屬性攻擊+3回合內降低攻擊防禦+3回合內提高自身的攻擊",
+                "적 전체에 번개속성 피해+3턴 동안 공격력과 방어력 감소+자신의 공격력 상승",
+                "Inflige des dégâts de foudre et réduit l'ATT et la DEF de tous les ennemis pendant 3 tours et augmente l'ATT du lanceur pendant 3 tours",
+                "Fügt allen Gegnern Blitzschaden zu, verringert 3 Runden lange ihre ANG und ABW und erhöht für 3 Runden eigenen ANG.",
+                "Inflige daño de rayo y reduce el ATQ y la DEF de todos los enemigos durante 3 turnos, aumenta el ATQ del usuario durante 3 turnos"
+            ]
+        }
+    },
+    "401005105": {
+        "name": "Augmentation Revolution",
+        "cost": 0,
+        "attack_count": [4],
+        "attack_damage": [[25,  25,  25,  25]],
+        "attack_frames": [[304,  306,  308,  310]],
+        "effect_frames": [[270,  100,  170,  286,  90,  292]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": ["Lightning"],
+        "levels": 20,
+        "min_level": {
+            "cost": 16,
+            "effects": [
+                "Physical lightning damage (2.5x, ATK) to all enemies",
+                "Increase ATK by 30% for 3 turns to caster",
+                "Reduce ATK and MAG by 23% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  250]], [0, 3, 3, [30,  0,  0,  0,  3,  0]], [2, 1, 24, [-23,  0,  -23,  0,  3,  1]]]},
+        "max_level": {
+            "cost": 16,
+            "effects": [
+                "Physical lightning damage (3.45x, ATK) to all enemies",
+                "Increase ATK by 49% for 3 turns to caster",
+                "Reduce ATK and MAG by 42% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  345]], [0, 3, 3, [49,  0,  0,  0,  3,  0]], [2, 1, 24, [-42,  0,  -42,  0,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Augmentation Revolution",
+                "強化革命",
+                "증강 혁명",
+                "Révolution de l'augmentation",
+                "Augmentierungsrevolution",
+                "Revolución de los aumentos"
+            ],
+            "desc": [
+                "Deal lightning damage and reduce ATK and DEF for all enemies for 3 turns, and boost own ATK for 3 turns",
+                "對全體敵人發動雷屬性攻擊+3回合內降低攻擊防禦+3回合內提高自身的攻擊",
+                "적 전체에 번개속성 피해+3턴 동안 공격력과 방어력 감소+자신의 공격력 상승",
+                "Inflige des dégâts de foudre et réduit l'ATT et la DEF de tous les ennemis pendant 3 tours et augmente l'ATT du lanceur pendant 3 tours",
+                "Fügt allen Gegnern Blitzschaden zu, verringert 3 Runden lange ihre ANG und ABW und erhöht für 3 Runden eigenen ANG.",
+                "Inflige daño de rayo y reduce el ATQ y la DEF de todos los enemigos durante 3 turnos, aumenta el ATQ del usuario durante 3 turnos"
+            ]
+        }
+    },
+    "401005106": {
+        "name": "Augmentation Revolution",
+        "cost": 0,
+        "attack_count": [4],
+        "attack_damage": [[25,  25,  25,  25]],
+        "attack_frames": [[304,  306,  308,  310]],
+        "effect_frames": [[276,  105,  120,  10,  279,  280,  280]],
+        "move_type": 1,
+        "damage_type": "Physical",
+        "element_inflict": ["Lightning"],
+        "levels": 25,
+        "min_level": {
+            "cost": 20,
+            "effects": [
+                "Physical lightning damage (3x, ATK) to all enemies",
+                "Increase ATK by 40% for 3 turns to caster",
+                "Reduce ATK and MAG by 28% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  300]], [0, 3, 3, [40,  0,  0,  0,  3,  0]], [2, 1, 24, [-28,  0,  -28,  0,  3,  1]]]},
+        "max_level": {
+            "cost": 20,
+            "effects": [
+                "Physical lightning damage (4.2x, ATK) to all enemies",
+                "Increase ATK by 64% for 3 turns to caster",
+                "Reduce ATK and MAG by 52% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 1, 1, [0,  0,  0,  0,  0,  0,  420]], [0, 3, 3, [64,  0,  0,  0,  3,  0]], [2, 1, 24, [-52,  0,  -52,  0,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Augmentation Revolution",
+                "強化革命",
+                "증강 혁명",
+                "Révolution de l'augmentation",
+                "Augmentierungsrevolution",
+                "Revolución de los aumentos"
+            ],
+            "desc": [
+                "Deal lightning damage and reduce ATK and DEF for all enemies for 3 turns, and boost own ATK for 3 turns",
+                "對全體敵人發動雷屬性攻擊+3回合內降低攻擊防禦+3回合內提高自身的攻擊",
+                "적 전체에 번개속성 피해+3턴 동안 공격력과 방어력 감소+자신의 공격력 상승",
+                "Inflige des dégâts de foudre et réduit l'ATT et la DEF de tous les ennemis pendant 3 tours et augmente l'ATT du lanceur pendant 3 tours",
+                "Fügt allen Gegnern Blitzschaden zu, verringert 3 Runden lange ihre ANG und ABW und erhöht für 3 Runden eigenen ANG.",
+                "Inflige daño de rayo y reduce el ATQ y la DEF de todos los enemigos durante 3 turnos, aumenta el ATQ del usuario durante 3 turnos"
+            ]
+        }
+    },
+    "401005203": {
+        "name": "Time To Hit It Home!",
+        "cost": 0,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[40,  53,  83,  230,  234,  242]],
+        "move_type": 4,
+        "damage_type": "None",
+        "element_inflict": null,
+        "levels": 10,
+        "min_level": {
+            "cost": 12,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 10% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 10% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [10,  10,  10,  10,  3,  1]], [2, 1, 24, [-10,  -10,  -10,  -10,  3,  1]]]},
+        "max_level": {
+            "cost": 12,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 19% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 19% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [19,  19,  19,  19,  3,  1]], [2, 1, 24, [-19,  -19,  -19,  -19,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Time To Hit It Home!",
+                "該把他踹回老家了!",
+                "홈런을 칠 때야!",
+                "Il est l'heure de mettre un terme à cette histoire !",
+                "Zeit, das Ding nach Hause zu holen!",
+                "¡Hora de irse a casa!"
+            ],
+            "desc": [
+                "Increase ATK, MAG, DEF and SPR for all allies, and decrease ATK, MAG, DEF and SPR for all enemies",
+                "提高全體隊員的攻擊魔力防禦精神+降低全體敵人的攻擊魔力防禦精神",
+                "아군 전체의 공격력, 마력, 방어력, 정신력 상승+적 전체의 공격력, 마력, 방어력, 정신력 감소",
+                "Augmente l'ATT, la MAGIE, la DEF et la PSY de tous les alliés et diminue l'ATT, la MAGIE, la DEF et la PSY de tous les ennemis",
+                "Erhöht ANG, MAG, ABW und PSY aller Verbündeter und verringert ANG, MAG, ABW und PSY aller Gegner.",
+                "Aumenta ATQ, MAG, DEF y ESP de todos los aliados, y reduce ATQ, MAG, DEF y ESP de todos los enemigos"
+            ]
+        }
+    },
+    "401005204": {
+        "name": "Time To Hit It Home!",
+        "cost": 0,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[38,  40,  53,  53,  83,  229,  233,  242]],
+        "move_type": 4,
+        "damage_type": "None",
+        "element_inflict": null,
+        "levels": 15,
+        "min_level": {
+            "cost": 14,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 15% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 15% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [15,  15,  15,  15,  3,  1]], [2, 1, 24, [-15,  -15,  -15,  -15,  3,  1]]]},
+        "max_level": {
+            "cost": 14,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 29% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 29% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [29,  29,  29,  29,  3,  1]], [2, 1, 24, [-29,  -29,  -29,  -29,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Time To Hit It Home!",
+                "該把他踹回老家了!",
+                "홈런을 칠 때야!",
+                "Il est l'heure de mettre un terme à cette histoire !",
+                "Zeit, das Ding nach Hause zu holen!",
+                "¡Hora de irse a casa!"
+            ],
+            "desc": [
+                "Increase ATK, MAG, DEF and SPR for all allies, and decrease ATK, MAG, DEF and SPR for all enemies",
+                "提高全體隊員的攻擊魔力防禦精神+降低全體敵人的攻擊魔力防禦精神",
+                "아군 전체의 공격력, 마력, 방어력, 정신력 상승+적 전체의 공격력, 마력, 방어력, 정신력 감소",
+                "Augmente l'ATT, la MAGIE, la DEF et la PSY de tous les alliés et diminue l'ATT, la MAGIE, la DEF et la PSY de tous les ennemis",
+                "Erhöht ANG, MAG, ABW und PSY aller Verbündeter und verringert ANG, MAG, ABW und PSY aller Gegner.",
+                "Aumenta ATQ, MAG, DEF y ESP de todos los aliados, y reduce ATQ, MAG, DEF y ESP de todos los enemigos"
+            ]
+        }
+    },
+    "401005205": {
+        "name": "Time To Hit It Home!",
+        "cost": 0,
+        "attack_count": [0],
+        "attack_damage": [[]],
+        "attack_frames": [[]],
+        "effect_frames": [[20,  80,  40,  53,  53,  83,  229,  234,  242]],
+        "move_type": 4,
+        "damage_type": "None",
+        "element_inflict": null,
+        "levels": 20,
+        "min_level": {
+            "cost": 16,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 20% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 20% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [20,  20,  20,  20,  3,  1]], [2, 1, 24, [-20,  -20,  -20,  -20,  3,  1]]]},
+        "max_level": {
+            "cost": 16,
+            "effects": [
+                "Increase ATK, DEF, MAG and SPR by 39% for 3 turns to all allies",
+                "Reduce ATK, DEF, MAG and SPR by 39% for 3 turns to all enemies"
+            ],
+            "effects_raw": [[2, 2, 3, [39,  39,  39,  39,  3,  1]], [2, 1, 24, [-39,  -39,  -39,  -39,  3,  1]]]},
+        "strings": {
+            "name": [
+                "Time To Hit It Home!",
+                "該把他踹回老家了!",
+                "홈런을 칠 때야!",
+                "Il est l'heure de mettre un terme à cette histoire !",
+                "Zeit, das Ding nach Hause zu holen!",
+                "¡Hora de irse a casa!"
+            ],
+            "desc": [
+                "Increase ATK, MAG, DEF and SPR for all allies, and decrease ATK, MAG, DEF and SPR for all enemies",
+                "提高全體隊員的攻擊魔力防禦精神+降低全體敵人的攻擊魔力防禦精神",
+                "아군 전체의 공격력, 마력, 방어력, 정신력 상승+적 전체의 공격력, 마력, 방어력, 정신력 감소",
+                "Augmente l'ATT, la MAGIE, la DEF et la PSY de tous les alliés et diminue l'ATT, la MAGIE, la DEF et la PSY de tous les ennemis",
+                "Erhöht ANG, MAG, ABW und PSY aller Verbündeter und verringert ANG, MAG, ABW und PSY aller Gegner.",
+                "Aumenta ATQ, MAG, DEF y ESP de todos los aliados, y reduce ATQ, MAG, DEF y ESP de todos los enemigos"
             ]
         }
     },
