@@ -8,54 +8,22 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              context: './static/',
-            },
-          },
-          {
-            loader: 'extract-loader',
-            options: {},
-          },
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: ['link:href'],
-              minimize: true,
-            },
-          }],
+          { loader: 'file-loader', options: { name: '[path][name].[ext]', context: './static/' } },
+          { loader: 'extract-loader', options: {} },
+          { loader: 'html-loader', options: { attrs: ['link:href'], minimize: true } },
+        ],
       },
       {
         test: /\.(png|jpg)$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              context: './static/',
-              emitFile: false,
-            },
-          },
+          { loader: 'file-loader', options: { name: '[path][name].[ext]', context: './static/', emitFile: false } },
         ],
       },
       {
         test: /\.(css)$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]?[hash:8]',
-              context: './static/',
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [cssnano()],
-            },
-          },
+          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/' } },
+          { loader: 'postcss-loader', options: { plugins: [cssnano()] } },
         ],
       },
     ],
