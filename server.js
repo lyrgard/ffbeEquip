@@ -51,7 +51,10 @@ const cspDirectives = {
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
 // Middlewares
-app.use(express.static(path.join(__dirname, '/dist/')));
+if (config.isProd) {
+  app.use(express.static(path.join(__dirname, '/dist/')));
+}
+
 app.use(express.static(path.join(__dirname, '/static/')));
 
 if (config.isDev) {
