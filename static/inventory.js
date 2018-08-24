@@ -326,8 +326,11 @@ function showRemoveAllToInventoryDialog() {
         position: { my: 'top', at: 'top+150', of: $("body") },
         buttons: {
             "Empty inventory": function () {
-                itemInventory = {};
+                itemInventory = {
+                    enchantments: {}
+                };
                 updateUnitAndItemCount();
+                displayStats();
                 saveUserData(true, false);
                 $(this).dialog("close");
             },
