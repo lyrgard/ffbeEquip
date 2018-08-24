@@ -32,7 +32,7 @@ var cspDirectives =  {
   scriptSrc: ["'self'", "'unsafe-inline'",
               'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
-             'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io'],
+             'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
   connectSrc: ["'self'", 'www.google-analytics.com'],
