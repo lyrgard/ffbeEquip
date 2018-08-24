@@ -2552,6 +2552,7 @@ function initWorkers() {
                             console.timeEnd("optimize");
                             $("#buildButton").text("Build !"); 
                             logCurrentBuild();
+                            builds[currentUnitIndex].prepareEquipable();
                         } else {
                             
                             var overcapedStats = [];
@@ -2618,6 +2619,7 @@ function initWorkers() {
                                     }
                                 }
                                 builds[currentUnitIndex].buildValue[goalVariation] = 0;
+                                builds[currentUnitIndex].prepareEquipable();
                                 optimize();
                             } else {
                                 running = false;
