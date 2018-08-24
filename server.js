@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
-const helmet = require('helmet')
+const helmet = require('helmet');
 
 const config = require('./config.js');
 const firebase = require('./server/routes/firebase.js');
@@ -24,15 +24,15 @@ app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 app.use(helmet.hsts({
   maxAge: 63072000, // 2 years
   includeSubDomains: true,
-  preload: true
+  preload: true,
 }));
 
-var cspDirectives =  {
+const cspDirectives = {
   defaultSrc: ["'none'"],
   scriptSrc: ["'self'", "'unsafe-inline'",
-              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
+    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
-             'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com'],
+    'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
   connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com'],
@@ -45,20 +45,22 @@ var cspDirectives =  {
   formAction: ["'self'"],
   reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
   blockAllMixedContent: !config.isDev,
-  upgradeInsecureRequests: !config.isDev
+  upgradeInsecureRequests: !config.isDev,
 };
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
 // Middlewares
+app.use(express.static(path.join(__dirname, '/dist/')));
 app.use(express.static(path.join(__dirname, '/static/')));
+
 if (config.isDev) {
   app.use(morgan('dev'));
 }
 app.use(sessions({
   cookieName: 'OAuthSession',
   secret: config.secret,
-  duration: 7 * 24 * 60 * 60 * 1000
+  duration: 7 * 24 * 60 * 60 * 1000,
 }));
 app.use(bodyParser.json());
 
