@@ -581,6 +581,21 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             if (!item.singleWielding) {item.singleWielding = {}};
             addStat(item.singleWielding,"mag",rawEffect[3][0]);    
         }
+        
+    // +EQ stat when dual wielding
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
+        if (!item.dualWielding) {item.dualWielding = {}};
+        var dualWieldingStat;
+        if (rawEffect[3][0] == 1) {
+            dualWieldingStat = "atk";
+        } else if (rawEffect[3][0] == 2) {
+            dualWieldingStat = "def";
+        } else if (rawEffect[3][0] == 3) {
+            dualWieldingStat = "mag";
+        } else if (rawEffect[3][0] == 4) {
+            dualWieldingStat = "spr";
+        }
+        addStat(item.dualWielding, dualWieldingStat, rawEffect[3][1]);
 
     // MP refresh
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 32) {
@@ -770,7 +785,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
