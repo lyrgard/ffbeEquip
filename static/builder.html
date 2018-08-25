@@ -531,20 +531,59 @@
                                 <div class="resultLine healingResult hidden">Healing coef: <span class="calcValue"></span></div>
                             </div>
                             <div class="buildLinks hidden">
-                                <div id="detailedViewLink" class="col-xs-6 link text-center">
+                                <div id="detailedViewLink" class="link text-center">
                                     <a onclick="switchView(false);"><span class="glyphicon glyphicon-zoom-in"></span> Detailed View</a>
                                 </div>
-                                <div id="conciseViewLink" class="col-xs-6 hidden link text-center">
+                                <div id="conciseViewLink" class="hidden link text-center">
                                     <a onclick="switchView(true);"><span class="glyphicon glyphicon-zoom-out"></span> Concise View</a>
                                 </div>
-                                <div id="shareLinksMenu" class="col-xs-6 text-center ">
+                                <div id="shareLinksMenu" class="text-center">
                                     <div class="dropdown">
-                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share this build<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="buildLink link" onclick="showBuildLink(true)"><span class="glyphicon glyphicon-link"></span> FFBE Equip link (this unit only)</a></li>
-                                            <li><a class="buildLink link" onclick="showBuildLink(false)"><span class="glyphicon glyphicon-link"></span> FFBE Equip link (all units)</a></li>
-                                            <li><a class="buildAsText link" onclick="showBuildAsText()"><span class="glyphicon glyphicon-list"></span> Build as text</a></li>
-                                            <li data-server="GL"><a class="imageLink link" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-camera"></span> Build image (using kupoconfig.com)</a></li>
+                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-share-alt"></span> 
+                                            Share <span class='hidden-xs'>this build</span> <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a class="buildLink link" onclick="showBuildLink(true)">
+                                                    <span class="glyphicon glyphicon-link"></span> FFBE Equip link (this unit only)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="buildLink link" onclick="showBuildLink(false)">
+                                                    <span class="glyphicon glyphicon-link"></span> FFBE Equip link (all units)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="buildAsText link" onclick="showBuildAsText()">
+                                                    <span class="glyphicon glyphicon-list"></span> Build as text
+                                                </a>
+                                            </li>
+                                            <li data-server="GL">
+                                                <a class="imageLink link" target="_blank" rel="noreferrer">
+                                                    <span class="glyphicon glyphicon-camera"></span> Build image (using kupoconfig.com)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="clearBuildMenu" class="link text-center">
+                                    <div class="dropdown">
+                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-trash"></span> 
+                                            Clear <span class='hidden-xs'>items</span> <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a class="link" onclick="clearItemsFromBuild(true)">
+                                                    <span class="glyphicon glyphicon-trash"></span> Clear not pinned items (for this build)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="link" onclick="clearItemsFromBuild()">
+                                                    <span class="glyphicon glyphicon-trash"></span> Clear <strong>all</strong> items (for this build)
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

@@ -1901,6 +1901,17 @@ function loadStateHashAndBuild(data, importMode = false) {
     window.location.hash = "";
 }
 
+function clearItemsFromBuild(keepPinnedItems = false)
+{
+    var buildItems = builds[currentUnitIndex].build;
+    var fixedItems = builds[currentUnitIndex].fixedItems;
+    for (var slot=0; slot < buildItems.length ; slot++) {
+        if (!keepPinnedItems || fixedItems[slot] === null) {
+            removeItemAt(slot);
+        }
+    }
+}
+
 function showBuildLink(onlyCurrentUnit) {
     var data = getStateHash(onlyCurrentUnit);
     
