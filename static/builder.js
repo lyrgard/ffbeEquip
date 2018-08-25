@@ -374,7 +374,7 @@ function logBuild(build, value) {
 
     //$("#buildResult").html(html);
 
-    $("#resultStats > div").removeClass("statToMaximize");
+    $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
     var link = Piramidata.getImageLink(builds[currentUnitIndex]);
     $(".imageLink").prop("href",link);
