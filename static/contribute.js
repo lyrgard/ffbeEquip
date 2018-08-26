@@ -153,6 +153,7 @@ function setAccess(itemId, access) {
 }
 
 function sendToServer() {
+    $("body").addClass("loading");
     for (var id in modifiedItems) {
         if (!modifiedItems[id].access || modifiedItems[id].access.length == 0) {
             alert("Access cannot be empty");
@@ -169,21 +170,28 @@ function sendToServer() {
             delete modifiedItems[id].maxNumber;
         }
     }
+    
+    $("#submitModal .submitFailed, #submitModal .submitSuccess").addClass('hidden');
+
     $.ajax({
         type: "POST",
         url: "/" + server + "/corrections",
         data: JSON.stringify(modifiedItems),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        statusCode: {
-            201: function(data){
-                window.location.reload();
-            },
-            400: function(jqXHR, textStatus, errorThrown) {alert(errorThrown);},
-            500: function(jqXHR, textStatus, errorThrown) {alert(errorThrown);}
+        success: function(data) {
+            $("#submitModal .submitSuccess").removeClass('hidden');
+            $("#submitModal .submitSuccess .details .modified").text(data.modified);
+            $("#submitModal .submitSuccess .details .total").text(data.total);
         },
-        failure: function(errMsg) {
-            alert("An error occured");
+        error: function(jqXHR, textStatus, errorThrown) {
+            var error = textStatus + " " + errorThrown + "\n" + jqXHR.responseJSON.error;
+            $("#submitModal .submitFailed").removeClass('hidden').find('pre').html(error);
+        },
+        complete: function() {
+            // run after success/error handler
+            $("body").removeClass("loading");
+            $("#submitModal").modal();
         }
     });
 }
