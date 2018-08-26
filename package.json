@@ -24,6 +24,7 @@
   "homepage": "https://github.com/lyrgard/ffbeEquip#readme",
   "dependencies": {
     "@sindresorhus/is": "0.11.0",
+    "ajv": "^6.5.3",
     "bluebird": "3.5.1",
     "body-parser": "^1.18.3",
     "boom": "7.2.0",
@@ -35,7 +36,6 @@
     "helmet": "^3.13.0",
     "inquirer": "6.0.0",
     "joi": "13.5.2",
-    "json-validation": "^1.0.4",
     "morgan": "1.9.0",
     "pngjs": "3.3.2",
     "request": "^2.87.0",
