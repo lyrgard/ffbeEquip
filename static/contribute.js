@@ -185,6 +185,10 @@ function sendToServer() {
             $("#submitModal .submitSuccess").removeClass('hidden');
             $("#submitModal .submitSuccess .details .modified").text(data.modified);
             $("#submitModal .submitSuccess .details .total").text(data.total);
+            for (var id in modifiedItems) {
+                cancelModification(id);
+            }
+            getCorrections();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             var error = errorThrown + "\n";
@@ -201,6 +205,27 @@ function sendToServer() {
     });
 }
 
+function getCorrections() {
+    $.get(server + "/corrections.json", function(result) {
+        corrections = result;
+        for (var index = data.length; index--;) {
+            if (corrections[data[index].id]) {
+                data[index].access = corrections[data[index].id].access;
+                if (corrections[data[index].id].maxNumber) {
+                    data[index].maxNumber = corrections[data[index].id].maxNumber;
+                } else {
+                    delete data[index].maxNumber;
+                }
+                data[index].corrected = true;
+            }
+        }
+        prepareSearch(data);
+        updateResults();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });  
+}
+
 // will be called by common.js at page load
 function startPage() {
 	getStaticData("data", true, function(result) {
@@ -210,24 +235,7 @@ function startPage() {
         }
         getStaticData("units", true, function(result) {
             units = result;
-            $.get(server + "/corrections.json", function(result) {
-                corrections = result;
-                for (var index = data.length; index--;) {
-                    if (corrections[data[index].id]) {
-                        data[index].access = corrections[data[index].id].access;
-                        if (corrections[data[index].id].maxNumber) {
-                            data[index].maxNumber = corrections[data[index].id].maxNumber;
-                        } else {
-                            delete data[index].maxNumber;
-                        }
-                        data[index].corrected = true;
-                    }
-                }
-                prepareSearch(data);
-                updateResults();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
-            });    
+            getCorrections();
         });
     });
     
