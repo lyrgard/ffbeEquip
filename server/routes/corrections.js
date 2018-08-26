@@ -7,6 +7,10 @@ const route = express.Router();
 route.post('/:server/corrections', async (req, res) => {
     var validator = new jv.JSONValidation();
     var data = req.body;
+    if (req.params.server !== 'JP' && req.params.server !== 'GL') {
+        res.status(400).send({error: "Unknown server"});
+        return;
+    }
     if (Object.keys(data).length > 10) {
         res.status(400).send({error: "Only a maximum of 10 corrections can be send at a time"});
         return;
