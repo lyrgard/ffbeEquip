@@ -173,10 +173,12 @@ function sendToServer() {
     
     $("#submitModal .submitFailed, #submitModal .submitSuccess").addClass('hidden');
 
+    var modifiedItemsStr = JSON.stringify(modifiedItems);
+
     $.ajax({
         type: "POST",
         url: "/" + server + "/corrections",
-        data: JSON.stringify(modifiedItems),
+        data: modifiedItemsStr,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data) {
@@ -185,8 +187,11 @@ function sendToServer() {
             $("#submitModal .submitSuccess .details .total").text(data.total);
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            var error = textStatus + " " + errorThrown + "\n" + jqXHR.responseJSON.error;
-            $("#submitModal .submitFailed").removeClass('hidden').find('pre').html(error);
+            var error = errorThrown + "\n";
+            if (jqXHR.responseJSON) error += jqXHR.responseJSON.error;
+            $("#submitModal .submitFailed").removeClass('hidden');
+            $("#submitModal .submitFailed").find('pre.error').html(error);
+            $("#submitModal .submitFailed").find('pre.data').html(modifiedItemsStr);
         },
         complete: function() {
             // run after success/error handler
