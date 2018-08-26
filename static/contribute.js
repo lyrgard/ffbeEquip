@@ -7,6 +7,7 @@ var corrections;
 function updateResults() {
     displayItems(filterItems(removeModifedItems(data)));
     displayModifiedItems();
+    lazyLoader.update();
 }
                  
 function removeModifedItems(data) {
