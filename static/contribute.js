@@ -218,6 +218,13 @@ function startPage() {
         });
     });
     
+    // Reset search if escape is used
+    $(window).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            $("#searchText").val('').trigger('input').focus();
+        }
+    });
+    
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateResults));
     
