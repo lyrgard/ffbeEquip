@@ -90,11 +90,7 @@ function hasDualWield(item) {
     return item.special && item.special.includes("dualWield")
 }
 
-function calculateBuildValue(itemAndPassives) {
-    return calculateBuildValueWithFormula(itemAndPassives, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
-}
-
-function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, goalVariance, alreadyCalculatedValues = {}) {
+function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues = {}) {
     if (formula.type == "value") {
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
@@ -201,7 +197,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                     var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
                     var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
 
-                    if ("atk" == stat) {
+                    if ("atk" == stat || "def" == stat) {
                         var variance;
                         var switchWeapons = false;
                         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
@@ -236,7 +232,7 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                                 }
                                 calculatedValue.left = 0;
                             } else {
-                                switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || ((variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
+                                switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
                                 if (switchWeapons) {
                                     variance = variance1;
                                     var tmp = calculatedValue.left;
@@ -249,13 +245,25 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                                 calculatedValue.left = 0;
                             }
                         }
+                        
+                        newJpDamageFormulaCoef = 1;
+                        if (useNewJpDamageFormula) {
+                            if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                                var atk0 = (itemAndPassives[0].atk ? itemAndPassives[0].atk : 0);
+                                var atk1 = (itemAndPassives[1].atk ? itemAndPassives[1].atk : 0);
+                                newJpDamageFormulaCoef = Math.log(atk0 / 2 + atk1 / 2 + 30) / 5.220355825078325;
+                            } else if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+                                var atk0 = (itemAndPassives[0].atk ? itemAndPassives[0].atk : 0);
+                                newJpDamageFormulaCoef = Math.log(atk0 + 5) / 5.220355825078325;
+                            }
+                        }
 
-                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min / ennemyStats.def;
-                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg / ennemyStats.def;
-                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max / ennemyStats.def;
+                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min * newJpDamageFormulaCoef / ennemyStats.def;
+                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg * newJpDamageFormulaCoef / ennemyStats.def;
+                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max * newJpDamageFormulaCoef / ennemyStats.def;
                         total.switchWeapons = total.switchWeapons || switchWeapons;
                     } else {
-                        var ennemyResistanceStat = ("def" == stat ? ennemyStats.def: ennemyStats.spr)
+                        var ennemyResistanceStat = ennemyStats.spr;
                         var dualWieldCoef = 1;
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                             dualWieldCoef = 2;
@@ -297,22 +305,22 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             "switchWeapons": false
         };     
     } else if (operatorsInFormula.includes(formula.type)) {
-        var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, alreadyCalculatedValues);
-        var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+        var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+        var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
         if (formula.type == "OR") {
             if (result1) {
                 return true;
             } else {
-                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
             }
         } else if (formula.type == "AND") {
             if (result1) {
-                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
             } else {
                 return false;
             }
         } else {
-            var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, alreadyCalculatedValues);
+            var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
             if (formula.type == "*") {
                 return {
                     "min": result1.min * result2.min,
@@ -370,11 +378,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         }
         return true;
     } else if (formula.type == "condition") {
-        var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.condition, goalVariance, alreadyCalculatedValues);
+        var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.condition, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
         if (!value) {
             return -1;
         }
-        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, alreadyCalculatedValues)
+        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues)
     }
 }
     
@@ -484,7 +492,14 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         }
         return result;   
     } else {
-        return {"total" : Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value};
+        var result = {"right":0,"left":0,"total":Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value}; 
+        if (itemAndPassives[0]) {
+            result.right = result.total;
+        }
+        if (itemAndPassives[1]) {
+            result.left = result.total;
+        }
+        return result;
     }
 }
 

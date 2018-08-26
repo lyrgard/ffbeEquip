@@ -140,6 +140,7 @@ function optimize() {
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
     var tryEquipSources = $("#tryEquipsources input").prop('checked');
+    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -171,7 +172,8 @@ function optimize() {
             "alreadyUsedEspers":dataStorage.alreadyUsedEspers,
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats,
-            "goalVariation": goalVariation
+            "goalVariation": goalVariation,
+            "useNewJpDamageFormula": useNewJpDamageFormula
         }));
     }
     
@@ -217,7 +219,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].formula = customFormula;
     } else {
-        builds[currentUnitIndex].goal = $(".goal #normalGoalChoices select").val();   
+        builds[currentUnitIndex].goal = $(".goal #normalGoalChoice").val();   
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
@@ -513,7 +515,7 @@ function logBuild(build, value) {
         } else {
             valueToDisplay = Math.floor(valueToDisplay);
         }
-        $("#resultStats .buildResult .calcValue").text(valueToDisplay);
+        $("#resultStats .buildResult .calcValue").html(getValueWithVariationHtml(value));
         
         $("#resultStats .physicalDamageResult").addClass("secondary");
         $("#resultStats .magicalDamageResult").addClass("secondary");
@@ -896,13 +898,13 @@ function loadBuild(buildIndex) {
         }
     }
     
-    $(".goal #normalGoalChoices option").prop("selected", false);
+    $(".goal #normalGoalChoice option").prop("selected", false);
     if (build.goal) {
         if (build.goal == "custom") {
             customFormula = build._formula;
         } else {
             customFormula = null;
-            $('.goal #normalGoalChoices option[value="' + build.goal + '"]').prop("selected", true);
+            $('.goal #normalGoalChoice option[value="' + build.goal + '"]').prop("selected", true);
         }
     }
     
@@ -1015,12 +1017,12 @@ function onGoalChange() {
     }
     
     if (customFormula) {
-        $('#normalGoalChoices').addClass("hidden");
-        $('#customGoalChoice').removeClass("hidden");
+        $('.normalGoalChoices').addClass("hidden");
+        $('.customGoalChoice').removeClass("hidden");
         $("#customGoalFormula").text(formulaToString(customFormula));
     } else {
-        $('#normalGoalChoices').removeClass("hidden");
-        $('#customGoalChoice').addClass("hidden");
+        $('.normalGoalChoices').removeClass("hidden");
+        $('.customGoalChoice').addClass("hidden");
     }
 }
 
@@ -1694,6 +1696,7 @@ function getStateHash(onlyCurrent = true) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
         }
     }
+    data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
     
     return data;
 }
@@ -1784,6 +1787,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         return;
     }
     
+    if (data.useNewJpDamageFormula) {
+        $("#useNewJpDamageFormula").prop("checked", true);
+    } else {
+        $("#useNewJpDamageFormula").prop("checked", false);
+    }
+    
     if (!importMode) {
         select("races", data.monster.races);
         for (var element in data.monster.elementalResist) {
@@ -1806,7 +1815,7 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
     }
     
-    $('.goal #normalGoalChoices select option').prop("selected", false);
+    $('.goal #normalGoalChoice option').prop("selected", false);
     
     
     var first = true;
@@ -2357,6 +2366,9 @@ function deleteSavedTeam(index) {
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
+    if (server == "JP") {
+        $('#useNewJpDamageFormula').prop('checked', true);
+    }
     getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
