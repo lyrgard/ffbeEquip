@@ -140,8 +140,11 @@
                         <li>Once you've found the item you want to modify, click on the <span class="glyphicon glyphicon-edit"></span> to add this item to the list on the left. You can add multiple items to this list (max 10).</li>
                         <li>You can modify the Access and Max Number of the items on the left pane. For Max Number, leave it empty if there is no limitation to how many times this item could be acquired.</li>
                         <li>When you have entered all the data to the items, click on "<b>Send it to FFBE Equip</b>" to send it to FFBE Equip.</li>
-                        <li>If the save is successful, the page will reload itself.</li>
-                        <li>The data won't be corrected immediately. I'll regularly merge the sent data to the main data of FFBE Equip.</li>
+                        <li>A dialog should appears with the result of your submission.</li>
+                        <li>
+                            <strong>Please note that the data won't be corrected immediately.</strong> <br/>
+                            I regularly merge the sent data to the main data of FFBE Equip.
+                        </li>
                     </ol>
                 </div>
                 <div>
@@ -195,6 +198,49 @@
                     <div class="modal-header">Add access</div>
                     <div class="modal-body">
                         <div class="btn-group choice" data-toggle="buttons" id="accessList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="submitModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Submit results
+                    </div>
+                    <div class="modal-body">
+                        <div class="submitSuccess hidden">
+                            <p class="text-success">
+                                    <span class="glyphicon glyphicon-ok-circle"></span>
+                                    Your contribution is saved! Thanks a lot!
+                                </p>
+                            <p class="details">
+                                Number of item modified: <span class='modified'></span><br/>
+                                Number of item pending: <span class='total'></span><br/>
+                            </p>
+                        </div>
+                        <div class="submitFailed hidden">
+                            <p class="text-danger">
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    There was an issue with your submission.
+                                </p>
+                            <p>More information may be given below.</p>
+                            <pre></pre>
+                            <p class="details">
+                                You can always find help on  
+                                <a href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">FFBE Equip discord server</a>
+                                or by 
+                                <a href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">sending me a message on reddit</a>.
+                            </p>
+                            <p class="details">
+                                You can also
+                                <a href="https://github.com/lyrgard/ffbeEquip/issues" target="_blank" rel="noreferrer">open an issue on GitHub</a>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
