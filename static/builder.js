@@ -509,12 +509,6 @@ function logBuild(build, value) {
     }
     if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
         $("#resultStats .buildResult").removeClass("hidden");
-        var valueToDisplay = value[goalVariation];
-        if (valueToDisplay < 100) {
-            valueToDisplay = Math.floor(valueToDisplay*10)/10;
-        } else {
-            valueToDisplay = Math.floor(valueToDisplay);
-        }
         $("#resultStats .buildResult .calcValue").html(getValueWithVariationHtml(value));
         
         $("#resultStats .physicalDamageResult").addClass("secondary");
