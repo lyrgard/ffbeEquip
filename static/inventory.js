@@ -359,7 +359,9 @@ function showRemoveAllToInventoryDialog() {
             text: "Empty inventory",
             className: "btn-danger",
             onClick: function() {
-                itemInventory = {};
+                itemInventory = {
+                    enchantments: {}
+                };
                 updateUnitAndItemCount();
                 displayStats();
                 saveUserData(true, false);
