@@ -280,11 +280,6 @@ function loadHash() {
     } else {
         state = defaultFilter;
     }
-	if (state.baseStats) {
-		for (var stat in state.baseStats) {
-			$("#baseStat_" + stat).val(state.baseStats[stat]);
-		}
-	}
     if (state.unit) {
         var selectedUnitId;
         if (units[state.unit]) {
@@ -298,10 +293,14 @@ function loadHash() {
             }
         }
         if (selectedUnitId) {
-            $('#unitsSelect option[value="' + selectedUnitId + '"]').prop("selected", "selected");
-            displayUnitRarity(units[selectedUnitId]);
+            $('#unitsSelect').val(selectedUnitId).trigger('change');
         }
     }
+	if (state.baseStats) {
+		for (var stat in state.baseStats) {
+			$("#baseStat_" + stat).val(state.baseStats[stat]);
+		}
+	}
     if (state.stat) {
         $("input[name='stats'][value='"+ state.stat +"']").each(function(index, checkbox) {
             $(checkbox).prop('checked', true);
@@ -336,23 +335,29 @@ function populateUnitSelect() {
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(function() {
-        $( "#unitsSelect option:selected" ).each(function() {
+        $(this).find(':selected').each(function() {
             var selectedUnitData = units[$(this).val()];
             if (selectedUnitData) {
                 selectedUnitId = $(this).val();
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val(selectedUnitData.stats.maxStats[stat] + selectedUnitData.stats.pots[stat]);
-		      	});
+                });
+                $(".unit-image").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>");
                 unselectAll("types", false);
             } else {
                 selectedUnitId = 0;
                 $(baseStats).each(function (index, stat) {
                     $("#baseStat_" + stat).val("");
 		      	});
+                $(".unit-image").html("");
             }
             displayUnitRarity(selectedUnitData);
         });
         update();
+    });
+    $('#unitsSelect').select2({
+        placeholder: 'Select a unit...',
+        theme: 'bootstrap'
     });
 }
 

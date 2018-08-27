@@ -5,24 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>FFBE Equip : Espers</title>
-        <link rel="icon" type="image/png" href="/img/icons/equipments/heavyArmor.png">
+        <link rel="icon" type="image/png" href="img/icons/equipments/heavyArmor.png">
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css-img/espers.css">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/elements-ailments.css">
-		<link rel="stylesheet" type="text/css" href="common.css?version=3">
-        <link rel="stylesheet" type="text/css" href="espers.css?version=3">
+		<link rel="stylesheet" type="text/css" href="common.css">
+        <link rel="stylesheet" type="text/css" href="espers.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-              integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
     </head>
     <body>
         <a href="#" id="toggleGrid" class="hidden" title="Toggle Esper training grid">
             <span class="glyphicon glyphicon-th"></span>
             <span class="glyphicon glyphicon-list hidden"></span>
         </a>
+        
         <div id="header" class="headerNichol">
             <div class="headerContent">
                 <div class="headerTitle">
@@ -124,7 +123,7 @@
                 </div>
                 <div id="loginMessage" class="alert alert-danger alert-inline hidden" role="alert">
                     <span class="glyphicon glyphicon-alert"></span>
-                    You need to be logged-in to manage your Espers. 
+                    You need to be logged-in to manage your Espers.
                     <span id="notLoginWarningMessage" class="hidden">
                         <strong>Changes made won't be saved.</strong>
                     </span>
@@ -179,21 +178,21 @@
                                 <label for="level" class="formLabel">Level</label>
                                 <input id="level" type="number" class="form-control formInput"/>
                             </div>
-                                
+
                             <div class="formLine spLine">
                                 <label for="sp" class="formLabel">SP</label>
-                                <span id="sp" class="formValue spUsed"></span> 
+                                <span id="sp" class="formValue spUsed"></span>
                             </div>
                         </div>
                         <div class="formLine stats invisible">
                             <div class="formGroup">
                                 <div class="formLine">
                                     <label class="formLabel">HP</label>
-                                    <span id="esper_hp" class="formValue"></span> 
+                                    <span id="esper_hp" class="formValue"></span>
                                 </div>
                                 <div class="formLine">
                                     <label class="formLabel">ATK</label>
-                                    <span id="esper_atk" class="formValue"></span> 
+                                    <span id="esper_atk" class="formValue"></span>
                                 </div>
                                 <div class="formLine">
                                     <label class="formLabel">MAG</label>
@@ -203,33 +202,33 @@
                             <div class="formGroup">
                                 <div class="formLine">
                                     <label class="formLabel">MP</label>
-                                    <span id="esper_mp" class="formValue"></span> 
+                                    <span id="esper_mp" class="formValue"></span>
                                 </div>
                                 <div class="formLine">
                                     <label class="formLabel">DEF</label>
-                                    <span id="esper_def" class="formValue"></span>  
+                                    <span id="esper_def" class="formValue"></span>
                                 </div>
                                 <div class="formLine">
                                     <label class="formLabel">SPR</label>
-                                    <span id="esper_spr" class="formValue"></span> 
+                                    <span id="esper_spr" class="formValue"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="formGroup esperOtherStats invisible">
-                            <span id="esperResist" class="formLine"></span>                                            
-                            <span id="esperSkills" class="formLine"></span> 
+                            <span id="esperResist" class="formLine"></span>
+                            <span id="esperSkills" class="formLine"></span>
                         </div>
                     </div>
                     <div class="formLine shareLink">
                         <a onclick="getPublicEsperLink()">
-                            <span class="glyphicon glyphicon-link"></span> 
+                            <span class="glyphicon glyphicon-link"></span>
                             Get a link to this Esper build
                         </a>
                     </div>
                     <div id="panWrapper">
                         <div id="spFixed">
                             <span class="name">SP</span>
-                            <span class="spUsed"></span> 
+                            <span class="spUsed"></span>
                         </div>
                         <div id="gridTrimmer">
                             <div id="gridContainer">
@@ -255,21 +254,19 @@
                 <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" 
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" 
-                integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
+        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="lib/FileSaver.min.js"></script>
         <script src="lib/html2canvas.min.js"></script>
         <script src="constants.js"></script>
-        <script src="common.js?version=8"></script>
-		<script src="espers.js?version=8"></script>
+        <script src="common.js"></script>
+		<script src="espers.js"></script>
         <script src="lib/jquery.line.js"></script>
         <script src="googleAnalytics.js"></script>
     </body>

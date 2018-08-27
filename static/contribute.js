@@ -128,14 +128,7 @@ function openAddAccess(itemId) {
         $("#accessList").data("id", itemId);
         unselectAll("accessList");
         select("accessList", item.access);
-        $("#accessList").dialog({
-            modal: true,
-            buttons: {
-                Ok: function() {
-                    $( this ).dialog( "close" );
-                }
-            }
-        });
+        $("#addAccessModal").modal();
     }
 }
 
@@ -249,7 +242,7 @@ function startPage() {
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateResults));
     
-    $('#accessList').on('dialogclose', function(event) {
+    $('#addAccessModal').on('hidden.bs.modal', function(event) {
         var itemId = $("#accessList").data("id");
         setAccess(itemId, getSelectedValuesFor("accessList"));
     });

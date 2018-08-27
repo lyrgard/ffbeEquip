@@ -149,7 +149,7 @@
     position: absolute;
     right: 20px;
     top: 30px;
-    font-weight: bold;
+    font-size: 0.9em;
 }
 
 #searchBox {
@@ -162,6 +162,14 @@
     font-weight: bold;
     color: #337ab7;
     margin-top: 10px;
+}
+
+#loadMore div {
+    text-align: center;
+}
+
+#loadMore button {
+    margin: 1em;
 }
 
 .excludeFromExpeditionButton {
