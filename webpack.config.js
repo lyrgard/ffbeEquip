@@ -10,7 +10,7 @@ module.exports = {
         use: [
           { loader: 'file-loader', options: { name: '[path][name].[ext]', context: './static/' } },
           { loader: 'extract-loader', options: {} },
-          { loader: 'html-loader', options: { attrs: ['link:href'], minimize: true } },
+          { loader: 'html-loader', options: { attrs: ['link:href', 'script:src'], minimize: true } },
         ],
       },
       {
@@ -24,6 +24,12 @@ module.exports = {
         use: [
           { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/' } },
           { loader: 'postcss-loader', options: { plugins: [cssnano()] } },
+        ],
+      },
+      {
+        test: /\.(js)$/,
+        use: [
+          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/', emitFile: false } },
         ],
       },
     ],
