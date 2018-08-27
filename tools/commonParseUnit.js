@@ -346,6 +346,14 @@ function addEffectsToEffectList(effectList, effects) {
                     addToList(effectList[0],"partialDualWield",effect.partialDualWield[i]);
                 }
             }
+            if (effect.autoCastedSkill) {
+                for (var autoCastedSkillIndex = effect.autoCastedSkill.effects.length; autoCastedSkillIndex--;) {
+                    var autoCastedEffect = effect.autoCastedSkill.effects[autoCastedSkillIndex];
+                    if (autoCastedEffect.effect && autoCastedEffect.effect.resist && autoCastedEffect.effect.turns == -1) {
+                        addEffectsToEffectList(effectList, [autoCastedEffect.effect]);
+                    }
+                }
+            }
         }
     }
 }
@@ -680,12 +688,10 @@ function parsePassiveRawEffet(rawEffect, skills) {
     // Auto cast at start of fight
     } else if (rawEffect[2] == 56) { 
         result = {};
-        var skillIn = skills[rawEffect[3][2]];
+        var skillIn = skills[rawEffect[3][0]];
         if (skillIn) {
             var autoCastedSkill = parseActiveSkill(skillIn, skills);
-            if (autoCastedSkill.resist && autoCastedSkill.turns == -1) {
-                result.resist = autoCastedSkill.resist;
-            }
+            result.autoCastedSkill = autoCastedSkill;
             return [result];
         }
         
@@ -767,16 +773,16 @@ function parseActiveRawEffect(rawEffect, skills) {
     } else if (rawEffect[2] == 89) { 
         result = {resist:[]};
         if (rawEffect[3][0]) {
-            result.resist.push({"name":"atkBreak", "percent":rawEffect[3][0]})
+            result.resist.push({"name":"break_atk", "percent":rawEffect[3][0]})
         }
         if (rawEffect[3][1]) {
-            result.resist.push({"name":"defBreak", "percent":rawEffect[3][1]})
+            result.resist.push({"name":"break_def", "percent":rawEffect[3][1]})
         }
         if (rawEffect[3][2]) {
-            result.resist.push({"name":"magBreak", "percent":rawEffect[3][2]})
+            result.resist.push({"name":"break_mag", "percent":rawEffect[3][2]})
         }
         if (rawEffect[3][3]) {
-            result.resist.push({"name":"sprBreak", "percent":rawEffect[3][3]})
+            result.resist.push({"name":"break_spr", "percent":rawEffect[3][3]})
         }
         if (rawEffect[3][4]) {
             result.resist.push({"name":"stop", "percent":rawEffect[3][4]})
@@ -1181,39 +1187,7 @@ function formatForSearch(units) {
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
             for (var i = skills.length; i--;) {
                 var skill = skills[i];
-                if (skill.resist) {
-                    for (var resistIndex = skill.resist.length; resistIndex--;) {
-                        var resist = skill.resist[resistIndex];
-                        if (elements.includes(resist.name)) {
-                            if (!unitOut.passives.elementalResist) {
-                                unitOut.passives.elementalResist = {};
-                            }
-                            addToStat(unitOut.passives.elementalResist, resist.name, resist.percent);
-                        } else {
-                            if (!unitOut.passives.ailmentResist) {
-                                unitOut.passives.ailmentResist = {};
-                            }
-                            addToStat(unitOut.passives.ailmentResist, resist.name, resist.percent);
-                        }
-                    }
-                }
-                if (skill.killers) {
-                    for (var killerIndex = skill.killers.length; killerIndex--;) {
-                        var killer = skill.killers[killerIndex];
-                        if (killer.physical) {
-                            if (!unitOut.passives.physicalKillers) {
-                                unitOut.passives.physicalKillers = {};
-                            }
-                            addToStat(unitOut.passives.physicalKillers, killer.name, killer.physical);
-                        }
-                        if (killer.magical) {
-                            if (!unitOut.passives.magicalKillers) {
-                                unitOut.passives.magicalKillers = {};
-                            }
-                            addToStat(unitOut.passives.magicalKillers, killer.name, killer.magical);
-                        }
-                    }
-                }
+                addPassiveResist(unitOut, skill);
             }
             for (var i = unit.passives.length; i--;) {
                 var skill = unit.passives[i];
@@ -1245,6 +1219,50 @@ function formatForSearch(units) {
     return result;
 }
 
+function addPassiveResist(unitOut, skill) {
+    if (skill.resist) {
+        for (var resistIndex = skill.resist.length; resistIndex--;) {
+            var resist = skill.resist[resistIndex];
+            if (elements.includes(resist.name)) {
+                if (!unitOut.passives.elementalResist) {
+                    unitOut.passives.elementalResist = {};
+                }
+                addToStat(unitOut.passives.elementalResist, resist.name, resist.percent);
+            } else {
+                if (!unitOut.passives.ailmentResist) {
+                    unitOut.passives.ailmentResist = {};
+                }
+                addToStat(unitOut.passives.ailmentResist, resist.name, resist.percent);
+            }
+        }
+    }
+    if (skill.killers) {
+        for (var killerIndex = skill.killers.length; killerIndex--;) {
+            var killer = skill.killers[killerIndex];
+            if (killer.physical) {
+                if (!unitOut.passives.physicalKillers) {
+                    unitOut.passives.physicalKillers = {};
+                }
+                addToStat(unitOut.passives.physicalKillers, killer.name, killer.physical);
+            }
+            if (killer.magical) {
+                if (!unitOut.passives.magicalKillers) {
+                    unitOut.passives.magicalKillers = {};
+                }
+                addToStat(unitOut.passives.magicalKillers, killer.name, killer.magical);
+            }
+        }
+    }
+    if (skill.autoCastedSkill) {
+        for (var autoCastedSkillIndex = skill.autoCastedSkill.effects.length; autoCastedSkillIndex--;) {
+            var effect = skill.autoCastedSkill.effects[autoCastedSkillIndex].effect;
+            if (effect) {
+                addPassiveResist(unitOut, effect);
+            }
+        }
+    }
+}
+
 function addSkillEffectToSearch(effects, effectType) {
     for (var i = effects.length; i--;) {
         var effect = effects[i];
@@ -1260,15 +1278,15 @@ function addSkillEffectToSearch(effects, effectType) {
                 }
              } else if (effect.effect.resist) {
                 for (var j = effect.effect.resist.length; j--;) {
-                    if (ailments.includes(effect.effect.resist[j].name)) {
-                        if (!effectType[effect.effect.area].ailmentResist) {effectType[effect.effect.area].ailmentResist = {};}
-                        if (!effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
-                            effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
-                        }
-                    } else {
+                    if (elements.includes(effect.effect.resist[j].name)) {
                         if (!effectType[effect.effect.area].elementalResist) {effectType[effect.effect.area].elementalResist = {};}
                         if (!effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] || effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
                             effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        }
+                    } else {
+                        if (!effectType[effect.effect.area].ailmentResist) {effectType[effect.effect.area].ailmentResist = {};}
+                        if (!effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                            effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
                         }
                     }
                     

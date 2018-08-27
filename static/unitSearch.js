@@ -449,6 +449,11 @@ function getSkillHtml(skill) {
             lenj = skill.effects[j].effect.cooldownSkill.effects.length;
             skill = skill.effects[j].effect.cooldownSkill;
             j = -1;
+        } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
+            html += '<span class="effect">Cast at the start of battle or when revived :</span>';
+            html += '<div class="subSkill">';
+            html += getSkillHtml(skill.effects[j].effect.autoCastedSkill);
+            html += '</div>';
         } else {
             html += '<span class="effect">' + skill.effects[j].desc + '</span>';    
         }
@@ -525,6 +530,11 @@ function mustDisplaySkill(effects, type) {
             }
             if (effect.effect.counterSkill) {
                 if (mustDisplaySkill(effect.effect.counterSkill.effects, "counter")) {
+                    return true;
+                }
+            }
+            if (effect.effect.autoCastedSkill) {
+                if (mustDisplaySkill(effect.effect.autoCastedSkill.effects, type)) {
                     return true;
                 }
             }
@@ -662,7 +672,7 @@ function startPage() {
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Ailments
-	addIconChoicesTo("ailments", ailmentList, "checkbox", "elem-ailm");
+	addIconChoicesTo("ailments", ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "elem-ailm");
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
