@@ -33,6 +33,7 @@ onmessage = function(event) {
             optimizer.espers = messageData.espers;
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             optimizer.goalVariation = messageData.goalVariation;
+            optimizer.useNewJpDamageFormula = messageData.useNewJpDamageFormula;
             break;
         case "optimize":
             optimizer.optimizeFor(

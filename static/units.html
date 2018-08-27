@@ -14,8 +14,6 @@
         <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
         <link rel="stylesheet" type="text/css" href="units.css?version=3">
         <link rel="stylesheet" type="text/css" href="languages.css">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-              integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
               integrity="sha384-yBEPaZw444dClEfen526Q6x4nwuzGO6PreKpbRVSLFCci3oYGE5DnD1pNsubCxYW" crossorigin="anonymous">
     </head>
@@ -293,6 +291,27 @@
                                 <div class="col-xs-12">
                                     <input id="searchBox" type="text" class="form-control" placeholder="Enter unit name"/>
                                 </div>
+                                <div id="firstTimeMessage" class="col-xs-12 hidden">
+                                    <div class="alert alert-info alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <p>
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                            <strong>Hello! Is this your first time?</strong>
+                                        </p>
+                                        <p>
+                                            By default, units are displayed in <strong>Simple Mode</strong>, which means clicking on the unit will add it to your collection
+                                            (and clicking on the little Moogle on the top right corner will add one TMR).
+                                        </p>
+                                        <p>
+                                            Switching to <strong>Edit Mode</strong> will allow you to fully control your units and TMR numbers.
+                                        </p>
+                                        <p>
+                                            The switch is visible 
+                                            <span class="hidden-xs">at the bottom of the sidebar, on your left.</span>
+                                            <span class="hidden-sm hidden-md hidden-lg">at the bottom right of your screen.</span>
+                                        </p>
+                                    </div>
+                                </div>
                                 <div id="results" class="col-xs-12 simpleMode">
 
                                 </div>
@@ -320,8 +339,6 @@
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" 
-                integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" 

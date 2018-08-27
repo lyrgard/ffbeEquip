@@ -623,28 +623,7 @@ function showPublicUnitCollectionLink() {
     if (savePublicLinkNeeded || !userSettings.unitCollection) {
         savePublicLink(showPublicUnitCollectionLink)
     } else {
-        $('<div id="showLinkDialog" title="Build Link">' + 
-            '<input value="http://ffbeEquip.com/units.html?server=' + server + '&o#' + userSettings.unitCollection + '"></input>' +
-            '<h4>This link will allow to visualize your unit collection</h4>' +
-            '</div>' ).dialog({
-            modal: true,
-            open: function(event, ui) {
-                $(this).parent().css('position', 'fixed');
-                $("#showLinkDialog input").select();
-                try {
-                    var successful = document.execCommand('copy');
-                    if (successful) {
-                        $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                    } else {
-                        console.log('Oops, unable to copy');    
-                    }
-                } catch (err) {
-                    console.log('Oops, unable to copy');
-                }
-            },
-            position: { my: 'top', at: 'top+150' },
-            width: 600
-        });
+        Modal.showWithBuildLink("unit collection", "units.html?server=" + server + '&o#' + userSettings.unitCollection);
     }
 }
 
@@ -769,6 +748,10 @@ function updateResults() {
 
 function inventoryLoaded() {
     onDataReady();
+
+    if (Object.keys(ownedUnits).length === 0) {
+        $("#firstTimeMessage").removeClass('hidden');
+    }
 }
 
 function prepareData() {
@@ -865,7 +848,7 @@ function exportAsText() {
             }
         }
     }
-    showTextPopup("Owned units", text);
+    Modal.showWithTextData("Owned units", text);
 }
 
 function onDataReady() {
