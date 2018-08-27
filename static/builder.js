@@ -938,6 +938,7 @@ function addNewUnit() {
         $("#addNewUnitButton").addClass("hidden");
     }
     selectUnitDropdownWithoutNotify(null);
+    $('#unitsSelect').select2('open');
 }
 
 function selectUnitTab(index) {
