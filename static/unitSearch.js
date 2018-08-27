@@ -664,26 +664,28 @@ function startPage() {
     // Populates the various filters
 	
 	// Item types
-	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment");
+	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
     
 	// Elements
-	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm");
+	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm", function(v){return ucFirst(v)+" resistance"});
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Ailments
-	addIconChoicesTo("ailments", ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "elem-ailm");
+    addIconChoicesTo("ailments", 
+                     ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "elem-ailm",
+                     function(v){return (v.indexOf('break') === 0 ? "Break " + v.replace('break_','').toUpperCase() : ucFirst(v))+" resistance"});
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
 	// Killers
-	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical");
-    addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical");
+	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer"});
+    addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer"});
     addTextChoicesTo("killersSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("killersTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Imperils
-	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm");
+	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm", function(v){return ucFirst(v)+" imperil"});
     addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
@@ -693,7 +695,7 @@ function startPage() {
     addTextChoicesTo("breaksTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Imbues
-	addIconChoicesTo("imbues", elementList, "checkbox", "elem-ailm");
+	addIconChoicesTo("imbues", elementList, "checkbox", "elem-ailm", function(v){return "Imbue "+v});
     addTextChoicesTo("imbuesSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("imbuesTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
@@ -704,6 +706,12 @@ function startPage() {
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
+
+    // Set tooltips
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+        trigger: 'hover'
+    });
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
