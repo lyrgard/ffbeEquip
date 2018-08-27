@@ -140,6 +140,7 @@ function optimize() {
     var forceDoubleHand = $("#forceDoublehand input").prop('checked');
     var forceDualWield = $("#forceDualWield input").prop('checked');
     var tryEquipSources = $("#tryEquipsources input").prop('checked');
+    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -171,7 +172,8 @@ function optimize() {
             "alreadyUsedEspers":dataStorage.alreadyUsedEspers,
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats,
-            "goalVariation": goalVariation
+            "goalVariation": goalVariation,
+            "useNewJpDamageFormula": useNewJpDamageFormula
         }));
     }
     
@@ -217,7 +219,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].formula = customFormula;
     } else {
-        builds[currentUnitIndex].goal = $(".goal #normalGoalChoices select").val();   
+        builds[currentUnitIndex].goal = $(".goal #normalGoalChoice").val();   
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
@@ -372,9 +374,9 @@ function logBuild(build, value) {
         $("#buildResult").removeClass("conciseView");
     }
 
-    //$("#buildResult").html(html);
+    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
 
-    $("#resultStats > div").removeClass("statToMaximize");
+    $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
     var link = Piramidata.getImageLink(builds[currentUnitIndex]);
     $(".imageLink").prop("href",link);
@@ -459,7 +461,7 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula);
     }
     
     var killers = [];
@@ -487,33 +489,27 @@ function logBuild(build, value) {
     $("#resultStats .buildResult").addClass("hidden");
     if (importantStats.includes("atk")) {
         $("#resultStats .physicalDamageResult").removeClass("hidden");
-        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"]);
+        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
     }
     if (importantStats.includes("mag")) {
         $("#resultStats .magicalDamageResult").removeClass("hidden");
-        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"]);
+        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
     }
     if (importantStats.includes("atk") && importantStats.includes("mag")) {
         $("#resultStats .hybridDamageResult").removeClass("hidden");
-        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"]);
+        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
     }
     if (importantStats.includes("mag") && importantStats.includes("spr")) {
         $("#resultStats .healingResult").removeClass("hidden");
-        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"]);
+        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
     }
     if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
         $("#resultStats .buildResult").removeClass("hidden");
-        var valueToDisplay = value[goalVariation];
-        if (valueToDisplay < 100) {
-            valueToDisplay = Math.floor(valueToDisplay*10)/10;
-        } else {
-            valueToDisplay = Math.floor(valueToDisplay);
-        }
-        $("#resultStats .buildResult .calcValue").text(valueToDisplay);
+        $("#resultStats .buildResult .calcValue").html(getValueWithVariationHtml(value));
         
         $("#resultStats .physicalDamageResult").addClass("secondary");
         $("#resultStats .magicalDamageResult").addClass("secondary");
@@ -902,13 +898,13 @@ function loadBuild(buildIndex) {
         }
     }
     
-    $(".goal #normalGoalChoices option").prop("selected", false);
+    $(".goal #normalGoalChoice option").prop("selected", false);
     if (build.goal) {
         if (build.goal == "custom") {
             customFormula = build._formula;
         } else {
             customFormula = null;
-            $('.goal #normalGoalChoices option[value="' + build.goal + '"]').prop("selected", true);
+            $('.goal #normalGoalChoice option[value="' + build.goal + '"]').prop("selected", true);
         }
     }
     
@@ -1021,12 +1017,12 @@ function onGoalChange() {
     }
     
     if (customFormula) {
-        $('#normalGoalChoices').addClass("hidden");
-        $('#customGoalChoice').removeClass("hidden");
+        $('.normalGoalChoices').addClass("hidden");
+        $('.customGoalChoice').removeClass("hidden");
         $("#customGoalFormula").text(formulaToString(customFormula));
     } else {
-        $('#normalGoalChoices').removeClass("hidden");
-        $('#customGoalChoice').addClass("hidden");
+        $('.normalGoalChoices').removeClass("hidden");
+        $('.customGoalChoice').addClass("hidden");
     }
 }
 
@@ -1700,6 +1696,7 @@ function getStateHash(onlyCurrent = true) {
             data.itemSelector.additionalFilters.push(additionalFilters[i]);
         }
     }
+    data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
     
     return data;
 }
@@ -1790,6 +1787,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         return;
     }
     
+    if (data.useNewJpDamageFormula) {
+        $("#useNewJpDamageFormula").prop("checked", true);
+    } else {
+        $("#useNewJpDamageFormula").prop("checked", false);
+    }
+    
     if (!importMode) {
         select("races", data.monster.races);
         for (var element in data.monster.elementalResist) {
@@ -1812,7 +1815,7 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
     }
     
-    $('.goal #normalGoalChoices select option').prop("selected", false);
+    $('.goal #normalGoalChoice option').prop("selected", false);
     
     
     var first = true;
@@ -1913,28 +1916,7 @@ function showBuildLink(onlyCurrentUnit) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data) {
-            $('<div id="showLinkDialog" title="Build Link">' + 
-                '<input value="http://ffbeEquip.com/builder.html?server=' + server + '#' + data.id + '"></input>' +
-                '<h4>This link will open the builder with this exact build displayed</h4>' +
-              '</div>' ).dialog({
-                modal: true,
-                open: function(event, ui) {
-                    $(this).parent().css('position', 'absolute');
-                    $(this).parent().css('top', '150px');
-                    $("#showLinkDialog input").select();
-                    try {
-                        var successful = document.execCommand('copy');
-                        if (successful) {
-                            $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                        } else {
-                            console.log('Oops, unable to copy');    
-                        }
-                    } catch (err) {
-                        console.log('Oops, unable to copy');
-                    }
-                },
-                width: (($(window).width() > 600) ? 600: $(window).width())
-            });
+            Modal.showWithBuildLink("unit" + (onlyCurrentUnit? '' : 's') + " build", "builder.html?server=" + server + '#' + data.id);
         },
         error: function(error) {
             alert('Failed to generate url. Error = ' + JSON.stringify(error));
@@ -1959,11 +1941,10 @@ function showBuildAsText() {
         getItemLineAsText("Esper", 10) +
         getBuildStatsAsText();
         
-    showTextPopup("Build as text", text);
+    Modal.showWithTextData("Build as text", text);
 }
 
 function showExcludedItems() {
-    
     var text = "";
     var idAlreadyTreated = [];
     var dataToSearch = data.concat(espers);
@@ -1978,17 +1959,13 @@ function showExcludedItems() {
             idAlreadyTreated.push(item.id);
         }
     }
-        
-    $('<div id="showExcludedItemsDialog" title="Excluded items">' + 
-        '<a class="buttonLink" onclick="resetExcludeList();">Reset item exclusion list</a>' +
-        '<div class="table items">' + text + '</div>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'absolute');
-            $(this).parent().css('top', '150px');
-        },
-        width: (($(window).width() > 600) ? 600: $(window).width())
+    
+    Modal.show({
+        title: "Excluded items",
+        body: '<button class="btn btn-warning" onclick="resetExcludeList();">Reset item exclusion list</button>'+
+              '<div id="showExcludedItemsDialog"><div class="table items">' + text + '</div></div>',
+        size: 'large',
+        withCancelButton: false
     });
 }
 
@@ -2007,17 +1984,12 @@ function showMonsterList() {
         text += '</div>';
         text += '</div>';
     }
-        
-    $('<div id="showMonsterListDialog" title="Monster List">' + 
-        '<div class="table items monsters">' + text + '</div>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'absolute');
-            $(this).parent().css('top', '0');
-        },
-        width: (($(window).width() > 800) ? 800: $(window).width()),
-        height: $(window).height()
+    
+    Modal.show({
+        title: "Monster List",
+        body: '<div class="table items monsters">' + text + '</div>',
+        size: 'large',
+        withCancelButton: false
     });
 }
 
@@ -2037,7 +2009,7 @@ function selectMonster(monsterIndex) {
     }
     unselectAll("races");
     select("races", monster.races);
-    $('#showMonsterListDialog').dialog('destroy');
+    Modal.hide();
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
         logCurrentBuild();    
     }
@@ -2051,7 +2023,7 @@ function removeItemFromExcludeList(id) {
 
 function resetExcludeList() {
     itemsToExclude = defaultItemsToExclude.slice();
-    $('#showExcludedItemsDialog').dialog('destroy');
+    $(".excludedItemNumber").html(itemsToExclude.length);
     showExcludedItems();
 }
 
@@ -2219,7 +2191,6 @@ function saveTeamAs(name) {
         currentSavedBuildIndex = savedBuilds.teams.length - 1;
         $(".savedTeamName").text("Saved team : " + savedBuilds.teams[currentSavedBuildIndex].name);
         $("#saveTeamAsButton").removeClass("hidden");
-        $('#showSaveBuildNameInput').dialog('destroy');
     });
 }
 
@@ -2236,28 +2207,30 @@ function writeSavedTeams() {
 }
 
 function showSaveAsPopup() {
-    $('<div id="showSaveBuildNameInput" title="Save team as...">' +
-        '<div>Build name :</div>' +
-        '<input class="form-control"></input>' +
-        '<div style="width: 100%;display: flex;justify-content: center;margin-top: 10px;"><div onclick="validateTeamName();" class="btn btn-primary">OK</div></div>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'absolute');
-            $(this).parent().css('top', '150px');
-            $("#showSaveBuildNameInput input").select();
+    Modal.show({
+        title: "Save team as...",
+        body: '<div class="input-group">' + 
+                '<span class="input-group-addon">Build name</span>' +
+                '<input class="form-control" type="text"/>' + 
+              '</div>',
+        size: 'large',
+        onOpen: function($modal) {
+            // Focus on input
+            $modal.find('input').focus();
         },
-        width: (($(window).width() > 600) ? 600: $(window).width())
+        buttons: [{
+            text: 'Save',
+            onClick: function($modal) {
+                var name = $modal.find('input').val();
+                if (name && name.length > 0) {
+                    saveTeamAs(name);
+                } else {
+                    alert("Please enter a name");
+                    return false;
+                }
+            }
+        }]
     });
-}
-
-function validateTeamName() {
-    var name = $("#showSaveBuildNameInput input").val();
-    if (name && name.length > 0) {
-        saveTeamAs(name);
-    } else {
-        alert("Please enter a name");
-    }
 }
 
 function loadSavedTeam(index = -1) {
@@ -2285,7 +2258,7 @@ function doLoadSavedTeam(index) {
         $(".savedTeamName").text("Saved team : " + savedBuilds.teams[index].name);
 
         $("#saveTeamAsButton").removeClass("hidden");
-        $("#showSavedTeamsDialog").dialog("destroy");
+        Modal.hide();
     });
 }
 
@@ -2300,29 +2273,23 @@ function importSavedTeam(index) {
             return;
         }
         loadStateHashAndBuild(savedBuilds.teams[index].team, true);
-        $("#showSavedTeamsDialog").dialog("destroy");
+        Modal.hide();
     });
 }
 
 function showSavedTeams() {
     getSavedBuilds(function(savedBuilds) {
         
-        $('<div id="showSavedTeamsDialog" title="Saved teams"></div>' ).dialog({
-            modal: true,
-            open: function(event, ui) {
-                $(this).parent().css('position', 'absolute');
-                $(this).parent().css('top', '150px');
-                updateSavedTeamList();
-            },
-            close: function() {
-                $("#showSavedTeamsDialog").dialog("destroy");
-            },
-            width: (($(window).width() > 600) ? 600: $(window).width())
+        Modal.show({
+            title: "Saved teams",
+            body: getSavedTeamList,
+            size: 'large',
+            withCancelButton: false
         });
     });
 }
 
-function updateSavedTeamList() {
+function getSavedTeamList() {
     var html = "";
     for (var i = 0, len = savedBuilds.teams.length; i < len; i++) {
         html += '<div class="savedTeam"><div>'
@@ -2336,7 +2303,7 @@ function updateSavedTeamList() {
             '<div class="btn" onclick="deleteSavedTeam(' + i + ')" title="Delete this team"><span class="glyphicon glyphicon-remove"></span>' +
             '</div></div></div>'
     }
-    $("#showSavedTeamsDialog").html(html);
+    return html;
 }
 
 function deleteSavedTeam(index) {
@@ -2350,13 +2317,16 @@ function deleteSavedTeam(index) {
             currentSavedBuildIndex--;
         }
     }
-    updateSavedTeamList();
     writeSavedTeams();
+    showSavedTeams();
 }
 
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
+    if (server == "JP") {
+        $('#useNewJpDamageFormula').prop('checked', true);
+    }
     getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
@@ -2453,6 +2423,8 @@ function startPage() {
         recalculateApplicableSkills();
         logCurrentBuild();
     });
+    $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
+    
 }
 
 var counter = 0;

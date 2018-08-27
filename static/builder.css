@@ -1,7 +1,15 @@
-.goal .panel-heading {
+.goal .panel-heading .line {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.goal .panel-heading .line .goalLabel {
+    width: 120px;
+}
+
+#useNewJpDamageFormula {
+    margin-left: 20px;
 }
 
 #elementalResists {
@@ -218,12 +226,12 @@
     font-weight: bold;
 }
 
-#resultStats .buildResult {
+#resultStats .buildResult .resultLabel {
     font-weight: bold;
     font-size: 1.1em;
 }
 
-#resultStats .buildResult .calcValue {
+#resultStats .buildResult .calcValue .goal {
     font-weight: bold;
     font-size: 1.2em;
 }

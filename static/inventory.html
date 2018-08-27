@@ -13,8 +13,6 @@
 		<link rel="stylesheet" type="text/css" href="common.css?version=3">
         <link rel="stylesheet" type="text/css" href="inventory.css?version=3">
         <link rel="stylesheet" type="text/css" href="languages.css">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-              integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
     </head>
     <body>
         <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
@@ -377,10 +375,8 @@
                             <li class="history" onclick="showHistory()"><a><img src="img/icons/history.png"/></a></li>
                             <li class="settings" onclick="showSettings()"><a><img src="img/icons/settings.png" /></a></li>
                         </ul>
-                        <div id="tabsRightData">
+                        <div id="tabsRightData" class='hidden-xs'>
                             <span id="sortType"></span>
-                            <span id="itemCount"></span>
-                            <span id="materiaCount"></span>
                         </div>
                         <div class="result-tab-pane">
                             <div class="panel-body" style="padding:0;">
@@ -388,7 +384,16 @@
                                     <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
                                 </div>
                                 <div id="results" class="">
-
+                                </div>
+                                <div id="loadMore" class="hidden">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-primary" onclick="">
+                                            Load more...
+                                        </button>
+                                        <button type="button" class="btn btn-warning" onclick="">
+                                            Load All
+                                        </button>
+                                    </div>
                                 </div>
                                 <div id="itemEnhancement" class="hidden">
                                 </div>
@@ -527,8 +532,6 @@
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" 
-                integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.15.0/lazyload.min.js"

@@ -35,7 +35,7 @@ var cspDirectives =  {
              'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
-  connectSrc: ["'self'", 'www.google-analytics.com'],
+  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com'],
   mediaSrc: ["'none'"],
   objectSrc: ["'none'"],
   childSrc: ["'self'"],

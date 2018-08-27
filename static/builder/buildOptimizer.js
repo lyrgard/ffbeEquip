@@ -332,7 +332,7 @@ class BuildOptimizer {
 
     tryEsper(build, esper) {
         build[10] = esper;
-        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
+        var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
             var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems);
