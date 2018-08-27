@@ -963,6 +963,10 @@ function closeTab(index = currentUnitIndex) {
     } else if (index < currentUnitIndex) {
         currentUnitIndex--;
     }
+    
+    if (builds.length < 10) {
+        $("#addNewUnitButton").removeClass("hidden");
+    }
 }
 
 // Displays selected unit's rarity by stars
