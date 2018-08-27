@@ -56,7 +56,7 @@ function showAll() {
             var sp = calculateSp(esper.level, esper.rarity, esper.name);
             addStats(esper.level, esper.rarity, esper.name);
 
-            html += "<tr data-esper=" + esper.name + ">";
+            html += '<tr data-esper="' + esper.name + '">';
 
             // First cell: image, name, points
             html += "<td class='esperDesc index'>";
@@ -470,7 +470,7 @@ function selectNode(x,y) {
     var path = findPathTo(x,y,esperBoards[currentEsper]);
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         var node = path[path.length - 1];
-        unselectNodeAndChildren(node);
+        unselectNodeAndChildren(ownedEspers[currentEsper], node);
     } else {
         if (path) {
             for (var index = 0; index < path.length; index++) {
@@ -518,7 +518,7 @@ function addNodeStatToEsper(esper, node) {
     }
 }
 
-function unselectNodeAndChildren(node) {
+function unselectNodeAndChildren(esper, node) {
     var posString = getPositionString(node.position[0], node.position[1]);
     var index = ownedEspers[currentEsper].selectedSkills.indexOf(posString)
     if (index >= 0) {
@@ -551,7 +551,7 @@ function unselectNodeAndChildren(node) {
             }
         }
         for (var i = 0; i < node.children.length; i++) {
-            unselectNodeAndChildren(node.children[i]);
+            unselectNodeAndChildren(esper, node.children[i]);
         }
     }
 }
@@ -1032,7 +1032,7 @@ function startPage() {
     $("#allEspers table.allEspers").on('click', '.esperDesc', function(e) {
         var $tr = $(e.target).parents('tr[data-esper]');
         var esperName = $tr.attr('data-esper');
-        var $tab = $("#espers #tabs").find("[data-esper="+esperName+"]");
+        var $tab = $("#espers #tabs").find("[data-esper=\""+esperName+"\"]");
         var tabScrollLeftPos = $tab.position().left - $window.outerWidth() / 2 + 30;
         // Scroll
         $("#espers #tabs").scrollLeft(tabScrollLeftPos);
