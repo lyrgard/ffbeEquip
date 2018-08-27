@@ -706,11 +706,20 @@ function populateUnitSelect() {
     });
     $("#unitsSelect").html(options);
     $("#unitsSelect").change(onUnitChange);
-    $('#unitsSelect').combobox();
+    $('#unitsSelect').select2({
+        placeholder: 'Select a unit...',
+        theme: 'bootstrap'
+    });
+}
+
+function selectUnitDropdownWithoutNotify(unitId) {
+    // Set value, then trigger change by notifying only Select2 with its scoped event
+    // Avoid triggering our own change event
+    $('#unitsSelect').val(unitId).trigger('change.select2');
 }
 
 function onUnitChange() {
-    $( "#unitsSelect option:selected" ).each(function() {
+    $("#unitsSelect").find(':selected').each(function() {
         var unitId = $(this).val();
         var selectedUnitData;
         if (unitId.endsWith("-6")) {
@@ -879,12 +888,9 @@ function reinitBuild(buildIndex) {
 function loadBuild(buildIndex) {
     currentUnitIndex = buildIndex;
     var build = builds[buildIndex];
-    
-    $("#unitsSelect option").prop("selected", false);
-    if (build.unit) {
-        $('#unitsSelect option[value="' + build.unit.id + (build.unit.sixStarForm ? '-6' : '') + '"]').prop("selected", true);
-    }
-    $("#unitsSelect").combobox("refresh");
+
+    selectUnitDropdownWithoutNotify(build.unit ? (build.unit.id + (build.unit.sixStarForm ? '-6' : '')) : null);
+
     $(".unitAttackElement div.elements label").removeClass("active");
     if (build.innateElements) {
         for (var i in build.innateElements) {
@@ -931,7 +937,7 @@ function addNewUnit() {
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
     }
-    $("#unitsSelect").combobox("clearElement");
+    selectUnitDropdownWithoutNotify(null);
 }
 
 function selectUnitTab(index) {
@@ -1829,14 +1835,8 @@ function loadStateHashAndBuild(data, importMode = false) {
         var unit = data.units[i];
         customFormula =  parseFormula(unit.goal);
         onGoalChange();
-        var unitId = unit.id;
 
-        if (unit.rarity == 6 && units[unitId]["6_form"]) {
-            $('#unitsSelect option[value="' + unitId + '-6"]').prop("selected", true);
-        } else {
-            $('#unitsSelect option[value="' + unitId + '"]').prop("selected", true);
-        }
-        $("#unitsSelect").combobox("refresh");
+        selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
 
         if (unit.enhancementLevels) {

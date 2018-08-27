@@ -39,6 +39,14 @@
 	padding: 0;
 }
 
+.unit-image {
+    margin-left: auto;
+}
+
+.unit-image img {
+    height: 33px;
+}
+
 @media (max-width: 991px) {
     
 	#results .thead .special{
@@ -111,5 +119,11 @@
 @media (min-width: 992px) {
     #advancedSearch {
         display: block !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .unit-image {
+        display: none;
     }
 }
