@@ -375,10 +375,8 @@
                             <li class="history" onclick="showHistory()"><a><img src="img/icons/history.png"/></a></li>
                             <li class="settings" onclick="showSettings()"><a><img src="img/icons/settings.png" /></a></li>
                         </ul>
-                        <div id="tabsRightData">
+                        <div id="tabsRightData" class='hidden-xs'>
                             <span id="sortType"></span>
-                            <span id="itemCount"></span>
-                            <span id="materiaCount"></span>
                         </div>
                         <div class="result-tab-pane">
                             <div class="panel-body" style="padding:0;">
@@ -386,7 +384,16 @@
                                     <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
                                 </div>
                                 <div id="results" class="">
-
+                                </div>
+                                <div id="loadMore" class="hidden">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-primary" onclick="">
+                                            Load more...
+                                        </button>
+                                        <button type="button" class="btn btn-warning" onclick="">
+                                            Load All
+                                        </button>
+                                    </div>
                                 </div>
                                 <div id="itemEnhancement" class="hidden">
                                 </div>
