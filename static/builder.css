@@ -703,6 +703,12 @@ i.img.img-slot-hand.leftHand {
     background-color: white;
 }
 
+.buildLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
