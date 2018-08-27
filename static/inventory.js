@@ -350,7 +350,6 @@ function showAddAllToInventoryDialog() {
 }
 
 function showRemoveAllToInventoryDialog() {
-<<<<<<< HEAD
     Modal.show({
         title: "Remove all equipment and materia from inventory?",
         body: "<p>This will empty your equipment and materia inventory (on this site).</p>"+
