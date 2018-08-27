@@ -2459,6 +2459,8 @@ function startPage() {
         recalculateApplicableSkills();
         logCurrentBuild();
     });
+    $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
+    
 }
 
 var counter = 0;
