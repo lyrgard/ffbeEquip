@@ -93,3 +93,32 @@ const itemEnhancementAbilities = {
     "spr_15": {"spr%":15}, "spr_12": {"spr%":12}, "spr_10": {"spr%":10}, "spr_7": {"spr%":7}, "spr_5": {"spr%":5}, "spr_3": {"spr%":3}, "spr_1": {"spr%":1},
     "autoRefresh_2": {"mpRefresh":5},"autoRefresh_1": {"mpRefresh":3}
 }
+
+const typeListLitterals = {
+    "dagger": "Dagger",
+    "sword": "Sword",
+    "greatSword": "Great Sword",
+    "katana": "Katana",
+    "staff": "Staff",
+    "rod": "Rod",
+    "bow": "Bow",
+    "axe": "Axe",
+    "hammer": "Hammer",
+    "spear": "Spear",
+    "harp": "Harp",
+    "whip": "Whip",
+    "throwing": "Throwing",
+    "gun": "Gun",
+    "mace": "Mace",
+    "fist": "Fist",
+    "lightShield": "Light Shield",
+    "heavyShield": "Heavy Shield",
+    "hat": "Hat",
+    "helm": "Helm",
+    "clothes": "Clothes",
+    "lightArmor": "Light Armor",
+    "heavyArmor": "Heavy Armor",
+    "robe": "Robe", 
+    "accessory": "Accessory",
+    "materia": "Materia"
+};
