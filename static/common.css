@@ -930,8 +930,11 @@ p.linkInputCopied {
 @media (max-width: 768px) {
 
     .alert {
-        padding: 6px;
+        padding: 8px;
         margin-bottom: 10px; 
+    }
+    .alert-dismissable, .alert-dismissible {
+        padding-right: 28px;
     }
     .alert .glyphicon {
         margin-right: 6px;
