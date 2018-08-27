@@ -374,7 +374,7 @@ function logBuild(build, value) {
         $("#buildResult").removeClass("conciseView");
     }
 
-    //$("#buildResult").html(html);
+    var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
 
     $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
@@ -461,7 +461,7 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula);
     }
     
     var killers = [];
@@ -489,22 +489,22 @@ function logBuild(build, value) {
     $("#resultStats .buildResult").addClass("hidden");
     if (importantStats.includes("atk")) {
         $("#resultStats .physicalDamageResult").removeClass("hidden");
-        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"]);
+        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
     }
     if (importantStats.includes("mag")) {
         $("#resultStats .magicalDamageResult").removeClass("hidden");
-        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"]);
+        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
     }
     if (importantStats.includes("atk") && importantStats.includes("mag")) {
         $("#resultStats .hybridDamageResult").removeClass("hidden");
-        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"]);
+        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
     }
     if (importantStats.includes("mag") && importantStats.includes("spr")) {
         $("#resultStats .healingResult").removeClass("hidden");
-        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"]);
+        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula);
         $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
     }
     if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
