@@ -729,10 +729,6 @@ nav {
     font-size: 1.4em;
 }
 
-#showLinkDialog input {
-    width: 100%;
-}
-
 .enhancementTypes {
     display: flex;
     justify-content: space-between;
@@ -809,7 +805,7 @@ nav {
     border-bottom-color: #ffffff;
 }
 
-.ui-dialog .loginMessageDetail {
+.loginMessageDetail {
     font-size: 0.9em;
 }
 
@@ -843,6 +839,16 @@ i.img {
 i.img.inline {
     width: 26px;
     height: 26px;
+}
+
+input.linkInput {
+    font-size: 0.85em;
+}
+
+p.linkInputCopied {
+    font-size: 0.9em;
+    color: #aeaeae;
+    margin-top: 5px;
 }
 
 @media (max-width: 991px) {
@@ -927,8 +933,11 @@ i.img.inline {
 @media (max-width: 768px) {
 
     .alert {
-        padding: 6px;
+        padding: 8px;
         margin-bottom: 10px; 
+    }
+    .alert-dismissable, .alert-dismissible {
+        padding-right: 28px;
     }
     .alert .glyphicon {
         margin-right: 6px;
@@ -944,11 +953,6 @@ i.img.inline {
 
     .navigationMenu .mobile {
         display: block;
-    }
-
-    .ui-dialog {
-        left: 3% !important;
-        width: 94% !important;
     }
     
     .container-fluid, 

@@ -4,29 +4,30 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>FFBE Equip - Builder</title>
-        <link rel="icon" type="image/png" href="/img/icons/equipments/heavyArmor.png">
+        <link rel="icon" type="image/png" href="img/icons/equipments/heavyArmor.png">
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-              integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"
+              integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
+              integrity="sha384-gmcw+R0EXbFmHe5f/e/UutiOrxubA/LkUzBVH0Y7uvP+IqhUSNFp7HZKD6ztR12u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css-img/espers.css">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/elements-ailments.css">
         <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
         <link rel="stylesheet" type="text/css" href="css-img/killers.css">
         <link rel="stylesheet" type="text/css" href="css-img/slots.css">
-		<link rel="stylesheet" type="text/css" href="common.css?version=3">
+		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="builder.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap-combobox.css">
     </head>
     <body>
         <div class="glassPanel"></div>
         <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
-        
+
         <div id="header" class="headerLid">
             <div class="headerContent">
                 <div class="headerTitle">
@@ -128,56 +129,56 @@
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default goal">
                     <div class="panel-heading">
-                        <div id="normalGoalChoices">
-                            <form class="form-inline">
-                                <div class="form-group flex-form-group">
-                                    <span>Goal : Maximize</span>
-                                    <select class="form-control">
-                                        <option value="physicalDamage">Physical damage</option>
-                                        <option value="magicalDamage">Magical damage</option>
-                                        <option value="hybridDamage">Hybrid damage</option>
-                                        <option value="jumpDamage">Jump damage</option>
-                                        <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
-                                        <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
-                                        <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
-                                        <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
-                                        <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
-                                        <option value="physicalDamageMultiCast">Physical damage Multicast</option>
-                                        <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
-                                        <option value="summonerSkill">Summoner skill</option>
-                                        <option value="physicaleHp">Physical eHP (HP * DEF)</option>
-                                        <option value="magicaleHp">Magical eHP (HP * SPR)</option>
-                                        <option value="def">Defense</option>
-                                        <option value="spr">Spirit</option>
-                                        <option value="hp">Health Points</option>
-                                        <option value="physicalEvasion">Physical evasion</option>
-                                        <option value="magicalEvasion">Magical evasion</option>
-                                        <option value="mpRefresh">MP/turn</option>
-                                        <option value="heal">Heal</option>
-                                    </select>
-                                    <span class="customGoalLinkSpan">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
-                                </div>
-                            </form>
+                        <div class=" line">
+                            <span class="normalGoalChoices goalLabel">Goal : Maximize</span>
+                            <div class="normalGoalChoices">
+                                <select id="normalGoalChoice" class="form-control">
+                                    <option value="physicalDamage">Physical damage</option>
+                                    <option value="magicalDamage">Magical damage</option>
+                                    <option value="hybridDamage">Hybrid damage</option>
+                                    <option value="jumpDamage">Jump damage</option>
+                                    <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
+                                    <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
+                                    <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
+                                    <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
+                                    <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
+                                    <option value="physicalDamageMultiCast">Physical damage Multicast</option>
+                                    <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
+                                    <option value="summonerSkill">Summoner skill</option>
+                                    <option value="physicaleHp">Physical eHP (HP * DEF)</option>
+                                    <option value="magicaleHp">Magical eHP (HP * SPR)</option>
+                                    <option value="def">Defense</option>
+                                    <option value="spr">Spirit</option>
+                                    <option value="hp">Health Points</option>
+                                    <option value="physicalEvasion">Physical evasion</option>
+                                    <option value="magicalEvasion">Magical evasion</option>
+                                    <option value="mpRefresh">MP/turn</option>
+                                    <option value="heal">Heal</option>
+                                </select>
+                            </div>
+                            <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
+                            <span class="customGoalChoice hidden">Custom Goal: </span>
+                            <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
+                            <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
                         </div>
-                        <div id="customGoalChoice" class="hidden">
-                            <span>Custom Goal: </span>
-                            <a id="customGoalFormula" class="link" onclick="openCustomGoalModal()"></a>
-                            <span class="link glyphicon glyphicon-remove" onclick="removeCustomGoal()" ></span>
-                        </div>
-                        <form id="goalVarianceDiv" class="form-inline">
+                        <div class=" line">
+                            <span class="goalLabel">Damage variance</span>
+                            <div>
                                 <select id="goalVariance" name="goalVariance" class="form-control">
                                     <option value="min">Minimum</option>
                                     <option value="avg" selected="selected">Average</option>
                                     <option value="max">Maximum</option>
                                 </select>
-                        </form>
+                            </div>
+                            <input type="checkbox" id="useNewJpDamageFormula"/>
+                            <span>Use new JP damage formula</span>
+                        </div>
                     </div>
                 </div>
                 <div class="panel panel-default unit">
                     <div class="panel-heading">
                         <form class="form-inline">
                             <div class="form-group flex-form-group">
-                                <span>Unit</span>
                                 <select id="unitsSelect" name="units" class="form-control"></select>
                                 <div class="unit-rarity">
 
@@ -195,7 +196,7 @@
                         </span>
                         <div class="col-xs-12">
                             <div id="unitLevel" class="hidden col-xs-6 form-inline">
-                                Unit level : 
+                                Unit level :
                                 <select class="form-control">
                                     <option value="101">101</option>
                                     <option value="102">102</option>
@@ -524,27 +525,66 @@
                                     <div class="physical"></div>
                                     <div class="magical"></div>
                                 </div>
-                                <div class="resultLine buildResult hidden">Build goal calculated value: <span class="calcValue"></span></div>
+                                <div class="resultLine buildResult hidden"><span class="resultLabel">Build goal calculated value: </span><span class="calcValue"></span></div>
                                 <div class="resultLine physicalDamageResult hidden">Physical damage on a <span class="monsterDefValue"></span> DEF enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine magicalDamageResult hidden">Magical damage on a <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine hybridDamageResult hidden">Hybrid damage on a <span class="monsterDefValue"></span> DEF <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine healingResult hidden">Healing coef: <span class="calcValue"></span></div>
                             </div>
                             <div class="buildLinks hidden">
-                                <div id="detailedViewLink" class="col-xs-6 link text-center">
+                                <div id="detailedViewLink" class="link text-center">
                                     <a onclick="switchView(false);"><span class="glyphicon glyphicon-zoom-in"></span> Detailed View</a>
                                 </div>
-                                <div id="conciseViewLink" class="col-xs-6 hidden link text-center">
+                                <div id="conciseViewLink" class="hidden link text-center">
                                     <a onclick="switchView(true);"><span class="glyphicon glyphicon-zoom-out"></span> Concise View</a>
                                 </div>
-                                <div id="shareLinksMenu" class="col-xs-6 text-center ">
+                                <div id="shareLinksMenu" class="text-center">
                                     <div class="dropdown">
-                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-share-alt"></span> Share this build<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="buildLink link" onclick="showBuildLink(true)"><span class="glyphicon glyphicon-link"></span> FFBE Equip link (this unit only)</a></li>
-                                            <li><a class="buildLink link" onclick="showBuildLink(false)"><span class="glyphicon glyphicon-link"></span> FFBE Equip link (all units)</a></li>
-                                            <li><a class="buildAsText link" onclick="showBuildAsText()"><span class="glyphicon glyphicon-list"></span> Build as text</a></li>
-                                            <li data-server="GL"><a class="imageLink link" target="_blank" rel="noreferrer"><span class="glyphicon glyphicon-camera"></span> Build image (using kupoconfig.com)</a></li>
+                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-share-alt"></span> 
+                                            Share <span class='hidden-xs'>this build</span> <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a class="buildLink link" onclick="showBuildLink(true)">
+                                                    <span class="glyphicon glyphicon-link"></span> FFBE Equip link (this unit only)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="buildLink link" onclick="showBuildLink(false)">
+                                                    <span class="glyphicon glyphicon-link"></span> FFBE Equip link (all units)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="buildAsText link" onclick="showBuildAsText()">
+                                                    <span class="glyphicon glyphicon-list"></span> Build as text
+                                                </a>
+                                            </li>
+                                            <li data-server="GL">
+                                                <a class="imageLink link" target="_blank" rel="noreferrer">
+                                                    <span class="glyphicon glyphicon-camera"></span> Build image (using kupoconfig.com)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="clearBuildMenu" class="link text-center">
+                                    <div class="dropdown">
+                                        <a class=" dropdown-toggle link" type="button" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-trash"></span> 
+                                            Clear <span class='hidden-xs'>items</span> <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a class="link" onclick="clearItemsFromBuild(true)">
+                                                    <span class="glyphicon glyphicon-trash"></span> Clear not pinned items (for this build)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="link" onclick="clearItemsFromBuild()">
+                                                    <span class="glyphicon glyphicon-trash"></span> Clear <strong>all</strong> items (for this build)
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -588,7 +628,7 @@
                         <li>Profit</li>
                     </ol>
                     <h4>Advanced Usage</h4>
-                    
+
                     <h5>More options</h5>
                     <ul>
                         <li>If you plan to use an attack with innate element(s), you can select the corresponding element(s) in the "Skill innate element(s)" section (for instance, you'll want to select Ice if you plan to use Fryevia's Frost Flower Blitz.</li>
@@ -598,7 +638,7 @@
                         <li>Custom Formula allows to create tailored-made builds. More information on how to use it when you click on it.</li>
                         <li>Some pre-set custom formula can be found on the custom formula popup. Click on the arrow on the left of the text field to get access to various healing and expedition custom formula.</li>
                     </ul>
-                    
+
                     <h5>Equipment selection :</h5>
                     <ul>
                         <li>All Equipments :
@@ -883,14 +923,14 @@
                                         </div>
                                     </span>
                                 </div>
-                                
+
                                 <div>
                                     <input type="text" class="form-control" id="formulaConditionInput" placeholder="Enter condition(s) to meet (for instance, R_FIRE > 50 AND I_PARALYSIS) - optional">
                                 </div>
                             </div>
                             <button class="btn btn-primary" style="margin-left:10px;" onclick="chooseCustomFormula()">OK</button>
                         </div>
-                        
+
                         <h4>How to use this:</h4>
                         <ul>
                             <li>The "Maximize" field must contain an <span class="code">EXPRESSION</span>, that the builder will try to maximize</li>
@@ -968,7 +1008,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="modifyEnhancementModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -1079,14 +1119,14 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" 
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" 
-                integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
+        <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"
+                integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="/clientConfig"></script>
@@ -1105,7 +1145,6 @@
         <script src="builder/externalSites.js"></script>
         <script src="builder/typeCombinationGenerator.js"></script>
         <script src="builder.js?version=8"></script>
-        <script src="lib/bootstrap-combobox.js"></script>
         <script src="googleAnalytics.js"></script>
         <script src="lib/jsonc.js"></script>
         <script src="builder/links.js"></script>

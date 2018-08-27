@@ -1,7 +1,15 @@
-.goal .panel-heading {
+.goal .panel-heading .line {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.goal .panel-heading .line .goalLabel {
+    width: 120px;
+}
+
+#useNewJpDamageFormula {
+    margin-left: 20px;
 }
 
 #elementalResists {
@@ -218,12 +226,12 @@
     font-weight: bold;
 }
 
-#resultStats .buildResult {
+#resultStats .buildResult .resultLabel {
     font-weight: bold;
     font-size: 1.1em;
 }
 
-#resultStats .buildResult .calcValue {
+#resultStats .buildResult .calcValue .goal {
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -552,10 +560,6 @@ i.img.img-slot-hand.leftHand {
     margin-left: 5px;
 }
 
-.unit .combobox-container {
-    padding-left: 4px;
-}
-
 #unitTabs.nav > li > a > img {
     height: 38px;
     margin-top: -10px;
@@ -697,6 +701,12 @@ i.img.img-slot-hand.leftHand {
 
 .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink {
     background-color: white;
+}
+
+.buildLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 @media (max-width: 991px) {

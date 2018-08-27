@@ -9,6 +9,8 @@
   "scripts": {
     "test": "nyc mocha test/server --recursive",
     "test:web": "mocha-webpack --webpack-config test/webpack.config.js --require test/setup.js test/static/*.js",
+    "build:dev": "webpack --mode development --watch",
+    "build": "webpack --mode production --hide-modules",
     "prestart": "node config.js",
     "start": "node server.js"
   },
@@ -34,23 +36,30 @@
     "firebase-admin": "^5.12.0",
     "googleapis": "26.0.1",
     "helmet": "^3.13.0",
-    "inquirer": "6.0.0",
-    "joi": "13.5.2",
+    "inquirer": "6.2.0",
+    "joi": "13.6.0",
     "morgan": "1.9.0",
     "pngjs": "3.3.2",
     "request": "^2.87.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "cssnano": "4.0.5",
     "exports-loader": "0.7.0",
+    "extract-loader": "2.0.1",
+    "file-loader": "2.0.0",
+    "glob": "7.1.2",
+    "html-loader": "0.5.5",
     "image-size": "^0.6.3",
     "mocha": "5.2.0",
     "mocha-webpack": "2.0.0-beta.0",
     "mock-require": "3.0.2",
-    "nock": "9.4.3",
+    "nock": "9.6.1",
     "nyc": "12.0.2",
+    "postcss-loader": "3.0.0",
     "supertest": "3.1.0",
-    "webpack": "4.16.3",
+    "webpack": "4.17.1",
+    "webpack-cli": "3.1.0",
     "webpack-node-externals": "1.7.2"
   },
   "nyc": {
