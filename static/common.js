@@ -549,23 +549,26 @@ function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
 
 function loadInventory() {
     $.get('googleOAuthUrl', function(result) {
-        $('<div id="dialog" title="Authentication">' +
-            '<p>You\'ll be redirected to a google authentication page</p>'+
-            '<p class="loginMessageDetail">This site is using <a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> to access the stored inventory data, so it will never know your google login and password.</p>' +
-            '<p class="loginMessageDetail">The data is stored on the secure FFBE Equip <a href="https://developers.google.com/drive/v3/web/appdata" target="_blank" rel="noreferrer">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. FFBE Equip can only access this folder, and no personal file.</p>' +
-          '</div>' ).dialog({
-            modal: true,
-            open: function(event, ui) {
-                $(this).parent().css('position', 'fixed');
-            },
-            position: { my: 'top', at: 'top+150' },
-            buttons: {
-                Ok: function() {
+        Modal.show({
+            title: "Google Authentication",
+            body: '<p>You\'ll be redirected to a google authentication page</p>'+
+                  '<p class="loginMessageDetail">'+
+                    'This site is using '+
+                    '<a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> '+
+                    'to access the stored inventory data, so it will never know your google login and password.'+
+                  '</p>'+
+                  '<p class="loginMessageDetail">'+
+                    'The data is stored on the secure FFBE Equip '+
+                    '<a href="https://developers.google.com/drive/v3/web/appdata" target="_blank" rel="noreferrer">app folder on Google Drive <span class="glyphicon glyphicon-question-sign"/></a>. '+
+                    'FFBE Equip can only access this folder, and no personal file.'+
+                  '</p>',
+            buttons: [{
+                text: "Continue",
+                onClick: function() {
                     window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href.replace(".lyrgard.fr",".com"));
                 }
-            }
+            }]
         });
-
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         alert( errorThrown );
     });
@@ -1256,30 +1259,6 @@ function updateUnitAndItemCount() {
     $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : ''));
 }
 
-function showTextPopup(title, text) {
-    $('<div id="showBuilderSetupLinkDialog" title="' + title +'">' +
-        '<textarea style="width:100%;" rows="12">' + text + '</textarea>' +
-      '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            $(this).parent().css('position', 'fixed');
-            $(this).parent().css('top', '150px');
-            $("#showBuilderSetupLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showBuilderSetupLinkDialog input").after("<div>Copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');
-                }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        width: (($(window).width() > 600) ? 600: $(window).width())
-    });
-}
-
 function isLinkId(value) {
     return value.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
 }
@@ -1397,7 +1376,174 @@ function getStaticData(name, localized, callback) {
             alert( errorThrown );
         });    
     }
+}
+
+Modal = {
+    show: function(conf) {
+        /*
+        conf = {
+            title: string or function,
+            body: string or function,
+            size : 'large' or 'small' or false
+            onShow : false or function,
+            onHide : false or function,
+            withCancelButton: bool
+            buttons: [
+                {
+                    text: string
+                    className: string,
+                    onClick: function
+                }
+            ]
+        }
+        */
     
+        conf = $.extend({
+            title: "Modal Title",
+            body: "Modal body",
+            size : false,
+            onOpen : false,
+            onClose : false,
+            withCancelButton: true,
+            buttons: false
+        }, conf);
+    
+        conf.title = typeof conf.title === 'function' ? conf.title() : conf.title;
+        conf.body = typeof conf.body === 'function' ? conf.body() : conf.body;
+        var sizeClass = (conf.size === 'large' ? 'modal-lg' : (conf.size === 'small' ? 'modal-sm' : ''))
+    
+        if (conf.buttons === false && conf.withCancelButton === false) {
+            conf.buttons = [{
+                text: "Close",
+                className: "",
+                onClick: function() {}
+            }];
+        }
+    
+        var html = '<div class="modal" id="tempModal" tabindex="-1" role="dialog">';
+        html += '  <div class="modal-dialog '+sizeClass+'" role="document">';
+        html += '    <div class="modal-content">';
+        html += '      <div class="modal-header">';
+        html += '        <button type="button" class="close" data-dismiss="modal">&times;</button>';
+        html += '        <h4 class="modal-title">'+ conf.title +'</h4>';
+        html += '      </div>';
+        html += '      <div class="modal-body">' + conf.body + '</div>';
+        html += '      <div class="modal-footer">';
+        if (conf.withCancelButton) {
+            html += '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>';
+        }
+        $.each(conf.buttons, function(idx, buttonConf) {
+            var buttonClass = buttonConf.className ? buttonConf.className : '';
+            if (buttonClass.indexOf('btn-') === -1) {
+                buttonClass += "btn-" + (idx === 0 ? 'primary' : 'default');
+            }
+            html += '<button type="button" class="btn '+buttonClass+'" data-callback="'+idx+'">'+buttonConf.text+'</button>';
+        });
+        html += '      </div>';
+        html += '    </div>';
+        html += '  </div>';
+        html += '</div>';
+    
+        // Make sure we hide any existing modal before showing another one
+        Modal.hide();
+    
+        var $modal = $('body').prepend(html).children().first();
+        var $buttons = $modal.find("button[data-callback]");
+    
+        // Enable modal mode, and add hidden event handler
+        $modal.modal({ keyboard: false })
+                .on('hidden.bs.modal', function (e) {
+                    if (conf.onClose) conf.onClose($modal);
+                    // When modal is hidden, remove all event handlers attached and remove from DOM
+                    $buttons.off();
+                    $modal.off().remove();
+                }).on('keyup', function(e) {
+                    if (e.keyCode == 13) {
+                        // Hanle press ENTER
+                        // Automatically click on submit if only one user button is defined
+                        // Otherwise, do nothing, we don't know which one to prefer...
+                        if ($buttons.length === 1) {
+                            e.stopImmediatePropagation();
+                            $buttons.click();
+                        }
+                    } else if (e.keyCode === 27) {
+                        // Hanle press ESCAPE
+                        // Close modal
+                        e.stopImmediatePropagation();
+                        $modal.modal('hide');
+                    }
+                });
+    
+        // Add buttons event handler
+        $buttons.on('click', function (e) {
+            var shouldHide = true;
+            // Find and call callback
+            var buttonIdx = $(this).attr('data-callback');
+            if (conf.buttons[buttonIdx].onClick) shouldHide = conf.buttons[buttonIdx].onClick($modal);
+            // Hide modal
+            if (shouldHide !== false) {
+                $modal.modal('hide');
+            }
+        });
+        
+        if (conf.onOpen) conf.onOpen($modal);
+    },
+    
+    hide: function() {
+        if ($('#tempModal').length > 0) {
+            $('#tempModal').modal('hide');
+        }
+    },
+
+    showWithBuildLink: function(name, link)
+    {
+        Modal.show({
+            title: "Link to your " + name,
+            body: "<p>This link will allow anyone to visualize your "+name+"</p>"+
+                  '<div class="input-group">' + 
+                    '<span class="input-group-addon">🔗</span>' +
+                    '<input class="form-control linkInput" type="text" value="http://ffbeEquip.com/'+link+'"/>' + 
+                  '</div>'+
+                  '<p class="hidden linkInputCopied">Link copied to your clipboard.</p>',
+            withCancelButton: false,
+            size: 'large',
+            onOpen: function($modal) {
+                if (copyInputToClipboard($modal.find("input"))) {
+                    $modal.find(".linkInputCopied").removeClass('hidden');
+                }
+            }
+        });
+    },
+    
+    showWithTextData: function(title, textData) 
+    {
+        Modal.show({
+            title: title,
+            body: '<textarea class="form-control" rows="12">' + textData + '</textarea>'+
+                  '<p class="hidden linkInputCopied">Link copied to your clipboard.</p>',
+            withCancelButton: false,
+            size: 'large',
+            onOpen: function($modal) {
+                if (copyInputToClipboard($modal.find("textarea"))) {
+                    $modal.find(".linkInputCopied").removeClass('hidden');
+                }
+            }
+        });
+    }
+}
+
+
+
+function copyInputToClipboard($input) 
+{
+    var successful = false;
+    try {
+        if ($input.length > 0) {
+            $input.focus().select();
+            successful = document.execCommand('copy');
+        }
+    } catch (err) {}
+    return successful;
 }
 
 $(function() {

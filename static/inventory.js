@@ -110,11 +110,11 @@ function showSettings() {
         '<div class="col-xs-12 addAll">' +
         '<div class="col-xs-12 source">Inventory Tools</div>' +
         '<div class="col-x2-12 inventoryTools">' +
-        '<button class="ui-button ui-corner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
+        '<button class="btn btn-primary addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
     if (itemsAddedWithAddAll.length > 0) {
-        html += '<button class="ui-button ui-corner-all ui-widget" onclick="undoAddAllToInventory()">Undo Add All</button>';
+        html += '<button class="btn btn-warning" onclick="undoAddAllToInventory()">Undo Add All</button>';
     }
-    html += '<button class="ui-button ui-corner-all ui-widget removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
+    html += '<button class="btn btn-danger removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
     html += '</div></div>';
     $("#results").html(html);
 }
@@ -295,47 +295,36 @@ function willSave() {
 }
 
 function showAddAllToInventoryDialog() {
-    $('<div id = "dialog-addAll-confirm" title = "Add all equipment and materia to inventory?" >' +
-        '<p>This will add up to 2 of each equipment and 4 of each materia to your inventory. Are you sure you want to continue?</p> ' +
-    '</div>').dialog({
-        resizable: false,
-        height: "auto",
-        width: 600,
-        modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        buttons: {
-            "Add all items": function () {
+    Modal.show({
+        title: "Add all equipment and materia to inventory?",
+        body: "<p>This will add up to 2 of each equipment and 4 of each materia to your inventory.</p>"+
+              "<p><strong>Are you sure you want to continue?</strong></p>",
+        buttons: [{
+            text: "Add all items",
+            className: "btn-warning",
+            onClick: function() {
                 addAllToInventory(materia, 4);
                 addAllToInventory(equipments, 2);
-                $(this).dialog("close");
-            },
-            Cancel: function () {
-                $(this).dialog("close");
             }
-        }
+        }]
     });
 }
 
 function showRemoveAllToInventoryDialog() {
-    $('<div id = "dialog-removeAll-confirm" title = "Remove all equipment and materia from inventory?" >' +
-        '<p>This will empty your equipment and materia inventory (on this site). This is not reversible. Are you sure you want to continue?</p> ' +
-    '</div>').dialog({
-        resizable: false,
-        height: "auto",
-        width: 600,
-        modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        buttons: {
-            "Empty inventory": function () {
+    Modal.show({
+        title: "Remove all equipment and materia from inventory?",
+        body: "<p>This will empty your equipment and materia inventory (on this site).</p>"+
+              "<p><strong>This is not reversible</strong></p>" +
+              "<p><strong>Are you sure you want to continue?</strong></p>",
+        buttons: [{
+            text: "Empty inventory",
+            className: "btn-danger",
+            onClick: function() {
                 itemInventory = {};
                 updateUnitAndItemCount();
                 saveUserData(true, false);
-                $(this).dialog("close");
-            },
-            Cancel: function () {
-                $(this).dialog("close");
             }
-        }
+        }]
     });
 }
 
