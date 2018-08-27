@@ -493,10 +493,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         return result;   
     } else {
         var result = {"right":0,"left":0,"total":Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value}; 
-        if (itemAndPassives[0]) {
+        if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }
-        if (itemAndPassives[1]) {
+        if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.left = result.total;
         }
         return result;
