@@ -889,39 +889,10 @@ function getPublicEsperLink() {
         "level":ownedEspers[currentEsper].level,
         "selectedSkills":ownedEspers[currentEsper].selectedSkills,
     };
-    
-    $('<div id="showLinkDialog" title="Esper Link">' + 
-        '<input value="http://ffbeEquip.com/espers.html?server=' + server + '&o#' + btoa(JSON.stringify(esperToExport)) + '"></input>' +
-        '<h4>This link will allow to visualize this esper build</h4>' +
-        '</div>' ).dialog({
-        modal: true,
-        open: function(event, ui) {
-            var $dlg = $(this).parent();
-            $dlg.css('position', 'fixed');
-            if ($(window).outerWidth() < $dlg.outerWidth()) {
-                $dlg.css({
-                    width: '94%',
-                    left: '3%'
-                });
-            }
 
-            $("#showLinkDialog input").select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    $("#showLinkDialog input").after("<div>Link copied to clipboard<div>");
-                } else {
-                    console.log('Oops, unable to copy');    
-                }
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        },
-        position: { my: 'top', at: 'top+150' },
-        width: 600
-    });
+    Modal.showWithBuildLink("Esper build", "espers.html?server=" + server + '&o#' + btoa(JSON.stringify(esperToExport)));
+
 }
-
 
 // will be called by common.js at page load
 function startPage() {

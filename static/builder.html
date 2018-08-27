@@ -10,8 +10,6 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-              integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css-img/espers.css">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/elements-ailments.css">
@@ -128,49 +126,50 @@
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default goal">
                     <div class="panel-heading">
-                        <div id="normalGoalChoices">
-                            <form class="form-inline">
-                                <div class="form-group flex-form-group">
-                                    <span>Goal : Maximize</span>
-                                    <select class="form-control">
-                                        <option value="physicalDamage">Physical damage</option>
-                                        <option value="magicalDamage">Magical damage</option>
-                                        <option value="hybridDamage">Hybrid damage</option>
-                                        <option value="jumpDamage">Jump damage</option>
-                                        <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
-                                        <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
-                                        <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
-                                        <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
-                                        <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
-                                        <option value="physicalDamageMultiCast">Physical damage Multicast</option>
-                                        <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
-                                        <option value="summonerSkill">Summoner skill</option>
-                                        <option value="physicaleHp">Physical eHP (HP * DEF)</option>
-                                        <option value="magicaleHp">Magical eHP (HP * SPR)</option>
-                                        <option value="def">Defense</option>
-                                        <option value="spr">Spirit</option>
-                                        <option value="hp">Health Points</option>
-                                        <option value="physicalEvasion">Physical evasion</option>
-                                        <option value="magicalEvasion">Magical evasion</option>
-                                        <option value="mpRefresh">MP/turn</option>
-                                        <option value="heal">Heal</option>
-                                    </select>
-                                    <span class="customGoalLinkSpan">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
-                                </div>
-                            </form>
+                        <div class=" line">
+                            <span class="normalGoalChoices goalLabel">Goal : Maximize</span>
+                            <div class="normalGoalChoices">
+                                <select id="normalGoalChoice" class="form-control">
+                                    <option value="physicalDamage">Physical damage</option>
+                                    <option value="magicalDamage">Magical damage</option>
+                                    <option value="hybridDamage">Hybrid damage</option>
+                                    <option value="jumpDamage">Jump damage</option>
+                                    <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
+                                    <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
+                                    <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
+                                    <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
+                                    <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
+                                    <option value="physicalDamageMultiCast">Physical damage Multicast</option>
+                                    <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
+                                    <option value="summonerSkill">Summoner skill</option>
+                                    <option value="physicaleHp">Physical eHP (HP * DEF)</option>
+                                    <option value="magicaleHp">Magical eHP (HP * SPR)</option>
+                                    <option value="def">Defense</option>
+                                    <option value="spr">Spirit</option>
+                                    <option value="hp">Health Points</option>
+                                    <option value="physicalEvasion">Physical evasion</option>
+                                    <option value="magicalEvasion">Magical evasion</option>
+                                    <option value="mpRefresh">MP/turn</option>
+                                    <option value="heal">Heal</option>
+                                </select>
+                            </div>    
+                            <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
+                            <span class="customGoalChoice hidden">Custom Goal: </span>
+                            <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
+                            <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
                         </div>
-                        <div id="customGoalChoice" class="hidden">
-                            <span>Custom Goal: </span>
-                            <a id="customGoalFormula" class="link" onclick="openCustomGoalModal()"></a>
-                            <span class="link glyphicon glyphicon-remove" onclick="removeCustomGoal()" ></span>
-                        </div>
-                        <form id="goalVarianceDiv" class="form-inline">
+                        <div class=" line">
+                            <span class="goalLabel">Damage variance</span>
+                            <div>
                                 <select id="goalVariance" name="goalVariance" class="form-control">
                                     <option value="min">Minimum</option>
                                     <option value="avg" selected="selected">Average</option>
                                     <option value="max">Maximum</option>
                                 </select>
-                        </form>
+                            </div>
+                            <input type="checkbox" id="useNewJpDamageFormula"/>
+                            <span>Use new JP damage formula</span>
+                        </div>
                     </div>
                 </div>
                 <div class="panel panel-default unit">
@@ -524,7 +523,7 @@
                                     <div class="physical"></div>
                                     <div class="magical"></div>
                                 </div>
-                                <div class="resultLine buildResult hidden">Build goal calculated value: <span class="calcValue"></span></div>
+                                <div class="resultLine buildResult hidden"><span class="resultLabel">Build goal calculated value: </span><span class="calcValue"></span></div>
                                 <div class="resultLine physicalDamageResult hidden">Physical damage on a <span class="monsterDefValue"></span> DEF enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine magicalDamageResult hidden">Magical damage on a <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
                                 <div class="resultLine hybridDamageResult hidden">Hybrid damage on a <span class="monsterDefValue"></span> DEF <span class="monsterSprValue"></span> SPR enemy with a <span class="damageCoef"></span> skill: <span class="calcValue"></span></div>
@@ -1083,8 +1082,6 @@
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" 
-                integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js" 
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
