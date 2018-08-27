@@ -470,6 +470,10 @@ function isNumber(evt) {
     return true;
 };
 
+function ucFirst(string) {
+    return string ? (string.charAt(0).toUpperCase() + string.slice(1)) : undefined;
+}
+
 function isNumberOrMinus(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -527,10 +531,12 @@ function addTextChoicesTo(targetId, type, valueMap) {
 }
 
 // Add image choices to a filter.
-function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "") {
+function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "", tooltipList = []) {
+    // If tooltipList is function, use it to map values
+    if (typeof tooltipList == 'function') tooltipList = valueList.map(tooltipList);
 	var target = $("#" + targetId);
 	for (i = 0; i < valueList.length; i++) {
-		addIconChoiceTo(target, targetId, valueList[i], type, iconType);
+		addIconChoiceTo(target, targetId, valueList[i], type, iconType, tooltipList[i]);
 	}
 }
 
@@ -540,10 +546,13 @@ function addTextChoiceTo(target, name, type, value, label) {
 }
 
 // Add one image choice to a filter
-function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
-    target.append('<label class="btn btn-default iconChoice">'+
+function addIconChoiceTo(target, name, value, type="checkbox", iconType = "", tooltip = undefined) {
+    if (tooltip) tooltip = 'data-toggle="tooltip" title="'+tooltip+'"';
+    else tooltip = ' title="'+value+'"';
+
+    target.append('<label class="btn btn-default iconChoice" '+tooltip+'>'+
                   '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
-                  '<i class="img img-'+iconType+'-'+value+'" title="'+value+'"></i>'+
+                  '<i class="img img-'+iconType+'-'+value+'"></i>'+
                   '</label>');
 }
 
