@@ -15,10 +15,9 @@ function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#itemsWrapper").removeClass("hidden");
-    $("#itemCount").addClass("hidden");
-    $("#materiaCount").addClass("hidden");
     $("#itemEnhancement").addClass("hidden");
     $("#results").removeClass("hidden");
+    $("#loadMore").addClass('hidden');
     
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
@@ -36,7 +35,6 @@ function showMateria() {
     
     $(".nav-tabs li.materia").addClass("active");
     $("#sortType").text("Sorted by Name");
-    $("#materiaCount").removeClass("hidden");
     $("#searchBox").val(materiaLastSearch);
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
@@ -49,7 +47,6 @@ function showEquipments() {
     
     $(".nav-tabs li.equipment").addClass("active");
     $("#sortType").text("Sorted by Type (Strength)");
-    $("#itemCount").removeClass("hidden");
     $("#searchBox").val(equipmentLastSearch);
     $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
@@ -63,9 +60,12 @@ function showSearch() {
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
 
     $("#searchBox").removeClass("hidden");
-    $("#sortType").text("");
     // filter, sort and display the results
-    displayItems(sort(search()), inEquipment);
+    var textToSearch = $("#searchBox").val();
+    displayItems(sort(search(textToSearch)), inEquipment);
+    if (textToSearch) {
+        $("#sortType").text("");
+    }
 }
 
 function showHistory() {
@@ -75,34 +75,72 @@ function showHistory() {
     $(".nav-tabs li.history").addClass("active");
     $("#sortType").text("Sorted by release date");
     
-    var resultDiv = $("#results");
-    resultDiv.empty();
-    for (var dateIndex in lastItemReleases) {
-        resultDiv.append('<div class="col-xs-12 date">' + lastItemReleases[dateIndex].date+'</div>');
-        for (var sourceIndex in lastItemReleases[dateIndex].sources) {
-            var html = '';
-            if (lastItemReleases[dateIndex].sources[sourceIndex].type == "banner") {
-                html += '<div class="col-xs-12 source">';
-                for (var unitIndex in lastItemReleases[dateIndex].sources[sourceIndex].units) {
-                    if (lastItemReleases[dateIndex].sources[sourceIndex].units.length > 1 && unitIndex == lastItemReleases[dateIndex].sources[sourceIndex].units.length -1) {
-                        html += " and ";
-                    } else if (unitIndex > 0) {
-                        html += ", ";
-                    }
-                    html += allUnits[lastItemReleases[dateIndex].sources[sourceIndex].units[unitIndex]].name;
+    var $resultDiv = $("#results").empty();
+    displayId++;
+    displayItemsByHistoryAsync(0, 4, displayId, $resultDiv);
+}
+
+function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $loadMore) {
+    if ($resultDiv == undefined) $resultDiv = $("#results");
+    if ($loadMore == undefined) $loadMore = $("#loadMore");
+    // Get current item release
+    var currentItemReleases = lastItemReleases[dateIndex];
+    // Hide LoadMore button
+    // Make sure max index is below length
+    dateIndexMax = Math.min(lastItemReleases.length, dateIndexMax);
+    
+    // Display date
+    var html = '<div class="col-xs-12 date">' + currentItemReleases.date+'</div>';
+    for (var sourceIndex in currentItemReleases.sources) {
+        var items = currentItemReleases.sources[sourceIndex].items;
+        if (currentItemReleases.sources[sourceIndex].type == "banner") {
+            // Display banner unit list
+            html += '<div class="col-xs-12 source">';
+            for (var unitIndex in currentItemReleases.sources[sourceIndex].units) {
+                if (currentItemReleases.sources[sourceIndex].units.length > 1 && unitIndex == currentItemReleases.sources[sourceIndex].units.length -1) {
+                    html += " and ";
+                } else if (unitIndex > 0) {
+                    html += ", ";
                 }
-                html += "</div>";
-            } else if (lastItemReleases[dateIndex].sources[sourceIndex].type == "event" || lastItemReleases[dateIndex].sources[sourceIndex].type == "storyPart") {
-                html += '<div class="col-xs-12 source">' + lastItemReleases[dateIndex].sources[sourceIndex].name + "</div>";
+                html += allUnits[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
             }
-            resultDiv.append(html);
-            displayItemsAsync(lastItemReleases[dateIndex].sources[sourceIndex].items, 0, resultDiv, displayId);
+            html += "</div>";
+        } else if (currentItemReleases.sources[sourceIndex].type == "event" || currentItemReleases.sources[sourceIndex].type == "storyPart") {
+            // Display event name
+            html += '<div class="col-xs-12 source">' + currentItemReleases.sources[sourceIndex].name + "</div>";
+        }
+        // Display items list
+        for (var index = 0; index < items.length; index++) {
+            if (items[index] === undefined) continue;
+            html += getItemDisplay(items[index]);
+        }
+    }
+
+    if (id == displayId) {
+        //Increment current date index
+        dateIndex++;
+        // Check if we are at the max and not at the end
+        if ((dateIndex === dateIndexMax) && (dateIndexMax !== lastItemReleases.length)) {
+            $loadMore.removeClass('hidden');
+            $loadMore.find('button.btn-primary').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(dateIndex+10)+", "+id+")");
+            $loadMore.find('button.btn-warning').attr('onclick', "displayItemsByHistoryAsync("+dateIndex+", "+(lastItemReleases.length)+", "+id+")");
+        } else {
+            $loadMore.addClass('hidden');
+        }
+        // Add all items to the DOM
+        $resultDiv.append(html);
+        // Update lazyloader only for first and last run
+        if (dateIndex === 1 || dateIndex >= dateIndexMax) lazyLoader.update();
+        // Launch next run of type
+        if (dateIndex < dateIndexMax) {
+            setTimeout(displayItemsByHistoryAsync, 0, dateIndex, dateIndexMax, id, $resultDiv, $loadMore);
         }
     }
 }
 
 function showSettings() {
     beforeShow();
+    displayId++;
     $(".nav-tabs li.settings").addClass("active");
     $("#sortType").text("");
     var html = "";
@@ -110,11 +148,11 @@ function showSettings() {
         '<div class="col-xs-12 addAll">' +
         '<div class="col-xs-12 source">Inventory Tools</div>' +
         '<div class="col-x2-12 inventoryTools">' +
-        '<button class="ui-button ui-corner-all ui-widget addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
+        '<button class="btn btn-primary addAllButton" onclick="showAddAllToInventoryDialog()">Add All Equipment and Materia</button>';
     if (itemsAddedWithAddAll.length > 0) {
-        html += '<button class="ui-button ui-corner-all ui-widget" onclick="undoAddAllToInventory()">Undo Add All</button>';
+        html += '<button class="btn btn-warning" onclick="undoAddAllToInventory()">Undo Add All</button>';
     }
-    html += '<button class="ui-button ui-corner-all ui-widget removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
+    html += '<button class="btn btn-danger removeAllButton" onclick="showRemoveAllToInventoryDialog()">Remove All Equipment and Materia</button>';
     html += '</div></div>';
     $("#results").html(html);
 }
@@ -154,6 +192,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     html += '<div class="itemList">';
     for (var index = start, len = items.length; index < len; index++) {
         var item = items[index];
+        if (item === undefined) continue;
 
         if (item.type === currentItemType) {
             html += getItemDisplay(item);
@@ -181,6 +220,7 @@ function displayItemsAsync(items, start, div, id, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
+        if (items[index] === undefined) continue;
         html += getItemDisplay(items[index]);
     }
 
@@ -282,7 +322,6 @@ function addToInventory(id, showAlert = true) {
         updateUnitAndItemCount();
     }
     willSave();
-    updateCounts();
     displayStats();
     return true;
 }
@@ -295,47 +334,37 @@ function willSave() {
 }
 
 function showAddAllToInventoryDialog() {
-    $('<div id = "dialog-addAll-confirm" title = "Add all equipment and materia to inventory?" >' +
-        '<p>This will add up to 2 of each equipment and 4 of each materia to your inventory. Are you sure you want to continue?</p> ' +
-    '</div>').dialog({
-        resizable: false,
-        height: "auto",
-        width: 600,
-        modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        buttons: {
-            "Add all items": function () {
+    Modal.show({
+        title: "Add all equipment and materia to inventory?",
+        body: "<p>This will add up to 2 of each equipment and 4 of each materia to your inventory.</p>"+
+              "<p><strong>Are you sure you want to continue?</strong></p>",
+        buttons: [{
+            text: "Add all items",
+            className: "btn-warning",
+            onClick: function() {
                 addAllToInventory(materia, 4);
                 addAllToInventory(equipments, 2);
-                $(this).dialog("close");
-            },
-            Cancel: function () {
-                $(this).dialog("close");
             }
-        }
+        }]
     });
 }
 
 function showRemoveAllToInventoryDialog() {
-    $('<div id = "dialog-removeAll-confirm" title = "Remove all equipment and materia from inventory?" >' +
-        '<p>This will empty your equipment and materia inventory (on this site). This is not reversible. Are you sure you want to continue?</p> ' +
-    '</div>').dialog({
-        resizable: false,
-        height: "auto",
-        width: 600,
-        modal: true,
-        position: { my: 'top', at: 'top+150', of: $("body") },
-        buttons: {
-            "Empty inventory": function () {
+    Modal.show({
+        title: "Remove all equipment and materia from inventory?",
+        body: "<p>This will empty your equipment and materia inventory (on this site).</p>"+
+              "<p><strong>This is not reversible</strong></p>" +
+              "<p><strong>Are you sure you want to continue?</strong></p>",
+        buttons: [{
+            text: "Empty inventory",
+            className: "btn-danger",
+            onClick: function() {
                 itemInventory = {};
                 updateUnitAndItemCount();
+                displayStats();
                 saveUserData(true, false);
-                $(this).dialog("close");
-            },
-            Cancel: function () {
-                $(this).dialog("close");
             }
-        }
+        }]
     });
 }
 
@@ -354,7 +383,6 @@ function addAllToInventory(items, amount) {
     }
     showSettings();
     displayStats();
-    updateCounts();
 }
 
 function undoAddAllToInventory() {
@@ -364,7 +392,6 @@ function undoAddAllToInventory() {
     itemsAddedWithAddAll = [];
     showSettings();
     displayStats();
-    updateCounts();
 }
 
 
@@ -383,7 +410,6 @@ function removeFromInventory(id) {
         mustSaveUnits = true;
         willSave();
         displayStats();
-        updateCounts();
     }
 }
 
@@ -407,9 +433,8 @@ function farmedTMR(unitId) {
     willSave();
 }
 
-function search() {
+function search(textToSearch) {
     var result = [];
-    var textToSearch = $("#searchBox").val();
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     
     var itemsToSearch = [];
@@ -570,23 +595,6 @@ function getStat(item, stat) {
     }
 }
 
-function updateCounts() {
-    var itemCount = 0;
-    var materiaCount = 0;
-    for (var index = equipments.length; index--;) {
-        if (itemInventory[equipments[index].id]) {
-            itemCount++;
-        }
-    }
-    for (var index = materia.length; index--;) {
-        if (itemInventory[materia[index].id]) {
-            materiaCount++;
-        }
-    }
-    $("#itemCount").text(" - " + itemCount + " slots");
-    $("#materiaCount").text(" - " + materiaCount + " slots");
-}
-
 function showItemEnhancements(itemId) {
     if (itemInventory[itemId]) {
         var item = null;
@@ -690,7 +698,6 @@ function toggleItemEnhancement(enhancement) {
 function inventoryLoaded() {
     if (data) {
         showEquipments();
-        updateCounts();
     }
 }
 
@@ -843,7 +850,6 @@ function startPage() {
             materia = keepOnlyOneOfEachMateria();
             if (itemInventory) {
                 showEquipments();
-                updateCounts();
             }
             getStaticData("lastItemReleases", false, function(result) {
                 lastItemReleases = result;
