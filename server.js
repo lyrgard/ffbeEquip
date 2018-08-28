@@ -18,6 +18,8 @@ const authRequired = require('./server/middlewares/oauth.js');
 
 const app = express();
 
+console.log(`Environment is: ${config.env}`);
+
 // Helmet Middleware
 app.use(helmet());
 
@@ -56,16 +58,17 @@ if (config.isDev) {
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
-// Static middleware 
-if (config.isProd) {
+// Static middleware
+if (config.isProd || process.env.DEV_USE_DIST === "yes") {
+  console.log(`App is also serving dist`);
   // In prod, also serve dist folder (which contains the webpack generated files)
   // Any files present in 'dist' will shadow files in 'static'
   app.use(express.static(path.join(__dirname, '/dist/'), {
     etag: false,
-    lastModified: true,
-    cacheControl: true,
+    lastModified: config.isProd,
+    cacheControl: config.isProd,
     maxAge: "365d",
-    immutable: true,
+    immutable: config.isProd,
     setHeaders: function (res, path) {
       if (mime.lookup(path) === 'text/html') {
         // For HTML, avoid long and immutable cache since it can't be busted
