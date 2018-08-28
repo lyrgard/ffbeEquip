@@ -43,9 +43,9 @@ const cspDirectives = {
   frameSrc: ["'none'"],
   frameAncestors: ["'none'"],
   formAction: ["'self'"],
-  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
   blockAllMixedContent: !config.isDev,
   upgradeInsecureRequests: !config.isDev,
+  reportUri: config.isProd ? 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly' : undefined
 };
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
