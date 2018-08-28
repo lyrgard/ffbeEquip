@@ -28,7 +28,7 @@ app.use(helmet.hsts({
   preload: true,
 }));
 
-const cspDirectives = {
+var cspDirectives = {
   defaultSrc: ["'none'"],
   scriptSrc: ["'self'", "'unsafe-inline'",
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
@@ -46,8 +46,13 @@ const cspDirectives = {
   formAction: ["'self'"],
   blockAllMixedContent: !config.isDev,
   upgradeInsecureRequests: !config.isDev,
-  reportUri: config.isProd ? 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly' : undefined
+  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
 };
+
+// In development, do not report
+if (config.isDev) {
+  delete cspDirectives.reportUri;
+}
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
