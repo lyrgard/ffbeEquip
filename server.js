@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
 const helmet = require('helmet');
+const mime = require('mime-types');
 
 const config = require('./config.js');
 const firebase = require('./server/routes/firebase.js');
@@ -50,12 +51,34 @@ const cspDirectives = {
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
-// Middlewares
+// Static middleware 
 if (config.isProd) {
-  app.use(express.static(path.join(__dirname, '/dist/')));
+  // In prod, also serve dist folder (which contains the webpack generated files)
+  // Any files present in 'dist' will shadow files in 'static'
+  app.use(express.static(path.join(__dirname, '/dist/'), {
+    etag: false,
+    lastModified: true,
+    cacheControl: true,
+    maxAge: "365d",
+    immutable: true,
+    setHeaders: function (res, path) {
+      if (mime.lookup(path) === 'text/html') {
+        // For HTML, avoid long and immutable cache since it can't be busted
+        res.setHeader('Cache-Control', 'public, max-age=0');
+      }
+    }
+  }));
 }
 
-app.use(express.static(path.join(__dirname, '/static/')));
+// Static middleware 
+// Serve static files directly
+// Cache related headers are disabled in dev
+app.use(express.static(path.join(__dirname, '/static/'), {
+  etag: false,
+  cacheControl: config.isProd,
+  lastModified: config.isProd,
+  maxAge: "1h"
+}));
 
 if (config.isDev) {
   app.use(morgan('dev'));
