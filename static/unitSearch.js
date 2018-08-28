@@ -262,7 +262,7 @@ var readFilterValues = function() {
     imperils.targetAreaTypes = getSelectedValuesFor("imperilsTargetAreaTypes");
     imperils.skillTypes = getSelectedValuesFor("imperilsSkillTypes");
     
-    breaks.values = getSelectedValuesFor("breaks");
+    breaks.values = getSelectedValuesFor("breaks").map(function(v){return v.replace('break_','');});
     breaks.targetAreaTypes = getSelectedValuesFor("breaksTargetAreaTypes");
     breaks.skillTypes = getSelectedValuesFor("breaksSkillTypes");
     
@@ -358,7 +358,7 @@ function displayUnitsAsync(units, start, div) {
                         html+= " selected";
                     }
                     html+= '">';
-                    html+= '<i class="img img-elem-ailm-' + elementList[i] + '"></i>';
+                    html+= '<i class="img img-element-' + elementList[i] + '"></i>';
                     html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
                 }
             }
@@ -374,7 +374,7 @@ function displayUnitsAsync(units, start, div) {
                         html+= " selected";
                     }
                     html+= '">';
-                    html+= '<i class="img img-elem-ailm-' + ailmentList[i] + '"></i>';
+                    html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
                     html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
                 }
             }
@@ -464,7 +464,7 @@ function getSkillHtml(skill) {
 
 function getLbHtml(lb) {
     var html = '<div class="skill">';
-    html += '<div><img class="skillIcon" src="img/lb.png"/></div>'
+    html += '<div><img class="skillIcon" src="img/icons/lb.png"/></div>'
     html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name + '</span>'
     html += '<div class="subSkill">';
     html += '<span class="case">Min :</span>'
@@ -667,13 +667,13 @@ function startPage() {
 	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
     
 	// Elements
-	addIconChoicesTo("elements", elementList, "checkbox", "elem-ailm", function(v){return ucFirst(v)+" resistance"});
+	addIconChoicesTo("elements", elementList, "checkbox", "element", function(v){return ucFirst(v)+" resistance"});
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Ailments
     addIconChoicesTo("ailments", 
-                     ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "elem-ailm",
+                     ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "ailment",
                      function(v){return (v.indexOf('break') === 0 ? "Break " + v.replace('break_','').toUpperCase() : ucFirst(v))+" resistance"});
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
@@ -685,17 +685,18 @@ function startPage() {
     addTextChoicesTo("killersTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
 	// Imperils
-	addIconChoicesTo("imperils", elementList, "checkbox", "elem-ailm", function(v){return ucFirst(v)+" imperil"});
+	addIconChoicesTo("imperils", elementList, "checkbox", "element", function(v){return ucFirst(v)+" imperil"});
     addTextChoicesTo("imperilsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Breaks
-	addTextChoicesTo("breaks",'checkbox',{'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+    addIconChoicesTo("breaks", ['break_atk', 'break_def', 'break_mag', 'break_spr'], "checkbox", "ailment", 
+                     function(v){return v.replace('break_','').toUpperCase()+" break"});
     addTextChoicesTo("breaksSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("breaksTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Imbues
-	addIconChoicesTo("imbues", elementList, "checkbox", "elem-ailm", function(v){return "Imbue "+v});
+	addIconChoicesTo("imbues", elementList, "checkbox", "element", function(v){return "Imbue "+v});
     addTextChoicesTo("imbuesSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("imbuesTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     

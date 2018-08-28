@@ -287,6 +287,11 @@
     opacity: 0.2;
 }
 
+.unitEquipable i.img {
+    width: 30px;
+    height: 30px;
+}
+
 .monsterDefensiveStats {
     margin-bottom: 20px;
 }
@@ -441,7 +446,12 @@ i.img.img-slot-hand.leftHand {
     width: 100%;
     text-align: center;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    
+}
+
+#resultStats .killers .killerValueGroup i.img,
+#resultStats .resists .resist i.img {
+    height: 40px;
+    width: 40px;
 }
 
 #resultStats .resists .resist.statToMaximize .value {
@@ -450,11 +460,6 @@ i.img.img-slot-hand.leftHand {
 
 #resultStats .killers .killerValueGroup {
     margin-right: 5px;
-}
-
-#resultStats .killers .killerValueGroup i.img {
-    width: 38px;
-    height: 38px;
 }
 
 .checkboxGroup {
@@ -712,6 +717,22 @@ i.img.img-slot-hand.leftHand {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.stat i.img.statChoice {
+    width: 36px;
+    height: 36px;
+}
+
+.stat .dropdown-menu i.img {
+    width: 32px;
+    height: 32px;
+}
+
+.sort-type img,
+.sort-type i.img {
+    width: 36px;
+    height: 36px;
 }
 
 @media (max-width: 991px) {

@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
+        <link rel="stylesheet" type="text/css" href="css-img/tabs.css">
 		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="inventory.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
@@ -369,11 +370,19 @@
                             <span class="glyphicon glyphicon-share-alt"></span>
                             Export as CSV
                         </a>
-                        <ul class="nav nav-tabs">
-                            <li class="equipment"  onclick="showEquipments()"><a><i class="img img-equipment-equipment"></i></a></li>
-                            <li class="materia" onclick="showMateria()"><a><i class="img img-equipment-materia"></i></a></li>
-                            <li class="history" onclick="showHistory()"><a><img src="img/icons/history.png"/></a></li>
-                            <li class="settings" onclick="showSettings()"><a><img src="img/icons/settings.png" /></a></li>
+                        <ul class="nav nav-tabs nav-tabs-img">
+                            <li class="equipment"  onclick="showEquipments()" title="Show all equipments">
+                                <a><i class='img img-tab-equipments tab'></i></a>
+                            </li>
+                            <li class="materia" onclick="showMateria()" title="Show all materia">
+                                <a><i class='img img-tab-materia tab'></i></a>
+                            </li>
+                            <li class="history" onclick="showHistory()" title="Show inventory by events">
+                                <a><i class='img img-tab-history tab'></i></a>
+                            </li>
+                            <li class="settings" onclick="showSettings()" title="Show inventory tools">
+                                <a><i class='img img-tab-settings tab'></i></a>
+                            </li>
                         </ul>
                         <div id="tabsRightData" class='hidden-xs'>
                             <span id="sortType"></span>
