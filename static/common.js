@@ -106,7 +106,7 @@ function getElementHtml(elements) {
     for (var index in elements) {
         html += "<div class='specialValueItem'><div class='specialImg'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + elements[index] + "'></i>"+
+                "<i class='img img-elem-ailm-" + elements[index] + " withMiniIcon'></i>"+
                 "</div></div>";
     }
     html += "</div>";
@@ -118,7 +118,7 @@ function getAilmentsHtml(item) {
     $(item.ailments).each(function(index, ailment) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText'></i>"+
+                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
     html += "</div>";
@@ -129,7 +129,7 @@ function getResistHtml(item) {
     $(item.resist).each(function(index, resist) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
                 "<i class='img img-equipment-heavyShield miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + resist.name + " imageWithText'></i>"+
+                "<i class='img img-elem-ailm-" + resist.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
     html += "</div>";
@@ -141,13 +141,13 @@ function getKillersHtml(item) {
         if (killer.physical) {
             html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-sword miniIcon'></i>"+
-                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
             html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-rod miniIcon'></i>"+
-                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
