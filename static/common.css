@@ -379,6 +379,15 @@ ul {
     text-transform: uppercase;
 }
 
+.nav.nav-tabs-img > li > a {
+    padding: 5px 10px;
+}
+
+.nav.nav-tabs-img > li > a i.img.tab {
+    height: 50px;
+    width: 50px;
+}
+
 .miniIcon {
     position: absolute;
     width: 22px;
