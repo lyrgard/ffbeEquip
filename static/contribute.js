@@ -7,6 +7,7 @@ var corrections;
 function updateResults() {
     displayItems(filterItems(removeModifedItems(data)));
     displayModifiedItems();
+    lazyLoader.update();
 }
                  
 function removeModifedItems(data) {
@@ -145,6 +146,7 @@ function setAccess(itemId, access) {
 }
 
 function sendToServer() {
+    $("body").addClass("loading");
     for (var id in modifiedItems) {
         if (!modifiedItems[id].access || modifiedItems[id].access.length == 0) {
             alert("Access cannot be empty");
@@ -161,23 +163,60 @@ function sendToServer() {
             delete modifiedItems[id].maxNumber;
         }
     }
+    
+    $("#submitModal .submitFailed, #submitModal .submitSuccess").addClass('hidden');
+
+    var modifiedItemsStr = JSON.stringify(modifiedItems);
+
     $.ajax({
         type: "POST",
         url: "/" + server + "/corrections",
-        data: JSON.stringify(modifiedItems),
+        data: modifiedItemsStr,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        statusCode: {
-            201: function(data){
-                window.location.reload();
-            },
-            400: function(jqXHR, textStatus, errorThrown) {alert(errorThrown);},
-            500: function(jqXHR, textStatus, errorThrown) {alert(errorThrown);}
+        success: function(data) {
+            $("#submitModal .submitSuccess").removeClass('hidden');
+            $("#submitModal .submitSuccess .details .modified").text(data.modified);
+            $("#submitModal .submitSuccess .details .total").text(data.total);
+            for (var id in modifiedItems) {
+                cancelModification(id);
+            }
+            getCorrections();
         },
-        failure: function(errMsg) {
-            alert("An error occured");
+        error: function(jqXHR, textStatus, errorThrown) {
+            var error = errorThrown + "\n";
+            if (jqXHR.responseJSON) error += jqXHR.responseJSON.error;
+            $("#submitModal .submitFailed").removeClass('hidden');
+            $("#submitModal .submitFailed").find('pre.error').html(error);
+            $("#submitModal .submitFailed").find('pre.data').html(modifiedItemsStr);
+        },
+        complete: function() {
+            // run after success/error handler
+            $("body").removeClass("loading");
+            $("#submitModal").modal();
         }
     });
+}
+
+function getCorrections() {
+    $.get(server + "/corrections.json", function(result) {
+        corrections = result;
+        for (var index = data.length; index--;) {
+            if (corrections[data[index].id]) {
+                data[index].access = corrections[data[index].id].access;
+                if (corrections[data[index].id].maxNumber) {
+                    data[index].maxNumber = corrections[data[index].id].maxNumber;
+                } else {
+                    delete data[index].maxNumber;
+                }
+                data[index].corrected = true;
+            }
+        }
+        prepareSearch(data);
+        updateResults();
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+        alert( errorThrown );
+    });  
 }
 
 // will be called by common.js at page load
@@ -189,25 +228,15 @@ function startPage() {
         }
         getStaticData("units", true, function(result) {
             units = result;
-            $.get(server + "/corrections.json", function(result) {
-                corrections = result;
-                for (var index = data.length; index--;) {
-                    if (corrections[data[index].id]) {
-                        data[index].access = corrections[data[index].id].access;
-                        if (corrections[data[index].id].maxNumber) {
-                            data[index].maxNumber = corrections[data[index].id].maxNumber;
-                        } else {
-                            delete data[index].maxNumber;
-                        }
-                        data[index].corrected = true;
-                    }
-                }
-                prepareSearch(data);
-                updateResults();
-            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
-            });    
+            getCorrections();
         });
+    });
+    
+    // Reset search if escape is used
+    $(window).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            $("#searchText").val('').trigger('input').focus();
+        }
     });
     
     // Triggers on search text box change
