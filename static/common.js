@@ -106,7 +106,7 @@ function getElementHtml(elements) {
     for (var index in elements) {
         html += "<div class='specialValueItem'><div class='specialImg'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + elements[index] + " withMiniIcon'></i>"+
+                "<i class='img img-element-" + elements[index] + " withMiniIcon'></i>"+
                 "</div></div>";
     }
     html += "</div>";
@@ -118,18 +118,20 @@ function getAilmentsHtml(item) {
     $(item.ailments).each(function(index, ailment) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText withMiniIcon'></i>"+
+                "<i class='img img-ailment-" + ailment.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
     html += "</div>";
     return html;
 }
+
 function getResistHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
+        var resistType = elementList.includes(resist.name) ? 'element' : 'ailment';
         html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
                 "<i class='img img-equipment-heavyShield miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + resist.name + " imageWithText withMiniIcon'></i>"+
+                "<i class='img img-"+resistType+"-" + resist.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
     html += "</div>";
