@@ -262,7 +262,7 @@ var readFilterValues = function() {
     imperils.targetAreaTypes = getSelectedValuesFor("imperilsTargetAreaTypes");
     imperils.skillTypes = getSelectedValuesFor("imperilsSkillTypes");
     
-    breaks.values = getSelectedValuesFor("breaks");
+    breaks.values = getSelectedValuesFor("breaks").map(function(v){return v.replace('break_','');});
     breaks.targetAreaTypes = getSelectedValuesFor("breaksTargetAreaTypes");
     breaks.skillTypes = getSelectedValuesFor("breaksSkillTypes");
     
@@ -464,7 +464,7 @@ function getSkillHtml(skill) {
 
 function getLbHtml(lb) {
     var html = '<div class="skill">';
-    html += '<div><img class="skillIcon" src="img/lb.png"/></div>'
+    html += '<div><img class="skillIcon" src="img/icons/lb.png"/></div>'
     html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name + '</span>'
     html += '<div class="subSkill">';
     html += '<span class="case">Min :</span>'
@@ -690,7 +690,8 @@ function startPage() {
     addTextChoicesTo("imperilsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     
     // Breaks
-	addTextChoicesTo("breaks",'checkbox',{'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+    addIconChoicesTo("breaks", ['break_atk', 'break_def', 'break_mag', 'break_spr'], "checkbox", "elem-ailm", 
+                     function(v){return v.replace('break_','').toUpperCase()+" break"});
     addTextChoicesTo("breaksSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("breaksTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
     

@@ -446,7 +446,12 @@ i.img.img-slot-hand.leftHand {
     width: 100%;
     text-align: center;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    
+}
+
+#resultStats .killers .killerValueGroup i.img,
+#resultStats .resists .resist i.img {
+    height: 40px;
+    width: 40px;
 }
 
 #resultStats .resists .resist.statToMaximize .value {
@@ -455,11 +460,6 @@ i.img.img-slot-hand.leftHand {
 
 #resultStats .killers .killerValueGroup {
     margin-right: 5px;
-}
-
-#resultStats .killers .killerValueGroup i.img {
-    width: 38px;
-    height: 38px;
 }
 
 .checkboxGroup {
