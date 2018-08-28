@@ -379,6 +379,15 @@ ul {
     text-transform: uppercase;
 }
 
+.nav.nav-tabs-img > li > a {
+    padding: 5px 10px;
+}
+
+.nav.nav-tabs-img > li > a i.img.tab {
+    height: 50px;
+    width: 50px;
+}
+
 .miniIcon {
     position: absolute;
     width: 22px;
@@ -417,6 +426,10 @@ ul {
 .miniIcon.topRight {
     margin-left: 55px;
     margin-top: 55px;
+}
+.withMiniIcon {
+    width: 38px;
+    height: 38px;
 }
 .detail {
     text-transform: uppercase;
@@ -773,6 +786,11 @@ nav {
 
 .choice .btn {
     padding: 3px 6px;
+}
+
+.choice i.img {
+    width: 38px;
+    height: 38px;
 }
 
 #scrollToTopButton {

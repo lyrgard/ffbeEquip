@@ -2384,7 +2384,7 @@ function startPage() {
     
     
     // Elements
-	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "elem-ailm");
+	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "element");
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -2660,10 +2660,10 @@ function populateItemType(equip) {
     var target = $("#fixItemModal .modal-body .nav.type");
     target.html("");
     if (equip.length > 1) {
-        target.append("<li class='all'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/icons/all.png'/></a></li>");
+        target.append("<li class='all sort-type'><a onclick='selectSearchType(" + JSON.stringify(equip) + ");updateSearchResult();'><img src='img/icons/all.png'/></a></li>");
     }
 	for (var key in equip) {
-        target.append('<li class="' + equip[key] + '"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();">'+
+        target.append('<li class="' + equip[key] + ' sort-type"><a onclick="selectSearchType([\'' + equip[key] + '\']);updateSearchResult();">'+
                       '<i class="img img-equipment-' + equip[key] + '"></i>'+
                       '</a></li>');
 	}
@@ -2685,13 +2685,13 @@ function populateResists() {
     var div = $("#resultStats .resists .elements");
     for (var index in elementList) {
         div.append('<div class="resist ' + elementList[index] + ' ' +  escapeDot("resist|" + elementList[index] + ".percent") + '">'+
-                   '<i class="img img-elem-ailm-' + elementList[index] + '"></i>'+
+                   '<i class="img img-element-' + elementList[index] + '"></i>'+
                    '<div class="value">0%<div></div>');
     }
     var div = $("#resultStats .resists .ailments");
     for (var index in ailmentList) {
         div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'">'+
-                   '<i class="img img-elem-ailm-' + ailmentList[index] + '"></i>'+
+                   '<i class="img img-ailment-' + ailmentList[index] + '"></i>'+
                    '<div class="value">0%<div></div>');
     }
 }
