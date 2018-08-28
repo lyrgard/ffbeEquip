@@ -42,9 +42,14 @@ const LISTING = [
         outPath: '../static/css-img/equipments.css'
     },
     {
-        className: 'elem-ailm',
-        basePath: '../static/img/icons/elements-ailments', 
-        outPath: '../static/css-img/elements-ailments.css'
+        className: 'element',
+        basePath: '../static/img/icons/elements', 
+        outPath: '../static/css-img/elements.css'
+    },
+    {
+        className: 'ailment',
+        basePath: '../static/img/icons/ailments', 
+        outPath: '../static/css-img/ailments.css'
     },
     {
         className: '', // there is already "sort" in the file name
