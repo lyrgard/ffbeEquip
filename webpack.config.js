@@ -29,7 +29,14 @@ module.exports = {
       {
         test: /\.(js)$/,
         use: [
-          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/', emitFile: false } },
+          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/' } },
+        ],
+      },
+      {
+        test: /\.(js)$/,
+        exclude: /\.min.js$/,
+        use: [
+          { loader: 'babel-loader', options: { presets: ['minify'] } },
         ],
       },
     ],
