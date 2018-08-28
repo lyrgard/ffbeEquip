@@ -773,7 +773,7 @@ function prepareData() {
 }
 
 function exportAsImage(minRarity = 1) {
-    $("#loaderGlassPanel").removeClass("hidden");
+    $("body").addClass("loading");
     var savedSort = currentSort;
     onlyShowOwnedUnits = true;
     showNumberTMRFarmed = true;
@@ -795,7 +795,7 @@ function exportAsImage(minRarity = 1) {
                     $("#results").removeClass("hackForImage");
                     $("#results").removeClass("hackForImage5");
 
-                    $("#loaderGlassPanel").addClass("hidden");
+                    $("body").removeClass("loading");
                 });
             });
         });
