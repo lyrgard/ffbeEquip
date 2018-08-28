@@ -26,3 +26,31 @@ input.maxNumber {
     justify-content: space-evenly;
     align-items: center;
 }
+
+.submitSuccess .details,
+.submitFailed .details {
+    font-size: 0.9em;
+}
+
+.submitSuccess .text-success,
+.submitFailed .text-danger {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    
+    .items .tr .td.type {
+        display: none;
+    }
+
+    .items .tbody .tr .td.select {
+        padding: 2px;
+    }
+}
+
+@media (max-width: 500px) {
+    
+    .items {
+        font-size: 0.9em;
+    }
+}
