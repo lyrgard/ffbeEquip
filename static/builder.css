@@ -719,6 +719,22 @@ i.img.img-slot-hand.leftHand {
     justify-content: space-evenly;
 }
 
+.stat i.img.statChoice {
+    width: 36px;
+    height: 36px;
+}
+
+.stat .dropdown-menu i.img {
+    width: 32px;
+    height: 32px;
+}
+
+.sort-type img,
+.sort-type i.img {
+    width: 36px;
+    height: 36px;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
