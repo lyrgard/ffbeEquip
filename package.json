@@ -12,7 +12,8 @@
     "build:dev": "webpack --mode development --watch",
     "build": "webpack --mode production --hide-modules",
     "prestart": "node config.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:useDist": "DEV_USE_DIST=yes node server.js"
   },
   "repository": {
     "type": "git",
