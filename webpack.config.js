@@ -1,5 +1,6 @@
 const cssnano = require('cssnano');
 const glob = require('glob');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: glob.sync('./static/*.html'),
@@ -46,4 +47,7 @@ module.exports = {
     publicPath: '',
     filename: 'app.js',
   },
+  plugins: [
+    new CleanWebpackPlugin('dist'),
+  ],
 };
