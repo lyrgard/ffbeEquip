@@ -726,10 +726,7 @@ function isItemEmpty(item) {
             }
         }
     }
-    if (item.resist ||item.singleWielding || item.singleWieldingOneHanded || item.dualWielding) {
-        return false;
-    }
-    return true;
+    return item.resist || item.dualWielding || item.singleWielding || item.singleWieldingOneHanded || item.lbPerTurn || item.lbFillRate || item.evade || item.evoMag || item.accuracy || item.damageVariance || item.jumpDamage || item.element || item.partialDualWield || item.ailments || item.killers || item.mpRefresh || item.esperStatsBonus;
 }
 
 function addAccess(item, access) {
