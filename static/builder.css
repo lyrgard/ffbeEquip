@@ -287,6 +287,11 @@
     opacity: 0.2;
 }
 
+.unitEquipable i.img {
+    width: 30px;
+    height: 30px;
+}
+
 .monsterDefensiveStats {
     margin-bottom: 20px;
 }
@@ -441,7 +446,12 @@ i.img.img-slot-hand.leftHand {
     width: 100%;
     text-align: center;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    
+}
+
+#resultStats .killers .killerValueGroup i.img,
+#resultStats .resists .resist i.img {
+    height: 40px;
+    width: 40px;
 }
 
 #resultStats .resists .resist.statToMaximize .value {
@@ -691,15 +701,18 @@ i.img.img-slot-hand.leftHand {
 }
 
 /* elements visible over the glasspanel */
-.building #detailedViewLink, .building #conciseViewLink, .building #buildButton, .building #buildResult .wikiLink {
+.building #detailedViewLink, .building #conciseViewLink, .building #buildButton, .building #buildResult .wikiLink, 
+.building #unitLink, .building .footerButtons a {
     z-index: 110;
 }
 
-.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink {
+.building #buildButton, .building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink, 
+.building #unitLink, .building .footerButtons a {
     box-shadow: 0 0 5px 5px #FFFFFF;
 }
 
-.building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink {
+.building #detailedViewLink a, .building #conciseViewLink a, .building #buildResult .wikiLink, 
+.building #unitLink, .building .footerButtons a {
     background-color: white;
 }
 
@@ -707,6 +720,22 @@ i.img.img-slot-hand.leftHand {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.stat i.img.statChoice {
+    width: 36px;
+    height: 36px;
+}
+
+.stat .dropdown-menu i.img {
+    width: 32px;
+    height: 32px;
+}
+
+.sort-type img,
+.sort-type i.img {
+    width: 36px;
+    height: 36px;
 }
 
 @media (max-width: 991px) {
