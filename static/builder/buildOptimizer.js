@@ -358,6 +358,19 @@ class BuildOptimizer {
                 }
                 this._unitBuild.buildValue = value;
                 this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, slotsRemoved);
+            } else {
+                var hpOld = calculateStatValue(this._unitBuild.build, "hp", this._unitBuild);
+                var hpNew = calculateStatValue(build, "hp", this._unitBuild);
+                if (hpNew > hpOld) {
+                    this._unitBuild.build = build.slice();
+                    if (value.switchWeapons) {
+                        var tmp = this._unitBuild.build[0];
+                        this._unitBuild.build[0] = this._unitBuild.build[1];
+                        this._unitBuild.build[1] = tmp;       
+                    }
+                    this._unitBuild.buildValue = value;
+                    this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, slotsRemoved);
+                }
             }
         }
     }
