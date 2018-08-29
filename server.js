@@ -85,7 +85,13 @@ app.use(express.static(path.join(__dirname, '/static/'), {
   etag: false,
   cacheControl: config.isProd,
   lastModified: config.isProd,
-  maxAge: "1h"
+  maxAge: "1h",
+  setHeaders: function (res, path) {
+    if (mime.lookup(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+  }
 }));
 
 if (config.isDev) {
