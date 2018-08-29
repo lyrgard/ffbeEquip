@@ -141,13 +141,13 @@ function getKillersHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.killers).each(function(index, killer) {
         if (killer.physical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-physical killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-sword miniIcon'></i>"+
                     "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
-            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
+            html += "<div class='specialValueItem'><div class='specialImg noWrap killer-magical killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-rod miniIcon'></i>"+
                     "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
@@ -705,7 +705,10 @@ function updateLinks() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, types = [], elements = [], ailments = [], killers = [], accessToRemove = [], additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
+var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, 
+                      types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [], 
+                      additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) 
+{
     var result = [];
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
@@ -714,14 +717,16 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
                 if (types.length == 0 || types.includes(item.type)) {
                     if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                         if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
-                            if (killers.length == 0 || (item.killers && matches(killers, item.killers.map(function(killer){return killer.name;})))) {
-                                if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
-                                    if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
-                                        if (searchText.length == 0 || containsText(searchText, item)) {
-                                            if (!selectedUnitId || !exclusiveForbidAccess(item, selectedUnitId)) {
-                                                if (stat.length == 0 || showItemsWithoutStat || hasStat(stat, item)) {
-                                                    calculateValue(item, baseStat, stat, ailments, elements, killers);
-                                                    result.push(item);
+                            if (physicalKillers.length == 0 || hasKillers('physical', physicalKillers, item)) {
+                                if (magicalKillers.length == 0 || hasKillers('magical', magicalKillers, item)) {
+                                    if (accessToRemove.length == 0 || haveAuthorizedAccess(accessToRemove, item)) {
+                                        if (additionalStat.length == 0 || hasStats(additionalStat, item)) {
+                                            if (searchText.length == 0 || containsText(searchText, item)) {
+                                                if (!selectedUnitId || !exclusiveForbidAccess(item, selectedUnitId)) {
+                                                    if (stat.length == 0 || showItemsWithoutStat || hasStat(stat, item)) {
+                                                        calculateValue(item, baseStat, stat, ailments, elements, killers);
+                                                        result.push(item);
+                                                    }
                                                 }
                                             }
                                         }
@@ -736,6 +741,16 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
     }
     return result;
 };
+
+function hasKillers(killerType, killers, item)
+{
+    if (!item.killers) return false;
+    // Filter killers not of specific type (magical/physical) then get only the name of remaining ones
+    var itemKillers = item.killers.filter(function(killer){return killer[killerType] > 0;})
+                                  .map(function(killer){return killer.name;});
+    // Check matches!
+    return matches(killers, itemKillers);
+}
 
 function keepOnlyOneInstance(data) {
     var dataWithOnlyOneOccurence = [];
