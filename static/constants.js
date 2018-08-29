@@ -1,5 +1,4 @@
 const baseStats = ['hp','mp','atk','def','mag','spr'];
-const filters = ["types","elements","ailments","killers","accessToRemove","additionalStat"];
 const elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
 const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
 const killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
