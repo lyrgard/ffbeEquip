@@ -365,13 +365,25 @@ class BuildOptimizer {
     tryLessSlots(build, value, fixedItems) {
         var slotToRemove = 9;
         var slotsRemoved = 0;
-        while(slotToRemove > 5) {
+        slotToRemoveLoop: while(slotToRemove > 5) {
+            if (!build[slotToRemove]) {
+                slotToRemove--;
+                slotsRemoved++;
+                continue;
+            }
             if (fixedItems[slotToRemove]) {
                 slotToRemove--;
                 continue;
             }
+            for (var skillIndex = build.length - 1; skillIndex > 10; skillIndex--) {
+                if (build[skillIndex].equipedConditions && build[skillIndex].equipedConditions.includes(build[slotToRemove].id)) {
+                    slotToRemove--;
+                    continue slotToRemoveLoop;
+                }
+            }
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
+            
             var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
             if (testValue[this.goalVariation] >= value[this.goalVariation]) {
                 slotToRemove--;

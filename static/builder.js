@@ -699,9 +699,9 @@ function populateUnitSelect() {
     Object.keys(units).sort(function(id1, id2) {
         return units[id1].name.localeCompare(units[id2].name);
     }).forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + units[value].name + (units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") + '</option>';
+        options += '<option value="'+ value + '">' + units[value].name + (units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  (units[value].unreleased7Star ? ' - JP data' : "") + '</option>';
         if (units[value]["6_form"]) {
-            options += '<option value="'+ value + '-6">' + units[value].name + ' 6★</option>';
+            options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
         }
     });
     $("#unitsSelect").html(options);
@@ -1148,8 +1148,8 @@ function updateSearchResult() {
             dataWithOnlyOneOccurence.push(item);
         }
     }
-    
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], "", false, true)));
+    readItemsExcludeInclude();
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
