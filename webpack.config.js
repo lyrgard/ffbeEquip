@@ -1,5 +1,6 @@
 const cssnano = require('cssnano');
 const glob = require('glob');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: glob.sync('./static/*.html'),
@@ -29,7 +30,14 @@ module.exports = {
       {
         test: /\.(js)$/,
         use: [
-          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/', emitFile: false } },
+          { loader: 'file-loader', options: { name: '[path][name].[ext]?[hash:8]', context: './static/' } },
+        ],
+      },
+      {
+        test: /\.(js)$/,
+        exclude: /\.min.js$/,
+        use: [
+          { loader: 'babel-loader', options: { presets: ['minify'] } },
         ],
       },
     ],
@@ -39,4 +47,7 @@ module.exports = {
     publicPath: '',
     filename: 'app.js',
   },
+  plugins: [
+    new CleanWebpackPlugin('dist'),
+  ],
 };

@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const sessions = require('client-sessions');
 const helmet = require('helmet');
+const mime = require('mime-types');
 
 const config = require('./config.js');
 const firebase = require('./server/routes/firebase.js');
@@ -17,6 +18,8 @@ const authRequired = require('./server/middlewares/oauth.js');
 
 const app = express();
 
+console.log(`Environment is: ${config.env}`);
+
 // Helmet Middleware
 app.use(helmet());
 
@@ -27,7 +30,7 @@ app.use(helmet.hsts({
   preload: true,
 }));
 
-const cspDirectives = {
+var cspDirectives = {
   defaultSrc: ["'none'"],
   scriptSrc: ["'self'", "'unsafe-inline'",
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com'],
@@ -43,19 +46,53 @@ const cspDirectives = {
   frameSrc: ["'none'"],
   frameAncestors: ["'none'"],
   formAction: ["'self'"],
-  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
   blockAllMixedContent: !config.isDev,
   upgradeInsecureRequests: !config.isDev,
+  reportUri: 'https://ffbeequip.report-uri.com/r/d/csp/reportOnly',
 };
+
+// In development, do not report
+if (config.isDev) {
+  delete cspDirectives.reportUri;
+}
 
 app.use(helmet.contentSecurityPolicy({ directives: cspDirectives, reportOnly: !config.isDev }));
 
-// Middlewares
-if (config.isProd) {
-  app.use(express.static(path.join(__dirname, '/dist/')));
+// Static middleware
+if (config.isProd || process.env.DEV_USE_DIST === "yes") {
+  console.log(`App is also serving dist`);
+  // In prod, also serve dist folder (which contains the webpack generated files)
+  // Any files present in 'dist' will shadow files in 'static'
+  app.use(express.static(path.join(__dirname, '/dist/'), {
+    etag: false,
+    lastModified: config.isProd,
+    cacheControl: config.isProd,
+    maxAge: "365d",
+    immutable: config.isProd,
+    setHeaders: function (res, path) {
+      if (mime.lookup(path) === 'text/html') {
+        // For HTML, avoid long and immutable cache since it can't be busted
+        res.setHeader('Cache-Control', 'public, max-age=0');
+      }
+    }
+  }));
 }
 
-app.use(express.static(path.join(__dirname, '/static/')));
+// Static middleware 
+// Serve static files directly
+// Cache related headers are disabled in dev
+app.use(express.static(path.join(__dirname, '/static/'), {
+  etag: false,
+  cacheControl: config.isProd,
+  lastModified: config.isProd,
+  maxAge: "1h",
+  setHeaders: function (res, path) {
+    if (mime.lookup(path) === 'application/json') {
+      // For JSON, avoid caching
+      res.setHeader('Cache-Control', 'public, max-age=0');
+    }
+  }
+}));
 
 if (config.isDev) {
   app.use(morgan('dev'));

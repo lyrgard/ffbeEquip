@@ -7,9 +7,7 @@
 </VirtualHost>
 <VirtualHost *:{{ https_port }}>
 	ServerName {{ server_name|lower }}
-
-	# Reduce Server HTTP Header to Apache
-	ServerTokens ProductOnly
+	
 	# Remove the footer from error pages
 	ServerSignature Off
 
