@@ -106,7 +106,7 @@ function getElementHtml(elements) {
     for (var index in elements) {
         html += "<div class='specialValueItem'><div class='specialImg'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + elements[index] + "'></i>"+
+                "<i class='img img-element-" + elements[index] + " withMiniIcon'></i>"+
                 "</div></div>";
     }
     html += "</div>";
@@ -118,18 +118,20 @@ function getAilmentsHtml(item) {
     $(item.ailments).each(function(index, ailment) {
         html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
                 "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + ailment.name + " imageWithText'></i>"+
+                "<i class='img img-ailment-" + ailment.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
     });
     html += "</div>";
     return html;
 }
+
 function getResistHtml(item) {
     var html = "<div class='specialValueGroup'>";
     $(item.resist).each(function(index, resist) {
+        var resistType = elementList.includes(resist.name) ? 'element' : 'ailment';
         html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
                 "<i class='img img-equipment-heavyShield miniIcon'></i>"+
-                "<i class='img img-elem-ailm-" + resist.name + " imageWithText'></i>"+
+                "<i class='img img-"+resistType+"-" + resist.name + " imageWithText withMiniIcon'></i>"+
                 "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
     });
     html += "</div>";
@@ -141,13 +143,13 @@ function getKillersHtml(item) {
         if (killer.physical) {
             html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-sword miniIcon'></i>"+
-                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.physical + "%</div></div>";
         }
         if (killer.magical) {
             html += "<div class='specialValueItem'><div class='specialImg noWrap killer-" + killer.name + "'>"+
                     "<i class='img img-equipment-rod miniIcon'></i>"+
-                    "<img class='imageWithText' src='img/icons/killer.png'></img>"+
+                    "<img class='imageWithText withMiniIcon' src='img/icons/killer.png'></img>"+
                     "</div><div class='specialValue'>" + killer.name + "</div><div class='specialValue'>" + killer.magical + "%</div></div>";
         }
     });
@@ -470,6 +472,10 @@ function isNumber(evt) {
     return true;
 };
 
+function ucFirst(string) {
+    return string ? (string.charAt(0).toUpperCase() + string.slice(1)) : undefined;
+}
+
 function isNumberOrMinus(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -527,10 +533,12 @@ function addTextChoicesTo(targetId, type, valueMap) {
 }
 
 // Add image choices to a filter.
-function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "") {
+function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "", tooltipList = []) {
+    // If tooltipList is function, use it to map values
+    if (typeof tooltipList == 'function') tooltipList = valueList.map(tooltipList);
 	var target = $("#" + targetId);
 	for (i = 0; i < valueList.length; i++) {
-		addIconChoiceTo(target, targetId, valueList[i], type, iconType);
+		addIconChoiceTo(target, targetId, valueList[i], type, iconType, tooltipList[i]);
 	}
 }
 
@@ -540,10 +548,13 @@ function addTextChoiceTo(target, name, type, value, label) {
 }
 
 // Add one image choice to a filter
-function addIconChoiceTo(target, name, value, type="checkbox", iconType = "") {
-    target.append('<label class="btn btn-default iconChoice">'+
+function addIconChoiceTo(target, name, value, type="checkbox", iconType = "", tooltip = undefined) {
+    if (tooltip) tooltip = 'data-toggle="tooltip" title="'+tooltip+'"';
+    else tooltip = ' title="'+value+'"';
+
+    target.append('<label class="btn btn-default iconChoice" '+tooltip+'>'+
                   '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
-                  '<i class="img img-'+iconType+'-'+value+'" title="'+value+'"></i>'+
+                  '<i class="img img-'+iconType+'-'+value+'"></i>'+
                   '</label>');
 }
 

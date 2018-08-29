@@ -9,9 +9,10 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="css-img/crystals.css">
         <link rel="stylesheet" type="text/css" href="css-img/sorts.css">
+        <link rel="stylesheet" type="text/css" href="css-img/tabs.css">
+		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="units.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
@@ -19,10 +20,7 @@
     </head>
     <body>
         <a href="#" id="scrollToTopButton" class="withToggleSelector" style="display: none;" title="Scroll back to the top"><span></span></a>
-        <div id="loaderGlassPanel" class="hidden">
-            <div id="loader"></div>
-        </div>
-
+        
         <div id="header" class="headerRain">
             <div class="headerContent">
                 <div class="headerTitle">
@@ -263,11 +261,19 @@
                                 <li><a class="link" onclick="showPublicUnitCollectionLink()"><span class="glyphicon glyphicon-link"></span> Get public unit collection link</a></li>
                             </ul>
                         </div>
-                        <ul id="tabs" class="nav nav-tabs">
-                            <li class="raritySort" onclick="showRaritySort()"><a><img src="img/icons/star_icon.png"/></a></li>
-                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()"><a><i class="img img-sort-a-z"></i></a></li>
-                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()"><a><i class="img img-sort-tmr"></i></a></li>
-                            <li class="history" onclick="showHistory()"><a><img src="img/icons/history.png"/></a></li>
+                        <ul id="tabs" class="nav nav-tabs nav-tabs-img">
+                            <li class="raritySort" onclick="showRaritySort()" title="Show units by rarity">
+                                <a><i class='img img-tab-units_stars tab'></i></a>
+                            </li>
+                            <li class="alphabeticalSort" onclick="showAlphabeticalSort()" title="Show units in alphabetical order">
+                                <a><i class='img img-tab-units tab'></i></a>
+                            </li>
+                            <li class="tmrAlphabeticalSort" onclick="showTMRAlphabeticalSort()" title="Show units by Trust name">
+                                <a><i class='img img-tab-units_tmr tab'></i></a>
+                            </li>
+                            <li class="history" onclick="showHistory()" title="Show units by events">
+                                <a><i class='img img-tab-history tab'></i></a>
+                            </li>
                         </ul>
                         <div class="explanation hidden-xs hidden-sm hidden-md">
                             <div>Left number: how many time you own this unit</div>
