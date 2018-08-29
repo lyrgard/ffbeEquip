@@ -430,13 +430,13 @@ function startPage() {
 	
 	// Desired Stats
 	//addTextChoicesTo("stats",'radio',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr', 'Evade':'evade', 'Inflict':'inflict', 'Resist':'resist'});
-    addIconChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "sort");
+    addIconChoicesTo("stats", ["hp", "mp", "atk", "def", "mag", "spr", "evade", "inflict", "resist"], "radio", "sort", function(v){return "Show items having "+v.toUpperCase()+" stats";});
 	// Item types
-	addIconChoicesTo("types", typeList, "checkbox", "equipment");
+	addIconChoicesTo("types", typeList, "checkbox", "equipment", function(v){return typeListLitterals[v];});
 	// Elements
-	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "element");
+	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark", "noElement"], "checkbox", "element", ucFirst);
 	// Ailments
-	addIconChoicesTo("ailments", ailmentList, "checkbox", "ailment");
+	addIconChoicesTo("ailments", ailmentList, "checkbox", "ailment", ucFirst);
 	// Killers
 	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer";});
     addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer";});
@@ -448,6 +448,11 @@ function startPage() {
     filterReady = true;
 	tryToLoadHash();
     
+    // Set tooltips
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+        trigger: 'hover'
+    });
     
     $("#results").addClass(server);
     
