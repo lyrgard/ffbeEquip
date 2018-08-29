@@ -1143,6 +1143,10 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
     if (sixStarForm) {
         result += "\n" + prefix + "\t\t\"sixStarForm\":true,";
     }
+    if (unit.unreleased7Star) {
+        console.log(unit.name);
+        result += "\n" + prefix + "\t\t\"unreleased7Star\":true,";
+    }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
     result += "\n" + prefix + "\t\t\"min_rarity\":\"" + unit.min_rarity + "\",";
     result += "\n" + prefix + "\t\t\"sex\":\"" + unit.sex + "\",";
@@ -1171,6 +1175,9 @@ function formatForSearch(units) {
     var first = true;
     for (var unitId in units) {
         var unit = units[unitId];
+        if (unit.unreleased7Star) {
+            unit = unit["6_form"];
+        }
         if (unit.id) {
             var skills = unit.skills.slice();
             if (unit.tmrSkill) {
@@ -1362,7 +1369,10 @@ function formatForSkills(units) {
     var result = "{\n";
     var first = true;
     for (var unitId in units) {
-        var unit = units[unitId]
+        var unit = units[unitId];
+        if (unit.unreleased7Star) {
+            unit = unit["6_form"];
+        }
         if (first) {
             first = false;
         } else {

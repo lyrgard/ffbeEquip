@@ -46,49 +46,55 @@ getData('units.json', function (units) {
     getData('skills.json', function (skills) {
         getData('limitbursts.json', function (lbs) {
             getData('enhancements.json', function (enhancements) {
-                for (languageId = 0; languageId < languages.length; languageId++) {
-                    for (var index in enhancements) {
-                        var enhancement = enhancements[index];
-                        for (var unitIdIndex in enhancement.units) {
-                            var unitId = enhancement.units[unitIdIndex].toString();
-                            if (!enhancementsByUnitId[unitId]) {
-                                enhancementsByUnitId[unitId] = {};
+                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/units.json', function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log("jp units downloaded");
+                        var jpUnits = JSON.parse(body);
+                        for (languageId = 0; languageId < languages.length; languageId++) {
+                            for (var index in enhancements) {
+                                var enhancement = enhancements[index];
+                                for (var unitIdIndex in enhancement.units) {
+                                    var unitId = enhancement.units[unitIdIndex].toString();
+                                    if (!enhancementsByUnitId[unitId]) {
+                                        enhancementsByUnitId[unitId] = {};
+                                    }
+                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                }
                             }
-                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+
+                            var unitsOut = {};
+                            for (var unitId in units) {
+                                var unitIn = units[unitId];
+                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                    var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits);
+                                    unitsOut[unitOut.data.id] = unitOut.data;
+                                }
+                            }
+
+                            var filename = 'unitsWithPassives.json';
+                            if (languageId != 0) {
+                                filename = 'unitsWithPassives_' + languages[languageId] +'.json';
+                            }
+                            fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
+                            filename = 'units.json';
+                            if (languageId != 0) {
+                                filename = 'units_' + languages[languageId] +'.json';
+                            }
+                            fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+
+                            if (languageId == 0) {
+                                fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                            }
                         }
                     }
-
-                    var unitsOut = {};
-                    for (var unitId in units) {
-                        var unitIn = units[unitId];
-                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                            var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
-                            unitsOut[unitOut.data.id] = unitOut.data;
-                        }
-                    }
-
-                    var filename = 'unitsWithPassives.json';
-                    if (languageId != 0) {
-                        filename = 'unitsWithPassives_' + languages[languageId] +'.json';
-                    }
-                    fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                    filename = 'units.json';
-                    if (languageId != 0) {
-                        filename = 'units_' + languages[languageId] +'.json';
-                    }
-                    fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-
-                    if (languageId == 0) {
-                        fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                        fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
-                    }
-                }
+                });
             });
         });
     });
 });
 
-function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity = unitIn["rarity_max"]) {
+function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, maxRarity = unitIn["rarity_max"]) {
     var unit = {};
     unit.data = {};
     
@@ -96,36 +102,74 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity 
     var unitData;
     
     var unitStats = {"minStats":{}, "maxStats":{}, "pots":{}};
-    for (entryId in unitIn.entries) {
-        if (unitIn.entries[entryId].rarity == maxRarity) {
-            unitData = unitIn.entries[entryId];
-            for (var statIndex in commonParse.stats) {
-                var stat = commonParse.stats[statIndex];
-                unitStats.minStats[stat.toLowerCase()] = unitData["stats"][stat][0];
-                unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
-                unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
+    
+    var unreleased7Star = false;
+    
+    if (jpUnits && unitIn["rarity_max"] == 6 && unitIn.skills && unitIn.skills[unitIn.skills.length - 1].rarity == 7) {
+        var maxRarityInGLData = 0;
+        for (entryId in unitIn.entries) {
+            if (unitIn.entries[entryId].rarity > maxRarityInGLData) {
+                maxRarityInGLData = unitIn.entries[entryId].rarity;
             }
-            data["stats_pattern"] = unitData.stat_pattern;
-            if (unitData.ability_slots != 4) {
-                data["materiaSlots"] = unitData.ability_slots;
-            }
-            if (unitData.physical_resist) {
-                data.mitigation = {"physical":unitData.physical_resist};
-            }
-            if (unitData.magical_resist) {
-                if (!data.mitigation) {
-                    data.mitigation = {};
+        }
+        if (maxRarityInGLData == 6) {
+            var jpUnitIn = jpUnits[unitId];
+            if (jpUnitIn) {
+                for (entryId in jpUnitIn.entries) {
+                    if (jpUnitIn.entries[entryId].rarity == 7) {
+                        unitData = jpUnitIn.entries[entryId];
+                    }
                 }
-                data.mitigation.magical = unitData.magical_resist;  
+                if (unitData) {
+                    unreleased7Star = true;
+                    maxRarity = 7;
+                    data.unreleased7Star = true;
+                }
             }
-            break;
         }
     }
+    
+    if (!unitData) {
+        for (entryId in unitIn.entries) {
+            if (unitIn.entries[entryId].rarity == maxRarity) {
+                unitData = unitIn.entries[entryId];
+                break;
+            }
+        }
+    }
+    
+    if (!unitData) {
+        console.log(unitData);
+    }
+    
+    for (var statIndex in commonParse.stats) {
+        var stat = commonParse.stats[statIndex];
+        unitStats.minStats[stat.toLowerCase()] = unitData["stats"][stat][0];
+        unitStats.maxStats[stat.toLowerCase()] = unitData["stats"][stat][1];
+        unitStats.pots[stat.toLowerCase()] = unitData["stats"][stat][2];
+    }
+    data["stats_pattern"] = unitData.stat_pattern;
+    if (unitData.ability_slots != 4) {
+        data["materiaSlots"] = unitData.ability_slots;
+    }
+    if (unitData.physical_resist) {
+        data.mitigation = {"physical":unitData.physical_resist};
+    }
+    if (unitData.magical_resist) {
+        if (!data.mitigation) {
+            data.mitigation = {};
+        }
+        data.mitigation.magical = unitData.magical_resist;  
+    }
+    
     data["name"] = unitIn.names[languageId];
     if (languageId != 0) {
         data.wikiEntry = unitIn.name.replace(' ', '_');
     }
     data["max_rarity"] = unitIn["rarity_max"];
+    if (unreleased7Star) {
+        data["max_rarity"] = 7;
+    }
     data["min_rarity"] = unitIn["rarity_min"];
     data["stats"] = unitStats;
     if (!unitIn.sex) {
@@ -153,7 +197,7 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRarity 
     }
     
     if (maxRarity == 7) {
-        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, 6).data;
+        data["6_form"] = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, null, 6).data;
     }
     
     return unit;
