@@ -2497,7 +2497,9 @@ function initWorkers() {
                 case "betterBuildFound":
                     if (!builds[currentUnitIndex].buildValue[goalVariation] 
                             || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]
-                            || (builds[currentUnitIndex].buildValue[goalVariation] == messageData.value[goalVariation] && messageData.freeSlots > builds[currentUnitIndex].freeSlots)) {
+                            || (builds[currentUnitIndex].buildValue[goalVariation] == messageData.value[goalVariation] 
+                                && (messageData.freeSlots > builds[currentUnitIndex].freeSlots
+                                   || calculateStatValue(messageData.build, "hp", builds[currentUnitIndex]).total > calculateStatValue(builds[currentUnitIndex].build, "hp", builds[currentUnitIndex]).total))) {
                         builds[currentUnitIndex].build = messageData.build;
                         builds[currentUnitIndex].buildValue = messageData.value;
                         builds[currentUnitIndex].freeSlots = messageData.freeSlots;
