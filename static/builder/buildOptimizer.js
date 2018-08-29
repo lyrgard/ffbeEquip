@@ -361,7 +361,7 @@ class BuildOptimizer {
             } else {
                 var hpOld = calculateStatValue(this._unitBuild.build, "hp", this._unitBuild);
                 var hpNew = calculateStatValue(build, "hp", this._unitBuild);
-                if (hpNew > hpOld) {
+                if (hpNew.total > hpOld.total) {
                     this._unitBuild.build = build.slice();
                     if (value.switchWeapons) {
                         var tmp = this._unitBuild.build[0];
