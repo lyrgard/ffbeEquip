@@ -9,6 +9,17 @@ var onlyShowOwnedItems = false;
 var showNotReleasedYet = false;
 var filterReady = false;
 
+var filters = ["types","elements","ailments","physicalKillers","magicalKillers","accessToRemove","additionalStat"];
+
+var stat;
+var types;
+var elements;
+var ailments;
+var physicalKillers;
+var magicalKillers;
+var accessToRemove;
+var additionalStat;
+
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -17,7 +28,7 @@ var update = function() {
     modifyFilterSummary();
     modifyUrl();
     
-    if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && killers == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
+    if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers.length == 0 && magicalKillers.length == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
         $("#results .tbody").html("");
         $("#results").addClass("notSorted");
@@ -34,7 +45,8 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnitId, types, elements, ailments, killers, accessToRemove, additionalStat, showNotReleasedYet)));
+    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnitId, 
+                             types, elements, ailments, physicalKillers, magicalKillers, accessToRemove, additionalStat, showNotReleasedYet)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -71,7 +83,8 @@ var readFilterValues = function() {
     types = getSelectedValuesFor("types");
     elements = getSelectedValuesFor("elements");
     ailments = getSelectedValuesFor("ailments");
-    killers = getSelectedValuesFor("killers");
+    physicalKillers = getSelectedValuesFor("physicalKillers");
+    magicalKillers = getSelectedValuesFor("magicalKillers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
     onlyShowOwnedItems = $("#onlyShowOwnedItems").prop('checked');
@@ -137,8 +150,8 @@ var modifyFilterSummary = function() {
 			html += '<i class="img img-ailment-' + ailments[index] + '"></i>';
         }
     }
-    if (killers.length != 0) {
-        html += '<img src="img/icons/killer.png"></img>'
+    if (physicalKillers.length != 0 || magicalKillers.length != 0) {
+        html += '<img src="img/icons/killer.png"></img>';
     }
     $("#filterSummary").html(html);
 }
@@ -165,8 +178,11 @@ var displayItems = function(items) {
         }
     });
     $(killerList).each(function(index, killer) {
-        if (killers.length != 0 && !killers.includes(killer)) {
-            $("#results .tbody .special .killer-" + killer).addClass("notSelected");
+        if (physicalKillers.length == 0 || !physicalKillers.includes(killer)) {
+            $("#results .tbody .special .killer-physical.killer-" + killer).addClass("notSelected");
+        }
+        if (magicalKillers.length == 0 || !magicalKillers.includes(killer)) {
+            $("#results .tbody .special .killer-magical.killer-" + killer).addClass("notSelected");
         }
     });
     if (itemInventory) {
@@ -228,8 +244,11 @@ function afterDisplay() {
         }
     });
     $(killerList).each(function(index, killer) {
-        if (killers.length != 0 && !killers.includes(killer)) {
-            $("#results .tbody .special .killer-" + killer).addClass("notSelected");
+        if (physicalKillers.length != 0 && !physicalKillers.includes(killer)) {
+            $("#results .tbody .special .killer-physical.killer-" + killer).addClass("notSelected");
+        }
+        if (magicalKillers.length != 0 && !magicalKillers.includes(killer)) {
+            $("#results .tbody .special .killer-magical.killer-" + killer).addClass("notSelected");
         }
     });
     if (itemInventory) {
@@ -419,7 +438,8 @@ function startPage() {
 	// Ailments
 	addIconChoicesTo("ailments", ailmentList, "checkbox", "ailment");
 	// Killers
-	addTextChoicesTo("killers",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer";});
+    addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer";});
 	// Access to remove
 	addTextChoicesTo("accessToRemove",'checkbox',{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'STMR':'STMR', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive' });
 	// Additional stat filter
