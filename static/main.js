@@ -37,6 +37,8 @@ var magicalKillers;
 var accessToRemove;
 var additionalStat;
 
+var displayId = 0;
+
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -175,9 +177,10 @@ var modifyFilterSummary = function() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
+    displayId++;
     var resultDiv = $("#results .tbody");
     resultDiv.empty();
-    displayItemsAsync(items, 0, resultDiv);
+    displayItemsAsync(items, 0, resultDiv, displayId);
     $("#resultNumber").html(items.length);
     $(baseStats).each(function(index, currentStat) {
         if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
@@ -209,7 +212,7 @@ var displayItems = function(items) {
     }
 };
 
-function displayItemsAsync(items, start, div) {
+function displayItemsAsync(items, start, div, id) {
     var html = '';
     var end = Math.min(start + 20, items.length);
     for (var index = start; index < end; index++) {
@@ -236,11 +239,14 @@ function displayItemsAsync(items, start, div) {
         }
         html += "</div>";
     }
-    div.append(html);
-    if (index < items.length) {
-        setTimeout(displayItemsAsync, 0, items, index, div);
-    } else {
-        afterDisplay();
+    
+    if (id == displayId) {
+        div.append(html);
+        if (index < items.length) {
+            setTimeout(displayItemsAsync, 0, items, index, div, id);
+        } else {
+            afterDisplay();
+        }
     }
 }
 
