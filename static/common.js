@@ -533,6 +533,8 @@ function addTextChoicesTo(targetId, type, valueMap) {
 }
 
 // Add image choices to a filter.
+// valueList can be an array of values
+//           or an array of object {value: '', icon: ''}
 function addIconChoicesTo(targetId, valueList, type="checkbox", iconType = "", tooltipList = []) {
     // If tooltipList is function, use it to map values
     if (typeof tooltipList == 'function') tooltipList = valueList.map(tooltipList);
@@ -549,12 +551,18 @@ function addTextChoiceTo(target, name, type, value, label) {
 
 // Add one image choice to a filter
 function addIconChoiceTo(target, name, value, type="checkbox", iconType = "", tooltip = undefined) {
+    var icon = value;
+    if (typeof value === 'object') {
+        icon = value.icon ? value.icon : value.value;
+        value = value.value;
+    }
+
     if (tooltip) tooltip = 'data-toggle="tooltip" title="'+tooltip+'"';
     else tooltip = ' title="'+value+'"';
 
     target.append('<label class="btn btn-default iconChoice" '+tooltip+'>'+
                   '<input type="'+type+'" name="'+name+'" value="'+value+'" autocomplete="off" />'+
-                  '<i class="img img-'+iconType+'-'+value+'"></i>'+
+                  '<i class="img img-'+iconType+'-'+icon+'"></i>'+
                   '</label>');
 }
 
