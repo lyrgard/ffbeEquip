@@ -10,6 +10,23 @@ var showNotReleasedYet = false;
 var filterReady = false;
 
 var filters = ["types","elements","ailments","physicalKillers","magicalKillers","accessToRemove","additionalStat"];
+var accessListFilters = [
+    { icon: 'shop', value: 'shop', tooltip: 'Filter items from town shops' },
+    { icon: 'story', value: 'chest/quest', tooltip: 'Filter items from story chests and quests' },
+    { icon: 'key', value: 'key', tooltip: 'Filter items obtained with vault keys' },
+    { icon: 'colosseum', value: 'colosseum', tooltip: 'Filter items obtained in the Colosseum' },
+    { icon: 'tmr_1-2stars', value: 'TMR-1*/TMR-2*', tooltip: 'Filter TMR of 1★ or 2★ base units' },
+    { icon: 'tmr_3-4stars', value: 'TMR-3*/TMR-4*', tooltip: 'Filter TMR of 3★ or 4★ base units' },
+    { icon: 'tmr_5stars', value: 'TMR-5*', tooltip: 'Filter TMR of 5★ base units' },
+    { icon: 'stmr', value: 'STMR', tooltip: 'Filter Super TMR of 7★ units' },
+    { icon: 'event', value: 'event', tooltip: 'Filter items from event rewards' },
+    { icon: 'recipe', value: 'recipe', tooltip: 'Filter items crafted from recipes' },
+    { icon: 'trophy', value: 'trophy', tooltip: 'Filter items earned from trophy achievements' },
+    { icon: 'chocobo', value: 'chocobo', tooltip: 'Filter items exchanged with fat chocobo or mother chocobo' },
+    { icon: 'trial', value: 'trial', tooltip: 'Filter items from trial rewards' },
+    { icon: 'unitExclusive', value: 'unitExclusive', tooltip: 'Filter items having an ability exclusive to a specific unit' },
+    { icon: 'premium', value: 'premium', tooltip: 'Filter items from premium (paid) bundles' }
+];
 
 var stat;
 var types;
@@ -440,10 +457,11 @@ function startPage() {
 	// Killers
 	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer";});
     addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer";});
-	// Access to remove
-	addTextChoicesTo("accessToRemove",'checkbox',{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'STMR':'STMR', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive', 'Premium':'premium' });
-	// Additional stat filter
-	addTextChoicesTo("additionalStat",'checkbox',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+    // Access to remove
+    addIconChoicesTo("accessToRemove", accessListFilters, "checkbox", "access", function(o){return o.tooltip;});
+
+    // Additional stat filter
+    addIconChoicesTo("additionalStat", baseStats, "checkbox", "stat", function(v){return v.toUpperCase();});
 	
     filterReady = true;
 	tryToLoadHash();
