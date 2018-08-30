@@ -70,6 +70,16 @@ const LISTING = [
         className: 'tab',
         basePath: '../static/img/icons/tabs', 
         outPath: '../static/css-img/tabs.css'
+    },
+    {
+        className: 'stat',
+        basePath: '../static/img/icons/stats', 
+        outPath: '../static/css-img/stats.css'
+    },
+    {
+        className: 'access',
+        basePath: '../static/img/icons/access', 
+        outPath: '../static/css-img/access.css'
     }
 ];
 

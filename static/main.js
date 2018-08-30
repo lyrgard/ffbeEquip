@@ -10,6 +10,23 @@ var showNotReleasedYet = false;
 var filterReady = false;
 
 var filters = ["types","elements","ailments","physicalKillers","magicalKillers","accessToRemove","additionalStat"];
+var accessListFilters = [
+    { icon: 'shop', value: 'shop', tooltip: 'items from town shops' },
+    { icon: 'story', value: 'chest/quest', tooltip: 'items from story chests and quests' },
+    { icon: 'key', value: 'key', tooltip: 'items obtained with vault keys' },
+    { icon: 'colosseum', value: 'colosseum', tooltip: 'items obtained in the Colosseum' },
+    { icon: 'tmr_1-2stars', value: 'TMR-1*/TMR-2*', tooltip: 'TMR of 1★ or 2★ base units' },
+    { icon: 'tmr_3-4stars', value: 'TMR-3*/TMR-4*', tooltip: 'TMR of 3★ or 4★ base units' },
+    { icon: 'tmr_5stars', value: 'TMR-5*', tooltip: 'TMR of 5★ base units' },
+    { icon: 'stmr', value: 'STMR', tooltip: 'Super TMR of 7★ units' },
+    { icon: 'event', value: 'event', tooltip: 'items from event rewards' },
+    { icon: 'recipe', value: 'recipe', tooltip: 'items crafted from recipes' },
+    { icon: 'trophy', value: 'trophy', tooltip: 'items earned from trophy achievements' },
+    { icon: 'chocobo', value: 'chocobo', tooltip: 'items exchanged with fat chocobo or mother chocobo' },
+    { icon: 'trial', value: 'trial', tooltip: 'items from trial rewards' },
+    { icon: 'unitExclusive', value: 'unitExclusive', tooltip: 'items having an ability exclusive to a specific unit' },
+    { icon: 'premium', value: 'premium', tooltip: 'items from premium (paid) bundles' }
+];
 
 var stat;
 var types;
@@ -19,6 +36,8 @@ var physicalKillers;
 var magicalKillers;
 var accessToRemove;
 var additionalStat;
+
+var displayId = 0;
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
@@ -158,9 +177,10 @@ var modifyFilterSummary = function() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
+    displayId++;
     var resultDiv = $("#results .tbody");
     resultDiv.empty();
-    displayItemsAsync(items, 0, resultDiv);
+    displayItemsAsync(items, 0, resultDiv, displayId);
     $("#resultNumber").html(items.length);
     $(baseStats).each(function(index, currentStat) {
         if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
@@ -192,7 +212,7 @@ var displayItems = function(items) {
     }
 };
 
-function displayItemsAsync(items, start, div) {
+function displayItemsAsync(items, start, div, id) {
     var html = '';
     var end = Math.min(start + 20, items.length);
     for (var index = start; index < end; index++) {
@@ -219,11 +239,14 @@ function displayItemsAsync(items, start, div) {
         }
         html += "</div>";
     }
-    div.append(html);
-    if (index < items.length) {
-        setTimeout(displayItemsAsync, 0, items, index, div);
-    } else {
-        afterDisplay();
+    
+    if (id == displayId) {
+        div.append(html);
+        if (index < items.length) {
+            setTimeout(displayItemsAsync, 0, items, index, div, id);
+        } else {
+            afterDisplay();
+        }
     }
 }
 
@@ -440,10 +463,11 @@ function startPage() {
 	// Killers
 	addIconChoicesTo("physicalKillers", killerList, "checkbox", "killer-physical", function(v){return "Physical "+v+" killer";});
     addIconChoicesTo("magicalKillers", killerList, "checkbox", "killer-magical", function(v){return "Magical "+v+" killer";});
-	// Access to remove
-	addTextChoicesTo("accessToRemove",'checkbox',{ 'Shop':'shop', 'Story':'chest/quest', 'Key':'key', 'Colosseum':'colosseum', 'TMR 1*/2*':'TMR-1*/TMR-2*', 'TMR 3*/4*':'TMR-3*/TMR-4*', 'TMR 5*':'TMR-5*', 'STMR':'STMR', 'Event':'event', 'Recipe':'recipe', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'Unit exclusive':'unitExclusive', 'Premium':'premium' });
-	// Additional stat filter
-	addTextChoicesTo("additionalStat",'checkbox',{'HP':'hp', 'MP':'mp', 'ATK':'atk', 'DEF':'def', 'MAG':'mag', 'SPR':'spr'});
+    // Access to remove
+    addIconChoicesTo("accessToRemove", accessListFilters, "checkbox", "access", function(o){return "Filter out "+o.tooltip;});
+
+    // Additional stat filter
+    addIconChoicesTo("additionalStat", baseStats, "checkbox", "stat", function(v){return v.toUpperCase();});
 	
     filterReady = true;
 	tryToLoadHash();
