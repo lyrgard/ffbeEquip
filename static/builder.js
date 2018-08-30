@@ -1154,7 +1154,7 @@ function updateSearchResult() {
         }
     }
     readItemsExcludeInclude();
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true)));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true)));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
