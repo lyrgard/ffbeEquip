@@ -1455,6 +1455,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"],
 		"6_form": {
 			"name":"Ayaka",
 			"wikiEntry":"Ayaka",
@@ -1469,7 +1470,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","lightArmor","robe"]
+			"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"]
 		}
 	},
 	"100008703": {
@@ -1531,7 +1533,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","spear","lightShield","helm","clothes","lightArmor"]
+		"equip":["dagger","sword","spear","lightShield","helm","clothes","lightArmor"],
+		"enhancementSkills":["Wind Spear Mastery","Excitement","Thousand Thrusts"]
 	},
 	"100009105": {
 		"name":"Loren",
@@ -3051,6 +3054,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Splendor of the Wind","Blessed Crystal","Splendor of the Fire","Splendor of the Water","Splendor of the Earth"],
 		"6_form": {
 			"name":"Chevalier Oignon",
 			"wikiEntry":"Onion_Knight",
@@ -3065,7 +3069,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":3,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Splendor of the Wind","Blessed Crystal","Splendor of the Fire","Splendor of the Water","Splendor of the Earth"]
 		}
 	},
 	"203000205": {
@@ -3160,7 +3165,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","katana","bow","spear","throwing","lightShield","hat","helm","clothes","lightArmor"]
+		"equip":["dagger","sword","katana","bow","spear","throwing","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Lucky Strike","Man on a Mission","Thunder Guide"]
 	},
 	"203000803": {
 		"name":"Nuage de Ténèbres",
@@ -3191,7 +3197,8 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","harp","mace","hat","clothes","robe"]
+		"equip":["staff","harp","mace","hat","clothes","robe"],
+		"enhancementSkills":["Curaga","Maiden of Water","Noble Dedication"]
 	},
 	"203001003": {
 		"name":"Sara",
@@ -4423,13 +4430,13 @@
 		"name":"Kupipi",
 		"wikiEntry":"Kupipi",
 		"id":"211000303",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2092,"mp":128,"atk":84,"def":80,"mag":95,"spr":104},
-			"minStats":{"hp":690,"mp":42,"atk":28,"def":26,"mag":31,"spr":34},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+			"maxStats":{"hp":2717,"mp":166,"atk":109,"def":104,"mag":124,"spr":135},
+			"minStats":{"hp":897,"mp":55,"atk":36,"def":34,"mag":41,"spr":45},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","mace","hat","clothes","robe"]
@@ -4469,7 +4476,7 @@
 		}
 	},
 	"211000805": {
-		"name":"null",
+		"name":"Shantotto furieuse",
 		"wikiEntry":"Livid_Shantotto",
 		"id":"211000805",
 		"max_rarity":"7",
@@ -4483,7 +4490,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"null",
+			"name":"Shantotto furieuse",
 			"wikiEntry":"Livid_Shantotto",
 			"id":"211000805",
 			"sixStarForm":true,
@@ -4500,7 +4507,7 @@
 		}
 	},
 	"211000905": {
-		"name":"null",
+		"name":"Seigneur des ombres",
 		"wikiEntry":"Shadow_Lord",
 		"id":"211000905",
 		"max_rarity":"7",
@@ -4514,7 +4521,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"null",
+			"name":"Seigneur des ombres",
 			"wikiEntry":"Shadow_Lord",
 			"id":"211000905",
 			"sixStarForm":true,
@@ -4531,7 +4538,7 @@
 		}
 	},
 	"211001004": {
-		"name":"null",
+		"name":"Joachim",
 		"wikiEntry":"Joachim",
 		"id":"211001004",
 		"max_rarity":"6",
@@ -5193,6 +5200,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dagger Mastery","Warp Charge","Warp Strike","Kingsglaive"],
 		"6_form": {
 			"name":"Nyx",
 			"wikiEntry":"Nyx",
@@ -5207,7 +5215,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Dagger Mastery","Warp Charge","Warp Strike","Kingsglaive"]
 		}
 	},
 	"215001204": {
@@ -5223,7 +5232,8 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["sword","greatSword","heavyShield","helm","heavyArmor"]
+		"equip":["sword","greatSword","heavyShield","helm","heavyArmor"],
+		"enhancementSkills":["Automatic Repairs","Large Sword Mastery","Great Chop"]
 	},
 	"215001304": {
 		"name":"Crowe",
@@ -5238,7 +5248,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","lightShield","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","staff","rod","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Sister Spirit","Lone Woman","For Hearth and Home"]
 	},
 	"215001403": {
 		"name":"Libertus",

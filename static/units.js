@@ -23,6 +23,7 @@ function beforeShow() {
     $(".nav-tabs li.raritySort").removeClass("active");
     $(".nav-tabs li.tmrAlphabeticalSort").removeClass("active");
     $(".nav-tabs li.history").removeClass("active");
+    $(".nav-tabs li.pullSimulator").removeClass("active");
     $("#searchBox").prop("placeholder", "Enter unit name");
 }
 
@@ -113,6 +114,10 @@ function showHistory() {
     lazyLoader.update();
 }
 
+function showPullSimulator() {
+    beforeShow();
+}
+
 function displayStats() {
     var stats = {
         "all": {
@@ -132,27 +137,28 @@ function displayStats() {
     for (var i = unitIds.length; i--;) {
         var unit = units[unitIds[i]];
         if (unit.min_rarity >= 3) {
+            var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
             stats.all[unit.min_rarity].total++;
-            if (unit.max_rarity == 7) {
+            if (maxRarity == 7) {
                 stats.all["7"].total++;
             }
             if (ownedUnits[unit.id]) {
                 stats.all[unit.min_rarity].number += ownedUnits[unit.id].number;
                 stats.all[unit.min_rarity].different++;
-                if (unit.max_rarity == 7 && ownedUnits[unit.id].sevenStar) {
+                if (maxRarity == 7 && ownedUnits[unit.id].sevenStar) {
                     stats.all["7"].number += ownedUnits[unit.id].sevenStar;
                     stats.all["7"].different++;
                 }
             }
             if (unit.summon_type == "event") {
                 stats.timeLimited[unit.min_rarity].total++;
-                if (unit.max_rarity == 7) {
+                if (maxRarity == 7) {
                     stats.all["7"].total++;
                 }
                 if (ownedUnits[unit.id]) {
                     stats.timeLimited[unit.min_rarity].number += ownedUnits[unit.id].number;
                     stats.timeLimited[unit.min_rarity].different++;
-                    if (unit.max_rarity == 7 && ownedUnits[unit.id].sevenStar) {
+                    if (maxRarity == 7 && ownedUnits[unit.id].sevenStar) {
                         stats.all["7"].number += ownedUnits[unit.id].sevenStar;
                         stats.all["7"].different++;
                     }
@@ -247,20 +253,21 @@ function displayUnitsByRarity(units, minRarity = 1) {
             if (unit.min_rarity < minRarity) {
                 continue;
             }
+            var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
             if (first) {
-                html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, unit.max_rarity) + '">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
+                html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">' + getRarity(unit.min_rarity, maxRarity) + "</div>";
                 html += '<div class="unitList">';
                 first = false;
-                rarity_list.push(unit);
+                rarity_list.push({'min_rarity': unit.min_rarity, "max_rarity": maxRarity});
             } else {
-                if (unit.max_rarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
+                if (maxRarity != lastMaxRarity || unit.min_rarity != lastMinRarity) {
                     html += '</div>';
-                    html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, unit.max_rarity) + '">' + getRarity(unit.min_rarity, unit.max_rarity) + "</div>";
+                    html += '<div class="raritySeparator" id="' + buildRarityID(unit.min_rarity, maxRarity) + '">' + getRarity(unit.min_rarity, maxRarity) + "</div>";
                     html += '<div class="unitList">';
                     rarity_list.push(unit);
                 }
             }
-            lastMaxRarity = unit.max_rarity;
+            lastMaxRarity = maxRarity;
             lastMinRarity = unit.min_rarity;
             html += getUnitDisplay(unit);
         }
@@ -713,14 +720,22 @@ function sortByRarity(units) {
         }
     }
     return unitsToSort.sort(function (unit1, unit2){
-        if (unit1.max_rarity == unit2.max_rarity) {
+        var maxRarity1 = unit1.max_rarity;
+        var maxRarity2 = unit2.max_rarity;
+        if (maxRarity1 == 7 && unit1.unreleased7Star) {
+            maxRarity1 = 6;
+        }
+        if (maxRarity2 == 7 && unit2.unreleased7Star) {
+            maxRarity2 = 6;
+        }
+        if (maxRarity1 == maxRarity2) {
             if (unit1.min_rarity == unit2.min_rarity) {
                 return unit1.name.localeCompare(unit2.name);
             } else {
                 return unit2.min_rarity - unit1.min_rarity;
             }
         } else {
-            return unit2.max_rarity - unit1.max_rarity;
+            return maxRarity2 - maxRarity1;
         }
     });
 }
@@ -809,10 +824,11 @@ function exportAsCsv() {
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
         var unit = sortedUnits[index];
         if (ownedUnits[unit.id]) {
+            var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity)
             csv +=  "\"" + unit.id + "\";" + 
                 "\"" + unit.name + "\";" + 
                 unit.min_rarity + ';' + 
-                unit.max_rarity + ';' + 
+                maxRarity + ';' + 
                 (unit.min_rarity == 7 ? ownedUnits[unit.id].sevenStar : ownedUnits[unit.id].number) + ';' + 
                 (unit.min_rarity == 7 ? (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) : (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0)) + ';' + 
                 (unit.min_rarity == 7 ? ownedUnits[unit.id].farmableStmr : ownedUnits[unit.id].farmable) + "\n";

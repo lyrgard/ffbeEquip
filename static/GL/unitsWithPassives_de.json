@@ -1887,9 +1887,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"],
+		"enhancements": [
+			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"spr%":50}],[{"equipedConditions":["staff"],"spr%":80}],[{"lbPerTurn":{"min":2,"max":2}},{"equipedConditions":["staff"],"spr%":100}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5},
-			{"spr%":50, "equipedConditions":["staff"]},
 			{"resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100}], "equipedConditions":["504214350"]},
 			{"def%":20, "levelCondition":115},
 			{"hp%":40, "mp%":40, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120}
@@ -1909,9 +1912,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Sage Wisdom","Stop Detach","Dedication"],
+		"enhancements": [
+			{"name":"Sage Wisdom","levels":[[{"equipedConditions":["staff"],"spr%":50}],[{"equipedConditions":["staff"],"spr%":80}],[{"lbPerTurn":{"min":2,"max":2}},{"equipedConditions":["staff"],"spr%":100}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5},
-				{"spr%":50, "equipedConditions":["staff"]}
+				{"hp%":20, "mp%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "mpRefresh":5}
 			]
 		}
 	},
@@ -1984,9 +1990,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","spear","lightShield","helm","clothes","lightArmor"],
+		"enhancementSkills":["Wind Spear Mastery","Excitement","Thousand Thrusts"],
+		"enhancements": [
+			{"name":"Wind Spear Mastery","levels":[[{"resist":[{"name":"wind","percent":20}]},{"equipedConditions":["spear"],"atk%":50}],[{"resist":[{"name":"wind","percent":50}]},{"equipedConditions":["spear"],"atk%":50}],[{"resist":[{"name":"wind","percent":50}]},{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 		"skills": [
-			{"mp%":20, "atk%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"wind","percent":20}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["spear"]}
+			{"mp%":20, "atk%":20, "spr%":20, "lbFillRate":100, "mpRefresh":5}
 		]
 	},
 	"100009105": {
@@ -4057,8 +4066,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Splendor of the Wind","Blessed Crystal","Splendor of the Fire","Splendor of the Water","Splendor of the Earth"],
+		"enhancements": [
+			{"name":"Blessed Crystal","levels":[[{"lbFillRate":100}],[{"lbFillRate":100,"resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50}]}],[{"lbFillRate":100,"resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50}]},{"equipedConditions":["sword"],"atk%":15,"def%":10,"spr%":10},{"equipedConditions":["helm"],"atk%":15,"def%":10,"spr%":10},{"equipedConditions":["lightArmor"],"atk%":15,"def%":10,"spr%":10}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":30, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"hp%":20, "mp%":20, "dualWielding":{"atk":30}, "equipedConditions":["302003300"]},
 			{"atk%":20, "levelCondition":115},
@@ -4079,8 +4092,12 @@
 			},
 			"stats_pattern":3,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Splendor of the Wind","Blessed Crystal","Splendor of the Fire","Splendor of the Water","Splendor of the Earth"],
+		"enhancements": [
+			{"name":"Blessed Crystal","levels":[[{"lbFillRate":100}],[{"lbFillRate":100,"resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50}]}],[{"lbFillRate":100,"resist":[{"name":"poison","percent":50},{"name":"sleep","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50}]},{"equipedConditions":["sword"],"atk%":15,"def%":10,"spr%":10},{"equipedConditions":["helm"],"atk%":15,"def%":10,"spr%":10},{"equipedConditions":["lightArmor"],"atk%":15,"def%":10,"spr%":10}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":30, "atk%":30, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":30, "mp%":30, "atk%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
 		}
@@ -4205,8 +4222,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","bow","spear","throwing","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Lucky Strike","Man on a Mission","Thunder Guide"],
+		"enhancements": [
+			{"name":"Man on a Mission","levels":[[{"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}],"mp%":30}],[{"resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":50}],"mp%":30,"hp%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+			{"hp%":20, "def%":20, "spr%":20, "mpRefresh":5}
 		]
 	},
 	"203000803": {
@@ -4245,8 +4266,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","harp","mace","hat","clothes","robe"],
+		"enhancementSkills":["Curaga","Maiden of Water","Noble Dedication"],
+		"enhancements": [
+			{"name":"Maiden of Water","levels":[[{"resist":[{"name":"water","percent":50}]}],[{"resist":[{"name":"water","percent":100}]}],[{"resist":[{"name":"water","percent":100}],"spr%":30,"hp%":30,"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"mp%":20, "spr%":30, "lbFillRate":100, "resist":[{"name":"water","percent":50},{"name":"water","percent":50}]}
+			{"mp%":20, "spr%":30, "lbFillRate":100, "resist":[{"name":"water","percent":50}]}
 		]
 	},
 	"203001003": {
@@ -5892,18 +5917,20 @@
 		"name":"Kupipi",
 		"wikiEntry":"Kupipi",
 		"id":"211000303",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"3",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2092,"mp":128,"atk":84,"def":80,"mag":95,"spr":104},
-			"minStats":{"hp":690,"mp":42,"atk":28,"def":26,"mag":31,"spr":34},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+			"maxStats":{"hp":2717,"mp":166,"atk":109,"def":104,"mag":124,"spr":135},
+			"minStats":{"hp":897,"mp":55,"atk":36,"def":34,"mag":41,"spr":45},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "spr%":20}
+			{"hp%":10, "mp%":40, "spr%":30, "resist":[{"name":"poison","percent":100}]},
+			{"def%":15, "spr%":15, "equipedConditions":["lightShield"]},
+			{"mp%":20, "spr%":20, "equipedConditions":["mace"]}
 		]
 	},
 	"211000405": {
@@ -5956,7 +5983,7 @@
 		}
 	},
 	"211000805": {
-		"name":"null",
+		"name":"Tobende Shantotto",
 		"wikiEntry":"Livid_Shantotto",
 		"id":"211000805",
 		"max_rarity":"7",
@@ -5970,14 +5997,14 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":50, "mag%":80, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"hp%":30, "mp%":50, "mag%":80, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"equipedConditions":["310003700"]},
 			{"singleWielding":{"mag":60}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"mag%":40, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Tobende Shantotto",
 			"wikiEntry":"Livid_Shantotto",
 			"id":"211000805",
 			"sixStarForm":true,
@@ -6040,7 +6067,7 @@
 		}
 	},
 	"211001004": {
-		"name":"null",
+		"name":"Joachim",
 		"wikiEntry":"Joachim",
 		"id":"211001004",
 		"max_rarity":"6",
@@ -6942,9 +6969,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dagger Mastery","Warp Charge","Warp Strike","Kingsglaive"],
+		"enhancements": [
+			{"name":"Dagger Mastery","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+		],
 		"skills": [
 			{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-			{"atk%":50, "equipedConditions":["dagger"]},
 			{"hp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":["504213420"]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "levelCondition":120},
@@ -6965,9 +6995,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Dagger Mastery","Warp Charge","Warp Strike","Kingsglaive"],
+		"enhancements": [
+			{"name":"Dagger Mastery","levels":[[{"equipedConditions":["dagger"],"atk%":50}],[{"equipedConditions":["dagger"],"atk%":75}],[{"equipedConditions":["dagger"],"atk%":100}]]}
+		],
 			"skills": [
-				{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["dagger"]}
+				{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]}
 			]
 		}
 	},
@@ -6985,9 +7018,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","heavyShield","helm","heavyArmor"],
+		"enhancementSkills":["Automatic Repairs","Large Sword Mastery","Great Chop"],
+		"enhancements": [
+			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":40, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"machine","physical":50},{"name":"human","physical":50}]},
-			{"atk%":50, "equipedConditions":["greatSword"]}
+			{"hp%":40, "resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}], "killers":[{"name":"machine","physical":50},{"name":"human","physical":50}]}
 		]
 	},
 	"215001304": {
@@ -7004,6 +7040,10 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Sister Spirit","Lone Woman","For Hearth and Home"],
+		"enhancements": [
+			{"name":"Sister Spirit","levels":[[],[],[{"hp%":20,"mpRefresh":5}]]}
+		],
 		"skills": [
 			{"mp%":20, "mag%":20, "spr%":20}
 		]
