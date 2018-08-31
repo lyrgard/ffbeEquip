@@ -704,7 +704,7 @@ function addExclusiveUnit(item, unitId) {
     if (!item.exclusiveUnits) {
         item.exclusiveUnits = [];
     }
-    if (Array.isArray(unitId == "Array")) {
+    if (Array.isArray(unitId)) {
         for (var i = 0, len = unitId.length; i < len; i++) {
             item.exclusiveUnits.push(new String(unitId[i]));
         }
