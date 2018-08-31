@@ -21,11 +21,27 @@
  *       It allows to easily override size rules.
  */
 
+
 var fs = require( 'fs' );
 var path = require( 'path' );
 var sizeOf = require('image-size');
 
 const LISTING = [
+    {
+        className: 'banner',
+        basePath: '../static/img/banner', 
+        outPath: '../static/css-img/banner.css'
+    },
+    {
+        className: 'homepage',  // there is already "background-" in the file name
+        basePath: '../static/img/homepage/backgrounds', 
+        outPath: '../static/css-img/homepage-backgrounds.css'
+    },
+    {
+        className: 'homepage',
+        basePath: '../static/img/homepage', 
+        outPath: '../static/css-img/homepage.css'
+    },
     {
         className: 'esper',
         basePath: '../static/img/espers', 
@@ -85,7 +101,7 @@ const LISTING = [
         className: 'tankAbilities',
         basePath: '../static/img/icons/tankAbilities', 
         outPath: '../static/css-img/tankAbilities.css'
-    }
+    },
 ];
 
 var CssTemplate = function(className, filename, dimensions, base64Data) {
@@ -111,14 +127,17 @@ var BuildCssFromImgFolder = function(className, basePath, outPath) {
  * Generated on ${new Date(Date.now()).toString()}
  */\n`;
 
-    filenames.forEach(function(filename) {
-        var filepath = path.join(basePath, filename);
-        console.log(`   Processing ${filename}...`);
+    filenames.forEach(function(name) {
+        var currPath = path.join(basePath, name);
 
-        var dimensions = sizeOf(filepath);
-        var fileContentBase64 = (fs.readFileSync(filepath)).toString('base64');
+        if (fs.lstatSync(currPath).isDirectory()) return;
+
+        console.log(`   Processing ${name}...`);
+
+        var dimensions = sizeOf(currPath);
+        var fileContentBase64 = (fs.readFileSync(currPath)).toString('base64');
         
-        CssContent += CssTemplate(className, filename, dimensions, fileContentBase64);
+        CssContent += CssTemplate(className, name, dimensions, fileContentBase64);
     });
 
     fs.writeFileSync(outPath, CssContent, 'utf8');
