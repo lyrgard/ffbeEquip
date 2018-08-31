@@ -13,5 +13,6 @@
     {"id":"Bahamut","name":"Bahamut","maxLevel":1,"hp":6400,"mp":6300,"atk":6000,"def":6000,"mag":6000,"spr":6000},
     {"id":"Fenrir","name":"Fenrir","maxLevel":2,"hp":4800 ,"mp":3000,"atk":5500,"def":2500,"mag":5500,"spr":2500,"resist":[{"name":"fire","percent":-50},{"name":"ice","percent":50},{"name":"light","percent":-25},{"name":"dark","percent":25}]},
     {"id":"Leviathan","name":"Leviathan","maxLevel":2,"hp":7200 ,"mp":5700,"atk":5200,"def":3000,"mag":5900,"spr":3000,"killers":[{"name":"aquatic","magical":50},{"name":"spirit","magical":50}],"resist":[{"name":"lightning","percent":-50},{"name":"water","percent":50},{"name":"wind","percent":25},{"name":"earth","percent":-25}]},
-    {"id":"Phoenix","name":"Phoenix","maxLevel":2,"hp":5500 ,"mp":4800,"atk":2000,"def":2800,"mag":3500,"spr":5600,"killers":[{"name":"undead","magical":50}],"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50},{"name":"wind","percent":-25},{"name":"earth","percent":25}]}
+    {"id":"Phoenix","name":"Phoenix","maxLevel":2,"hp":5500 ,"mp":4800,"atk":2000,"def":2800,"mag":3500,"spr":5600,"killers":[{"name":"undead","magical":50}],"resist":[{"name":"fire","percent":50},{"name":"ice","percent":-50},{"name":"wind","percent":-25},{"name":"earth","percent":25}]},
+    {"id":"Alexander","name":"Alexander", "maxLevel":2,"hp":5000,"mp":2100,"atk":2200,"def":4600,"mag":4500,"spr":5800,"killers":[{"name":"machine", "magical":50}], "resist":[{"name":"lightning","percent":25},{"name":"water","percent":-25},{"name":"light","percent":50},{"name":"dark","percent":-50}]}
 ]
