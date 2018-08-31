@@ -1396,16 +1396,32 @@ function getStaticData(name, localized, callback) {
     }
     var dataString = localStorage.getItem(name);
     if (dataString) {
-        callback(JSON.parse(dataString));
+        if (dataString.startsWith("{") || dataString.startsWith("[")) {
+            // Migration to compressed data in localStorage to reduce size
+            console.log("Compressing " + name);
+            dataString = LZString.compress(dataString);
+            localStorage.setItem(name, dataString);
+            console.log("Done");
+        }
+        try {
+            callback(JSON.parse(LZString.decompress(dataString)));
+        } catch (error){
+            alert(error);
+        }
+        
     } else {
         $.get(name, function(result) {
-            localStorage.setItem(name, JSON.stringify(result));
-            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
-            if (!savedFiles.includes(name)) {
-                savedFiles.push(name);
-                localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+            try {
+                localStorage.setItem(name, LZString.compress(JSON.stringify(result)));
+                var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+                if (!savedFiles.includes(name)) {
+                    savedFiles.push(name);
+                    localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+                }
+                callback(result);
+            } catch (error) {
+                alert(error);
             }
-            callback(result);
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             alert( errorThrown );
         });    
@@ -1591,13 +1607,13 @@ $(function() {
         var storedDataVersion = localStorage.getItem("dataVersion");
         if (storedDataVersion) {
             var goodVersion = true;
-            if (!storedDataVersion.startsWith("{")) {
-                goodVersion = false;
-            } else {
+            try {
                 var storedDataVersion = JSON.parse(storedDataVersion);
                 if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
                     goodVersion = false;
                 }
+            } catch (error) {
+                goodVersion = false;
             }
             
             if (!goodVersion) {
