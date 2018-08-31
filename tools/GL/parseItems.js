@@ -738,13 +738,21 @@ function addMastery(item, mastery) {
 }
 
 function addExclusiveUnit(item, unitId) {
+    if (item.name == "Iridal Staff") {
+        console.log(unitId);
+    }
     if (!item.exclusiveUnits) {
         item.exclusiveUnits = [];
     }
-    if (typeof unitId == "number") {
-        unitId = new String(unitId);
+    if (Array.isArray(unitId)) {
+        for (var i = 0, len = unitId.length; i < len; i++) {
+            item.exclusiveUnits.push(new String(unitId[i]));
+        }
+    } else if (typeof unitId == "number") {
+        item.exclusiveUnits.push(new String(unitId));
+    } else {
+        item.exclusiveUnits.push(unitId);
     }
-    item.exclusiveUnits.push(unitId);
 }
 
 function isItemEmpty(item) {
