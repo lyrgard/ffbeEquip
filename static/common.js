@@ -1417,8 +1417,10 @@ function getStaticData(name, localized, callback) {
     }
 
     var data = staticFileCache.retrieve(name);
-    if (data) {
-        // Data found, good to go!
+
+    // Check data, should not be empty
+    if (data && !$.isEmptyObject(data)) {
+        // Data found, not empty, good to go!
         callback(data);
     } else {
         // Data NOT found, let's fetch it
