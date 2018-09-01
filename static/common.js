@@ -28,6 +28,25 @@ var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;
 
+/* 
+ * Check if localStorage is enable and available
+ * Adapted from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js
+ */
+var localStorageAvailable = function(){
+    var enabled = false;
+    if (window.localStorage) {
+        var test = "test";
+        try {
+            localStorage.setItem(test, test);
+            enabled = test === localStorage.getItem(test);
+            localStorage.removeItem(test);
+        } catch(e) {
+            enabled = false;
+        }
+    }
+    return enabled;
+}();
+
 function getImageHtml(item) {
     var html = '<div class="td type">';
 
@@ -584,13 +603,23 @@ function loadInventory() {
             buttons: [{
                 text: "Continue",
                 onClick: function() {
+                    // Reset localStorage on connection
+                    if (localStorageAvailable) localStorage.clear();
+                    // Redirect to GoogleAuth
                     window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href.replace(".lyrgard.fr",".com"));
                 }
             }]
         });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        Modal.showErrorGet(this.url, errorThrown);
     });
+}
+
+function unloadInventory() {
+    // Reset localStorage on disconnection
+    if (localStorageAvailable) localStorage.clear();
+    // Redirect to GoogleAuth
+    location.href='/googleOAuthLogout';
 }
 
 function mergeArrayWithoutDuplicates(array1, array2) {
@@ -1203,7 +1232,7 @@ function getShortUrl(longUrl, callback) {
             callback(data.url);
         },
         error: function(error) {
-            alert('Failed to generate short url. Long url will be used instead');
+            Modal.showError("An error occured while trying to generate short url. <strong>Long url will be used instead</strong>.", error);
             callback(longUrl);
         }
     });
@@ -1243,17 +1272,18 @@ function onUnitsOrInventoryLoaded() {
                     var itemCount = Object.keys(itemInventory).length;
                     var unitCount = Object.keys(ownedUnits).length;
 
-                    alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
+                    Modal.show("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm."+
+                               "Your data was automatically adapted and saved, but you probably should check the change.");
                     $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
                     $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : ''));
                     $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : ''));
                     inventoryLoaded();
                     saveUnits();
                 }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                    alert( errorThrown );
+                    Modal.showErrorGet(this.url, errorThrown);
                 });
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
+                Modal.showErrorGet(this.url, errorThrown);
             });
 
         } else {
@@ -1336,11 +1366,12 @@ function saveSuccess() {
 function saveError() {
     $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
     if (error.status == 401) {
-        alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-        window.location.reload();
+        Modal.showMessage('You have been disconnected', 'You have been disconnected. <strong>The data was not saved.</strong><br/>The page will be reloaded.', function() {
+            window.location.reload();
+        });
     } else {
         saveNeeded = true;
-        alert('error while saving the user data. Please click on "Save" to try again');
+        Modal.showMessage('User data not saved', 'Error while saving the user data.');
     }
 }
 
@@ -1394,37 +1425,150 @@ function getStaticData(name, localized, callback) {
     } else {
         name = server + "/" + name + ".json";
     }
-    var dataString = localStorage.getItem(name);
-    if (dataString) {
-        if (dataString.startsWith("{") || dataString.startsWith("[")) {
-            // Migration to compressed data in localStorage to reduce size
-            console.log("Compressing " + name);
-            dataString = LZString.compress(dataString);
-            localStorage.setItem(name, dataString);
-            console.log("Done");
-        }
-        try {
-            callback(JSON.parse(LZString.decompress(dataString)));
-        } catch (error){
-            alert(error);
-        }
-        
+
+    var data = staticFileCache.retrieve(name);
+
+    // Check data, should not be empty
+    if (data && !$.isEmptyObject(data)) {
+        // Data found, not empty, good to go!
+        callback(data);
     } else {
+        // Data NOT found, let's fetch it
         $.get(name, function(result) {
-            try {
-                localStorage.setItem(name, LZString.compress(JSON.stringify(result)));
-                var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
-                if (!savedFiles.includes(name)) {
-                    savedFiles.push(name);
-                    localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
-                }
-                callback(result);
-            } catch (error) {
-                alert(error);
-            }
+            staticFileCache.store(name, result);
+            callback(result);
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
+            Modal.showErrorGet(this.url, errorThrown);
         });    
+    }
+}
+
+staticFileCache = {
+    /* 
+     * staticFileCache.store
+     * Convert data to string, compress and store in localStorage
+     */
+    store: function(filename, data) {
+        if (!localStorageAvailable) return;
+
+        try {
+            // Convert to string if not already (may throw if bad data)
+            if (typeof data !== 'string') {
+                data = JSON.stringify(data);
+            }
+            // Compress string (*ToUTF16 is important, localStorage can only contain JS strings encoded in UTF16)
+            var compressedData = LZString.compressToUTF16(data);
+            // Save (may throw if storage full)
+            localStorage.setItem(filename, compressedData);
+            // Update savedFiles
+            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+            if (!savedFiles) savedFiles = {};
+            savedFiles[filename] = compressedData.length;
+            localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+            // Log to console
+            window.console && window.console.log("Stored "+filename+" (" + data.length + " bytes, ratio "+ (compressedData.length*100/data.length).toFixed(0) +"% )");
+        } catch (error) {
+            // Modal.showError("An error occured while trying to save data to your local storage.", error);
+            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
+            // Failsafe: remove item in case of error (to free space if needed)
+            try { localStorage.removeItem(filename); } catch(e){}
+        }
+    },
+
+    /* 
+     * staticFileCache.retrieve
+     * Read from localStorage, decompress, convert to JS
+     */
+    retrieve: function(filename) {
+        if (!localStorageAvailable) return;
+
+        var data = null;
+        try {
+            var dataString = localStorage.getItem(filename);
+            if (dataString) {
+                // Decompress string and parse
+                data = JSON.parse(LZString.decompressFromUTF16(dataString));
+                // Log to console
+                window.console && window.console.log("Retrieved "+filename+" (" + dataString.length + " bytes)");
+            }
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to retrieve the file "+filename+" from your local storage", error);
+            // Failsafe: remove item in case of error (to free space if needed)
+            try { localStorage.removeItem(filename); } catch(e){}
+        }
+        return data;
+    },
+
+    /* 
+     * staticFileCache.clear
+     * Clear a file or all files saved in localStorage
+     */
+    clear: function(filename = null) {
+        if (!localStorageAvailable) return;
+
+        var savedFiles, filenames;
+
+        // Load save files list
+        try {
+            savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to load saved files list", error);
+        }
+
+        // Set saved files to default if not a plain object
+        if (!$.isPlainObject(savedFiles)) savedFiles = {};
+
+        try {
+            // Establish list of files to remove
+            if (typeof filename === 'string') {
+                filenames = [filename];
+            } else {
+                filenames = Object.keys(savedFiles);
+            }
+
+            // Loop and remove
+            for (i = 0; i < filenames.length; i++) {
+                localStorage.removeItem(filenames[i]);
+                delete savedFiles[filenames[i]];
+            }
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to remove the file(s) "+filenames+" from your local storage", error);
+        }
+
+        // Always update list of saved files
+        localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+    },
+
+    /* 
+     * staticFileCache.checkDataVersion
+     * Compare the version, server and language as stored in localStorage
+     */
+    checkDataVersion: function(version, server, language) {
+        if (!localStorageAvailable) return false;
+
+        try {
+            var storedDataVersion = JSON.parse(localStorage.getItem("dataVersion"));
+            if (storedDataVersion.version === version && storedDataVersion.server === server && storedDataVersion.language === language) {
+                return true
+            }
+            window.console && window.console.warn("Data version differs from stored", version, server, language, storedDataVersion);
+        } catch (e) { /* ignore exceptions */ }
+        return false;
+    },
+
+    /* 
+     * staticFileCache.setDataVersion
+     * Set the version, server and language to localStorage
+     */
+    setDataVersion: function(version, server, language) {
+        if (!localStorageAvailable) return;
+
+        try {
+            localStorage.setItem("dataVersion", JSON.stringify({"version": version, "server": server, "language": language}));
+            window.console && window.console.log("Storing data version", version, server, language);
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to save current data version", error, version, server, language);
+        }
     }
 }
 
@@ -1435,8 +1579,8 @@ Modal = {
             title: string or function,
             body: string or function,
             size : 'large' or 'small' or false
-            onShow : false or function,
-            onHide : false or function,
+            onOpen : false or function,
+            onClose : false or function,
             withCancelButton: bool
             buttons: [
                 {
@@ -1470,7 +1614,7 @@ Modal = {
             }];
         }
     
-        var html = '<div class="modal" id="tempModal" tabindex="-1" role="dialog">';
+        var html = '<div class="modal temporaryModal" tabindex="-1" role="dialog">';
         html += '  <div class="modal-dialog '+sizeClass+'" role="document">';
         html += '    <div class="modal-content">';
         html += '      <div class="modal-header">';
@@ -1494,10 +1638,8 @@ Modal = {
         html += '  </div>';
         html += '</div>';
     
-        // Make sure we hide any existing modal before showing another one
-        Modal.hide();
-    
-        var $modal = $('body').prepend(html).children().first();
+        // Modal should be put last to be able to be above everything else
+        var $modal = $('body').append(html).children().last();
         var $buttons = $modal.find("button[data-callback]");
     
         // Enable modal mode, and add hidden event handler
@@ -1540,8 +1682,8 @@ Modal = {
     },
     
     hide: function() {
-        if ($('#tempModal').length > 0) {
-            $('#tempModal').modal('hide');
+        if ($('.temporaryModal').length > 0) {
+            $('.temporaryModal').modal('hide');
         }
     },
 
@@ -1579,10 +1721,63 @@ Modal = {
                 }
             }
         });
+    },
+    
+    confirm: function(title, question, onAccept) 
+    {
+        Modal.show({
+            title: title,
+            body: '<p>'+question+'</p>',
+            withCancelButton: true,
+            buttons: [{
+                text: "Yes",
+                className: "",
+                onClick: onAccept
+            }]
+        });
+    },
+    
+    showMessage: function(title, message, onClose) 
+    {
+        Modal.show({
+            title: title,
+            body: '<p>'+message+'</p>',
+            onClose: onClose,
+            withCancelButton: false
+        });
+    },
+    
+    showError: function(text, error) 
+    {
+        if (typeof error !== 'string') error = JSON.stringify(error);
+
+        Modal.show({
+            title: "Something went wrong, Kupo!",
+            body: '<p>'+text+'</p>'+
+                  '<pre class="error">'+error+'</pre>',
+            withCancelButton: false
+        });
+        if (window.console && window.console.trace) {
+            window.console.trace();
+        }
+    },
+    
+    showErrorGet: function(filename, errorThrown) 
+    {
+        if (typeof errorThrown !== 'string') error = JSON.stringify(errorThrown);
+
+        Modal.show({
+            title: "I couldn't get the file, Kupo!",
+            body: '<p>An error occured while trying to retrieve a file from the server.</p>'+
+                  '<p><strong>Filename</strong>: '+filename+'</p>'+
+                  '<pre class="error">'+errorThrown+'</pre>',
+            withCancelButton: false
+        });
+        if (window.console && window.console.trace) {
+            window.console.trace();
+        }
     }
 }
-
-
 
 function copyInputToClipboard($input) 
 {
@@ -1597,43 +1792,32 @@ function copyInputToClipboard($input)
 }
 
 $(function() {
+
+    try {
+        // Bust the whole localStorage in case of old array used in order to get a clean state
+        // @TODO: can be removed after october 2018
+        if (localStorageAvailable && $.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
+            localStorage.clear();
+            window.console && window.console.warn("Clearing the whole localStorage!");
+        }
+    } catch (e) {}  
+
+
     readUrlParams();
+
     $.get(server + '/dataVersion.json', function(result) {
         var dataVersion = result.version;
-        var selectedLanguage = language;
-        if (!selectedLanguage) {
-            selectedLanguage = "en";
+        var selectedLanguage = language ? language : "en";
+
+        if (localStorageAvailable && !staticFileCache.checkDataVersion(dataVersion, server, selectedLanguage)) {
+            staticFileCache.clear();
+            staticFileCache.setDataVersion(dataVersion, server, selectedLanguage);
         }
-        var storedDataVersion = localStorage.getItem("dataVersion");
-        if (storedDataVersion) {
-            var goodVersion = true;
-            try {
-                var storedDataVersion = JSON.parse(storedDataVersion);
-                if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
-                    goodVersion = false;
-                }
-            } catch (error) {
-                goodVersion = false;
-            }
-            
-            if (!goodVersion) {
-                var savedFilesString = localStorage.getItem("savedFiles");
-                if (savedFilesString) {
-                    var savedFiles = JSON.parse(savedFilesString);
-                    for (var index = savedFiles.length; index--;) {
-                        localStorage.removeItem(savedFiles[index]);
-                    }
-                }
-                localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-                localStorage.setItem("savedFiles", "[]");
-            }
-        } else {
-            localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-            localStorage.setItem("savedFiles", "[]");
-        }
+
         startPage();
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        Modal.showErrorGet(this.url, errorThrown);
     });
     
     if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
@@ -1673,9 +1857,8 @@ $(function() {
                             $.notify("Owned units data successfuly migrated to v4", "success");
                             onUnitsOrInventoryLoaded();
                         },
-                        function() {
-                            alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                            alert( errorThrown );
+                        function(errorThrown) {
+                            Modal.showError("An error occured when trying to upgrade your unit data to version 4.", errorThrown);
                         }
                     );
                 });

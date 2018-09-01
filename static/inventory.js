@@ -308,7 +308,7 @@ function addToInventory(id, showAlert = true) {
         var item = findInventoryItemById(id);
         if (item.maxNumber && itemInventory[id] >= item.maxNumber) {
             if (showAlert) {
-                alert('You can only have up to ' + item.maxNumber + ' of these');
+                Modal.showMessage("Limited item", 'You can only have up to ' + item.maxNumber + ' of these');
             }
             return false;
         } else {
