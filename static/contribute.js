@@ -100,7 +100,7 @@ function displayModifiedItems() {
 
 function modifyItem(itemId) {
     if (Object.keys(modifiedItems).length >=10 ) {
-        alert("Only 10 items at most can be modifed at a time. Please send the current item being modified to the server before continuing.");
+        Modal.showMessage("Modification error", "Only 10 items at most can be modifed at a time. Please send the current item being modified to the server before continuing.");
         return;
     }
     var modifiedItem = {"access":[]};

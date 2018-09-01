@@ -2242,7 +2242,7 @@ function showSaveAsPopup() {
                 if (name && name.length > 0) {
                     saveTeamAs(name);
                 } else {
-                    alert("Please enter a name");
+                    Modal.showMessage("Name error", "Please enter a name");
                     return false;
                 }
             }
@@ -2255,10 +2255,9 @@ function loadSavedTeam(index = -1) {
         showSavedTeams();
     } else {
         if (builds.length > 1 || builds[0].unit != null) {
-            var r = confirm("Loading this team will remove the units you currently have in the builder.");
-            if (r == true) {
+            Modal.confirm("Load saved team", "Loading this team will remove the units you currently have in the builder. Continue?", function() {
                 doLoadSavedTeam(index);
-            }
+            });
         } else {
             doLoadSavedTeam(index)
         }
@@ -2286,7 +2285,7 @@ function importSavedTeam(index) {
             currentUnitCount--;
         }
         if (currentUnitCount + savedBuilds.teams[index].team.units.length > 10) {
-            alert("Importing this team would result in more than 10 units. Please remove some units before doing that.");
+            Modal.showMessage("Import error", "Importing this team would result in more than 10 units. Please remove some units before doing that.");
             return;
         }
         loadStateHashAndBuild(savedBuilds.teams[index].team, true);

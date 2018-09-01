@@ -1472,7 +1472,7 @@ Modal = {
             }];
         }
     
-        var html = '<div class="modal" id="tempModal" tabindex="-1" role="dialog">';
+        var html = '<div class="modal temporaryModal" tabindex="-1" role="dialog">';
         html += '  <div class="modal-dialog '+sizeClass+'" role="document">';
         html += '    <div class="modal-content">';
         html += '      <div class="modal-header">';
@@ -1496,10 +1496,8 @@ Modal = {
         html += '  </div>';
         html += '</div>';
     
-        // Make sure we hide any existing modal before showing another one
-        Modal.hide();
-    
-        var $modal = $('body').prepend(html).children().first();
+        // Modal should be put last to be able to be above everything else
+        var $modal = $('body').append(html).children().last();
         var $buttons = $modal.find("button[data-callback]");
     
         // Enable modal mode, and add hidden event handler
@@ -1542,8 +1540,8 @@ Modal = {
     },
     
     hide: function() {
-        if ($('#tempModal').length > 0) {
-            $('#tempModal').modal('hide');
+        if ($('.temporaryModal').length > 0) {
+            $('.temporaryModal').modal('hide');
         }
     },
 
@@ -1583,6 +1581,20 @@ Modal = {
         });
     },
     
+    confirm: function(title, question, onAccept) 
+    {
+        Modal.show({
+            title: title,
+            body: '<p>'+question+'</p>',
+            withCancelButton: true,
+            buttons: [{
+                text: "Yes",
+                className: "",
+                onClick: onAccept
+            }]
+        });
+    },
+    
     showMessage: function(title, message, onClose) 
     {
         Modal.show({
@@ -1595,6 +1607,8 @@ Modal = {
     
     showError: function(text, error) 
     {
+        if (typeof error !== 'string') error = JSON.stringify(error);
+
         Modal.show({
             title: "Something went wrong, Kupo!",
             body: '<p>'+text+'</p>'+
@@ -1608,6 +1622,8 @@ Modal = {
     
     showErrorGet: function(filename, errorThrown) 
     {
+        if (typeof errorThrown !== 'string') error = JSON.stringify(errorThrown);
+
         Modal.show({
             title: "I couldn't get the file, Kupo!",
             body: '<p>An error occured while trying to retrieve a file from the server.</p>'+
