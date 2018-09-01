@@ -1459,7 +1459,7 @@ staticFileCache = {
             window.console && window.console.log("Stored "+filename+" (" + data.length + " bytes, ratio "+ (compressedData.length*100/data.length).toFixed(0) +"% )");
         } catch (error) {
             // Modal.showError("An error occured while trying to save data to your local storage.", error);
-            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage:\n" + error);
+            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage", error);
             // Failsafe: remove item in case of error (to free space if needed)
             try { localStorage.removeItem(filename); } catch(e){}
         }
@@ -1482,7 +1482,7 @@ staticFileCache = {
                 window.console && window.console.log("Retrieved "+filename+" (" + dataString.length + " bytes)");
             }
         } catch (error) {
-            window.console && window.console.warn("An error occured while trying to retrieve the file "+filename+" from your local storage:\n" + error);
+            window.console && window.console.warn("An error occured while trying to retrieve the file "+filename+" from your local storage", error);
             // Failsafe: remove item in case of error (to free space if needed)
             try { localStorage.removeItem(filename); } catch(e){}
         }
@@ -1502,7 +1502,7 @@ staticFileCache = {
         try {
             savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
         } catch (error) {
-            window.console && window.console.warn("An error occured while trying to load saved files list:\n" + error);
+            window.console && window.console.warn("An error occured while trying to load saved files list", error);
         }
 
         // Set saved files to default if not a plain object
@@ -1522,11 +1522,43 @@ staticFileCache = {
                 delete savedFiles[filenames[i]];
             }
         } catch (error) {
-            window.console && window.console.warn("An error occured while trying to remove the file(s) "+filenames+" from your local storage:\n" + error);
+            window.console && window.console.warn("An error occured while trying to remove the file(s) "+filenames+" from your local storage", error);
         }
 
         // Always update list of saved files
         localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+    },
+
+    /* 
+     * staticFileCache.checkDataVersion
+     * Compare the version, server and language as stored in localStorage
+     */
+    checkDataVersion: function(version, server, language) {
+        if (!localStorageAvailable) return false;
+
+        try {
+            var storedDataVersion = JSON.parse(localStorage.getItem("dataVersion"));
+            if (storedDataVersion.version === version && storedDataVersion.server === server && storedDataVersion.language === language) {
+                return true
+            }
+            window.console && window.console.warn("Data version differs from stored", version, server, language, storedDataVersion);
+        } catch (e) { /* ignore exceptions */ }
+        return false;
+    },
+
+    /* 
+     * staticFileCache.setDataVersion
+     * Set the version, server and language to localStorage
+     */
+    setDataVersion: function(version, server, language) {
+        if (!localStorageAvailable) return;
+
+        try {
+            localStorage.setItem("dataVersion", JSON.stringify({"version": version, "server": server, "language": language}));
+            window.console && window.console.log("Storing data version", version, server, language);
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to save current data version", error, version, server, language);
+        }
     }
 }
 
@@ -1765,34 +1797,15 @@ $(function() {
 
     $.get(server + '/dataVersion.json', function(result) {
         var dataVersion = result.version;
-        var selectedLanguage = language;
-        if (!selectedLanguage) {
-            selectedLanguage = "en";
+        var selectedLanguage = language ? language : "en";
+
+        if (localStorageAvailable && !staticFileCache.checkDataVersion(dataVersion, server, selectedLanguage)) {
+            staticFileCache.clear();
+            staticFileCache.setDataVersion(dataVersion, server, selectedLanguage);
         }
-        if (localStorageAvailable) {
-            var storedDataVersion = localStorage.getItem("dataVersion");
-            if (storedDataVersion) {
-                var goodVersion = true;
-                try {
-                    var storedDataVersion = JSON.parse(storedDataVersion);
-                    if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
-                        goodVersion = false;
-                    }
-                } catch (error) {
-                    goodVersion = false;
-                }
-                
-                if (!goodVersion) {
-                    staticFileCache.clear();
-                    localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-                    
-                }
-            } else {
-                staticFileCache.clear();
-                localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-            }
-        }
+
         startPage();
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         Modal.showErrorGet(this.url, errorThrown);
     });
