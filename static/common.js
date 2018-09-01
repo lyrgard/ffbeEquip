@@ -603,6 +603,9 @@ function loadInventory() {
             buttons: [{
                 text: "Continue",
                 onClick: function() {
+                    // Reset localStorage on connection
+                    if (localStorageAvailable) localStorage.clear();
+                    // Redirect to GoogleAuth
                     window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href.replace(".lyrgard.fr",".com"));
                 }
             }]
@@ -610,6 +613,13 @@ function loadInventory() {
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         Modal.showErrorGet(this.url, errorThrown);
     });
+}
+
+function unloadInventory() {
+    // Reset localStorage on disconnection
+    if (localStorageAvailable) localStorage.clear();
+    // Redirect to GoogleAuth
+    location.href='/googleOAuthLogout';
 }
 
 function mergeArrayWithoutDuplicates(array1, array2) {
