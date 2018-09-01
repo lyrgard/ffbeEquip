@@ -1396,37 +1396,110 @@ function getStaticData(name, localized, callback) {
     } else {
         name = server + "/" + name + ".json";
     }
-    var dataString = localStorage.getItem(name);
-    if (dataString) {
-        if (dataString.startsWith("{") || dataString.startsWith("[")) {
-            // Migration to compressed data in localStorage to reduce size
-            console.log("Compressing " + name);
-            dataString = LZString.compress(dataString);
-            localStorage.setItem(name, dataString);
-            console.log("Done");
-        }
-        try {
-            callback(JSON.parse(LZString.decompress(dataString)));
-        } catch (error){
-            alert(error);
-        }
-        
+
+    var data = staticFileCache.retrieve(name);
+    if (data) {
+        // Data found, good to go!
+        callback(data);
     } else {
+        // Data NOT found, let's fetch it
         $.get(name, function(result) {
-            try {
-                localStorage.setItem(name, LZString.compress(JSON.stringify(result)));
-                var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
-                if (!savedFiles.includes(name)) {
-                    savedFiles.push(name);
-                    localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
-                }
-                callback(result);
-            } catch (error) {
-                alert(error);
-            }
+            staticFileCache.store(name, result);
+            callback(result);
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             Modal.showErrorGet(this.url, errorThrown);
         });    
+    }
+}
+
+staticFileCache = {
+    /* 
+     * staticFileCache.store
+     * Convert data to string, compress and store in localStorage
+     */
+    store: function(filename, data) {
+        try {
+            // Convert to string if not already (may throw if bad data)
+            if (typeof data !== 'string') {
+                data = JSON.stringify(data);
+            }
+            // Compress string (*ToUTF16 is important, localStorage can only contain JS strings encoded in UTF16)
+            var compressedData = LZString.compressToUTF16(data);
+            // Save (may throw if storage full)
+            localStorage.setItem(filename, compressedData);
+            // Update savedFiles
+            var savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+            if (!savedFiles) savedFiles = {};
+            savedFiles[filename] = compressedData.length;
+            localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+            // Log to console
+            window.console && window.console.log("Stored "+filename+" (" + data.length + " bytes, ratio "+ (compressedData.length*100/data.length).toFixed(0) +"% )");
+        } catch (error) {
+            // Modal.showError("An error occured while trying to save data to your local storage.", error);
+            window.console && window.console.warn("An error occured while trying to save the file "+filename+" to your local storage:\n" + error);
+            // Failsafe: remove item in case of error (to free space if needed)
+            try { localStorage.removeItem(filename); } catch(e){}
+        }
+    },
+
+    /* 
+     * staticFileCache.retrieve
+     * Read from localStorage, decompress, convert to JS
+     */
+    retrieve: function(filename) {
+        var data = null;
+        try {
+            var dataString = localStorage.getItem(filename);
+            if (dataString) {
+                // Decompress string and parse
+                data = JSON.parse(LZString.decompressFromUTF16(dataString));
+                // Log to console
+                window.console && window.console.log("Retrieved "+filename+" (" + dataString.length + " bytes)");
+            }
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to retrieve the file "+filename+" from your local storage:\n" + error);
+            // Failsafe: remove item in case of error (to free space if needed)
+            try { localStorage.removeItem(filename); } catch(e){}
+        }
+        return data;
+    },
+
+    /* 
+     * staticFileCache.clear
+     * Clear a file or all files saved in localStorage
+     */
+    clear: function(filename = null) {
+        var savedFiles, filenames;
+
+        // Load save files list
+        try {
+            savedFiles = JSON.parse(localStorage.getItem("savedFiles"));
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to load saved files list:\n" + error);
+        }
+
+        // Set saved files to default if not a plain object
+        if (!$.isPlainObject(savedFiles)) savedFiles = {};
+
+        try {
+            // Establish list of files to remove
+            if (typeof filename === 'string') {
+                filenames = [filename];
+            } else {
+                filenames = Object.keys(savedFiles);
+            }
+
+            // Loop and remove
+            for (i = 0; i < filenames.length; i++) {
+                localStorage.removeItem(filenames[i]);
+                delete savedFiles[filenames[i]];
+            }
+        } catch (error) {
+            window.console && window.console.warn("An error occured while trying to remove the file(s) "+filenames+" from your local storage:\n" + error);
+        }
+
+        // Always update list of saved files
+        localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
     }
 }
 
@@ -1650,7 +1723,19 @@ function copyInputToClipboard($input)
 }
 
 $(function() {
+
+    try {
+        // Bust the whole localStorage in case of old array used in order to get a clean state
+        // @TODO: can be removed after october 2018
+        if ($.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
+            localStorage.clear();
+            window.console && window.console.warn("Clearing the whole localStorage!");
+        }
+    } catch (e) {}  
+
+
     readUrlParams();
+
     $.get(server + '/dataVersion.json', function(result) {
         var dataVersion = result.version;
         var selectedLanguage = language;
@@ -1670,19 +1755,13 @@ $(function() {
             }
             
             if (!goodVersion) {
-                var savedFilesString = localStorage.getItem("savedFiles");
-                if (savedFilesString) {
-                    var savedFiles = JSON.parse(savedFilesString);
-                    for (var index = savedFiles.length; index--;) {
-                        localStorage.removeItem(savedFiles[index]);
-                    }
-                }
+                staticFileCache.clear();
                 localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-                localStorage.setItem("savedFiles", "[]");
+                
             }
         } else {
+            staticFileCache.clear();
             localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-            localStorage.setItem("savedFiles", "[]");
         }
         startPage();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
