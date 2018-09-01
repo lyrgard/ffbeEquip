@@ -111,83 +111,89 @@
         </div>
 
         <div class="container-fluid">
-            <div class="col-xs-12 col-md-6">
-                <div id="modifiedItems" class="panel panel-default hidden">
-                    <div id="results" class="table notSorted items results">
-                        <div class="thead">
-                            <div class="tr">
-                                <div class="td type">&nbsp;</div>
-                                <div class="td name">Name</div>
-                                <div class="td access">Access</div>
-                                <div class="td maxNumber">
-                                    Max <span class='hidden-xs'>Number</span>
-                                </div>
-                                <div class="td">&nbsp;</div>
-                            </div>
-                        </div>
-                        <div class="tbody">
-
-                        </div>
-                    </div>
-                    <div id="sendToServerDiv">
-                        <button class="btn btn-primary" onclick="sendToServer()">Send it to FFBE Equip</button>
-                    </div>
-                </div>
-                <div>
-                    <h4>How to use this:</h4>
-                    <ol>
-                        <li>Items that are missing data are displayed on the right. You can select one, or use the search if you want to correct another item.</li>
-                        <li>Once you've found the item you want to modify, click on the <span class="glyphicon glyphicon-edit"></span> to add this item to the list on the left. You can add multiple items to this list (max 10).</li>
-                        <li>You can modify the Access and Max Number of the items on the left pane. For Max Number, leave it empty if there is no limitation to how many times this item could be acquired.</li>
-                        <li>When you have entered all the data to the items, click on "<b>Send it to FFBE Equip</b>" to send it to FFBE Equip.</li>
-                        <li>A dialog should appears with the result of your submission.</li>
-                        <li>
-                            <strong>Please note that the data won't be corrected immediately.</strong> <br/>
-                            I regularly merge the sent data to the main data of FFBE Equip.
-                        </li>
-                    </ol>
-                </div>
-                <div>
-                    You can also report any issues directly on the GitHub repository:
-                    <a href="https://github.com/lyrgard/ffbeEquip/issues" target="_blank" rel="noreferrer">https://github.com/lyrgard/ffbeEquip/issues</a>
-                </div>
-                <div class="footerButtons">
-                    <div>
-                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                        <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                        <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
-                    </div>
-                </div>
+            <div id="loginMessage" class="alert alert-danger alert-inline hidden" role="alert">
+                <span class="glyphicon glyphicon-alert"></span>
+                Sorry, but you need to be logged-in to be able to contribute
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default itemList">
-                    <div class="panel-heading">
-                        <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
-					</div>
-                    <div class="panel-body">
+            <div id="contributeWrapper" class="hidden">
+                <div class="col-xs-12 col-md-6">
+                    <div id="modifiedItems" class="panel panel-default hidden">
                         <div id="results" class="table notSorted items results">
-							<div class="thead">
+                            <div class="thead">
                                 <div class="tr">
-                                    <div class="td select">&nbsp;</div>
                                     <div class="td type">&nbsp;</div>
                                     <div class="td name">Name</div>
-                                    <div id="statTitle" class="td value sort">Value</div>
-                                    <div class="td special">Special</div>
-									<div class="td access">Access</div>
+                                    <div class="td access">Access</div>
                                     <div class="td maxNumber">
                                         Max <span class='hidden-xs'>Number</span>
                                     </div>
+                                    <div class="td">&nbsp;</div>
                                 </div>
                             </div>
                             <div class="tbody">
 
+                            </div>
+                        </div>
+                        <div id="sendToServerDiv">
+                            <button class="btn btn-primary" onclick="sendToServer()">Send it to FFBE Equip</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>How to use this:</h4>
+                        <ol>
+                            <li>Items that are missing data are displayed on the right. You can select one, or use the search if you want to correct another item.</li>
+                            <li>Once you've found the item you want to modify, click on the <span class="glyphicon glyphicon-edit"></span> to add this item to the list on the left. You can add multiple items to this list (max 10).</li>
+                            <li>You can modify the Access and Max Number of the items on the left pane. For Max Number, leave it empty if there is no limitation to how many times this item could be acquired.</li>
+                            <li>When you have entered all the data to the items, click on "<b>Send it to FFBE Equip</b>" to send it to FFBE Equip.</li>
+                            <li>A dialog should appears with the result of your submission.</li>
+                            <li>
+                                <strong>Please note that the data won't be corrected immediately.</strong> <br/>
+                                I regularly merge the sent data to the main data of FFBE Equip.
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        You can also report any issues directly on the GitHub repository:
+                        <a href="https://github.com/lyrgard/ffbeEquip/issues" target="_blank" rel="noreferrer">https://github.com/lyrgard/ffbeEquip/issues</a>
+                    </div>
+                    <div class="footerButtons">
+                        <div>
+                            <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
+                            <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
+                            <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
+                        </div>
+                        <div>
+                            <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
+                            <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
+                        </div>
+                        <div>
+                            <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default itemList">
+                        <div class="panel-heading">
+                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
+                        </div>
+                        <div class="panel-body">
+                            <div id="results" class="table notSorted items results">
+                                <div class="thead">
+                                    <div class="tr">
+                                        <div class="td select">&nbsp;</div>
+                                        <div class="td type">&nbsp;</div>
+                                        <div class="td name">Name</div>
+                                        <div id="statTitle" class="td value sort">Value</div>
+                                        <div class="td special">Special</div>
+                                        <div class="td access">Access</div>
+                                        <div class="td maxNumber">
+                                            Max <span class='hidden-xs'>Number</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tbody">
+
+                                </div>
                             </div>
                         </div>
                     </div>

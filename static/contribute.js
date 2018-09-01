@@ -214,8 +214,11 @@ function getCorrections() {
         }
         prepareSearch(data);
         updateResults();
+        $("#contributeWrapper").removeClass('hidden');
+        $("#loginMessage").addClass('hidden');
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        $("#contributeWrapper").addClass('hidden');
+        $("#loginMessage").removeClass('hidden');
     });  
 }
 
