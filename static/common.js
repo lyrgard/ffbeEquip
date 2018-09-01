@@ -28,6 +28,25 @@ var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;
 
+/* 
+ * Check if localStorage is enable and available
+ * Adapted from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js
+ */
+var localStorageAvailable = function(){
+    var enabled = false;
+    if (window.localStorage) {
+        var test = "test";
+        try {
+            localStorage.setItem(test, test);
+            enabled = test === localStorage.getItem(test);
+            localStorage.removeItem(test);
+        } catch(e) {
+            enabled = false;
+        }
+    }
+    return enabled;
+}();
+
 function getImageHtml(item) {
     var html = '<div class="td type">';
 
@@ -1418,6 +1437,8 @@ staticFileCache = {
      * Convert data to string, compress and store in localStorage
      */
     store: function(filename, data) {
+        if (!localStorageAvailable) return;
+
         try {
             // Convert to string if not already (may throw if bad data)
             if (typeof data !== 'string') {
@@ -1447,6 +1468,8 @@ staticFileCache = {
      * Read from localStorage, decompress, convert to JS
      */
     retrieve: function(filename) {
+        if (!localStorageAvailable) return;
+
         var data = null;
         try {
             var dataString = localStorage.getItem(filename);
@@ -1469,6 +1492,8 @@ staticFileCache = {
      * Clear a file or all files saved in localStorage
      */
     clear: function(filename = null) {
+        if (!localStorageAvailable) return;
+
         var savedFiles, filenames;
 
         // Load save files list
@@ -1727,7 +1752,7 @@ $(function() {
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018
-        if ($.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
+        if (localStorageAvailable && $.isArray(JSON.parse(localStorage.getItem("savedFiles")))) {
             localStorage.clear();
             window.console && window.console.warn("Clearing the whole localStorage!");
         }
@@ -1742,26 +1767,28 @@ $(function() {
         if (!selectedLanguage) {
             selectedLanguage = "en";
         }
-        var storedDataVersion = localStorage.getItem("dataVersion");
-        if (storedDataVersion) {
-            var goodVersion = true;
-            try {
-                var storedDataVersion = JSON.parse(storedDataVersion);
-                if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
+        if (localStorageAvailable) {
+            var storedDataVersion = localStorage.getItem("dataVersion");
+            if (storedDataVersion) {
+                var goodVersion = true;
+                try {
+                    var storedDataVersion = JSON.parse(storedDataVersion);
+                    if (storedDataVersion.version < dataVersion || storedDataVersion.server != server || storedDataVersion.language != selectedLanguage) {
+                        goodVersion = false;
+                    }
+                } catch (error) {
                     goodVersion = false;
                 }
-            } catch (error) {
-                goodVersion = false;
-            }
-            
-            if (!goodVersion) {
+                
+                if (!goodVersion) {
+                    staticFileCache.clear();
+                    localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
+                    
+                }
+            } else {
                 staticFileCache.clear();
                 localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
-                
             }
-        } else {
-            staticFileCache.clear();
-            localStorage.setItem("dataVersion", JSON.stringify({"version":dataVersion, "server":server, "language":selectedLanguage}));
         }
         startPage();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
