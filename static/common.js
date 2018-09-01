@@ -589,7 +589,7 @@ function loadInventory() {
             }]
         });
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        Modal.showErrorGet(this.url, errorThrown);
     });
 }
 
@@ -1203,7 +1203,7 @@ function getShortUrl(longUrl, callback) {
             callback(data.url);
         },
         error: function(error) {
-            alert('Failed to generate short url. Long url will be used instead');
+            Modal.showError("An error occured while trying to generate short url. <strong>Long url will be used instead</strong>.", error);
             callback(longUrl);
         }
     });
@@ -1243,17 +1243,18 @@ function onUnitsOrInventoryLoaded() {
                     var itemCount = Object.keys(itemInventory).length;
                     var unitCount = Object.keys(ownedUnits).length;
 
-                    alert("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm. Your data was automatically adapted and saved, but you probably should check the change.");
+                    Modal.show("The unit collection evolved to contains the number of time you own a unit, and the number of TMR of each unit you can still farm."+
+                               "Your data was automatically adapted and saved, but you probably should check the change.");
                     $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
                     $("#inventoryDiv .unitsNumber").text(unitCount + " unit" + (unitCount > 0 ? 's' : ''));
                     $("#inventoryDiv .itemsNumber").text(itemCount + " item" + (itemCount > 0 ? 's' : ''));
                     inventoryLoaded();
                     saveUnits();
                 }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                    alert( errorThrown );
+                    Modal.showErrorGet(this.url, errorThrown);
                 });
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-                alert( errorThrown );
+                Modal.showErrorGet(this.url, errorThrown);
             });
 
         } else {
@@ -1336,11 +1337,12 @@ function saveSuccess() {
 function saveError() {
     $("#inventoryDiv").removeClass("Inventoryloading").addClass("Inventoryloaded");
     if (error.status == 401) {
-        alert('You have been disconnected. The data was not saved. The page will be reloaded.');
-        window.location.reload();
+        Modal.showMessage('You have been disconnected', 'You have been disconnected. <strong>The data was not saved.</strong><br/>The page will be reloaded.', function() {
+            window.location.reload();
+        });
     } else {
         saveNeeded = true;
-        alert('error while saving the user data. Please click on "Save" to try again');
+        Modal.showMessage('User data not saved', 'Error while saving the user data.');
     }
 }
 
@@ -1423,7 +1425,7 @@ function getStaticData(name, localized, callback) {
                 alert(error);
             }
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
+            Modal.showErrorGet(this.url, errorThrown);
         });    
     }
 }
@@ -1435,8 +1437,8 @@ Modal = {
             title: string or function,
             body: string or function,
             size : 'large' or 'small' or false
-            onShow : false or function,
-            onHide : false or function,
+            onOpen : false or function,
+            onClose : false or function,
             withCancelButton: bool
             buttons: [
                 {
@@ -1579,10 +1581,45 @@ Modal = {
                 }
             }
         });
+    },
+    
+    showMessage: function(title, message, onClose) 
+    {
+        Modal.show({
+            title: title,
+            body: '<p>'+message+'</p>',
+            onClose: onClose,
+            withCancelButton: false
+        });
+    },
+    
+    showError: function(text, error) 
+    {
+        Modal.show({
+            title: "Something went wrong, Kupo!",
+            body: '<p>'+text+'</p>'+
+                  '<pre class="error">'+error+'</pre>',
+            withCancelButton: false
+        });
+        if (window.console && window.console.trace) {
+            window.console.trace();
+        }
+    },
+    
+    showErrorGet: function(filename, errorThrown) 
+    {
+        Modal.show({
+            title: "I couldn't get the file, Kupo!",
+            body: '<p>An error occured while trying to retrieve a file from the server.</p>'+
+                  '<p><strong>Filename</strong>: '+filename+'</p>'+
+                  '<pre class="error">'+errorThrown+'</pre>',
+            withCancelButton: false
+        });
+        if (window.console && window.console.trace) {
+            window.console.trace();
+        }
     }
 }
-
-
 
 function copyInputToClipboard($input) 
 {
@@ -1633,7 +1670,7 @@ $(function() {
         }
         startPage();
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        Modal.showErrorGet(this.url, errorThrown);
     });
     
     if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
@@ -1673,9 +1710,8 @@ $(function() {
                             $.notify("Owned units data successfuly migrated to v4", "success");
                             onUnitsOrInventoryLoaded();
                         },
-                        function() {
-                            alert("an error occured when trying to upgrade your unit data to version 4. Please report the next message to the administrator");
-                            alert( errorThrown );
+                        function(errorThrown) {
+                            Modal.showError("An error occured when trying to upgrade your unit data to version 4.", errorThrown);
                         }
                     );
                 });

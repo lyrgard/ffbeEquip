@@ -92,7 +92,7 @@ function build() {
         for (var index = workers.length; index--; index) {
             workers[index].terminate();
         }   
-        alert("The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
+        Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         console.timeEnd("optimize");
         initWorkers();
         workerWorkingCount = 0;
@@ -105,7 +105,7 @@ function build() {
     $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].unit) {
-        alert("Please select an unit");
+        Modal.showMessage("No unit selected", "Please select an unit");
         return;
     }   
     
@@ -125,8 +125,7 @@ function build() {
     try {
         optimize();
     } catch(error) {
-        console.error(error);
-        alert(error);
+        Modal.showError("An error occured while trying to optimize", error);
     }
 }
 
@@ -1176,7 +1175,7 @@ function updateSearchResult() {
 
 function displayEquipableItemList() {
     if (!builds[currentUnitIndex].unit) {
-        alert("Please select an unit");
+        Modal.showMessage("No unit selected", "Please select an unit");
         return;
     }
     
@@ -1210,13 +1209,13 @@ function displayEquipableItemList() {
 
 function displayFixItemModal(index) {
     if (!builds[currentUnitIndex].unit) {
-        alert("Please select an unit");
+        Modal.showMessage("No unit selected", "Please select an unit");
         return;
     }
     
     builds[currentUnitIndex].prepareEquipable();
     if (builds[currentUnitIndex].equipable[index].length == 0) {
-        alert("Nothing can be added at this slot");
+        Modal.showMessage("Equipment error", "Nothing can be added at this slot");
         return;
     }
     currentItemSlot = index;
@@ -1266,24 +1265,24 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
                 if (innatePartialDualWield && innatePartialDualWield.includes(item.type)) {
                     slot = 1;
                 } else {
-                    alert("No more slot available for this item. Select another item or remove fixed item of the same type.");
+                    Modal.showMessage("No more slot available", "No more slot available for this item. Select another item or remove fixed item of the same type.");
                     return;
                 }
             } else {
                 if (item.type != "unavailable") {
-                    alert("No more slot available for this item. Select another item or remove a pinned item of the same type.");
+                    Modal.showMessage("No more slot available", "No more slot available for this item. Select another item or remove a pinned item of the same type.");
                 }
                 return;
             }
         }
         if (isTwoHanded(item) && builds[currentUnitIndex].build[1 - slot]) {
-            alert("Trying to equip a two-handed weapon when another weapon is already equiped is not possible");
+            Modal.showMessage("Equipment error", "Trying to equip a two-handed weapon when another weapon is already equiped is not possible");
             return;
         }
         if (!isStackable(item)) {
             for(var index = 6; index < 10; index++) {
                 if (index != slot && builds[currentUnitIndex].build[index]&& builds[currentUnitIndex].build[index].id == item.id) {
-                    alert("This materia is not stackable. You cannot add another one");
+                    Modal.showMessage("Materia error", "This materia is not stackable. You cannot add another one");
                     return;
                 }
             }
@@ -1935,7 +1934,7 @@ function showBuildLink(onlyCurrentUnit) {
             Modal.showWithBuildLink("unit" + (onlyCurrentUnit? '' : 's') + " build", "builder.html?server=" + server + '#' + data.id);
         },
         error: function(error) {
-            alert('Failed to generate url. Error = ' + JSON.stringify(error));
+            Modal.showError("Failed to generate url", 'Failed to generate url', error);
         }
     });
 }
@@ -2175,7 +2174,7 @@ function getSavedBuilds(callback) {
             }
             callback(savedBuilds);
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-            alert( errorThrown );
+            Modal.showErrorGet(this.url, errorThrown);
         });
     }
 }
@@ -2218,7 +2217,9 @@ function writeSavedTeams() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function() { $.notify("Team saved", "success");},
-        error: function() { alert("Error while saving Team")}
+        error: function(error) { 
+            Modal.showError("Save error", 'An error occured while trying to save the team.', error);
+        }
     });
 }
 
@@ -2526,7 +2527,7 @@ function initWorkers() {
                     }
                     if (workerWorkingCount == 0) {
                         if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            alert("The condition set in the goal are impossible to meet.");
+                            Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
                         }
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
