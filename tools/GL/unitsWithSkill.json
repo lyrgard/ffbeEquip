@@ -17,7 +17,7 @@
 		"lb": {"name":"Shining Nova","minEffects":[{"effect":null,"desc":"Physical fire damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical fire damage (3.9x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"EVO MAG +20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
 			{"name":"Knight's Pride","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects after battle"}]},
@@ -341,7 +341,7 @@
 		"enhancementSkills":["Assault Style","Break Style"],
 		"lb": {"name":"Revolution","minEffects":[{"effect":null,"desc":"Physical lightning damage (2.4x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical lightning damage (3.35x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"Camouflage","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"Last Stand","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% when HP drops below 30% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 20% when HP drops below 30% (max 9000x)"}]}
@@ -384,7 +384,7 @@
 			{"name":"Store","icon":"ability_87.png","effects":[{"effect":null,"desc":"Increase power of the next normal attack (+0.8x, max +1.6x) and increase damage taken by 50%"}]},
 			{"name":"Blade Bash","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (0.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Paralyze (30%) on one enemy"}]},
 			{"name":"Power Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"atk":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 15% for 3 turns to one enemy"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -963,7 +963,7 @@
 		"enhancementSkills":["Auto-Limit","Gun Master","Hyper Fire"],
 		"lb": {"name":"Exterminate","minEffects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (3.9x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Auto-Limit","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
 			{"name":"Auto-Limit +1","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"}]},
 			{"name":"Auto-Limit +2","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"},{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
@@ -1087,12 +1087,12 @@
 		"lb": {"name":"Invincible Crew","minEffects":[{"effect":null,"desc":"Increase DEF by 20% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase DEF by 29% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]}
 		],
 		"actives": [
 			{"name":"Brace","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% for 3 turns to caster"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -1195,13 +1195,13 @@
 		"lb": {"name":"Fierce Attack","minEffects":[{"effect":null,"desc":"Physical damage (2.2x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (2.9x, ATK) to one enemy"}]},
 		"passives": [
 			{"name":"Man-Eater","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","physical":50}]},"desc":"Increase physical damage against Humans by 50%"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"Power Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"atk":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 15% for 3 turns to one enemy"}]},
 			{"name":"Armor Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"def":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 15% for 3 turns to one enemy"}]},
 			{"name":"Ending Blow","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy (50% chance to miss)"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -1324,9 +1324,9 @@
 			{"name":"Perfect Balance +1","icon":"ability_3.png","effects":[{"effect":null,"desc":"Restore 4500 HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 90 MP split over 3 turns to caster"},{"effect":null,"desc":"Increase ATK and DEF by 70% for 3 turns to caster"}]},
 			{"name":"Perfect Balance +2","icon":"ability_3.png","effects":[{"effect":null,"desc":"Restore 9000 HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 90 MP split over 3 turns to caster"},{"effect":null,"desc":"Increase ATK and DEF by 100% for 3 turns to caster"},{"effect":null,"desc":"100% chance to counter physical attacks to the rest of the party with physical damage (2x, ATK) for 3 turns (max 3 / turn)"}]},
 			{"name":"Crushing Kick","icon":"ability_51.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"atk":40,"def":40,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK and DEF by 40% for 3 turns to one enemy"}]},
-			{"name":"Unleashed Chakra","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+100% ATK) on caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 50% for 3 turns"}]},
-			{"name":"Unleashed Chakra +1","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+150% ATK) on caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
-			{"name":"Unleashed Chakra +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+200% ATK) on caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"}]}
+			{"name":"Unleashed Chakra","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+100% ATK) on caster for 3 turns"},{"effect":{"drawAttacks":50,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for 3 turns"}]},
+			{"name":"Unleashed Chakra +1","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+150% ATK) on caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+			{"name":"Unleashed Chakra +2","icon":"ability_77.png","effects":[{"effect":null,"desc":"Inflict berserk (+200% ATK) on caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"}]}
 		],
 		"magics": [
 		]
@@ -1420,15 +1420,15 @@
 		"lb": {"name":"Fortify","minEffects":[{"effect":null,"desc":"Restore 500 (+1.8x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 50% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 500 (+3x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"Auto-Regen","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"Undead Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"Demon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"Royal Armlet","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
-			{"name":"Royal Armlet +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-70%"}]},
-			{"name":"Royal Armlet +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-100%"}]},
+			{"name":"Royal Armlet","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Royal Armlet +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":70}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-70%"}]},
+			{"name":"Royal Armlet +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":100}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-100%"}]},
 			{"name":"HP +15%","icon":"ability_77.png","effects":[{"effect":{"hp%":15},"desc":"Increase HP by 15%"}]},
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
@@ -1444,9 +1444,9 @@
 			{"name":"Lift Spirits +2","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 70 (+0.34x, Heal) MP split over 5 turns to all allies"}]},
 			{"name":"Shield Impact","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (50%) for one turn on one enemy"}]},
 			{"name":"Embolden","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 45% for 5 turns to all allies"}]},
-			{"name":"Grandshelt Shield","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"Grandshelt Shield +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 55%"}]},
-			{"name":"Grandshelt Shield +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"}]}
+			{"name":"Grandshelt Shield","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"Grandshelt Shield +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":55,"max":55},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 55%"}]},
+			{"name":"Grandshelt Shield +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":60,"max":60},"chance":60},"turns":3,"area":"SELF","target":"SELF"},"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"}]}
 		],
 		"magics": [
 			{"name":"Shellga","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 40% for 3 turns to all allies"}]}
@@ -1590,13 +1590,13 @@
 		"lb": {"name":"Risky Assault","minEffects":[{"effect":null,"desc":"Physical damage (5.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.3x, ATK) to one enemy (ignore cover)"}]},
 		"passives": [
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Spear Master","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":20},"desc":"Increase ATK by 20% when equipped with a Spear"}]}
 		],
 		"actives": [
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Healing Formula","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 150 (+3x, Heal) HP to one ally"},{"effect":null,"desc":"Cure Disease for one ally"}]},
 			{"name":"Aqua Shot","icon":"ability_23.png","effects":[{"effect":null,"desc":"Physical water damage (1.5x, ATK) to one enemy"}]},
 			{"name":"Piercing Lance","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.1x, ATK) to one enemy"}]},
@@ -1874,7 +1874,7 @@
 		"actives": [
 			{"name":"Suppression","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 50% for 3 turns to all enemies"}]},
 			{"name":"Fingersnap","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.1x, ATK) to one enemy"},{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Sieg Zoldaad","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (1.9x, ATK) to all enemies"},{"effect":{"resist":[{"name":"fire","percent":40}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 40% for 3 turns to all allies"}]},
 			{"name":"Defense Order","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 3 turns to all allies"}]},
 			{"name":"Defense Order +1","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 5 turns to all allies"}]},
@@ -2091,7 +2091,7 @@
 		"enhancementSkills":["General's Command","Imperial Lance","Protector","General's Battlecry","Impregnable"],
 		"lb": {"name":"Great Wall","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for one turn"},{"effect":null,"desc":"Increase DEF by 72% for 3 turns to caster"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 54% to all allies for one turn"},{"effect":null,"desc":"Increase DEF by 130% for 3 turns to caster"}]},
 		"passives": [
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"Eye for an Eye","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]},
@@ -2119,10 +2119,10 @@
 			{"name":"General's Battlecry","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 50% for 3 turns to all allies"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 50% for 3 turns to all allies"}]},
 			{"name":"General's Battlecry +1","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 50% for 3 turns to all allies"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 100% for 3 turns to all allies"}]},
 			{"name":"General's Battlecry +2","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 50% for 4 turns to all allies"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 100% for 4 turns to all allies"}]},
-			{"name":"Impregnable","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
-			{"name":"Impregnable +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]},
-			{"name":"Impregnable +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
-			{"name":"The empire is with us!","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"Impregnable","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
+			{"name":"Impregnable +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]},
+			{"name":"Impregnable +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
+			{"name":"The empire is with us!","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"D Sword Crusher","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
 			{"name":"D Rod Crusher","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
 			{"name":"Absolute Defense","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Absolute Defense","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 90% to caster for one turn"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Absolute Defense (507400) on turn 1 [4 turns CD]"}]}
@@ -2394,9 +2394,9 @@
 			{"name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"Osmose Lance","icon":"ability_6.png","effects":[{"effect":null,"desc":"Hybrid damage (1.4x, ATK & MAG) to one enemy"},{"effect":null,"desc":"Hybrid damage (0.3x) as MP drain (30%) to one enemy"}]},
 			{"name":"Chocobo Dive","icon":"ability_80.png","effects":[{"effect":null,"desc":"Use Chocobo Dive (507432), or チョコボブーストダイブ (507430), if used after チョコボブースト (226861)"}]},
-			{"name":"Aggravate","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 75% for 2 turns"}]},
-			{"name":"Aggravate +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 75% for 2 turns"},{"effect":null,"desc":"Dodge 2 physical attacks for 2 turns to caster"}]},
-			{"name":"Aggravate +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Dodge 3 physical attacks for 2 turns to caster"}]},
+			{"name":"Aggravate","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":75,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 75% for 2 turns"}]},
+			{"name":"Aggravate +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":75,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 75% for 2 turns"},{"effect":null,"desc":"Dodge 2 physical attacks for 2 turns to caster"}]},
+			{"name":"Aggravate +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Dodge 3 physical attacks for 2 turns to caster"}]},
 			{"name":"Extend","icon":"ability_12.png","effects":[{"effect":{"resist":[{"name":"wind","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Wind by 70% for 3 turns to all allies"}]},
 			{"name":"Vortex","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":50}],"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 5 turns to all enemies"},{"effect":{"imbue":["wind"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Wind element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"Vortex +1","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.1x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":50}],"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 5 turns to all enemies"},{"effect":{"imbue":["wind"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Wind element to physical attacks for 5 turn(s) to caster"}]},
@@ -3010,12 +3010,12 @@
 			{"name":"Defensive Barrier","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 20% to all allies for 3 turns"}]},
 			{"name":"Earthen Ward","icon":"ability_17.png","effects":[{"effect":{"resist":[{"name":"earth","percent":100}],"turns":3,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Increase resistance to Earth by 100% for 3 turns to the rest of the party"}]},
 			{"name":"Steel Body","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to caster"}]},
-			{"name":"Guardian","icon":"ability_69.png","effects":[{"effect":null,"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 35%"}]},
-			{"name":"Guardian +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"65% chance to intercept physical damage to allies for 3 turns, reducing damage by 45%"}]},
-			{"name":"Guardian +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"}]},
-			{"name":"Incinerating Press","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"Incinerating Press +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"Incinerating Press +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]}
+			{"name":"Guardian","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":35,"max":35},"chance":60},"turns":3,"area":"SELF","target":"SELF"},"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 35%"}]},
+			{"name":"Guardian +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":45,"max":45},"chance":65},"turns":3,"area":"SELF","target":"SELF"},"desc":"65% chance to intercept physical damage to allies for 3 turns, reducing damage by 45%"}]},
+			{"name":"Guardian +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":60,"max":60},"chance":70},"turns":3,"area":"SELF","target":"SELF"},"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"}]},
+			{"name":"Incinerating Press","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Incinerating Press +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Incinerating Press +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]}
 		],
 		"magics": [
 			{"name":"Stonra","icon":"ability_28.png","effects":[{"effect":null,"desc":"Magic earth damage (1.4x, MAG) to all enemies"}]},
@@ -3293,10 +3293,10 @@
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"Manly Disposition","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"},{"effect":{"counterSkill":{"name":"Manly Disposition","icon":"ability_69.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Manly Disposition (501890) to caster"}]}
+			{"name":"Manly Disposition","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"},{"effect":{"counterSkill":{"name":"Manly Disposition","icon":"ability_69.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Manly Disposition (501890) to caster"}]}
 		],
 		"actives": [
-			{"name":"Come At Me!","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 80% for 2 turns"}]},
+			{"name":"Come At Me!","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":80,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 80% for 2 turns"}]},
 			{"name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"Thunder Attack","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (1.4x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
 			{"name":"Thunder Wall","icon":"ability_13.png","effects":[{"effect":null,"desc":"Increase DEF by 30% for 3 turns to all allies"},{"effect":{"resist":[{"name":"lightning","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Lightning by 50% for 3 turns to all allies"}]},
@@ -3628,12 +3628,12 @@
 		"actives": [
 			{"name":"Frozen Blade","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (3x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"Icicle Storm","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (2x, ATK) to all enemies"}]},
-			{"name":"Clever Smile","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":45,"mag":45,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 2 turns to all enemies"}]},
+			{"name":"Clever Smile","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":45,"mag":45,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 2 turns to all enemies"}]},
 			{"name":"Sub-zero Blade","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"atk":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 45% for 3 turns to one enemy"}]},
 			{"name":"Sub-zero Shield","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"def":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"}]},
 			{"name":"Sub-zero Heart","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"spr":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}]},
 			{"name":"Sub-zero Magic","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"mag":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 45% for 3 turns to one enemy"}]},
-			{"name":"Vigorous Cry","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase ATK and DEF by 80% for 2 turns to caster"}]},
+			{"name":"Vigorous Cry","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase ATK and DEF by 80% for 2 turns to caster"}]},
 			{"name":"Frostbite","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (4.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]}
 		],
 		"magics": [
@@ -4088,7 +4088,7 @@
 			{"name":"Reinforce","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove ATK, DEF, MAG and SPR debuff from caster"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to caster"}]},
 			{"name":"Destination","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
 			{"name":"Dualcast","icon":"ability_26.png","effects":[{"effect":null,"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
-			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
+			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 			{"name":"Dispel","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -4260,7 +4260,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","helm","clothes","lightArmor","heavyArmor"],
-		"lb": {"name":"Dandy's Play","minEffects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+300% ATK) on caster for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+420% ATK) on caster for 3 turns"}]},
+		"lb": {"name":"Dandy's Play","minEffects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+300% ATK) on caster for 3 turns"}],"maxEffects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+420% ATK) on caster for 3 turns"}]},
 		"passives": [
 			{"name":"Beastly Habit","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Beastly Habit","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3.15x, ATK) to one enemy"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Beastly Habit (503460) to caster"}]},
 			{"name":"Black Arts Protest","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Black Arts Protest","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to one enemy"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Black Arts Protest (503480) to caster"}]},
@@ -4278,7 +4278,7 @@
 		"actives": [
 			{"name":"Kick Off","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"}]},
 			{"name":"Scuffle","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"}]},
-			{"name":"Carnage Howl","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 2 turns to caster"}]}
+			{"name":"Carnage Howl","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 2 turns to caster"}]}
 		],
 		"magics": [
 		]
@@ -4574,7 +4574,7 @@
 		"equip":["axe","hammer","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"lb": {"name":"Giant Wall","minEffects":[{"effect":null,"desc":"Increase SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 25% to all allies for one turn"}],"maxEffects":[{"effect":null,"desc":"Increase SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 49% to all allies for one turn"}]},
 		"passives": [
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"HP +30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"Reduce Encounter","icon":"ability_71.png","effects":[{"effect":null,"desc":"During explorations, reduce chance of encounters by 25%"}]},
 			{"name":"Overcaution","icon":"ability_85.png","effects":[{"effect":null,"desc":"Regenerate 340 (+8x, HP) when guarding"}]},
@@ -4586,7 +4586,7 @@
 			{"name":"Trustworthy Aide","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"Red Storming","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (2.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":40}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 40% for 3 turns to one enemy"}]},
 			{"name":"Defensive Lead","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 0%) for 2 turns"}]},
-			{"name":"Mime - Impregnable","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 3 turns"}]}
+			{"name":"Mime - Impregnable","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -4991,7 +4991,7 @@
 			{"name":"Destination","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
 			{"name":"Dualcast","icon":"ability_26.png","effects":[{"effect":null,"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
 			{"name":"Reduction","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 15% to one ally for 3 turns"}]},
-			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
+			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 			{"name":"Dispel","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -5262,7 +5262,7 @@
 		"lb": {"name":"Strength of the Heart","minEffects":[{"effect":null,"desc":"Physical damage (7.6x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (10x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"EVO MAG +20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Incorruptible Armor","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["lightArmor"],"def%":10,"spr%":10},"desc":"Increase DEF and SPR by 10% when equipped with a Light Armor"}]},
@@ -5281,7 +5281,7 @@
 			{"name":"Bond with Jake","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"},{"effect":{"break":{"atk":40,"def":40,"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 40% for 5 turns to all enemies"}]},
 			{"name":"Bond with Nichol","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage (3.2x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"water","percent":40}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 40% for 3 turns to all enemies"}]},
 			{"name":"Mirror of Heaven","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to all enemies (ignore cover)"}]},
-			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"Bond with Lasswell","icon":"ability_53.png","effects":[{"effect":null,"desc":"2 physical ice and wind attacks (1.6x each, 3.2x total, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":30},{"name":"wind","percent":30}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice and Wind by 30% for 3 turns to all enemies"}]},
 			{"name":"Bond with Fina","icon":"ability_5.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"},{"effect":null,"desc":"Magic light damage (4x, SPR) to all enemies"}]},
 			{"name":"Bond with Sakura","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (3.2x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":40}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 40% for 3 turns to all enemies"}]},
@@ -5448,7 +5448,7 @@
 			{"name":"Infiltrate","icon":"ability_71.png","effects":[{"effect":null,"desc":"During explorations, reduce chance of encounters by 25%"}]},
 			{"name":"Fluffy Fur","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Blind and Petrify by 100%"},{"effect":{"resist":[{"name":"ice","percent":30}]},"desc":"Increase resistance to Ice by 30%"}]},
 			{"name":"Former Conman","icon":"ability_97.png","effects":[{"effect":{"autoCastedSkill":{"name":"Former Conman","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 1 physical attacks for 99999 turns to caster"}]}},"desc":"Use Former Conman (507502) at the start of a battle"},{"effect":{"evade":{"physical":20}},"desc":"20% chance of evading physical attacks"}]},
-			{"name":"Charm Pays Off","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 30%"}]},
+			{"name":"Charm Pays Off","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":30},"desc":"Increase chance of being targeted by 30%"}]},
 			{"name":"Cutie-pie","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Cutie-pie","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":50,"turns":2},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 2 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Cutie-pie (507501) to caster (max 2 / turn)"}]},
 			{"name":"Twin Shooter","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["throwing","gun"]},"desc":"Enable unit to equip two one-handed throwing weapons and guns"}]},
 			{"name":"SPR +10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
@@ -5566,12 +5566,12 @@
 		"actives": [
 			{"name":"Spectral Field","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":null,"desc":"100% chance to counter physical attacks to the rest of the party with physical damage (2x, SPR) for one turn (max 3 / turn)"}]},
 			{"name":"Escort Leader","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 60% for 3 turns to all allies"}]},
-			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"Complete Awakening","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 200% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 6000 (+15x, Heal) HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 20 (+0.2x, Heal) MP split over 3 turns to caster"}]},
 			{"name":"Rising Ray","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (3.6x, SPR) to one enemy"}]},
 			{"name":"Magical Distraction","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
 			{"name":"Complete Focus","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 200% for 2 turns to caster"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tUnleashed Focus (507230)"}]},
-			{"name":"Energy Wall","icon":"ability_69.png","effects":[{"effect":null,"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Energy Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"Firaga","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic fire damage (1.8x, MAG) to all enemies"}]},
@@ -5651,7 +5651,7 @@
 			{"name":"Guard Smite","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"}]},
 			{"name":"デスペルバッシュ","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
 			{"name":"シールドストライク","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (5x, SPR) to one enemy"}]},
-			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"Standout","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"Armor Eraser","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
 			{"name":"Auxiliary Iron Heart","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 75%) for 3 turns"},{"effect":null,"desc":"Increase SPR by 80% for 3 turns to caster"}]}
 		],
@@ -5908,7 +5908,7 @@
 		"passives": [
 			{"name":"DEF +30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
 			{"name":"Undead Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
-			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Warriors Pride","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Warriors Pride","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 25% HP and MP to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Warriors Pride (500490) to caster"}]},
 			{"name":"Hope","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 100% when HP drops below 30% (max 9000x)"}]},
@@ -5922,14 +5922,14 @@
 			{"name":"Full Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":{"break":{"atk":30,"def":30,"mag":30,"spr":30,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 30% for 3 turns to one enemy"}]},
 			{"name":"Shining Wave","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (2.1x, MAG) to all enemies"}]},
 			{"name":"Embolden","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 45% for 5 turns to all allies"}]},
-			{"name":"Brave Presence","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
-			{"name":"Brave Presence +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"Brave Presence +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+			{"name":"Brave Presence","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"Brave Presence +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Brave Presence +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 			{"name":"Armor Eraser","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
 			{"name":"Arms Eraser","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":45,"mag":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"}]},
-			{"name":"Light is with us!","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"Light is with us! +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"Light is with us! +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Light is with us!","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"Light is with us! +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":60},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"Light is with us! +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"Raise","icon":"ability_1.png","effects":[{"effect":null,"desc":"Revive target from KO (30% HP)"}]}
@@ -6114,7 +6114,7 @@
 		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"lb": {"name":"Gaia's Howl","minEffects":[{"effect":null,"desc":"Physical earth damage (2.7x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical earth damage (3.65x, ATK) to one enemy"}]},
 		"passives": [
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"HP Stroll","icon":"ability_73.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP every 3 steps"}]},
 			{"name":"Latent Potential","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 50% when HP drops below 50% (max 1x)"},{"effect":null,"desc":"Increase DEF by 50% when HP drops below 50% (max 1x)"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
@@ -6460,7 +6460,7 @@
 		"enhancementSkills":["Lucky Strike","Man on a Mission","Thunder Guide"],
 		"lb": {"name":"Primeval Lightning","minEffects":[{"effect":null,"desc":"Physical lightning damage (5.8x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical lightning damage (10.25x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"}]},
 		"passives": [
-			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
@@ -6629,10 +6629,10 @@
 		"enhancementSkills":["Holy Light","Focus","Saintly Wall"],
 		"lb": {"name":"Sacred Guard","minEffects":[{"effect":null,"desc":"Increase ATK, DEF and SPR by 50% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase ATK, DEF and SPR by 74% for 3 turns to all allies"}]},
 		"passives": [
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"Demon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
-			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"Holy Light","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"Holy Light +1","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"Holy Light +2","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"},{"effect":null,"desc":"Gain Regen (Champion) (10122) at the start of a battle or when revived"}]},
@@ -6640,9 +6640,9 @@
 			{"name":"High Tide","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"Saintly Wall","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
-			{"name":"Saintly Wall +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"80% chance to intercept attacks on an ally, reducing damage by 55%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"}]},
-			{"name":"Saintly Wall +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"85% chance to intercept attacks on an ally, reducing damage by 60%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
+			{"name":"Saintly Wall","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Saintly Wall +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":80,"mitigation":{"min":55,"max":55}}},"desc":"80% chance to intercept attacks on an ally, reducing damage by 55%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"}]},
+			{"name":"Saintly Wall +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":85,"mitigation":{"min":60,"max":60}}},"desc":"85% chance to intercept attacks on an ally, reducing damage by 60%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
 		],
 		"actives": [
 			{"name":"Focus","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 40% for 3 turns to all allies"}]},
@@ -6988,7 +6988,7 @@
 		"passives": [
 			{"name":"Machine Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":50}]},"desc":"Increase physical damage against Machinas by 50%"}]},
 			{"name":"ATK +10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"Stone Blade","icon":"ability_28.png","effects":[{"effect":null,"desc":"Hybrid earth damage (1.8x, ATK & MAG) to one enemy"}]},
@@ -7215,7 +7215,7 @@
 		"passives": [
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"Last Stand","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% when HP drops below 30% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 20% when HP drops below 30% (max 9000x)"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Fortitude","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Sword"}]}
 		],
 		"actives": [
@@ -7256,7 +7256,7 @@
 		],
 		"actives": [
 			{"name":"No Fear","icon":"ability_53.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 20% for 3 turns to caster"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"Focus","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 40% for 3 turns to all allies"}]},
 			{"name":"Full Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":{"break":{"atk":30,"def":30,"mag":30,"spr":30,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 30% for 3 turns to one enemy"}]}
@@ -7730,7 +7730,7 @@
 		"enhancementSkills":["Double Dice","Quick Gamble","Red Card"],
 		"lb": {"name":"Diving Bomb","minEffects":[{"effect":null,"desc":"Physical damage (5.4x, ATK) to all enemies (ignore cover)"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.8x, ATK) to all enemies (ignore cover)"}]},
 		"passives": [
-			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
@@ -7906,7 +7906,7 @@
 		"passives": [
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"Store","icon":"ability_87.png","effects":[{"effect":null,"desc":"Increase power of the next normal attack (+0.8x, max +1.6x) and increase damage taken by 50%"}]},
@@ -8266,7 +8266,7 @@
 		"enhancementSkills":["Dual Edge","Soul Blade","Free Energy"],
 		"lb": {"name":"Grand Lethal","minEffects":[{"effect":null,"desc":"Physical damage (5.5x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.9x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"Chivalry","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"Steal Gil","icon":"ability_82.png","effects":[{"effect":null,"desc":"Enable unit to also obtain gil when stealing"}]},
 			{"name":"Eye for an Eye","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
@@ -8540,7 +8540,7 @@
 		"passives": [
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Eye for an Eye","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]}
 		],
 		"actives": [
@@ -9522,8 +9522,8 @@
 			{"name":"Inescapable Disaster","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"spr":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 50% for 5 turns to one enemy"}]},
 			{"name":"Fulminating Darkness","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"atk":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 5 turns to one enemy"}]},
 			{"name":"Ruin Impendent","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 5 turns to one enemy"}]},
-			{"name":"Twilight Guard","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
-			{"name":"Dawn Guard","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Twilight Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"Dawn Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 		]
@@ -9544,7 +9544,7 @@
 		"enhancementSkills":["All Resist Light","Royal Obligation","Vanguard Slasher"],
 		"lb": {"name":"Pride of Nabradia","minEffects":[{"effect":null,"desc":"Increase DEF and SPR by 50% for 5 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase DEF and SPR by 74% for 5 turns to all allies"}]},
 		"passives": [
-			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"Resist Light","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":100}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
@@ -9560,9 +9560,9 @@
 			{"name":"All Resist Light +1","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":50}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 50% for 5 turns to all allies"}]},
 			{"name":"All Resist Light +2","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":70}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 70% for 5 turns to all allies"}]},
 			{"name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
-			{"name":"Royal Obligation","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"Royal Obligation +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"40% chance to intercept physical damage to allies for 2 turns, reducing damage by 40%"}]},
-			{"name":"Royal Obligation +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to caster"}]},
+			{"name":"Royal Obligation","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"Royal Obligation +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":40,"max":40},"chance":40},"turns":2,"area":"SELF","target":"SELF"},"desc":"40% chance to intercept physical damage to allies for 2 turns, reducing damage by 40%"}]},
+			{"name":"Royal Obligation +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":60,"max":60},"chance":70},"turns":3,"area":"SELF","target":"SELF"},"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 60%"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to caster"}]},
 			{"name":"Patriotic Slash","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical light damage (3x, ATK) to one enemy"}]}
 		],
 		"magics": [
@@ -9588,7 +9588,7 @@
 		"lb": {"name":"Guilt","minEffects":[{"effect":null,"desc":"Cast Death (30%) or deal physical damage (7.6x, ATK) (ignore cover) to all enemies"},{"effect":null,"desc":"Gain access to following skills (1 use):\n\tObservance (505330)"}],"maxEffects":[{"effect":null,"desc":"Cast Death (30%) or deal physical damage (10x, ATK) (ignore cover) to all enemies"},{"effect":null,"desc":"Gain access to following skills (1 use):\n\tObservance (505330)"}]},
 		"passives": [
 			{"name":"Judge Gabranth","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["dagger","sword","greatSword"]},"desc":"Enable unit to equip two one-handed daggers, swords and great swords"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Judge of Arms","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 150% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase DEF by 150% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase SPR by 150% for 2 turns when HP drops below 50% (max 9999x)"}]},
 			{"name":"Avenger - Attack","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["greatSword"],"atk%":40},"desc":"Increase ATK by 40% when equipped with a Great Sword"}]},
 			{"name":"Avenger - Defend","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["dagger"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Dagger"}]},
@@ -9795,7 +9795,7 @@
 			{"name":"Counter +2","icon":"ability_68.png","effects":[{"effect":null,"desc":"45% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"Brawl","icon":"ability_51.png","effects":[{"effect":{"equipedConditions":["unarmed"],"atk%":50},"desc":"Increase ATK by 50% when unarmed"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Fighting Spirit","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"Fighting Spirit +1","icon":"ability_68.png","effects":[{"effect":null,"desc":"38% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"Fighting Spirit +2","icon":"ability_68.png","effects":[{"effect":null,"desc":"45% chance to counter a magic attack with an attack (1x, ATK)"}]},
@@ -10030,7 +10030,7 @@
 			{"name":"Fast Blade +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.9x, ATK) to one enemy"}]},
 			{"name":"Fast Blade +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
 			{"name":"Foresight","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 30% for 5 turns to caster"}]},
-			{"name":"Flash","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Flash","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Bloodbath","icon":"ability_6.png","effects":[{"effect":null,"desc":"Hybrid damage (1.4x, ATK & MAG) to one enemy"},{"effect":null,"desc":"Hybrid damage (0.8x) as HP drain (30%) to one enemy"}]},
 			{"name":"Fight or Flight","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 5 turns to caster"}]},
 			{"name":"Savage Blade","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Savage Blade (500540), or Savage Blade (500530), if used after Fast Blade (207780), Fast Blade+1 (703950) or Fast Blade+2 (703960)"}]},
@@ -10208,9 +10208,9 @@
 		],
 		"actives": [
 			{"name":"Blindside","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
-			{"name":"Fish","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
-			{"name":"Fish +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"Fish +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tPoint-Blank Warp-Strike (501620)"}]},
+			{"name":"Fish","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"Fish +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Fish +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tPoint-Blank Warp-Strike (501620)"}]},
 			{"name":"Cover","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 10 (+0.2x, Heal) MP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 1000 (+10x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"Link","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK and MAG by 45% for 3 turns to all allies"}]},
 			{"name":"Link +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 45% for 3 turns to all allies"}]},
@@ -10241,7 +10241,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"lb": {"name":"Impulse","minEffects":[{"effect":null,"desc":"Physical damage (8x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical damage (10.4x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+		"lb": {"name":"Impulse","minEffects":[{"effect":null,"desc":"Physical damage (8x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical damage (10.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 		"passives": [
 			{"name":"Survival","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
@@ -10259,7 +10259,7 @@
 			{"name":"Antagonize","icon":"ability_68.png","effects":[{"effect":null,"desc":"50% chance to counter physical attacks to the rest of the party with physical damage (1.5x, ATK) for 5 turns (max 1 / turn)"}]},
 			{"name":"Riled","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 100% for 2 turns to one ally"}]},
 			{"name":"Cyclone","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"}]},
-			{"name":"Intercept","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"Intercept","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
 			{"name":"Royal Guard","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 50%) for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 2 turns to caster"}]}
 		],
 		"magics": [
@@ -10444,7 +10444,7 @@
 			{"name":"Bioblaster","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Inflict Poison (100%) on all enemies"}]},
 			{"name":"Gravisphere","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Confusion (50%) on all enemies"}]},
 			{"name":"Ballistic","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (2.2x, ATK) to all enemies"}]},
-			{"name":"Starshell","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 50% for one turn"}]},
+			{"name":"Starshell","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"},{"effect":{"drawAttacks":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for one turn"}]},
 			{"name":"Circular Saw","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (4.5x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"Gravity Well","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (3.6x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 60% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Paralyze (80%) on one enemy"}]},
 			{"name":"Comeback","icon":"ability_1.png","effects":[{"effect":null,"desc":"Revive one ally from KO (100% HP)"}]},
@@ -10643,9 +10643,9 @@
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"Risky Assault","minEffects":[{"effect":null,"desc":"Physical damage (4x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Sacrifice 30% HP to deal physical* damage (1.5x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (5.27x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Sacrifice 30% HP to deal physical* damage (2.45x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"DEF +10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
-			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Sentinel","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"Dammit!","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]}
 		],
@@ -10740,7 +10740,7 @@
 			{"name":"MP +20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"MAG +20%","icon":"ability_77.png","effects":[{"effect":{"mag%":20},"desc":"Increase MAG by 20%"}]},
 			{"name":"Auto-Refresh","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"Noble Lineage","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Noble Lineage","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Last of the Beoulve","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["helm"],"def%":50},"desc":"Increase DEF by 50% when equipped with a Helm"}]},
 			{"name":"Warrior's Pride","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["hat"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Hat"}]},
@@ -10755,8 +10755,8 @@
 		"actives": [
 			{"name":"Second Wind","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 50% for 3 turns to one ally"}]},
 			{"name":"Stone Throw","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (400) to one enemy"}]},
-			{"name":"Stone Throw +1","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (1000) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"Stone Throw +2","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (2500) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
+			{"name":"Stone Throw +1","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (1000) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Stone Throw +2","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (2500) to all enemies"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
 			{"name":"Weapon Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Weapon Break (505980), or Weapon Break+2 (506000), if used after Blade of Justice+2 (705500)"}]},
 			{"name":"Mind Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Mind Break (505990), or Mind Break+2 (506010), if used after Blade of Justice+2 (705500)"}]},
 			{"name":"Blade of Justice","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3.33x, ATK) to one enemy (ignore cover)"}]},
@@ -10886,7 +10886,7 @@
 			{"name":"Knighthood +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["lightShield"],"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30% when equipped with a Light Shield"},{"effect":{"equipedConditions":["greatSword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Great Sword"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
-			{"name":"Royal Bodyguard","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]}
+			{"name":"Royal Bodyguard","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]}
 		],
 		"actives": [
 			{"name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
@@ -11648,7 +11648,7 @@
 			{"name":"Acrobatics +1","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Firebomb","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical* fire damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Confusion (50%) on one enemy"}]},"percent":33},{"skill":{"name":"Dagger Toss","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Disease (50%) on one enemy"}]},"percent":33},{"skill":{"name":"Ring Toss","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Stop (60%) for 3 turns on one enemy"}]},"percent":34}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n33%: Firebomb (910558)\n33%: Dagger Toss (910560)\n34%: Ring Toss (910562)"}]},
 			{"name":"Acrobatics +2","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Firebomb","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical* fire damage (3x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Confusion (100%) on one enemy"}]},"percent":33},{"skill":{"name":"Dagger Toss","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Disease (100%) on one enemy"}]},"percent":33},{"skill":{"name":"Ring Toss","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Stop (100%) for 3 turns on one enemy"}]},"percent":34}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n33%: Firebomb (910559)\n33%: Dagger Toss (910561)\n34%: Ring Toss (910563)"}]},
 			{"name":"Throw","icon":"ability_47.png","effects":[{"effect":null,"desc":"Allow use of throwable items"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Hide","icon":"ability_42.png","effects":[{"effect":null,"desc":"Remove caster from fight for 3-5 turns"}]},
 			{"name":"One-Man Show","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Charm (15%) on one enemy for one turn"}]},
 			{"name":"Pandora's Box","icon":"ability_24.png","effects":[{"effect":null,"desc":"Inflict one random status effect (Petrify 100% and Poison, Blind, Sleep, Silence, Paralyze, Confusion and Disease 30%) to one enemy"}]},
@@ -11971,7 +11971,7 @@
 		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
 		"lb": {"name":"Silver Curtain","minEffects":[{"effect":null,"desc":"Increase DEF and MAG by 50% for 3 turns to all allies"},{"effect":null,"desc":"Restore 30 MP to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase DEF and MAG by 74% for 3 turns to all allies"},{"effect":null,"desc":"Restore 30 MP to all allies"}]},
 		"passives": [
-			{"name":"Attract","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 30%"}]},
+			{"name":"Attract","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":30},"desc":"Increase chance of being targeted by 30%"}]},
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
 			{"name":"Rune Protector","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["rod"],"mag%":15},"desc":"Increase MAG by 15% when equipped with a Rod"},{"effect":{"equipedConditions":["lightShield"],"def%":15},"desc":"Increase DEF by 15% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"def%":15},"desc":"Increase DEF by 15% when equipped with a Heavy Shield"}]},
 			{"name":"Rune Protector +1","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["rod"],"mag%":25},"desc":"Increase MAG by 25% when equipped with a Rod"},{"effect":{"equipedConditions":["lightShield"],"def%":25,"spr%":25},"desc":"Increase DEF and SPR by 25% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"def%":25,"spr%":25},"desc":"Increase DEF and SPR by 25% when equipped with a Heavy Shield"}]},
@@ -11989,9 +11989,9 @@
 			{"name":"Steel","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 75% to caster for one turn"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 75% to caster for one turn"}]},
 			{"name":"Ice Blitz","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (1.6x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":30}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 30% for 3 turns to one enemy"}]},
 			{"name":"Gale Blast","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.6x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":30}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 30% for 3 turns to one enemy"}]},
-			{"name":"Bring It On","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"}]},
-			{"name":"Bring It On +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF, MAG and SPR by 80% for 3 turns to caster"}]},
-			{"name":"Bring It On +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF, MAG and SPR by 150% for 3 turns to caster"}]},
+			{"name":"Bring It On","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":80,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"}]},
+			{"name":"Bring It On +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":80,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF, MAG and SPR by 80% for 3 turns to caster"}]},
+			{"name":"Bring It On +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":80,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 80% for 3 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 50% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF, MAG and SPR by 150% for 3 turns to caster"}]},
 			{"name":"Glacial Wave","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (2.1x, MAG) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
 			{"name":"Glacial Wave +1","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (3x, MAG) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":30}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 30% for 3 turns to all enemies"}]},
 			{"name":"Glacial Wave +2","icon":"ability_22.png","effects":[{"effect":null,"desc":"Magic ice damage (5.33x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to all enemies"}]}
@@ -12160,9 +12160,9 @@
 		"passives": [
 			{"name":"Sun-blessed Warrior","icon":"ability_77.png","effects":[{"effect":{"atk%":25,"def%":25},"desc":"Increase ATK and DEF by 25%"}]},
 			{"name":"Beast Hunter","icon":"ability_79.png","effects":[{"effect":{"equipedConditions":["bow"],"atk%":75},"desc":"Increase ATK by 75% when equipped with a Bow"},{"effect":{"killers":[{"name":"beast","physical":50}]},"desc":"Increase physical damage against Beasts by 50%"}]},
-			{"name":"Rose Custodian","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on a female ally"}]},
-			{"name":"Rose Custodian +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on a female ally, reducing damage by 30%"}]},
-			{"name":"Rose Custodian +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on a female ally, reducing damage by 50%"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
+			{"name":"Rose Custodian","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":50,"mitigation":{"min":0,"max":0}}},"desc":"50% chance to intercept attacks on a female ally"}]},
+			{"name":"Rose Custodian +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":50,"mitigation":{"min":30,"max":30}}},"desc":"50% chance to intercept attacks on a female ally, reducing damage by 30%"}]},
+			{"name":"Rose Custodian +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on a female ally, reducing damage by 50%"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Undead Vanquisher","icon":"ability_79.png","effects":[{"effect":{"equipedConditions":["throwing"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Throwing"},{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"Zealous","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (91000) at the start of a battle or when revived"}]},
 			{"name":"Sun Cupid","icon":"ability_97.png","effects":[{"effect":{"resist":[{"name":"light","percent":25}]},"desc":"Increase resistance to Light by 25%"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Poison, Blind, Sleep and Confusion by 100%"}]},
@@ -12359,7 +12359,7 @@
 			{"name":"Sneak Attack","icon":"global_ability_10009.png","effects":[{"effect":null,"desc":"Physical damage (3.85x, ATK) to one enemy (ignore cover)"},{"effect":{"statsBuff":{"def":-30,"spr":-30,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce DEF and SPR by 30% for 2 turns to caster"}]},
 			{"name":"Toxic Dagger","icon":"ability_47.png","effects":[{"effect":null,"desc":"Fixed damage (2500) to one enemy"},{"effect":null,"desc":"Inflict Poison (100%) on one enemy"}]},
 			{"name":"Lie Low","icon":"ability_42.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from caster"},{"effect":null,"desc":"Remove caster from fight for one turn"}]},
-			{"name":"Rash Impulse","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"Rash Impulse","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
 			{"name":"Desperate Strike","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (7.5x, ATK) to one enemy (25% chance to miss)"},{"effect":{"statsBuff":{"atk":-50,"def":-50,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce ATK and DEF by 50% for 2 turns to caster"}]},
 			{"name":"Desperate Strike +1","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (7.5x, ATK) to one enemy (15% chance to miss)"},{"effect":{"statsBuff":{"atk":-30,"def":-30,"turns":2},"area":"SELF","target":"SELF"},"desc":"Reduce ATK and DEF by 30% for 2 turns to caster"}]},
 			{"name":"Desperate Strike +2","icon":"ability_65.png","effects":[{"effect":null,"desc":"Use Desperate Strike+2 (910990), or Desperate Strike+2 (910989), if used after Lie Low (910169), Rash Impulse (910170), Twist of Fate (910171), Twist of Fate+1 (910991), Twist of Fate+2 (910992) or Waylay (910162)"}]},
@@ -12733,9 +12733,9 @@
 			{"name":"Kabuff +1","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 40% for 5 turns to all allies"}]},
 			{"name":"Kabuff +2","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 40% for 5 turns to all allies"},{"effect":null,"desc":"Reduce damage taken by 20% to all allies for 5 turns"}]},
 			{"name":"Multifists","icon":"ability_51.png","effects":[{"effect":null,"desc":"4 physical attacks (0.7x each, 2.8x total, ATK) to one random enemy"}]},
-			{"name":"Forbearance","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"Forbearance +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]},
-			{"name":"Forbearance +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 2 turns, reducing damage by 50%"}]}
+			{"name":"Forbearance","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"Forbearance +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":30},"turns":1,"area":"SELF","target":"SELF"},"desc":"30% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]},
+			{"name":"Forbearance +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":2,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 2 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 		]
@@ -12795,7 +12795,7 @@
 		"stats_pattern":1,
 		"equip":[],
 		"enhancementSkills":["Metal Body","Kaboom"],
-		"lb": {"name":"Metal Protector","minEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+		"lb": {"name":"Metal Protector","minEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 		"passives": [
 			{"name":"Metal Body","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]},"desc":"Increase resistance to all elements by 50%"}]},
 			{"name":"Metal Body +1","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]},"desc":"Increase resistance to all elements by 50%"},{"effect":{"evade":{"physical":30}},"desc":"30% chance of evading physical attacks"}]},
@@ -12871,7 +12871,7 @@
 			{"name":"Meathead","icon":"ability_95.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"},{"effect":{"equipedConditions":["fist"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Fist"}]},
 			{"name":"Constant Oomph","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Oomph) (30212) at the start of a battle or when revived"}]},
 			{"name":"Restless Heart","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
-			{"name":"Ruler","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Ruler","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Starry Wrath","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Starry Wrath (507541) to caster (max 2 / turn)"},{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Starry Wrath (507542) to caster (max 2 / turn)"}]},
 			{"name":"Dark Arts","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mag%":30},"desc":"Increase MAG and HP by 30%"},{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep, Confusion and Petrify by 100%"}],"equipedConditions":["309002900"]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
@@ -12890,7 +12890,7 @@
 			{"name":"Knuckle Sandwich","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.3x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"Fiendish Fauna Fist","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Fiendish Fauna Fist","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"def":60,"mag":60,"spr":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 60% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Fiendish Fauna Fist (507543) on turn 5 [5 turns CD]"}]},
 			{"name":"Rough Cuts","icon":"ability_54.png","effects":[{"effect":null,"desc":"2 physical attacks (1.8x each, 3.6x total, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
-			{"name":"Fauna Fighting Spirit","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
+			{"name":"Fauna Fighting Spirit","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
 			{"name":"Blizzard Slash","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (7x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 3 turn(s) to caster"}]}
 		],
 		"magics": [
@@ -13488,7 +13488,7 @@
 			{"name":"Mesmerize","icon":"ability_100.png","effects":[{"effect":null,"desc":"Inflict Sleep and Silence (30%) on all enemies"}]},
 			{"name":"Dance Tune","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase ATK by 60% for 3 turns to all allies while singing"}]},
 			{"name":"Slow Ballad","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase MAG by 60% for 3 turns to all allies while singing"}]},
-			{"name":"Pre-chorus","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 150% for 3 turns to all allies"},{"effect":null,"desc":"Increase chance of being targeted by 30% for 3 turns"}]}
+			{"name":"Pre-chorus","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 150% for 3 turns to all allies"},{"effect":{"drawAttacks":30,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 30% for 3 turns"}]}
 		],
 		"magics": [
 			{"name":"Thundara","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
@@ -13515,7 +13515,7 @@
 		"lb": {"name":"Shining Nova","minEffects":[{"effect":null,"desc":"Physical fire damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical fire damage (3.9x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"HP +10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"Demonic Cover","icon":"ability_69.png","effects":[{"effect":null,"desc":"15% chance to intercept attacks on an ally"}]},
+			{"name":"Demonic Cover","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":15,"mitigation":{"min":0,"max":0}}},"desc":"15% chance to intercept attacks on an ally"}]},
 			{"name":"Counter","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"Counter +1","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (2x, ATK)"},{"effect":{},"desc":"Increase crit. chance by 10%"}]},
 			{"name":"Counter +2","icon":"ability_68.png","effects":[{"effect":null,"desc":"50% chance to counter a physical attack with an attack (3x, ATK)"},{"effect":{},"desc":"Increase crit. chance by 30%"}]},
@@ -13526,14 +13526,14 @@
 			{"name":"Doublehand +1","icon":"ability_76.png","effects":[{"effect":{"singleWieldingOneHanded":{"atk":100}},"desc":"Increase equipment ATK by 100% when armed with a single one-handed weapon"}]},
 			{"name":"Doublehand +2","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":150}},"desc":"Increase equipment ATK by 150% when armed with a single weapon"}]},
 			{"name":"EVO MAG +20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
-			{"name":"Cerberus Guard","icon":"global_ability_10001.png","effects":[{"effect":null,"desc":"40% chance to intercept attacks on an ally, reducing damage by 25%"}]},
+			{"name":"Cerberus Guard","icon":"global_ability_10001.png","effects":[{"effect":{"stCover":{"chance":40,"mitigation":{"min":25,"max":25}}},"desc":"40% chance to intercept attacks on an ally, reducing damage by 25%"}]},
 			{"name":"Demon's Revenge","icon":"global_ability_10004.png","effects":[{"effect":null,"desc":"Increase chance of countering by 150%"}]}
 		],
 		"actives": [
 			{"name":"Power Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"atk":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 15% for 3 turns to one enemy"}]},
 			{"name":"Defend","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"}]},
-			{"name":"Defend +1","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
-			{"name":"Defend +2","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+			{"name":"Defend +1","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"Defend +2","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 50% to caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 			{"name":"Ignite","icon":"global_ability_10003.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 40% for 3 turns to all allies"}]},
 			{"name":"Ignite +1","icon":"global_ability_10003.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 60% for 3 turns to all allies"}]},
 			{"name":"Ignite +2","icon":"global_ability_10003.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 80% for 4 turns to all allies"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tDemon's Wrath (910506)\n\tInner Fire (910507)"}]}
@@ -13856,7 +13856,7 @@
 		"passives": [
 			{"name":"Dual Wield","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"}]},
 			{"name":"Smirk","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"}]},
-			{"name":"Biased Chivalry","icon":"ability_69.png","effects":[{"effect":null,"desc":"10% chance to intercept attacks on a female ally, reducing damage by 50%"}]},
+			{"name":"Biased Chivalry","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":10,"mitigation":{"min":50,"max":50}}},"desc":"10% chance to intercept attacks on a female ally, reducing damage by 50%"}]},
 			{"name":"ATK +20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"Outlaw","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Sword"},{"effect":{"equipedConditions":["gun"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Gun"},{"effect":{"equipedConditions":["lightArmor"],"def%":30},"desc":"Increase DEF by 30% when equipped with a Light Armor"},{"effect":{"killers":[{"name":"human","physical":50}]},"desc":"Increase physical damage against Humans by 50%"}]},
 			{"name":"Protective Vest","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":20},"desc":"Increase DEF and HP by 20%"},{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]}
@@ -13865,7 +13865,7 @@
 			{"name":"Shock Laser","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (1.8x, ATK) to one enemy"}]},
 			{"name":"Flame Laser","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (1.7x, ATK) to one enemy"}]},
 			{"name":"Hi Ho Silver, Away!","icon":"ability_57.png","effects":[{"effect":null,"desc":"Escape Battle"}]},
-			{"name":"Spit","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"Spit","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
 			{"name":"Rapid Fire","icon":"ability_61.png","effects":[{"effect":null,"desc":"1-6 physical attacks (1x each, 3.5x avg, ATK) to one random enemy"}]},
 			{"name":"Quit Yammerin'!","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Silence (30%) on all enemies"}]},
 			{"name":"Dodge","icon":"ability_64.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"}]},
@@ -14091,7 +14091,7 @@
 			{"name":"Counter: Hold","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Counter: Hold","icon":"ability_68.png","effects":[{"effect":null,"desc":"Inflict Paralyze (40%) on one enemy"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Counter: Hold (910408) to caster"}]},
 			{"name":"DEF +30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
 			{"name":"Counter: Silence","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Counter: Silence","icon":"ability_68.png","effects":[{"effect":null,"desc":"Inflict Silence (40%) on one enemy"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Counter: Silence (910410) to caster"}]},
-			{"name":"Conspicuous Existence","icon":"ability_83.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Conspicuous Existence","icon":"ability_83.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"Extreme Measures","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 75% when HP drops below 10% (max 9000x)"},{"effect":null,"desc":"Increase DEF by 75% when HP drops below 10% (max 9000x)"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
@@ -14101,10 +14101,10 @@
 		"actives": [
 			{"name":"Piercing Claw","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"}]},
 			{"name":"Hardened Carapace","icon":"ability_85.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 2 turns to caster"},{"effect":null,"desc":"Gain access to following skills (1 use):\n\tFortified Carapace (910415)"}]},
-			{"name":"Collecting Water","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Fill LB gauge (20%) to caster"}]},
+			{"name":"Collecting Water","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Fill LB gauge (20%) to caster"}]},
 			{"name":"Hydro Wave","icon":"ability_23.png","effects":[{"effect":null,"desc":"Physical water damage (2.5x, ATK) to all enemies"},{"effect":{"break":{"atk":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 50% for 3 turns to all enemies"}]},
 			{"name":"Water Barrier","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to all allies"}]},
-			{"name":"Defensive Stance","icon":"ability_85.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50% for 3 turns"},{"effect":null,"desc":"Skip next 2"},{"effect":null,"desc":"Restore 2500 (+3x, Heal) HP split over 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 60% to caster for 3 turns"}]}
+			{"name":"Defensive Stance","icon":"ability_85.png","effects":[{"effect":{"drawAttacks":50,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for 3 turns"},{"effect":null,"desc":"Skip next 2"},{"effect":null,"desc":"Restore 2500 (+3x, Heal) HP split over 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 60% to caster for 3 turns"}]}
 		],
 		"magics": [
 			{"name":"Sleep","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Sleep (40%) on one enemy"}]}
@@ -14304,7 +14304,7 @@
 			{"name":"Disenchant","icon":"ability_3.png","effects":[{"effect":null,"desc":"Magic damage (2x, MAG) to one enemy"},{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
 			{"name":"Illusion - Doppelganger","icon":"ability_64.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to one ally"}]},
 			{"name":"Illusion - Terrifying Visions","icon":"ability_54.png","effects":[{"effect":{"break":{"atk":45,"mag":45,"turns":2},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 2 turns to one enemy"},{"effect":null,"desc":"Inflict Confusion (30%) on one enemy"}]},
-			{"name":"Illusion - Redirect","icon":"ability_69.png","effects":[{"effect":null,"desc":"Intercept physical damage to allies for 2 turns, reducing damage by 30%"}]},
+			{"name":"Illusion - Redirect","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":100},"turns":2,"area":"ST","target":"ALLY"},"desc":"Intercept physical damage to allies for 2 turns, reducing damage by 30%"}]},
 			{"name":"Illusion - Phantasmal Forces","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic damage 100 (+2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to one enemy"}]},
 			{"name":"Master Illusionist","icon":"ability_8.png","effects":[{"effect":null,"desc":"Enable unit to use the following skills twice in one turn:\n\tIllusion - Doppelganger (910532)\n\tIllusion - Phantasmal Forces (910537)\n\tIllusion - Redirect (910536)\n\tIllusion - Terrifying Visions (910534)"}]}
 		],
@@ -14333,7 +14333,7 @@
 		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
 		"lb": {"name":"Unleash the Kraken","minEffects":[{"effect":null,"desc":"Physical water damage (3.3x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"water","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 50% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical water damage (5.7x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"water","percent":74}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 74% for 3 turns to all enemies"}]},
 		"passives": [
-			{"name":"Hahaha, let's dance!","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept attacks on a female ally"}]},
+			{"name":"Hahaha, let's dance!","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":20,"mitigation":{"min":0,"max":0}}},"desc":"20% chance to intercept attacks on a female ally"}]},
 			{"name":"X Marks the Spot","icon":"ability_74.png","effects":[{"effect":null,"desc":"Increase gil obtained by 100%"}]},
 			{"name":"Brew Tolerance","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"spr%":20},"desc":"Increase SPR and HP by 20%"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"disease","percent":100}]},"desc":"Increase resistance to Poison and Disease by 100%"}]},
 			{"name":"Yo Ho Ho!","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
@@ -14449,13 +14449,13 @@
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Singer's Fortitude","icon":"global_materia_1500000006.png","effects":[{"effect":{"equipedConditions":["lightShield"],"hp%":30,"def%":30},"desc":"Increase DEF and HP by 30% when equipped with a Light Shield"}]},
 			{"name":"MP +10%","icon":"ability_77.png","effects":[{"effect":{"mp%":10},"desc":"Increase MP by 10%"}]},
-			{"name":"Dangerous Facade","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Dangerous Facade","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"Song of Counter","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Pop Heart","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 750 (+1x, Heal) HP to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Pop Heart (910573) to caster"}]},
 			{"name":"SPR +20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]}
 		],
 		"actives": [
 			{"name":"Medicate","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure Poison, Blind and Silence for caster"}]},
-			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"Provoke","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"Wind Heart","icon":"ability_25.png","effects":[{"effect":null,"desc":"Magic wind damage (1.4x, MAG) to one enemy"},{"effect":null,"desc":"Inflict Paralyze (30%) on one enemy"}]},
 			{"name":"Flame Heart","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic fire damage (1.4x, MAG) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"}]},
 			{"name":"Strong Heart","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove DEF and SPR debuff from caster"}]},
@@ -14562,7 +14562,7 @@
 			{"name":"Inner Strength","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["bow"],"atk%":40,"spr%":40},"desc":"Increase ATK and SPR by 40% when equipped with a Bow"},{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]}
 		],
 		"actives": [
-			{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":null,"desc":"Fixed* damage (500) to one enemy"},{"effect":null,"desc":"Increase chance of being targeted by 10% for one turn"}]},"percent":95},{"skill":{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":null,"desc":"Fixed* damage (2500) to one enemy"},{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Inflict Paralyze (50%) on one enemy"}]},"percent":5}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n95%: Throw Snowball (910660)\n5%: Throw Snowball (910661)"}]},
+			{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":null,"desc":"Fixed* damage (500) to one enemy"},{"effect":{"drawAttacks":10,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 10% for one turn"}]},"percent":95},{"skill":{"name":"Throw Snowball","icon":"ability_83.png","effects":[{"effect":null,"desc":"Fixed* damage (2500) to one enemy"},{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Inflict Paralyze (50%) on one enemy"}]},"percent":5}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n95%: Throw Snowball (910660)\n5%: Throw Snowball (910661)"}]},
 			{"name":"Candy Surprise","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Candy Cane","icon":"ability_83.png","effects":[{"effect":null,"desc":"Restore 1000 HP to all allies"}]},"percent":45},{"skill":{"name":"Snow Bites","icon":"ability_83.png","effects":[{"effect":null,"desc":"Restore 50 MP to all allies"}]},"percent":45},{"skill":{"name":"Coal","icon":"ability_83.png","effects":[{"effect":null,"desc":"0% chance to restore 0 HP (0x) to all allies"}]},"percent":10}],"area":"AOE","target":"ALLY"},"desc":"Randomly use:\n45%: Candy Cane (910664)\n45%: Snow Bites (910665)\n10%: Coal (910666)"}]},
 			{"name":"Mechanical Mouse","icon":"ability_82.png","effects":[{"effect":null,"desc":"Steal item from one enemy"}]},
 			{"name":"Fly","icon":"ability_80.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy after a one turn jump delay"},{"effect":null,"desc":"Inflict Confusion (30%) on one enemy"}]},
@@ -14600,14 +14600,14 @@
 			{"name":"Sword Mastery","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"}]},
 			{"name":"Sword Mastery +1","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"},{"effect":{"equipedConditions":["greatSword"],"atk%":25},"desc":"Increase ATK by 25% when equipped with a Great Sword"},{"effect":{"equipedConditions":["katana"],"atk%":25},"desc":"Increase ATK by 25% when equipped with a Katana"}]},
 			{"name":"Sword Mastery +2","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"},{"effect":{"equipedConditions":["greatSword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Great Sword"},{"effect":{"equipedConditions":["katana"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Katana"}]},
-			{"name":"Order of the Blue Wing","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
-			{"name":"Order of the Blue Wing +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 65%"},{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"}]},
-			{"name":"Order of the Blue Wing +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally, reducing damage by 80%"},{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":null,"desc":"80% chance to ignore fatal damage when HP is above 10% (max 1 times)"}]}
+			{"name":"Order of the Blue Wing","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"Order of the Blue Wing +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":65,"max":65}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 65%"},{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"}]},
+			{"name":"Order of the Blue Wing +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":80,"max":80}}},"desc":"5% chance to intercept attacks on an ally, reducing damage by 80%"},{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":null,"desc":"80% chance to ignore fatal damage when HP is above 10% (max 1 times)"}]}
 		],
 		"actives": [
 			{"name":"Weapon Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Weapon Break (505980), or Weapon Break+2 (506000), if used after Blade of Justice+2 (705500)"}]},
 			{"name":"Shield Break","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"break":{"def":40,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 40% for 5 turns to one enemy"}]},
-			{"name":"Brave Presence","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"Brave Presence","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
 			{"name":"Lightning Strike","icon":"ability_5.png","effects":[{"effect":null,"desc":"Physical light damage (4x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"}]},
 			{"name":"The Stuff of Legend","icon":"ability_63.png","effects":[{"effect":{"resist":[{"name":"light","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 50% for 3 turns to all allies"},{"effect":null,"desc":"Increase ATK and DEF by 40% for 3 turns to all allies"}]},
 			{"name":"The Stuff of Legend +1","icon":"ability_63.png","effects":[{"effect":{"resist":[{"name":"light","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 70% for 3 turns to all allies"},{"effect":null,"desc":"Increase ATK and DEF by 70% for 3 turns to all allies"}]},
@@ -14642,7 +14642,7 @@
 			{"name":"Gigant","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":20},"desc":"Increase DEF and HP by 20%"}]},
 			{"name":"Dragon Killer","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":50}]},"desc":"Increase physical damage against Dragons by 50%"}]},
 			{"name":"Master of Spheres","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["lightShield"],"hp%":30,"def%":30},"desc":"Increase DEF and HP by 30% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"hp%":30,"def%":30},"desc":"Increase DEF and HP by 30% when equipped with a Heavy Shield"}]},
-			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"Draw Attacks","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Trusted Buddy","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"},{"effect":{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Paralyze and Confusion by 100%"}]},
 			{"name":"Defensive Prowess","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 50% when HP drops below 50% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 50% when HP drops below 50% (max 9000x)"}]}
 		],
@@ -14655,14 +14655,14 @@
 			{"name":"Force Field - Attack +1","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 30% to one ally for 3 turns"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to one ally"}]},
 			{"name":"Force Field - Attack +2","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 30% to one ally for 3 turns"},{"effect":null,"desc":"Increase DEF by 120% for 3 turns to one ally"}]},
 			{"name":"Embolden","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 45% for 5 turns to all allies"}]},
-			{"name":"Adventurer's Guardian","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
-			{"name":"Adventurer's Guardian +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
-			{"name":"Adventurer's Guardian +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
+			{"name":"Adventurer's Guardian","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
+			{"name":"Adventurer's Guardian +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"Adventurer's Guardian +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
 			{"name":"Primeval Howl","icon":"ability_28.png","effects":[{"effect":null,"desc":"Physical earth damage (3x, DEF) to one enemy"}]},
 			{"name":"Trample","icon":"ability_28.png","effects":[{"effect":null,"desc":"Physical earth damage (1.2x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"earth","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Earth by 50% for 3 turns to all enemies"}]},
-			{"name":"Protector of Olthea","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"Protector of Olthea +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"Protector of Olthea +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Protector of Olthea","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"Protector of Olthea +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":60},"chance":60},"turns":3,"area":"SELF","target":"SELF"},"desc":"60% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"Protector of Olthea +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":70},"turns":3,"area":"SELF","target":"SELF"},"desc":"70% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 		]
@@ -14965,7 +14965,7 @@
 			{"name":"Guardian's Sacrifice","icon":"ability_78.png","effects":[{"effect":null,"desc":"Sacrifice self to restore 100% HP and 0% MP to the rest of the party"}]},
 			{"name":"Improved Focus","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 60% for 3 turns to all allies"},{"effect":{"resist":[{"name":"charm","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase Charm resistance by 100% for 3 turns to all allies"}]},
 			{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 40% HP to caster"}]},"percent":70},{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 70% HP to caster"}]},"percent":20},{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 100% HP to caster"}]},"percent":10}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n70%: Courageous Heart (910826)\n20%: Courageous Heart (910827)\n10%: Courageous Heart (910828)"}]},
-			{"name":"Spiritual Defender","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Spiritual Defender","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"Curaga","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},
@@ -15227,17 +15227,17 @@
 			{"name":"EMP Grenade","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":50,"spr":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG and SPR by 50% for 3 turns to all enemies"}]},
 			{"name":"Stun Grenade","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":50,"def":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 50% for 3 turns to all enemies"}]},
 			{"name":"Orchid","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) per turn to one enemy for 5 turns"}]},
-			{"name":"Showdown","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Increase ATK and DEF by 100% for 5 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 1-4 to caster"}]},
+			{"name":"Showdown","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Increase ATK and DEF by 100% for 5 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 1-4 to caster"}]},
 			{"name":"Implanted Rebreather","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for caster"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Remove ATK, DEF, MAG, SPR, Stop and Charm debuff from caster"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to caster"}]},
 			{"name":"Biocell Restoration","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 10000 HP and 200 MP to caster"}]},
 			{"name":"Pro-Augmentation","icon":"ability_79.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"killers":[{"name":"human","physical":75}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Humans by 75% to caster for 3 turns"}]},
 			{"name":"Pro-Human","icon":"ability_79.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"killers":[{"name":"machine","physical":75}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas by 75% to caster for 3 turns"}]},
-			{"name":"Confrontation","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 5 turns"}]},
+			{"name":"Confrontation","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 5 turns"}]},
 			{"name":"Takedown","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (7.5x, DEF) to one enemy"}]},
 			{"name":"Security System","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, DEF) to all enemies"}]},
 			{"name":"Icarus Dash","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Icarus Dash","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (18.5x, DEF) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 75% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Icarus Dash (911242) on turn 5 [5 turns CD]"}]},
 			{"name":"Plasma Bolt","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Plasma Bolt","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (18.5x, DEF) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Plasma Bolt (911243) on turn 5 [5 turns CD]"}]},
-			{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 2 turns"},{"effect":null,"desc":"Grant a 4000 HP shield to caster for 2 turns"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Augmented TITAN (911244) on turn 1 [3 turns CD]"}]}
+			{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Augmented TITAN","icon":"ability_105.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 2 turns"},{"effect":null,"desc":"Grant a 4000 HP shield to caster for 2 turns"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Augmented TITAN (911244) on turn 1 [3 turns CD]"}]}
 		],
 		"magics": [
 		]

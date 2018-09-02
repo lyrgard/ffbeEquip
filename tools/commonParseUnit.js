@@ -217,8 +217,11 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         enhancementData.levels.push(enhancementSkillsOut);
         unitOut.enhancements.push(enhancementData);
     }
+    unitOut.innates = {};
     addElementalResist(baseEffects, unitData.element_resist);
     addAilmentResist(baseEffects, unitData.status_resist);
+    addElementalResist(unitOut.innates, unitData.element_resist);
+    addAilmentResist(unitOut.innates, unitData.status_resist);
     
     if (Object.keys(baseEffects).length === 0) {
         skillsOut.splice(0,1);
@@ -345,6 +348,9 @@ function addEffectsToEffectList(effectList, effects) {
                 for (var i = 0, len = effect.partialDualWield.length; i < len; i++) {
                     addToList(effectList[0],"partialDualWield",effect.partialDualWield[i]);
                 }
+            }
+            if (effect.drawAttacks) {
+                addToStat(effectList[0], "drawAttacks", effect.drawAttacks);
             }
             if (effect.autoCastedSkill) {
                 for (var autoCastedSkillIndex = effect.autoCastedSkill.effects.length; autoCastedSkillIndex--;) {
@@ -695,6 +701,22 @@ function parsePassiveRawEffet(rawEffect, skills) {
             return [result];
         }
         
+    // Draw attacks
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 24) {
+        var drawAttacks = rawEffect[3][0];
+        addToStat(result, "drawAttacks", drawAttacks);
+        return [result];
+    
+    // ST Cover
+    } else if (rawEffect[2] == 8) {
+        result.stCover = {};
+        if (rawEffect[3][0] == 1) {
+            result.stCover.exclusiveSex = "female";    
+        }
+        result.stCover.chance = rawEffect[3][4];
+        result.stCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
+        return [result];
+        
     }
     return null;
 }
@@ -833,7 +855,17 @@ function parseActiveRawEffect(rawEffect, skills) {
         result.cooldownSkill = parseActiveSkill(skillIn, skills);
         result.cooldownTurns = rawEffect[3][2][0] + 1;
         result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+    
+    // Draw attacks
+    } else if (rawEffect[2] == 61) {
+        result = {"drawAttacks":rawEffect[3][0], "turns": rawEffect[3][1]};
         
+    // AOE Cover
+    } else if (rawEffect[2] == 96) {
+        result = {"aoeCover":{}, "turns": rawEffect[3][6]};
+        result.aoeCover.type = (rawEffect[3][7] == 1 ? "physical": "magical");
+        result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
+        result.aoeCover.chance = rawEffect[3][4];
     }
 
     if (result) {
@@ -1041,7 +1073,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
@@ -1144,7 +1176,6 @@ function getUnitBasicInfo(unit, prefix = "", sixStarForm = false) {
         result += "\n" + prefix + "\t\t\"sixStarForm\":true,";
     }
     if (unit.unreleased7Star) {
-        console.log(unit.name);
         result += "\n" + prefix + "\t\t\"unreleased7Star\":true,";
     }
     result += "\n" + prefix + "\t\t\"max_rarity\":\"" + unit.max_rarity + "\",";
@@ -1179,38 +1210,51 @@ function formatForSearch(units) {
             unit = unit["6_form"];
         }
         if (unit.id) {
-            var skills = unit.skills.slice();
-            if (unit.tmrSkill) {
-                skills.push(unit.tmrSkill);
-            }
-            if (unit.enhancements) {
-                for (var i = unit.enhancements.length; i--;) {
-                    var enhancement = unit.enhancements[i];
-                    for (var j = enhancement.levels[enhancement.levels.length - 1].length; j--;) {
-                        skills.push(enhancement.levels[enhancement.levels.length - 1][j]);
-                    }
-                }
-            }
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
-            for (var i = skills.length; i--;) {
-                var skill = skills[i];
-                addPassiveResist(unitOut, skill);
-            }
-            for (var i = unit.passives.length; i--;) {
-                var skill = unit.passives[i];
-                for (var j = skill.effects.length; j--;) {
-                    if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
-                        addSkillEffectToSearch(skill.effects[j].effect.counterSkill.effects, unitOut.counter);
+            
+            if (unit.innates.resist) {
+                for (var resistIndex = unit.innates.resist.length; resistIndex--;) {
+                    var resist = unit.innates.resist[resistIndex];
+                    if (elements.includes(resist.name)) {
+                        if (!unitOut.passives.elementalResist) {
+                            unitOut.passives.elementalResist = {};
+                        }
+                        addToStat(unitOut.passives.elementalResist, resist.name, resist.percent);
+                    } else {
+                        if (!unitOut.passives.ailmentResist) {
+                            unitOut.passives.ailmentResist = {};
+                        }
+                        addToStat(unitOut.passives.ailmentResist, resist.name, resist.percent);
                     }
                 }
+            }
+            
+            var passivesWithOnlyBestEnhancements = [];
+            for (var i = 0, leni = unit.passives.length; i < leni; i++) {
+                var skill = unit.passives[i];
+                if (passivesWithOnlyBestEnhancements.length != 0) {
+                    if (skill.name.endsWith("+1")) {
+                        continue;
+                    }
+                    if (skill.name.endsWith("+2")) {
+                        passivesWithOnlyBestEnhancements[passivesWithOnlyBestEnhancements.length - 1] = skill;
+                        continue;
+                    }
+                }
+                passivesWithOnlyBestEnhancements.push(skill);
+            }
+            
+            for (var i = passivesWithOnlyBestEnhancements.length; i--;) {
+                var skill = passivesWithOnlyBestEnhancements[i];
+                addSkillEffectToSearch(skill.effects, unitOut, "passives");
             }
             var activeAndMagic = unit.actives.concat(unit.magics);
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
-                addSkillEffectToSearch(skill.effects, unitOut.actives);
+                addSkillEffectToSearch(skill.effects, unitOut, "actives");
             }
             if (unit.lb) {
-                addSkillEffectToSearch(unit.lb.maxEffects, unitOut.lb);
+                addSkillEffectToSearch(unit.lb.maxEffects, unitOut, "lb");
             }
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
@@ -1226,140 +1270,152 @@ function formatForSearch(units) {
     return result;
 }
 
-function addPassiveResist(unitOut, skill) {
-    if (skill.resist) {
-        for (var resistIndex = skill.resist.length; resistIndex--;) {
-            var resist = skill.resist[resistIndex];
-            if (elements.includes(resist.name)) {
-                if (!unitOut.passives.elementalResist) {
-                    unitOut.passives.elementalResist = {};
-                }
-                addToStat(unitOut.passives.elementalResist, resist.name, resist.percent);
-            } else {
-                if (!unitOut.passives.ailmentResist) {
-                    unitOut.passives.ailmentResist = {};
-                }
-                addToStat(unitOut.passives.ailmentResist, resist.name, resist.percent);
-            }
-        }
-    }
-    if (skill.killers) {
-        for (var killerIndex = skill.killers.length; killerIndex--;) {
-            var killer = skill.killers[killerIndex];
-            if (killer.physical) {
-                if (!unitOut.passives.physicalKillers) {
-                    unitOut.passives.physicalKillers = {};
-                }
-                addToStat(unitOut.passives.physicalKillers, killer.name, killer.physical);
-            }
-            if (killer.magical) {
-                if (!unitOut.passives.magicalKillers) {
-                    unitOut.passives.magicalKillers = {};
-                }
-                addToStat(unitOut.passives.magicalKillers, killer.name, killer.magical);
-            }
-        }
-    }
-    if (skill.autoCastedSkill) {
-        for (var autoCastedSkillIndex = skill.autoCastedSkill.effects.length; autoCastedSkillIndex--;) {
-            var effect = skill.autoCastedSkill.effects[autoCastedSkillIndex].effect;
-            if (effect) {
-                addPassiveResist(unitOut, effect);
-            }
-        }
-    }
-}
-
-function addSkillEffectToSearch(effects, effectType) {
+function addSkillEffectToSearch(effects, unitOut, effectType) {
     for (var i = effects.length; i--;) {
         var effect = effects[i];
-        if (effect.effect && effectType[effect.effect.area]) {
+        if (effect.effect) {
+            var effectOut;
+            if (effectType == "passives") {
+                effectOut = unitOut.passives;
+            } else {
+                effectOut = unitOut[effectType][effect.effect.area];
+                if (!effectOut) {
+                    continue;
+                }
+            }
+            
             if (effect.effect.imperil) {
-                if (!effectType[effect.effect.area].imperil) {
-                    effectType[effect.effect.area].imperil = {};
+                if (!effectOut.imperil) {
+                    effectOut.imperil = {};
                 }
                 for (var j = effect.effect.imperil.elements.length; j--;) {
-                    if (!effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] || effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
-                        effectType[effect.effect.area].imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
+                    if (!effectOut.imperil[effect.effect.imperil.elements[j].name] || effectOut.imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
+                        effectOut.imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
                     }
                 }
              } else if (effect.effect.resist) {
                 for (var j = effect.effect.resist.length; j--;) {
                     if (elements.includes(effect.effect.resist[j].name)) {
-                        if (!effectType[effect.effect.area].elementalResist) {effectType[effect.effect.area].elementalResist = {};}
-                        if (!effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] || effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
-                            effectType[effect.effect.area].elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        if (!effectOut.elementalResist) {effectOut.elementalResist = {};}
+                        if (effectType == "passives") {
+                            if (!effectOut.elementalResist[effect.effect.resist[j].name]) {effectOut.elementalResist[effect.effect.resist[j].name] = 0;}
+                            effectOut.elementalResist[effect.effect.resist[j].name] += effect.effect.resist[j].percent;
+                        } else {
+                            if (!effectOut.elementalResist[effect.effect.resist[j].name] || effectOut.elementalResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                                effectOut.elementalResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                            }    
                         }
+                        
                     } else {
-                        if (!effectType[effect.effect.area].ailmentResist) {effectType[effect.effect.area].ailmentResist = {};}
-                        if (!effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] || effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
-                            effectType[effect.effect.area].ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                        if (!effectOut.ailmentResist) {effectOut.ailmentResist = {};}
+                        if (effectType == "passives") {
+                            if (!effectOut.ailmentResist[effect.effect.resist[j].name]) {effectOut.ailmentResist[effect.effect.resist[j].name] = 0;}
+                            effectOut.ailmentResist[effect.effect.resist[j].name] += effect.effect.resist[j].percent;
+                        } else {
+                            if (!effectOut.ailmentResist[effect.effect.resist[j].name] || effectOut.ailmentResist[effect.effect.resist[j].name] < effect.effect.resist[j].percent) {
+                                effectOut.ailmentResist[effect.effect.resist[j].name] = effect.effect.resist[j].percent;
+                            }
                         }
                     }
                     
                 }
             } else if (effect.effect.killers) {
-                for (var j = effect.effect.killers.length; j--;) {
+                for (var j = 0, lenj = effect.effect.killers.length; j < lenj; j++) {
                     if (effect.effect.killers[j].physical) {
-                        if (!effectType[effect.effect.area].physicalKillers) {effectType[effect.effect.area].physicalKillers = {};}
-                        if (!effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] || effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].physical) {
-                            effectType[effect.effect.area].physicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].physical;
-                        }  
+                        if (!effectOut.physicalKillers) {effectOut.physicalKillers = {};}
+                        if (effectType == "passives") {
+                            if (!effectOut.physicalKillers[effect.effect.killers[j].name]) {effectOut.physicalKillers[effect.effect.killers[j].name] = 0;}
+                            effectOut.physicalKillers[effect.effect.killers[j].name] += effect.effect.killers[j].physical;
+                        } else {
+                            if (!effectOut.physicalKillers[effect.effect.killers[j].name] || effectOut.physicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].physical) {
+                                effectOut.physicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].physical;
+                            }
+                        }
                     } 
                     if (effect.effect.killers[j].magical) {
-                        if (!effectType[effect.effect.area].magicalKillers) {effectType[effect.effect.area].magicalKillers = {};}
-                        if (!effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] || effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].magical) {
-                            effectType[effect.effect.area].magicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].magical;
-                        }    
+                        if (!effectOut.magicalKillers) {effectOut.magicalKillers = {};}
+                        if (effectType == "passives") {
+                            if (!effectOut.magicalKillers[effect.effect.killers[j].name]) {effectOut.magicalKillers[effect.effect.killers[j].name] = 0;}
+                            effectOut.magicalKillers[effect.effect.killers[j].name] += effect.effect.killers[j].magical;
+                        } else {
+                            if (!effectOut.magicalKillers[effect.effect.killers[j].name] || effectOut.magicalKillers[effect.effect.killers[j].name] < effect.effect.killers[j].magical) {
+                                effectOut.magicalKillers[effect.effect.killers[j].name] = effect.effect.killers[j].magical;
+                            }    
+                        }
                     } 
                 }
             } else if (effect.effect.randomlyUse) {
                 for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
-                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, effectType);
+                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, unitOut, effectType);
                 }
             } else if (effect.effect.break) {
-                if (!effectType[effect.effect.area].break) {
-                    effectType[effect.effect.area].break = {};
+                if (!effectOut.break) {
+                    effectOut.break = {};
                 }
-                if (!effectType[effect.effect.area].break.atk || effectType[effect.effect.area].break.atk < effect.effect.break.atk) {
-                    effectType[effect.effect.area].break.atk = effect.effect.break.atk;
+                if (!effectOut.break.atk || effectOut.break.atk < effect.effect.break.atk) {
+                    effectOut.break.atk = effect.effect.break.atk;
                 }
-                if (!effectType[effect.effect.area].break.def || effectType[effect.effect.area].break.def < effect.effect.break.def) {
-                    effectType[effect.effect.area].break.def = effect.effect.break.def;
+                if (!effectOut.break.def || effectOut.break.def < effect.effect.break.def) {
+                    effectOut.break.def = effect.effect.break.def;
                 }
-                if (!effectType[effect.effect.area].break.mag || effectType[effect.effect.area].break.atk < effect.effect.break.mag) {
-                    effectType[effect.effect.area].break.mag = effect.effect.break.mag;
+                if (!effectOut.break.mag || effectOut.break.atk < effect.effect.break.mag) {
+                    effectOut.break.mag = effect.effect.break.mag;
                 }
-                if (!effectType[effect.effect.area].break.spr || effectType[effect.effect.area].break.spr < effect.effect.break.spr) {
-                    effectType[effect.effect.area].break.spr = effect.effect.break.spr;
+                if (!effectOut.break.spr || effectOut.break.spr < effect.effect.break.spr) {
+                    effectOut.break.spr = effect.effect.break.spr;
                 }
             } else if (effect.effect.statsBuff) {
-                if (!effectType[effect.effect.area].statsBuff) {
-                    effectType[effect.effect.area].statsBuff = {};
+                if (!effectOut.statsBuff) {
+                    effectOut.statsBuff = {};
                 }
-                if (!effectType[effect.effect.area].statsBuff.atk || effectType[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.atk) {
-                    effectType[effect.effect.area].statsBuff.atk = effect.effect.statsBuff.atk;
+                if (!effectOut.statsBuff.atk || effectOut.statsBuff.atk < effect.effect.statsBuff.atk) {
+                    effectOut.statsBuff.atk = effect.effect.statsBuff.atk;
                 }
-                if (!effectType[effect.effect.area].statsBuff.def || effectType[effect.effect.area].statsBuff.def < effect.effect.statsBuff.def) {
-                    effectType[effect.effect.area].statsBuff.def = effect.effect.statsBuff.def;
+                if (!effectOut.statsBuff.def || effectOut.statsBuff.def < effect.effect.statsBuff.def) {
+                    effectOut.statsBuff.def = effect.effect.statsBuff.def;
                 }
-                if (!effectType[effect.effect.area].statsBuff.mag || effectType[effect.effect.area].statsBuff.atk < effect.effect.statsBuff.mag) {
-                    effectType[effect.effect.area].statsBuff.mag = effect.effect.statsBuff.mag;
+                if (!effectOut.statsBuff.mag || effectOut.statsBuff.atk < effect.effect.statsBuff.mag) {
+                    effectOut.statsBuff.mag = effect.effect.statsBuff.mag;
                 }
-                if (!effectType[effect.effect.area].statsBuff.spr || effectType[effect.effect.area].statsBuff.spr < effect.effect.statsBuff.spr) {
-                    effectType[effect.effect.area].statsBuff.spr = effect.effect.statsBuff.spr;
+                if (!effectOut.statsBuff.spr || effectOut.statsBuff.spr < effect.effect.statsBuff.spr) {
+                    effectOut.statsBuff.spr = effect.effect.statsBuff.spr;
                 }
             } else if (effect.effect.imbue) {
-                if (!effectType[effect.effect.area].imbue) {
-                    effectType[effect.effect.area].imbue = [];
+                if (!effectOut.imbue) {
+                    effectOut.imbue = [];
                 }
                 for (var j = 0, lenj = effect.effect.imbue.length; j < lenj; j++) {
-                    if (!effectType[effect.effect.area].imbue.includes(effect.effect.imbue[j])) {
-                        effectType[effect.effect.area].imbue.push(effect.effect.imbue[j]);
+                    if (!effectOut.imbue.includes(effect.effect.imbue[j])) {
+                        effectOut.imbue.push(effect.effect.imbue[j]);
                     }
                 }
             } else if (effect.effect.cooldownSkill) {
-                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, effectType)
+                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, unitOut, effectType)
+            } else if (effect.effect.drawAttacks) {
+                if (!effectOut.drawAttacks || effectOut.drawAttacks < effect.effect.drawAttacks) {
+                    effectOut.drawAttacks = effect.effect.drawAttacks;
+                }
+            } else if (effect.effect.aoeCover) {
+                var meanMitigation = (effect.effect.aoeCover.mitigation.min + effect.effect.aoeCover.mitigation.max) / 2;
+                if (!effectOut.aoeCover) {effectOut.aoeCover = {};}
+                if (effect.effect.aoeCover.type == "physical") {
+                    if (!effectOut.aoeCover.physical || effectOut.aoeCover.physical < meanMitigation) {
+                        effectOut.aoeCover.physical = meanMitigation;
+                    }
+                } else {
+                    if (!effectOut.aoeCover.magical || effectOut.aoeCover.magical < meanMitigation) {
+                        effectOut.aoeCover.magical = meanMitigation;
+                    }
+                }
+            } else if (effect.effect.stCover) {
+                var meanMitigation = (effect.effect.stCover.mitigation.min + effect.effect.stCover.mitigation.max) / 2;
+                if (!effectOut.stCover || effectOut.stCover > meanMitigation) {
+                    effectOut.stCover = meanMitigation;
+                }
+            } else if (effect.effect.autoCastedSkill) {
+                addSkillEffectToSearch(effect.effect.autoCastedSkill.effects, unitOut, "passives");    
+            } else if (effect.effect.counterSkill) {
+                addSkillEffectToSearch(effect.effect.counterSkill.effects, unitOut, "counter");
             }
         }
     }
