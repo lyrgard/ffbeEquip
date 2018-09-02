@@ -100,7 +100,7 @@ function displayModifiedItems() {
 
 function modifyItem(itemId) {
     if (Object.keys(modifiedItems).length >=10 ) {
-        alert("Only 10 items at most can be modifed at a time. Please send the current item being modified to the server before continuing.");
+        Modal.showMessage("Modification error", "Only 10 items at most can be modifed at a time. Please send the current item being modified to the server before continuing.");
         return;
     }
     var modifiedItem = {"access":[]};
@@ -149,13 +149,13 @@ function sendToServer() {
     $("body").addClass("loading");
     for (var id in modifiedItems) {
         if (!modifiedItems[id].access || modifiedItems[id].access.length == 0) {
-            alert("Access cannot be empty");
+            Modal.showMessage("Access error", "Access cannot be empty");
             return;
         }
         var maxNumber = $("#modifiedItems .tr." + id + " input.maxNumber").val();
         if (maxNumber) {
             if (isNaN(parseInt(maxNumber))) {
-                alert(maxNumber + " is not a valid max number");
+                Modal.showMessage("Number of items", maxNumber + " is not a valid max number");
                 return;
             }
             modifiedItems[id].maxNumber = parseInt(maxNumber);
@@ -214,8 +214,11 @@ function getCorrections() {
         }
         prepareSearch(data);
         updateResults();
+        $("#contributeWrapper").removeClass('hidden');
+        $("#loginMessage").addClass('hidden');
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
-        alert( errorThrown );
+        $("#contributeWrapper").addClass('hidden');
+        $("#loginMessage").removeClass('hidden');
     });  
 }
 

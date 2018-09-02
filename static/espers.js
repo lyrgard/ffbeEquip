@@ -933,6 +933,7 @@ function startPage() {
             $(".stats").addClass("invisible");
             $(".esperOtherStats").addClass("invisible");
             $("#tabs li."+currentEsper).addClass("notOwned");
+            $("#esper .shareLink").addClass("hidden");
         } else {
             $("#esper .levelLine").removeClass("hidden");
             $("#esper .spLine").removeClass("hidden");
@@ -945,6 +946,7 @@ function startPage() {
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
             $("#tabs li."+currentEsper).removeClass("notOwned");
+            $("#esper .shareLink").removeClass("hidden");
         }
         prepareSave();
     });

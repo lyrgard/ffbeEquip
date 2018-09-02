@@ -35,7 +35,7 @@
                     Builder
                 </div>
                 <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
-                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
+                    <button type="button" class="btn btn-default logOut" onclick="unloadInventory()">
                         <span class="glyphicon glyphicon-off" title="logout"></span>
                     </button>
                     <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
@@ -1128,6 +1128,8 @@
                 integrity="sha384-xm3smXFeZSfehvsiwVXkVZQU/NWHntXE7a/CYQNE/fnBnZi01iu4DRiv+wObGSwn" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
+                integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="/clientConfig"></script>
@@ -1147,7 +1149,6 @@
         <script src="builder/typeCombinationGenerator.js"></script>
         <script src="builder.js?version=8"></script>
         <script src="googleAnalytics.js"></script>
-        <script src="lib/lz-string.min.js"></script>
         <script src="builder/links.js"></script>
     </body>
 </html>
