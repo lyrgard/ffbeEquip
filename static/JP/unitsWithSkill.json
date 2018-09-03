@@ -18,7 +18,7 @@
 		"lb": {"name":"シャイニングノヴァ","minEffects":[{"effect":null,"desc":"Physical fire damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical fire damage (3.9x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"召喚魔法+20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
 			{"name":"騎士のプライド","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects after battle"}]},
@@ -455,7 +455,7 @@
 			{"name":"シビレ罠","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"シビレ罠","icon":"ability_68.png","effects":[{"effect":null,"desc":"Inflict Paralyze (80%) on one enemy"}]},"counterType":"physical","percent":10},"desc":"10% chance to counter physical attacks with Shock Trap (501920) to caster"}]}
 		],
 		"actives": [
-			{"name":"挑発【小】","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発【小】","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"鼓舞激励【勇】","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1150 (+8x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"大狩猟劇【崩】","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Blind (80%) on all enemies"}]},
 			{"name":"猫に小判","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 3 turns to all allies"},{"effect":null,"desc":"Restore 400 (+3x, Heal) HP to all allies"}]},
@@ -564,7 +564,7 @@
 		"enhancementSkills":["アサルトスタイル","ブレイクスタイル"],
 		"lb": {"name":"レヴォルツィオン","minEffects":[{"effect":null,"desc":"Physical lightning damage (2.4x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical lightning damage (3.35x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"カモフラージュ","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
 			{"name":"攻撃+10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"ふんばる","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% when HP drops below 30% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 20% when HP drops below 30% (max 9000x)"}]}
@@ -603,12 +603,12 @@
 		"passives": [
 			{"name":"モンスターハンター","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"beast","physical":25}]},"desc":"Increase physical damage against Beasts by 25%"},{"effect":{"killers":[{"name":"bird","physical":25}]},"desc":"Increase physical damage against Avians by 25%"},{"effect":{"killers":[{"name":"aquatic","physical":25}]},"desc":"Increase physical damage against Aquatics by 25%"},{"effect":{"killers":[{"name":"dragon","physical":25}]},"desc":"Increase physical damage against Dragons by 25%"},{"effect":{"killers":[{"name":"bug","physical":25}]},"desc":"Increase physical damage against Insects by 25%"}]},
 			{"name":"揺るがぬ男","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":50},{"name":"confuse","percent":50}]},"desc":"Increase resistance to Paralyze and Confusion by 50%"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"覇晶耐性","icon":"ability_18.png","effects":[{"effect":{"resist":[{"name":"water","percent":50}]},"desc":"Increase resistance to Water by 50%"}]},
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"精神+10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
-			{"name":"蛮勇の盾","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]}
+			{"name":"蛮勇の盾","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]}
 		],
 		"actives": [
 			{"name":"砲撃","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical fire damage (2x, ATK) to one enemy (ignore cover)"}]},
@@ -643,7 +643,7 @@
 			{"name":"ためる","icon":"ability_87.png","effects":[{"effect":null,"desc":"Increase power of the next normal attack (+0.8x, max +1.6x) and increase damage taken by 50%"}]},
 			{"name":"みねうち","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (0.8x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Paralyze (30%) on one enemy"}]},
 			{"name":"パワーブレイク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"atk":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 15% for 3 turns to one enemy"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -1228,7 +1228,7 @@
 		"enhancementSkills":["オートリミット","マルチバースト"],
 		"lb": {"name":"エクスターミネート","minEffects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (3.45x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"オートリミット","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
 			{"name":"オートリミット +1","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"}]},
 			{"name":"オートリミット +2","icon":"ability_91.png","effects":[{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"},{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]}
@@ -1349,12 +1349,12 @@
 		"lb": {"name":"海の男は無敵だぜ！","minEffects":[{"effect":null,"desc":"Increase DEF by 20% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase DEF by 29% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]}
 		],
 		"actives": [
 			{"name":"がまん","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% for 3 turns to caster"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -1461,13 +1461,13 @@
 		"lb": {"name":"フィアスアタック","minEffects":[{"effect":null,"desc":"Physical damage (2.2x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical damage (2.9x, ATK) to one enemy"}]},
 		"passives": [
 			{"name":"マンイーター","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"human","physical":50}]},"desc":"Increase physical damage against Humans by 50%"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"パワーブレイク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"atk":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 15% for 3 turns to one enemy"}]},
 			{"name":"アーマーブレイク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"break":{"def":15,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 15% for 3 turns to one enemy"}]},
 			{"name":"ひっさつ","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy (50% chance to miss)"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -1679,15 +1679,15 @@
 		"lb": {"name":"不落の要塞","minEffects":[{"effect":null,"desc":"Restore 500 (+1.8x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 50% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 500 (+3x, Heal) HP to all allies"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"オートリジェネ","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"攻撃+10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"アンデッドキラー","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"デーモンキラー","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
-			{"name":"ロイヤルガード","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
-			{"name":"ロイヤルガード +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-70%"}]},
-			{"name":"ロイヤルガード +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-100%"}]},
+			{"name":"ロイヤルガード","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"ロイヤルガード +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":70}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-70%"}]},
+			{"name":"ロイヤルガード +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":100}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%-100%"}]},
 			{"name":"精神+10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"HP+15%","icon":"ability_77.png","effects":[{"effect":{"hp%":15},"desc":"Increase HP by 15%"}]},
@@ -1703,7 +1703,7 @@
 			{"name":"士気高揚 +2","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 70 (+0.2x, Heal) MP split over 5 turns to all allies"}]},
 			{"name":"シールドインパクト","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Stop (50%) for one turn on one enemy"}]},
 			{"name":"勇気づける","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 45% for 5 turns to all allies"}]},
-			{"name":"グランシェルトの盾","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]}
+			{"name":"グランシェルトの盾","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 			{"name":"シェルガ","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 40% for 3 turns to all allies"}]}
@@ -1851,13 +1851,13 @@
 		"lb": {"name":"捨て身の突撃","minEffects":[{"effect":null,"desc":"Physical damage (5.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.3x, ATK) to one enemy (ignore cover)"}]},
 		"passives": [
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"攻撃+20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"槍術の教え","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":20},"desc":"Increase ATK by 20% when equipped with a Spear"}]}
 		],
 		"actives": [
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"癒しの秘法","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 150 (+3x, Heal) HP to one ally"},{"effect":null,"desc":"Cure Disease for one ally"}]},
 			{"name":"アクアシュート","icon":"ability_23.png","effects":[{"effect":null,"desc":"Physical water damage (1.5x, ATK) to one enemy"}]},
 			{"name":"ペネトレイトランス","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.1x, ATK) to one enemy"}]},
@@ -2142,7 +2142,7 @@
 		"actives": [
 			{"name":"制圧","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 50% for 3 turns to all enemies"}]},
 			{"name":"醒夢","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.1x, ATK) to one enemy"},{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"ジークゾルダード","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (1.9x, ATK) to all enemies"},{"effect":{"resist":[{"name":"fire","percent":40}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 40% for 3 turns to all allies"}]},
 			{"name":"守備の号令","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 3 turns to all allies"}]},
 			{"name":"守備の号令 +1","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 5 turns to all allies"}]},
@@ -2386,7 +2386,7 @@
 		"enhancementSkills":["ジェネラルコマンド","インペリアルランス","守護者","不撓不屈"],
 		"lb": {"name":"グレートウォール","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for one turn"},{"effect":null,"desc":"Increase DEF by 72% for 3 turns to caster"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 54% to all allies for one turn"},{"effect":null,"desc":"Increase DEF by 130% for 3 turns to caster"}]},
 		"passives": [
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"精神+20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"目には目を","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]},
@@ -2410,10 +2410,10 @@
 			{"name":"インペリアルランス","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to one enemy"}]},
 			{"name":"インペリアルランス +1","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.3x, ATK) to one enemy"}]},
 			{"name":"インペリアルランス +2","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.3x, ATK) to one enemy"},{"effect":null,"desc":"Physical damage (0.8x) as HP drain (30%) to one enemy"},{"effect":null,"desc":"Physical damage (0.2x) as MP drain (10%) to one enemy"}]},
-			{"name":"不撓不屈","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
-			{"name":"不撓不屈 +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]},
-			{"name":"不撓不屈 +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
-			{"name":"帝国は我らとともに","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"不撓不屈","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
+			{"name":"不撓不屈 +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]},
+			{"name":"不撓不屈 +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for 3 turns"}]},
+			{"name":"帝国は我らとともに","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"D・ソードクラッシュ","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
 			{"name":"D・ロッドクラッシュ","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, DEF) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
 			{"name":"完全防御態勢","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"完全防御態勢","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 90% to caster for one turn"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Absolute Defense (507400) on turn 1 [4 turns CD]"}]}
@@ -2709,7 +2709,7 @@
 			{"name":"ぜんぎり","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"アスピルランス","icon":"ability_6.png","effects":[{"effect":null,"desc":"Hybrid damage (1.4x, ATK & MAG) to one enemy"},{"effect":null,"desc":"Hybrid damage (0.3x) as MP drain (30%) to one enemy"}]},
 			{"name":"チョコボダイブ","icon":"ability_80.png","effects":[{"effect":null,"desc":"Use Chocobo Dive (507432), or チョコボブーストダイブ (507430), if used after チョコボブースト (226861)"}]},
-			{"name":"プロボーク","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 75% for 2 turns"}]},
+			{"name":"プロボーク","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":75,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 75% for 2 turns"}]},
 			{"name":"エクステンド","icon":"ability_12.png","effects":[{"effect":{"resist":[{"name":"wind","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Wind by 70% for 3 turns to all allies"}]},
 			{"name":"ヴォルテクス","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":50}],"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 5 turns to all enemies"},{"effect":{"imbue":["wind"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Wind element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"ヴォルテクス +1","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.1x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"wind","percent":50}],"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 5 turns to all enemies"},{"effect":{"imbue":["wind"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Wind element to physical attacks for 5 turn(s) to caster"}]},
@@ -3354,12 +3354,12 @@
 			{"name":"防御結界","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 20% to all allies for 3 turns"}]},
 			{"name":"大地の守り","icon":"ability_17.png","effects":[{"effect":{"resist":[{"name":"earth","percent":100}],"turns":3,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Increase resistance to Earth by 100% for 3 turns to the rest of the party"}]},
 			{"name":"スティールボディ","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to caster"}]},
-			{"name":"ガーディアン","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"ガーディアン +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 2 turns, reducing damage by 30%"}]},
-			{"name":"ガーディアン +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"インフレイムプレス","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"インフレイムプレス +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"インフレイムプレス +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]}
+			{"name":"ガーディアン","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"ガーディアン +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":50},"turns":2,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 2 turns, reducing damage by 30%"}]},
+			{"name":"ガーディアン +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"インフレイムプレス","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"インフレイムプレス +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"インフレイムプレス +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]}
 		],
 		"magics": [
 			{"name":"ストンラ","icon":"ability_28.png","effects":[{"effect":null,"desc":"Magic earth damage (1.4x, MAG) to all enemies"}]},
@@ -3655,10 +3655,10 @@
 			{"name":"攻撃+10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"男の意地","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"},{"effect":{"counterSkill":{"name":"男の意地","icon":"ability_69.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Manly Disposition (501890) to caster"}]}
+			{"name":"男の意地","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"},{"effect":{"counterSkill":{"name":"男の意地","icon":"ability_69.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Manly Disposition (501890) to caster"}]}
 		],
 		"actives": [
-			{"name":"かかってこい！","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 80% for 2 turns"}]},
+			{"name":"かかってこい！","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":80,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 80% for 2 turns"}]},
 			{"name":"ぜんぎり","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"天雷撃","icon":"ability_20.png","effects":[{"effect":null,"desc":"Physical lightning damage (1.4x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
 			{"name":"サンダーウォール","icon":"ability_13.png","effects":[{"effect":null,"desc":"Increase DEF by 30% for 3 turns to all allies"},{"effect":{"resist":[{"name":"lightning","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Lightning by 50% for 3 turns to all allies"}]},
@@ -4028,14 +4028,14 @@
 		"actives": [
 			{"name":"フローズンブレイド","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (3x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 5 turn(s) to caster"}]},
 			{"name":"アイシクルストーム","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (2x, ATK) to all enemies"}]},
-			{"name":"怜悧な微笑","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":45,"mag":45,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 2 turns to all enemies"}]},
-			{"name":"怜悧な微笑 +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":50,"mag":50,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 2 turns to all enemies"}]},
-			{"name":"怜悧な微笑 +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"}]},
+			{"name":"怜悧な微笑","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":45,"mag":45,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 2 turns to all enemies"}]},
+			{"name":"怜悧な微笑 +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"break":{"atk":50,"mag":50,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 2 turns to all enemies"}]},
+			{"name":"怜悧な微笑 +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"}]},
 			{"name":"氷柩封刃","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"atk":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 45% for 3 turns to one enemy"}]},
 			{"name":"氷柩封盾","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"def":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"}]},
 			{"name":"氷柩封心","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"spr":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}]},
 			{"name":"氷柩封魔","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":{"break":{"mag":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 45% for 3 turns to one enemy"}]},
-			{"name":"気高き鬨声","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase ATK and DEF by 80% for 2 turns to caster"}]},
+			{"name":"気高き鬨声","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase ATK and DEF by 80% for 2 turns to caster"}]},
 			{"name":"フロストバイト","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (4.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]},
 			{"name":"フロストバイト +1","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (4.88x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]},
 			{"name":"フロストバイト +2","icon":"ability_65.png","effects":[{"effect":null,"desc":"Physical damage (5.25x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 3 turns to one enemy"}]},
@@ -4592,9 +4592,9 @@
 			{"name":"リーンフォース","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove ATK, DEF, MAG and SPR debuff from caster"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to caster"}]},
 			{"name":"ディスティネーション","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
 			{"name":"れんぞくま","icon":"ability_26.png","effects":[{"effect":null,"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
-			{"name":"ブローディアウォール","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"ブローディアウォール +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"60% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"ブローディアウォール +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"ブローディアウォール","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"ブローディアウォール +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":60},"chance":60},"turns":3,"area":"SELF","target":"SELF"},"desc":"60% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"ブローディアウォール +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"デスペル","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -4802,7 +4802,7 @@
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["大立ち回り","武辺者","修羅の咆哮"],
-		"lb": {"name":"傾奇者の戦華","minEffects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+300% ATK) on caster for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+420% ATK) on caster for 3 turns"}]},
+		"lb": {"name":"傾奇者の戦華","minEffects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+300% ATK) on caster for 3 turns"}],"maxEffects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Inflict berserk (+420% ATK) on caster for 3 turns"}]},
 		"passives": [
 			{"name":"虎狼の習い","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"虎狼の習い","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3.15x, ATK) to one enemy"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Beastly Habit (503460) to caster"}]},
 			{"name":"邪法不服","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"邪法不服","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (2.7x, ATK) to one enemy"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Black Arts Protest (503480) to caster"}]},
@@ -4823,10 +4823,10 @@
 			{"name":"ぶっとばし","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"}]},
 			{"name":"大立ち回り","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.8x, ATK) to all enemies"}]},
 			{"name":"大立ち回り +1","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.3x, ATK) to all enemies"}]},
-			{"name":"大立ち回り +2","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.3x, ATK) to all enemies"},{"effect":null,"desc":"50% chance to intercept physical damage to allies for one turn"}]},
-			{"name":"修羅の咆哮","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 2 turns to caster"}]},
-			{"name":"修羅の咆哮 +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 75% for 2 turns to caster"}]},
-			{"name":"修羅の咆哮 +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 2 turns"}]}
+			{"name":"大立ち回り +2","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.3x, ATK) to all enemies"},{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":0,"max":0},"chance":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for one turn"}]},
+			{"name":"修羅の咆哮","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 2 turns to caster"}]},
+			{"name":"修羅の咆哮 +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 75% for 2 turns to caster"}]},
+			{"name":"修羅の咆哮 +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 2 turns"}]}
 		],
 		"magics": [
 		]
@@ -5168,7 +5168,7 @@
 		"enhancementSkills":["ガードスマイト","忠実なる守護者","見真似・不撓不屈"],
 		"lb": {"name":"ギガントウォール","minEffects":[{"effect":null,"desc":"Increase SPR by 80% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 25% to all allies for one turn"}],"maxEffects":[{"effect":null,"desc":"Increase SPR by 104% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 49% to all allies for one turn"}]},
 		"passives": [
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"HP+30%","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"エンカウント率減少","icon":"ability_71.png","effects":[{"effect":null,"desc":"During explorations, reduce chance of encounters by 25%"}]},
 			{"name":"フォートレス","icon":"ability_85.png","effects":[{"effect":null,"desc":"Regenerate 340 (+8x, HP) when guarding"}]},
@@ -5184,9 +5184,9 @@
 			{"name":"全体介抱","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"レッドストーミング","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (2.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":40}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 40% for 3 turns to one enemy"}]},
 			{"name":"ディフェンシブリード","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 0%) for 2 turns"}]},
-			{"name":"見真似・不撓不屈","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 3 turns"}]},
-			{"name":"見真似・不撓不屈 +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
-			{"name":"見真似・不撓不屈 +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]}
+			{"name":"見真似・不撓不屈","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 25% to caster for 3 turns"}]},
+			{"name":"見真似・不撓不屈 +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]},
+			{"name":"見真似・不撓不屈 +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -5681,9 +5681,9 @@
 			{"name":"リダクション","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 15% to one ally for 3 turns"}]},
 			{"name":"リダクション +1","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to one ally for 3 turns"}]},
 			{"name":"リダクション +2","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to one ally for 3 turns"}]},
-			{"name":"ブローディアウォール","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"ブローディアウォール +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"60% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"ブローディアウォール +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"ブローディアウォール","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"ブローディアウォール +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":60},"chance":60},"turns":3,"area":"SELF","target":"SELF"},"desc":"60% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"ブローディアウォール +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"デスペル","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -6135,7 +6135,7 @@
 		"passives": [
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"攻撃+10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
-			{"name":"男の沽券","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on a female ally, reducing damage by 10%"},{"effect":{"counterSkill":{"name":"男の沽券","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 50% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Male Character (506750) to caster (max 1 / turn)"}]},
+			{"name":"男の沽券","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":30,"mitigation":{"min":10,"max":10}}},"desc":"30% chance to intercept attacks on a female ally, reducing damage by 10%"},{"effect":{"counterSkill":{"name":"男の沽券","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase SPR by 50% for 3 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Male Character (506750) to caster (max 1 / turn)"}]},
 			{"name":"フリードアンガー","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 40% when HP drops below 50% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 40% when HP drops below 50% (max 9000x)"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"精神+30%","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]}
@@ -6194,7 +6194,7 @@
 		"lb": {"name":"想いの力","minEffects":[{"effect":null,"desc":"Physical damage (7.6x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (10x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"召喚魔法+20%","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"廉潔の鎧","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["lightArmor"],"def%":10,"spr%":10},"desc":"Increase DEF and SPR by 10% when equipped with a Light Armor"}]},
@@ -6217,7 +6217,7 @@
 			{"name":"ジェイクとの絆","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"},{"effect":{"break":{"atk":40,"def":40,"turns":5},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 40% for 5 turns to all enemies"}]},
 			{"name":"ニコルとの絆","icon":"ability_23.png","effects":[{"effect":null,"desc":"Magic water damage (3.2x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"water","percent":40}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 40% for 3 turns to all enemies"}]},
 			{"name":"明鏡・空","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to all enemies (ignore cover)"}]},
-			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"ラスウェルとの絆","icon":"ability_53.png","effects":[{"effect":null,"desc":"2 physical ice and wind attacks (1.6x each, 3.2x total, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":30},{"name":"wind","percent":30}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice and Wind by 30% for 3 turns to all enemies"}]},
 			{"name":"フィーナとの絆","icon":"ability_5.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"},{"effect":null,"desc":"Magic light damage (4x, SPR) to all enemies"}]},
 			{"name":"サクラとの絆","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (3.2x, MAG) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":40}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 40% for 3 turns to all enemies"}]},
@@ -6405,7 +6405,7 @@
 			{"name":"潜入","icon":"ability_71.png","effects":[{"effect":null,"desc":"During explorations, reduce chance of encounters by 25%"}]},
 			{"name":"ふわふわな毛並み","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Blind and Petrify by 100%"},{"effect":{"resist":[{"name":"ice","percent":30}]},"desc":"Increase resistance to Ice by 30%"}]},
 			{"name":"元裏稼業の仕事人","icon":"ability_97.png","effects":[{"effect":{"autoCastedSkill":{"name":"元裏稼業の仕事人","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 1 physical attacks for 99999 turns to caster"}]}},"desc":"Use Former Conman (507502) at the start of a battle"},{"effect":{"evade":{"physical":20}},"desc":"20% chance of evading physical attacks"}]},
-			{"name":"可愛さの代償","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 30%"}]},
+			{"name":"可愛さの代償","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":30},"desc":"Increase chance of being targeted by 30%"}]},
 			{"name":"チャーミング","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"チャーミング","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":50,"turns":2},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 2 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Cutie-pie (507501) to caster (max 2 / turn)"}]},
 			{"name":"ツインシューター","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["throwing","gun"]},"desc":"Enable unit to equip two one-handed throwing weapons and guns"}]},
 			{"name":"精神+10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
@@ -6529,12 +6529,12 @@
 		"actives": [
 			{"name":"スペクトラルフィールド","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":null,"desc":"100% chance to counter physical attacks to the rest of the party with physical damage (2x, SPR) for one turn (max 3 / turn)"}]},
 			{"name":"エスコートリーダー","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 60% for 3 turns to all allies"}]},
-			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"完全覚醒","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 200% for 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 6000 (+15x, Heal) HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 20 (+0.2x, Heal) MP split over 3 turns to caster"}]},
 			{"name":"ライジングレイ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (3.6x, SPR) to one enemy"}]},
 			{"name":"マジックデストラクト","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
 			{"name":"完全集束","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 200% for 2 turns to caster"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tUnleashed Focus (507230)"}]},
-			{"name":"エナジーウォール","icon":"ability_69.png","effects":[{"effect":null,"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"エナジーウォール","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"ソウルプロミネンス","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic* fire damage (3.6x, SPR) to one enemy"}]},
 			{"name":"アースエクスプロード","icon":"ability_28.png","effects":[{"effect":null,"desc":"Magic* earth damage (3.6x, SPR) to one enemy"}]},
 			{"name":"ピュリフィケイション","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ピュリフィケイション","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all status effects by 100% for all allies for 3 turns"},{"effect":{"resist":[{"name":"stop","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase Stop resistance by 100% for 3 turns to all allies"}]},"cooldownTurns":3,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Purification (508361) on turn 1 [3 turns CD]"}]},
@@ -6621,7 +6621,7 @@
 			{"name":"ガードスマイト","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"}]},
 			{"name":"デスペルバッシュ","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
 			{"name":"シールドストライク","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (5x, SPR) to one enemy"}]},
-			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"アーマーイレイサー","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
 			{"name":"身代わりアイアンハート","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 75%) for 3 turns"},{"effect":null,"desc":"Increase SPR by 80% for 3 turns to caster"}]}
 		],
@@ -6980,7 +6980,7 @@
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"ガーダーハウル","minEffects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Increase ATK by 100% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Reduce damage taken by 42% to all allies for 3 turns"},{"effect":null,"desc":"Increase ATK by 125% for 3 turns to all allies"}]},
 		"passives": [
-			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"努力の成果","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"wind","percent":30},{"name":"earth","percent":30}]},"desc":"Increase resistance to Wind and Earth by 30%"}]},
 			{"name":"魔力のしみ込んだ体","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"魔力のしみ込んだ体","icon":"ability_68.png","effects":[{"effect":null,"desc":"Restore 20% HP and MP to caster"},{"effect":null,"desc":"Increase LB gauge by 2 to caster"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with 魔力のしみ込んだ体 (508382) to caster (max 1 / turn)"}]},
 			{"name":"防御+30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
@@ -6992,8 +6992,8 @@
 		"actives": [
 			{"name":"避刃の剣","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 3 turns to one enemy"},{"effect":null,"desc":"Dodge 1 physical attacks for 3 turns to caster"}]},
 			{"name":"地嵐の剣","icon":"ability_10.png","effects":[{"effect":null,"desc":"Use 地嵐の剣 (508380), or 地嵐の剣 (508381), if used after 献身の構え (228122)"}]},
-			{"name":"湧き出す勇気","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"献身の構え","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]}
+			{"name":"湧き出す勇気","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"献身の構え","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]}
 		],
 		"magics": [
 		]
@@ -7217,9 +7217,9 @@
 		"equip":["dagger","sword","staff","axe","hammer","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"ビューティアスサンクチュアリ","minEffects":[{"effect":null,"desc":"Physical damage (14x, DEF) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical damage (16.9x, DEF) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 45% to all allies for 3 turns"}]},
 		"passives": [
-			{"name":"ノーブルスタンス","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"ノーブルスタンス","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":50,"mitigation":{"min":50,"max":50}}},"desc":"50% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"精神+30%","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"エーデルシルト","icon":"ability_17.png","effects":[{"effect":{"equipedConditions":["lightShield"],"spr%":50},"desc":"Increase SPR by 50% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"def%":50},"desc":"Increase DEF by 50% when equipped with a Heavy Shield"},{"effect":{"resist":[{"name":"earth","percent":50}]},"desc":"Increase resistance to Earth by 50%"}]},
 			{"name":"兄姉の教え","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"},{"effect":{"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Confusion and Petrify by 100%"}]},
 			{"name":"防御+30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
@@ -7232,12 +7232,12 @@
 		],
 		"actives": [
 			{"name":"D・マインドチャーム","icon":"ability_54.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on one enemy for one turn"},{"effect":null,"desc":"Physical damage (2x, DEF) to one enemy"},{"effect":{"break":{"spr":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 60% for 5 turns to one enemy"}]},
-			{"name":"スタイリッシュフォーム","icon":"ability_69.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on all enemies for one turn"},{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"スタイリッシュフォーム","icon":"ability_69.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on all enemies for one turn"},{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"D・デンジャラスローズ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.8x, DEF) to all enemies"}]},
 			{"name":"D・ブロックチャーム","icon":"ability_54.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on one enemy for one turn"},{"effect":null,"desc":"Physical damage (2x, DEF) to one enemy"},{"effect":{"break":{"def":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 60% for 5 turns to one enemy"}]},
 			{"name":"D・フルブレイクチャーム","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, DEF) to one enemy"},{"effect":{"break":{"atk":50,"def":50,"mag":50,"spr":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 50% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Charm (5%) on one enemy for one turn"}]},
 			{"name":"アイアムビューティフル","icon":"ability_94.png","effects":[{"effect":null,"desc":"Use アイアムビューティフル (508570), or ビューティフルポーズ (508571), if used after アイアムビューティフル (508570)"}]},
-			{"name":"スーパーウィンク","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"スーパーウィンク","icon":"ability_105.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on all enemies for one turn"},{"effect":null,"desc":"75% chance to intercept magical damage to allies for 2 turns, reducing damage by 50%-70%"}]},"cooldownTurns":3,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Super Wink (508572) on turn 1 [3 turns CD]"}]},
+			{"name":"スーパーウィンク","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"スーパーウィンク","icon":"ability_105.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on all enemies for one turn"},{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":2,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 2 turns, reducing damage by 50%-70%"}]},"cooldownTurns":3,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Super Wink (508572) on turn 1 [3 turns CD]"}]},
 			{"name":"セクシースマイル","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"セクシースマイル","icon":"ability_105.png","effects":[{"effect":null,"desc":"Inflict Charm (5%) on all enemies for one turn"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 90% to caster for one turn"}]},"cooldownTurns":7,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock セクシースマイル (508573) on turn 1 [7 turns CD]"}]},
 			{"name":"アースバウンド","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"アースバウンド","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (2x, DEF) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"earth","percent":100}],"turns":1},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Earth by 100% for one turn to one enemy"}]},"cooldownTurns":2,"startTurn":1,"area":"ST","target":"ENEMY"},"desc":"Unlock アースバウンド (508574) on turn 1 [2 turns CD]"}]},
 			{"name":"グロリアスガード","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"グロリアスガード","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 90% to caster for one turn"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock グロリアスガード (508575) on turn 1 [6 turns CD]"}]}
@@ -7480,7 +7480,7 @@
 			{"name":"チョコボビーク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (2.1x, ATK) to one enemy"}]},
 			{"name":"ぶんしん","icon":"ability_64.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"}]},
 			{"name":"チョコボダッシュ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"ice","percent":50},{"name":"dark","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice and Dark by 50% for 3 turns to one enemy"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"氷刃火環","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (3.8x, ATK) to one enemy"},{"effect":{"resist":[{"name":"fire","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 70% for 3 turns to all allies"}]},
 			{"name":"闇刃光環","icon":"ability_26.png","effects":[{"effect":null,"desc":"Physical dark damage (3.8x, ATK) to one enemy"},{"effect":{"resist":[{"name":"light","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 70% for 3 turns to all allies"}]}
 		],
@@ -7561,7 +7561,7 @@
 			{"name":"防具鍛錬・炎","icon":"ability_11.png","effects":[{"effect":{"resist":[{"name":"fire","percent":100}],"turns":3,"area":"ST","target":"ALLY"},"desc":"Increase resistance to Fire by 100% for 3 turns to one ally"},{"effect":null,"desc":"Increase LB gauge by 5 to one ally"}]},
 			{"name":"バーストスタンプ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.5x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},
 			{"name":"武器鍛錬・炎撃","icon":"ability_21.png","effects":[{"effect":null,"desc":"Increase ATK and MAG by 120% for 5 turns to all allies"},{"effect":{"imbue":["fire"],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Add Fire element to physical attacks for 5 turn(s) to all allies"}]},
-			{"name":"強者を求める叫び","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase ATK by 250% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+			{"name":"強者を求める叫び","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase ATK by 250% for 3 turns to caster"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 			{"name":"防具鍛錬・炎護","icon":"ability_11.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 120% for 5 turns to all allies"},{"effect":{"resist":[{"name":"fire","percent":100}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 100% for 5 turns to all allies"}]},
 			{"name":"クラッシュスタンプ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":75}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to one enemy"}]},
 			{"name":"クリティカルスタンプ","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (7.5x, ATK) to one enemy"}]},
@@ -8395,7 +8395,7 @@
 		"passives": [
 			{"name":"防御+30%","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
 			{"name":"アンデッドキラー","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
-			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"戦士の誇り","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"戦士の誇り","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 25% HP and MP to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Warriors Pride (500490) to caster"}]},
 			{"name":"希望","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 100% when HP drops below 30% (max 9000x)"}]},
@@ -8409,14 +8409,14 @@
 			{"name":"フルブレイク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":{"break":{"atk":30,"def":30,"mag":30,"spr":30,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 30% for 3 turns to one enemy"}]},
 			{"name":"シャインウェーブ","icon":"ability_5.png","effects":[{"effect":null,"desc":"Magic light damage (2.1x, MAG) to all enemies"}]},
 			{"name":"勇気づける","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 45% for 5 turns to all allies"}]},
-			{"name":"ブレイブプレゼンス","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
-			{"name":"ブレイブプレゼンス +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"ブレイブプレゼンス +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+			{"name":"ブレイブプレゼンス","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"ブレイブプレゼンス +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"ブレイブプレゼンス +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 			{"name":"アーマーイレイサー","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
 			{"name":"アームズイレイサー","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":45,"mag":45,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"}]},
-			{"name":"光は我らとともに","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"光は我らとともに +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"光は我らとともに +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"光は我らとともに","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"光は我らとともに +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":60},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"光は我らとともに +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"レイズ","icon":"ability_1.png","effects":[{"effect":null,"desc":"Revive target from KO (30% HP)"}]}
@@ -8606,7 +8606,7 @@
 		"equip":["dagger","sword","axe","hammer","spear","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"lb": {"name":"大地の咆哮","minEffects":[{"effect":null,"desc":"Physical earth damage (2.7x, ATK) to one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical earth damage (3.65x, ATK) to one enemy"}]},
 		"passives": [
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"歩くとHP回復","icon":"ability_73.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP every 3 steps"}]},
 			{"name":"逆境の底力","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 50% when HP drops below 50% (max 1x)"},{"effect":null,"desc":"Increase DEF by 50% when HP drops below 50% (max 1x)"}]},
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
@@ -9008,7 +9008,7 @@
 		"enhancementSkills":["天運雷鳴","使命を持つ者","サンダーガイド"],
 		"lb": {"name":"古代の雷","minEffects":[{"effect":null,"desc":"Physical lightning damage (5.8x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"}],"maxEffects":[{"effect":null,"desc":"Physical lightning damage (10.25x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Inflict Paralyze (100%) on one enemy"}]},
 		"passives": [
-			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"オートリフレシュ","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
@@ -9308,10 +9308,10 @@
 		"enhancementSkills":["聖光","集中","セイントウォール"],
 		"lb": {"name":"セイクリッドガード","minEffects":[{"effect":null,"desc":"Increase ATK, DEF and SPR by 50% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase ATK, DEF and SPR by 74% for 3 turns to all allies"}]},
 		"passives": [
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"デーモンキラー","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"demon","physical":50}]},"desc":"Increase physical damage against Demons by 50%"}]},
-			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"聖光","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"聖光 +1","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"聖光 +2","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"resist":[{"name":"light","percent":50}]},"desc":"Increase resistance to Light by 50%"},{"effect":null,"desc":"Gain Regen (Champion) (10122) at the start of a battle or when revived"}]},
@@ -9319,9 +9319,9 @@
 			{"name":"満月の心得","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
 			{"name":"攻撃+20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"セイントウォール","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
-			{"name":"セイントウォール +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"}]},
-			{"name":"セイントウォール +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
+			{"name":"セイントウォール","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"セイントウォール +1","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"}]},
+			{"name":"セイントウォール +2","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
 		],
 		"actives": [
 			{"name":"集中","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 40% for 3 turns to all allies"}]},
@@ -9682,7 +9682,7 @@
 		"passives": [
 			{"name":"マシーンキラー","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"machine","physical":50}]},"desc":"Increase physical damage against Machinas by 50%"}]},
 			{"name":"攻撃+10%","icon":"ability_77.png","effects":[{"effect":{"atk%":10},"desc":"Increase ATK by 10%"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"ストーン剣","icon":"ability_28.png","effects":[{"effect":null,"desc":"Hybrid earth damage (1.8x, ATK & MAG) to one enemy"}]},
@@ -10042,13 +10042,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["fist","helm","lightArmor","heavyArmor"],
-		"lb": {"name":"おおつなみ","minEffects":[{"effect":null,"desc":"Physical water damage (6x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical water damage (8.4x, DEF) to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+		"lb": {"name":"おおつなみ","minEffects":[{"effect":null,"desc":"Physical water damage (6x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical water damage (8.4x, DEF) to all enemies"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 		"passives": [
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"ホールド","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"ホールド","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Paralyze (40%) on one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with ホールド (509062) to caster (max 1 / turn)"}]},
 			{"name":"サイレス","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"サイレス","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Silence (40%) on one enemy"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with サイレス (509063) to caster (max 1 / turn)"}]},
 			{"name":"精神+10%","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
-			{"name":"がみがみ言う者","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"がみがみ言う者","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"背水の構え","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 80% for 2 turns when HP drops below 30% (max 9999x)"},{"effect":null,"desc":"Increase SPR by 80% for 2 turns when HP drops below 30% (max 9999x)"}]},
 			{"name":"水のカイナッツォ","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Sleep, Silence and Paralyze by 100%"},{"effect":{"mpRefresh":3},"desc":"Recover MP (3%) per turn"}]},
 			{"name":"最後のあがき","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 1 times)"}]},
@@ -10056,11 +10056,11 @@
 		],
 		"actives": [
 			{"name":"ピアシングクロー","icon":"ability_51.png","effects":[{"effect":null,"desc":"Physical damage (1.5x, DEF) to one enemy"}]},
-			{"name":"水を集める","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase LB gauge by 2 to caster"}]},
+			{"name":"水を集める","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Increase LB gauge by 2 to caster"}]},
 			{"name":"硬化する","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 40% for 2 turns to caster"},{"effect":null,"desc":"Gain access to following skills (1 use):\n\tさらに硬化する (509060)"}]},
 			{"name":"押し流す","icon":"ability_23.png","effects":[{"effect":null,"desc":"Physical water damage (2x, DEF) to all enemies"},{"effect":{"break":{"atk":40,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 3 turns to all enemies"}]},
 			{"name":"水の壁","icon":"ability_18.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to all allies"},{"effect":{"resist":[{"name":"water","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Water by 50% for 3 turns to all allies"}]},
-			{"name":"とじこもって　ぼうぎょたいせい！","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50% for 3 turns"},{"effect":{"statsBuff":{"atk":-30,"spr":-30,"turns":3},"area":"SELF","target":"SELF"},"desc":"Reduce ATK and SPR by 30% for 3 turns to caster"},{"effect":null,"desc":"Restore 6000 HP split over 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]}
+			{"name":"とじこもって　ぼうぎょたいせい！","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":50,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for 3 turns"},{"effect":{"statsBuff":{"atk":-30,"spr":-30,"turns":3},"area":"SELF","target":"SELF"},"desc":"Reduce ATK and SPR by 30% for 3 turns to caster"},{"effect":null,"desc":"Restore 6000 HP split over 3 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 3 turns"}]}
 		],
 		"magics": [
 			{"name":"スリプル","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Sleep (40%) on one enemy"}]},
@@ -10164,7 +10164,7 @@
 		"passives": [
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
 			{"name":"ふんばる","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase DEF by 20% when HP drops below 30% (max 9000x)"},{"effect":null,"desc":"Increase SPR by 20% when HP drops below 30% (max 9000x)"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"不屈の剣士","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["sword"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Sword"}]}
 		],
 		"actives": [
@@ -10206,7 +10206,7 @@
 		],
 		"actives": [
 			{"name":"堂々","icon":"ability_53.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 20% for 3 turns to caster"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"ぜんぎり","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
 			{"name":"集中","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 40% for 3 turns to all allies"}]},
 			{"name":"フルブレイク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to one enemy"},{"effect":{"break":{"atk":30,"def":30,"mag":30,"spr":30,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 30% for 3 turns to one enemy"}]}
@@ -10702,7 +10702,7 @@
 		"enhancementSkills":["ダブルダイス","最速のギャンブラー","ブラッディカード"],
 		"lb": {"name":"ダイビング・ボム","minEffects":[{"effect":null,"desc":"Physical damage (5.4x, ATK) to all enemies (ignore cover)"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.8x, ATK) to all enemies (ignore cover)"}]},
 		"passives": [
-			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"MP+20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"攻撃+20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"精神+20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
@@ -10883,7 +10883,7 @@
 		"passives": [
 			{"name":"攻撃+20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]}
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]}
 		],
 		"actives": [
 			{"name":"ためる","icon":"ability_87.png","effects":[{"effect":null,"desc":"Increase power of the next normal attack (+0.8x, max +1.6x) and increase damage taken by 50%"}]},
@@ -11587,7 +11587,7 @@
 		"enhancementSkills":["デュアルエッジ","刀魂放気","フリーエナジー"],
 		"lb": {"name":"グランドリーサル","minEffects":[{"effect":null,"desc":"Physical damage (5.5x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (7.9x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on a female ally"}]},
+			{"name":"女の子をかばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on a female ally"}]},
 			{"name":"ギルもぬすむ","icon":"ability_82.png","effects":[{"effect":null,"desc":"Enable unit to also obtain gil when stealing"}]},
 			{"name":"目には目を","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
@@ -11888,7 +11888,7 @@
 		"passives": [
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
 			{"name":"カウンター","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a physical attack with an attack (1x, ATK)"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"目には目を","icon":"ability_68.png","effects":[{"effect":null,"desc":"Increase chance of countering by 100%"}]}
 		],
 		"actives": [
@@ -12497,7 +12497,7 @@
 			{"name":"タックルかいひ","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":30}},"desc":"30% chance of evading physical attacks"}]},
 			{"name":"兄の意地","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":10},"desc":"Increase HP by 20% and DEF by 10%"}]},
 			{"name":"きりもみパイロット","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"},{"effect":{"lbFillRate":50},"desc":"Increase the limit burst gauge fill rate by 50%"}]},
-			{"name":"みがわりブロック","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 70%"}]}
+			{"name":"みがわりブロック","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":70,"max":70}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 70%"}]}
 		],
 		"actives": [
 			{"name":"ナップタックル","icon":"ability_14.png","effects":[{"effect":null,"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Sleep (30%) on one enemy"}]},
@@ -13161,12 +13161,12 @@
 			{"name":"闇と暗黒の衝撃 +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, DEF) to one enemy"},{"effect":{"break":{"atk":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 5 turns to one enemy"}]},
 			{"name":"闇と暗黒の衝撃 +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, DEF) to one enemy"},{"effect":{"break":{"atk":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 60% for 5 turns to one enemy"}]},
 			{"name":"紛れ無き終焉","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 5 turns to one enemy"}]},
-			{"name":"黄昏の守護","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
-			{"name":"黄昏の守護 +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase SPR by 100% for 3 turns to caster"}]},
-			{"name":"黄昏の守護 +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase SPR by 100% for 3 turns to caster"},{"effect":{"resist":[{"name":"break_spr","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to SPR by 100% for 3 turns to caster"}]},
-			{"name":"暁の守護","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
-			{"name":"暁の守護 +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to caster"}]},
-			{"name":"暁の守護 +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to caster"},{"effect":{"resist":[{"name":"break_def","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to DEF by 100% for 3 turns to caster"}]},
+			{"name":"黄昏の守護","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"黄昏の守護 +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase SPR by 100% for 3 turns to caster"}]},
+			{"name":"黄昏の守護 +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase SPR by 100% for 3 turns to caster"},{"effect":{"resist":[{"name":"break_spr","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to SPR by 100% for 3 turns to caster"}]},
+			{"name":"暁の守護","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"暁の守護 +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to caster"}]},
+			{"name":"暁の守護 +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Increase DEF by 100% for 3 turns to caster"},{"effect":{"resist":[{"name":"break_def","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to DEF by 100% for 3 turns to caster"}]},
 			{"name":"不倒の誓い","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 5 to the rest of the party"}]},
 			{"name":"黎明の暁鐘","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"黎明の暁鐘","icon":"ability_105.png","effects":[{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 100% for 3 turns to caster"},{"effect":{"break":{"atk":65,"def":65,"mag":65,"spr":65,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 65% for 3 turns to one enemy"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Daybreak Bell (508251) on turn 1 [6 turns CD]"}]},
 			{"name":"討滅の気炎","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase DEF and SPR by 80% for 3 turns to all allies"},{"effect":null,"desc":"Restore 1000 (+4.1x, Heal) HP to all allies"}]}
@@ -13191,7 +13191,7 @@
 		"enhancementSkills":["レジストライトオール","王族の義務","先陣を切る者"],
 		"lb": {"name":"ナブラディアの誇り","minEffects":[{"effect":null,"desc":"Increase DEF and SPR by 50% for 5 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Increase DEF and SPR by 74% for 5 turns to all allies"}]},
 		"passives": [
-			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"精神+20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"レジストライト","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":100}]},"desc":"Increase resistance to Light by 50%"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
@@ -13207,9 +13207,9 @@
 			{"name":"レジストライトオール +1","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":50}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 50% for 5 turns to all allies"}]},
 			{"name":"レジストライトオール +2","icon":"ability_99.png","effects":[{"effect":{"resist":[{"name":"light","percent":70}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light by 70% for 5 turns to all allies"}]},
 			{"name":"ぜんぎり","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
-			{"name":"王族の義務","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"王族の義務 +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"40% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"王族の義務 +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"40% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"王族の義務","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"王族の義務 +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":40},"turns":1,"area":"SELF","target":"SELF"},"desc":"40% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"王族の義務 +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":40},"turns":3,"area":"SELF","target":"SELF"},"desc":"40% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
 			{"name":"救国の斬閃","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical light damage (3x, ATK) to one enemy"}]}
 		],
 		"magics": [
@@ -13239,7 +13239,7 @@
 			{"name":"ジャッジ・ガブラス","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["dagger","sword","greatSword"]},"desc":"Enable unit to equip two one-handed daggers, swords and great swords"}]},
 			{"name":"ジャッジ・ガブラス +1","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["dagger","sword","greatSword"]},"desc":"Enable unit to equip two one-handed daggers, swords and great swords"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"ジャッジ・ガブラス +2","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["dagger","sword","greatSword"]},"desc":"Enable unit to equip two one-handed daggers, swords and great swords"},{"effect":{"hp%":20},"desc":"Increase HP by 20%"},{"effect":{"equipedConditions":["greatSword"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Great Sword"},{"effect":{"equipedConditions":["sword"],"atk%":15,"def%":15},"desc":"Increase ATK and DEF by 15% when equipped with a Sword"},{"effect":{"equipedConditions":["dagger"],"def%":15,"spr%":15},"desc":"Increase DEF and SPR by 15% when equipped with a Dagger"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"裁きの武人","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase ATK by 150% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase DEF by 150% for 2 turns when HP drops below 50% (max 9999x)"},{"effect":null,"desc":"Increase SPR by 150% for 2 turns when HP drops below 50% (max 9999x)"}]},
 			{"name":"復讐者・攻","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["greatSword"],"atk%":40},"desc":"Increase ATK by 40% when equipped with a Great Sword"}]},
 			{"name":"復讐者・守","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["dagger"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Dagger"}]},
@@ -13269,8 +13269,8 @@
 			{"name":"プロセキュート","icon":"ability_94.png","effects":[{"effect":null,"desc":"Use Prosecute (505270), or Circle of Judgment (505280), if used after Prosecute (505270)"}]},
 			{"name":"プロセキュート +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Use プロセキュート+1 (508830), or ジャッジマント+1 (508831), if used after プロセキュート+1 (508830)"}]},
 			{"name":"プロセキュート +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Use プロセキュート+2 (508832), or ジャッジマント+2 (508833), if used after プロセキュート+2 (508832)"}]},
-			{"name":"悲哀","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"悲哀","icon":"ability_105.png","effects":[{"effect":{"resist":[{"name":"fire","percent":80},{"name":"dark","percent":80}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire and Dark by 80% for 2 turns to all allies"},{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},"cooldownTurns":9,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Sorrow (508240) on turn 1 [9 turns CD]"}]},
-			{"name":"黒鉄を纏いし武人","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"悲哀","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"悲哀","icon":"ability_105.png","effects":[{"effect":{"resist":[{"name":"fire","percent":80},{"name":"dark","percent":80}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire and Dark by 80% for 2 turns to all allies"},{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 100% for 2 turns to caster"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},"cooldownTurns":9,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Sorrow (508240) on turn 1 [9 turns CD]"}]},
+			{"name":"黒鉄を纏いし武人","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"無念無想","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to one ally for 3 turns"}]},
 			{"name":"ツインザップ","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"ツインザップ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":null,"desc":"Physical damage (12x, DEF) to one enemy"}]},"cooldownTurns":6,"startTurn":6,"area":"ST","target":"ENEMY"},"desc":"Unlock Twin Zap (508241) on turn 6 [6 turns CD]"}]}
 		],
@@ -13479,7 +13479,7 @@
 			{"name":"カウンター +2","icon":"ability_68.png","effects":[{"effect":null,"desc":"40% chance to counter a physical attack with an attack (1x, ATK)"}]},
 			{"name":"防御+20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
 			{"name":"かくとう","icon":"ability_51.png","effects":[{"effect":{"equipedConditions":["unarmed"],"atk%":50},"desc":"Increase ATK by 50% when unarmed"}]},
-			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"ひきつける","icon":"ability_83.png","effects":[{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"闘志","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"闘志 +1","icon":"ability_68.png","effects":[{"effect":null,"desc":"35% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"闘志 +2","icon":"ability_68.png","effects":[{"effect":null,"desc":"40% chance to counter a magic attack with an attack (1x, ATK)"}]},
@@ -13711,7 +13711,7 @@
 			{"name":"ファストブレード +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.9x, ATK) to one enemy"}]},
 			{"name":"ファストブレード +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to one enemy"}]},
 			{"name":"フォーサイト","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 30% for 5 turns to caster"}]},
-			{"name":"フラッシュ","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"フラッシュ","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"ブラッドバス","icon":"ability_6.png","effects":[{"effect":null,"desc":"Hybrid damage (1.4x, ATK & MAG) to one enemy"},{"effect":null,"desc":"Hybrid damage (0.8x) as HP drain (30%) to one enemy"}]},
 			{"name":"ファイト・オア・フライト","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK by 30% for 5 turns to caster"}]},
 			{"name":"サベッジブレード","icon":"ability_54.png","effects":[{"effect":null,"desc":"Use Savage Blade (500540), or Savage Blade (500530), if used after Fast Blade (207780), Fast Blade+1 (703950) or Fast Blade+2 (703960)"}]},
@@ -13898,9 +13898,9 @@
 		],
 		"actives": [
 			{"name":"バックアタック","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"}]},
-			{"name":"釣り","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"}]},
-			{"name":"釣り +1","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
-			{"name":"釣り +2","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tPoint-Blank Warp-Strike (501620)"}]},
+			{"name":"釣り","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"}]},
+			{"name":"釣り +1","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"釣り +2","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tPoint-Blank Warp-Strike (501620)"}]},
 			{"name":"カバー","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 10 (+0.2x, Heal) MP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 1000 (+10x, Heal) HP split over 3 turns to all allies"}]},
 			{"name":"リンクアタック","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK and MAG by 45% for 3 turns to all allies"}]},
 			{"name":"リンクアタック +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":null,"desc":"Increase ATK, DEF, MAG and SPR by 45% for 3 turns to all allies"}]},
@@ -13935,7 +13935,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["王の盾","大剣の極意","ダッシュガード","ロイヤルガード"],
-		"lb": {"name":"ライジングインパルス","minEffects":[{"effect":null,"desc":"Physical damage (9x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical damage (11.9x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+		"lb": {"name":"ライジングインパルス","minEffects":[{"effect":null,"desc":"Physical damage (9x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":null,"desc":"Physical damage (11.9x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 		"passives": [
 			{"name":"サバイバル","icon":"ability_90.png","effects":[{"effect":null,"desc":"During explorations, recover 5 HP and 5 MP every 3 steps"}]},
 			{"name":"HP+10%","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
@@ -13960,9 +13960,9 @@
 			{"name":"シンクガード","icon":"ability_68.png","effects":[{"effect":null,"desc":"50% chance to counter physical attacks to the rest of the party with physical damage (1.5x, ATK) for 5 turns (max 1 / turn)"}]},
 			{"name":"一喝","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 100% for 2 turns to one ally"}]},
 			{"name":"サイクロン","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"}]},
-			{"name":"ダッシュガード","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
-			{"name":"ダッシュガード +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
-			{"name":"ダッシュガード +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"80% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"ダッシュガード","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%"}]},
+			{"name":"ダッシュガード +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":60},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},
+			{"name":"ダッシュガード +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"ロイヤルガード","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 50%) for 2 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 2 turns to caster"}]},
 			{"name":"ロイヤルガード +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 50%) for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to caster"}]},
 			{"name":"ロイヤルガード +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 75%) for 3 turns"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to caster"}]},
@@ -14193,9 +14193,9 @@
 			{"name":"バイオブラスト","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"},{"effect":{"imperil":{"elements":[{"name":"dark","percent":50}],"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Inflict Poison (100%) on all enemies"}]},
 			{"name":"コンダクター","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, ATK) to all enemies"},{"effect":null,"desc":"Inflict Confusion (50%) on all enemies"}]},
 			{"name":"バレットファン","icon":"ability_40.png","effects":[{"effect":null,"desc":"Physical damage (2.2x, ATK) to all enemies"}]},
-			{"name":"スターシェル","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 50% for one turn"}]},
-			{"name":"スターシェル +1","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":55,"mag":55,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 55% for 3 turns to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 50% for one turn"}]},
-			{"name":"スターシェル +2","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":65,"mag":65,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 65% for 3 turns to all enemies"},{"effect":null,"desc":"Increase chance of being targeted by 50% for one turn"}]},
+			{"name":"スターシェル","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":50,"mag":50,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 50% for 3 turns to all enemies"},{"effect":{"drawAttacks":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for one turn"}]},
+			{"name":"スターシェル +1","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":55,"mag":55,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 55% for 3 turns to all enemies"},{"effect":{"drawAttacks":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for one turn"}]},
+			{"name":"スターシェル +2","icon":"ability_52.png","effects":[{"effect":{"break":{"atk":65,"mag":65,"turns":3},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 65% for 3 turns to all enemies"},{"effect":{"drawAttacks":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 50% for one turn"}]},
 			{"name":"サーキュラーソウ","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (4.5x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"アトラクトウェイブ","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (3.6x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 60% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Paralyze (80%) on one enemy"}]},
 			{"name":"アトラクトウェイブ +1","icon":"ability_52.png","effects":[{"effect":null,"desc":"Physical damage (3.6x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 60% for 3 turns to one enemy"},{"effect":null,"desc":"Inflict Paralyze (80%) on one enemy"},{"effect":{"imbue":["lightning"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Lightning element to physical attacks for 3 turn(s) to caster"}]},
@@ -14412,9 +14412,9 @@
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"lb": {"name":"捨て身の突撃","minEffects":[{"effect":null,"desc":"Physical damage (9.6x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Sacrifice 30% HP to deal physical* damage (1.5x, ATK) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Physical damage (12x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Sacrifice 30% HP to deal physical* damage (1.5x, ATK) to all enemies"}]},
 		"passives": [
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"5% chance to intercept attacks on an ally"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":5,"mitigation":{"min":0,"max":0}}},"desc":"5% chance to intercept attacks on an ally"}]},
 			{"name":"防御+10%","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
-			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"鉄壁","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"ちくしょう！","icon":"ability_68.png","effects":[{"effect":null,"desc":"30% chance to counter a magic attack with an attack (1x, ATK)"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"王の剣の生き残り","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":30},"desc":"Increase DEF by 30% and HP by 20%"}]},
@@ -14427,7 +14427,7 @@
 			{"name":"絶対に守る","icon":"ability_69.png","effects":[{"effect":null,"desc":"Use Absolute Guard (507900), or Absolute Guard (507901), if used after 光は消させねえ (227390)"}]},
 			{"name":"精神安定剤","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 30 MP to one ally"},{"effect":null,"desc":"Cure Sleep, Silence and Confusion for one ally"}]},
 			{"name":"故郷の誇り","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to all allies for 3 turns"}]},
-			{"name":"光は消させねえ","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 5 turns"}]}
+			{"name":"光は消させねえ","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for one turn"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 5 turns"}]}
 		],
 		"magics": [
 			{"name":"サンダー","icon":"ability_20.png","effects":[{"effect":null,"desc":"Magic lightning damage (1.2x, MAG) to one enemy"}]},
@@ -14515,7 +14515,7 @@
 			{"name":"MP+20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"魔力+20%","icon":"ability_77.png","effects":[{"effect":{"mag%":20},"desc":"Increase MAG by 20%"}]},
 			{"name":"オートリフレシュ","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"棟梁の血筋","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
+			{"name":"棟梁の血筋","icon":"ability_69.png","effects":[{"effect":{"stCover":{"chance":75,"mitigation":{"min":50,"max":50}}},"desc":"75% chance to intercept attacks on an ally, reducing damage by 50%"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"ベオルブ家の末弟","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["helm"],"def%":50},"desc":"Increase DEF by 50% when equipped with a Helm"}]},
 			{"name":"ベオルブ家の末弟 +1","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["helm"],"def%":50,"spr%":30},"desc":"Increase DEF by 50% and SPR by 30% when equipped with a Helm"}]},
@@ -14543,8 +14543,8 @@
 			{"name":"正義の剣 +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"たくす","icon":"ability_78.png","effects":[{"effect":null,"desc":"Transfer LB gauge to another unit"}]},
 			{"name":"乱の炎","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical fire damage (6.8x, ATK) to one enemy"}]},
-			{"name":"先陣の守護","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"先陣の守護","icon":"ability_105.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Vanguard Protector (507600) on turn 1 [3 turns CD]"}]},
-			{"name":"後詰の守護","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"後詰の守護","icon":"ability_105.png","effects":[{"effect":null,"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Rear Protector (507601) on turn 1 [3 turns CD]"}]},
+			{"name":"先陣の守護","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"先陣の守護","icon":"ability_105.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":60},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-60%"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Vanguard Protector (507600) on turn 1 [3 turns CD]"}]},
+			{"name":"後詰の守護","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"後詰の守護","icon":"ability_105.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":60},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-60%"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Rear Protector (507601) on turn 1 [3 turns CD]"}]},
 			{"name":"咬撃超狼破","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"咬撃超狼破","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60},{"name":"ice","percent":60},{"name":"lightning","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"light","percent":60},{"name":"dark","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to one enemy"}]},"cooldownTurns":6,"startTurn":6,"area":"ST","target":"ENEMY"},"desc":"Unlock Resistance Crush (507602) on turn 6 [6 turns CD]"}]}
 		],
 		"magics": [
@@ -14681,7 +14681,7 @@
 			{"name":"騎士道 +2","icon":"ability_77.png","effects":[{"effect":{"equipedConditions":["lightShield"],"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30% when equipped with a Light Shield"},{"effect":{"equipedConditions":["greatSword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Great Sword"}]},
 			{"name":"HP+20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"攻撃+20%","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
-			{"name":"近衛騎士","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]}
+			{"name":"近衛騎士","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]}
 		],
 		"actives": [
 			{"name":"ぜんぎり","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to all enemies"}]},
@@ -15155,8 +15155,8 @@
 			{"name":"圧縮する","icon":"ability_14.png","effects":[{"effect":null,"desc":"Magic* damage (2.3x, SPR) to one enemy"},{"effect":null,"desc":"Inflict Confusion and Petrify (20%) on one enemy"},{"effect":null,"desc":"15% HP damage to caster"}]},
 			{"name":"処理する","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (2.5x, SPR) to one enemy"},{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"},{"effect":null,"desc":"25% HP damage to caster"}]},
 			{"name":"粉砕する","icon":"ability_39.png","effects":[{"effect":null,"desc":"Physical damage (2.5x, DEF) to one enemy"},{"effect":{"break":{"mag":45,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 45% for 3 turns to one enemy"},{"effect":null,"desc":"25% HP damage to caster"}]},
-			{"name":"防衛する","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept magical damage to allies for 2 turns"}]},
-			{"name":"死守する","icon":"ability_69.png","effects":[{"effect":null,"desc":"80% chance to intercept magical damage to allies for one turn, reducing damage by 20%"},{"effect":null,"desc":"Increase DEF and SPR by 50% for one turn to caster"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 15% to caster for one turn"}]}
+			{"name":"防衛する","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":0,"max":0},"chance":50},"turns":2,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 2 turns"}]},
+			{"name":"死守する","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":20,"max":20},"chance":80},"turns":1,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for one turn, reducing damage by 20%"},{"effect":null,"desc":"Increase DEF and SPR by 50% for one turn to caster"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 15% to caster for one turn"}]}
 		],
 		"magics": [
 		]
@@ -15792,7 +15792,7 @@
 		"actives": [
 			{"name":"曲芸","icon":"ability_83.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"火炎びん","icon":"ability_21.png","effects":[{"effect":null,"desc":"Physical* fire damage (1.4x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Confusion (20%) on one enemy"}]},"percent":33},{"skill":{"name":"ダガー","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.4x, ATK) to one enemy"},{"effect":null,"desc":"Inflict Disease (20%) on one enemy"}]},"percent":34},{"skill":{"name":"輪っか","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Stop (30%) for 3 turns on one enemy"}]},"percent":34}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n33%: Firebomb (500130)\n34%: Dagger Toss (500140)\n34%: Ring Toss (500150)"}]},
 			{"name":"なげる","icon":"ability_47.png","effects":[{"effect":null,"desc":"Allow use of throwable items"}]},
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"}]},
 			{"name":"かくれる","icon":"ability_42.png","effects":[{"effect":null,"desc":"Remove caster from fight for 3-5 turns"}]},
 			{"name":"ワンマンショー","icon":"ability_14.png","effects":[{"effect":null,"desc":"Inflict Charm (15%) on one enemy for one turn"}]},
 			{"name":"パンドラBOX","icon":"ability_24.png","effects":[{"effect":null,"desc":"Inflict one random status effect (Petrify 100% and Poison, Blind, Sleep, Silence, Paralyze, Confusion and Disease 30%) to one enemy"}]},
@@ -16651,9 +16651,9 @@
 			{"name":"スクルト +1","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 40% for 5 turns to all allies"}]},
 			{"name":"スクルト +2","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase DEF by 40% for 5 turns to all allies"},{"effect":null,"desc":"Reduce damage taken by 20% to all allies for 5 turns"}]},
 			{"name":"ばくれつけん","icon":"ability_51.png","effects":[{"effect":null,"desc":"4 physical attacks (0.7x each, 2.8x total, ATK) to one random enemy"}]},
-			{"name":"におうだち","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
-			{"name":"におうだち +1","icon":"ability_69.png","effects":[{"effect":null,"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]},
-			{"name":"におうだち +2","icon":"ability_69.png","effects":[{"effect":null,"desc":"50% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]}
+			{"name":"におうだち","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":30,"max":30},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 30%"}]},
+			{"name":"におうだち +1","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":20},"turns":1,"area":"SELF","target":"SELF"},"desc":"20% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]},
+			{"name":"におうだち +2","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":1,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept physical damage to allies for one turn, reducing damage by 50%"}]}
 		],
 		"magics": [
 		]
@@ -16715,7 +16715,7 @@
 		"stats_pattern":1,
 		"equip":[],
 		"enhancementSkills":["メタルボディ","イオナズン"],
-		"lb": {"name":"メタルガード","minEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
+		"lb": {"name":"メタルガード","minEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}],"maxEffects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to all status effects by 100% for caster for 3 turns"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"}]},
 		"passives": [
 			{"name":"メタルボディ","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]},"desc":"Increase resistance to all elements by 50%"}]},
 			{"name":"メタルボディ +1","icon":"ability_77.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50},{"name":"ice","percent":50},{"name":"lightning","percent":50},{"name":"water","percent":50},{"name":"wind","percent":50},{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50}]},"desc":"Increase resistance to all elements by 50%"},{"effect":{"evade":{"physical":30}},"desc":"30% chance of evading physical attacks"}]},
@@ -16793,7 +16793,7 @@
 			{"name":"ちからじまん","icon":"ability_95.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"},{"effect":{"equipedConditions":["fist"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Fist"}]},
 			{"name":"つねにバイキルト","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Oomph) (30212) at the start of a battle or when revived"}]},
 			{"name":"超くじけぬ心","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
-			{"name":"支配するもの","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"支配するもの","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"星のいかり","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"星のいかり","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Starry Wrath (507541) to caster (max 2 / turn)"},{"effect":{"counterSkill":{"name":"星のいかり","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Starry Wrath (507542) to caster (max 2 / turn)"}]},
 			{"name":"邪悪なる秘術","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mag%":30},"desc":"Increase MAG and HP by 30%"},{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep, Confusion and Petrify by 100%"}],"equipedConditions":["309002900"]},
 			{"name":"精神+20%","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
@@ -16812,7 +16812,7 @@
 			{"name":"せいけんづき","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (5.3x, ATK) to one enemy (ignore cover)"}]},
 			{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"魔人百獣拳","icon":"ability_105.png","effects":[{"effect":null,"desc":"Physical damage (6.5x, ATK) to one enemy"},{"effect":{"break":{"atk":60,"def":60,"mag":60,"spr":60,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 60% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":5,"area":"ST","target":"ENEMY"},"desc":"Unlock Fiendish Fauna Fist (507543) on turn 5 [5 turns CD]"}]},
 			{"name":"はげしいきりさき","icon":"ability_54.png","effects":[{"effect":null,"desc":"2 physical attacks (1.8x each, 3.6x total, ATK) to all enemies"},{"effect":null,"desc":"Inflict Paralyze (30%) on all enemies"}]},
-			{"name":"百獣闘気","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
+			{"name":"百獣闘気","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 80% for 3 turns to caster"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 3 turns"},{"effect":null,"desc":"50% chance to counter physical attacks (2.5x, ATK) to caster for 3 turns"}]},
 			{"name":"ブリザーラッシュ","icon":"ability_22.png","effects":[{"effect":null,"desc":"Physical ice damage (7x, ATK) to one enemy"},{"effect":{"imbue":["ice"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Ice element to physical attacks for 3 turn(s) to caster"}]}
 		],
 		"magics": [
@@ -17042,9 +17042,9 @@
 			{"name":"ハウリングリザード","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1.6x, ATK) to all enemies"}]},
 			{"name":"竜の守り・土","icon":"ability_17.png","effects":[{"effect":{"resist":[{"name":"earth","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Earth by 70% for 3 turns to all allies"}]},
 			{"name":"竜の守り・火","icon":"ability_11.png","effects":[{"effect":{"resist":[{"name":"fire","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire by 50% for 3 turns to all allies"}]},
-			{"name":"立ち向かう","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":{"resist":[{"name":"earth","percent":20}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to Earth by 20% for 3 turns to caster"}]},
+			{"name":"立ち向かう","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 3 turns"},{"effect":{"resist":[{"name":"earth","percent":20}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase resistance to Earth by 20% for 3 turns to caster"}]},
 			{"name":"角突進","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.4x, ATK) to one enemy"}]},
-			{"name":"チャージシールド","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept physical damage to allies for one turn, reducing damage by 40%"}]}
+			{"name":"チャージシールド","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":40,"max":40},"chance":30},"turns":1,"area":"SELF","target":"SELF"},"desc":"30% chance to intercept physical damage to allies for one turn, reducing damage by 40%"}]}
 		],
 		"magics": [
 		]
@@ -17109,7 +17109,7 @@
 			{"name":"宿星:歳星","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"atk%":20},"desc":"Increase ATK and HP by 20%"}]},
 			{"name":"宿星:歳星 +1","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"atk%":30},"desc":"Increase ATK and HP by 30%"}]},
 			{"name":"宿星:歳星 +2","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"atk%":30},"desc":"Increase ATK and HP by 30%"},{"effect":null,"desc":"Increase LB damage by 10%"},{"effect":{"autoCastedSkill":{"name":"宿星:歳星","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 1 physical attacks for 3 turns to caster"}]}},"desc":"Use 宿星:歳星+2 (507780) at the start of a battle"}]},
-			{"name":"プリンセスガード","icon":"ability_69.png","effects":[{"effect":null,"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]},
+			{"name":"プリンセスガード","icon":"ability_69.png","effects":[{"effect":{"stCover":{"exclusiveSex":"female","chance":30,"mitigation":{"min":50,"max":50}}},"desc":"30% chance to intercept attacks on a female ally, reducing damage by 50%"}]},
 			{"name":"閃き","icon":"ability_60.png","effects":[{"effect":{"autoCastedSkill":{"name":"閃き","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills:\n\t十文字斬り (502120)\n\t飛水断ち (502150)\n\t龍尾返し (502180)"}]}},"desc":"Use Beam (502280) at the start of a battle"}]},
 			{"name":"閃き +1","icon":"ability_60.png","effects":[{"effect":{"autoCastedSkill":{"name":"閃き","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills:\n\t十文字斬り+1 (507751)\n\t飛水断ち+1 (507754)\n\t龍尾返し+1 (507757)"}]}},"desc":"Use Beam+1 (507764) at the start of a battle"}]},
 			{"name":"閃き +2","icon":"ability_60.png","effects":[{"effect":{"autoCastedSkill":{"name":"閃き","icon":"ability_60.png","effects":[{"effect":null,"desc":"Gain access to following skills:\n\t十文字斬り+2 (507766)\n\t飛水断ち+2 (507769)\n\t龍尾返し+2 (507772)"}]}},"desc":"Use Beam+2 (507779) at the start of a battle"}]},
@@ -17682,9 +17682,9 @@
 			{"name":"ジャイアントキル +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"light","percent":50}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 50% for 3 turns to one enemy"}]},
 			{"name":"ジャイアントキル +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3.5x, ATK) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"light","percent":65}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 65% for 3 turns to one enemy"}]},
 			{"name":"シャインブラスト","icon":"ability_5.png","effects":[{"effect":null,"desc":"Physical light damage (3x, ATK) to one enemy"}]},
-			{"name":"デスパレート","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":null,"desc":"Increase chance of being targeted by 70% for 2 turns"}]},
-			{"name":"デスパレート +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.3x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":null,"desc":"Increase chance of being targeted by 70% for 2 turns"}]},
-			{"name":"デスパレート +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.6x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":null,"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
+			{"name":"デスパレート","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":{"drawAttacks":70,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 2 turns"}]},
+			{"name":"デスパレート +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.3x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":{"drawAttacks":70,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 2 turns"}]},
+			{"name":"デスパレート +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (4.6x, ATK) to one enemy"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"},{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"}]},
 			{"name":"ヘブンズゲート","icon":"ability_5.png","effects":[{"effect":null,"desc":"Physical light damage (2.65x, ATK) to all enemies"}]},
 			{"name":"ガードデフォルト","icon":"ability_8.png","effects":[{"effect":null,"desc":"Gain 2 uses of the following skills for one turn:\n\tDesperation (222250)\n\tGiant Overkill (505410)\n\tGiant Slayer (222230)\n\tHeaven's Chalice (505420)\n\tHeaven's Gate (222240)\n\tRadiant Blast (222260)\n\tRampart (222270)\n\tShining Storm (505430)\n\tジャイアントキル+1 (707486)\n\tジャイアントキル+2 (707487)\n\tデスパレート+1 (707480)\n\tデスパレート+2 (707481)"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tGiant Overkill (505410)\n\tHeaven's Chalice (505420)\n\tShining Storm (505430)"}]}
 		],
@@ -17819,7 +17819,7 @@
 			{"name":"行きがけの駄賃 +1","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to all enemies"},{"effect":null,"desc":"Physical damage (1x, ATK) to all enemies after a one turn delay"}]},
 			{"name":"行きがけの駄賃 +2","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to all enemies"},{"effect":null,"desc":"Physical damage (1.5x, ATK) to all enemies after a one turn delay"}]},
 			{"name":"捲土重来","icon":"ability_53.png","effects":[{"effect":null,"desc":"Physical damage (3.3x, ATK) to one enemy"},{"effect":null,"desc":"Increase LB gauge by 1 to caster"}]},
-			{"name":"海老で鯛を釣る","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 70% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
+			{"name":"海老で鯛を釣る","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":70,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 70% for 2 turns"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"name":"デフォルト","icon":"ability_8.png","effects":[{"effect":null,"desc":"Gain 2 uses of the following skills for one turn:\n\tClouds Over the Moon (505590)\n\tNothing Ventured (222490)\n\tRedoubled Effort (222520)\n\tSqueaky Wheel (222500)\n\tThe Worm Turns (505580)\n\tWhile the Iron is Hot (222510)\n\t行きがけの駄賃+1 (707504)\n\t行きがけの駄賃+2 (707505)"},{"effect":null,"desc":"Reduce damage taken by 40% to caster for one turn"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tClouds Over the Moon (505590)\n\tThe Worm Turns (505580)"}]}
 		],
 		"magics": [
@@ -18477,7 +18477,7 @@
 			{"name":"みんなの若","icon":"ability_78.png","effects":[{"effect":{"atk%":50},"desc":"Increase ATK by 50%"},{"effect":{"lbFillRate":150},"desc":"Increase the limit burst gauge fill rate by 150%"}]}
 		],
 		"actives": [
-			{"name":"ホワイトグローブ","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to caster"}]},
+			{"name":"ホワイトグローブ","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to caster"}]},
 			{"name":"ネックハンター","icon":"ability_10.png","effects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (2.5x, ATK) to one enemy"}]},
 			{"name":"リズムショック","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (2.2x, ATK) to one enemy"},{"effect":null,"desc":"Increase LB gauge by 5 to caster"}]},
 			{"name":"ネックソーサー","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (6x, ATK) to one enemy (ignore cover)"}]},
@@ -18800,20 +18800,20 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
-		"lb": {"name":"不落の堅陣","minEffects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Reduce damage taken by 11% to all allies for 3 turns"}],"maxEffects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Reduce damage taken by 40% to all allies for 3 turns"}]},
+		"lb": {"name":"不落の堅陣","minEffects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Reduce damage taken by 11% to all allies for 3 turns"}],"maxEffects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"},{"effect":null,"desc":"Reduce damage taken by 40% to all allies for 3 turns"}]},
 		"passives": [
 			{"name":"村の用心棒・バーグ","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":null,"desc":"Gain Regen (Auto) (10121) at the start of a battle or when revived"}]},
 			{"name":"剛剣の騎士","icon":"ability_95.png","effects":[{"effect":{"hp%":20,"atk%":20},"desc":"Increase ATK and HP by 20%"},{"effect":{"equipedConditions":["lightShield"],"def%":20},"desc":"Increase DEF by 20% when equipped with a Light Shield"},{"effect":{"equipedConditions":["heavyShield"],"def%":20},"desc":"Increase DEF by 20% when equipped with a Heavy Shield"}]},
 			{"name":"フィリップとの約束","icon":"ability_19.png","effects":[{"effect":{"atk%":20,"def%":20},"desc":"Increase ATK and DEF by 20%"},{"effect":{"resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Sleep and Petrify by 100%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
-			{"name":"憧れの剣士","icon":"ability_83.png","effects":[{"effect":{"hp%":50},"desc":"Increase HP by 50%"},{"effect":null,"desc":"Increase chance of being targeted by 50%"}]},
+			{"name":"憧れの剣士","icon":"ability_83.png","effects":[{"effect":{"hp%":50},"desc":"Increase HP by 50%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"剣を振るう意味","icon":"ability_95.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"equipedConditions":["lightArmor"],"def%":30},"desc":"Increase DEF by 30% when equipped with a Light Armor"}]},
 			{"name":"防御ブースト","icon":"ability_77.png","effects":[{"effect":{"atk%":50,"def%":50},"desc":"Increase ATK and DEF by 50%"},{"effect":null,"desc":"Increase DEF by 160% when HP drops below 40% (max 9999x)"},{"effect":null,"desc":"Increase SPR by 160% when HP drops below 40% (max 9999x)"}],"equipedConditions":["504229634"]},
 			{"name":"MP+20%","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
 			{"name":"守るべき者のために","icon":"ability_68.png","effects":[{"effect":{"hp%":40,"def%":40},"desc":"Increase DEF and HP by 40%"},{"effect":{"counterSkill":{"name":"守るべき者のために","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"}]},"counterType":"physical","percent":40},"desc":"40% chance to counter physical attacks with 守るべき者のために (509150) to caster (max 1 / turn)"},{"effect":{"counterSkill":{"name":"守るべき者のために","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"}]},"counterType":"magical","percent":40},"desc":"40% chance to counter magic attacks with 守るべき者のために (509150) to caster (max 1 / turn)"}]}
 		],
 		"actives": [
-			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":null,"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 5 turns"}]},
-			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":null,"desc":"75% chance to intercept physical damage to allies for 5 turns, reducing damage by 50%-70%"}]},
+			{"name":"挑発","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 5 turns"},{"effect":null,"desc":"Reduce damage taken by 35% to caster for 5 turns"}]},
+			{"name":"かばう","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":5,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 5 turns, reducing damage by 50%-70%"}]},
 			{"name":"横一文字斬り","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, DEF) to all enemies"},{"effect":null,"desc":"Increase LB gauge by 2-4 to caster"}]},
 			{"name":"ためる","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase ATK and DEF by 120% for 3 turns to caster"},{"effect":{"resist":[{"name":"break_def","percent":50},{"name":"break_spr","percent":50}],"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase break resistance to DEF and SPR by 50% for 3 turns to caster"}]},
 			{"name":"十文字斬り","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (2.6x, DEF) to one enemy"},{"effect":{"break":{"atk":50,"def":50,"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK and DEF by 50% for 3 turns to one enemy"}]},
