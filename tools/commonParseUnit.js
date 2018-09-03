@@ -863,7 +863,7 @@ function parseActiveRawEffect(rawEffect, skills) {
     // AOE Cover
     } else if (rawEffect[2] == 96) {
         result = {"aoeCover":{}, "turns": rawEffect[3][6]};
-        result.aoeCover.type = (rawEffect[3][7] == 1 ? "physical": "magical");
+        result.aoeCover.type = (rawEffect[3][rawEffect[3].length - 1] == 1 ? "physical": "magical");
         result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         result.aoeCover.chance = rawEffect[3][4];
     }
@@ -1211,6 +1211,8 @@ function formatForSearch(units) {
         }
         if (unit.id) {
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
+            unitOut.equip = unit.equip;
+            unitOut.id = unit.id;
             
             if (unit.innates.resist) {
                 for (var resistIndex = unit.innates.resist.length; resistIndex--;) {
@@ -1256,8 +1258,6 @@ function formatForSearch(units) {
             if (unit.lb) {
                 addSkillEffectToSearch(unit.lb.maxEffects, unitOut, "lb");
             }
-            unitOut.equip = unit.equip;
-            unitOut.id = unit.id;
             if (first) {
                 first = false;
             } else {
@@ -1397,19 +1397,19 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                 }
             } else if (effect.effect.aoeCover) {
                 var meanMitigation = (effect.effect.aoeCover.mitigation.min + effect.effect.aoeCover.mitigation.max) / 2;
-                if (!effectOut.aoeCover) {effectOut.aoeCover = {};}
                 if (effect.effect.aoeCover.type == "physical") {
-                    if (!effectOut.aoeCover.physical || effectOut.aoeCover.physical < meanMitigation) {
-                        effectOut.aoeCover.physical = meanMitigation;
+                    if (!effectOut.physicalAoeCover || effectOut.physicalAoeCover < meanMitigation) {
+                        effectOut.physicalAoeCover = meanMitigation;
                     }
                 } else {
-                    if (!effectOut.aoeCover.magical || effectOut.aoeCover.magical < meanMitigation) {
-                        effectOut.aoeCover.magical = meanMitigation;
+                    if (!effectOut.magicalAoeCover || effectOut.magicalAoeCover < meanMitigation) {
+                        effectOut.magicalAoeCover = meanMitigation;
                     }
                 }
             } else if (effect.effect.stCover) {
+                
                 var meanMitigation = (effect.effect.stCover.mitigation.min + effect.effect.stCover.mitigation.max) / 2;
-                if (!effectOut.stCover || effectOut.stCover > meanMitigation) {
+                if (!effectOut.stCover || effectOut.stCover < meanMitigation) {
                     effectOut.stCover = meanMitigation;
                 }
             } else if (effect.effect.autoCastedSkill) {

@@ -35,7 +35,7 @@ var update = function() {
 	updateFilterHeadersDisplay();
     updateHash();
     
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0) {
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0) {
 		// Empty filters => no results
         $("#results").html("");
         $("#results").addClass("notSorted");
@@ -74,7 +74,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                         if (matchesCriteria(imperils, unit, "imperil")) {
                                             if (matchesCriteria(breaks, unit, "break")) {
                                                 if (matchesCriteria(imbues, unit, "imbue")) {
-                                                    if (matchesCriteria(imbues, unit, "tankAbilities")) {
+                                                    if (matchesCriteria(tankAbilities, unit, null, true)) {
                                                         result.push({"searchData": unit, "unit": units[unit.id]});
                                                     }
                                                 }
@@ -92,7 +92,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     return result;
 };
 
-function matchesCriteria(criteria, unit, unitProperty) {
+function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
     result = false;
     if (criteria.values.length == 0) {
         return true;
@@ -100,18 +100,26 @@ function matchesCriteria(criteria, unit, unitProperty) {
     for (var i = criteria.skillTypes.length; i--;) {
         var skillType = criteria.skillTypes[i];
         if (skillType == "passives") {
-            if (containAllKeyPositive(unit.passives[unitProperty], criteria.values)) {
+            var passive = unit.passives;
+            if (unitProperty) {
+                passive = passive[unitProperty];
+            }
+            if (containAllKeyPositive(passive, criteria.values, acceptZero)) {
                 return true;
             }
         } else {
             for (var j = criteria.targetAreaTypes.length; j--;) {
                 var targetArea = criteria.targetAreaTypes[j];
-                if (Array.isArray(unit[skillType][targetArea][unitProperty])) {
-                    if (includeAll(criteria.values, unit[skillType][targetArea][unitProperty])) {
+                var dataToCheck = unit[skillType][targetArea];
+                if (unitProperty) {
+                    dataToCheck = dataToCheck[unitProperty];
+                }
+                if (Array.isArray(dataToCheck)) {
+                    if (includeAll(criteria.values, dataToCheck)) {
                         return true;
                     }
                 } else {
-                    if (containAllKeyPositive(unit[skillType][targetArea][unitProperty], criteria.values)) {
+                    if (containAllKeyPositive(dataToCheck, criteria.values, acceptZero)) {
                         return true;
                     }
                 }
@@ -249,12 +257,12 @@ function getValue(unit, type, filterValues, index) {
     return result;
 }
 
-var containAllKeyPositive = function(object, array) {
+var containAllKeyPositive = function(object, array, acceptZero = false) {
     if (!object) {
         return false;
     }
     for (var index = array.length; index--;) {
-        if (!object[array[index]] || object[array[index]] <= 0) {
+        if (!(array[index] in object) || object[array[index]] < 0 || (!acceptZero && object[array[index]] == 0)) {
             return false;
         }
     }
@@ -546,6 +554,17 @@ function mustDisplaySkill(effects, type) {
             if (imbues.values.length > 0 && imbues.skillTypes.includes(type) && isTargetToBeDispalyed(imbues, effect, type) && effect.effect.imbue && matches(imbues.values, effect.effect.imbue)) {
                 return true;
             }
+            if (tankAbilities.values.length > 0 && tankAbilities.skillTypes.includes(type) && isTargetToBeDispalyed(tankAbilities, effect, type)) {
+                if (matches(tankAbilities.values, Object.keys(effect.effect))) {
+                    return true;
+                }
+                if (tankAbilities.values.includes("physicalAoeCover") && effect.effect.aoeCover && effect.effect.aoeCover.type == "physical") {
+                    return true;
+                }
+                if (tankAbilities.values.includes("magicalAoeCover") && effect.effect.aoeCover && effect.effect.aoeCover.type == "magical") {
+                    return true;
+                }
+            }
             if (effect.effect.randomlyUse) {
                 for (var i = effect.effect.randomlyUse.length; i--;) {
                     if (mustDisplaySkill(effect.effect.randomlyUse[i].skill.effects, type)) {
@@ -731,8 +750,8 @@ function startPage() {
     addTextChoicesTo("imbuesTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
     // Tank abilities
-    addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "aoeCover.physical", "aoeCover.magical"], "checkbox", "tank", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover"]);
-    addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
+    addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover"]);
+    addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     
     $("#results").addClass(server);
     

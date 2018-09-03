@@ -4088,7 +4088,7 @@
 			{"name":"Reinforce","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove ATK, DEF, MAG and SPR debuff from caster"},{"effect":null,"desc":"Increase DEF and SPR by 50% for 3 turns to caster"}]},
 			{"name":"Destination","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
 			{"name":"Dualcast","icon":"ability_26.png","effects":[{"effect":null,"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
-			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
+			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 			{"name":"Dispel","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -4991,7 +4991,7 @@
 			{"name":"Destination","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 100% for 2 turns to caster"},{"effect":null,"desc":"Reduce damage taken by 20% to caster for 2 turns"}]},
 			{"name":"Dualcast","icon":"ability_26.png","effects":[{"effect":null,"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
 			{"name":"Reduction","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 15% to one ally for 3 turns"}]},
-			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
+			{"name":"Triteleia Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":50},"chance":50},"turns":3,"area":"SELF","target":"SELF"},"desc":"50% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%"}]}
 		],
 		"magics": [
 			{"name":"Dispel","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
@@ -5571,7 +5571,7 @@
 			{"name":"Rising Ray","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (3.6x, SPR) to one enemy"}]},
 			{"name":"Magical Distraction","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (1.7x, ATK) to one enemy"},{"effect":{"break":{"mag":60,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce MAG by 60% for 5 turns to one enemy"}]},
 			{"name":"Complete Focus","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase SPR by 200% for 2 turns to caster"},{"effect":null,"desc":"Gain access to following skills for one turn:\n\tUnleashed Focus (507230)"}]},
-			{"name":"Energy Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Energy Wall","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"80% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"Firaga","icon":"ability_21.png","effects":[{"effect":null,"desc":"Magic fire damage (1.8x, MAG) to all enemies"}]},
@@ -9522,7 +9522,7 @@
 			{"name":"Inescapable Disaster","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"spr":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 50% for 5 turns to one enemy"}]},
 			{"name":"Fulminating Darkness","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"atk":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 5 turns to one enemy"}]},
 			{"name":"Ruin Impendent","icon":"ability_54.png","effects":[{"effect":null,"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"def":50,"turns":5},"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 5 turns to one enemy"}]},
-			{"name":"Twilight Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"name":"Twilight Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
 			{"name":"Dawn Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
@@ -14965,7 +14965,7 @@
 			{"name":"Guardian's Sacrifice","icon":"ability_78.png","effects":[{"effect":null,"desc":"Sacrifice self to restore 100% HP and 0% MP to the rest of the party"}]},
 			{"name":"Improved Focus","icon":"ability_63.png","effects":[{"effect":null,"desc":"Increase MAG and SPR by 60% for 3 turns to all allies"},{"effect":{"resist":[{"name":"charm","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase Charm resistance by 100% for 3 turns to all allies"}]},
 			{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":{"randomlyUse":[{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 40% HP to caster"}]},"percent":70},{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 70% HP to caster"}]},"percent":20},{"skill":{"name":"Courageous Heart","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Restore 100% HP to caster"}]},"percent":10}],"area":"SELF","target":"SELF"},"desc":"Randomly use:\n70%: Courageous Heart (910826)\n20%: Courageous Heart (910827)\n10%: Courageous Heart (910828)"}]},
-			{"name":"Spiritual Defender","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"name":"Spiritual Defender","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
 		],
 		"magics": [
 			{"name":"Curaga","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},

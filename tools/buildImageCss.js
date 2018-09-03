@@ -80,6 +80,11 @@ const LISTING = [
         className: 'access',
         basePath: '../static/img/icons/access', 
         outPath: '../static/css-img/access.css'
+    },
+    {
+        className: 'tankAbilities',
+        basePath: '../static/img/icons/tankAbilities', 
+        outPath: '../static/css-img/tankAbilities.css'
     }
 ];
 
