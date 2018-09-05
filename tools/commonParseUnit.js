@@ -727,7 +727,7 @@ function parseActiveSkill(skillIn, skills) {
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skills);
+        var effect = parseActiveRawEffect(rawEffect, skillIn, skills);
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     return skill;
@@ -738,18 +738,18 @@ function parseLb(lb, unit, skills) {
     for (var rawEffectIndex in lb.min_level["effects_raw"]) {
         var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skills);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills);
         unit.lb.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.max_level["effects_raw"]) {
         var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skills);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills);
         unit.lb.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
     }
 }
 
-function parseActiveRawEffect(rawEffect, skills) {
+function parseActiveRawEffect(rawEffect, skillIn, skills) {
     var result = null;
     
     // break
@@ -866,6 +866,62 @@ function parseActiveRawEffect(rawEffect, skills) {
         result.aoeCover.type = (rawEffect[3][rawEffect[3].length - 1] == 1 ? "physical": "magical");
         result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         result.aoeCover.chance = rawEffect[3][4];
+        
+    // Magical Damage
+    } else if (rawEffect[2] == 15) {
+        if (rawEffect[3].length != 6 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0) {
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][5]/100}};
+        
+    // Physical Damage
+    } else if (rawEffect[2] == 1) {
+        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][6]/100}};
+        
+    // Physical Damage with ignore DEF
+    } else if (rawEffect[2] == 21) {
+        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
+        
+    // Magical Damage with ignore SPR
+    } else if (rawEffect[2] == 70) {
+        if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][2]/100, "ignore":{"spr":-rawEffect[3][3]}}};
+    
+    // Physical Damage from DEF
+    } else if (rawEffect[2] == 102) {
+        result = {"damage":{"coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        
+    // Magical Damage from SPR
+    } else if (rawEffect[2] == 103) {
+        result = {"damage":{"coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        
+    // Magical Damage with stacking
+    } else if (rawEffect[2] == 72) {
+        result = {"damage":{use: {"stat":"mag"}, "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
+        
+    }
+    
+    if (result && result.damage) {
+        if (skillIn.attack_type) {
+            result.damage.type = skillIn.attack_type.toLocaleLowerCase();    
+        } else {
+            result.damage.type = skillIn.damage_type.toLocaleLowerCase();
+        }
+        
+        if (skillIn.element_inflict) {
+            result.damage.elements = [];
+            for (var elementIndex = skillIn.element_inflict.length; elementIndex--;) {
+                result.damage.elements.push(skillIn.element_inflict[elementIndex].toLocaleLowerCase());
+            }
+        }
     }
 
     if (result) {
