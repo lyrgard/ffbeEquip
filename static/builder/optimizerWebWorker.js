@@ -10,6 +10,7 @@ importScripts('buildOptimizer.js');
 var optimizer = null;
 var number;
 var server;
+var useNew400Cap;
 
 onmessage = function(event) {
     var messageData = JSON.parse(event.data);
@@ -21,6 +22,7 @@ onmessage = function(event) {
         case "setData":
             var unitBuild = new UnitBuild(messageData.unit, messageData.fixedItems, messageData.baseValues);
             server = messageData.server;
+            useNew400Cap = messageData.useNew400Cap;
             unitBuild.setLevel(messageData.level),
             unitBuild.innateElements = messageData.innateElements,
             unitBuild.formula = messageData.formula;

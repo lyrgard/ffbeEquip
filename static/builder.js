@@ -86,6 +86,8 @@ var secondaryOptimization = false;
 var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
+var useNew400Cap = false;
+
 function build() {
     secondaryOptimization = false;
     if (running) {
@@ -140,7 +142,6 @@ function optimize() {
     var forceDualWield = $("#forceDualWield input").prop('checked');
     var tryEquipSources = $("#tryEquipsources input").prop('checked');
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
-    var useNew400Cap = $("#useNew400Cap").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -173,7 +174,8 @@ function optimize() {
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation,
-            "useNewJpDamageFormula": useNewJpDamageFormula
+            "useNewJpDamageFormula": useNewJpDamageFormula,
+            "useNew400Cap": useNew400Cap
         }));
     }
     
@@ -223,6 +225,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
+    useNew400Cap = $("#useNew400Cap").prop('checked');
 }
 
 function readItemsExcludeInclude() {
@@ -375,7 +378,6 @@ function logBuild(build, value) {
     }
 
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
-    var useNew400Cap = $("#useNew400Cap").prop('checked');
 
     $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
@@ -1703,7 +1705,7 @@ function getStateHash(onlyCurrent = true) {
         }
     }
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
-    data.useNew400Cap = $("#useNew400Cap").prop("checked");
+    data.useNew400Cap = useNew400Cap;
     
     return data;
 }
@@ -1805,7 +1807,6 @@ function loadStateHashAndBuild(data, importMode = false) {
     } else {
         $("#useNew400Cap").prop("checked", false);
     }
-    useNew400Cap
     
     if (!importMode) {
         select("races", data.monster.races);
@@ -2450,7 +2451,10 @@ function startPage() {
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
-    $("#useNew400Cap").change(function() {logCurrentBuild();});
+    $("#useNew400Cap").change(function() {
+        readGoal();
+        logCurrentBuild();
+    });
 }
 
 var counter = 0;

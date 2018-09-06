@@ -521,7 +521,7 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
             var value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             if (item[percentValues[stat]]) {
                 var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
-                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
+                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[(useNew400Cap ? "JP": server)] - currentPercentIncrease.value, 0));
                 currentPercentIncrease.value += itemPercentValue;
                 return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
             } else {
@@ -542,7 +542,7 @@ function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
 function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
     if (item && item[percentValues[stat]]) {
         var itemPercentValue = item[percentValues[stat]];
-        var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
+        var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[(useNew400Cap ? "JP" : server)] - currentPercentIncrease.value, 0));
         currentPercentIncrease.value += itemPercentValue;
         return percentTakenIntoAccount * baseValue / 100;
     }
