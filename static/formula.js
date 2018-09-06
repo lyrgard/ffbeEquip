@@ -1,3 +1,4 @@
+const skillToken = "SKILL";
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND"];
@@ -125,7 +126,9 @@ function parseExpression(formula, pos) {
     while(tokenInfo = getNextToken(formula)) {
         var token = tokenInfo.token;
         
-        if (baseVariables.includes(token)) {
+        if (skillToken == token) {
+            outputQueue.push({"type":"skill"});
+        } else if (baseVariables.includes(token)) {
             outputQueue.push({"type":"value", "name":attributeByVariable[token]});
         } else if (elementVariables.includes(token)) {
             var element = token.substr(2).toLocaleLowerCase().replace("thunder", "lightning");
@@ -230,7 +233,7 @@ function popOperator(operatorStack, outputQueue) {
             return false;
         }
     } else if (operator == ">") {
-        if (value1.type != "value" && !operators.includes(value1.type)) {
+        if (value1.type != "value" && value1.type != "skill" && !operators.includes(value1.type)) {
             alert("Error. Left part of a " + operator + " must evaluate to a value.");
             return false;
         }
@@ -334,7 +337,13 @@ function formulaToString(formula, useParentheses = false) {
 }
 
 function innerFormulaToString(formula, useParentheses = false) {
-    if (formula.type == "value") {
+    if (formula.type == "skill") {
+        if (formula.skill) {
+            return formula.skill.name;
+        } else {
+            return skillToken;   
+        }
+    } else if (formula.type == "value") {
         return getVariableName(formula.name);
     } else if (formula.type == "constant") {
         return formula.value.toString();
