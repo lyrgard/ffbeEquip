@@ -8,10 +8,6 @@
     width: 120px;
 }
 
-#useNewJpDamageFormula {
-    margin-left: 20px;
-}
-
 #elementalResists {
     margin-top: 20px;
     border-collapse: collapse;
@@ -736,6 +732,13 @@ i.img.img-slot-hand.leftHand {
 .sort-type i.img {
     width: 36px;
     height: 36px;
+}
+
+
+#buildRulesOptions {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
 }
 
 @media (max-width: 991px) {

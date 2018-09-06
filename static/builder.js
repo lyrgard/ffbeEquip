@@ -140,6 +140,7 @@ function optimize() {
     var forceDualWield = $("#forceDualWield input").prop('checked');
     var tryEquipSources = $("#tryEquipsources input").prop('checked');
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
+    var useNew400Cap = $("#useNew400Cap").prop('checked');
     
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
@@ -157,7 +158,7 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
-            "server": server,
+            "server": (useNew400Cap ? "JP" : server),
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
             "level":builds[currentUnitIndex]._level,
@@ -374,6 +375,7 @@ function logBuild(build, value) {
     }
 
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
+    var useNew400Cap = $("#useNew400Cap").prop('checked');
 
     $("#resultStats .statToMaximize").removeClass("statToMaximize");
 
@@ -392,8 +394,8 @@ function logBuild(build, value) {
         var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
 
         var bonusPercent;
-        if (result.bonusPercent > statsBonusCap[server]) {
-            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
+        if (result.bonusPercent > statsBonusCap[(useNew400Cap ? "JP" : server)]) {
+            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[(useNew400Cap ? "JP" : server)] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
@@ -1701,6 +1703,7 @@ function getStateHash(onlyCurrent = true) {
         }
     }
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
+    data.useNew400Cap = $("#useNew400Cap").prop("checked");
     
     return data;
 }
@@ -1796,6 +1799,13 @@ function loadStateHashAndBuild(data, importMode = false) {
     } else {
         $("#useNewJpDamageFormula").prop("checked", false);
     }
+    
+    if (data.useNew400Cap) {
+        $("#useNew400Cap").prop("checked", true);
+    } else {
+        $("#useNew400Cap").prop("checked", false);
+    }
+    useNew400Cap
     
     if (!importMode) {
         select("races", data.monster.races);
@@ -2440,7 +2450,7 @@ function startPage() {
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
-    
+    $("#useNew400Cap").change(function() {logCurrentBuild();});
 }
 
 var counter = 0;
