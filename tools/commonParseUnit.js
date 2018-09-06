@@ -860,6 +860,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     } else if (rawEffect[2] == 61) {
         result = {"drawAttacks":rawEffect[3][0], "turns": rawEffect[3][1]};
         
+    // Stat buff
+    } else if (rawEffect[2] == 3) {
+        result = {};
+        addStatsBuff(result, rawEffect[3]);
+        
     // AOE Cover
     } else if (rawEffect[2] == 96) {
         result = {"aoeCover":{}, "turns": rawEffect[3][6]};
@@ -870,6 +875,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     // Magical Damage
     } else if (rawEffect[2] == 15) {
         if (rawEffect[3].length != 6 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0) {
+            console.log("Strange Magic damage");
             console.log(rawEffect);
         }
         result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][5]/100}};
@@ -877,6 +883,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     // Physical Damage
     } else if (rawEffect[2] == 1) {
         if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
+            console.log("Strange Physic damage");
             console.log(rawEffect);
         }
         result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][6]/100}};
@@ -884,6 +891,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     // Physical Damage with ignore DEF
     } else if (rawEffect[2] == 21) {
         if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Physic damage with ignoe DEF");
             console.log(rawEffect);
         }
         result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
@@ -891,6 +899,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     // Magical Damage with ignore SPR
     } else if (rawEffect[2] == 70) {
         if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Magic damage with ignoe SPR");
             console.log(rawEffect);
         }
         result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][2]/100, "ignore":{"spr":-rawEffect[3][3]}}};
@@ -907,6 +916,21 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     } else if (rawEffect[2] == 72) {
         result = {"damage":{use: {"stat":"mag"}, "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
         
+    // Jump damage
+    } else if (rawEffect[2] == 52) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
+            console.log("Strange Jump damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};    
+        
+    // Combo damage
+    } else if (rawEffect[2] == 42) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
+            console.log("Strange Combo");
+            console.log(rawEffect);
+        }
+        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};    
     }
     
     if (result && result.damage) {
