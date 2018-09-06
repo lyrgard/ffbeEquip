@@ -9179,7 +9179,7 @@
 			{"name":"Colossal Shantotto","icon":"ability_10.png","effects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":3.2,"type":"magic","elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Magic dark damage (3.2x, MAG) to all enemies"},{"effect":null,"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":{"statsBuff":{"def":120,"spr":120,"turns":1},"area":"SELF","target":"SELF"},"desc":"Increase DEF and SPR by 120% for one turn to caster"}]},
 			{"name":"Empirical Research","icon":"ability_20.png","effects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":10.8,"type":"magic","elements":["lightning"]},"area":"ST","target":"ENEMY"},"desc":"Magic lightning damage (10.8x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"lightning","percent":60},{"name":"wind","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning and Wind by 60% for 3 turns to one enemy"}]},
 			{"name":"Final Exam","icon":"ability_5.png","effects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":11.5,"type":"magic","elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light damage (11.5x, MAG) to one enemy"},{"effect":{"imperil":{"elements":[{"name":"fire","percent":60},{"name":"light","percent":60}],"turns":3},"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Light by 60% for 3 turns to one enemy"}]},
-			{"name":"Mana Spring","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Manafont","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 3996 MP split over 4 turns to caster"},{"effect":{"statsBuff":{"mag":150,"turns":4},"area":"SELF","target":"SELF"},"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},"cooldownTurns":12,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Manafont (507690) on turn 1 [12 turns CD]"}]}
+			{"name":"Manafont","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Manafont","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 3996 MP split over 4 turns to caster"},{"effect":{"statsBuff":{"mag":150,"turns":4},"area":"SELF","target":"SELF"},"desc":"Increase MAG by 150% for 4 turns to caster"},{"effect":null,"desc":"Gain access to following skills for 3 turns:\n\tAeroga V (20650)\n\tBlizzaga V (20670)\n\tFiraga V (20660)\n\tStonega V (20630)\n\tThundaga V (20680)\n\tWaterga V (20640)"}]},"cooldownTurns":12,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Manafont (507690) on turn 1 [12 turns CD]"}]}
 		],
 		"magics": [
 			{"name":"Stone I","icon":"ability_28.png","effects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":3,"stack":1,"maxStack":5,"type":"magic","elements":["earth"]},"area":"ST","target":"ENEMY"},"desc":"Magic earth damage 100 (+3x, MAG) with consecutive damage increase (max. 5 times, +1x MAG each, 8x total) to one enemy"}]},
@@ -12554,24 +12554,27 @@
 	"306000105": {
 		"name":"Dragonlord",
 		"id":"306000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"other",
 		"stats": {
-			"maxStats":{"hp":3672,"mp":183,"atk":138,"def":120,"mag":149,"spr":128},
-			"minStats":{"hp":1212,"mp":60,"atk":46,"def":40,"mag":49,"spr":42},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			"maxStats":{"hp":4773,"mp":237,"atk":179,"def":163,"mag":193,"spr":174},
+			"minStats":{"hp":1575,"mp":78,"atk":59,"def":51,"mag":64,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["staff","rod","mace","fist","hat","clothes","robe"],
 		"enhancementSkills":["Dragonlord's Guard","Wave of Relief","Kafrizzle"],
-		"lb": {"name":"Dark Temptation","minEffects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":2.7,"type":"physical"},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (2.7x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 5 random status effects (50%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":3.9,"type":"physical"},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (3.9x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 5 random status effects (74%) to all enemies"}]},
+		"lb": {"name":"Dark Temptation","minEffects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":7.6,"type":"physical"},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (7.6x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 6 random status effects (55%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":10.5,"type":"physical"},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (10.5x, MAG) to all enemies"},{"effect":null,"desc":"Inflict 6 random status effects (84%) to all enemies"}]},
 		"passives": [
 			{"name":"Dragonlord's Guard","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
 			{"name":"Dragonlord's Guard +1","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"}]},
 			{"name":"Dragonlord's Guard +2","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"},{"effect":{"hp%":30,"mp%":30},"desc":"Increase HP and MP by 30%"}]},
 			{"name":"HP +20%","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
-			{"name":"MAG +80%","icon":"ability_77.png","effects":[{"effect":{"mag%":80},"desc":"Increase MAG by 80%"}]}
+			{"name":"MAG +80%","icon":"ability_77.png","effects":[{"effect":{"mag%":80},"desc":"Increase MAG by 80%"}]},
+			{"name":"King of Dragonkind","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"mp%":30,"mag%":80},"desc":"Increase MAG by 80% and HP and MP by 30%"}],"equipedConditions":["504205650"]},
+			{"name":"DEF +20%","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"Frizzmeister","icon":"ability_77.png","effects":[{"effect":null,"desc":"Increase the damage of Kafrizz (205580) by (4x)"},{"effect":null,"desc":"Increase the damage of the following skills by (5x):\n\tKafrizzle (507551, 507554)\n\tKafrizzle+1 (507552, 507555)\n\tKafrizzle+2 (507553, 507556)"},{"effect":{"mag%":50},"desc":"Increase MAG by 50%"}]}
 		],
 		"actives": [
 			{"name":"Sizzle","icon":"ability_20.png","effects":[{"effect":{"damage":{"use":{"stat":"mag"},"coef":1.4,"type":"magic","elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
@@ -12585,7 +12588,9 @@
 			{"name":"Wave of Relief +2","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure all status effects for all allies"},{"effect":null,"desc":"Restore 2000 (+3x, Heal) HP to all allies"}]},
 			{"name":"Kafrizzle","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle (507551), or Kafrizzle (507554), if used after Super Channel Anger (227031)"}]},
 			{"name":"Kafrizzle +1","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+1 (507552), or Kafrizzle+1 (507555), if used after Super Channel Anger (227031)"}]},
-			{"name":"Kafrizzle +2","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+2 (507553), or Kafrizzle+2 (507556), if used after Super Channel Anger (227031)"}]}
+			{"name":"Kafrizzle +2","icon":"ability_21.png","effects":[{"effect":null,"desc":"Use Kafrizzle+2 (507553), or Kafrizzle+2 (507556), if used after Super Channel Anger (227031)"}]},
+			{"name":"Super Channel Anger","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"name":"Super Channel Anger","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 50% HP and MP to caster"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Super Channel Anger (507550) on turn 1 [3 turns CD]"}]},
+			{"name":"Remidheal","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3000 HP to one ally"},{"effect":null,"desc":"Restore 3600 (+9x, Heal) HP split over 4 turns to one ally"}]}
 		],
 		"magics": [
 		]
@@ -12869,7 +12874,7 @@
 		"lb": {"name":"Blizzard Blast","minEffects":[{"effect":{"damage":{"use":{"stat":"atk"},"coef":15.1,"type":"physical","elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (15.1x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"use":{"stat":"atk"},"coef":18,"type":"physical","elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (18x, ATK) to all enemies"}]},
 		"passives": [
 			{"name":"Meathead","icon":"ability_95.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"},{"effect":{"equipedConditions":["fist"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Fist"}]},
-			{"name":"Constant Oomph","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Oomph) (30212) at the start of a battle or when revived"}]},
+			{"name":"Constant Oomph","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain Brave (Constant Oomph) (30212) at the start of a battle or when revived"}]},
 			{"name":"Restless Heart","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"}]},
 			{"name":"Ruler","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG, SPR, HP and MP by 20%"},{"effect":{"drawAttacks":50},"desc":"Increase chance of being targeted by 50%"}]},
 			{"name":"Starry Wrath","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Starry Wrath (507541) to caster (max 2 / turn)"},{"effect":{"counterSkill":{"name":"Starry Wrath","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":40,"turns":2},"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 40% for 2 turns to all enemies"},{"effect":null,"desc":"Restore 3000 (+9x, Heal) HP split over 2 turns to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Starry Wrath (507542) to caster (max 2 / turn)"}]},
