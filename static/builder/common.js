@@ -90,7 +90,7 @@ function hasDualWield(item) {
     return item.special && item.special.includes("dualWield")
 }
 
-function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues = {}) {
+function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon = true, alreadyCalculatedValues = {}) {
     if (formula.type == "value") {
         if (alreadyCalculatedValues[formula.name]) {
             return alreadyCalculatedValues[formula.name];
@@ -225,14 +225,14 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
                             }
 
                             if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
-                                switchWeapons = ((calculatedValue.right * calculatedValue.right * variance[goalVariance]) < (calculatedValue.left * calculatedValue.left * variance1[goalVariance]));
+                                switchWeapons = canSwitchWeapon && ((calculatedValue.right * calculatedValue.right * variance[goalVariance]) < (calculatedValue.left * calculatedValue.left * variance1[goalVariance]));
                                 if (switchWeapons) {
                                     variance = variance1;
                                     calculatedValue.right = calculatedValue.left;
                                 }
                                 calculatedValue.left = 0;
                             } else {
-                                switchWeapons = (variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk) ;
+                                switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk)) ;
                                 if (switchWeapons) {
                                     variance = variance1;
                                     var tmp = calculatedValue.left;
@@ -305,22 +305,22 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
             "switchWeapons": false
         };     
     } else if (operatorsInFormula.includes(formula.type)) {
-        var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
-        var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+        var result1 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
+        var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
         if (formula.type == "OR") {
             if (result1) {
                 return true;
             } else {
-                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
             }
         } else if (formula.type == "AND") {
             if (result1) {
-                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+                return calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
             } else {
                 return false;
             }
         } else {
-            var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+            var result2 = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
             if (formula.type == "*") {
                 return {
                     "min": result1.min * result2.min,
@@ -378,11 +378,11 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
         }
         return true;
     } else if (formula.type == "condition") {
-        var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.condition, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues);
+        var value = calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.condition, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues);
         if (!value) {
             return -1;
         }
-        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, useNewJpDamageFormula, alreadyCalculatedValues)
+        return calculateBuildValueWithFormula(itemAndPassives,unitBuild, ennemyStats, formula.formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon, alreadyCalculatedValues)
     }
 }
     
