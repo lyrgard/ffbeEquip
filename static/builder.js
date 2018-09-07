@@ -86,6 +86,8 @@ var secondaryOptimization = false;
 var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
+var useNew400Cap = false;
+
 function build() {
     secondaryOptimization = false;
     if (running) {
@@ -157,7 +159,7 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
-            "server": server,
+            "server": (useNew400Cap ? "JP" : server),
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
             "level":builds[currentUnitIndex]._level,
@@ -172,7 +174,8 @@ function optimize() {
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation,
-            "useNewJpDamageFormula": useNewJpDamageFormula
+            "useNewJpDamageFormula": useNewJpDamageFormula,
+            "useNew400Cap": useNew400Cap
         }));
     }
     
@@ -222,6 +225,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
+    useNew400Cap = $("#useNew400Cap").prop('checked');
 }
 
 function readItemsExcludeInclude() {
@@ -392,8 +396,8 @@ function logBuild(build, value) {
         var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
 
         var bonusPercent;
-        if (result.bonusPercent > statsBonusCap[server]) {
-            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
+        if (result.bonusPercent > statsBonusCap[(useNew400Cap ? "JP" : server)]) {
+            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[(useNew400Cap ? "JP" : server)] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
@@ -460,7 +464,7 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula, false);
     }
     
     var killers = [];
@@ -488,22 +492,22 @@ function logBuild(build, value) {
     $("#resultStats .buildResult").addClass("hidden");
     if (importantStats.includes("atk")) {
         $("#resultStats .physicalDamageResult").removeClass("hidden");
-        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula);
+        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula, false);
         $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
     }
     if (importantStats.includes("mag")) {
         $("#resultStats .magicalDamageResult").removeClass("hidden");
-        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula);
+        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula, false);
         $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
     }
     if (importantStats.includes("atk") && importantStats.includes("mag")) {
         $("#resultStats .hybridDamageResult").removeClass("hidden");
-        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula);
+        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula, false);
         $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
     }
     if (importantStats.includes("mag") && importantStats.includes("spr")) {
         $("#resultStats .healingResult").removeClass("hidden");
-        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula);
+        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula, false);
         $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
     }
     if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
@@ -1701,6 +1705,7 @@ function getStateHash(onlyCurrent = true) {
         }
     }
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
+    data.useNew400Cap = useNew400Cap;
     
     return data;
 }
@@ -1795,6 +1800,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         $("#useNewJpDamageFormula").prop("checked", true);
     } else {
         $("#useNewJpDamageFormula").prop("checked", false);
+    }
+    
+    if (data.useNew400Cap) {
+        $("#useNew400Cap").prop("checked", true);
+    } else {
+        $("#useNew400Cap").prop("checked", false);
     }
     
     if (!importMode) {
@@ -2440,7 +2451,10 @@ function startPage() {
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
-    
+    $("#useNew400Cap").change(function() {
+        readGoal();
+        logCurrentBuild();
+    });
 }
 
 var counter = 0;
