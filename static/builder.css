@@ -734,11 +734,16 @@ i.img.img-slot-hand.leftHand {
     height: 36px;
 }
 
+.goalLine {
+    margin-top: 5px;
+}
 
-#buildRulesOptions {
+.buildRules .panel-heading {
     display: flex;
-    flex-direction: column;
-    margin-left: 10px;
+}
+
+.buildRules .panel-heading .title {
+    white-space: nowrap;
 }
 
 @media (max-width: 991px) {

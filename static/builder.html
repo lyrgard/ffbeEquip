@@ -130,11 +130,14 @@
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default goal">
                     <div class="panel-heading">
-                        <div class=" line">
+                        <div class="line">
+                            <span class="goalLabel">Unit</span>
+                            <select id="unitsSelect" name="units"></select>
+                        </div>
+                        <div class="line goalLine hidden">
                             <span class="normalGoalChoices goalLabel">Goal : Maximize</span>
                             <div class="normalGoalChoices">
                                 <select id="normalGoalChoice" class="form-control">
-                                    <option value="physicalDamage">Skill</option>
                                     <option value="physicalDamage">Physical damage</option>
                                     <option value="magicalDamage">Magical damage</option>
                                     <option value="hybridDamage">Hybrid damage</option>
@@ -159,37 +162,18 @@
                                 </select>
                             </div>
                             <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
-                            <span class="customGoalChoice hidden">Custom Goal: </span>
+                            <span class="customGoalChoice hidden goalLabel">Custom Goal: </span>
                             <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
                             <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
                         </div>
-                        <div class=" line">
-                            <span class="goalLabel">Damage variance</span>
-                            <div>
-                                <select id="goalVariance" name="goalVariance" class="form-control">
-                                    <option value="min">Minimum</option>
-                                    <option value="avg" selected="selected">Average</option>
-                                    <option value="max">Maximum</option>
-                                </select>
-                            </div>
-                            <div id="buildRulesOptions">
-                                <div>
-                                    <input type="checkbox" id="useNewJpDamageFormula"/>
-                                    <span>Use new JP damage formula</span>
-                                </div>
-                                <div data-server="GL" >
-                                    <input type="checkbox" id="useNew400Cap"/>
-                                    <span>Use 400% cap</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="panel panel-default unit">
+                <div class="panel panel-default unit hidden">
                     <div class="panel-heading">
                         <form class="form-inline">
                             <div class="form-group flex-form-group">
-                                <select id="unitsSelect" name="units" class="form-control"></select>
+                                <img class="unitIcon" />
+                                
                                 <div class="unit-rarity">
 
                                 </div>
@@ -381,30 +365,52 @@
                             <div class="col-xs-3 text-right">Skill innate element(s):</div>
                             <div class="col-xs-9 btn-group elements choice" data-toggle="buttons" id="elements"></div>
                         </div>
-                        <div id="forceDoublehand" class="col-xs-12 checkboxGroup">
-                            <input type="checkbox"/><label>Force Doublehand build</label>
-                        </div>
-                        <div id="forceDualWield" class="col-xs-12 checkboxGroup">
-                            <input type="checkbox"/><label>Force Dual Wield build</label>
-                        </div>
-                        <div id="tryEquipsources" class="col-xs-12 checkboxGroup">
-                            <input type="checkbox"/><label>Try "Allow use of &lt;type&gt;" items</label>
-                        </div>
-                        <div id="tryReduceOverCap" class="col-xs-12 checkboxGroup">
-                            <input type="checkbox"/><label>(Experimental)Try to reduce overcap in favor of&nbsp;</label>
-                            <select>
-                                <option value="hp" selected>HP</option>
-                                <option value="mp">MP</option>
-                                <option value="atk">ATK</option>
-                                <option value="def">DEF</option>
-                                <option value="mag">MAG</option>
-                                <option value="spr">SPR</option>
-                                <option value="lbPerTurn">LB/turn</option>
-                            </select>
+                        
+                    </div>
+                </div>
+                <div class="panel panel-default buildRules">
+                    <div class="panel-heading">
+                        <span class="title">Build rules</span>
+                        <div>
+                            <div id="forceDoublehand" class="col-xs-12 col-lg-6 checkboxGroup">
+                                <input type="checkbox"/><label>Force Doublehand build</label>
+                            </div>
+                            <div id="forceDualWield" class="col-xs-12 col-lg-6 checkboxGroup">
+                                <input type="checkbox"/><label>Force Dual Wield build</label>
+                            </div>
+                            <div id="tryEquipsources" class="col-xs-12 col-lg-6 checkboxGroup">
+                                <input type="checkbox"/><label>Try "Allow use of &lt;type&gt;" items</label>
+                            </div>
+                            <div id="tryReduceOverCap" class="col-xs-12 checkboxGroup">
+                                <input type="checkbox"/><label>(Experimental)Try to reduce overcap in favor of&nbsp;</label>
+                                <select>
+                                    <option value="hp" selected>HP</option>
+                                    <option value="mp">MP</option>
+                                    <option value="atk">ATK</option>
+                                    <option value="def">DEF</option>
+                                    <option value="mag">MAG</option>
+                                    <option value="spr">SPR</option>
+                                    <option value="lbPerTurn">LB/turn</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 checkboxGroup">
+                                <input type="checkbox" id="useNewJpDamageFormula"/><label>Use new JP damage formula</label>
+                            </div>
+                            <div data-server="GL" class="col-xs-12 col-lg-6 checkboxGroup">
+                                <input type="checkbox" id="useNew400Cap"/><label>Use 400% cap</label>
+                            </div>
+                            <div class="col-xs-12 form form-inline">
+                                <span class="goalLabel">Damage variance</span>
+                                <select id="goalVariance" name="goalVariance" class="form-control">
+                                    <option value="min">Minimum</option>
+                                    <option value="avg" selected="selected">Average</option>
+                                    <option value="max">Maximum</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default monster">
+                <div class="panel panel-default monster hidden">
                     <div class="panel-heading">
                         <span>Monster</span>
                         <a id="monsterListLink" class="buttonLink hidden" onclick="showMonsterList();">Monster list</a>

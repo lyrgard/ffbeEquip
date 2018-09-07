@@ -26,6 +26,30 @@ const formulaByGoal = {
 };
 
 
+const goalQuickSelectDefaultValues = [
+    ["physicalDamage","Physical damage"],
+    ["magicalDamage","Magical damage"],
+    ["hybridDamage","Hybrid damage"],
+    ["jumpDamage","Jump damage"],
+    ["magDamageWithPhysicalMecanism","Physical type MAG damage"],
+    ["sprDamageWithPhysicalMecanism","Physical type SPR damage"],
+    ["defDamageWithPhysicalMecanism","Physical type DEF damage"],
+    ["sprDamageWithMagicalMecanism","Magical type SPR damage"],
+    ["atkDamageWithFixedMecanism","Fixed type ATK damage"],
+    ["physicalDamageMultiCast","Physical damage Multicast"],
+    ["fixedDamageWithPhysicalMecanism","Physical type Fixed damage (1000)"],
+    ["summonerSkill","Summoner skill"],
+    ["physicaleHp","Physical eHP (HP * DEF)"],
+    ["magicaleHp","Magical eHP (HP * SPR)"],
+    ["def","Defense"],
+    ["spr","Spirit"],
+    ["hp","Health Points"],
+    ["physicalEvasion","Physical evasion"],
+    ["magicalEvasion","Magical evasion"],
+    ["mpRefresh","MP/turn"],
+    ["heal","Heal"]
+]
+
 const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
 
 var customFormula;
@@ -35,6 +59,7 @@ var espersByName = {};
 
 var units;
 var ownedUnits;
+var unitsWithSkills;
 
 var ennemyStats;
 
@@ -221,11 +246,41 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].goal = "custom";
         builds[currentUnitIndex].formula = customFormula;
     } else {
-        builds[currentUnitIndex].goal = $(".goal #normalGoalChoice").val();   
+        var goalValue = $(".goal #normalGoalChoice").val();
+        builds[currentUnitIndex].goal = $(".goal #normalGoalChoice").val();
         builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
     }
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
+}
+
+function formulaFromSkill(skill) {
+    var formula;
+    for (var i = skill.effects.length; i--;) {
+        if (!skill.effects[i].effect) {
+            return null;
+        }
+        var formulaToAdd = formulaFromEffect(skill.effects[i]);
+        if (!formula) {
+            formula = formulaToAdd;
+        } else {
+            formula = {
+                "type": "+",
+                "value1": formula,
+                "value2": formulaToAdd
+            }
+        }
+    }
+}
+
+function formulaFromEffect(effect) {
+    if (effect.effect.damage && effect.) {
+        
+    }
+}
+
+function nullFormula() {
+    return {"type": "constant", "value": 0};
 }
 
 function readItemsExcludeInclude() {
@@ -731,7 +786,7 @@ function onUnitChange() {
             selectedUnitData = units[unitId];    
         }
         if (selectedUnitData) {
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_ills_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
             var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.max_rarity == selectedUnitData.max_rarity);
             var oldValues = builds[currentUnitIndex].baseValues;
             var oldLevel = builds[currentUnitIndex]._level;
@@ -764,6 +819,36 @@ function onUnitChange() {
                     fixItem("unavailable", 9 - i);
                 }
             }
+            
+            $(".panel.unit").removeClass("hidden");
+            $(".panel.goal .goalLine").removeClass("hidden");
+            $(".panel.unit .unitIcon").prop("src", "img/units/unit_icon_" + selectedUnitData.id + ".png");
+            
+            
+            var choiceSelect = $("#normalGoalChoice");
+            var selectedChoice = choiceSelect.val();
+            choiceSelect.empty();
+            
+            var unitWithSkills = unitsWithSkills[unitData.id];
+            for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
+                if (formulaFromSkill(unitWithSkills.actives[skillIndex])) {
+                    choiceSelect.append($("<option></option>").attr("value", "SKILL_" + unitWithSkills.actives[skillIndex].name).text(unitWithSkills.actives[skillIndex].name));
+                }
+            }
+            for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
+                if (formulaFromSkill(unitWithSkills.magics[skillIndex])) {
+                    choiceSelect.append($("<option></option>").attr("value", "SKILL_" + unitWithSkills.magics[skillIndex].name).text(unitWithSkills.magics[skillIndex].name));
+                }
+            }
+            
+            
+            for (var selectDefaultIndex = 0, lenSelectDefaultIndex = goalQuickSelectDefaultValues.length; selectDefaultIndex < lenSelectDefaultIndex; selectDefaultIndex++) {
+                choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
+            }
+            choiceSelect.val(selectedChoice);
+            
+            goalQuickSelectDefaultValues
+        
             recalculateApplicableSkills();
             logCurrentBuild();
             
@@ -774,6 +859,8 @@ function onUnitChange() {
             builds[currentUnitIndex].setUnit(null);
             reinitBuild(currentUnitIndex); 
             updateUnitStats();
+            $(".panel.unit").addClass("hidden");
+            $(".panel.goal .goalLine").addClass("hidden");
         }
         displayUnitRarity(selectedUnitData);
         displayUnitEnhancements();
@@ -2359,9 +2446,12 @@ function startPage() {
         dataStorage.setData(data);
         getStaticData("unitsWithPassives", true, function(result) {
             units = result;
-            populateUnitSelect();
-            prepareSearch(data);
-            continueIfReady();
+            getStaticData("unitsWithSkill", true, function(result) {
+                unitsWithSkills = result;
+                populateUnitSelect();
+                prepareSearch(data);
+                continueIfReady();
+            });
         });
     });
     
