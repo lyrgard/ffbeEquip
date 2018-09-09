@@ -202,7 +202,9 @@ class UnitBuild {
     }
     
     calculateInvolvedStats(formula) {
-        if (formula.type == "value") {
+        if (formula.type == "skill") {
+            this.calculateInvolvedStats(formula.value);
+        } else if (formula.type == "value") {
             var name = formula.name;
             if (involvedStatsByValue[name]) {
                 for (var index = involvedStatsByValue[name].length; index--;) {
@@ -218,7 +220,7 @@ class UnitBuild {
         } else if (formula.type == "condition") {
             this.calculateInvolvedStats(formula.condition);
             this.calculateInvolvedStats(formula.formula);    
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "buff") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }

@@ -338,11 +338,7 @@ function formulaToString(formula, useParentheses = false) {
 
 function innerFormulaToString(formula, useParentheses = false) {
     if (formula.type == "skill") {
-        if (formula.skill) {
-            return formula.skill.name;
-        } else {
-            return skillToken;   
-        }
+        return formula.name;
     } else if (formula.type == "value") {
         return getVariableName(formula.name);
     } else if (formula.type == "constant") {

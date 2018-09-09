@@ -78,8 +78,48 @@ class DataStorage {
                 }
             }
         }
+        if (this.unitBuild._formula) {
+            this.addDesirableElementsFromFormula(this.unitBuild._formula);
+        }
         this.prepareAllItemsVersion();
     }
+    
+    addDesirableElementsFromFormula(formula) {
+        var elements = [];
+        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
+            for (var i = builds[currentUnitIndex].formula.elements.length; i--;) {
+                if (!this.desirableElements.includes(builds[currentUnitIndex].formula.elements[i])) {
+                    this.desirableElements.push(builds[currentUnitIndex].formula.elements[i]);
+                }
+            }
+        }
+        this.addDesirableElementsFromImperilInFormula(formula);
+    }
+    
+    addDesirableElementsFromImperilInFormula(formula) {
+        if (formula.type == "skill") {
+            this.addDesirableElementsFromImperilInFormula(formula.value);
+        } else if (formula.type == "imperil") {
+            var elements = Object.keys(formula.value);
+            if (elements.length == 8) {
+                // Full imperil, ignore it
+            } else {
+                for (var i = elements.length; i--;) {
+                    if (!this.desirableElements.includes(elements[i])) {
+                        this.desirableElements.push(elements[i]);
+                    }
+                }
+            }
+        } else if (formula.type == "value") {
+            return;
+        } else if (formula.type == "condition") {
+            this.addDesirableElementsFromImperilInFormula(formula.formula);    
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "break" && formula.type != "buff") {
+            this.addDesirableElementsFromImperilInFormula(formula.value1);
+            this.addDesirableElementsFromImperilInFormula(formula.value2);
+        }
+    }
+    
     
     prepareData(itemsToExclude, ennemyStats) {
         this.dataByType = {};
@@ -172,17 +212,13 @@ class DataStorage {
                 return entry1.item.id - entry2.item.id;
             }
         })
-        var desirableElements = null;
-        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.elements) {
-            desirableElements = builds[currentUnitIndex].formula.elements;
-        }
         for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
             var type = typeList[typeIndex];
             if (this.dataByType[type] && this.dataByType[type].length > 0) {
                 var numberNeeded = 1;
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
-                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, desirableElements, this.unitBuild.desirableItemIds);
+                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
                 this.dataByType[type] = [];
                 for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                     this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    
@@ -211,7 +247,7 @@ class DataStorage {
         var types = Object.keys(dualWieldByType);
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
-            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, desirableElements, this.unitBuild.desirableItemIds);
+            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 this.dualWieldSources.push(tree.children[index].equivalents[0].item);
             }

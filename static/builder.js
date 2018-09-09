@@ -2,7 +2,7 @@ page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"value","name":"physicalDamage"},
+    "physicalDamage":                   {"type":"skill","name":"1x physical ATK damage", "value": {"type":"value", "name":"physicalDamage", "coef":1}},
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
     "jumpDamage":                       {"type":"value","name":"jumpDamage"},
@@ -247,8 +247,30 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].formula = customFormula;
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
-        builds[currentUnitIndex].goal = $(".goal #normalGoalChoice").val();
-        builds[currentUnitIndex].formula = formulaByGoal[builds[currentUnitIndex].goal];
+        if (goalValue.startsWith("SKILL_")) {
+            builds[currentUnitIndex].goal = "custom";
+            var skillName = goalValue.substr(6);
+            var skill;
+            var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+            for (var i = unitWithSkills.actives.length; i--;) {
+                if (unitWithSkills.actives[i].name == skillName) {
+                    skill = unitWithSkills.actives[i];
+                    break;
+                }
+            }
+            if (!skill) {
+                for (var i = unitWithSkills.magics.length; i--;) {
+                    if (unitWithSkills.magics[i].name == skillName) {
+                        skill = unitWithSkills.magics[i];
+                        break;
+                    }
+                }
+            }
+            builds[currentUnitIndex].formula = formulaFromSkill(skill);
+        } else {
+            builds[currentUnitIndex].goal = goalValue;
+            builds[currentUnitIndex].formula = formulaByGoal[goalValue];
+        }
     }
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
@@ -256,27 +278,43 @@ function readGoal(index = currentUnitIndex) {
 
 function formulaFromSkill(skill) {
     var formula;
-    for (var i = skill.effects.length; i--;) {
+    for (var i = 0, len = skill.effects.length; i < len; i++) {
         if (!skill.effects[i].effect) {
             return null;
         }
         var formulaToAdd = formulaFromEffect(skill.effects[i]);
-        if (!formula) {
-            formula = formulaToAdd;
-        } else {
-            formula = {
-                "type": "+",
-                "value1": formula,
-                "value2": formulaToAdd
+        if (formulaToAdd != null) {
+            if (!formula) {
+                formula = formulaToAdd;
+            } else {
+                formula = {
+                    "type": "+",
+                    "value1": formula,
+                    "value2": formulaToAdd
+                }
             }
         }
     }
+    if (formula) {
+        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula};
+    }
+    return formula;
 }
 
 function formulaFromEffect(effect) {
-    if (effect.effect.damage && effect.) {
-        
+    if (effect.effect.damage && effect.effect.damage.type == "physical" && !effect.effect.damage.jump && !effect.effect.damage.combo && !effect.effect.damage.stack) {
+        var coef = effect.effect.damage.coef;
+        if (effect.effect.damage.ignore && effect.effect.damage.ignore.def) {
+            coef = coef * 100 / effect.effect.damage.ignore.def;
+        }
+        return {"type":"value", "name":"physicalDamage", "coef": coef};
+    } else if (effect.effect.imperil) {
+        return {
+            "type": "imperil",
+            "value": effect.effect.imperil
+        }
     }
+    return null;
 }
 
 function nullFormula() {
@@ -329,25 +367,39 @@ function getPlaceHolder(type) {
 
 function readEnnemyStats() {
     var ennemyResist = {};
+    var ennemyImperils = {"fire":0, "ice":0, 'lightning':0, 'water':0, 'earth':0, 'wind':0, 'light':0, 'dark':0};
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
-        var value = $("#elementalResists td." + element + " input").val();
-        if (value) {
-            ennemyResist[element] = parseInt(value);
+        var resistValue = $("#elementalResists ." + element + " input.elementalResist").val();
+        if (resistValue) {
+            ennemyResist[element] = parseInt(resistValue);
         } else {
             ennemyResist[element] = 0;
+        }
+        var imperilValue = $("#elementalResists ." + element + " input.imperil").val();
+        if (imperilValue) {
+            ennemyImperils[element] = parseInt(imperilValue);
+        } else {
+            ennemyImperils[element] = 0;
         }
     }
     var ennemyRaces = getSelectedValuesFor("races");
     var monsterDef = 100;
     var monsterSpr = 100;
-    if ($("#monsterDef").val()) {
-        monsterDef = parseInt($("#monsterDef").val());
+    if ($("#monsterDefensiveStats .def .stat").val()) {
+        monsterDef = parseInt($("#monsterDefensiveStats .def .stat").val());
     }
-    if ($("#monsterSpr").val()) {
-        monsterSpr = parseInt($("#monsterSpr").val());
+    if ($("#monsterDefensiveStats .spr .stat").val()) {
+        monsterSpr = parseInt($("#monsterDefensiveStats .spr .stat").val());
     }
-    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist);
+    var ennemyBreaks = {"atk":0, "def":0, "mag":0, "spr":0};
+    if ($("#monsterDefensiveStats .def .break").val()) {
+        ennemyBreaks.def = parseInt($("#monsterDefensiveStats .def .break").val());
+    }
+    if ($("#monsterDefensiveStats .spr .break").val()) {
+        ennemyBreaks.spr = parseInt($("#monsterDefensiveStats .spr .break").val());
+    }
+    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, ennemyImperils);
 }
 
     
@@ -1899,9 +1951,9 @@ function loadStateHashAndBuild(data, importMode = false) {
         select("races", data.monster.races);
         for (var element in data.monster.elementalResist) {
             if (data.monster.elementalResist[element] == 0) {
-                $("#elementalResists ." + element + " input").val("");
+                $("#elementalResists ." + element + " input.elementalResist").val("");
             } else {
-                $("#elementalResists ." + element + " input").val(data.monster.elementalResist[element]);
+                $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
             }
         }
         $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
@@ -1910,10 +1962,10 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
 
         if (data.monster.def) {
-            $("#monsterDef").val(data.monster.def);
+            $("#monsterDefensiveStats .def .stat").val(data.monster.def);
         }
         if (data.monster.spr) {
-            $("#monsterSpr").val(data.monster.spr);
+            $("#monsterDefensiveStats .spr .stat").val(data.monster.spr);
         }
     }
     
@@ -2108,16 +2160,16 @@ function showMonsterList() {
 
 function selectMonster(monsterIndex) {
     var monster = bestiary.monsters[monsterIndex];
-    $("#monsterDef").val(monster.def);
-    $("#monsterSpr").val(monster.spr);
+    $("#monsterDefensiveStats .def .stat").val(monster.def);
+    $("#monsterDefensiveStats .spr .stat").val(monster.spr);
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
-        $("#elementalResists td." + element + " input").val("");
+        $("#elementalResists ." + element + " input.elementalResist").val("");
     }
     if (monster.resist) {
         for(var resistIndex = monster.resist.length; resistIndex--;) {
             var resist = monster.resist[resistIndex];
-            $("#elementalResists td." + resist.name + " input").val(resist.percent);
+            $("#elementalResists ." + resist.name + " input.elementalResist").val(resist.percent);
         }   
     }
     unselectAll("races");
@@ -2544,6 +2596,23 @@ function startPage() {
     $("#useNew400Cap").change(function() {
         readGoal();
         logCurrentBuild();
+    });
+    
+    $("#monsterDefensiveStats input").on('input',$.debounce(300,function() {
+        readEnnemyStats();
+        logCurrentBuild();
+    }));
+    $("#elementalResists input").on('input',$.debounce(300,function() {
+        readEnnemyStats();
+        logCurrentBuild();
+    }));
+    
+    
+    
+    // Set tooltips
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+        trigger: 'hover'
     });
 }
 

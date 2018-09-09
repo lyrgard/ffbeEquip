@@ -5,6 +5,7 @@ importScripts('treeComparator.js');
 importScripts('esperTreeComparator.js');
 importScripts('itemTreeComparator.js');
 importScripts('buildOptimizer.js');
+importScripts('ennemyStats.js');
 
 
 var optimizer = null;

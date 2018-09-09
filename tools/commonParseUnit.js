@@ -97,14 +97,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         }
         var skillIn = skills[skillId];
         if (skillIn.active && skillIn.type != "MAGIC") {
-            unitOut.actives.push(parseActiveSkill(skillIn, skills));
+            unitOut.actives.push(parseActiveSkill(skillId, skillIn, skills));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillIn, skills);
+                    var skill = parseActiveSkill(skillId, skillIn, skills);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.actives.push(skill);
                 } 
@@ -112,14 +112,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             continue;
         } 
         if (skillIn.type == "MAGIC") {
-            unitOut.magics.push(parseActiveSkill(skillIn, skills));
+            unitOut.magics.push(parseActiveSkill(skillId, skillIn, skills));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillIn, skills);
+                    var skill = parseActiveSkill(skillId, skillIn, skills);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.magics.push(skill);
                 } 
@@ -358,6 +358,17 @@ function addEffectsToEffectList(effectList, effects) {
                     if (autoCastedEffect.effect && autoCastedEffect.effect.resist && autoCastedEffect.effect.turns == -1) {
                         addEffectsToEffectList(effectList, [autoCastedEffect.effect]);
                     }
+                }
+            }
+            if (effect.skillEnhancement) {
+                if (!effectList[0].skillEnhancement) {
+                    effectList[0].skillEnhancement = {};
+                }
+                for (var skillId in effect.skillEnhancement) {
+                    if (!effectList[0].skillEnhancement[skillId]) {
+                        effectList[0].skillEnhancement[skillId] = 0;
+                    }
+                    effectList[0].skillEnhancement[skillId] += effect.skillEnhancement[skillId];
                 }
             }
         }
@@ -620,7 +631,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
         result = {};
         var skillIn = skills[rawEffect[3][2]];
         if (skillIn) {
-            result.counterSkill = parseActiveSkill(skillIn, skills);
+            result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills);
             result.counterType = "physical";
             result.percent = rawEffect[3][0];
             return [result];
@@ -629,7 +640,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
     } else if (rawEffect[2] == 50) { 
         result = {};
         var skillIn = skills[rawEffect[3][2]];
-        result.counterSkill = parseActiveSkill(skillIn, skills);
+        result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills);
         result.counterType = "magical";
         result.percent = rawEffect[3][0];
         return [result];
@@ -696,7 +707,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
         result = {};
         var skillIn = skills[rawEffect[3][0]];
         if (skillIn) {
-            var autoCastedSkill = parseActiveSkill(skillIn, skills);
+            var autoCastedSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills);
             result.autoCastedSkill = autoCastedSkill;
             return [result];
         }
@@ -717,12 +728,23 @@ function parsePassiveRawEffet(rawEffect, skills) {
         result.stCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         return [result];
         
+    // Skill enhancement
+    } else if (rawEffect[2] == 73) {
+        result.skillEnhancement = {};
+        if (Array.isArray(rawEffect[3][0])) {
+            for (var i = rawEffect[3][0].length; i--;) {
+                result.skillEnhancement[rawEffect[3][0][i].toString()] = rawEffect[3][3] / 100;
+            }
+        } else {
+            result.skillEnhancement[rawEffect[3][0].toString()] = rawEffect[3][3] / 100;
+        }
+        return [result];
     }
     return null;
 }
 
-function parseActiveSkill(skillIn, skills) {
-    var skill = {"name" : skillIn.name, "icon": skillIn.icon, "effects": []};
+function parseActiveSkill(skillId, skillIn, skills) {
+    var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
@@ -768,7 +790,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             var data = rawEffect[3][i];
             if (data && data[0] && skills[data[0]]) {
                 var skillIn = skills[data[0]];
-                var skill = parseActiveSkill(skillIn, skills);
+                var skill = parseActiveSkill(data[0], skillIn, skills);
                 result.randomlyUse.push({"skill":skill, "percent":data[1]});
             }
         }
@@ -852,7 +874,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     } else if (rawEffect[2] == 130) { 
         result = {};
         var skillIn = skills[rawEffect[3][0]];
-        result.cooldownSkill = parseActiveSkill(skillIn, skills);
+        result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills);
         result.cooldownTurns = rawEffect[3][2][0] + 1;
         result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
     
@@ -1083,18 +1105,18 @@ function addAilmentResist(item, values) {
 
 function addImperil(item, values) {
     if (!item.imperil) {
-        item.imperil = {"elements":[]};
+        item.imperil = {};
     }
     for (var index in elements) {
         if (values[index]) {
-            item.imperil.elements.push({"name":elements[index],"percent":-values[index]});
+            item.imperil[elements[index]] = -values[index];
             if (values[index] > 0) {
                 console.log("Positive imperil !");
                 console.log(values);
             }
         }
     }
-    item.imperil.turns = values[9];
+    item.turns = values[9];
 }
 
 function addBreak(item, values) {
@@ -1113,7 +1135,7 @@ function addBreak(item, values) {
     if (values[3]) {
         item.break.spr = -values[3];
     }
-    item.break.turns = values[4];
+    item.turns = values[4];
 }
 
 function addStatsBuff(item, values) {
@@ -1132,7 +1154,7 @@ function addStatsBuff(item, values) {
     if (values[3]) {
         item.statsBuff.spr = values[3];
     }
-    item.statsBuff.turns = values[4];
+    item.turns = values[4];
 }
 
 function addLbPerTurn(item, min, max) {
@@ -1153,7 +1175,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
@@ -1368,9 +1390,11 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                 if (!effectOut.imperil) {
                     effectOut.imperil = {};
                 }
-                for (var j = effect.effect.imperil.elements.length; j--;) {
-                    if (!effectOut.imperil[effect.effect.imperil.elements[j].name] || effectOut.imperil[effect.effect.imperil.elements[j].name] < effect.effect.imperil.elements[j].percent) {
-                        effectOut.imperil[effect.effect.imperil.elements[j].name] = effect.effect.imperil.elements[j].percent;
+                var imperiledElements = Object.keys(effect.effect.imperil);
+                for (var j = imperiledElements.length; j--;) {
+                    var element = imperiledElements[j];
+                    if (!effectOut.imperil[element] || effectOut.imperil[element] < effect.effect.imperil[element]) {
+                        effectOut.imperil[element] = effect.effect.imperil[element];
                     }
                 }
              } else if (effect.effect.resist) {
