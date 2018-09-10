@@ -2,7 +2,7 @@ page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"skill","name":"1x physical ATK damage", "value": {"type":"value", "name":"physicalDamage", "coef":1}},
+    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
     "magicalDamage":                    {"type":"value","name":"magicalDamage"},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
     "jumpDamage":                       {"type":"value","name":"jumpDamage"},
@@ -247,7 +247,7 @@ function readGoal(index = currentUnitIndex) {
         builds[currentUnitIndex].formula = customFormula;
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
-        if (goalValue.startsWith("SKILL_")) {
+        if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(6);
             var skill;
@@ -302,12 +302,9 @@ function formulaFromSkill(skill) {
 }
 
 function formulaFromEffect(effect) {
-    if (effect.effect.damage && effect.effect.damage.type == "physical" && !effect.effect.damage.jump && !effect.effect.damage.combo && !effect.effect.damage.stack) {
+    if (effect.effect.damage) {
         var coef = effect.effect.damage.coef;
-        if (effect.effect.damage.ignore && effect.effect.damage.ignore.def) {
-            coef = coef * 100 / effect.effect.damage.ignore.def;
-        }
-        return {"type":"value", "name":"physicalDamage", "coef": coef};
+        return {"type":"damage", "value":effect.effect.damage};
     } else if (effect.effect.imperil) {
         return {
             "type": "imperil",

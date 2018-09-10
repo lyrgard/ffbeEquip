@@ -900,7 +900,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Magic damage");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][5]/100}};
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][5]/100}};
         
     // Physical Damage
     } else if (rawEffect[2] == 1) {
@@ -908,7 +908,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Physic damage");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][6]/100}};
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
         
     // Physical Damage with ignore DEF
     } else if (rawEffect[2] == 21) {
@@ -916,7 +916,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Physic damage with ignoe DEF");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, "ignore":{"def":-rawEffect[3][3]}}};
         
     // Magical Damage with ignore SPR
     } else if (rawEffect[2] == 70) {
@@ -924,19 +924,19 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Magic damage with ignoe SPR");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"mag"}, "coef":rawEffect[3][2]/100, "ignore":{"spr":-rawEffect[3][3]}}};
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":-rawEffect[3][3]}}};
     
     // Physical Damage from DEF
     } else if (rawEffect[2] == 102) {
-        result = {"damage":{"coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]/100, use: {"stat":"def", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
         
     // Magical Damage from SPR
     } else if (rawEffect[2] == 103) {
-        result = {"damage":{"coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, use: {"stat":"spr", "percent":rawEffect[3][0], "max":rawEffect[3][1]}}};
         
     // Magical Damage with stacking
     } else if (rawEffect[2] == 72) {
-        result = {"damage":{use: {"stat":"mag"}, "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
         
     // Jump damage
     } else if (rawEffect[2] == 52) {
@@ -944,7 +944,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Jump damage");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};    
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};    
         
     // Combo damage
     } else if (rawEffect[2] == 42) {
@@ -952,7 +952,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log("Strange Combo");
             console.log(rawEffect);
         }
-        result = {"damage":{use: {"stat":"atk"}, "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};    
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};    
     }
     
     if (result && result.damage) {

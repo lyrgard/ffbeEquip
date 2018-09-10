@@ -204,6 +204,25 @@ class UnitBuild {
     calculateInvolvedStats(formula) {
         if (formula.type == "skill") {
             this.calculateInvolvedStats(formula.value);
+        } else if (formula.type == "damage") {
+            if (formula.value.mecanism == "physical") {
+                this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance"]);
+                if (formula.value.use) {
+                    this.addToInvolvedStats([formula.value.use.stat]);
+                } else {
+                    this.addToInvolvedStats(["atk"]);
+                }
+                if (formula.value.jump) {
+                    this.addToInvolvedStats(["jumpDamage"]);
+                }
+            } else if (formula.value.mecanism == "magical") {
+                this.addToInvolvedStats(["magicalKiller"]);
+                if (formula.value.use) {
+                    this.addToInvolvedStats([formula.value.use.stat]);
+                } else {
+                    this.addToInvolvedStats(["mag"]);
+                }
+            }
         } else if (formula.type == "value") {
             var name = formula.name;
             if (involvedStatsByValue[name]) {
@@ -223,6 +242,14 @@ class UnitBuild {
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "buff") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
+        }
+    }
+    
+    addToInvolvedStats(stats) {
+        for (var i = stats.length; i--;) {
+            if (!this.involvedStats.includes(stats[i])) {
+                this.involvedStats.push(stats[i]);
+            }
         }
     }
     
