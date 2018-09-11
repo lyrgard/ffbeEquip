@@ -163,11 +163,18 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         var applicableKillerType = null;
         var elements = unitBuild.innateElements.slice();
+        if (formula.value.elements) {
+            for (var elementIndex = formula.value.elements.length; elementIndex--;) {
+                if (!elements.includes(formula.value.elements[elementIndex])) {
+                    elements.push(formula.value.elements[elementIndex]);       
+                }
+            }
+        };
         
         var variance = {
-            "min": 0,
-            "avg": 0,
-            "max": 0
+            "min": 1,
+            "avg": 1,
+            "max": 1
         }
         
         var statValueToUse = 0;
@@ -193,6 +200,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             };
             
             if (formula.value.damageType == "body") {
+                defendingStat = "def";
+                
+                var stat = "atk";
+                if (formula.value.use) {
+                    stat = formula.value.use.stat;
+                }
+                
                 var calculatedValue = calculateStatValue(itemAndPassives, "atk", unitBuild);
                 
                 if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
@@ -226,16 +240,25 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     }
                 }
                 
-                if (switchWeapons ? !context.treatingLeftHandAttacks: context.treatingLeftHandAttacks) {
-                    // if not switching weapon and treating second attack, or switching weapon and treating first attack, use left hand value
-                    statValueToUse = calculatedValue.left;
+                if (stat == "atk") {
+                    if (switchWeapons ? !context.treatingLeftHandAttacks: context.treatingLeftHandAttacks) {
+                        // if not switching weapon and treating second attack, or switching weapon and treating first attack, use left hand value
+                        statValueToUse = calculatedValue.left;
+                    } else {
+                        // else use right hand value
+                        statValueToUse = calculatedValue.right;
+                    }
                 } else {
-                    // else use right hand value
-                    statValueToUse = calculatedValue.right;
+                    statValueToUse = calculatedValue.total;
+                }
+            } else {
+                defendingStat = "spr";
+                if (formula.value.use) {
+                    statValueToUse = calculateStatValue(itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+                    statValueToUse = calculateStatValue(itemAndPassives, "mag", unitBuild).total;
                 }
             }
-            
-            defendingStat = "def";
             
             if (dualWielding) {
                 // Plan for the left hand attack to be calculated later
@@ -244,6 +267,21 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             
         } else if (formula.value.mecanism == "magical") {
             applicableKillerType = "magical";
+            defendingStat = "spr";
+            
+            if (formula.value.use) {
+                statValueToUse = calculateStatValue(itemAndPassives, formula.value.use.stat, unitBuild).total;
+                if (formula.value.use.percent) {
+                    statValueToUse *= formula.value.use.percent / 100;
+                }
+                if (formula.value.use.max) {
+                    if (statValueToUse > formula.value.use.max) {
+                        statValueToUse = max;
+                    }
+                }
+            } else {
+                statValueToUse = calculateStatValue(itemAndPassives, "mag", unitBuild).total;   
+            }
         }
         
         // Killer

@@ -3,13 +3,13 @@ var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "15
 
 const formulaByGoal = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
-    "magicalDamage":                    {"type":"value","name":"magicalDamage"},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical ATK damage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
     "hybridDamage":                     {"type":"value","name":"hybridDamage"},
-    "jumpDamage":                       {"type":"value","name":"jumpDamage"},
-    "magDamageWithPhysicalMecanism":    {"type":"value","name":"magDamageWithPhysicalMecanism"},
-    "sprDamageWithPhysicalMecanism":    {"type":"value","name":"sprDamageWithPhysicalMecanism"},
-    "defDamageWithPhysicalMecanism":    {"type":"value","name":"defDamageWithPhysicalMecanism"},
-    "sprDamageWithMagicalMecanism":     {"type":"value","name":"sprDamageWithMagicalMecanism"},
+    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
+    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
+    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
@@ -594,29 +594,47 @@ function logBuild(build, value) {
     $("#resultStats .hybridDamageResult").addClass("hidden");
     $("#resultStats .healingResult").addClass("hidden");
     $("#resultStats .buildResult").addClass("hidden");
-    if (importantStats.includes("atk")) {
-        $("#resultStats .physicalDamageResult").removeClass("hidden");
-        physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula, false);
-        $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
+    
+    var formulaIsOneSkill = false;
+    var skillName;
+    if (builds[currentUnitIndex].formula.type == "skill") {
+        formulaIsOneSkill = true;
+        skillName = builds[currentUnitIndex].formula.name;
+    } else if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "skill") {
+        formulaIsOneSkill = true;
+        skillName = builds[currentUnitIndex].formula.formula.name;
     }
-    if (importantStats.includes("mag")) {
-        $("#resultStats .magicalDamageResult").removeClass("hidden");
-        magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula, false);
-        $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
+    
+    if (!formulaIsOneSkill) {
+        if (importantStats.includes("atk")) {
+            $("#resultStats .physicalDamageResult").removeClass("hidden");
+            physicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["physicalDamage"], goalVariation, useNewJpDamageFormula, false);
+            $("#resultStats .physicalDamageResult .calcValue").html(getValueWithVariationHtml(physicalDamageResult));
+        }
+        if (importantStats.includes("mag")) {
+            $("#resultStats .magicalDamageResult").removeClass("hidden");
+            magicalDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["magicalDamage"], goalVariation, useNewJpDamageFormula, false);
+            $("#resultStats .magicalDamageResult .calcValue").html(getValueWithVariationHtml(magicalDamageResult));
+        }
+        if (importantStats.includes("atk") && importantStats.includes("mag")) {
+            $("#resultStats .hybridDamageResult").removeClass("hidden");
+            hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula, false);
+            $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
+        }
+        if (importantStats.includes("mag") && importantStats.includes("spr")) {
+            $("#resultStats .healingResult").removeClass("hidden");
+            healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula, false);
+            $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
+        }
     }
-    if (importantStats.includes("atk") && importantStats.includes("mag")) {
-        $("#resultStats .hybridDamageResult").removeClass("hidden");
-        hybridDamageResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["hybridDamage"], goalVariation, useNewJpDamageFormula, false);
-        $("#resultStats .hybridDamageResult .calcValue").html(getValueWithVariationHtml(hybridDamageResult));
-    }
-    if (importantStats.includes("mag") && importantStats.includes("spr")) {
-        $("#resultStats .healingResult").removeClass("hidden");
-        healingResult = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, formulaByGoal["heal"], goalVariation, useNewJpDamageFormula, false);
-        $("#resultStats .healingResult .calcValue").html(getValueWithVariationHtml(healingResult));
-    }
-    if (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation]) {
+    if (formulaIsOneSkill || (value[goalVariation] != physicalDamageResult[goalVariation] && value[goalVariation] != magicalDamageResult[goalVariation] && value[goalVariation] != hybridDamageResult[goalVariation] && value[goalVariation] != healingResult[goalVariation])) {
         $("#resultStats .buildResult").removeClass("hidden");
         $("#resultStats .buildResult .calcValue").html(getValueWithVariationHtml(value));
+        if (formulaIsOneSkill) {
+            $("#resultStats .buildResult .resultLabel").text(skillName + ": ");
+        } else {
+            $("#resultStats .buildResult .resultLabel").text("Build goal calculated value: ");
+        }
         
         $("#resultStats .physicalDamageResult").addClass("secondary");
         $("#resultStats .magicalDamageResult").addClass("secondary");
@@ -894,9 +912,12 @@ function onUnitChange() {
             for (var selectDefaultIndex = 0, lenSelectDefaultIndex = goalQuickSelectDefaultValues.length; selectDefaultIndex < lenSelectDefaultIndex; selectDefaultIndex++) {
                 choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
             }
-            choiceSelect.val(selectedChoice);
+            if (selectedChoice.startsWith("SKILL_")) {
+                choiceSelect.val("physicalDamage");
+            } else {
+                choiceSelect.val(selectedChoice);    
+            }
             
-            goalQuickSelectDefaultValues
         
             recalculateApplicableSkills();
             logCurrentBuild();

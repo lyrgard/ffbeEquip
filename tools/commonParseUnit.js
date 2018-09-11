@@ -957,9 +957,12 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     
     if (result && result.damage) {
         if (skillIn.attack_type) {
-            result.damage.type = skillIn.attack_type.toLocaleLowerCase();    
+            result.damage.mecanism = skillIn.attack_type.toLocaleLowerCase();    
         } else {
-            result.damage.type = skillIn.damage_type.toLocaleLowerCase();
+            result.damage.mecanism = skillIn.damage_type.toLocaleLowerCase();
+        }
+        if (result.damage.mecanism == "magic") {
+            result.damage.mecanism = "magical";
         }
         
         if (skillIn.element_inflict) {

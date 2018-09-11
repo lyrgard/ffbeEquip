@@ -207,10 +207,15 @@ class UnitBuild {
         } else if (formula.type == "damage") {
             if (formula.value.mecanism == "physical") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance"]);
+                
                 if (formula.value.use) {
                     this.addToInvolvedStats([formula.value.use.stat]);
                 } else {
-                    this.addToInvolvedStats(["atk"]);
+                    if (formula.value.damageType == "body") {
+                        this.addToInvolvedStats(["atk"]);
+                    } else if (formula.value.damageType == "mind") {
+                        this.addToInvolvedStats(["mag"]);
+                    }
                 }
                 if (formula.value.jump) {
                     this.addToInvolvedStats(["jumpDamage"]);
