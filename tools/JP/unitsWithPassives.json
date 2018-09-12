@@ -3819,12 +3819,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"],
+		"enhancements": [
+			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
+			{"name":"狩猟技術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}]]},
+			{"name":"精神+20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]},
+			{"hp%":30, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"atk%":25, "singleWielding":{"atk":50}, "equipedConditions":["504226900"]},
-			{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110},
-			{"spr%":20, "levelCondition":115}
+			{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110}
 		],
 		"6_form": {
 			"name":"Nalu",
@@ -3841,8 +3846,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["おそれしらず","狩猟技術","雷槍一迅","雷鳴槍","精神+20%"],
+		"enhancements": [
+			{"name":"おそれしらず","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"mpRefresh":10}]]},
+			{"name":"狩猟技術","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}]}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":30, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]},
+				{"hp%":30, "singleWielding":{"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
 		}
@@ -3861,8 +3871,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["ハイドシャドウ","フルパワースロー","ベテランスローワー"],
+		"enhancements": [
+			{"name":"ベテランスローワー","levels":[[{"dualWielding":{"atk":30}}],[{"dualWielding":{"atk":45}}],[{"dualWielding":{"atk":60}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "dualWielding":{"atk":30}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}], "drawAttacks":30}
+			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}], "drawAttacks":30}
 		]
 	},
 	"100015604": {
@@ -3879,8 +3893,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["ギャルメイク","バインドウィップ","バイオレントテール"],
+		"enhancements": [
+			{"name":"ギャルメイク","levels":[[{"resist":[{"name":"poison","percent":100}]}],[{"resist":[{"name":"poison","percent":100}],"atk%":25}],[{"resist":[{"name":"poison","percent":100}],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "resist":[{"name":"poison","percent":100}], "mpRefresh":5},
+			{"hp%":20, "atk%":20, "mpRefresh":5},
 			{"atk%":30, "equipedConditions":["whip"]}
 		]
 	},
@@ -7246,13 +7264,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"atk":100}}],[{"singleWielding":{"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"atk":150},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}]]},
+			{"name":"G.F.","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10},"levelCondition":110}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30},"levelCondition":110}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50},"levelCondition":110}]]},
+			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":50, "def%":30, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+			{"hp%":30, "mp%":50, "def%":30, "spr%":40, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"atk%":30, "lbFillRate":50, "equipedConditions":["303004000"]},
-			{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}, "levelCondition":110},
-			{"def%":20, "levelCondition":115}
+			{"atk%":30, "lbFillRate":50, "equipedConditions":["303004000"]}
 		],
 		"6_form": {
 			"name":"Squall",
@@ -7269,8 +7291,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"atk":100}}],[{"singleWielding":{"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"atk":150},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":50, "def%":30, "spr%":40, "singleWielding":{"atk":100}, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+				{"hp%":30, "mp%":50, "def%":30, "spr%":40, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
 				{"atk%":50, "equipedConditions":["gun"]},
 				{"atk%":50, "equipedConditions":["greatSword"]}
 			]
@@ -10688,8 +10714,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["完全覚醒","闘気","真・やいばくだき","帝王のかまえ","帝王の一閃"],
+		"enhancements": [
+			{"name":"闘気","levels":[[{"special":["dualWield"],"atk%":40}],[{"special":["dualWield"],"atk%":60}],[{"special":["dualWield"],"atk%":80,"dualWielding":{"atk":20}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":70, "special":["dualWield"]},
+			{"hp%":20, "atk%":30},
 			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":["504226980"]},
 			{"def%":20, "levelCondition":115},
 			{"dualWielding":{"atk":30}, "mpRefresh":15, "levelCondition":120}
@@ -10709,8 +10739,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["完全覚醒","闘気","真・やいばくだき","帝王のかまえ","帝王の一閃"],
+		"enhancements": [
+			{"name":"闘気","levels":[[{"special":["dualWield"],"atk%":40}],[{"special":["dualWield"],"atk%":60}],[{"special":["dualWield"],"atk%":80,"dualWielding":{"atk":20}}]]}
+		],
 			"skills": [
-				{"hp%":20, "atk%":70, "special":["dualWield"]}
+				{"hp%":20, "atk%":30}
 			]
 		}
 	},
@@ -10728,6 +10762,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["メッタ斬り","つねにバイキルト","超くじけぬ心","こごえる吹雪"],
+		"enhancements": [
+			{"name":"超くじけぬ心","levels":[[],[{"spr%":20,"def%":20}],[{"spr%":30,"def%":30}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":40, "def%":20, "mag%":20, "spr%":20, "drawAttacks":50},
 			{"atk%":50, "equipedConditions":["fist"]},
@@ -10751,6 +10789,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","whip","fist","hat","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["メッタ斬り","つねにバイキルト","超くじけぬ心","こごえる吹雪"],
+		"enhancements": [
+			{"name":"超くじけぬ心","levels":[[],[{"spr%":20,"def%":20}],[{"spr%":30,"def%":30}]]}
+		],
 			"skills": [
 				{"hp%":20, "mp%":20, "atk%":40, "def%":20, "mag%":20, "spr%":20, "drawAttacks":50},
 				{"atk%":50, "equipedConditions":["fist"]}
@@ -10772,8 +10814,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","staff","rod","bow","hammer","lightShield","hat","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ライトメタルボディ","二刀の心得","鉄球ぶんまわし"],
+		"enhancements": [
+			{"name":"ライトメタルボディ","levels":[[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"lbPerTurn":{"min":1,"max":1}}]]},
+			{"name":"二刀の心得","levels":[[{"special":["dualWield"]}],[{"special":["dualWield"]}],[{"special":["dualWield"]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "mpRefresh":5, "special":["dualWield"]}
+			{"hp%":20, "atk%":30, "mpRefresh":5}
 		]
 	},
 	"306001204": {
@@ -10790,8 +10837,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["全身全霊斬り","自動MP回復","超もろば斬り"],
+		"enhancements": [
+			{"name":"自動MP回復","levels":[[{"mpRefresh":3}],[{"mpRefresh":5}],[{"mpRefresh":15}]]}
+		],
 		"skills": [
-			{"mp%":10, "atk%":20, "mag%":20, "evade":{"physical":10}, "mpRefresh":3}
+			{"mp%":10, "atk%":20, "mag%":20, "evade":{"physical":10}}
 		]
 	},
 	"306001303": {
@@ -11001,19 +11052,42 @@
 		"name":"2B",
 		"jpname":"2B",
 		"id":"310000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3605,"mp":193,"atk":155,"def":140,"mag":82,"spr":118},
-			"minStats":{"hp":1190,"mp":64,"atk":51,"def":46,"mag":27,"spr":39},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4793,"mp":249,"atk":205,"def":184,"mag":110,"spr":175},
+			"minStats":{"hp":1582,"mp":82,"atk":68,"def":61,"mag":36,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":40, "atk%":80, "evade":{"physical":20,"magical":10}, "killers":[{"name":"machine","physical":100}], "special":["dualWield"]}
-		]
+			{"hp%":40, "atk%":80, "evade":{"physical":20,"magical":10}, "killers":[{"name":"machine","physical":100}], "special":["dualWield"]},
+			{"atk%":30, "def%":30, "singleWielding":{"atk":100}, "mpRefresh":7, "equipedConditions":["304001900"]},
+			{"mp%":40, "atk%":40, "spr%":40, "dualWielding":{"atk":50}, "killers":[{"name":"machine","physical":50}], "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"def%":20, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"2B",
+			"jpname":"2B",
+			"id":"310000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3605,"mp":193,"atk":155,"def":140,"mag":82,"spr":118},
+				"minStats":{"hp":1190,"mp":64,"atk":51,"def":46,"mag":27,"spr":39},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":40, "atk%":80, "evade":{"physical":20,"magical":10}, "killers":[{"name":"machine","physical":100}], "special":["dualWield"]}
+			]
+		}
 	},
 	"310000204": {
 		"name":"9S",
@@ -11067,6 +11141,67 @@
 		"equip":["sword","katana","spear","throwing","fist","hat","clothes","lightArmor"],
 		"skills": [
 			{"hp%":10, "mp%":10, "def%":20, "spr%":20}
+		]
+	},
+	"310000505": {
+		"name":"A2",
+		"jpname":"A2",
+		"id":"310000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4825,"mp":222,"atk":206,"def":171,"mag":170,"spr":172},
+			"minStats":{"hp":1592,"mp":73,"atk":68,"def":56,"mag":56,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":40, "mp%":20, "atk%":80, "def%":20, "evade":{"physical":20,"magical":10}, "singleWielding":{"atk":100}, "killers":[{"name":"machine","physical":50}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":40, "evade":{"physical":10}, "killers":[{"name":"machine","physical":50}], "equipedConditions":["303005900"]},
+			{"def%":30, "dualWielding":{"atk":50}, "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"spr%":40, "singleWielding":{"atk":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"A2",
+			"jpname":"A2",
+			"id":"310000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3712,"mp":171,"atk":159,"def":135,"mag":131,"spr":135},
+				"minStats":{"hp":1225,"mp":56,"atk":52,"def":45,"mag":43,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":40, "mp%":20, "atk%":80, "def%":20, "evade":{"physical":20,"magical":10}, "singleWielding":{"atk":100}, "killers":[{"name":"machine","physical":50}], "mpRefresh":10, "special":["dualWield"]},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"310000604": {
+		"name":"Eve",
+		"jpname":"イヴ",
+		"id":"310000604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3667,"mp":158,"atk":154,"def":148,"mag":110,"spr":131},
+			"minStats":{"hp":1210,"mp":52,"atk":51,"def":49,"mag":36,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["throwing","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "atk%":20, "def%":20, "resist":[{"name":"blind","percent":100}], "killers":[{"name":"machine","physical":50}]}
 		]
 	},
 	"311000105": {
