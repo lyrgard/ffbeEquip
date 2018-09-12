@@ -2,14 +2,14 @@ page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
-    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
-    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical ATK damage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
-    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
-    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
-    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
-    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
-    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
-    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
+    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
+    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
+    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
@@ -250,22 +250,7 @@ function readGoal(index = currentUnitIndex) {
         if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(6);
-            var skill;
-            var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
-            for (var i = unitWithSkills.actives.length; i--;) {
-                if (unitWithSkills.actives[i].name == skillName) {
-                    skill = unitWithSkills.actives[i];
-                    break;
-                }
-            }
-            if (!skill) {
-                for (var i = unitWithSkills.magics.length; i--;) {
-                    if (unitWithSkills.magics[i].name == skillName) {
-                        skill = unitWithSkills.magics[i];
-                        break;
-                    }
-                }
-            }
+            var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
             builds[currentUnitIndex].formula = formulaFromSkill(skill);
         } else {
             builds[currentUnitIndex].goal = goalValue;
@@ -274,70 +259,10 @@ function readGoal(index = currentUnitIndex) {
     }
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
-}
-
-function formulaFromSkill(skill) {
-    var canBeGoal = false;
-    var formula;
-    for (var i = 0, len = skill.effects.length; i < len; i++) {
-        if (!skill.effects[i].effect) {
-            return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
-        }
-        var formulaToAdd = formulaFromEffect(skill.effects[i]);
-        if (formulaToAdd) {
-            if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal") {
-                canBeGoal = true;
-            }
-            if (!formula) {
-                formula = formulaToAdd;
-            } else {
-                formula = {
-                    "type": "+",
-                    "value1": formula,
-                    "value2": formulaToAdd
-                }
-            }
-        }
+    $(".unitStack").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack);
+    if (!builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack) {
+        $(".unitStack input").val("");
     }
-    if (formula) {
-        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula};
-    }
-    if (canBeGoal) {
-        return formula;
-    }
-    return null;
-}
-
-function formulaFromEffect(effect) {
-    if (effect.effect.damage) {
-        var coef = effect.effect.damage.coef;
-        return {"type":"damage", "value":effect.effect.damage};
-    } else if (effect.effect.imperil) {
-        return {
-            "type": "imperil",
-            "value": effect.effect.imperil
-        }
-    } else if (effect.effect.statsBuff) {
-        return {
-            "type": "statsBuff",
-            "value": effect.effect.statsBuff
-        }
-    } else if (effect.effect.break) {
-        return {
-            "type": "break",
-            "value": effect.effect.break
-        }
-    } else if (effect.effect.imbue) {
-        return {
-            "type": "imbue",
-            "value": effect.effect.imbue
-        }
-    }
-    return null;
-}
-
-function nullFormula() {
-    return {"type": "constant", "value": 0};
 }
 
 function readItemsExcludeInclude() {
@@ -375,6 +300,7 @@ function readStatsValues() {
         "global" : parseInt($(".unitStats .stat.mitigation .buff input").val()) || 0
     };
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
+    builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
 }
 
 
@@ -1227,7 +1153,7 @@ function chooseCustomFormula() {
     if (formulaConditionString && formulaConditionString.length > 0) {
         formulaString += ";" + formulaConditionString;
     }
-    var formula = parseFormula(formulaString);
+    var formula = parseFormula(formulaString, unitsWithSkills[builds[currentUnitIndex].unit.id]);
     if (formula) {
         customFormula = formula;
         builds[currentUnitIndex].goal = "custom";
@@ -1864,6 +1790,9 @@ function getStateHash(onlyCurrent = true) {
                 "magical":build.baseValues.mitigation.magical,
                 "global":build.baseValues.mitigation.global
             }
+            if (build.baseValues.currentStack) {
+                unit.stack = build.baseValues.currentStack;
+            }
             if (build._level) {
                 unit.level = build._level;
             }
@@ -2031,11 +1960,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         
         var unit = data.units[i];
-        customFormula =  parseFormula(unit.goal);
-        onGoalChange();
 
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
+        
+        customFormula =  parseFormula(unit.goal, unitsWithSkills[unit.id]);
+        onGoalChange();
 
         if (unit.enhancementLevels) {
             builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
@@ -2093,6 +2023,9 @@ function loadStateHashAndBuild(data, importMode = false) {
             $(".unitStats .stat.pMitigation .buff input").val(unit.mitigation.physical);
             $(".unitStats .stat.mMitigation .buff input").val(unit.mitigation.magical);
             $(".unitStats .stat.mitigation .buff input").val(unit.mitigation.global);
+        }
+        if (unit.stack) {
+            $(".unitStack input").val(unit.stack);
         }
         logCurrentBuild();
     }
@@ -2630,6 +2563,7 @@ function startPage() {
     $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
+    $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
         updateUnitStats();

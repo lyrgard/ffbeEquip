@@ -80,45 +80,50 @@ const abbreviations = {
 }
 
 var elementVariablesUsed = [];
+var caracts = [];
 
-function parseFormula(formula) {
+function parseFormula(formula, unit) {
     formula = formula.toUpperCase();
     formula = formula.replace("MAXIMIZE","");
     formula = formula.replace("WITH",";");
     formula = formula.replace("|"," OR ");
     elementVariablesUsed = [];
+    caracts = [];
+    var result;
     
     for (var abbreviation in abbreviations) {
         formula = formula.replace(abbreviation, abbreviations[abbreviation]);
     }
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
-        var parsedFormula = parseExpression(formula, 0);
+        var parsedFormula = parseExpression(formula, 0, unit);
         if (booleanResultOperators.includes(parsedFormula.type)) {
             alert("Maximize goal must result to a value, not to a boolean");
             return;
         }
-        return parsedFormula;
+        result = parsedFormula;
     } else {
-        var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0);
-        var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1);
+        var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0, unit);
+        var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1, unit);
         
         if (booleanResultOperators.includes(parsedFormula.type)) {
             alert("Maximize goal must result to a value, not to a boolean");
             return;
         }
         if (parsedFormula && condition) {
-            var result = {"type":"condition", "condition":condition, "formula":parsedFormula};
+            result = {"type":"condition", "condition":condition, "formula":parsedFormula};
             if (elementVariablesUsed.length > 0) {
                 result.elements = elementVariablesUsed;
             }
-            return result;
         }
-        
     }
+    if (caracts.includes("stack")) {
+        result.stack = true;
+    }
+    return result;
 }
 
-function parseExpression(formula, pos) {
+function parseExpression(formula, pos, unit) {
     var currentVar = "";
     var outputQueue = [];
     var operatorStack = [];
@@ -126,8 +131,10 @@ function parseExpression(formula, pos) {
     while(tokenInfo = getNextToken(formula)) {
         var token = tokenInfo.token;
         
-        if (skillToken == token) {
-            outputQueue.push({"type":"skill"});
+        if (token.startsWith("SKILL(") && token.endsWith(")")) {
+            var skillName = token.substr(6, token.length - 7);
+            var skill = getSkillFromName(skillName, unit);
+            outputQueue.push(formulaFromSkill(skill));
         } else if (baseVariables.includes(token)) {
             outputQueue.push({"type":"value", "name":attributeByVariable[token]});
         } else if (elementVariables.includes(token)) {
@@ -189,23 +196,32 @@ function parseExpression(formula, pos) {
 function getNextToken(formula) {
     var currentVar = "";
     var pos = 0;
+    var readingSkill = false;
     while(pos < formula.length) {
         var char = formula.substr(pos, 1);
         pos++;
-        if (char == " ") {
+        if (!readingSkill && char == " ") {
             if (currentVar.length != 0) {
                 return {"token": currentVar, "read":pos - 1};
             }
             continue;
         }
-        if (operators.includes(char) || char === "(" || char === ")") {
+        if (!readingSkill && (operators.includes(char) || char === "(" || char === ")")) {
             if (currentVar.length != 0) {
-                return {"token": currentVar, "read":pos - 1};
+                if (currentVar == "SKILL" && char === "(") {
+                    readingSkill = true;
+                    currentVar += char;
+                } else {
+                    return {"token": currentVar, "read":pos - 1};    
+                }
             } else {
                 return {"token": char, "read":pos};
             }
         } else {
             currentVar += char;
+            if (readingSkill && char === ")") {
+                return {"token": currentVar, "read":pos};
+            }
         }
     }
     if (currentVar.length != 0) {
@@ -267,14 +283,14 @@ function parseConstant(formula, pos) {
     alert("Error at position " + pos + ". Expected constant.");
 }
 
-function parseConditions(formula, pos) {
+function parseConditions(formula, pos, unit) {
     while (formula.startsWith(" ")) {
         formula = formula.substr(1);
         pos++;
     }
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
-        var condition = parseCondition(formula, pos);
+        var condition = parseCondition(formula, pos, unit);
         if (condition) {
             if (condition.type == "threshold") {
                 return {"thresholds": [{"value":condition.value, "goal":condition.goal}]}
@@ -283,8 +299,8 @@ function parseConditions(formula, pos) {
             }
         }
     } else {
-        var firstCondition = parseCondition(formula.substr(0,separatorIndex), 0);
-        var otherConditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1);
+        var firstCondition = parseCondition(formula.substr(0,separatorIndex), 0, unit);
+        var otherConditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1, unit);
         if (firstCondition && otherConditions) {
             if (firstCondition.type == "threshold") {
                 if (!otherConditions.thresholds) { otherConditions.thresholds = []; }
@@ -305,14 +321,14 @@ function parseConditions(formula, pos) {
     }
 }
 
-function parseCondition(formula, pos) {
+function parseCondition(formula, pos, unit) {
     while (formula.startsWith(" ")) {
         formula = formula.substr(1);
         pos++;
     }
     var gtPos = formula.indexOf(">")
     if (gtPos >= 0) {
-        var expression = parseExpression(formula.substr(0,gtPos), pos);
+        var expression = parseExpression(formula.substr(0,gtPos), pos, unit);
         var constant = parseConstant(formula.substr(gtPos + 1), gtPos + 1);
         if (expression && constant) {
             return {"type":"threshold" ,"value":expression, "goal":constant.value};
@@ -329,6 +345,94 @@ function parseCondition(formula, pos) {
     return;
 }
 
+function getSkillFromName(skillName, unitWithSkills) {
+    skillName = skillName.toLocaleUpperCase();
+    var skill;
+    for (var i = unitWithSkills.actives.length; i--;) {
+        if (unitWithSkills.actives[i].name.toLocaleUpperCase() == skillName) {
+            skill = unitWithSkills.actives[i];
+            break;
+        }
+    }
+    if (!skill) {
+        for (var i = unitWithSkills.magics.length; i--;) {
+            if (unitWithSkills.magics[i].name == skillName) {
+                skill = unitWithSkills.magics[i];
+                break;
+            }
+        }
+    }
+    return skill;
+}
+
+
+function formulaFromSkill(skill) {
+    var canBeGoal = false;
+    var hasStack = false;
+    var formula;
+    for (var i = 0, len = skill.effects.length; i < len; i++) {
+        if (!skill.effects[i].effect) {
+            return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
+        }
+        var formulaToAdd = formulaFromEffect(skill.effects[i]);
+        if (formulaToAdd) {
+            if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal") {
+                canBeGoal = true;
+            }
+            if (formulaToAdd.value.stack) {
+                hasStack = true;
+            }
+            if (!formula) {
+                formula = formulaToAdd;
+            } else {
+                formula = {
+                    "type": "+",
+                    "value1": formula,
+                    "value2": formulaToAdd
+                }
+            }
+        }
+    }
+    if (formula) {
+        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack};
+    }
+    if (canBeGoal) {
+        if (hasStack && !caracts.includes("stack")) {
+            caracts.push("stack");
+        }
+        return formula;
+    }
+    return null;
+}
+
+function formulaFromEffect(effect) {
+    if (effect.effect.damage) {
+        var coef = effect.effect.damage.coef;
+        return {"type":"damage", "value":effect.effect.damage};
+    } else if (effect.effect.imperil) {
+        return {
+            "type": "imperil",
+            "value": effect.effect.imperil
+        }
+    } else if (effect.effect.statsBuff) {
+        return {
+            "type": "statsBuff",
+            "value": effect.effect.statsBuff
+        }
+    } else if (effect.effect.break) {
+        return {
+            "type": "break",
+            "value": effect.effect.break
+        }
+    } else if (effect.effect.imbue) {
+        return {
+            "type": "imbue",
+            "value": effect.effect.imbue
+        }
+    }
+    return null;
+}
+
 function formulaToString(formula, useParentheses = false) {
     if (!formula) {
         return "EMPTY FORMULA";
@@ -338,7 +442,11 @@ function formulaToString(formula, useParentheses = false) {
 
 function innerFormulaToString(formula, useParentheses = false) {
     if (formula.type == "skill") {
-        return formula.name;
+        if (formula.formulaName) {
+            return getVariableName(formula.formulaName);
+        } else {
+            return "SKILL(" + formula.name + ")";
+        }
     } else if (formula.type == "value") {
         return getVariableName(formula.name);
     } else if (formula.type == "constant") {

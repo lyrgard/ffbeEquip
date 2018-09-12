@@ -114,6 +114,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "imbues": unitBuild.innateElements.slice(),
             "savedValues" : {
                 "killerMultiplicator": {}
+            },
+            "stack": {
+                "currentStack":unitBuild.baseValues.currentStack,
+                "lastStackingSkillId":"any"
             }
         }
         for (var i = 11; i < itemAndPassives.length; i++) {
@@ -353,6 +357,16 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         var coef = formula.value.coef;
         if (context.currentSkill && context.skillEnhancement[context.currentSkill]) {
             coef += context.skillEnhancement[context.currentSkill];
+        }
+        if (formula.value.stack) {
+            if (context.stack.lastStackingSkillId != "any" && context.stack.lastStackingSkillId != context.currentSkill) {
+                context.stack.lastStackingSkillId == "any";
+                context.stack.currentStack = 0;
+            }
+            coef += formula.value.stack * context.stack.currentStack;
+            if (context.stack.currentStack < formula.value.maxStack) {
+                context.stack.currentStack++;
+            }
         }
         
         /*var evoMagMultiplier = 1;
