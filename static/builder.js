@@ -277,6 +277,7 @@ function readGoal(index = currentUnitIndex) {
 }
 
 function formulaFromSkill(skill) {
+    var canBeGoal = false;
     var formula;
     for (var i = 0, len = skill.effects.length; i < len; i++) {
         if (!skill.effects[i].effect) {
@@ -284,6 +285,9 @@ function formulaFromSkill(skill) {
         }
         var formulaToAdd = formulaFromEffect(skill.effects[i]);
         if (formulaToAdd) {
+            if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal") {
+                canBeGoal = true;
+            }
             if (!formula) {
                 formula = formulaToAdd;
             } else {
@@ -298,7 +302,10 @@ function formulaFromSkill(skill) {
     if (formula) {
         formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula};
     }
-    return formula;
+    if (canBeGoal) {
+        return formula;
+    }
+    return null;
 }
 
 function formulaFromEffect(effect) {
@@ -309,6 +316,21 @@ function formulaFromEffect(effect) {
         return {
             "type": "imperil",
             "value": effect.effect.imperil
+        }
+    } else if (effect.effect.statsBuff) {
+        return {
+            "type": "statsBuff",
+            "value": effect.effect.statsBuff
+        }
+    } else if (effect.effect.break) {
+        return {
+            "type": "break",
+            "value": effect.effect.break
+        }
+    } else if (effect.effect.imbue) {
+        return {
+            "type": "imbue",
+            "value": effect.effect.imbue
         }
     }
     return null;
