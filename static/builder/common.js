@@ -180,7 +180,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         var statValueToUse = 0;
         var defendingStat = 1;
         
-        if (formula.value.mecanism == "physical") {
+        var dualWielding = itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
+        
+        if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
             
             // Takes elements from weapons into account
@@ -199,7 +201,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
             };
             
-            if (formula.value.damageType == "body") {
+            if (formula.value.damageType == "body" || formula.value.mecanism == "hybrid") {
                 defendingStat = "def";
                 
                 var stat = "atk";
@@ -207,7 +209,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     stat = formula.value.use.stat;
                 }
                 
-                var calculatedValue = calculateStatValue(itemAndPassives, "atk", unitBuild);
+                var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
                 
                 if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
                     if (itemAndPassives[0].damageVariance) {
@@ -218,8 +220,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }  else {
                     variance = weaponBaseDamageVariance["none"];
                 }
-                
-                var dualWielding = itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
                 
                 var switchWeapons = false;
                 if (canSwitchWeapon && goalVariance && dualWielding) {
@@ -333,13 +333,26 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * context.newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks.def / 100));
-        result = {
-            "min": baseDamage * context.damageMultiplier.min * variance.min,
-            "avg": baseDamage * context.damageMultiplier.avg * variance.avg,
-            "max": baseDamage * context.damageMultiplier.max * variance.max,
-            "switchWeapons": switchWeapons
+        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * context.newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks[defendingStat] / 100));
+        if (formula.value.mecanism == "hybrid") {
+            var magStat = calculateStatValue(itemAndPassives, "mag", unitBuild).total;
+            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * context.newJpDamageFormulaCoef / (ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100));
+            
+            result = {
+                "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,
+                "avg": (baseDamage * variance.avg + magDamage) * context.damageMultiplier.avg / 2,
+                "max": (baseDamage * variance.max + magDamage) * context.damageMultiplier.max / 2,
+                "switchWeapons": switchWeapons
+            }   
+        } else {
+            result = {
+                "min": baseDamage * context.damageMultiplier.min * variance.min,
+                "avg": baseDamage * context.damageMultiplier.avg * variance.avg,
+                "max": baseDamage * context.damageMultiplier.max * variance.max,
+                "switchWeapons": switchWeapons
+            }    
         }
+        
 
         return result
                
@@ -409,10 +422,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             }
 
             
-            var coef = formula.coef;
-            if (context.currentSkill && context.skillEnhancement[context.currentSkill]) {
-                coef += context.skillEnhancement[context.currentSkill];
-            }
+            var coef = 1;
             
             var total = {
                 "min":0,

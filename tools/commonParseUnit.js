@@ -1,3 +1,5 @@
+var console = require('console');
+
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var baseStats = ["hp","mp","atk","def","mag","spr"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
@@ -953,6 +955,22 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             console.log(rawEffect);
         }
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "combo": true, "minTime":rawEffect[3][2], "maxTime":rawEffect[3][3]}};    
+        
+    // Hybrid damage
+    } else if (rawEffect[2] == 40) {
+        if (rawEffect[3].length != 10 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0 && rawEffect[3][5] != 0 && rawEffect[3][6] != 0 && rawEffect[3][7] != 0 && rawEffect[3][8] != rawEffect[3][9]) {
+            console.log("Strange hybrid damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
+        
+    // inflict status
+    } else if (rawEffect[2] == 6) {
+        result = {"noUse":true};
+        
+    // inflict stop
+    } else if (rawEffect[2] == 88) {
+        result = {"noUse":true};
     }
     
     if (result && result.damage) {

@@ -227,6 +227,8 @@ class UnitBuild {
                 } else {
                     this.addToInvolvedStats(["mag"]);
                 }
+            } else if (formula.value.mecanism == "hybrid") {
+                this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
             }
         } else if (formula.type == "value") {
             var name = formula.name;

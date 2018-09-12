@@ -4,7 +4,7 @@ var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "15
 const formulaByGoal = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
     "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical ATK damage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
-    "hybridDamage":                     {"type":"value","name":"hybridDamage"},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
     "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
     "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
     "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
@@ -280,10 +280,10 @@ function formulaFromSkill(skill) {
     var formula;
     for (var i = 0, len = skill.effects.length; i < len; i++) {
         if (!skill.effects[i].effect) {
-            return null;
+            return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
         }
         var formulaToAdd = formulaFromEffect(skill.effects[i]);
-        if (formulaToAdd != null) {
+        if (formulaToAdd) {
             if (!formula) {
                 formula = formulaToAdd;
             } else {
@@ -898,13 +898,17 @@ function onUnitChange() {
             
             var unitWithSkills = unitsWithSkills[unitData.id];
             for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
-                if (formulaFromSkill(unitWithSkills.actives[skillIndex])) {
-                    choiceSelect.append($("<option></option>").attr("value", "SKILL_" + unitWithSkills.actives[skillIndex].name).text(unitWithSkills.actives[skillIndex].name));
+                var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
+                if (formula) {
+                    var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                    choiceSelect.append(option);
                 }
             }
             for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
-                if (formulaFromSkill(unitWithSkills.magics[skillIndex])) {
-                    choiceSelect.append($("<option></option>").attr("value", "SKILL_" + unitWithSkills.magics[skillIndex].name).text(unitWithSkills.magics[skillIndex].name));
+                var formula = formulaFromSkill(unitWithSkills.magics[skillIndex]);
+                if (formula) {
+                    var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                    choiceSelect.append(option);
                 }
             }
             

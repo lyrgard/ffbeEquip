@@ -13,7 +13,6 @@
     border-collapse: collapse;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 #elementalResists .element {
@@ -308,11 +307,11 @@
 #monsterDefensiveStats {
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-evenly;
 }
 
 #monsterDefensiveStats .input-group {
     display: flex;
+    margin-right: 10px;
 }
 
 #monsterDefensiveStats input {
