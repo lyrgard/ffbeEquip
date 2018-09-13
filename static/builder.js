@@ -875,6 +875,7 @@ function onUnitChange() {
                 choiceSelect.val(selectedChoice);    
             }
             
+            onGoalChange();
         
             recalculateApplicableSkills();
             logCurrentBuild();
