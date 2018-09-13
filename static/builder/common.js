@@ -474,6 +474,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
             }
 
+            var lbMultiplier = 1;
+            if (formula.lb) {
+                lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
+            }
             
             var coef = 1;
             
@@ -559,7 +563,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                             }
                         }
 
-                        var baseDamage = coef * (statValueToUse * statValueToUse) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * context.newJpDamageFormulaCoef / (ennemyStats.def  * (1 - ennemyStats.breaks.def / 100));
+                        var baseDamage = coef * (statValueToUse * statValueToUse) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier * context.newJpDamageFormulaCoef / (ennemyStats.def  * (1 - ennemyStats.breaks.def / 100));
                         total.min += baseDamage * context.damageMultiplier.min * variance.min;
                         total.avg += baseDamage * context.damageMultiplier.avg * variance.avg;
                         total.max += baseDamage * context.damageMultiplier.max * variance.max;
@@ -572,7 +576,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                                 context.remainingLeftHandAttacks.push(formula);
                             }
                         }
-                        var base = coef * (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * evoMagMultiplier  / ennemyResistanceStat;
+                        var base = coef * (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier * evoMagMultiplier  / ennemyResistanceStat;
                         total.min += base * context.damageMultiplier.min;
                         total.avg += base * context.damageMultiplier.avg;
                         total.max += base * context.damageMultiplier.max;

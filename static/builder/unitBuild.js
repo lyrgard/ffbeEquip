@@ -246,6 +246,9 @@ class UnitBuild {
                     this.involvedStats.push(name);
                 }
             }
+            if (formula.lb) {
+                this.addToInvolvedStats(["lbDamage"]);
+            }
         } else if (formula.type == "condition") {
             this.calculateInvolvedStats(formula.condition);
             this.calculateInvolvedStats(formula.formula);    

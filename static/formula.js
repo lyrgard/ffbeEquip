@@ -138,6 +138,8 @@ function parseExpression(formula, pos, unit) {
             outputQueue.push(formulaFromSkill(skill));
         } else if (baseVariables.includes(token)) {
             outputQueue.push({"type":"value", "name":attributeByVariable[token]});
+        } else if (token.startsWith("LB_") && baseVariables.includes(token.substr(3))) {
+            outputQueue.push({"type":"value", "name":attributeByVariable[token.substr(3)], "lb":true});
         } else if (elementVariables.includes(token)) {
             var element = token.substr(2).toLocaleLowerCase().replace("thunder", "lightning");
             outputQueue.push({"type":"elementCondition", "element":element});
@@ -462,7 +464,11 @@ function innerFormulaToString(formula, useParentheses = false) {
             return "SKILL(" + formula.name + ")";
         }
     } else if (formula.type == "value") {
-        return getVariableName(formula.name);
+        var name = getVariableName(formula.name);
+        if (formula.lb) {
+            name = "LB_" + name
+        }
+        return name;
     } else if (formula.type == "constant") {
         return formula.value.toString();
     } else if (formula.type == "elementCondition") {
