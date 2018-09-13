@@ -203,6 +203,9 @@ class UnitBuild {
     
     calculateInvolvedStats(formula) {
         if (formula.type == "skill") {
+            if (formula.lb) {
+                this.addToInvolvedStats(["lbDamage"]);
+            }
             this.calculateInvolvedStats(formula.value);
         } else if (formula.type == "damage") {
             if (formula.value.mecanism == "physical") {

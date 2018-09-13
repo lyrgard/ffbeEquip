@@ -1,5 +1,5 @@
 const skillToken = "SKILL";
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB","LB_PER_TURN"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND"];
 const booleanResultOperators=[">", "OR", "AND"];
@@ -54,7 +54,8 @@ const attributeByVariable = {
     "R_DISEASE":"resist|disease.percent",
     "R_PETRIFICATION":"resist|petrification.percent",
     "R_DEATH":"resist|death.percent",
-    "LB":"lbPerTurn"
+    "LB_PER_TURN":"lbPerTurn",
+    "LB":"lb"
 };
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
@@ -348,17 +349,21 @@ function parseCondition(formula, pos, unit) {
 function getSkillFromName(skillName, unitWithSkills) {
     skillName = skillName.toLocaleUpperCase();
     var skill;
-    for (var i = unitWithSkills.actives.length; i--;) {
-        if (unitWithSkills.actives[i].name.toLocaleUpperCase() == skillName) {
-            skill = unitWithSkills.actives[i];
-            break;
-        }
-    }
-    if (!skill) {
-        for (var i = unitWithSkills.magics.length; i--;) {
-            if (unitWithSkills.magics[i].name == skillName) {
-                skill = unitWithSkills.magics[i];
+    if (unitWithSkills.lb.name.toLocaleUpperCase() == skillName) {
+        skill = unitWithSkills.lb;
+    } else {
+        for (var i = unitWithSkills.actives.length; i--;) {
+            if (unitWithSkills.actives[i].name.toLocaleUpperCase() == skillName) {
+                skill = unitWithSkills.actives[i];
                 break;
+            }
+        }
+        if (!skill) {
+            for (var i = unitWithSkills.magics.length; i--;) {
+                if (unitWithSkills.magics[i].name == skillName) {
+                    skill = unitWithSkills.magics[i];
+                    break;
+                }
             }
         }
     }
@@ -370,11 +375,20 @@ function formulaFromSkill(skill) {
     var canBeGoal = false;
     var hasStack = false;
     var formula;
-    for (var i = 0, len = skill.effects.length; i < len; i++) {
-        if (!skill.effects[i].effect) {
+    var isLb = false;
+    
+    var effects;
+    if (skill.maxEffects) {
+        effects = skill.maxEffects;
+        isLb = true;
+    } else {
+        effects = skill.effects;
+    }
+    for (var i = 0, len = effects.length; i < len; i++) {
+        if (!effects[i].effect) {
             return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
         }
-        var formulaToAdd = formulaFromEffect(skill.effects[i]);
+        var formulaToAdd = formulaFromEffect(effects[i]);
         if (formulaToAdd) {
             if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal") {
                 canBeGoal = true;
@@ -394,7 +408,7 @@ function formulaFromSkill(skill) {
         }
     }
     if (formula) {
-        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack};
+        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb};
     }
     if (canBeGoal) {
         if (hasStack && !caracts.includes("stack")) {

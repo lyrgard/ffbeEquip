@@ -164,6 +164,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
     }
     if (formula.type == "skill") {
         context.currentSkill = formula.id;
+        context.isLb = !!formula.lb;
         var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value, goalVariance, useNewJpDamageFormula, canSwitchWeapon, context);
         if (context.remainingLeftHandAttacks && context.remainingLeftHandAttacks.length > 0) {
             context.treatingLeftHandAttacks = true;
@@ -177,6 +178,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.remainingLeftHandAttacks = [];
         }
         context.currentSkill = null;
+        context.isLb = false;
         return result;
     } else if (formula.type == "damage") {
         
@@ -284,7 +286,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
             }
             
-            if (dualWielding) {
+            if (dualWielding && !context.isLb) {
                 // Plan for the left hand attack to be calculated later
                 context.remainingLeftHandAttacks.push(formula);
             }
@@ -369,6 +371,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             }
         }
         
+        var lbMultiplier = 1;
+        if (context.isLb) {
+            lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
+        }
+        
         /*var evoMagMultiplier = 1;
         if (unitBuild.involvedStats.includes("evoMag")) {
             evoMagMultiplier += getStatCalculatedValue(context, itemAndPassives, "evoMag", unitBuild).total/100;
@@ -379,7 +386,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * context.newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks[defendingStat] / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * context.newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks[defendingStat] / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * context.newJpDamageFormulaCoef / (ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100));
@@ -545,8 +552,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                                         statValueToUse = calculatedValue.left;
                                     }
                                 }
-                                // Plan for the left hand attack to be calculated later
-                                context.remainingLeftHandAttacks.push(formula);
+                                if (!context.isLb) {
+                                    // Plan for the left hand attack to be calculated later
+                                    context.remainingLeftHandAttacks.push(formula);
+                                }
                             }
                         }
 
@@ -558,8 +567,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     } else {
                         var ennemyResistanceStat = ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100);
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                            // Plan for the left hand attack to be calculated later
-                            context.remainingLeftHandAttacks.push(formula);
+                            if (!context.isLb) {
+                                // Plan for the left hand attack to be calculated later
+                                context.remainingLeftHandAttacks.push(formula);
+                            }
                         }
                         var base = coef * (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * evoMagMultiplier  / ennemyResistanceStat;
                         total.min += base * context.damageMultiplier.min;

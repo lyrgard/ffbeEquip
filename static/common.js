@@ -380,6 +380,9 @@ function displayItemLine(item) {
     if (item.lbFillRate) {
         special += "<li>Increase LB gauge fill rate (" + item.lbFillRate + "%)</li>";
     }
+    if (item.lbDamage) {
+        special += "<li>Increase LB damage (+" + item.lbDamage + "%)</li>";
+    }
     if (item.lbPerTurn) {
         var value;
         if (item.lbPerTurn.min == item.lbPerTurn.max) {

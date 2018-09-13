@@ -845,6 +845,11 @@ function onUnitChange() {
             choiceSelect.empty();
             
             var unitWithSkills = unitsWithSkills[unitData.id];
+            var formula = formulaFromSkill(unitWithSkills.lb);
+            if (formula) {
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.lb.name + '" ' + (formula.notSupported ? "disabled":"") + '>LB - ' + unitWithSkills.lb.name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                choiceSelect.append(option);
+            }
             for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
                 var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
                 if (formula) {
