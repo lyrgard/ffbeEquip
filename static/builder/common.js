@@ -410,6 +410,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         return result
                
     } else if (formula.type == "value") {
+        if (context.alreadyCalculatedValues[formula.name]) {
+            return context.alreadyCalculatedValues[formula.name];
+        }
         if (damageFormulaNames.includes(formula.name)) {
             var cumulatedKillerByRace = {'aquatic':0,'beast':0,'bird':0,'bug':0,'demon':0,'dragon':0,'human':0,'machine':0,'plant':0,'undead':0,'stone':0,'spirit':0};
             var cumulatedKiller = 0;
@@ -474,12 +477,23 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
             }
 
-            var lbMultiplier = 1;
-            if (formula.lb) {
-                lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
+            // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
+            var level;
+            if (unitBuild._level) {
+                level = unitBuild._level;
+            } else {
+                if (unitBuild.unit.sixStarForm) {
+                    level = 100;
+                } else {
+                    level = (unitBuild.unit.max_rarity - 1) * 20;
+                }
             }
-            
-            var coef = 1;
+            var levelCorrection = (1 + (level/100));
+            var damageMultiplier = {
+                "min": levelCorrection * 0.85,
+                "avg": levelCorrection * 0.925,
+                "max": levelCorrection
+            }
             
             var total = {
                 "min":0,
@@ -501,7 +515,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
                     var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
 
-                    if ("atk" == stat || "def" == stat) {
+                    if ("atk" == stat || "def" == stat) {
                         var variance;
                         var switchWeapons = false;
                         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
@@ -513,14 +527,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         }  else {
                             variance = weaponBaseDamageVariance["none"];
                         }
-                        
-                        var statValueToUse;
-                        if (context.treatingLeftHandAttacks) {
-                            statValueToUse = calculatedValue.left;
-                        } else {
-                            statValueToUse = calculatedValue.right;
-                        }
-                        
 
                         if (goalVariance && 
                             itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) &&
@@ -540,46 +546,50 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                                 switchWeapons = canSwitchWeapon && ((calculatedValue.right * calculatedValue.right * variance[goalVariance]) < (calculatedValue.left * calculatedValue.left * variance1[goalVariance]));
                                 if (switchWeapons) {
                                     variance = variance1;
-                                    if (context.treatingLeftHandAttacks) {
-                                        statValueToUse = calculatedValue.right;
-                                    } else {
-                                        statValueToUse = calculatedValue.left;
-                                    }
+                                    calculatedValue.right = calculatedValue.left;
                                 }
+                                calculatedValue.left = 0;
                             } else {
                                 switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk)) ;
                                 if (switchWeapons) {
                                     variance = variance1;
-                                    if (context.treatingLeftHandAttacks) {
-                                        statValueToUse = calculatedValue.right;
-                                    } else {
-                                        statValueToUse = calculatedValue.left;
-                                    }
-                                }
-                                if (!context.isLb) {
-                                    // Plan for the left hand attack to be calculated later
-                                    context.remainingLeftHandAttacks.push(formula);
-                                }
+                                    var tmp = calculatedValue.left;
+                                    calculatedValue.left = calculatedValue.right;
+                                    calculatedValue.right = tmp;
+                                }    
+                            }
+                        } else {
+                            if (goalValuesCaract[formula.name].type == "none" || formula.name == "physicalDamageMultiCast") {
+                                calculatedValue.left = 0;
                             }
                         }
-
-                        var baseDamage = coef * (statValueToUse * statValueToUse) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier * context.newJpDamageFormulaCoef / (ennemyStats.def  * (1 - ennemyStats.breaks.def / 100));
-                        total.min += baseDamage * context.damageMultiplier.min * variance.min;
-                        total.avg += baseDamage * context.damageMultiplier.avg * variance.avg;
-                        total.max += baseDamage * context.damageMultiplier.max * variance.max;
-                        total.switchWeapons = total.switchWeapons || switchWeapons;
+                        
+                        newJpDamageFormulaCoef = 1;
+                        if (useNewJpDamageFormula) {
+                            if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                                var atk0 = (itemAndPassives[0].atk ? itemAndPassives[0].atk : 0);
+                                var atk1 = (itemAndPassives[1].atk ? itemAndPassives[1].atk : 0);
+                                newJpDamageFormulaCoef = Math.log(atk0 / 2 + atk1 / 2 + 30) / 5.220355825078325;
+                            } else if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+                                var atk0 = (itemAndPassives[0].atk ? itemAndPassives[0].atk : 0);
+                                newJpDamageFormulaCoef = Math.log(atk0 + 5) / 5.220355825078325;
+                            }
+                        }
+                        var ennemyResistanceStat = ennemyStats.def * (1 - ennemyStats.breaks.def / 100);
+                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        total.switchWeapons = total.switchWeapons || switchWeapons;
                     } else {
                         var ennemyResistanceStat = ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100);
+                        var dualWieldCoef = 1;
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
-                            if (!context.isLb) {
-                                // Plan for the left hand attack to be calculated later
-                                context.remainingLeftHandAttacks.push(formula);
-                            }
+                            dualWieldCoef = 2;
                         }
-                        var base = coef * (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier * evoMagMultiplier  / ennemyResistanceStat;
-                        total.min += base * context.damageMultiplier.min;
-                        total.avg += base * context.damageMultiplier.avg;
-                        total.max += base * context.damageMultiplier.max;
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyResistanceStat;
+                        total.min += base * damageMultiplier.min;
+                        total.avg += base * damageMultiplier.avg;
+                        total.max += base * damageMultiplier.max;
                     }
                 }
                 value = {
@@ -590,11 +600,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
             }
             context.alreadyCalculatedValues[formula.name] = value;
-            return value;
+            return value
         } else {
-            if (context.alreadyCalculatedValues[formula.name]) {
-                return context.alreadyCalculatedValues[formula.name];
-            }
             var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
             if (formula.name == "mpRefresh") {
                 value /= 100;

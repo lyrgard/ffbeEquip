@@ -250,8 +250,10 @@ function readGoal(index = currentUnitIndex) {
         if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(6);
+            var upgradeTriggered = $(".usedLastTurn input").prop("checked");
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-            builds[currentUnitIndex].formula = formulaFromSkill(skill);
+            builds[currentUnitIndex].formula = formulaFromSkill(skill, upgradeTriggered);
+            
         } else {
             builds[currentUnitIndex].goal = goalValue;
             builds[currentUnitIndex].formula = formulaByGoal[goalValue];
@@ -260,8 +262,25 @@ function readGoal(index = currentUnitIndex) {
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
     $(".unitStack").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack);
-    if (!builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack) {
-        $(".unitStack input").val("");
+    $(".usedLastTurn").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.upgradable);
+    if (builds[currentUnitIndex].formula && builds[currentUnitIndex].formula.upgradableBy) {
+        var triggerSkillsSpan = $(".usedLastTurn .skillNames");
+        triggerSkillsSpan.empty();
+        var first = true;
+        var skillNames = "";
+        for (var skillIndex = 0, lenSkillIndex = builds[currentUnitIndex].formula.upgradableBy.length; skillIndex < lenSkillIndex; skillIndex++) {
+            if (first) {
+                first = false;
+            } else {
+                if (skillIndex == lenSkillIndex -1) {
+                    skillNames += " or ";
+                } else {
+                    skillNames += ", ";
+                }
+            }
+            skillNames += builds[currentUnitIndex].formula.upgradableBy[skillIndex].name;
+        }
+        triggerSkillsSpan.text(skillNames);
     }
 }
 
@@ -1122,6 +1141,8 @@ function notLoaded() {
 }
 
 function onGoalChange() {
+    $(".usedLastTurn input").prop("checked", true);
+    $(".usedLastTurn").addClass("hidden");
     readGoal();
     if (builds[currentUnitIndex].unit) { 
         logCurrentBuild();
@@ -2570,6 +2591,8 @@ function startPage() {
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+    $(".usedLastTurn input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
         updateUnitStats();
@@ -2646,7 +2669,7 @@ function initWorkerNumber() {
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
-        workers.push(new Worker('builder/optimizerWebWorker.js?1'));
+        workers.push(new Worker('builder/optimizerWebWorker.js?2'));
         workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
