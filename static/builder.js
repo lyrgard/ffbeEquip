@@ -332,12 +332,16 @@ function getPlaceHolder(type) {
 
 function readEnnemyStats() {
     var ennemyResist = {};
+    var negativeImperil = false;
     var ennemyImperils = {"fire":0, "ice":0, 'lightning':0, 'water':0, 'earth':0, 'wind':0, 'light':0, 'dark':0};
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
         var resistValue = $("#elementalResists ." + element + " input.elementalResist").val();
         if (resistValue) {
             ennemyResist[element] = parseInt(resistValue);
+            if (ennemyResist[element] < 0) {
+                negativeImperil = true;
+            }
         } else {
             ennemyResist[element] = 0;
         }
@@ -365,6 +369,9 @@ function readEnnemyStats() {
         ennemyBreaks.spr = parseInt($("#monsterDefensiveStats .spr .break").val());
     }
     ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, ennemyImperils);
+    
+    $("#negativeBreakImperilWarning").toggleClass("hidden", ennemyBreaks.atk >= 0 && ennemyBreaks.def >= 0 && ennemyBreaks.mag >= 0 && ennemyBreaks.spr >= 0 && !negativeImperil);
+
 }
 
     
