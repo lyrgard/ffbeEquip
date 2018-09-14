@@ -1,11 +1,11 @@
-importScripts('../constants.js?2');
-importScripts('common.js?2');
-importScripts('unitBuild.js?2');
-importScripts('treeComparator.js?2');
-importScripts('esperTreeComparator.js?2');
-importScripts('itemTreeComparator.js?2');
-importScripts('buildOptimizer.js?2');
-importScripts('ennemyStats.js?2');
+importScripts('../constants.js?3');
+importScripts('common.js?3');
+importScripts('unitBuild.js?3');
+importScripts('treeComparator.js?3');
+importScripts('esperTreeComparator.js?3');
+importScripts('itemTreeComparator.js?3');
+importScripts('buildOptimizer.js?3');
+importScripts('ennemyStats.js?3');
 
 
 var optimizer = null;
@@ -37,6 +37,7 @@ onmessage = function(event) {
             optimizer.alreadyUsedEspers = messageData.alreadyUsedEspers;
             optimizer.goalVariation = messageData.goalVariation;
             optimizer.useNewJpDamageFormula = messageData.useNewJpDamageFormula;
+            optimizer.desirableElements = messageData.desirableElements;
             break;
         case "optimize":
             optimizer.optimizeFor(
