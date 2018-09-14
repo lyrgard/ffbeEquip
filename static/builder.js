@@ -3,8 +3,8 @@ var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "15
 
 const formulaByGoal = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
-    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
-    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK/MAG damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
     "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
     "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
     "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
@@ -250,8 +250,10 @@ function readGoal(index = currentUnitIndex) {
         if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(6);
+            var upgradeTriggered = $(".usedLastTurn input").prop("checked");
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-            builds[currentUnitIndex].formula = formulaFromSkill(skill);
+            builds[currentUnitIndex].formula = formulaFromSkill(skill, upgradeTriggered);
+            
         } else {
             builds[currentUnitIndex].goal = goalValue;
             builds[currentUnitIndex].formula = formulaByGoal[goalValue];
@@ -260,8 +262,25 @@ function readGoal(index = currentUnitIndex) {
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
     $(".unitStack").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack);
-    if (!builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack) {
-        $(".unitStack input").val("");
+    $(".usedLastTurn").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.upgradable);
+    if (builds[currentUnitIndex].formula && builds[currentUnitIndex].formula.upgradableBy) {
+        var triggerSkillsSpan = $(".usedLastTurn .skillNames");
+        triggerSkillsSpan.empty();
+        var first = true;
+        var skillNames = "";
+        for (var skillIndex = 0, lenSkillIndex = builds[currentUnitIndex].formula.upgradableBy.length; skillIndex < lenSkillIndex; skillIndex++) {
+            if (first) {
+                first = false;
+            } else {
+                if (skillIndex == lenSkillIndex -1) {
+                    skillNames += " or ";
+                } else {
+                    skillNames += ", ";
+                }
+            }
+            skillNames += builds[currentUnitIndex].formula.upgradableBy[skillIndex].name;
+        }
+        triggerSkillsSpan.text(skillNames);
     }
 }
 
@@ -875,6 +894,7 @@ function onUnitChange() {
                 choiceSelect.val(selectedChoice);    
             }
             
+            onGoalChange();
         
             recalculateApplicableSkills();
             logCurrentBuild();
@@ -1121,6 +1141,8 @@ function notLoaded() {
 }
 
 function onGoalChange() {
+    $(".usedLastTurn input").prop("checked", true);
+    $(".usedLastTurn").addClass("hidden");
     readGoal();
     if (builds[currentUnitIndex].unit) { 
         logCurrentBuild();
@@ -2569,6 +2591,8 @@ function startPage() {
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+    $(".usedLastTurn input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
         updateUnitStats();
@@ -2645,7 +2669,7 @@ function initWorkerNumber() {
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
-        workers.push(new Worker('builder/optimizerWebWorker.js?1'));
+        workers.push(new Worker('builder/optimizerWebWorker.js?2'));
         workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);

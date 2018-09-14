@@ -56,6 +56,17 @@ const attributeByVariable = {
     "R_DEATH":"resist|death.percent",
     "LB":"lbPerTurn"
 };
+
+var formulaByVariable = {
+    "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
+    "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
+    "hybridDamage":                     {"type":"skill", "id":"0","name":"1x hybrid ATK damage", "formulaName":"hybridDamage", "value": {"type":"damage", "value":{"mecanism":"hybrid", "coef":1}}},
+    "jumpDamage":                       {"type":"skill", "id":"0","name":"1x jump damage", "formulaName":"jumpDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "jump":true}}},
+    "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
+    "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+}
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
     "I_DISABLE" : "I_SLEEP; I_PARALYSIS; I_CONFUSION; I_PETRIFICATION",
@@ -120,6 +131,9 @@ function parseFormula(formula, unit) {
     if (caracts.includes("stack")) {
         result.stack = true;
     }
+    if (caracts.includes("upgradable")) {
+        result.upgradable = true;
+    }
     return result;
 }
 
@@ -132,11 +146,22 @@ function parseExpression(formula, pos, unit) {
         var token = tokenInfo.token;
         
         if (token.startsWith("SKILL(") && token.endsWith(")")) {
-            var skillName = token.substr(6, token.length - 7);
+            var upgradeTriggerUsed = false;
+            var skillName;
+            if (token.endsWith("_UPGRADED")) {
+                var skillName = token.substr(6, token.length - 16);    
+                upgradeTriggerUsed = true;
+            } else {
+                var skillName = token.substr(6, token.length - 7);
+            }
             var skill = getSkillFromName(skillName, unit);
-            outputQueue.push(formulaFromSkill(skill));
+            outputQueue.push(formulaFromSkill(skill, upgradeTriggerUsed));
         } else if (baseVariables.includes(token)) {
-            outputQueue.push({"type":"value", "name":attributeByVariable[token]});
+            if (formulaByVariable[attributeByVariable[token]]) {
+                outputQueue.push(formulaByVariable[attributeByVariable[token]]);
+            } else {
+                outputQueue.push({"type":"value", "name":attributeByVariable[token]});
+            }
         } else if (token.startsWith("LB_") && baseVariables.includes(token.substr(3))) {
             outputQueue.push({"type":"value", "name":attributeByVariable[token.substr(3)], "lb":true});
         } else if (elementVariables.includes(token)) {
@@ -372,9 +397,10 @@ function getSkillFromName(skillName, unitWithSkills) {
 }
 
 
-function formulaFromSkill(skill) {
+function formulaFromSkill(skill, triggerSkillUsedLastTurn = true) {
     var canBeGoal = false;
     var hasStack = false;
+    var isUpgradable = false;
     var formula;
     var isLb = false;
     
@@ -389,13 +415,17 @@ function formulaFromSkill(skill) {
         if (!effects[i].effect) {
             return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
         }
-        var formulaToAdd = formulaFromEffect(effects[i]);
+        var formulaToAdd = formulaFromEffect(effects[i], triggerSkillUsedLastTurn);
         if (formulaToAdd) {
-            if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal") {
+            if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal" || formulaToAdd.type == "skill") {
                 canBeGoal = true;
             }
             if (formulaToAdd.value.stack) {
                 hasStack = true;
+            }
+            if (formulaToAdd.hasOwnProperty("upgraded")) {
+                isUpgradable = true;
+                var upgradableBy = formulaToAdd.upgradableBy;
             }
             if (!formula) {
                 formula = formulaToAdd;
@@ -409,18 +439,24 @@ function formulaFromSkill(skill) {
         }
     }
     if (formula) {
-        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb};
+        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb, "upgradable": isUpgradable};
+        if (isUpgradable) {
+            formula.upgradableBy = upgradableBy;
+        }
     }
     if (canBeGoal) {
         if (hasStack && !caracts.includes("stack")) {
             caracts.push("stack");
+        }
+        if (isUpgradable && !caracts.includes("upgradable")) {
+            caracts.push("upgradable");
         }
         return formula;
     }
     return null;
 }
 
-function formulaFromEffect(effect) {
+function formulaFromEffect(effect, triggerSkillUsedLastTurn) {
     if (effect.effect.damage) {
         var coef = effect.effect.damage.coef;
         return {"type":"damage", "value":effect.effect.damage};
@@ -444,6 +480,24 @@ function formulaFromEffect(effect) {
             "type": "imbue",
             "value": effect.effect.imbue
         }
+    } else if (effect.effect.use && effect.effect.orUse) {
+        var skill;
+        if (triggerSkillUsedLastTurn) {
+            skill = effect.effect.orUse;
+        } else {
+            skill = effect.effect.use;
+        }
+        var result = formulaFromSkill(skill, false);
+        if (result) {
+            return {
+                "type": "skill",
+                "id":skill.id, 
+                "name":skill.name,
+                "upgraded":triggerSkillUsedLastTurn,
+                "upgradableBy":effect.effect.ifUsedLastTurn,
+                "value": result
+            }
+        }
     }
     return null;
 }
@@ -460,7 +514,11 @@ function innerFormulaToString(formula, useParentheses = false) {
         if (formula.formulaName) {
             return getVariableName(formula.formulaName);
         } else {
-            return "SKILL(" + formula.name + ")";
+            if (formula.value.type == "skill" && formula.value.upgraded) {
+                return "SKILL(" + formula.name + "_UPGRADED)";
+            } else {
+                return "SKILL(" + formula.name + ")";
+            }
         }
     } else if (formula.type == "value") {
         var name = getVariableName(formula.name);

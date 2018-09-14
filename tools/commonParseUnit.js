@@ -895,6 +895,24 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
         result.aoeCover.type = (rawEffect[3][rawEffect[3].length - 1] == 1 ? "physical": "magical");
         result.aoeCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         result.aoeCover.chance = rawEffect[3][4];
+    
+    // Conditional skills
+    } else if (rawEffect[2] == 99) {
+        result = {};
+        var skill1 = skills[rawEffect[3][5]];
+        result.use = parseActiveSkill(rawEffect[3][5], skill1, skills);
+        var skill2 = skills[rawEffect[3][3]];
+        result.orUse = parseActiveSkill(rawEffect[3][3], skill2, skills);
+        result.ifUsedLastTurn = [];
+        if (Array.isArray(rawEffect[3][1])) {
+            for (var i = 0, len = rawEffect[3][1].length; i < len; i++) {
+                var skill = skills[rawEffect[3][1][i]];
+                result.ifUsedLastTurn.push({"id":rawEffect[3][1][i], "name":skill.name});
+            }
+        } else {
+            var skill = skills[rawEffect[3][1]];
+            result.ifUsedLastTurn.push({"id":rawEffect[3][1], "name":skill.name});
+        }
         
     // Magical Damage
     } else if (rawEffect[2] == 15) {

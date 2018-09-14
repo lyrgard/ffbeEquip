@@ -21,7 +21,20 @@ const testCases = {
       value1: { type: 'value', name: 'hp' },
       value2: { type: 'constant', value: 6000 },
     },
-    formula: { type: 'value', name: 'magicalDamage' },
+    formula: { 
+        "formulaName": "magicalDamage",
+        "id": "0",
+        "name": "1x magical MAG damage",
+        "type": "skill",
+        "value": {
+            "type": "damage",
+            "value": {
+              "coef": 1,
+              "damageType": "mind",
+              "mecanism": "magical"
+            }
+          }
+    },
   },
   'Maximize P_DAMAGE with (I_PHYSICAL) AND (HP > 5000)': {
     type: 'condition',
@@ -38,7 +51,20 @@ const testCases = {
         value2: { type: 'constant', value: 5000 },
       },
     },
-    formula: { type: 'value', name: 'physicalDamage' },
+    formula: { 
+        "formulaName": "physicalDamage",
+        "id": "0",
+        "name": "1x physical ATK damage",
+        "type": "skill",
+        "value": {
+            "type": "damage",
+            "value": {
+              "coef": 1,
+              "damageType": "body",
+              "mecanism": "physical"
+            }
+          }
+    },
   },
   'Maximize P_DAMAGE with E_LIGHT OR E_FIRE': {
     type: 'condition',
@@ -47,7 +73,20 @@ const testCases = {
       value1: { type: 'elementCondition', element: 'light' },
       value2: { type: 'elementCondition', element: 'fire' },
     },
-    formula: { type: 'value', name: 'physicalDamage' },
+    formula: { 
+        "formulaName": "physicalDamage",
+        "id": "0",
+        "name": "1x physical ATK damage",
+        "type": "skill",
+        "value": {
+            "type": "damage",
+            "value": {
+              "coef": 1,
+              "damageType": "body",
+              "mecanism": "physical"
+            }
+          }
+    },
     elements: ['light', 'fire'],
   },
 };
