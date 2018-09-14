@@ -2480,7 +2480,7 @@ function startPage() {
         dataStorage.setData(data);
         getStaticData("unitsWithPassives", true, function(result) {
             units = result;
-            getStaticData("unitsWithSkill", true, function(result) {
+            getStaticData("unitsWithSkill", false, function(result) {
                 unitsWithSkills = result;
                 populateUnitSelect();
                 prepareSearch(data);
