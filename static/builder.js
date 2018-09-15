@@ -336,17 +336,30 @@ function readEnnemyStats() {
     var ennemyImperils = {"fire":0, "ice":0, 'lightning':0, 'water':0, 'earth':0, 'wind':0, 'light':0, 'dark':0};
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
-        var resistValue = $("#elementalResists ." + element + " input.elementalResist").val();
+        var resistInput = $("#elementalResists ." + element + " input.elementalResist");
+        var resistValue = resistInput.val();
+        resistInput.removeClass("buff debuff");
         if (resistValue) {
             ennemyResist[element] = parseInt(resistValue);
+            if (ennemyResist[element] < 0) {
+                resistInput.addClass("debuff");
+            } else if (ennemyResist[element] > 0) {
+                resistInput.addClass("buff");
+            }
         } else {
             ennemyResist[element] = 0;
         }
-        var imperilValue = $("#elementalResists ." + element + " input.imperil").val();
+        
+        var imperilInput = $("#elementalResists ." + element + " input.imperil");
+        var imperilValue = imperilInput.val();
+        imperilInput.removeClass("buff debuff");
         if (imperilValue) {
             ennemyImperils[element] = parseInt(imperilValue);
             if (ennemyImperils[element] < 0) {
                 negativeImperil = true;
+                imperilInput.addClass("buff");
+            } else if (ennemyImperils[element] > 0) {
+                imperilInput.addClass("debuff");
             }
         } else {
             ennemyImperils[element] = 0;
