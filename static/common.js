@@ -1183,9 +1183,15 @@ function prepareSearch(data) {
                 textToSearch += "|killer " + item.killers[i].name;
             }
         }
+        if (item.accuracy) {
+            textToSearch += "|" + "Increase Accuracy: " + item.accuracy + "%";
+        }
 
         if (item.jumpDamage) {
             textToSearch += "|" + "Increase damage dealt by jump attacks by "+ item.jumpDamage + "%";
+        }
+        if (item.lbDamage) {
+            textToSearch += "|" + "Increase LB damage (+" + item.lbDamage + "%)";
         }
         if (item.lbFillRate) {
             textToSearch += "|" + "Increase LB gauge fill rate (" + item.lbFillRate + "%)";
