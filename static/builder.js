@@ -197,6 +197,7 @@ function optimize() {
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":dataStorage.alreadyUsedEspers,
             "useEspers":!dataStorage.onlyUseShopRecipeItems,
+            "desirableElements":dataStorage.desirableElements,
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation,
             "useNewJpDamageFormula": useNewJpDamageFormula,
@@ -331,12 +332,16 @@ function getPlaceHolder(type) {
 
 function readEnnemyStats() {
     var ennemyResist = {};
+    var negativeImperil = false;
     var ennemyImperils = {"fire":0, "ice":0, 'lightning':0, 'water':0, 'earth':0, 'wind':0, 'light':0, 'dark':0};
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
         var resistValue = $("#elementalResists ." + element + " input.elementalResist").val();
         if (resistValue) {
             ennemyResist[element] = parseInt(resistValue);
+            if (ennemyResist[element] < 0) {
+                negativeImperil = true;
+            }
         } else {
             ennemyResist[element] = 0;
         }
@@ -364,6 +369,9 @@ function readEnnemyStats() {
         ennemyBreaks.spr = parseInt($("#monsterDefensiveStats .spr .break").val());
     }
     ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, ennemyImperils);
+    
+    $("#negativeBreakImperilWarning").toggleClass("hidden", ennemyBreaks.atk >= 0 && ennemyBreaks.def >= 0 && ennemyBreaks.mag >= 0 && ennemyBreaks.spr >= 0 && !negativeImperil);
+
 }
 
     
@@ -2502,7 +2510,7 @@ function startPage() {
         dataStorage.setData(data);
         getStaticData("unitsWithPassives", true, function(result) {
             units = result;
-            getStaticData("unitsWithSkill", true, function(result) {
+            getStaticData("unitsWithSkill", false, function(result) {
                 unitsWithSkills = result;
                 populateUnitSelect();
                 prepareSearch(data);
@@ -2669,7 +2677,7 @@ function initWorkerNumber() {
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
-        workers.push(new Worker('builder/optimizerWebWorker.js?2'));
+        workers.push(new Worker('builder/optimizerWebWorker.js?3'));
         workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
