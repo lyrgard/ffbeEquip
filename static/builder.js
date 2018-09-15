@@ -339,15 +339,15 @@ function readEnnemyStats() {
         var resistValue = $("#elementalResists ." + element + " input.elementalResist").val();
         if (resistValue) {
             ennemyResist[element] = parseInt(resistValue);
-            if (ennemyResist[element] < 0) {
-                negativeImperil = true;
-            }
         } else {
             ennemyResist[element] = 0;
         }
         var imperilValue = $("#elementalResists ." + element + " input.imperil").val();
         if (imperilValue) {
             ennemyImperils[element] = parseInt(imperilValue);
+            if (ennemyImperils[element] < 0) {
+                negativeImperil = true;
+            }
         } else {
             ennemyImperils[element] = 0;
         }
