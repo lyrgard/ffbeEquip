@@ -58,8 +58,22 @@
 .mainmenu-content .mainmenu-content-line {
     position: relative;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* justify-content: space-between + two "fake" elements to simulate a space-evenly value
+ * because Edge/Safari doesn't understand space-evenly
+ * https://stackoverflow.com/a/47535338/8861729
+ */
+.mainmenu-content .mainmenu-content-line:before,
+.mainmenu-content .mainmenu-content-line:after {
+    content: '';
+    display: block;
+}
+/* Push closer the buttons in the middle row */
+.mainmenu-content .mainmenu-content-line:nth-child(2):before,
+.mainmenu-content .mainmenu-content-line:nth-child(2):after {
+    width: 200px;
 }
 
 .mainmenu-button {
@@ -283,6 +297,15 @@
         display: none;
     }
 
+    .mainmenu-content .mainmenu-content-line {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .mainmenu-content .mainmenu-content-line:before,
+    .mainmenu-content .mainmenu-content-line:after {
+        display: none;
+    }
 }
 
 /* For small screens, use a fixed size background */
