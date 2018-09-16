@@ -1920,3 +1920,86 @@ $(function() {
         }); 
     }
 });
+
+
+/* 
+ * Conditional stylesheet loading at runtime with media queries
+ * 
+ * How to use: 
+ *  <link rel="stylesheet" type="text/css" class="load-if-media-matches" data-href="url/to/file.css" media="min-width: 1024px">
+ * 
+ * By default, browser will load all stylesheets, even if the media query
+ * in media attr doesn't match.
+ * 
+ * This script will load the stylesheet only if the media query matches.
+ * Event when resized.
+ * 
+ * href is replaced by data-href
+ * If media query matches, href will be set by the value of data-ref,
+ * effectively loading the stylesheet
+ * 
+ * Done in vanillajs for performance
+ * 
+ * This is not done in document.ready (i.e. $(function(){}) for jQuery) because it should run ASAP
+ * 
+ * Inspired by https://christianheilmann.com/2012/12/19/conditional-loading-of-resources-with-mediaqueries/
+ * 
+ */
+(function(){
+    // queries: object holding all "media query" => [elements...]
+    var queries = {};
+
+    // Identify all mediaquery dependent links
+    var elements = document.querySelectorAll('.load-if-media-matches');
+
+    // Loop through them and gather queries
+    var elem, i = elements.length;
+    while (i--) {
+        elem = elements[i];
+        if (elem.media) {
+            if (queries[elem.media]) {
+                queries[elem.media].push(elem);
+            } else {
+                queries[elem.media] = [elem];
+            }
+        }
+    }
+    
+    // Loop through the queries and check it
+    var query, mql;
+    for (query in queries) {
+        // All elements of this query
+        elements = queries[query];
+        // mediaquery object
+        mql = window.matchMedia(query);
+        // Check if already match
+        if (mql.matches) {
+            // Already a match! Lets set it for all elements
+            i = elements.length;
+            while (i--) {
+                if (!elements[i].href) {
+                    elements[i].href = elements[i].dataset.href;
+                }
+            }
+        } else {
+            // Not a match, let's listen to its event
+            // Note: we create a closure to be able to use the current mql and elements variable
+            //       this is important, otherwise mql and elements will refer to the last one
+            (function(mql, elements){
+                // Now mql and elements will refer to this one iteration
+                mql.addListener(function(e) {
+                    // When event is fired, check for a match
+                    if (e.matches) {
+                        // Match! Let set it for all elements
+                        var i = elements.length;
+                        while (i--) {
+                            if (!elements[i].href) {
+                                elements[i].href = elements[i].dataset.href;
+                            }
+                        }
+                    }
+                });
+            }(mql, elements));
+        }
+    }
+}());

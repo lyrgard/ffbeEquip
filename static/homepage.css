@@ -1,0 +1,357 @@
+
+.mainmenu {
+    width: 100%;
+    height: 35vw;
+    overflow: hidden;
+    position: relative;
+    margin-top: -52px;
+    margin-bottom: 10px;
+    z-index: 0;
+}
+
+.mainmenu:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+}
+
+.mainmenu .layer-1,
+.mainmenu .layer-2,
+.mainmenu .layer-3,
+.mainmenu .layer-4 {
+    background-size: 100% 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.mainmenu .layer-border {
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.mainmenu .layer-border .layer-side-left,
+.mainmenu .layer-border .layer-side-right {
+    flex-shrink: 0;
+}
+
+.mainmenu .layer-border .layer-side-fill {
+    flex-grow: 1;
+}
+
+.mainmenu-content {
+    padding: 50px 5px 10px 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mainmenu-content .mainmenu-content-line {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* justify-content: space-between + two "fake" elements to simulate a space-evenly value
+ * because Edge/Safari doesn't understand space-evenly
+ * https://stackoverflow.com/a/47535338/8861729
+ */
+.mainmenu-content .mainmenu-content-line:before,
+.mainmenu-content .mainmenu-content-line:after {
+    content: '';
+    display: block;
+}
+/* Push closer the buttons in the middle row */
+.mainmenu-content .mainmenu-content-line:nth-child(2):before,
+.mainmenu-content .mainmenu-content-line:nth-child(2):after {
+    width: 200px;
+}
+
+.mainmenu-button {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.mainmenu-button:hover {
+    transform: scale(1.1);
+    z-index: 99;
+}
+
+.mainmenu-button .mainmenu-title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    top: 9px;
+    right: 35px;
+    bottom: 23px;
+    left: 155px;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.mainmenu-button .mainmenu-illustration {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    width: 160px;
+    height: 77px;
+}
+.mainmenu-button .mainmenu-illustration.img-banner-Sakura {
+    left: -20px;
+}
+.mainmenu-button .mainmenu-illustration.img-banner-Lasswell {
+    left: 0;
+}
+.mainmenu-button .mainmenu-illustration.img-banner-Jake {
+    left: 10px;
+}
+
+.mainmenu-message-kuppo {
+    position: absolute;
+    left: 62%;
+    top: -62px;
+    padding: 14px 16px 35px 108px;
+    font-size: 1.25em;
+    color: #535038;
+}
+
+.mainmenu-message-kuppo:hover {
+    animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1.0);
+    }
+    33% {
+        transform: scale(1.02);
+    }
+    66% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+.more_information {
+    overflow: hidden;
+}
+
+#panel-discord .panel-heading img.logo {
+    height: 15px;
+    width: auto;
+    margin-right: 6px;
+}
+
+#panel-discord .panel-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#panel-discord .panel-body > span:not(:last-child) {
+    padding-right: 8px;
+}
+
+#panel-discord .panel-body .glyphicon {
+    padding-right: 4px;
+}
+
+#panel-discord .panel-body .discord-admin {
+    color: #ff0000;
+}
+#panel-discord .panel-body .discord-knowledgeable {
+    color: #3498db;
+}
+#panel-discord .panel-body .discord-developer {
+    color: #2ecc71;
+}
+#panel-discord .panel-body .discord-connected {
+    color: #6b6b6b;
+}
+#panel-discord .panel-body .discord-idle {
+    color: #d1d1d1;
+}
+
+#panel-github .panel-heading img.logo {
+    height: 18px;
+    width: auto;
+    margin-right: 6px;
+}
+
+#panel-github .tagline:not(:first-child) {
+    margin-top: 8px;
+}
+
+#panel-github .tagline .tagtype {
+    display: inline-block;
+    background-color: #424242;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 6px;
+    margin-right: 6px;
+}
+
+#panel-github .tagline .tagtype .glyphicon,
+#panel-github .tagline .tagauthor {
+    margin-right: 6px;
+}
+
+#panel-github .tagline.improvement .tagtype {
+    background-color: #e08c15;
+}
+
+#panel-github .tagline.feature .tagtype {
+    background-color: #468544;
+}
+
+#panel-github .tagline .tagdate,
+#panel-github .tagline .tagauthor {
+    color: #c2c2c2;
+    font-size: 0.9em;
+}
+
+#panel-github .tagline .tagdesc {
+    color: #6b6b6b;
+}
+
+@media (max-width: 1200px) {
+    
+    .mainmenu-message-kuppo {
+        left: 65%;
+    }
+
+}
+
+/* Above 1100px, use relative size */
+@media (min-width: 1101px) {
+    .mainmenu .layer-1 {
+        width: 100vw;
+        height: 22vw;
+        top: 0;
+        left: 0;
+    }
+    
+    .mainmenu .layer-2 {
+        width: 102.5vw;
+        height: 6.5vw;
+        top: 19.5vw;
+        left: -1.25vw;
+    }
+    
+    .mainmenu .layer-3 {
+        width: 105vw;
+        height: 16vw;
+        top: 13.6vw;
+        left: -2.5vw;
+    }
+    
+    .mainmenu .layer-4 {
+        width: 110vw;
+        height: 13.8vw;
+        top: 26.5vw;
+        left: -5vw;
+    }
+}
+
+/* Below 1100px, use fixed size */
+@media (max-width: 1100px) {
+    .mainmenu {
+        height: 400px;
+    }
+
+    .mainmenu .layer-1 {
+        top: 0;
+        left: 0;
+    }
+    
+    .mainmenu .layer-2 {
+        top: 220px;
+        left: -50px;
+    }
+    
+    .mainmenu .layer-3 {
+        top: 150px;
+        left: -50px;
+    }
+    
+    .mainmenu .layer-4 {
+        top: 300px;
+        left: -50px;
+    }
+    
+    .mainmenu-message-kuppo {
+        display: none;
+    }
+
+    .mainmenu-content .mainmenu-content-line {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .mainmenu-content .mainmenu-content-line:before,
+    .mainmenu-content .mainmenu-content-line:after {
+        display: none;
+    }
+}
+
+/* For small screens, use a fixed size background */
+@media (max-width: 770px) {
+    .mainmenu {
+        height: 550px;
+        margin-top: -22px;
+        background-image: url(img/homepage/background-fixed/background-fixed.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .mainmenu .layer-1,
+    .mainmenu .layer-2,
+    .mainmenu .layer-3,
+    .mainmenu .layer-4 {
+        display: none;
+    }
+}
+
+/* Handle border below 220px * 2 (left and right) */
+@media (max-width: 440px) {
+    
+    .mainmenu .layer-border .layer-side-fill {
+        display: none;
+    }
+
+    .mainmenu .layer-border .layer-side-left,
+    .mainmenu .layer-border .layer-side-right {
+        width: 50vw;
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+/* Handle buttons below 380px */
+@media (max-width: 380px) {
+
+    .mainmenu-button {
+        transform: scale(0.8);
+        min-width: 350px;
+    }
+
+    .mainmenu-button:hover {
+        transform: scale(0.9);
+    }
+
+}

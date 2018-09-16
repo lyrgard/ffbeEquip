@@ -38,7 +38,7 @@ var cspDirectives = {
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
-  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com'],
+  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com'],
   mediaSrc: ["'none'"],
   objectSrc: ["'none'"],
   childSrc: ["'self'"],
@@ -69,6 +69,7 @@ if (config.isProd || process.env.DEV_USE_DIST === "yes") {
     cacheControl: config.isProd,
     maxAge: "365d",
     immutable: config.isProd,
+    index: 'homepage.html',
     setHeaders: function (res, path) {
       if (mime.lookup(path) === 'text/html') {
         // For HTML, avoid long and immutable cache since it can't be busted
@@ -86,6 +87,7 @@ app.use(express.static(path.join(__dirname, '/static/'), {
   cacheControl: config.isProd,
   lastModified: config.isProd,
   maxAge: "1h",
+  index: 'homepage.html',
   setHeaders: function (res, path) {
     if (mime.lookup(path) === 'application/json') {
       // For JSON, avoid caching
@@ -111,6 +113,12 @@ app.use('/links', links);
 app.use('/', corrections);
 app.use('/', firebase.unAuthenticatedRoute);
 app.use('/', authRequired, firebase.authenticatedRoute, drive);
+
+// Old index.html file no longer exists
+// Redirect users to homepage
+app.get('/index.html', function(req, res) {
+  res.redirect(301, '/');
+});
 
 // Basic 404 handler
 app.use((req, res) => {

@@ -12,6 +12,7 @@
     position: relative;
     padding-top: 30px;
     margin-bottom: 20px;
+    z-index: 1;
 }
 
 #header .bannerPicture,
@@ -235,7 +236,7 @@
     padding-bottom: 2px;
     margin-right: 5px;
     margin-bottom: 2px;
-    color: rgba(0, 0, 0, 0.5);
+    color: #777777;
     font-size: 18px;
     text-decoration: none;
     border-bottom-left-radius: 5px;
@@ -245,29 +246,30 @@
 }
 
 .navigationMenu .desktop a.active {
-    border-color: #d1d2d5;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-color: #b8b8b8;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .navigationMenu .desktop a:hover {
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.05);
+    color: #555555;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-color: #b8b8b8;
 }
 
 .navigationMenu .mobile {
     display: none;
 }
 
-.navigationMenu .mobile .menuToggle {
+.navigationMenu .menuLogo {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 94px;
+    height: 94px;
     top: 12px;
-    left: 20px;
+    left: 26px;
     cursor: pointer;
 }
 
-.navigationMenu .mobile .menuToggle span {
+.navigationMenu .mobile .menuLogo span {
     position: absolute;
     top: 90%;
     left: 50%;
@@ -946,7 +948,13 @@ p.linkInputCopied {
     #header .headerTitle {
         font-size: 1.85em;
     }
-
+    
+    .navigationMenu .menuLogo {
+        width: 80px;
+        height: 80px;
+        top: 12px;
+        left: 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1055,7 +1063,7 @@ p.linkInputCopied {
         padding: 0 6px;
     }
 
-    .navigationMenu .mobile .menuToggle {
+    .navigationMenu .menuLogo {
         width: 65px;
         height: 62px;
         top: 16px;
