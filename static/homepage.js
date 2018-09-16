@@ -1,8 +1,9 @@
 
+// Discord widget JSON doesn't give the user's role
+// Hence the need to trace it manually...
 var DISCORD_USER_ADMIN = ['Lyrgard#1585'];
-var DISCORD_USER_KNOWLEDGEABLE = ['Darwe#7148', 'Spuuky#1546', 'tmtl#5880', 'Kujo#6865'];
-var DISCORD_USER_DEVS = ['Indigo#1164'];
-
+var DISCORD_USER_KNOWLEDGEABLE = ['Darwe#7148', 'Spuuky#1546', 'tmtl#5880', 'Kujo#6865', 'sic#9510'];
+var DISCORD_USER_DEVS = ['Indigo#1164', 'biovenger#4295', 'Xist#5200'];
 
 var handleBackgroundAnimation = function() {
     

@@ -260,16 +260,16 @@
     display: none;
 }
 
-.navigationMenu .mobile .menuToggle {
+.navigationMenu .menuLogo {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 94px;
+    height: 94px;
     top: 12px;
-    left: 20px;
+    left: 26px;
     cursor: pointer;
 }
 
-.navigationMenu .mobile .menuToggle span {
+.navigationMenu .mobile .menuLogo span {
     position: absolute;
     top: 90%;
     left: 50%;
@@ -948,7 +948,13 @@ p.linkInputCopied {
     #header .headerTitle {
         font-size: 1.85em;
     }
-
+    
+    .navigationMenu .menuLogo {
+        width: 80px;
+        height: 80px;
+        top: 12px;
+        left: 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1057,7 +1063,7 @@ p.linkInputCopied {
         padding: 0 6px;
     }
 
-    .navigationMenu .mobile .menuToggle {
+    .navigationMenu .menuLogo {
         width: 65px;
         height: 62px;
         top: 16px;

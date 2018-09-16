@@ -47,7 +47,9 @@
             </div>
             <div class="navigationMenu">
                 <div class="desktop">
-                    <a href="index.html" data-internal-link="index.html">Encyclopedia</a>
+                    <div class="menuLogo" onclick="window.location.href='/'" title="Return to homepage"></div>
+                    <a href="/" data-internal-link="/">Home</a>
+                    <a href="encyclopedia.html" data-internal-link="encyclopedia.html">Encyclopedia</a>
                     <a href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
                     <a href="inventory.html" data-internal-link="inventory.html">Inventory</a>
                     <a href="units.html" data-internal-link="units.html">Units</a>
@@ -56,12 +58,17 @@
                     <a href="contribute.html" data-internal-link="contribute.html">Contribute</a>
                 </div>
                 <div class="mobile">
-                    <div class="menuToggle" data-toggle="dropdown" class="dropdown-toggle">
+                    <div class="menuLogo dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </div>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="index.html" data-internal-link="index.html">
+                            <a href="/" data-internal-link="/">
+                                <span class="glyphicon glyphicon-chevron-right"></span> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="encyclopedia.html" data-internal-link="encyclopedia.html">
                                 <span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia
                             </a>
                         </li>

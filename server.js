@@ -69,6 +69,7 @@ if (config.isProd || process.env.DEV_USE_DIST === "yes") {
     cacheControl: config.isProd,
     maxAge: "365d",
     immutable: config.isProd,
+    index: 'homepage.html',
     setHeaders: function (res, path) {
       if (mime.lookup(path) === 'text/html') {
         // For HTML, avoid long and immutable cache since it can't be busted
@@ -86,6 +87,7 @@ app.use(express.static(path.join(__dirname, '/static/'), {
   cacheControl: config.isProd,
   lastModified: config.isProd,
   maxAge: "1h",
+  index: 'homepage.html',
   setHeaders: function (res, path) {
     if (mime.lookup(path) === 'application/json') {
       // For JSON, avoid caching
