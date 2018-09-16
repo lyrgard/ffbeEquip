@@ -379,43 +379,53 @@
                 </div>
                 <div class="panel panel-default buildRules">
                     <div class="panel-heading">
-                        <span class="title">Build rules</span>
-                        <div>
-                            <div id="forceDoublehand" class="col-xs-12 col-lg-6 checkboxGroup">
-                                <input type="checkbox"/><label>Force Doublehand build</label>
+                        <div class="section">
+                            <span class="title">Build rules</span>
+                            <div>
+                                <div id="forceDoublehand" class="col-xs-12 col-lg-6 checkboxGroup">
+                                    <input type="checkbox"/><label>Force Doublehand build</label>
+                                </div>
+                                <div id="forceDualWield" class="col-xs-12 col-lg-6 checkboxGroup">
+                                    <input type="checkbox"/><label>Force Dual Wield build</label>
+                                </div>
+                                <div id="tryEquipsources" class="col-xs-12 col-lg-6 checkboxGroup">
+                                    <input type="checkbox"/><label>Try "Allow use of &lt;type&gt;" items</label>
+                                </div>
+                                <div id="tryReduceOverCap" class="col-xs-12 checkboxGroup">
+                                    <input type="checkbox"/><label>(Experimental)Try to reduce overcap in favor of&nbsp;</label>
+                                    <select>
+                                        <option value="hp" selected>HP</option>
+                                        <option value="mp">MP</option>
+                                        <option value="atk">ATK</option>
+                                        <option value="def">DEF</option>
+                                        <option value="mag">MAG</option>
+                                        <option value="spr">SPR</option>
+                                        <option value="lbPerTurn">LB/turn</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-12 col-lg-6 checkboxGroup">
+                                    <input type="checkbox" id="useNewJpDamageFormula"/><label>Use new JP damage formula</label>
+                                </div>
+                                <div data-server="GL" class="col-xs-12 col-lg-6 checkboxGroup">
+                                    <input type="checkbox" id="useNew400Cap"/><label>Use 400% cap</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <span class="goalLabel">Damage variance</span>
+                                    <select id="goalVariance" name="goalVariance">
+                                        <option value="min">Minimum</option>
+                                        <option value="avg" selected="selected">Average</option>
+                                        <option value="max">Maximum</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div id="forceDualWield" class="col-xs-12 col-lg-6 checkboxGroup">
-                                <input type="checkbox"/><label>Force Dual Wield build</label>
-                            </div>
-                            <div id="tryEquipsources" class="col-xs-12 col-lg-6 checkboxGroup">
-                                <input type="checkbox"/><label>Try "Allow use of &lt;type&gt;" items</label>
-                            </div>
-                            <div id="tryReduceOverCap" class="col-xs-12 checkboxGroup">
-                                <input type="checkbox"/><label>(Experimental)Try to reduce overcap in favor of&nbsp;</label>
-                                <select>
-                                    <option value="hp" selected>HP</option>
-                                    <option value="mp">MP</option>
-                                    <option value="atk">ATK</option>
-                                    <option value="def">DEF</option>
-                                    <option value="mag">MAG</option>
-                                    <option value="spr">SPR</option>
-                                    <option value="lbPerTurn">LB/turn</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-12 col-lg-6 checkboxGroup">
-                                <input type="checkbox" id="useNewJpDamageFormula"/><label>Use new JP damage formula</label>
-                            </div>
-                            <div data-server="GL" class="col-xs-12 col-lg-6 checkboxGroup">
-                                <input type="checkbox" id="useNew400Cap"/><label>Use 400% cap</label>
-                            </div>
-                            <div class="col-xs-12">
-                                <span class="goalLabel">Damage variance</span>
-                                <select id="goalVariance" name="goalVariance">
-                                    <option value="min">Minimum</option>
-                                    <option value="avg" selected="selected">Average</option>
-                                    <option value="max">Maximum</option>
-                                </select>
-                            </div>
+                        </div>
+                        <div class="section">
+                            <span class="title">Force element</span>
+                            <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
+                        </div>
+                        <div class="section">
+                            <span class="title">Ailment Imunity</span>
+                            <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
                         </div>
                     </div>
                 </div>

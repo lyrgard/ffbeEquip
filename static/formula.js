@@ -310,68 +310,6 @@ function parseConstant(formula, pos) {
     alert("Error at position " + pos + ". Expected constant.");
 }
 
-function parseConditions(formula, pos, unit) {
-    while (formula.startsWith(" ")) {
-        formula = formula.substr(1);
-        pos++;
-    }
-    var separatorIndex = formula.indexOf(";");
-    if (separatorIndex == -1) {
-        var condition = parseCondition(formula, pos, unit);
-        if (condition) {
-            if (condition.type == "threshold") {
-                return {"thresholds": [{"value":condition.value, "goal":condition.goal}]}
-            } else {
-                return {"elements": [condition.value]}
-            }
-        }
-    } else {
-        var firstCondition = parseCondition(formula.substr(0,separatorIndex), 0, unit);
-        var otherConditions = parseConditions(formula.substr(separatorIndex + 1), separatorIndex + 1, unit);
-        if (firstCondition && otherConditions) {
-            if (firstCondition.type == "threshold") {
-                if (!otherConditions.thresholds) { otherConditions.thresholds = []; }
-                otherConditions.thresholds.push({"value":firstCondition.value, "goal":firstCondition.goal})
-            } else {
-                if (!otherConditions.elements) { otherConditions.elements = []; }
-                if (firstCondition.value != "none" && otherConditions.elements.includes("none")) {
-                    alert("Error : impossible to force no element AND " + firstCondition.value + " element");
-                    return undefined;
-                } else if (firstCondition.value == "none" && otherConditions.elements.length >= 0) {
-                    alert("Error : impossible to force no element AND " + otherConditions.elements );
-                    return undefined;
-                }
-                otherConditions.elements.push(firstCondition.value)
-            }
-            return otherConditions;
-        }
-    }
-}
-
-function parseCondition(formula, pos, unit) {
-    while (formula.startsWith(" ")) {
-        formula = formula.substr(1);
-        pos++;
-    }
-    var gtPos = formula.indexOf(">")
-    if (gtPos >= 0) {
-        var expression = parseExpression(formula.substr(0,gtPos), pos, unit);
-        var constant = parseConstant(formula.substr(gtPos + 1), gtPos + 1);
-        if (expression && constant) {
-            return {"type":"threshold" ,"value":expression, "goal":constant.value};
-        }
-    } else {
-        formula = formula.trim();
-        if (elementVariables.includes(formula)) {
-            return {"type":"element" ,"value":formula.substr(2).toLocaleLowerCase().replace("thunder", "lightning")};
-        } else {
-            alert("Error at position " + pos + ". Condition does not contains \">\".");       
-        }
-    }
-    
-    return;
-}
-
 function getSkillFromName(skillName, unitWithSkills) {
     skillName = skillName.toLocaleUpperCase();
     var skill;
@@ -556,6 +494,121 @@ function getVariableName(attribute) {
             return variable;
         }
     }
+}
+
+function getSimpleConditions(formula) {
+    var simpleConditions = {
+        "forcedElements":[],
+        "ailmentImunity":[],
+        "elementalResist": {}
+    }
+    
+    if (formula.type == "condition") {
+        innerGetSimpleConditions(formula.condition, simpleConditions);
+    }
+    return simpleConditions;
+}
+
+function innerGetSimpleConditions(formula, simpleConditions) {
+    switch(formula.type) {
+        case ">":
+            if (formula.value1.type == "value" && formula.value2.type == "constant") {
+                if (formula.value1.name.startsWith("resist|") && formula.value1.name.endsWith(".percent")) {
+                    var resist = formula.value1.name.substr(7, formula.value1.name.length - 15);
+                    if (ailmentList.includes(resist) && formula.value2.value == 100) {
+                        if (!simpleConditions.ailmentImunity.includes(resist)) {
+                            simpleConditions.ailmentImunity.push(resist);
+                        }
+                    }
+                    else if (elementList.includes(resist)) {
+                        if (!simpleConditions.elementalResist[resist] || simpleConditions.elementalResist[resist] < formula.value2.value) {
+                            simpleConditions.elementalResist[resist] = formula.value2.value;
+                        }
+                    }
+                }
+            }
+            break;
+        case "elementCondition":
+            if (!simpleConditions.forcedElements.includes(formula.element)) {
+                simpleConditions.forcedElements.push(formula.element);
+            }
+            break;
+        case "AND":
+            innerGetSimpleConditions(formula.value1, simpleConditions);
+            innerGetSimpleConditions(formula.value2, simpleConditions);
+            break;
+    }
+}
+
+function makeSureFormulaHaveSimpleConditions(formula, simpleConditions) {
+    var currentSimpleConditions = getSimpleConditions(formula);
+    for (var i = simpleConditions.forcedElements.length; i--;) {
+        if (!currentSimpleConditions.forcedElements.includes(simpleConditions.forcedElements[i])) {
+            formula = addCondition(formula, {type:"elementCondition", "element":simpleConditions.forcedElements[i]});
+            if (!formula.elements) {
+                formula.elements = [];
+            }
+            if (!formula.elements.includes(simpleConditions.forcedElements[i])) {
+                formula.elements.push(simpleConditions.forcedElements[i]);
+            }
+        }
+    }
+    for (var i = simpleConditions.ailmentImunity.length; i--;) {
+        if (!currentSimpleConditions.ailmentImunity.includes(simpleConditions.ailmentImunity[i])) {
+            formula = addCondition(
+                formula, 
+                {
+                    type:"<", 
+                    "value1": {
+                        type: "value",
+                        "name": "resist|" + simpleConditions.ailmentImunity[i] + ".percent"
+                    },
+                    "value2": {
+                        "type": "constant",
+                        "value": 100
+                    }
+                }
+            );
+        }
+    }
+    var elements = Object.keys(simpleConditions.elementalResist);
+    for (var i = elements.length; i--;) {
+        if (!currentSimpleConditions.elementalResist[elements[i]] || currentSimpleConditions.elementalResist[elements[i]] < simpleConditions.elementalResist[elements[i]]) {
+            formula = addCondition(
+                formula, 
+                {
+                    type:"<", 
+                    "value1": {
+                        type: "value",
+                        "name": "resist|" + elements[i] + ".percent"
+                    },
+                    "value2": {
+                        "type": "constant",
+                        "value": simpleConditions.elementalResist[elements[i]]
+                    }
+                }
+            );
+        }
+    }
+    return formula; 
+}
+
+function addCondition(formula, condition) {
+    if (formula.type != "condition") {
+        formula = {
+            "type": "condition",
+            "formula" : formula,
+            "condition" : condition,
+            "elements": formula.elements
+        }
+    } else {
+        formula.condition = {
+            "type": "AND",
+            "value1": condition,
+            "value2": formula.condition
+        }
+    }
+    return formula;
 }
 
 // To test on NODE JS

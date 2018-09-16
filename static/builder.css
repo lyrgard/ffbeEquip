@@ -772,12 +772,21 @@ i.img.img-slot-hand.leftHand {
     margin-top: 5px;
 }
 
-.buildRules .panel-heading {
+.buildRules .section {
     display: flex;
+    margin-bottom: 5px;
 }
 
-.buildRules .panel-heading .title {
-    white-space: nowrap;
+.buildRules .section .title {
+    width: 100px;
+}
+
+#forcedElements {
+    flex:1
+}
+
+#ailmentImunities {
+    flex:1
 }
 
 .unitStack {

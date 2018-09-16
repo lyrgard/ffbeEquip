@@ -1,11 +1,11 @@
-importScripts('../constants.js?3');
-importScripts('common.js?3');
-importScripts('unitBuild.js?3');
-importScripts('treeComparator.js?3');
-importScripts('esperTreeComparator.js?3');
-importScripts('itemTreeComparator.js?3');
-importScripts('buildOptimizer.js?3');
-importScripts('ennemyStats.js?3');
+importScripts('../constants.js?4');
+importScripts('common.js?4');
+importScripts('unitBuild.js?4');
+importScripts('treeComparator.js?4');
+importScripts('esperTreeComparator.js?4');
+importScripts('itemTreeComparator.js?4');
+importScripts('buildOptimizer.js?4');
+importScripts('ennemyStats.js?4');
 
 
 var optimizer = null;

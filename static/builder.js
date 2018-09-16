@@ -243,9 +243,10 @@ function processTypeCombinations(workerIndex) {
 
 function readGoal(index = currentUnitIndex) {
     var goal;
+    var formula;
     if (customFormula) {
         builds[currentUnitIndex].goal = "custom";
-        builds[currentUnitIndex].formula = customFormula;
+        formula = customFormula;
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
@@ -253,13 +254,16 @@ function readGoal(index = currentUnitIndex) {
             var skillName = goalValue.substr(6);
             var upgradeTriggered = $(".usedLastTurn input").prop("checked");
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-            builds[currentUnitIndex].formula = formulaFromSkill(skill, upgradeTriggered);
+            formula = formulaFromSkill(skill, upgradeTriggered);
             
         } else {
             builds[currentUnitIndex].goal = goalValue;
-            builds[currentUnitIndex].formula = formulaByGoal[goalValue];
+            formula = formulaByGoal[goalValue];
         }
     }
+    formula = readSimpleConditions(formula);
+    builds[currentUnitIndex].formula = formula;
+    
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
     $(".unitStack").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack);
@@ -282,6 +286,17 @@ function readGoal(index = currentUnitIndex) {
             skillNames += builds[currentUnitIndex].formula.upgradableBy[skillIndex].name;
         }
         triggerSkillsSpan.text(skillNames);
+    }
+}
+
+function readSimpleConditions(formula) {
+    if (formula) {
+        var simpleConditions = {
+            "forcedElements":getSelectedValuesFor("forcedElements"),
+            "ailmentImunity":getSelectedValuesFor("ailmentImunities"),
+            "elementalResist": {}
+        }
+        return makeSureFormulaHaveSimpleConditions(formula, simpleConditions);
     }
 }
 
@@ -556,7 +571,7 @@ function logBuild(build, value) {
     }
 
     if (!value) {
-        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula, false);
+        value = calculateBuildValueWithFormula(build, builds[currentUnitIndex], ennemyStats, builds[currentUnitIndex].formula, goalVariation, useNewJpDamageFormula, false, true);
     }
     
     var killers = [];
@@ -1162,9 +1177,13 @@ function notLoaded() {
 }
 
 function onGoalChange() {
-    $(".usedLastTurn input").prop("checked", true);
+    $(".usedLastTurn input").prop("checked", false);
     $(".usedLastTurn").addClass("hidden");
     readGoal();
+    updateDisplayAfterGoalChange();
+}
+
+function updateDisplayAfterGoalChange() {
     if (builds[currentUnitIndex].unit) { 
         logCurrentBuild();
     }
@@ -2562,7 +2581,9 @@ function startPage() {
     
     
     // Elements
-	addIconChoicesTo("elements", ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"], "checkbox", "element");
+	addIconChoicesTo("elements", elementList, "checkbox", "element");
+    addIconChoicesTo("forcedElements", elementList, "checkbox", "element");
+    addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment");
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -2635,7 +2656,8 @@ function startPage() {
         logCurrentBuild();
     }));
     
-    
+    $("#forcedElements input").change($.debounce(300,onGoalChange));
+    $("#ailmentImunities input").change($.debounce(300,onGoalChange));
     
     // Set tooltips
     $('[data-toggle="tooltip"]').tooltip({
@@ -2690,7 +2712,7 @@ function initWorkerNumber() {
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
-        workers.push(new Worker('builder/optimizerWebWorker.js?3'));
+        workers.push(new Worker('builder/optimizerWebWorker.js?4'));
         workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
