@@ -558,7 +558,7 @@ function makeSureFormulaHaveSimpleConditions(formula, simpleConditions) {
             formula = addCondition(
                 formula, 
                 {
-                    type:"<", 
+                    type:">", 
                     "value1": {
                         type: "value",
                         "name": "resist|" + simpleConditions.ailmentImunity[i] + ".percent"
@@ -577,7 +577,7 @@ function makeSureFormulaHaveSimpleConditions(formula, simpleConditions) {
             formula = addCondition(
                 formula, 
                 {
-                    type:"<", 
+                    type:">", 
                     "value1": {
                         type: "value",
                         "name": "resist|" + elements[i] + ".percent"

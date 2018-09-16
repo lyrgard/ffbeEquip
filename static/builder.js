@@ -2031,7 +2031,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
         
-        customFormula =  parseFormula(unit.goal, unitsWithSkills[unit.id]);
+        customFormula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
+        var simpleConditions = getSimpleConditions(customFormula);
+        unselectAll("forcedElements");
+        select("forcedElements", simpleConditions.forcedElements);
+        unselectAll("ailmentImunities");
+        select("ailmentImunities", simpleConditions.ailmentImunity);
         onGoalChange();
 
         if (unit.enhancementLevels) {
