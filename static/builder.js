@@ -892,6 +892,7 @@ function onUnitChange() {
             
             $(".panel.unit").removeClass("hidden");
             $(".panel.goal .goalLine").removeClass("hidden");
+            $(".panel.goal .simpleConditions").removeClass("hidden");
             $(".panel.unit .unitIcon").prop("src", "img/units/unit_icon_" + selectedUnitData.id + ".png");
             
             
@@ -944,6 +945,7 @@ function onUnitChange() {
             updateUnitStats();
             $(".panel.unit").addClass("hidden");
             $(".panel.goal .goalLine").addClass("hidden");
+            $(".panel.goal .simpleConditions").addClass("hidden");
         }
         displayUnitRarity(selectedUnitData);
         displayUnitEnhancements();

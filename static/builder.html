@@ -173,6 +173,16 @@
                             <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
                             <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
                         </div>
+                        <div class="simpleConditions hidden">
+                            <div class="section">
+                                <span class="title">Force element</span>
+                                <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
+                            </div>
+                            <div class="section">
+                                <span class="title">Ailment Imunity</span>
+                                <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
+                            </div>
+                        </div>
                         <div class="usedLastTurn hidden">
                             <input type="checkbox"/><label><span class="skillNames"></span> used last turn</label>
                         </div>
@@ -425,14 +435,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="section">
-                            <span class="title">Force element</span>
-                            <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
-                        </div>
-                        <div class="section">
-                            <span class="title">Ailment Imunity</span>
-                            <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
                         </div>
                     </div>
                 </div>

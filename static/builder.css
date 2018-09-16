@@ -781,6 +781,16 @@ i.img.img-slot-hand.leftHand {
     width: 100px;
 }
 
+.goal .section {
+    display: flex;
+    margin-top: 5px;
+}
+
+.goal .section .title {
+    width: 100px;
+    margin-top: 12px;
+}
+
 #forcedElements {
     flex:1
 }
@@ -847,5 +857,10 @@ i.img.img-slot-hand.leftHand {
     #fixItemModal .results .td.mobile .dropdown-menu li {
         margin-bottom: 5px;
         margin-left: 5px;
+    }
+    
+    .goal .section .title {
+        width: 50px;
+        margin-top: 0px;
     }
 }
