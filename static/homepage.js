@@ -135,7 +135,7 @@ function startPage() {
 
     $.get("https://api.github.com/repos/lyrgard/ffbeEquip/tags", function(tags) {
         var length = Math.min(5, tags.length);
-        for (var id = 0; id < length; id++) {
+        for (var id = length; id--;) {
             var tag = tags[id];
             var tag_class = '';
             var tag_icon = 'glyphicon-tag';
