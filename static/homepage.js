@@ -130,6 +130,9 @@ function startPage() {
 
     $('.mainmenu').on('click', '.mainmenu-title,.mainmenu-illustration', function() {
         var url = $(this).parent().attr('data-internal-link');
+        if (server != "GL") {
+            url += "?server=" + server;
+        }
         window.location.href = url;
     });
 
