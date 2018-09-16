@@ -225,3 +225,15 @@ function inventoryLoaded() {
 
 function notLoaded() {
 }
+
+/* 
+ * The old start page was encyclopedia (named index.html)
+ * 
+ * To avoid breaking old link with search options
+ * we redirect the user to the encyclopedia page if a hash is found
+ * 
+ */
+if (window.location.hash != '') {
+    window.location.href = '/encyclopedia.html' + window.location.hash;
+}
+

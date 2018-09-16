@@ -114,6 +114,12 @@ app.use('/', corrections);
 app.use('/', firebase.unAuthenticatedRoute);
 app.use('/', authRequired, firebase.authenticatedRoute, drive);
 
+// Old index.html file no longer exists
+// Redirect users to homepage
+app.get('/index.html', function(req, res) {
+  res.redirect(301, '/');
+});
+
 // Basic 404 handler
 app.use((req, res) => {
   res.status(404).send('Not Found');
