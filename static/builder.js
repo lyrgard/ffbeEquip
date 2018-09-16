@@ -2717,7 +2717,7 @@ function initWorkerNumber() {
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
-        workers.push(new Worker('builder/optimizerWebWorker.js?4'));
+        workers.push(new Worker('builder/optimizerWebWorker.js'));
         workers[index].postMessage(JSON.stringify({"type":"init", "allItemVersions":dataStorage.itemWithVariation, "number":index}));
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
