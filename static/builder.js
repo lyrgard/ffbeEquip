@@ -877,7 +877,7 @@ function goalSelectTemplate(state) {
         if (state.text.includes("Limit Burst")) {
             html = '<img class="selectIcon" src="img/icons/lb.png"> ' + state.text;
             if (html.includes('Not supported yet')) {
-                html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not supported yet</span>");
+                html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
             } else {
                 html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
             }
@@ -886,7 +886,7 @@ function goalSelectTemplate(state) {
             if (skill) {
                 html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text;
                 if (html.includes('Not supported yet')) {
-                    html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not supported yet</span>");
+                    html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
                 } else {
                     html += "<span class='selectTag skillTag'>skill</span>";
                 }
@@ -895,7 +895,38 @@ function goalSelectTemplate(state) {
             }
         }
     } else {
-        html = state.text + "<span class='selectTag statTag'>Stats</span>";
+        html = state.text;
+        switch (state.id) {
+            case "physicalDamage":
+            case "magicalDamage":
+            case "hybridDamage":
+            case "jumpDamage":
+            case "magDamageWithPhysicalMecanism":
+            case "sprDamageWithPhysicalMecanism":
+            case "defDamageWithPhysicalMecanism":
+            case "sprDamageWithMagicalMecanism":
+            case "atkDamageWithFixedMecanism":
+            case "physicalDamageMultiCast":
+            case "fixedDamageWithPhysicalMecanism":
+            case "summonerSkill":
+                html += "<span class='selectTag damageTag'>damage</span>";
+                break;
+            case "physicaleHp":
+            case "magicaleHp":
+            case "atk":
+            case "mag":
+            case "def":
+            case "spr":
+            case "hp":
+            case "physicalEvasion":
+            case "magicalEvasion":
+            case "mpRefresh":
+            case "heal":
+                html += "<span class='selectTag statTag'>stat</span>";
+                break;
+            default:
+                break;
+        }
     }
     return $('<span>' + html + '</span>');
 }

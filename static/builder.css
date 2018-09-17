@@ -825,7 +825,7 @@ i.img.img-slot-hand.leftHand {
     background-color: #808080;
     color: #ffffff;
     border-radius: 3px;
-    font-size: 0.55em;
+    font-size: 0.65em;
     font-weight: bold;
     padding: 2px 4px;
 }
@@ -833,29 +833,35 @@ i.img.img-slot-hand.leftHand {
 .select2-results__option .skillTag,
 .select2-selection__rendered .skillTag {
     background-color: #6a991d;
-    top: 12px;
+    top: 10px;
 }
 
 .select2-results__option .notSupportedTag,
 .select2-selection__rendered .notSupportedTag {
     background-color: #808080;
-    top: 12px;
+    top: 10px;
 }
 
 .select2-results__option .lbTag,
 .select2-selection__rendered .lbTag {
     background-color: #723232;
-    top: 12px;
+    top: 10px;
+}
+
+.select2-results__option .damageTag,
+.select2-selection__rendered .damageTag {
+    background-color: #b38900;
+    top: 6px;
 }
 
 .select2-results__option .statTag,
 .select2-selection__rendered .statTag {
-    background-color: #436fb1;
-    top: 8px;
+    background-color: #2d89a0;
+    top: 6px;
 }
 
 .select2-selection__rendered .selectTag {
-    top: 4px;
+    top: 2px;
 }
 
 .simpleConditions {
