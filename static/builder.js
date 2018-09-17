@@ -2692,12 +2692,6 @@ function startPage() {
     
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
-    
-    // Set tooltips
-    $('[data-toggle="tooltip"]').tooltip({
-        container: 'body',
-        trigger: 'hover'
-    });
 }
 
 var counter = 0;

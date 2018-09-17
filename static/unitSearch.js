@@ -760,12 +760,6 @@ function startPage() {
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
-
-    // Set tooltips
-    $('[data-toggle="tooltip"]').tooltip({
-        container: 'body',
-        trigger: 'hover'
-    });
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
