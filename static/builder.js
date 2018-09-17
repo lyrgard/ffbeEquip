@@ -304,18 +304,24 @@ function readSimpleConditions(formula) {
 
 function switchSimpleConditionAilments() {
     var currentSelectedAilments = getSelectedValuesFor("ailmentImunities");
-    if (currentSelectedAilments.length == 9) {
+    var deathSelected = currentSelectedAilments.includes("death");
+    if (deathSelected) {
+        currentSelectedAilments.splice(currentSelectedAilments.indexOf("death"), 1);
+    }
+    if (currentSelectedAilments.length == 8) {
         unselectAll("ailmentImunities");
         select("ailmentImunities", disablingAilmentList);
-        onGoalChange();
+        
     } else if (currentSelectedAilments.length == 4 && includeAll(currentSelectedAilments, disablingAilmentList)) {
         unselectAll("ailmentImunities");
-        onGoalChange();
     } else {
         unselectAll("ailmentImunities");
-        select("ailmentImunities", ailmentList);
-        onGoalChange();
+        select("ailmentImunities", ailmentList.slice(0, 8));
     }
+    if (deathSelected) {
+        select("ailmentImunities", ["death"]);
+    }
+    onGoalChange();
 }
 
 function readItemsExcludeInclude() {
