@@ -2240,6 +2240,7 @@ function removeItemFromExcludeList(id) {
 function resetExcludeList() {
     itemsToExclude = defaultItemsToExclude.slice();
     $(".excludedItemNumber").html(itemsToExclude.length);
+    Modal.hide();
     showExcludedItems();
 }
 
