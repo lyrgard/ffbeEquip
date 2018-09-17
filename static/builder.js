@@ -870,6 +870,36 @@ function selectUnitDropdownWithoutNotify(unitId) {
     $('#unitsSelect').val(unitId).trigger('change.select2');
 }
 
+function goalSelectTemplate(state) {
+    if (!state.id) return state.text;
+    var html;
+    if (state.id.startsWith("SKILL_")) {
+        if (state.text.includes("Limit Burst")) {
+            html = '<img class="selectIcon" src="img/icons/lb.png"> ' + state.text;
+            if (html.includes('Not supported yet')) {
+                html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not supported yet</span>");
+            } else {
+                html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
+            }
+        } else {
+            var skill = getSkillFromName(state.id.substr(6), unitsWithSkills[builds[currentUnitIndex].unit.id]);
+            if (skill) {
+                html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text;
+                if (html.includes('Not supported yet')) {
+                    html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not supported yet</span>");
+                } else {
+                    html += "<span class='selectTag skillTag'>skill</span>";
+                }
+            } else {
+                html = state.text;
+            }
+        }
+    } else {
+        html = state.text + "<span class='selectTag statTag'>Stats</span>";
+    }
+    return $('<span>' + html + '</span>');
+}
+
 function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
         var unitId = $(this).val();
@@ -927,20 +957,20 @@ function onUnitChange() {
             var unitWithSkills = unitsWithSkills[unitData.id];
             var formula = formulaFromSkill(unitWithSkills.lb);
             if (formula) {
-                var option = '<option value=' + '"SKILL_' + unitWithSkills.lb.name + '" ' + (formula.notSupported ? "disabled":"") + '>LB - ' + unitWithSkills.lb.name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.lb.name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                 choiceSelect.append(option);
             }
             for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
                 var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
                 if (formula) {
-                    var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                    var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                     choiceSelect.append(option);
                 }
             }
             for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
                 var formula = formulaFromSkill(unitWithSkills.magics[skillIndex]);
                 if (formula) {
-                    var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>'
+                    var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                     choiceSelect.append(option);
                 }
             }
@@ -954,6 +984,17 @@ function onUnitChange() {
             } else {
                 choiceSelect.val(selectedChoice);    
             }
+
+            if (choiceSelect.hasClass("select2-hidden-accessible")) {
+                choiceSelect.select2('destroy');
+            }
+            choiceSelect.select2({
+                placeholder: 'Select a goal...',
+                theme: 'bootstrap',
+                minimumResultsForSearch: Infinity,
+                templateSelection: goalSelectTemplate,
+                templateResult: goalSelectTemplate
+            });
             
             onGoalChange();
         

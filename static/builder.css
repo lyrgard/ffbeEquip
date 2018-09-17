@@ -801,6 +801,63 @@ i.img.img-slot-hand.leftHand {
     margin-right: 6px;
 }
 
+.select2-results__option,
+.select2-selection__rendered {
+    position: relative;
+}
+
+.select2-results__option img.selectIcon,
+.select2-selection__rendered img.selectIcon {
+    width: 24px;
+    height: auto;
+}
+
+.select2-results__option[aria-disabled="true"] img.selectIcon {
+    filter: grayscale(100%);
+}
+
+.select2-results__option .selectTag,
+.select2-selection__rendered .selectTag {
+    display: block;
+    position: absolute;
+    opacity: 0.85;
+    right: 4px;
+    background-color: #808080;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.55em;
+    font-weight: bold;
+    padding: 2px 4px;
+}
+
+.select2-results__option .skillTag,
+.select2-selection__rendered .skillTag {
+    background-color: #6a991d;
+    top: 12px;
+}
+
+.select2-results__option .notSupportedTag,
+.select2-selection__rendered .notSupportedTag {
+    background-color: #808080;
+    top: 12px;
+}
+
+.select2-results__option .lbTag,
+.select2-selection__rendered .lbTag {
+    background-color: #723232;
+    top: 12px;
+}
+
+.select2-results__option .statTag,
+.select2-selection__rendered .statTag {
+    background-color: #436fb1;
+    top: 8px;
+}
+
+.select2-selection__rendered .selectTag {
+    top: 4px;
+}
+
 .simpleConditions {
     display: flex;
 }
