@@ -41,6 +41,8 @@ const goalQuickSelectDefaultValues = [
     ["summonerSkill","Summoner skill"],
     ["physicaleHp","Physical eHP (HP * DEF)"],
     ["magicaleHp","Magical eHP (HP * SPR)"],
+    ["atk","Attack"],
+    ["mag","Magic"],
     ["def","Defense"],
     ["spr","Spirit"],
     ["hp","Health Points"],
