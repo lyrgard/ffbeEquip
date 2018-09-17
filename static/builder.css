@@ -899,6 +899,19 @@ i.img.img-slot-hand.leftHand {
     font-size: 12px;
 }
 
+.experimentalTag {
+    display: inline-block;
+    background-color: #474747;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 2px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
