@@ -300,6 +300,22 @@ function readSimpleConditions(formula) {
     }
 }
 
+function switchSimpleConditionAilments() {
+    var currentSelectedAilments = getSelectedValuesFor("ailmentImunities");
+    if (currentSelectedAilments.length == 9) {
+        unselectAll("ailmentImunities");
+        select("ailmentImunities", disablingAilmentList);
+        onGoalChange();
+    } else if (currentSelectedAilments.length == 4 && includeAll(currentSelectedAilments, disablingAilmentList)) {
+        unselectAll("ailmentImunities");
+        onGoalChange();
+    } else {
+        unselectAll("ailmentImunities");
+        select("ailmentImunities", ailmentList);
+        onGoalChange();
+    }
+}
+
 function readItemsExcludeInclude() {
     dataStorage.exludeEventEquipment = $("#exludeEvent").prop('checked');
     dataStorage.excludeTMR5 = $("#excludeTMR5").prop('checked');
@@ -2039,6 +2055,10 @@ function loadStateHashAndBuild(data, importMode = false) {
         select("forcedElements", simpleConditions.forcedElements);
         unselectAll("ailmentImunities");
         select("ailmentImunities", simpleConditions.ailmentImunity);
+        if (simpleConditions.forcedElements.length + simpleConditions.ailmentImunity.length > 0) {
+            $("#simpleConditionsButton").attr("aria-expanded", "true");
+            $("#simpleConditionsList").addClass("in");
+        }
         onGoalChange();
 
         if (unit.enhancementLevels) {

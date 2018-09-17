@@ -251,7 +251,24 @@ class UnitBuild {
             }
         } else if (formula.type == "condition") {
             this.calculateInvolvedStats(formula.condition);
-            this.calculateInvolvedStats(formula.formula);    
+            this.calculateInvolvedStats(formula.formula);  
+        } else if (this.unit && formula.type == ">" && formula.value1.type == "value" && formula.value2.type == "constant") {
+            
+            var applicableSkills = [];
+            for (var skillIndex = this.unit.skills.length; skillIndex--;) {
+                var skill = this.unit.skills[skillIndex];
+                if (areConditionOK(skill, this.fixedItems, this._level)) {
+                    applicableSkills.push(skill);
+                }
+            }
+            
+            var currentBuildWithFixedItems = this.fixedItems.concat(applicableSkills);
+            
+            var value = calculateStatValue(currentBuildWithFixedItems, formula.value1.name, this).total;
+            if (value < formula.value2.value) {
+                // only consider value1 if this criteria is not already met
+                this.calculateInvolvedStats(formula.value1);
+            }
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "buff") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);

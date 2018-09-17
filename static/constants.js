@@ -1,6 +1,7 @@
 const baseStats = ['hp','mp','atk','def','mag','spr'];
 const elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
 const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
+const disablingAilmentList = ['sleep','paralysis','confuse','petrification'];
 const killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
 const typeList = ["dagger", "sword", "greatSword", "katana", "staff", "rod", "bow", "axe", "hammer", "spear", "harp", "whip", "throwing", "gun", "mace", "fist", "lightShield", "heavyShield", "hat", "helm", "clothes", "lightArmor", "heavyArmor", "robe",  "accessory", "materia"];
 const typeListWithEsper = typeList.concat(["esper"]);

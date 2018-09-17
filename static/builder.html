@@ -173,18 +173,21 @@
                             <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
                             <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
                         </div>
-                        <div class="simpleConditions hidden">
-                            <div class="section">
-                                <span class="title">Force element</span>
-                                <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
-                            </div>
-                            <div class="section">
-                                <span class="title">Ailment Imunity</span>
-                                <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
-                            </div>
-                        </div>
                         <div class="usedLastTurn hidden">
                             <input type="checkbox"/><label><span class="skillNames"></span> used last turn</label>
+                        </div>
+                        <div class="simpleConditions hidden">
+                            <a id="simpleConditionsButton" href="#simpleConditionsList" class="btn btn-default" data-toggle="collapse" aria-expanded="false"><div data-toggle="tooltip" data-original-title="Display/Hide additional build conditions"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span></div></a>
+                            <div id="simpleConditionsList" class="collapse">
+                                <div class="section">
+                                    <span class="title">Force element</span>
+                                    <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
+                                </div>
+                                <div class="section">
+                                    <span class="title btn btn-default" data-toggle="tooltip" data-original-title='Switch between "All ailment", "Disabling ailments" and "No ailments"' onclick="switchSimpleConditionAilments()">Ailment Imunity</span>
+                                    <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

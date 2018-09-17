@@ -787,8 +787,38 @@ i.img.img-slot-hand.leftHand {
 }
 
 .goal .section .title {
-    width: 100px;
+    width: 120px;
+}
+
+.goal .section .title:not(.btn) {
     margin-top: 12px;
+}
+
+.goal .section .title.btn {
+    height: 34px;
+    margin-top: 6px;
+    margin-left: -6px;
+    margin-right: 6px;
+}
+
+.simpleConditions {
+    display: flex;
+}
+
+#simpleConditionsButton {
+    padding: 0px 4px;
+    height: 22px;
+}
+
+#simpleConditionsButton[aria-expanded=true] .glyphicon-plus {
+   display: none;
+}
+#simpleConditionsButton[aria-expanded=false] .glyphicon-minus {
+   display: none;
+}
+
+#simpleConditionsList {
+    margin-left: 10px;
 }
 
 #forcedElements {
