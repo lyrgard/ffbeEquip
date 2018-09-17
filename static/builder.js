@@ -2614,12 +2614,10 @@ function startPage() {
     
     $("#buildButton").click(build);
     
-    
-    
     // Elements
-	addIconChoicesTo("elements", elementList, "checkbox", "element");
-    addIconChoicesTo("forcedElements", elementList, "checkbox", "element");
-    addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment");
+	addIconChoicesTo("elements", elementList, "checkbox", "element", ucFirst);
+    addIconChoicesTo("forcedElements", elementList, "checkbox", "element", function(v){return "Force use of " + ucFirst(v)});
+    addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment", ucFirst);
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
