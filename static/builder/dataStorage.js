@@ -97,7 +97,11 @@ class DataStorage {
     }
     
     addDesirableElementsFromImperilInFormula(formula) {
-        if (formula.type == "skill") {
+        if (formula.type == "multicast") {
+            for (var i = formula.skills.length; i--;) {
+                this.addDesirableElementsFromImperilInFormula(formula.skills[i]);
+            }
+        } else if (formula.type == "skill") {
             this.addDesirableElementsFromImperilInFormula(formula.value);
         } else if (formula.type == "imperil") {
             var elements = Object.keys(formula.value);

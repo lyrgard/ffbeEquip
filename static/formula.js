@@ -145,17 +145,17 @@ function parseExpression(formula, pos, unit) {
     while(tokenInfo = getNextToken(formula)) {
         var token = tokenInfo.token;
         
-        if (token.startsWith("SKILL(") && token.endsWith(")")) {
-            var upgradeTriggerUsed = false;
-            var skillName;
-            if (token.endsWith("_UPGRADED")) {
-                var skillName = token.substr(6, token.length - 16);    
-                upgradeTriggerUsed = true;
+        if (token.startsWith("MULTICAST(") && token.endsWith(")")) {
+            var skills = token.substr(10, token.length - 11).split(",").map(x => x.trim()).map(x => getFormulaFromSkillToken(x, unit));
+            outputQueue.push({"type":"multicast", "skills":skills});
+        } else if (token.startsWith("SKILL(") && token.endsWith(")")) {
+            var skillFormula = getFormulaFromSkillToken(token);
+            if (skillFormula) {
+                outputQueue.push(formulaFromSkill(skill, upgradeTriggerUsed));
             } else {
-                var skillName = token.substr(6, token.length - 7);
+                alert("Error. skill not understood : " + token);
+                return;
             }
-            var skill = getSkillFromName(skillName, unit);
-            outputQueue.push(formulaFromSkill(skill, upgradeTriggerUsed));
         } else if (baseVariables.includes(token)) {
             if (formulaByVariable[attributeByVariable[token]]) {
                 outputQueue.push(formulaByVariable[attributeByVariable[token]]);
@@ -220,23 +220,41 @@ function parseExpression(formula, pos, unit) {
     return outputQueue[0];
 }
 
+function getFormulaFromSkillToken(token, unit) {
+    if (token.startsWith("SKILL(") && token.endsWith(")")) {
+        var upgradeTriggerUsed = false;
+        var skillName;
+        if (token.endsWith("_UPGRADED")) {
+            var skillName = token.substr(6, token.length - 16);    
+            upgradeTriggerUsed = true;
+        } else {
+            var skillName = token.substr(6, token.length - 7);
+        }
+        var skill = getSkillFromName(skillName, unit);
+        return formulaFromSkill(skill, upgradeTriggerUsed);
+    } else {
+        return null;
+    }
+}
+
 function getNextToken(formula) {
     var currentVar = "";
     var pos = 0;
-    var readingSkill = false;
+    var readingFunction = false;
+    var openedBracketInFunction = 0;
     while(pos < formula.length) {
         var char = formula.substr(pos, 1);
         pos++;
-        if (!readingSkill && char == " ") {
+        if (!readingFunction && char == " ") {
             if (currentVar.length != 0) {
                 return {"token": currentVar, "read":pos - 1};
             }
             continue;
         }
-        if (!readingSkill && (operators.includes(char) || char === "(" || char === ")")) {
+        if (!readingFunction && (operators.includes(char) || char === "(" || char === ")")) {
             if (currentVar.length != 0) {
-                if (currentVar == "SKILL" && char === "(") {
-                    readingSkill = true;
+                if ((currentVar == "MULTICAST" || currentVar == "SKILL") && char === "(") {
+                    readingFunction = true;
                     currentVar += char;
                 } else {
                     return {"token": currentVar, "read":pos - 1};    
@@ -246,8 +264,16 @@ function getNextToken(formula) {
             }
         } else {
             currentVar += char;
-            if (readingSkill && char === ")") {
-                return {"token": currentVar, "read":pos};
+            if (readingFunction) {
+                if (char == "(") {
+                    openedBracketInFunction++;
+                } else if (char == ")") {
+                    if (openedBracketInFunction == 0) {
+                        return {"token": currentVar, "read":pos};
+                    } else {
+                        openedBracketInFunction--;
+                    }
+                }
             }
         }
     }
@@ -466,6 +492,8 @@ function innerFormulaToString(formula, useParentheses = false) {
                 return "SKILL(" + formula.name + ")";
             }
         }
+    } else if (formula.type == "multicast") {
+        return "MULTICAST(" + formula.skills.map(innerFormulaToString).join(",") + ")";
     } else if (formula.type == "value") {
         var name = getVariableName(formula.name);
         if (formula.lb) {

@@ -162,7 +162,24 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             }
         }
     }
-    if (formula.type == "skill") {
+    if (formula.type == "multicast") {
+        context.multicast = true;
+        var result = {
+            "min": 0,
+            "avg": 0,
+            "max": 0,
+            "switchWeapons": false
+        }    
+        for (var i = 0, len = formula.skills.length; i < len; i++) {
+            var skillValue = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.skills[i], goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
+            result.min += skillValue.min;
+            result.avg += skillValue.avg;
+            result.max += skillValue.max;
+            result.switchWeapons |= skillValue.switchWeapons;
+        }
+        delete context.multicast;
+        return result;
+    } else if (formula.type == "skill") {
         context.currentSkill = formula.id;
         context.isLb = !!formula.lb;
         var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
@@ -260,7 +277,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         variance1 = weaponBaseDamageVariance["none"];
                     }
 
-                    switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk)) ;
+                    switchWeapons = canSwitchWeapon && ((variance[goalVariance] < variance1[goalVariance]) || (stat == "atk" && (variance[goalVariance] == variance1[goalVariance]) && itemAndPassives[0].atk > itemAndPassives[1].atk));
+                    if (context.multicast) {
+                        // in normal DW, we want the strongest attack to be the second one. In multicast, it's the contrary
+                        switchWeapons = !switchWeapons
+                    }
                     if (switchWeapons) {
                         variance = variance1;    
                     }
@@ -286,7 +307,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
             }
             
-            if (dualWielding && !context.isLb) {
+            if (dualWielding && !context.isLb && !context.multicast) {
                 // Plan for the left hand attack to be calculated later
                 context.remainingLeftHandAttacks.push(formula);
             }

@@ -202,7 +202,11 @@ class UnitBuild {
     }
     
     calculateInvolvedStats(formula) {
-        if (formula.type == "skill") {
+        if (formula.type == "multicast") {
+            for (var i = formula.skills.length; i--;) {
+                this.calculateInvolvedStats(formula.skills[i]);
+            }
+        } else if (formula.type == "skill") {
             if (formula.lb) {
                 this.addToInvolvedStats(["lbDamage"]);
             }

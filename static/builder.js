@@ -258,17 +258,18 @@ function readGoal(index = currentUnitIndex) {
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
             formula = formulaFromSkill(skill, upgradeTriggered);
             
-        } else if (goalValue.startsWith("PASSIVE_") && builds[currentUnitIndex].unit) {
+        } else if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
-            var skillName = goalValue.substr(8);
+            var skillName = goalValue.substr(10);
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-            var multicastEffect;
-            for (var effectIndex = skill.effects.length; effectIndex--;) {
-                if (skill.effects[effectIndex].effect && skill.effects[effectIndex].effect.multicast) {
-                    multicastEffect = skill.effects[effectIndex].effect.multicast;
-                    break;
-                }
+            var skillChoiceFormulas = [];
+            for (var i = 0, len = skill.multicast.time; i < len; i++) {
+                var skillChoiceValue = $("#multicastSelect" + i).val();
+                var skillChoiceName = goalValue.substr(6);
+                var skillChoice = getSkillFromName(skillChoiceName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+                skillChoiceFormulas.push(formulaFromSkill(skillChoice, false)); // TODO : upgrade triggered
             }
+            formula = {type:"multicast", skills: skillChoiceFormulas};
         } else {
             builds[currentUnitIndex].goal = goalValue;
             formula = formulaByGoal[goalValue];
@@ -1012,7 +1013,7 @@ function onUnitChange() {
                 for (var effectIndex = passive.effects.length; effectIndex--;) {
                     var effect = passive.effects[effectIndex].effect;
                     if (effect && effect.multicast) {
-                        var option = '<option value="PASSIVE_' + passive.name + '">' + passive.name +'</option>';
+                        var option = '<option value="MULTICAST_' + passive.name + '">' + passive.name +'</option>';
                         choiceSelect.append(option);
                     }
                 }
@@ -1303,6 +1304,7 @@ function notLoaded() {
 function onGoalChange() {
     $(".usedLastTurn input").prop("checked", false);
     $(".usedLastTurn").addClass("hidden");
+    manageMulticast();
     readGoal();
     updateDisplayAfterGoalChange();
 }
@@ -1331,6 +1333,22 @@ function updateDisplayAfterGoalChange() {
     } else {
         $('.normalGoalChoices').removeClass("hidden");
         $('.customGoalChoice').addClass("hidden");
+    }
+}
+
+function manageMulticast() {
+    $("#multicastSelect0, #multicastSelect1, #multicastSelect2, #multicastSelect3").addClass(hidden);
+    if (!customFormula) {
+        var goalValue = $(".goal #normalGoalChoice").val();
+        if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
+            builds[currentUnitIndex].goal = "custom";
+            var skillName = goalValue.substr(10);
+            var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+            for (var i = 0, len = skill.multicast.time; i < len; i++) {
+                $("#multicastSelect" + i).removeClass("hidden");
+                
+            }
+        }
     }
 }
 
