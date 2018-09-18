@@ -747,6 +747,9 @@ function parsePassiveRawEffet(rawEffect, skills) {
 
 function parseActiveSkill(skillId, skillIn, skills) {
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
+    if (skillIn.type == "MAGIC") {
+        skill.magic = skillIn.magic_type.toLocaleLowerCase();
+    }
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];

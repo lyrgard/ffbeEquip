@@ -888,7 +888,11 @@ function goalSelectTemplate(state) {
                 if (html.includes('Not supported yet')) {
                     html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
                 } else {
-                    html += "<span class='selectTag skillTag'>skill</span>";
+                    if (skill.magic) {
+                        html += "<span class='selectTag magicTag'>magic</span>";
+                    } else {
+                        html += "<span class='selectTag skillTag'>skill</span>";
+                    }
                 }
             } else {
                 html = state.text;
