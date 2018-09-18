@@ -39,6 +39,11 @@
     font-weight: bold;
 }
 
+#multicastSkillsDiv {
+    width: 300px;
+    margin-left: 120px;
+}
+
 .progressBarDiv {
     width: 100%;
     background-color: grey;
@@ -838,7 +843,13 @@ i.img.img-slot-hand.leftHand {
 
 .select2-results__option .magicTag,
 .select2-selection__rendered .magicTag {
-    background-color: cadetblue;
+    background-color: darkcyan;
+    top: 10px;
+}
+
+.select2-results__option .multicastTag,
+.select2-selection__rendered .multicastTag {
+    background-color: blue;
     top: 10px;
 }
 

@@ -262,10 +262,16 @@ function readGoal(index = currentUnitIndex) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(10);
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+            var multicastEffect;
+            for (var i = skill.effects.length; i--;) {
+                if (skill.effects[i].effect && skill.effects[i].effect.multicast) {
+                    multicastEffect = skill.effects[i].effect.multicast;
+                }
+            }
             var skillChoiceFormulas = [];
-            for (var i = 0, len = skill.multicast.time; i < len; i++) {
+            for (var i = 0, len = multicastEffect.time; i < len; i++) {
                 var skillChoiceValue = $("#multicastSelect" + i).val();
-                var skillChoiceName = goalValue.substr(6);
+                var skillChoiceName = skillChoiceValue.substr(6);
                 var skillChoice = getSkillFromName(skillChoiceName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
                 skillChoiceFormulas.push(formulaFromSkill(skillChoice, false)); // TODO : upgrade triggered
             }
@@ -910,6 +916,13 @@ function goalSelectTemplate(state) {
                 html = state.text;
             }
         }
+    } else if (state.id.startsWith("MULTICAST_")) {
+        var skill = getSkillFromName(state.id.substr(10), unitsWithSkills[builds[currentUnitIndex].unit.id]);
+        if (skill) {
+            html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text + "<span class='selectTag multicastTag'>multicast</span>";
+        } else {
+            html = state.text;
+        }
     } else {
         html = state.text;
         switch (state.id) {
@@ -1337,15 +1350,50 @@ function updateDisplayAfterGoalChange() {
 }
 
 function manageMulticast() {
-    $("#multicastSelect0, #multicastSelect1, #multicastSelect2, #multicastSelect3").addClass(hidden);
+    $("#multicastSelect0, #multicastSelect1, #multicastSelect2, #multicastSelect3").addClass("hidden");
+    for (var i = 0; i < 4; i++) {
+        var select = $("#multicastSelect" + i);
+        select.addClass("hidden");
+        if (select.hasClass("select2-hidden-accessible")) {
+            select.select2('destroy');
+        }
+        select.empty();
+        select.removeData();
+    }
+    
     if (!customFormula) {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
             builds[currentUnitIndex].goal = "custom";
             var skillName = goalValue.substr(10);
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-            for (var i = 0, len = skill.multicast.time; i < len; i++) {
-                $("#multicastSelect" + i).removeClass("hidden");
+            var multicastEffect;
+            for (var i = skill.effects.length; i--;) {
+                if (skill.effects[i].effect && skill.effects[i].effect.multicast) {
+                    multicastEffect = skill.effects[i].effect.multicast;
+                }
+            }
+            var options = "";
+            for (var j = 0, lenj = multicastEffect.skills.length; j < lenj; j++) {
+                var dcSkill = getSkillFromId(multicastEffect.skills[j].id, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+                var dcFormula = formulaFromSkill(dcSkill);
+                if (dcFormula) {
+                    options += '<option value=' + '"SKILL_' + dcSkill.name + '" ' + (dcFormula.notSupported ? "disabled":"") + '>' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
+                }
+            }
+            for (var i = 0, len = multicastEffect.time; i < len; i++) {
+                var select = $("#multicastSelect" + i);
+                
+                select.append(options);
+                select.removeClass("hidden");
+                
+                select.select2({
+                    placeholder: 'Select a goal...',
+                    theme: 'bootstrap',
+                    minimumResultsForSearch: Infinity,
+                    templateSelection: goalSelectTemplate,
+                    templateResult: goalSelectTemplate
+                });
                 
             }
         }
@@ -2724,7 +2772,8 @@ function startPage() {
     
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
-    $(".goal select").change(onGoalChange);
+    $("#unitsSelect").change(onUnitChange);
+    $("#normalGoalChoice").change(onGoalChange);
     
     $(".equipments select").change(onEquipmentsChange);
     
@@ -2784,6 +2833,7 @@ function startPage() {
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $(".usedLastTurn input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+    $("#multicastSkillsDiv select").change(function() {logCurrentBuild()});
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());

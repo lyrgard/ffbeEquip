@@ -741,12 +741,40 @@ function parsePassiveRawEffet(rawEffect, skills) {
             result.skillEnhancement[rawEffect[3][0].toString()] = rawEffect[3][3] / 100;
         }
         return [result];
+    
+    // Dualcast
+    } else if (rawEffect[2] == 45) {
+        return [{
+            "multicast": {
+                "time": 2,
+                "type": "magic"
+            }
+        }];
         
-    // Skill enhancement
+    // Dual White Magic
+    } else if (rawEffect[2] == 52) {
+        return [{
+            "multicast": {
+                "time": 2,
+                "type": "whiteMagic"
+            }
+        }];
+    
+    // Dual Black Magic
+    } else if (rawEffect[2] == 44) {
+        return [{
+            "multicast": {
+                "time": 2,
+                "type": "blackMagic"
+            }
+        }]
+        
+    // Skill multicast
     } else if (rawEffect[2] == 53) {
         result = {
             "multicast": {
                 "time": rawEffect[3][0],
+                "type": "skills",
                 "skills":[]
             }
         }

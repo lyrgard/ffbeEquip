@@ -368,6 +368,34 @@ function getSkillFromName(skillName, unitWithSkills) {
     return skill;
 }
 
+function getSkillFromId(skillId, unitWithSkills) {
+    var skill;
+    
+    for (var i = unitWithSkills.actives.length; i--;) {
+        if (unitWithSkills.actives[i].id == skillId) {
+            skill = unitWithSkills.actives[i];
+            break;
+        }
+    }
+    if (!skill) {
+        for (var i = unitWithSkills.magics.length; i--;) {
+            if (unitWithSkills.magics[i].id == skillId) {
+                skill = unitWithSkills.magics[i];
+                break;
+            }
+        }
+    }
+    if (!skill) {
+        for (var i = unitWithSkills.passives.length; i--;) {
+            if (unitWithSkills.passives[i].id == skillId) {
+                skill = unitWithSkills.passives[i];
+                break;
+            }
+        }
+    }
+    return skill;
+}
+
 
 function formulaFromSkill(skill, triggerSkillUsedLastTurn = true) {
     var canBeGoal = false;
