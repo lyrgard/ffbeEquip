@@ -755,7 +755,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
     } else if (rawEffect[2] == 52) {
         return [{
             "multicast": {
-                "time": 2,
+                "time": rawEffect[3][1],
                 "type": "whiteMagic"
             }
         }];
@@ -1034,6 +1034,27 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     // inflict stop
     } else if (rawEffect[2] == 88) {
         result = {"noUse":true};
+        
+        
+    // Dualcast
+    } else if (rawEffect[2] == 45) {
+        return {
+            "multicast": {
+                "time": 2,
+                "type": "magic"
+            }
+        };
+        
+    
+    // Dual Black Magic
+    } else if (rawEffect[2] == 44) {
+        return {
+            "multicast": {
+                "time": 2,
+                "type": "blackMagic"
+            }
+        }
+        
     }
     
     if (result && result.damage) {
