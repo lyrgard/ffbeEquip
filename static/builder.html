@@ -139,11 +139,13 @@
                     <div class="panel-heading">
                         <div class="line">
                             <span class="goalLabel">Unit</span>
-                            <select id="unitsSelect" name="units"></select>
+                            <div class="unitSelectDiv">
+                                <select id="unitsSelect" name="units"></select>
+                            </div>
                         </div>
                         <div class="line goalLine hidden">
-                            <span class="normalGoalChoices goalLabel">Goal : Maximize</span>
-                            <div class="normalGoalChoices">
+                            <span class="normalGoalChoices goalLabel">Maximize</span>
+                            <div class="normalGoalChoices select">
                                 <select id="normalGoalChoice" class="form-control">
                                     <option value="physicalDamage">Physical damage</option>
                                     <option value="magicalDamage">Magical damage</option>

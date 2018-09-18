@@ -5,7 +5,8 @@
 }
 
 .goal .panel-heading .line .goalLabel {
-    width: 120px;
+    width: 70px;
+    min-width: 70px;
 }
 
 #elementalResists {
@@ -39,9 +40,13 @@
     font-weight: bold;
 }
 
+.unitSelectDiv {
+    width: 300px;
+}
+
 #multicastSkillsDiv {
     width: 300px;
-    margin-left: 120px;
+    margin-left: 70px;
 }
 
 .progressBarDiv {
@@ -881,8 +886,21 @@ i.img.img-slot-hand.leftHand {
     top: 2px;
 }
 
+.selectSkillItem {
+    display: flex;
+}
+
 .simpleConditions {
     display: flex;
+}
+
+.normalGoalChoices.select {
+    width: 300px;
+}
+
+.select2-container {
+    width: 100% !important;
+    padding: 0;
 }
 
 #simpleConditionsButton {

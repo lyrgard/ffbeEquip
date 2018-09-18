@@ -959,7 +959,7 @@ function goalSelectTemplate(state) {
                 break;
         }
     }
-    return $('<span>' + html + '</span>');
+    return $('<span class="selectSkillItem">' + html + '</span>');
 }
 
 function onUnitChange() {
@@ -1076,7 +1076,8 @@ function onUnitChange() {
                 theme: 'bootstrap',
                 minimumResultsForSearch: Infinity,
                 templateSelection: goalSelectTemplate,
-                templateResult: goalSelectTemplate
+                templateResult: goalSelectTemplate,
+                width: '300px'
             });
             
             onGoalChange();
