@@ -330,6 +330,14 @@ function getSkillFromName(skillName, unitWithSkills) {
                 }
             }
         }
+        if (!skill) {
+            for (var i = unitWithSkills.passives.length; i--;) {
+                if (unitWithSkills.passives[i].name.toLocaleUpperCase() == skillName) {
+                    skill = unitWithSkills.passives[i];
+                    break;
+                }
+            }
+        }
     }
     return skill;
 }

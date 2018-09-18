@@ -741,6 +741,20 @@ function parsePassiveRawEffet(rawEffect, skills) {
             result.skillEnhancement[rawEffect[3][0].toString()] = rawEffect[3][3] / 100;
         }
         return [result];
+        
+    // Skill enhancement
+    } else if (rawEffect[2] == 53) {
+        result = {
+            "multicast": {
+                "time": rawEffect[3][0],
+                "skills":[]
+            }
+        }
+        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
+            var skill = skills[rawEffect[3][3][i]];
+            result.multicast.skills.push({"id": rawEffect[3][3][i], "name":skill.name});
+        }
+        return [result];
     }
     return null;
 }

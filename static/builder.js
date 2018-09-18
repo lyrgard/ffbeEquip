@@ -258,6 +258,17 @@ function readGoal(index = currentUnitIndex) {
             var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
             formula = formulaFromSkill(skill, upgradeTriggered);
             
+        } else if (goalValue.startsWith("PASSIVE_") && builds[currentUnitIndex].unit) {
+            builds[currentUnitIndex].goal = "custom";
+            var skillName = goalValue.substr(8);
+            var skill = getSkillFromName(skillName, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+            var multicastEffect;
+            for (var effectIndex = skill.effects.length; effectIndex--;) {
+                if (skill.effects[effectIndex].effect && skill.effects[effectIndex].effect.multicast) {
+                    multicastEffect = skill.effects[effectIndex].effect.multicast;
+                    break;
+                }
+            }
         } else {
             builds[currentUnitIndex].goal = goalValue;
             formula = formulaByGoal[goalValue];
@@ -990,10 +1001,21 @@ function onUnitChange() {
             choiceSelect.empty();
             
             var unitWithSkills = unitsWithSkills[unitData.id];
+            
             var formula = formulaFromSkill(unitWithSkills.lb);
             if (formula) {
                 var option = '<option value=' + '"SKILL_' + unitWithSkills.lb.name + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                 choiceSelect.append(option);
+            }
+            for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+                var passive = unitWithSkills.passives[skillIndex];
+                for (var effectIndex = passive.effects.length; effectIndex--;) {
+                    var effect = passive.effects[effectIndex].effect;
+                    if (effect && effect.multicast) {
+                        var option = '<option value="PASSIVE_' + passive.name + '">' + passive.name +'</option>';
+                        choiceSelect.append(option);
+                    }
+                }
             }
             for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
                 var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
