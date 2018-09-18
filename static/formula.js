@@ -324,7 +324,7 @@ function getSkillFromName(skillName, unitWithSkills) {
         }
         if (!skill) {
             for (var i = unitWithSkills.magics.length; i--;) {
-                if (unitWithSkills.magics[i].name == skillName) {
+                if (unitWithSkills.magics[i].name.toLocaleUpperCase() == skillName) {
                     skill = unitWithSkills.magics[i];
                     break;
                 }

@@ -472,12 +472,6 @@ function startPage() {
     filterReady = true;
 	tryToLoadHash();
     
-    // Set tooltips
-    $('[data-toggle="tooltip"]').tooltip({
-        container: 'body',
-        trigger: 'hover'
-    });
-    
     $("#results").addClass(server);
     
 	// Triggers on filter selection

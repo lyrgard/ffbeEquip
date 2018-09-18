@@ -801,6 +801,75 @@ i.img.img-slot-hand.leftHand {
     margin-right: 6px;
 }
 
+.select2-results__option,
+.select2-selection__rendered {
+    position: relative;
+}
+
+.select2-results__option img.selectIcon,
+.select2-selection__rendered img.selectIcon {
+    width: 24px;
+    height: auto;
+}
+
+.select2-results__option[aria-disabled="true"] img.selectIcon {
+    filter: grayscale(100%);
+}
+
+.select2-results__option .selectTag,
+.select2-selection__rendered .selectTag {
+    display: block;
+    position: absolute;
+    opacity: 0.85;
+    right: 4px;
+    background-color: #808080;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.65em;
+    font-weight: bold;
+    padding: 2px 4px;
+}
+
+.select2-results__option .skillTag,
+.select2-selection__rendered .skillTag {
+    background-color: #6a991d;
+    top: 10px;
+}
+
+.select2-results__option .magicTag,
+.select2-selection__rendered .magicTag {
+    background-color: cadetblue;
+    top: 10px;
+}
+
+.select2-results__option .notSupportedTag,
+.select2-selection__rendered .notSupportedTag {
+    background-color: #808080;
+    top: 10px;
+}
+
+.select2-results__option .lbTag,
+.select2-selection__rendered .lbTag {
+    background-color: #723232;
+    top: 10px;
+}
+
+.select2-results__option .damageTag,
+.select2-selection__rendered .damageTag {
+    background-color: #b38900;
+    top: 6px;
+}
+
+.select2-results__option .statTag,
+.select2-selection__rendered .statTag {
+    background-color: #2d89a0;
+    top: 6px;
+}
+
+.select2-selection__rendered .selectTag {
+    top: 2px;
+}
+
 .simpleConditions {
     display: flex;
 }
@@ -840,6 +909,19 @@ i.img.img-slot-hand.leftHand {
 #negativeBreakImperilWarning .label {
     white-space: normal;
     font-size: 12px;
+}
+
+.experimentalTag {
+    display: inline-block;
+    background-color: #474747;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 2px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+    margin-bottom: 2px;
 }
 
 @media (max-width: 991px) {

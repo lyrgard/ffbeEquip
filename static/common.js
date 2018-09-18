@@ -1825,6 +1825,12 @@ $(function() {
 
         startPage();
 
+        // Set tooltips
+        $('[data-toggle="tooltip"]').tooltip({
+            container: 'body',
+            trigger: 'hover'
+        });
+
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         Modal.showErrorGet(this.url, errorThrown);
     });
