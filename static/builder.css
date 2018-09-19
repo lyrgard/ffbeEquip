@@ -798,6 +798,7 @@ i.img.img-slot-hand.leftHand {
 
 .goal .section .title {
     width: 120px;
+    min-width: 120px;
 }
 
 .goal .section .title:not(.btn) {
@@ -925,6 +926,20 @@ i.img.img-slot-hand.leftHand {
 
 #ailmentImunities {
     flex:1
+}
+
+.goal .elements {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.goal .elements .element {
+    display: flex;
+    width: 100px;
+}
+
+.goal .elements .element input {
+    width: 50px;
 }
 
 .unitStack {

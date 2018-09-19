@@ -57,7 +57,8 @@ const attributeByVariable = {
     "LB":"lbPerTurn"
 };
 
-const simpleValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
+const simpleImunityValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
+const simpleResistValues = ["resist|fire.percent","resist|ice.percent","resist|lightning.percent","resist|water.percent","resist|earth.percent","resist|wind.percent","resist|light.percent","resist|dark.percent"];
 
 var formulaByVariable = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
@@ -691,7 +692,14 @@ function isSimpleFormula(formula) {
             return isSimpleFormula(formula.value1) && isSimpleFormula(formula.value2);
             break;
         case ">":
-            return formula.value1.type == "value" && simpleValues.includes(formula.value1.name) && formula.value2.type == "constant" && formula.value2.value == 100;
+            if (formula.value1.type == "value" && formula.value2.type == "constant") {
+                if (simpleImunityValues.includes(formula.value1.name) && formula.value2.type == "constant" && formula.value2.value == 100) {
+                    return true;
+                } else if (simpleResistValues.includes(formula.value1.name)) {
+                    return true;
+                }
+            }
+            return false;
             break;
         default:
             return false;

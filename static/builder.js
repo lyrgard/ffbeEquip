@@ -323,6 +323,12 @@ function readSimpleConditions(formula) {
             "ailmentImunity":getSelectedValuesFor("ailmentImunities"),
             "elementalResist": {}
         }
+        for (var i = elementList.length; i--;) {
+            var value = $(".goal .elements .element." + elementList[i] + " input").val() || 0;
+            if (value > 0) {
+                simpleConditions.elementalResist[elementList[i]] = value;
+            }
+        }
         return makeSureFormulaHaveSimpleConditions(formula, simpleConditions);
     }
 }
@@ -1106,7 +1112,7 @@ function updateGoal() {
         var multicastedSkills;
         if (selectedSkill) {
             if (selectedSkill.type == "skill") {
-                if (selectedSkill.id) {
+                if (selectedSkill.id && selectedSkill.id != "0") {
                     choiceSelect.val("SKILL_" + selectedSkill.id);    
                 } else {
                     choiceSelect.val(selectedSkill.formulaName);    
@@ -2314,10 +2320,18 @@ function loadStateHashAndBuild(data, importMode = false) {
         select("forcedElements", simpleConditions.forcedElements);
         unselectAll("ailmentImunities");
         select("ailmentImunities", simpleConditions.ailmentImunity);
-        if (simpleConditions.forcedElements.length + simpleConditions.ailmentImunity.length > 0) {
+        for (var elementIndex = elementList.length; elementIndex--;) {
+            if (simpleConditions.elementalResist[elementList[elementIndex]]) {
+                $(".goal .elements .element." + elementList[elementIndex] + " input").val(simpleConditions.elementalResist[elementList[elementIndex]]);
+            } else {
+                $(".goal .elements .element." + elementList[elementIndex] + " input").val("");
+            }
+        }
+        if (simpleConditions.forcedElements.length + simpleConditions.ailmentImunity.length + Object.keys(simpleConditions.elementalResist).length > 0) {
             $("#simpleConditionsButton").attr("aria-expanded", "true");
             $("#simpleConditionsList").addClass("in");
         }
+        updateGoal();
         onGoalChange();
 
         if (unit.enhancementLevels) {
@@ -2926,7 +2940,7 @@ function startPage() {
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $(".usedLastTurn input").on('input',$.debounce(300,function() {logCurrentBuild();}));
-    $("#multicastSkillsDiv select").change(function() {logCurrentBuild()});
+    $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());

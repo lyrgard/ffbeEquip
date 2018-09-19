@@ -116,7 +116,7 @@ class DataStorage {
             }
         } else if (formula.type == "condition") {
             this.addDesirableElementsFromImperilInFormula(formula.formula);    
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "break" && formula.type != "buff" && formula.type != "value" && formula.type != "damage") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "break" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage") {
             this.addDesirableElementsFromImperilInFormula(formula.value1);
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }
