@@ -57,6 +57,8 @@ const attributeByVariable = {
     "LB":"lbPerTurn"
 };
 
+const simpleValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
+
 var formulaByVariable = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
     "magicalDamage":                    {"type":"skill", "id":"0","name":"1x magical MAG damage", "formulaName":"magicalDamage", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1}}},
@@ -673,6 +675,66 @@ function addCondition(formula, condition) {
         }
     }
     return formula;
+}
+
+function isSimpleFormula(formula) {
+    switch(formula.type) {
+        case "condition":
+            return isSimpleFormula(formula.formula) && isSimpleFormula(formula.condition);
+            break;
+        case "multicast":
+        case "elementCondition":
+        case "skill" :
+            return true;
+            break;
+        case "AND":
+            return isSimpleFormula(formula.value1) && isSimpleFormula(formula.value2);
+            break;
+        case ">":
+            return formula.value1.type == "value" && simpleValues.includes(formula.value1.name) && formula.value2.type == "constant" && formula.value2.value == 100;
+            break;
+        default:
+            return false;
+    }
+}
+
+function getMulticastSkillAbleToMulticast(skills, unit) {
+    var passiveAndActives = unit.actives.concat(unit.passives);
+    for (var i = passiveAndActives.length; i--;) {
+        var skill = passiveAndActives[i];
+        var multicastEffect;
+        for (var j = skill.effects.length; j--;) {
+            if (skill.effects[j].effect && skill.effects[j].effect.multicast) {
+                multicastEffect = skill.effects[j].effect.multicast;
+                break;
+            }
+        }
+        if (multicastEffect) {
+            switch(multicastEffect.type) {
+                case "skills":
+                    var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
+                    if (skills.every(x => possibleSkillIds.includes(x.id))) {
+                        return skill;
+                    }
+                    break;
+                case "magic":
+                    if (skills.every(x => x.magic)) {
+                        return skill;
+                    }
+                    break;
+                case "whiteMagic":
+                    if (skills.every(x => x.magic == "white")) {
+                        return skill;
+                    }
+                    break;
+                case "blackMagic":
+                    if (skills.every(x => x.magic == "black")) {
+                        return skill;
+                    }
+                    break;
+            }
+        }
+    }
 }
 
 // To test on NODE JS

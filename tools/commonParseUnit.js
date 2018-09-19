@@ -138,7 +138,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             var enhancementData = {"name":skills[skillId].name, "levels":[]}
             var enhancementBaseEffects = {};
             var enhancementSkillsOut = [enhancementBaseEffects];
-            var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut, skills);
+            var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
             unitOut.passives.push(skill);
             if (Object.keys(enhancementBaseEffects).length === 0) {
                 enhancementSkillsOut.splice(0,1);
@@ -156,7 +156,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillIn = skills[skillId];
                 var enhancementBaseEffects = {};
                 var enhancementSkillsOut = [enhancementBaseEffects];
-                var skill = getPassive(skills[skillId], enhancementBaseEffects, enhancementSkillsOut, skills);
+                var skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
                 skill.name = skill.name + " +" + enhancementLevel;
                 unitOut.passives.push(skill);
                 
@@ -186,7 +186,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         if (skillsIn[skillIndex].level > 101) {
             baseEffectsLevelCondition = {};
             skillsOutLevelCondition = [baseEffectsLevelCondition];
-            var skill = getPassive(skillIn, baseEffectsLevelCondition, skillsOutLevelCondition, skills);
+            var skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills);
             if (!(Object.keys(skillsOutLevelCondition[0]).length === 0)) {
                 baseEffectsLevelCondition.levelCondition = skillsIn[skillIndex].level;
                 skillsOut.push(baseEffectsLevelCondition);
@@ -196,7 +196,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillsOut.push(skillsOutLevelCondition[i]);
             }
         } else {
-            var skill = getPassive(skillIn, baseEffects, skillsOut, skills);
+            var skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills);
         }
         unitOut.passives.push(skill);
     }
@@ -211,7 +211,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         var enhancementData = {"name":skillIn.name, "levels":[[]]}
         var enhancementBaseEffects = {};
         var enhancementSkillsOut = [enhancementBaseEffects];
-        var skill = getPassive(skillIn, enhancementBaseEffects, enhancementSkillsOut, skills);
+        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
         unitOut.passives.push(skill);
         if (Object.keys(enhancementBaseEffects).length === 0) {
             enhancementSkillsOut.splice(0,1);
@@ -237,8 +237,8 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     return skillsOut;
 }
 
-function getPassive(skillIn, baseEffects, skillsOut, skills) {
-    var skill = {"name" : skillIn.name, "icon": skillIn.icon, "effects": []};
+function getPassive(skillIn, skillId, baseEffects, skillsOut, skills) {
+    var skill = {"name" : skillIn.name, "id":skillId, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {

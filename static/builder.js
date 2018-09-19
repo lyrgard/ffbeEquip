@@ -980,7 +980,7 @@ function onUnitChange() {
         }
         if (selectedUnitData) {
             $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
-            var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.max_rarity == selectedUnitData.max_rarity);
+            var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
             var oldValues = builds[currentUnitIndex].baseValues;
             var oldLevel = builds[currentUnitIndex]._level;
             
@@ -1045,75 +1045,91 @@ function updateGoal() {
     var selectedChoice = choiceSelect.val();
     choiceSelect.empty();
 
-    var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+    if (builds[currentUnitIndex].unit) {
+        var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
 
-    var formula = formulaFromSkill(unitWithSkills.lb);
-    if (formula) {
-        var option = '<option value="LB">' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
-        choiceSelect.append(option);
-    }
-    for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
-        var passive = unitWithSkills.passives[skillIndex];
-        for (var effectIndex = passive.effects.length; effectIndex--;) {
-            var effect = passive.effects[effectIndex].effect;
-            if (effect && effect.multicast) {
-                var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
-                choiceSelect.append(option);
-            }
-        }
-    }
-    for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
-        var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
+        var formula = formulaFromSkill(unitWithSkills.lb);
         if (formula) {
-            var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].id + '">' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+            var option = '<option value="LB">' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
             choiceSelect.append(option);
-        } else {
-            // test for dualcast
-            var skill = unitWithSkills.actives[skillIndex];
-            for (var effectIndex = skill.effects.length; effectIndex--;) {
-                var effect = skill.effects[effectIndex].effect;
+        }
+        for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+            var passive = unitWithSkills.passives[skillIndex];
+            for (var effectIndex = passive.effects.length; effectIndex--;) {
+                var effect = passive.effects[effectIndex].effect;
                 if (effect && effect.multicast) {
-                    var option = '<option value="MULTICAST_' + skill.id + '">' + skill.name +'</option>';
+                    var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
                     choiceSelect.append(option);
                 }
             }
         }
-    }
-    for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
-        var formula = formulaFromSkill(unitWithSkills.magics[skillIndex]);
-        if (formula) {
-            var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].id + '">' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
-            choiceSelect.append(option);
+        for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
+            var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
+            if (formula) {
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].id + '">' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                choiceSelect.append(option);
+            } else {
+                // test for dualcast
+                var skill = unitWithSkills.actives[skillIndex];
+                for (var effectIndex = skill.effects.length; effectIndex--;) {
+                    var effect = skill.effects[effectIndex].effect;
+                    if (effect && effect.multicast) {
+                        var option = '<option value="MULTICAST_' + skill.id + '">' + skill.name +'</option>';
+                        choiceSelect.append(option);
+                    }
+                }
+            }
         }
-    }
+        for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
+            var formula = formulaFromSkill(unitWithSkills.magics[skillIndex]);
+            if (formula) {
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].id + '">' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                choiceSelect.append(option);
+            }
+        }
 
 
-    for (var selectDefaultIndex = 0, lenSelectDefaultIndex = goalQuickSelectDefaultValues.length; selectDefaultIndex < lenSelectDefaultIndex; selectDefaultIndex++) {
-        choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
-    }
-    
-    var selectedSkill;
-    if (builds[currentUnitIndex].goal == "custom" && builds[currentUnitIndex]._formula) {
-        var base = builds[currentUnitIndex]._formula;
-        if (base.type == "condition") {
-            base = base.formula;
-        } 
-        if (base.type == "multicast" || base.type == "skill") {
-            selectedSkill = base;
+        for (var selectDefaultIndex = 0, lenSelectDefaultIndex = goalQuickSelectDefaultValues.length; selectDefaultIndex < lenSelectDefaultIndex; selectDefaultIndex++) {
+            choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
         }
-    }
-    if (selectedSkill) {
-        if (selectedSkill.type == "skill") {
-            choiceSelect.val("SKILL_" + selectedSkill.id);
+
+        var selectedSkill;
+        if (builds[currentUnitIndex].goal == "custom" && builds[currentUnitIndex]._formula) {
+            var base = builds[currentUnitIndex]._formula;
+            if (base.type == "condition") {
+                base = base.formula;
+            } 
+            if (base.type == "multicast" || base.type == "skill") {
+                selectedSkill = base;
+            }
+        }
+        var multicastedSkills;
+        if (selectedSkill) {
+            if (selectedSkill.type == "skill") {
+                if (selectedSkill.id) {
+                    choiceSelect.val("SKILL_" + selectedSkill.id);    
+                } else {
+                    choiceSelect.val(selectedSkill.formulaName);    
+                }
+            } else {
+                // multicast.
+                multicastedSkills = [];
+                for (var i = 0, len = selectedSkill.skills.length; i < len; i++) {
+                    multicastedSkills.push(getSkillFromId(selectedSkill.skills[i].id, unitWithSkills));
+                }
+                multicastSkill = getMulticastSkillAbleToMulticast(multicastedSkills, unitWithSkills);
+                if (multicastedSkills) {
+                    choiceSelect.val("MULTICAST_" + multicastSkill.id);
+                }
+            }
         } else {
-            // TODO
+            if (!selectedChoice || selectedChoice.startsWith("SKILL_") || selectedChoice.startsWith("MULTICAST_")) {
+                choiceSelect.val("physicalDamage");
+            } else {
+                choiceSelect.val(selectedChoice);    
+            }
         }
-    } else {
-        if (selectedChoice.startsWith("SKILL_") || selectedChoice.startsWith("MULTICAST_")) {
-            choiceSelect.val("physicalDamage");
-        } else {
-            choiceSelect.val(selectedChoice);    
-        }
+        manageMulticast(multicastedSkills);
     }
     
     if (choiceSelect.hasClass("select2-hidden-accessible")) {
@@ -1273,7 +1289,8 @@ function loadBuild(buildIndex) {
     displayUnitEnhancements();
     
     updateGoal();
-    onGoalChange();
+    readGoal();
+    updateDisplayAfterGoalChange();
     
     
     if (builds[currentUnitIndex].unit) {
@@ -1389,7 +1406,7 @@ function updateDisplayAfterGoalChange() {
         $(".unitAttackElement").removeClass("hidden");
     }
     
-    if (customFormula) {
+    if (customFormula && !isSimpleFormula(customFormula)) {
         $('.normalGoalChoices').addClass("hidden");
         $('.customGoalChoice').removeClass("hidden");
         $("#customGoalFormula").text(formulaToString(customFormula));
@@ -1399,7 +1416,7 @@ function updateDisplayAfterGoalChange() {
     }
 }
 
-function manageMulticast() {
+function manageMulticast(selectedSkills) {
     $("#multicastSelect0, #multicastSelect1, #multicastSelect2, #multicastSelect3").addClass("hidden");
     for (var i = 0; i < 4; i++) {
         var select = $("#multicastSelect" + i);
@@ -1411,7 +1428,7 @@ function manageMulticast() {
         select.removeData();
     }
     
-    if (!customFormula) {
+    if (!customFormula || isSimpleFormula(customFormula)) {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
             if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
@@ -1446,9 +1463,13 @@ function manageMulticast() {
                 }
                 for (var i = 0, len = multicastEffect.time; i < len; i++) {
                     var select = $("#multicastSelect" + i);
-
+                    
                     select.append(options);
                     select.removeClass("hidden");
+                    
+                    if (selectedSkills && selectedSkills.length > i) {
+                        select.val("SKILL_" + selectedSkills[i].id);
+                    }
 
                     select.select2({
                         placeholder: 'Select a goal...',
