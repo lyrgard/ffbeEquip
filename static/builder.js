@@ -1418,7 +1418,7 @@ function updateDisplayAfterGoalChange() {
 
 function manageMulticast(selectedSkills) {
     $("#multicastSelect0, #multicastSelect1, #multicastSelect2, #multicastSelect3").addClass("hidden");
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         var select = $("#multicastSelect" + i);
         select.addClass("hidden");
         if (select.hasClass("select2-hidden-accessible")) {
@@ -1450,15 +1450,17 @@ function manageMulticast(selectedSkills) {
                 }
                 for (var j = 0, lenj = skillSource.length; j < lenj; j++) {
                     var dcSkill = getSkillFromId(skillSource[j].id, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                    if (multicastEffect.type=="whiteMagic" && (!dcSkill.magic || dcSkill.magic != "white")) {
-                        continue;
-                    }
-                    if (multicastEffect.type=="blackMagic" && (!dcSkill.magic || dcSkill.magic != "black")) {
-                        continue;
-                    }
-                    var dcFormula = formulaFromSkill(dcSkill);
-                    if (dcFormula) {
-                        options += '<option value=' + '"SKILL_' + dcSkill.id + '">' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
+                    if (dcSkill) {
+                        if (multicastEffect.type=="whiteMagic" && (!dcSkill.magic || dcSkill.magic != "white")) {
+                            continue;
+                        }
+                        if (multicastEffect.type=="blackMagic" && (!dcSkill.magic || dcSkill.magic != "black")) {
+                            continue;
+                        }
+                        var dcFormula = formulaFromSkill(dcSkill);
+                        if (dcFormula) {
+                            options += '<option value=' + '"SKILL_' + dcSkill.id + '">' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
+                        }
                     }
                 }
                 for (var i = 0, len = multicastEffect.time; i < len; i++) {

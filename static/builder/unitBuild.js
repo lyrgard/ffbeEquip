@@ -273,7 +273,7 @@ class UnitBuild {
                 // only consider value1 if this criteria is not already met
                 this.calculateInvolvedStats(formula.value1);
             }
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "buff") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "statsBuff") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }

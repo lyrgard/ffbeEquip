@@ -180,6 +180,7 @@
                             <select id="multicastSelect1" class="hidden"></select>
                             <select id="multicastSelect2" class="hidden"></select>
                             <select id="multicastSelect3" class="hidden"></select>
+                            <select id="multicastSelect4" class="hidden"></select>
                         </div>
                         <div class="usedLastTurn hidden">
                             <input type="checkbox"/><label><span class="skillNames"></span> used last turn</label>
@@ -189,11 +190,48 @@
                             <div id="simpleConditionsList" class="collapse">
                                 <div class="section">
                                     <span class="title">Force element</span>
-                                    <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="forcedElements"></div>
+                                    <div class="btn-group choice" data-toggle="buttons" id="forcedElements"></div>
                                 </div>
                                 <div class="section">
                                     <span class="title btn btn-default" data-toggle="tooltip" data-original-title='Switch between "All ailment", "Disabling ailments" and "No ailments"' onclick="switchSimpleConditionAilments()">Ailment Imunity</span>
-                                    <div class="col-xs-9 btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
+                                    <div class="btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
+                                </div>
+                                <div class="section hidden">
+                                    <span class="title">Elemental resist</span>
+                                    <div class="btn-group choice" data-toggle="buttons" id="forcedElements">
+                                        <div class="element fire">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-fire withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Fire resistance"/>
+                                        </div>
+                                        <div class="element ice">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-ice withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Ice resistance"/>
+                                        </div>
+                                        <div class="element lightning">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-lightning withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Lightning resistance"/>
+                                        </div>
+                                        <div class="element water">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-water withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Water resistance"/>
+                                        </div>
+                                        <div class="element wind">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-wind withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Wind resistance"/>
+                                        </div>
+                                        <div class="element earth">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-earth withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Earth resistance"/>
+                                        </div>
+                                        <div class="element light">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-light withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Light resistance"/>
+                                        </div>
+                                        <div class="element dark">
+                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-dark withMiniIcon"></i></div>
+                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Dark resistance"/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
