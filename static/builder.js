@@ -319,7 +319,7 @@ function readGoal(index = currentUnitIndex) {
 function readSimpleConditions(formula) {
     if (formula) {
         var simpleConditions = {
-            "forcedElements":getSelectedValuesFor("forcedElements"),
+            "forcedElements":getSelectedValuesFor("forcedElements").map(x => (x == "noElement" ? "none" : x)),
             "ailmentImunity":getSelectedValuesFor("ailmentImunities"),
             "elementalResist": {}
         }
@@ -1050,7 +1050,7 @@ function updateGoal() {
 
         var formula = formulaFromSkill(unitWithSkills.lb);
         if (formula) {
-            var option = '<option value="LB">' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+            var option = '<option value="LB" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
             choiceSelect.append(option);
         }
         for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
@@ -1066,7 +1066,7 @@ function updateGoal() {
         for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {
             var formula = formulaFromSkill(unitWithSkills.actives[skillIndex]);
             if (formula) {
-                var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].id + '">' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.actives[skillIndex].id + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.actives[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                 choiceSelect.append(option);
             } else {
                 // test for dualcast
@@ -1083,7 +1083,7 @@ function updateGoal() {
         for (var skillIndex = unitWithSkills.magics.length; skillIndex--;) {
             var formula = formulaFromSkill(unitWithSkills.magics[skillIndex]);
             if (formula) {
-                var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].id + '">' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                var option = '<option value=' + '"SKILL_' + unitWithSkills.magics[skillIndex].id + '" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.magics[skillIndex].name + (formula.notSupported ? " - Not supported yet":"") + '</option>';
                 choiceSelect.append(option);
             }
         }
@@ -2866,7 +2866,13 @@ function startPage() {
     
     // Elements
 	addIconChoicesTo("elements", elementList, "checkbox", "element", ucFirst);
-    addIconChoicesTo("forcedElements", elementList, "checkbox", "element", function(v){return "Force use of " + ucFirst(v)});
+    addIconChoicesTo("forcedElements", elementList.concat(['noElement']), "checkbox", "element", function(v){
+        if (v == "noElement") {
+            return "Prevent use of elemental weapons";
+        } else {
+            return "Force use of " + ucFirst(v);
+        }
+    });
     addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment", ucFirst);
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
