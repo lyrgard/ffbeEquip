@@ -479,27 +479,37 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
     // element based mastery
     else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10004) {
         var masteryEffect = rawEffect[3];
-        var masteryType = elementsMap[masteryEffect[0]];
-        var result = {"equipedConditions":[masteryType]};
-        if (masteryEffect[3]) {
-            result["atk%"] = masteryEffect[3];
+        result = [];
+        var masteryElements;
+        if (Array.isArray(masteryEffect[0])) {
+            elements = masteryEffect[0];
+        } else {
+            elements = [masteryEffect[0]];
         }
-        if (masteryEffect[5]) {
-            result["def%"] = masteryEffect[5];
+        for (var i = 0, len = elements.length; i < len; i++) {
+            var masteryType = elementsMap[elements[i]];
+            var masteryEffectOut = {"equipedConditions":[masteryType]};
+            if (masteryEffect[3]) {
+                masteryEffectOut["atk%"] = masteryEffect[3];
+            }
+            if (masteryEffect[5]) {
+                masteryEffectOut["def%"] = masteryEffect[5];
+            }
+            if (masteryEffect[4]) {
+                masteryEffectOut["mag%"] = masteryEffect[4];
+            }
+            if (masteryEffect[6]) {
+                masteryEffectOut["spr%"] = masteryEffect[6];
+            }
+            if (masteryEffect[1]) {
+                masteryEffectOut["hp%"] = masteryEffect[1];
+            }
+            if (masteryEffect[2]) {
+                masteryEffectOut["mp%"] = masteryEffect[2];
+            }
+            result.push(masteryEffectOut);
         }
-        if (masteryEffect[4]) {
-            result["mag%"] = masteryEffect[4];
-        }
-        if (masteryEffect[6]) {
-            result["spr%"] = masteryEffect[6];
-        }
-        if (masteryEffect[1]) {
-            result["hp%"] = masteryEffect[1];
-        }
-        if (masteryEffect[2]) {
-            result["mp%"] = masteryEffect[2];
-        }
-        return [result];
+        return result;
     }
 
     //doublehand
@@ -919,11 +929,14 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
         
     // Cooldown skills
     } else if (rawEffect[2] == 130) { 
-        result = {};
+        
         var skillIn = skills[rawEffect[3][0]];
-        result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills, unit);
-        result.cooldownTurns = rawEffect[3][2][0] + 1;
-        result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+        if (skillIn) {
+            result = {};
+            result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills, unit);
+            result.cooldownTurns = rawEffect[3][2][0] + 1;
+            result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+        }
     
     // Draw attacks
     } else if (rawEffect[2] == 61) {
@@ -1106,7 +1119,6 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
                 addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), skillIn, unit);
             }
         }
-        return result;
         
     // Gain Multicast ability
     } else if (rawEffect[2] == 98) {
