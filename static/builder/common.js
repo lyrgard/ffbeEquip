@@ -1026,6 +1026,9 @@ function areConditionOK(item, equiped, level = 0) {
                     }
                 }
             }
+            if (found > 0 && item.equipedConditionIsOr) {
+                return true;
+            }
         }
         if (found != item.equipedConditions.length) {
             return false;

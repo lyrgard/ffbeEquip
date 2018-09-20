@@ -20,6 +20,7 @@ class DataStorage {
         this.unstackablePinnedItems = [];
         this.alreadyUsedEspers = [];
         this.itemInventory;
+        this.availableTmr;
     }
     
     setData(data) {
@@ -157,6 +158,9 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
+                if (this.unitBuild != null && this.unitBuild.unit != null && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id) {
+                    this.availableTmr = item;
+                }
                 var enhancementsAvailables = this.itemInventory.enchantments[item.id].slice();
                 if (this.alreadyUsedItems.enhancements[item.id]) {
                     for (var i = this.alreadyUsedItems.enhancements[item.id].length; i--;) {
