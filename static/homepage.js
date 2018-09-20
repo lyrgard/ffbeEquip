@@ -151,6 +151,10 @@ function startPage() {
                 tag_icon = "glyphicon-flash";
                 tag_type = 'New feature';
                 tag_class = 'feature';
+            } else if (tag.name.startsWith("UPDATE_DATA")) {
+                tag_icon = "glyphicon-book";
+                tag_type = 'Data update';
+                tag_class = 'dataUpdate';
             }
             var html = '<div class="hidden tagline '+tag_class+' '+tag.commit.sha+'">';
             html += "<div>";
