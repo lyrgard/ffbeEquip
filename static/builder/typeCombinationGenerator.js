@@ -35,34 +35,58 @@ class TypeCombinationGenerator {
             this.unitBuild.equipable[0] = savedEquipable0;
             this.unitBuild.equipable[1] = savedEquipable1;
         }
-        if (!this.forceDoubleHand && !this.unitBuild.hasDualWield() && this.dualWieldSources.length > 0 && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
-            var savedForceDualWield = this.forceDualWield;
-            this.forceDualWield = true;
-            var equipableList = this.unitBuild.getCurrentUnitEquip();
-            for (var dualWieldSourceIndex = this.dualWieldSources.length; dualWieldSourceIndex--;) {
-                var item = this.dualWieldSources[dualWieldSourceIndex];
-                if (equipableList.includes(item.type)) {
-                    var slot = this.unitBuild.getItemSlotFor(item, this.forceDoubleHand);
-                    if (slot != -1) {   
-                        var savedFixedItems = this.unitBuild.fixedItems;
-                        this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
-                        this.unitBuild.fixedItems[slot] = item;
-                        var savedEquipable0 = this.unitBuild.equipable[0];
-                        var savedEquipable1 = this.unitBuild.equipable[1];
-                        if (item.partialDualWield) {
-                            this.unitBuild.equipable[0] = item.partialDualWield;
-                            this.unitBuild.equipable[1] = item.partialDualWield;
-                        } else {
-                            this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
+        if (!this.forceDoubleHand && !this.unitBuild.hasDualWield() && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
+            var tmr;
+            if (this.unitBuild.hasDualWieldIfItemEquiped(tmr.id)) {
+                var savedForceDualWield = this.forceDualWield;
+                this.forceDualWield = true;
+                var slot = this.unitBuild.getItemSlotFor(item, this.forceDoubleHand);
+                if (slot != -1) {   
+                    var savedFixedItems = this.unitBuild.fixedItems;
+                    this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+                    this.unitBuild.fixedItems[slot] = tmr;
+                    var savedEquipable0 = this.unitBuild.equipable[0];
+                    var savedEquipable1 = this.unitBuild.equipable[1];
+     
+                    this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
+                    
+                    this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
+                    this.unitBuild.fixedItems = savedFixedItems;
+                    this.unitBuild.equipable[0] = savedEquipable0;
+                    this.unitBuild.equipable[1] = savedEquipable1;
+                }
+                this.forceDualWield = savedForceDualWield;
+            }
+            
+            if (this.dualWieldSources.length > 0) {
+                var savedForceDualWield = this.forceDualWield;
+                this.forceDualWield = true;
+                var equipableList = this.unitBuild.getCurrentUnitEquip();
+                for (var dualWieldSourceIndex = this.dualWieldSources.length; dualWieldSourceIndex--;) {
+                    var item = this.dualWieldSources[dualWieldSourceIndex];
+                    if (equipableList.includes(item.type)) {
+                        var slot = this.unitBuild.getItemSlotFor(item, this.forceDoubleHand);
+                        if (slot != -1) {   
+                            var savedFixedItems = this.unitBuild.fixedItems;
+                            this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+                            this.unitBuild.fixedItems[slot] = item;
+                            var savedEquipable0 = this.unitBuild.equipable[0];
+                            var savedEquipable1 = this.unitBuild.equipable[1];
+                            if (item.partialDualWield) {
+                                this.unitBuild.equipable[0] = item.partialDualWield;
+                                this.unitBuild.equipable[1] = item.partialDualWield;
+                            } else {
+                                this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
+                            }
+                            this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
+                            this.unitBuild.fixedItems = savedFixedItems;
+                            this.unitBuild.equipable[0] = savedEquipable0;
+                            this.unitBuild.equipable[1] = savedEquipable1;
                         }
-                        this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
-                        this.unitBuild.fixedItems = savedFixedItems;
-                        this.unitBuild.equipable[0] = savedEquipable0;
-                        this.unitBuild.equipable[1] = savedEquipable1;
                     }
                 }
+                this.forceDualWield = savedForceDualWield;
             }
-            this.forceDualWield = savedForceDualWield;
         }
         return combinations;
     }

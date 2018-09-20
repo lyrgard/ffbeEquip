@@ -486,30 +486,29 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
         } else {
             elements = [masteryEffect[0]];
         }
-        for (var i = 0, len = elements.length; i < len; i++) {
-            var masteryType = elementsMap[elements[i]];
-            var masteryEffectOut = {"equipedConditions":[masteryType]};
-            if (masteryEffect[3]) {
-                masteryEffectOut["atk%"] = masteryEffect[3];
-            }
-            if (masteryEffect[5]) {
-                masteryEffectOut["def%"] = masteryEffect[5];
-            }
-            if (masteryEffect[4]) {
-                masteryEffectOut["mag%"] = masteryEffect[4];
-            }
-            if (masteryEffect[6]) {
-                masteryEffectOut["spr%"] = masteryEffect[6];
-            }
-            if (masteryEffect[1]) {
-                masteryEffectOut["hp%"] = masteryEffect[1];
-            }
-            if (masteryEffect[2]) {
-                masteryEffectOut["mp%"] = masteryEffect[2];
-            }
-            result.push(masteryEffectOut);
+        var result = {"equipedConditions":elements.map(x => elementsMap[x])};
+        if (elements.length > 0) {
+            result.equipedConditionIsOr = true;
         }
-        return result;
+        if (masteryEffect[3]) {
+            result["atk%"] = masteryEffect[3];
+        }
+        if (masteryEffect[5]) {
+            result["def%"] = masteryEffect[5];
+        }
+        if (masteryEffect[4]) {
+            result["mag%"] = masteryEffect[4];
+        }
+        if (masteryEffect[6]) {
+            result["spr%"] = masteryEffect[6];
+        }
+        if (masteryEffect[1]) {
+            result["hp%"] = masteryEffect[1];
+        }
+        if (masteryEffect[2]) {
+            result["mp%"] = masteryEffect[2];
+        }
+        return [result];
     }
 
     //doublehand
@@ -1398,7 +1397,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","special","exclusiveSex","exclusiveUnits","equipedConditions","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
