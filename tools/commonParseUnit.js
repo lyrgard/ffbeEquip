@@ -99,14 +99,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         }
         var skillIn = skills[skillId];
         if (skillIn.active && skillIn.type != "MAGIC") {
-            unitOut.actives.push(parseActiveSkill(skillId, skillIn, skills));
+            unitOut.actives.push(parseActiveSkill(skillId, skillIn, skills, unitOut));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillId, skillIn, skills);
+                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.actives.push(skill);
                 } 
@@ -114,14 +114,14 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             continue;
         } 
         if (skillIn.type == "MAGIC") {
-            unitOut.magics.push(parseActiveSkill(skillId, skillIn, skills));
+            unitOut.magics.push(parseActiveSkill(skillId, skillIn, skills, unitOut));
             if (enhancements && enhancements[skillId]) {
                 var enhancementLevel = 0;
                 while(enhancements[skillId]) {
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillId, skillIn, skills);
+                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
                     skill.name = skill.name + " +" + enhancementLevel;
                     unitOut.magics.push(skill);
                 } 
@@ -138,7 +138,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             var enhancementData = {"name":skills[skillId].name, "levels":[]}
             var enhancementBaseEffects = {};
             var enhancementSkillsOut = [enhancementBaseEffects];
-            var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
+            var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
             unitOut.passives.push(skill);
             if (Object.keys(enhancementBaseEffects).length === 0) {
                 enhancementSkillsOut.splice(0,1);
@@ -156,7 +156,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillIn = skills[skillId];
                 var enhancementBaseEffects = {};
                 var enhancementSkillsOut = [enhancementBaseEffects];
-                var skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
+                var skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
                 skill.name = skill.name + " +" + enhancementLevel;
                 unitOut.passives.push(skill);
                 
@@ -186,7 +186,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         if (skillsIn[skillIndex].level > 101) {
             baseEffectsLevelCondition = {};
             skillsOutLevelCondition = [baseEffectsLevelCondition];
-            var skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills);
+            var skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills, unitOut);
             if (!(Object.keys(skillsOutLevelCondition[0]).length === 0)) {
                 baseEffectsLevelCondition.levelCondition = skillsIn[skillIndex].level;
                 skillsOut.push(baseEffectsLevelCondition);
@@ -196,7 +196,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillsOut.push(skillsOutLevelCondition[i]);
             }
         } else {
-            var skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills);
+            var skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unitOut);
         }
         unitOut.passives.push(skill);
     }
@@ -211,7 +211,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         var enhancementData = {"name":skillIn.name, "levels":[[]]}
         var enhancementBaseEffects = {};
         var enhancementSkillsOut = [enhancementBaseEffects];
-        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills);
+        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
         unitOut.passives.push(skill);
         if (Object.keys(enhancementBaseEffects).length === 0) {
             enhancementSkillsOut.splice(0,1);
@@ -231,20 +231,20 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     
     if (unitData.limitburst_id && lbs[unitData.limitburst_id]) {
         var lb = lbs[unitData.limitburst_id];
-        parseLb(lb, unitOut, skills);
+        parseLb(lb, unitOut, skills, unitOut);
     }
     
     return skillsOut;
 }
 
-function getPassive(skillIn, skillId, baseEffects, skillsOut, skills) {
+function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit) {
     var skill = {"name" : skillIn.name, "id":skillId, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effects = parsePassiveRawEffet(rawEffect, skills);
+        var effects = parsePassiveRawEffet(rawEffect, skills, unit);
         if (effects) {
             if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
                 tmrAbilityEffects = tmrAbilityEffects.concat(effects);
@@ -377,7 +377,7 @@ function addEffectsToEffectList(effectList, effects) {
     }
 }
 
-function parsePassiveRawEffet(rawEffect, skills) {
+function parsePassiveRawEffet(rawEffect, skills, unit) {
     var result = {};
     // stat bonus
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
@@ -633,7 +633,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
         result = {};
         var skillIn = skills[rawEffect[3][2]];
         if (skillIn) {
-            result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills);
+            result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills, unit);
             result.counterType = "physical";
             result.percent = rawEffect[3][0];
             return [result];
@@ -642,7 +642,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
     } else if (rawEffect[2] == 50) { 
         result = {};
         var skillIn = skills[rawEffect[3][2]];
-        result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills);
+        result.counterSkill = parseActiveSkill(rawEffect[3][2], skillIn, skills, unit);
         result.counterType = "magical";
         result.percent = rawEffect[3][0];
         return [result];
@@ -709,7 +709,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
         result = {};
         var skillIn = skills[rawEffect[3][0]];
         if (skillIn) {
-            var autoCastedSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills);
+            var autoCastedSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills, unit);
             result.autoCastedSkill = autoCastedSkill;
             return [result];
         }
@@ -787,7 +787,7 @@ function parsePassiveRawEffet(rawEffect, skills) {
     return null;
 }
 
-function parseActiveSkill(skillId, skillIn, skills) {
+function parseActiveSkill(skillId, skillIn, skills, unit) {
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     if (skillIn.type == "MAGIC") {
         skill.magic = skillIn.magic_type.toLocaleLowerCase();
@@ -796,29 +796,29 @@ function parseActiveSkill(skillId, skillIn, skills) {
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skillIn, skills);
+        var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit);
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     return skill;
 }
 
-function parseLb(lb, unit, skills) {
+function parseLb(lb, unit, skills, unit) {
     unit.lb = {"name": lb.name, minEffects: [], "maxEffects":[]}
     for (var rawEffectIndex in lb.min_level["effects_raw"]) {
         var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
         unit.lb.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.max_level["effects_raw"]) {
         var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
         unit.lb.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
     }
 }
 
-function parseActiveRawEffect(rawEffect, skillIn, skills) {
+function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
     var result = null;
     
     // break
@@ -837,7 +837,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
             var data = rawEffect[3][i];
             if (data && data[0] && skills[data[0]]) {
                 var skillIn = skills[data[0]];
-                var skill = parseActiveSkill(data[0], skillIn, skills);
+                var skill = parseActiveSkill(data[0], skillIn, skills, unit);
                 result.randomlyUse.push({"skill":skill, "percent":data[1]});
             }
         }
@@ -921,7 +921,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     } else if (rawEffect[2] == 130) { 
         result = {};
         var skillIn = skills[rawEffect[3][0]];
-        result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills);
+        result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills, unit);
         result.cooldownTurns = rawEffect[3][2][0] + 1;
         result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
     
@@ -945,9 +945,9 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
     } else if (rawEffect[2] == 99) {
         result = {};
         var skill1 = skills[rawEffect[3][5]];
-        result.use = parseActiveSkill(rawEffect[3][5], skill1, skills);
+        result.use = parseActiveSkill(rawEffect[3][5], skill1, skills, unit);
         var skill2 = skills[rawEffect[3][3]];
-        result.orUse = parseActiveSkill(rawEffect[3][3], skill2, skills);
+        result.orUse = parseActiveSkill(rawEffect[3][3], skill2, skills, unit);
         result.ifUsedLastTurn = [];
         if (Array.isArray(rawEffect[3][1])) {
             for (var i = 0, len = rawEffect[3][1].length; i < len; i++) {
@@ -1054,7 +1054,95 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
                 "type": "blackMagic"
             }
         }
+    
+    // Gain Skill
+    } else if (rawEffect[2] == 97) {
+        var gainedSkillId = rawEffect[3][2].toString();
+        var gainedSkill = skills[gainedSkillId];
+        if (gainedSkillId) {
+            var parsedSkill = parseActiveSkill(gainedSkillId, gainedSkill, skills, unit)
+            
+            if (parsedSkill) {
+                addUnlockedSkill(gainedSkillId, parsedSkill, skillIn, unit);
+            }
+            
+            return {
+                "gainSkills": {
+                    "turns": rawEffect[3][3] - 1,
+                    "skills": [{
+                        "id": gainedSkillId,
+                        "name": gainedSkill.name  
+                    }]
+                }
+            }
+        }
         
+    // Gain Skill
+    } else if (rawEffect[2] == 100) {
+        result = {
+            "gainSkills": {
+                "turns": rawEffect[3][4] - 1,
+                "skills": []
+            }
+        }
+        var gainedSkillIds;
+        if (Array.isArray(rawEffect[3][1])) {
+            gainedSkillIds = rawEffect[3][1];
+        } else {
+            gainedSkillIds = [rawEffect[3][1]];
+        }
+        for (var i = 0, len = gainedSkillIds.length; i < len; i++) {
+            var gainedSkill = skills[gainedSkillIds[i].toString()];
+            result.gainSkills.skills.push({
+                "id":gainedSkillIds[i].toString(),
+                "name":gainedSkill.name
+            });
+            
+            if (!unit.unlockedSkillAdded) {
+                unit.unlockedSkillAdded = [];
+            }
+            if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
+                unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
+                addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), skillIn, unit);
+            }
+        }
+        return result;
+        
+    // Gain Multicast ability
+    } else if (rawEffect[2] == 98) {
+        var gainedSkillId = rawEffect[3][1].toString();
+        
+        var gainedSkill = skills[gainedSkillId];
+        if (gainedSkill) {
+            gainedEffect = {
+                "multicast": {
+                    "time": rawEffect[3][0],
+                    "type": "skills",
+                    "skills":[]
+                }
+            }
+            for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
+                var skill = skills[rawEffect[3][3][i]];
+                gainedEffect.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
+            }
+            var parsedSkill = {"id": gainedSkillId , "name" : gainedSkill.name, "icon": gainedSkill.icon, "effects": [
+                {
+                    "effect":gainedEffect, 
+                    "desc": gainedSkill.effects[0]
+                }
+            ]}
+            addUnlockedSkill(gainedSkillId, parsedSkill, skillIn, unit);
+
+            return {
+                "gainSkills": {
+                    "turns": rawEffect[3][4] - 1,
+                    "skills": [{
+                        "id": gainedSkillId,
+                        "name": gainedSkill.name
+                    }]
+                }
+            }
+        }
     }
     
     if (result && result.damage) {
@@ -1106,6 +1194,24 @@ function parseActiveRawEffect(rawEffect, skillIn, skills) {
         }
     }
     return result;
+}
+
+function addUnlockedSkill(gainedSkillId, gainedSkill, unlockedBy, unit) {
+    var alreadyAdded = false;
+    for (var i = unit.actives.length; i--;) {
+        if (unit.actives[i].id == gainedSkillId) {
+            alreadyAdded = true;
+            if (!unit.actives[i].unlockedBy) {
+                unit.actives[i].unlockedBy = [];
+            }
+            unit.actives[i].unlockedBy.push(unlockedBy.name);
+            break;
+        }
+    }
+    if (!alreadyAdded) {
+        gainedSkill.unlockedBy = [unlockedBy.name];
+        unit.actives.push(gainedSkill);
+    }
 }
 
 function addToStat(skill, stat, value) {
