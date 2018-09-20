@@ -14,6 +14,7 @@ var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var glNameById = {};
 var dev = false;
+var imgUrls;
 
 function getData(filename, callback) {
     if (!dev) {
@@ -46,36 +47,39 @@ getData('units.json', function (units) {
                         glNameById[unitId] = nameData[unitId].name;
                     }
                     fs.readFile('../../static/GL/units.json', function (err, nameDatacontent) {
-                        var nameData = JSON.parse(nameDatacontent);
-                        for (var unitId in nameData) {
-                            if (nameData[unitId].name != "undefined") {
-                                glNameById[unitId] = nameData[unitId].name;
-                            }
-                        }
-                        for (var index in enhancements) {
-                            var enhancement = enhancements[index];
-                            for (var unitIdIndex in enhancement.units) {
-                                var unitId = enhancement.units[unitIdIndex].toString();
-                                if (!enhancementsByUnitId[unitId]) {
-                                    enhancementsByUnitId[unitId] = {};
+                        fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
+                            var nameData = JSON.parse(nameDatacontent);
+                            imgUrls = JSON.parse(imgUrlContent);
+                            for (var unitId in nameData) {
+                                if (nameData[unitId].name != "undefined") {
+                                    glNameById[unitId] = nameData[unitId].name;
                                 }
-                                enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
                             }
-                        }
-
-                        var unitsOut = {};
-                        for (var unitId in units) {
-                            var unitIn = units[unitId];
-                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
-                                unitsOut[unitOut.data.id] = unitOut.data;
+                            for (var index in enhancements) {
+                                var enhancement = enhancements[index];
+                                for (var unitIdIndex in enhancement.units) {
+                                    var unitId = enhancement.units[unitIdIndex].toString();
+                                    if (!enhancementsByUnitId[unitId]) {
+                                        enhancementsByUnitId[unitId] = {};
+                                    }
+                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                }
                             }
-                        }
 
-                        fs.writeFileSync('unitsWithPassives.json', commonParse.formatOutput(unitsOut));
-                        fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
-                        fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                        fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                            var unitsOut = {};
+                            for (var unitId in units) {
+                                var unitIn = units[unitId];
+                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                    var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
+                                    unitsOut[unitOut.data.id] = unitOut.data;
+                                }
+                            }
+
+                            fs.writeFileSync('unitsWithPassives.json', commonParse.formatOutput(unitsOut));
+                            fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
+                            fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                            fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                        });
                     });
                 });
             });
@@ -159,13 +163,24 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, maxRariry 
 function verifyImage(serieId, minRarity, maxRarity) {
     for (var i = minRarity; i <= maxRarity; i++) {
         var unitId = serieId.substr(0, serieId.length - 1) + i;
-        var filePath = "../../static/img/units/unit_ills_" + unitId + ".png";
+        var basePath = "../../static/img/units/";
+        var illus = "unit_ills_" + unitId + ".png";
+        var icon = "unit_icon_" + unitId + ".png";
+        var filePath = basePath + illus;
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit9/1/unit_ills_" + unitId + ".png",filePath);
+            if (imgUrls[illus]) {
+                download(imgUrls[illus],filePath);
+            } else {
+                console.log("!! Img url not known : " + illus);
+            }
         }
-        var filePath = "../../static/img/units/unit_icon_" + unitId + ".png";
+        var filePath = basePath + icon;
         if (!fs.existsSync(filePath)) {
-            download("http://diffs.exviusdb.com/asset_files/ja/unit_unit9/1/unit_icon_" + unitId + ".png",filePath);
+            if (imgUrls[icon]) {
+                download(imgUrls[icon],filePath);
+            } else {
+                console.log("!! Img url not known : " + icon);
+            }
         }
     }
 }

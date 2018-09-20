@@ -1,0 +1,56 @@
+var fs = require('fs');
+var request = require('request');
+
+var map = {};
+var fileToProcess;
+
+request.get('http://diffs.exvius.gg/asset_files/file_list.json', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var result = JSON.parse(body);
+        var files = [];
+        for (var i = result.length; i--;) {
+            if (result[i].Filename.startsWith("unit")) {
+                files.push(result[i]);
+            }
+        }
+        parseFiles(files, 0);
+        
+    } else {
+        console.log(error);
+    }
+});
+
+function parseFiles(files, index) {
+    if (index < files.length) {
+        var baseUrl = 'http://diffs.exvius.gg/asset_files/' + files[index].Region + "/" + files[index].SanitizedDirectory + "/";
+        testVersion(baseUrl, 1, files[index].FileVersion, files, index);
+    } else {
+        fs.writeFileSync('imgUrls.json', JSON.stringify(map));
+    }
+}
+
+function testVersion(baseUrl, version, maxVersion, files, index) {
+    var url = baseUrl + version + "/";
+    request.get(url + "file_list.json", function (error, response, body2) {
+        if (!error && response.statusCode == 200) {
+            var result2 = JSON.parse(body2);
+            for (var i = result2.length; i--;) {
+                if (result2[i].startsWith("unit_ills_") || result2[i].startsWith("unit_icon_")) {
+                    map[result2[i]] = url + result2[i];
+                }
+            }
+                console.log(baseUrl);
+                console.log(version);
+                console.log(maxVersion);
+                console.log(version <= maxVersion);
+            
+        } else {
+            console.log("ERROR : " + url + "file_list.json");
+        }
+        if (version < maxVersion) {
+            testVersion(baseUrl, version + 1, maxVersion, files, index);
+        } else {
+            parseFiles(files, index+1);
+        }
+    });
+}
