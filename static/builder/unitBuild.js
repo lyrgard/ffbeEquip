@@ -70,7 +70,7 @@ class UnitBuild {
         for (var index in this.unit.skills) {
             if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
                 if (this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1) {
-                    for (var itemIndex = 0; itemIndex < 10; index++) {
+                    for (var itemIndex = 0; itemIndex < 10; itemIndex++) {
                         if (this.fixedItems[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.fixedItems[itemIndex].id)) {
                             return true;
                         }

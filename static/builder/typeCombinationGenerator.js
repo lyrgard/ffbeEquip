@@ -36,11 +36,11 @@ class TypeCombinationGenerator {
             this.unitBuild.equipable[1] = savedEquipable1;
         }
         if (!this.forceDoubleHand && !this.unitBuild.hasDualWield() && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
-            var tmr;
-            if (this.unitBuild.hasDualWieldIfItemEquiped(tmr.id)) {
+            var tmr = dataStorage.availableTmr;
+            if (tmr && this.unitBuild.hasDualWieldIfItemEquiped(tmr.id)) {
                 var savedForceDualWield = this.forceDualWield;
                 this.forceDualWield = true;
-                var slot = this.unitBuild.getItemSlotFor(item, this.forceDoubleHand);
+                var slot = this.unitBuild.getItemSlotFor(tmr, this.forceDoubleHand);
                 if (slot != -1) {   
                     var savedFixedItems = this.unitBuild.fixedItems;
                     this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
@@ -50,7 +50,7 @@ class TypeCombinationGenerator {
      
                     this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
                     
-                    this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
+                    this.buildTypeCombination(0,typeCombination,combinations, [tmr.id]);
                     this.unitBuild.fixedItems = savedFixedItems;
                     this.unitBuild.equipable[0] = savedEquipable0;
                     this.unitBuild.equipable[1] = savedEquipable1;
