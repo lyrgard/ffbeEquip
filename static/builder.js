@@ -1465,7 +1465,7 @@ function manageMulticast(selectedSkills) {
                         }
                         var dcFormula = formulaFromSkill(dcSkill);
                         if (dcFormula) {
-                            options += '<option value=' + '"SKILL_' + dcSkill.id + '">' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
+                            options += '<option value=' + '"SKILL_' + dcSkill.id + '" ' + (dcFormula.notSupported ? "disabled":"") + '>' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
                         }
                     }
                 }
