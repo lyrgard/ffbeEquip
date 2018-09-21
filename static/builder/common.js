@@ -1043,7 +1043,11 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
         if (isApplicable(item, unit) && (!item.equipedConditions || areConditionOK(item, build))) {
             return item;    
         } else {
-            return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
+            var result = {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
+            if (item.special && item.special.includes("notStackable")) {
+                result.special = ["notStackable"];
+            }
+            return result;
         }
     } else {
         itemVersions.sort(function (item1, item2) {
@@ -1073,7 +1077,11 @@ function findBestItemVersion(build, item, itemWithVariation, unit) {
             }
         }
         var item = itemVersions[0];
-        return {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
+        var result = {"id":item.id, "name":item.name, "jpname":item.jpname, "icon":item.icon, "type":item.type,"access":["Conditions not met"], "enhancements":item.enhancements};
+        if (item.special && item.special.includes("notStackable")) {
+            result.special = ["notStackable"];
+        }
+        return result;
     }
 }
 
