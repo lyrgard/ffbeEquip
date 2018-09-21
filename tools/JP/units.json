@@ -2537,6 +2537,21 @@
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"enhancementSkills":["精神防壁","リダクション","ブローディアウォール"]
 	},
+	"100013704": {
+		"name":"Vesuvia",
+		"jpname":"ベスビア",
+		"id":"100013704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3225,"mp":215,"atk":111,"def":119,"mag":152,"spr":134},
+			"minStats":{"hp":1064,"mp":71,"atk":37,"def":39,"mag":50,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","hammer","harp","mace","hat","clothes","robe"]
+	},
 	"100013805": {
 		"name":"Lila",
 		"jpname":"リーラ",
@@ -3175,6 +3190,37 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","gun","fist","hat","clothes"]
+	},
+	"100017505": {
+		"name":"Regina",
+		"jpname":"レジーナ",
+		"id":"100017505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4625,"mp":276,"atk":206,"def":153,"mag":154,"spr":153},
+			"minStats":{"hp":1526,"mp":91,"atk":68,"def":50,"mag":51,"spr":50},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"6_form": {
+			"name":"Regina",
+			"jpname":"レジーナ",
+			"id":"100017505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3557,"mp":212,"atk":158,"def":117,"mag":118,"spr":117},
+				"minStats":{"hp":1174,"mp":70,"atk":52,"def":39,"mag":39,"spr":39},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
+		}
 	},
 	"100017605": {
 		"name":"Yuraisha",
@@ -3831,6 +3877,67 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","harp","hat","clothes","robe"]
+	},
+	"100020905": {
+		"name":"Summer Folka & Citra",
+		"jpname":"フォルカ&シトラ2018夏",
+		"id":"100020905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4425,"mp":274,"atk":108,"def":130,"mag":200,"spr":214},
+			"minStats":{"hp":1460,"mp":90,"atk":36,"def":43,"mag":66,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Summer Folka & Citra",
+			"jpname":"フォルカ&シトラ2018夏",
+			"id":"100020905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3403,"mp":210,"atk":83,"def":100,"mag":153,"spr":164},
+				"minStats":{"hp":1123,"mp":69,"atk":27,"def":33,"mag":50,"spr":54},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"100021504": {
+		"name":"Amber",
+		"jpname":"アンバー",
+		"id":"100021504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3762,"mp":180,"atk":152,"def":138,"mag":100,"spr":130},
+			"minStats":{"hp":1241,"mp":59,"atk":50,"def":46,"mag":33,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","mace","fist","hat","clothes","robe"]
+	},
+	"100021603": {
+		"name":"Chrowa",
+		"jpname":"クローワ",
+		"id":"100021603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2822,"mp":168,"atk":101,"def":101,"mag":140,"spr":125},
+			"minStats":{"hp":931,"mp":55,"atk":33,"def":33,"mag":46,"spr":41},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",

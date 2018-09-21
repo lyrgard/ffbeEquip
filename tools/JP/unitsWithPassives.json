@@ -3441,6 +3441,26 @@
 			{"mp%":10, "def%":50}
 		]
 	},
+	"100013704": {
+		"name":"Vesuvia",
+		"jpname":"ベスビア",
+		"id":"100013704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3225,"mp":215,"atk":111,"def":119,"mag":152,"spr":134},
+			"minStats":{"hp":1064,"mp":71,"atk":37,"def":39,"mag":50,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","hammer","harp","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":20, "mag%":30, "resist":[{"name":"water","percent":50},{"name":"silence","percent":100}], "mpRefresh":5},
+			{"mp%":20, "mag%":30, "equipedConditions":["robe"]},
+			{"mag%":30, "spr%":30, "equipedConditions":["hat"]}
+		]
+	},
 	"100013805": {
 		"name":"Lila",
 		"jpname":"リーラ",
@@ -4319,6 +4339,46 @@
 			{"hp%":10, "def%":10, "spr%":20, "killers":[{"name":"aquatic","physical":50},{"name":"plant","physical":50}]}
 		]
 	},
+	"100017505": {
+		"name":"Regina",
+		"jpname":"レジーナ",
+		"id":"100017505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4625,"mp":276,"atk":206,"def":153,"mag":154,"spr":153},
+			"minStats":{"hp":1526,"mp":91,"atk":68,"def":50,"mag":51,"spr":50},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"atk%":150, "singleWielding":{"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},
+			{"atk%":50, "singleWielding":{"atk":100}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "equipedConditions":["403046900"]},
+			{"hp%":20, "levelCondition":115},
+			{"killers":[{"name":"spirit","physical":75}], "mpRefresh":10, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Regina",
+			"jpname":"レジーナ",
+			"id":"100017505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3557,"mp":212,"atk":158,"def":117,"mag":118,"spr":117},
+				"minStats":{"hp":1174,"mp":70,"atk":52,"def":39,"mag":39,"spr":39},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"skills": [
+				{"atk%":150, "singleWielding":{"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100}]}
+			]
+		}
+	},
 	"100017605": {
 		"name":"Yuraisha",
 		"jpname":"ユライシャ",
@@ -5190,6 +5250,85 @@
 		"equip":["dagger","staff","harp","hat","clothes","robe"],
 		"skills": [
 			{"hp%":20, "mp%":20, "def%":10, "spr%":30}
+		]
+	},
+	"100020905": {
+		"name":"Summer Folka & Citra",
+		"jpname":"フォルカ&シトラ2018夏",
+		"id":"100020905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4425,"mp":274,"atk":108,"def":130,"mag":200,"spr":214},
+			"minStats":{"hp":1460,"mp":90,"atk":36,"def":43,"mag":66,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"water","percent":50}], "mpRefresh":10},
+			{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
+			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}, "equipedConditions":["311004500"]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "evoMag":50, "lbFillRate":100, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Summer Folka & Citra",
+			"jpname":"フォルカ&シトラ2018夏",
+			"id":"100020905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3403,"mp":210,"atk":83,"def":100,"mag":153,"spr":164},
+				"minStats":{"hp":1123,"mp":69,"atk":27,"def":33,"mag":50,"spr":54},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "mag%":60, "spr%":60, "evoMag":80, "resist":[{"name":"water","percent":50}], "mpRefresh":10},
+				{"mag%":30, "spr%":30, "equipedConditions":["staff"]}
+			]
+		}
+	},
+	"100021504": {
+		"name":"Amber",
+		"jpname":"アンバー",
+		"id":"100021504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3762,"mp":180,"atk":152,"def":138,"mag":100,"spr":130},
+			"minStats":{"hp":1241,"mp":59,"atk":50,"def":46,"mag":33,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","mace","fist","hat","clothes","robe"],
+		"skills": [
+			{"hp%":40, "atk%":50, "singleWielding":{"atk":25}, "resist":[{"name":"paralysis","percent":100}], "mpRefresh":5},
+			{"hp%":30, "atk%":30, "equipedConditions":["fist"]}
+		]
+	},
+	"100021603": {
+		"name":"Chrowa",
+		"jpname":"クローワ",
+		"id":"100021603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2822,"mp":168,"atk":101,"def":101,"mag":140,"spr":125},
+			"minStats":{"hp":931,"mp":55,"atk":33,"def":33,"mag":46,"spr":41},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "spr%":20, "evade":{"physical":10}}
 		]
 	},
 	"201000104": {
