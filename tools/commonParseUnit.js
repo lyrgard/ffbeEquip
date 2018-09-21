@@ -487,7 +487,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
             elements = [masteryEffect[0]];
         }
         var result = {"equipedConditions":elements.map(x => elementsMap[x])};
-        if (elements.length > 0) {
+        if (elements.length > 1) {
             result.equipedConditionIsOr = true;
         }
         if (masteryEffect[3]) {
