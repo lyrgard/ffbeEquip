@@ -66,16 +66,18 @@ class UnitBuild {
         return null;
     }
     
-    hasDualWield() {
+    hasDualWield(ignoreSlot = -1) {
         for (var index in this.unit.skills) {
             if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
                 if (this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1) {
                     for (var itemIndex = 0; itemIndex < 10; itemIndex++) {
-                        if (this.fixedItems[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.fixedItems[itemIndex].id)) {
-                            return true;
-                        }
-                        if (this.build[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.build[itemIndex].id)) {
-                            return true;
+                        if (itemIndex != ignoreSlot) {
+                            if (this.fixedItems[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.fixedItems[itemIndex].id)) {
+                                return true;
+                            }
+                            if (this.build[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.build[itemIndex].id)) {
+                                return true;
+                            }
                         }
                     }
                 } else {
@@ -84,11 +86,13 @@ class UnitBuild {
             }
         }
         for (var index = 0; index < 10; index++) {
-            if (this.fixedItems[index] && this.fixedItems[index].special && this.fixedItems[index].special.includes("dualWield")) {
-                return true;
-            }
-            if (this.build[index] && this.build[index].special && this.build[index].special.includes("dualWield")) {
-                return true;
+            if (ignoreSlot != index) {
+                if (this.fixedItems[index] && this.fixedItems[index].special && this.fixedItems[index].special.includes("dualWield")) {
+                    return true;
+                }
+                if (this.build[index] && this.build[index].special && this.build[index].special.includes("dualWield")) {
+                    return true;
+                }
             }
         }
         return false;
@@ -103,7 +107,7 @@ class UnitBuild {
         return false;
     }
     
-    prepareEquipable() {
+    prepareEquipable(ignoreSlot = -1) {
         this.equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
         if (this.unit) {
             var equip = this.getCurrentUnitEquip();
@@ -118,7 +122,7 @@ class UnitBuild {
                     this.equipable[3].push(equip[equipIndex]);
                 } 
             }
-            if (this.hasDualWield()) {
+            if (this.hasDualWield(ignoreSlot)) {
                 this.equipable[1] = this.equipable[0].concat(this.equipable[1]);
             }
             var partialDualWield = this.getPartialDualWield() || [];

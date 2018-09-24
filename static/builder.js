@@ -1670,20 +1670,21 @@ function displayEquipableItemList() {
     updateSearchResult();
 }
 
-function displayFixItemModal(index) {
+function displayFixItemModal(slot) {
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
         return;
     }
     
-    builds[currentUnitIndex].prepareEquipable();
-    if (builds[currentUnitIndex].equipable[index].length == 0) {
+    
+    builds[currentUnitIndex].prepareEquipable(slot);
+    if (builds[currentUnitIndex].equipable[slot].length == 0) {
         Modal.showMessage("Equipment error", "Nothing can be added at this slot");
         return;
     }
-    currentItemSlot = index;
+    currentItemSlot = slot;
     
-    populateItemType(builds[currentUnitIndex].equipable[index]);
+    populateItemType(builds[currentUnitIndex].equipable[slot]);
     
     dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
     $("#searchText").val("");
@@ -1691,7 +1692,7 @@ function displayFixItemModal(index) {
     
     $("#fixItemModal").modal();
     selectSearchStat(searchStat);
-    selectSearchType(builds[currentUnitIndex].equipable[index]);
+    selectSearchType(builds[currentUnitIndex].equipable[slot]);
     selectSearchClickBehavior(ClickBehaviors.EQUIP);
     updateSearchResult();
 }
