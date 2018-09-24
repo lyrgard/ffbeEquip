@@ -333,19 +333,25 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         // Killer
         var killerMultiplicator = 1;
-        if (applicableKillerType) {
-            if (context.savedValues.killerMultiplicator.hasOwnProperty("applicableKillerType")) {
+        if (applicableKillerType && ennemyStats.races.length > 0) {
+            if (context.savedValues.killerMultiplicator.hasOwnProperty(applicableKillerType)) {
                 killerMultiplicator = context.savedValues.killerMultiplicator[applicableKillerType];
             } else {
                 var cumulatedKillerByRace = {'aquatic':0,'beast':0,'bird':0,'bug':0,'demon':0,'dragon':0,'human':0,'machine':0,'plant':0,'undead':0,'stone':0,'spirit':0};
                 var cumulatedKiller = 0;
                 for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
-                    if (itemAndPassives[equipedIndex] && ennemyStats.races.length > 0 && itemAndPassives[equipedIndex].killers) {
+                    if (itemAndPassives[equipedIndex] && itemAndPassives[equipedIndex].killers) {
                         for (var killerIndex = itemAndPassives[equipedIndex].killers.length; killerIndex--;) {
                             var killer = itemAndPassives[equipedIndex].killers[killerIndex];
                             if (ennemyStats.races.includes(killer.name) && killer[applicableKillerType]) {
                                 cumulatedKillerByRace[killer.name] = Math.min(300, cumulatedKillerByRace[killer.name] + killer[applicableKillerType]);
-
+                            }
+                        }
+                    }
+                    if (context.killerBuff && context.killerBuff[applicableKillerType]) {
+                        for (var raceIndex = ennemyStats.races.length; raceIndex--;) {
+                            if (context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]]) {
+                                cumulatedKillerByRace[ennemyStats.races[raceIndex]] += context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]];
                             }
                         }
                     }
@@ -748,6 +754,36 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 ennemyStats.breaks.spr = formula.value.spr;
             }
         }
+        return {
+            "min": 0,
+            "avg": 0,
+            "max": 0,
+            "switchWeapons": false
+        };
+    } else if (formula.type == "killers") {
+        if (!context.killerBuff) {
+            context.killerBuff = {};
+        }
+        for (var i = formula.value.killers.length; i--;) {
+            if (formula.value.killers[i].physical) {
+                if (!context.killerBuff.physical) {
+                    context.killerBuff.physical = {};
+                }
+                if (!context.killerBuff.physical[formula.value.killers[i].name] || context.killerBuff.physical[formula.value.killers[i].name] < formula.value.killers[i].physical) {
+                    context.killerBuff.physical[formula.value.killers[i].name] = formula.value.killers[i].physical;
+                }
+            }
+            if (formula.value.killers[i].magical) {
+                if (!context.killerBuff.magical) {
+                    context.killerBuff.magical = {};
+                }
+                if (!context.killerBuff.magical[formula.value.killers[i].name] || context.killerBuff.magical[formula.value.killers[i].name] < formula.value.killers[i].magical) {
+                    context.killerBuff.magical[formula.value.killers[i].name] = formula.value.killers[i].magical;
+                }
+            }
+        }
+        context.savedValues.killerMultiplicator = {};
+        
         return {
             "min": 0,
             "avg": 0,

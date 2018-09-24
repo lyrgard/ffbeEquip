@@ -486,6 +486,11 @@ function formulaFromEffect(effect, triggerSkillUsedLastTurn) {
             "type": "imbue",
             "value": effect.effect.imbue
         }
+    } else if (effect.effect.killers) {
+        return {
+            "type": "killers",
+            "value": effect.effect
+        }
     } else if (effect.effect.use && effect.effect.orUse) {
         var skill;
         if (triggerSkillUsedLastTurn) {

@@ -2875,7 +2875,10 @@ function startPage() {
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
     $("#unitsSelect").change(onUnitChange);
-    $("#normalGoalChoice").change(onGoalChange);
+    $("#normalGoalChoice").change(function() {
+        customFormula = null; 
+        onGoalChange();
+    });
     
     $(".equipments select").change(onEquipmentsChange);
     
