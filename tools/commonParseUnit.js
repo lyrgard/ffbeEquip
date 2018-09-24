@@ -1021,7 +1021,23 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
             console.log("Strange Jump damage");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};    
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][3]}};
+        
+    // Delayed damage
+    } else if (rawEffect[2] == 13) {
+        if (rawEffect[3].length != 6 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0) {
+            console.log("Strange Delayed damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][5]/100, delay:rawEffect[3][0]}};
+        
+    // Timed Jump
+    } else if (rawEffect[2] == 134) {
+        if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
+            console.log("Strange Timed Jump damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][4]/100, "jump":true, delay:rawEffect[3][2]}};
         
     // Combo damage
     } else if (rawEffect[2] == 42) {

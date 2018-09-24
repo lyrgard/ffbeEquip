@@ -307,7 +307,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 }
             }
             
-            if (dualWielding && !context.isLb && !context.multicast) {
+            if (dualWielding && !context.isLb && !context.multicast && (!formula.value.delay || formula.value.jump)) {
                 // Plan for the left hand attack to be calculated later
                 context.remainingLeftHandAttacks.push(formula);
             }
@@ -645,7 +645,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         };     
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
-        var result2 = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value2, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
         if (formula.type == "OR") {
             if (result1) {
                 return true;

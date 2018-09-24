@@ -9085,8 +9085,8 @@
 			{"spr%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
-			{"hp%":20, "atk%":20, "equipedConditions":["light"], "equipedConditionIsOr":true},
-			{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true}
+			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
+			{"mp%":20, "mag%":20, "equipedConditions":["fire"]}
 		]
 	},
 	"401001205": {
@@ -9208,9 +9208,9 @@
 			{"dualWielding":{"atk":30}, "special":["dualWield"], "equipedConditions":["1100000077"]},
 			{"skillEnhancement":{"910213":1,"910214":1,"910215":2,"910216":2,"911066":1,"911067":1,"911068":1,"911069":1,"911070":1,"911079":2,"911080":2,"911081":2,"911082":2}, "levelCondition":105},
 			{"atk%":60, "equipedConditions":["fire","ice","lightning"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"mp%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"def%":20, "equipedConditions":["ice"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"hp%":20, "equipedConditions":["lightning"], "equipedConditionIsOr":true, "levelCondition":110},
+			{"mp%":20, "equipedConditions":["fire"], "levelCondition":110},
+			{"def%":20, "equipedConditions":["ice"], "levelCondition":110},
+			{"hp%":20, "equipedConditions":["lightning"], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "def%":20, "resist":[{"name":3,"percent":30}], "levelCondition":120}
 		],
@@ -9293,8 +9293,8 @@
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
 			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"spr":100,"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":8,"percent":50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
-			{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
-			{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true}
+			{"mag%":30, "equipedConditions":["fire"]},
+			{"hp%":30, "equipedConditions":["dark"]}
 		]
 	},
 	"401002104": {

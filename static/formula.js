@@ -152,9 +152,9 @@ function parseExpression(formula, pos, unit) {
             var skills = token.substr(10, token.length - 11).split(",").map(x => x.trim()).map(x => getFormulaFromSkillToken(x, unit));
             outputQueue.push({"type":"multicast", "skills":skills});
         } else if (token.startsWith("SKILL(") && token.endsWith(")")) {
-            var skillFormula = getFormulaFromSkillToken(token);
+            var skillFormula = getFormulaFromSkillToken(token, unit);
             if (skillFormula) {
-                outputQueue.push(formulaFromSkill(skill, upgradeTriggerUsed));
+                outputQueue.push(skillFormula);
             } else {
                 alert("Error. skill not understood : " + token);
                 return;
@@ -340,6 +340,9 @@ function parseConstant(formula, pos) {
 }
 
 function getSkillFromName(skillName, unitWithSkills) {
+    if (skillName.endsWith("_UPGRADED")) {
+        skillName = skillName.substr(0, skillName.length - 9);
+    }
     skillName = skillName.toLocaleUpperCase();
     var skill;
     if (unitWithSkills.lb.name.toLocaleUpperCase() == skillName) {
