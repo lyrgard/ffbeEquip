@@ -22,6 +22,7 @@ class TypeCombinationGenerator {
         var combinations = [];
         var typeCombination = [null, null, null, null, null, null, null, null, null, null];
         this.buildTypeCombination(0,typeCombination, combinations, []);
+        this.unitBuild.build.splice(0, 11, ...(this.unitBuild.fixedItems));
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
         if (!this.forceDoubleHand && unitPartialDualWield && (!this.unitBuild.fixedItems[0] || unitPartialDualWield.includes(this.unitBuild.fixedItems[0].type))) { // Only try partial dual wield if no weapon fixed, or one weapon fixed of the partial dual wield type

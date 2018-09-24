@@ -74,6 +74,9 @@ class UnitBuild {
                         if (this.fixedItems[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.fixedItems[itemIndex].id)) {
                             return true;
                         }
+                        if (this.build[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.build[itemIndex].id)) {
+                            return true;
+                        }
                     }
                 } else {
                     return true;    
