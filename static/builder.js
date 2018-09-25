@@ -91,6 +91,8 @@ const defaultItemsToExclude = ["409009000"];
 var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
+var itemPool = new ItemPool(2);
+
 var running = false;
 
 var workers = [];
@@ -170,9 +172,7 @@ function optimize() {
     var tryEquipSources = $("#tryEquipsources input").prop('checked');
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
     
-    dataStorage.setUnitBuild(builds[currentUnitIndex]);
-    dataStorage.itemsToExclude = itemsToExclude;
-    dataStorage.prepareData(itemsToExclude, ennemyStats);
+    prepareDataStorage();
     
     var espersToSend = {};
     var esperNames = Object.keys(espersByName);
@@ -222,6 +222,12 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         processTypeCombinations(index);
     }   
+}
+
+function prepareDataStorage() {
+    dataStorage.setUnitBuild(builds[currentUnitIndex]);
+    dataStorage.itemsToExclude = itemsToExclude;
+    dataStorage.prepareData(itemsToExclude, ennemyStats);
 }
 
 function processTypeCombinations(workerIndex) {
