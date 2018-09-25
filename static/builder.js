@@ -91,7 +91,7 @@ const defaultItemsToExclude = ["409009000"];
 var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
-var itemPool = new ItemPool(2);
+var itemPool;
 
 var running = false;
 
@@ -182,6 +182,8 @@ function optimize() {
             espersToSend[esperName] = espersByName[esperName];
         }
     }
+    
+    itemPool = new ItemPool(4, builds[0].involvedStats, ennemyStats);
     
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({

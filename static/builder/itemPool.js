@@ -1,13 +1,16 @@
 class ItemPool {
-    constructor(maxDepth) {
+    constructor(maxDepth, involvedStats, ennemyStats) {
         this.maxDepth = maxDepth;
-        this.involvedStats = ["def", "hp"];
+        this.involvedStats = involvedStats;
+        this.ennemyStats = ennemyStats;
         this.keptItems = [];
         this.groupByIds = {};
         this.groupByItemIds = {};
-        this.currentId = 0;
+        this.currentGroupId = 0;
+        this.currentItemId = 0;
         this.workingArray = [];
         this.currentTopLevelItems = [];
+        this.lesserGroupsById = {};
     }
     
     addItems(entries) {
@@ -17,8 +20,12 @@ class ItemPool {
     }
     
     addItem(entry) {
+        this.currentItemId++;
         entry.betterItems = 0;
+        entry.currentAvailable = entry.available;
+        entry.uniqueId = this.currentItemId;
         var betterGroups = [];
+        var lesserGroups = [];
         var betterItemCount = 0;
         for (var i = this.keptItems.length; i--;) {
             var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, {"races":[]}, null, null, true, true);
@@ -35,6 +42,8 @@ class ItemPool {
                     this.keptItems[i].betterItems += entry.available;
                     if (this.keptItems[i].betterItems >= this.maxDepth) {
                         this.keptItems.splice(i, 1);
+                    } else {
+                        lesserGroups.push(this.keptItems[i].id);
                     }
                     break;
                 case "sameLevel":
@@ -42,27 +51,87 @@ class ItemPool {
             }
         }
         if (betterItemCount < this.maxDepth) {
-            currentId++;
-            var newGroup = {"id":currentId, "equivalents":[entry], "available": entry.available, "betterItems":betterItemCount, "betterGroups":betterGroups};
+            this.currentGroupId++;
+            var newGroup = {"id":this.currentGroupId, "equivalents":[entry], "currentEquivalent":0, "available": entry.available, "betterItems":betterItemCount, "betterGroups":betterGroups};
+            for (var i = betterGroups.length; i--;) {
+                if (!this.lesserGroupsById[betterGroups[i]]) {
+                    this.lesserGroupsById[betterGroups[i]] = [];
+                }
+                if (!this.lesserGroupsById[betterGroups[i]].includes(this.currentGroupId)) {
+                    this.lesserGroupsById[betterGroups[i]].push(this.currentGroupId);
+                }
+            }
+            for (var i = lesserGroups.length; i--;) {
+                if (!this.lesserGroupsById[this.currentGroupId]) {
+                    this.lesserGroupsById[this.currentGroupId] = [];
+                }
+                if (!this.lesserGroupsById[this.currentGroupId].includes(lesserGroups[i])) {
+                    this.lesserGroupsById[this.currentGroupId].push(lesserGroups[i]);
+                }
+                this.groupByIds[lesserGroups[i]].betterGroups.push(this.currentGroupId);
+            }
             this.keptItems.push(newGroup);
-            groupByIds[currentId] = newGroup;
-            groupByItemIds[entry.item.id] = currentId;
+            this.groupByIds[this.currentGroupId] = newGroup;
+            this.groupByItemIds[entry.uniqueId] = this.currentGroupId;
         }
     }
     
     prepareForIteration() {
-        this.workingArray = Array(this.keptItems.length + 1).fill(null);
         for (var i = this.keptItems.length; i--;) {
             if (this.keptItems[i].equivalents.length > 1) {
                 this.keptItems[i].equivalents.sort(ItemPool.equivalentSort);
             }
-            if (this.keptItems[i].betterGroups.length == 0) {
-                this.workingArray.push(this.keptItems[i].equivalents[0]);
-            }
+            this.keptItems[i].active = (this.keptItems[i].betterGroups.length == 0);
         }
     }
     
+    take(index) {
+        var group = this.keptItems[index];
+        var item = group.equivalents[group.currentEquivalent].item;
+        if (!(--group.equivalents[group.currentEquivalent].currentAvailable)) {
+            // We used all instance of the current equivalent in this groups
+            group.currentEquivalent++;
+            if (group.currentEquivalent == group.equivalents.length) {
+                // This group is empty, awaken lesser groups
+                group.active = false;
+                var lesserGroups = this.lesserGroupsById[group.id];
+                for (var i = lesserGroups.length; i--;) {
+                    var betterGroups = this.groupByIds[lesserGroups[i]].betterGroups;
+                    var allUsed = true;
+                    for (var j = betterGroups.length; j--;) {
+                        if (this.groupByIds[betterGroups[j]].currentEquivalent != this.groupByIds[betterGroups[j]].equivalents.length) {
+                            allUsed = false;
+                            break;
+                        }
+                    }
+                    if (allUsed) {
+                        // This group have all it's better group already used, so it can become active.
+                        this.groupByIds[lesserGroups[i]].active = true;
+                    }
+                }
+            }
+        }
+        return item;
+    }
     
+    putBack(index) {
+        var group = this.keptItems[index];
+        if (!group.active) {
+            // the group was inactive.
+            group.currentEquivalent--;
+            group.active = true;
+            
+            // Deactivate lesser groups
+            for (var i = this.lesserGroupsById[group.id].length; i--;) {
+                this.groupByIds[this.lesserGroupsById[group.id][i]].active = false;
+            }
+        }
+        if (group.equivalents[group.currentEquivalent].currentAvailable == group.equivalents[group.currentEquivalent].available) {
+            // This equivalent is full, go to the previous one
+            group.currentEquivalent--;
+        }
+        group.equivalents[group.currentEquivalent].currentAvailable++;
+    }
     
     static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) {
         var comparisionStatus = [];
@@ -115,6 +184,6 @@ class ItemPool {
                 return entry2.defenseValue - entry1.defenseValue;    
             }
         }   
-    });
+    }
     
 }
