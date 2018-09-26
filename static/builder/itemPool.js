@@ -178,11 +178,12 @@ class ItemPool {
             } else if (stats[index] == "lbDamage") {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbDamage"));
             } else {
-                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stats[index]));
+                if (!baseStats.includes(stats[index]) || getValue(entry1.item, stats[index]) >= 5 ||  getValue(entry2.item, stats[index]) >= 5) {
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stats[index]));
+                }
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "total_" + stats[index]));
                 if (includeSingleWielding) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWielding." + stats[index]));
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWieldingOneHanded." + stats[index]));
+                    comparisionStatus.push(TreeComparator.compareByDoublehand(entry1.item, entry2.item, stats[index]));
                 }
                 if (includeDualWielding) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "dualWielding." + stats[index]));

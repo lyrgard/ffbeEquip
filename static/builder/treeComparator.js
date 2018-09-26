@@ -119,6 +119,35 @@ class TreeComparator {
         }
     }
     
+    static compareByDoublehand(item1, item2, stat) {
+        var valueTDH1 = getValue(item1, "singleWielding." + stat);
+        var valueTDH2 = getValue(item2, "singleWielding." + stat);
+        var valueDH1 = getValue(item1, "singleWieldingOneHanded." + stat);
+        var valueDH2 = getValue(item2, "singleWieldingOneHanded." + stat);
+        
+        if (valueTDH1 > valueTDH2) {
+            if (valueTDH1 => valueDH2) {
+                return "strictlyWorse";
+            } else {
+                return "sameLevel";
+            }
+        } else if (valueTDH1 < valueTDH2) {
+            if (valueTDH2 => valueDH1) {
+                return "strictlyBetter";
+            } else {
+                return "sameLevel";
+            }
+        } else {
+            if (valueDH1 > valueDH2) {
+                return "strictlyWorse";
+            } else if (valueDH1 < valueDH2) {
+                return "strictlyBetter";
+            } else {
+                return "equivalent";
+            }
+        }
+    }
+    
     static compareByNumberOfHandsNeeded(item1, item2) {
         if (isTwoHanded(item1)) {
             if (isTwoHanded(item2)) {
