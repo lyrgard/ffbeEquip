@@ -118,18 +118,20 @@ class ItemPool {
                 // This group is empty, awaken lesser groups
                 group.active = false;
                 var lesserGroups = this.lesserGroupsById[group.id];
-                for (var i = lesserGroups.length; i--;) {
-                    var betterGroups = this.groupByIds[lesserGroups[i]].betterGroups;
-                    var allUsed = true;
-                    for (var j = betterGroups.length; j--;) {
-                        if (this.groupByIds[betterGroups[j]].currentEquivalent != this.groupByIds[betterGroups[j]].equivalents.length) {
-                            allUsed = false;
-                            break;
+                if (lesserGroups) {
+                    for (var i = lesserGroups.length; i--;) {
+                        var betterGroups = this.groupByIds[lesserGroups[i]].betterGroups;
+                        var allUsed = true;
+                        for (var j = betterGroups.length; j--;) {
+                            if (this.groupByIds[betterGroups[j]].currentEquivalent != this.groupByIds[betterGroups[j]].equivalents.length) {
+                                allUsed = false;
+                                break;
+                            }
                         }
-                    }
-                    if (allUsed) {
-                        // This group have all it's better group already used, so it can become active.
-                        this.groupByIds[lesserGroups[i]].active = true;
+                        if (allUsed) {
+                            // This group have all it's better group already used, so it can become active.
+                            this.groupByIds[lesserGroups[i]].active = true;
+                        }
                     }
                 }
             }
@@ -145,8 +147,11 @@ class ItemPool {
             group.active = true;
             
             // Deactivate lesser groups
-            for (var i = this.lesserGroupsById[group.id].length; i--;) {
-                this.groupByIds[this.lesserGroupsById[group.id][i]].active = false;
+            var lesserGroups = this.lesserGroupsById[group.id];
+            if (lesserGroups) {
+                for (var i = this.lesserGroupsById[group.id].length; i--;) {
+                    this.groupByIds[this.lesserGroupsById[group.id][i]].active = false;
+                }
             }
         }
         if (group.equivalents[group.currentEquivalent].currentAvailable == group.equivalents[group.currentEquivalent].available) {

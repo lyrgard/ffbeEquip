@@ -138,7 +138,14 @@ class BuildOptimizer {
             }
         }
         var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, includeSingleWielding, includeDualWielding);
-        itemPool.addItems(tempResult);
+        for (var i = tempResult.length; i--;) {
+            var entry = tempResult[i];
+            if (weaponList.includes(type) && (typeCombination[1] || this._unitBuild.fixedItems[0] || this._unitBuild.fixedItems[1]) && isTwoHanded(entry.item) ) {
+                continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
+            }
+            itemPool.addItem(entry);    
+        }
+        
         itemPool.prepare();
         /*var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
         return resultTree;*/

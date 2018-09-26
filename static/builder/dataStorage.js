@@ -259,8 +259,9 @@ class DataStorage {
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
             var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+            itemPool.addItems(dualWieldByType[types[i]]);
             itemPool.prepare();
-            this.dualWieldSources = itemPool.getEntries().map(x => x.item);
+            this.dualWieldSources = this.dualWieldSources.concat(itemPool.getEntries().map(x => x.item));
             /*var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 this.dualWieldSources.push(tree.children[index].equivalents[0].item);
