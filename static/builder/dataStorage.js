@@ -423,6 +423,7 @@ class DataStorage {
                 if (item.singleWieldingGL && item.singleWieldingGL[stats[index]]) return true;
                 if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
                 if (item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stats[index]]) return true;
+                if (item.esperStatsBonus && item.esperStatsBonus[stats[index]]) return true;
             }
         }
         if (this.desirableElements.length != 0) {
