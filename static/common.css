@@ -872,6 +872,10 @@ p.linkInputCopied {
     margin-top: 5px;
 }
 
+.select2-container--bootstrap .select2-results > .select2-results__options {
+    max-height: 400px;
+}
+
 @media (max-width: 991px) {
 
     /* Adapt scroll button with button sidebar */
