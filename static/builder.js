@@ -1125,7 +1125,7 @@ function updateGoal() {
                 }
                 multicastSkill = getMulticastSkillAbleToMulticast(multicastedSkills, unitWithSkills);
                 if (multicastedSkills) {
-                    choiceSelect.val("MULTICAST_" + multicastSkill.id);
+                    choiceSelect.val("MULTICAST_" + multicastedSkills.id);
                 }
             }
         } else {
