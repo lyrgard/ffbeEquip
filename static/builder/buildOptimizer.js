@@ -137,8 +137,12 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
-        return resultTree;
+        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, includeSingleWielding, includeDualWielding);
+        itemPool.addItems(tempResult);
+        itemPool.prepare();
+        /*var resultTree =  ItemTreeComparator.sort(tempResult, numberNeeded, this._unitBuild, this.ennemyStats, this.desirableElements, this.desirableItemIds, typeCombination, includeSingleWielding, includeDualWielding);
+        return resultTree;*/
+        return itemPool;
     }
     
     getElementBasedSkills() {
@@ -212,59 +216,24 @@ class BuildOptimizer {
         if (fixedItems[index]) {
             this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, itemBasedSkills);
         } else {
-            if (typeCombination[index]  && dataWithConditionItems[typeCombination[index]].children.length > 0) {
-                var itemTreeRoot = dataWithConditionItems[typeCombination[index]];
+            if (typeCombination[index]) {
+                var itemPool = dataWithConditionItems[typeCombination[index]];
                 var foundAnItem = false;
-
-                var len = itemTreeRoot.children.length;
-                for (var childIndex = 0; childIndex < len; childIndex++) {
-                    var entry = itemTreeRoot.children[childIndex].equivalents[itemTreeRoot.children[childIndex].currentEquivalentIndex];
-                    var item = entry.item;
-                    var numberRemaining = entry.available;
-                    if (numberRemaining > 0) {
-                        if (index == 1 && isTwoHanded(item)) {
-                            continue;
-                        }
-                        var currentEquivalentIndex = itemTreeRoot.children[childIndex].currentEquivalentIndex;
-                        var currentChild = itemTreeRoot.children[childIndex];
-                        var removedChild = false;
-                        var addedChildrenNumber = 0;
-                        if (numberRemaining == 1 && (index == 0 ||index == 4 || index == 6 || index == 7 || index == 8)) {
-                            // We used all possible copy of this item, switch to a worse item in the tree
-                            if (currentChild.equivalents.length > currentEquivalentIndex + 1) {
-                                currentChild.currentEquivalentIndex++;
-                            } else if (currentChild.children.length > 0) {
-                                // add the children of the node to root level
-                                Array.prototype.splice.apply(itemTreeRoot.children, [childIndex, 1].concat(currentChild.children));
-                                removedChild = true;
-                                addedChildrenNumber = currentChild.children.length;
-                            } else {
-                                // we finished this branch, remove it
-                                itemTreeRoot.children.splice(childIndex,1);
-                                removedChild = true;
-                            }
-                        }
-                        entry.available--;
+                for (var i = itemPool.keptItems.length; i--;) {
+                    if (itemPool.keptItems[i].active) {
+                        var item = itemPool.take(i);
                         this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills);
-                        entry.available++;
-                        //dataWithConditionItems[typeCombination[index]] = itemTreeRoot;
-                        currentChild.currentEquivalentIndex = currentEquivalentIndex;
-                        if (removedChild) {
-                            itemTreeRoot.children.splice(childIndex, addedChildrenNumber, currentChild);    
-                        }
+                        itemPool.putBack(i);
                         foundAnItem = true;
                     }
                 }
+            
                 if (!foundAnItem) {
                     this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, itemBasedSkills);
                 }
                 build[index] == null;
             } else {
-                var item = null;
-                if (typeCombination[index]) {
-                    item = {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true};
-                }
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills);
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, itemBasedSkills);
             }
         }
         build[index] = null;

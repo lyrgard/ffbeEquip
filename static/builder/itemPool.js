@@ -1,8 +1,12 @@
 class ItemPool {
-    constructor(maxDepth, involvedStats, ennemyStats) {
+    constructor(maxDepth, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) {
         this.maxDepth = maxDepth;
         this.involvedStats = involvedStats;
         this.ennemyStats = ennemyStats;
+        this.desirableElements = desirableElements;
+        this.desirableItemIds = desirableItemIds;
+        this.includeSingleWielding = includeSingleWielding;
+        this.includeDualWielding = includeDualWielding;
         this.keptItems = [];
         this.groupByIds = {};
         this.groupByItemIds = {};
@@ -28,7 +32,7 @@ class ItemPool {
         var lesserGroups = [];
         var betterItemCount = 0;
         for (var i = this.keptItems.length; i--;) {
-            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, {"races":[]}, null, null, true, true);
+            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.includeSingleWielding, this.includeDualWielding);
             switch (comparison) {
                 case "strictlyWorse":
                     betterItemCount += this.keptItems[i].available;
@@ -76,13 +80,32 @@ class ItemPool {
         }
     }
     
-    prepareForIteration() {
+    prepare() {
         for (var i = this.keptItems.length; i--;) {
             if (this.keptItems[i].equivalents.length > 1) {
                 this.keptItems[i].equivalents.sort(ItemPool.equivalentSort);
+                
+                var number = 0;
+                var numberNeeded = this.maxDepth; // todo take better items into consideration
+                for (var j = 0, lenj = this.keptItems[i].equivalents.length; j < lenj; j++) {
+                    number += this.keptItems[i].equivalents[j].available;
+                    if (number >= numberNeeded) {
+                        this.keptItems[i].equivalents = this.keptItems[i].equivalents.slice(0, j+1);
+                        this.keptItems[i].available = number;
+                        break;
+                    }
+                }
             }
             this.keptItems[i].active = (this.keptItems[i].betterGroups.length == 0);
         }
+    }
+    
+    getEntries() {
+        var entries = [];
+        for (var i = this.keptItems.length; i--;) {
+            entries = entries.concat(this.keptItems[i].equivalents);
+        }
+        return entries;
     }
     
     take(index) {
@@ -133,7 +156,7 @@ class ItemPool {
         group.equivalents[group.currentEquivalent].currentAvailable++;
     }
     
-    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) {
+    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding = true, includeDualWielding = true) {
         var comparisionStatus = [];
         for (var index = stats.length; index--;) {
             if (stats[index] == "physicalKiller") {

@@ -1756,18 +1756,16 @@ Modal = {
         });
     },
     
-    showError: function(text, error) 
-    {
-        if (typeof error !== 'string') error = JSON.stringify(error);
-
+    showError: function(text, error) {
         Modal.show({
             title: "Something went wrong, Kupo!",
             body: '<p>'+text+'</p>'+
-                  '<pre class="error">'+error+'</pre>',
+                  '<pre class="error">'+error.toString()+'</pre>',
             withCancelButton: false
         });
         if (window.console && window.console.trace) {
             window.console.trace();
+            window.console.error(error);
         }
     },
     

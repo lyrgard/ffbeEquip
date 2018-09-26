@@ -225,11 +225,15 @@ class DataStorage {
                 var numberNeeded = 1;
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
-                var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
-                this.dataByType[type] = [];
-                for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
+                var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+                itemPool.addItems(this.dataByType[type]);
+                itemPool.prepare();
+                //var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+                this.dataByType[type] = itemPool.getEntries();
+                /*for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                     this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    
-                }
+                }*/
+                
             } else {
                 this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
             }
@@ -254,14 +258,17 @@ class DataStorage {
         var types = Object.keys(dualWieldByType);
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
-            var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+            var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+            itemPool.prepare();
+            this.dualWieldSources = itemPool.getEntries().map(x => x.item);
+            /*var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
             for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
                 this.dualWieldSources.push(tree.children[index].equivalents[0].item);
-            }
+            }*/
         }
     }
     
-    addEntriesToResult(tree, result, keptNumber, keepEntry) {
+    /*addEntriesToResult(tree, result, keptNumber, keepEntry) {
         tree.equivalents.sort(function(entry1, entry2) {
             if (entry1.defenseValue == entry2.defenseValue) {
                 if (entry2.available == entry1.available) {
@@ -283,7 +290,7 @@ class DataStorage {
         for (var index = 0, len = tree.children.length; index < len; index++) {
             this.addEntriesToResult(tree.children[index], result, keptNumber, keepEntry);    
         }
-    }
+    }*/
 
     getItemEntry(item, availableNumber = null, owned = false) {
         return {

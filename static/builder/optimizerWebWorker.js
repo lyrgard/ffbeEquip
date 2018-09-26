@@ -4,6 +4,7 @@ importScripts('unitBuild.js');
 importScripts('treeComparator.js');
 importScripts('esperTreeComparator.js');
 importScripts('itemTreeComparator.js');
+importScripts('itemPool.js');
 importScripts('buildOptimizer.js');
 importScripts('ennemyStats.js');
 
