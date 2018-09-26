@@ -348,11 +348,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                             }
                         }
                     }
-                    if (context.killerBuff && context.killerBuff[applicableKillerType]) {
-                        for (var raceIndex = ennemyStats.races.length; raceIndex--;) {
-                            if (context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]]) {
-                                cumulatedKillerByRace[ennemyStats.races[raceIndex]] += context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]];
-                            }
+                }
+                if (context.killerBuff && context.killerBuff[applicableKillerType]) {
+                    for (var raceIndex = ennemyStats.races.length; raceIndex--;) {
+                        if (context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]]) {
+                            cumulatedKillerByRace[ennemyStats.races[raceIndex]] += context.killerBuff[applicableKillerType][ennemyStats.races[raceIndex]];
                         }
                     }
                 }
