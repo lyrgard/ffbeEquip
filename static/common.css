@@ -951,6 +951,9 @@ p.linkInputCopied {
     #header.headerFina .headerContent {
         padding-left: 270px;
     }
+    #header.headerMogChocobo .headerContent {
+        padding-left: 270px;
+    }
 
     #header .bannerBackground {
         display: none;
@@ -1025,6 +1028,9 @@ p.linkInputCopied {
     #header.headerFina .headerContent {
         padding-left: 240px;
     }
+    #header.headerMogChocobo .headerContent {
+        padding-left: 240px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1044,7 +1050,8 @@ p.linkInputCopied {
     #header.headerRain .headerContent,
     #header.headerNichol .headerContent,
     #header.headerLid .headerContent,
-    #header.headerFina .headerContent {
+    #header.headerFina .headerContent,
+    #header.headerMogChocobo .headerContent {
         padding-left: 85px;
     }
 
