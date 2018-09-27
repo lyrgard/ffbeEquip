@@ -869,7 +869,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Dark Curiosity","Magic Rod Wielder","Liberation"]
 	},
 	"100005805": {
 		"name":"Marie",
@@ -951,7 +952,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"]
+		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Revenge","Anti-magic Retaliation","Axe Mastery","Doublehand"]
 	},
 	"100006105": {
 		"name":"Wilhelm",
@@ -1030,7 +1032,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["fist","hat","clothes","lightArmor","robe"]
+		"equip":["fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Victory Guise","Hi Chakra","Victorious Determination"]
 	},
 	"100006503": {
 		"name":"Jean",
@@ -1550,6 +1553,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Twin Blade General","Arms Eraser","Armor Eraser","Full Break+"],
 		"6_form": {
 			"name":"Loren",
 			"wikiEntry":"Loren",
@@ -1564,7 +1568,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Twin Blade General","Arms Eraser","Armor Eraser","Full Break+"]
 		}
 	},
 	"100009204": {
@@ -1749,7 +1754,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Blast Gem","Heat Gem","Blessed Spellblade","Cold Gem","Sunlight Gem"]
 	},
 	"100010203": {
 		"name":"Kamui",
@@ -1796,6 +1802,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
 		"6_form": {
 			"name":"Roy",
 			"wikiEntry":"Roy",
@@ -1810,7 +1817,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+			"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"]
 		}
 	},
 	"100010504": {
@@ -1873,6 +1881,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"],
 		"6_form": {
 			"name":"Duke",
 			"wikiEntry":"Duke",
@@ -1887,7 +1896,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"]
 		}
 	},
 	"100010904": {
@@ -1918,7 +1928,8 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Magic Barrier","Spiritual Barrier","Triteleia Wall"]
 	},
 	"100011103": {
 		"name":"Charie",
@@ -7275,6 +7286,68 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","hammer","gun","lightShield","hat","clothes","lightArmor"]
+	},
+	"401004405": {
+		"name":"Circé",
+		"wikiEntry":"Circe",
+		"id":"401004405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4444,"mp":284,"atk":148,"def":158,"mag":204,"spr":184},
+			"minStats":{"hp":1467,"mp":94,"atk":49,"def":52,"mag":67,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Circé",
+			"wikiEntry":"Circe",
+			"id":"401004405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3418,"mp":218,"atk":113,"def":121,"mag":156,"spr":141},
+				"minStats":{"hp":1128,"mp":72,"atk":37,"def":40,"mag":51,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"]
+		}
+	},
+	"401004605": {
+		"name":"Malphasie",
+		"wikiEntry":"Malphasie",
+		"id":"401004605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4571,"mp":255,"atk":195,"def":155,"mag":199,"spr":184},
+			"minStats":{"hp":1508,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","fist","hat","clothes","robe"],
+		"6_form": {
+			"name":"Malphasie",
+			"wikiEntry":"Malphasie",
+			"id":"401004605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"minStats":{"hp":1160,"mp":65,"atk":50,"def":39,"mag":50,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","fist","hat","clothes","robe"]
+		}
 	},
 	"401004905": {
 		"name":"Adam Jensen",

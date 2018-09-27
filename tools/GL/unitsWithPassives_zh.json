@@ -1066,9 +1066,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Dark Curiosity","Magic Rod Wielder","Liberation"],
+		"enhancements": [
+			{"name":"Dark Curiosity","levels":[[{"mpRefresh":3}],[{"mpRefresh":5}],[{"mpRefresh":5,"killers":[{"name":"beast","magical":30},{"name":"demon","magical":30},{"name":"undead","magical":30}]}]]},
+			{"name":"Magic Rod Wielder","levels":[[{"equipedConditions":["rod"],"mp%":20,"mag%":30}],[{"equipedConditions":["rod"],"mp%":30,"mag%":30}],[{"equipedConditions":["rod"],"mp%":30,"mag%":60}]]}
+		],
 		"skills": [
-			{"mp%":20, "mag%":20, "mpRefresh":3},
-			{"mp%":20, "mag%":30, "equipedConditions":["rod"]}
+			{"mp%":20, "mag%":20}
 		]
 	},
 	"100005805": {
@@ -1176,10 +1180,14 @@
 		},
 		"stats_pattern":1,
 		"equip":["axe","hammer","mace","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Revenge","Anti-magic Retaliation","Axe Mastery","Doublehand"],
+		"enhancements": [
+			{"name":"Axe Mastery","levels":[[{"equipedConditions":["axe"],"atk%":50}],[{"equipedConditions":["axe"],"atk%":75}],[{"equipedConditions":["axe"],"atk%":100}]]},
+			{"name":"Doublehand","levels":[[{"singleWieldingOneHanded":{"atk":50}}],[{"singleWieldingOneHanded":{"atk":75}}],[{"singleWieldingOneHanded":{"atk":125}}]]}
+		],
 		"skills": [
-			{"hp%":40, "atk%":10, "def%":10, "singleWieldingOneHanded":{"atk":50}, "lbFillRate":300},
-			{"atk%":50, "equipedConditions":["hammer"]},
-			{"atk%":50, "equipedConditions":["axe"]}
+			{"hp%":40, "atk%":10, "def%":10, "lbFillRate":300},
+			{"atk%":50, "equipedConditions":["hammer"]}
 		]
 	},
 	"100006105": {
@@ -1284,10 +1292,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Victory Guise","Hi Chakra","Victorious Determination"],
+		"enhancements": [
+			{"name":"Victory Guise","levels":[[{"equipedConditions":["clothes"],"atk%":20,"def%":20}],[{"killers":[{"name":"undead","physical":25}],"hp%":20},{"equipedConditions":["clothes"],"atk%":20,"def%":20}],[{"killers":[{"name":"undead","physical":50}],"hp%":20},{"equipedConditions":["clothes"],"atk%":40,"def%":40}]]},
+			{"name":"Victorious Determination","levels":[[{"equipedConditions":["hat"],"atk%":20,"def%":20}],[{"killers":[{"name":"undead","physical":25}],"mp%":20},{"equipedConditions":["hat"],"atk%":20,"def%":20}],[{"killers":[{"name":"undead","physical":50}],"mp%":20},{"equipedConditions":["hat"],"atk%":40,"def%":40}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":20},
-			{"atk%":20, "def%":20, "equipedConditions":["clothes"]},
-			{"atk%":20, "def%":20, "equipedConditions":["hat"]},
 			{"atk%":200, "equipedConditions":["unarmed"]}
 		]
 	},
@@ -2014,8 +2025,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Twin Blade General","Arms Eraser","Armor Eraser","Full Break+"],
+		"enhancements": [
+			{"name":"Twin Blade General","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "def%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":["504213800"]},
 			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
@@ -2039,8 +2054,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Twin Blade General","Arms Eraser","Armor Eraser","Full Break+"],
+		"enhancements": [
+			{"name":"Twin Blade General","levels":[[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":30,"mp%":20,"hp%":20}],[{"special":["dualWield"],"spr%":30,"def%":30,"atk%":60,"mp%":20,"hp%":20}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":30, "def%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
 		}
@@ -2284,9 +2303,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Blast Gem","Heat Gem","Blessed Spellblade","Cold Gem","Sunlight Gem"],
+		"enhancements": [
+			{"name":"Blessed Spellblade","levels":[[{"equipedConditions":["sword"],"atk%":20,"mag%":20}],[{"equipedConditions":["sword"],"atk%":50,"mag%":50}],[{"equipedConditions":["sword"],"atk%":80,"mag%":80}]]}
+		],
 		"skills": [
-			{"mp%":20, "atk%":20, "mag%":20},
-			{"atk%":20, "mag%":20, "equipedConditions":["sword"]}
+			{"mp%":20, "atk%":20, "mag%":20}
 		]
 	},
 	"100010203": {
@@ -2340,8 +2362,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
+		"enhancements": [
+			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":30, "def%":20, "spr%":30, "resist":[{"name":"silence","percent":100}]},
+			{"hp%":10, "def%":20, "spr%":30},
 			{"def%":30, "equipedConditions":["clothes"]},
 			{"spr%":30, "equipedConditions":["robe"]},
 			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "equipedConditions":["403043300"]},
@@ -2363,8 +2389,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+			"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
+		"enhancements": [
+			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
+		],
 			"skills": [
-				{"hp%":30, "def%":20, "spr%":30, "resist":[{"name":"silence","percent":100}]},
+				{"hp%":10, "def%":20, "spr%":30},
 				{"def%":30, "equipedConditions":["clothes"]},
 				{"spr%":30, "equipedConditions":["robe"]}
 			]
@@ -2440,9 +2470,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"],
+		"enhancements": [
+			{"name":"Dragon Sealer","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"spr%":20,"mpRefresh":5}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"spr%":20,"mp%":20,"mpRefresh":5}]]},
+			{"name":"Spear Mastery","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "jumpDamage":120, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}]},
-			{"atk%":50, "equipedConditions":["spear"]},
+			{"hp%":30, "atk%":30, "jumpDamage":120, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}]},
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":40}, "equipedConditions":["504216520"]},
 			{"skillEnhancement":{"216420":1,"216430":1,"216440":1,"216450":1,"216460":1,"707258":1,"707259":1}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
@@ -2466,9 +2500,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"],
+		"enhancements": [
+			{"name":"Dragon Sealer","levels":[[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"spr%":20,"mpRefresh":5}],[{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}],"spr%":20,"mp%":20,"mpRefresh":5}]]},
+			{"name":"Spear Mastery","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"equipedConditions":["spear"],"atk%":100}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":30, "jumpDamage":120, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}]},
-				{"atk%":50, "equipedConditions":["spear"]}
+				{"hp%":30, "atk%":30, "jumpDamage":120, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"dragon","physical":100}]}
 			]
 		}
 	},
@@ -2505,8 +2543,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Magic Barrier","Spiritual Barrier","Triteleia Wall"],
+		"enhancements": [
+			{"name":"Spiritual Barrier","levels":[[{"spr%":30}],[{"spr%":40}],[{"spr%":60}]]}
+		],
 		"skills": [
-			{"mp%":30, "def%":30, "spr%":30}
+			{"mp%":30, "def%":30}
 		]
 	},
 	"100011103": {
@@ -9765,6 +9807,91 @@
 		"skills": [
 			{"mp%":20, "atk%":10, "def%":10, "mag%":10, "spr%":10}
 		]
+	},
+	"401004405": {
+		"name":"瑟希",
+		"wikiEntry":"Circe",
+		"id":"401004405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4444,"mp":284,"atk":148,"def":158,"mag":204,"spr":184},
+			"minStats":{"hp":1467,"mp":94,"atk":49,"def":52,"mag":67,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "equipedConditions":["1100000196"]},
+			{"spr%":20, "levelCondition":115},
+			{"mp%":40, "mag%":40, "levelCondition":120},
+			{"hp%":30, "mag%":30, "equipedConditions":["robe"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"瑟希",
+			"wikiEntry":"Circe",
+			"id":"401004405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3418,"mp":218,"atk":113,"def":121,"mag":156,"spr":141},
+				"minStats":{"hp":1128,"mp":72,"atk":37,"def":40,"mag":51,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"mag%":50, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"401004605": {
+		"name":"瑪爾菲希",
+		"wikiEntry":"Malphasie",
+		"id":"401004605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4571,"mp":255,"atk":195,"def":155,"mag":199,"spr":184},
+			"minStats":{"hp":1508,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","fist","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "mp%":30, "atk%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
+			{"atk%":50, "mag%":50, "equipedConditions":["fist"]},
+			{"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}, "lbFillRate":50, "equipedConditions":["1100000194"]},
+			{"spr%":20, "levelCondition":115},
+			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "skillEnhancement":{"911340":4,"911341":4}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"瑪爾菲希",
+			"wikiEntry":"Malphasie",
+			"id":"401004605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"minStats":{"hp":1160,"mp":65,"atk":50,"def":39,"mag":50,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","fist","hat","clothes","robe"],
+			"skills": [
+				{"hp%":10, "mp%":30, "atk%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
+				{"atk%":50, "mag%":50, "equipedConditions":["fist"]}
+			]
+		}
 	},
 	"401004905": {
 		"name":"亞當·傑森",
