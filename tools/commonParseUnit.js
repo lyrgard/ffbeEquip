@@ -482,11 +482,11 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
         result = [];
         var masteryElements;
         if (Array.isArray(masteryEffect[0])) {
-            elements = masteryEffect[0];
+            masteryElements = masteryEffect[0];
         } else {
-            elements = [masteryEffect[0]];
+            masteryElements = [masteryEffect[0]];
         }
-        var result = {"equipedConditions":elements.map(x => elementsMap[x])};
+        var result = {"equipedConditions":masteryElements.map(x => elementsMap[x])};
         if (elements.length > 1) {
             result.equipedConditionIsOr = true;
         }
@@ -1779,6 +1779,10 @@ function formatForSkills(units) {
         result += "\n\t\"" + unitId + "\": {";
         result += getUnitBasicInfo(unit) + ",";
         result += "\n" + "\t\t\"lb\": " + JSON.stringify(unit.lb) + ",";
+        if (Object.keys(unit.innates).length > 0) {
+            result += "\n" + "\t\t\"innate\": " + JSON.stringify(unit.innates) + ",";
+        }
+        
         result += "\n" + "\t\t\"passives\": [";
         var firstPassive = true;
         for (var skillIndex in unit.passives) {
