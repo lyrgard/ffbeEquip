@@ -1001,7 +1001,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
             console.log("Strange Magic damage with ignoe SPR");
             console.log(rawEffect);
         }
-        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":-rawEffect[3][3]}}};
+        result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":rawEffect[3][2]/100, "ignore":{"spr":rawEffect[3][3]}}};
     
     // Physical Damage from DEF
     } else if (rawEffect[2] == 102) {
