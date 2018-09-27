@@ -13,7 +13,7 @@ class BuildOptimizer {
             if (skill.equipedConditions) {
                 for (var i = skill.equipedConditions.length; i--;) {
                     if (!elementList.includes(skill.equipedConditions[i]) && !typeList.includes(skill.equipedConditions[i])) {
-                        if (!this.desirableItemIds.includes(skill.equipedConditions[i])) {
+                        if (!this._unitBuild.fixedItemsIds.includes(skill.equipedConditions[i]) && !this.desirableItemIds.includes(skill.equipedConditions[i])) {
                             this.desirableItemIds.push(skill.equipedConditions[i]);            
                         }
                     }

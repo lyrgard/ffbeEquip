@@ -230,6 +230,19 @@ class TreeComparator {
         if (item1.elementType == item2.elementType) {
             return "equivalent";
         } else {
+            if (item1.elementType == "neutral") {
+                if (item2.elementType == "element_0") {
+                    return "strictlyWorse";
+                } else {
+                    return "sameLevel";
+                }
+            } else if (item1.elementType == "element_0") {
+                if (item2.elementType == "neutral") {
+                    return "strictlyBetter";
+                } else {
+                    return "sameLevel";
+                }
+            }
             return "sameLevel";
         }
     }
