@@ -717,7 +717,7 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
 }
 
 
-function hasStack(formula) {
+function hasStack(formula) { 
     if (!formula) {
         return false;
     }
