@@ -135,9 +135,6 @@ function parseFormula(formula, unit) {
     if (caracts.includes("stack")) {
         result.stack = true;
     }
-    if (caracts.includes("upgradable")) {
-        result.upgradable = true;
-    }
     return result;
 }
 
@@ -227,15 +224,12 @@ function parseExpression(formula, pos, unit) {
 function getFormulaFromSkillToken(token, unit) {
     if (token.startsWith("SKILL(") && token.endsWith(")")) {
         var upgradeTriggerUsed = false;
-        var skillName;
-        if (token.endsWith("_UPGRADED")) {
-            var skillName = token.substr(6, token.length - 16);    
-            upgradeTriggerUsed = true;
-        } else {
-            var skillName = token.substr(6, token.length - 7);
-        }
+        var skillName = token.substr(6, token.length - 7);
         var skill = getSkillFromName(skillName, unit);
-        return formulaFromSkill(skill, upgradeTriggerUsed);
+        if (!skill) {
+            skill = getSkillFromId(skillName, unit);
+        }
+        return formulaFromSkill(skill);
     } else {
         return null;
     }
@@ -404,7 +398,7 @@ function getSkillFromId(skillId, unitWithSkills) {
 }
 
 
-function formulaFromSkill(skill, triggerSkillUsedLastTurn = true) {
+function formulaFromSkill(skill) {
     var canBeGoal = false;
     var hasStack = false;
     var isUpgradable = false;
@@ -422,17 +416,13 @@ function formulaFromSkill(skill, triggerSkillUsedLastTurn = true) {
         if (!effects[i].effect) {
             return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
         }
-        var formulaToAdd = formulaFromEffect(effects[i], triggerSkillUsedLastTurn);
+        var formulaToAdd = formulaFromEffect(effects[i]);
         if (formulaToAdd) {
             if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal" || formulaToAdd.type == "skill") {
                 canBeGoal = true;
             }
             if (formulaToAdd.value.stack) {
                 hasStack = true;
-            }
-            if (formulaToAdd.hasOwnProperty("upgraded")) {
-                isUpgradable = true;
-                var upgradableBy = formulaToAdd.upgradableBy;
             }
             if (!formula) {
                 formula = formulaToAdd;
@@ -446,24 +436,18 @@ function formulaFromSkill(skill, triggerSkillUsedLastTurn = true) {
         }
     }
     if (formula) {
-        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb, "upgradable": isUpgradable};
-        if (isUpgradable) {
-            formula.upgradableBy = upgradableBy;
-        }
+        formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb};
     }
     if (canBeGoal) {
         if (hasStack && !caracts.includes("stack")) {
             caracts.push("stack");
-        }
-        if (isUpgradable && !caracts.includes("upgradable")) {
-            caracts.push("upgradable");
         }
         return formula;
     }
     return null;
 }
 
-function formulaFromEffect(effect, triggerSkillUsedLastTurn) {
+function formulaFromEffect(effect) {
     if (effect.effect.damage) {
         var coef = effect.effect.damage.coef;
         return {"type":"damage", "value":effect.effect.damage};
@@ -492,24 +476,6 @@ function formulaFromEffect(effect, triggerSkillUsedLastTurn) {
             "type": "killers",
             "value": effect.effect
         }
-    } else if (effect.effect.use && effect.effect.orUse) {
-        var skill;
-        if (triggerSkillUsedLastTurn) {
-            skill = effect.effect.orUse;
-        } else {
-            skill = effect.effect.use;
-        }
-        var result = formulaFromSkill(skill, false);
-        if (result) {
-            return {
-                "type": "skill",
-                "id":skill.id, 
-                "name":skill.name,
-                "upgraded":triggerSkillUsedLastTurn,
-                "upgradableBy":effect.effect.ifUsedLastTurn,
-                "value": result
-            }
-        }
     }
     return null;
 }
@@ -526,11 +492,7 @@ function innerFormulaToString(formula, useParentheses = false) {
         if (formula.formulaName) {
             return getVariableName(formula.formulaName);
         } else {
-            if (formula.value.type == "skill" && formula.value.upgraded) {
-                return "SKILL(" + formula.name + "_UPGRADED)";
-            } else {
-                return "SKILL(" + formula.name + ")";
-            }
+            return "SKILL(" + formula.id + ")";
         }
     } else if (formula.type == "multicast") {
         return "MULTICAST(" + formula.skills.map(innerFormulaToString).join(",") + ")";
@@ -751,6 +713,24 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
                     break;
             }
         }
+    }
+}
+
+
+function hasStack(formula) {
+    if (formula.type == "multicast") {
+        for (var i = formula.skills.length; i--;) {
+            if (hasStack(formula.skills[i])) {
+                return true;
+            }
+        }
+        return false;
+    } else if (formula.type == "skill") {
+        return formula.stack;
+    } else if (formula.type == "condition") {
+        return hasStack(formula.formula);
+    } else {
+        return false;
     }
 }
 

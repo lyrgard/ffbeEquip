@@ -106,8 +106,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
-                    skill.name = skill.name + " +" + enhancementLevel;
+                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut, enhancementLevel);
                     unitOut.actives.push(skill);
                 } 
             }
@@ -121,8 +120,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                     enhancementLevel++;
                     skillId = enhancements[skillId];
                     skillIn = skills[skillId];
-                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
-                    skill.name = skill.name + " +" + enhancementLevel;
+                    var skill = parseActiveSkill(skillId, skillIn, skills, unitOut, enhancementLevel);
                     unitOut.magics.push(skill);
                 } 
             }
@@ -796,16 +794,26 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
     return null;
 }
 
-function parseActiveSkill(skillId, skillIn, skills, unit) {
+function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) {
     var skill = {"id": skillId , "name" : skillIn.name, "icon": skillIn.icon, "effects": []};
     if (skillIn.type == "MAGIC") {
         skill.magic = skillIn.magic_type.toLocaleLowerCase();
+    }
+    if (enhancementLevel) {
+        skill.name += " +" + enhancementLevel;
     }
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit);
+        var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel);
+        if (effect && effect.id) {
+            if (skillIn["effects_raw"].lenght > 1) {
+                console.error("Exited skill before parsing all effects");
+                console.error(skillIn);
+            }
+            return effect;
+        }
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     return skill;
@@ -827,7 +835,7 @@ function parseLb(lb, unit, skills, unit) {
     }
 }
 
-function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
+function parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel = 0) {
     var result = null;
     
     // break
@@ -956,20 +964,26 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
     // Conditional skills
     } else if (rawEffect[2] == 99) {
         result = {};
-        var skill1 = skills[rawEffect[3][5]];
-        result.use = parseActiveSkill(rawEffect[3][5], skill1, skills, unit);
-        var skill2 = skills[rawEffect[3][3]];
-        result.orUse = parseActiveSkill(rawEffect[3][3], skill2, skills, unit);
-        result.ifUsedLastTurn = [];
+        
+        var skillId1 = rawEffect[3][5].toString();
+        var skillIn1 = skills[skillId1];
+        var skill1 = parseActiveSkill(skillId1, skillIn1, skills, unit, enhancementLevel);
+        
+        var skillId2 = rawEffect[3][3].toString();
+        var skillIn2 = skills[skillId2];
+        var skill2 = parseActiveSkill(skillId2, skillIn2, skills, unit, enhancementLevel);
+        skill2.ifUsedLastTurn = [];
         if (Array.isArray(rawEffect[3][1])) {
             for (var i = 0, len = rawEffect[3][1].length; i < len; i++) {
                 var skill = skills[rawEffect[3][1][i]];
-                result.ifUsedLastTurn.push({"id":rawEffect[3][1][i], "name":skill.name});
+                skill2.ifUsedLastTurn.push({"id":rawEffect[3][1][i], "name":skill.name});
             }
         } else {
             var skill = skills[rawEffect[3][1]];
-            result.ifUsedLastTurn.push({"id":rawEffect[3][1], "name":skill.name});
+            skill2.ifUsedLastTurn.push({"id":rawEffect[3][1], "name":skill.name});
         }
+        addUnlockedSkill(skillId1, skill2, unit);
+        return skill1;
         
     // Magical Damage
     } else if (rawEffect[2] == 15) {
@@ -1091,7 +1105,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
             var parsedSkill = parseActiveSkill(gainedSkillId, gainedSkill, skills, unit)
             
             if (parsedSkill) {
-                addUnlockedSkill(gainedSkillId, parsedSkill, skillIn, unit);
+                addUnlockedSkill(gainedSkillId, parsedSkill, unit, skillIn);
             }
             
             return {
@@ -1131,7 +1145,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
             }
             if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
                 unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
-                addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), skillIn, unit);
+                addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillIn);
             }
         }
         
@@ -1158,7 +1172,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
                     "desc": gainedSkill.effects[0]
                 }
             ]}
-            addUnlockedSkill(gainedSkillId, parsedSkill, skillIn, unit);
+            addUnlockedSkill(gainedSkillId, parsedSkill, unit, skillIn);
 
             return {
                 "gainSkills": {
@@ -1223,20 +1237,24 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit) {
     return result;
 }
 
-function addUnlockedSkill(gainedSkillId, gainedSkill, unlockedBy, unit) {
+function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
     var alreadyAdded = false;
     for (var i = unit.actives.length; i--;) {
         if (unit.actives[i].id == gainedSkillId) {
             alreadyAdded = true;
-            if (!unit.actives[i].unlockedBy) {
-                unit.actives[i].unlockedBy = [];
+            if (unlockedBy) {
+                if (!unit.actives[i].unlockedBy) {
+                    unit.actives[i].unlockedBy = [];
+                }
+                unit.actives[i].unlockedBy.push(unlockedBy.name);
             }
-            unit.actives[i].unlockedBy.push(unlockedBy.name);
             break;
         }
     }
     if (!alreadyAdded) {
-        gainedSkill.unlockedBy = [unlockedBy.name];
+        if (unlockedBy) {
+            gainedSkill.unlockedBy = [unlockedBy.name];
+        }
         unit.actives.push(gainedSkill);
     }
 }

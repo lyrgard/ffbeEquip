@@ -263,14 +263,13 @@ function readGoal(index = currentUnitIndex) {
             if (goalValue == "LB" && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
                 var skill = unitsWithSkills[builds[currentUnitIndex].unit.id].lb;
-                formula = formulaFromSkill(skill, upgradeTriggered);
+                formula = formulaFromSkill(skill);
 
             } else if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
                 var skillId = goalValue.substr(6);
-                var upgradeTriggered = $(".usedLastTurn input").prop("checked");
                 var skill = getSkillFromId(skillId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                formula = formulaFromSkill(skill, upgradeTriggered);
+                formula = formulaFromSkill(skill);
 
             } else if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
@@ -287,7 +286,7 @@ function readGoal(index = currentUnitIndex) {
                     var skillChoiceValue = $("#multicastSelect" + i).val();
                     var skillChoiceId = skillChoiceValue.substr(6);
                     var skillChoice = getSkillFromId(skillChoiceId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                    skillChoiceFormulas.push(formulaFromSkill(skillChoice, false)); // TODO : upgrade triggered
+                    skillChoiceFormulas.push(formulaFromSkill(skillChoice));
                 }
                 formula = {type:"multicast", skills: skillChoiceFormulas};
             } else {
@@ -301,27 +300,8 @@ function readGoal(index = currentUnitIndex) {
     
     goalVariation = $("#goalVariance").val();
     useNew400Cap = $("#useNew400Cap").prop('checked');
-    $(".unitStack").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.stack);
-    $(".usedLastTurn").toggleClass("hidden", !builds[currentUnitIndex].formula || !builds[currentUnitIndex].formula.upgradable);
-    if (builds[currentUnitIndex].formula && builds[currentUnitIndex].formula.upgradableBy) {
-        var triggerSkillsSpan = $(".usedLastTurn .skillNames");
-        triggerSkillsSpan.empty();
-        var first = true;
-        var skillNames = "";
-        for (var skillIndex = 0, lenSkillIndex = builds[currentUnitIndex].formula.upgradableBy.length; skillIndex < lenSkillIndex; skillIndex++) {
-            if (first) {
-                first = false;
-            } else {
-                if (skillIndex == lenSkillIndex -1) {
-                    skillNames += " or ";
-                } else {
-                    skillNames += ", ";
-                }
-            }
-            skillNames += builds[currentUnitIndex].formula.upgradableBy[skillIndex].name;
-        }
-        triggerSkillsSpan.text(skillNames);
-    }
+    
+    $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
 }
 
 function readSimpleConditions(formula) {
@@ -926,6 +906,12 @@ function goalSelectTemplate(state) {
         if (skill) {
             html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text;
             
+            
+            if (skill.ifUsedLastTurn) {
+                unlockers = "if " + skill.ifUsedLastTurn.map(x => x.name).sort().filter((item, pos, ar) => {return !pos || item != ar[pos -1]}).join(",") + " used last turn";
+                html += '<span class="upgradedSkillIcon" title="' + unlockers + '">☆</span>';
+            }
+            
             var formula = formulaFromSkill(skill);
             if (formula.notSupported) {
                 html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
@@ -1396,8 +1382,6 @@ function notLoaded() {
 }
 
 function onGoalChange() {
-    $(".usedLastTurn input").prop("checked", false);
-    $(".usedLastTurn").addClass("hidden");
     manageMulticast();
     readGoal();
     updateDisplayAfterGoalChange();
@@ -2951,7 +2935,6 @@ function startPage() {
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
-    $(".usedLastTurn input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
 
     $("#unitLevel select").change(function() {

@@ -182,8 +182,11 @@
                             <select id="multicastSelect3" class="hidden"></select>
                             <select id="multicastSelect4" class="hidden"></select>
                         </div>
-                        <div class="usedLastTurn hidden">
-                            <input type="checkbox"/><label><span class="skillNames"></span> used last turn</label>
+                        <div class="unitStack line">
+                            <div class="goalLabel">Skill stack</div>
+                            <div>
+                                <input type="text" class="form-control" placeholder="0"/>
+                            </div>
                         </div>
                         <div class="simpleConditions hidden">
                             <a id="simpleConditionsButton" href="#simpleConditionsList" class="btn btn-default" data-toggle="collapse" aria-expanded="false"><div data-toggle="tooltip" data-original-title="Display/Hide additional build conditions"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span></div></a>
@@ -434,13 +437,6 @@
                             <div class="col-xs-3 text-right">Imbue(s):</div>
                             <div class="col-xs-9 btn-group elements choice" data-toggle="buttons" id="elements"></div>
                         </div>
-                        <div class="col-xs-12 unitStack">
-                            <div class="col-xs-3 text-right">Current skill stack:</div>
-                            <div class="col-xs-3">
-                                <input type="text" class="form-control" placeholder="0"/>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
                 <div class="panel panel-default buildRules">

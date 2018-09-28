@@ -395,6 +395,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             coef += formula.value.stack * context.stack.currentStack;
             if (context.stack.currentStack < formula.value.maxStack) {
                 context.stack.currentStack++;
+                context.stack.lastStackingSkillId = context.currentSkill;
             }
         }
         
