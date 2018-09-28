@@ -718,6 +718,9 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
 
 
 function hasStack(formula) {
+    if (!formula) {
+        return false;
+    }
     if (formula.type == "multicast") {
         for (var i = formula.skills.length; i--;) {
             if (hasStack(formula.skills[i])) {
