@@ -2145,9 +2145,11 @@ function getStateHash(onlyCurrent = true) {
     readEnnemyStats();
     data.monster = {
         "races": getSelectedValuesFor("races"),
-        elementalResist : ennemyStats.elementalResists,
-        def : ennemyStats.def,
-        spr : ennemyStats.spr
+        "elementalResist" : ennemyStats.elementalResists,
+        "def" : ennemyStats.def,
+        "spr" : ennemyStats.spr,
+        "breaks" : ennemyStats.breaks,
+        "imperils" : ennemyStats.imperils
     }
     data.itemSelector = {
         "mainSelector": $(".equipments select").val(),
@@ -2271,6 +2273,9 @@ function loadStateHashAndBuild(data, importMode = false) {
             } else {
                 $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
             }
+            if (data.monster.imperils && data.monster.imperils[element]) {
+                $("#elementalResists ." + element + " input.imperil").val(data.monster.imperils[element]);
+            }
         }
         $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
         for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
@@ -2282,6 +2287,14 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         if (data.monster.spr) {
             $("#monsterDefensiveStats .spr .stat").val(data.monster.spr);
+        }
+        if (data.monster.breaks) {
+            if (data.monster.breaks.def) {
+                $("#monsterDefensiveStats .def .break").val(data.monster.breaks.def);
+            }
+            if (data.monster.breaks.spr) {
+                $("#monsterDefensiveStats .spr .break").val(data.monster.breaks.spr);
+            }
         }
     }
     

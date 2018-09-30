@@ -110,6 +110,22 @@ const partyBuildSchema = Joi.object().keys({
         }),
         "def": Joi.number().integer(),
         "spr": Joi.number().integer(),
+        "imperils": Joi.object().keys({
+            fire:Joi.number().integer(),
+            ice:Joi.number().integer(),
+            water:Joi.number().integer(),
+            lightning:Joi.number().integer(),
+            earth:Joi.number().integer(),
+            wind:Joi.number().integer(),
+            light:Joi.number().integer(),
+            dark:Joi.number().integer()
+        }),
+        "breaks":Joi.object().keys({
+            "atk":Joi.number().integer(),
+            "def":Joi.number().integer(),
+            "mag":Joi.number().integer(),
+            "spr":Joi.number().integer(),
+        })
     }),
     "useNewJpDamageFormula": Joi.boolean().required(),
     "useNew400Cap": Joi.boolean().required(),
