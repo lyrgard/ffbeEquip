@@ -212,7 +212,11 @@ class ItemPool {
             return 1;
         } else {
             if (entry1.defenseValue == entry2.defenseValue) {
-                return entry2.available - entry1.available;    
+                if (entry1.mpValue == entry2.mpValue) {
+                    return entry2.available - entry1.available;
+                } else {
+                    return entry2.mpValue - entry1.mpValue;
+                }
             } else {
                 return entry2.defenseValue - entry1.defenseValue;    
             }

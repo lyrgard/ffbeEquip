@@ -298,6 +298,7 @@ class DataStorage {
             "item":item, 
             "name":item.name, 
             "defenseValue":this.getDefenseValue(item),
+            "mpValue":this.getMpValue(item),
             "available":availableNumber || this.getAvailableNumbers(item).available,
             "owned": owned
         };
@@ -308,6 +309,10 @@ class DataStorage {
         var defBaseValue = this.unitBuild.baseValues.def.total;
         var sprBaseValue = this.unitBuild.baseValues.spr.total;
         return this.getStatValueIfExists(item, "hp", hpBaseValue) + this.getStatValueIfExists(item, "def", defBaseValue) + this.getStatValueIfExists(item, "spr", sprBaseValue);
+    }
+    
+    getMpValue(item) {
+        return this.getStatValueIfExists(item, "mp", this.unitBuild.baseValues.mp.total);
     }
     
     getStatValueIfExists(item, stat, baseStat) {
