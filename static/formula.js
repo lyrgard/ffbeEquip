@@ -541,7 +541,7 @@ function getSimpleConditions(formula) {
         "elementalResist": {}
     }
     
-    if (formula.type == "condition") {
+    if (formula && formula.type == "condition") {
         innerGetSimpleConditions(formula.condition, simpleConditions);
     }
     return simpleConditions;
