@@ -295,7 +295,7 @@ function popOperator(operatorStack, outputQueue) {
             alert("Error. Left part of a " + operator + " must evaluate to a boolean.");
             return false;
         }
-        if (value2.type != "elementCondition" && !booleanResultOperators.includes(value1.type)) {
+        if (value2.type != "elementCondition" && !booleanResultOperators.includes(value2.type)) {
             alert("Error. Right part of a " + operator + " must evaluate to a boolean.");
             return false;
         }
