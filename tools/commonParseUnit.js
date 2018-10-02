@@ -136,7 +136,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
             var enhancementData = {"name":skills[skillId].name, "levels":[]}
             var enhancementBaseEffects = {};
             var enhancementSkillsOut = [enhancementBaseEffects];
-            var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
+            var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
             unitOut.passives.push(skill);
             if (Object.keys(enhancementBaseEffects).length === 0) {
                 enhancementSkillsOut.splice(0,1);
@@ -154,7 +154,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillIn = skills[skillId];
                 var enhancementBaseEffects = {};
                 var enhancementSkillsOut = [enhancementBaseEffects];
-                var skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
+                var skill = getPassive(skills[skillId], skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
                 skill.name = skill.name + " +" + enhancementLevel;
                 unitOut.passives.push(skill);
                 
@@ -184,7 +184,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         if (skillsIn[skillIndex].level > 101) {
             baseEffectsLevelCondition = {};
             skillsOutLevelCondition = [baseEffectsLevelCondition];
-            var skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills, unitOut);
+            var skill = getPassive(skillIn, skillId, baseEffectsLevelCondition, skillsOutLevelCondition, skills, unitOut, lbs);
             if (!(Object.keys(skillsOutLevelCondition[0]).length === 0)) {
                 baseEffectsLevelCondition.levelCondition = skillsIn[skillIndex].level;
                 skillsOut.push(baseEffectsLevelCondition);
@@ -194,7 +194,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillsOut.push(skillsOutLevelCondition[i]);
             }
         } else {
-            var skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unitOut);
+            var skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unitOut, lbs);
         }
         unitOut.passives.push(skill);
     }
@@ -209,7 +209,7 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         var enhancementData = {"name":skillIn.name, "levels":[[]]}
         var enhancementBaseEffects = {};
         var enhancementSkillsOut = [enhancementBaseEffects];
-        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut);
+        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
         unitOut.passives.push(skill);
         if (Object.keys(enhancementBaseEffects).length === 0) {
             enhancementSkillsOut.splice(0,1);
@@ -229,20 +229,20 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     
     if (unitData.limitburst_id && lbs[unitData.limitburst_id]) {
         var lb = lbs[unitData.limitburst_id];
-        parseLb(lb, unitOut, skills, unitOut);
+        unitOut.lb = parseLb(lb, unitOut, skills);
     }
     
     return skillsOut;
 }
 
-function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit) {
+function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs) {
     var skill = {"name" : skillIn.name, "id":skillId, "icon": skillIn.icon, "effects": []};
     var tmrAbilityEffects = [];
     
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effects = parsePassiveRawEffet(rawEffect, skills, unit);
+        var effects = parsePassiveRawEffet(rawEffect, skills, unit, lbs);
         if (effects) {
             if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
                 tmrAbilityEffects = tmrAbilityEffects.concat(effects);
@@ -371,11 +371,14 @@ function addEffectsToEffectList(effectList, effects) {
                     effectList[0].skillEnhancement[skillId] += effect.skillEnhancement[skillId];
                 }
             }
+            if (effect.replaceLb) {
+                effectList[0].replaceLb = effect.replaceLb;
+            }
         }
     }
 }
 
-function parsePassiveRawEffet(rawEffect, skills, unit) {
+function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     var result = {};
     // stat bonus
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {               
@@ -790,6 +793,20 @@ function parsePassiveRawEffet(rawEffect, skills, unit) {
             result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
         }
         return [result];
+        
+    // Replace LB
+    } else if (rawEffect[2] == 72) {
+        
+        var lbIn = lbs[rawEffect[3][0]];
+        var lb = parseLb(lbIn, unit, skills);
+        result = {
+            "replaceLb": lb
+        }
+        if (lbIn.name == "Jackpot Shot") {
+            console.log(lbIn);
+            console.log(lb);
+        }
+        return [result];
     }
     return null;
 }
@@ -819,20 +836,21 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
     return skill;
 }
 
-function parseLb(lb, unit, skills, unit) {
-    unit.lb = {"name": lb.name, minEffects: [], "maxEffects":[]}
+function parseLb(lb, unit, skills) {
+    var lbOut = {"name": lb.name, minEffects: [], "maxEffects":[]}
     for (var rawEffectIndex in lb.min_level["effects_raw"]) {
         var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
-        unit.lb.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
+        lbOut.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.max_level["effects_raw"]) {
         var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
-        unit.lb.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
+        lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
     }
+    return lbOut;
 }
 
 function parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel = 0) {
@@ -1431,7 +1449,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
