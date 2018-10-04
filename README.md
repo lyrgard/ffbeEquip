@@ -36,3 +36,7 @@ Set up your node environment
 1) Run 'npm install'
 2) Run 'npm start'
 3) Enter your details from the previous section into the prompted configuration
+
+## License
+
+FFBE Equip is released under the [ISC License](https://opensource.org/licenses/ISC)
