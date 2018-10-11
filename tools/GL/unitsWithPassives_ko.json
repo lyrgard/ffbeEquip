@@ -1121,7 +1121,6 @@
 		"name":"아이린",
 		"wikiEntry":"Aileen",
 		"id":"100005905",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1140,14 +1139,14 @@
 			{"hp%":20, "mp%":20, "atk%":30, "mpRefresh":5},
 			{"singleWielding":{"atk":100}, "lbFillRate":50, "skillEnhancement":{"206190":1.2,"702570":1.2,"702580":1.2}, "equipedConditions":["308001900"]},
 			{"spr%":20, "levelCondition":115},
-			{"atk%":20, "dualWielding":{"atk":30}, "special":["dualWield"], "levelCondition":120}
+			{"atk%":50, "dualWielding":{"atk":30}, "special":["dualWield"], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"아이린",
 			"wikiEntry":"Aileen",
 			"id":"100005905",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -1491,7 +1490,7 @@
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
-			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
+			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip","405002000"]},
 			{"mag%":20, "levelCondition":115},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "skillEnhancement":{"208150":3,"910600":3,"910601":3}, "levelCondition":120}
@@ -1637,7 +1636,6 @@
 		"name":"영원한 어둠의 베리어스",
 		"wikiEntry":"Veritas_of the Dark",
 		"id":"100007705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1655,7 +1653,7 @@
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "replaceLb":{"name":"Seal of Conviction","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.55,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (8.55x, ATK) to all enemies"},{"effect":{"break":{"atk":45,"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 45% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (10x, ATK) to all enemies"},{"effect":{"break":{"atk":74,"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 74% for 3 turns to all enemies"}]}, "equipedConditions":["504210720"]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":30}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "replaceLb":{"name":"Seal of Conviction","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.55,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (8.55x, ATK) to all enemies"},{"effect":{"break":{"atk":45,"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 45% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (10x, ATK) to all enemies"},{"effect":{"break":{"atk":74,"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 74% for 3 turns to all enemies"}]}, "equipedConditions":["504210720"]},
 			{"atk%":20, "equipedConditions":["dagger"], "levelCondition":110},
 			{"atk%":20, "equipedConditions":["sword"], "levelCondition":110},
 			{"atk%":20, "equipedConditions":["greatSword"], "levelCondition":110},
@@ -1669,7 +1667,7 @@
 			"wikiEntry":"Veritas_of the Dark",
 			"id":"100007705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -1739,7 +1737,6 @@
 		"name":"지옥불의 베리어스",
 		"wikiEntry":"Veritas_of the Flame",
 		"id":"100008005",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1758,6 +1755,7 @@
 		"skills": [
 			{"hp%":30, "mp%":10, "atk%":20, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"hp%":20, "mp%":20, "equipedConditions":["504210800"]},
+			{"atk%":50, "equipedConditions":["axe","504210800"]},
 			{"spr%":20, "levelCondition":115},
 			{"atk%":50, "def%":50, "equipedConditions":["axe"], "levelCondition":120}
 		],
@@ -1766,7 +1764,7 @@
 			"wikiEntry":"Veritas_of the Flame",
 			"id":"100008005",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -1812,7 +1810,6 @@
 		"name":"찬란한 빛의 베리어스",
 		"wikiEntry":"Veritas_of the Light",
 		"id":"100008205",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1832,7 +1829,7 @@
 			{"hp%":20, "mp%":20, "mag%":30, "spr%":10, "partialDualWield":["throwing","gun"], "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["throwing"]},
 			{"atk%":50, "equipedConditions":["gun"]},
-			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["504212360"]},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "killers":[{"name":"demon","physical":25,"magical":25},{"name":"machine","physical":25,"magical":25},{"name":"spirit","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "equipedConditions":["504212360"]},
 			{"mag%":20, "levelCondition":115},
 			{"dualWielding":{"atk":50,"mag":50}, "lbFillRate":50, "levelCondition":120}
 		],
@@ -1841,7 +1838,7 @@
 			"wikiEntry":"Veritas_of the Light",
 			"id":"100008205",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5572,7 +5569,6 @@
 		"name":"에코",
 		"wikiEntry":"Eiko",
 		"id":"209000705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5595,7 +5591,7 @@
 			"wikiEntry":"Eiko",
 			"id":"209000705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5669,7 +5665,6 @@
 		"name":"베아트릭스",
 		"wikiEntry":"Beatrix",
 		"id":"209001105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5693,7 +5688,7 @@
 			"wikiEntry":"Beatrix",
 			"id":"209001105",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5988,7 +5983,6 @@
 		"name":"프리쉬",
 		"wikiEntry":"Prishe",
 		"id":"211000405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -6014,7 +6008,7 @@
 			"wikiEntry":"Prishe",
 			"id":"211000405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -7705,7 +7699,6 @@
 		"name":"렘",
 		"wikiEntry":"Rem",
 		"id":"254000905",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -7722,9 +7715,9 @@
 		],
 		"skills": [
 			{"mp%":30, "mag%":20, "spr%":30, "partialDualWield":["dagger"], "mpRefresh":5},
-			{"mag%":30, "spr%":30, "equipedConditions":["504206630"]},
+			{"mag%":30, "spr%":30, "skillEnhancement":{"910197":2,"910703":2,"910704":2}, "equipedConditions":["504206630"]},
 			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "levelCondition":120},
+			{"hp%":20, "mp%":20, "dualWielding":{"mag":30}, "levelCondition":120},
 			{"mag%":30, "spr%":30, "equipedConditions":["dagger"], "levelCondition":120}
 		],
 		"6_form": {
@@ -7732,7 +7725,7 @@
 			"wikiEntry":"Rem",
 			"id":"254000905",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -9110,15 +9103,15 @@
 		"name":"자르가바스",
 		"wikiEntry":"Zargabaath",
 		"id":"401001105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3580,"mp":182,"atk":146,"def":128,"mag":130,"spr":126},
-			"minStats":{"hp":1181,"mp":60,"atk":48,"def":42,"mag":43,"spr":42},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4654,"mp":236,"atk":189,"def":166,"mag":169,"spr":163},
+			"minStats":{"hp":1536,"mp":78,"atk":62,"def":55,"mag":56,"spr":54},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hammer","spear","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Authority","Word of Law","Rejuvenate","Archadian Light"],
 		"enhancements": [
@@ -9130,8 +9123,43 @@
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["light"], "equipedConditionIsOr":true},
-			{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true}
-		]
+			{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"stop","percent":100}], "replaceLb":{"name":"Alexander Crest","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 2 turns to all allies"},{"effect":null,"desc":"Reduce damage taken by 50% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.45,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.45x * 2 = 12.9x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":150,"def":150,"mag":150,"spr":150},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 150% for 2 turns to all allies"},{"effect":null,"desc":"Reduce damage taken by 50% to all allies for 2 turns"}]}, "equipedConditions":["1100000086"]},
+			{"special":["dualWield"], "levelCondition":105},
+			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["sword"], "levelCondition":105},
+			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["greatSword"], "levelCondition":105},
+			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["katana"], "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "evade":{"physical":20}, "lbFillRate":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"자르가바스",
+			"wikiEntry":"Zargabaath",
+			"id":"401001105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3580,"mp":182,"atk":146,"def":128,"mag":130,"spr":126},
+				"minStats":{"hp":1181,"mp":60,"atk":48,"def":42,"mag":43,"spr":42},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","hammer","spear","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Authority","Word of Law","Rejuvenate","Archadian Light"],
+		"enhancements": [
+			{"name":"Authority","levels":[[{"equipedConditions":["sword"],"atk%":30},{"equipedConditions":["greatSword"],"atk%":30},{"equipedConditions":["katana"],"mag%":30},{"equipedConditions":["hammer"],"mag%":30},{"equipedConditions":["spear"],"mag%":30}],[{"equipedConditions":["sword"],"atk%":40},{"equipedConditions":["greatSword"],"atk%":40},{"equipedConditions":["katana"],"mag%":40},{"equipedConditions":["hammer"],"mag%":40},{"equipedConditions":["spear"],"mag%":40}],[{"equipedConditions":["sword"],"hp%":20,"atk%":50,"def%":20},{"equipedConditions":["greatSword"],"hp%":20,"atk%":50,"def%":20},{"equipedConditions":["katana"],"mp%":20,"mag%":50,"spr%":20},{"equipedConditions":["hammer"],"mp%":20,"mag%":50,"spr%":20},{"equipedConditions":["spear"],"mp%":20,"mag%":50,"spr%":20}]]}
+		],
+			"skills": [
+				{"hp%":30, "def%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"light","percent":50},{"name":"dark","percent":-50}], "mpRefresh":5},
+				{"spr%":30, "equipedConditions":["helm"]},
+				{"def%":30, "equipedConditions":["lightArmor"]},
+				{"def%":30, "equipedConditions":["heavyArmor"]},
+				{"hp%":20, "atk%":20, "equipedConditions":["light"], "equipedConditionIsOr":true},
+				{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true}
+			]
+		}
 	},
 	"401001205": {
 		"name":"A2",
@@ -9177,21 +9205,45 @@
 		"name":"발바리시아",
 		"wikiEntry":"Barbariccia",
 		"id":"401001405",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":156,"spr":140},
-			"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":51,"spr":46},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			"maxStats":{"hp":4485,"mp":247,"atk":143,"def":162,"mag":202,"spr":190},
+			"minStats":{"hp":1480,"mp":82,"atk":47,"def":53,"mag":67,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["rod"]},
-			{"spr%":30, "equipedConditions":["lightShield"]}
-		]
+			{"spr%":30, "equipedConditions":["lightShield"]},
+			{"killers":[{"name":"beast","magical":50},{"name":"bird","magical":50},{"name":"human","magical":50},{"name":"stone","magical":50}], "skillEnhancement":{"20330":1,"20390":1,"910424":1}, "equipedConditions":["1500000031"]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mag%":20, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"발바리시아",
+			"wikiEntry":"Barbariccia",
+			"id":"401001405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":156,"spr":140},
+				"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":51,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "mag%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"spr%":30, "equipedConditions":["lightShield"]}
+			]
+		}
 	},
 	"401001504": {
 		"name":"루비칸테",

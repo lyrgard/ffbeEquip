@@ -3937,6 +3937,7 @@
 	},
 	"100021304": {
 		"name":"レイン&チョコボ",
+		"jpname":"レイン&チョコボ",
 		"id":"100021304",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -3978,6 +3979,63 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
+	},
+	"100021705": {
+		"name":"聖盾の騎士シャルロット",
+		"id":"100021705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5011,"mp":225,"atk":167,"def":184,"mag":137,"spr":219},
+			"minStats":{"hp":1654,"mp":74,"atk":55,"def":61,"mag":45,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"聖盾の騎士シャルロット",
+			"id":"100021705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3855,"mp":173,"atk":129,"def":142,"mag":105,"spr":153},
+				"minStats":{"hp":1272,"mp":57,"atk":42,"def":47,"mag":35,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100021803": {
+		"name":"シェパード",
+		"id":"100021803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2865,"mp":158,"atk":115,"def":114,"mag":114,"spr":124},
+			"minStats":{"hp":945,"mp":52,"atk":38,"def":38,"mag":38,"spr":41},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"100022104": {
+		"name":"フリーゼ",
+		"id":"100022104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3676,"mp":175,"atk":153,"def":141,"mag":113,"spr":139},
+			"minStats":{"hp":1213,"mp":58,"atk":50,"def":47,"mag":37,"spr":46},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",

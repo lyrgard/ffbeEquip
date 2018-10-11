@@ -823,7 +823,7 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
     for (var rawEffectIndex in skillIn["effects_raw"]) {
         var rawEffect = skillIn["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel);
+        var effect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel);
         if (effect && effect.id) {
             if (skillIn["effects_raw"].lenght > 1) {
                 console.error("Exited skill before parsing all effects");
@@ -841,19 +841,19 @@ function parseLb(lb, unit, skills) {
     for (var rawEffectIndex in lb.min_level["effects_raw"]) {
         var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
         lbOut.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.max_level["effects_raw"]) {
         var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
         lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
     }
     return lbOut;
 }
 
-function parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel = 0) {
+function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel = 0) {
     var result = null;
     
     // break
@@ -1119,7 +1119,9 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, enhancementLevel
     } else if (rawEffect[2] == 97) {
         var gainedSkillId = rawEffect[3][2].toString();
         var gainedSkill = skills[gainedSkillId];
-        if (gainedSkillId) {
+        if (gainedSkillId && gainedSkillId != skillId) {
+            console.log(gainedSkillId);
+            console.log(skillId);
             var parsedSkill = parseActiveSkill(gainedSkillId, gainedSkill, skills, unit)
             
             if (parsedSkill) {
