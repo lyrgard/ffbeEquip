@@ -14,6 +14,8 @@ const formulaByGoal = {
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
     "summonerSkill":                    {"type":"value","name":"summonerSkill"},
+    "atk":                              {"type":"value","name":"atk"},
+    "mag":                              {"type":"value","name":"mag"},
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
