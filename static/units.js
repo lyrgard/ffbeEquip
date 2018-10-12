@@ -153,14 +153,14 @@ function displayStats() {
             if (unit.summon_type == "event") {
                 stats.timeLimited[unit.min_rarity].total++;
                 if (maxRarity == 7) {
-                    stats.all["7"].total++;
+                    stats.timeLimited["7"].total++;
                 }
                 if (ownedUnits[unit.id]) {
                     stats.timeLimited[unit.min_rarity].number += ownedUnits[unit.id].number;
                     stats.timeLimited[unit.min_rarity].different++;
                     if (maxRarity == 7 && ownedUnits[unit.id].sevenStar) {
-                        stats.all["7"].number += ownedUnits[unit.id].sevenStar;
-                        stats.all["7"].different++;
+                        stats.timeLimited["7"].number += ownedUnits[unit.id].sevenStar;
+                        stats.timeLimited["7"].different++;
                     }
                 }
             }
