@@ -418,6 +418,9 @@ function formulaFromSkill(skill) {
         }
         var formulaToAdd = formulaFromEffect(effects[i]);
         if (formulaToAdd) {
+            if (formulaToAdd.notSupported) {
+                return {"type": "skill", "id":skill.id, "name":skill.name, "notSupported":true};
+            }
             if (formulaToAdd.type == "damage" || formulaToAdd.type == "heal" || formulaToAdd.type == "skill") {
                 canBeGoal = true;
             }
@@ -476,6 +479,8 @@ function formulaFromEffect(effect) {
             "type": "killers",
             "value": effect.effect
         }
+    } else if (effect.effect.cooldownSkill) {
+        return formulaFromSkill(effect.effect.cooldownSkill);
     }
     return null;
 }

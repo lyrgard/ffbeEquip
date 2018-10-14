@@ -619,6 +619,12 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         var jumpDamage = rawEffect[3][0];
         addToStat(result, "jumpDamage", jumpDamage);
         return [result];
+    
+    // +LB Damage
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 68) {
+        var lbDamage = rawEffect[3][0];
+        addToStat(result, "lbDamage", lbDamage);
+        return [result];
 
     // +EVO Mag
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
@@ -763,10 +769,18 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         
     // Dual White Magic
     } else if (rawEffect[2] == 52) {
+        var magicType = "";
+        if (rawEffect[3][0] ==  0) {
+            magicType = "magic";
+        } else if (rawEffect[3][0] ==  1) {
+            magicType = "blackMagic";
+        } else if (rawEffect[3][0] ==  2) {
+            magicType = "whiteMagic";
+        }
         return [{
             "multicast": {
                 "time": rawEffect[3][1],
-                "type": "whiteMagic"
+                "type": magicType
             }
         }];
     
