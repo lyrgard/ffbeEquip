@@ -48,7 +48,7 @@ class UnitBuild {
     
     getPartialDualWield() {
         for (var index = this.unit.skills.length; index--;) {
-            if (this.unit.skills[index].partialDualWield) {
+            if (this.unit.skills[index].partialDualWield && (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)) {
                 if ((this.build[0] == null || this.unit.skills[index].partialDualWield.includes(this.build[0].type))
                     && (this.build[1] == null || this.unit.skills[index].partialDualWield.includes(this.build[1].type))) {
                     return this.unit.skills[index].partialDualWield;
@@ -69,6 +69,7 @@ class UnitBuild {
     hasDualWield(ignoreSlot = -1) {
         for (var index in this.unit.skills) {
             if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield")) {
+                if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)
                 if (this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1) {
                     for (var itemIndex = 0; itemIndex < 10; itemIndex++) {
                         if (itemIndex != ignoreSlot) {
