@@ -177,6 +177,12 @@ class ItemPool {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbPerTurn.min"));
             } else if (stats[index] == "lbDamage") {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbDamage"));
+            } else if (stats[index] == "accuracy") {
+                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "accuracy"));
+                if (includeSingleWielding) {
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWielding.accuracy"));
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWieldingOneHanded.accuracy"));
+                }
             } else {
                 if (!baseStats.includes(stats[index]) || getValue(entry1.item, stats[index]) >= 5 ||  getValue(entry2.item, stats[index]) >= 5) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stats[index]));
