@@ -538,11 +538,13 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][2] == 0) {
             if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
             addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);
+            addStat(item.singleWieldingOneHanded,"accuracy",rawEffect[3][1]);
         } else if (rawEffect[3][2] == 2) {
             if (!item.singleWielding) {item.singleWielding = {}};
             addStat(item.singleWielding,"atk",rawEffect[3][0]);
+            addStat(item.singleWielding,"accuracy",rawEffect[3][1]);
         }
-        addStat(item,"accuracy",rawEffect[3][1]);
+        
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
         var doublehandSkill = {};
         var doublehandEffect = rawEffect[3];
@@ -776,7 +778,7 @@ function isItemEmpty(item) {
             }
         }
     }
-    return !(item.resist || item.dualWielding || item.singleWielding || item.singleWieldingOneHanded || item.lbPerTurn || item.lbFillRate || item.evade || item.evoMag || item.accuracy || item.damageVariance || item.jumpDamage || item.element || item.partialDualWield || item.ailments || item.killers || item.mpRefresh || item.esperStatsBonus);
+    return !(item.resist || item.dualWielding || item.singleWielding || item.singleWieldingOneHanded || item.lbPerTurn || item.lbFillRate || item.evade || item.evoMag || item.damageVariance || item.jumpDamage || item.element || item.partialDualWield || item.ailments || item.killers || item.mpRefresh || item.esperStatsBonus);
 }
 
 function addAccess(item, access) {
@@ -795,7 +797,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

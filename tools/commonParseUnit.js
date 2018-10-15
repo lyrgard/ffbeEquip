@@ -318,14 +318,15 @@ function addEffectsToEffectList(effectList, effects) {
                 }
             }
             const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding","esperStatsBonus"];
+            const baseStatsWithAccuracy = baseStats.concat(["accuracy"]);
             for (var i = baseStatsBasedValues.length; i--;) {
                 if (effect[baseStatsBasedValues[i]]) {
                     if (!effectList[0][baseStatsBasedValues[i]]) {
                         effectList[0][baseStatsBasedValues[i]] = {};
                     }
-                    for (var j = baseStats.length; j--;) {
-                        if (effect[baseStatsBasedValues[i]][baseStats[j]]) {
-                            addToStat(effectList[0][baseStatsBasedValues[i]], baseStats[j], effect[baseStatsBasedValues[i]][baseStats[j]]);
+                    for (var j = baseStatsWithAccuracy.length; j--;) {
+                        if (effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]) {
+                            addToStat(effectList[0][baseStatsBasedValues[i]], baseStatsWithAccuracy[j], effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]);
                         }
                     }
                 }
@@ -517,9 +518,11 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         if (rawEffect[3].length == 3 && rawEffect[3][2] == 2) {
             result.singleWielding = {};
             addToStat(result.singleWielding, "atk", rawEffect[3][0]);
+            addToStat(result.singleWielding, "accuracy", rawEffect[3][1]);
         } else {
             result.singleWieldingOneHanded = {};
             addToStat(result.singleWieldingOneHanded, "atk", rawEffect[3][0]);
+            addToStat(result.singleWieldingOneHanded, "accuracy", rawEffect[3][1]);
         }
         return [result];
     }
@@ -1465,7 +1468,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

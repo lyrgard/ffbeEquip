@@ -851,7 +851,7 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
     
 
 function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
-    if (baseStats.includes(stat) && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
+    if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         var normalStack = 0;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
         for (var index = itemAndPassives.length; index--;) {
@@ -914,6 +914,11 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     }
     var calculatedValue = baseValue + buffValue;
     
+    if (stat == "accuracy") {
+        calculatedValue += (equipmentStatBonus - 1)*100;
+        equipmentStatBonus = 1;
+    }
+    
     var notStackableSkillsAlreadyUsed = [];
     
     for (var equipedIndex = itemAndPassives.length; equipedIndex--;) {
@@ -965,7 +970,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         return result;
     }
 }
-
+ 
 function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, equipmentStatBonus, stat, notStackableSkillsAlreadyUsed) {
     if (item) {
         if (stat == "lbPerTurn") {

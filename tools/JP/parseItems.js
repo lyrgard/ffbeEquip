@@ -504,11 +504,13 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][2] == 0) {
             if (!item.singleWieldingOneHanded) {item.singleWieldingOneHanded = {}};
             addStat(item.singleWieldingOneHanded,"atk",rawEffect[3][0]);    
+            addStat(item.singleWieldingOneHanded,"accuracy",rawEffect[3][1]);
         } else if (rawEffect[3][2] == 2) {
             if (!item.singleWielding) {item.singleWielding = {}};
             addStat(item.singleWielding,"atk",rawEffect[3][0]);    
+            addStat(item.singleWielding,"accuracy",rawEffect[3][1]);
         }
-        addStat(item,"accuracy",rawEffect[3][1]);
+        
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
         var doublehandSkill = {};
         var doublehandEffect = rawEffect[3];

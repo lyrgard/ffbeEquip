@@ -366,7 +366,13 @@ function displayItemLine(item) {
     }
 
     if (item.accuracy) {
-        special += "<li>Increase Accuracy: " + item.accuracy + "%</li>";
+        special += "<li>Increase Accuracy (" + item.accuracy + "%)</li>";
+    }
+    if (item.singleWielding && item.singleWielding.accuracy) {
+        special += "<li>Increase Accuracy (" + item.singleWielding.accuracy + "%) when single wielding</li>";
+    }
+    if (item.singleWieldingOneHanded && item.singleWieldingOneHanded.accuracy) {
+        special += "<li>Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed wreapon</li>";
     }
     if (item.damageVariance) {
         special += "<li>Damage variance from x" + item.damageVariance.min + " to x"  + item.damageVariance.max + " (average : x" + (item.damageVariance.min + item.damageVariance.max)/2 + ")</li>";
