@@ -311,7 +311,8 @@ function readSimpleConditions(formula) {
         var simpleConditions = {
             "forcedElements":getSelectedValuesFor("forcedElements").map(x => (x == "noElement" ? "none" : x)),
             "ailmentImunity":getSelectedValuesFor("ailmentImunities"),
-            "elementalResist": {}
+            "elementalResist": {},
+            "evasion":getSelectedValuesFor("simpleConditionEvasion")
         }
         for (var i = elementList.length; i--;) {
             var value = $(".goal .elements .element." + elementList[i] + " input").val() || 0;
@@ -592,13 +593,8 @@ function logBuild(build, value) {
     $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"] / mMitigation));
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
-    var evoMagResult = calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total;
-    if (evoMagResult > 0) {
-        $("#resultStats .evoMag").removeClass("hidden");
-        $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
-    } else {
-        $("#resultStats .evoMag").addClass("hidden");
-    }
+    $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    $("#resultStats .accuracy .value").html(calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total + "%");    
     
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
@@ -2903,6 +2899,8 @@ function startPage() {
     addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment", ucFirst);
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
+    
+    addTextChoicesTo("simpleConditionEvasion",'checkbox',{'100% physical evasion':'evade.physical', '100% accuracy':'accuracy'});
     
     populateItemStat();
     populateUnitEquip();

@@ -1,5 +1,5 @@
 const skillToken = "SKILL";
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB", "ACCURACY"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND"];
 const booleanResultOperators=[">", "OR", "AND"];
@@ -55,7 +55,8 @@ const attributeByVariable = {
     "R_DISEASE":"resist|disease.percent",
     "R_PETRIFICATION":"resist|petrification.percent",
     "R_DEATH":"resist|death.percent",
-    "LB":"lbPerTurn"
+    "LB":"lbPerTurn",
+    "ACCURACY": "accuracy"
 };
 
 const simpleImunityValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
@@ -543,7 +544,8 @@ function getSimpleConditions(formula) {
     var simpleConditions = {
         "forcedElements":[],
         "ailmentImunity":[],
-        "elementalResist": {}
+        "elementalResist": {},
+        "evasion": []
     }
     
     if (formula && formula.type == "condition") {
@@ -567,6 +569,14 @@ function innerGetSimpleConditions(formula, simpleConditions) {
                         if (!simpleConditions.elementalResist[resist] || simpleConditions.elementalResist[resist] < formula.value2.value) {
                             simpleConditions.elementalResist[resist] = formula.value2.value;
                         }
+                    }
+                } else if (formula.value1.name.equals("evade.physical") && formula.value2.value == 100) {
+                    if (!simpleConditions.evasion.includes("evade.physical")) {
+                        simpleConditions.evasion.push("evade.physical")    
+                    }
+                } else if (formula.value1.name.equals("accuracy") && formula.value2.value == 100) {
+                    if (!simpleConditions.evasion.includes("accuracy")) {
+                        simpleConditions.evasion.push("accuracy")    
                     }
                 }
             }
@@ -628,6 +638,24 @@ function makeSureFormulaHaveSimpleConditions(formula, simpleConditions) {
                     "value2": {
                         "type": "constant",
                         "value": simpleConditions.elementalResist[elements[i]]
+                    }
+                }
+            );
+        }
+    }
+    for (var i = simpleConditions.evasion.length; i--;) {
+        if (!currentSimpleConditions.evasion.includes(simpleConditions.evasion[i])) {
+            formula = addCondition(
+                formula, 
+                {
+                    type:">", 
+                    "value1": {
+                        type: "value",
+                        "name": simpleConditions.evasion[i]
+                    },
+                    "value2": {
+                        "type": "constant",
+                        "value": 100
                     }
                 }
             );
