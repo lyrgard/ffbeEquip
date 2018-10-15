@@ -570,11 +570,11 @@ function innerGetSimpleConditions(formula, simpleConditions) {
                             simpleConditions.elementalResist[resist] = formula.value2.value;
                         }
                     }
-                } else if (formula.value1.name.equals("evade.physical") && formula.value2.value == 100) {
+                } else if (formula.value1.name == "evade.physical" && formula.value2.value == 100) {
                     if (!simpleConditions.evasion.includes("evade.physical")) {
                         simpleConditions.evasion.push("evade.physical")    
                     }
-                } else if (formula.value1.name.equals("accuracy") && formula.value2.value == 100) {
+                } else if (formula.value1.name == "accuracy" && formula.value2.value == 100) {
                     if (!simpleConditions.evasion.includes("accuracy")) {
                         simpleConditions.evasion.push("accuracy")    
                     }
