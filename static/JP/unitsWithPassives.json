@@ -1515,7 +1515,7 @@
 			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"atk%":40, "def%":20, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50}], "equipedConditions":["404001400"]},
 			{"spr%":20, "levelCondition":115},
-			{"jumpDamage":100, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "levelCondition":120}
+			{"jumpDamage":100, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Fohlen",
@@ -1792,7 +1792,7 @@
 			{"atk%":20, "equipedConditions":["katana"], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"mag%":20, "levelCondition":115},
-			{"skillEnhancement":{"210710":1,"210730":1,"211110":1,"226871":0.5,"705790":1,"705800":1,"705810":1,"705820":1}, "levelCondition":120}
+			{"lbDamage":30, "skillEnhancement":{"210710":1,"210730":1,"211110":1,"226871":0.5,"705790":1,"705800":1,"705810":1,"705820":1}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Veritas of the Dark",
@@ -3037,7 +3037,7 @@
 			{"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":20, "levelCondition":115},
-			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":25, "levelCondition":120}
+			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":25, "lbDamage":35, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Nameless Gunner Jake",
@@ -3147,7 +3147,7 @@
 		],
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
-			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "equipedConditions":["504219890"]},
+			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "lbDamage":20, "equipedConditions":["504219890"]},
 			{"skillEnhancement":{"219320":1.5,"219330":1.5,"219360":1.5,"707735":1.5,"707736":1.5}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"mag%":30, "resist":[{"name":"lightning","percent":50}], "skillEnhancement":{"219490":0.8,"707733":0.8,"707734":0.8}, "levelCondition":120}
@@ -4837,7 +4837,7 @@
 			{"atk%":20, "mag%":20, "equipedConditions":["fist"]},
 			{"atk%":50, "mag%":50, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "equipedConditions":["403046300"]},
 			{"mag%":20, "levelCondition":115},
-			{"evade":{"physical":30}, "dualWielding":{"mag":50}, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2}, "levelCondition":120}
+			{"evade":{"physical":30}, "dualWielding":{"mag":50}, "lbDamage":20, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Nagi",
@@ -4959,7 +4959,7 @@
 		"enhancements": [
 			{"name":"娘たちへの愛","levels":[[{"resist":[{"name":"wind","percent":50}]},{"equipedConditions":["spear"],"atk%":20,"def%":20}],[{"resist":[{"name":"wind","percent":50}],"killers":[{"name":"beast","physical":50}]},{"equipedConditions":["spear"],"atk%":20,"def%":20}],[{"resist":[{"name":"wind","percent":50}],"killers":[{"name":"beast","physical":75}],"mp%":20},{"equipedConditions":["spear"],"atk%":20,"def%":20}]]},
 			{"name":"マスタージャンパー","levels":[[{"jumpDamage":150}],[{"jumpDamage":175}],[{"jumpDamage":200}]]},
-			{"name":"初代シド","levels":[[{"atk%":40,"lbFillRate":50,"levelCondition":120}],[{"atk%":40,"lbFillRate":50,"levelCondition":120}],[{"atk%":40,"lbFillRate":50,"levelCondition":120}]]}
+			{"name":"初代シド","levels":[[{"atk%":40,"lbFillRate":50,"lbDamage":20,"levelCondition":120}],[{"atk%":40,"lbFillRate":50,"lbDamage":50,"levelCondition":120}],[{"atk%":40,"lbFillRate":50,"lbDamage":100,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":60, "atk%":30, "def%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":50}], "mpRefresh":5},
@@ -6406,7 +6406,7 @@
 			{"partialDualWield":["spear"], "skillEnhancement":{"223470":1.2,"223480":1.2,"223490":1.2,"223500":1.2,"707568":1.2,"707569":1.2,"707570":1.2,"707571":1.2,"707572":1.2,"707573":1.2}, "levelCondition":105},
 			{"atk%":30, "equipedConditions":["spear"], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
-			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "levelCondition":120}
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "lbDamage":25, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Atoning Dragoon Kain",
@@ -7203,7 +7203,7 @@
 			{"singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
 			{"atk%":20, "levelCondition":115},
-			{"skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
+			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Cloud",
@@ -7542,7 +7542,7 @@
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":70, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["greatSword"]},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["303005800"]},
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":30, "equipedConditions":["303005800"]},
 			{"def%":30, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"spr%":30, "skillEnhancement":{"229882":3,"229884":3,"229891":3}, "levelCondition":120}
@@ -7993,7 +7993,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "mpRefresh":5},
-			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"demon","physical":25}], "equipedConditions":["302002300"]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"demon","physical":25}], "lbDamage":25, "equipedConditions":["302002300"]},
 			{"def%":20, "levelCondition":115},
 			{"hp%":20, "levelCondition":120},
 			{"mp%":20, "atk%":40, "equipedConditions":["sword"], "levelCondition":120}
@@ -8119,7 +8119,7 @@
 			{"def%":20, "levelCondition":115},
 			{"resist":[{"name":"sleep","percent":100}], "levelCondition":115},
 			{"resist":[{"name":"petrification","percent":100}], "levelCondition":115},
-			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbDamage":40, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Lulu",
@@ -9141,7 +9141,7 @@
 			{"atk%":30, "mag%":30, "equipedConditions":["katana"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["spear"]},
 			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "esperStatsBonus":{"spr":20,"mag":20,"def":20,"atk":20,"mp":20,"hp":20}, "equipedConditions":["409011900"]},
-			{"hp%":30, "levelCondition":110},
+			{"hp%":30, "lbDamage":20, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
 			{"dualWielding":{"atk":30}, "skillEnhancement":{"211760":1,"501620":1,"706450":1,"706460":1}, "levelCondition":120},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"], "levelCondition":120}
@@ -9246,7 +9246,7 @@
 		"enhancementSkills":["ルシス三強","抜刀術","斬瞬刀"],
 		"enhancements": [
 			{"name":"ルシス三強","levels":[[{"spr%":10,"hp%":20}],[{"spr%":10,"atk%":20,"hp%":20}],[{"spr%":10,"atk%":20,"mp%":30,"hp%":30}]]},
-			{"name":"抜刀術","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":80}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":90}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100}}]]}
+			{"name":"抜刀術","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":80}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":90}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100},"lbDamage":10}]]}
 		],
 		"skills": [
 			{"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
@@ -9330,7 +9330,7 @@
 		"enhancementSkills":["魂無き者への鉄槌","スピアーアーツ","エア・イナヴェート","急降下攻撃"],
 		"enhancements": [
 			{"name":"魂無き者への鉄槌","levels":[[{"killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]}],[{"killers":[{"name":"demon","physical":100},{"name":"machine","physical":100},{"name":"undead","physical":100}]}],[{"killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}]}]]},
-			{"name":"スピアーアーツ","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}]]}
+			{"name":"スピアーアーツ","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100},"lbDamage":50},{"equipedConditions":["spear"],"atk%":30}]]}
 		],
 		"skills": [
 			{"hp%":30, "def%":30, "evade":{"magical":20}, "jumpDamage":100, "mpRefresh":5},
@@ -9357,7 +9357,7 @@
 			"enhancementSkills":["魂無き者への鉄槌","スピアーアーツ","エア・イナヴェート","急降下攻撃"],
 		"enhancements": [
 			{"name":"魂無き者への鉄槌","levels":[[{"killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]}],[{"killers":[{"name":"demon","physical":100},{"name":"machine","physical":100},{"name":"undead","physical":100}]}],[{"killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}]}]]},
-			{"name":"スピアーアーツ","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}]]}
+			{"name":"スピアーアーツ","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100},"lbDamage":50},{"equipedConditions":["spear"],"atk%":30}]]}
 		],
 			"skills": [
 				{"hp%":30, "def%":30, "evade":{"magical":20}, "jumpDamage":100, "mpRefresh":5},
@@ -9388,6 +9388,7 @@
 			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"トリガーハッピー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}]}, "equipedConditions":["504221550"]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
+			{"lbDamage":30, "levelCondition":120},
 			{"atk%":30, "spr%":30, "equipedConditions":["dagger"], "levelCondition":120},
 			{"atk%":30, "spr%":30, "equipedConditions":["gun"], "levelCondition":120}
 		],
@@ -9611,7 +9612,7 @@
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "mpRefresh":5},
 			{"hp%":20, "atk%":30, "spr%":30, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "equipedConditions":["409011300"]},
 			{"spr%":20, "levelCondition":115},
-			{"lbFillRate":50, "skillEnhancement":{"210520":2,"705490":2,"705500":2}, "levelCondition":120}
+			{"lbFillRate":50, "lbDamage":20, "skillEnhancement":{"210520":2,"705490":2,"705500":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Mercenary Ramza",
@@ -10632,7 +10633,7 @@
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["炎業神の力","フレアライド改","黒炎の守護","覇神の爆炎"],
 		"enhancements": [
-			{"name":"炎業神の力","levels":[[{"resist":[{"name":"fire","percent":50}]},{"equipedConditions":["greatSword"],"atk%":50}],[{"resist":[{"name":"fire","percent":50}],"singleWieldingOneHanded":{"accuracy":25,"atk":100}},{"equipedConditions":["greatSword"],"atk%":50}],[{"resist":[{"name":"fire","percent":50}],"singleWieldingOneHanded":{"accuracy":25,"atk":100}},{"equipedConditions":["greatSword"],"atk%":100}]]}
+			{"name":"炎業神の力","levels":[[{"resist":[{"name":"fire","percent":50}]},{"equipedConditions":["greatSword"],"atk%":50}],[{"resist":[{"name":"fire","percent":50}],"singleWieldingOneHanded":{"accuracy":25,"atk":100}},{"equipedConditions":["greatSword"],"atk%":50}],[{"resist":[{"name":"fire","percent":50}],"singleWieldingOneHanded":{"accuracy":25,"atk":100},"lbDamage":150},{"equipedConditions":["greatSword"],"atk%":100}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":50}], "mpRefresh":5}
@@ -10654,7 +10655,7 @@
 		"equip":["spear","hat","clothes","lightArmor"],
 		"enhancementSkills":["セイクリッドソング","神の威光","デスティニー"],
 		"enhancements": [
-			{"name":"神の威光","levels":[[{"resist":[{"name":"light","percent":50}]}],[{"resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":50},{"name":"dark","percent":25}]}],[{"resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":50},{"name":"dark","percent":25}]}]]}
+			{"name":"神の威光","levels":[[{"resist":[{"name":"light","percent":50}]}],[{"resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":50},{"name":"dark","percent":25}]}],[{"resist":[{"name":"fire","percent":25},{"name":"ice","percent":25},{"name":"lightning","percent":25},{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"earth","percent":25},{"name":"light","percent":50},{"name":"dark","percent":25}],"lbDamage":100}]]}
 		],
 		"skills": [
 			{"hp%":30, "atk%":30, "lbFillRate":150, "resist":[{"name":"light","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
@@ -10724,7 +10725,7 @@
 			{"singleWieldingOneHanded":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "replaceLb":{"name":"魚雷旋風斬り","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.7},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.7x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}]}, "equipedConditions":["302001900"]},
 			{"mp%":20, "spr%":20, "resist":[{"name":"light","percent":40}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "atk%":40, "lbPerTurn":{"min":1,"max":1}, "skillEnhancement":{"203460":3,"502050":2.4,"502060":3,"502070":3}, "levelCondition":120}
+			{"hp%":20, "atk%":40, "lbPerTurn":{"min":1,"max":1}, "lbDamage":30, "skillEnhancement":{"203460":3,"502050":2.4,"502060":3,"502070":3}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Randi",
@@ -11206,7 +11207,7 @@
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"atk%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"light","percent":50}], "equipedConditions":["504227428"]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"227420":0.8,"227422":0.8,"227423":0.8,"507920":0.8,"507921":0.8}, "levelCondition":120}
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "lbDamage":25, "skillEnhancement":{"227420":0.8,"227422":0.8,"227423":0.8,"507920":0.8,"507921":0.8}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Ray Jack",
@@ -11301,7 +11302,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","bow","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["宿星:歳星","閃き","勇猛なる剣士"],
 		"enhancements": [
-			{"name":"宿星:歳星","levels":[[{"atk%":20,"hp%":20}],[{"atk%":30,"hp%":30}],[{"atk%":30,"hp%":30}]]},
+			{"name":"宿星:歳星","levels":[[{"atk%":20,"hp%":20}],[{"atk%":30,"hp%":30}],[{"atk%":30,"hp%":30,"lbDamage":10}]]},
 			{"name":"勇猛なる剣士","levels":[[{"mpRefresh":5},{"equipedConditions":["sword"],"atk%":50}],[{"mpRefresh":5},{"equipedConditions":["sword"],"atk%":70}],[{"mpRefresh":10},{"equipedConditions":["sword"],"atk%":90}]]}
 		],
 		"skills": [
@@ -11324,7 +11325,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","bow","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["宿星:辰星","閃き","大剣の極意","秘めたる想い"],
 		"enhancements": [
-			{"name":"宿星:辰星","levels":[[{"spr%":20,"atk%":20}],[{"spr%":30,"atk%":30}],[{"spr%":30,"atk%":30,"lbFillRate":50}]]},
+			{"name":"宿星:辰星","levels":[[{"spr%":20,"atk%":20}],[{"spr%":30,"atk%":30}],[{"spr%":30,"atk%":30,"lbDamage":10,"lbFillRate":50}]]},
 			{"name":"大剣の極意","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]},
 			{"name":"秘めたる想い","levels":[[],[],[{"skillEnhancement":{"502410":1}}]]}
 		],
@@ -11348,7 +11349,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","bow","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["宿星:太白","閃き","トルネード"],
 		"enhancements": [
-			{"name":"宿星:太白","levels":[[{"def%":20,"atk%":20}],[{"def%":30,"atk%":30}],[{"def%":30,"atk%":30}]]},
+			{"name":"宿星:太白","levels":[[{"def%":20,"atk%":20}],[{"def%":30,"atk%":30}],[{"def%":30,"atk%":30,"lbDamage":10}]]},
 			{"name":"トルネード","levels":[[{"evade":{"physical":20}},{"equipedConditions":["sword"],"atk%":50}],[{"evade":{"physical":20}},{"equipedConditions":["sword"],"atk%":75}],[{"evade":{"physical":20},"skillEnhancement":{"502450":1.5,"507803":1.5,"507815":1.5}},{"equipedConditions":["sword"],"atk%":75}]]}
 		],
 		"skills": [
@@ -11392,7 +11393,7 @@
 			{"atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "mpRefresh":7, "replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.6,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (13.6x * 2 = 27.2x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":null,"desc":"Increase damage of Self Destruct: 2B (218570) by 1000% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (16.5x * 2 = 33x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":null,"desc":"Increase damage of Self Destruct: 2B (218570) by 1000% for 5 turns"}]}, "equipedConditions":["304001900"]},
 			{"mp%":40, "atk%":40, "spr%":40, "dualWielding":{"atk":50}, "killers":[{"name":"machine","physical":50}], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
-			{"def%":20, "skillEnhancement":{"503900":10,"503910":10}, "levelCondition":120}
+			{"def%":20, "lbDamage":50, "skillEnhancement":{"503900":10,"503910":10}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"2B",
@@ -11486,7 +11487,7 @@
 			{"hp%":40, "mp%":20, "atk%":80, "def%":20, "evade":{"physical":20,"magical":10}, "singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"machine","physical":50}], "mpRefresh":10, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"atk%":40, "evade":{"physical":10}, "killers":[{"name":"machine","physical":50}], "equipedConditions":["303005900"]},
-			{"def%":30, "dualWielding":{"atk":50}, "levelCondition":110},
+			{"def%":30, "dualWielding":{"atk":50}, "lbDamage":20, "levelCondition":110},
 			{"mp%":20, "levelCondition":115},
 			{"spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"230031":4,"230033":4,"230036":4,"509320":4}, "levelCondition":120}
 		],
@@ -11672,7 +11673,7 @@
 		"skills": [
 			{"hp%":30, "atk%":30, "mag%":20, "mpRefresh":5},
 			{"hp%":30, "mp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":40}, "replaceLb":{"name":"朱雀飛天の舞","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10x, ATK) to all enemies"},{"effect":{"imperil":{"dark":71},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 71% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":150},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 150% for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12.9},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (12.9x, ATK) to all enemies"},{"effect":{"imperil":{"dark":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 100% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":150},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 150% for 3 turns to caster"}]}, "equipedConditions":["504220280"]},
-			{"atk%":30, "def%":30, "spr%":30, "levelCondition":105},
+			{"atk%":30, "def%":30, "spr%":30, "lbDamage":30, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":30, "resist":[{"name":"dark","percent":40}], "skillEnhancement":{"219970":1.2,"504560":1.2}, "levelCondition":120}
 		],
@@ -11981,7 +11982,7 @@
 			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
 			{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
 			{"atk%":60, "spr%":30, "equipedConditions":["bow"]},
-			{"hp%":30, "mp%":30, "mpRefresh":10, "equipedConditions":["302006100"]},
+			{"hp%":30, "mp%":30, "mpRefresh":10, "lbDamage":40, "equipedConditions":["302006100"]},
 			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
 			{"hp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"hp%":20, "mp%":20, "equipedConditions":["bow"], "levelCondition":120}
@@ -12026,7 +12027,7 @@
 			{"hp%":20, "mp%":20, "def%":20, "mag%":120, "spr%":20, "mpRefresh":5},
 			{"hp%":10, "mp%":10, "def%":10, "mag%":50, "spr%":10, "equipedConditions":["409021000"]},
 			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
-			{"mag%":30, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
+			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Freya",
@@ -12070,7 +12071,7 @@
 			{"atk%":30, "equipedConditions":["fist"]},
 			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":75}, "equipedConditions":["409021100"]},
 			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
-			{"hp%":20, "atk%":20, "spr%":20, "levelCondition":120}
+			{"hp%":20, "atk%":20, "spr%":20, "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Arngrim",
@@ -12150,7 +12151,7 @@
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5},
 			{"atk%":20, "equipedConditions":["fist"]},
 			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"machine","physical":50,"magical":50}], "equipedConditions":["504228693"]},
-			{"atk%":30, "def%":30, "spr%":30, "levelCondition":110},
+			{"atk%":30, "def%":30, "spr%":30, "lbDamage":30, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "skillEnhancement":{"228713":2.5,"228714":1.2,"228715":2.5,"228716":2.5,"228724":1.5,"228725":1.5}, "levelCondition":120}
 		],
@@ -12194,7 +12195,7 @@
 			{"equipedConditions":["310004400"]},
 			{"mp%":20, "mag%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30}], "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
-			{"singleWielding":{"mag":40}, "dualWielding":{"mag":40}, "skillEnhancement":{"228743":2,"228744":2,"228745":2,"228746":2}, "levelCondition":120}
+			{"singleWielding":{"mag":40}, "dualWielding":{"mag":40}, "lbDamage":50, "skillEnhancement":{"228743":2,"228744":2,"228745":2,"228746":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Elly",
@@ -12252,7 +12253,7 @@
 			{"hp%":40, "mp%":30, "atk%":10, "def%":50, "spr%":20, "evade":{"physical":30}, "resist":[{"name":"fire","percent":30}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":30, "equipedConditions":["whip"]},
 			{"atk%":50, "equipedConditions":["whip"]},
-			{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "equipedConditions":["314001900"]},
+			{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "lbDamage":30, "equipedConditions":["314001900"]},
 			{"dualWielding":{"atk":60}, "skillEnhancement":{"228795":1.5,"228799":2.4,"228800":2.4,"228801":2.4,"228802":2.4}, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"atk%":50, "lbFillRate":150, "levelCondition":120}
@@ -12335,7 +12336,7 @@
 			{"atk%":10, "equipedConditions":["katana"]},
 			{"killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5, "equipedConditions":["504229032"]},
 			{"atk%":60, "equipedConditions":["katana","504229032"]},
-			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":110},
+			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":10, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"mp%":20, "atk%":10, "spr%":20, "skillEnhancement":{"229043":2,"229046":2,"229055":2.5}, "levelCondition":120}
 		],
@@ -12378,7 +12379,7 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":80, "spr%":20, "lbFillRate":50, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"machine","physical":50,"magical":50}], "mpRefresh":10, "esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}},
 			{"mp%":20, "spr%":20, "singleWielding":{"mag":60}, "dualWielding":{"mag":60}, "lbFillRate":100, "equipedConditions":["403046000"]},
-			{"mag%":30, "lbPerTurn":{"min":5,"max":5}, "levelCondition":110},
+			{"mag%":30, "lbPerTurn":{"min":5,"max":5}, "lbDamage":50, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
 			{"mag%":40, "skillEnhancement":{"229074":1,"229080":2,"229082":1,"229084":2}, "levelCondition":120}
 		],

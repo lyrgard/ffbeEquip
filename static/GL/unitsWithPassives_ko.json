@@ -1383,7 +1383,7 @@
 			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"atk%":40, "def%":20, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50}], "equipedConditions":["404001400"]},
 			{"spr%":20, "levelCondition":115},
-			{"jumpDamage":100, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "levelCondition":120}
+			{"jumpDamage":100, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"포렌",
@@ -1660,7 +1660,7 @@
 			{"atk%":20, "equipedConditions":["katana"], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"mag%":20, "levelCondition":115},
-			{"skillEnhancement":{"210710":1,"210730":1,"211110":1,"226871":0.5,"705790":1,"705800":1,"705810":1,"705820":1}, "levelCondition":120}
+			{"lbDamage":30, "skillEnhancement":{"210710":1,"210730":1,"211110":1,"226871":0.5,"705790":1,"705800":1,"705810":1,"705820":1}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"영원한 어둠의 베리어스",
@@ -2874,7 +2874,7 @@
 			{"killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":20, "levelCondition":115},
-			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":25, "levelCondition":120}
+			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "lbFillRate":25, "lbDamage":35, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"무명의 총잡이 제이크",
@@ -2978,7 +2978,7 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "mag%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]},
-			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "equipedConditions":["504219890"]},
+			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "lbDamage":20, "equipedConditions":["504219890"]},
 			{"skillEnhancement":{"219320":1.5,"219330":1.5,"219360":1.5}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"mag%":30, "resist":[{"name":"lightning","percent":50}], "skillEnhancement":{"219490":0.8}, "levelCondition":120}
@@ -5166,7 +5166,7 @@
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
 			{"atk%":20, "levelCondition":115},
-			{"skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
+			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"클라우드",
@@ -5744,7 +5744,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "lbFillRate":200, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":100}], "mpRefresh":5},
-			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"demon","physical":25}], "equipedConditions":["302002300"]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"demon","physical":25}], "lbDamage":25, "equipedConditions":["302002300"]},
 			{"def%":20, "levelCondition":115},
 			{"hp%":20, "levelCondition":120},
 			{"mp%":20, "atk%":40, "equipedConditions":["sword"], "levelCondition":120}
@@ -5856,7 +5856,7 @@
 			{"def%":20, "levelCondition":115},
 			{"resist":[{"name":"sleep","percent":100}], "levelCondition":115},
 			{"resist":[{"name":"petrification","percent":100}], "levelCondition":115},
-			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbDamage":40, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"루루",
@@ -6731,7 +6731,7 @@
 			{"atk%":30, "mag%":30, "equipedConditions":["katana"]},
 			{"atk%":30, "spr%":30, "equipedConditions":["spear"]},
 			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "esperStatsBonus":{"spr":20,"mag":20,"def":20,"atk":20,"mp":20,"hp":20}, "equipedConditions":["409011900"]},
-			{"hp%":30, "levelCondition":110},
+			{"hp%":30, "lbDamage":20, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
 			{"dualWielding":{"atk":30}, "skillEnhancement":{"211760":1,"501620":1,"706450":1,"706460":1}, "levelCondition":120},
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"], "levelCondition":120}
@@ -6958,6 +6958,7 @@
 			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"トリガーハッピー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}]}, "equipedConditions":["504221550"]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
+			{"lbDamage":30, "levelCondition":120},
 			{"atk%":30, "spr%":30, "equipedConditions":["dagger"], "levelCondition":120},
 			{"atk%":30, "spr%":30, "equipedConditions":["gun"], "levelCondition":120}
 		],
@@ -7180,7 +7181,7 @@
 			{"atk%":50, "equipedConditions":["hat"]},
 			{"hp%":20, "atk%":30, "spr%":30, "resist":[{"name":"stop","percent":50},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "equipedConditions":["409011300"]},
 			{"spr%":20, "levelCondition":115},
-			{"lbFillRate":50, "skillEnhancement":{"210520":2,"705490":2,"705500":2}, "levelCondition":120}
+			{"lbFillRate":50, "lbDamage":20, "skillEnhancement":{"210520":2,"705490":2,"705500":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"용병 람자",
@@ -9877,7 +9878,7 @@
 		"skills": [
 			{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"mag%":50, "equipedConditions":["rod"]},
-			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "equipedConditions":["1100000196"]},
+			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "lbDamage":20, "equipedConditions":["1100000196"]},
 			{"spr%":20, "levelCondition":115},
 			{"mp%":40, "mag%":40, "levelCondition":120},
 			{"hp%":30, "mag%":30, "equipedConditions":["robe"], "levelCondition":120}
@@ -9922,7 +9923,7 @@
 			{"atk%":50, "mag%":50, "equipedConditions":["fist"]},
 			{"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}, "lbFillRate":50, "equipedConditions":["1100000194"]},
 			{"spr%":20, "levelCondition":115},
-			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "skillEnhancement":{"911340":4,"911341":4}, "levelCondition":120}
+			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "lbDamage":20, "skillEnhancement":{"911340":4,"911341":4}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"멜파지",

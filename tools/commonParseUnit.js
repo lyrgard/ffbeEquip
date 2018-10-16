@@ -311,7 +311,7 @@ function addEffectsToEffectList(effectList, effects) {
                     addToAilmentsList(effectList[0], effect.ailments[i]);
                 }
             }
-            const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh"];
+            const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh", "lbDamage"];
             for (var i = simpleValues.length; i--;) {
                 if (effect[simpleValues[i]]) {
                     addToStat(effectList[0], simpleValues[i], effect[simpleValues[i]]);
@@ -1468,7 +1468,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";
