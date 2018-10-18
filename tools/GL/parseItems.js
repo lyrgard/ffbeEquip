@@ -545,7 +545,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             addStat(item.singleWielding,"accuracy",rawEffect[3][1]);
         }
         
-    } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+    } else if (rawEffect[1] == 3 && rawEffect[2] == 10003) {
         var doublehandSkill = {};
         var doublehandEffect = rawEffect[3];
         if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
