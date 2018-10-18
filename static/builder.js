@@ -19,6 +19,7 @@ const formulaByGoal = {
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
+    "mp":                               {"type":"value","name":"mp"},
     "physicaleHp":                      {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"def"}},
     "magicaleHp":                       {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"spr"}},
     "physicalEvasion":                  {"type":"value","name":"evade.physical"},
@@ -43,11 +44,12 @@ const goalQuickSelectDefaultValues = [
     ["summonerSkill","Summoner skill"],
     ["physicaleHp","Physical eHP (HP * DEF)"],
     ["magicaleHp","Magical eHP (HP * SPR)"],
-    ["atk","Attack"],
-    ["mag","Magic"],
-    ["def","Defense"],
-    ["spr","Spirit"],
-    ["hp","Health Points"],
+    ["atk","ATK"],
+    ["mag","MAG"],
+    ["def","DEF"],
+    ["spr","SPR"],
+    ["hp","HP"],
+    ["mp","MP"],
     ["physicalEvasion","Physical evasion"],
     ["magicalEvasion","Magical evasion"],
     ["mpRefresh","MP/turn"],
@@ -950,6 +952,7 @@ function goalSelectTemplate(state) {
             case "def":
             case "spr":
             case "hp":
+            case "mp":
             case "physicalEvasion":
             case "magicalEvasion":
             case "mpRefresh":
