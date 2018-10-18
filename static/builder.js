@@ -117,8 +117,6 @@ var secondaryOptimization = false;
 var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
-var useNew400Cap = false;
-
 function build() {
     secondaryOptimization = false;
     if (running) {
@@ -190,7 +188,7 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
-            "server": (useNew400Cap ? "JP" : server),
+            "server": server,
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
             "level":builds[currentUnitIndex]._level,
@@ -207,7 +205,6 @@ function optimize() {
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation,
             "useNewJpDamageFormula": useNewJpDamageFormula,
-            "useNew400Cap": useNew400Cap
         }));
     }
     
@@ -301,7 +298,6 @@ function readGoal(index = currentUnitIndex) {
     builds[currentUnitIndex].formula = formula;
     
     goalVariation = $("#goalVariance").val();
-    useNew400Cap = $("#useNew400Cap").prop('checked');
     
     $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
 }
@@ -549,8 +545,8 @@ function logBuild(build, value) {
         var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
 
         var bonusPercent;
-        if (result.bonusPercent > statsBonusCap[(useNew400Cap ? "JP" : server)]) {
-            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[(useNew400Cap ? "JP" : server)] + "% taken into account'>" + result.bonusPercent + "%</span>";
+        if (result.bonusPercent > statsBonusCap[server]) {
+            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
@@ -2160,7 +2156,6 @@ function getStateHash(onlyCurrent = true) {
         }
     }
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
-    data.useNew400Cap = useNew400Cap;
     
     return data;
 }
@@ -2256,12 +2251,7 @@ function loadStateHashAndBuild(data, importMode = false) {
     } else {
         $("#useNewJpDamageFormula").prop("checked", false);
     }
-    
-    if (data.useNew400Cap) {
-        $("#useNew400Cap").prop("checked", true);
-    } else {
-        $("#useNew400Cap").prop("checked", false);
-    }
+
     
     if (!importMode) {
         select("races", data.monster.races);
@@ -2957,10 +2947,6 @@ function startPage() {
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
-    $("#useNew400Cap").change(function() {
-        readGoal();
-        logCurrentBuild();
-    });
     
     $("#monsterDefensiveStats input").on('input',$.debounce(300,function() {
         readEnnemyStats();
