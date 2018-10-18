@@ -1172,17 +1172,25 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
         for (var i = 0, len = gainedSkillIds.length; i < len; i++) {
             var gainedSkill = skills[gainedSkillIds[i].toString()];
+            var gainedSkillName;
+            if (!gainedSkill) {
+                gainedSkillName = "UNKNOWN SKILL";
+            } else {
+                gainedSkillName = gainedSkill.name;
+            }
             result.gainSkills.skills.push({
                 "id":gainedSkillIds[i].toString(),
-                "name":gainedSkill.name
+                "name":gainedSkillName
             });
             
-            if (!unit.unlockedSkillAdded) {
-                unit.unlockedSkillAdded = [];
-            }
-            if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
-                unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
-                addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillIn);
+            if (gainedSkill) {
+                if (!unit.unlockedSkillAdded) {
+                    unit.unlockedSkillAdded = [];
+                }
+                if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
+                    unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
+                    addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillIn);
+                }
             }
         }
         
