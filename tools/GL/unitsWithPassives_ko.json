@@ -9274,7 +9274,10 @@
 			{"name":"Dragonlord's Guard","levels":[[],[{"mpRefresh":10}],[{"mpRefresh":10,"mp%":30,"hp%":30}]]}
 		],
 		"skills": [
-			{"hp%":20, "mag%":80}
+			{"hp%":20, "mag%":80},
+			{"hp%":30, "mp%":30, "mag%":80, "equipedConditions":["504205650"]},
+			{"def%":20, "levelCondition":115},
+			{"mag%":50, "skillEnhancement":{"205580":4,"507551":5,"507552":5,"507553":5,"507554":5,"507555":5,"507556":5}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"용왕",
