@@ -19,6 +19,7 @@ const formulaByGoal = {
     "def":                              {"type":"value","name":"def"},
     "spr":                              {"type":"value","name":"spr"},
     "hp":                               {"type":"value","name":"hp"},
+    "mp":                               {"type":"value","name":"mp"},
     "physicaleHp":                      {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"def"}},
     "magicaleHp":                       {"type":"*", "value1":{"type":"value","name":"hp"}, "value2":{"type":"value","name":"spr"}},
     "physicalEvasion":                  {"type":"value","name":"evade.physical"},
@@ -43,11 +44,12 @@ const goalQuickSelectDefaultValues = [
     ["summonerSkill","Summoner skill"],
     ["physicaleHp","Physical eHP (HP * DEF)"],
     ["magicaleHp","Magical eHP (HP * SPR)"],
-    ["atk","Attack"],
-    ["mag","Magic"],
-    ["def","Defense"],
-    ["spr","Spirit"],
-    ["hp","Health Points"],
+    ["atk","ATK"],
+    ["mag","MAG"],
+    ["def","DEF"],
+    ["spr","SPR"],
+    ["hp","HP"],
+    ["mp","MP"],
     ["physicalEvasion","Physical evasion"],
     ["magicalEvasion","Magical evasion"],
     ["mpRefresh","MP/turn"],
@@ -116,8 +118,6 @@ var currentSavedBuildIndex = -1;
 var secondaryOptimization = false;
 var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
-
-var useNew400Cap = false;
 
 function build() {
     secondaryOptimization = false;
@@ -190,7 +190,7 @@ function optimize() {
     for (var index = workers.length; index--; index) {
         workers[index].postMessage(JSON.stringify({
             "type":"setData", 
-            "server": (useNew400Cap ? "JP" : server),
+            "server": server,
             "espers":espersToSend,
             "unit":builds[currentUnitIndex].unit,
             "level":builds[currentUnitIndex]._level,
@@ -207,7 +207,6 @@ function optimize() {
             "ennemyStats":ennemyStats,
             "goalVariation": goalVariation,
             "useNewJpDamageFormula": useNewJpDamageFormula,
-            "useNew400Cap": useNew400Cap
         }));
     }
     
@@ -301,7 +300,6 @@ function readGoal(index = currentUnitIndex) {
     builds[currentUnitIndex].formula = formula;
     
     goalVariation = $("#goalVariance").val();
-    useNew400Cap = $("#useNew400Cap").prop('checked');
     
     $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
 }
@@ -549,8 +547,8 @@ function logBuild(build, value) {
         var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
 
         var bonusPercent;
-        if (result.bonusPercent > statsBonusCap[(useNew400Cap ? "JP" : server)]) {
-            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[(useNew400Cap ? "JP" : server)] + "% taken into account'>" + result.bonusPercent + "%</span>";
+        if (result.bonusPercent > statsBonusCap[server]) {
+            bonusPercent = "<span style='color:red;' title='Only " + statsBonusCap[server] + "% taken into account'>" + result.bonusPercent + "%</span>";
         } else {
             bonusPercent = result.bonusPercent + "%";
         }
@@ -954,6 +952,7 @@ function goalSelectTemplate(state) {
             case "def":
             case "spr":
             case "hp":
+            case "mp":
             case "physicalEvasion":
             case "magicalEvasion":
             case "mpRefresh":
@@ -2160,7 +2159,6 @@ function getStateHash(onlyCurrent = true) {
         }
     }
     data.useNewJpDamageFormula = $("#useNewJpDamageFormula").prop("checked");
-    data.useNew400Cap = useNew400Cap;
     
     return data;
 }
@@ -2256,12 +2254,7 @@ function loadStateHashAndBuild(data, importMode = false) {
     } else {
         $("#useNewJpDamageFormula").prop("checked", false);
     }
-    
-    if (data.useNew400Cap) {
-        $("#useNew400Cap").prop("checked", true);
-    } else {
-        $("#useNew400Cap").prop("checked", false);
-    }
+
     
     if (!importMode) {
         select("races", data.monster.races);
@@ -2957,10 +2950,6 @@ function startPage() {
         logCurrentBuild();
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
-    $("#useNew400Cap").change(function() {
-        readGoal();
-        logCurrentBuild();
-    });
     
     $("#monsterDefensiveStats input").on('input',$.debounce(300,function() {
         readEnnemyStats();

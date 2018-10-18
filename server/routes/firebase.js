@@ -128,7 +128,6 @@ const partyBuildSchema = Joi.object().keys({
         })
     }),
     "useNewJpDamageFormula": Joi.boolean().required(),
-    "useNew400Cap": Joi.boolean().required(),
     "itemSelector": Joi.object().keys({
         "mainSelector":[Joi.string().valid("all"),Joi.string().valid("owned"), Joi.string().valid("ownedAvailableForExpedition"), Joi.string().valid("shopRecipe")],
         "additionalFilters": Joi.array().max(5).items([
