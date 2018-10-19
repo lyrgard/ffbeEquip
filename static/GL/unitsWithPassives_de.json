@@ -10350,7 +10350,7 @@
 		],
 		"skills": [
 			{"hp%":10, "evoMag":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":125},{"name":"confuse","percent":100},{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25}]},
-			{"def%":50, "spr%":50, "mpRefresh":10, "equipedConditions":["1100000022"]},
+			{"def%":50, "spr%":50, "singleWielding":{"spr":30,"def":30}, "mpRefresh":10, "equipedConditions":["1100000022"]},
 			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "levelCondition":105},
@@ -10872,13 +10872,13 @@
 		"stats_pattern":4,
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 			{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
 			{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true},
 			{"equipedConditions":["1100000109"]},
 			{"mag%":30, "skillEnhancement":{"910520":1,"910526":1,"911450":1,"911451":1,"911452":1,"911453":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mag%":20, "singleWielding":{"mag":50}, "mpRefresh":5, "levelCondition":120}
+			{"hp%":20, "mag%":20, "singleWielding":{"mag":50,"spr":50}, "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Grimmige Herrin Sakura",
@@ -10896,7 +10896,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 			"skills": [
-				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 				{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
 				{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true}
 			]

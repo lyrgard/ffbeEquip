@@ -526,7 +526,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         }
         return [result];
     }
-    else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+    else if (rawEffect[1] == 3 && rawEffect[2] == 10003) {
         var doublehandResult = {};
         var doublehandEffect = rawEffect[3];
         if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
