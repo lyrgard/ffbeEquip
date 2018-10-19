@@ -431,11 +431,15 @@ function getAccessHtml(item) {
         if (units[item.tmrUnit]) {
             html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
         } else {
-            html += '<div>not released yet unit</div>';
+            html += '<div>TMR of not released yet unit</div>';
         }
     }
     if (item.stmrUnit) {
-        html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
+        if (units[item.stmrUnit]) {
+            html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
+        } else {
+            html += '<div>STMR of not released yet unit</div>';
+        }
     }
     if (item.exclusiveUnits) {
         html += getExclusiveUnitsHtml(item);
