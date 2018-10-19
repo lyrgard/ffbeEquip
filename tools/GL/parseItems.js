@@ -646,6 +646,19 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var lbDamage = rawEffect[3][0];
         addStat(item, "lbDamage", lbDamage);
         
+    // Skill enhancement
+    } else if (rawEffect[2] == 73) {
+        if (!item.skillEnhancement) {
+            item.skillEnhancement = {};
+        }
+        if (Array.isArray(rawEffect[3][0])) {
+            for (var i = rawEffect[3][0].length; i--;) {
+                addStat(item.skillEnhancement, rawEffect[3][0][i].toString(), rawEffect[3][3] / 100);
+            }
+        } else {
+            addStat(item.skillEnhancement, rawEffect[3][0].toString(), rawEffect[3][3] / 100);
+        }
+        
     } else {
         return false;
     }
@@ -797,7 +810,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "skillEnhancement","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

@@ -1385,10 +1385,7 @@ function addToAilmentsList(item, ailment) {
 function addElementalResist(item, values) {
     for (var index in elements) {
         if (values[index]) {
-            if (!item.resist) {
-                item.resist = [];
-            }
-            item.resist.push({"name":elements[index],"percent":values[index]})
+            addToResistList(item, {"name":elements[index],"percent":values[index]});
         }
     }
 }
@@ -1396,10 +1393,7 @@ function addElementalResist(item, values) {
 function addAilmentResist(item, values) {
     for (var index in ailments) {
         if (values[index]) {
-            if (!item.resist) {
-                item.resist = [];
-            }
-            item.resist.push({"name":ailments[index],"percent":values[index]})
+            addToResistList(item, {"name":ailments[index],"percent":values[index]});
         }
     }
 }
