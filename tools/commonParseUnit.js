@@ -1104,6 +1104,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
         result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
         
+    // Damage increased against a race
+    } else if (rawEffect[2] == 22) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};    
+        
     // inflict status
     } else if (rawEffect[2] == 6) {
         result = {"noUse":true};

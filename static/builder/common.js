@@ -384,6 +384,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         }
         
         var coef = formula.value.coef;
+        if (formula.value.ifUsedAgain && ennemyStats.races.includes(formula.value.ifUsedAgain.race)) {
+            coef = formula.value.ifUsedAgain.coef;
+        }
         if (context.currentSkill && context.skillEnhancement[context.currentSkill]) {
             coef += context.skillEnhancement[context.currentSkill];
         }
