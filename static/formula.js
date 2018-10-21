@@ -717,7 +717,13 @@ function getSkillIds(formula) {
         }
     } else if (formula.type == "multicast") {
         return formula.skills.map(skill => getSkillIds(skill)).reduce(
-            (arr, ids) => {if (ids && ids.length > 0) arr = [...arr, ...ids];},
+            (arr, ids) => {
+                if (ids && ids.length > 0) {
+                    return [...arr, ...ids];
+                } else {
+                    return arr;
+                }
+            },
             []
         );
     } else if (formula.type == "condition") {
