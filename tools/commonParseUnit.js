@@ -1288,14 +1288,15 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
 function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
     var alreadyAdded = false;
-    for (var i = unit.actives.length; i--;) {
-        if (unit.actives[i].id == gainedSkillId) {
+    var activesAndMagics = unit.actives.concat(unit.magics);
+    for (var i = activesAndMagics.length; i--;) {
+        if (activesAndMagics[i].id == gainedSkillId) {
             alreadyAdded = true;
             if (unlockedBy) {
-                if (!unit.actives[i].unlockedBy) {
-                    unit.actives[i].unlockedBy = [];
+                if (!activesAndMagics[i].unlockedBy) {
+                    activesAndMagics[i].unlockedBy = [];
                 }
-                unit.actives[i].unlockedBy.push(unlockedBy.name);
+                activesAndMagics[i].unlockedBy.push(unlockedBy.name);
             }
             break;
         }
@@ -1304,7 +1305,11 @@ function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
         if (unlockedBy) {
             gainedSkill.unlockedBy = [unlockedBy.name];
         }
-        unit.actives.push(gainedSkill);
+        if (gainedSkill.magic) {
+            unit.magics.push(gainedSkill);
+        } else {
+            unit.actives.push(gainedSkill);
+        }
     }
 }
 
