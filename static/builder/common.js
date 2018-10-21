@@ -384,6 +384,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         }
         
         var coef = formula.value.coef;
+        if (formula.value.ifUsedAgain && ennemyStats.races.includes(formula.value.ifUsedAgain.race)) {
+            coef = formula.value.ifUsedAgain.coef;
+        }
         if (context.currentSkill && context.skillEnhancement[context.currentSkill]) {
             coef += context.skillEnhancement[context.currentSkill];
         }
@@ -932,6 +935,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
             }
             if (equipedIndex < 2 && "atk" == stat) {
                 calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat, notStackableSkillsAlreadyUsed);    
+                calculatedValue += calculateFlatStateValueForIndex(itemAndPassives[equipedIndex], equipmentStatBonus - 1, stat);
             } else {
                 calculatedValue += calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed);    
             }
@@ -947,8 +951,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     
     if ("atk" == stat) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
-        var right = calculateFlatStateValueForIndex(itemAndPassives[0], equipmentStatBonus, stat);
-        var left = calculateFlatStateValueForIndex(itemAndPassives[1], equipmentStatBonus, stat);
+        var right = calculateFlatStateValueForIndex(itemAndPassives[0], 1, stat);
+        var left = calculateFlatStateValueForIndex(itemAndPassives[1], 1, stat);
         if (itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
             result.right = Math.floor(calculatedValue + right);
             result.left = Math.floor(calculatedValue + left);

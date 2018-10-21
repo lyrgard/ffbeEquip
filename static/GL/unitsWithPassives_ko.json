@@ -8834,7 +8834,7 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":50},{"name":"fire","percent":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":20, "resist":[{"name":"fire","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -8853,7 +8853,7 @@
 		"stats_pattern":1,
 		"equip":["spear","hat","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":30, "lbFillRate":150, "resist":[{"name":"light","percent":50},{"name":"light","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
+			{"hp%":30, "atk%":30, "lbFillRate":150, "resist":[{"name":"light","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":5}
 		]
 	},
 	"302000605": {
@@ -10311,27 +10311,6 @@
 			{"atk%":20, "equipedConditions":["gun"]}
 		]
 	},
-	"332000105": {
-		"name":"라라 크로프트",
-		"wikiEntry":"Lara_Croft",
-		"id":"332000105",
-		"max_rarity":"6",
-		"min_rarity":"5",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":3502,"mp":161,"atk":150,"def":137,"mag":127,"spr":133},
-			"minStats":{"hp":1156,"mp":53,"atk":50,"def":45,"mag":42,"spr":44},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","sword","staff","bow","axe","whip","throwing","gun","fist","hat","clothes","lightArmor","robe"],
-		"skills": [
-			{"hp%":20, "atk%":50, "def%":20, "evade":{"physical":5}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":25},{"name":"human","physical":25},{"name":"bug","physical":25}], "mpRefresh":10, "special":["dualWield"]},
-			{"atk%":10, "equipedConditions":["bow"]},
-			{"atk%":10, "equipedConditions":["throwing"]},
-			{"atk%":10, "equipedConditions":["gun"]}
-		]
-	},
 	"401000104": {
 		"name":"데인저러스 아리아나",
 		"wikiEntry":"Dangerous_Ariana",
@@ -10370,8 +10349,8 @@
 			{"name":"Doublehand","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":150}}]]}
 		],
 		"skills": [
-			{"hp%":10, "evoMag":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25},{"name":"paralysis","percent":25}]},
-			{"def%":50, "spr%":50, "mpRefresh":10, "equipedConditions":["1100000022"]},
+			{"hp%":10, "evoMag":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":125},{"name":"confuse","percent":100},{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25}]},
+			{"def%":50, "spr%":50, "singleWielding":{"spr":30,"def":30}, "mpRefresh":10, "equipedConditions":["1100000022"]},
 			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "levelCondition":105},
@@ -10428,7 +10407,7 @@
 			{"name":"ATK +20%","levels":[[{"atk%":20}],[{"atk%":20},{"equipedConditions":["katana"],"atk%":30}],[{"atk%":20},{"equipedConditions":["katana"],"hp%":30,"atk%":60}]]}
 		],
 		"skills": [
-			{"atk%":10, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":-25},{"name":"light","percent":-25},{"name":"dark","percent":50},{"name":"sleep","percent":25}]},
+			{"atk%":10, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":125},{"name":"confuse","percent":100},{"name":"fire","percent":-25},{"name":"light","percent":-25},{"name":"dark","percent":50}]},
 			{"atk%":20, "mag%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":["1100000023"]},
 			{"hp%":30, "mp%":30, "atk%":40, "def%":40, "mag%":40, "spr%":40, "levelCondition":105},
 			{"atk%":50, "mag%":50, "equipedConditions":["sword"], "levelCondition":110},
@@ -10893,13 +10872,13 @@
 		"stats_pattern":4,
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 			{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
 			{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true},
 			{"equipedConditions":["1100000109"]},
 			{"mag%":30, "skillEnhancement":{"910520":1,"910526":1,"911450":1,"911451":1,"911452":1,"911453":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mag%":20, "singleWielding":{"mag":50}, "mpRefresh":5, "levelCondition":120}
+			{"hp%":20, "mag%":20, "singleWielding":{"mag":50,"spr":50}, "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"사신 사쿠라",
@@ -10917,7 +10896,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 			"skills": [
-				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 				{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
 				{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true}
 			]

@@ -526,7 +526,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         }
         return [result];
     }
-    else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10003) {
+    else if (rawEffect[1] == 3 && rawEffect[2] == 10003) {
         var doublehandResult = {};
         var doublehandEffect = rawEffect[3];
         if (doublehandEffect.length == 7 && doublehandEffect[6] == 1) {
@@ -1104,6 +1104,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         }
         result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
         
+    // Damage increased against a race
+    } else if (rawEffect[2] == 22) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};    
+        
     // inflict status
     } else if (rawEffect[2] == 6) {
         result = {"noUse":true};
@@ -1385,10 +1389,7 @@ function addToAilmentsList(item, ailment) {
 function addElementalResist(item, values) {
     for (var index in elements) {
         if (values[index]) {
-            if (!item.resist) {
-                item.resist = [];
-            }
-            item.resist.push({"name":elements[index],"percent":values[index]})
+            addToResistList(item, {"name":elements[index],"percent":values[index]});
         }
     }
 }
@@ -1396,10 +1397,7 @@ function addElementalResist(item, values) {
 function addAilmentResist(item, values) {
     for (var index in ailments) {
         if (values[index]) {
-            if (!item.resist) {
-                item.resist = [];
-            }
-            item.resist.push({"name":ailments[index],"percent":values[index]})
+            addToResistList(item, {"name":ailments[index],"percent":values[index]});
         }
     }
 }
