@@ -710,6 +710,25 @@ function isSimpleFormula(formula) {
     }
 }
 
+function getSkillIds(formula) {
+    if (formula.type == "skill") {
+        if (formula.id) {
+            return [formula.id];
+        }
+    } else if (formula.type == "multicast") {
+        return formula.skills.map(skill => getSkillIds(skill)).reduce(
+            (arr, ids) => {if (ids && ids.length > 0) arr = [...arr, ...ids];},
+            []
+        );
+    } else if (formula.type == "condition") {
+        return getSkillIds(formula.formula).concat(getSkillIds(formula.condition));
+    } else if (formula.type == "value" || formula.type == "constant" || formula.type == "elementCondition" || formula.type == "damage") {
+        return [];
+    } else {
+        return getSkillIds(formula.value1).concat(getSkillIds(formula.value2));
+    }
+}
+
 function getMulticastSkillAbleToMulticast(skills, unit) {
     var passiveAndActives = unit.actives.concat(unit.passives);
     for (var i = passiveAndActives.length; i--;) {

@@ -459,7 +459,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     }
 
     // unarmed
-    else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 19) {
+    else if (rawEffect[1] == 3 && rawEffect[2] == 19) {
         var masteryEffect = rawEffect[3];    
         var result = {"equipedConditions":["unarmed"]};
 

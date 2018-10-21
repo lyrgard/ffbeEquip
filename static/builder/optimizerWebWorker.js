@@ -1,4 +1,5 @@
 importScripts('../constants.js');
+importScripts('../formula.js');
 importScripts('common.js');
 importScripts('unitBuild.js');
 importScripts('treeComparator.js');

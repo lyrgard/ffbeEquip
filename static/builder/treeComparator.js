@@ -310,6 +310,28 @@ class TreeComparator {
         }
     }
     
+    static compareBySkillEnhancement(item1, item2, skillId) {
+        if (!item1.skillEnhancement && !item2.skillEnhancement) {
+            return "equivalent";
+        } else {
+            let enh1 = 0;
+            let enh2 = 0;
+            if (item1.skillEnhancement && item1.skillEnhancement[skillId]) {
+               enh1 = item1.skillEnhancement[skillId];
+            }
+            if (item2.skillEnhancement && item2.skillEnhancement[skillId]) {
+                enh2 = item2.skillEnhancement[skillId];
+            }
+            if (enh1 < enh2) {
+                return "strictlyBetter";
+            } else if (enh1 > enh2) {
+                return "strictlyWorse";
+            } else {
+                return "equivalent";
+            }
+        }
+    }
+    
     
         // Return true if the two arrays share at least one value
     static matches(array1, array2) {

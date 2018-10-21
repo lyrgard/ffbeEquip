@@ -137,7 +137,8 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, includeSingleWielding, includeDualWielding);
+        var skillsIds = getSkillIds(this._unitBuild.formula);
+        var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding);
         for (var i = tempResult.length; i--;) {
             var entry = tempResult[i];
             if (weaponList.includes(type) && (typeCombination[1] || this._unitBuild.fixedItems[0] || this._unitBuild.fixedItems[1]) && isTwoHanded(entry.item) ) {

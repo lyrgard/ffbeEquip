@@ -1,5 +1,5 @@
 class ItemPool {
-    constructor(maxDepth, involvedStats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding, includeDualWielding) {
+    constructor(maxDepth, involvedStats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding, includeDualWielding) {
         this.maxDepth = maxDepth;
         this.involvedStats = involvedStats;
         this.ennemyStats = ennemyStats;
@@ -15,6 +15,7 @@ class ItemPool {
         this.workingArray = [];
         this.currentTopLevelItems = [];
         this.lesserGroupsById = {};
+        this.skillIds = skillIds;
     }
     
     addItems(entries) {
@@ -32,7 +33,7 @@ class ItemPool {
         var lesserGroups = [];
         var betterItemCount = 0;
         for (var i = this.keptItems.length; i--;) {
-            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.includeSingleWielding, this.includeDualWielding);
+            var comparison = ItemPool.getComparison(this.keptItems[i].equivalents[0], entry, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
             switch (comparison) {
                 case "strictlyWorse":
                     betterItemCount += this.keptItems[i].available;
@@ -161,7 +162,7 @@ class ItemPool {
         group.equivalents[group.currentEquivalent].currentAvailable++;
     }
     
-    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, includeSingleWielding = true, includeDualWielding = true) {
+    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true) {
         var comparisionStatus = [];
         for (var index = stats.length; index--;) {
             if (stats[index] == "physicalKiller") {
@@ -205,6 +206,9 @@ class ItemPool {
         }
         if (desirableItemIds && desirableItemIds.length != 0) {
             comparisionStatus.push(TreeComparator.compareByDesirableItemIdsCondition(entry1.item, entry2.item, desirableItemIds));
+        }
+        if (skillIds.length > 0) {
+            skillIds.forEach(skillId => comparisionStatus.push(TreeComparator.compareBySkillEnhancement(entry1.item, entry2.item, skillId)));
         }
         comparisionStatus.push(TreeComparator.compareByNumberOfHandsNeeded(entry1.item, entry2.item));
 

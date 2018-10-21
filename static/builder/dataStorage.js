@@ -139,6 +139,11 @@ class DataStorage {
         var equipable = this.unitBuild.getCurrentUnitEquip();
         var itemNumber = this.data.length;
         var pinnedItemIds = [];
+        if (this.unitBuild.formula) {
+            this.skillIds = getSkillIds(this.unitBuild.formula);
+        } else {
+            this.skillIds = [];
+        }
         for (var i = 0; i < 10; i++) {
             if (this.unitBuild.fixedItems[i]) {
                 pinnedItemIds.push(this.unitBuild.fixedItems[i].id);
@@ -225,7 +230,7 @@ class DataStorage {
                 var numberNeeded = 1;
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
-                var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+                var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
                 itemPool.addItems(this.dataByType[type]);
                 itemPool.prepare();
                 //var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
@@ -258,7 +263,7 @@ class DataStorage {
         var types = Object.keys(dualWieldByType);
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
-            var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
+            var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
             itemPool.addItems(dualWieldByType[types[i]]);
             itemPool.prepare();
             this.dualWieldSources = this.dualWieldSources.concat(itemPool.getEntries().map(x => x.item));
@@ -439,6 +444,9 @@ class DataStorage {
         }
         if (this.unitBuild.desirableItemIds.length != 0) {
             if (this.unitBuild.desirableItemIds.includes(item.id)) return true;
+        }
+        if (this.skillIds.length > 0 && item.skillEnhancement) {
+            if (this.skillIds.some(id => item.skillEnhancement[id])) return true;
         }
     }
     

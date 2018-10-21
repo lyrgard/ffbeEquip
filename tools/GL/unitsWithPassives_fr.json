@@ -11753,6 +11753,7 @@
 		"skills": [
 			{"atk%":30, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["fist"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"mp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbDamage":20, "equipedConditions":["1500000074"]},
 			{"skillEnhancement":{"911518":1,"911519":2,"911520":2}, "levelCondition":115},
 			{"hp%":20, "levelCondition":115},
@@ -11775,7 +11776,8 @@
 			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"],
 			"skills": [
 				{"atk%":30, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "special":["dualWield"]},
-				{"atk%":50, "equipedConditions":["fist"]}
+				{"atk%":50, "equipedConditions":["fist"]},
+				{"atk%":200, "equipedConditions":["unarmed"]}
 			]
 		}
 	}

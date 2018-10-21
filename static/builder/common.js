@@ -120,8 +120,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "lastStackingSkillId":"any"
             }
         }
-        for (var i = 11; i < itemAndPassives.length; i++) {
-            if (itemAndPassives[i].skillEnhancement) {
+        for (var i = 0; i < itemAndPassives.length; i++) {
+            if (itemAndPassives[i] && itemAndPassives[i].skillEnhancement) {
                 var skills = Object.keys(itemAndPassives[i].skillEnhancement);
                 for (var j = skills.length; j--;) {
                     if (!context.skillEnhancement[skills[j]]) {
