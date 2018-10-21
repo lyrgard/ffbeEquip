@@ -1063,6 +1063,10 @@ function areConditionOK(item, equiped, level = 0) {
                         break;
                     }
                 }
+            } else if (item.equipedConditions[conditionIndex] == "unarmed") {
+                if (!equiped[0] && ! equiped[1]) {
+                    found++;
+                }
             } else {
                 for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
                     if (equiped[equipedIndex] && equiped[equipedIndex].id == item.equipedConditions[conditionIndex]) {
