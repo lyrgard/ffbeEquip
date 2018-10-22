@@ -4276,7 +4276,7 @@
 		}
 	},
 	"100017105": {
-		"name":"Elfim",
+		"name":"Elephim",
 		"jpname":"エレフィム",
 		"id":"100017105",
 		"max_rarity":"7",
@@ -4298,7 +4298,7 @@
 			{"resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30}], "equipedConditions":["harp"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Elfim",
+			"name":"Elephim",
 			"jpname":"エレフィム",
 			"id":"100017105",
 			"sixStarForm":true,
@@ -4358,7 +4358,7 @@
 		]
 	},
 	"100017403": {
-		"name":"Forelske",
+		"name":"Forelsket",
 		"jpname":"フォレルスケット",
 		"id":"100017403",
 		"max_rarity":"5",
@@ -4496,7 +4496,7 @@
 		]
 	},
 	"100017905": {
-		"name":"CG Sieghart",
+		"name":"Sieghard",
 		"jpname":"ジークハルト",
 		"id":"100017905",
 		"max_rarity":"7",
@@ -4524,7 +4524,7 @@
 			{"hp%":30, "def%":30, "equipedConditions":["heavyArmor"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Sieghart",
+			"name":"Sieghard",
 			"jpname":"ジークハルト",
 			"id":"100017905",
 			"sixStarForm":true,
@@ -4569,7 +4569,7 @@
 		]
 	},
 	"100018104": {
-		"name":"Theobalt",
+		"name":"Theobald",
 		"jpname":"テオバルト",
 		"id":"100018104",
 		"max_rarity":"6",
@@ -4588,7 +4588,7 @@
 		]
 	},
 	"100018203": {
-		"name":"Kanon",
+		"name":"Cannon",
 		"jpname":"カノン",
 		"id":"100018203",
 		"max_rarity":"5",
@@ -4607,7 +4607,7 @@
 		]
 	},
 	"100018305": {
-		"name":"CG Folka",
+		"name":"Folka",
 		"jpname":"フォルカ",
 		"id":"100018305",
 		"max_rarity":"7",
@@ -4631,7 +4631,7 @@
 			{"def%":50, "spr%":50, "lbFillRate":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Folka",
+			"name":"Folka",
 			"jpname":"フォルカ",
 			"id":"100018305",
 			"sixStarForm":true,
@@ -4655,7 +4655,7 @@
 		}
 	},
 	"100018403": {
-		"name":"Ekor",
+		"name":"Ichor",
 		"jpname":"イコル",
 		"id":"100018403",
 		"max_rarity":"5",
@@ -4712,7 +4712,7 @@
 		]
 	},
 	"100018705": {
-		"name":"CG Ignacio",
+		"name":"Ignacio",
 		"jpname":"イグニシオ",
 		"id":"100018705",
 		"max_rarity":"7",
@@ -4738,7 +4738,7 @@
 			{"hp%":30, "atk%":30, "lbFillRate":100, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Ignacio",
+			"name":"Ignacio",
 			"jpname":"イグニシオ",
 			"id":"100018705",
 			"sixStarForm":true,
@@ -4800,7 +4800,7 @@
 		]
 	},
 	"100019003": {
-		"name":"Weyham",
+		"name":"Wayhem",
 		"jpname":"ウェイハム",
 		"id":"100019003",
 		"max_rarity":"5",
@@ -6530,7 +6530,7 @@
 		"stats_pattern":1,
 		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":100},{"name":"wind","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
+			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":150},{"name":"light","percent":-50}], "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"spr%":30, "equipedConditions":["lightShield"]}
 		]
@@ -6550,7 +6550,7 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":10, "atk%":20, "resist":[{"name":"dark","percent":20},{"name":"earth","percent":20},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":-20},{"name":"earth","percent":20},{"name":"light","percent":-20},{"name":"dark","percent":20}]}
+			{"hp%":10, "atk%":20, "resist":[{"name":"dark","percent":40},{"name":"earth","percent":40},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":-20},{"name":"light","percent":-20}]}
 		]
 	},
 	"204002104": {
@@ -7346,6 +7346,7 @@
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
 		"skills": [
 			{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"confuse","percent":100}], "killers":[{"physical":75}]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"mp%":20, "def%":20, "spr%":20, "killers":[{"physical":75}], "skillEnhancement":{"229780":1.5,"229783":0.75,"229785":1.5}, "equipedConditions":["409026900"]},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":40, "levelCondition":120}
@@ -7366,7 +7367,8 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
 			"skills": [
-				{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"confuse","percent":100}], "killers":[{"physical":75}]}
+				{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"confuse","percent":100}], "killers":[{"physical":75}]},
+				{"atk%":200, "equipedConditions":["unarmed"]}
 			]
 		}
 	},
@@ -10833,7 +10835,7 @@
 		}
 	},
 	"304000503": {
-		"name":"Rabbie",
+		"name":"Rabite",
 		"jpname":"ラビ",
 		"id":"304000503",
 		"max_rarity":"5",
@@ -12010,7 +12012,7 @@
 		}
 	},
 	"330000205": {
-		"name":"Freya",
+		"name":"Freya (VP)",
 		"jpname":"フレイ",
 		"id":"330000205",
 		"max_rarity":"7",
@@ -12030,7 +12032,7 @@
 			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Freya",
+			"name":"Freya (VP)",
 			"jpname":"フレイ",
 			"id":"330000205",
 			"sixStarForm":true,
