@@ -104,7 +104,7 @@ app.use(sessions({
   secret: config.secret,
   duration: 7 * 24 * 60 * 60 * 1000,
 }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({'limit':'1mb'}));
 
 // Routes
 app.use('/', oauth);
