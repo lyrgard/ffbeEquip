@@ -140,7 +140,7 @@ class DataStorage {
         var itemNumber = this.data.length;
         var pinnedItemIds = [];
         if (this.unitBuild.formula) {
-            this.skillIds = getSkillIds(this.unitBuild.formula);
+            this.skillIds = getSkillIds(this.unitBuild.formula) || [];
         } else {
             this.skillIds = [];
         }

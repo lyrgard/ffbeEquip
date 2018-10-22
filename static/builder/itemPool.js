@@ -196,6 +196,9 @@ class ItemPool {
                     }
                     if (includeDualWielding) {
                         comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "dualWielding." + stats[index]));
+                        if (stats[index] == 'atk') {
+                               comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, 'atk%'));
+                        }
                     }
                 }
                 

@@ -137,7 +137,7 @@ class BuildOptimizer {
                 fixedString += ' - ' + fixedItems[i].name;
             }
         }
-        var skillsIds = getSkillIds(this._unitBuild.formula);
+        var skillsIds = getSkillIds(this._unitBuild.formula) || [];
         var itemPool = new ItemPool(numberNeeded, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, skillsIds, includeSingleWielding, includeDualWielding);
         for (var i = tempResult.length; i--;) {
             var entry = tempResult[i];
