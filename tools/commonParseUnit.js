@@ -311,6 +311,9 @@ function addEffectsToEffectList(effectList, effects) {
                     addToAilmentsList(effectList[0], effect.ailments[i]);
                 }
             }
+            if (effect.improvedDW) {
+                effectList[0].improvedDW = true;
+            }
             const simpleValues = ["evoMag", "accuracy", "jumpDamage","lbFillRate", "mpRefresh", "lbDamage"];
             for (var i = simpleValues.length; i--;) {
                 if (effect[simpleValues[i]]) {
@@ -822,6 +825,14 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         if (lbIn.name == "Jackpot Shot") {
             console.log(lbIn);
             console.log(lb);
+        }
+        return [result];
+        
+    // Increase maximum true double-wield bonus to 200%, Allow unit to reach 6x chain modifier, when using two one-handed weapons
+    } else if (rawEffect[3] && rawEffect[2] == 81) {
+        
+        result = {
+            "improvedDW": true
         }
         return [result];
     }
@@ -1479,7 +1490,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

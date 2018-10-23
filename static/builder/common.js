@@ -853,10 +853,11 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
 }
     
 
-function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
+function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) {
     if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         var normalStack = 0;
         var twoHanded = isTwoHanded(itemAndPassives[0]);
+        var dualWield = itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
             if (item) {
@@ -866,9 +867,9 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat] && itemAndPassives[0] && !itemAndPassives[1]) {
                     normalStack += item.singleWieldingOneHanded[stat] / 100;
                 }
-                if (item.dualWielding && item.dualWielding[stat] && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type)) {
+                if (dualWield && item.dualWielding && item.dualWielding[stat]) {
                     if (doCap) {
-                        normalStack = Math.min(normalStack  + item.dualWielding[stat] / 100, 1);
+                        normalStack = Math.min(normalStack  + item.dualWielding[stat] / 100, tdwCap);
                     } else {
                         normalStack += item.dualWielding[stat] / 100;
                     }
@@ -899,7 +900,7 @@ function getEsperStatBonus(itemAndPassives, stat) {
 }
 
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
-    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat);
+    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, unitBuild.tdwCap);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
         esperStatBonus = getEsperStatBonus(itemAndPassives, stat);

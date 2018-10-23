@@ -44,6 +44,7 @@ class UnitBuild {
         } else {
             this.stats = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
         }
+        this._tdwCap = null;
     }
     
     getPartialDualWield() {
@@ -342,6 +343,7 @@ class UnitBuild {
         } else {
             this.stats = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
         }
+        this._tdwCap = null;
     }
     
     setLevel(level) {
@@ -360,9 +362,23 @@ class UnitBuild {
                 this.stats = this.unit.stats.maxStats;
             }
         }
+        this._tdwCap = null;
     }
     
     getStat(stat) {
         return this.stats[stat];
+    }
+    
+    get tdwCap() {
+        if(this._tdwCap) {
+            return this._tdwCap.value;
+        } else {
+            if (this.unit.skills.some(skill => skill.improvedDW && (!skill.levelCondition || skill.levelCondition <= this._level))) {
+                this._tdwCap = { "value": 2};
+            } else {
+                this._tdwCap = { "value": 1};
+            }
+            return this._tdwCap.value;
+        }
     }
 }
