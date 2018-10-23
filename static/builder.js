@@ -2061,7 +2061,7 @@ function toggleItemEnhancement(enhancement) {
 }
 
 function pinChosenEnchantment() {
-    if (currentEnchantmentItem.type = "fake") {
+    if (currentEnchantmentItem.type == "fake") {
         defaultWeaponEnhancement = currentEnchantmentItem.enhancements;
         dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
         $("#defaultWeaponEnhancement .display").html(getEnhancements(currentEnchantmentItem));
