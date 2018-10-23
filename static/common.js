@@ -103,7 +103,7 @@ function getNameColumnHtml(item) {
         html += '<div>' + item.jpname + "</div>";
     }
     html += "<div class='detail'>";
-    if (item.type != "esper" && item.type != "monster") {
+    if (item.type != "esper" && item.type != "monster" && item.type != "fake") {
         html += "<i class='img img-equipment-" + item.type + " miniIcon'></i>";
     }
     html += getStatDetail(item) + "</div>";

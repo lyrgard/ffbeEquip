@@ -973,6 +973,20 @@ i.img.img-slot-hand.leftHand {
     margin-bottom: 2px;
 }
 
+#defaultWeaponEnhancement {
+    display: flex;
+    align-items: center;
+}
+
+#defaultWeaponEnhancement .display {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#defaultWeaponEnhancement .btn {
+    padding: 0 6px;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {

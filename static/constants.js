@@ -53,7 +53,8 @@ const itemEnhancementLabels = {
         "throwing": "HP/MP +15%", 
         "gun": "ATK +30%", 
         "mace": "HP +30%", 
-        "fist": "HP/ATK +15%"
+        "fist": "HP/ATK +15%",
+        "fake": "Rare"
     },
     "hp_15": "HP +15%", "hp_12": "HP +12%", "hp_10": "HP +10%", "hp_7": "HP +7%", "hp_5": "HP +5%", "hp_3": "HP +3%", "hp_1": "HP +1%",
     "mp_15": "MP +15%", "mp_12": "MP +12%", "mp_10": "MP +10%", "mp_7": "MP +7%", "mp_5": "MP +5%", "mp_3": "MP +3%", "mp_1": "MP +1%",
@@ -83,7 +84,8 @@ const itemEnhancementAbilities = {
         "throwing": {"hp%":15, "mp%":15}, 
         "gun": {"atk%":30}, 
         "mace": {"hp%":30}, 
-        "fist": {"hp%":15, "atk%":15}
+        "fist": {"hp%":15, "atk%":15},
+        "fake": {}
     },
     "hp_15": {"hp%":15}, "hp_12": {"hp%":12}, "hp_10": {"hp%":10}, "hp_7": {"hp%":7}, "hp_5": {"hp%":5}, "hp_3": {"hp%":3}, "hp_1": {"hp%":1},
     "mp_15": {"mp%":15}, "mp_12": {"mp%":12}, "mp_10": {"mp%":10}, "mp_7": {"mp%":7}, "mp_5": {"mp%":5}, "mp_3": {"mp%":3}, "mp_1": {"mp%":1},

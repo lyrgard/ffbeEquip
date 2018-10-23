@@ -119,6 +119,8 @@ var secondaryOptimization = false;
 var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
+var defaultWeaponEnhancement = [];
+
 function build() {
     secondaryOptimization = false;
     if (running) {
@@ -1523,6 +1525,7 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
+        $("#defaultWeaponEnhancement").removeClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = false;
     } else if (equipments == "owned" || equipments == "ownedAvailableForExpedition") {
@@ -1539,6 +1542,7 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().removeClass("hidden");
         $("#includeChocoboItems").parent().removeClass("hidden");
         $("#includeEasilyObtainableItems").parent().removeClass("hidden");
+        $("#defaultWeaponEnhancement").addClass("hidden");
         dataStorage.onlyUseOwnedItems = true;
         dataStorage.onlyUseShopRecipeItems = false;
         if (equipments == "ownedAvailableForExpedition") {
@@ -1556,6 +1560,7 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
+        $("#defaultWeaponEnhancement").addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = true;
     }
@@ -2056,7 +2061,14 @@ function toggleItemEnhancement(enhancement) {
 }
 
 function pinChosenEnchantment() {
-    fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
+    if (currentEnchantmentItem.type = "fake") {
+        defaultWeaponEnhancement = currentEnchantmentItem.enhancements;
+        dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
+        $("#defaultWeaponEnhancement .display").html(getEnhancements(currentEnchantmentItem));
+        $('#modifyEnhancementModal').modal('hide');
+    } else {
+        fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
+    }
 }
 
 function getStateHash(onlyCurrent = true) {
@@ -2827,6 +2839,12 @@ function deleteSavedTeam(index) {
     }
     writeSavedTeams();
     showSavedTeams();
+}
+
+
+function modifyDefaultWeaponEnhancement() {
+    var fakeItem = {"name":"Default enhancement", type:"fake", "icon":"ability_95.png", enhancements:defaultWeaponEnhancement};
+    selectEnchantement(fakeItem);
 }
 
 // will be called by common.js at page load
