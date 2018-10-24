@@ -1105,7 +1105,9 @@ function updateGoal() {
         var multicastedSkills;
         if (selectedSkill) {
             if (selectedSkill.type == "skill") {
-                if (selectedSkill.id && selectedSkill.id != "0") {
+                if (selectedSkill.lb) {
+                    choiceSelect.val("LB");    
+                } else if (selectedSkill.id && selectedSkill.id != "0") {
                     choiceSelect.val("SKILL_" + selectedSkill.id);    
                 } else {
                     choiceSelect.val(selectedSkill.formulaName);    
