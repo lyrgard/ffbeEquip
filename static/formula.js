@@ -733,6 +733,7 @@ function getSkillIds(formula) {
     } else {
         return getSkillIds(formula.value1).concat(getSkillIds(formula.value2));
     }
+    return [];
 }
 
 function getMulticastSkillAbleToMulticast(skills, unit) {
