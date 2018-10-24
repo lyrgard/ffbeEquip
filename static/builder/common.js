@@ -900,7 +900,7 @@ function getEsperStatBonus(itemAndPassives, stat) {
 }
 
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
-    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, unitBuild.tdwCap);
+    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true, unitBuild.tdwCap);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
         esperStatBonus = getEsperStatBonus(itemAndPassives, stat);
