@@ -1,4 +1,4 @@
-page = "builder";
+﻿page = "builder";
 var adventurerIds = ["1500000013", "1500000015", "1500000016", "1500000017", "1500000018"];
 
 const formulaByGoal = {
@@ -2447,7 +2447,7 @@ function showBuildLink(onlyCurrentUnit) {
 function showBuildAsText() {
     var text = "";
     text += 
-        builds[currentUnitIndex].unit.name + ' ' + (builds[currentUnitIndex].sixStarForm ? 6 : builds[currentUnitIndex].unit.max_rarity) + '★  \n' +
+        builds[currentUnitIndex].unit.name + ' ' + (builds[currentUnitIndex].unit.sixStarForm ? 6 : builds[currentUnitIndex].unit.max_rarity) + '★  \n' +
         getItemLineAsText("Right hand", 0) +
         getItemLineAsText("Left hand", 1) +
         getItemLineAsText("Head", 2) +
