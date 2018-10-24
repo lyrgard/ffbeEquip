@@ -61,7 +61,8 @@ var espersMap = {
     "バハムート": "Bahamut",
     "フェンリル": "Fenrir",
     "リヴァイアサン": "Leviathan",
-    "アニマ": "Anima"
+    "アニマ": "Anima",
+    "阿修羅": "Asura"
 }
 
 var unitNamesById = {};
