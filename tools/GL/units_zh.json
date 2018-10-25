@@ -1830,7 +1830,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","spear","mace","lightShield","hat","clothes","lightArmor","robe"]
+		"equip":["staff","rod","spear","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Withdraw","Open Heart","Quake"]
 	},
 	"100010604": {
 		"name":"克羅耶",
@@ -1845,7 +1846,8 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Strong Memory","Medical Knowledge","Objection"]
 	},
 	"100010703": {
 		"name":"艾米",
@@ -7328,7 +7330,7 @@
 		"equip":["sword","greatSword","katana","spear","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"330000105": {
-		"name":"蕾娜斯",
+		"name":"蕾娜絲",
 		"wikiEntry":"Lenneth",
 		"id":"330000105",
 		"max_rarity":"7",
@@ -7342,7 +7344,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"蕾娜斯",
+			"name":"蕾娜絲",
 			"wikiEntry":"Lenneth",
 			"id":"330000105",
 			"sixStarForm":true,
@@ -7359,7 +7361,7 @@
 		}
 	},
 	"330000205": {
-		"name":"芙蕾雅",
+		"name":"芙蕾",
 		"wikiEntry":"Freya_(VP)",
 		"id":"330000205",
 		"max_rarity":"7",
@@ -7373,7 +7375,7 @@
 		"stats_pattern":4,
 		"equip":["hat","clothes","robe"],
 		"6_form": {
-			"name":"芙蕾雅",
+			"name":"芙蕾",
 			"wikiEntry":"Freya_(VP)",
 			"id":"330000205",
 			"sixStarForm":true,
@@ -7930,6 +7932,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Cyclone Shield","Empress of the Winds","Sunder"],
 		"6_form": {
 			"name":"巴爾巴莉希亞",
 			"wikiEntry":"Barbariccia",
@@ -7944,7 +7947,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"]
+			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["Cyclone Shield","Empress of the Winds","Sunder"]
 		}
 	},
 	"401001504": {
@@ -7960,7 +7964,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","hat","clothes","robe"]
+		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Firelord","Autarch of Flame","I'll Recover You!"]
 	},
 	"401001604": {
 		"name":"凱納槽",
@@ -7975,7 +7980,8 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["fist","helm","lightArmor","heavyArmor"]
+		"equip":["fist","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Archfiend of Water","Water Barrier","Defensive Stance"]
 	},
 	"401001705": {
 		"name":"蕾貝爾塔",
@@ -8055,6 +8061,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
 		"6_form": {
 			"name":"冷血貴族櫻",
 			"wikiEntry":"Grim_Lord Sakura",
@@ -8069,7 +8076,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"]
 		}
 	},
 	"401002104": {
@@ -8085,7 +8093,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","throwing","fist","lightShield","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","throwing","fist","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Illusionist guise","Illusion - Terrifying Visions","Illusion - Redirect"]
 	},
 	"401002204": {
 		"name":"海盜傑科",
@@ -8100,7 +8109,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"]
+		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["I am the captain now!","Walk the Plank","Feed the Fishes"]
 	},
 	"401002304": {
 		"name":"時尚亞莉安娜",

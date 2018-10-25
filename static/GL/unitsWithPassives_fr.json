@@ -2411,6 +2411,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","spear","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Withdraw","Open Heart","Quake"],
 		"skills": [
 			{"mp%":30, "mag%":20, "resist":[{"name":"petrification","percent":100}]},
 			{"mag%":50, "equipedConditions":["rod"]}
@@ -2430,8 +2431,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Strong Memory","Medical Knowledge","Objection"],
+		"enhancements": [
+			{"name":"Medical Knowledge","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mp%":30}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mp%":30,"hp%":30,"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"mp%":20, "spr%":20, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
+			{"mp%":20, "spr%":20}
 		]
 	},
 	"100010703": {
@@ -4050,7 +4055,7 @@
 		]
 	},
 	"100017905": {
-		"name":"null",
+		"name":"Sieghard",
 		"wikiEntry":"Sieghard",
 		"id":"100017905",
 		"max_rarity":"7",
@@ -4074,7 +4079,7 @@
 			{"hp%":30, "def%":30, "equipedConditions":["heavyArmor"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Sieghard",
 			"wikiEntry":"Sieghard",
 			"id":"100017905",
 			"sixStarForm":true,
@@ -4096,7 +4101,7 @@
 		}
 	},
 	"100018004": {
-		"name":"null",
+		"name":"Dietlinde",
 		"wikiEntry":"Dietlinde",
 		"id":"100018004",
 		"max_rarity":"6",
@@ -4115,7 +4120,7 @@
 		]
 	},
 	"100018104": {
-		"name":"null",
+		"name":"Theobald",
 		"wikiEntry":"Theobald",
 		"id":"100018104",
 		"max_rarity":"6",
@@ -8662,7 +8667,7 @@
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":80, "mag%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5},
-			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"絶対零度","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t絶剣・天泣 (228331)\n\t絶剣・暮雨 (508520)\n\t絶剣・氷雨 (228332)\n\t絶剣・驟雨 (228333)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\t絶剣・暮雨 (508520)"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t絶剣・天泣 (228331)\n\t絶剣・暮雨 (508520)\n\t絶剣・氷雨 (228332)\n\t絶剣・驟雨 (228333)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\t絶剣・暮雨 (508520)"}]}, "equipedConditions":["409023400"]},
+			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tZekken - Cloudless Rain (228331)\n\tZekken - Freezing Showers (228332)\n\tZekken - Sudden Downpour (228333)\n\tZekken - Twilight Rain (508520)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tZekken - Twilight Rain (508520)"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tZekken - Cloudless Rain (228331)\n\tZekken - Freezing Showers (228332)\n\tZekken - Sudden Downpour (228333)\n\tZekken - Twilight Rain (508520)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tZekken - Twilight Rain (508520)"}]}, "equipedConditions":["409023400"]},
 			{"def%":20, "levelCondition":115},
 			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],
@@ -9854,7 +9859,7 @@
 		]
 	},
 	"330000105": {
-		"name":"null",
+		"name":"Lenneth",
 		"wikiEntry":"Lenneth",
 		"id":"330000105",
 		"max_rarity":"7",
@@ -9877,7 +9882,7 @@
 			{"hp%":20, "mp%":20, "equipedConditions":["bow"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Lenneth",
 			"wikiEntry":"Lenneth",
 			"id":"330000105",
 			"sixStarForm":true,
@@ -9899,7 +9904,7 @@
 		}
 	},
 	"330000205": {
-		"name":"null",
+		"name":"Freya (VP)",
 		"wikiEntry":"Freya_(VP)",
 		"id":"330000205",
 		"max_rarity":"7",
@@ -9919,7 +9924,7 @@
 			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Freya (VP)",
 			"wikiEntry":"Freya_(VP)",
 			"id":"330000205",
 			"sixStarForm":true,
@@ -9939,7 +9944,7 @@
 		}
 	},
 	"330000305": {
-		"name":"null",
+		"name":"Arngrim",
 		"wikiEntry":"Arngrim",
 		"id":"330000305",
 		"max_rarity":"7",
@@ -9963,7 +9968,7 @@
 			{"hp%":20, "atk%":20, "spr%":20, "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Arngrim",
 			"wikiEntry":"Arngrim",
 			"id":"330000305",
 			"sixStarForm":true,
@@ -9987,7 +9992,7 @@
 		}
 	},
 	"330000404": {
-		"name":"null",
+		"name":"Lucian",
 		"wikiEntry":"Lucian",
 		"id":"330000404",
 		"max_rarity":"6",
@@ -10005,7 +10010,7 @@
 		]
 	},
 	"330000503": {
-		"name":"null",
+		"name":"Jelanda",
 		"wikiEntry":"Jelanda",
 		"id":"330000503",
 		"max_rarity":"5",
@@ -10699,8 +10704,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Cyclone Shield","Empress of the Winds","Sunder"],
+		"enhancements": [
+			{"name":"Empress of the Winds","levels":[[{"mag%":30,"resist":[{"name":"wind","percent":100}]}],[{"spr%":30,"mag%":30,"resist":[{"name":"wind","percent":100},{"name":"confuse","percent":100}]}],[{"spr%":30,"mag%":30,"resist":[{"name":"wind","percent":100},{"name":"confuse","percent":100}],"skillEnhancement":{"20390":0.5},"lbDamage":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":30, "mag%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
+			{"hp%":20, "mp%":30, "mag%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"spr%":30, "equipedConditions":["lightShield"]},
 			{"killers":[{"name":"beast","magical":50},{"name":"bird","magical":50},{"name":"human","magical":50},{"name":"stone","magical":50}], "skillEnhancement":{"20330":1,"20390":1,"910424":1}, "equipedConditions":["1500000031"]},
@@ -10722,8 +10731,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["Cyclone Shield","Empress of the Winds","Sunder"],
+		"enhancements": [
+			{"name":"Empress of the Winds","levels":[[{"mag%":30,"resist":[{"name":"wind","percent":100}]}],[{"spr%":30,"mag%":30,"resist":[{"name":"wind","percent":100},{"name":"confuse","percent":100}]}],[{"spr%":30,"mag%":30,"resist":[{"name":"wind","percent":100},{"name":"confuse","percent":100}],"skillEnhancement":{"20390":0.5},"lbDamage":50}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":30, "mag%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
+				{"hp%":20, "mp%":30, "mag%":20, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50},{"name":"light","percent":-50}], "mpRefresh":5},
 				{"mag%":30, "equipedConditions":["rod"]},
 				{"spr%":30, "equipedConditions":["lightShield"]}
 			]
@@ -10743,8 +10756,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","hat","clothes","robe"],
+		"enhancementSkills":["Firelord","Autarch of Flame","I'll Recover You!"],
+		"enhancements": [
+			{"name":"Firelord","levels":[[{"mag%":30,"hp%":20}],[{"mag%":30,"hp%":20},{"equipedConditions":["rod"],"mp%":20,"mag%":20}],[{"mag%":30,"hp%":20,"mpRefresh":5},{"equipedConditions":["rod"],"mp%":40,"mag%":40}]]},
+			{"name":"Autarch of Flame","levels":[[{"mp%":20,"resist":[{"name":"fire","percent":100}]}],[{"mp%":20,"resist":[{"name":"fire","percent":100}],"skillEnhancement":{"20080":1,"20200":1,"91003":1}}],[{"mp%":20,"resist":[{"name":"fire","percent":100}],"skillEnhancement":{"20080":1,"20200":1,"20290":1.5,"20350":1.5,"91003":1}}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "mag%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":100}]}
+			{"lbFillRate":100}
 		]
 	},
 	"401001604": {
@@ -10761,8 +10779,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["fist","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Archfiend of Water","Water Barrier","Defensive Stance"],
+		"enhancements": [
+			{"name":"Archfiend of Water","levels":[[{"mpRefresh":3,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}]}],[{"mpRefresh":3,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":30}]}],[{"mpRefresh":3,"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":30}],"def%":30,"hp%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":50, "spr%":40, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":-20},{"name":"lightning","percent":-20},{"name":"water","percent":20}], "mpRefresh":3, "drawAttacks":50}
+			{"hp%":20, "def%":50, "spr%":40, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":-20},{"name":"lightning","percent":-20},{"name":"water","percent":20}], "drawAttacks":50}
 		]
 	},
 	"401001705": {
@@ -10871,10 +10893,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
+		"enhancements": [
+			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
+		],
 		"skills": [
 			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
-			{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
-			{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true},
 			{"equipedConditions":["1100000109"]},
 			{"mag%":30, "skillEnhancement":{"910520":1,"910526":1,"911450":1,"911451":1,"911452":1,"911453":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
@@ -10895,10 +10919,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
+		"enhancements": [
+			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
+		],
 			"skills": [
-				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
-				{"mag%":30, "equipedConditions":["fire"], "equipedConditionIsOr":true},
-				{"hp%":30, "equipedConditions":["dark"], "equipedConditionIsOr":true}
+				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]}
 			]
 		}
 	},
@@ -10916,10 +10942,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","throwing","fist","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Illusionist guise","Illusion - Terrifying Visions","Illusion - Redirect"],
+		"enhancements": [
+			{"name":"Illusionist guise","levels":[[{"equipedConditions":["hat"],"mag%":30},{"equipedConditions":["clothes"],"spr%":30}],[{"equipedConditions":["hat"],"mp%":30,"mag%":30},{"equipedConditions":["clothes"],"spr%":30}],[{"mpRefresh":5},{"equipedConditions":["hat"],"mp%":30,"mag%":30},{"equipedConditions":["clothes"],"hp%":30,"spr%":30}]]}
+		],
 		"skills": [
-			{"mp%":30, "mag%":30},
-			{"mag%":30, "equipedConditions":["hat"]},
-			{"spr%":30, "equipedConditions":["clothes"]}
+			{"mp%":30, "mag%":30}
 		]
 	},
 	"401002204": {
@@ -10936,10 +10964,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","spear","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["I am the captain now!","Walk the Plank","Feed the Fishes"],
+		"enhancements": [
+			{"name":"I am the captain now!","levels":[[{"equipedConditions":["gun"],"atk%":30},{"equipedConditions":["sword"],"hp%":30}],[{"equipedConditions":["gun"],"atk%":30,"def%":30},{"equipedConditions":["sword"],"hp%":30,"atk%":20}],[{"equipedConditions":["gun"],"atk%":50,"def%":30},{"equipedConditions":["sword"],"hp%":30,"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "spr%":20, "partialDualWield":["sword","gun"], "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},
-			{"atk%":30, "equipedConditions":["gun"]},
-			{"hp%":30, "equipedConditions":["sword"]}
+			{"hp%":20, "atk%":30, "spr%":20, "partialDualWield":["sword","gun"], "resist":[{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]}
 		]
 	},
 	"401002304": {
@@ -11755,7 +11785,7 @@
 			{"atk%":50, "equipedConditions":["fist"]},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"mp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbDamage":20, "equipedConditions":["1500000074"]},
-			{"skillEnhancement":{"911518":1,"911519":2,"911520":2}, "levelCondition":115},
+			{"skillEnhancement":{"911518":1,"911519":2,"911520":2}, "levelCondition":110},
 			{"hp%":20, "levelCondition":115},
 			{"hp%":20, "atk%":20, "def%":20, "spr%":20, "levelCondition":120}
 		],
