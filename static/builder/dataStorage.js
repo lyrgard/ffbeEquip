@@ -236,8 +236,12 @@ class DataStorage {
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
                 var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0  && !this.onlyUseOwnedItems && weaponList.includes(type)) {
-                    this.dataByType[type].forEach(entry => entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement));
+                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(type)) {
+                    this.dataByType[type].forEach(entry => {
+                        if (!entry.item.enhancements) {
+                            entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement)
+                        }
+                    });
                 }
                 itemPool.addItems(this.dataByType[type]);
                 itemPool.prepare();
@@ -272,8 +276,8 @@ class DataStorage {
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
             var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-            if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0  && !this.onlyUseOwnedItems && weaponList.includes(types[i])) {
-                dualWieldByType[types[i]].forEach(entry => entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement));
+            if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0  && weaponList.includes(types[i])) {
+                dualWieldByType[types[i]].forEach(entry => {if (!entry.item.enhancements) entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement)});
             }
             itemPool.addItems(dualWieldByType[types[i]]);
             itemPool.prepare();

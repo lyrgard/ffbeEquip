@@ -1525,7 +1525,6 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
-        $("#defaultWeaponEnhancement").removeClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = false;
     } else if (equipments == "owned" || equipments == "ownedAvailableForExpedition") {
@@ -1542,7 +1541,6 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().removeClass("hidden");
         $("#includeChocoboItems").parent().removeClass("hidden");
         $("#includeEasilyObtainableItems").parent().removeClass("hidden");
-        $("#defaultWeaponEnhancement").addClass("hidden");
         dataStorage.onlyUseOwnedItems = true;
         dataStorage.onlyUseShopRecipeItems = false;
         if (equipments == "ownedAvailableForExpedition") {
@@ -1560,7 +1558,6 @@ function onEquipmentsChange() {
         $("#includeTrialRewards").parent().addClass("hidden");
         $("#includeChocoboItems").parent().addClass("hidden");
         $("#includeEasilyObtainableItems").parent().addClass("hidden");
-        $("#defaultWeaponEnhancement").addClass("hidden");
         dataStorage.onlyUseOwnedItems = false;
         dataStorage.onlyUseShopRecipeItems = true;
     }
