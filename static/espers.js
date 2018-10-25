@@ -746,6 +746,18 @@ function displayEspers() {
     if (linkMode) {
         // init esper from link mode
         
+        if (typeof ownedEspers === "string") {
+            var esper = espers.find(esper => esper.id == ownedEspers.replace("_", " "));
+            if (esper) {
+                ownedEspers = {};
+                ownedEspers[esper.name] = JSON.parse(JSON.stringify(esper));
+                ownedEspers[esper.name].rarity = esper.maxLevel;
+                ownedEspers[esper.name].level = maxLevelByStar[ownedEspers[esper.name].rarity] 
+                ownedEspers[esper.name].selectedSkills = [];
+            } else {
+            }
+        }
+        
         var esperName = Object.keys(ownedEspers)[0];
         ownedEspers[esperName].resist = JSON.parse(JSON.stringify(esperBoards[esperName].resist[ownedEspers[esperName].rarity]));
         for (var i = 0, len = ownedEspers[esperName].selectedSkills.length; i < len; i++) {
@@ -847,9 +859,16 @@ function getPositionFromString(posString) {
 function notLoaded() {
     if (window.location.hash.length > 1) {
         var hashValue = window.location.hash.substr(1);
-        ownedEspers = JSON.parse(atob(hashValue));
+        
+        try {
+            ownedEspers = JSON.parse(atob(hashValue));
+        } catch (e) {
+            ownedEspers = hashValue;
+        }
+        
         
         $('.navbar').addClass("hidden");
+        $("#header").addClass("hidden");
         linkMode = true;
     } else {
         ownedEspers = {};    
@@ -859,7 +878,9 @@ function notLoaded() {
         displayEspers();
     }
     $("#pleaseWaitMessage").addClass("hidden");
-    $("#loginMessage").removeClass("hidden");
+    if (!linkMode) {
+        $("#loginMessage").removeClass("hidden");
+    }
     $("#inventory").addClass("hidden");
 }
 
