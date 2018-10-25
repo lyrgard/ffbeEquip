@@ -857,22 +857,8 @@ function getPositionFromString(posString) {
 }
 
 function notLoaded() {
-    if (window.location.hash.length > 1) {
-        var hashValue = window.location.hash.substr(1);
-        
-        try {
-            ownedEspers = JSON.parse(atob(hashValue));
-        } catch (e) {
-            ownedEspers = hashValue;
-        }
-        
-        
-        $('.navbar').addClass("hidden");
-        $("#header").addClass("hidden");
-        linkMode = true;
-    } else {
-        ownedEspers = {};    
-    }
+    ownedEspers = {};
+    loadLink();
     
     if (esperBoards) {
         displayEspers();
@@ -886,9 +872,26 @@ function notLoaded() {
 
 function inventoryLoaded() {
     logged = true;
+    loadLink();
     if (esperBoards) {
         displayEspers();
     }
+}
+
+function loadLink() {
+    if (window.location.hash.length > 1) {
+        var hashValue = window.location.hash.substr(1);
+        
+        try {
+            ownedEspers = JSON.parse(atob(hashValue));
+        } catch (e) {
+            ownedEspers = hashValue;
+        }
+        
+        $('.navbar').addClass("hidden");
+        $("#header").addClass("hidden");
+        linkMode = true;
+    }    
 }
 
 function onLevelChange() {
