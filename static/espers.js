@@ -457,7 +457,7 @@ function abilityName(text) {
 }
 
 function prepareSave() {
-    if (logged) {
+    if (logged && !linkMode) {
         saveNeeded = true;
         if (saveTimeout) {clearTimeout(saveTimeout)}
         saveTimeout = setTimeout(saveUserData,3000, false, false, true);
@@ -747,7 +747,7 @@ function displayEspers() {
         // init esper from link mode
         
         if (typeof ownedEspers === "string") {
-            var esper = espers.find(esper => esper.id == ownedEspers.replace("_", " "));
+            var esper = espers.find(esper => esper.id.toUpperCase() == ownedEspers.replace("_", " ").toUpperCase());
             if (esper) {
                 ownedEspers = {};
                 ownedEspers[esper.name] = JSON.parse(JSON.stringify(esper));
