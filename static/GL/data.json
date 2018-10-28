@@ -741,7 +741,7 @@
 	{"id":"407001100", "name":"Paladin Armor", "type":"heavyArmor", "def":32, "spr":10, "access":["shop","quest","recipe-key"], "icon":"item_20302.png", "sortId":168, "rarity":3},
 	{"id":"407001200", "name":"Golden Armor", "type":"heavyArmor", "def":49, "access":["chest","colosseum","recipe-key"], "icon":"item_20306.png", "sortId":282, "rarity":4},
 	{"id":"407001300", "name":"Force Armor", "type":"heavyArmor", "def":51, "spr":13, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}], "access":["trial"], "maxNumber":1, "icon":"item_20307.png", "sortId":173, "rarity":6},
-	{"id":"407001400", "name":"Maximilian", "type":"heavyArmor", "def":62, "tmrUnit":"212000103", "access":["TMR-3*"], "icon":"item_20308.png", "sortId":174, "rarity":7},
+	{"id":"407001400", "name":"Maximilian", "type":"heavyArmor", "def":62, "tmrUnit":"212000103", "access":["TMR-3*","event"], "eventName":"Lost City of Dipan", "icon":"item_20308.png", "sortId":174, "rarity":7},
 	{"id":"407001500", "name":"Reflect Mail", "type":"heavyArmor", "def":46, "spr":10, "access":["event"], "maxNumber":1, "icon":"item_20315.png", "sortId":340, "rarity":5},
 	{"id":"407001600", "name":"Demon Mail", "type":"heavyArmor", "atk":10, "def":55, "resist":[{"name":"dark","percent":20}], "access":["trial"], "maxNumber":1, "icon":"item_20312.png", "sortId":363, "rarity":6},
 	{"id":"407001700", "name":"Dragon Mail", "type":"heavyArmor", "def":45, "spr":15, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "access":["key"], "maxNumber":1, "icon":"item_20313.png", "sortId":486, "rarity":6},
