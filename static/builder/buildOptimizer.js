@@ -280,14 +280,14 @@ class BuildOptimizer {
                 }
             }
             if (fixedItems[10]) {
-                this.tryEsper(build, fixedItems[10]);
+                this.tryEsper(build, fixedItems[10], fixedItems);
             } else {
                 if (this.selectedEspers.length > 0) {
                     for (var esperIndex = 0, len = this.selectedEspers.length; esperIndex < len; esperIndex++) {
-                        this.tryEsper(build, this.selectedEspers[esperIndex])  
+                        this.tryEsper(build, this.selectedEspers[esperIndex], fixedItems)  
                     }
                 } else {
-                    this.tryEsper(build, null);
+                    this.tryEsper(build, null, fixedItems);
                 }
             }
         } else {
@@ -295,12 +295,12 @@ class BuildOptimizer {
         }
     }
 
-    tryEsper(build, esper) {
+    tryEsper(build, esper, fixedItems) {
         build[10] = esper;
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
-            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems);
+            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems, fixedItems);
             
             this._unitBuild.build = build.slice();
             if (value.switchWeapons) {
@@ -312,7 +312,7 @@ class BuildOptimizer {
             this._unitBuild.freeSlots = slotsRemoved;
             this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, slotsRemoved);
         } else if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] == this._unitBuild.buildValue[this.goalVariation]) {
-            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems);
+            var slotsRemoved = this.tryLessSlots(build, value, this._unitBuild.fixedItems, fixedItems);
             
             if (slotsRemoved > this._unitBuild.freeSlots) {
                 this._unitBuild.build = build.slice();
@@ -340,7 +340,7 @@ class BuildOptimizer {
         }
     }
     
-    tryLessSlots(build, value, fixedItems) {
+    tryLessSlots(build, value, alreadyfixedItems, forcedItems) {
         var slotToRemove = 9;
         var slotsRemoved = 0;
         slotToRemoveLoop: while(slotToRemove > 5) {
@@ -349,7 +349,7 @@ class BuildOptimizer {
                 slotsRemoved++;
                 continue;
             }
-            if (fixedItems[slotToRemove]) {
+            if (alreadyfixedItems[slotToRemove] || forcedItems[slotToRemove]) {
                 slotToRemove--;
                 continue;
             }
