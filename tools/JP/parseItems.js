@@ -789,7 +789,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/ja/item_item1/53/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/ja/item_item1/54/" + icon ,filePath);
     }
 }
 
