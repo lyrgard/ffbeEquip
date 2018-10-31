@@ -195,6 +195,9 @@ function treatItem(items, itemId, result, skills) {
     } else {
         itemOut.name = itemIn.strings.names[languageId];
     }
+    if (!itemOut.name) {
+        itemOut.name = itemIn.name;
+    }
     if (itemIn.type_id) {
         itemOut.rarity = itemIn.rarity;
         itemOut.type = typeMap[itemIn.type_id];
