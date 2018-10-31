@@ -192,7 +192,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     html += '<div class="itemList">';
     for (var index = start, len = items.length; index < len; index++) {
         var item = items[index];
-        if (item === undefined) continue;
+        if (item === undefined || (item.access.includes("not released yet") && !itemInventory[item.id])) continue;
 
         if (item.type === currentItemType) {
             html += getItemDisplay(item);
@@ -220,7 +220,7 @@ function displayItemsAsync(items, start, div, id, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
-        if (items[index] === undefined) continue;
+        if (items[index] === undefined || (items[index].access.includes("not released yet") && !itemInventory[items[index].id])) continue;
         html += getItemDisplay(items[index]);
     }
 
@@ -467,7 +467,7 @@ function keepOnlyOneOfEachEquipement() {
     var tempResult = {};
     for (var index in data) {
         var item = data[index];
-        if (item.type != "materia" && !item.access.includes("not released yet")) {
+        if (item.type != "materia") {
             if (tempResult[item.id]) {
                 var alreadyPutItem = tempResult[item.id];
                 if (item.equipedConditions) {
@@ -500,7 +500,7 @@ function keepOnlyOneOfEachMateria() {
     var result = [];
     for (var index in data) {
         var item = data[index];
-        if (item.type == "materia" && !item.access.includes("not released yet") && !idsAlreadyKept.includes(item.id)) {
+        if (item.type == "materia" && !idsAlreadyKept.includes(item.id)) {
             result.push(item);
             idsAlreadyKept.push(item.id);
         }
