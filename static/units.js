@@ -309,7 +309,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (ownedUnits[unit.id] && (!is7Stars  && ownedUnits[unit.id].farmable > 0) || (is7Stars && ownedUnits[unit.id].farmableStmr > 0)) {
             html += ' farmable';
         }
-        if (!is7Stars && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 2) {
+        if (!is7Stars && !unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 2) {
             html += ' awakenable';
         }
         if (is7Stars) {
@@ -371,7 +371,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }
         html += '</div></div>';
         html += '<div class="unitRarity">'
-        html += getRarity(unit.min_rarity, unit.max_rarity);
+        html += getRarity(unit.min_rarity, (unit.unreleased7Star ? 6 : unit.max_rarity));
         html += '</div></div>';
     }
     return html;
@@ -400,7 +400,7 @@ function addToOwnedUnits(unitId) {
     }
     
     ownedUnits[unitId].number += 1;
-    if (ownedUnits[unitId].number >= 2 && allUnits[unitId].max_rarity == 7) {
+    if (ownedUnits[unitId].number >= 2 && !allUnits[unitId].unreleased7Star && allUnits[unitId].max_rarity == 7) {
         $(".unit.notSevenStars." + unitId).addClass("awakenable");
     }
     if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnits[unitId].number)) {
