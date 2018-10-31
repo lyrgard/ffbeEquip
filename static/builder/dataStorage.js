@@ -236,20 +236,17 @@ class DataStorage {
                 if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
                 if (type == "materia") {numberNeeded = 4}
                 var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(type)) {
+                /*if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(type)) {
                     this.dataByType[type].forEach(entry => {
                         if (!entry.item.enhancements) {
                             entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement)
                         }
                     });
-                }
+                }*/
                 itemPool.addItems(this.dataByType[type]);
                 itemPool.prepare();
                 //var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
                 this.dataByType[type] = itemPool.getEntries();
-                /*for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
-                    this.addEntriesToResult(tree.children[index], this.dataByType[type], 0, true);    
-                }*/
                 
             } else {
                 this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
@@ -276,9 +273,6 @@ class DataStorage {
         this.dualWieldSources = [];
         for (var i = types.length; i--;) {
             var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-            if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0  && weaponList.includes(types[i])) {
-                dualWieldByType[types[i]].forEach(entry => {if (!entry.item.enhancements) entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement)});
-            }
             itemPool.addItems(dualWieldByType[types[i]]);
             itemPool.prepare();
             this.dualWieldSources = this.dualWieldSources.concat(itemPool.getEntries().map(x => x.item));
@@ -344,6 +338,9 @@ class DataStorage {
 
     prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
         var added = false;
+        if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
+            item = applyEnhancements(item, this.defaultWeaponEnhancement)
+        }
         for (var index = 0, len = baseStats.length; index < len; index++) {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
