@@ -360,6 +360,10 @@ class DataStorage {
                 this.equipSources.push(item);
             } 
             if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
+                if (this.itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats)) {
+                    availableNumber = Math.min(1, availableNumber);
+                    ownedAvailableNumber = Math.min(1, ownedAvailableNumber);
+                }
                 if (adventurerIds.includes(item.id)) { // Manage adventurers to only keep the best available
                     adventurersAvailable[item.id] = item;
                     return;
@@ -462,6 +466,40 @@ class DataStorage {
         }
         if (this.skillIds.length > 0 && item.skillEnhancement) {
             if (this.skillIds.some(id => item.skillEnhancement[id])) return true;
+        }
+    }
+    
+    itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats) {
+        if (item.notStackableSkills) {
+            var itemWithoutUnstackableSkills = JSON.parse(JSON.stringify(item));
+            Object.keys(itemWithoutUnstackableSkills.notStackableSkills).forEach(id => {
+                let skill = itemWithoutUnstackableSkills.notStackableSkills[id];
+                Object.keys(skill).forEach(stat => {
+                    this.removeStat(itemWithoutUnstackableSkills, stat, skill[stat]);
+                })
+            });
+            return this.itemCanBeOfUseForGoal(itemWithoutUnstackableSkills)
+        }
+        return false;
+    }
+    
+    removeStat(item, stat, value) {
+        if (typeof value === 'number') {
+            if (item[stat] == value) {
+                delete item[stat];
+            } else {
+                item[stat] -= value;
+            }
+        } else if (stat == "evade") {
+            if (value.physical) {
+                this.removeStat(item.evade, 'physical', value.physical);
+            }
+            if (value.magical) {
+                this.removeStat(item.evade, 'magical', value.magical);
+            }
+            if (!item.evade.physical && !item.evade.magical) {
+                delete item.evade;
+            }
         }
     }
     
