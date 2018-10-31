@@ -1200,6 +1200,7 @@ function updateUnitStats() {
             } else {
                 $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
             }
+            updatePotStyle(stat);
         } else {
             $(".unitStats .stat." + stat + " .baseStat input").val("");
             $(".unitStats .stat." + stat + " .pots input").val("");
@@ -2619,12 +2620,94 @@ function getBuildStatsAsText() {
 
 function onPotsChange(stat) {
     if (builds[currentUnitIndex].unit) {
-        var value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
-        if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
-            $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
+        let element = $(".unitStats .stat." + stat + " .pots input");
+        var value = parseInt(element.val()) || 0;
+        
+        if (server == "JP") {
+            if (value > Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
+                element.val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
+            }
+        } else {
+            if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
+                element.val(builds[currentUnitIndex].unit.stats.pots[stat]);
+            }  
         }
+        updatePotStyle(stat);
         logCurrentBuild();
     }
+}
+
+function updatePotStyle(stat) {
+    let element = $(".unitStats .stat." + stat + " .pots input");
+    var value = parseInt(element.val()) || 0;
+    element.removeClass("poted");
+    element.removeClass("maxPot");
+    element.removeClass("door");
+    element.removeClass("maxDoor");
+    if (server == "JP") {
+        if (value == Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
+          element.addClass("maxDoor");
+        } else if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
+          element.addClass("door");
+        } else if (value == builds[currentUnitIndex].unit.stats.pots[stat]) {
+          element.addClass("maxPot");
+        } else if (value > 0) {
+          element.addClass("poted");
+        }
+    } else {
+      if (value == builds[currentUnitIndex].unit.stats.pots[stat]) {
+          element.addClass("maxPot");
+        } else if (value > 0) {
+          element.addClass("poted");
+        }
+    }
+}
+
+function switchPots() {
+  if (server == "JP") {
+    var allZero = baseStats.every(stat => {
+      let value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
+      return value == 0;
+    });
+    if (allZero) {
+      baseStats.forEach(stat => {
+        $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
+        updatePotStyle(stat);
+      });
+    } else {
+      var notMaxed = baseStats.some(stat => {
+        let value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
+        return value < Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5);
+      });
+      if (notMaxed) {
+        baseStats.forEach(stat => {
+          $(".unitStats .stat." + stat + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
+          updatePotStyle(stat);
+        });
+      } else {
+        baseStats.forEach(stat => {
+          $(".unitStats .stat." + stat + " .pots input").val("0");
+          updatePotStyle(stat);
+        });
+      }
+    }
+  } else {
+    var notMaxed = baseStats.some(stat => {
+      let value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
+      return value < builds[currentUnitIndex].unit.stats.pots[stat]
+    });
+    if (notMaxed) {
+      baseStats.forEach(stat => {
+        $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
+        updatePotStyle(stat);
+      });
+    } else {
+      baseStats.forEach(stat => {
+        $(".unitStats .stat." + stat + " .pots input").val("0");
+        updatePotStyle(stat);
+      })
+    }
+  }
 }
 
 function onBuffChange(stat) {
@@ -2944,10 +3027,20 @@ function startPage() {
         $(".unitStats .stat." + baseStats[statIndex] + " .pots .leftIcon").click(function(stat) {
             if (builds[currentUnitIndex].unit) {
                 var value = parseInt($(".unitStats .stat." + baseStats[statIndex] + " .pots input").val()) || 0;
-                if (value == builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
-                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
+                if (server == "JP") {
+                    if (value < builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
+                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
+                    } else if (value < Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5)) {
+                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5));
+                    } else {
+                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
+                    }
                 } else {
-                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
+                    if (value == builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
+                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
+                    } else {
+                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
+                    }  
                 }
             }
         });
