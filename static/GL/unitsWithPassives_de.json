@@ -2029,7 +2029,7 @@
 		"skills": [
 			{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tGreased Lightning (501980)\n\tQuickbolt Blade (501970)\n\tSwiftwind Blade (501960)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tGreased Lightning (501980)\n\tQuickbolt Blade (501970)\n\tSwiftwind Blade (501960)"}]}, "equipedConditions":["504213800"]},
+			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"Kingdom's Order","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tGreased Lightning (501980)\n\tQuickbolt Blade (501970)\n\tSwiftwind Blade (501960)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tGreased Lightning (501980)\n\tQuickbolt Blade (501970)\n\tSwiftwind Blade (501960)"}]}, "equipedConditions":["504213800"]},
 			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["katana"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":105},
@@ -2367,7 +2367,7 @@
 			{"hp%":10, "def%":20, "spr%":30},
 			{"def%":30, "equipedConditions":["clothes"]},
 			{"spr%":30, "equipedConditions":["robe"]},
-			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"竜哭のマドリガル","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}]}, "equipedConditions":["403043300"]},
+			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"Dragon's Madrigal","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}]}, "equipedConditions":["403043300"]},
 			{"def%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "levelCondition":120}
 		],
@@ -3891,7 +3891,7 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":30, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5},
 			{"hp%":20, "mp%":20, "equipedConditions":["harp"]},
-			{"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100},{"name":"stop","percent":100}], "replaceLb":{"name":"女王のパストラール","minEffects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":115,"def":115,"mag":115,"spr":115},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 115% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t虹翼のグリッサンド (228110)"}],"maxEffects":[{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":145,"def":145,"mag":145,"spr":145},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 145% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t虹翼のグリッサンド (228110)"}]}, "equipedConditions":["316002000"]},
+			{"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100},{"name":"stop","percent":100}], "replaceLb":{"name":"The Queen's Pastorale","minEffects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":115,"def":115,"mag":115,"spr":115},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 115% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"Rainbow Wings Glissando"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tRainbow Wings Glissando (228110)"}],"maxEffects":[{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":145,"def":145,"mag":145,"spr":145},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 145% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"Rainbow Wings Glissando"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tRainbow Wings Glissando (228110)"}]}, "equipedConditions":["316002000"]},
 			{"def%":20, "levelCondition":115},
 			{"spr%":30, "equipedConditions":["harp"], "levelCondition":120},
 			{"resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30}], "equipedConditions":["harp"], "levelCondition":120}
@@ -7575,7 +7575,7 @@
 			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
 			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"ライジングインパルス","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}]}, "equipedConditions":["402002100"]},
+			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}]}, "equipedConditions":["402002100"]},
 			{"hp%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "spr%":20, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120}
 		],
@@ -8551,7 +8551,7 @@
 		]
 	},
 	"254001103": {
-		"name":"null",
+		"name":"Cater",
 		"wikiEntry":"Cater",
 		"id":"254001103",
 		"max_rarity":"5",
@@ -8611,7 +8611,7 @@
 		]
 	},
 	"254001805": {
-		"name":"null",
+		"name":"Machina",
 		"wikiEntry":"Machina",
 		"id":"254001805",
 		"max_rarity":"7",
@@ -8632,7 +8632,7 @@
 			{"dualWielding":{"atk":40}, "mpRefresh":5, "skillEnhancement":{"228310":1.5,"228311":1.5,"228312":1.5,"228313":1.5,"508511":0.75}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Machina",
 			"wikiEntry":"Machina",
 			"id":"254001805",
 			"sixStarForm":true,
@@ -8652,7 +8652,7 @@
 		}
 	},
 	"254001905": {
-		"name":"null",
+		"name":"Kurasame",
 		"wikiEntry":"Kurasame",
 		"id":"254001905",
 		"max_rarity":"7",
@@ -8672,7 +8672,7 @@
 			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"Kurasame",
 			"wikiEntry":"Kurasame",
 			"id":"254001905",
 			"sixStarForm":true,
@@ -8692,7 +8692,7 @@
 		}
 	},
 	"254002004": {
-		"name":"null",
+		"name":"Deuce",
 		"wikiEntry":"Deuce",
 		"id":"254002004",
 		"max_rarity":"6",
