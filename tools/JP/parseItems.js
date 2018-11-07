@@ -348,22 +348,10 @@ function readSkills(itemIn, itemOut, skills) {
         if ((masterySkills.length == 0 && restrictedSkills.length ==0) || !emptyItem) {
             result.push(itemOut);
         }
-        
-        for (var masteryIndex in masterySkills) {
-            var lenght = result.length;
-            for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-                if (!result[itemIndex].equipedConditions || result[itemIndex].equipedConditions.length < 2) {
-                    var copy = JSON.parse(JSON.stringify(result[itemIndex]));
-                    addMastery(copy, masterySkills[masteryIndex]);
-                    result.push(copy);
-                }
-            }
-            if (emptyItem) {
-                var copy = JSON.parse(JSON.stringify(itemOut));
-                addMastery(copy, masterySkills[masteryIndex]);
-                result.push(copy);
-            }
+        if (masterySkills.length > 0) {
+            addMasterySkills(itemOut, masterySkills, result);
         }
+        
         for (var restrictedIndex in restrictedSkills) {
             var skill = restrictedSkills[restrictedIndex];
             var effectsNotTreated = [];
@@ -380,12 +368,17 @@ function readSkills(itemIn, itemOut, skills) {
                 if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
+                    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                        masterySkills.push(rawEffect[3]);
+                    } else if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
                         effectsNotTreated.push(rawEffectIndex);
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill);
                 result.push(copy);
+                if (masterySkills.length > 0) {
+                    addMasterySkills(copy, masterySkills, result);
+                }
             }
             if (emptyItem) {
                 var copy = JSON.parse(JSON.stringify(itemOut));
@@ -399,18 +392,42 @@ function readSkills(itemIn, itemOut, skills) {
                 if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
+                    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                        masterySkills.push(rawEffect[3]);
+                    } else if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
                         effectsNotTreated.push(rawEffectIndex);
                     }
                 }
                 addNotTreatedEffects(copy, effectsNotTreated, skill);
                 result.push(copy);
+                if (masterySkills.length > 0) {
+                    addMasterySkills(copy, masterySkills, result);
+                }
             }
         }
     } else {
         result.push(itemOut);
     }
     return result;
+}
+
+function addMasterySkills(item, masterySkills, result) {
+    var treatedItems = [];
+    for (var masteryIndex in masterySkills) {
+        var lenght = treatedItems.length;
+        var copy = JSON.parse(JSON.stringify(item));
+        addMastery(copy, masterySkills[masteryIndex]);
+        result.push(copy);
+        treatedItems.push(copy);
+        for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+            if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                addMastery(copy, masterySkills[masteryIndex]);
+                result.push(copy);
+                treatedItems.push(copy);
+            }
+        }
+    }
 }
 
 function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
