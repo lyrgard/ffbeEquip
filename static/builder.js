@@ -1769,11 +1769,35 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
                 }
             }
         }
+        adaptEsperMasteryToBuild();
         recalculateApplicableSkills();
         logCurrentBuild();
     }
     $('#fixItemModal').modal('hide');
     $('#modifyEnhancementModal').modal('hide');
+}
+
+function adaptEsperMasteryToBuild() {
+    if (builds[currentUnitIndex].build[10]) {
+        esper = espers.find(e => e.id == builds[currentUnitIndex].build[10].id);
+        let typeCombination = [];
+        builds[currentUnitIndex].build.forEach(i => {
+            if (i && i.type && !typeCombination.includes(i.type)) {
+                typeCombination.push(i.type);
+            }
+        });
+        if (esper.conditional && esper.conditional.some(c => typeCombination.includes(c.equipedCondition))) {
+            esper = JSON.parse(JSON.stringify(esper));
+            esper.conditional.filter(c => typeCombination.includes(c.equipedCondition)).forEach(c => {
+               baseStats.forEach(s => {
+                   if (c[s+'%']) {
+                       addToStat(esper, s+'%', c[s+'%']);
+                   }
+               }) 
+            });
+        }
+        builds[currentUnitIndex].build[10] = esper;
+    }
 }
 
 function removeFixedItemAt(slot) {
@@ -1789,6 +1813,7 @@ function removeFixedItemAt(slot) {
             }
         }
     }
+    adaptEsperMasteryToBuild();
     logCurrentBuild();
 }
 
@@ -1811,6 +1836,7 @@ function removeItemAt(slot) {
             }
         }
     }
+    adaptEsperMasteryToBuild();
     recalculateApplicableSkills();
     logCurrentBuild();
 }
