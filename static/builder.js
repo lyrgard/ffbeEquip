@@ -1779,7 +1779,8 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
 
 function adaptEsperMasteryToBuild() {
     if (builds[currentUnitIndex].build[10]) {
-        esper = espers.find(e => e.id == builds[currentUnitIndex].build[10].id);
+      
+        esper = espersByName[builds[currentUnitIndex].build[10].id];
         let typeCombination = [];
         builds[currentUnitIndex].build.forEach(i => {
             if (i && i.type && !typeCombination.includes(i.type)) {
