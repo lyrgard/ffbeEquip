@@ -65,6 +65,34 @@ var espersMap = {
     "阿修羅": "Asura"
 }
 
+var typeMap = {
+    1: 'dagger',
+    2: 'sword',
+    3: 'greatSword',
+    4: 'katana',
+    5: 'staff',
+    6: 'rod',
+    7: 'bow',
+    8: 'axe',
+    9: 'hammer',
+    10: 'spear',
+    11: 'harp',
+    12: 'whip',
+    13: 'throwing',
+    14: 'gun',
+    15: 'mace',
+    16: 'fist',
+    30: 'lightShield',
+    31: 'heavyShield',
+    40: 'hat',
+    41: 'helm',
+    50: 'clothes',
+    51: 'lightArmor',
+    52: 'heavyArmor',
+    53: 'robe',
+    60: 'accessory'
+}
+
 var unitNamesById = {};
 var unitIdByTmrId = {};
 var oldItemsAccessById = {};
@@ -357,7 +385,25 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         addStat(item.esperStatsBonus, "def", esperStatsBonus[3]);
         addStat(item.esperStatsBonus, "mag", esperStatsBonus[4]);
         addStat(item.esperStatsBonus, "spr", esperStatsBonus[5]);
-        
+      
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+        let mastery = rawEffect[3];
+        if (!item.conditional) {
+            item.conditional = [];
+        }
+        var conditionalSkill = {"equipedCondition":typeMap[mastery[0]]};
+        addStat(conditionalSkill, "atk%", mastery[1]);
+        addStat(conditionalSkill, "def%", mastery[2]);
+        addStat(conditionalSkill, "mag%", mastery[3]);
+        addStat(conditionalSkill, "spr%", mastery[4]);
+        if (mastery.length >= 6) {
+            addStat(conditionalSkill, "hp%", mastery[5]);
+        }
+        if (mastery.length >= 7) {
+            addStat(conditionalSkill, "mp%", mastery[6]);
+        }
+        conditionalSkill.icon = skill.icon;
+        item.conditional.push(conditionalSkill);
     } else {
         return false;
     }
@@ -512,7 +558,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","conditional","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

@@ -203,6 +203,26 @@ function getSpecialHtml(item) {
     return special;
 }
 
+function getConditionalHtml(conditionals) {
+    var html = "";
+    conditionals.forEach(c => {
+       if (c.equipedCondition && typeList.includes(c.equipedCondition)) {
+           html += '<div><img class="icon" src="/img/items/' + c.icon + '"></img>';
+           let first = true;
+           baseStats.filter(s => c[s+'%']).forEach(s => {
+               if (first) {
+                   first = false;
+               } else {
+                   html += ', ';
+               }
+               html+= s.toUpperCase() + '+' + c[s+'%'] + '%';
+           })
+           html += ' if <i class="img img-equipment-' + c.equipedCondition + '"></i></div>';
+       }
+    });
+    return html;
+}
+
 // Create an HTML span containing the stats of the item
 var getStatDetail = function(item) {
     var detail = "";
@@ -334,6 +354,9 @@ function displayItemLine(item) {
     }
     if (item.allowUseOf) {
         special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
+    }
+    if (item.conditional) {
+        special += getConditionalHtml(item.conditional);
     }
     if (item.evade) {
         if (item.evade.physical) {

@@ -421,6 +421,27 @@ function showNode(node, parentNodeHtml, star, scale=1) {
         nodeHtml.html(html);
         nodeHtml.addClass("ability");
     }
+    if (node.conditional) {
+        var html = '';
+        node.conditional.forEach(c => {
+            if (c.equipedCondition && typeList.includes(c.equipedCondition)) {
+               html += '<span class="iconHolder"><img class="icon" src="/img/items/' + c.icon + '"></img></span><span class="text">'
+               let first = true;
+               baseStats.filter(s => c[s+'%']).forEach(s => {
+                   if (first) {
+                       first = false;
+                   } else {
+                       html += ', ';
+                   }
+                   html+= s.toUpperCase() + '+' + c[s+'%'] + '%';
+               });
+               html += ' if <i class="img img-equipment-' + c.equipedCondition + '"></i></span>';
+            }
+        });
+        html += '<span class="cost">' + node.cost+ ' SP</span>';
+        nodeHtml.html(html);
+        nodeHtml.addClass("ability");
+    }
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         nodeHtml.addClass("selected");
     }
@@ -511,6 +532,9 @@ function addNodeStatToEsper(esper, node) {
         if (!esper.evade) {esper.evade = {};}
         esper.evade.magical = node.evade.magical;
     }
+    if (node.conditional) {
+        addContional(esper, node.conditional);
+    }
     for (var i = baseStats.length; i--;) {
         if (node[percentValues[baseStats[i]]]) {
             addToStat(esper, percentValues[baseStats[i]], node[percentValues[baseStats[i]]]);
@@ -544,6 +568,9 @@ function unselectNodeAndChildren(esper, node) {
         }
         if (node.evade && !node.evade.physical && !node.evade.magical) {
             delete esper.evade;
+        }
+        if (node.conditional) {
+            removeContional(esper, node.conditional);
         }
         for (var i = baseStats.length; i--;) {
             if (node[percentValues[baseStats[i]]]) {
@@ -688,6 +715,29 @@ function removeFromStat(esper, stat, value) {
     if (esper[stat] == 0) {
         delete esper[stat];
     }
+}
+
+function addContional(esper, conditionals) {
+    if (!esper.conditional) {
+        esper.conditional = [];
+    }
+    conditionals.forEach(c => esper.conditional.push(c));
+}
+
+function removeContional(esper, conditionals) {
+    if (esper.conditional) {
+        conditionals.forEach(cNode => {
+            esper.conditional.forEach((cEsper, index) => {
+                if (cNode.equipedCondition == cEsper.equipedCondition) {
+                    esper.conditional.splice(index, 1);
+                }
+            })
+        })
+        if (esper.conditional.length == 0) {
+            delete esper.conditional
+        }
+    }
+    
 }
 
 function onMouseOverNode(x,y) {

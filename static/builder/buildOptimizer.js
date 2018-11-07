@@ -2,6 +2,7 @@ class BuildOptimizer {
     constructor(allItemVersions) {
         this.allItemVersions = allItemVersions;
         this.goalVariation = "avg";
+        this._alreadyUsedEspers = [];
     }
     
     set unitBuild(unitBuild) {
@@ -23,11 +24,7 @@ class BuildOptimizer {
     }
     
     set alreadyUsedEspers(alreadyUsedEspers) {
-        if (this.useEspers) {
-            this.selectedEspers = this.selectEspers(alreadyUsedEspers, this.ennemyStats);
-        } else {
-            this.selectedEspers = [];
-        }
+        this._alreadyUsedEspers = alreadyUsedEspers;
     }
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
@@ -50,14 +47,35 @@ class BuildOptimizer {
                 }
             }
             
+            if (this.useEspers) {
+                this.selectedEspers = this.selectEspers(this._alreadyUsedEspers, this.ennemyStats, typeCombinations[index].combination);
+            } else {
+                this.selectedEspers = [];
+            }
+            
             var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills(), this.getItemBasedSkills());
         }
     }
     
-    selectEspers(alreadyUsedEspers, ennemyStats) {
+    selectEspers(alreadyUsedEspers, ennemyStats, typeCombination) {
         var selectedEspers = [];
-        var keptEsperRoot = EsperTreeComparator.sort(this.espers, alreadyUsedEspers, this._unitBuild.involvedStats, ennemyStats);
+        let espersToUse = {};
+        Object.keys(this.espers).forEach(name => {
+            let e = this.espers[name];
+            if (e.conditional && e.conditional.some(c => typeCombination.includes(c.equipedCondition))) {
+                e = JSON.parse(JSON.stringify(e));
+                e.conditional.filter(c => typeCombination.includes(c.equipedCondition)).forEach(c => {
+                   baseStats.forEach(s => {
+                       if (c[s+'%']) {
+                           addToStat(e, s+'%', c[s+'%']);
+                       }
+                   }) 
+                });
+            }
+            espersToUse[name] = e;
+        })
+        var keptEsperRoot = EsperTreeComparator.sort(espersToUse, alreadyUsedEspers, this._unitBuild.involvedStats, ennemyStats);
         for (var index = keptEsperRoot.children.length; index--;) {
             if (!selectedEspers.includes(keptEsperRoot.children[index])) {
                 selectedEspers.push(keptEsperRoot.children[index].esper);

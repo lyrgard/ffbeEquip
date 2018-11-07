@@ -1172,6 +1172,9 @@ function getEsperItem(esper) {
     if (esper.buildLink) {
         item.buildLink = esper.buildLink;
     }
+    if (esper.conditional) {
+        item.conditional = esper.conditional;
+    }
     for (var i = baseStats.length; i--;) {
         if (esper[percentValues[baseStats[i]]]) {
             item[percentValues[baseStats[i]]] = esper[percentValues[baseStats[i]]];
