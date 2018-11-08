@@ -124,7 +124,12 @@ class TreeComparator {
         var valueTDH2 = getValue(item2, "singleWielding." + stat);
         var valueDH1 = getValue(item1, "singleWieldingOneHanded." + stat);
         var valueDH2 = getValue(item2, "singleWieldingOneHanded." + stat);
+        var glex1 = getValue(item1, "singleWieldingOneHanded.glex");
+        var glex2 = getValue(item2, "singleWieldingOneHanded.glex");
         
+        if (stat == "mag" && glex1 != glex2) {
+          return "sameLevel";
+        }
         if (valueTDH1 > valueTDH2) {
             if (valueTDH1 => valueDH2) {
                 return "strictlyWorse";

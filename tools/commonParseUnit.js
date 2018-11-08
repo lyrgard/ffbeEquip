@@ -321,7 +321,7 @@ function addEffectsToEffectList(effectList, effects) {
                 }
             }
             const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding","esperStatsBonus"];
-            const baseStatsWithAccuracy = baseStats.concat(["accuracy"]);
+            const baseStatsWithAccuracy = baseStats.concat(["accuracy","glex"]);
             for (var i = baseStatsBasedValues.length; i--;) {
                 if (effect[baseStatsBasedValues[i]]) {
                     if (!effectList[0][baseStatsBasedValues[i]]) {
@@ -557,6 +557,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         if (doublehandEffect[1]) {
             addToStat(doublehandResult, "mp", doublehandEffect[1]);
         }
+        doublehandResult.glex = true;
         return [result];
 
     // MAG DH

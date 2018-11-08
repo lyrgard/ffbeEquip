@@ -592,6 +592,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (doublehandEffect[1]) {
             addStat(doublehandSkill, "mp", doublehandEffect[1]);
         }
+        doublehandSkill.glex = true;
         
     // MAG DH
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 70) {
