@@ -864,11 +864,7 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) 
             var item = itemAndPassives[index];
             if (item) {
                 if (item.singleWielding && item.singleWielding[stat]  && itemAndPassives[0] && !itemAndPassives[1]) {
-                    if (checkGlex && item.singleWielding.glex) {
-                        glexStack += item.singleWielding[stat] / 100;
-                    } else {
-                        normalStack += item.singleWielding[stat] / 100;
-                    }
+                    normalStack += item.singleWielding[stat] / 100;
                 }
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat] && itemAndPassives[0] && !itemAndPassives[1]) {
                     if (checkGlex && item.singleWieldingOneHanded.glex) {
