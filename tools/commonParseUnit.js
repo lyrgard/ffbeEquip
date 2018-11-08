@@ -321,7 +321,7 @@ function addEffectsToEffectList(effectList, effects) {
                 }
             }
             const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding","esperStatsBonus"];
-            const baseStatsWithAccuracy = baseStats.concat(["accuracy","glex"]);
+            const baseStatsWithAccuracy = baseStats.concat(["accuracy"]);
             for (var i = baseStatsBasedValues.length; i--;) {
                 if (effect[baseStatsBasedValues[i]]) {
                     if (!effectList[0][baseStatsBasedValues[i]]) {
@@ -330,6 +330,9 @@ function addEffectsToEffectList(effectList, effects) {
                     for (var j = baseStatsWithAccuracy.length; j--;) {
                         if (effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]) {
                             addToStat(effectList[0][baseStatsBasedValues[i]], baseStatsWithAccuracy[j], effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]);
+                        }
+                        if (effect[baseStatsBasedValues[i]].glex) {
+                            effectList[0][baseStatsBasedValues[i]].glex = true;
                         }
                     }
                 }
