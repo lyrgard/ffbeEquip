@@ -856,8 +856,6 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
 function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) {
     if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         let normalStack = 0;
-        let glexStack = 1;
-        let checkGlex = stat == "mag";
         let twoHanded = isTwoHanded(itemAndPassives[0]);
         let dualWield = itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
         for (var index = itemAndPassives.length; index--;) {
@@ -867,11 +865,7 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) 
                     normalStack += item.singleWielding[stat] / 100;
                 }
                 if (!twoHanded && item.singleWieldingOneHanded && item.singleWieldingOneHanded[stat] && itemAndPassives[0] && !itemAndPassives[1]) {
-                    if (checkGlex && item.singleWieldingOneHanded.glex) {
-                      glexStack += item.singleWieldingOneHanded[stat] / 100;
-                    } else {
-                      normalStack += item.singleWieldingOneHanded[stat] / 100;
-                    }
+                    normalStack += item.singleWieldingOneHanded[stat] / 100;
                 }
                 if (dualWield && item.dualWielding && item.dualWielding[stat]) {
                     if (doCap) {
@@ -883,9 +877,9 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) 
             }
         }
         if (doCap) {
-            return (1 + Math.min(3, normalStack)) * glexStack;
+            return 1 + Math.min(3, normalStack);
         } else {
-            return (1 + normalStack) * glexStack;
+            return 1 + normalStack;
         }
     } else {
         return 1;

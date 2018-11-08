@@ -2367,7 +2367,7 @@
 			{"hp%":10, "def%":20, "spr%":30},
 			{"def%":30, "equipedConditions":["clothes"]},
 			{"spr%":30, "equipedConditions":["robe"]},
-			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"Dragon's Madrigal","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}]}, "equipedConditions":["403043300"]},
+			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"Dragon's Madrigal","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"Draconic Reverberation"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tDraconic Reverberation (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"Draconic Reverberation"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tDraconic Reverberation (507974)"}]}, "equipedConditions":["403043300"]},
 			{"def%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "levelCondition":120}
 		],
@@ -9088,7 +9088,7 @@
 		"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
 		"enhancements": [
 			{"name":"Cold and Confident","levels":[[{"mp%":30,"resist":[{"name":"ice","percent":20}]}],[{"mp%":30,"hp%":10,"resist":[{"name":"ice","percent":30}]}],[{"mp%":30,"hp%":30,"resist":[{"name":"ice","percent":50}]}]]},
-			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"glex":true,"mag":50,"atk":100}}],[{"singleWieldingOneHanded":{"glex":true,"mag":100,"atk":100}}],[{"singleWielding":{"glex":true,"mag":100,"atk":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"mag":50,"atk":100}}],[{"singleWieldingOneHanded":{"mag":100,"atk":100}}],[{"singleWielding":{"mag":100,"atk":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
 		],
 		"skills": [
 			{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
@@ -9154,7 +9154,7 @@
 		"enhancements": [
 			{"name":"Auto-Charge","levels":[[{"lbPerTurn":{"min":2,"max":2}}],[{"lbPerTurn":{"min":4,"max":4}}],[{"lbPerTurn":{"min":6,"max":6},"atk%":30}]]},
 			{"name":"Mana's Bond","levels":[[{"atk%":10,"resist":[{"name":"poison","percent":25},{"name":"blind","percent":25},{"name":"sleep","percent":25},{"name":"silence","percent":25},{"name":"paralysis","percent":25},{"name":"confuse","percent":25},{"name":"disease","percent":25},{"name":"petrification","percent":25}]}],[{"atk%":10,"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}],[{"atk%":10,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
-			{"name":"Hero of Legend","levels":[[{"equipedConditions":["sword"],"atk%":35,"def%":20,"spr%":20}],[{"equipedConditions":["sword"],"atk%":50,"def%":35,"spr%":35}],[{"singleWieldingOneHanded":{"glex":true,"spr":50,"def":50,"atk":100}},{"equipedConditions":["sword"],"atk%":70,"def%":35,"spr%":35}]]}
+			{"name":"Hero of Legend","levels":[[{"equipedConditions":["sword"],"atk%":35,"def%":20,"spr%":20}],[{"equipedConditions":["sword"],"atk%":50,"def%":35,"spr%":35}],[{"singleWieldingOneHanded":{"spr":50,"def":50,"atk":100}},{"equipedConditions":["sword"],"atk%":70,"def%":35,"spr%":35}]]}
 		],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":15}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]}
@@ -10355,7 +10355,7 @@
 		],
 		"skills": [
 			{"hp%":10, "evoMag":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":125},{"name":"confuse","percent":100},{"name":"fire","percent":25},{"name":"ice","percent":-50},{"name":"earth","percent":25}]},
-			{"def%":50, "spr%":50, "singleWielding":{"glex":true,"spr":30,"def":30}, "mpRefresh":10, "equipedConditions":["1100000022"]},
+			{"def%":50, "spr%":50, "singleWielding":{"spr":30,"def":30}, "mpRefresh":10, "equipedConditions":["1100000022"]},
 			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "levelCondition":105},
@@ -10462,7 +10462,7 @@
 		"equip":["staff","bow","mace","hat","clothes","robe"],
 		"enhancementSkills":["Divine Burst","Entrust","Raise","SPR +20%, MP +10%","Ritual"],
 		"enhancements": [
-			{"name":"SPR +20%, MP +10%","levels":[[{"spr%":20,"mp%":10}],[{"spr%":30,"mp%":10}],[{"spr%":50,"mp%":30,"singleWielding":{"glex":true,"spr":100}}]]}
+			{"name":"SPR +20%, MP +10%","levels":[[{"spr%":20,"mp%":10}],[{"spr%":30,"mp%":10}],[{"spr%":50,"mp%":30,"singleWielding":{"spr":100}}]]}
 		],
 		"skills": [
 			{"mp%":20, "spr%":10, "resist":[{"name":"light","percent":25},{"name":"silence","percent":25}]}
@@ -10898,11 +10898,11 @@
 			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
 		],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"glex":true,"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
 			{"equipedConditions":["1100000109"]},
 			{"mag%":30, "skillEnhancement":{"910520":1,"910526":1,"911450":1,"911451":1,"911452":1,"911453":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mag%":20, "singleWielding":{"mag":50,"glex":true,"spr":50}, "mpRefresh":5, "levelCondition":120}
+			{"hp%":20, "mag%":20, "singleWielding":{"mag":50,"spr":50}, "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"사신 사쿠라",
@@ -10924,7 +10924,7 @@
 			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
 		],
 			"skills": [
-				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"glex":true,"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]}
+				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]}
 			]
 		}
 	},
@@ -11148,7 +11148,7 @@
 		"equip":["staff","rod","hat","clothes","robe"],
 		"enhancementSkills":["Path of Wizardry","Promotion","Icicle Press"],
 		"enhancements": [
-			{"name":"Path of Wizardry","levels":[[{"singleWieldingOneHanded":{"glex":true,"mag":100}}],[{"singleWieldingOneHanded":{"glex":true,"mag":100},"mag%":25,"mp%":20}],[{"singleWieldingOneHanded":{"glex":true,"mag":100},"spr%":20,"mag%":50,"mp%":20}]]}
+			{"name":"Path of Wizardry","levels":[[{"singleWieldingOneHanded":{"mag":100}}],[{"singleWieldingOneHanded":{"mag":100},"mag%":25,"mp%":20}],[{"singleWieldingOneHanded":{"mag":100},"spr%":20,"mag%":50,"mp%":20}]]}
 		],
 		"skills": [
 			{"mp%":30, "mag%":20, "spr%":30, "resist":[{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"water","percent":30}]}

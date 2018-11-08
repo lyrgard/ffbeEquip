@@ -331,9 +331,6 @@ function addEffectsToEffectList(effectList, effects) {
                         if (effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]) {
                             addToStat(effectList[0][baseStatsBasedValues[i]], baseStatsWithAccuracy[j], effect[baseStatsBasedValues[i]][baseStatsWithAccuracy[j]]);
                         }
-                        if (effect[baseStatsBasedValues[i]].glex) {
-                            effectList[0][baseStatsBasedValues[i]].glex = true;
-                        }
                     }
                 }
             }
@@ -560,7 +557,6 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         if (doublehandEffect[1]) {
             addToStat(doublehandResult, "mp", doublehandEffect[1]);
         }
-        doublehandResult.glex = true;
         return [result];
 
     // MAG DH

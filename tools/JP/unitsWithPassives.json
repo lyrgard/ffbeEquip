@@ -1623,7 +1623,7 @@
 		"enhancementSkills":["フィジカルフォール","リタリエイト","アルテマ"],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
-			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"ヘルズアクアジャッジ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
+			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"ヘルズアクアジャッジ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip","405002000"]},
 			{"mag%":20, "levelCondition":115},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "levelCondition":120}
@@ -2510,7 +2510,7 @@
 		],
 		"skills": [
 			{"def%":20, "spr%":30},
-			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"竜哭のマドリガル","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}]}, "equipedConditions":["403043300"]},
+			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"竜哭のマドリガル","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tDraconic Reverberation (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\tDraconic Reverberation (507974)"}]}, "equipedConditions":["403043300"]},
 			{"def%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "levelCondition":120}
 		],
@@ -3578,7 +3578,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":30, "lbFillRate":100, "mpRefresh":5},
-			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2}, "replaceLb":{"name":"コスモプリューム","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore cover and reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore cover and reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}]}, "equipedConditions":["504224490"]},
+			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2}, "replaceLb":{"name":"コスモプリューム","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}]}, "equipedConditions":["504224490"]},
 			{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"mag%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
@@ -9461,7 +9461,7 @@
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"replaceLb":{"name":"賢者の炎","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}]}, "equipedConditions":["409020400"]},
+			{"replaceLb":{"name":"賢者の炎","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}]}, "equipedConditions":["409020400"]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":50, "mag%":40, "spr%":40, "levelCondition":120}
@@ -10235,7 +10235,7 @@
 		],
 		"skills": [
 			{"mp%":10, "mag%":30, "spr%":20, "mpRefresh":5},
-			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"キャノンレーザー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}]}, "equipedConditions":["504203150"]},
+			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"キャノンレーザー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}]}, "equipedConditions":["504203150"]},
 			{"singleWielding":{"mag":50}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
@@ -10711,6 +10711,124 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":20}, "esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}
 		]
+	},
+	"257000104": {
+		"name":"Lilikin Reynn & Lann",
+		"jpname":"ラァン&レェン",
+		"id":"257000104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3563,"mp":186,"atk":115,"def":124,"mag":146,"spr":137},
+			"minStats":{"hp":1176,"mp":61,"atk":38,"def":41,"mag":48,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":20, "atk%":10, "def%":40, "mag%":70, "spr%":10, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":30},{"name":"light","percent":30}], "mpRefresh":3, "esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}
+		]
+	},
+	"257000205": {
+		"name":"Lilikin Yuna",
+		"jpname":"ユウナ(WOFF)",
+		"id":"257000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4516,"mp":257,"atk":119,"def":163,"mag":176,"spr":206},
+			"minStats":{"hp":1490,"mp":85,"atk":39,"def":54,"mag":58,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"],
+		"enhancements": [
+			{"name":"月輪の印","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"hp%":20}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"hp%":20,"evoMag":20}]]}
+		],
+		"skills": [
+			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"異界送り","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311004600"]},
+			{"def%":20, "levelCondition":115},
+			{"mag%":30, "spr%":30, "evoMag":30, "skillEnhancement":{"508013":0.5,"508014":1.5,"508015":0.5,"508016":1.5,"508670":0.5,"508671":1.5,"508672":0.5,"508673":1.5,"508674":0.5,"508675":1.5,"508676":0.5,"508677":1.5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Lilikin Yuna",
+			"jpname":"ユウナ(WOFF)",
+			"id":"257000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3474,"mp":198,"atk":92,"def":120,"mag":136,"spr":151},
+				"minStats":{"hp":1146,"mp":65,"atk":30,"def":40,"mag":45,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"],
+		"enhancements": [
+			{"name":"月輪の印","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"hp%":20}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"hp%":20,"evoMag":20}]]}
+		],
+			"skills": [
+				{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}}
+			]
+		}
+	},
+	"257000305": {
+		"name":"Lilikin Squall",
+		"jpname":"スコール(WOFF)",
+		"id":"257000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4808,"mp":211,"atk":203,"def":172,"mag":152,"spr":178},
+			"minStats":{"hp":1587,"mp":70,"atk":67,"def":54,"mag":50,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":150},"def%":30,"skillEnhancement":{"226623":0.5,"509341":0.5,"707662":0.5,"707663":0.5}},{"equipedConditions":["greatSword"],"atk%":50}]]},
+			{"name":"G.F.","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10},"levelCondition":110}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30},"levelCondition":110}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50},"levelCondition":110}]]},
+			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}
+		],
+		"skills": [
+			{"hp%":30, "mp%":50, "def%":30, "spr%":40, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+			{"atk%":50, "equipedConditions":["gun"]},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":30, "lbFillRate":50, "equipedConditions":["303006100"]}
+		],
+		"6_form": {
+			"name":"Lilikin Squall",
+			"jpname":"スコール(WOFF)",
+			"id":"257000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3698,"mp":162,"atk":156,"def":126,"mag":116,"spr":130},
+				"minStats":{"hp":1220,"mp":53,"atk":51,"def":42,"mag":38,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":150},"def%":30,"skillEnhancement":{"226623":0.5,"509341":0.5,"707662":0.5,"707663":0.5}},{"equipedConditions":["greatSword"],"atk%":50}]]}
+		],
+			"skills": [
+				{"hp%":30, "mp%":50, "def%":30, "spr%":40, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}]},
+				{"atk%":50, "equipedConditions":["gun"]},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
 	},
 	"301000103": {
 		"name":"Samatha・Λ",
