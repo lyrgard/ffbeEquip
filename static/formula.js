@@ -757,22 +757,22 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
             switch(multicastEffect.type) {
                 case "skills":
                     var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
-                    if (skills.every(x => possibleSkillIds.includes(x.id))) {
+                    if (skills.every(x => x && possibleSkillIds.includes(x.id))) {
                         return skill;
                     }
                     break;
                 case "magic":
-                    if (skills.every(x => x.magic)) {
+                    if (skills.every(x => x && x.magic)) {
                         return skill;
                     }
                     break;
                 case "whiteMagic":
-                    if (skills.every(x => x.magic == "white")) {
+                    if (skills.every(x => x && x.magic == "white")) {
                         return skill;
                     }
                     break;
                 case "blackMagic":
-                    if (skills.every(x => x.magic == "black")) {
+                    if (skills.every(x => x && x.magic == "black")) {
                         return skill;
                     }
                     break;
