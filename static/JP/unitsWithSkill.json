@@ -9252,6 +9252,170 @@
 			{"id":"20240","name":"エアロガ","icon":"ability_25.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (1.8x, MAG) to all enemies"}],"magic":"black"}
 		]
 	},
+	"100022305": {
+		"name":"Sol",
+		"jpname":"ソル",
+		"id":"100022305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4689,"mp":284,"atk":132,"def":131,"mag":220,"spr":200},
+			"minStats":{"hp":1547,"mp":94,"atk":44,"def":43,"mag":73,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"lb": {"name":"混沌の闇","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":12,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (12x * 2 = 24x, MAG) to all enemies (ignore reflect)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"230485","name":"IV滅殺"}]}},"desc":"Gain 4 uses of the following skills for 2 turns:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to all enemies (ignore reflect)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"230485","name":"IV滅殺"}]}},"desc":"Gain 4 uses of the following skills for 2 turns:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}]},
+		"passives": [
+			{"name":"ヘスの八賢者","id":"230488","icon":"ability_72.png","effects":[{"effect":{"special":["dualWield"]},"desc":"Enable unit to equip two one-handed weapons"},{"effect":{"dualWielding":{"mag":50}},"desc":"Increase equipment MAG by 50% when armed with two weapons"}]},
+			{"name":"MP+30%","id":"100060","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}]},
+			{"name":"ユライシャの教え","id":"230489","icon":"ability_95.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"},{"effect":{"equipedConditions":["rod"],"mag%":50},"desc":"Increase MAG by 50% when equipped with a Rod"}]},
+			{"name":"魔導心臓","id":"230490","icon":"ability_91.png","effects":[{"effect":{"autoCastedSkill":{"id":508880,"name":"ゼプツェンの加護","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"mag":100},"turns":99999,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 100% for 99999 turns to caster"},{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 10% to caster for 99999 turns"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 10% to caster for 99999 turns"}]}},"desc":"Use ゼプツェンの加護 (508880) at the start of a battle"},{"effect":{"mpRefresh":10},"desc":"Recover MP (10%) per turn"}]},
+			{"name":"失われた感情","id":"230491","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"},{"effect":{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to Paralyze, Confusion and Petrify by 100%"}]},
+			{"name":"魔力+30%","id":"100120","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}]},
+			{"name":"精神+20%","id":"100170","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
+			{"name":"再会の約束","id":"230492","icon":"ability_91.png","effects":[{"effect":{"resist":[{"name":"light","percent":50},{"name":"dark","percent":50}]},"desc":"Increase resistance to Light and Dark by 50%"},{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"}]},
+			{"name":"W滅殺","id":"230478","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"230470","name":"エクストラチャージ"},{"id":"230471","name":"マインドスクラッチ"},{"id":"230472","name":"滅びの闇"},{"id":"230473","name":"ソウルサクション"},{"id":"230474","name":"滅びの光"},{"id":"230475","name":"光闇の領域"},{"id":"230476","name":"デストラクション"},{"id":"230477","name":"オファリング"},{"id":"230479","name":"ディヴァインソーラー"},{"id":"230480","name":"エクスキューション"},{"id":"230481","name":"滅びへの道"},{"id":"230482","name":"賢者の知恵"},{"id":"230483","name":"カオスノヴァ"},{"id":"230487","name":"混沌の力"},{"id":"230495","name":"滅びの火"},{"id":"230496","name":"イグゾーストヒート"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}]},
+			{"name":"無尽の魔力","id":"230493","icon":"ability_41.png","effects":[{"effect":null,"desc":"Increase Stop resistance by 100% to caster"},{"effect":{"dualWielding":{"mag":50}},"desc":"Increase Charm resistance by 100% to caster"},{"effect":null,"desc":"Increase equipment MAG by 50% when armed with two weapons"}],"equipedConditions":["408004600"]},
+			{"name":"防御+20%","id":"100140","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"太陽の記憶","id":"230494","icon":"ability_78.png","effects":[{"effect":{"hp%":20,"mp%":20,"mag%":40},"desc":"Increase MAG by 40% and HP and MP by 20%"},{"effect":{"lbFillRate":50},"desc":"Increase the limit burst gauge fill rate by 50%"}]}
+		],
+		"actives": [
+			{"id":"200150","name":"れんぞくま","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"magic"}},"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
+			{"id":"230470","name":"エクストラチャージ","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"mag":150},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 150% for 2 turns to caster"},{"effect":null,"desc":"Increase LB damage by 75% for 2 turns"}]},
+			{"id":"230471","name":"マインドスクラッチ","icon":"ability_39.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.1,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (2.1x * 2 = 4.2x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 60% for 3 turns to one enemy"}]},
+			{"id":"230472","name":"滅びの闇","icon":"ability_26.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.2,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Magic dark damage (4.2x, MAG) to all enemies"},{"effect":{"imperil":{"dark":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Dark by 75% for 3 turns to all enemies"}]},
+			{"id":"230473","name":"ソウルサクション","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (1.8x, MAG) to all enemies"},{"effect":null,"desc":"Restore 100 MP to caster"}]},
+			{"id":"230474","name":"滅びの光","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.2,"elements":["light"]},"area":"AOE","target":"ENEMY"},"desc":"Magic light damage (4.2x, MAG) to all enemies"},{"effect":{"imperil":{"light":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light by 75% for 3 turns to all enemies"}]},
+			{"id":"230475","name":"光闇の領域","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"light","percent":75},{"name":"dark","percent":75}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Light and Dark by 75% for 3 turns to all allies"}]},
+			{"id":"230495","name":"滅びの火","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.2,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (4.2x, MAG) to all enemies"},{"effect":{"imperil":{"fire":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to all enemies"}]},
+			{"id":"230476","name":"デストラクション","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.5,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (2.5x * 2 = 5x, MAG) to all enemies (ignore reflect)"}]},
+			{"id":"230477","name":"オファリング","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"mag":180},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 180% for 3 turns to caster"},{"effect":{"break":{"spr":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce SPR by 70% for 3 turns to all enemies"},{"effect":{"statsBuff":{"spr":-70},"turns":3,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Reduce SPR by 70% for 3 turns to the rest of the party"}]},
+			{"id":"230479","name":"ディヴァインソーラー","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.5,"stack":2,"maxStack":6,"elements":["light"]},"area":"AOE","target":"ENEMY"},"desc":"Magic light damage (4.5x, MAG) with consecutive damage increase (max. 6 times, +2x MAG each, 16.5x total) to all enemies"}]},
+			{"id":"230480","name":"エクスキューション","icon":"ability_26.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.5,"stack":2,"maxStack":6,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Magic dark damage (4.5x, MAG) with consecutive damage increase (max. 6 times, +2x MAG each, 16.5x total) to all enemies"}]},
+			{"id":"230484","name":"T滅殺","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":3,"type":"skills","skills":[{"id":"230470","name":"エクストラチャージ"},{"id":"230471","name":"マインドスクラッチ"},{"id":"230472","name":"滅びの闇"},{"id":"230473","name":"ソウルサクション"},{"id":"230474","name":"滅びの光"},{"id":"230475","name":"光闇の領域"},{"id":"230476","name":"デストラクション"},{"id":"230477","name":"オファリング"},{"id":"230479","name":"ディヴァインソーラー"},{"id":"230480","name":"エクスキューション"},{"id":"230481","name":"滅びへの道"},{"id":"230482","name":"賢者の知恵"},{"id":"230483","name":"カオスノヴァ"},{"id":"230487","name":"混沌の力"},{"id":"230495","name":"滅びの火"},{"id":"230496","name":"イグゾーストヒート"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}],"unlockedBy":["滅びへの道"]},
+			{"id":"230481","name":"滅びへの道","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":3.5,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (3.5x * 2 = 7x, MAG) to all enemies (ignore reflect)"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"230484","name":"T滅殺"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}]},
+			{"id":"230496","name":"イグゾーストヒート","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.5,"stack":2,"maxStack":6,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (4.5x, MAG) with consecutive damage increase (max. 6 times, +2x MAG each, 16.5x total) to all enemies"}]},
+			{"id":"230485","name":"IV滅殺","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":4,"type":"skills","skills":[{"id":"230470","name":"エクストラチャージ"},{"id":"230471","name":"マインドスクラッチ"},{"id":"230472","name":"滅びの闇"},{"id":"230473","name":"ソウルサクション"},{"id":"230474","name":"滅びの光"},{"id":"230475","name":"光闇の領域"},{"id":"230476","name":"デストラクション"},{"id":"230477","name":"オファリング"},{"id":"230479","name":"ディヴァインソーラー"},{"id":"230480","name":"エクスキューション"},{"id":"230481","name":"滅びへの道"},{"id":"230482","name":"賢者の知恵"},{"id":"230483","name":"カオスノヴァ"},{"id":"230487","name":"混沌の力"},{"id":"230495","name":"滅びの火"},{"id":"230496","name":"イグゾーストヒート"}]}},"desc":"Gain 4 uses of the following skills for one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}],"unlockedBy":["賢者の知恵","カオスノヴァ","混沌の闇","混沌の闇"]},
+			{"id":"230482","name":"賢者の知恵","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509564,"name":"賢者の知恵","icon":"ability_105.png","effects":[{"effect":{"imperil":{"fire":100,"light":100,"dark":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Light and Dark by 100% for 3 turns to all enemies"},{"effect":{"statsBuff":{"mag":200},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 200% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"230485","name":"IV滅殺"}]}},"desc":"Gain 4 uses of the following skills for one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock 賢者の知恵 (509564) on turn 1 [5 turns CD]"}]},
+			{"id":"230487","name":"混沌の力","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 50% HP and MP to caster"},{"effect":null,"desc":"Use 混沌の力 (509566) next turn on caster"}],"unlockedBy":["カオスノヴァ"]},
+			{"id":"230483","name":"カオスノヴァ","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509565,"name":"カオスノヴァ","icon":"ability_105.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":3,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (3x * 2 = 6x, MAG) to one enemy (ignore reflect)"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":15,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (15x * 2 = 30x, MAG) to one enemy (ignore reflect)"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"230485","name":"IV滅殺"}]}},"desc":"Gain 4 uses of the following skills for one turn:\n\tイグゾーストヒート (230496)\n\tエクスキューション (230480)\n\tエクストラチャージ (230470)\n\tオファリング (230477)\n\tカオスノヴァ (230483)\n\tソウルサクション (230473)\n\tディヴァインソーラー (230479)\n\tデストラクション (230476)\n\tマインドスクラッチ (230471)\n\t光闇の領域 (230475)\n\t混沌の力 (230487)\n\t滅びの光 (230474)\n\t滅びの火 (230495)\n\t滅びの闇 (230472)\n\t滅びへの道 (230481)\n\t賢者の知恵 (230482)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"230487","name":"混沌の力"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t混沌の力 (230487)"}]},"cooldownTurns":7,"startTurn":7,"area":"ST","target":"ENEMY"},"desc":"Unlock カオスノヴァ (509565) on turn 7 [7 turns CD]"}]}
+		],
+		"magics": [
+			{"id":"30370","name":"リフレク","icon":"ability_98.png","effects":[{"effect":null,"desc":"Reflect 1 spell(s) for 3 turns to one ally"}],"magic":"green"},
+			{"id":"10200","name":"デスペガ","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}],"magic":"white"},
+			{"id":"20440","name":"アルテマ","icon":"ability_37.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.8,"ignore":{"spr":25}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (2.8x * 1.33 = 3.73x, MAG) to all enemies (ignore reflect)"}],"magic":"black"},
+			{"id":"10210","name":"ホーリー","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.3,"use":{"stat":"spr","percent":100,"max":99999},"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light damage (2.3x, SPR) to one enemy"}],"magic":"white"}
+		]
+	},
+	"100022404": {
+		"name":"Heliak",
+		"jpname":"ヘリアーク",
+		"id":"100022404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3570,"mp":215,"atk":100,"def":99,"mag":167,"spr":151},
+			"minStats":{"hp":1178,"mp":71,"atk":33,"def":33,"mag":55,"spr":50},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"lb": {"name":"グロウアイス","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (2x, MAG) to all enemies"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (5x, MAG) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (4.5x, MAG) to all enemies"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (7.5x, MAG) to all enemies"}]},
+		"passives": [
+			{"name":"アルドール研究員","id":"230507","icon":"ability_77.png","effects":[{"effect":{"mp%":20,"spr%":20},"desc":"Increase SPR and MP by 20%"}]},
+			{"name":"望まぬ力","id":"230508","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["rod"],"mag%":50},"desc":"Increase MAG by 50% when equipped with a Rod"},{"effect":{"equipedConditions":["rod"],"resist":[{"name":"ice","percent":50}]},"desc":"Increase resistance to Ice by 50% when equipped with Rod"}]},
+			{"name":"優秀すぎた博士","id":"230509","icon":"ability_77.png","effects":[{"effect":{"mp%":20,"mag%":20},"desc":"Increase MAG and MP by 20%"},{"effect":{"resist":[{"name":"silence","percent":100}]},"desc":"Increase resistance to Silence by 100%"}]},
+			{"name":"魔導心臓研究者","id":"230510","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
+		],
+		"actives": [
+			{"id":"230500","name":"ブラストアイス","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.1,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (2.1x, MAG) to one enemy"}]},
+			{"id":"230501","name":"アイスキューブ","icon":"ability_15.png","effects":[{"effect":{"resist":[{"name":"ice","percent":50}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Ice by 50% for 3 turns to all allies"},{"effect":null,"desc":"Restore 60 MP split over 3 turns to all allies"}]},
+			{"id":"230502","name":"フロストダウン","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.1,"ignore":{"spr":50},"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (2.1x * 2 = 4.2x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"ice":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]},
+			{"id":"200160","name":"W黒魔法","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"blackMagic"}},"desc":"Enable unit to cast 2 black magic spells"}]},
+			{"id":"230506","name":"W研究開発","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"230500","name":"ブラストアイス"},{"id":"230501","name":"アイスキューブ"},{"id":"230502","name":"フロストダウン"},{"id":"230503","name":"フリージングエナジー"},{"id":"230504","name":"アンダークーリング"},{"id":"230505","name":"アイスダスト"}]}},"desc":"Gain 2 uses of the following skills for one turn:\n\tアイスキューブ (230501)\n\tアイスダスト (230505)\n\tアンダークーリング (230504)\n\tフリージングエナジー (230503)\n\tフロストダウン (230502)\n\tブラストアイス (230500)"}],"unlockedBy":["フリージングエナジー"]},
+			{"id":"230503","name":"フリージングエナジー","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.1,"ignore":{"spr":50},"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (2.1x * 2 = 4.2x, MAG) to one enemy (ignore reflect)"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"230506","name":"W研究開発"}]}},"desc":"Gain 2 uses of the following skills for one turn:\n\tアイスキューブ (230501)\n\tアイスダスト (230505)\n\tアンダークーリング (230504)\n\tフリージングエナジー (230503)\n\tフロストダウン (230502)\n\tブラストアイス (230500)"}]},
+			{"id":"230504","name":"アンダークーリング","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.5,"stack":0.6,"maxStack":9,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (1.5x, MAG) with consecutive damage increase (max. 9 times, +0.6x MAG each, 6.9x total) to one enemy"}]},
+			{"id":"230505","name":"アイスダスト","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.3,"ignore":{"spr":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (2.3x * 2 = 4.6x, MAG) to all enemies (ignore reflect)"}]}
+		],
+		"magics": [
+			{"id":"20090","name":"ブリザラ","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.4,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (1.4x, MAG) to all enemies"}],"magic":"black"},
+			{"id":"20210","name":"ブリザガ","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (1.8x, MAG) to all enemies"}],"magic":"black"},
+			{"id":"20300","name":"ブリザジャ","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"stack":1,"maxStack":4,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to all enemies"}],"magic":"black"},
+			{"id":"20360","name":"フリーズ","icon":"ability_33.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.75,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (2.75x, MAG) to all enemies"},{"effect":{"imperil":{"ice":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to all enemies"}],"magic":"black"}
+		]
+	},
+	"100022504": {
+		"name":"Eclipsa",
+		"jpname":"イクリプサ",
+		"id":"100022504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3522,"mp":189,"atk":118,"def":132,"mag":142,"spr":134},
+			"minStats":{"hp":1162,"mp":62,"atk":39,"def":44,"mag":47,"spr":44},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","bow","whip","mace","fist","hat","clothes","robe"],
+		"lb": {"name":"ヴェノマスボトル","minEffects":[{"effect":{"break":{"atk":40,"def":40,"mag":40,"spr":40},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 40% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":-40,"def":-40,"mag":-40,"spr":-40},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce ATK, DEF, MAG and SPR by 40% for 3 turns to all allies"}],"maxEffects":[{"effect":{"break":{"atk":65,"def":65,"mag":65,"spr":65},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 65% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":-65,"def":-65,"mag":-65,"spr":-65},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce ATK, DEF, MAG and SPR by 65% for 3 turns to all allies"}]},
+		"passives": [
+			{"name":"隠された野心","id":"230528","icon":"ability_77.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"}]},
+			{"name":"湧きあがる嫉妬","id":"230529","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
+			{"name":"HP+30%","id":"100030","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
+			{"name":"執念の研究者","id":"230531","icon":"ability_77.png","effects":[{"effect":{"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30%"},{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
+			{"name":"不老不死への憧れ","id":"230530","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"}]}
+		],
+		"actives": [
+			{"id":"230520","name":"パワーインヒビター","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":55},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 55% for 3 turns to one enemy"}]},
+			{"id":"230521","name":"ガードインヒビター","icon":"ability_39.png","effects":[{"effect":{"break":{"def":55},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 55% for 3 turns to one enemy"}]},
+			{"id":"230523","name":"ソーサルトキシン","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG by 50% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Poison and Confusion (50%) on all enemies"}]},
+			{"id":"230524","name":"侵身性ウィルス散布","icon":"ability_39.png","effects":[{"effect":{"break":{"def":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 50% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind and Disease (50%) on all enemies"}]},
+			{"id":"230522","name":"サイコデプレサント","icon":"ability_39.png","effects":[{"effect":{"break":{"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce MAG and SPR by 45% for 3 turns to all enemies"},{"effect":null,"desc":"Inflict Charm (30%) on all enemies for 2 turns"}]},
+			{"id":"230526","name":"蝕心性バクテリア散布","icon":"ability_39.png","effects":[{"effect":{"break":{"spr":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce SPR by 50% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Silence and Disease (50%) on all enemies"}]},
+			{"id":"230527","name":"全身硬化剤","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK by 50% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze and Petrify (50%) on all enemies"}]},
+			{"id":"230525","name":"戦闘停止剤","icon":"ability_39.png","effects":[{"effect":{"break":{"atk":45,"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 45% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for 3 turns on all enemies"}]}
+		],
+		"magics": [
+		]
+	},
+	"100022603": {
+		"name":"Pelteira",
+		"jpname":"ペルテイラ",
+		"id":"100022603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2655,"mp":124,"atk":118,"def":112,"mag":71,"spr":82},
+			"minStats":{"hp":876,"mp":41,"atk":39,"def":37,"mag":23,"spr":27},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","bow","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"lb": {"name":"試作時限式炸裂弾","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (3.5x * 2 = 7x, ATK) to all enemies (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.5x * 2 = 11x, ATK) to all enemies (ignore cover)"}]},
+		"passives": [
+			{"name":"自己流護身術","id":"230546","icon":"ability_97.png","effects":[{"effect":{"hp%":10,"mp%":10},"desc":"Increase HP and MP by 10%"},{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"}]},
+			{"name":"磨かれし学識","id":"230547","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":50},{"name":"confuse","percent":50}]},"desc":"Increase resistance to Poison and Confusion by 50%"},{"effect":{"mpRefresh":3},"desc":"Recover MP (3%) per turn"}]},
+			{"name":"ヘリアークの相棒","id":"230548","icon":"ability_84.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
+			{"name":"Wギミック","id":"230545","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"230540","name":"特製麻痺弾"},{"id":"230541","name":"ライフピペッター"},{"id":"230542","name":"遅効性ボディブロー"},{"id":"230543","name":"残像映写装置"},{"id":"230544","name":"護身弾装填"},{"id":"509580","name":"火炎護身弾"},{"id":"509581","name":"氷結護身弾"},{"id":"509582","name":"電撃護身弾"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tライフピペッター (230541)\n\t残像映写装置 (230543)\n\t氷結護身弾 (509581)\n\t火炎護身弾 (509580)\n\t特製麻痺弾 (230540)\n\t護身弾装填 (230544)\n\t遅効性ボディブロー (230542)\n\t電撃護身弾 (509582)"}]}
+		],
+		"actives": [
+			{"id":"230540","name":"特製麻痺弾","icon":"ability_14.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Paralyze (75%) on one enemy"}]},
+			{"id":"230541","name":"ライフピペッター","icon":"ability_6.png","effects":[{"effect":null,"desc":"Physical damage (0.8x, ATK) as HP drain (20%) to one enemy"},{"effect":null,"desc":"Physical damage (0.3x, ATK) as MP drain (10%) to one enemy"}]},
+			{"id":"230543","name":"残像映写装置","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}]},
+			{"id":"230542","name":"遅効性ボディブロー","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.2},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.2x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.5,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4.5x, ATK) to one enemy after a one turn delay"}]},
+			{"id":"509580","name":"火炎護身弾","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (2.1x, ATK) to one enemy"}],"unlockedBy":["護身弾装填"]},
+			{"id":"509581","name":"氷結護身弾","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Physical ice damage (2.1x, ATK) to one enemy"}],"unlockedBy":["護身弾装填"]},
+			{"id":"509582","name":"電撃護身弾","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1,"elements":["lightning"]},"area":"ST","target":"ENEMY"},"desc":"Physical lightning damage (2.1x, ATK) to one enemy"}],"unlockedBy":["護身弾装填"]},
+			{"id":"230544","name":"護身弾装填","icon":"ability_60.png","effects":[{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509580","name":"火炎護身弾"},{"id":"509581","name":"氷結護身弾"},{"id":"509582","name":"電撃護身弾"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\t氷結護身弾 (509581)\n\t火炎護身弾 (509580)\n\t電撃護身弾 (509582)"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"}]}
+		],
+		"magics": [
+		]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
