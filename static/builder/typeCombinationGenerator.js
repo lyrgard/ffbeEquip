@@ -49,19 +49,21 @@ class TypeCombinationGenerator {
                 var savedForceDualWield = this.forceDualWield;
                 this.forceDualWield = true;
                 var slot = this.unitBuild.getItemSlotFor(tmr, this.forceDoubleHand);
-                if (slot != -1) {   
-                    var savedFixedItems = this.unitBuild.fixedItems;
-                    this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
-                    this.unitBuild.fixedItems[slot] = tmr;
-                    var savedEquipable0 = this.unitBuild.equipable[0];
-                    var savedEquipable1 = this.unitBuild.equipable[1];
-     
-                    this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
-                    
-                    this.buildTypeCombination(0,typeCombination,combinations, [tmr.id]);
-                    this.unitBuild.fixedItems = savedFixedItems;
-                    this.unitBuild.equipable[0] = savedEquipable0;
-                    this.unitBuild.equipable[1] = savedEquipable1;
+                if (slot != -1) {
+                    this.dataByType[tmr.type].filter(entry => entry.item.id == tmr.id).forEach(tmrVersion => {
+                        var savedFixedItems = this.unitBuild.fixedItems;
+                        this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+                        this.unitBuild.fixedItems[slot] = tmrVersion.item;
+                        var savedEquipable0 = this.unitBuild.equipable[0];
+                        var savedEquipable1 = this.unitBuild.equipable[1];
+
+                        this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
+
+                        this.buildTypeCombination(0,typeCombination,combinations, [tmr.id]);
+                        this.unitBuild.fixedItems = savedFixedItems;
+                        this.unitBuild.equipable[0] = savedEquipable0;
+                        this.unitBuild.equipable[1] = savedEquipable1;
+                    });
                 }
                 this.forceDualWield = savedForceDualWield;
             }

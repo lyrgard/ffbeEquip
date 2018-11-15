@@ -129,17 +129,6 @@ class BuildOptimizer {
                 }
             }
         }
-        var index = 0;
-        while (index < tempResult.length) {
-            if (forcedItems.includes(tempResult[index].item.id)) {
-                tempResult[index].available--;
-                if (tempResult[index].available <= 0) {
-                    tempResult.splice(index,1);
-                    continue;
-                }
-            }
-            index++;
-        }
         
         var numberNeeded = 0;
         for (var slotIndex = typeCombination.length; slotIndex--;) {
@@ -162,7 +151,14 @@ class BuildOptimizer {
             if (weaponList.includes(type) && (typeCombination[1] || this._unitBuild.fixedItems[0] || this._unitBuild.fixedItems[1]) && isTwoHanded(entry.item) ) {
                 continue; // ignore 2 handed weapon if we are in a DW build, or a weapon was already fixed
             }
-            itemPool.addItem(entry);    
+            let available = entry.available;
+            if (forcedItems.includes(entry.item.id)) {
+                available--;
+                if (available <= 0) {
+                    continue;
+                }
+            }
+            itemPool.addItem(entry, available);
         }
         
         itemPool.prepare();

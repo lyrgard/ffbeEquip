@@ -24,10 +24,11 @@ class ItemPool {
         }
     }
     
-    addItem(entry) {
+    addItem(entry, available = entry.available) {
         this.currentItemId++;
         entry.betterItems = 0;
-        entry.currentAvailable = entry.available;
+        entry.currentAvailable = available;
+        entry.fixedAvailable = available;
         entry.uniqueId = this.currentItemId;
         var betterGroups = [];
         var lesserGroups = [];
@@ -41,10 +42,10 @@ class ItemPool {
                     break;
                 case "equivalent":
                     this.keptItems[i].equivalents.push(entry);
-                    this.keptItems[i].available += entry.available;
+                    this.keptItems[i].available += available;
                     return;
                 case "strictlyBetter":
-                    this.keptItems[i].betterItems += entry.available;
+                    this.keptItems[i].betterItems += available;
                     if (this.keptItems[i].betterItems >= this.maxDepth) {
                         this.keptItems.splice(i, 1);
                     } else {
@@ -57,7 +58,7 @@ class ItemPool {
         }
         if (betterItemCount < this.maxDepth) {
             this.currentGroupId++;
-            var newGroup = {"id":this.currentGroupId, "equivalents":[entry], "currentEquivalent":0, "available": entry.available, "betterItems":betterItemCount, "betterGroups":betterGroups};
+            var newGroup = {"id":this.currentGroupId, "equivalents":[entry], "currentEquivalent":0, "available": available, "betterItems":betterItemCount, "betterGroups":betterGroups};
             for (var i = betterGroups.length; i--;) {
                 if (!this.lesserGroupsById[betterGroups[i]]) {
                     this.lesserGroupsById[betterGroups[i]] = [];
@@ -89,7 +90,7 @@ class ItemPool {
                 var number = 0;
                 var numberNeeded = this.maxDepth; // todo take better items into consideration
                 for (var j = 0, lenj = this.keptItems[i].equivalents.length; j < lenj; j++) {
-                    number += this.keptItems[i].equivalents[j].available;
+                    number += this.keptItems[i].equivalents[j].currentAvailable;
                     if (number >= numberNeeded) {
                         this.keptItems[i].equivalents = this.keptItems[i].equivalents.slice(0, j+1);
                         this.keptItems[i].available = number;
@@ -155,7 +156,7 @@ class ItemPool {
                 }
             }
         }
-        if (group.equivalents[group.currentEquivalent].currentAvailable == group.equivalents[group.currentEquivalent].available) {
+        if (group.equivalents[group.currentEquivalent].currentAvailable == group.equivalents[group.currentEquivalent].fixedAvailable) {
             // This equivalent is full, go to the previous one
             group.currentEquivalent--;
         }
