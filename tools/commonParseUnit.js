@@ -672,14 +672,18 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     // Gilgamesh multi equip skill
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
         var result = [];
-        for (var i = rawEffect[3][0].length; i--;) {
-            var gilgameshSkill = {"equipedConditions":[rawEffect[3][0][i].toString()]};
-            gilgameshSkill["hp%"] = rawEffect[3][1];
-            gilgameshSkill["mp%"] = rawEffect[3][2];
-            gilgameshSkill["atk%"] = rawEffect[3][3];
-            gilgameshSkill["def%"] = rawEffect[3][4];
-            gilgameshSkill["mag%"] = rawEffect[3][5];
-            gilgameshSkill["spr%"] = rawEffect[3][6];
+        var conditions = rawEffect[3][0];
+        if (!Array.isArray(rawEffect[3][0])) {
+            conditions = [rawEffect[3][0]];
+        }
+        for (var i = conditions.length; i--;) {
+            var gilgameshSkill = {"equipedConditions":[conditions[i].toString()]};
+            gilgameshSkill["atk%"] = rawEffect[3][1];
+            gilgameshSkill["def%"] = rawEffect[3][2];
+            gilgameshSkill["mag%"] = rawEffect[3][3];
+            gilgameshSkill["spr%"] = rawEffect[3][4];
+            gilgameshSkill["hp%"] = rawEffect[3][5];
+            gilgameshSkill["mp%"] = rawEffect[3][6];
             result.push(gilgameshSkill);
         }
         return result;
