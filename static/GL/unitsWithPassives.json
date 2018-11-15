@@ -8658,6 +8658,7 @@
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "mag%":30, "dualWielding":{"atk":30,"mag":30}, "special":["dualWield"], "equipedConditions":["1100000072"]},
 			{"resist":[{"name":"ice","percent":30}], "skillEnhancement":{"910161":2,"911006":2,"911007":2}, "levelCondition":105},
+			{"atk%":30, "mag%":30, "equipedConditions":["ice"], "equipedConditionIsOr":true, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],

@@ -482,7 +482,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     }
 
     // element based mastery
-    else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 10004) {
+    else if (rawEffect[1] == 3 && rawEffect[2] == 10004) {
         var masteryEffect = rawEffect[3];
         result = [];
         var masteryElements;
