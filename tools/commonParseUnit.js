@@ -822,10 +822,6 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         result = {
             "replaceLb": lb
         }
-        if (lbIn.name == "Jackpot Shot") {
-            console.log(lbIn);
-            console.log(lb);
-        }
         return [result];
         
     // Increase maximum true double-wield bonus to 200%, Allow unit to reach 6x chain modifier, when using two one-handed weapons
@@ -1152,8 +1148,6 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         var gainedSkillId = rawEffect[3][2].toString();
         var gainedSkill = skills[gainedSkillId];
         if (gainedSkillId && gainedSkillId != skillId) {
-            console.log(gainedSkillId);
-            console.log(skillId);
             var parsedSkill = parseActiveSkill(gainedSkillId, gainedSkill, skills, unit)
             
             if (parsedSkill) {

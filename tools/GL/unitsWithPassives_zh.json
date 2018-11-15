@@ -1364,7 +1364,6 @@
 		"name":"福倫",
 		"wikiEntry":"Fohlen",
 		"id":"100006805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1383,14 +1382,14 @@
 			{"hp%":40, "mp%":10, "atk%":30, "def%":20, "evade":{"physical":30}, "resist":[{"name":"wind","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"atk%":40, "def%":20, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50}], "equipedConditions":["404001400"]},
 			{"spr%":20, "levelCondition":115},
-			{"jumpDamage":100, "killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}], "lbDamage":20, "levelCondition":120}
+			{"jumpDamage":100, "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"aquatic","physical":50}], "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"福倫",
 			"wikiEntry":"Fohlen",
 			"id":"100006805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -1490,7 +1489,7 @@
 		"enhancementSkills":["Physical Fall","Retaliate","Ultima","Utopia"],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
-			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore cover and reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
+			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":["405002000"]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip","405002000"]},
 			{"mag%":20, "levelCondition":115},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "skillEnhancement":{"208150":3,"910600":3,"910601":3}, "levelCondition":120}
@@ -1560,7 +1559,6 @@
 		"name":"盧內拉",
 		"wikiEntry":"Lunera",
 		"id":"100007505",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1588,7 +1586,7 @@
 			"wikiEntry":"Lunera",
 			"id":"100007505",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2011,7 +2009,6 @@
 		"name":"洛倫",
 		"wikiEntry":"Loren",
 		"id":"100009105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2041,7 +2038,7 @@
 			"wikiEntry":"Loren",
 			"id":"100009105",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2175,7 +2172,6 @@
 		"name":"艾爾弗里德",
 		"wikiEntry":"Elfreeda",
 		"id":"100009805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2193,7 +2189,7 @@
 			{"hp%":40, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["409013600"]},
 			{"skillEnhancement":{"502850":3.5,"502860":2.7}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
-			{"def%":30, "spr%":30, "levelCondition":120},
+			{"def%":50, "spr%":50, "levelCondition":120},
 			{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":120}
 		],
 		"6_form": {
@@ -2201,7 +2197,7 @@
 			"wikiEntry":"Elfreeda",
 			"id":"100009805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2348,7 +2344,6 @@
 		"name":"羅伊",
 		"wikiEntry":"Roy",
 		"id":"100010405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2376,7 +2371,7 @@
 			"wikiEntry":"Roy",
 			"id":"100010405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -2693,7 +2688,6 @@
 		"name":"冰炎騎士拉斯韋爾",
 		"wikiEntry":"Pyro_Glacial Lasswell",
 		"id":"100011705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2712,20 +2706,20 @@
 			{"atk%":20, "def%":10, "mag%":20, "spr%":10, "equipedConditions":["katana"]},
 			{"atk%":40, "equipedConditions":["katana"]},
 			{"hp%":30, "mp%":30, "equipedConditions":["greatSword"]},
-			{"dualWielding":{"atk":30}, "lbPerTurn":{"min":2,"max":2}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "equipedConditions":["504218380"]},
+			{"dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "replaceLb":{"name":"Unstoppable Wave","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (9x * 2 = 18x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tBlade Flash - Final (503610)\n\tCrimson Era (503630)\n\tFatal Bloom (503620)"},{"effect":{"imperil":{"fire":70,"ice":70},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 70% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tAbsolute Mirror of Equity (508001)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x * 2 = 24x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 5 turns:\n\tBlade Flash - Final (503610)\n\tCrimson Era (503630)\n\tFatal Bloom (503620)"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tAbsolute Mirror of Equity (508001)"}]}, "equipedConditions":["504218380"]},
 			{"skillEnhancement":{"205530":0.7,"503610":2.75,"503620":4.25,"503630":4.25}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"resist":[{"name":"ice","percent":15},{"name":"wind","percent":15}], "levelCondition":120},
-			{"atk%":20, "equipedConditions":["sword"], "levelCondition":120},
-			{"atk%":20, "equipedConditions":["greatSword"], "levelCondition":120},
-			{"atk%":20, "equipedConditions":["katana"], "levelCondition":120}
+			{"atk%":40, "equipedConditions":["sword"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["greatSword"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["katana"], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"冰炎騎士拉斯韋爾",
 			"wikiEntry":"Pyro_Glacial Lasswell",
 			"id":"100011705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -2966,7 +2960,6 @@
 		"name":"櫻雲賢者櫻",
 		"wikiEntry":"Blossom_Sage Sakura",
 		"id":"100012405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2993,7 +2986,7 @@
 			"wikiEntry":"Blossom_Sage Sakura",
 			"id":"100012405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -3358,7 +3351,7 @@
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":30, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]},
-			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2}, "replaceLb":{"name":"コスモプリューム","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore cover and reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore cover and reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}]}, "equipedConditions":["504224490"]},
+			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2}, "replaceLb":{"name":"コスモプリューム","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}]}, "equipedConditions":["504224490"]},
 			{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"mag%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
@@ -6979,7 +6972,6 @@
 		"name":"巴爾弗雷亞",
 		"wikiEntry":"Balthier",
 		"id":"212000505",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -6993,8 +6985,8 @@
 		"skills": [
 			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":15,"magical":15}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]},
-			{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "equipedConditions":["313002400"]},
-			{"skillEnhancement":{"202340":0.3,"209240":1,"209250":1,"209260":1,"209270":1,"209280":1,"501160":1,"705270":1,"705280":1,"705290":1,"705300":1}, "levelCondition":105},
+			{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "equipedConditions":["313002400"]},
+			{"skillEnhancement":{"202340":0.3,"209240":1,"209250":1,"209260":1,"209270":1,"209280":1,"501160":2,"705270":1,"705280":1,"705290":1,"705300":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
@@ -7003,7 +6995,7 @@
 			"wikiEntry":"Balthier",
 			"id":"212000505",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -7490,7 +7482,6 @@
 		"name":"諾克提斯",
 		"wikiEntry":"Noctis",
 		"id":"215000105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -7527,7 +7518,7 @@
 			"wikiEntry":"Noctis",
 			"id":"215000105",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -7559,7 +7550,6 @@
 		"name":"格拉迪歐藍斯",
 		"wikiEntry":"Gladiolus",
 		"id":"215000205",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -7577,14 +7567,14 @@
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":null,"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}]}, "equipedConditions":["402002100"]},
 			{"hp%":20, "levelCondition":115},
-			{"atk%":20, "def%":20, "spr%":20, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120}
+			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"格拉迪歐藍斯",
 			"wikiEntry":"Gladiolus",
 			"id":"215000205",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -7655,7 +7645,7 @@
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}]}, "equipedConditions":["409020400"]},
+			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tEnhancement - Fire (507872)\n\tEnhancement - Ice (507873)\n\tEnhancement - Lightning (507874)"}]}, "equipedConditions":["409020400"]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":50, "mag%":40, "spr%":40, "levelCondition":120}
@@ -8303,7 +8293,7 @@
 		],
 		"skills": [
 			{"mp%":10, "mag%":30, "spr%":20, "mpRefresh":5},
-			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"Jackpot Shot","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore cover and reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}]}, "equipedConditions":["504203150"]},
+			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"Jackpot Shot","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}]}, "equipedConditions":["504203150"]},
 			{"singleWielding":{"mag":50}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
@@ -9075,25 +9065,54 @@
 		"name":"弗雷比亞",
 		"wikiEntry":"Fryevia",
 		"id":"302001405",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3750,"mp":195,"atk":145,"def":120,"mag":145,"spr":120},
-			"minStats":{"hp":1238,"mp":64,"atk":48,"def":40,"mag":48,"spr":40},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4875,"mp":253,"atk":188,"def":156,"mag":210,"spr":156},
+			"minStats":{"hp":1609,"mp":83,"atk":62,"def":51,"mag":69,"spr":51},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
 		"enhancements": [
 			{"name":"Cold and Confident","levels":[[{"mp%":30,"resist":[{"name":"ice","percent":20}]}],[{"mp%":30,"hp%":10,"resist":[{"name":"ice","percent":30}]}],[{"mp%":30,"hp%":30,"resist":[{"name":"ice","percent":50}]}]]},
-			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"mag":50,"atk":100}}],[{"singleWieldingOneHanded":{"mag":100,"atk":100}}],[{"singleWielding":{"mag":100,"atk":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
 		],
 		"skills": [
 			{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
-		]
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "mag%":30, "dualWielding":{"atk":30,"mag":30}, "special":["dualWield"], "equipedConditions":["1100000072"]},
+			{"resist":[{"name":"ice","percent":30}], "skillEnhancement":{"910161":2,"911006":2,"911007":2}, "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"弗雷比亞",
+			"wikiEntry":"Fryevia",
+			"id":"302001405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3750,"mp":195,"atk":145,"def":120,"mag":145,"spr":120},
+				"minStats":{"hp":1238,"mp":64,"atk":48,"def":40,"mag":48,"spr":40},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
+		"enhancements": [
+			{"name":"Cold and Confident","levels":[[{"mp%":30,"resist":[{"name":"ice","percent":20}]}],[{"mp%":30,"hp%":10,"resist":[{"name":"ice","percent":30}]}],[{"mp%":30,"hp%":30,"resist":[{"name":"ice","percent":50}]}]]},
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+		],
+			"skills": [
+				{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+				{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
+			]
+		}
 	},
 	"302001504": {
 		"name":"索恩",
@@ -11481,6 +11500,91 @@
 			"skills": [
 				{"hp%":10, "mp%":30, "atk%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
 				{"atk%":50, "mag%":50, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"401004705": {
+		"name":"艾莉絲珮芮絲",
+		"wikiEntry":"Ellesperis",
+		"id":"401004705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4765,"mp":210,"atk":201,"def":182,"mag":154,"spr":162},
+			"minStats":{"hp":1572,"mp":69,"atk":66,"def":60,"mag":51,"spr":53},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"atk%":30, "equipedConditions":["katana"]},
+			{"atk%":40, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "equipedConditions":["1100000213"]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"艾莉絲珮芮絲",
+			"wikiEntry":"Ellesperis",
+			"id":"401004705",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3666,"mp":162,"atk":152,"def":117,"mag":119,"spr":117},
+				"minStats":{"hp":1210,"mp":53,"atk":50,"def":39,"mag":39,"spr":39},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor"],
+			"skills": [
+				{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+				{"atk%":30, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"401004805": {
+		"name":"貝利爾",
+		"wikiEntry":"Beryl",
+		"id":"401004805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4962,"mp":218,"atk":156,"def":169,"mag":193,"spr":213},
+			"minStats":{"hp":1637,"mp":72,"atk":51,"def":56,"mag":64,"spr":70},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "def%":20, "mag%":30, "spr%":50, "singleWielding":{"mag":100,"spr":25}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":10},
+			{"mag%":30, "spr%":30, "equipedConditions":["dagger"]},
+			{"hp%":30, "mp%":30, "evade":{"physical":30}, "resist":[{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"stop","percent":100}], "equipedConditions":["1500000079"]},
+			{"mp%":20, "levelCondition":115},
+			{"skillEnhancement":{"911580":1,"911583":2}, "levelCondition":120},
+			{"mag%":40, "spr%":40, "equipedConditions":["robe"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"貝利爾",
+			"wikiEntry":"Beryl",
+			"id":"401004805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3816,"mp":167,"atk":120,"def":130,"mag":148,"spr":163},
+				"minStats":{"hp":1259,"mp":55,"atk":40,"def":43,"mag":49,"spr":54},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","hat","clothes","robe"],
+			"skills": [
+				{"hp%":30, "def%":20, "mag%":30, "spr%":50, "singleWielding":{"mag":100,"spr":25}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50,"magical":50}], "mpRefresh":10},
+				{"mag%":30, "spr%":30, "equipedConditions":["dagger"]}
 			]
 		}
 	},
