@@ -1126,9 +1126,24 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     // inflict stop
     } else if (rawEffect[2] == 88) {
         result = {"noUse":true};
-        
-        
-    // Dualcast
+
+        // inflict charm
+    } else if (rawEffect[2] == 60) {
+        result = {"noUse":true};
+
+        // recover MP
+    } else if (rawEffect[2] == 17) {
+        result = {"noUse":true};
+
+        // mitigation
+    } else if (rawEffect[2] == 101) {
+        result = {"noUse":true};
+
+        // recover HP/MP percentage
+    } else if (rawEffect[2] == 65) {
+        result = {"noUse":true};
+
+        // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
             "multicast": {
