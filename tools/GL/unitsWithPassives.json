@@ -8659,7 +8659,7 @@
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "mag%":30, "dualWielding":{"atk":30,"mag":30}, "special":["dualWield"], "equipedConditions":["1100000072"]},
 			{"resist":[{"name":"ice","percent":30}], "skillEnhancement":{"910161":2,"911006":2,"911007":2}, "levelCondition":105},
-			{"atk%":30, "mag%":30, "equipedConditions":["ice"], "equipedConditionIsOr":true, "levelCondition":105},
+			{"atk%":30, "mag%":30, "equipedConditions":["ice"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],
@@ -10130,8 +10130,8 @@
 			{"spr%":30, "equipedConditions":["helm"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"def%":30, "equipedConditions":["heavyArmor"]},
-			{"hp%":20, "atk%":20, "equipedConditions":["light"], "equipedConditionIsOr":true},
-			{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true},
+			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
+			{"mp%":20, "mag%":20, "equipedConditions":["fire"]},
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"stop","percent":100}], "replaceLb":{"name":"Alexander Crest","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 2 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.45,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.45x * 2 = 12.9x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":150,"def":150,"mag":150,"spr":150},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 150% for 2 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}]}, "equipedConditions":["1100000086"]},
 			{"special":["dualWield"], "levelCondition":105},
 			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["sword"], "levelCondition":105},
@@ -10163,8 +10163,8 @@
 				{"spr%":30, "equipedConditions":["helm"]},
 				{"def%":30, "equipedConditions":["lightArmor"]},
 				{"def%":30, "equipedConditions":["heavyArmor"]},
-				{"hp%":20, "atk%":20, "equipedConditions":["light"], "equipedConditionIsOr":true},
-				{"mp%":20, "mag%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true}
+				{"hp%":20, "atk%":20, "equipedConditions":["light"]},
+				{"mp%":20, "mag%":20, "equipedConditions":["fire"]}
 			]
 		}
 	},
@@ -10320,10 +10320,10 @@
 			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
 			{"dualWielding":{"atk":30}, "replaceLb":{"name":"Destructive Thrust","minEffects":[{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.1x, ATK) to one enemy"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"break":{"def":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14x, ATK) to one enemy"},{"effect":{"imperil":{"fire":104,"ice":104,"lightning":104},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 104% for 3 turns to one enemy"}]}, "special":["dualWield"], "equipedConditions":["1100000077"]},
 			{"skillEnhancement":{"910213":1,"910214":1,"910215":2,"910216":2,"911066":1,"911067":1,"911068":1,"911069":1,"911070":1,"911079":2,"911080":2,"911081":2,"911082":2}, "levelCondition":105},
-			{"atk%":60, "equipedConditions":["fire","ice","lightning"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"mp%":20, "equipedConditions":["fire"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"def%":20, "equipedConditions":["ice"], "equipedConditionIsOr":true, "levelCondition":110},
-			{"hp%":20, "equipedConditions":["lightning"], "equipedConditionIsOr":true, "levelCondition":110},
+			{"atk%":60, "equipedConditions":[["fire","ice","lightning"]], "levelCondition":110},
+			{"mp%":20, "equipedConditions":["fire"], "levelCondition":110},
+			{"def%":20, "equipedConditions":["ice"], "levelCondition":110},
+			{"hp%":20, "equipedConditions":["lightning"], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "def%":20, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "levelCondition":120}
 		],
@@ -10402,7 +10402,7 @@
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 		"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
 		"enhancements": [
-			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
+			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"mag%":30},{"equipedConditions":["dark"],"hp%":30}],[{"equipedConditions":["fire"],"mag%":40,"mp%":10},{"equipedConditions":["dark"],"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"mag%":50,"mp%":20},{"equipedConditions":["dark"],"hp%":50,"mp%":20}]]}
 		],
 		"skills": [
 			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
@@ -10427,7 +10427,7 @@
 			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
 			"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
 		"enhancements": [
-			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":30},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":30}],[{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":40,"mp%":10},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"equipedConditionIsOr":true,"mag%":50,"mp%":20},{"equipedConditions":["dark"],"equipedConditionIsOr":true,"hp%":50,"mp%":20}]]}
+			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"mag%":30},{"equipedConditions":["dark"],"hp%":30}],[{"equipedConditions":["fire"],"mag%":40,"mp%":10},{"equipedConditions":["dark"],"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"mag%":50,"mp%":20},{"equipedConditions":["dark"],"hp%":50,"mp%":20}]]}
 		],
 			"skills": [
 				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]}

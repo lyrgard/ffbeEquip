@@ -1050,41 +1050,42 @@ function areConditionOK(item, equiped, level = 0) {
         return false;
     }
     if (item.equipedConditions) {
-        var found = 0;
         for (var conditionIndex = item.equipedConditions.length; conditionIndex--;) {
-            if (elementList.includes(item.equipedConditions[conditionIndex])) {
-                var neededElement = item.equipedConditions[conditionIndex];
-                if ((equiped[0] && equiped[0].element && equiped[0].element.includes(neededElement)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(neededElement))) {
-                    found ++;
-                }
-            } else if (typeList.includes(item.equipedConditions[conditionIndex])) {
-                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
-                    if (equiped[equipedIndex] && equiped[equipedIndex].type == item.equipedConditions[conditionIndex]) {
-                        found ++;
-                        break;
-                    }
-                }
-            } else if (item.equipedConditions[conditionIndex] == "unarmed") {
-                if (!equiped[0] && ! equiped[1]) {
-                    found++;
-                }
-            } else {
-                for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
-                    if (equiped[equipedIndex] && equiped[equipedIndex].id == item.equipedConditions[conditionIndex]) {
-                        found ++;
-                        break;
-                    }
-                }
+            if (!isEquipedConditionOK(equiped, item.equipedConditions[conditionIndex])) {
+                return false;
             }
-            if (found > 0 && item.equipedConditionIsOr) {
-                return true;
-            }
-        }
-        if (found != item.equipedConditions.length) {
-            return false;
         }
     }
     return true;
+}
+
+function isEquipedConditionOK(equiped, condition) {
+    if (Array.isArray(condition)) {
+        return condition.some(c => isEquipedConditionOK(equiped, c));
+    } else {
+        if (elementList.includes(condition)) {
+            if ((equiped[0] && equiped[0].element && equiped[0].element.includes(condition)) || (equiped[1] && equiped[1].element && equiped[1].element.includes(condition))) {
+                return true;
+            }
+        } else if (typeList.includes(condition)) {
+            for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+                if (equiped[equipedIndex] && equiped[equipedIndex].type == condition) {
+                    return true;
+                }
+            }
+        } else if (condition == "unarmed") {
+            if (!equiped[0] && ! equiped[1]) {
+                return true;
+            }
+        } else {
+            for (var equipedIndex = 0; equipedIndex < 10; equipedIndex++) {
+                if (equiped[equipedIndex] && equiped[equipedIndex].id == condition) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 
 function findBestItemVersion(build, item, itemWithVariation, unit) {
