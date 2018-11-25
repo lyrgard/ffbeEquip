@@ -244,7 +244,7 @@ function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs)
 
         var effects = parsePassiveRawEffet(rawEffect, skills, unit, lbs);
         if (effects) {
-            if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
+            if (skillIn.requirements && skillIn.requirements[0][0] == "EQUIP") {
                 tmrAbilityEffects = tmrAbilityEffects.concat(effects);
             } else { 
                 addEffectsToEffectList(skillsOut, effects);
@@ -256,15 +256,20 @@ function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs)
             skill.effects.push({"effect":null, "desc": skillIn.effects[rawEffectIndex]});    
         }
     }
-    if (skillIn.requirements && skillIn.requirements[0] == "EQUIP") {
-        skill.equipedConditions = [skillIn.requirements[1].toString()];
+    if (skillIn.requirements && skillIn.requirements[0][0] == "EQUIP") {
+        if (skillIn.requirements.length == 1) {
+            skill.equipedConditions = [skillIn.requirements[0][1].toString()]    
+        } else {
+            skill.equipedConditions = [skillIn.requirements.map(a => a[1].toString())];
+        }
+                                                           
         var condensedSkills = [{}];
         addEffectsToEffectList(condensedSkills, tmrAbilityEffects);
         for (var i = 0, len = condensedSkills.length; i < len; i++) {
             if (!condensedSkills[i].equipedConditions) {
                 condensedSkills[i].equipedConditions = [];
             }
-            condensedSkills[i].equipedConditions.push(skillIn.requirements[1].toString());
+            condensedSkills[i].equipedConditions = condensedSkills[i].equipedConditions.concat(skill.equipedConditions);
             skillsOut.push(condensedSkills[i]);    
         }
     }
@@ -485,15 +490,11 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     else if (rawEffect[1] == 3 && rawEffect[2] == 10004) {
         var masteryEffect = rawEffect[3];
         result = [];
-        var masteryElements;
+        var result = {};
         if (Array.isArray(masteryEffect[0])) {
-            masteryElements = masteryEffect[0];
+            result.equipedConditions = [masteryEffect[0].map(x => elementsMap[x])]
         } else {
-            masteryElements = [masteryEffect[0]];
-        }
-        var result = {"equipedConditions":masteryElements.map(x => elementsMap[x])};
-        if (elements.length > 1) {
-            result.equipedConditionIsOr = true;
+            result.equipedConditions = [elementsMap[masteryEffect[0]]];
         }
         if (masteryEffect[3]) {
             result["atk%"] = masteryEffect[3];

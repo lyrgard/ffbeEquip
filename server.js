@@ -35,8 +35,10 @@ let corsOptions = {
   origin: 'https://lyrgard.github.io',
 }
 if (!config.isProd && process.env.DEV_USE_DIST != "yes") {
-    corsOptions.origin == 'http://localhost:4444, http://localhost:3001';
+    corsOptions.origin = [corsOptions.origin, 'http://localhost:4444', 'http://localhost:3001'];
 }
+console.log(!config.isProd && process.env.DEV_USE_DIST != "yes");
+console.log(corsOptions);
 
 app.use(cors(corsOptions));
 
