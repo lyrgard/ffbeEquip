@@ -2521,9 +2521,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","hammer","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Priestly Visage","Drake Slay Ritual","Drake Formation"],
+		"enhancements": [
+			{"name":"Priestly Visage","levels":[[{"equipedConditions":["mace"],"atk%":25,"spr%":25}],[{"equipedConditions":["mace"],"atk%":35,"spr%":35}],[{"mp%":20,"hp%":20},{"equipedConditions":["mace"],"atk%":50,"spr%":50}]]}
+		],
 		"skills": [
-			{"hp%":10, "def%":20, "spr%":20},
-			{"atk%":25, "spr%":25, "equipedConditions":["mace"]}
+			{"hp%":10, "def%":20, "spr%":20}
 		]
 	},
 	"100011004": {
@@ -2562,6 +2565,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","harp","whip","hat","clothes","robe"],
+		"enhancementSkills":["Drakes Fog Dance","Dragon Blade Dance","Dragon Magic Dance"],
 		"skills": [
 			{"mp%":20, "spr%":30},
 			{"def%":20, "spr%":20, "equipedConditions":["clothes"]}
@@ -5906,7 +5910,7 @@
 		}
 	},
 	"207000703": {
-		"name":"캐트시",
+		"name":"캐트 시",
 		"wikiEntry":"Cait_Sith",
 		"id":"207000703",
 		"max_rarity":"5",
@@ -7560,11 +7564,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard"],
+		"enhancements": [
+			{"name":"King's Shield","levels":[[{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["lightShield"],"hp%":40,"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"hp%":40,"def%":40,"spr%":40}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}]},{"equipedConditions":["lightShield"],"hp%":50,"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"hp%":50,"def%":50,"spr%":50}]]},
+			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
+		],
 		"skills": [
 			{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
-			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
-			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}]}, "equipedConditions":["402002100"]},
 			{"hp%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120},
@@ -7585,11 +7591,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard"],
+		"enhancements": [
+			{"name":"King's Shield","levels":[[{"equipedConditions":["lightShield"],"hp%":30,"def%":30,"spr%":30},{"equipedConditions":["heavyShield"],"hp%":30,"def%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["lightShield"],"hp%":40,"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"hp%":40,"def%":40,"spr%":40}],[{"resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}]},{"equipedConditions":["lightShield"],"hp%":50,"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"hp%":50,"def%":50,"spr%":50}]]},
+			{"name":"Large Sword Mastery","levels":[[{"equipedConditions":["greatSword"],"atk%":50}],[{"equipedConditions":["greatSword"],"atk%":75}],[{"equipedConditions":["greatSword"],"atk%":100}]]}
+		],
 			"skills": [
-				{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
-				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
-				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
-				{"atk%":50, "equipedConditions":["greatSword"]}
+				{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5}
 			]
 		}
 	},
@@ -7607,8 +7615,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Tri-Guard","Sword Draw","Slaughtering Blade"],
+		"enhancements": [
+			{"name":"Tri-Guard","levels":[[{"spr%":10,"hp%":20}],[{"spr%":10,"atk%":20,"hp%":20}],[{"spr%":10,"atk%":20,"mp%":30,"hp%":30}]]},
+			{"name":"Sword Draw","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":80}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":150},"lbDamage":25}]]}
+		],
 		"skills": [
-			{"hp%":20, "spr%":10, "singleWieldingOneHanded":{"accuracy":25,"atk":80}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
+			{"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
 			{"atk%":80, "equipedConditions":["katana"]}
 		]
 	},
@@ -7626,6 +7639,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Embolden","Get pumped everyone!","Give it your all!"],
 		"skills": [
 			{"hp%":30, "mp%":10, "def%":10, "spr%":20, "mpRefresh":5}
 		]
