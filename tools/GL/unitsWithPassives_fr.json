@@ -11982,5 +11982,47 @@
 				{"atk%":200, "equipedConditions":["unarmed"]}
 			]
 		}
+	},
+	"401006405": {
+		"name":"Fryevia de l'Aurore",
+		"wikiEntry":"Aurora_Fryevia",
+		"id":"401006405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4571,"mp":255,"atk":195,"def":155,"mag":199,"spr":184},
+			"minStats":{"hp":1572,"mp":74,"atk":60,"def":45,"mag":70,"spr":49},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":70, "mag%":70, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
+			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "lbFillRate":50, "equipedConditions":["1100000219"]},
+			{"spr%":20, "resist":[{"name":"light","percent":30}], "levelCondition":115},
+			{"singleWielding":{"accuracy":25,"atk":30,"mag":30}, "skillEnhancement":{"911642":2,"911645":2,"911651":2,"911654":2,"911657":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Fryevia de l'Aurore",
+			"wikiEntry":"Aurora_Fryevia",
+			"id":"401006405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"minStats":{"hp":1210,"mp":66,"atk":50,"def":39,"mag":60,"spr":42},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":70, "mag%":40, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
+				{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
+			]
+		}
 	}
 }
