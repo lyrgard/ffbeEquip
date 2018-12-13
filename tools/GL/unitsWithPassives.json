@@ -2338,7 +2338,6 @@
 	"100010805": {
 		"name":"Duke",
 		"id":"100010805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -2359,7 +2358,7 @@
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":40}, "equipedConditions":["504216520"]},
 			{"skillEnhancement":{"216420":1,"216430":1,"216440":1,"216450":1,"216460":1,"707258":1,"707259":1}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
-			{"jumpDamage":30, "levelCondition":120},
+			{"jumpDamage":80, "levelCondition":120},
 			{"killers":[{"name":"dragon","physical":50,"magical":50}], "equipedConditions":["sword"], "levelCondition":120},
 			{"killers":[{"name":"dragon","physical":50,"magical":50}], "equipedConditions":["greatSword"], "levelCondition":120},
 			{"killers":[{"name":"dragon","physical":50,"magical":50}], "equipedConditions":["spear"], "levelCondition":120}
@@ -2368,7 +2367,7 @@
 			"name":"Duke",
 			"id":"100010805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -2617,7 +2616,6 @@
 	"100011805": {
 		"name":"Lotus Mage Fina",
 		"id":"100011805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2649,7 +2647,7 @@
 			"name":"Lotus Mage Fina",
 			"id":"100011805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2920,7 +2918,6 @@
 	"100012605": {
 		"name":"Kunshira",
 		"id":"100012605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2936,7 +2933,7 @@
 			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "mag%":30, "equipedConditions":["rod"]},
 			{"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}, "equipedConditions":["504220680"]},
-			{"skillEnhancement":{"200770":2.5,"220700":1.5,"220710":1.5,"220720":1.5,"220730":1.5,"220740":1.5,"220750":2.5,"220760":2.5,"220770":2.5,"220780":2.5,"220790":2.5,"220800":2.5,"220820":1.5,"220830":1.5,"220840":1.5,"220850":1.5,"220860":1.5,"707374":2.5,"707375":2.5}, "levelCondition":105},
+			{"skillEnhancement":{"200770":3,"220700":2,"220710":2,"220720":2,"220730":2,"220740":2,"220750":3,"220760":3,"220770":3,"220780":3,"220790":3,"220800":3,"220820":2,"220830":2,"220840":2,"220850":2,"220860":2,"707374":3,"707375":3}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"def%":20, "spr%":20, "killers":[{"name":"beast","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"spirit","physical":25,"magical":25}], "levelCondition":120}
 		],
@@ -2944,7 +2941,7 @@
 			"name":"Kunshira",
 			"id":"100012605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -6133,7 +6130,6 @@
 	"210000205": {
 		"name":"Yuna",
 		"id":"210000205",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -6146,7 +6142,7 @@
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 		"skills": [
 			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"異界送り","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311003000"]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"The Sending","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311003000"]},
 			{"def%":20, "levelCondition":115},
 			{"mag%":30, "spr%":30, "evoMag":30, "skillEnhancement":{"508013":0.5,"508014":1.5,"508015":0.5,"508016":1.5,"508670":0.5,"508671":1.5,"508672":0.5,"508673":1.5,"508674":0.5,"508675":1.5,"508676":0.5,"508677":1.5}, "levelCondition":120}
 		],
@@ -6154,7 +6150,7 @@
 			"name":"Yuna",
 			"id":"210000205",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -6189,7 +6185,6 @@
 	"210000405": {
 		"name":"Lulu",
 		"id":"210000405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -6214,7 +6209,7 @@
 			"name":"Lulu",
 			"id":"210000405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -6721,7 +6716,6 @@
 	"212000905": {
 		"name":"Basch",
 		"id":"212000905",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -6746,7 +6740,7 @@
 			"name":"Basch",
 			"id":"212000905",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -7326,7 +7320,6 @@
 	"215000605": {
 		"name":"Aranea",
 		"id":"215000605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -7348,7 +7341,7 @@
 			"name":"Aranea",
 			"id":"215000605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -7367,7 +7360,6 @@
 	"215000705": {
 		"name":"Prompto",
 		"id":"215000705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -7392,7 +7384,7 @@
 			"name":"Prompto",
 			"id":"215000705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -11416,6 +11408,45 @@
 				{"atk%":30, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["fist"]},
 				{"atk%":200, "equipedConditions":["unarmed"]}
+			]
+		}
+	},
+	"401006305": {
+		"name":"Popstar Katy",
+		"id":"401006305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":150,"spr":166},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":50,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "def%":10, "mag%":10, "spr%":10, "evoMag":10, "resist":[{"name":"paralysis","percent":100}]},
+			{"mag%":30, "lbFillRate":50, "mpRefresh":5, "equipedConditions":["1500000082"]},
+			{"evoMag":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "lbDamage":20, "levelCondition":120},
+			{"mag%":30, "spr%":30, "equipedConditions":["harp"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Popstar Katy",
+			"id":"401006305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2665,"mp":151,"atk":75,"def":101,"mag":115,"spr":127},
+				"minStats":{"hp":879,"mp":50,"atk":25,"def":33,"mag":38,"spr":42},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":10, "def%":10, "mag%":10, "spr%":10, "evoMag":10, "resist":[{"name":"paralysis","percent":100}]}
 			]
 		}
 	},

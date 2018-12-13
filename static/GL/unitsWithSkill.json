@@ -4207,18 +4207,18 @@
 	"100010805": {
 		"name":"Duke",
 		"id":"100010805",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3617,"mp":148,"atk":158,"def":120,"mag":132,"spr":126},
-			"minStats":{"hp":1194,"mp":49,"atk":52,"def":40,"mag":44,"spr":42},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4702,"mp":192,"atk":203,"def":162,"mag":171,"spr":171},
+			"minStats":{"hp":1552,"mp":63,"atk":67,"def":53,"mag":56,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","greatSword","spear","lightShield","hat","helm","lightArmor","heavyArmor"],
 		"enhancementSkills":["Dragon Sealer","Spear Mastery","Super Heavenfall Spear","Hexa Thrust"],
-		"lb": {"name":"Vaskylade","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4,"ignore":{"def":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (4x * 2 = 8x, ATK) to all enemies (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.2,"ignore":{"def":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (5.2x * 2 = 10.4x, ATK) to all enemies (ignore cover)"}]},
+		"lb": {"name":"Vaskylade","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.55,"ignore":{"def":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (7.55x * 2 = 15.1x, ATK) to all enemies (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (9x * 2 = 18x, ATK) to all enemies (ignore cover)"}]},
 		"passives": [
 			{"name":"HP +30%","id":"100030","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
 			{"name":"ATK +30%","id":"100090","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
@@ -4229,7 +4229,11 @@
 			{"name":"Spear Mastery","id":"208880","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Spear"}]},
 			{"name":"Spear Mastery +1","id":"703630","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":75},"desc":"Increase ATK by 75% when equipped with a Spear"}]},
 			{"name":"Spear Mastery +2","id":"703640","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":100},"desc":"Increase ATK by 100% when equipped with a Spear"}]},
-			{"name":"Dragoon Spirit","id":"202860","icon":"ability_80.png","effects":[{"effect":{"jumpDamage":120},"desc":"Increase damage dealt by jump attacks by 120%"}]}
+			{"name":"Dragoon Spirit","id":"202860","icon":"ability_80.png","effects":[{"effect":{"jumpDamage":120},"desc":"Increase damage dealt by jump attacks by 120%"}]},
+			{"name":"Dragon Sealing Essentials","id":"227543","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"def%":20,"spr%":20},"desc":"Increase DEF, SPR, HP and MP by 20%"},{"effect":{"dualWielding":{"atk":40}},"desc":"Increase equipment ATK by 40% when armed with two weapons"}],"equipedConditions":["504216520"]},
+			{"name":"Dragoon Spear Secret Arts","id":"227545","icon":"ability_77.png","effects":[{"effect":{"skillEnhancement":{"216420":1,"216430":1,"216440":1,"216450":1,"216460":1,"707258":1,"707259":1}},"desc":"Increase the damage of the following skills by (1x):\n\tBisecting Swing (216460)\n\tGail Pierce (216430)\n\tGlacier Lance (216420)\n\tHexa Thrust (216450)\n\tHexa Thrust+1 (707258)\n\tHexa Thrust+2 (707259)\n\tPulse Javelin (216440)"}]},
+			{"name":"ATK +20%","id":"100081","icon":"ability_77.png","effects":[{"effect":{"atk%":20},"desc":"Increase ATK by 20%"}]},
+			{"name":"Ancestral Pledge","id":"227544","icon":"ability_79.png","effects":[{"effect":null,"desc":"Gain Regen (Champion) (10122) at the start of a battle or when revived"},{"effect":{"jumpDamage":80},"desc":"Increase damage dealt by jump attacks by 80%"},{"effect":{"equipedConditions":["sword"],"killers":[{"name":"dragon","physical":50,"magical":50}],"levelCondition":120},"desc":"Increase physical and magic damage against Dragons by 50% when equipped with Sword"},{"effect":{"equipedConditions":["greatSword"],"killers":[{"name":"dragon","physical":50,"magical":50}],"levelCondition":120},"desc":"Increase physical and magic damage against Dragons by 50% when equipped with Great Sword"},{"effect":{"equipedConditions":["spear"],"killers":[{"name":"dragon","physical":50,"magical":50}],"levelCondition":120},"desc":"Increase physical and magic damage against Dragons by 50% when equipped with Spear"}]}
 		],
 		"actives": [
 			{"id":"200260","name":"Jump","icon":"ability_80.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.8,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.8x, ATK) to one enemy after a one turn jump delay"}]},
@@ -4246,7 +4250,11 @@
 			{"id":"707265","name":"Super Heavenfall Spear +2","icon":"ability_80.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":200}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Dragons by 200% to caster for 2 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x, ATK) to one enemy after a one turn jump delay"}]},
 			{"id":"216450","name":"Hexa Thrust","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2x * 2 = 4x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"ice":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]},
 			{"id":"707258","name":"Hexa Thrust +1","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.2x * 2 = 4.4x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"ice":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 50% for 3 turns to one enemy"}]},
-			{"id":"707259","name":"Hexa Thrust +2","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x * 2 = 5x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"ice":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 3 turns to one enemy"}]}
+			{"id":"707259","name":"Hexa Thrust +2","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x * 2 = 5x, ATK) to one enemy (ignore cover)"},{"effect":{"imperil":{"ice":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 3 turns to one enemy"}]},
+			{"id":"227540","name":"Heavenfall Spear - Skyrule","icon":"ability_80.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":200}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Dragons by 200% to caster for 2 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.7,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4.7x, ATK) to  after a one turn timed delay"}]},
+			{"id":"227541","name":"Gelid Spear","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.4},"area":"ST","target":"ENEMY"},"desc":"Physical damage (6.4x, ATK) to one enemy"},{"effect":{"resist":[{"name":"ice","percent":70}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Ice by 70% for 3 turns to all allies"}]},
+			{"id":"507981","name":"Heavenfall Spear - Icebreaker","icon":"ability_80.png","effects":[{"effect":{"killers":[{"name":"dragon","physical":200}],"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Dragons by 200% to caster for 2 turns"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.5,"jump":true,"delay":1,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Physical ice damage (7.5x, ATK) to  after a one turn timed delay"}],"unlockedBy":["Draconic Sealing Spears"]},
+			{"id":"227542","name":"Draconic Sealing Spears","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507980,"name":"Draconic Sealing Spears","icon":"ability_105.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7x, ATK) to all enemies"},{"effect":{"imperil":{"ice":100},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 3 turns to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507981","name":"Heavenfall Spear - Icebreaker"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tHeavenfall Spear - Icebreaker (507981)"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ENEMY"},"desc":"Unlock Draconic Sealing Spears (507980) on turn 5 [5 turns CD]"}]}
 		],
 		"magics": [
 			{"id":"20210","name":"Blizzaga","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (1.8x, MAG) to all enemies"}],"magic":"black"},
@@ -4634,17 +4642,17 @@
 	"100011805": {
 		"name":"Lotus Mage Fina",
 		"id":"100011805",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3376,"mp":204,"atk":112,"def":114,"mag":141,"spr":156},
-			"minStats":{"hp":1114,"mp":67,"atk":37,"def":38,"mag":47,"spr":51},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4388,"mp":265,"atk":145,"def":165,"mag":183,"spr":214},
+			"minStats":{"hp":1448,"mp":87,"atk":48,"def":54,"mag":60,"spr":71},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
-		"lb": {"name":"Judgment Cross","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7x, SPR) to all enemies"},{"effect":{"imperil":{"light":50,"dark":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":9.4,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (9.4x, SPR) to all enemies"},{"effect":{"imperil":{"light":50,"dark":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 50% for 3 turns to all enemies"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"}]},
+		"lb": {"name":"Judgment Cross","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.5,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.5x, SPR) to all enemies"},{"effect":{"imperil":{"light":65,"dark":65},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 65% for 3 turns to all enemies"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":10.4,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (10.4x, SPR) to all enemies"},{"effect":{"imperil":{"light":65,"dark":65},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Light and Dark by 65% for 3 turns to all enemies"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"HP +20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Sexy Pose","id":"221160","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505050,"name":"Sexy Pose","icon":"ability_14.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Charm (5%) on one enemy for 2 turns"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Sexy Pose (505050) to caster (max 1 / turn)"}]},
@@ -4657,6 +4665,10 @@
 			{"name":"MAG +30%","id":"100120","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}]},
 			{"name":"Dark Memories","id":"221100","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["rod"],"mag%":50},"desc":"Increase MAG by 50% when equipped with a Rod"},{"effect":{"equipedConditions":["whip"],"mag%":50},"desc":"Increase MAG by 50% when equipped with a Whip"}]},
 			{"name":"Holy Retaliation","id":"221110","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505030,"name":"Holy Retaliation","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.1,"use":{"stat":"spr","percent":100,"max":99999},"elements":["light"]},"area":"AOE","target":"ENEMY"},"desc":"Magic light damage (2.1x, SPR) to all enemies"}]},"counterType":"physical","percent":50},"desc":"50% chance to counter physical attacks with Holy Retaliation (505030) to caster (max 1 / turn)"}]},
+			{"name":"Shining Bloom","id":"227602","icon":"ability_77.png","effects":[{"effect":{"atk%":20,"def%":20,"mag%":20,"spr%":20},"desc":"Increase ATK, DEF, MAG and SPR by 20%"},{"effect":{"resist":[{"name":"light","percent":30}]},"desc":"Increase resistance to Light by 30%"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}],"equipedConditions":["403043800"]},
+			{"name":"Dual Finas","id":"227603","icon":"ability_9.png","effects":[{"effect":{"equipedConditions":["rod"],"resist":[{"name":"dark","percent":20}],"levelCondition":110},"desc":"Increase resistance to Dark by 20% when equipped with Rod"},{"effect":{"equipedConditions":["whip"],"resist":[{"name":"dark","percent":20}],"levelCondition":110},"desc":"Increase resistance to Dark by 20% when equipped with Whip"},{"effect":{"equipedConditions":["staff"],"resist":[{"name":"light","percent":20}],"levelCondition":110},"desc":"Increase resistance to Light by 20% when equipped with Staff"},{"effect":{"equipedConditions":["bow"],"resist":[{"name":"light","percent":20}],"levelCondition":110},"desc":"Increase resistance to Light by 20% when equipped with Bow"}]},
+			{"name":"DEF +20%","id":"100141","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"Virtuous Prayer","id":"227604","icon":"ability_68.png","effects":[{"effect":{"skillEnhancement":{"221060":0.8,"221070":0.8}},"desc":"Increase the damage of the following skills by (0.8x):\n\tArch Punisher (221070)\n\tSacred Burst (221060)"},{"effect":{"counterSkill":{"id":508042,"name":"Virtuous Prayer","icon":"ability_77.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 20 MP to all allies"},{"effect":null,"desc":"Increase LB gauge by 1 to all allies"}]},"counterType":"magical","percent":25},"desc":"25% chance to counter magic attacks with Virtuous Prayer (508042) to caster (max 2 / turn)"}]},
 			{"name":"Entrusted Emotions","id":"226000","icon":"ability_92.png","effects":[{"effect":{"resist":[{"name":"earth","percent":30},{"name":"dark","percent":30}]},"desc":"Increase resistance to Earth and Dark by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
 		],
 		"actives": [
@@ -4669,7 +4681,9 @@
 			{"id":"221070","name":"Arch Punisher","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":3.6,"use":{"stat":"spr","percent":100,"max":99999},"elements":["light"]},"area":"AOE","target":"ENEMY"},"desc":"Magic light damage (3.6x, SPR) to all enemies"}]},
 			{"id":"221080","name":"Divine Veil","icon":"ability_9.png","effects":[{"effect":{"statsBuff":{"atk":80,"def":80},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK and DEF by 80% for 3 turns to all allies"},{"effect":{"resist":[{"name":"fire","percent":45},{"name":"ice","percent":45},{"name":"lightning","percent":45},{"name":"water","percent":45},{"name":"wind","percent":45},{"name":"earth","percent":45},{"name":"light","percent":45},{"name":"dark","percent":45}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all elements by 45% for 3 turns to all allies"}]},
 			{"id":"204350","name":"Dystopia","icon":"ability_26.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.8,"stack":1.6,"maxStack":2,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Magic dark damage (2.8x, MAG) with consecutive damage increase (max. 2 times, +1.6x MAG each, 6x total) to all enemies"}]},
-			{"id":"221060","name":"Sacred Burst","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":5.25,"use":{"stat":"spr","percent":100,"max":99999},"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light damage (5.25x, SPR) to one enemy"}]}
+			{"id":"221060","name":"Sacred Burst","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":5.25,"use":{"stat":"spr","percent":100,"max":99999},"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light damage (5.25x, SPR) to one enemy"}]},
+			{"id":"227600","name":"Blossom Heart","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508040,"name":"Blossom Heart","icon":"ability_105.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Revive all allies from KO (100% HP)"}]},"cooldownTurns":4,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Blossom Heart (508040) on turn 1 [4 turns CD]"}]},
+			{"id":"227601","name":"Eternal Light","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508041,"name":"Eternal Light","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"},{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to all allies"}]},"cooldownTurns":8,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Eternal Light (508041) on turn 1 [8 turns CD]"}]}
 		],
 		"magics": [
 			{"id":"20190","name":"Osmose","icon":"ability_6.png","effects":[{"effect":null,"desc":"Magic damage (0.3x, MAG) as MP drain (30%) to one enemy"}],"magic":"black"},
@@ -4985,17 +4999,17 @@
 	"100012605": {
 		"name":"Kunshira",
 		"id":"100012605",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3484,"mp":171,"atk":142,"def":126,"mag":145,"spr":124},
-			"minStats":{"hp":1150,"mp":56,"atk":47,"def":42,"mag":48,"spr":41},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4529,"mp":222,"atk":190,"def":171,"mag":198,"spr":169},
+			"minStats":{"hp":1495,"mp":73,"atk":63,"def":56,"mag":65,"spr":56},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
-		"lb": {"name":"Blade Master","minEffects":[{"effect":{"damage":{"mecanism":"hybrid","coef":13.2},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (13.2x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tSuperior Mageblade (220760)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"hybrid","coef":18},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (18x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tSuperior Mageblade (220760)"}]},
+		"lb": {"name":"Blade Master","minEffects":[{"effect":{"damage":{"mecanism":"hybrid","coef":26.2},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (26.2x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tSuperior Mageblade (220760)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"hybrid","coef":32},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (32x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tSuperior Mageblade (220760)"}]},
 		"passives": [
 			{"name":"Spellblade Genius","id":"220880","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["sword","rod"]},"desc":"Enable unit to equip two one-handed swords and rods"}]},
 			{"name":"ATK +30%","id":"100090","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
@@ -5003,7 +5017,11 @@
 			{"name":"MAG +30%","id":"100120","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}]},
 			{"name":"Shibyra Technique","id":"220890","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"beast","physical":50,"magical":50}]},"desc":"Increase physical and magic damage against Beasts by 50%"},{"effect":{"killers":[{"name":"human","physical":50,"magical":50}]},"desc":"Increase physical and magic damage against Humans by 50%"},{"effect":{"killers":[{"name":"spirit","physical":50,"magical":50}]},"desc":"Increase physical and magic damage against Fairies by 50%"}]},
 			{"name":"Aide to the King","id":"220870","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":30,"mag%":30},"desc":"Increase ATK and MAG by 30% when equipped with a Sword"},{"effect":{"equipedConditions":["rod"],"atk%":30,"mag%":30},"desc":"Increase ATK and MAG by 30% when equipped with a Rod"}]},
-			{"name":"HP +20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]}
+			{"name":"HP +20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
+			{"name":"Power to Protect","id":"227613","icon":"ability_77.png","effects":[{"effect":{"atk%":20,"mag%":20},"desc":"Increase ATK and MAG by 20%"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase equipment ATK by 30% when armed with two weapons"},{"effect":{"dualWielding":{"mag":30}},"desc":"Increase equipment MAG by 30% when armed with two weapons"}],"equipedConditions":["504220680"]},
+			{"name":"Spellblade Secrets","id":"227614","icon":"ability_95.png","effects":[{"effect":{"skillEnhancement":{"220700":2,"220710":2,"220720":2,"220730":2,"220740":2}},"desc":"Increase the damage of the following skills by (2x):\n\tSpellblade - Blazing Threat (220700)\n\tSpellblade - Calm Waters (220710)\n\tSpellblade - Glittering Light (220740)\n\tSpellblade - Roaring Thunder (220720)\n\tSpellblade - Windstorm (220730)"},{"effect":{"skillEnhancement":{"200770":3,"220750":3,"220760":3,"220770":3,"220780":3,"220790":3,"220800":3,"707374":3,"707375":3}},"desc":"Increase the damage of the following skills by (3x):\n\tAeoroja Blade (220800)\n\tFiraja Blade (220770)\n\tHoly Blade (200770)\n\tMageblade (220750)\n\tMageblade+1 (707374)\n\tMageblade+2 (707375)\n\tSuperior Mageblade (220760)\n\tThundaja Blade (220790)\n\tWaterja Blade (220780)"},{"effect":{"skillEnhancement":{"220820":2,"220830":2,"220840":2,"220850":2,"220860":2}},"desc":"Increase the damage of the following skills by (2x):\n\tFire Formation (220820)\n\tLight Formation (220860)\n\tLightning Formation (220840)\n\tWater Formation (220830)\n\tWind Formation (220850)"}]},
+			{"name":"MP +20%","id":"100051","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
+			{"name":"Pride of the Natura","id":"227615","icon":"ability_79.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"killers":[{"name":"beast","physical":25,"magical":25}]},"desc":"Increase physical and magic damage against Beasts by 25%"},{"effect":{"killers":[{"name":"human","physical":25,"magical":25}]},"desc":"Increase physical and magic damage against Humans by 25%"},{"effect":{"killers":[{"name":"spirit","physical":25,"magical":25}]},"desc":"Increase physical and magic damage against Fairies by 25%"}]}
 		],
 		"actives": [
 			{"id":"220770","name":"Firaja Blade","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":8,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid fire damage (8x, ATK & MAG) to all enemies"}]},
@@ -5023,7 +5041,10 @@
 			{"id":"220730","name":"Spellblade - Windstorm","icon":"ability_25.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":5.5,"elements":["wind"]},"area":"ST","target":"ENEMY"},"desc":"Hybrid wind damage (5.5x, ATK & MAG) to one enemy"},{"effect":{"imperil":{"wind":50},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 4 turns to one enemy"}]},
 			{"id":"220740","name":"Spellblade - Glittering Light","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":5.5,"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Hybrid light damage (5.5x, ATK & MAG) to one enemy"},{"effect":{"imperil":{"light":50},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 50% for 4 turns to one enemy"}]},
 			{"id":"220760","name":"Superior Mageblade","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":11},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (11x, ATK & MAG) to one enemy"}],"unlockedBy":["Mageblade"]},
-			{"id":"220750","name":"Mageblade","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":7},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (7x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tSuperior Mageblade (220760)"}]}
+			{"id":"220750","name":"Mageblade","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":7},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (7x, ATK & MAG) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"220760","name":"Superior Mageblade"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns:\n\tSuperior Mageblade (220760)"}]},
+			{"id":"227610","name":"Tempest Spellblade","icon":"ability_9.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":11,"elements":["wind","lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid lightning and wind damage (11x, ATK & MAG) to all enemies"}]},
+			{"id":"227611","name":"Rising Elements","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508050,"name":"Rising Elements","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{"def":100,"spr":100},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 100% for 3 turns to all allies"},{"effect":{"resist":[{"name":"fire","percent":100},{"name":"lightning","percent":100},{"name":"water","percent":100},{"name":"wind","percent":100},{"name":"light","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Fire, Lightning, Water, Wind and Light by 100% for 3 turns to all allies"}]},"cooldownTurns":7,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Rising Elements (508050) on turn 1 [7 turns CD]"}]},
+			{"id":"227612","name":"Falling Elements","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508051,"name":"Falling Elements","icon":"ability_105.png","effects":[{"effect":{"break":{"def":70,"spr":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 70% for 3 turns to all enemies"},{"effect":{"imperil":{"fire":70,"lightning":70,"water":70,"wind":70,"light":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning, Water, Wind and Light by 70% for 3 turns to all enemies"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock Falling Elements (508051) on turn 1 [6 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -10155,31 +10176,37 @@
 	"210000205": {
 		"name":"Yuna",
 		"id":"210000205",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3474,"mp":198,"atk":92,"def":120,"mag":136,"spr":151},
-			"minStats":{"hp":1146,"mp":65,"atk":30,"def":40,"mag":45,"spr":50},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4516,"mp":257,"atk":119,"def":163,"mag":176,"spr":206},
+			"minStats":{"hp":1490,"mp":85,"atk":39,"def":54,"mag":58,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
-		"lb": {"name":"The Sending","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (50% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":100,"spr":100},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 100% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (74% HP)"},{"effect":null,"desc":"Restore 3000 (+14.4x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":124,"spr":124},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 124% for 3 turns to all allies"}]},
+		"lb": {"name":"The Sending","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"Auto-Refresh","id":"100740","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Moon Crest","id":"219180","icon":"ability_9.png","effects":[{"effect":{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}]},"desc":"Increase resistance to all elements by 20%"},{"effect":{"killers":[{"name":"undead","magical":100}]},"desc":"Increase magic damage against Reapers by 100%"}]},
 			{"name":"Unwavering Resolution","id":"219200","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Paralyze and Confusion by 100%"}]},
 			{"name":"Determined Summoner","id":"219170","icon":"ability_77.png","effects":[{"effect":{"mp%":30,"mag%":30,"spr%":30},"desc":"Increase MAG, SPR and MP by 30%"},{"effect":{"evoMag":50},"desc":"Increase Esper summon damage by 50%"}]},
 			{"name":"Summoner's Mission","id":"219160","icon":"ability_70.png","effects":[{"effect":null,"desc":"Allow unit to summon any esper in party"}]},
-			{"name":"Braska's Daughter","id":"219190","icon":"ability_77.png","effects":[{"effect":{"esperStatsBonus":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"desc":"Increase all stats gained from espers by 50%"}]}
+			{"name":"Braska's Daughter","id":"219190","icon":"ability_77.png","effects":[{"effect":{"esperStatsBonus":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"desc":"Increase all stats gained from espers by 50%"}]},
+			{"name":"Moon Sigil","id":"227572","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"def%":20,"spr%":20},"desc":"Increase DEF, SPR, HP and MP by 20%"},{"effect":null,"desc":"Cast Full Moon Saint (508012) at the start of your turn"},{"effect":{"replaceLb":{"name":"The Sending","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}},"desc":"Replace LB with The Sending (900000137):\n\tRestore 2500 (+12x, Heal) HP to all allies\n\tRevive all allies from KO (60% HP)\n\tRestore 3000 (+12x, Heal) HP split over 3 turns to all allies\n\tIncrease DEF and SPR by 105% for 3 turns to all allies\n\tRestore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"equipedConditions":["311003000"]},
+			{"name":"DEF +20%","id":"100141","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"Unbroken Promise","id":"227573","icon":"ability_77.png","effects":[{"effect":{"mag%":30,"spr%":30},"desc":"Increase MAG and SPR by 30%"},{"effect":{"evoMag":30},"desc":"Increase Esper summon damage by 30%"},{"effect":{"skillEnhancement":{"508013":0.5,"508015":0.5,"508670":0.5,"508672":0.5,"508674":0.5,"508676":0.5}},"desc":"Increase the damage of the following skills by (0.5x):\n\tEnergy Blast (508013)\n\tEnergy Blast+1 (508670)\n\tEnergy Blast+2 (508672)\n\tEnergy Ray (508015)\n\tEnergy Ray+1 (508674)\n\tEnergy Ray+2 (508676)"},{"effect":{"skillEnhancement":{"508014":1.5,"508016":1.5,"508671":1.5,"508673":1.5,"508675":1.5,"508677":1.5}},"desc":"Increase the damage of the following skills by (1.5x):\n\tEnergy Blast (508014)\n\tEnergy Blast+1 (508671)\n\tEnergy Blast+2 (508673)\n\tEnergy Ray (508016)\n\tEnergy Ray+1 (508675)\n\tEnergy Ray+2 (508677)"}]}
 		],
 		"actives": [
-			{"id":"508016","name":"Energy Ray","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (10.5x + 10.5x, (MAG + SPR) * EvoMAG) to all enemies"}],"ifUsedLastTurn":[{"id":227570,"name":"Prayers of the Children"}]},
+			{"id":"508016","name":"Energy Ray","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (10.5x + 10.5x, (MAG + SPR) * EvoMAG) to all enemies"}],"ifUsedLastTurn":[{"id":227570,"name":"Heart of the Fayth"}]},
 			{"id":"508015","name":"Energy Ray","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (9x + 9x, (MAG + SPR) * EvoMAG) to all enemies"}]},
 			{"id":"219130","name":"Prayer to the Aeons","icon":"ability_4.png","effects":[{"effect":null,"desc":"Fill esper gauge by 2-4"},{"effect":{"statsBuff":{"mag":100,"spr":100},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase MAG and SPR by 100% for 3 turns to caster"}]},
-			{"id":"508014","name":"Energy Blast","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (22.5x + 22.5x, (MAG + SPR) * EvoMAG) to one enemy"}],"ifUsedLastTurn":[{"id":227570,"name":"Prayers of the Children"}]},
-			{"id":"508013","name":"Energy Blast","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (20x + 20x, (MAG + SPR) * EvoMAG) to one enemy"}]}
+			{"id":"508014","name":"Energy Blast","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (22.5x + 22.5x, (MAG + SPR) * EvoMAG) to one enemy"}],"ifUsedLastTurn":[{"id":227570,"name":"Heart of the Fayth"}]},
+			{"id":"508013","name":"Energy Blast","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (20x + 20x, (MAG + SPR) * EvoMAG) to one enemy"}]},
+			{"id":"200150","name":"Dualcast","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"magic"}},"desc":"Enable unit to use magic (excluding blue magic) twice in one turn"}]},
+			{"id":"227571","name":"Guardian Bonds","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508011,"name":"Bond of the Guardian","icon":"ability_105.png","effects":[{"effect":null,"desc":"Grant a 3000 HP shield to all allies for 3 turns"}]},"cooldownTurns":4,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Bond of the Guardian (508011) on turn 1 [4 turns CD]"}]},
+			{"id":"227570","name":"Heart of the Fayth","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508010,"name":"Prayers of the Children","icon":"ability_105.png","effects":[{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"},{"effect":null,"desc":"Fill esper gauge by 5"}]},"cooldownTurns":5,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock Prayers of the Children (508010) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 			{"id":"10110","name":"Esuna","icon":"ability_3.png","effects":[{"effect":null,"desc":"Cure Poison, Blind, Sleep, Silence, Paralyze and Confusion for one ally"}],"magic":"white"},
@@ -10192,7 +10219,9 @@
 			{"id":"30330","name":"Shellga","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":40},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase SPR by 40% for 3 turns to all allies"}],"magic":"green"},
 			{"id":"10130","name":"Dispel","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}],"magic":"white"},
 			{"id":"10100","name":"Raise","icon":"ability_1.png","effects":[{"effect":null,"desc":"Revive target from KO (30% HP)"}],"magic":"white"},
-			{"id":"10230","name":"Reraise","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to one ally"}],"magic":"white"}
+			{"id":"10230","name":"Reraise","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to one ally"}],"magic":"white"},
+			{"id":"10200","name":"Dispelga","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from all enemies"}],"magic":"white"},
+			{"id":"10290","name":"Curaja","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"}],"magic":"white"}
 		]
 	},
 	"210000303": {
@@ -10242,17 +10271,17 @@
 	"210000405": {
 		"name":"Lulu",
 		"id":"210000405",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3393,"mp":200,"atk":81,"def":116,"mag":152,"spr":136},
-			"minStats":{"hp":1120,"mp":66,"atk":27,"def":38,"mag":50,"spr":45},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			"maxStats":{"hp":4410,"mp":260,"atk":105,"def":161,"mag":197,"spr":185},
+			"minStats":{"hp":1455,"mp":86,"atk":35,"def":53,"mag":65,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
-		"lb": {"name":"Ultima Fury","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.5,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (4.5x * 2 = 9x, MAG) to all enemies (ignore reflect)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":5.7,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (5.7x * 2 = 11.4x, MAG) to all enemies (ignore reflect)"}]},
+		"lb": {"name":"Ultima Fury","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6x * 2 = 12x, MAG) to all enemies (ignore reflect)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.5,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.5x * 2 = 15x, MAG) to all enemies (ignore reflect)"}]},
 		"passives": [
 			{"name":"Null Silence","id":"213200","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"silence","percent":100}]},"desc":"Increase resistance to Silence by 100%"}]},
 			{"name":"Null Confusion","id":"211100","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"}]},
@@ -10260,11 +10289,20 @@
 			{"name":"Venus Crest","id":"219030","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"},{"effect":{"resist":[{"name":"fire","percent":30}]},"desc":"Increase resistance to Fire by 30%"}]},
 			{"name":"MP +30%","id":"100060","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}]},
 			{"name":"Magical Mog","id":"219020","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["rod"],"mag%":40},"desc":"Increase MAG by 40% when equipped with a Rod"}]},
-			{"name":"Standby - Water","id":"219040","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":504090,"name":"Standby - Water","icon":"ability_39.png","effects":[{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Standby - Water (504090) to caster"},{"effect":{"counterSkill":{"id":504090,"name":"Standby - Water","icon":"ability_39.png","effects":[{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with Standby - Water (504090) to caster"}]}
+			{"name":"Standby - Water","id":"219040","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":504090,"name":"Standby - Water","icon":"ability_39.png","effects":[{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with Standby - Water (504090) to caster"},{"effect":{"counterSkill":{"id":504090,"name":"Standby - Water","icon":"ability_39.png","effects":[{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with Standby - Water (504090) to caster"}]},
+			{"name":"Venus Sigil","id":"227583","icon":"ability_77.png","effects":[{"effect":{"mag%":50},"desc":"Increase MAG by 50%"},{"effect":null,"desc":"Gain Brave (Mars Sigil) (30213) at the start of a battle or when revived"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}],"equipedConditions":["310003000"]},
+			{"name":"Torrential Force","id":"227584","icon":"ability_23.png","effects":[{"effect":{"skillEnhancement":{"20230":3,"20320":3,"20380":3,"70434":3,"70435":3}},"desc":"Increase the damage of the following skills by (3x):\n\tFlood (20380)\n\tFlood+1 (70434)\n\tFlood+2 (70435)\n\tWaterga (20230)\n\tWaterja (20320)"},{"effect":{"skillEnhancement":{"20760":4}},"desc":"Increase the damage of Raging Water (20760) by (4x)"}]},
+			{"name":"DEF +20%","id":"100141","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"Null Sleep","id":"212340","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"sleep","percent":100}]},"desc":"Increase resistance to Sleep by 100%"}]},
+			{"name":"Null Stone","id":"215170","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
+			{"name":"Third Pilgrimage","id":"227585","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"},{"effect":{"lbDamage":40},"desc":"Increase LB damage by 40%"},{"effect":{"singleWielding":{"mag":50}},"desc":"Increase equipment MAG by 50% when armed with a single weapon"},{"effect":{"dualWielding":{"mag":50}},"desc":"Increase equipment MAG by 50% when armed with two weapons"}]}
 		],
 		"actives": [
 			{"id":"200460","name":"Focus","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"mag":40,"spr":40},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase MAG and SPR by 40% for 3 turns to all allies"}]},
-			{"id":"200160","name":"Dual Black Magic","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"blackMagic"}},"desc":"Enable unit to cast 2 black magic spells"}]}
+			{"id":"200160","name":"Dual Black Magic","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"blackMagic"}},"desc":"Enable unit to cast 2 black magic spells"}]},
+			{"id":"227580","name":"Aqua Prism","icon":"ability_18.png","effects":[{"effect":{"resist":[{"name":"water","percent":100}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Water by 100% for 5 turns to all allies"},{"effect":{"imperil":{"water":50},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water by 50% for 5 turns to all enemies"}]},
+			{"id":"227581","name":"Refreshing Wave","icon":"ability_92.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 180 MP to all allies"}]},
+			{"id":"227582","name":"Flare Fury","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508020,"name":"Flare Fury","icon":"ability_105.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":10,"ignore":{"spr":25},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (10x * 1.33 = 13.33x, MAG) to one enemy (ignore reflect)"},{"effect":null,"desc":"Increase LB gauge by 8 to caster"},{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}]},"cooldownTurns":5,"startTurn":1,"area":"ST","target":"ENEMY"},"desc":"Unlock Flare Fury (508020) on turn 1 [5 turns CD]"}]}
 		],
 		"magics": [
 			{"id":"20220","name":"Thundaga","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.8x, MAG) to all enemies"}],"magic":"black"},
@@ -10276,7 +10314,9 @@
 			{"id":"20320","name":"Waterja","icon":"ability_23.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"stack":1,"maxStack":4,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to all enemies"}],"magic":"black"},
 			{"id":"20290","name":"Firaja","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"stack":1,"maxStack":4,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to all enemies"}],"magic":"black"},
 			{"id":"20300","name":"Blizzaja","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"stack":1,"maxStack":4,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to all enemies"}],"magic":"black"},
-			{"id":"20380","name":"Flood","icon":"ability_35.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (2.5x, MAG) to all enemies"},{"effect":{"imperil":{"lightning":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 50% for 3 turns to all enemies"}],"magic":"black"}
+			{"id":"20380","name":"Flood","icon":"ability_35.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.5,"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (2.5x, MAG) to all enemies"},{"effect":{"imperil":{"lightning":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 50% for 3 turns to all enemies"}],"magic":"black"},
+			{"id":"20390","name":"Tornado","icon":"ability_31.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.5,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (2.5x, MAG) to all enemies"},{"effect":{"imperil":{"wind":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 3 turns to all enemies"}],"magic":"black"},
+			{"id":"20760","name":"Raging Water","icon":"ability_23.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.2,"stack":1.2,"maxStack":9,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (1.2x, MAG) with consecutive damage increase (max. 9 times, +1.2x MAG each, 12x total) to one enemy"}],"magic":"black"}
 		]
 	},
 	"210000605": {
@@ -11123,17 +11163,17 @@
 	"212000905": {
 		"name":"Basch",
 		"id":"212000905",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3745,"mp":162,"atk":132,"def":151,"mag":108,"spr":140},
-			"minStats":{"hp":1236,"mp":53,"atk":44,"def":50,"mag":36,"spr":46},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			"maxStats":{"hp":4884,"mp":210,"atk":171,"def":205,"mag":140,"spr":200},
+			"minStats":{"hp":1612,"mp":69,"atk":56,"def":68,"mag":46,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"lb": {"name":"Flame Purge","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.6,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (8.6x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (11x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}]},
+		"lb": {"name":"Flame Purge","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16.1,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (16.1x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":19,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Physical fire damage (19x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 3 physical attacks for 3 turns to caster"}]},
 		"passives": [
 			{"name":"Undead Killer","id":"101060","icon":"ability_79.png","effects":[{"effect":{"killers":[{"name":"undead","physical":50}]},"desc":"Increase physical damage against Reapers by 50%"}]},
 			{"name":"DEF +30%","id":"100150","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
@@ -11142,7 +11182,11 @@
 			{"name":"HP +20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"Auto-Refresh","id":"100740","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"Spirit of the Fighter","id":"221730","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505110,"name":"Spirit of the Fighter","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 400 (+16x, Heal) HP to caster"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Spirit of the Fighter (505110) to caster (max 2 / turn)"}]},
-			{"name":"Undying Fighter","id":"221740","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505120,"name":"Undying Fighter","icon":"ability_92.png","effects":[{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 50 MP to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Undying Fighter (505120) to caster (max 1 / turn)"}]}
+			{"name":"Undying Fighter","id":"221740","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505120,"name":"Undying Fighter","icon":"ability_92.png","effects":[{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 50 MP to caster"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Undying Fighter (505120) to caster (max 1 / turn)"}]},
+			{"name":"Apocalypse Shield","id":"227984","icon":"ability_91.png","effects":[{"effect":{"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30%"},{"effect":{"resist":[{"name":"lightning","percent":50}]},"desc":"Increase resistance to Lightning by 50%"},{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"}],"equipedConditions":["402002300"]},
+			{"name":"Weight of the World","id":"227980","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"221690","name":"Fulminating Darkness"},{"id":"221700","name":"Ruin Impendent"},{"id":"221680","name":"Confusing Lament"},{"id":"221710","name":"Inescapable Disaster"},{"id":"707462","name":"Fulminating Darkness"},{"id":"707463","name":"Fulminating Darkness"},{"id":"707464","name":"Confusing Lament"},{"id":"707465","name":"Confusing Lament"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tConfusing Lament (221680)\n\tConfusing Lament+1 (707464)\n\tConfusing Lament+2 (707465)\n\tFulminating Darkness (221690)\n\tFulminating Darkness+1 (707462)\n\tFulminating Darkness+2 (707463)\n\tInescapable Disaster (221710)\n\tRuin Impendent (221700)"}]},
+			{"name":"MP +20%","id":"100050","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
+			{"name":"For Dalmasca","id":"227985","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":{"equipedConditions":["heavyArmor"],"def%":20,"levelCondition":120},"desc":"Increase DEF by 20% when equipped with a Heavy Armor"},{"effect":{"equipedConditions":["lightArmor"],"spr%":20,"levelCondition":120},"desc":"Increase SPR by 20% when equipped with a Light Armor"},{"effect":null,"desc":"Gain Protect (Basch) (30097) at the start of a battle or when revived"},{"effect":null,"desc":"Gain Protect (Basch) (30147) at the start of a battle or when revived"}]}
 		],
 		"actives": [
 			{"id":"221670","name":"Commander's Orders","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":70,"spr":70},"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 70% for 5 turns to all allies"}]},
@@ -11153,7 +11197,10 @@
 			{"id":"221690","name":"Fulminating Darkness","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3},"area":"ST","target":"ENEMY"},"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"atk":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 5 turns to one enemy"}]},
 			{"id":"221700","name":"Ruin Impendent","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3},"area":"ST","target":"ENEMY"},"desc":"Physical damage (3x, ATK) to one enemy"},{"effect":{"break":{"def":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 50% for 5 turns to one enemy"}]},
 			{"id":"221660","name":"Twilight Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"magical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept magical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
-			{"id":"221650","name":"Dawn Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]}
+			{"id":"221650","name":"Dawn Guard","icon":"ability_69.png","effects":[{"effect":{"aoeCover":{"type":"physical","mitigation":{"min":50,"max":70},"chance":75},"turns":3,"area":"SELF","target":"SELF"},"desc":"75% chance to intercept physical damage to allies for 3 turns, reducing damage by 50%-70%"}]},
+			{"id":"227982","name":"Unbreakable Vow","icon":"ability_1.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 5 to the rest of the party"}]},
+			{"id":"227981","name":"Bell of a New Dawn","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508251,"name":"Bell of a New Dawn","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{"atk":150,"def":150,"mag":150,"spr":150},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 150% for 3 turns to caster"},{"effect":{"break":{"atk":65,"def":65,"mag":65,"spr":65},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 65% for 3 turns to one enemy"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Bell of a New Dawn (508251) on turn 1 [6 turns CD]"}]},
+			{"id":"227983","name":"Chastising Spirit","icon":"ability_4.png","effects":[{"effect":{"statsBuff":{"def":120,"spr":120},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 120% for 3 turns to all allies"},{"effect":null,"desc":"Restore 1000 (+4.1x, Heal) HP to all allies"}]}
 		],
 		"magics": [
 		]
@@ -12108,17 +12155,17 @@
 	"215000605": {
 		"name":"Aranea",
 		"id":"215000605",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3632,"mp":163,"atk":152,"def":140,"mag":118,"spr":130},
-			"minStats":{"hp":1199,"mp":54,"atk":50,"def":46,"mag":39,"spr":43},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4721,"mp":211,"atk":201,"def":191,"mag":153,"spr":177},
+			"minStats":{"hp":1558,"mp":70,"atk":66,"def":63,"mag":50,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
-		"lb": {"name":"Highwind","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.8,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4.8x * 2 = 9.6x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (6x * 2 = 12x, ATK) to one enemy (ignore cover)"}]},
+		"lb": {"name":"Highwind","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (9.1x * 2 = 18.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x * 2 = 24x, ATK) to one enemy (ignore cover)"}]},
 		"passives": [
 			{"name":"DEF +30%","id":"100150","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
 			{"name":"Electric Actuator","id":"221310","icon":"ability_97.png","effects":[{"effect":{"evade":{"magical":20}},"desc":"20% chance of evading magic attacks"}]},
@@ -12128,7 +12175,10 @@
 			{"name":"Polearm Arts","id":"221290","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":100,"accuracy":25}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"}]},
 			{"name":"Polearm Combo","id":"221320","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":505060,"name":"Spear Combo","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (2x, ATK) to all enemies"}]},"counterType":"physical","percent":50},"desc":"50% chance to counter physical attacks with Spear Combo (505060) to caster (max 1 / turn)"}]},
 			{"name":"Spear Mastery","id":"208880","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["spear"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Spear"}]},
-			{"name":"HP +30%","id":"100030","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]}
+			{"name":"HP +30%","id":"100030","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
+			{"name":"Airborne Division Commodore","id":"227623","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":50,"accuracy":25}},"desc":"Increase equipment ATK by 50% when armed with a single weapon"},{"effect":{"atk%":40},"desc":"Increase Accuracy by 25% when armed with a single weapon"}],"equipedConditions":["308003500"]},
+			{"name":"DEF +20%","id":"100141","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"Miss Mercenary","id":"227624","icon":"ability_80.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"},{"effect":{"jumpDamage":50},"desc":"Increase damage dealt by jump attacks by 50%"}]}
 		],
 		"actives": [
 			{"id":"221240","name":"Forward Lunge","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4x, ATK) to one enemy"}]},
@@ -12136,7 +12186,10 @@
 			{"id":"221250","name":"Brandish","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (2x, ATK) to all enemies"}]},
 			{"id":"221270","name":"Air Recovery","icon":"ability_80.png","effects":[{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 150 MP to caster"},{"effect":null,"desc":"Restore 3000 HP to caster"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.5,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.5x, ATK) to one enemy after a one turn jump delay"}]},
 			{"id":"221230","name":"Air Innovation","icon":"ability_80.png","effects":[{"effect":null,"desc":"Increase LB gauge by 8 to caster"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.5,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.5x, ATK) to one enemy after a one turn jump delay"}]},
-			{"id":"221260","name":"Swooping Blow","icon":"ability_80.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1,"delay":1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to all enemies after a one turn delay"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.5,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.5x, ATK) to one enemy after a one turn jump delay"}]}
+			{"id":"221260","name":"Swooping Blow","icon":"ability_80.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1,"delay":1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to all enemies after a one turn delay"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.5,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.5x, ATK) to one enemy after a one turn jump delay"}]},
+			{"id":"227620","name":"Dragoon Dive","icon":"ability_80.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.7,"jump":true,"delay":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4.7x, ATK) to  after a one turn timed delay"}]},
+			{"id":"227621","name":"Aerial Supremacy","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508060,"name":"Aerial Supremacy","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{"atk":200},"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 4 turns to caster"},{"effect":null,"desc":"Increase LB gauge by 15 to caster"}]},"cooldownTurns":5,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Aerial Supremacy (508060) on turn 1 [5 turns CD]"}]},
+			{"id":"227622","name":"High Dragoon Dive","icon":"ability_80.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.5,"jump":true,"delay":2},"area":"ST","target":"ENEMY"},"desc":"Physical damage (7.5x, ATK) to  after a 2 turns timed delay"}]}
 		],
 		"magics": [
 		]
@@ -12144,17 +12197,17 @@
 	"215000705": {
 		"name":"Prompto",
 		"id":"215000705",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3581,"mp":188,"atk":143,"def":120,"mag":138,"spr":132},
-			"minStats":{"hp":1182,"mp":62,"atk":47,"def":40,"mag":46,"spr":44},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4655,"mp":244,"atk":199,"def":163,"mag":179,"spr":180},
+			"minStats":{"hp":1536,"mp":81,"atk":66,"def":54,"mag":59,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
-		"lb": {"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 2 random status effects (50%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 2 random status effects (50%) to all enemies"}]},
+		"lb": {"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 2 random status effects (50%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 2 random status effects (50%) to all enemies"}]},
 		"passives": [
 			{"name":"MP +10%","id":"100040","icon":"ability_77.png","effects":[{"effect":{"mp%":10},"desc":"Increase MP by 10%"}]},
 			{"name":"Danger Sensor","id":"209770","icon":"ability_97.png","effects":[{"effect":{"evade":{"physical":20}},"desc":"20% chance of evading physical attacks"}]},
@@ -12162,7 +12215,11 @@
 			{"name":"Quick Tech","id":"221470","icon":"ability_78.png","effects":[{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"}]},
 			{"name":"SPR +20%","id":"100170","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
 			{"name":"Gun Mastery","id":"209540","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["gun"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Gun"}]},
-			{"name":"W Machinery","id":"221490","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"201420","name":"Auto Crossbow"},{"id":"221370","name":"Gravisphere"},{"id":"221380","name":"Starshell"},{"id":"221390","name":"Recoil"},{"id":"221420","name":"Circular Saw"},{"id":"221430","name":"Gravity Well"},{"id":"221440","name":"Noiseblaster"},{"id":"221450","name":"Drillbreaker"},{"id":"221460","name":"Bioblaster"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tAuto Crossbow (201420)\n\tBioblaster (221460)\n\tCircular Saw (221420)\n\tDrillbreaker (221450)\n\tGravisphere (221370)\n\tGravity Well (221430)\n\tNoiseblaster (221440)\n\tRecoil (221390)\n\tStarshell (221380)"}]}
+			{"name":"W Machinery","id":"221490","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"201420","name":"Auto Crossbow"},{"id":"221370","name":"Gravisphere"},{"id":"221380","name":"Starshell"},{"id":"221390","name":"Recoil"},{"id":"221420","name":"Circular Saw"},{"id":"221430","name":"Gravity Well"},{"id":"221440","name":"Noiseblaster"},{"id":"221450","name":"Drillbreaker"},{"id":"221460","name":"Bioblaster"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tAuto Crossbow (201420)\n\tBioblaster (221460)\n\tCircular Saw (221420)\n\tDrillbreaker (221450)\n\tGravisphere (221370)\n\tGravity Well (221430)\n\tNoiseblaster (221440)\n\tRecoil (221390)\n\tStarshell (221380)"}]},
+			{"name":"Prince's Buddy","id":"227633","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"atk":100,"accuracy":25}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":50}},"desc":"Increase Accuracy by 25% when armed with a single weapon"},{"effect":{"counterSkill":{"id":508081,"name":"Snapshot","icon":"ability_14.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (55%) for 2 turns on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind and Confusion (100%) on all enemies"}]},"counterType":"physical","percent":30},"desc":"Increase equipment ATK by 50% when armed with two weapons"},{"effect":{"counterSkill":{"id":508081,"name":"Snapshot","icon":"ability_14.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (55%) for 2 turns on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind and Confusion (100%) on all enemies"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter physical attacks with Snapshot (508081) to caster (max 1 / turn)"},{"effect":{"replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}]}},"desc":"30% chance to counter magic attacks with Snapshot (508081) to caster (max 1 / turn)"}],"equipedConditions":["504221550"]},
+			{"name":"Double Arms","id":"227635","icon":"ability_72.png","effects":[{"effect":{"partialDualWield":["dagger","gun"]},"desc":"Enable unit to equip two one-handed daggers and guns"}]},
+			{"name":"MP +20%","id":"100051","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
+			{"name":"Unbreakable Bonds","id":"227634","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["dagger"],"atk%":30,"spr%":30,"levelCondition":120},"desc":"Increase ATK and SPR by 30% when equipped with a Dagger"},{"effect":{"equipedConditions":["gun"],"atk%":30,"spr%":30,"levelCondition":120},"desc":"Increase ATK and SPR by 30% when equipped with a Gun"},{"effect":{"lbDamage":30},"desc":"Increase LB damage by 30%"}]}
 		],
 		"actives": [
 			{"id":"221360","name":"Piercer","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2x, ATK) to one enemy"},{"effect":{"break":{"def":40},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 40% for 3 turns to one enemy"}]},
@@ -12177,7 +12234,14 @@
 			{"id":"221430","name":"Gravity Well","icon":"ability_52.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (3.6x, ATK) to one enemy"},{"effect":{"imperil":{"lightning":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 60% for 3 turns to one enemy"},{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Paralyze (80%) on one enemy"}]},
 			{"id":"211810","name":"Comeback","icon":"ability_1.png","effects":[{"effect":null,"desc":"Revive one ally from KO (100% HP)"}]},
 			{"id":"221390","name":"Recoil","icon":"ability_52.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x * 2 = 5x, ATK) to one enemy (ignore cover)"}]},
-			{"id":"221450","name":"Drillbreaker","icon":"ability_52.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2x * 2 = 4x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"}]}
+			{"id":"221450","name":"Drillbreaker","icon":"ability_52.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2x * 2 = 4x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"}]},
+			{"id":"508080","name":"Crackshot","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (7x * 2 = 14x, ATK) to one enemy (ignore cover)"}],"unlockedBy":["Trigger-Happy"]},
+			{"id":"508073","name":"Rapidus SMG","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.4},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.4x, ATK) to one enemy"}],"unlockedBy":["Overkill"]},
+			{"id":"508074","name":"Sagitta rifle","icon":"ability_40.png","effects":[{"effect":null,"desc":"Cast Death (35%) or deal physical damage (9.45x, ATK) to one enemy"}],"unlockedBy":["Overkill"]},
+			{"id":"508075","name":"Alea bazooka","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.85,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.85x * 2 = 15.7x, ATK) to all enemies (ignore cover)"}],"unlockedBy":["Overkill"]},
+			{"id":"227630","name":"Overkill","icon":"ability_40.png","effects":[{"effect":{"randomlyUse":[{"skill":{"id":508070,"name":"Overkill","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"none","damageType":"body","coef":4},"area":"ST","target":"ENEMY"},"desc":"Physical* damage (4x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508073","name":"Rapidus SMG"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills:\n\tRapidus SMG (508073)"}]},"percent":40},{"skill":{"id":508071,"name":"Overkill","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"none","damageType":"body","coef":4},"area":"ST","target":"ENEMY"},"desc":"Physical* damage (4x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508074","name":"Sagitta rifle"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills:\n\tSagitta rifle (508074)"}]},"percent":40},{"skill":{"id":508072,"name":"Overkill","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"none","damageType":"body","coef":4},"area":"ST","target":"ENEMY"},"desc":"Physical* damage (4x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508075","name":"Alea bazooka"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills:\n\tAlea bazooka (508075)"}]},"percent":20}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n40%: Overkill (508070)\n40%: Overkill (508071)\n20%: Overkill (508072)"}]},
+			{"id":"227631","name":"Selfie shot","icon":"ability_2.png","effects":[{"effect":{"randomlyUse":[{"skill":{"id":508076,"name":"Selfie shot","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 40 MP to caster"}]},"percent":45},{"skill":{"id":508077,"name":"Selfie shot","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 80 MP to caster"}]},"percent":30},{"skill":{"id":508078,"name":"Selfie shot","icon":"ability_2.png","effects":[{"effect":null,"desc":"Allows you to view info on an enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 240 MP to caster"}]},"percent":25}],"area":"ST","target":"ENEMY"},"desc":"Randomly use:\n45%: Selfie shot (508076)\n30%: Selfie shot (508077)\n25%: Selfie shot (508078)"}]},
+			{"id":"227632","name":"Trigger-Happy","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508079,"name":"Trigger-Happy","icon":"ability_105.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (13.5x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tCrackshot (508080)"}]},"cooldownTurns":4,"startTurn":4,"area":"ST","target":"ENEMY"},"desc":"Unlock Trigger-Happy (508079) on turn 4 [4 turns CD]"}]}
 		],
 		"magics": [
 		]
@@ -18634,6 +18698,51 @@
 		"magics": [
 		]
 	},
+	"401006305": {
+		"name":"Popstar Katy",
+		"id":"401006305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":150,"spr":166},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":50,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"lb": {"name":"Eye See You","minEffects":[{"effect":null,"desc":"Magic* damage (12.5x + 12.5x, (MAG + SPR) * EvoMAG) to all enemies"},{"effect":{"statsBuff":{"spr":-40},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce SPR by 40% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Magic* damage (15.4x + 15.4x, (MAG + SPR) * EvoMAG) to all enemies"},{"effect":{"statsBuff":{"spr":-69},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce SPR by 69% for 3 turns to all enemies"}]},
+		"passives": [
+			{"name":"SPR +10%","id":"100160","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
+			{"name":"MAG +10%","id":"100100","icon":"ability_77.png","effects":[{"effect":{"mag%":10},"desc":"Increase MAG by 10%"}]},
+			{"name":"Transcendental Phenomenon","id":"911680","icon":"ability_70.png","effects":[{"effect":null,"desc":"Allow unit to summon any esper in party"}]},
+			{"name":"DEF +10%","id":"100130","icon":"ability_77.png","effects":[{"effect":{"def%":10},"desc":"Increase DEF by 10%"}]},
+			{"name":"Watchful Eye","id":"911682","icon":"ability_71.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
+			{"name":"HP +10%","id":"410010","icon":"ability_77.png","effects":[{"effect":{"hp%":10},"desc":"Increase HP by 10%"}]},
+			{"name":"EVO MAG +10%","id":"100190","icon":"ability_77.png","effects":[{"effect":{"evoMag":10},"desc":"Increase Esper summon damage by 10%"}]},
+			{"name":"Backup Dancers","id":"911685","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":911691,"name":"Backup Dancers","icon":"ability_68.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},"counterType":"physical","percent":30},"desc":"30% chance to counter physical attacks with Backup Dancers (911691) to caster (max 1 / turn)"},{"effect":{"counterSkill":{"id":911691,"name":"Backup Dancers","icon":"ability_68.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}]},"counterType":"magical","percent":30},"desc":"30% chance to counter magic attacks with Backup Dancers (911691) to caster (max 1 / turn)"}]},
+			{"name":"Appetite for More","id":"911761","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"911678","name":"Command - Cue the Spotlight"},{"id":"911679","name":"Command - Bass Blast"},{"id":"911681","name":"Command - Backup Dancer Step"},{"id":"911684","name":"Command - Backup Dancer Rush"},{"id":"911692","name":"Command - Showtime"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tCommand - Backup Dancer Rush (911684)\n\tCommand - Backup Dancer Step (911681)\n\tCommand - Bass Blast (911679)\n\tCommand - Cue the Spotlight (911678)\n\tCommand - Showtime (911692)"}]},
+			{"name":"Popstar's Prowess","id":"911687","icon":"ability_95.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"},{"effect":{"lbFillRate":50},"desc":"Increase the limit burst gauge fill rate by 50%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}],"equipedConditions":["1500000082"]},
+			{"name":"EVO MAG +20%","id":"100200","icon":"ability_77.png","effects":[{"effect":{"evoMag":20},"desc":"Increase Esper summon damage by 20%"}]},
+			{"name":"Sound of Applause","id":"911690","icon":"global_ability_10004.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"},{"effect":{"lbDamage":20},"desc":"Increase LB damage by 20%"},{"effect":{"equipedConditions":["harp"],"mag%":30,"spr%":30,"levelCondition":120},"desc":"Increase MAG and SPR by 30% when equipped with a Instrument"}]}
+		],
+		"actives": [
+			{"id":"911678","name":"Command - Cue the Spotlight","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2,"stack":1,"maxStack":4,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (2x, MAG) with consecutive damage increase (max. 4 times, +1x MAG each, 6x total) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind (30%) on all enemies"}]},
+			{"id":"200450","name":"Cheer","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"atk":40,"def":40},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK and DEF by 40% for 3 turns to all allies"}]},
+			{"id":"911679","name":"Command - Bass Blast","icon":"ability_14.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.75},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (2.75x, MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Confusion (30%) on all enemies"}]},
+			{"id":"911681","name":"Command - Backup Dancer Step","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (3x + 3x, (MAG + SPR) * EvoMAG) to one enemy"}]},
+			{"id":"911683","name":"Stage Rehearsal","icon":"ability_4.png","effects":[{"effect":null,"desc":"Fill esper gauge by 2-4"}]},
+			{"id":"911684","name":"Command - Backup Dancer Rush","icon":"ability_10.png","effects":[{"effect":null,"desc":"Magic* damage (7x + 7x, (MAG + SPR) * EvoMAG) to all enemies"}]},
+			{"id":"911688","name":"Touch-up","icon":"ability_92.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Restore 30 MP to the rest of the party"},{"effect":null,"desc":"Cure all status effects for the rest of the party"}]},
+			{"id":"911692","name":"Command - Showtime","icon":"global_ability_10030.png","effects":[{"effect":null,"desc":"Magic* damage (8x + 8x, (MAG + SPR) * EvoMAG) to all enemies"}],"unlockedBy":["Dress Rehearsal"]},
+			{"id":"911689","name":"Dress Rehearsal","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":911762,"name":"Dress Rehearsal","icon":"ability_105.png","effects":[{"effect":null,"desc":"Fill esper gauge by 4-5"},{"effect":{"gainSkills":{"turns":99998,"skills":[{"id":"911692","name":"Command - Showtime"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 2 turns (1 use):\n\tCommand - Showtime (911692)"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Dress Rehearsal (911762) on turn 1 [4 turns CD]"}]}
+		],
+		"magics": [
+			{"id":"20080","name":"Fira","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.4,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (1.4x, MAG) to all enemies"}],"magic":"black"},
+			{"id":"10160","name":"Curaga","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"}],"magic":"white"},
+			{"id":"20200","name":"Firaga","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Magic fire damage (1.8x, MAG) to all enemies"}],"magic":"black"}
+		]
+	},
 	"401006405": {
 		"name":"Aurora Fryevia",
 		"id":"401006405",
@@ -18670,7 +18779,7 @@
 			{"id":"911645","name":"Flash - Brilliance","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":4},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (4x, ATK & MAG) to one enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 75 MP to caster"}]},
 			{"id":"911664","name":"Triple Flash","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":3,"type":"skills","skills":[{"id":"911642","name":"Flash - Luster"},{"id":"911645","name":"Flash - Brilliance"},{"id":"911651","name":"Flash - Dazzle"},{"id":"911654","name":"Flash - Endless Punishment"},{"id":"911657","name":"Flash - Furious Radiance"},{"id":"911665","name":"Aurora Storm"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tAurora Storm (911665)\n\tFlash - Brilliance (911645)\n\tFlash - Dazzle (911651)\n\tFlash - Endless Punishment (911654)\n\tFlash - Furious Radiance (911657)\n\tFlash - Luster (911642)"}],"unlockedBy":["Healing Radiance","Wrath of the Light","Wrath of the Light","Triple Flash","Gift of Daylight","Judge and Jury","Judge and Jury"]},
 			{"id":"911648","name":"Healing Radiance","icon":"ability_3.png","effects":[{"effect":null,"desc":"Restore 2000 HP to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"911664","name":"Triple Flash"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\tAurora Storm (911665)\n\tFlash - Brilliance (911645)\n\tFlash - Dazzle (911651)\n\tFlash - Endless Punishment (911654)\n\tFlash - Furious Radiance (911657)\n\tFlash - Luster (911642)"}]},
-			{"id":"911651","name":"Flash - Dazzle","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":9},"area":"ST","target":"ENEMY"},"desc":"Hybrid damage (9x, ATK & MAG) to one enemy"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind and Confusion (30%) on all enemies"}]},
+			{"id":"911651","name":"Flash - Dazzle","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":9},"area":"AOE","target":"ENEMY"},"desc":"Hybrid damage (9x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Blind and Confusion (30%) on all enemies"}]},
 			{"id":"911654","name":"Flash - Endless Punishment","icon":"ability_54.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":5.5},"area":"AOE","target":"ENEMY"},"desc":"Hybrid damage (5.5x, ATK & MAG) to all enemies"}]},
 			{"id":"911657","name":"Flash - Furious Radiance","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":12,"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Hybrid light damage (12x, ATK & MAG) to one enemy"},{"effect":{"imperil":{"light":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Light by 100% for 3 turns to one enemy"}]},
 			{"id":"911672","name":"Gift of Daylight","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":911659,"name":"Gift of Daylight","icon":"ability_105.png","effects":[{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"911664","name":"Triple Flash"}]}},"desc":"Gain 3 uses of the following skills for 3 turns:\n\tAurora Storm (911665)\n\tFlash - Brilliance (911645)\n\tFlash - Dazzle (911651)\n\tFlash - Endless Punishment (911654)\n\tFlash - Furious Radiance (911657)\n\tFlash - Luster (911642)"},{"effect":{"statsBuff":{"atk":200,"mag":200},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 200% for 3 turns to caster"},{"effect":null,"desc":"Restore 100% HP to caster"}]},"cooldownTurns":6,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock Gift of Daylight (911659) on turn 1 [6 turns CD]"}]},

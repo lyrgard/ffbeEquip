@@ -1745,7 +1745,6 @@
 	"100010805": {
 		"name":"Duke",
 		"id":"100010805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1761,7 +1760,7 @@
 			"name":"Duke",
 			"id":"100010805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -1937,7 +1936,6 @@
 	"100011805": {
 		"name":"Lotus Mage Fina",
 		"id":"100011805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -1952,7 +1950,7 @@
 			"name":"Lotus Mage Fina",
 			"id":"100011805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2128,7 +2126,6 @@
 	"100012605": {
 		"name":"Kunshira",
 		"id":"100012605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2143,7 +2140,7 @@
 			"name":"Kunshira",
 			"id":"100012605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4471,7 +4468,6 @@
 	"210000205": {
 		"name":"Yuna",
 		"id":"210000205",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4486,7 +4482,7 @@
 			"name":"Yuna",
 			"id":"210000205",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4515,7 +4511,6 @@
 	"210000405": {
 		"name":"Lulu",
 		"id":"210000405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4530,7 +4525,7 @@
 			"name":"Lulu",
 			"id":"210000405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4909,7 +4904,6 @@
 	"212000905": {
 		"name":"Basch",
 		"id":"212000905",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4924,7 +4918,7 @@
 			"name":"Basch",
 			"id":"212000905",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -5326,7 +5320,6 @@
 	"215000605": {
 		"name":"Aranea",
 		"id":"215000605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5341,7 +5334,7 @@
 			"name":"Aranea",
 			"id":"215000605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5356,7 +5349,6 @@
 	"215000705": {
 		"name":"Prompto",
 		"id":"215000705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5371,7 +5363,7 @@
 			"name":"Prompto",
 			"id":"215000705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -8280,6 +8272,35 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"]
+		}
+	},
+	"401006305": {
+		"name":"Popstar Katy",
+		"id":"401006305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":150,"spr":166},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":50,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Popstar Katy",
+			"id":"401006305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2665,"mp":151,"atk":75,"def":101,"mag":115,"spr":127},
+				"minStats":{"hp":879,"mp":50,"atk":25,"def":33,"mag":38,"spr":42},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"]
 		}
 	},
 	"401006405": {
