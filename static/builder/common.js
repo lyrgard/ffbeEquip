@@ -222,9 +222,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         var defendingStat = 1;
         
         var dualWielding = itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
+        let newJpDamageFormulaCoef = 1;
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
+            newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
             
             if (!context.savedValues.hasOwnProperty("resistModifier")) {
                 // Takes elements from weapons into account
@@ -417,10 +419,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * context.newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks[defendingStat] / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 - ennemyStats.breaks[defendingStat] / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
-            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * context.newJpDamageFormulaCoef / (ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100));
+            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100));
             
             result = {
                 "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,

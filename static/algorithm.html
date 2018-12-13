@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FFBE Equip - Algorithm</title>
+        <link rel="icon" type="image/png" href="img/icons/equipments/heavyArmor.png">
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="common.css">
+        <style>
+            img {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-xs-12">
+                <h1>FFBE Equip builder Algorithm</h1>
+                <p><span class="glyphicon glyphicon-warning-sign"></span>To make the explanation easier to understand and illustrate the algorithm, I'll imagine a unit that can only wear Dagger, Fist and Accessories</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Important tool : Item Pool</h2>
+                    </div>
+                    <div class="panel-body">
+                        An ItemPool is a tool that can determine which items in a set are strictly better than another item in that set for a given goal. Conditional items are kept out until Phase 3 :
+                        <img src="img/algo/ItemPool1.png">
+                        It first uses a complex comparison algorithm to determine the relation between the items, relative to the goal. Basically, it identifies which items are strictly better/worse than others. By "strictly worse", I mean : "this item can't be better than this other, in ALL cases, for this goal"
+                        <img src="img/algo/ItemPool2.png">
+                        When all items are sorted out, given the number of time item of this type can be used in a build, it will cull all items that have NO chance of being BiS, that is, items that have N or more strictly better items, where N is the maximum number of slot of a type that can appear in a build (2 for weapon and accessories, 1 for shields, head/body gears, 4 for materia)
+                        <img src="img/algo/ItemPool3.png">
+                        The kept items are the only one that will be considered when building. In the above case, if the user had 2x Marshal Glove, then Florid Hairpin wouldn't have been kept because there would have been 2 items strictly better, the two Marschal Gloves
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Algorithm, Phase 1 : First culling</h2>
+                    </div>
+                    <div class="panel-body">
+                        A big culling is made on the whole mass of available items, using one Item Pool by item type. Conditional items (like Champion Belt) are kept in a separate Set.
+                        <img src="img/algo/firstCulling.png">
+                        This phase remove most of the available items from further treatment.
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Algorithm, Phase 2 : Calculate type combinations</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>In this phase, the builder will calculate all combinations of item type the unit can wear. First it will calculate "innate" combinations, meaning what the unit can wear without additional gear, then it will try to add more combination by pinning some available items, to give the unit Dual Wield, or allow other type of item to be equiped (if this option is checked)</p>
+                        <p>Here is the result for my example unit, if I checked the 'Try "Allow use of <type>" items' option :</p>
+                        <img src="img/algo/TypeCombinations.png">
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Algorithm, Phase 3 : Iterate on type combination and find BiS build for each</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>That's where the heavy work is done, and when the builder starts to use multiple threads to solve the BiS faster.</p>
+                        <p>Basically, the builder iterates on the type combinations, and for each of them, find the BiS build that use that type combination. It then only keep the best build amongst those builds as the final result.</p>
+                        <p>This phase can further be explained in two sub-phase. I'll explain them by focusing on one type combination :</p>
+                        <img src="img/algo/oneTypeCombination.png">
+                        
+                        <h3>Phase 3-1 : Final culling</h3>
+                        <p>Now that a type combination is fixed, two things can be done :</p>
+                        <img src="img/algo/finalCulling1.png">
+                        <p>Resolved conditional items are added to the corresponding Item Pool, and number of item needed are adjusted :</p>
+                        <img src="img/algo/finalCulling2.png">
+                        
+                        <h3>Phase 3-2 : Brute Force, with a grain of finesse</h3>
+                        <p>All that is left is to try all the combinations of items kept. It's Brute Force time !</p>
+                        <p>However, Item Pool have another precious feature : you can fetch a top level item from it, and it will update the remaining items. So if item B is overshadowed by better item A, you won't be able to fetch B from the item pool until you first fetch item A out of it. That allows to do a Brute Force approach, but also guarantee than an item won't be tried if all better items are not already used, in order to further improve performance</p>
+                        <h4>For each combination of items, the value of the goal is calculated. The build that get the highest score wins the game !</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>

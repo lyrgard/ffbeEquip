@@ -1863,7 +1863,6 @@
 		"name":"杜克",
 		"wikiEntry":"Duke",
 		"id":"100010805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -1880,7 +1879,7 @@
 			"wikiEntry":"Duke",
 			"id":"100010805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -1906,7 +1905,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","hammer","mace","lightShield","hat","clothes","robe"]
+		"equip":["staff","rod","hammer","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Priestly Visage","Drake Slay Ritual","Drake Formation"]
 	},
 	"100011004": {
 		"name":"米斯提亞",
@@ -1937,7 +1937,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","harp","whip","hat","clothes","robe"]
+		"equip":["dagger","staff","harp","whip","hat","clothes","robe"],
+		"enhancementSkills":["Drakes Fog Dance","Dragon Blade Dance","Dragon Magic Dance"]
 	},
 	"100011203": {
 		"name":"柳南",
@@ -2066,7 +2067,6 @@
 		"name":"白蓮魔道士菲娜",
 		"wikiEntry":"Lotus_Mage Fina",
 		"id":"100011805",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2082,7 +2082,7 @@
 			"wikiEntry":"Lotus_Mage Fina",
 			"id":"100011805",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -2270,7 +2270,6 @@
 		"name":"庫西拉",
 		"wikiEntry":"Kunshira",
 		"id":"100012605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -2286,7 +2285,7 @@
 			"wikiEntry":"Kunshira",
 			"id":"100012605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4774,7 +4773,6 @@
 		"name":"優娜",
 		"wikiEntry":"Yuna",
 		"id":"210000205",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4790,7 +4788,7 @@
 			"wikiEntry":"Yuna",
 			"id":"210000205",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -4821,7 +4819,6 @@
 		"name":"露露",
 		"wikiEntry":"Lulu",
 		"id":"210000405",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -4837,7 +4834,7 @@
 			"wikiEntry":"Lulu",
 			"id":"210000405",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5242,7 +5239,6 @@
 		"name":"巴修",
 		"wikiEntry":"Basch",
 		"id":"212000905",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5258,7 +5254,7 @@
 			"wikiEntry":"Basch",
 			"id":"212000905",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -5601,6 +5597,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard"],
 		"6_form": {
 			"name":"格拉迪歐藍斯",
 			"wikiEntry":"Gladiolus",
@@ -5615,7 +5612,8 @@
 				"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Auto-Regen","King's Shield","Large Sword Mastery","Intercept","Royal Guard"]
 		}
 	},
 	"215000304": {
@@ -5631,7 +5629,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Tri-Guard","Sword Draw","Slaughtering Blade"]
 	},
 	"215000403": {
 		"name":"伊莉絲",
@@ -5646,7 +5645,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","fist","lightShield","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","staff","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Embolden","Get pumped everyone!","Give it your all!"]
 	},
 	"215000505": {
 		"name":"伊格尼斯",
@@ -5683,7 +5683,6 @@
 		"name":"艾拉妮亞",
 		"wikiEntry":"Aranea",
 		"id":"215000605",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
@@ -5699,7 +5698,7 @@
 			"wikiEntry":"Aranea",
 			"id":"215000605",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"female",
 			"stats": {
@@ -5715,7 +5714,6 @@
 		"name":"普羅恩普特",
 		"wikiEntry":"Prompto",
 		"id":"215000705",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5731,7 +5729,7 @@
 			"wikiEntry":"Prompto",
 			"id":"215000705",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -8838,6 +8836,68 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"]
+		}
+	},
+	"401006305": {
+		"name":"流行音樂巨星凱蒂",
+		"wikiEntry":"Popstar_Katy",
+		"id":"401006305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":150,"spr":166},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":50,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"流行音樂巨星凱蒂",
+			"wikiEntry":"Popstar_Katy",
+			"id":"401006305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2665,"mp":151,"atk":75,"def":101,"mag":115,"spr":127},
+				"minStats":{"hp":879,"mp":50,"atk":25,"def":33,"mag":38,"spr":42},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"]
+		}
+	},
+	"401006405": {
+		"name":"極光弗雷比亞",
+		"wikiEntry":"Aurora_Fryevia",
+		"id":"401006405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4571,"mp":255,"atk":195,"def":155,"mag":199,"spr":184},
+			"minStats":{"hp":1572,"mp":74,"atk":60,"def":45,"mag":70,"spr":49},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"極光弗雷比亞",
+			"wikiEntry":"Aurora_Fryevia",
+			"id":"401006405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"minStats":{"hp":1210,"mp":66,"atk":50,"def":39,"mag":60,"spr":42},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 		}
 	}
 }
