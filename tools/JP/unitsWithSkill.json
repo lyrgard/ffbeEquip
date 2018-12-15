@@ -6945,6 +6945,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["シールドストライク","斧盾の構え","アーマーイレイサー"],
 		"lb": {"name":"ジャンクションシールド","minEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"}],"maxEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 42% to all allies for 3 turns"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"精神+10%","id":"100160","icon":"ability_77.png","effects":[{"effect":{"spr%":10},"desc":"Increase SPR by 10%"}]},
@@ -6953,14 +6954,20 @@
 			{"name":"フォートレス","id":"207160","icon":"ability_85.png","effects":[{"effect":null,"desc":"Regenerate 340 (+8x, HP) when guarding"}]},
 			{"name":"不屈の心","id":"227304","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 1 times)"}]},
 			{"name":"斧盾の構え","id":"227303","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["axe"],"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20% when equipped with a Axe"}]},
+			{"name":"斧盾の構え +1","id":"707881","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["axe"],"def%":40,"spr%":40},"desc":"Increase DEF and SPR by 40% when equipped with a Axe"}]},
+			{"name":"斧盾の構え +2","id":"707882","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["axe"],"def%":60,"spr%":60},"desc":"Increase DEF and SPR by 60% when equipped with a Axe"}]},
 			{"name":"HP+20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]}
 		],
 		"actives": [
 			{"id":"207130","name":"ガードスマイト","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.4},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.4x, ATK) to one enemy"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"}]},
 			{"id":"227302","name":"デスペルバッシュ","icon":"ability_3.png","effects":[{"effect":null,"desc":"Remove all buffs and debuffs from one enemy"}]},
 			{"id":"227301","name":"シールドストライク","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":5,"use":{"stat":"spr","percent":100,"max":99999}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (5x, SPR) to one enemy"}]},
+			{"id":"707877","name":"シールドストライク +1","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":6,"use":{"stat":"spr","percent":100,"max":99999}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (6x, SPR) to one enemy"}]},
+			{"id":"707878","name":"シールドストライク +2","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.5,"use":{"stat":"spr","percent":100,"max":99999}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.5x, SPR) to one enemy"}]},
 			{"id":"226394","name":"スタンドアウト","icon":"ability_94.png","effects":[{"effect":{"drawAttacks":100,"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 2 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 30% to caster for 2 turns"}]},
 			{"id":"206510","name":"アーマーイレイサー","icon":"ability_39.png","effects":[{"effect":{"break":{"def":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to all enemies"}]},
+			{"id":"707879","name":"アーマーイレイサー +1","icon":"ability_39.png","effects":[{"effect":{"break":{"def":50,"spr":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 50% for 3 turns to all enemies"}]},
+			{"id":"707880","name":"アーマーイレイサー +2","icon":"ability_39.png","effects":[{"effect":{"break":{"def":50,"spr":50},"turns":4,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 50% for 4 turns to all enemies"}]},
 			{"id":"227300","name":"身代わりアイアンハート","icon":"ability_69.png","effects":[{"effect":null,"desc":"Defend one ally, except caster (reducing all damage by 75%) for 3 turns"},{"effect":{"statsBuff":{"spr":80},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase SPR by 80% for 3 turns to caster"}]}
 		],
 		"magics": [
@@ -7232,12 +7239,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],
 		"lb": {"name":"セレスティアルヒーリング","minEffects":[{"effect":null,"desc":"Restore 5840 (+30x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 121 (+0.2x, Heal) MP split over 3 turns to all allies"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all status effects by 100% for all allies for 3 turns"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100},{"name":"charm","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 8160 (+30x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 150 (+0.2x, Heal) MP split over 3 turns to all allies"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to all status effects by 100% for all allies for 3 turns"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100},{"name":"charm","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"HP+20%","id":"100020","icon":"ability_77.png","effects":[{"effect":{"hp%":20},"desc":"Increase HP by 20%"}]},
 			{"name":"プレゼント・HP","id":"227320","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507850,"name":"プレゼント・HP","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3200 (+9x, Heal) HP split over 3 turns to all allies"}]},"counterType":"physical","percent":40},"desc":"40% chance to counter physical attacks with プレゼント・HP (507850) to caster (max 1 / turn)"}]},
+			{"name":"プレゼント・HP +1","id":"707867","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507850,"name":"プレゼント・HP","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3200 (+9x, Heal) HP split over 3 turns to all allies"}]},"counterType":"physical","percent":50},"desc":"50% chance to counter physical attacks with プレゼント・HP (507850) to caster (max 1 / turn)"}]},
+			{"name":"プレゼント・HP +2","id":"707868","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507850,"name":"プレゼント・HP","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 3200 (+9x, Heal) HP split over 3 turns to all allies"}]},"counterType":"physical","percent":70},"desc":"70% chance to counter physical attacks with プレゼント・HP (507850) to caster (max 1 / turn)"}]},
 			{"name":"オートリフレシュ","id":"100740","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"プレゼント・MP","id":"227321","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507851,"name":"プレゼント・MP","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 80 MP split over 3 turns to all allies"}]},"counterType":"magical","percent":40},"desc":"40% chance to counter magic attacks with プレゼント・MP (507851) to caster (max 1 / turn)"}]},
+			{"name":"プレゼント・MP +1","id":"707869","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507851,"name":"プレゼント・MP","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 80 MP split over 3 turns to all allies"}]},"counterType":"magical","percent":50},"desc":"50% chance to counter magic attacks with プレゼント・MP (507851) to caster (max 1 / turn)"}]},
+			{"name":"プレゼント・MP +2","id":"707870","icon":"ability_68.png","effects":[{"effect":{"counterSkill":{"id":507851,"name":"プレゼント・MP","icon":"ability_92.png","effects":[{"effect":null,"desc":"Restore 80 MP split over 3 turns to all allies"}]},"counterType":"magical","percent":70},"desc":"70% chance to counter magic attacks with プレゼント・MP (507851) to caster (max 1 / turn)"}]},
 			{"name":"聖夜の誓い","id":"227325","icon":"ability_19.png","effects":[{"effect":null,"desc":"Increase Charm resistance by 100% to caster"},{"effect":{"resist":[{"name":"ice","percent":50}]},"desc":"Increase resistance to Ice by 30%"}]},
 			{"name":"MP+30%","id":"100060","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}]},
 			{"name":"精神+30%","id":"100180","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]},
@@ -7245,6 +7257,8 @@
 			{"name":"白雪の乙女","id":"227324","icon":"ability_78.png","effects":[{"effect":{"resist":[{"name":"ice","percent":20}]},"desc":"Increase resistance to Ice by 20%"},{"effect":{"lbFillRate":100},"desc":"Increase the limit burst gauge fill rate by 100%"},{"effect":{"equipedConditions":["staff"],"spr%":50},"desc":"Increase SPR by 50% when equipped with a Staff"},{"effect":{"equipedConditions":["harp"],"spr%":50},"desc":"Increase SPR by 50% when equipped with a Instrument"},{"effect":{"equipedConditions":["mace"],"spr%":50},"desc":"Increase SPR by 50% when equipped with a Mace"}]},
 			{"name":"純白の想い","id":"227329","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"def%":20,"spr%":20},"desc":"Increase DEF, SPR, HP and MP by 20%"},{"effect":{"resist":[{"name":"ice","percent":20},{"name":"light","percent":20}]},"desc":"Increase resistance to Ice and Light by 20%"},{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"}],"equipedConditions":[["504227328","401002400"]]},
 			{"name":"防御+20%","id":"100140","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"防御+30% +1","id":"707865","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
+			{"name":"T白魔法 +2","id":"707866","icon":"ability_5.png","effects":[{"effect":{"multicast":{"time":3,"type":"whiteMagic"}},"desc":"Gain Triple-cast White magic"}]},
 			{"name":"サンタの極意","id":"227330","icon":"ability_77.png","effects":[{"effect":{"lbPerTurn":{"min":2,"max":2}},"desc":"Increase LB gauge by 2 per turn"},{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]}
 		],
 		"actives": [
@@ -7254,6 +7268,8 @@
 			{"id":"227326","name":"デリバーウォール","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"def":80,"spr":80},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 80% for 3 turns to all allies"},{"effect":{"resist":[{"name":"break_atk","percent":100},{"name":"break_def","percent":100},{"name":"break_mag","percent":100},{"name":"break_spr","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to ATK, DEF, MAG and SPR by 100% for 3 turns to all allies"}]},
 			{"id":"227327","name":"ウォーミングハート","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 2600 (+10x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 60 MP split over 3 turns to all allies"},{"effect":null,"desc":"Increase LB gauge by 1-3 to all allies"}]},
 			{"id":"227331","name":"ホーリーリバイブ","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507852,"name":"ホーリーリバイブ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Auto-revive (80% HP) for 3 turns to all allies"},{"effect":null,"desc":"Restore 4500 (+25x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 130 (+0.1x, Heal) MP split over 3 turns to all allies"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock ホーリーリバイブ (507852) on turn 1 [6 turns CD]"}]},
+			{"id":"707863","name":"ホーリーリバイブ +1","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509680,"name":"ホーリーリバイブ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"},{"effect":null,"desc":"Restore 4500 (+25x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 130 (+0.1x, Heal) MP split over 3 turns to all allies"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock ホーリーリバイブ (509680) on turn 1 [6 turns CD]"}]},
+			{"id":"707864","name":"ホーリーリバイブ +2","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509681,"name":"ホーリーリバイブ","icon":"ability_105.png","effects":[{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to all allies"},{"effect":null,"desc":"Restore 7000 (+25x, Heal) HP split over 3 turns to all allies"},{"effect":null,"desc":"Restore 180 (+0.1x, Heal) MP split over 3 turns to all allies"}]},"cooldownTurns":6,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock ホーリーリバイブ (509681) on turn 1 [6 turns CD]"}]},
 			{"id":"227332","name":"リフレクトヴェール","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507853,"name":"リフレクトヴェール","icon":"ability_105.png","effects":[{"effect":{"resist":[{"name":"ice","percent":100},{"name":"light","percent":100}],"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Ice and Light by 100% for 3 turns to all allies"}]},"cooldownTurns":5,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock リフレクトヴェール (507853) on turn 1 [5 turns CD]"}]},
 			{"id":"227333","name":"パトロヌスガード","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507854,"name":"パトロヌスガード","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{"def":120,"spr":120},"turns":1,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 120% for one turn to all allies"},{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for one turn"}]},"cooldownTurns":3,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock パトロヌスガード (507854) on turn 1 [3 turns CD]"}]},
 			{"id":"227334","name":"フォールンスター","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507855,"name":"フォールンスター","icon":"ability_105.png","effects":[{"effect":{"imperil":{"ice":100,"light":100},"turns":1,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice and Light by 100% for one turn to all enemies"},{"effect":{"break":{"def":65,"spr":65},"turns":1,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF and SPR by 65% for one turn to all enemies"}]},"cooldownTurns":4,"startTurn":1,"area":"AOE","target":"ENEMY"},"desc":"Unlock フォールンスター (507855) on turn 1 [4 turns CD]"}]}
@@ -7823,9 +7839,9 @@
 			{"id":"707824","name":"流動の水 +2","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase resistance to Poison, Blind, Sleep and Silence by 100% for all allies for 5 turns"},{"effect":{"resist":[{"name":"break_def","percent":100},{"name":"break_spr","percent":100},{"name":"stop","percent":100}],"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase break resistance to DEF and SPR by 100% for 5 turns to all allies"},{"effect":null,"desc":"Increase Stop resistance by 100% for 5 turns to all allies"}]},
 			{"id":"228623","name":"マジックヒール","icon":"ability_92.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ALLY"},"desc":"Restore 210 MP to one ally"}]},
 			{"id":"228622","name":"ウォータースクリーン","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1800 (+10x, Heal) HP to all allies"},{"effect":null,"desc":"Restore 100 MP split over 3 turns to all allies"}]},
-			{"id":"228621","name":"ブルーミラージュ","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 150% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730)"}]},
-			{"id":"707817","name":"ブルーミラージュ +1","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 150% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730)"}]},
-			{"id":"707818","name":"ブルーミラージュ +2","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 300% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730)"}]},
+			{"id":"228621","name":"ブルーミラージュ","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 150% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730, 70444, 70445)"}]},
+			{"id":"707817","name":"ブルーミラージュ +1","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 150% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730, 70444, 70445)"}]},
+			{"id":"707818","name":"ブルーミラージュ +2","icon":"ability_23.png","effects":[{"effect":null,"desc":"Increase damage of the following skills by 300% for 3 turns:\n\tウォタガ (20230, 70190, 70200)\n\tウォタガV (20640)\n\tウォタジャ (20320)\n\tウォタラ (20110)\n\tウォータ (20040)\n\tウォータI (20580)\n\tゾウォタ (20760)\n\tフラッド (20380, 70434, 70435)\n\tフラッドII (20730, 70444, 70445)"}]},
 			{"id":"228628","name":"サーペントガード","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508641,"name":"サーペントガード","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken from physical attacks taken by 20% to all allies for one turn"},{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"}]},"cooldownTurns":2,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock サーペントガード (508641) on turn 1 [2 turns CD]"}]},
 			{"id":"228629","name":"セルリアンシェル","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508642,"name":"セルリアンシェル","icon":"ability_105.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for one turn"},{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"}]},"cooldownTurns":2,"startTurn":1,"area":"AOE","target":"ALLY"},"desc":"Unlock セルリアンシェル (508642) on turn 1 [2 turns CD]"}]},
 			{"id":"228630","name":"エンシェントアクアリウム","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":508643,"name":"エンシェントアクアリウム","icon":"ability_105.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 20% to all allies for one turn"},{"effect":null,"desc":"Restore 2500 (+18x, Heal) HP to all allies"}]},"cooldownTurns":5,"startTurn":5,"area":"AOE","target":"ALLY"},"desc":"Unlock エンシェントアクアリウム (508643) on turn 5 [5 turns CD]"}]},
@@ -8914,6 +8930,35 @@
 		"magics": [
 		]
 	},
+	"100021203": {
+		"name":"十四闘星のグドン",
+		"id":"100021203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3000,"mp":130,"atk":115,"def":115,"mag":100,"spr":115},
+			"minStats":{"hp":990,"mp":43,"atk":38,"def":38,"mag":33,"spr":38},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"lb": {"name":"俺様フルスイング！","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":30},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 30% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (7x * 2 = 14x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":30},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 30% for 3 turns to one enemy"}]},
+		"passives": [
+			{"name":"絶対強者！最強グドン様","id":"230825","icon":"ability_77.png","effects":[{"effect":{"atk%":20,"def%":20},"desc":"Increase ATK and DEF by 20%"}]},
+			{"name":"マザーラブ","id":"230826","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20},"desc":"Increase HP and MP by 20%"}]},
+			{"name":"十四闘星","id":"230827","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["mace"],"atk%":30},"desc":"Increase ATK by 30% when equipped with a Mace"}]},
+			{"name":"俺様三連撃！","id":"230824","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":3,"type":"skills","skills":[{"id":"230820","name":"アーマー性能強化！"},{"id":"230821","name":"武器凶悪度アップ！"},{"id":"230822","name":"バリア発生！"}]}},"desc":"Enable unit to use 3 of the following abilities in one turn:\n\tアーマー性能強化！ (230820)\n\tバリア発生！ (230822)\n\t武器凶悪度アップ！ (230821)"}]}
+		],
+		"actives": [
+			{"id":"230820","name":"アーマー性能強化！","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":50,"spr":50},"turns":10,"area":"SELF","target":"SELF"},"desc":"Increase DEF and SPR by 50% for 10 turns to caster"}]},
+			{"id":"230821","name":"武器凶悪度アップ！","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"atk":50},"turns":10,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 50% for 10 turns to caster"}]},
+			{"id":"230822","name":"バリア発生！","icon":"ability_43.png","effects":[{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 30% to caster for 10 turns"}]},
+			{"id":"230823","name":"こいつを喰らいな！","icon":"ability_10.png","effects":[{"effect":null,"desc":"Physical damage (1x, ATK) with consecutive damage increase (max. 30 times, +0.2x ATK each, 7x total) to one enemy"}]}
+		],
+		"magics": [
+		]
+	},
 	"100021304": {
 		"name":"Chocobo Rain",
 		"jpname":"レイン&チョコボ",
@@ -9254,6 +9299,7 @@
 	},
 	"100022205": {
 		"name":"フィーナ&チョコボ",
+		"jpname":"フィーナ&チョコボ",
 		"id":"100022205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -9461,8 +9507,92 @@
 		"magics": [
 		]
 	},
+	"100022805": {
+		"name":"ファイサリス",
+		"id":"100022805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4701,"mp":256,"atk":208,"def":160,"mag":150,"spr":150},
+			"minStats":{"hp":1551,"mp":84,"atk":69,"def":53,"mag":50,"spr":50},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"],
+		"lb": {"name":"シャワー・オブ・バレッツ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (2x, ATK) to all enemies"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of the following skills by 200% for 4 turns:\n\tフローズンバレット (230781)\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.45},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (3.45x, ATK) to all enemies"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.9,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (7.9x * 2 = 15.8x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of the following skills by 200% for 4 turns:\n\tフローズンバレット (230781)\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}]},
+		"passives": [
+			{"name":"期待の新星","id":"230793","icon":"ability_72.png","effects":[{"effect":{"equipedConditions":["gun"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Gun"},{"effect":{"partialDualWield":["gun"]},"desc":"Enable unit to equip two one-handed guns"}]},
+			{"name":"HP+30%","id":"100030","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}]},
+			{"name":"MP+20%","id":"100050","icon":"ability_77.png","effects":[{"effect":{"mp%":20},"desc":"Increase MP by 20%"}]},
+			{"name":"W最強技","id":"230784","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"509700","name":"局所アイスチャージャー"},{"id":"509701","name":"広域アイスチャージャー"},{"id":"509702","name":"F型最強アイス弾"},{"id":"509703","name":"F型最強アイス弾　改"},{"id":"509705","name":"いっぱい鍛える"},{"id":"509706","name":"もっといっぱい鍛える"},{"id":"509707","name":"友だち作戦 －変顔にらめっこ－"},{"id":"509708","name":"友だち作戦 －怖いプレゼント－"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tF型最強アイス弾 (509702)\n\tF型最強アイス弾　改 (509703)\n\tいっぱい鍛える (509705)\n\tもっといっぱい鍛える (509706)\n\t友だち作戦 －変顔にらめっこ－ (509707)\n\t友だち作戦 －怖いプレゼント－ (509708)\n\t局所アイスチャージャー (509700)\n\t広域アイスチャージャー (509701)"}]},
+			{"name":"終わりなき成長期","id":"230794","icon":"ability_91.png","effects":[{"effect":{"hp%":30,"mp%":30,"atk%":30},"desc":"Increase ATK, HP and MP by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
+			{"name":"攻撃+30%","id":"100090","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}]},
+			{"name":"グリの助け","id":"230796","icon":"ability_19.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Blind, Paralyze and Confusion by 100%"}]},
+			{"name":"二刀の極意","id":"230765","icon":"ability_72.png","effects":[{"effect":{"improvedDW":true},"desc":"Increase maximum true double-wield bonus to 200%"}]},
+			{"name":"受け継ぎし二つの血","id":"230797","icon":"ability_72.png","effects":[{"effect":{"dualWielding":{"atk":50}},"desc":"Increase equipment ATK by 50% when armed with two weapons"},{"effect":{"skillEnhancement":{"230789":1.5,"230792":1.5}},"desc":"Increase the damage of the following skills by (1.5x):\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}],"equipedConditions":[["504230770","313005500"]]},
+			{"name":"防御+20%","id":"100140","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"世界をひとつにする少女","id":"230798","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"mp%":20,"atk%":40},"desc":"Increase ATK by 40% and HP and MP by 20%"},{"effect":{"skillEnhancement":{"230789":1,"230792":1}},"desc":"Increase the damage of the following skills by (1x):\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}]}
+		],
+		"actives": [
+			{"id":"230780","name":"テトラショット","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1x, ATK) to one enemy"}]},
+			{"id":"230781","name":"フローズンバレット","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.7,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Physical ice damage (2.7x, ATK) to all enemies"},{"effect":{"imperil":{"ice":80},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 80% for 5 turns to all enemies"},{"effect":{"imbue":["ice"],"turns":5,"area":"SELF","target":"SELF"},"desc":"Add Ice element (100%) to physical attacks for 5 turns to caster"}]},
+			{"id":"509701","name":"広域アイスチャージャー","icon":"ability_22.png","effects":[{"effect":{"imbue":["ice"],"turns":1,"area":"AOE","target":"ALLY"},"desc":"Add Ice element (100%) to physical attacks for one turn to all allies"},{"effect":null,"desc":"Increase damage of F型最強アイス弾　改 (509703) by 1000% for one turn"}],"ifUsedLastTurn":[{"id":230791,"name":"タイプ・ハンティング"}]},
+			{"id":"509700","name":"局所アイスチャージャー","icon":"ability_22.png","effects":[{"effect":{"imbue":["ice"],"turns":1,"area":"ST","target":"ALLY"},"desc":"Add Ice element (100%) to physical attacks for one turn to one ally"},{"effect":null,"desc":"Increase damage of F型最強アイス弾 (509702) by 500% for one turn"}]},
+			{"id":"509703","name":"F型最強アイス弾　改","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3,"ignore":{"def":50},"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Physical ice damage (3x * 2 = 6x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of the following skills by 500% for 2 turns:\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}],"ifUsedLastTurn":[{"id":230791,"name":"タイプ・ハンティング"}]},
+			{"id":"509702","name":"F型最強アイス弾","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1,"ignore":{"def":50},"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Physical ice damage (1x * 2 = 2x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of the following skills by 300% for 2 turns:\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}]},
+			{"id":"230785","name":"ぐるぐるグリアタック","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.1x * 2 = 4.2x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Restore 250 MP split over 5 turns to caster"}]},
+			{"id":"230786","name":"ハチノス撃ち","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.75,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.75x * 2 = 5.5x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of the following skills by 50% for 6 turns:\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}]},
+			{"id":"509706","name":"もっといっぱい鍛える","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"atk":250},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for one turn to caster"},{"effect":null,"desc":"Increase damage of F型最強アイス弾　改 (509703) by 1000% for one turn"}],"ifUsedLastTurn":[{"id":230791,"name":"タイプ・ハンティング"}]},
+			{"id":"509705","name":"いっぱい鍛える","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"atk":200},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for one turn to caster"},{"effect":null,"desc":"Increase damage of F型最強アイス弾 (509702) by 500% for one turn"}]},
+			{"id":"509708","name":"友だち作戦 －怖いプレゼント－","icon":"ability_39.png","effects":[{"effect":{"break":{"def":70},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 70% for one turn to one enemy"},{"effect":null,"desc":"Increase damage of F型最強アイス弾　改 (509703) by 1000% for one turn"}],"ifUsedLastTurn":[{"id":230791,"name":"タイプ・ハンティング"}]},
+			{"id":"509707","name":"友だち作戦 －変顔にらめっこ－","icon":"ability_39.png","effects":[{"effect":{"break":{"def":60},"turns":1,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 60% for one turn to one enemy"},{"effect":null,"desc":"Increase damage of F型最強アイス弾 (509702) by 500% for one turn"}]},
+			{"id":"230789","name":"防氷装甲破壊弾","icon":"ability_40.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":0.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (0.5x, ATK) to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4.5x, ATK) to one enemy"},{"effect":{"imperil":{"ice":120},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice by 120% for 3 turns to one enemy"}]},
+			{"id":"230790","name":"タイプ・スピード","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509709,"name":"タイプ・スピード","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{"atk":200},"turns":11,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 11 turns to caster"},{"effect":null,"desc":"Increase damage of the following skills by 100% for 11 turns:\n\tプレミアムファイサリス弾 (230792)\n\t防氷装甲破壊弾 (230789)"}]},"cooldownTurns":10,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock タイプ・スピード (509709) on turn 1 [10 turns CD]"}]},
+			{"id":"509711","name":"IV最強技","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":4,"type":"skills","skills":[{"id":"509700","name":"局所アイスチャージャー"},{"id":"509701","name":"広域アイスチャージャー"},{"id":"509702","name":"F型最強アイス弾"},{"id":"509703","name":"F型最強アイス弾　改"},{"id":"509705","name":"いっぱい鍛える"},{"id":"509706","name":"もっといっぱい鍛える"},{"id":"509707","name":"友だち作戦 －変顔にらめっこ－"},{"id":"509708","name":"友だち作戦 －怖いプレゼント－"}]}},"desc":"Gain 4 uses of the following skills for one turn:\n\tF型最強アイス弾 (509702)\n\tF型最強アイス弾　改 (509703)\n\tいっぱい鍛える (509705)\n\tもっといっぱい鍛える (509706)\n\t友だち作戦 －変顔にらめっこ－ (509707)\n\t友だち作戦 －怖いプレゼント－ (509708)\n\t局所アイスチャージャー (509700)\n\t広域アイスチャージャー (509701)"}],"unlockedBy":["タイプ・ハンティング"]},
+			{"id":"230791","name":"タイプ・ハンティング","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":509710,"name":"タイプ・ハンティング","icon":"ability_105.png","effects":[{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 999 MP to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"509711","name":"IV最強技"}]}},"desc":"Gain 4 uses of the following skills for one turn:\n\tF型最強アイス弾 (509702)\n\tF型最強アイス弾　改 (509703)\n\tいっぱい鍛える (509705)\n\tもっといっぱい鍛える (509706)\n\t友だち作戦 －変顔にらめっこ－ (509707)\n\t友だち作戦 －怖いプレゼント－ (509708)\n\t局所アイスチャージャー (509700)\n\t広域アイスチャージャー (509701)"}]},"cooldownTurns":10,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock タイプ・ハンティング (509710) on turn 1 [10 turns CD]"}]},
+			{"id":"230792","name":"プレミアムファイサリス弾","icon":"ability_61.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":0.5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (0.5x * 2 = 1x, ATK) to one enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x * 2 = 5x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of プレミアムファイサリス弾 (230792) by 50% for 3 turns"}]}
+		],
+		"magics": [
+		]
+	},
+	"100022904": {
+		"name":"十三闘星のジュラガ",
+		"id":"100022904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3741,"mp":182,"atk":128,"def":128,"mag":120,"spr":120},
+			"minStats":{"hp":1235,"mp":60,"atk":42,"def":42,"mag":40,"spr":40},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","katana","spear","throwing","fist","hat","clothes"],
+		"lb": {"name":"縦横無刃","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.5x * 2 = 15x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"water":65,"wind":65},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Wind by 65% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10x * 2 = 20x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"water":65,"wind":65},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Water and Wind by 65% for 3 turns to all enemies"}]},
+		"passives": [
+			{"name":"卓越した脚力","id":"230809","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"evade":{"physical":10}},"desc":"10% chance of evading physical attacks"}]},
+			{"name":"孤独な獣人戦士","id":"230810","icon":"ability_19.png","effects":[{"effect":{"hp%":20,"atk%":20},"desc":"Increase ATK and HP by 20%"},{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
+			{"name":"風読みの心得","id":"230811","icon":"ability_12.png","effects":[{"effect":{"def%":20,"spr%":20},"desc":"Increase DEF and SPR by 20%"},{"effect":{"resist":[{"name":"wind","percent":30}]},"desc":"Increase resistance to Wind by 30%"}]},
+			{"name":"十三闘星","id":"230812","icon":"ability_18.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"water","percent":30}]},"desc":"Increase resistance to Water by 30%"},{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]}
+		],
+		"actives": [
+			{"id":"230800","name":"風纏いの牙","icon":"ability_25.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.8},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"imbue":["wind"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Wind element (100%) to physical attacks for 3 turns to caster"}]},
+			{"id":"230801","name":"壊風爪","icon":"ability_25.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.1x, ATK) to one enemy"},{"effect":{"imperil":{"wind":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Wind by 50% for 3 turns to one enemy"}]},
+			{"id":"230802","name":"水纏いの牙","icon":"ability_23.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.8},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":{"imbue":["water"],"turns":3,"area":"SELF","target":"SELF"},"desc":"Add Water element (100%) to physical attacks for 3 turns to caster"}]},
+			{"id":"230803","name":"崩水爪","icon":"ability_23.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.1x, ATK) to one enemy"},{"effect":{"imperil":{"water":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 50% for 3 turns to one enemy"}]},
+			{"id":"230804","name":"石化刃","icon":"ability_14.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Petrify (75%) on one enemy"}]},
+			{"id":"230805","name":"疾風連刃","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (3.2x, ATK) to all enemies"}]},
+			{"id":"230806","name":"影爪撃","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.8},"area":"ST","target":"ENEMY"},"desc":"Physical damage (1.8x, ATK) to one enemy"},{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"}]},
+			{"id":"230808","name":"二連双牙","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[]}},"desc":"Gain 2 uses of the following skills for one turn:\n\t獣王双牙 (230807)"}],"unlockedBy":["獣王双牙"]},
+			{"id":"230807","name":"獣王双牙","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (2.5x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"230808","name":"二連双牙"}]}},"desc":"Gain 2 uses of the following skills for one turn:\n\t獣王双牙 (230807)"}]}
+		],
+		"magics": [
+		]
+	},
 	"100023404": {
 		"name":"アトリ",
+		"jpname":"アトリ",
 		"id":"100023404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -9500,6 +9630,7 @@
 	},
 	"100023503": {
 		"name":"テッセン",
+		"jpname":"テッセン",
 		"id":"100023503",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -11707,6 +11838,7 @@
 	},
 	"205001105": {
 		"name":"光の戦士バッツ",
+		"jpname":"光の戦士バッツ",
 		"id":"205001105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11761,6 +11893,7 @@
 	},
 	"205001205": {
 		"name":"光の戦士レナ",
+		"jpname":"光の戦士レナ",
 		"id":"205001205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -14281,6 +14414,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["デヴォーション","ロランベリーを讃えるなのです","ロランベリー好き"],
 		"lb": {"name":"クピピのとっておき","minEffects":[{"effect":null,"desc":"Restore 2260 (+9.6x, Heal) HP to all allies"},{"effect":{"statsBuff":{"def":80,"spr":80},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 80% for 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":{"statsBuff":{"def":104,"spr":104},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 104% for 3 turns to all allies"}]},
 		"passives": [
 			{"name":"オートリジェネ","id":"100730","icon":"ability_91.png","effects":[{"effect":null,"desc":"Gain リジェネ(オート用) (10121) at the start of a battle or when revived"}]},
@@ -14291,6 +14425,8 @@
 			{"name":"毒舌家","id":"227256","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100}]},"desc":"Increase resistance to Poison by 100%"}]},
 			{"name":"片手棍スキル・B+","id":"227255","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["mace"],"mp%":20,"spr%":20},"desc":"Increase SPR and MP by 20% when equipped with a Mace"}]},
 			{"name":"ロランベリー好き","id":"227257","icon":"ability_77.png","effects":[{"effect":{"mp%":20,"spr%":10},"desc":"Increase MP by 20% and SPR by 10%"}]},
+			{"name":"ロランベリー好き +1","id":"707887","icon":"ability_77.png","effects":[{"effect":{"mp%":30,"spr%":20},"desc":"Increase MP by 30% and SPR by 20%"}]},
+			{"name":"ロランベリー好き +2","id":"707888","icon":"ability_77.png","effects":[{"effect":{"mp%":40,"spr%":30},"desc":"Increase MP by 40% and SPR by 30%"}]},
 			{"name":"W白魔法","id":"213980","icon":"ability_5.png","effects":[{"effect":{"multicast":{"time":2,"type":"whiteMagic"}},"desc":"Gain Dual-cast White magic"}]}
 		],
 		"actives": [
@@ -14299,7 +14435,11 @@
 			{"id":"210170","name":"守ってやるなの！","icon":"ability_43.png","effects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 20% to all allies for 3 turns"}]},
 			{"id":"227252","name":"セラフストライク","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":3.6,"use":{"stat":"spr","percent":100,"max":9999},"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic* light damage (3.6x, SPR) to one enemy"}]},
 			{"id":"227250","name":"デヴォーション","icon":"ability_4.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ALLY_BUT_SELF"},"desc":"Restore 90 MP to one ally, except caster"},{"effect":null,"desc":"30% HP damage to caster"}]},
+			{"id":"707883","name":"デヴォーション +1","icon":"ability_4.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ALLY_BUT_SELF"},"desc":"Restore 100 MP to one ally, except caster"},{"effect":null,"desc":"20% HP damage to caster"}]},
+			{"id":"707884","name":"デヴォーション +2","icon":"ability_4.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ALLY_BUT_SELF"},"desc":"Restore 110 MP to one ally, except caster"},{"effect":null,"desc":"10% HP damage to caster"}]},
 			{"id":"227253","name":"ロランベリーを讃えるなのです","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1000 (+3.4x, Heal) HP to all allies"},{"effect":null,"desc":"Cure Poison, Blind, Sleep, Silence, Paralyze and Confusion for all allies"}]},
+			{"id":"707885","name":"ロランベリーを讃えるなのです +1","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 2000 (+3.4x, Heal) HP to all allies"},{"effect":null,"desc":"Cure Poison, Blind, Sleep, Silence, Paralyze and Confusion for all allies"}]},
+			{"id":"707886","name":"ロランベリーを讃えるなのです +2","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 2000 (+3.4x, Heal) HP to all allies"},{"effect":null,"desc":"Cure Poison, Blind, Sleep, Silence, Paralyze and Confusion for all allies"},{"effect":null,"desc":"Remove DEF and SPR debuff from all allies"}]},
 			{"id":"504220","name":"T白魔法","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"body","coef":null,"jump":true,"elements":["light"]},"area":"SELF","target":"SELF"},"desc":"Gain Triple-cast White magic"}],"unlockedBy":["ハートオブソラス"]},
 			{"id":"227251","name":"ハートオブソラス","icon":"ability_63.png","effects":[{"effect":{"statsBuff":{"spr":150},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase SPR by 150% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"504220","name":"T白魔法"}]}},"desc":"Grant Triple-cast White magic for 2 turns to caster"}]}
 		],
@@ -14400,6 +14540,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"],
 		"lb": {"name":"ブチ切れ","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":9.1,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (9.1x * 2 = 18.2x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":40,"ice":40,"lightning":40,"water":40,"wind":40,"earth":40},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 40% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"20630","name":"ストンガV"},{"id":"20640","name":"ウォタガV"},{"id":"20650","name":"エアロガV"},{"id":"20660","name":"ファイガV"},{"id":"20670","name":"ブリザガV"},{"id":"20680","name":"サンダガV"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tウォタガV (20640)\n\tエアロガV (20650)\n\tサンダガV (20680)\n\tストンガV (20630)\n\tファイガV (20660)\n\tブリザガV (20670)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":12,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (12x * 2 = 24x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":70,"ice":70,"lightning":70,"water":70,"wind":70,"earth":70},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 70% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"20630","name":"ストンガV"},{"id":"20640","name":"ウォタガV"},{"id":"20650","name":"エアロガV"},{"id":"20660","name":"ファイガV"},{"id":"20670","name":"ブリザガV"},{"id":"20680","name":"サンダガV"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\tウォタガV (20640)\n\tエアロガV (20650)\n\tサンダガV (20680)\n\tストンガV (20630)\n\tファイガV (20660)\n\tブリザガV (20670)"}]},
 		"passives": [
 			{"name":"カモフラージュ","id":"101350","icon":"ability_84.png","effects":[{"effect":null,"desc":"Reduce chance of being targeted by 50%"}]},
@@ -14407,13 +14548,19 @@
 			{"name":"レジストパライズ","id":"227204","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"paralysis","percent":100}]},"desc":"Increase resistance to Paralyze by 100%"}]},
 			{"name":"レジストペトリ","id":"227203","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"petrification","percent":100}]},"desc":"Increase resistance to Petrify by 100%"}]},
 			{"name":"『口の院』元院長","id":"227201","icon":"ability_77.png","effects":[{"effect":{"mp%":50,"mag%":30,"spr%":30},"desc":"Increase MP by 50% and MAG and SPR by 30%"}]},
+			{"name":"『口の院』元院長 +1","id":"707851","icon":"ability_77.png","effects":[{"effect":{"mp%":50,"def%":30,"mag%":30,"spr%":30},"desc":"Increase MP by 50% and DEF, MAG and SPR by 30%"}]},
+			{"name":"『口の院』元院長 +2","id":"707852","icon":"ability_77.png","effects":[{"effect":{"mp%":50,"def%":50,"mag%":50,"spr%":50},"desc":"Increase DEF, MAG, SPR and MP by 50%"}]},
 			{"name":"オートリフレシュ","id":"100740","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"}]},
 			{"name":"クリアマインド","id":"227202","icon":"ability_91.png","effects":[{"effect":{"mpRefresh":5},"desc":"Recover MP (5%) per turn"},{"effect":{"lbPerTurn":{"min":1,"max":1}},"desc":"Increase LB gauge by 1 per turn"}]},
 			{"name":"精霊魔法スキル・A+","id":"227206","icon":"ability_77.png","effects":[{"effect":{"mag%":50},"desc":"Increase MAG by 50%"}]},
+			{"name":"精霊魔法スキル・A+ +1","id":"707847","icon":"ability_77.png","effects":[{"effect":{"mag%":70},"desc":"Increase MAG by 70%"}]},
+			{"name":"精霊魔法スキル・A+ +2","id":"707848","icon":"ability_77.png","effects":[{"effect":{"mag%":100},"desc":"Increase MAG by 100%"},{"effect":{"skillEnhancement":{"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}},"desc":"Increase the damage of the following skills by (2x):\n\tフラッドII (20730, 70444, 70445)\n\tフレアII (20700, 70446, 70447)"},{"effect":{"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3}},"desc":"Increase the damage of the following skills by (3x):\n\tウォータI (20580)\n\tエアロI (20590)\n\tサンダーI (20620)\n\tストーンI (20570)\n\tファイアI (20600)\n\tブリザドI (20610)"},{"effect":{"skillEnhancement":{"20630":5,"20640":5,"20650":5,"20660":5,"20670":5,"20680":5}},"desc":"Increase the damage of the following skills by (5x):\n\tウォタガV (20640)\n\tエアロガV (20650)\n\tサンダガV (20680)\n\tストンガV (20630)\n\tファイガV (20660)\n\tブリザガV (20670)"}]},
 			{"name":"ファストキャスト","id":"227196","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":2,"type":"magic"}},"desc":"Gain Dual-cast all magic"}]},
 			{"name":"連続魔","id":"227197","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":3,"type":"magic"}},"desc":"Gain Triple-cast all magic"}],"equipedConditions":[["310003700","504227209"]]},
 			{"name":"両手棍スキル・A+","id":"227207","icon":"ability_76.png","effects":[{"effect":{"singleWielding":{"mag":60}},"desc":"Increase equipment MAG by 60% when armed with a single weapon"}]},
 			{"name":"防御+20%","id":"100140","icon":"ability_77.png","effects":[{"effect":{"def%":20},"desc":"Increase DEF by 20%"}]},
+			{"name":"防御+30% +1","id":"707849","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
+			{"name":"ブチ切れましたわ！ +2","id":"707850","icon":"ability_105.png","effects":[{"effect":null,"desc":"Unlock ブチ切れましたわ！ (509670) on turn 1 [6 turns CD]"}]},
 			{"name":"わたくし、ブチ切れますわよ？","id":"227208","icon":"ability_68.png","effects":[{"effect":{"mag%":40},"desc":"Increase MAG by 40%"},{"effect":{"counterSkill":{"id":507691,"name":"わたくし、ブチ切れますわよ？","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"physical","percent":20},"desc":"20% chance to counter physical attacks with わたくし、ブチ切れますわよ？ (507691) to caster (max 1 / turn)"},{"effect":{"counterSkill":{"id":507691,"name":"わたくし、ブチ切れますわよ？","icon":"ability_4.png","effects":[{"effect":null,"desc":"Increase LB gauge by 3 to caster"}]},"counterType":"magical","percent":20},"desc":"20% chance to counter magic attacks with わたくし、ブチ切れますわよ？ (507691) to caster (max 1 / turn)"}]}
 		],
 		"actives": [
@@ -14421,6 +14568,8 @@
 			{"id":"227193","name":"ドクターオーダー","icon":"ability_26.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":11.2,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Magic dark damage (11.2x, MAG) to one enemy"},{"effect":{"imperil":{"earth":60,"dark":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Earth and Dark by 60% for 3 turns to one enemy"}]},
 			{"id":"227195","name":"レッスンインペイン","icon":"ability_23.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":11,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (11x, MAG) to one enemy"},{"effect":{"imperil":{"ice":60,"water":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Ice and Water by 60% for 3 turns to one enemy"}]},
 			{"id":"227191","name":"マナウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for 2 turns"},{"effect":null,"desc":"Grant a 500 HP shield to all allies for 2 turns"}]},
+			{"id":"707845","name":"マナウォール +1","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 20% to all allies for 3 turns"},{"effect":null,"desc":"Grant a 500 HP shield to all allies for 3 turns"}]},
+			{"id":"707846","name":"マナウォール +2","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to all allies for 3 turns"},{"effect":null,"desc":"Grant a 1000 HP shield to all allies for 3 turns"}]},
 			{"id":"227200","name":"コロッサル・シャントット","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":3.2,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Magic dark damage (3.2x, MAG) to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 30% to caster for one turn"},{"effect":{"statsBuff":{"def":120,"spr":120},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase DEF and SPR by 120% for one turn to caster"}]},
 			{"id":"227194","name":"エンピリカルリサーチ","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":10.8,"elements":["lightning"]},"area":"ST","target":"ENEMY"},"desc":"Magic lightning damage (10.8x, MAG) to one enemy"},{"effect":{"imperil":{"lightning":60,"wind":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning and Wind by 60% for 3 turns to one enemy"}]},
 			{"id":"227192","name":"ファイナルエクザム","icon":"ability_5.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":11.5,"elements":["light"]},"area":"ST","target":"ENEMY"},"desc":"Magic light damage (11.5x, MAG) to one enemy"},{"effect":{"imperil":{"fire":60,"light":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Light by 60% for 3 turns to one enemy"}]},
@@ -14442,7 +14591,11 @@
 			{"id":"20680","name":"サンダガV","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.75,"stack":2.5,"maxStack":3,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (2.75x, MAG) with consecutive damage increase (max. 3 times, +2.5x MAG each, 10.25x total) to all enemies"}],"magic":"black","unlockedBy":["精霊の印"]},
 			{"id":"20690","name":"バイオIII","icon":"ability_24.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.2,"elements":["dark"]},"area":"ST","target":"ENEMY"},"desc":"Magic dark damage (1.2x, MAG) to one enemy"},{"effect":{"break":{"atk":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK by 50% for 5 turns to one enemy"}],"magic":"black"},
 			{"id":"20730","name":"フラッドII","icon":"ability_35.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (7x, MAG) to one enemy"},{"effect":{"imperil":{"water":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 50% for 3 turns to one enemy"}],"magic":"black"},
-			{"id":"20700","name":"フレアII","icon":"ability_30.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (7x, MAG) to one enemy"},{"effect":{"imperil":{"fire":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 50% for 3 turns to one enemy"}],"magic":"black"}
+			{"id":"70444","name":"フラッドII +1","icon":"ability_35.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (7x, MAG) to one enemy"},{"effect":{"imperil":{"water":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 3 turns to one enemy"}],"magic":"black"},
+			{"id":"70445","name":"フラッドII +2","icon":"ability_35.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (1x, MAG) to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"elements":["water"]},"area":"ST","target":"ENEMY"},"desc":"Magic water damage (6x, MAG) to one enemy"},{"effect":{"imperil":{"water":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 3 turns to one enemy"}],"magic":"black"},
+			{"id":"20700","name":"フレアII","icon":"ability_30.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (7x, MAG) to one enemy"},{"effect":{"imperil":{"fire":50},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 50% for 3 turns to one enemy"}],"magic":"black"},
+			{"id":"70446","name":"フレアII +1","icon":"ability_30.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (7x, MAG) to one enemy"},{"effect":{"imperil":{"fire":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 75% for 3 turns to one enemy"}],"magic":"black"},
+			{"id":"70447","name":"フレアII +2","icon":"ability_30.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (1x, MAG) to one enemy"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (6x, MAG) to one enemy"},{"effect":{"imperil":{"fire":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire by 100% for 3 turns to one enemy"}],"magic":"black"}
 		]
 	},
 	"211000905": {
@@ -14459,15 +14612,22 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"],
 		"lb": {"name":"テラスラッシュ","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (15.1x, ATK) (ignore cover) to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (80%) or deal physical damage (18x, ATK) (ignore cover) to all enemies"}]},
 		"passives": [
 			{"name":"剣の極意","id":"209530","icon":"ability_95.png","effects":[{"effect":{"equipedConditions":["sword"],"atk%":50},"desc":"Increase ATK by 50% when equipped with a Sword"}]},
 			{"name":"語り部の憎悪","id":"227234","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"},{"effect":null,"desc":"Increase ATK by 150% for 3 turns when HP drops below 50% (max 9999x)"}]},
 			{"name":"闇の守護者","id":"227235","icon":"ability_98.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"},{"effect":{"resist":[{"name":"dark","percent":100}]},"desc":"Increase resistance to Dark by 100%"}]},
-			{"name":"全てを否定する力","id":"227232","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":{"skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1}},"desc":"Increase the damage of the following skills by (1x):\n\tオブリビオンスマッシュ (507704, 507705)\n\tクロススマッシュ (507706, 507707)\n\tダイナミクアサルト (507700, 507701)\n\tダイナミクインプロージョン (507708, 507709)\n\tドゥームアーク (507710, 507711)\n\tバイオレントラプチャー (507702, 507703)"}],"equipedConditions":[["504227237","302005800"]]},
+			{"name":"全てを否定する力","id":"227232","icon":"ability_19.png","effects":[{"effect":{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}]},"desc":"Increase resistance to all status effects by 100%"},{"effect":{"skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1,"509672":1,"509673":1,"509674":1,"509675":1,"509676":1,"509677":1,"509678":1,"509679":1}},"desc":"Increase the damage of the following skills by (1x):\n\tオブリビオンスマッシュ (507704, 507705)\n\tクロススマッシュ (507706, 507707)\n\tダイナミクアサルト (507700, 507701)\n\tダイナミクインプロージョン (507708, 507709, 509676, 509677, 509678, 509679)\n\tドゥームアーク (507710, 507711, 509672, 509673, 509674, 509675)\n\tバイオレントラプチャー (507702, 507703)"}],"equipedConditions":[["504227237","302005800"]]},
 			{"name":"シャドウロード","id":"227236","icon":"ability_77.png","effects":[{"effect":{"singleWielding":{"atk":100,"accuracy":25}},"desc":"Increase equipment ATK by 100% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase Accuracy by 25% when armed with a single weapon"}]},
+			{"name":"シャドウロード +1","id":"707859","icon":"ability_77.png","effects":[{"effect":{"singleWielding":{"atk":150,"accuracy":25}},"desc":"Increase equipment ATK by 150% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase Accuracy by 25% when armed with a single weapon"}]},
+			{"name":"シャドウロード +2","id":"707860","icon":"ability_77.png","effects":[{"effect":{"singleWielding":{"atk":200,"accuracy":25}},"desc":"Increase equipment ATK by 200% when armed with a single weapon"},{"effect":{"dualWielding":{"atk":30}},"desc":"Increase Accuracy by 25% when armed with a single weapon"}]},
 			{"name":"精神+20%","id":"100170","icon":"ability_77.png","effects":[{"effect":{"spr%":20},"desc":"Increase SPR by 20%"}]},
-			{"name":"不滅の理","id":"227233","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]}
+			{"name":"精神+30% +1","id":"707861","icon":"ability_77.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"}]},
+			{"name":"デュナミスロード +2","id":"707862","icon":"ability_8.png","effects":[{"effect":{"multicast":{"time":2,"type":"skills","skills":[{"id":"227220","name":"トランスフュージョン"},{"id":"227221","name":"マナシュトロム"},{"id":"227222","name":"スポーンシャドウ"},{"id":"227223","name":"ソーマウォール"},{"id":"227224","name":"スペルウォール"},{"id":"227231","name":"ブラッドウェポン"},{"id":"507701","name":"ダイナミクアサルト"},{"id":"507703","name":"バイオレントラプチャー"},{"id":"507705","name":"オブリビオンスマッシュ"},{"id":"507707","name":"クロススマッシュ"},{"id":"507709","name":"ダイナミクインプロージョン"},{"id":"507711","name":"ドゥームアーク"},{"id":"507700","name":"ダイナミクアサルト"},{"id":"507702","name":"バイオレントラプチャー"},{"id":"507704","name":"オブリビオンスマッシュ"},{"id":"507706","name":"クロススマッシュ"},{"id":"507708","name":"ダイナミクインプロージョン"},{"id":"507710","name":"ドゥームアーク"},{"id":"509673","name":"ドゥームアーク"},{"id":"509675","name":"ドゥームアーク"},{"id":"509672","name":"ドゥームアーク"},{"id":"509674","name":"ドゥームアーク"},{"id":"509676","name":"ダイナミクインプロージョン"},{"id":"509677","name":"ダイナミクインプロージョン"},{"id":"509678","name":"ダイナミクインプロージョン"},{"id":"509679","name":"ダイナミクインプロージョン"}]}},"desc":"Enable unit to use 2 of the following abilities in one turn:\n\tオブリビオンスマッシュ (507705, 507704)\n\tクロススマッシュ (507707, 507706)\n\tスペルウォール (227224)\n\tスポーンシャドウ (227222)\n\tソーマウォール (227223)\n\tダイナミクアサルト (507701, 507700)\n\tダイナミクインプロージョン (507709, 507708, 509676, 509677, 509678, 509679)\n\tトランスフュージョン (227220)\n\tドゥームアーク (507711, 507710, 509673, 509675, 509672, 509674)\n\tバイオレントラプチャー (507703, 507702)\n\tブラッドウェポン (227231)\n\tマナシュトロム (227221)"}]},
+			{"name":"不滅の理","id":"227233","icon":"ability_41.png","effects":[{"effect":null,"desc":"50% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30},"desc":"Increase DEF by 30%"}]},
+			{"name":"不滅の理 +1","id":"707857","icon":"ability_41.png","effects":[{"effect":null,"desc":"75% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30%"}]},
+			{"name":"不滅の理 +2","id":"707858","icon":"ability_41.png","effects":[{"effect":null,"desc":"100% chance to ignore fatal damage when HP is above 40% (max 3 times)"},{"effect":{"def%":30,"spr%":30},"desc":"Increase DEF and SPR by 30%"}]}
 		],
 		"actives": [
 			{"id":"507701","name":"ダイナミクアサルト","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.25},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.25x, ATK) to one enemy"},{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Petrify (60%) on one enemy"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
@@ -14484,8 +14644,16 @@
 			{"id":"227224","name":"スペルウォール","icon":"ability_43.png","effects":[{"effect":null,"desc":"Reduce damage taken by magic attacks by 30% to caster for 3 turns"},{"effect":null,"desc":"Restore 150 MP split over 3 turns to caster"}]},
 			{"id":"507709","name":"ダイナミクインプロージョン","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (18x, ATK) to all enemies"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
 			{"id":"507708","name":"ダイナミクインプロージョン","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (7.2x, ATK) to all enemies"}]},
+			{"id":"509677","name":"ダイナミクインプロージョン +1","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (25.5x, ATK) to all enemies"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
+			{"id":"509676","name":"ダイナミクインプロージョン +1","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (14.7x, ATK) to all enemies"}]},
+			{"id":"509679","name":"ダイナミクインプロージョン +2","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (33x, ATK) to all enemies"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
+			{"id":"509678","name":"ダイナミクインプロージョン +2","icon":"ability_26.png","effects":[{"effect":null,"desc":"Sacrifice 60% HP to deal physical dark damage (22.2x, ATK) to all enemies"}]},
 			{"id":"507711","name":"ドゥームアーク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (13x, ATK) to one enemy"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
 			{"id":"507710","name":"ドゥームアーク","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (5.2x, ATK) to one enemy"}]},
+			{"id":"509673","name":"ドゥームアーク +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (18x, ATK) to one enemy"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
+			{"id":"509672","name":"ドゥームアーク +1","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (10.2x, ATK) to one enemy"}]},
+			{"id":"509675","name":"ドゥームアーク +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (23x, ATK) to one enemy"}],"ifUsedLastTurn":[{"id":227231,"name":"ブラッドウェポン"}]},
+			{"id":"509674","name":"ドゥームアーク +2","icon":"ability_54.png","effects":[{"effect":null,"desc":"Sacrifice 30% HP to deal physical damage (15.2x, ATK) to one enemy"}]},
 			{"id":"227231","name":"ブラッドウェポン","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507712,"name":"ブラッドウェポン","icon":"ability_105.png","effects":[{"effect":null,"desc":"30% HP damage to caster"},{"effect":{"statsBuff":{"atk":250},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for 2 turns to caster"},{"effect":{"statsBuff":{"def":-50},"turns":2,"area":"SELF","target":"SELF"},"desc":"Reduce DEF by 50% for 2 turns to caster"},{"effect":null,"desc":"Restore 19998 HP split over 2 turns to caster"}]},"cooldownTurns":4,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock ブラッドウェポン (507712) on turn 1 [4 turns CD]"}]},
 			{"id":"227222","name":"スポーンシャドウ","icon":"ability_97.png","effects":[{"effect":null,"desc":"Dodge 2 physical attacks for 3 turns to caster"},{"effect":null,"desc":"Auto-revive (100% HP) for 3 turns to caster"}]}
 		],
@@ -14506,10 +14674,15 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["トラバーサー石の供給者","剣闘士のマドリガル","アビセアからの来訪者"],
 		"lb": {"name":"救世を願う歌","minEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 100% for 3 turns to all allies while singing"}],"maxEffects":[{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"},{"effect":null,"desc":"Restore 850 (+6x, Heal) HP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Restore 10 (+0.3x, Heal) MP split over 3 turns to all allies while singing"},{"effect":null,"desc":"Increase DEF and SPR by 124% for 3 turns to all allies while singing"}]},
 		"passives": [
 			{"name":"トラバーサー石の供給者","id":"227247","icon":"ability_77.png","effects":[{"effect":{"hp%":20,"def%":30},"desc":"Increase DEF by 30% and HP by 20%"}]},
-			{"name":"アビセアからの来訪者","id":"227248","icon":"ability_19.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"}]}
+			{"name":"トラバーサー石の供給者 +1","id":"707873","icon":"ability_77.png","effects":[{"effect":{"hp%":30,"def%":40},"desc":"Increase DEF by 40% and HP by 30%"}]},
+			{"name":"トラバーサー石の供給者 +2","id":"707874","icon":"ability_77.png","effects":[{"effect":{"hp%":40,"def%":50},"desc":"Increase DEF by 50% and HP by 40%"}]},
+			{"name":"アビセアからの来訪者","id":"227248","icon":"ability_19.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"resist":[{"name":"confuse","percent":100}]},"desc":"Increase resistance to Confusion by 100%"}]},
+			{"name":"アビセアからの来訪者 +1","id":"707875","icon":"ability_19.png","effects":[{"effect":{"spr%":30},"desc":"Increase SPR by 30%"},{"effect":{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Silence and Confusion by 100%"}]},
+			{"name":"アビセアからの来訪者 +2","id":"707876","icon":"ability_19.png","effects":[{"effect":{"spr%":50},"desc":"Increase SPR by 50%"},{"effect":{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},"desc":"Increase resistance to Silence and Confusion by 100%"}]}
 		],
 		"actives": [
 			{"id":"507721","name":"戦士達のピーアン","icon":"ability_100.png","effects":[{"effect":null,"desc":"Restore 5000 (+60x, Heal) HP split over 2 turns to all allies while singing"}],"ifUsedLastTurn":[{"id":227246,"name":"ソウルボイス"}]},
@@ -14522,6 +14695,10 @@
 			{"id":"507722","name":"魔道士のバラード","icon":"ability_100.png","effects":[{"effect":null,"desc":"Restore 50 (+0.6x, Heal) MP split over 2 turns to all allies while singing"}]},
 			{"id":"507731","name":"剣闘士のマドリガル","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 2 turns to all allies"}],"ifUsedLastTurn":[{"id":227246,"name":"ソウルボイス"}]},
 			{"id":"507730","name":"剣闘士のマドリガル","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 100% for 2 turns to all allies"}]},
+			{"id":"509684","name":"剣闘士のマドリガル +1","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 250% for 2 turns to all allies"}],"ifUsedLastTurn":[{"id":227246,"name":"ソウルボイス"}]},
+			{"id":"509683","name":"剣闘士のマドリガル +1","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 150% for 2 turns to all allies"}]},
+			{"id":"509686","name":"剣闘士のマドリガル +2","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for 2 turns to all allies"}],"ifUsedLastTurn":[{"id":227246,"name":"ソウルボイス"}]},
+			{"id":"509685","name":"剣闘士のマドリガル +2","icon":"ability_100.png","effects":[{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 2 turns to all allies"}]},
 			{"id":"507729","name":"無敵の進撃マーチ","icon":"ability_100.png","effects":[{"effect":null,"desc":"40% chance to counter physical attacks to the rest of the party with physical damage (2x, ATK) for 2 turns (max 2 / turn)"}],"ifUsedLastTurn":[{"id":227246,"name":"ソウルボイス"}]},
 			{"id":"507728","name":"無敵の進撃マーチ","icon":"ability_100.png","effects":[{"effect":null,"desc":"30% chance to counter physical attacks to the rest of the party with physical damage (1x, ATK) for 2 turns (max 2 / turn)"}]},
 			{"id":"227246","name":"ソウルボイス","icon":"ability_105.png","effects":[{"effect":{"cooldownSkill":{"id":507732,"name":"ソウルボイス","icon":"ability_105.png","effects":[{"effect":{"statsBuff":{},"turns":0,"area":"SELF","target":"SELF"},"desc":"No effect"}]},"cooldownTurns":3,"startTurn":1,"area":"SELF","target":"SELF"},"desc":"Unlock ソウルボイス (507732) on turn 1 [3 turns CD]"}]}
@@ -18615,7 +18792,7 @@
 		],
 		"actives": [
 			{"id":"205590","name":"ベギラマ","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
-			{"id":"205620","name":"べホイミ","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1500 (+3.4x, Heal) HP to one ally"}]},
+			{"id":"205620","name":"ベホイミ","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1500 (+3.4x, Heal) HP to one ally"}]},
 			{"id":"205630","name":"ラリホー","icon":"ability_14.png","effects":[{"effect":{"noUse":true,"area":"ST","target":"ENEMY"},"desc":"Inflict Sleep (40%) on one enemy"}]},
 			{"id":"205580","name":"メラゾーマ","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (1.8x, MAG) to one enemy"}]},
 			{"id":"205600","name":"ベギラゴン","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.8,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.8x, MAG) to all enemies"}]},
@@ -19052,7 +19229,7 @@
 			{"id":"205720","name":"いなずま斬り","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.6,"elements":["lightning"]},"area":"ST","target":"ENEMY"},"desc":"Physical lightning damage (1.6x, ATK) to one enemy"}]},
 			{"id":"205930","name":"ギラ","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.3,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.3x, MAG) to all enemies"}]},
 			{"id":"227043","name":"ひょうけつ斬り","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"hybrid","coef":1.8,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Hybrid ice damage (1.8x, ATK & MAG) to one enemy"}]},
-			{"id":"205620","name":"べホイミ","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1500 (+3.4x, Heal) HP to one ally"}]},
+			{"id":"205620","name":"ベホイミ","icon":"ability_4.png","effects":[{"effect":null,"desc":"Restore 1500 (+3.4x, Heal) HP to one ally"}]},
 			{"id":"205590","name":"ベギラマ","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Magic lightning damage (1.4x, MAG) to all enemies"}]},
 			{"id":"205690","name":"全身全霊斬り","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3},"area":"ST","target":"ENEMY"},"desc":"Physical damage (3x, ATK) to one enemy"}]},
 			{"id":"707719","name":"全身全霊斬り +1","icon":"ability_10.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4},"area":"ST","target":"ENEMY"},"desc":"Physical damage (4x, ATK) to one enemy"}]},

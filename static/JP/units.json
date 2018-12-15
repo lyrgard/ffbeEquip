@@ -2992,7 +2992,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["シールドストライク","斧盾の構え","アーマーイレイサー"]
 	},
 	"100016403": {
 		"name":"Domino",
@@ -3116,6 +3117,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"],
 		"6_form": {
 			"name":"Santa Roselia",
 			"jpname":"サンタローゼリア",
@@ -3130,7 +3132,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["staff","harp","mace","lightShield","hat","clothes","robe"]
+			"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["プレゼント・HP","プレゼント・MP","ホーリーリバイブ","防御+20%"]
 		}
 	},
 	"100017105": {
@@ -3935,6 +3938,20 @@
 			"equip":["dagger","staff","rod","harp","whip","gun","mace","lightShield","hat","clothes","lightArmor","heavyArmor","robe"]
 		}
 	},
+	"100021203": {
+		"name":"十四闘星のグドン",
+		"id":"100021203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3000,"mp":130,"atk":115,"def":115,"mag":100,"spr":115},
+			"minStats":{"hp":990,"mp":43,"atk":38,"def":38,"mag":33,"spr":38},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
 	"100021304": {
 		"name":"Chocobo Rain",
 		"jpname":"レイン&チョコボ",
@@ -4105,6 +4122,7 @@
 	},
 	"100022205": {
 		"name":"フィーナ&チョコボ",
+		"jpname":"フィーナ&チョコボ",
 		"id":"100022205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4118,6 +4136,7 @@
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
 		"6_form": {
 			"name":"フィーナ&チョコボ",
+			"jpname":"フィーナ&チョコボ",
 			"id":"100022205",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -4208,8 +4227,52 @@
 		"stats_pattern":1,
 		"equip":["dagger","bow","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
 	},
+	"100022805": {
+		"name":"ファイサリス",
+		"id":"100022805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4701,"mp":256,"atk":208,"def":160,"mag":150,"spr":150},
+			"minStats":{"hp":1551,"mp":84,"atk":69,"def":53,"mag":50,"spr":50},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"],
+		"6_form": {
+			"name":"ファイサリス",
+			"id":"100022805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3616,"mp":196,"atk":160,"def":123,"mag":115,"spr":115},
+				"minStats":{"hp":1193,"mp":65,"atk":53,"def":41,"mag":38,"spr":38},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"]
+		}
+	},
+	"100022904": {
+		"name":"十三闘星のジュラガ",
+		"id":"100022904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3741,"mp":182,"atk":128,"def":128,"mag":120,"spr":120},
+			"minStats":{"hp":1235,"mp":60,"atk":42,"def":42,"mag":40,"spr":40},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","katana","spear","throwing","fist","hat","clothes"]
+	},
 	"100023404": {
 		"name":"アトリ",
+		"jpname":"アトリ",
 		"id":"100023404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4224,6 +4287,7 @@
 	},
 	"100023503": {
 		"name":"テッセン",
+		"jpname":"テッセン",
 		"id":"100023503",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5215,6 +5279,7 @@
 	},
 	"205001105": {
 		"name":"光の戦士バッツ",
+		"jpname":"光の戦士バッツ",
 		"id":"205001105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5228,6 +5293,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
 			"name":"光の戦士バッツ",
+			"jpname":"光の戦士バッツ",
 			"id":"205001105",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -5244,6 +5310,7 @@
 	},
 	"205001205": {
 		"name":"光の戦士レナ",
+		"jpname":"光の戦士レナ",
 		"id":"205001205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5257,6 +5324,7 @@
 		"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"光の戦士レナ",
+			"jpname":"光の戦士レナ",
 			"id":"205001205",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -6472,7 +6540,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","mace","hat","clothes","robe"]
+		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["デヴォーション","ロランベリーを讃えるなのです","ロランベリー好き"]
 	},
 	"211000405": {
 		"name":"Prishe",
@@ -6521,6 +6590,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"],
 		"6_form": {
 			"name":"Livid Shantotto",
 			"jpname":"ブチ切れシャントット",
@@ -6535,7 +6605,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["『口の院』元院長","精霊魔法スキル・A+","マナウォール","フラッドII","フレアII","防御+20%"]
 		}
 	},
 	"211000905": {
@@ -6552,6 +6623,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"],
 		"6_form": {
 			"name":"Shadow Lord",
 			"jpname":"闇の王",
@@ -6566,7 +6638,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ダイナミクインプロージョン","ドゥームアーク","シャドウロード","精神+20%","不滅の理"]
 		}
 	},
 	"211001004": {
@@ -6582,7 +6655,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["トラバーサー石の供給者","剣闘士のマドリガル","アビセアからの来訪者"]
 	},
 	"212000103": {
 		"name":"Vaan",
