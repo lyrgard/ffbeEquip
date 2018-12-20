@@ -2159,7 +2159,7 @@
 		"skills": [
 			{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\t疾風の剣 (501960)\n\t疾風迅雷 (501980)\n\t迅雷の剣 (501970)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\t疾風の剣 (501960)\n\t疾風迅雷 (501980)\n\t迅雷の剣 (501970)"}]}, "equipedConditions":[["504213800","303004500"]]},
+			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"キングダムオーダー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"疾風の剣"},{"id":"501970","name":"迅雷の剣"},{"id":"501980","name":"疾風迅雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain 疾風の剣 (501960), 疾風迅雷 (501980) and 迅雷の剣 (501970) for 3 turns"}]}, "equipedConditions":[["504213800","303004500"]]},
 			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["katana"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":105},
@@ -2392,7 +2392,7 @@
 		"enhancementSkills":["緋蒼ノ剣","八連刃","鎧を捨てし英雄","王国の傑士"],
 		"enhancements": [
 			{"name":"鎧を捨てし英雄","levels":[[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"levelCondition":105}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"atk%":25,"levelCondition":105}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"atk%":50,"levelCondition":105}]]},
-			{"name":"王国の傑士","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"replaceLb":{"name":"闇討チ払ウ緋蒼ノ剣","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x, ATK) to all enemies"},{"effect":{"imperil":{"fire":76,"ice":76},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 76% for 3 turns to all enemies"},{"effect":null,"desc":"Increase damage of the following skills by 1400% for 2 turns:\n\t八連刃 (228081, 707783, 707784)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":21},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x, ATK) to all enemies"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 5 turns to all enemies"},{"effect":null,"desc":"Increase damage of the following skills by 1400% for 2 turns:\n\t八連刃 (228081, 707783, 707784)"}]},"levelCondition":120}]]}
+			{"name":"王国の傑士","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"replaceLb":{"name":"闇討チ払ウ緋蒼ノ剣","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x, ATK) to all enemies"},{"effect":{"imperil":{"fire":76,"ice":76},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 76% for 3 turns to all enemies"},{"effect":null,"desc":"Increase damage of 八連刃 (228081, 707783, 707784) by 1400% for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":21},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x, ATK) to all enemies"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 5 turns to all enemies"},{"effect":null,"desc":"Increase damage of 八連刃 (228081, 707783, 707784) by 1400% for 2 turns"}]},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":30, "mag%":20, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
@@ -2510,7 +2510,7 @@
 		],
 		"skills": [
 			{"def%":20, "spr%":30},
-			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"竜哭のマドリガル","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t竜声の残響 (507974)"}]}, "equipedConditions":[["403043300","316001800"]]},
+			{"spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "replaceLb":{"name":"竜哭のマドリガル","minEffects":[{"effect":null,"desc":"Increase all stats by 105% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain 竜声の残響 (507974) (1 use)"}],"maxEffects":[{"effect":null,"desc":"Increase all stats by 134% for one turn to all allies while singing"},{"effect":null,"desc":"Restore 390 (+2.7x, Heal) HP split over one turn to all allies while singing"},{"effect":null,"desc":"Restore 7 (+0.17x, Heal) MP split over one turn to all allies while singing"},{"effect":{"gainSkills":{"turns":-1,"skills":[{"id":"507974","name":"竜声の残響"}]},"area":"SELF","target":"SELF"},"desc":"Gain 竜声の残響 (507974) (1 use)"}]}, "equipedConditions":[["403043300","316001800"]]},
 			{"def%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "levelCondition":120}
 		],
@@ -2755,7 +2755,7 @@
 		],
 		"skills": [
 			{"hp%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-			{"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}], "replaceLb":{"name":"蝦蟇忍法・雷電","minEffects":[{"effect":{"damage":{"mecanism":"physical","coef":21.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (21.4x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503400","name":"煉獄刹焼斬"},{"id":"503410","name":"轟雷撃衝陣"},{"id":"227963","name":"闇龍咆絶破"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\t煉獄刹焼斬 (503400)\n\t轟雷撃衝陣 (503410)\n\t闇龍咆絶破 (227963)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","coef":27.2,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (27.2x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503400","name":"煉獄刹焼斬"},{"id":"503410","name":"轟雷撃衝陣"},{"id":"227963","name":"闇龍咆絶破"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 3 turns:\n\t煉獄刹焼斬 (503400)\n\t轟雷撃衝陣 (503410)\n\t闇龍咆絶破 (227963)"}]}, "equipedConditions":[["409015000","304003200"]]},
+			{"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}], "replaceLb":{"name":"蝦蟇忍法・雷電","minEffects":[{"effect":{"damage":{"mecanism":"physical","coef":21.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (21.4x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503400","name":"煉獄刹焼斬"},{"id":"503410","name":"轟雷撃衝陣"},{"id":"227963","name":"闇龍咆絶破"}]},"area":"SELF","target":"SELF"},"desc":"Gain 煉獄刹焼斬 (503400), 轟雷撃衝陣 (503410) and 闇龍咆絶破 (227963) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","coef":27.2,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (27.2x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503400","name":"煉獄刹焼斬"},{"id":"503410","name":"轟雷撃衝陣"},{"id":"227963","name":"闇龍咆絶破"}]},"area":"SELF","target":"SELF"},"desc":"Gain 煉獄刹焼斬 (503400), 轟雷撃衝陣 (503410) and 闇龍咆絶破 (227963) for 3 turns"}]}, "equipedConditions":[["409015000","304003200"]]},
 			{"atk%":50, "mag%":50, "skillEnhancement":{"503400":6.1,"503410":4.3}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "dualWielding":{"atk":40,"mag":40}, "levelCondition":120}
@@ -3505,7 +3505,7 @@
 			{"spr%":20, "equipedConditions":["hat"]},
 			{"spr%":20, "equipedConditions":["clothes"]},
 			{"hp%":30, "atk%":30, "equipedConditions":["fist"]},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"六華仙裂","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"開眼・閃"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t格闘術・凪心 (224690)\n\t格闘術・壊盾突 (228062)\n\t格闘術・帰根復命 (228063)\n\t格闘術・操気天衝 (224660, 707607, 707608)\n\t格闘術・操気滅昇 (224650)\n\t格闘術・操気裂天 (224670)\n\t格闘術・炎闘気 (224700)\n\t格闘術・燃心 (228061)\n\t格闘術・覇気爆散 (224640)\n\t格闘術・討仇拳 (224720)\n\t格闘術・醒眼掌 (228060)\n\t格闘術・闘双掌 (224630)\n\t格闘術・闘神連撃 (224680, 707609, 707610)\n\t格闘術・雷闘気 (224710)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"開眼・閃"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t格闘術・凪心 (224690)\n\t格闘術・壊盾突 (228062)\n\t格闘術・帰根復命 (228063)\n\t格闘術・操気天衝 (224660, 707607, 707608)\n\t格闘術・操気滅昇 (224650)\n\t格闘術・操気裂天 (224670)\n\t格闘術・炎闘気 (224700)\n\t格闘術・燃心 (228061)\n\t格闘術・覇気爆散 (224640)\n\t格闘術・討仇拳 (224720)\n\t格闘術・醒眼掌 (228060)\n\t格闘術・闘双掌 (224630)\n\t格闘術・闘神連撃 (224680, 707609, 707610)\n\t格闘術・雷闘気 (224710)"}]}, "equipedConditions":[["309002400","405005200"]]},
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"六華仙裂","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"開眼・閃"}]}},"desc":"Gain 3 uses of 格闘術・ skills  [凪心 (224690) / 壊盾突 (228062) / 帰根復命 (228063) / 操気天衝 (224660, 707607, 707608) / 操気滅昇 (224650) / 操気裂天 (224670) / 炎闘気 (224700) / 燃心 (228061) / 覇気爆散 (224640) / 討仇拳 (224720) / 醒眼掌 (228060) / 闘双掌 (224630) / 闘神連撃 (224680, 707609, 707610) / 雷闘気 (224710)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"開眼・閃"}]}},"desc":"Gain 3 uses of 格闘術・ skills  [凪心 (224690) / 壊盾突 (228062) / 帰根復命 (228063) / 操気天衝 (224660, 707607, 707608) / 操気滅昇 (224650) / 操気裂天 (224670) / 炎闘気 (224700) / 燃心 (228061) / 覇気爆散 (224640) / 討仇拳 (224720) / 醒眼掌 (228060) / 闘双掌 (224630) / 闘神連撃 (224680, 707609, 707610) / 雷闘気 (224710)] for one turn"}]}, "equipedConditions":[["309002400","405005200"]]},
 			{"resist":[{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"spr%":20, "levelCondition":115},
@@ -4299,7 +4299,7 @@
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":30, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5},
 			{"hp%":20, "mp%":20, "equipedConditions":["harp"]},
-			{"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100}], "replaceLb":{"name":"女王のパストラール","minEffects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":115,"def":115,"mag":115,"spr":115},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 115% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t虹翼のグリッサンド (228110)"}],"maxEffects":[{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":145,"def":145,"mag":145,"spr":145},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 145% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t虹翼のグリッサンド (228110)"}]}, "equipedConditions":[["316002000","408004200"]]},
+			{"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100}], "replaceLb":{"name":"女王のパストラール","minEffects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":115,"def":115,"mag":115,"spr":115},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 115% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain 虹翼のグリッサンド (228110) (1 use)"}],"maxEffects":[{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":145,"def":145,"mag":145,"spr":145},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 145% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain 虹翼のグリッサンド (228110) (1 use)"}]}, "equipedConditions":[["316002000","408004200"]]},
 			{"def%":20, "levelCondition":115},
 			{"spr%":30, "equipedConditions":["harp"], "levelCondition":120},
 			{"resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30}], "equipedConditions":["harp"], "levelCondition":120}
@@ -5364,7 +5364,8 @@
 		}
 	},
 	"100021203": {
-		"name":"十四闘星のグドン",
+		"name":"Gudon",
+		"jpname":"十四闘星のグドン",
 		"id":"100021203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5604,7 +5605,7 @@
 		]
 	},
 	"100022205": {
-		"name":"フィーナ&チョコボ",
+		"name":"Chocobo Fina",
 		"jpname":"フィーナ&チョコボ",
 		"id":"100022205",
 		"max_rarity":"7",
@@ -5626,7 +5627,7 @@
 			{"def%":20, "spr%":20, "dualWielding":{"spr":40}, "skillEnhancement":{"230740":2,"230745":2,"230746":2,"230750":2,"509663":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"フィーナ&チョコボ",
+			"name":"Chocobo Fina",
 			"jpname":"フィーナ&チョコボ",
 			"id":"100022205",
 			"sixStarForm":true,
@@ -5746,7 +5747,8 @@
 		]
 	},
 	"100022805": {
-		"name":"ファイサリス",
+		"name":"Faisalith",
+		"jpname":"ファイサリス",
 		"id":"100022805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5766,7 +5768,8 @@
 			{"hp%":20, "mp%":20, "atk%":40, "skillEnhancement":{"230789":1,"230792":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ファイサリス",
+			"name":"Faisalith",
+			"jpname":"ファイサリス",
 			"id":"100022805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -5786,7 +5789,8 @@
 		}
 	},
 	"100022904": {
-		"name":"十三闘星のジュラガ",
+		"name":"Juraga",
+		"jpname":"十三闘星のジュラガ",
 		"id":"100022904",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5803,7 +5807,7 @@
 		]
 	},
 	"100023404": {
-		"name":"アトリ",
+		"name":"Atri",
 		"jpname":"アトリ",
 		"id":"100023404",
 		"max_rarity":"6",
@@ -5822,7 +5826,7 @@
 		]
 	},
 	"100023503": {
-		"name":"テッセン",
+		"name":"Tessen",
 		"jpname":"テッセン",
 		"id":"100023503",
 		"max_rarity":"5",
@@ -6342,7 +6346,7 @@
 		"skills": [
 			{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"トゥインクルソード","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of the following skills by 300% for 5 turns:\n\tオニオンシュレッダー (228551)\n\tオニオンメテオ (508622)\n\tハックトゥピーシーズ (508620)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of the following skills by 300% for 5 turns:\n\tオニオンシュレッダー (228551)\n\tオニオンメテオ (508622)\n\tハックトゥピーシーズ (508620)"}]}, "equipedConditions":[["504228565","302007100"]]},
+			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"トゥインクルソード","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of オニオンシュレッダー (228551), オニオンメテオ (508622) and ハックトゥピーシーズ (508620) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of オニオンシュレッダー (228551), オニオンメテオ (508622) and ハックトゥピーシーズ (508620) by 300% for 5 turns"}]}, "equipedConditions":[["504228565","302007100"]]},
 			{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120}
@@ -7059,7 +7063,7 @@
 		],
 		"skills": [
 			{"hp%":70, "mp%":40, "atk%":60, "def%":60, "mag%":40, "spr%":40, "jumpDamage":100, "lbPerTurn":{"min":3,"max":3}, "mpRefresh":5, "skillEnhancement":{"203990":3,"204020":3,"227482":3,"507934":3,"507935":3,"507936":3,"507937":3,"701350":3,"701360":3,"701490":3,"701500":3}},
-			{"dualWielding":{"atk":30}, "replaceLb":{"name":"ギルガメッシュチェーンジ！！","minEffects":[{"effect":{"statsBuff":{"atk":91,"def":91,"mag":91,"spr":91},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 91% for 5 turns to caster"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 4 turns:\n\t【秘剣】エクスカリバー (507934)\n\t【秘剣】斬鉄剣 (507936)\n\t【秘剣】村正 (507935)\n\t【秘剣】源氏の刀 (507937)"}],"maxEffects":[{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 5 turns to caster"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for 4 turns:\n\t【秘剣】エクスカリバー (507934)\n\t【秘剣】斬鉄剣 (507936)\n\t【秘剣】村正 (507935)\n\t【秘剣】源氏の刀 (507937)"}]}, "equipedConditions":[["409008100","404003100"]]},
+			{"dualWielding":{"atk":30}, "replaceLb":{"name":"ギルガメッシュチェーンジ！！","minEffects":[{"effect":{"statsBuff":{"atk":91,"def":91,"mag":91,"spr":91},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 91% for 5 turns to caster"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}]},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"}],"maxEffects":[{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 5 turns to caster"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507934","name":"【秘剣】エクスカリバー"},{"id":"507935","name":"【秘剣】村正"},{"id":"507936","name":"【秘剣】斬鉄剣"},{"id":"507937","name":"【秘剣】源氏の刀"}]},"area":"SELF","target":"SELF"},"desc":"Gain 【秘剣】 skills  [エクスカリバー (507934) / 斬鉄剣 (507936) / 村正 (507935) / 源氏の刀 (507937)] for 4 turns"}]}, "equipedConditions":[["409008100","404003100"]]},
 			{"lbPerTurn":{"min":1,"max":1}, "skillEnhancement":{"203990":1,"204020":1,"701350":1,"701360":1,"701490":1,"701500":1}, "levelCondition":105},
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["greatSword"], "levelCondition":115},
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["sword"], "levelCondition":115},
@@ -7215,7 +7219,7 @@
 		}
 	},
 	"205001105": {
-		"name":"光の戦士バッツ",
+		"name":"Light Warrior Bartz",
 		"jpname":"光の戦士バッツ",
 		"id":"205001105",
 		"max_rarity":"7",
@@ -7236,7 +7240,7 @@
 			{"atk%":40, "skillEnhancement":{"230661":1.5,"230664":1.5,"230665":1.5,"230666":1.5,"509623":1.5,"509624":0.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"光の戦士バッツ",
+			"name":"Light Warrior Bartz",
 			"jpname":"光の戦士バッツ",
 			"id":"205001105",
 			"sixStarForm":true,
@@ -7257,7 +7261,7 @@
 		}
 	},
 	"205001205": {
-		"name":"光の戦士レナ",
+		"name":"Light Warrior Lenna",
 		"jpname":"光の戦士レナ",
 		"id":"205001205",
 		"max_rarity":"7",
@@ -7277,7 +7281,7 @@
 			{"spr%":40, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"光の戦士レナ",
+			"name":"Light Warrior Lenna",
 			"jpname":"光の戦士レナ",
 			"id":"205001205",
 			"sixStarForm":true,
@@ -9958,7 +9962,7 @@
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"replaceLb":{"name":"賢者の炎","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tエンハンス・氷 (507873)\n\tエンハンス・火 (507872)\n\tエンハンス・雷 (507874)"}]}, "equipedConditions":[["409020400","301003300"]]},
+			{"replaceLb":{"name":"賢者の炎","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain エンハンス・ skills  [氷 (507873) / 火 (507872) / 雷 (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"エンハンス・火"},{"id":"507873","name":"エンハンス・氷"},{"id":"507874","name":"エンハンス・雷"}]},"area":"SELF","target":"SELF"},"desc":"Gain エンハンス・ skills  [氷 (507873) / 火 (507872) / 雷 (507874)] for one turn"}]}, "equipedConditions":[["409020400","301003300"]]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":50, "mag%":40, "spr%":40, "levelCondition":120}
@@ -10055,7 +10059,7 @@
 		],
 		"skills": [
 			{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"トリガーハッピー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tブレイクブロー (508080)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\tブレイクブロー (508080)"}]}, "equipedConditions":[["504221550","313003700"]]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"トリガーハッピー","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain ブレイクブロー (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"ブレイクブロー"}]},"area":"SELF","target":"SELF"},"desc":"Gain ブレイクブロー (508080) for one turn (1 use)"}]}, "equipedConditions":[["504221550","313003700"]]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"lbDamage":30, "levelCondition":120},
@@ -11090,7 +11094,7 @@
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":80, "mag%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5},
-			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"絶対零度","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t絶剣・天泣 (228331)\n\t絶剣・暮雨 (508520)\n\t絶剣・氷雨 (228332)\n\t絶剣・驟雨 (228333)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\t絶剣・暮雨 (508520)"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of the following skills for one turn:\n\t絶剣・天泣 (228331)\n\t絶剣・暮雨 (508520)\n\t絶剣・氷雨 (228332)\n\t絶剣・驟雨 (228333)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills for one turn:\n\t絶剣・暮雨 (508520)"}]}, "equipedConditions":[["409023400","302006600"]]},
+			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"絶対零度","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of 絶剣・ skills  [天泣 (228331) / 暮雨 (508520) / 氷雨 (228332) / 驟雨 (228333)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain 絶剣・暮雨 (508520) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"三連絶剣"}]}},"desc":"Gain 3 uses of 絶剣・ skills  [天泣 (228331) / 暮雨 (508520) / 氷雨 (228332) / 驟雨 (228333)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"絶剣・暮雨"}]},"area":"SELF","target":"SELF"},"desc":"Gain 絶剣・暮雨 (508520) for one turn"}]}, "equipedConditions":[["409023400","302006600"]]},
 			{"def%":20, "levelCondition":115},
 			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],
@@ -12137,7 +12141,7 @@
 		],
 		"skills": [
 			{"hp%":10, "atk%":10, "def%":10, "dualWielding":{"atk":60}, "resist":[{"name":"poison","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "special":["dualWield"]},
-			{"atk%":40, "skillEnhancement":{"502110":3,"502140":3,"502170":3,"502200":3,"502210":3,"502260":3,"502270":3,"502290":5,"502300":5,"507750":3,"507753":3,"507756":3,"507759":3,"507760":3,"507762":3,"507763":3,"507765":3,"507768":3,"507771":3,"507774":3,"507775":3,"507777":3,"507778":3,"509463":3,"509464":3}, "replaceLb":{"name":"真・黄龍剣","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of 真・分身剣 (230311) by 500% for 2 turns"},{"effect":null,"desc":"Increase damage of the following skills by 300% for 2 turns:\n\t五月雨斬り (230310)\n\t亜空間斬り (502200, 502210, 507759, 507760, 507774, 507775)\n\t剣閃 (502260, 502270, 507762, 507763, 507777, 507778)\n\t極意・亜空間斬り (509463)\n\t極意・剣閃 (509464)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509463","name":"極意・亜空間斬り"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t極意・亜空間斬り (509463)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509464","name":"極意・剣閃"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t極意・剣閃 (509464)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.15,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.15x * 2 = 30.3x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of 真・分身剣 (230311) by 500% for 2 turns"},{"effect":null,"desc":"Increase damage of the following skills by 300% for 2 turns:\n\t五月雨斬り (230310)\n\t亜空間斬り (502200, 502210, 507759, 507760, 507774, 507775)\n\t剣閃 (502260, 502270, 507762, 507763, 507777, 507778)\n\t極意・亜空間斬り (509463)\n\t極意・剣閃 (509464)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509463","name":"極意・亜空間斬り"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t極意・亜空間斬り (509463)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509464","name":"極意・剣閃"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t極意・剣閃 (509464)"}]}, "equipedConditions":[["302003600","504230244"]]},
+			{"atk%":40, "skillEnhancement":{"502110":3,"502140":3,"502170":3,"502200":3,"502210":3,"502260":3,"502270":3,"502290":5,"502300":5,"507750":3,"507753":3,"507756":3,"507759":3,"507760":3,"507762":3,"507763":3,"507765":3,"507768":3,"507771":3,"507774":3,"507775":3,"507777":3,"507778":3,"509463":3,"509464":3}, "replaceLb":{"name":"真・黄龍剣","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of 真・分身剣 (230311) by 500% for 2 turns"},{"effect":null,"desc":"Increase damage of 五月雨斬り (230310), 亜空間斬り (502200, 502210, 507759, 507760, 507774, 507775), 剣閃 (502260, 502270, 507762, 507763, 507777, 507778), 極意・亜空間斬り (509463) and 極意・剣閃 (509464) by 300% for 2 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509463","name":"極意・亜空間斬り"}]},"area":"SELF","target":"SELF"},"desc":"Gain 極意・亜空間斬り (509463) (1 use)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509464","name":"極意・剣閃"}]},"area":"SELF","target":"SELF"},"desc":"Gain 極意・剣閃 (509464) (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.15,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.15x * 2 = 30.3x, ATK) to one enemy (ignore cover)"},{"effect":null,"desc":"Increase damage of 真・分身剣 (230311) by 500% for 2 turns"},{"effect":null,"desc":"Increase damage of 五月雨斬り (230310), 亜空間斬り (502200, 502210, 507759, 507760, 507774, 507775), 剣閃 (502260, 502270, 507762, 507763, 507777, 507778), 極意・亜空間斬り (509463) and 極意・剣閃 (509464) by 300% for 2 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509463","name":"極意・亜空間斬り"}]},"area":"SELF","target":"SELF"},"desc":"Gain 極意・亜空間斬り (509463) (1 use)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"509464","name":"極意・剣閃"}]},"area":"SELF","target":"SELF"},"desc":"Gain 極意・剣閃 (509464) (1 use)"}]}, "equipedConditions":[["302003600","504230244"]]},
 			{"spr%":30, "levelCondition":105},
 			{"def%":20, "levelCondition":115},
 			{"skillEnhancement":{"230310":2,"230311":2,"509460":2}, "levelCondition":120},
@@ -12459,7 +12463,7 @@
 		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "evoMag":30, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
-			{"atk%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "replaceLb":{"name":"光弾槍","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.6},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.6x, ATK) to all enemies"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508472","name":"明星の加護"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t明星の加護 (508472)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.4},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (13.4x, ATK) to all enemies"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508472","name":"明星の加護"}]},"area":"SELF","target":"SELF"},"desc":"Gain access to following skills (1 use):\n\t明星の加護 (508472)"}]}, "equipedConditions":[["404002500","504228277"]]},
+			{"atk%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "replaceLb":{"name":"光弾槍","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.6},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.6x, ATK) to all enemies"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508472","name":"明星の加護"}]},"area":"SELF","target":"SELF"},"desc":"Gain 明星の加護 (508472) (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.4},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (13.4x, ATK) to all enemies"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508472","name":"明星の加護"}]},"area":"SELF","target":"SELF"},"desc":"Gain 明星の加護 (508472) (1 use)"}]}, "equipedConditions":[["404002500","504228277"]]},
 			{"atk%":20, "mag%":20, "spr%":20, "resist":[{"name":"wind","percent":40},{"name":"petrification","percent":100}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"evoMag":40, "skillEnhancement":{"220370":3,"220380":4,"707342":4,"707343":4}, "levelCondition":120},
@@ -13452,6 +13456,92 @@
 		"skills": [
 			{"mp%":20, "mag%":20}
 		]
+	},
+	"335000105": {
+		"name":"Sora",
+		"jpname":"ソラ",
+		"id":"335000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4820,"mp":214,"atk":206,"def":189,"mag":169,"spr":185},
+			"minStats":{"hp":1591,"mp":71,"atk":68,"def":62,"mag":56,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":20}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "atk%":40, "equipedConditions":[["302008400","504230832"]]},
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008500",["302008400","504230832"]]},
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008400",["302008400","504230832"]]},
+			{"atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"dualWielding":{"atk":30}, "lbDamage":30, "skillEnhancement":{"230849":3,"230851":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sora",
+			"jpname":"ソラ",
+			"id":"335000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3708,"mp":165,"atk":159,"def":146,"mag":130,"spr":143},
+				"minStats":{"hp":1224,"mp":54,"atk":52,"def":48,"mag":43,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":20}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]}
+			]
+		}
+	},
+	"335000205": {
+		"name":"Cloud (Kingdom Hearts)",
+		"jpname":"クラウド(キングダム ハーツ)",
+		"id":"335000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4825,"mp":210,"atk":208,"def":192,"mag":176,"spr":180},
+			"minStats":{"hp":1592,"mp":69,"atk":68,"def":63,"mag":58,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
+			{"atk%":30, "equipedConditions":["greatSword"]},
+			{"atk%":40, "lbDamage":40, "equipedConditions":[["409029900","303006300"]]},
+			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "def%":20, "spr%":20, "skillEnhancement":{"230879":3,"509745":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Cloud (Kingdom Hearts)",
+			"jpname":"クラウド(キングダム ハーツ)",
+			"id":"335000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3712,"mp":162,"atk":159,"def":148,"mag":136,"spr":139},
+				"minStats":{"hp":1225,"mp":53,"atk":52,"def":49,"mag":45,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
+				{"atk%":30, "equipedConditions":["greatSword"]}
+			]
+		}
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
