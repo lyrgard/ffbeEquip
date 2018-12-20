@@ -373,7 +373,7 @@ class UnitBuild {
         if(this._tdwCap) {
             return this._tdwCap.value;
         } else {
-            if (this.unit.skills.some(skill => skill.improvedDW && (!skill.levelCondition || skill.levelCondition <= this._level))) {
+            if (server == "JP") {
                 this._tdwCap = { "value": 2};
             } else {
                 this._tdwCap = { "value": 1};
