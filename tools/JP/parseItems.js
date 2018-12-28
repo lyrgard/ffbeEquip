@@ -1,4 +1,4 @@
-var fs = require('fs');
+﻿var fs = require('fs');
 var request = require('request');
 var PNG = require('pngjs').PNG;
 
@@ -806,7 +806,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/ja/item_item1/59/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/ja/item_item1/61/" + icon ,filePath);
     }
 }
 

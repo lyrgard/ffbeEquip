@@ -619,7 +619,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","harp","hat","clothes","robe"]
+		"equip":["dagger","sword","harp","hat","clothes","robe"],
+		"enhancementSkills":["Harp Master","Rejuvenating Finale","Empowering Finale"]
 	},
 	"100004003": {
 		"name":"Xiao",
@@ -7705,6 +7706,68 @@
 		"stats_pattern":1,
 		"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"]
 	},
+	"335000105": {
+		"name":"Sora",
+		"wikiEntry":"Sora",
+		"id":"335000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4820,"mp":214,"atk":206,"def":189,"mag":169,"spr":185},
+			"minStats":{"hp":1591,"mp":71,"atk":68,"def":62,"mag":56,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Sora",
+			"wikiEntry":"Sora",
+			"id":"335000105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3708,"mp":165,"atk":159,"def":146,"mag":130,"spr":143},
+				"minStats":{"hp":1224,"mp":54,"atk":52,"def":48,"mag":43,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"335000205": {
+		"name":"Cloud (KH)",
+		"wikiEntry":"Cloud_(KH)",
+		"id":"335000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4825,"mp":210,"atk":208,"def":192,"mag":176,"spr":180},
+			"minStats":{"hp":1592,"mp":69,"atk":68,"def":63,"mag":58,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Cloud (KH)",
+			"wikiEntry":"Cloud_(KH)",
+			"id":"335000205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3712,"mp":162,"atk":159,"def":148,"mag":136,"spr":139},
+				"minStats":{"hp":1225,"mp":53,"atk":52,"def":49,"mag":45,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"401000104": {
 		"name":"Gefährliche Ariana",
 		"wikiEntry":"Dangerous_Ariana",
@@ -8225,6 +8288,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"enhancementSkills":["Snowbear's Gift","Absolute Zero","Winter Fall"],
 		"6_form": {
 			"name":"Christine",
 			"wikiEntry":"Christine",
@@ -8239,7 +8303,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","harp","whip","hat","clothes","robe"]
+			"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+			"enhancementSkills":["Snowbear's Gift","Absolute Zero","Winter Fall"]
 		}
 	},
 	"401002705": {
@@ -8256,6 +8321,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Clairvoyant","Jinx - Sap DEF Pot","Jinx - Sap SPR Pot","Jinx - Sap MAG Pot","Jinx - Sap ATK Pot"],
 		"6_form": {
 			"name":"Kryla",
 			"wikiEntry":"Kryla",
@@ -8270,7 +8336,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Clairvoyant","Jinx - Sap DEF Pot","Jinx - Sap SPR Pot","Jinx - Sap MAG Pot","Jinx - Sap ATK Pot"]
 		}
 	},
 	"401002804": {
@@ -8286,7 +8353,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["bow","harp","throwing","gun","hat","clothes","lightArmor"]
+		"equip":["bow","harp","throwing","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["Tinkerer","Inner Strength","Robot Soldiers"]
 	},
 	"401002905": {
 		"name":"Ray Jack",
