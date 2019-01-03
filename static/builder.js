@@ -2079,6 +2079,12 @@ function toggleItemEnhancement(enhancement) {
     if (enhancements.includes(enhancement)) {
         enhancements.splice(enhancements.indexOf(enhancement), 1);
     } else {
+        if (enhancement == 'rare_3' && enhancements.includes('rare_4')) {
+            enhancements.splice(enhancements.indexOf('rare_4'), 1);
+        }
+        if (enhancement == 'rare_4' && enhancements.includes('rare_3')) {
+            enhancements.splice(enhancements.indexOf('rare_3'), 1);
+        }
         if (enhancements.length == 3) {
             $.notify("No more than 3 item enhancements can be selected", "warning");
             return;   

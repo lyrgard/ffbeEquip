@@ -658,7 +658,8 @@ function modifyItemEnhancements(itemId, enhancementPos) {
         item = applyEnhancements(currentEnhancementItem, enhancements);
     }
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(item) + getNameColumnHtml(item));
-    $("#modifyEnhancementModal .value.rare").html(itemEnhancementLabels["rare"][item.type]);
+    $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][item.type]);
+    $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][item.type]);
 }
 
 function toggleItemEnhancement(enhancement) {
@@ -680,10 +681,17 @@ function toggleItemEnhancement(enhancement) {
             }
         }
     } else {
+        if (enhancement == 'rare_3' && enhancements.includes('rare_4')) {
+            enhancements.splice(enhancements.indexOf('rare_4'), 1);
+        }
+        if (enhancement == 'rare_4' && enhancements.includes('rare_3')) {
+            enhancements.splice(enhancements.indexOf('rare_3'), 1);
+        }
         if (enhancements.length == 3) {
             $.notify("No more than 3 item enhancements can be selected", "warning");
             return;   
         }
+        
         enhancements.push(enhancement);
     }
     modifyItemEnhancements(currentEnhancementItem.id, currentEnhancementItemPos);
