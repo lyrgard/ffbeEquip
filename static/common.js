@@ -284,8 +284,10 @@ function getEnhancements(item) {
             html += ", ";
         }
         var enhancement = item.enhancements[i];
-        if (enhancement == "rare") {
-            html += itemEnhancementLabels["rare"][item.type];
+        if (enhancement == "rare_3") {
+            html += itemEnhancementLabels["rare_3"][item.type];
+        } else if (enhancement == "rare_4") {
+            html += itemEnhancementLabels["rare_4"][item.type];
         } else {
             html += itemEnhancementLabels[enhancement];
         }
@@ -1831,6 +1833,18 @@ function copyInputToClipboard($input)
     return successful;
 }
 
+function adaptItemInventoryForMultipleRareEnchantments() {
+    Object.keys(itemInventory.enchantments).forEach(itemId => {
+        itemInventory.enchantments[itemId].forEach(enchantments => {
+            enchantments.forEach((value, index) => {
+                if (value == "rare") {
+                    enchantments[index] = "rare_3";
+                }
+            })
+        });
+    });
+}
+
 $(function() {
 
     try {
@@ -1874,6 +1888,7 @@ $(function() {
             if (!itemInventory.enchantments) {
                 itemInventory.enchantments = {};
             }
+            adaptItemInventoryForMultipleRareEnchantments();
             sanitizeItemInventory();
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {

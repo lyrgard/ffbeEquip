@@ -2070,7 +2070,8 @@ function selectEnchantement(item) {
         $("#modifyEnhancementModal .value." + currentEnchantmentItem.enhancements[i]).addClass("selected");
     }
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(currentEnchantmentItem) + getNameColumnHtml(currentEnchantmentItem));
-    $("#modifyEnhancementModal .value.rare").html(itemEnhancementLabels["rare"][currentEnchantmentItem.type]);
+    $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][currentEnchantmentItem.type]);
+    $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][currentEnchantmentItem.type]);
 }
 
 function toggleItemEnhancement(enhancement) {
@@ -2616,8 +2617,10 @@ function getItemLineAsText(prefix, slot) {
                 } else {
                     resultText += ", ";
                 }
-                if (item.enhancements[i] == "rare") {
-                    resultText += "Rare";
+                if (item.enhancements[i] == "rare_3") {
+                    resultText += "Rare lvl3";
+                } else if (item.enhancements[i] == "rare_4") {
+                    resultText += "Rare lvl4";
                 } else {
                     resultText += itemEnhancementLabels[item.enhancements[i]];
                 }

@@ -37,7 +37,7 @@ const goalValuesCaract = {
     "summonerSkill":                    {"statsToMaximize":["mag","spr"], "type": "none"},
 };
 const itemEnhancementLabels = {
-    "rare":{
+    "rare_3":{
         "dagger": "+100% LB fill rate", 
         "sword": "HP/ATK + 15%", 
         "greatSword": "HP/ATK + 15%", 
@@ -87,7 +87,7 @@ const itemEnhancementLabels = {
     "autoShell_5": "Auto-Shell 5","autoShell_4": "Auto-Shell 4","autoShell_3": "Auto-Shell 3","autoShell_2": "Auto-Shell 2","autoShell_1": "Auto-Shell 1",
 };
     const itemEnhancementAbilities = {
-        "rare":{
+        "rare_3":{
             "dagger": {"lbFillRate":100},
             "sword": {"hp%":15, "atk%":15},
             "greatSword": {"hp%":15, "atk%":15},
@@ -104,6 +104,25 @@ const itemEnhancementLabels = {
             "gun": {"atk%":30},
             "mace": {"hp%":30},
             "fist": {"hp%":15, "atk%":15},
+            "fake": {}
+        },
+        "rare_4":{
+            "dagger": {"lbFillRate":150},
+            "sword": {"hp%":20, "atk%":20},
+            "greatSword": {"hp%":20, "atk%":20},
+            "katana": {"hp%":20, "atk%":20},
+            "staff": {"mp%":20, "spr%":20},
+            "rod": {"mp%":20, "mag%":20},
+            "bow": {"atk%":40, "mag%":40},
+            "axe": {"atk%":40},
+            "hammer": {"hp%":20, "def%":20},
+            "spear": {"hp%":20, "atk%":20},
+            "harp": {"hp%":20, "spr%":20},
+            "whip": {"mp%":40},
+            "throwing": {"hp%":20, "mp%":20},
+            "gun": {"atk%":40},
+            "mace": {"hp%":40},
+            "fist": {"hp%":20, "atk%":20},
             "fake": {}
         },
         "hp_15": {"hp%":15}, "hp_12": {"hp%":12}, "hp_10": {"hp%":10}, "hp_7": {"hp%":7}, "hp_5": {"hp%":5}, "hp_3": {"hp%":3}, "hp_1": {"hp%":1},
