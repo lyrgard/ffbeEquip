@@ -1344,7 +1344,7 @@ function applyEnhancements(item, enhancements) {
         for (var i = enhancements.length; i--;) {
             var enhancement = enhancements[i];
             var enhancementValue;
-            if (enhancement == "rare") {
+            if (enhancement == "rare_3" || enhancement == "rare_4") {
                 enhancementValue = itemEnhancementAbilities[enhancement][item.type];
             } else {
                 enhancementValue = itemEnhancementAbilities[enhancement];
