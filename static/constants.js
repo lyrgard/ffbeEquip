@@ -113,7 +113,7 @@ const itemEnhancementLabels = {
             "katana": {"hp%":20, "atk%":20},
             "staff": {"mp%":20, "spr%":20},
             "rod": {"mp%":20, "mag%":20},
-            "bow": {"atk%":40, "mag%":40},
+            "bow": {"atk%":35, "mag%":35},
             "axe": {"atk%":40},
             "hammer": {"hp%":20, "def%":20},
             "spear": {"hp%":20, "atk%":20},
