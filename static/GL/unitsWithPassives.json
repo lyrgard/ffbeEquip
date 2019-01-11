@@ -5536,7 +5536,6 @@
 	"207000105": {
 		"name":"Cloud",
 		"id":"207000105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5549,7 +5548,7 @@
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
-			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
+			{"atk%":70, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
 			{"atk%":20, "levelCondition":115},
 			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
 		],
@@ -5690,7 +5689,6 @@
 	"207001005": {
 		"name":"Sephiroth",
 		"id":"207001005",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5704,7 +5702,7 @@
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
-			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "skillEnhancement":{"224570":1.1}, "equipedConditions":["304002600"]},
+			{"atk%":50, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "skillEnhancement":{"224570":1.1}, "equipedConditions":["304002600"]},
 			{"skillEnhancement":{"224520":2,"224530":2,"224540":1}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":40}, "lbFillRate":50, "levelCondition":120}
