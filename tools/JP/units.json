@@ -2962,6 +2962,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["フレイムブレイド","ヴォルトブレイド","謎の剣士","ブレイドスレイブ","無の境地","精神+20%"],
 		"6_form": {
 			"name":"Hyoh",
 			"jpname":"ヒョウ",
@@ -2976,7 +2977,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["フレイムブレイド","ヴォルトブレイド","謎の剣士","ブレイドスレイブ","無の境地","精神+20%"]
 		}
 	},
 	"100016304": {
@@ -3860,6 +3862,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["アイスライザー","ファイアライザー","熱誠の剣士","砕魔の剛剣","精神+20%"],
 		"6_form": {
 			"name":"Crimson",
 			"jpname":"クリムゾン",
@@ -3874,7 +3877,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","hat","helm","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","axe","spear","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["アイスライザー","ファイアライザー","熱誠の剣士","砕魔の剛剣","精神+20%"]
 		}
 	},
 	"100020704": {
@@ -5906,6 +5910,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"],
 		"6_form": {
 			"name":"Tifa",
 			"jpname":"ティファ",
@@ -5920,7 +5925,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","hammer","mace","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["ドルフィンブロウ","ファイナルヘヴン","双拳士","気合","セブンスヘブン","MP+20%"]
 		}
 	},
 	"207000405": {
@@ -10029,7 +10035,7 @@
 		}
 	},
 	"335000205": {
-		"name":"Cloud (Kingdom Hearts)",
+		"name":"Cloud (KH)",
 		"jpname":"クラウド(キングダム ハーツ)",
 		"id":"335000205",
 		"max_rarity":"7",
@@ -10043,7 +10049,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Cloud (Kingdom Hearts)",
+			"name":"Cloud (KH)",
 			"jpname":"クラウド(キングダム ハーツ)",
 			"id":"335000205",
 			"sixStarForm":true,

@@ -5811,7 +5811,6 @@
 		"name":"클라우드",
 		"wikiEntry":"Cloud",
 		"id":"207000105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5824,16 +5823,16 @@
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]},
-			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
+			{"atk%":70, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["504214990"]},
 			{"atk%":20, "levelCondition":115},
-			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":0.1,"214830":0.1,"214840":0.5,"707228":0.1,"707229":0.1,"707230":0.1,"707231":0.1}, "levelCondition":120}
+			{"lbDamage":30, "skillEnhancement":{"214790":0.5,"214800":0.5,"214810":0.5,"214820":1.25,"214830":0.3,"214840":0.5,"707228":1.25,"707229":1.25}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"클라우드",
 			"wikiEntry":"Cloud",
 			"id":"207000105",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -5883,10 +5882,10 @@
 		"skills": [
 			{"hp%":30, "atk%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["fist"]},
-			{"atk%":30, "dualWielding":{"atk":40}, "replaceLb":{"name":"リミットリール","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"}]}, "equipedConditions":["504227847"]},
+			{"atk%":50, "dualWielding":{"atk":50}, "replaceLb":{"name":"Limit Reels","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}]}, "equipedConditions":["504227847"]},
 			{"def%":30, "spr%":30, "lbFillRate":100, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "atk%":20, "def%":20, "skillEnhancement":{"227830":1.5,"227831":1.5,"227832":1.5,"227833":1.5,"227834":1.5,"227835":1.5,"227836":1.5,"227837":0.75,"508161":1.5,"508162":0.75}, "levelCondition":120}
+			{"hp%":20, "atk%":20, "def%":20, "skillEnhancement":{"227830":1.5,"227831":1.5,"227832":1.5,"227833":1.5,"227834":1.5,"227835":1.5,"227836":2.5,"227837":0.75,"508161":1.5,"508162":0.75}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"티파",
@@ -5943,9 +5942,9 @@
 		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
-			{"atk%":40, "spr%":20, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"サタンインパクト","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (10x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"maxEffects":[{"effect":null,"desc":"Cast Death (70%) or deal physical damage (13x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}]}, "equipedConditions":["504227865"]},
+			{"atk%":40, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"Satan Slam","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (12x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"maxEffects":[{"effect":null,"desc":"Cast Death (70%) or deal physical damage (15x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}]}, "equipedConditions":["504227865"]},
 			{"atk%":50, "equipedConditions":["gun"], "levelCondition":105},
-			{"hp%":20, "atk%":30, "killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}], "levelCondition":110},
+			{"hp%":20, "atk%":60, "killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "skillEnhancement":{"227850":2,"227851":2,"227852":1,"227853":2,"227854":2,"227856":1}, "levelCondition":120}
 		],
@@ -5973,7 +5972,6 @@
 		"name":"세피로스",
 		"wikiEntry":"Sephiroth",
 		"id":"207001005",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -5987,7 +5985,7 @@
 		"skills": [
 			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
-			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "skillEnhancement":{"224570":1.1}, "equipedConditions":["304002600"]},
+			{"atk%":50, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "skillEnhancement":{"224570":1.1}, "equipedConditions":["304002600"]},
 			{"skillEnhancement":{"224520":2,"224530":2,"224540":1}, "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":40}, "lbFillRate":50, "levelCondition":120}
@@ -5997,7 +5995,7 @@
 			"wikiEntry":"Sephiroth",
 			"id":"207001005",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
