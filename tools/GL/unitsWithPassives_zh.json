@@ -4155,7 +4155,7 @@
 		]
 	},
 	"100018305": {
-		"name":"null",
+		"name":"芙爾卡",
 		"wikiEntry":"Folka",
 		"id":"100018305",
 		"max_rarity":"7",
@@ -4177,7 +4177,7 @@
 			{"def%":50, "spr%":50, "lbFillRate":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"null",
+			"name":"芙爾卡",
 			"wikiEntry":"Folka",
 			"id":"100018305",
 			"sixStarForm":true,
@@ -4199,7 +4199,7 @@
 		}
 	},
 	"100018403": {
-		"name":"null",
+		"name":"伊科爾",
 		"wikiEntry":"Ichor",
 		"id":"100018403",
 		"max_rarity":"5",
@@ -4218,7 +4218,7 @@
 		]
 	},
 	"100018504": {
-		"name":"null",
+		"name":"尤貝爾",
 		"wikiEntry":"Yubel",
 		"id":"100018504",
 		"max_rarity":"6",
@@ -4237,7 +4237,7 @@
 		]
 	},
 	"100018604": {
-		"name":"null",
+		"name":"基哈納",
 		"wikiEntry":"Kihana",
 		"id":"100018604",
 		"max_rarity":"6",
@@ -5942,7 +5942,7 @@
 		"equip":["dagger","gun","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5},
-			{"atk%":40, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"Satan Slam","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (12x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"maxEffects":[{"effect":null,"desc":"Cast Death (70%) or deal physical damage (15x, ATK) (ignore cover) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}]}, "equipedConditions":["504227865"]},
+			{"atk%":40, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"dark","percent":100}], "replaceLb":{"name":"Satan Slam","minEffects":[{"effect":null,"desc":"Cast Death (50%) or deal physical damage (6x * 2 = 12x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}],"maxEffects":[{"effect":null,"desc":"Cast Death (70%) or deal physical damage (7.5x * 2 = 15x, ATK) to all enemies"},{"effect":{"killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}],"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Beasts and Machinas by 100% to caster for 5 turns"}]}, "equipedConditions":["504227865"]},
 			{"atk%":50, "equipedConditions":["gun"], "levelCondition":105},
 			{"hp%":20, "atk%":60, "killers":[{"name":"beast","physical":100},{"name":"machine","physical":100}], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
