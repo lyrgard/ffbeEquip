@@ -867,6 +867,96 @@ function exportAsText() {
     Modal.showWithTextData("Owned units", text);
 }
 
+function importUnits() {
+    if (!baseUnitIdBySpecificRarityUnitId) {
+        baseUnitIdBySpecificRarityUnitId = {};
+        units.forEach(unit => {
+            let unitIdBase = unit.id.substring(0,unit.id.length - 1);
+           for (i = parseInt(unit.min_rarity); i <= parseInt(unit.max_rarity); i++) {
+               baseUnitIdBySpecificRarityUnitId[unitIdBase + i] = unit.id;
+           }
+        });
+    }
+    importedOwnedUnit = null;
+    Modal.show({
+        title: "Import unit collection",
+        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your unit collection on FFBE Equip</p><br/><br/>' +
+              '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/>'+
+              '<p id="importSummary"></p>',
+        buttons: [{
+            text: "Import",
+            onClick: function() {
+                if (importedOwnedUnit) {
+                    ownedUnits = importedOwnedUnit;
+                    saveUserData(false, true);
+                    showRaritySort();
+                } else {
+                    Modal.show("Please select a file to import");
+                }
+                
+            }
+        }]
+    });
+    $('#importFile').change(treatImportFile);
+}
+
+let baseUnitIdBySpecificRarityUnitId = null;
+let importedOwnedUnit;
+
+function treatImportFile(evt) {
+    var f = evt.target.files[0]; // FileList object
+    
+    var reader = new FileReader();
+    
+    reader.onload = function(){
+        try {
+            let temporaryResult = JSON.parse(reader.result);
+            if (!Array.isArray(temporaryResult)) {
+                Modal.showMessage('imported file is not a json array');
+                return;
+            }
+            importedOwnedUnit = {};
+            temporaryResult.forEach(unit => {
+                if (!unit.id) {
+                    Modal.showMessage("unit doesn't have id : " + JSON.stringify(unit));
+                    importedOwnedUnit = null;
+                    return;
+                } else {
+                    let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];
+                    if (!unit.id.startsWith('9') && !baseUnitId ) {
+                        Modal.showMessage('unknown unit id : ' + unit.id);
+                        importedOwnedUnit = null;
+                        return;
+                    }
+                    if (!importedOwnedUnit[baseUnitId]) {
+                        importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
+                    }
+                    importedOwnedUnit[baseUnitId].number++;
+                    if (unit.tmr < 1000) {
+                        importedOwnedUnit[baseUnitId].farmable++;
+                    }
+                    if (unit.id.endsWith("7")) {
+                        if (!importedOwnedUnit[baseUnitId].sevenStar) {
+                            importedOwnedUnit[baseUnitId].sevenStar = 0;
+                            importedOwnedUnit[baseUnitId].farmableStmr = 0;
+                        }
+                        importedOwnedUnit[baseUnitId].sevenStar++;
+                        if (unit.stmr < 1000) {
+                            importedOwnedUnit[baseUnitId].farmableStmr++;
+                        }
+                    }
+                }
+            });
+            $('#importSummary').text('Units to import : ' + Object.keys(importedOwnedUnit).length);
+        } catch(e) {
+            Modal.showError('imported file is not in json format', e);
+        }
+            
+    };
+    reader.readAsText(f);
+    
+}
+
 function onDataReady() {
     if (units && data) {
         if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {

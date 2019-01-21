@@ -795,6 +795,88 @@ function exportAsCsv() {
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
+function importInventory() {
+    if (!dataIds) {
+        dataIds = [];
+        data.forEach(item => {
+            if (!dataIds.includes(item.id)) {
+                dataIds.push(item.id)
+            }
+        });
+    }
+    importedOwnedUnit = null;
+    Modal.show({
+        title: "Import inventory",
+        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your inventory on FFBE Equip</p><br/><br/>' +
+              '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/><br/>'+
+              '<p id="importSummary"></p>',
+        buttons: [{
+            text: "Import",
+            onClick: function() {
+                if (importedItemInventory) {
+                    itemInventory = importedItemInventory;
+                    saveUserData(true, false);
+                    showEquipments();
+                } else {
+                    Modal.show("Please select a file to import");
+                }
+                
+            }
+        }]
+    });
+    $('#importFile').change(treatImportFile);
+}
+
+let dataIds = null;
+let importedItemInventory;
+
+function treatImportFile(evt) {
+    var f = evt.target.files[0]; // FileList object
+    
+    var reader = new FileReader();
+    
+    reader.onload = function(){
+        try {
+            let temporaryResult = JSON.parse(reader.result);
+            if (!Array.isArray(temporaryResult)) {
+                Modal.showMessage('imported file is not a json array');
+                return;
+            }
+            importedItemInventory = {"enchantments":{}};
+            temporaryResult.forEach(item => {
+                if (!item.id) {
+                    Modal.showMessage("item doesn't have id : " + JSON.stringify(item));
+                    importedOwnedUnit = null;
+                    return;
+                } else {
+                    if (!dataIds.includes(item.id)) {
+                        Modal.showMessage('unknown item id : ' + item.id);
+                        importedOwnedUnit = null;
+                        return;
+                    }
+                    if (!importedItemInventory[item.id]) {
+                        importedItemInventory[item.id] = 0;
+                    }
+                    importedItemInventory[item.id] += parseInt(item.count);
+                    
+                    if (item.enhancements) {
+                        if (!importedItemInventory.enchantments[item.id]) {
+                            importedItemInventory.enchantments[item.id] = [];
+                        }
+                        importedItemInventory.enchantments[item.id].push(item.enhancements.map(e => itemEnhancementBySkillId[e]));
+                    }
+                }
+            });
+            $('#importSummary').text('Items to import : ' + Object.keys(importedItemInventory).length);
+        } catch(e) {
+            Modal.showError('imported file is not in json format', e);
+        }
+            
+    };
+    reader.readAsText(f);
+    
+}
+
 function displayStats() {
     var stats = {};
 
