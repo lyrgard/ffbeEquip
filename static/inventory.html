@@ -373,10 +373,19 @@
                 </div>
                 <div class="itemsContent">
                     <div id="inventory">
-                        <a id="exportLinks" class="link" onclick="exportAsCsv()">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            Export as CSV
-                        </a>
+                        <div id="exportLinks" class="dropdown">
+                            <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-share-alt"></span>
+                                <span class="text hidden-xs hidden-sm">
+                                    Export inventory<span class="caret"></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-share-alt"></span>Export as CSV</a></li>
+                                <li><a class="link" onclick="exportAsJson()"><span class="exportAsJson">{ }</span> Export as json</a></li>
+                            </ul>
+                        </div>
+                        
                         <ul class="nav nav-tabs nav-tabs-img">
                             <li class="equipment"  onclick="showEquipments()" title="Show all equipments">
                                 <a><i class='img img-tab-equipments tab'></i></a>

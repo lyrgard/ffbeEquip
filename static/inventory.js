@@ -797,27 +797,34 @@ function exportAsCsv() {
 
 function exportAsJson() {
     let exportResult = [];
+    let typeById = {};
+    data.forEach(item => {
+        typeById[item.id] = item.type;
+    })
     Object.keys(itemInventory).forEach(id => {
       if (id != "enchantments") {
         let itemResult = {"id" : id, "count": itemInventory[id] };
-        exportResult.push(itemResult);
         if (itemInventory.enchantments && itemInventory.enchantments[id]) {
           itemResult.count -= itemInventory.enchantments[id].length;
           itemInventory.enchantments[id].forEach(enh => {
             let enhancedItemResult = {"id" : id, "count": 1, "enhancements": [] }
-            exportResult.push(itemResult);
+            enhancedItemResult.enhancements = enh.map(e => {
+                if (e == 'rare_3' || e == 'rare_4') {
+                    return skillIdByItemEnhancement[e][typeById[id]];
+                } else {
+                    return skillIdByItemEnhancement[e];
+                }
+            })
+            exportResult.push(enhancedItemResult);
           })
+        }
+        if (itemResult.count > 0) {
+            exportResult.push(itemResult);
         }
       }
     })
-    var sortedItems = sort(equipments).concat(sort(materia));
-    for (var index = 0, len = sortedItems.length; index < len; index++) {
-        var item = sortedItems[index];
-        if (itemInventory[item.id]) {
-            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item.id] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
-        }
-    }
-    window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
+    
+    window.saveAs(new Blob([JSON.stringify(exportResult)], {type: "application/json;charset=utf-8"}), 'FFBE_Equip - Equipment.json');
 }
 
 function importInventory() {
