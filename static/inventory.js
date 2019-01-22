@@ -795,6 +795,31 @@ function exportAsCsv() {
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
 }
 
+function exportAsJson() {
+    let exportResult = [];
+    Object.keys(itemInventory).forEach(id => {
+      if (id != "enchantments") {
+        let itemResult = {"id" : id, "count": itemInventory[id] };
+        exportResult.push(itemResult);
+        if (itemInventory.enchantments && itemInventory.enchantments[id]) {
+          itemResult.count -= itemInventory.enchantments[id].length;
+          itemInventory.enchantments[id].forEach(enh => {
+            let enhancedItemResult = {"id" : id, "count": 1, "enhancements": [] }
+            exportResult.push(itemResult);
+          })
+        }
+      }
+    })
+    var sortedItems = sort(equipments).concat(sort(materia));
+    for (var index = 0, len = sortedItems.length; index < len; index++) {
+        var item = sortedItems[index];
+        if (itemInventory[item.id]) {
+            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item.id] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
+        }
+    }
+    window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');
+}
+
 function importInventory() {
     if (!dataIds) {
         dataIds = [];
@@ -833,13 +858,18 @@ let importedItemInventory;
 function treatImportFile(evt) {
     var f = evt.target.files[0]; // FileList object
     
+    
+  
     var reader = new FileReader();
     
     reader.onload = function(){
         try {
             let temporaryResult = JSON.parse(reader.result);
-            if (!Array.isArray(temporaryResult)) {
-                Modal.showMessage('imported file is not a json array');
+            var errors = importValidator.validate('itemInventory', temporaryResult);
+
+            // validation was successful
+            if (errors) {
+                Modal.showMessage("imported file doesn't have the correct form : " + JSON.stringify(errors));
                 return;
             }
             importedItemInventory = {"enchantments":{}};
@@ -977,3 +1007,35 @@ function startPage() {
         $(".itemsSidebar").addClass("collapsed");
     }
 }
+
+// create new JJV environment
+let importValidator = jjv();
+
+// Register a `user` schema
+importValidator.addSchema('itemInventory', {
+  type: 'array',
+  maxItems: 3000,
+  items: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string',
+        minLength: 9,
+        maxLength: 10
+      },
+      count: {
+        type:'number'
+      },
+      enhancements: {
+        type: 'array',
+        maxItems: 3,
+        items: {
+          type: 'string',
+          minLength: 6,
+          maxLength: 6
+        }
+      }
+    },
+    required: ['id', 'count']
+  }
+});

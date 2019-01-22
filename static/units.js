@@ -911,8 +911,11 @@ function treatImportFile(evt) {
     reader.onload = function(){
         try {
             let temporaryResult = JSON.parse(reader.result);
-            if (!Array.isArray(temporaryResult)) {
-                Modal.showMessage('imported file is not a json array');
+            var errors = importValidator.validate('units', temporaryResult);
+
+            // validation was successful
+            if (errors) {
+                Modal.showMessage("imported file doesn't have the correct form : " + JSON.stringify(errors));
                 return;
             }
             importedOwnedUnit = {};
@@ -931,7 +934,6 @@ function treatImportFile(evt) {
                     if (!importedOwnedUnit[baseUnitId]) {
                         importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
                     }
-                    importedOwnedUnit[baseUnitId].number++;
                     if (unit.tmr < 1000) {
                         importedOwnedUnit[baseUnitId].farmable++;
                     }
@@ -944,6 +946,8 @@ function treatImportFile(evt) {
                         if (unit.stmr < 1000) {
                             importedOwnedUnit[baseUnitId].farmableStmr++;
                         }
+                    } else {
+                      importedOwnedUnit[baseUnitId].number++;
                     }
                 }
             });
@@ -1087,4 +1091,83 @@ function startPage() {
       $("#results").toggleClass("simpleMode");
     });
 }
+
+// create new JJV environment
+let importValidator = jjv();
+
+// Register a `user` schema
+importValidator.addSchema('units', {
+  type: 'array',
+  maxItems: 3000,
+  items: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string',
+        minLength: 9,
+        maxLength: 10
+      },
+      level: {
+        type:'number',
+        minimum: 0,
+        maximum: 120
+      },
+      pots: {
+        type: 'object',
+        properties: {
+          hp: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          mp: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          atk: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          def: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          mag: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          spr: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          }
+        },
+        required: ['hp', 'mp', 'atk', 'def', 'mag', 'spr']
+      },
+      enhancements: {
+        type: 'array',
+        maxItems: 10,
+        items: {
+          type: "string",
+          minLength: 6,
+          maxLength: 10
+        }
+      },
+      tmr: {
+        type: 'number',
+        minimum: 0,
+        maximum: 1000
+      },
+      stmr: {
+        type: 'number',
+        minimum: 0,
+        maximum: 1000
+      }
+    },
     
+  }
+});

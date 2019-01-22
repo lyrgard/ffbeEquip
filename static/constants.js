@@ -203,6 +203,7 @@ const itemEnhancementBySkillId = {
     "410230": "rare_3", // ATK +30%
     "410130": "rare_3", // MP +30%
     "410030": "rare_3", // HP +30%
+    "101240": "rare_3", // Hight Tide
     "450870": "rare_4", // ATK/HP
     "450880": "rare_4", // PM/MAG
     "450890": "rare_4", // ATK/MAG +35%
@@ -214,7 +215,58 @@ const itemEnhancementBySkillId = {
     "410240": "rare_4", // ATK +40%
     "410140": "rare_4", // MP +40%
     "410040": "rare_4", // HP +40%
-}   
+}  
+
+const skillIdByItemEnhancement = {
+    "rare_3":{
+        "dagger": "101240", 
+        "sword": "450800", 
+        "greatSword": "450800", 
+        "katana": "HP/ATK + 15%", 
+        "staff": "SPR/MP + 15%", 
+        "rod": "MAG/MP +15%", 
+        "bow": "ATK/MAG +30%", 
+        "axe": "ATK +30%", 
+        "hammer": "HP/DEF +15%", 
+        "spear": "450800", 
+        "harp": "HP/SPR +15%", 
+        "whip": "MP +30%", 
+        "throwing": "HP/MP +15%", 
+        "gun": "ATK +30%", 
+        "mace": "HP +30%", 
+        "fist": "450800",
+        "fake": "Rare"
+    },
+    "rare_4":{
+        "dagger": "+150% LB fill rate",
+        "sword": "HP/ATK + 20%",
+        "greatSword": "HP/ATK + 20%",
+        "katana": "HP/ATK + 20%",
+        "staff": "SPR/MP + 20%",
+        "rod": "MAG/MP +20%",
+        "bow": "ATK/MAG +35%",
+        "axe": "ATK +40%",
+        "hammer": "HP/DEF +20%",
+        "spear": "HP/ATK +20%",
+        "harp": "HP/SPR +20%",
+        "whip": "MP +40%",
+        "throwing": "HP/MP +20%",
+        "gun": "ATK +40%",
+        "mace": "HP +40%",
+        "fist": "HP/ATK +20%",
+        "fake": "Rare"
+    },
+    "hp_15": "HP +15%", "hp_12": "HP +12%", "hp_10": "HP +10%", "hp_7": "HP +7%", "hp_5": "HP +5%", "hp_3": "HP +3%", "hp_1": "HP +1%",
+    "mp_15": "MP +15%", "mp_12": "MP +12%", "mp_10": "MP +10%", "mp_7": "MP +7%", "mp_5": "MP +5%", "mp_3": "MP +3%", "mp_1": "MP +1%",
+    "atk_15": "ATK +15%", "atk_12": "ATK +12%", "atk_10": "ATK +10%", "atk_7": "ATK +7%", "atk_5": "ATK +5%", "atk_3": "ATK +3%", "atk_1": "ATK +1%",
+    "def_15": "DEF +15%", "def_12": "DEF +12%", "def_10": "DEF +10%", "def_7": "DEF +7%", "def_5": "DEF +5%", "def_3": "DEF +3%", "def_1": "DEF +1%",
+    "mag_15": "MAG +15%", "mag_12": "MAG +12%", "mag_10": "MAG +10%", "mag_7": "MAG +7%", "mag_5": "MAG +5%", "mag_3": "MAG +3%", "mag_1": "MAG +1%",
+    "spr_15": "SPR +15%", "spr_12": "SPR +12%", "spr_10": "SPR +10%", "spr_7": "SPR +7%", "spr_5": "SPR +5%", "spr_3": "SPR +3%", "spr_1": "SPR +1%",
+    "autoRegen_4": "Auto-Regen 4","autoRegen_3": "Auto-Regen 3","autoRegen_2": "Auto-Regen 2","autoRegen_1": "Auto-Regen 1",
+    "autoRefresh_2": "Auto-Refresh 2","autoRefresh_1": "Auto-Refresh 1",
+    "autoProtect_5": "Auto-Protect 5","autoProtect_4": "Auto-Protect 4","autoProtect_3": "Auto-Protect 3","autoProtect_2": "Auto-Protect 2","autoProtect_1": "Auto-Protect 1",
+    "autoShell_5": "Auto-Shell 5","autoShell_4": "Auto-Shell 4","autoShell_3": "Auto-Shell 3","autoShell_2": "Auto-Shell 2","autoShell_1": "Auto-Shell 1",
+};
 
 const typeListLitterals = {
     "dagger": "Dagger",
