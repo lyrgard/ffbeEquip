@@ -2239,7 +2239,13 @@ function readStateHashData(callback) {
                 }
             });
         } else {
-            callback(oldLinkFormatToNew(JSON.parse(atob(hashValue))));
+            let parsedData = JSON.parse(atob(hashValue));
+            let error = validator.validate('shortLink', parsedData);
+            if (!error) {
+                callback(shortLinkFormatToData(parsedData));
+            } else {
+                callback(oldLinkFormatToNew(parsedData));
+            }
         }
     } else {
         callback(null);
@@ -2289,6 +2295,10 @@ function oldLinkFormatToNew(oldData) {
     }
     
     return data;
+}
+
+function shortLinkFormatToData(shortLinkData) {
+    
 }
     
 function loadStateHashAndBuild(data, importMode = false) {
@@ -3367,3 +3377,73 @@ function populateResists() {
                    '<div class="value">0%<div></div>');
     }
 }
+
+// create new JJV environment
+let validator = jjv();
+
+// Register a `user` schema
+validator.addSchema('shortLink', {
+	type: 'array',
+	minItems: 5,
+	maxItems: 5,
+	items: [
+		{
+			type: 'array',
+			minItems: 3,
+			maxItems: 3,
+			items: [
+				{
+					type: 'number'
+				},
+				{
+					type: 'number'
+				},
+				{
+					type: 'array',
+					minItems: 6,
+					maxItems: 6,
+					items: {
+						type: 'number'
+					}
+				}
+			]
+		},
+		{
+			type: 'array',
+			minItems: 2,
+			maxItems: 2,
+			items: {
+				type: 'number'
+			}
+		},
+		{
+			type: 'array',
+			minItems: 10,
+			maxItems: 10,
+			items: {
+				type: 'number'
+			}
+		},
+		{
+			type: 'array',
+			minItems: 0,
+			maxItems: 2,
+			items: {
+				type: 'array',
+				minItems: 0,
+				maxItems: 3,
+				items: {
+					type: 'number'
+				}
+			}
+		},
+		{
+			type: 'array',
+			minItems: 0,
+			maxItems: 7,
+			items: {
+				type: 'number'
+			}
+		},
+	]
+});
