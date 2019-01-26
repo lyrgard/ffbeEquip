@@ -294,3 +294,23 @@ const typeListLitterals = {
     "accessory": "Accessory",
     "materia": "Materia"
 };
+
+const esperNameById = {
+  "1": "Siren",
+  "2": "Ifrit",
+  "3": "Shiva",
+  "4": "Carbuncle",
+  "5": "Diabolos",
+  "6": "Golem",
+  "7": "Ramuh",
+  "8": "Titan",
+  "9": "Tetra Sylphid",
+  "10": "Odin",
+  "11": "Lakshmi",
+  "12": "Leviathan",
+  "13": "Alexander",
+  "14": "Phoenix",
+  "15": "Bahamut",
+  "16": "Fenrir",
+  "17": "Anima"
+}

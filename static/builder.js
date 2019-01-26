@@ -2297,8 +2297,86 @@ function oldLinkFormatToNew(oldData) {
     return data;
 }
 
+/* Short link format :
+[
+    // unit evo id, level, pots [HP, MP, ATK, DEF, MAG, SPR]
+    [ 206000127, 120, [ 540, 90, 0, 40, 65, 40 ] ],
+    // esper id, esper rarity
+    [ 13, 2 ],
+    // equip + materia by slot
+    [ 310001700, 310003400, 403044500, 408002000, 409009800, 409019700, 504219890, 504101370, 504204590, 504208510 ],
+    // IW upgrades
+    [
+        [ 410405, 450810, 410410 ],
+        [ 450810, 410010, 410110 ]
+    ],
+    // awakened skills
+    [ 704450, 704470, 704510 ]
+]*/
 function shortLinkFormatToData(shortLinkData) {
+    var data = {
+        "units": []
+    };
+  
+    let unitIdString = shortLinkData[0][0].toString();
+  
+    let baseUnitId = unitIdString.substr(0, unitIdString.length -1);
+    let rarity = unitIdString.substr(unitIdString.length -1);
+    let unitFound = null;
+    for (let i = 1; i <= 5; i++) {
+      if (units[baseUnitId + i]) {
+        unitFound = units[baseUnitId + i];
+      }
+    }
+    if (!unitFound) {
+      Modal.showMessage("Wrong link data", "Unknown unit id");
+      return;
+    }
+  
+    var unit = {};
+    unit.id = unitFound.id;
+    if (rarity != 6 && unitFound.max_rarity != rarity) {
+      Modal.showMessage("Unsupported unit rarity", "FFBE Equip only support max rarity units. Max unit rarity will be displayed");
+      unit.rarity = unitFound.max_rarity;
+    } else {
+      unit.rarity = rarity;
+    }
+    if (unit.rarity == 7) {
+      unit.level = shortLinkData[0][1]
+    }
+  
+    unit.goal = "Maximize P_DAMAGE";
+    unit.pots = {
+      "hp":shortLinkData[0][2][0],
+      "mp":shortLinkData[0][2][1],
+      "atk":shortLinkData[0][2][2],
+      "def":shortLinkData[0][2][3],
+      "mag":shortLinkData[0][2][4],
+      "spr":shortLinkData[0][2][5]
+    }
+  
+    unit.esperId = esperNameById[shortLinkData[1][0]];  
+    unit.esperPinned = false;
+    unit.items = shortLinkData[2].map((id, index) => { return {"id":id.toString(), "slot": index, "pinned": false}});
+    if (shortLinkData[3] && shortLinkData[3].length > 0) {
+      unit.itemEnchantments = {};
+      if (shortLinkData[3][0] && shortLinkData[3][0].size > 0) {
+        unit.itemEnchantments[0] = shortLinkData[3][0].map(id => itemEnhancementBySkillId[id]);
+      }
+      if (shortLinkData[3][1] && shortLinkData[3][1].size > 0) {
+        unit.itemEnchantments[1] = shortLinkData[3][1].map(id => itemEnhancementBySkillId[id]);
+      }
+    }
+  
+    data.units.push(unit);
     
+    data.itemSelector = {
+        "mainSelector": "all",
+        "additionalFilters": ["excludeNotReleasedYet"]
+    }
+    
+    data.version = 2;
+    return data;
 }
     
 function loadStateHashAndBuild(data, importMode = false) {
@@ -2316,35 +2394,37 @@ function loadStateHashAndBuild(data, importMode = false) {
 
     
     if (!importMode) {
-        select("races", data.monster.races);
-        for (var element in data.monster.elementalResist) {
-            if (data.monster.elementalResist[element] == 0) {
-                $("#elementalResists ." + element + " input.elementalResist").val("");
-            } else {
-                $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
-            }
-            if (data.monster.imperils && data.monster.imperils[element]) {
-                $("#elementalResists ." + element + " input.imperil").val(data.monster.imperils[element]);
-            }
+        if (data.monster) {
+          select("races", data.monster.races);
+          for (var element in data.monster.elementalResist) {
+              if (data.monster.elementalResist[element] == 0) {
+                  $("#elementalResists ." + element + " input.elementalResist").val("");
+              } else {
+                  $("#elementalResists ." + element + " input.elementalResist").val(data.monster.elementalResist[element]);
+              }
+              if (data.monster.imperils && data.monster.imperils[element]) {
+                  $("#elementalResists ." + element + " input.imperil").val(data.monster.imperils[element]);
+              }
+          }
+          
+          if (data.monster.def) {
+              $("#monsterDefensiveStats .def .stat").val(data.monster.def);
+          }
+          if (data.monster.spr) {
+              $("#monsterDefensiveStats .spr .stat").val(data.monster.spr);
+          }
+          if (data.monster.breaks) {
+              if (data.monster.breaks.def) {
+                  $("#monsterDefensiveStats .def .break").val(data.monster.breaks.def);
+              }
+              if (data.monster.breaks.spr) {
+                  $("#monsterDefensiveStats .spr .break").val(data.monster.breaks.spr);
+              }
+          }
         }
         $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
         for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
             $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
-        }
-
-        if (data.monster.def) {
-            $("#monsterDefensiveStats .def .stat").val(data.monster.def);
-        }
-        if (data.monster.spr) {
-            $("#monsterDefensiveStats .spr .stat").val(data.monster.spr);
-        }
-        if (data.monster.breaks) {
-            if (data.monster.breaks.def) {
-                $("#monsterDefensiveStats .def .break").val(data.monster.breaks.def);
-            }
-            if (data.monster.breaks.spr) {
-                $("#monsterDefensiveStats .spr .break").val(data.monster.breaks.spr);
-            }
         }
     }
     
