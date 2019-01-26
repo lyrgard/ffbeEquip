@@ -2357,7 +2357,7 @@ function shortLinkFormatToData(shortLinkData) {
   
     unit.esperId = esperNameById[shortLinkData[1][0]];  
     unit.esperPinned = false;
-    unit.items = shortLinkData[2].map((id, index) => { return {"id":id.toString(), "slot": index, "pinned": false}});
+    unit.items = shortLinkData[2].filter(id => id).map((id, index) => { return {"id":id.toString(), "slot": index, "pinned": false}});
     if (shortLinkData[3] && shortLinkData[3].length > 0) {
       unit.itemEnchantments = {};
       if (shortLinkData[3][0] && shortLinkData[3][0].size > 0) {
@@ -3064,18 +3064,37 @@ function startPage() {
     if (server == "JP") {
         $('#useNewJpDamageFormula').prop('checked', true);
     }
+    
+    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill"], () => {
+        populateUnitSelect();
+        prepareSearch(data);
+        waitingCallbackKeyReady("unitsAndItems");
+    });
+    registerWaitingCallback(["unitsAndItems", "defaultBuilderEspers"], () => {
+        initWorkerNumber();
+        initWorkers();
+        
+        var hashData = readStateHashData(function(hashData) {
+            if (hashData) {
+                loadStateHashAndBuild(hashData);
+            } else {
+                reinitBuild(currentUnitIndex);
+            }
+        });
+    });
+    
     getStaticData("data", true, function(result) {
         data = result;
         dataStorage.setData(data);
-        getStaticData("unitsWithPassives", true, function(result) {
-            units = result;
-            getStaticData("unitsWithSkill", false, function(result) {
-                unitsWithSkills = result;
-                populateUnitSelect();
-                prepareSearch(data);
-                continueIfReady();
-            });
-        });
+        waitingCallbackKeyReady("data");
+    });
+    getStaticData("unitsWithPassives", true, function(result) {
+        units = result;
+        waitingCallbackKeyReady("unitsWithPassives");
+    });
+    getStaticData("unitsWithSkill", false, function(result) {
+        unitsWithSkills = result;
+        waitingCallbackKeyReady("unitsWithSkill");
     });
     
     getStaticData("defaultBuilderEspers", false, function(result) {
@@ -3085,7 +3104,7 @@ function startPage() {
         }
         updateEspers();
         
-        continueIfReady();
+        waitingCallbackKeyReady("defaultBuilderEspers");
     });
     $.get(server + "/units", function(result) {
         ownedUnits = result;
@@ -3201,24 +3220,6 @@ function startPage() {
     
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
-}
-
-var counter = 0;
-function continueIfReady() {
-    counter++;
-    if (counter == 2) {
-        initWorkerNumber();
-        initWorkers();
-        
-        var hashData = readStateHashData(function(hashData) {
-            if (hashData) {
-                loadStateHashAndBuild(hashData);
-            } else {
-                reinitBuild(currentUnitIndex);
-            }
-        });
-        
-    }
 }
 
 function initWorkerNumber() {

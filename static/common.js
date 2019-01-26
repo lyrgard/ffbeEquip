@@ -1845,6 +1845,19 @@ function adaptItemInventoryForMultipleRareEnchantments() {
     });
 }
 
+let waitingCallbacks = [];
+function registerWaitingCallback(waitingKeys, callback) {
+    waitingCallbacks.push({"keys":waitingKeys, "callback":callback});
+}
+function waitingCallbackKeyReady(key) {
+    waitingCallbacks.filter(wc => wc.keys.includes(key)).forEach(wc => {
+        wc.keys.splice(wc.keys.indexOf(key), 1);
+        if (wc.keys.length == 0) {
+            wc.callback();
+        }
+    })
+}
+
 $(function() {
 
     try {
