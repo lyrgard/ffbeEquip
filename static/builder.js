@@ -2357,7 +2357,11 @@ function shortLinkFormatToData(shortLinkData) {
   
     unit.esperId = esperNameById[shortLinkData[1][0]];  
     unit.esperPinned = false;
-    unit.items = shortLinkData[2].filter(id => id).map((id, index) => { return {"id":id.toString(), "slot": index, "pinned": false}});
+    unit.items = shortLinkData[2].map((id, index) => { 
+        if (id) {
+            return {"id":id.toString(), "slot": index, "pinned": false}
+        }
+    }).filter(out => out);
     if (shortLinkData[3] && shortLinkData[3].length > 0) {
       unit.itemEnchantments = {};
       if (shortLinkData[3][0] && shortLinkData[3][0].size > 0) {

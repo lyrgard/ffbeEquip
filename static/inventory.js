@@ -802,7 +802,7 @@ function exportAsJson() {
         typeById[item.id] = item.type;
     })
     Object.keys(itemInventory).forEach(id => {
-      if (id != "enchantments") {
+      if (id != "enchantments" && id != "version") {
         let itemResult = {"id" : id, "count": itemInventory[id] };
         if (itemInventory.enchantments && itemInventory.enchantments[id]) {
           itemResult.count -= itemInventory.enchantments[id].length;
