@@ -566,7 +566,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","katana","throwing","hat","clothes"]
+		"equip":["dagger","katana","throwing","hat","clothes"],
+		"enhancementSkills":["Kunai Rain","Call of the Darkness","Thundersplit Blade"]
 	},
 	"100003903": {
 		"name":"Gilbert",
@@ -1565,6 +1566,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Clever Smile","True Doublehand","Frostbite","Ice Prism"],
 		"6_form": {
 			"name":"Elfreeda",
 			"id":"100009805",
@@ -1578,7 +1580,8 @@
 				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","bow","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","bow","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Clever Smile","True Doublehand","Frostbite","Ice Prism"]
 		}
 	},
 	"100009903": {
@@ -1665,7 +1668,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","katana","staff","rod","bow","whip","throwing","lightShield","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","katana","staff","rod","bow","whip","throwing","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Future Bearer","Whirlwind Evasion 2","Earthsplit Evasion 2"]
 	},
 	"100010405": {
 		"name":"Roy",
@@ -2174,7 +2178,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Young Master","Inherited Soul","Start of Work"]
 	},
 	"100013104": {
 		"name":"Cedona",
@@ -2687,6 +2692,35 @@
 			"equip":["dagger","staff","rod","harp","whip","gun","mace","hat","clothes","lightArmor","heavyArmor","robe"]
 		}
 	},
+	"100017005": {
+		"name":"Santa Roselia",
+		"id":"100017005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4518,"mp":257,"atk":93,"def":167,"mag":152,"spr":214},
+			"minStats":{"hp":1495,"mp":89,"atk":31,"def":54,"mag":50,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Santa Roselia",
+			"id":"100017005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3476,"mp":198,"atk":72,"def":123,"mag":117,"spr":157},
+				"minStats":{"hp":1150,"mp":69,"atk":24,"def":42,"mag":39,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","harp","mace","lightShield","hat","clothes","robe"]
+		}
+	},
 	"100017105": {
 		"name":"Elephim",
 		"id":"100017105",
@@ -3027,6 +3061,263 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","hammer","throwing","gun","mace","fist","hat","clothes"]
+	},
+	"100019105": {
+		"name":"null",
+		"id":"100019105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4751,"mp":222,"atk":202,"def":189,"mag":209,"spr":181},
+			"minStats":{"hp":1568,"mp":73,"atk":67,"def":62,"mag":69,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"100019105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3655,"mp":171,"atk":156,"def":146,"mag":161,"spr":133},
+				"minStats":{"hp":1206,"mp":56,"atk":51,"def":48,"mag":53,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"100019205": {
+		"name":"null",
+		"id":"100019205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4790,"mp":209,"atk":204,"def":192,"mag":163,"spr":187},
+			"minStats":{"hp":1581,"mp":69,"atk":67,"def":63,"mag":54,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"100019205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3685,"mp":161,"atk":157,"def":148,"mag":126,"spr":137},
+				"minStats":{"hp":1216,"mp":53,"atk":52,"def":49,"mag":42,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"100019304": {
+		"name":"null",
+		"id":"100019304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3640,"mp":165,"atk":149,"def":136,"mag":130,"spr":141},
+			"minStats":{"hp":1201,"mp":54,"atk":49,"def":45,"mag":43,"spr":47},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","bow","spear","harp","hat","helm","clothes","lightArmor"]
+	},
+	"100019403": {
+		"name":"null",
+		"id":"100019403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2899,"mp":115,"atk":118,"def":113,"mag":71,"spr":76},
+			"minStats":{"hp":957,"mp":38,"atk":39,"def":37,"mag":23,"spr":25},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","axe","hammer","hat","helm","lightArmor","heavyArmor"]
+	},
+	"100019505": {
+		"name":"null",
+		"id":"100019505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4802,"mp":204,"atk":203,"def":165,"mag":154,"spr":195},
+			"minStats":{"hp":1585,"mp":67,"atk":67,"def":54,"mag":51,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"null",
+			"id":"100019505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":156,"atk":156,"def":126,"mag":118,"spr":150},
+				"minStats":{"hp":1219,"mp":51,"atk":51,"def":42,"mag":39,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100019604": {
+		"name":"null",
+		"id":"100019604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3492,"mp":192,"atk":111,"def":121,"mag":119,"spr":142},
+			"minStats":{"hp":1152,"mp":63,"atk":37,"def":40,"mag":39,"spr":47},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","whip","throwing","hat","clothes","robe"]
+	},
+	"100019704": {
+		"name":"null",
+		"id":"100019704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3721,"mp":185,"atk":124,"def":132,"mag":115,"spr":128},
+			"minStats":{"hp":1228,"mp":61,"atk":41,"def":44,"mag":38,"spr":42},
+			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["axe","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"100019803": {
+		"name":"null",
+		"id":"100019803",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2752,"mp":118,"atk":121,"def":113,"mag":75,"spr":92},
+			"minStats":{"hp":908,"mp":39,"atk":40,"def":37,"mag":25,"spr":30},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"100019905": {
+		"name":"null",
+		"id":"100019905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4572,"mp":256,"atk":195,"def":155,"mag":200,"spr":184},
+			"minStats":{"hp":1509,"mp":84,"atk":64,"def":51,"mag":66,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"100019905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":196,"atk":150,"def":119,"mag":153,"spr":141},
+				"minStats":{"hp":1160,"mp":65,"atk":50,"def":39,"mag":50,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"100020005": {
+		"name":"null",
+		"id":"100020005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4850,"mp":242,"atk":206,"def":192,"mag":164,"spr":193},
+			"minStats":{"hp":1601,"mp":80,"atk":68,"def":63,"mag":54,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+		"6_form": {
+			"name":"null",
+			"id":"100020005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3730,"mp":186,"atk":158,"def":147,"mag":126,"spr":148},
+				"minStats":{"hp":1231,"mp":61,"atk":52,"def":49,"mag":42,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"]
+		}
+	},
+	"100020104": {
+		"name":"null",
+		"id":"100020104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3654,"mp":147,"atk":157,"def":131,"mag":102,"spr":113},
+			"minStats":{"hp":1206,"mp":49,"atk":52,"def":43,"mag":34,"spr":37},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","katana","hat","clothes"]
+	},
+	"100020204": {
+		"name":"null",
+		"id":"100020204",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3398,"mp":162,"atk":152,"def":119,"mag":115,"spr":131},
+			"minStats":{"hp":1121,"mp":53,"atk":50,"def":39,"mag":38,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","throwing","gun","hat","clothes"]
+	},
+	"100020303": {
+		"name":"null",
+		"id":"100020303",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2832,"mp":122,"atk":111,"def":113,"mag":103,"spr":96},
+			"minStats":{"hp":935,"mp":40,"atk":37,"def":37,"mag":34,"spr":32},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -3662,6 +3953,106 @@
 			"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
 		}
 	},
+	"204001705": {
+		"name":"null",
+		"id":"204001705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4496,"mp":282,"atk":137,"def":170,"mag":217,"spr":191},
+			"minStats":{"hp":1484,"mp":93,"atk":45,"def":56,"mag":72,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"204001705",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3458,"mp":216,"atk":105,"def":130,"mag":166,"spr":146},
+				"minStats":{"hp":1141,"mp":71,"atk":35,"def":43,"mag":55,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","mace","helm","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"204001805": {
+		"name":"null",
+		"id":"204001805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4683,"mp":264,"atk":140,"def":149,"mag":215,"spr":204},
+			"minStats":{"hp":1545,"mp":87,"atk":46,"def":49,"mag":71,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"204001805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3602,"mp":203,"atk":107,"def":114,"mag":165,"spr":156},
+				"minStats":{"hp":1189,"mp":67,"atk":35,"def":38,"mag":54,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hat","clothes","robe"]
+		}
+	},
+	"204001904": {
+		"name":"null",
+		"id":"204001904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},
+			"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"]
+	},
+	"204002003": {
+		"name":"null",
+		"id":"204002003",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},
+			"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"]
+	},
+	"204002104": {
+		"name":"null",
+		"id":"204002104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},
+			"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["fist","helm","lightArmor","heavyArmor"]
+	},
 	"205000103": {
 		"name":"Bartz",
 		"id":"205000103",
@@ -4031,6 +4422,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression"],
 		"6_form": {
 			"name":"Cloud",
 			"id":"207000105",
@@ -4044,7 +4436,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["SOLDIER 1st Class","Climhazzard","Jenova Cells","Fighting Instinct","Aggression"]
 		}
 	},
 	"207000204": {
@@ -4937,7 +5330,6 @@
 	"212001105": {
 		"name":"Gabranth",
 		"id":"212001105",
-		"unreleased7Star":true,
 		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
@@ -4952,7 +5344,7 @@
 			"name":"Gabranth",
 			"id":"212001105",
 			"sixStarForm":true,
-			"max_rarity":"6",
+			"max_rarity":"7",
 			"min_rarity":"5",
 			"sex":"male",
 			"stats": {
@@ -5636,6 +6028,20 @@
 		"stats_pattern":1,
 		"equip":["dagger","bow","throwing","gun","hat","clothes"]
 	},
+	"253000704": {
+		"name":"null",
+		"id":"253000704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4633,"mp":172,"atk":186,"def":143,"mag":242,"spr":130},
+			"minStats":{"hp":1529,"mp":57,"atk":61,"def":47,"mag":80,"spr":43},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["axe","mace","hat","clothes","robe"]
+	},
 	"253000805": {
 		"name":"Orlandeau",
 		"id":"253000805",
@@ -5682,6 +6088,35 @@
 		"equip":["sword","greatSword","katana","bow","spear","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Sacred Knight","Crush Armor","Crush Weapon","Heaven's Blessing","Chantage"]
 	},
+	"253001005": {
+		"name":"null",
+		"id":"253001005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4628,"mp":226,"atk":198,"def":168,"mag":194,"spr":189},
+			"minStats":{"hp":1527,"mp":75,"atk":65,"def":55,"mag":64,"spr":62},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"253001005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3560,"mp":173,"atk":152,"def":129,"mag":149,"spr":145},
+				"minStats":{"hp":1175,"mp":57,"atk":50,"def":43,"mag":49,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
 	"253001103": {
 		"name":"Ovelia",
 		"id":"253001103",
@@ -5710,6 +6145,50 @@
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["Nameless Song","Writer of History","Durai Papers"]
+	},
+	"253001305": {
+		"name":"null",
+		"id":"253001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4416,"mp":289,"atk":138,"def":128,"mag":219,"spr":197},
+			"minStats":{"hp":1457,"mp":95,"atk":46,"def":42,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"253001305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3396,"mp":222,"atk":106,"def":98,"mag":168,"spr":151},
+				"minStats":{"hp":1121,"mp":73,"atk":35,"def":32,"mag":55,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"]
+		}
+	},
+	"253001403": {
+		"name":"null",
+		"id":"253001403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"mitigation":{"physical":30,"magical":30},
+		"stats": {
+			"maxStats":{"hp":3948,"mp":128,"atk":158,"def":218,"mag":8,"spr":308},
+			"minStats":{"hp":1303,"mp":42,"atk":52,"def":72,"mag":3,"spr":102},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":16,"spr":24}
+		},
+		"stats_pattern":1,
+		"equip":[]
 	},
 	"254000105": {
 		"name":"Ace",
@@ -6050,6 +6529,20 @@
 		"equip":["dagger","sword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Checkmate","Manastrike","Blade Adept"]
 	},
+	"256000101": {
+		"name":"null",
+		"id":"256000101",
+		"max_rarity":"6",
+		"min_rarity":"1",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3575,"mp":183,"atk":104,"def":109,"mag":124,"spr":136},
+			"minStats":{"hp":1180,"mp":60,"atk":34,"def":36,"mag":41,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","hammer","harp","hat","clothes","lightArmor","robe"]
+	},
 	"302000104": {
 		"name":"Tilith",
 		"id":"302000104",
@@ -6338,17 +6831,33 @@
 	"304000105": {
 		"name":"Randi",
 		"id":"304000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
-			"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4746,"mp":208,"atk":198,"def":166,"mag":144,"spr":154},
+			"minStats":{"hp":1566,"mp":69,"atk":65,"def":55,"mag":48,"spr":51},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"]
+		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
+		"6_form": {
+			"name":"Randi",
+			"id":"304000105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
+				"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"]
+		}
 	},
 	"304000204": {
 		"name":"Primm",
@@ -6647,6 +7156,77 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"]
+	},
+	"307000105": {
+		"name":"Ray Jack",
+		"id":"307000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4589,"mp":196,"atk":197,"def":174,"mag":144,"spr":156},
+			"minStats":{"hp":1514,"mp":65,"atk":65,"def":57,"mag":48,"spr":51},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","spear","mace","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Ray Jack",
+			"id":"307000105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3530,"mp":151,"atk":152,"def":128,"mag":111,"spr":115},
+				"minStats":{"hp":1165,"mp":50,"atk":50,"def":42,"mag":37,"spr":38},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","spear","mace","lightShield","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"307000204": {
+		"name":"Kaliva",
+		"id":"307000204",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3281,"mp":189,"atk":116,"def":119,"mag":150,"spr":135},
+			"minStats":{"hp":1083,"mp":62,"atk":38,"def":39,"mag":50,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"]
+	},
+	"307000303": {
+		"name":"Barusa",
+		"id":"307000303",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2919,"mp":106,"atk":107,"def":113,"mag":75,"spr":96},
+			"minStats":{"hp":963,"mp":35,"atk":35,"def":37,"mag":25,"spr":32},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","heavyArmor"]
+	},
+	"307000404": {
+		"name":"Toby",
+		"id":"307000404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3522,"mp":151,"atk":144,"def":124,"mag":120,"spr":123},
+			"minStats":{"hp":1162,"mp":50,"atk":48,"def":41,"mag":40,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","katana","bow","whip","throwing","hat","clothes","lightArmor","robe"]
 	},
 	"310000105": {
 		"name":"2B",
@@ -7232,6 +7812,92 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","bow","gun","mace","lightShield","hat","lightArmor","robe"]
+	},
+	"334000105": {
+		"name":"null",
+		"id":"334000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4461,"mp":276,"atk":124,"def":161,"mag":193,"spr":205},
+			"minStats":{"hp":1472,"mp":91,"atk":41,"def":53,"mag":64,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"null",
+			"id":"334000105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3432,"mp":213,"atk":96,"def":124,"mag":149,"spr":158},
+				"minStats":{"hp":1133,"mp":70,"atk":32,"def":41,"mag":49,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"334000205": {
+		"name":"null",
+		"id":"334000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5021,"mp":206,"atk":189,"def":206,"mag":136,"spr":198},
+			"minStats":{"hp":1657,"mp":66,"atk":62,"def":68,"mag":45,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"null",
+			"id":"334000205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3863,"mp":159,"atk":146,"def":159,"mag":105,"spr":153},
+				"minStats":{"hp":1275,"mp":51,"atk":48,"def":52,"mag":35,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"334000304": {
+		"name":"null",
+		"id":"334000304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3590,"mp":163,"atk":154,"def":130,"mag":124,"spr":144},
+			"minStats":{"hp":1185,"mp":54,"atk":51,"def":43,"mag":41,"spr":48},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","whip","throwing","lightShield","hat","helm","clothes","lightArmor"]
+	},
+	"334000403": {
+		"name":"null",
+		"id":"334000403",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2862,"mp":118,"atk":110,"def":104,"mag":70,"spr":105},
+			"minStats":{"hp":944,"mp":39,"atk":36,"def":34,"mag":23,"spr":35},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","bow","spear","whip","lightShield","hat","helm","clothes"]
 	},
 	"335000105": {
 		"name":"Sora",
@@ -7970,7 +8636,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["lightShield","hat","clothes","robe"]
+		"equip":["lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Chi - Kindness Rain","Chi - Golden Pearl Tenacity","Chi - Gentle Winds","Spiritual Virtue"]
 	},
 	"401003805": {
 		"name":"Chow",
@@ -7984,7 +8651,8 @@
 			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Spiritual Core","Strong Encouragement","Twin Discipline","Improved Focus"]
 	},
 	"401003905": {
 		"name":"Ang",
@@ -7998,7 +8666,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"]
+		"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["Heart of the Hunter","Master Archer","Penetrating Shot","Ash Shot"]
 	},
 	"401004005": {
 		"name":"Rico Rodriguez",
