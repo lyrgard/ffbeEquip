@@ -51,7 +51,7 @@ getData('units.json', function (units) {
                             var nameData = JSON.parse(nameDatacontent);
                             imgUrls = JSON.parse(imgUrlContent);
                             for (var unitId in nameData) {
-                                if (nameData[unitId].name != "undefined") {
+                                if (nameData[unitId].name != "undefined" && nameData[unitId].name != "null") {
                                     glNameById[unitId] = nameData[unitId].name;
                                 }
                             }
