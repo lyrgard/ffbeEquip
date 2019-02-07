@@ -936,7 +936,7 @@ function treatImportFile(evt) {
                 } else {
                     if (unit.id == '904000115') {
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
-                        if (baseUnitId) {
+                        if (baseUnitId && unit.tmr < 1000) {
                             if (!importedOwnedUnit[baseUnitId]) {
                                 importedOwnedUnit[baseUnitId] = {"number":0,"farmable":1,"sevenStar":0,"farmableStmr":0};
                             } else {
