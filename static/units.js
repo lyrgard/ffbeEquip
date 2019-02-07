@@ -877,6 +877,14 @@ function importUnits() {
            }
         });
     }
+    if (!baseUnitIdByTmrId) {
+        baseUnitIdByTmrId = {};
+        data.forEach(equip => {
+            if (equip.tmrUnit) {
+                baseUnitIdByTmrId[equip.id] = equip.tmrUnit;
+            }
+        })
+    }
     importedOwnedUnit = null;
     Modal.show({
         title: "Import unit collection",
@@ -901,6 +909,7 @@ function importUnits() {
 }
 
 let baseUnitIdBySpecificRarityUnitId = null;
+let baseUnitIdByTmrId = null;
 let importedOwnedUnit;
 
 function treatImportFile(evt) {
@@ -925,29 +934,40 @@ function treatImportFile(evt) {
                     importedOwnedUnit = null;
                     return;
                 } else {
-                    let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];
-                    if (!unit.id.startsWith('9') && !baseUnitId ) {
-                        Modal.showMessage('unknown unit id : ' + unit.id);
-                        importedOwnedUnit = null;
-                        return;
-                    }
-                    if (!importedOwnedUnit[baseUnitId]) {
-                        importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
-                    }
-                    if (unit.tmr < 1000) {
-                        importedOwnedUnit[baseUnitId].farmable++;
-                    }
-                    if (unit.id.endsWith("7")) {
-                        if (!importedOwnedUnit[baseUnitId].sevenStar) {
-                            importedOwnedUnit[baseUnitId].sevenStar = 0;
-                            importedOwnedUnit[baseUnitId].farmableStmr = 0;
+                    if (unit.id == '904000115') {
+                        let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
+                        if (baseUnitId) {
+                            if (!importedOwnedUnit[baseUnitId]) {
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":1,"sevenStar":0,"farmableStmr":0};
+                            } else {
+                                importedOwnedUnit[baseUnitId].farmable++;
+                            }
                         }
-                        importedOwnedUnit[baseUnitId].sevenStar++;
-                        if (unit.stmr < 1000) {
-                            importedOwnedUnit[baseUnitId].farmableStmr++;
+                    } else if (!unit.id.startsWith('9')) {
+                        let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];
+                        if (!baseUnitId) {
+                            Modal.showMessage('unknown unit id : ' + unit.id);
+                            importedOwnedUnit = null;
+                            return;
                         }
-                    } else {
-                      importedOwnedUnit[baseUnitId].number++;
+                        if (!importedOwnedUnit[baseUnitId]) {
+                            importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0};
+                        }
+                        if (unit.tmr < 1000) {
+                            importedOwnedUnit[baseUnitId].farmable++;
+                        }
+                        if (unit.id.endsWith("7")) {
+                            if (!importedOwnedUnit[baseUnitId].sevenStar) {
+                                importedOwnedUnit[baseUnitId].sevenStar = 0;
+                                importedOwnedUnit[baseUnitId].farmableStmr = 0;
+                            }
+                            importedOwnedUnit[baseUnitId].sevenStar++;
+                            if (unit.stmr < 1000) {
+                                importedOwnedUnit[baseUnitId].farmableStmr++;
+                            }
+                        } else {
+                          importedOwnedUnit[baseUnitId].number++;
+                        }
                     }
                 }
             });
@@ -1166,6 +1186,11 @@ importValidator.addSchema('units', {
         type: 'number',
         minimum: 0,
         maximum: 1000
+      },
+      tmrId: {
+        type: 'string',
+        minLength: 5,
+        maxLength: 10
       }
     },
     
