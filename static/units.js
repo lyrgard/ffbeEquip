@@ -1189,7 +1189,7 @@ importValidator.addSchema('units', {
       },
       tmrId: {
         type: 'string',
-        minLength: 5,
+        minLength: 1,
         maxLength: 10
       }
     },
