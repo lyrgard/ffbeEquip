@@ -7135,17 +7135,34 @@
 		"name":"Yun",
 		"wikiEntry":"Yun",
 		"id":"302000905",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3525,"mp":132,"atk":150,"def":124,"mag":110,"spr":116},
-			"minStats":{"hp":1163,"mp":44,"atk":50,"def":41,"mag":36,"spr":38},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4758,"mp":210,"atk":204,"def":174,"mag":143,"spr":175},
+			"minStats":{"hp":1570,"mp":69,"atk":67,"def":57,"mag":47,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"],
-		"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"]
+		"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"],
+		"6_form": {
+			"name":"Yun",
+			"wikiEntry":"Yun",
+			"id":"302000905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3525,"mp":132,"atk":150,"def":124,"mag":110,"spr":116},
+				"minStats":{"hp":1163,"mp":44,"atk":50,"def":41,"mag":36,"spr":38},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","whip","mace","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["No Pressure Friend","Two-Hit Combo","Raging Bird","Blazing Combo"]
+		}
 	},
 	"302001004": {
 		"name":"Ling",
@@ -7297,34 +7314,17 @@
 		"name":"Randi",
 		"wikiEntry":"Randi",
 		"id":"304000105",
-		"max_rarity":"7",
+		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4746,"mp":208,"atk":198,"def":166,"mag":144,"spr":154},
-			"minStats":{"hp":1566,"mp":69,"atk":65,"def":55,"mag":48,"spr":51},
-			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
+			"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"stats_pattern":4,
+		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
-		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
-		"6_form": {
-			"name":"Randi",
-			"wikiEntry":"Randi",
-			"id":"304000105",
-			"sixStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"male",
-			"stats": {
-				"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
-				"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
-				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-			},
-			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"]
-		}
+		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"]
 	},
 	"304000204": {
 		"name":"Primm",
@@ -9232,33 +9232,67 @@
 		"name":"Chow",
 		"wikiEntry":"Chow",
 		"id":"401003805",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3788,"mp":168,"atk":128,"def":138,"mag":108,"spr":148},
-			"minStats":{"hp":1250,"mp":55,"atk":42,"def":46,"mag":36,"spr":49},
-			"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4924,"mp":218,"atk":166,"def":197,"mag":145,"spr":222},
+			"minStats":{"hp":1625,"mp":72,"atk":55,"def":65,"mag":48,"spr":73},
+			"pots":{"hp":900,"mp":90,"atk":40,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"enhancementSkills":["Spiritual Core","Strong Encouragement","Twin Discipline","Improved Focus"]
+		"enhancementSkills":["Spiritual Core","Strong Encouragement","Twin Discipline","Improved Focus"],
+		"6_form": {
+			"name":"Chow",
+			"wikiEntry":"Chow",
+			"id":"401003805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3788,"mp":168,"atk":128,"def":138,"mag":108,"spr":148},
+				"minStats":{"hp":1250,"mp":55,"atk":42,"def":46,"mag":36,"spr":49},
+				"pots":{"hp":510,"mp":65,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Spiritual Core","Strong Encouragement","Twin Discipline","Improved Focus"]
+		}
 	},
 	"401003905": {
 		"name":"Ang",
 		"wikiEntry":"Ang",
 		"id":"401003905",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3670,"mp":165,"atk":155,"def":130,"mag":129,"spr":130},
-			"minStats":{"hp":1211,"mp":54,"atk":51,"def":43,"mag":43,"spr":43},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			"maxStats":{"hp":4771,"mp":214,"atk":205,"def":190,"mag":167,"spr":175},
+			"minStats":{"hp":1574,"mp":71,"atk":68,"def":63,"mag":55,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
 		},
-		"stats_pattern":1,
+		"stats_pattern":4,
 		"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"],
-		"enhancementSkills":["Heart of the Hunter","Master Archer","Penetrating Shot","Ash Shot"]
+		"enhancementSkills":["Heart of the Hunter","Master Archer","Penetrating Shot","Ash Shot"],
+		"6_form": {
+			"name":"Ang",
+			"wikiEntry":"Ang",
+			"id":"401003905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3670,"mp":165,"atk":155,"def":130,"mag":129,"spr":130},
+				"minStats":{"hp":1211,"mp":54,"atk":51,"def":43,"mag":43,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["bow","throwing","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["Heart of the Hunter","Master Archer","Penetrating Shot","Ash Shot"]
+		}
 	},
 	"401004005": {
 		"name":"Rico Rodriguez",
@@ -9843,6 +9877,68 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","throwing","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401006605": {
+		"name":"Qin",
+		"wikiEntry":"Qin",
+		"id":"401006605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4652,"mp":272,"atk":116,"def":172,"mag":202,"spr":202},
+			"minStats":{"hp":1535,"mp":90,"atk":38,"def":57,"mag":67,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Qin",
+			"wikiEntry":"Qin",
+			"id":"401006605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3578,"mp":209,"atk":89,"def":132,"mag":155,"spr":155},
+				"minStats":{"hp":1181,"mp":69,"atk":29,"def":44,"mag":51,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","mace","lightShield","hat","clothes","robe"]
+		}
+	},
+	"401006705": {
+		"name":"Bai Hu & Zhu Que",
+		"wikiEntry":"Bai_Hu & Zhu Que",
+		"id":"401006705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4698,"mp":253,"atk":204,"def":180,"mag":135,"spr":204},
+			"minStats":{"hp":1550,"mp":83,"atk":67,"def":59,"mag":45,"spr":67},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Bai Hu & Zhu Que",
+			"wikiEntry":"Bai_Hu & Zhu Que",
+			"id":"401006705",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3614,"mp":195,"atk":157,"def":139,"mag":104,"spr":157},
+				"minStats":{"hp":1193,"mp":64,"atk":52,"def":46,"mag":34,"spr":52},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","mace","fist","hat","clothes","lightArmor","robe"]
 		}
 	}
 }
