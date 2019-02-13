@@ -43,9 +43,6 @@ getData('units.json', function (units) {
             getData('enhancements.json', function (enhancements) {
                 fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
                     var nameData = JSON.parse(nameDatacontent);
-                    for (var unitId in nameData) {
-                        glNameById[unitId] = nameData[unitId].name;
-                    }
                     fs.readFile('../../static/GL/units.json', function (err, nameDatacontent) {
                         fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
                             var nameData = JSON.parse(nameDatacontent);

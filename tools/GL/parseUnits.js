@@ -16,6 +16,7 @@ var enhancementsByUnitId = {};
 var oldItemsAccessById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
+var jpNameById = {};
 
 var languageId;
 
@@ -52,43 +53,52 @@ getData('units.json', function (units) {
                         var jpUnits = JSON.parse(body);
                         fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
                             imgUrls = JSON.parse(imgUrlContent);
-                            for (languageId = 0; languageId < languages.length; languageId++) {
-                                for (var index in enhancements) {
-                                    var enhancement = enhancements[index];
-                                    for (var unitIdIndex in enhancement.units) {
-                                        var unitId = enhancement.units[unitIdIndex].toString();
-                                        if (!enhancementsByUnitId[unitId]) {
-                                            enhancementsByUnitId[unitId] = {};
+                            
+                            fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
+                            
+                                var nameData = JSON.parse(nameDatacontent);
+                                for (var unitId in nameData) {
+                                    jpNameById[unitId] = nameData[unitId].name;
+                                }
+                                
+                                for (languageId = 0; languageId < languages.length; languageId++) {
+                                    for (var index in enhancements) {
+                                        var enhancement = enhancements[index];
+                                        for (var unitIdIndex in enhancement.units) {
+                                            var unitId = enhancement.units[unitIdIndex].toString();
+                                            if (!enhancementsByUnitId[unitId]) {
+                                                enhancementsByUnitId[unitId] = {};
+                                            }
+                                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
                                         }
-                                        enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                    }
+
+                                    var unitsOut = {};
+                                    for (var unitId in units) {
+                                        var unitIn = units[unitId];
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                            var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits);
+                                            unitsOut[unitOut.data.id] = unitOut.data;
+                                        }
+                                    }
+
+                                    var filename = 'unitsWithPassives.json';
+                                    if (languageId != 0) {
+                                        filename = 'unitsWithPassives_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
+                                    filename = 'units.json';
+                                    if (languageId != 0) {
+                                        filename = 'units_' + languages[languageId] +'.json';
+                                    }
+                                    fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+
+                                    if (languageId == 0) {
+                                        fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                        fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
                                     }
                                 }
-
-                                var unitsOut = {};
-                                for (var unitId in units) {
-                                    var unitIn = units[unitId];
-                                    if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                        var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits);
-                                        unitsOut[unitOut.data.id] = unitOut.data;
-                                    }
-                                }
-
-                                var filename = 'unitsWithPassives.json';
-                                if (languageId != 0) {
-                                    filename = 'unitsWithPassives_' + languages[languageId] +'.json';
-                                }
-                                fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                                filename = 'units.json';
-                                if (languageId != 0) {
-                                    filename = 'units_' + languages[languageId] +'.json';
-                                }
-                                fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-
-                                if (languageId == 0) {
-                                    fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
-                                }
-                            }
+                            });
                         });
                     }
                 });
@@ -166,6 +176,12 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, m
     }
     
     data["name"] = unitIn.names[languageId];
+    if (!data.name) {
+        data.name = jpNameById[unitId];
+    }
+    if (!data.name) {
+        data.name = unitIn.name;
+    }
     if (languageId != 0) {
         data.wikiEntry = unitIn.name.replace(' ', '_');
     }
