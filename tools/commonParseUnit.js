@@ -867,17 +867,17 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
 
 function parseLb(lb, unit, skills) {
     var lbOut = {"name": lb.name, minEffects: [], "maxEffects":[]}
-    for (var rawEffectIndex in lb.min_level["effects_raw"]) {
-        var rawEffect = lb.min_level["effects_raw"][rawEffectIndex];
+    for (var rawEffectIndex in lb.levels[0][1]) {
+        var rawEffect = lb.levels[0][1][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
-        lbOut.minEffects.push({"effect":effect, "desc": lb.min_level.effects[rawEffectIndex]});
+        lbOut.minEffects.push({"effect":effect, "desc": lb.min_level[rawEffectIndex]});
     }
-    for (var rawEffectIndex in lb.max_level["effects_raw"]) {
-        var rawEffect = lb.max_level["effects_raw"][rawEffectIndex];
+    for (var rawEffectIndex in lb.levels[lb.levels.length - 1][1]) {
+        var rawEffect = lb.levels[lb.levels.length - 1][1][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
-        lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level.effects[rawEffectIndex]});
+        lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
     }
     return lbOut;
 }
