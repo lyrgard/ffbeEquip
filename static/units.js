@@ -1193,6 +1193,7 @@ importValidator.addSchema('units', {
         maxLength: 10
       }
     },
+      required: ['id', 'level', 'tmr']
     
   }
 });

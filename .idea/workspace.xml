@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/units.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JP/units.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="8551" column="24" selection-start-line="8551" selection-start-column="24" selection-end-line="8551" selection-end-column="24" />
+            <state relative-caret-position="129780">
+              <caret line="8652" column="24" selection-start-line="8652" selection-start-column="24" selection-end-line="8652" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -36,11 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/units.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="1195" column="37" selection-start-line="1195" selection-start-column="37" selection-end-line="1195" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -84,6 +89,7 @@
         <option value="$PROJECT_DIR$/tools/JP/parseItems.js" />
         <option value="$PROJECT_DIR$/static/JP/units.json" />
         <option value="$PROJECT_DIR$/static/JP/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/units.js" />
       </list>
     </option>
   </component>
@@ -98,6 +104,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,8 +139,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -166,17 +172,18 @@
       <workItem from="1549809394739" duration="280000" />
       <workItem from="1550091919907" duration="504000" />
       <workItem from="1550436386730" duration="2982000" />
+      <workItem from="1550518394929" duration="540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3766000" />
+    <option name="totallyTimeSpent" value="4306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25778133" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26177174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -191,7 +198,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.19173554" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -206,6 +213,13 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/JP/units.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129780">
+          <caret line="8652" column="24" selection-start-line="8652" selection-start-column="24" selection-end-line="8652" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/JP/parseItems.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12120">
@@ -213,17 +227,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JP/units.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="8551" column="24" selection-start-line="8551" selection-start-column="24" selection-end-line="8551" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/units.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="1195" column="37" selection-start-line="1195" selection-start-column="37" selection-end-line="1195" selection-end-column="37" />
         </state>
       </provider>
     </entry>
