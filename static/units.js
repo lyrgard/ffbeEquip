@@ -589,7 +589,7 @@ function markSaveNeeded() {
     if (saveTimeout) {clearTimeout(saveTimeout)}
     if (savePublicLinkTimeout) {clearTimeout(savePublicLinkTimeout)}
     mustSaveInventory = true;
-    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true);
+    saveTimeout = setTimeout(saveUserData,3000, mustSaveInventory, true, false);
     savePublicLinkTimeout = setTimeout(savePublicLink, 10000);
 }
 
@@ -896,7 +896,7 @@ function importUnits() {
             onClick: function() {
                 if (importedOwnedUnit) {
                     ownedUnits = importedOwnedUnit;
-                    saveUserData(false, true);
+                    saveUserData(false, true, false);
                     showRaritySort();
                 } else {
                     Modal.show("Please select a file to import");

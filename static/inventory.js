@@ -329,7 +329,7 @@ function addToInventory(id, showAlert = true) {
 function willSave() {
     saveNeeded = true;
     if (saveTimeout) {clearTimeout(saveTimeout)}
-    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits);
+    saveTimeout = setTimeout(saveUserData,3000, true, mustSaveUnits, false);
     $(".saveInventory").removeClass("hidden");
 }
 
@@ -364,7 +364,7 @@ function showRemoveAllToInventoryDialog() {
                 };
                 updateUnitAndItemCount();
                 displayStats();
-                saveUserData(true, false);
+                saveUserData(true, false, false);
             }
         }]
     });
@@ -847,7 +847,7 @@ function importInventory() {
             onClick: function() {
                 if (importedItemInventory) {
                     itemInventory = importedItemInventory;
-                    saveUserData(true, false);
+                    saveUserData(true, false, false);
                     showEquipments();
                 } else {
                     Modal.show("Please select a file to import");
