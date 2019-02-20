@@ -62,7 +62,8 @@ var espersMap = {
     "フェンリル": "Fenrir",
     "リヴァイアサン": "Leviathan",
     "アニマ": "Anima",
-    "阿修羅": "Asura"
+    "阿修羅": "Asura",
+    "黒龍": "Black Dragon"
 }
 
 var typeMap = {
