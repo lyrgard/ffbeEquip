@@ -957,11 +957,24 @@ var exclusiveForbidAccess = function(item, selectedUnitId) {
 var containsText = function(text, item) {
 
     var result = true;
-    text.split(" ").forEach(function (token) {
+    getSearchTokens(text).forEach(function (token) {
         result = result && item.searchString.match(new RegExp(escapeRegExp(token),'i'));
     });
     return result;
 };
+
+function getSearchTokens(text) {
+    let tokens = [];
+    let betweenQuotes = text.match(/"[^"]*"/g);
+    if (betweenQuotes) {
+        betweenQuotes.forEach(token => {
+            tokens.push(token.substr(1, token.length-2));
+            text = text.replace(token, '');
+        });
+    }
+    tokens = tokens.concat(text.split(' '));
+    return tokens;
+}
 
 
 // Return true if the item has the required stat
