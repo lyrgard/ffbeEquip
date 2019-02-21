@@ -3885,41 +3885,6 @@
 			]
 		}
 	},
-	"100017005": {
-		"name":"산타 로자리아",
-		"wikiEntry":"Santa_Roselia",
-		"id":"100017005",
-		"max_rarity":"7",
-		"min_rarity":"5",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":4518,"mp":257,"atk":93,"def":167,"mag":152,"spr":214},
-			"minStats":{"hp":1495,"mp":89,"atk":31,"def":54,"mag":50,"spr":67},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
-		},
-		"stats_pattern":4,
-		"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-		"skills": [
-		],
-		"6_form": {
-			"name":"산타 로자리아",
-			"wikiEntry":"Santa_Roselia",
-			"id":"100017005",
-			"sixStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"female",
-			"stats": {
-				"maxStats":{"hp":3476,"mp":198,"atk":72,"def":123,"mag":117,"spr":157},
-				"minStats":{"hp":1150,"mp":69,"atk":24,"def":42,"mag":39,"spr":52},
-				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
-			},
-			"stats_pattern":1,
-			"equip":["staff","harp","mace","lightShield","hat","clothes","robe"],
-			"skills": [
-			]
-		}
-	},
 	"100017105": {
 		"name":"엘핌",
 		"wikiEntry":"Elephim",
@@ -5277,7 +5242,7 @@
 		"skills": [
 			{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"トゥインクルソード","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteo (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteo (508622) and Onion Shredder (228551) by 300% for 5 turns"}]}, "equipedConditions":["504228565"]},
+			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"トゥインクルソード","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}]}, "equipedConditions":["504228565"]},
 			{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120}
@@ -5737,103 +5702,6 @@
 				{"hp%":20, "mp%":60, "def%":30, "mag%":80, "spr%":30, "evoMag":60, "lbFillRate":50, "resist":[{"name":"dark","percent":50},{"name":"fire","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5, "skillEnhancement":{"20350":3,"20410":1.5,"20430":1.5}}
 			]
 		}
-	},
-	"204001805": {
-		"name":"Rubicante",
-		"wikiEntry":"ルビカンテ",
-		"id":"204001805",
-		"max_rarity":"7",
-		"min_rarity":"5",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":4683,"mp":264,"atk":140,"def":149,"mag":215,"spr":204},
-			"minStats":{"hp":1545,"mp":87,"atk":46,"def":49,"mag":71,"spr":67},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
-		},
-		"stats_pattern":4,
-		"equip":["staff","rod","hat","clothes","robe"],
-		"skills": [
-			{"hp%":20, "mp%":20, "mag%":80, "spr%":30, "lbFillRate":50, "resist":[{"name":"fire","percent":100}], "mpRefresh":5, "skillEnhancement":{"20010":1.5,"20080":1.5,"20200":1.5,"20290":1,"20350":4,"20420":2,"20790":1}},
-			{"hp%":20, "mp%":20, "mag%":20, "spr%":20, "skillEnhancement":{"20010":1,"20080":1,"20200":1,"20290":1,"20350":4,"20420":2,"20790":1}, "equipedConditions":["409026100"]},
-			{"mag%":30, "skillEnhancement":{"509032":0.75,"509033":0.75}, "levelCondition":110},
-			{"def%":20, "levelCondition":115},
-			{"mag%":40, "resist":[{"name":"fire","percent":50},{"name":"ice","percent":50}], "levelCondition":120}
-		],
-		"6_form": {
-			"name":"Rubicante",
-			"wikiEntry":"ルビカンテ",
-			"id":"204001805",
-			"sixStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"male",
-			"stats": {
-				"maxStats":{"hp":3602,"mp":203,"atk":107,"def":114,"mag":165,"spr":156},
-				"minStats":{"hp":1189,"mp":67,"atk":35,"def":38,"mag":54,"spr":51},
-				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
-			},
-			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","robe"],
-			"skills": [
-				{"hp%":20, "mp%":20, "mag%":80, "spr%":30, "lbFillRate":50, "resist":[{"name":"fire","percent":100}], "mpRefresh":5, "skillEnhancement":{"20010":1.5,"20080":1.5,"20200":1.5,"20290":1,"20350":4,"20420":2,"20790":1}}
-			]
-		}
-	},
-	"204001904": {
-		"name":"Barbariccia",
-		"wikiEntry":"バルバリシア",
-		"id":"204001904",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"female",
-		"stats": {
-			"maxStats":{"hp":3450,"mp":190,"atk":110,"def":118,"mag":152,"spr":143},
-			"minStats":{"hp":1139,"mp":63,"atk":36,"def":39,"mag":50,"spr":47},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
-		},
-		"stats_pattern":1,
-		"equip":["staff","rod","whip","mace","lightShield","hat","clothes","robe"],
-		"skills": [
-			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":150},{"name":"light","percent":-50}], "mpRefresh":5},
-			{"mag%":30, "equipedConditions":["rod"]},
-			{"spr%":30, "equipedConditions":["lightShield"]}
-		]
-	},
-	"204002003": {
-		"name":"Scarmiglione",
-		"wikiEntry":"スカルミリョーネ",
-		"id":"204002003",
-		"max_rarity":"5",
-		"min_rarity":"3",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":2964,"mp":111,"atk":121,"def":119,"mag":85,"spr":81},
-			"minStats":{"hp":978,"mp":37,"atk":40,"def":39,"mag":28,"spr":27},
-			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","sword","katana","throwing","fist","hat","clothes","lightArmor","robe"],
-		"skills": [
-			{"hp%":10, "atk%":20, "resist":[{"name":"dark","percent":40},{"name":"earth","percent":40},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":-20},{"name":"light","percent":-20}]}
-		]
-	},
-	"204002104": {
-		"name":"Cagnazzo",
-		"wikiEntry":"カイナッツォ",
-		"id":"204002104",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3901,"mp":145,"atk":120,"def":146,"mag":105,"spr":124},
-			"minStats":{"hp":1287,"mp":48,"atk":40,"def":48,"mag":35,"spr":41},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
-		},
-		"stats_pattern":1,
-		"equip":["fist","helm","lightArmor","heavyArmor"],
-		"skills": [
-			{"hp%":20, "def%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":-20},{"name":"lightning","percent":-20},{"name":"water","percent":20}], "mpRefresh":3, "drawAttacks":50}
-		]
 	},
 	"205000103": {
 		"name":"버츠",
@@ -12761,6 +12629,45 @@
 			"skills": [
 				{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 				{"mag%":50, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"401004505": {
+		"name":"마이라",
+		"wikiEntry":"Myra",
+		"id":"401004505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4643,"mp":253,"atk":115,"def":165,"mag":163,"spr":214},
+			"minStats":{"hp":1532,"mp":83,"atk":38,"def":54,"mag":54,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":40, "mp%":30, "def%":20, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mp%":20, "def%":20, "spr%":50, "lbFillRate":100, "resist":[{"name":"fire","percent":20},{"name":"light","percent":20}], "equipedConditions":["1100000245"]},
+			{"spr%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"마이라",
+			"wikiEntry":"Myra",
+			"id":"401004505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3572,"mp":195,"atk":89,"def":127,"mag":126,"spr":165},
+				"minStats":{"hp":1179,"mp":64,"atk":29,"def":42,"mag":42,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":40, "mp%":30, "def%":20, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
 			]
 		}
 	},
