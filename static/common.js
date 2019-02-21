@@ -1184,6 +1184,14 @@ function prepareSearch(data) {
         if (item["condition"]) {
             textToSearch += "|Only " + item["condition"];
         }
+        if (item["condition"]) {
+            textToSearch += "|Only " + item["condition"];
+        }
+        if (item["equipedConditions"]) {
+            item.equipedConditions.forEach(c => {
+                textToSearch += "|If equiped with " + c;
+            });
+        }
         if (item.mpRefresh) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
         }
