@@ -175,11 +175,11 @@ getData('equipment.json', function (items) {
 
 function treatItem(items, itemId, result, skills) {
     var itemIn = items[itemId];
-    if (itemIn.name.match(/[^\x00-\xFF’]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
+    /*if (itemIn.name.match(/[^\x00-\xFF’]/) && !itemIn.name.startsWith("Firewall: Power") && !itemIn.name.startsWith("Copper Cuirass")) {
         // exclude item whose name contain non english char
         console.log("excluded : " + itemIn.name)
         return;
-    }
+    }*/
     if (itemId == "405003400" || itemId == "409013400" || itemId == "504220290" || itemId == "308003700" || itemId == "409018100" || itemId == "408003100" || itemId == "301002800") {
         // exclude 2nd occurence of Stylish Black Dress and Evening Glove, and Half-elf heart
         return;
