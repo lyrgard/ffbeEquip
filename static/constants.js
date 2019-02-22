@@ -204,6 +204,7 @@ const itemEnhancementBySkillId = {
     "410130": "rare_3", // MP +30%
     "410030": "rare_3", // HP +30%
     "101240": "rare_3", // Hight Tide
+    "100090": "rare_3", // ATK +30%
     "450870": "rare_4", // ATK/HP
     "450880": "rare_4", // PM/MAG
     "450890": "rare_4", // ATK/MAG +35%
@@ -215,6 +216,7 @@ const itemEnhancementBySkillId = {
     "410240": "rare_4", // ATK +40%
     "410140": "rare_4", // MP +40%
     "410040": "rare_4", // HP +40%
+    "910339": "rare_4", // ATK +40%
 }  
 
 const skillIdByItemEnhancement = {
