@@ -1206,6 +1206,9 @@ function prepareSearch(data) {
                 textToSearch += "|If equiped with " + c;
             });
         }
+        if (item.allowUseOf) {
+            textToSearch += "|Allow use of " + item.allowUseOf;
+        }
         if (item.mpRefresh) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
         }
