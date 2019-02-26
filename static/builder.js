@@ -971,6 +971,9 @@ function goalSelectTemplate(state) {
 function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
         var unitId = $(this).val();
+        if (unitId == "100011305") {
+            alert("Are you sure you want to waste your time ?");
+        }
         var selectedUnitData;
         if (unitId.endsWith("-6")) {
             selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
