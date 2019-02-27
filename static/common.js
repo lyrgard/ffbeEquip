@@ -28,6 +28,27 @@ var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;
 
+window.requestIdleCallback =
+  window.requestIdleCallback ||
+  function (cb) {
+    var start = Date.now();
+    return setTimeout(function () {
+      cb({
+        didTimeout: false,
+        timeRemaining: function () {
+          return Math.max(0, 50 - (Date.now() - start));
+        }
+      });
+    }, 1);
+  }
+
+window.cancelIdleCallback =
+    window.cancelIdleCallback ||
+        function (id) {
+            clearTimeout(id);
+        }
+
+
 /* 
  * Check if localStorage is enable and available
  * Adapted from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js
@@ -1510,13 +1531,9 @@ function getStaticData(name, localized, callback) {
         let notification = $('.notifyjs-corner').children().first();
         let start = Date.now();
         $.get(name, function(result) {
-            if (requestIdleCallback) {
-               requestIdleCallback(function() {
-                    staticFileCache.store(name, result);       
-               });
-            } else {
-                staticFileCache.store(name, result);    
-            }
+           requestIdleCallback(function() {
+                staticFileCache.store(name, result);       
+           });
         
             callback(result);
             let end = Date.now();
