@@ -2574,23 +2574,34 @@ function showBuildLink(onlyCurrentUnit) {
 }
 
 function showBuildAsText() {
+    Modal.showWithTextData("Build as text", getBuildAsText(currentUnitIndex));
+}
+
+function showAllBuildsAsText() {
+    let text = "";
+    for (let i = 0; i < builds.length; i++) {
+        text += getBuildAsText(i) + '\n\n';
+    }
+    Modal.showWithTextData("Builds as text", text);
+}
+
+function getBuildAsText(buildIndex) {
     var text = "";
     text += 
-        builds[currentUnitIndex].unit.name + ' ' + (builds[currentUnitIndex].unit.sixStarForm ? 6 : builds[currentUnitIndex].unit.max_rarity) + '★  \n' +
-        getItemLineAsText("Right hand", 0) +
-        getItemLineAsText("Left hand", 1) +
-        getItemLineAsText("Head", 2) +
-        getItemLineAsText("Body", 3) +
-        getItemLineAsText("Accessory 1", 4) +
-        getItemLineAsText("Accessory 2", 5) +
-        getItemLineAsText("Materia 1", 6) +
-        getItemLineAsText("Materia 2", 7) +
-        getItemLineAsText("Materia 3", 8) +
-        getItemLineAsText("Materia 4", 9) +
-        getItemLineAsText("Esper", 10) +
-        getBuildStatsAsText();
-        
-    Modal.showWithTextData("Build as text", text);
+        builds[buildIndex].unit.name + ' ' + (builds[buildIndex].unit.sixStarForm ? 6 : builds[buildIndex].unit.max_rarity) + '★  \n' +
+        getItemLineAsText("Right hand", 0, buildIndex) +
+        getItemLineAsText("Left hand", 1, buildIndex) +
+        getItemLineAsText("Head", 2, buildIndex) +
+        getItemLineAsText("Body", 3, buildIndex) +
+        getItemLineAsText("Accessory 1", 4, buildIndex) +
+        getItemLineAsText("Accessory 2", 5, buildIndex) +
+        getItemLineAsText("Materia 1", 6, buildIndex) +
+        getItemLineAsText("Materia 2", 7, buildIndex) +
+        getItemLineAsText("Materia 3", 8, buildIndex) +
+        getItemLineAsText("Materia 4", 9, buildIndex) +
+        getItemLineAsText("Esper", 10, buildIndex) +
+        getBuildStatsAsText(buildIndex);
+    return text;
 }
 
 function showExcludedItems() {
@@ -2677,15 +2688,15 @@ function resetExcludeList() {
     showExcludedItems();
 }
 
-function getItemLineAsText(prefix, slot) {
-    var item = builds[currentUnitIndex].build[slot];
+function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
+    var item = builds[buildIndex].build[slot];
     if (item) {
         var statBonusCoef = 1;
         if (item.type == "esper") {
-            if (builds && builds[currentUnitIndex] && builds[currentUnitIndex].build) {
-                for (var i = 0; i < builds[currentUnitIndex].build.length; i++) {
-                    if (builds[currentUnitIndex].build[i] && builds[currentUnitIndex].build[i].esperStatsBonus) {
-                        statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus["hp"] / 100;
+            if (builds && builds[buildIndex] && builds[buildIndex].build) {
+                for (var i = 0; i < builds[buildIndex].build.length; i++) {
+                    if (builds[buildIndex].build[i] && builds[buildIndex].build[i].esperStatsBonus) {
+                        statBonusCoef += builds[buildIndex].build[i].esperStatsBonus["hp"] / 100;
                     }
                 }
             }
@@ -2736,11 +2747,11 @@ function getItemLineAsText(prefix, slot) {
     }
 }
 
-function getBuildStatsAsText() {
+function getBuildStatsAsText(buildIndex = currentUnitIndex) {
     var resultText = "Total: ";
     var first = true;
     for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
-        var result = calculateStatValue(builds[currentUnitIndex].build, baseStats[statIndex], builds[currentUnitIndex]).total;
+        var result = calculateStatValue(builds[buildIndex].build, baseStats[statIndex], builds[buildIndex]).total;
         if (first) {
             first = false;
         } else {
