@@ -3111,7 +3111,6 @@ function startPage() {
         unitsWithSkills = result;
         waitingCallbackKeyReady("unitsWithSkill");
     });
-    
     getStaticData("defaultBuilderEspers", false, function(result) {
         espers = [];
         for (var index = result.length; index--;) {

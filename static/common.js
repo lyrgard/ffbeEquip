@@ -1503,9 +1503,31 @@ function getStaticData(name, localized, callback) {
         callback(data);
     } else {
         // Data NOT found, let's fetch it
+        $.notify("Downloading " + name, {
+            className: "info",
+            autoHide:false
+        });
+        let notification = $('.notifyjs-corner').children().first();
+        let start = Date.now();
         $.get(name, function(result) {
-            staticFileCache.store(name, result);
+            if (requestIdleCallback) {
+               requestIdleCallback(function() {
+                    staticFileCache.store(name, result);       
+               });
+            } else {
+                staticFileCache.store(name, result);    
+            }
+        
             callback(result);
+            let end = Date.now();
+            if (end - start < 1000) {
+                setTimeout(function () {
+                    notification.trigger('notify-hide');    
+                }, 1000);
+            } else {
+                notification.trigger('notify-hide');    
+            }
+            
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
             Modal.showErrorGet(this.url, errorThrown);
         });    
@@ -1519,7 +1541,7 @@ staticFileCache = {
      */
     store: function(filename, data) {
         if (!localStorageAvailable) return;
-
+    
         try {
             // Convert to string if not already (may throw if bad data)
             if (typeof data !== 'string') {
