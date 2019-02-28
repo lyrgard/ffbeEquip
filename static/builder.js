@@ -91,7 +91,7 @@ var conciseView = true;
 var progressElement;
 var progress;
 
-const defaultItemsToExclude = ["409009000"];
+var defaultItemsToExclude = ["409009000"];
 var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
 
 
@@ -2622,7 +2622,7 @@ function showExcludedItems() {
     
     Modal.show({
         title: "Excluded items",
-        body: '<button class="btn btn-warning" onclick="resetExcludeList();">Reset item exclusion list</button>'+
+        body: '<button class="btn btn-warning" onclick="resetExcludeList();">Reset item exclusion list</button><button class="btn btn-warning" style="margin-left: 10px;" onclick="saveExcludeList();">Save as default exclusion list</button>'+
               '<div id="showExcludedItemsDialog"><div class="table items">' + text + '</div></div>',
         size: 'large',
         withCancelButton: false
@@ -2686,6 +2686,22 @@ function resetExcludeList() {
     $(".excludedItemNumber").html(itemsToExclude.length);
     Modal.hide();
     showExcludedItems();
+}
+
+function saveExcludeList() {
+    $.ajax({
+        url: server + '/defaultExclusionList',
+        method: 'PUT',
+        data: JSON.stringify(itemsToExclude),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function() {
+            $.notify("Data saved", "success");
+        },
+        error: function() {
+            Modal.showMessage('Default exclusion list not saved', 'Error while saving the default exclusion list.');
+        }
+    });
 }
 
 function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
@@ -3129,6 +3145,13 @@ function startPage() {
         bestiary = new Bestiary(result);
         $("#monsterListLink").removeClass("hidden");
     });
+    $.get(server + "/defaultExclusionList", function(result) {
+        defaultItemsToExclude = result;
+        itemsToExclude = defaultItemsToExclude.slice();
+        $(".excludedItemNumber").html(itemsToExclude.length);
+    }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+    });
+    
     
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
