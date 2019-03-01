@@ -3056,7 +3056,7 @@ function getSavedTeamList() {
     for (var i = 0, len = savedBuilds.teams.length; i < len; i++) {
         html += '<div class="savedTeam"><div>'
         html += '<div class="name">' + savedBuilds.teams[i].name + '</div><div class="team">';
-        for (var j = 0, lenJ = savedBuilds.teams[i].team.units.length; j < lenJ; j++) {
+        for (var j = savedBuilds.teams[i].team.units.length - 1; j >= 0; j--) {
             html += '<img class="unit" src="img/units/unit_icon_' + savedBuilds.teams[i].team.units[j].id + '.png">';
         }
         html += '</div></div><div>' +
