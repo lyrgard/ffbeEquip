@@ -2498,11 +2498,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","katana","bow","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Conceal Technique","Six Protections","Blade Carry","Kuji Seal","Demonic Spark"],
+		"enhancements": [
+			{"name":"Conceal Technique","levels":[[],[{"mag%":20,"atk%":20}],[{"mag%":30,"atk%":30}]]},
+			{"name":"Blade Carry","levels":[[{"equipedConditions":["katana"],"atk%":50,"mag%":50}],[{"equipedConditions":["katana"],"atk%":70,"mag%":70}],[{"equipedConditions":["katana"],"atk%":100,"mag%":100}]]}
+		],
 		"skills": [
 			{"hp%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-			{"atk%":50, "mag%":50, "equipedConditions":["katana"]},
 			{"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}], "replaceLb":{"name":"Toad Art - Raiden","minEffects":[{"effect":{"damage":{"mecanism":"physical","coef":21.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (21.4x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","coef":27.2,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (27.2x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}]}, "equipedConditions":["409015000"]},
-			{"atk%":50, "mag%":50, "skillEnhancement":{"503400":6.1,"503410":4.3}, "levelCondition":105},
+			{"atk%":50, "mag%":50, "skillEnhancement":{"503400":6.1,"503410":4.3,"912121":6.1,"912122":6.1,"912123":4.3,"912124":4.3}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "dualWielding":{"atk":40,"mag":40}, "levelCondition":120}
 		],
@@ -2520,9 +2524,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","katana","bow","fist","hat","clothes","lightArmor"],
+			"enhancementSkills":["Conceal Technique","Six Protections","Blade Carry","Kuji Seal","Demonic Spark"],
+		"enhancements": [
+			{"name":"Conceal Technique","levels":[[],[{"mag%":20,"atk%":20}],[{"mag%":30,"atk%":30}]]},
+			{"name":"Blade Carry","levels":[[{"equipedConditions":["katana"],"atk%":50,"mag%":50}],[{"equipedConditions":["katana"],"atk%":70,"mag%":70}],[{"equipedConditions":["katana"],"atk%":100,"mag%":100}]]}
+		],
 			"skills": [
-				{"hp%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-				{"atk%":50, "mag%":50, "equipedConditions":["katana"]}
+				{"hp%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
 			]
 		}
 	},
@@ -2539,6 +2547,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["katana","bow","spear","gun","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Battle Princess's Descent","Cry of the War Bird","Halberd Dance"],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20},
 			{"atk%":50, "equipedConditions":["spear"]}
@@ -2557,6 +2566,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","hammer","spear","mace","fist","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Scuffle","Militant","Carnage Howl"],
 		"skills": [
 			{"hp%":30, "atk%":50}
 		]
@@ -2987,6 +2997,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","katana","rod","bow","throwing","mace","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Earthsplit Evasion 2","Dirt Wall Technique","Light Wall Technique"],
 		"skills": [
 			{"hp%":20, "mp%":10, "def%":10, "resist":[{"name":"earth","percent":40},{"name":"light","percent":20}]},
 			{"mag%":30, "equipedConditions":["throwing"]},
@@ -4281,7 +4292,7 @@
 		]
 	},
 	"100019505": {
-		"name":"CG Cid",
+		"name":"Cid",
 		"id":"100019505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4302,7 +4313,7 @@
 			{"atk%":40, "lbFillRate":50, "lbDamage":20, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Cid",
+			"name":"Cid",
 			"id":"100019505",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4323,7 +4334,7 @@
 		}
 	},
 	"100019604": {
-		"name":"Melette",
+		"name":"Melete",
 		"id":"100019604",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4340,7 +4351,7 @@
 		]
 	},
 	"100019704": {
-		"name":"Nagulfa",
+		"name":"Nagflar",
 		"id":"100019704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4358,7 +4369,7 @@
 		]
 	},
 	"100019803": {
-		"name":"Farma",
+		"name":"Falma",
 		"id":"100019803",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -4994,7 +5005,7 @@
 		"skills": [
 			{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"トゥインクルソード","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}]}, "equipedConditions":["504228565"]},
+			{"atk%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"Radiant Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":null,"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}]}, "equipedConditions":["504228565"]},
 			{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120}
