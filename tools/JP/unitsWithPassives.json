@@ -4957,7 +4957,7 @@
 		]
 	},
 	"100019505": {
-		"name":"CG Cid",
+		"name":"Cid",
 		"jpname":"シド",
 		"id":"100019505",
 		"max_rarity":"7",
@@ -4983,7 +4983,7 @@
 			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
-			"name":"CG Cid",
+			"name":"Cid",
 			"jpname":"シド",
 			"id":"100019505",
 			"sixStarForm":true,
@@ -5009,7 +5009,7 @@
 		}
 	},
 	"100019604": {
-		"name":"Melette",
+		"name":"Melete",
 		"jpname":"メレッテ",
 		"id":"100019604",
 		"max_rarity":"6",
@@ -5027,7 +5027,7 @@
 		]
 	},
 	"100019704": {
-		"name":"Nagulfa",
+		"name":"Nagflar",
 		"jpname":"ナグルファ",
 		"id":"100019704",
 		"max_rarity":"6",
@@ -5046,7 +5046,7 @@
 		]
 	},
 	"100019803": {
-		"name":"Farma",
+		"name":"Falma",
 		"jpname":"ファーマ",
 		"id":"100019803",
 		"max_rarity":"5",
@@ -6180,6 +6180,7 @@
 	},
 	"201000405": {
 		"name":"ウォーリア オブ ライト",
+		"jpname":"ウォーリア オブ ライト",
 		"id":"201000405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6200,6 +6201,7 @@
 		],
 		"6_form": {
 			"name":"ウォーリア オブ ライト",
+			"jpname":"ウォーリア オブ ライト",
 			"id":"201000405",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -6219,6 +6221,7 @@
 	},
 	"201000505": {
 		"name":"輪廻の騎士ガーランド",
+		"jpname":"輪廻の騎士ガーランド",
 		"id":"201000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6241,6 +6244,7 @@
 		],
 		"6_form": {
 			"name":"輪廻の騎士ガーランド",
+			"jpname":"輪廻の騎士ガーランド",
 			"id":"201000505",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -6534,7 +6538,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":20, "mp%":50, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100}], "mpRefresh":5, "skillEnhancement":{"231185":1}, "special":["dualWield"]},
+			{"hp%":20, "mp%":50, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100}], "mpRefresh":5, "skillEnhancement":{"231185":1,"509920":1}, "special":["dualWield"]},
 			{"atk%":30, "def%":20, "equipedConditions":["sword"]},
 			{"atk%":30, "equipedConditions":["greatSword"]},
 			{"atk%":30, "equipedConditions":["axe"]},
@@ -6559,7 +6563,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":20, "mp%":50, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100}], "mpRefresh":5, "skillEnhancement":{"231185":1}, "special":["dualWield"]},
+				{"hp%":20, "mp%":50, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100}], "mpRefresh":5, "skillEnhancement":{"231185":1,"509920":1}, "special":["dualWield"]},
 				{"atk%":30, "def%":20, "equipedConditions":["sword"]},
 				{"atk%":30, "equipedConditions":["greatSword"]},
 				{"atk%":30, "equipedConditions":["axe"]},

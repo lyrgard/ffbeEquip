@@ -131,13 +131,13 @@ class TreeComparator {
           return "sameLevel";
         }
         if (valueTDH1 > valueTDH2) {
-            if (valueTDH1 => valueDH2) {
+            if (valueTDH1 >= valueDH2) {
                 return "strictlyWorse";
             } else {
                 return "sameLevel";
             }
         } else if (valueTDH1 < valueTDH2) {
-            if (valueTDH2 => valueDH1) {
+            if (valueTDH2 >= valueDH1) {
                 return "strictlyBetter";
             } else {
                 return "sameLevel";
