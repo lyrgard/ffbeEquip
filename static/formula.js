@@ -114,6 +114,11 @@ function parseFormula(formula, unit) {
     for (var abbreviation in abbreviations) {
         formula = formula.replace(abbreviation, abbreviations[abbreviation]);
     }
+
+    if (formula == "EMPTY FORMULA") {
+        formula = "P_DAMAGE"; // in case of empty formula, consider it the default formula
+    }
+
     var separatorIndex = formula.indexOf(";");
     if (separatorIndex == -1) {
         var parsedFormula = parseExpression(formula, 0, unit);
