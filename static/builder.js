@@ -3053,10 +3053,10 @@ function showSavedTeams() {
 
 function getSavedTeamList() {
     var html = "";
-    for (var i = 0, len = savedBuilds.teams.length; i < len; i++) {
+    for (var i = savedBuilds.teams.length - 1; i >= 0; i--) {
         html += '<div class="savedTeam"><div>'
         html += '<div class="name">' + savedBuilds.teams[i].name + '</div><div class="team">';
-        for (var j = savedBuilds.teams[i].team.units.length - 1; j >= 0; j--) {
+        for (var j = 0, lenj = savedBuilds.teams[i].team.units.length; j < lenj; j++) {
             html += '<img class="unit" src="img/units/unit_icon_' + savedBuilds.teams[i].team.units[j].id + '.png">';
         }
         html += '</div></div><div>' +
