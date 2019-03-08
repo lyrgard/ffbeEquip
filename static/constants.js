@@ -73,7 +73,7 @@ const itemEnhancementLabels = {
         "gun": "ATK +40%",
         "mace": "HP +40%",
         "fist": "HP/ATK +20%",
-        "fake": "Rare"
+        "fake": "Rare+"
     },
     "hp_15": "HP +15%", "hp_12": "HP +12%", "hp_10": "HP +10%", "hp_7": "HP +7%", "hp_5": "HP +5%", "hp_3": "HP +3%", "hp_1": "HP +1%",
     "mp_15": "MP +15%", "mp_12": "MP +12%", "mp_10": "MP +10%", "mp_7": "MP +7%", "mp_5": "MP +5%", "mp_3": "MP +3%", "mp_1": "MP +1%",

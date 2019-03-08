@@ -768,7 +768,7 @@ function getItemLine(index, short = false) {
         if (short) {
             html += '<div class="change" onclick="displayFixItemModal(' + index + ');">' + getImageHtml(item) + '</div>' + getNameColumnHtml(item);
         } else {
-            html += displayItemLine(item);
+            html += displayItemLine(item, 'displayFixItemModal(' + index + ');');
         }
         if (!item.placeHolder && index < 10 && dataStorage.onlyUseOwnedItems) {
             var alreadyUsed = 0;

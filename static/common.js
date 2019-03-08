@@ -68,7 +68,7 @@ var localStorageAvailable = function(){
     return enabled;
 }();
 
-function getImageHtml(item) {
+function getImageHtml(item, actionOnImage = undefined) {
     var html = '<div class="td type">';
 
     if (item.special && item.special.includes("notStackable")) {
@@ -78,9 +78,13 @@ function getImageHtml(item) {
         html += "<img class='miniIcon left' src='img/icons/twoHanded.png' title='Two-handed'>";
     }
 
+    if (actionOnImage) {
+        html += '<div class="change" onclick="' + actionOnImage + '">';
+    }
     if (item.icon) {
         var src_attr = (lazyLoader !== null) ? 'data-src' : 'src';
         var class_attr = (lazyLoader !== null) ? 'icon lazyload' : 'icon';
+        
         html += "<img "+src_attr+"='img/items/" + item.icon + "' class='"+class_attr+"'></img>";
     } else if (item.type == "esper") {
         // no lazyload for espers (uses CSS background)
@@ -89,6 +93,9 @@ function getImageHtml(item) {
         // no image
     } else {
         html += "<i class='img img-equipment-" + item.type + " icon'></i>";
+    }
+    if (actionOnImage) {
+        html += "</div>";
     }
     html += "</div>";
     return html;
@@ -331,10 +338,10 @@ function getEquipedConditionHtml(item) {
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
 
-function displayItemLine(item) {
+function displayItemLine(item, actionOnImage = "") {
     html = "";
     // type
-    html += getImageHtml(item);
+    html += getImageHtml(item, actionOnImage);
 
     // name
     html += getNameColumnHtml(item);
