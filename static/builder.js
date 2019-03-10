@@ -3146,8 +3146,10 @@ function startPage() {
         $("#monsterListLink").removeClass("hidden");
     });
     $.get(server + "/defaultExclusionList", function(result) {
-        defaultItemsToExclude = result;
-        itemsToExclude = defaultItemsToExclude.slice();
+        if (Array.isArray(defaultItemsToExclude)) {
+            defaultItemsToExclude = result;
+            itemsToExclude = defaultItemsToExclude.slice();
+        }
         $(".excludedItemNumber").html(itemsToExclude.length);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
