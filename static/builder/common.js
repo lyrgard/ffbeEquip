@@ -917,6 +917,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     } else if (stat == "lbPerTurn") {
         baseValue = unitBuild.baseValues["lbFillRate"].total;
         buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;
+    } else if (stat == 'drawAttacks') {
+        baseValue = unitBuild.baseValues["drawAttacks"];
     }
     var calculatedValue = baseValue + buffValue;
     

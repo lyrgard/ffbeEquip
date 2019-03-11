@@ -628,7 +628,12 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 68) {
         var lbDamage = rawEffect[3][0];
         addStat(item, "lbDamage", lbDamage);
-        
+
+    // Draw attacks
+    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 24) {
+        var drawAttacks = rawEffect[3][0];
+        addStat(item, "drawAttacks", drawAttacks);
+
     } else {
         return false;
     }
@@ -774,7 +779,7 @@ function addLbPerTurn(item, min, max) {
 } 
 
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills","rarity"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills","rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
@@ -806,7 +811,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/ja/item_item1/66/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/ja/item_item1/67/" + icon ,filePath);
     }
 }
 

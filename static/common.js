@@ -457,6 +457,9 @@ function displayItemLine(item, actionOnImage = "") {
     if (item.esperStatsBonus) {
         special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
     }
+    if (item.drawAttacks) {
+        special += "<li>+" + item.drawAttacks + "% draw attacks</li>";
+    }
     if (item.special) {
         special += getSpecialHtml(item);
     }
@@ -1239,6 +1242,9 @@ function prepareSearch(data) {
         }
         if (item.mpRefresh) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";
+        }
+        if (item.drawAttacks) {
+            textToSearch += "|+" + item.drawAttacks + "% draw attacks";
         }
         if (item["special"]) {
             for (var i = 0, len = item.special.length; i < len;i++) {

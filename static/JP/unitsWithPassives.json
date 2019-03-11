@@ -4169,9 +4169,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","bow","hammer","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["シュートアーム","銃の極意","闇黒弾"],
+		"enhancements": [
+			{"name":"銃の極意","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]},
-			{"atk%":50, "equipedConditions":["gun"]}
+			{"hp%":20, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]}
 		]
 	},
 	"100016803": {
@@ -4304,9 +4307,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["魔絃の奏者","妖精のガヴォット","激情のフーガ","神魂のロンド","ヒールフレグラント"],
+		"enhancements": [
+			{"name":"魔絃の奏者","levels":[[{"equipedConditions":["harp"],"hp%":20,"mp%":20}],[{"equipedConditions":["harp"],"hp%":45,"mp%":45}],[{"equipedConditions":["harp"],"hp%":70,"mp%":70}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":30, "def%":30, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5},
-			{"hp%":20, "mp%":20, "equipedConditions":["harp"]},
 			{"hp%":10, "mp%":10, "spr%":20, "resist":[{"name":"petrification","percent":100}], "replaceLb":{"name":"女王のパストラール","minEffects":[{"effect":{"break":{"atk":45,"def":45,"mag":45,"spr":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 45% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":115,"def":115,"mag":115,"spr":115},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 115% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain 虹翼のグリッサンド (228110) (1 use)"}],"maxEffects":[{"effect":{"break":{"atk":75,"def":75,"mag":75,"spr":75},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 75% for 3 turns to all enemies"},{"effect":{"statsBuff":{"atk":145,"def":145,"mag":145,"spr":145},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 145% for 3 turns to all allies"},{"effect":null,"desc":"Restore 20% HP and MP to all allies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"228110","name":"虹翼のグリッサンド"}]},"area":"SELF","target":"SELF"},"desc":"Gain 虹翼のグリッサンド (228110) (1 use)"}]}, "equipedConditions":[["316002000","408004200"]]},
 			{"def%":20, "levelCondition":115},
 			{"spr%":30, "equipedConditions":["harp"], "levelCondition":120},
@@ -4327,9 +4333,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["魔絃の奏者","妖精のガヴォット","激情のフーガ","神魂のロンド","ヒールフレグラント"],
+		"enhancements": [
+			{"name":"魔絃の奏者","levels":[[{"equipedConditions":["harp"],"hp%":20,"mp%":20}],[{"equipedConditions":["harp"],"hp%":45,"mp%":45}],[{"equipedConditions":["harp"],"hp%":70,"mp%":70}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":30, "def%":30, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5},
-				{"hp%":20, "mp%":20, "equipedConditions":["harp"]}
+				{"hp%":20, "mp%":30, "def%":30, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"light","percent":20}], "mpRefresh":5}
 			]
 		}
 	},
@@ -4347,9 +4356,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["避刃の剣","心優しき剣士","献身の構え"],
+		"enhancements": [
+			{"name":"心優しき剣士","levels":[[{"equipedConditions":["sword"],"def%":50}],[{"equipedConditions":["sword"],"def%":75}],[{"equipedConditions":["sword"],"def%":100}]]}
+		],
 		"skills": [
-			{"hp%":50, "def%":30, "resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"sleep","percent":100}]},
-			{"def%":50, "equipedConditions":["sword"]}
+			{"hp%":50, "def%":30, "resist":[{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"sleep","percent":100}]}
 		]
 	},
 	"100017304": {
@@ -4846,13 +4858,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["死角突き","眩耀","幽闇","投影・闇乱舞","力纏い","魔力+20%"],
+		"enhancements": [
+			{"name":"死角突き","levels":[[{"killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}]}],[{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}],"mag%":30}],[{"killers":[{"name":"demon","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}],"mag%":30}]]},
+			{"name":"魔力+20%","levels":[[{"mag%":20,"levelCondition":115}],[{"mag%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"mag%":20, "equipedConditions":["fist"]},
 			{"atk%":20, "mag%":20, "equipedConditions":["fist"]},
 			{"atk%":50, "mag%":50, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "equipedConditions":[["403046300","504229341"]]},
-			{"mag%":20, "levelCondition":115},
-			{"evade":{"physical":30}, "dualWielding":{"mag":50}, "lbDamage":20, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2}, "levelCondition":120}
+			{"evade":{"physical":30}, "dualWielding":{"mag":50}, "lbDamage":20, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2,"708021":2,"708022":2,"708023":2,"708024":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Nagi",
@@ -4869,8 +4885,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["死角突き","眩耀","幽闇","投影・闇乱舞","力纏い","魔力+20%"],
+		"enhancements": [
+			{"name":"死角突き","levels":[[{"killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}]}],[{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}],"mag%":30}],[{"killers":[{"name":"demon","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"undead","physical":75,"magical":75}],"mag%":30}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 				{"mag%":20, "equipedConditions":["fist"]},
 				{"atk%":20, "mag%":20, "equipedConditions":["fist"]}
 			]
@@ -4932,8 +4952,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","bow","spear","harp","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["十一闘星＆十二闘星","ファイトソング","虚脱の外法"],
+		"enhancements": [
+			{"name":"十一闘星＆十二闘星","levels":[[{"def%":20,"atk%":20}],[{"def%":35,"atk%":35}],[{"def%":50,"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":10, "atk%":50, "def%":30, "spr%":10},
+			{"hp%":30, "mp%":10, "atk%":30, "def%":10, "spr%":10},
 			{"atk%":20, "equipedConditions":["harp"]},
 			{"atk%":20, "equipedConditions":["bow"]}
 		]
@@ -5871,6 +5895,48 @@
 			{"hp%":20, "atk%":80, "def%":20, "spr%":20, "evade":{"physical":10}, "resist":[{"name":"paralysis","percent":100},{"name":"wind","percent":30},{"name":"water","percent":30}], "mpRefresh":5}
 		]
 	},
+	"100023205": {
+		"name":"CG Aldore King Rain",
+		"jpname":"アルドール王レイン",
+		"id":"100023205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4825,"mp":245,"atk":209,"def":195,"mag":158,"spr":190},
+			"minStats":{"hp":1592,"mp":81,"atk":69,"def":64,"mag":52,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "atk%":80, "def%":110, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "lbDamage":50},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"クリムゾンノヴァ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14.5x * 2 = 29x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 90% for 2 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":17.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (17.5x * 2 = 35x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 120% for 2 turns to all enemies"}]}, "equipedConditions":[["407004700","303006800"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"CG Aldore King Rain",
+			"jpname":"アルドール王レイン",
+			"id":"100023205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3711,"mp":188,"atk":160,"def":150,"mag":121,"spr":146},
+				"minStats":{"hp":1225,"mp":62,"atk":53,"def":50,"mag":40,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "atk%":80, "def%":110, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "lbDamage":50},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
 	"100023305": {
 		"name":"CG Majin Fina",
 		"jpname":"白百合の魔人フィーナ",
@@ -6113,6 +6179,88 @@
 			]
 		}
 	},
+	"100024404": {
+		"name":"Diesel",
+		"jpname":"ディーゼル",
+		"id":"100024404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3728,"mp":178,"atk":146,"def":130,"mag":111,"spr":120},
+			"minStats":{"hp":1230,"mp":59,"atk":48,"def":43,"mag":37,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":60, "def%":20, "dualWielding":{"atk":30}, "resist":[{"name":"lightning","percent":50},{"name":"paralysis","percent":100}], "mpRefresh":5, "special":["dualWield"]}
+		]
+	},
+	"100024503": {
+		"name":"Meiji",
+		"jpname":"メイジィ",
+		"id":"100024503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2765,"mp":180,"atk":92,"def":85,"mag":118,"spr":100},
+			"minStats":{"hp":912,"mp":59,"atk":30,"def":28,"mag":39,"spr":33},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","mace","hat","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":20, "spr%":20},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["rod"]}
+		]
+	},
+	"100024705": {
+		"name":"シャンティレーナ",
+		"jpname":"シャンティレーナ",
+		"id":"100024705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4560,"mp":285,"atk":128,"def":156,"mag":216,"spr":207},
+			"minStats":{"hp":1505,"mp":94,"atk":42,"def":51,"mag":71,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+			{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
+			{"mag%":30, "equipedConditions":["rod"]},
+			{"equipedConditions":[["504231383","408004900"]]},
+			{"def%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"シャンティレーナ",
+			"jpname":"シャンティレーナ",
+			"id":"100024705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3507,"mp":219,"atk":98,"def":120,"mag":166,"spr":159},
+				"minStats":{"hp":1157,"mp":72,"atk":32,"def":40,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"skills": [
+				{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+				{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
+				{"mag%":30, "equipedConditions":["rod"]}
+			]
+		}
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -6179,7 +6327,7 @@
 		]
 	},
 	"201000405": {
-		"name":"ウォーリア オブ ライト",
+		"name":"CG Warrior of Light",
 		"jpname":"ウォーリア オブ ライト",
 		"id":"201000405",
 		"max_rarity":"7",
@@ -6200,7 +6348,7 @@
 			{"mp%":20, "def%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ウォーリア オブ ライト",
+			"name":"CG Warrior of Light",
 			"jpname":"ウォーリア オブ ライト",
 			"id":"201000405",
 			"sixStarForm":true,
@@ -6220,7 +6368,7 @@
 		}
 	},
 	"201000505": {
-		"name":"輪廻の騎士ガーランド",
+		"name":"Garland v2",
 		"jpname":"輪廻の騎士ガーランド",
 		"id":"201000505",
 		"max_rarity":"7",
@@ -6243,7 +6391,7 @@
 			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"輪廻の騎士ガーランド",
+			"name":"Garland v2",
 			"jpname":"輪廻の騎士ガーランド",
 			"id":"201000505",
 			"sixStarForm":true,
@@ -9496,12 +9644,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル"],
+		"enhancements": [
+			{"name":"スーパーインファイター","levels":[[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":75}],[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":100}]]},
+			{"name":"スーパースター","levels":[[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":30}}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":40, "atk%":30, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":200, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":50}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"mp%":40, "atk%":30, "evade":{"physical":30}, "lbFillRate":200, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":50}], "mpRefresh":5},
 			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}, "equipedConditions":[["504228860","303005300"]]},
 			{"def%":20, "levelCondition":115},
-			{"hp%":20, "skillEnhancement":{"207040":1.5,"228880":1.5,"228881":0.75,"228882":1.5,"228883":1.5,"228884":1.5,"228885":1.5,"508753":0.75}, "levelCondition":120},
+			{"hp%":20, "skillEnhancement":{"207040":1.5,"228880":1.5,"228881":0.75,"228882":1.5,"228883":1.5,"228884":1.5,"228885":1.5,"508753":0.75,"708015":0.75,"708016":0.75}, "levelCondition":120},
 			{"mp%":20, "atk%":40, "equipedConditions":["greatSword"], "levelCondition":120}
 		],
 		"6_form": {
@@ -9519,9 +9671,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["スーパーインファイター","スーパースター","ジェクトラッシュ","クイックブロック","ジェクトキャンセル"],
+		"enhancements": [
+			{"name":"スーパーインファイター","levels":[[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":75}],[{"hp%":30},{"equipedConditions":["greatSword"],"atk%":100}]]},
+			{"name":"スーパースター","levels":[[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30}}],[{"killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}],"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":30}}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":40, "atk%":30, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "lbFillRate":200, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":50}], "killers":[{"name":"beast","physical":50},{"name":"bird","physical":50},{"name":"demon","physical":50}], "mpRefresh":5},
-				{"atk%":50, "equipedConditions":["greatSword"]}
+				{"mp%":40, "atk%":30, "evade":{"physical":30}, "lbFillRate":200, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"water","percent":50}], "mpRefresh":5}
 			]
 		}
 	},
@@ -10791,8 +10947,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["刹那を奪う腕","ニフルハイム帝国将軍","シャドウパリング"],
+		"enhancements": [
+			{"name":"ニフルハイム帝国将軍","levels":[[{"atk%":20,"hp%":20,"resist":[{"name":"confuse","percent":100}]}],[{"atk%":35,"hp%":35,"resist":[{"name":"confuse","percent":100}]}],[{"atk%":50,"hp%":50,"resist":[{"name":"confuse","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":50, "def%":20, "resist":[{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":10}]}
+			{"atk%":30, "def%":20, "resist":[{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"fire","percent":10}]}
 		]
 	},
 	"215001105": {

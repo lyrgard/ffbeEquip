@@ -312,7 +312,7 @@ function readSimpleConditions(formula) {
             "forcedElements":getSelectedValuesFor("forcedElements").map(x => (x == "noElement" ? "none" : x)),
             "ailmentImunity":getSelectedValuesFor("ailmentImunities"),
             "elementalResist": {},
-            "evasion":getSelectedValuesFor("simpleConditionEvasion")
+            "various":getSelectedValuesFor("simpleConditionVarious")
         }
         for (var i = elementList.length; i--;) {
             var value = $(".goal .elements .element." + elementList[i] + " input").val() || 0;
@@ -380,6 +380,7 @@ function readStatsValues() {
         "magical" : parseInt($(".unitStats .stat.mMitigation .buff input").val()) || 0,
         "global" : parseInt($(".unitStats .stat.mitigation .buff input").val()) || 0
     };
+    builds[currentUnitIndex].baseValues["drawAttacks"] = parseInt($(".unitStats .stat.drawAttacks .buff input").val()) || 0;
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
 }
@@ -594,7 +595,15 @@ function logBuild(build, value) {
     $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
     $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
     $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
-    $("#resultStats .accuracy .value").html(calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total + "%");    
+    $("#resultStats .accuracy .value").html(calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total + "%");
+    let drawAttacks = calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total;
+    if (drawAttacks) {
+        $("#resultStats .drawAttacks").removeClass('hidden');
+        $("#resultStats .drawAttacks .value").html(drawAttacks + "%");
+    } else {
+        $("#resultStats .drawAttacks").addClass('hidden');
+    }
+
     
     for (var index in elementList) {
         $("#resultStats .resists .resist." + elementList[index] + " .value").text(calculateStatValue(build, "resist|" + elementList[index] + ".percent", builds[currentUnitIndex]).total + '%');
@@ -1221,6 +1230,11 @@ function updateUnitStats() {
         $(".unitStats .stat.pMitigation .buff input").val("");
         $(".unitStats .stat.mMitigation .buff input").val("");
         $(".unitStats .stat.mitigation .buff input").val("");
+    }
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].baseValues["drawAttacks"]) {
+        $(".unitStats .stat.drawAttacks .buff input").val(builds[currentUnitIndex].baseValues["drawAttacks"]);
+    } else {
+        $(".unitStats .stat.drawAttacks .buff input").val("");
     }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
@@ -2179,6 +2193,7 @@ function getStateHash(onlyCurrent = true) {
                 "magical":build.baseValues.mitigation.magical,
                 "global":build.baseValues.mitigation.global
             }
+            unit.drawAttacks = build.baseValues.drawAttacks;
             if (build.baseValues.currentStack) {
                 unit.stack = build.baseValues.currentStack;
             }
@@ -2530,6 +2545,9 @@ function loadStateHashAndBuild(data, importMode = false) {
             $(".unitStats .stat.pMitigation .buff input").val(unit.mitigation.physical);
             $(".unitStats .stat.mMitigation .buff input").val(unit.mitigation.magical);
             $(".unitStats .stat.mitigation .buff input").val(unit.mitigation.global);
+        }
+        if (unit.drawAttacks) {
+            $(".unitStats .stat.drawAttacks .buff input").val(unit.drawAttacks);
         }
         if (unit.stack) {
             $(".unitStack input").val(unit.stack);
@@ -3179,7 +3197,7 @@ function startPage() {
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
-    addTextChoicesTo("simpleConditionEvasion",'checkbox',{'100% physical evasion':'evade.physical', '100% accuracy':'accuracy'});
+    addTextChoicesTo("simpleConditionVarious",'checkbox',{'100% physical evasion':'evade.physical', '100% accuracy':'accuracy', '100% draw attacks':'drawAttacks'});
     
     populateItemStat();
     populateUnitEquip();
@@ -3236,6 +3254,7 @@ function startPage() {
     $(".unitStats .stat.pMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("pMitigation")}));
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
+    $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
 
