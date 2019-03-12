@@ -21,6 +21,11 @@ var jpNameById = {};
 var languageId;
 
 var dev = process.argv.length > 2 && process.argv[2] == "dev";
+if (dev) {
+    console.log("dev mode : ON");
+} else {
+    console.log("dev mode : OFF");
+}
 
 function getData(filename, callback) {
     if (!dev) {

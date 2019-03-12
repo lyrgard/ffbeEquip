@@ -1076,6 +1076,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 72) {
         result = {"damage":{"mecanism":"magical", "damageType":"mind", "coef":(rawEffect[3][2] + rawEffect[3][3])/100, "stack":rawEffect[3][4]/100, "maxStack":rawEffect[3][5] - 1}};    
         
+    // Physical Damage with stacking
+    } else if (rawEffect[2] == 126) {
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};    
+        
     // Jump damage
     } else if (rawEffect[2] == 52) {
         if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
@@ -1165,25 +1169,44 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     
     // Gain Skill
     } else if (rawEffect[2] == 97) {
+        
+        let magicType;
+        let magicTypeLabel
+        if (rawEffect[3][0] == 0) {
+            magicType = "magic";
+            magicTypeLabel = "magic";
+        } else if(rawEffect[3][0] == 1) {
+            magicType = "blackMagic";
+            magicTypeLabel = "black magic";
+        } else if(rawEffect[3][0] == 2) {
+            magicType = "whiteMagic";
+            magicTypeLabel = "white magic";
+        }
         var gainedSkillId = rawEffect[3][2].toString();
         var gainedSkill = skills[gainedSkillId];
-        if (gainedSkillId && gainedSkillId != skillId) {
-            var parsedSkill = parseActiveSkill(gainedSkillId, gainedSkill, skills, unit)
-            
-            if (parsedSkill) {
-                addUnlockedSkill(gainedSkillId, parsedSkill, unit, skillIn);
-            }
-            
-            return {
-                "gainSkills": {
-                    "turns": rawEffect[3][3] - 1,
-                    "skills": [{
-                        "id": gainedSkillId,
-                        "name": gainedSkill.name  
-                    }]
-                }
+        
+        var multicastskill = {
+            "id":"200160",
+            "name":gainedSkill.name,
+            "icon":gainedSkill.icon,
+            "effects":[{
+                    "effect":{
+                        "multicast":{"time":rawEffect[3][1],"type":magicType}
+                    },
+                    "desc":"Enable unit to cast " + rawEffect[3][1] + " " + magicTypeLabel + " spells"
+            }]
+        };
+        
+        result = {
+            "gainSkills": {
+                "turns": rawEffect[3][4] - 1,
+                "skills": [multicastskill]
             }
         }
+        
+        addUnlockedSkill(gainedSkillId, multicastskill, unit, skillIn);
+            
+        return result;
         
     // Gain Skill
     } else if (rawEffect[2] == 100) {
