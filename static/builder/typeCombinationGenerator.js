@@ -178,15 +178,15 @@ class TypeCombinationGenerator {
                 return !self.unitBuild.equipable[index].includes(type);
             });
         } else if (index == 1) {
+            typesToTry = [];
             if (this.unitBuild.hasDualWield()) {
                 typesToTry = weaponList.filter(function(type) {
                     return !self.unitBuild.equipable[index].includes(type);
                 });
-            } else {
-                typesToTry = shieldList.filter(function(type) {
-                    return !self.unitBuild.equipable[index].includes(type);
-                });
-            }
+            } 
+            typesToTry = typesToTry.concat(shieldList.filter(function(type) {
+                return !self.unitBuild.equipable[index].includes(type);
+            }));
         } else if (index == 2) {
             typesToTry = headList.filter(function(type) {
                 return !self.unitBuild.equipable[index].includes(type);
