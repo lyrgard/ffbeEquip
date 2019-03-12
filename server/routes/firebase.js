@@ -80,6 +80,7 @@ const partyBuildSchema = Joi.object().keys({
             physical: Joi.number().min(0).max(100),
             magical: Joi.number().min(0).max(100)
         }),
+        drawAttacks: Joi.number().min(0).max(600),
         stack: Joi.number().min(0).max(99),
         level: Joi.number().min(0).max(120)
     })).required(),
