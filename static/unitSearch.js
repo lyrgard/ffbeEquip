@@ -63,6 +63,9 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
+        if (unit.id == "212000505") {
+            console.log("!!");
+        }
         if (releasedUnits[unit.id]) {
             if (searchText.length == 0 || units[unit.id].name.toLowerCase().indexOf(searchText) >= 0 ) {
                 if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
@@ -115,7 +118,7 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                     dataToCheck = dataToCheck[unitProperty];
                 }
                 if (Array.isArray(dataToCheck)) {
-                    if (includeAll(criteria.values, dataToCheck)) {
+                    if (includeAll(dataToCheck, criteria.values)) {
                         return true;
                     }
                 } else {
