@@ -124,16 +124,8 @@ var defaultWeaponEnhancement = [];
 function build() {
     secondaryOptimization = false;
     if (running) {
-        for (var index = workers.length; index--; index) {
-            workers[index].terminate();
-        }   
+        stopBuild();
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
-        console.timeEnd("optimize");
-        initWorkers();
-        workerWorkingCount = 0;
-        running = false;
-        $("#buildButton").text("Build !");
-        $("body").removeClass("building");
         return;
     }
     
@@ -162,6 +154,18 @@ function build() {
     } catch(error) {
         Modal.showError("An error occured while trying to optimize", error);
     }
+}
+
+function stopBuild() {
+    for (var index = workers.length; index--; index) {
+            workers[index].terminate();
+        }   
+        console.timeEnd("optimize");
+        initWorkers();
+        workerWorkingCount = 0;
+        running = false;
+        $("#buildButton").text("Build !");
+        $("body").removeClass("building");
 }
 
 function optimize() {
@@ -3329,6 +3333,10 @@ function initWorkers() {
                             builds[currentUnitIndex].fixedItems[1] = tmp;
                         }
                         logCurrentBuild();
+                        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any") {
+                            // any build will do. We found one, stop there
+                            stopBuild();
+                        }
                     }
                     break;
                 case "finished":
