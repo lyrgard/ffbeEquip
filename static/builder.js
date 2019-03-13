@@ -3336,6 +3336,9 @@ function initWorkers() {
                         if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any") {
                             // any build will do. We found one, stop there
                             stopBuild();
+                            progressElement.width("100%");
+                            progressElement.text("100%");    
+                            document.title = "100% - FFBE Equip - Builder";
                         }
                     }
                     break;

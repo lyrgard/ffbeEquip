@@ -227,7 +227,7 @@ class ItemPool {
         } else {
             if (entry1.defenseValue == entry2.defenseValue) {
                 if (entry1.mpValue == entry2.mpValue) {
-                    return entry2.available - entry1.available;
+                    return entry2.ownedNumber - entry1.ownedNumber;
                 } else {
                     return entry2.mpValue - entry1.mpValue;
                 }

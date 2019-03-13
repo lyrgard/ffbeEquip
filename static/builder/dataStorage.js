@@ -309,13 +309,18 @@ class DataStorage {
     }*/
 
     getItemEntry(item, availableNumber = null, owned = false) {
+        let ownedNumber = 0;
+        if (owned) {
+            ownedNumber = this.getOwnedNumber(item).totalOwnedNumber
+        }
         return {
             "item":item, 
             "name":item.name, 
             "defenseValue":this.getDefenseValue(item),
             "mpValue":this.getMpValue(item),
             "available":availableNumber || this.getAvailableNumbers(item).available,
-            "owned": owned
+            "owned": owned,
+            "ownedNumber": ownedNumber
         };
     }
     
