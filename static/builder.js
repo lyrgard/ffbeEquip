@@ -607,6 +607,13 @@ function logBuild(build, value) {
     } else {
         $("#resultStats .drawAttacks").addClass('hidden');
     }
+    let jumpDamage = calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total;
+    if (jumpDamage) {
+        $("#resultStats .jumpDamage").removeClass('hidden');
+        $("#resultStats .jumpDamage .value").html(jumpDamage + "%");
+    } else {
+        $("#resultStats .jumpDamage").addClass('hidden');
+    }
 
     
     for (var index in elementList) {
