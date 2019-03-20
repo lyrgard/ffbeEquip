@@ -2702,7 +2702,6 @@ function showMonsterList() {
         var monster = bestiary.monsters[index];
         text += '<div class="tr" onclick="selectMonster(' + index +')">' +
             getNameColumnHtml(monster) + 
-            '<div class="td special">' + getResistHtml(monster) + '</div>' + 
             '<div class="td special">' + getSpecialHtml(monster) + '</div>';
         text += '<div class="td access">';
         for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
@@ -2734,6 +2733,10 @@ function selectMonster(monsterIndex) {
             $("#elementalResists ." + resist.name + " input.elementalResist").val(resist.percent);
         }   
     }
+    if (monster.breakability) {
+        setMonsterStatBreakibility('def', monster.breakability.def);
+        setMonsterStatBreakibility('spr', monster.breakability.spr);
+    }  
     unselectAll("races");
     select("races", monster.races);
     Modal.hide();

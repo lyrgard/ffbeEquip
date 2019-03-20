@@ -223,6 +223,113 @@ function getExclusiveUnitsHtml(item) {
 }
 function getSpecialHtml(item) {
     var special = "";
+    var special = "";
+    
+    if (item.element) {
+        special += getElementHtml(item.element);
+    }
+    if (item.ailments) {
+        special += getAilmentsHtml(item);
+    }
+    if (item.resist) {
+        special += getResistHtml(item);
+    }
+
+    if (item.killers) {
+        special += getKillersHtml(item);
+    }
+    
+    if (item.special && item.special.includes("dualWield")) {
+        special += "<li>" + toHtml("[Dual Wield|ability_72.png]") + "</li>";
+    }
+    if (item.partialDualWield) {
+        special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
+        for (var index in item.partialDualWield) {
+            special += "<i class='img img-equipment-" + item.partialDualWield[index] + " inline'></i>";
+        }
+        special += "</li>";
+    }
+    if (item.allowUseOf) {
+        special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
+    }
+    if (item.conditional) {
+        special += getConditionalHtml(item.conditional);
+    }
+    if (item.evade) {
+        if (item.evade.physical) {
+            special += "<li>Evade physical attacks " + item.evade.physical + "%</li>";
+        }
+        if (item.evade.magical) {
+            special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";
+        }
+    }
+    if (item.singleWielding) {
+        for (var index in baseStats) {
+            if (item.singleWielding[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWielding[baseStats[index]] + "%) when single wielding</li>";
+            }
+        }
+    }
+    if (item.singleWieldingOneHanded) {
+        for (var index in baseStats) {
+            if (item.singleWieldingOneHanded[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon</li>";
+            }
+        }
+    }
+    if (item.dualWielding) {
+        for (var index in baseStats) {
+            if (item.dualWielding[baseStats[index]]) {
+                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.dualWielding[baseStats[index]] + "%) when dual wielding</li>";
+            }
+        }
+    }
+
+    if (item.accuracy) {
+        special += "<li>Increase Accuracy (" + item.accuracy + "%)</li>";
+    }
+    if (item.singleWielding && item.singleWielding.accuracy) {
+        special += "<li>Increase Accuracy (" + item.singleWielding.accuracy + "%) when single wielding</li>";
+    }
+    if (item.singleWieldingOneHanded && item.singleWieldingOneHanded.accuracy) {
+        special += "<li>Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed wreapon</li>";
+    }
+    if (item.damageVariance) {
+        special += "<li>Damage variance from x" + item.damageVariance.min + " to x"  + item.damageVariance.max + " (average : x" + (item.damageVariance.min + item.damageVariance.max)/2 + ")</li>";
+    }
+    if (item.mpRefresh) {
+        special += "<li>Recover MP (" + item.mpRefresh + "%) per turn</li>";
+    }
+    if (item.jumpDamage) {
+        special += "<li>Increase damage dealt by jump attacks by "+ item.jumpDamage + "%</li>";
+    }
+    if (item.lbFillRate) {
+        special += "<li>Increase LB gauge fill rate (" + item.lbFillRate + "%)</li>";
+    }
+    if (item.lbDamage) {
+        special += "<li>Increase LB damage (+" + item.lbDamage + "%)</li>";
+    }
+    if (item.lbPerTurn) {
+        var value;
+        if (item.lbPerTurn.min == item.lbPerTurn.max) {
+            value = item.lbPerTurn.min;
+        } else {
+            value = item.lbPerTurn.min + "-" + item.lbPerTurn.max;
+        }
+        special += "<li>Increase LB gauge each turn (" + value + ")</li>";
+    }
+    if (item.evoMag) {
+        special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
+    }
+    if (item.esperStatsBonus) {
+        special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
+    }
+    if (item.drawAttacks) {
+        special += "<li>+" + item.drawAttacks + "% draw attacks</li>";
+    }
+    if (item.breakability && (item.breakability.atk || item.breakability.def || item.breakability.mag || item.breakability.spr)) {
+        special += '<li>Vulnerable to <span class="uppercase">' + baseStats.filter(s => item.breakability[s]).join("/") + '</span> breaks</li>';
+    }
     $(item.special).each(function(index, itemSpecial) {
         if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {
             special += "<li>" + toHtml(itemSpecial) + "</li>";
@@ -356,110 +463,7 @@ function displayItemLine(item, actionOnImage = "") {
     // special
     html += '<div class="td special">';
 
-    var special = "";
-    
-    if (item.element) {
-        special += getElementHtml(item.element);
-    }
-    if (item.ailments) {
-        special += getAilmentsHtml(item);
-    }
-    if (item.resist) {
-        special += getResistHtml(item);
-    }
-
-    if (item.killers) {
-        special += getKillersHtml(item);
-    }
-    
-    if (item.special && item.special.includes("dualWield")) {
-        special += "<li>" + toHtml("[Dual Wield|ability_72.png]") + "</li>";
-    }
-    if (item.partialDualWield) {
-        special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
-        for (var index in item.partialDualWield) {
-            special += "<i class='img img-equipment-" + item.partialDualWield[index] + " inline'></i>";
-        }
-        special += "</li>";
-    }
-    if (item.allowUseOf) {
-        special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
-    }
-    if (item.conditional) {
-        special += getConditionalHtml(item.conditional);
-    }
-    if (item.evade) {
-        if (item.evade.physical) {
-            special += "<li>Evade physical attacks " + item.evade.physical + "%</li>";
-        }
-        if (item.evade.magical) {
-            special += "<li>Evade magical attacks " + item.evade.magical + "%</li>";
-        }
-    }
-    if (item.singleWielding) {
-        for (var index in baseStats) {
-            if (item.singleWielding[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWielding[baseStats[index]] + "%) when single wielding</li>";
-            }
-        }
-    }
-    if (item.singleWieldingOneHanded) {
-        for (var index in baseStats) {
-            if (item.singleWieldingOneHanded[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon</li>";
-            }
-        }
-    }
-    if (item.dualWielding) {
-        for (var index in baseStats) {
-            if (item.dualWielding[baseStats[index]]) {
-                special += "<li>Increase equipment " + baseStats[index].toUpperCase() + " (" + item.dualWielding[baseStats[index]] + "%) when dual wielding</li>";
-            }
-        }
-    }
-
-    if (item.accuracy) {
-        special += "<li>Increase Accuracy (" + item.accuracy + "%)</li>";
-    }
-    if (item.singleWielding && item.singleWielding.accuracy) {
-        special += "<li>Increase Accuracy (" + item.singleWielding.accuracy + "%) when single wielding</li>";
-    }
-    if (item.singleWieldingOneHanded && item.singleWieldingOneHanded.accuracy) {
-        special += "<li>Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed wreapon</li>";
-    }
-    if (item.damageVariance) {
-        special += "<li>Damage variance from x" + item.damageVariance.min + " to x"  + item.damageVariance.max + " (average : x" + (item.damageVariance.min + item.damageVariance.max)/2 + ")</li>";
-    }
-    if (item.mpRefresh) {
-        special += "<li>Recover MP (" + item.mpRefresh + "%) per turn</li>";
-    }
-    if (item.jumpDamage) {
-        special += "<li>Increase damage dealt by jump attacks by "+ item.jumpDamage + "%</li>";
-    }
-    if (item.lbFillRate) {
-        special += "<li>Increase LB gauge fill rate (" + item.lbFillRate + "%)</li>";
-    }
-    if (item.lbDamage) {
-        special += "<li>Increase LB damage (+" + item.lbDamage + "%)</li>";
-    }
-    if (item.lbPerTurn) {
-        var value;
-        if (item.lbPerTurn.min == item.lbPerTurn.max) {
-            value = item.lbPerTurn.min;
-        } else {
-            value = item.lbPerTurn.min + "-" + item.lbPerTurn.max;
-        }
-        special += "<li>Increase LB gauge each turn (" + value + ")</li>";
-    }
-    if (item.evoMag) {
-        special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
-    }
-    if (item.esperStatsBonus) {
-        special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
-    }
-    if (item.drawAttacks) {
-        special += "<li>+" + item.drawAttacks + "% draw attacks</li>";
-    }
+    let special = "";
     if (item.special) {
         special += getSpecialHtml(item);
     }
