@@ -419,10 +419,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 - (ennemyStats.breaks[defendingStat] + ennemyStats.buffs[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
-            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 - (ennemyStats.breaks.spr + ennemyStats.buffs.spr) / 100));
+            var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
             
             result = {
                 "min": (baseDamage * variance.min + magDamage) * context.damageMultiplier.min / 2,
