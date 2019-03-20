@@ -6261,6 +6261,121 @@
 			]
 		}
 	},
+	"100024805": {
+		"name":"Fina & Dark Fina",
+		"jpname":"フィーナ&魔人フィーナ",
+		"id":"100024805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4656,"mp":284,"atk":158,"def":166,"mag":219,"spr":207},
+			"minStats":{"hp":1536,"mp":94,"atk":52,"def":55,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"mag%":30, "equipedConditions":["rod"]},
+			{"mag%":30, "equipedConditions":["whip"]},
+			{"mag%":50, "lbDamage":40, "equipedConditions":[["409031400","504231472"]]},
+			{"spr%":40, "lbPerTurn":{"min":4,"max":4}, "levelCondition":110},
+			{"mag%":20, "levelCondition":115},
+			{"hp%":20, "def%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Fina & Dark Fina",
+			"jpname":"フィーナ&魔人フィーナ",
+			"id":"100024805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3582,"mp":219,"atk":122,"def":128,"mag":169,"spr":152},
+				"minStats":{"hp":1182,"mp":72,"atk":40,"def":42,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":40, "mp%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"mag%":30, "equipedConditions":["whip"]}
+			]
+		}
+	},
+	"100024905": {
+		"name":"Lid & Jake",
+		"jpname":"リド&ジェイク",
+		"id":"100024905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4802,"mp":262,"atk":207,"def":180,"mag":169,"spr":185},
+			"minStats":{"hp":1585,"mp":86,"atk":68,"def":59,"mag":56,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "mp%":70, "atk%":50, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"physical":100}], "mpRefresh":12},
+			{"atk%":20, "equipedConditions":["gun"]},
+			{"atk%":20, "equipedConditions":["hammer"]},
+			{"hp%":30, "atk%":30, "equipedConditions":["hammer"]},
+			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":50, "equipedConditions":[["504231473","409031500"]]},
+			{"mp%":20, "atk%":20, "equipedConditions":["gun"], "levelCondition":110},
+			{"def%":20, "spr%":20, "equipedConditions":["hammer"], "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"def%":20, "spr%":20, "skillEnhancement":{"231524":5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Lid & Jake",
+			"jpname":"リド&ジェイク",
+			"id":"100024905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3694,"mp":202,"atk":159,"def":139,"mag":130,"spr":143},
+				"minStats":{"hp":1219,"mp":67,"atk":52,"def":46,"mag":43,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":20, "mp%":70, "atk%":50, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "killers":[{"physical":100}], "mpRefresh":12},
+				{"atk%":20, "equipedConditions":["gun"]},
+				{"atk%":20, "equipedConditions":["hammer"]},
+				{"hp%":30, "atk%":30, "equipedConditions":["hammer"]}
+			]
+		}
+	},
+	"100025004": {
+		"name":"Rowen",
+		"jpname":"ローウェン",
+		"id":"100025004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3686,"mp":166,"atk":161,"def":137,"mag":119,"spr":132},
+			"minStats":{"hp":1216,"mp":55,"atk":53,"def":45,"mag":39,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":20, "def%":20, "lbPerTurn":{"min":2,"max":2}, "partialDualWield":["greatSword","katana"], "resist":[{"name":"ice","percent":10},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["katana"]},
+			{"atk%":30, "equipedConditions":["katana"]},
+			{"atk%":40, "equipedConditions":["katana"]},
+			{"atk%":40, "equipedConditions":["greatSword"]}
+		]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",

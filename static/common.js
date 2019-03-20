@@ -223,7 +223,6 @@ function getExclusiveUnitsHtml(item) {
 }
 function getSpecialHtml(item) {
     var special = "";
-    var special = "";
     
     if (item.element) {
         special += getElementHtml(item.element);
@@ -330,11 +329,13 @@ function getSpecialHtml(item) {
     if (item.breakability && (item.breakability.atk || item.breakability.def || item.breakability.mag || item.breakability.spr)) {
         special += '<li>Vulnerable to <span class="uppercase">' + baseStats.filter(s => item.breakability[s]).join("/") + '</span> breaks</li>';
     }
-    $(item.special).each(function(index, itemSpecial) {
-        if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {
-            special += "<li>" + toHtml(itemSpecial) + "</li>";
-        }
-    });
+    if (item.special) {
+        $(item.special).each(function (index, itemSpecial) {
+            if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {
+                special += "<li>" + toHtml(itemSpecial) + "</li>";
+            }
+        });
+    }
     return special;
 }
 
@@ -463,10 +464,7 @@ function displayItemLine(item, actionOnImage = "") {
     // special
     html += '<div class="td special">';
 
-    let special = "";
-    if (item.special) {
-        special += getSpecialHtml(item);
-    }
+    let special = getSpecialHtml(item);
     if (special.length != 0) {
         html += "<ul>" + special + "<ul>";
     }
