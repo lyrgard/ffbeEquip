@@ -447,7 +447,21 @@ function readEnnemyStats() {
     if ($("#monsterDefensiveStats .spr .break").val()) {
         ennemyBreaks.spr = parseInt($("#monsterDefensiveStats .spr .break").val());
     }
-    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, ennemyImperils);
+    var enemyBuffs = {"atk":0, "def":0, "mag":0, "spr":0};
+    if ($("#monsterDefensiveStats .def .buff").val()) {
+        enemyBuffs.def = parseInt($("#monsterDefensiveStats .def .buff").val());
+    }
+    if ($("#monsterDefensiveStats .spr .buff").val()) {
+        enemyBuffs.spr = parseInt($("#monsterDefensiveStats .spr .buff").val());
+    }
+    var enemyBreakabilities = {"atk":true, "def":true, "mag":true, "spr":true};
+    if ($("#monsterDefensiveStats .def .breakIcon").hasClass("glyphicon-ban-circle")) {
+        enemyBreakabilities.def = false;
+    }
+    if ($("#monsterDefensiveStats .spr .breakIcon").hasClass("glyphicon-ban-circle")) {
+        enemyBreakabilities.spr = false;
+    }
+    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, enemyBuffs, enemyBreakabilities, ennemyImperils);
     
     $("#negativeBreakImperilWarning").toggleClass("hidden", ennemyBreaks.atk >= 0 && ennemyBreaks.def >= 0 && ennemyBreaks.mag >= 0 && ennemyBreaks.spr >= 0 && !negativeImperil);
 
@@ -2228,6 +2242,8 @@ function getStateHash(onlyCurrent = true) {
         "def" : ennemyStats.def,
         "spr" : ennemyStats.spr,
         "breaks" : ennemyStats.breaks,
+        "buffs" : ennemyStats.buffs,
+        "breakability" : ennemyStats.breakability,
         "imperils" : ennemyStats.imperils
     }
     data.itemSelector = {
@@ -2314,7 +2330,10 @@ function oldLinkFormatToNew(oldData) {
         "races": oldData.ennemyRaces,
         elementalResist : oldData.ennemyResists,
         def : oldData.monsterDef,
-        spr : oldData.monsterSpr
+        spr : oldData.monsterSpr,
+        'breaks': {'atk': 0, 'def':0, 'mag':0, 'spr':0},
+        'buffs': {'atk': 0, 'def':0, 'mag':0, 'spr':0},
+        'breakability': {'atk': true, 'def':true, 'mag':true, 'spr':true},
     }
     data.itemSelector = {
         "mainSelector": oldData.equipmentToUse,
@@ -2458,10 +2477,22 @@ function loadStateHashAndBuild(data, importMode = false) {
                   $("#monsterDefensiveStats .spr .break").val(data.monster.breaks.spr);
               }
           }
-        }
-        $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
-        for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
+          if (data.monster.buffs) {
+              if (data.monster.buffs.def) {
+                  $("#monsterDefensiveStats .def .buff").val(data.monster.buffs.def);
+              }
+              if (data.monster.buffs.spr) {
+                  $("#monsterDefensiveStats .spr .buff").val(data.monster.buffs.spr);
+              }
+          }
+          if (data.monster.breakability) {
+              setMonsterStatBreakibility('def', data.monster.breakability.def);
+              setMonsterStatBreakibility('spr', data.monster.breakability.spr);
+          }
+          $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
+          for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
             $("#" + data.itemSelector.additionalFilters[i]).prop('checked', true);
+          }
         }
     }
     
@@ -2708,6 +2739,28 @@ function selectMonster(monsterIndex) {
     Modal.hide();
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
         logCurrentBuild();    
+    }
+}
+
+function toogleMonsterBreakability(stat) {
+    let icon = $("#monsterDefensiveStats ." + stat + " .breakIcon");
+    setMonsterStatBreakibility(stat, icon.hasClass("glyphicon-ban-circle"), icon);
+    readEnnemyStats();
+    logCurrentBuild();
+}
+
+function setMonsterStatBreakibility(stat, allow, providedIcon) {
+    let icon = providedIcon || $("#monsterDefensiveStats ." + stat + " .breakIcon");
+    let field = $("#monsterDefensiveStats ." + stat + " .break");
+    if (allow) {
+        icon.removeClass("glyphicon-ban-circle");
+        icon.addClass("glyphicon-download");
+        field.prop('disabled', false);
+    } else {
+        icon.addClass("glyphicon-ban-circle");
+        icon.removeClass("glyphicon-download");
+        field.prop('disabled', true);
+        field.val("");
     }
 }
 

@@ -126,6 +126,18 @@ const partyBuildSchema = Joi.object().keys({
             "def":Joi.number().integer(),
             "mag":Joi.number().integer(),
             "spr":Joi.number().integer(),
+        }),
+        "buffs":Joi.object().keys({
+            "atk":Joi.number().integer(),
+            "def":Joi.number().integer(),
+            "mag":Joi.number().integer(),
+            "spr":Joi.number().integer(),
+        }),
+        "breakability":Joi.object().keys({
+            "atk":Joi.boolean(),
+            "def":Joi.boolean(),
+            "mag":Joi.boolean(),
+            "spr":Joi.boolean(),
         })
     }),
     "useNewJpDamageFormula": Joi.boolean().required(),

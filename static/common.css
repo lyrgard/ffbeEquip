@@ -624,6 +624,10 @@ i.icon {
     cursor: pointer;
 }
 
+.noRadius {
+    border-radius: 0 !important;
+}
+
 body.loading:after {
     content: '';
     display: block;

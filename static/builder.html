@@ -523,16 +523,24 @@
                                 <span class="input-group-addon">DEF</span>
                                 <input type="text" class="form-control stat" placeholder="100" data-toggle="tooltip" data-original-title="Base DEF">
                                 <div class="inputWithIcon">
-                                    <span class="leftIcon glyphicon glyphicon-download" title="break"></span>
-                                    <input class="form-control break" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="DEF Break (positive)"/>
+                                    <span class="leftIcon glyphicon glyphicon-download breakIcon link" title="break" onclick="toogleMonsterBreakability('def')"></span>
+                                    <input class="form-control break noRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="DEF Break (positive)"/>
+                                </div>
+                                <div class="inputWithIcon">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <input class="form-control buff" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="DEF Buff (positive)"/>
                                 </div>
                             </div>
                             <div class="input-group spr">
                                 <span class="input-group-addon">SPR</span>
                                 <input type="text" class="form-control stat" placeholder="100" data-toggle="tooltip" data-original-title="Base SPR">
                                 <div class="inputWithIcon">
-                                    <span class="leftIcon glyphicon glyphicon-download" title="break"></span>
-                                    <input class="form-control break" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="SPR Break (positive)"/>
+                                    <span class="leftIcon glyphicon glyphicon-download breakIcon link" title="break" onclick="toogleMonsterBreakability('spr')"></span>
+                                    <input class="form-control break noRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="SPR Break (positive)"/>
+                                </div>
+                                <div class="inputWithIcon">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <input class="form-control buff" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="DEF Buff (positive)"/>
                                 </div>
                             </div>
                         </div>
