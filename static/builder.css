@@ -345,11 +345,13 @@
 .conciseView .line {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .buildLine {
     display: table-row;
     border-top: 1px solid #ddd;
+    min-width: 300px;
 }
 
 .conciseView .buildLine {
