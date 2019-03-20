@@ -323,7 +323,7 @@
 }
 
 #monsterDefensiveStats input {
-    width: 60px;
+    width: 70px;
     text-align: right;
 }
 
@@ -597,6 +597,7 @@ i.img.img-slot-hand.leftHand {
     right: 5px;
     line-height: 34px;
     opacity: 0.6;
+    z-index: 2;
 }
 
 .inputWithIcon input {

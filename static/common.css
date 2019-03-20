@@ -629,6 +629,11 @@ i.icon {
     border-radius: 0 !important;
 }
 
+.rightRadius {
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
 body.loading:after {
     content: '';
     display: block;
