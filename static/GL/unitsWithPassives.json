@@ -1273,9 +1273,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","axe","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Blade Adept","Swift Tidal Attack","Earth-shattering Blade"],
+		"enhancements": [
+			{"name":"Blade Adept","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":60}],[{"killers":[{"name":"aquatic","physical":50},{"name":"stone","physical":50}]},{"equipedConditions":["sword"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":40, "def%":10, "spr%":10, "evade":{"physical":10}, "resist":[{"name":"earth","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}]},
-			{"atk%":30, "equipedConditions":["sword"]}
+			{"hp%":30, "atk%":40, "def%":10, "spr%":10, "evade":{"physical":10}, "resist":[{"name":"earth","percent":30},{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"petrification","percent":100}]}
 		]
 	},
 	"100006704": {
@@ -2954,12 +2957,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements"],
+		"enhancements": [
+			{"name":"Shibyra Technique","levels":[[{"killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]}],[{"killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}]}]]},
+			{"name":"Aide to the King","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30},{"equipedConditions":["rod"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":45,"mag%":45},{"equipedConditions":["rod"],"atk%":45,"mag%":45}],[{"hp%":30,"dualWielding":{"atk":20,"mag":20}},{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"equipedConditions":["rod"],"atk%":60,"mag%":60}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":5},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-			{"atk%":30, "mag%":30, "equipedConditions":["rod"]},
+			{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "mpRefresh":5},
 			{"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}, "equipedConditions":["504220680"]},
-			{"skillEnhancement":{"200770":3,"220700":2,"220710":2,"220720":2,"220730":2,"220740":2,"220750":3,"220760":3,"220770":3,"220780":3,"220790":3,"220800":3,"220820":2,"220830":2,"220840":2,"220850":2,"220860":2,"707374":3,"707375":3}, "levelCondition":105},
+			{"skillEnhancement":{"200770":3,"220700":2,"220710":2,"220720":2,"220730":2,"220740":2,"220750":3,"220760":3,"220770":3,"220780":3,"220790":3,"220800":3,"220820":2,"220830":2,"220840":2,"220850":2,"220860":2,"707374":3,"707375":3,"912220":3}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"def%":20, "spr%":20, "killers":[{"name":"beast","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"spirit","physical":25,"magical":25}], "levelCondition":120}
 		],
@@ -2977,10 +2983,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","throwing","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Shibyra Technique","Aide to the King","Mageblade","Tempest Spellblade","Rising Elements"],
+		"enhancements": [
+			{"name":"Shibyra Technique","levels":[[{"killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}]}],[{"killers":[{"name":"beast","physical":75,"magical":75},{"name":"human","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}]}],[{"killers":[{"name":"beast","physical":100,"magical":100},{"name":"human","physical":100,"magical":100},{"name":"spirit","physical":100,"magical":100}]}]]},
+			{"name":"Aide to the King","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30},{"equipedConditions":["rod"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":45,"mag%":45},{"equipedConditions":["rod"],"atk%":45,"mag%":45}],[{"hp%":30,"dualWielding":{"atk":20,"mag":20}},{"equipedConditions":["sword"],"atk%":60,"mag%":60},{"equipedConditions":["rod"],"atk%":60,"mag%":60}]]}
+		],
 			"skills": [
-				{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":5},
-				{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-				{"atk%":30, "mag%":30, "equipedConditions":["rod"]}
+				{"hp%":20, "atk%":30, "mag%":30, "partialDualWield":["sword","rod"], "mpRefresh":5}
 			]
 		}
 	},
@@ -4387,7 +4396,7 @@
 		]
 	},
 	"100019905": {
-		"name":"Karlotte",
+		"name":"Karlette",
 		"id":"100019905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4400,7 +4409,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":25,"atk":25,"mag":25}, "lbFillRate":100, "mpRefresh":5},
+			{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "lbFillRate":100, "mpRefresh":5},
 			{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
 			{"atk%":50, "mag%":25, "equipedConditions":["spear"]},
 			{"atk%":30, "mag%":30, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "equipedConditions":["504229234"]},
@@ -4408,7 +4417,7 @@
 			{"mp%":20, "atk%":20, "mag%":20, "mpRefresh":5, "skillEnhancement":{"229241":2,"229242":2,"229243":2,"229244":2,"229253":5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Karlotte",
+			"name":"Karlette",
 			"id":"100019905",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4422,7 +4431,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","staff","rod","spear","harp","whip","mace","hat","clothes","lightArmor","robe"],
 			"skills": [
-				{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":25,"atk":25,"mag":25}, "lbFillRate":100, "mpRefresh":5},
+				{"mp%":30, "atk%":60, "mag%":60, "spr%":30, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "lbFillRate":100, "mpRefresh":5},
 				{"atk%":25, "mag%":50, "equipedConditions":["rod"]},
 				{"atk%":50, "mag%":25, "equipedConditions":["spear"]}
 			]
@@ -6620,8 +6629,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","bow","throwing","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Water Ball","Mercury Crest","Zealous Fighter"],
+		"enhancements": [
+			{"name":"Mercury Crest","levels":[[{"resist":[{"name":"water","percent":30}]}],[{"resist":[{"name":"water","percent":40}]}],[{"resist":[{"name":"water","percent":50}],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"water","percent":30}], "killers":[{"name":"bird","physical":125,"magical":75}]}
+			{"hp%":30, "atk%":30, "lbPerTurn":{"min":1,"max":1}, "killers":[{"name":"bird","physical":125,"magical":75}]}
 		]
 	},
 	"210000405": {
@@ -6742,6 +6755,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Insane Darkness","Cross Cleave","Dark Tenacity"],
 		"skills": [
 			{"hp%":10, "mp%":10, "mag%":50, "evoMag":50}
 		]
@@ -7092,9 +7106,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+		"enhancementSkills":["Gun Mastery","Light-footed","Rapid Shot","Trick Weapon"],
+		"enhancements": [
+			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"dualWielding":{"atk":20}},{"equipedConditions":["gun"],"atk%":100}]]},
+			{"name":"Light-footed","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":15,"magical":15}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["gun"]},
+			{"hp%":20, "atk%":30, "def%":20, "mpRefresh":5},
 			{"hp%":20, "mp%":20, "atk%":20, "mag%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "equipedConditions":["313002400"]},
 			{"skillEnhancement":{"202340":0.3,"209240":1,"209250":1,"209260":1,"209270":1,"209280":1,"501160":2,"705270":1,"705280":1,"705290":1,"705300":1}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
@@ -7114,9 +7132,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","bow","spear","gun","hat","clothes","lightArmor"],
+			"enhancementSkills":["Gun Mastery","Light-footed","Rapid Shot","Trick Weapon"],
+		"enhancements": [
+			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"dualWielding":{"atk":20}},{"equipedConditions":["gun"],"atk%":100}]]},
+			{"name":"Light-footed","levels":[[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":15,"magical":15},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"evade":{"physical":20,"magical":20},"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+		],
 			"skills": [
-				{"hp%":20, "atk%":30, "def%":20, "evade":{"physical":15,"magical":15}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-				{"atk%":50, "equipedConditions":["gun"]}
+				{"hp%":20, "atk%":30, "def%":20, "mpRefresh":5}
 			]
 		}
 	},
@@ -7168,10 +7190,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Loyal Spirit","Confusing Lament","Fulminating Darkness","Twilight Guard","Dawn Guard","Bell of a New Dawn"],
+		"enhancements": [
+			{"name":"Loyal Spirit","levels":[[{"hp%":20},{"equipedConditions":["lightShield"],"def%":20,"spr%":20},{"equipedConditions":["heavyShield"],"def%":20,"spr%":20}],[{"hp%":30},{"equipedConditions":["lightShield"],"def%":20,"spr%":20},{"equipedConditions":["heavyShield"],"def%":20,"spr%":20},{"equipedConditions":["robe"],"def%":20,"spr%":20}],[{"hp%":40},{"equipedConditions":["lightShield"],"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"def%":40,"spr%":40},{"equipedConditions":["robe"],"def%":40,"spr%":40}]]}
+		],
 		"skills": [
-			{"hp%":40, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
-			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
-			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"hp%":20, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
 			{"def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"lightning","percent":50}], "equipedConditions":["402002300"]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":30, "levelCondition":120},
@@ -7192,10 +7216,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Loyal Spirit","Confusing Lament","Fulminating Darkness","Twilight Guard","Dawn Guard","Bell of a New Dawn"],
+		"enhancements": [
+			{"name":"Loyal Spirit","levels":[[{"hp%":20},{"equipedConditions":["lightShield"],"def%":20,"spr%":20},{"equipedConditions":["heavyShield"],"def%":20,"spr%":20}],[{"hp%":30},{"equipedConditions":["lightShield"],"def%":20,"spr%":20},{"equipedConditions":["heavyShield"],"def%":20,"spr%":20},{"equipedConditions":["robe"],"def%":20,"spr%":20}],[{"hp%":40},{"equipedConditions":["lightShield"],"def%":40,"spr%":40},{"equipedConditions":["heavyShield"],"def%":40,"spr%":40},{"equipedConditions":["robe"],"def%":40,"spr%":40}]]}
+		],
 			"skills": [
-				{"hp%":40, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5},
-				{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
-				{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]}
+				{"hp%":20, "def%":30, "spr%":30, "killers":[{"name":"undead","physical":50}], "mpRefresh":5}
 			]
 		}
 	},
@@ -7281,8 +7307,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","rod","fist","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Archadian Emperor","Magick Barrier","Force Barrier"],
+		"enhancements": [
+			{"name":"Archadian Emperor","levels":[[{"mag%":20,"atk%":20,"hp%":20}],[{"mag%":40,"atk%":40,"hp%":40}],[{"spr%":20,"mag%":50,"def%":20,"atk%":50,"mp%":20,"hp%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "mag%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":20}]},
+			{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":20}]},
 			{"hp%":15, "mp%":15, "equipedConditions":["fist"]}
 		]
 	},
@@ -7316,9 +7346,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","staff","rod","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Achilles","4th in Command","Flamephant"],
+		"enhancements": [
+			{"name":"4th in Command","levels":[[{"equipedConditions":["sword"],"atk%":30,"mag%":30}],[{"equipedConditions":["sword"],"atk%":60,"mag%":60}],[{"equipedConditions":["sword"],"atk%":100,"mag%":100}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":10, "mag%":20},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
+			{"hp%":10, "mp%":10, "mag%":20}
 		]
 	},
 	"213000105": {
