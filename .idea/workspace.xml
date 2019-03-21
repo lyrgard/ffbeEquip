@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/imgUrls.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/imgUrls.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/common.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10515">
+            <state relative-caret-position="10695">
               <caret line="713" column="81" selection-start-line="713" selection-start-column="81" selection-end-line="713" selection-end-column="81" />
             </state>
           </provider>
@@ -66,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="5280">
               <caret line="352" column="23" selection-start-line="352" selection-start-column="23" selection-end-line="352" selection-end-column="23" />
             </state>
           </provider>
@@ -76,7 +62,12 @@
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="174">
-              <caret line="1995" column="35" selection-start-line="1995" selection-start-column="20" selection-end-line="1995" selection-end-column="35" />
+              <caret line="562" column="48" selection-start-line="562" selection-start-column="34" selection-end-line="562" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,22 +75,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="468" column="42" lean-forward="true" selection-start-line="468" selection-start-column="42" selection-end-line="468" selection-end-column="42" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="e#65#72#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="7020">
+              <caret line="468" column="42" selection-start-line="468" selection-start-column="42" selection-end-line="468" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JP/units.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="4653" column="21" selection-start-line="4653" selection-start-column="21" selection-end-line="4653" selection-end-column="21" />
+            <state relative-caret-position="339">
+              <caret line="4664" column="59" selection-start-line="4664" selection-start-column="59" selection-end-line="4664" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -113,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="422" column="41" selection-start-line="422" selection-start-column="41" selection-end-line="422" selection-end-column="41" />
+            <state relative-caret-position="339">
+              <caret line="941" column="32" lean-forward="true" selection-start-line="941" selection-start-column="32" selection-end-line="941" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -126,10 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Onion</find>
-      <find>ATK +20</find>
-      <find>defaultItemsToExclude</find>
-      <find>itemsToExclude</find>
       <find>draw</find>
       <find>24</find>
       <find>globalM</find>
@@ -156,6 +138,10 @@
       <find>min-wi</find>
       <find>displayItemLine</find>
       <find>getSpecialHtml</find>
+      <find>getVal</find>
+      <find>logB</find>
+      <find>statsToDisplay</find>
+      <find>calculateStatValue</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,11 +164,11 @@
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/builder.html" />
         <option value="$PROJECT_DIR$/static/builder.js" />
-        <option value="$PROJECT_DIR$/static/builder/common.js" />
         <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/JP/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/JP/units.json" />
+        <option value="$PROJECT_DIR$/static/builder/common.js" />
       </list>
     </option>
   </component>
@@ -254,8 +240,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,17 +291,18 @@
       <workItem from="1552370785843" duration="1267000" />
       <workItem from="1552584773909" duration="656000" />
       <workItem from="1552756657391" duration="1337000" />
+      <workItem from="1553148122261" duration="588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24767000" />
+    <option name="totallyTimeSpent" value="25355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13407822" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13647246" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -514,6 +501,13 @@
     <entry file="file://$PROJECT_DIR$/static/GL/units_de.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30165">
+          <caret line="2011" column="74" selection-start-line="2011" selection-start-column="71" selection-end-line="2011" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -528,38 +522,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30165">
-          <caret line="2011" column="74" selection-start-line="2011" selection-start-column="71" selection-end-line="2011" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10515">
+        <state relative-caret-position="10695">
           <caret line="713" column="81" selection-start-line="713" selection-start-column="81" selection-end-line="713" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="422" column="41" selection-start-line="422" selection-start-column="41" selection-end-line="422" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="5280">
           <caret line="352" column="23" selection-start-line="352" selection-start-column="23" selection-end-line="352" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.js">
+    <entry file="file://$PROJECT_DIR$/static/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="1995" column="35" selection-start-line="1995" selection-start-column="20" selection-end-line="1995" selection-end-column="35" />
+        <state relative-caret-position="7020">
+          <caret line="468" column="42" selection-start-line="468" selection-start-column="42" selection-end-line="468" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -570,22 +550,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/common.js">
+    <entry file="file://$PROJECT_DIR$/static/JP/units.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="4664" column="59" selection-start-line="4664" selection-start-column="59" selection-end-line="4664" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
-          <caret line="468" column="42" lean-forward="true" selection-start-line="468" selection-start-column="42" selection-end-line="468" selection-end-column="42" />
+          <caret line="562" column="48" selection-start-line="562" selection-start-column="34" selection-end-line="562" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#65#72#1" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JP/units.json">
+    <entry file="file://$PROJECT_DIR$/static/builder/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="4653" column="21" selection-start-line="4653" selection-start-column="21" selection-end-line="4653" selection-end-column="21" />
+        <state relative-caret-position="339">
+          <caret line="941" column="32" lean-forward="true" selection-start-line="941" selection-start-column="32" selection-end-line="941" selection-end-column="32" />
         </state>
       </provider>
     </entry>

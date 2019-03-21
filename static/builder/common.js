@@ -938,7 +938,9 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
             if (equipedIndex == 10) {
                 equipmentStatBonusToApply = esperStatBonus;
             }
-            if (equipedIndex < 2 && "atk" == stat) {
+            if ("evade.magical" == stat) {
+                calculatedValue = Math.max(calculatedValue, calculateStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, equipmentStatBonusToApply, stat, notStackableSkillsAlreadyUsed));
+            } else if (equipedIndex < 2 && "atk" == stat) {
                 calculatedValue += calculatePercentStateValueForIndex(itemAndPassives[equipedIndex], baseValue, currentPercentIncrease, stat, notStackableSkillsAlreadyUsed);    
                 calculatedValue += calculateFlatStateValueForIndex(itemAndPassives[equipedIndex], equipmentStatBonus - 1, stat);
             } else {
