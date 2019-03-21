@@ -2678,7 +2678,7 @@ function showExcludedItems() {
     for (var index = 0, len = dataToSearch.length; index < len; index++) {
         var item = dataToSearch[index];
         if (itemsToExclude.includes(item.id) && !idAlreadyTreated.includes(item.id)) {
-            text += '<div class="tr id_' + item.id +'">' +
+            text += '<div class="tr id_' + escapeName(item.id) +'">' +
                 '<div class="td actions"><span class="excludeItem glyphicon glyphicon-remove" onclick="removeItemFromExcludeList(\'' + item.id +'\')"></span></div>' +
                 getImageHtml(item) + 
                 getNameColumnHtml(item) + 
@@ -2768,7 +2768,7 @@ function setMonsterStatBreakibility(stat, allow, providedIcon) {
 }
 
 function removeItemFromExcludeList(id) {
-    $("#showExcludedItemsDialog .tr.id_" + id).remove();
+    $("#showExcludedItemsDialog .tr.id_" + escapeName(id)).remove();
     itemsToExclude.splice(itemsToExclude.indexOf(id),1);
     $(".excludedItemNumber").html(itemsToExclude.length);
 }
