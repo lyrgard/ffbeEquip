@@ -756,7 +756,31 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         result.stCover.chance = rawEffect[3][4];
         result.stCover.mitigation = {"min": rawEffect[3][2], "max": rawEffect[3][3]};
         return [result];
-        
+
+
+        // Break, stop and charm resistance
+    } else if (rawEffect[2] == 55) {
+        result = {resist:[]};
+        if (rawEffect[3][0]) {
+            result.resist.push({"name":"break_atk", "percent":rawEffect[3][0]})
+        }
+        if (rawEffect[3][1]) {
+            result.resist.push({"name":"break_def", "percent":rawEffect[3][1]})
+        }
+        if (rawEffect[3][2]) {
+            result.resist.push({"name":"break_mag", "percent":rawEffect[3][2]})
+        }
+        if (rawEffect[3][3]) {
+            result.resist.push({"name":"break_spr", "percent":rawEffect[3][3]})
+        }
+        if (rawEffect[3][4]) {
+            result.resist.push({"name":"stop", "percent":rawEffect[3][4]})
+        }
+        if (rawEffect[3][5]) {
+            result.resist.push({"name":"charm", "percent":rawEffect[3][5]})
+        }
+        return [result];
+
     // Skill enhancement
     } else if (rawEffect[2] == 73) {
         result.skillEnhancement = {};
@@ -924,8 +948,8 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         addAilmentResist(result, ailmentsData);
         result.turns = ailmentsData[9];
         
-    // Break, stop and charm resistance
-    } else if (rawEffect[2] == 89) { 
+    // Break, stop and charm resistance with turn number
+    } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
         result = {resist:[]};
         if (rawEffect[3][0]) {
             result.resist.push({"name":"break_atk", "percent":rawEffect[3][0]})
@@ -946,7 +970,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.resist.push({"name":"charm", "percent":rawEffect[3][5]})
         }
         result.turns = rawEffect[3][6];
-        
+
     // Killers
     } else if (rawEffect[2] == 92) { 
         result = {};
