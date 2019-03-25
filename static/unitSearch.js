@@ -5,6 +5,7 @@ var saveNeeded = false;
 var onlyShowOwnedUnits = false;
 var unitSearch = [];
 var releasedUnits;
+var dataById;
 
 var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities"];
 
@@ -469,7 +470,11 @@ function displayUnitsAsync(units, start, div) {
 function getSkillHtml(skill) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/items/' + skill.icon + '"/></div>'
-    html += '<div class="nameAndEffects"><span class="name">' + skill.name + '</span>'
+    html += '<div class="nameAndEffects"><span class="name">' + skill.name;
+    if (skill.equipedConditions) {
+        html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
+    }
+    html += '</span>';
     for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
         if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
             html += '<span class="effect">Randomly use :</span>';
@@ -767,6 +772,8 @@ function startPage() {
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
+        dataById = {};
+        result.forEach(e => dataById[e.id] = e);
         getStaticData("unitsWithSkill", false, function(result) {
             units = result;
             getStaticData("unitSearch", false, function(result) {    
