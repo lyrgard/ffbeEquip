@@ -496,7 +496,7 @@ function getSkillHtml(skill) {
             html += getSkillHtml(skill.effects[j].effect.autoCastedSkill);
             html += '</div>';
         } else {
-            html += '<span class="effect">' + skill.effects[j].desc + '</span>';    
+            html += '<span class="effect">' + getEffectDescription(skill.effects[j]) + '</span>';    
         }
     }
     html += '</div></div>'; 
@@ -511,7 +511,7 @@ function getLbHtml(lb) {
     html += '<span class="case">Min :</span>'
     html += '<div class="skill"><div class="nameAndEffects">';
     for (var j = 0, len = lb.minEffects.length; j < len; j++) {
-        html += '<span class="effect">' + lb.minEffects[j].desc + '</span>';   
+        html += '<span class="effect">' + getEffectDescription(lb.minEffects[j]) + '</span>';   
     }
     html += '</div></div>';
     html += '</div>';
@@ -519,7 +519,7 @@ function getLbHtml(lb) {
     html += '<span class="case">Max :</span>'
     html += '<div class="skill"><div class="nameAndEffects">';
     for (var j = 0, len = lb.maxEffects.length; j < len; j++) {
-        html += '<span class="effect">' + lb.maxEffects[j].desc + '</span>';   
+        html += '<span class="effect">' + getEffectDescription(lb.maxEffects[j]) + '</span>';   
     }
     html += '</div></div>';
     html += '</div>';
