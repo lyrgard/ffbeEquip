@@ -720,6 +720,8 @@ function isSimpleFormula(formula) {
             }
             return false;
             break;
+        case "*":
+            return formula.value1.type == 'constant' && formula.value2.type == 'skill';
         default:
             return false;
     }

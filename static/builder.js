@@ -264,6 +264,9 @@ function readGoal(index = currentUnitIndex) {
     if (customFormula) {
         builds[currentUnitIndex].goal = "custom";
         formula = customFormula;
+        if (!isSimpleFormula(formula)) {
+            $(".goal .chainMultiplier").addClass("hidden");
+        }
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
@@ -300,6 +303,7 @@ function readGoal(index = currentUnitIndex) {
                 builds[currentUnitIndex].goal = goalValue;
                 formula = formulaByGoal[goalValue];
             }
+            $(".goal .chainMultiplier").removeClass("hidden");
         }
     }
     formula = readSimpleConditions(formula);
@@ -322,6 +326,18 @@ function readSimpleConditions(formula) {
             var value = $(".goal .elements .element." + elementList[i] + " input").val() || 0;
             if (value > 0) {
                 simpleConditions.elementalResist[elementList[i]] = value;
+            }
+        }
+        
+        let chainMult = parseInt($(".goal .chainMultiplier input").val()) || 0;
+        if (chainMult && formula.type == 'skill') { 
+            formula = {
+                type:'*',
+                value1: {
+                    type: "constant",
+                    value: chainMult
+                },
+                value2: formula
             }
         }
         return makeSureFormulaHaveSimpleConditions(formula, simpleConditions);
@@ -1134,11 +1150,16 @@ function updateGoal() {
         }
 
         var selectedSkill;
-        if (builds[currentUnitIndex].goal == "custom" && builds[currentUnitIndex]._formula) {
+        var chainMultiplier;
+        if (builds[currentUnitIndex].goal == "custom" && builds[currentUnitIndex]._formula && isSimpleFormula(builds[currentUnitIndex]._formula)) {
             var base = builds[currentUnitIndex]._formula;
             if (base.type == "condition") {
                 base = base.formula;
             } 
+            if (base.type == "*") {
+                chainMultiplier = base.value1.value;
+                base = base.value2;
+            }
             if (base.type == "multicast" || base.type == "skill") {
                 selectedSkill = base;
             }
@@ -1163,6 +1184,10 @@ function updateGoal() {
                 if (multicastedSkills) {
                     choiceSelect.val("MULTICAST_" + multicastedSkills.id);
                 }
+            }
+            if (chainMultiplier) {
+                $(".goal .chainMultiplier input").val(chainMultiplier);
+                $(".goal .chainMultiplier").removeClass('hidden');
             }
         } else {
             if (!selectedChoice || selectedChoice.startsWith("SKILL_") || selectedChoice.startsWith("MULTICAST_")) {
@@ -2531,7 +2556,7 @@ function loadStateHashAndBuild(data, importMode = false) {
                 $(".goal .elements .element." + elementList[elementIndex] + " input").val("");
             }
         }
-        if (simpleConditions.forcedElements.length + simpleConditions.ailmentImunity.length + Object.keys(simpleConditions.elementalResist).length > 0) {
+        if (customFormula.type != 'skill' && isSimpleFormula(customFormula)) {
             $("#simpleConditionsButton").attr("aria-expanded", "true");
             $("#simpleConditionsList").addClass("in");
         }
