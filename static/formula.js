@@ -413,7 +413,7 @@ function getSkillFromId(skillId, unitWithSkills) {
 }
 
 
-function formulaFromSkill(skill) {
+function formulaFromSkill(skill, multicast = false) {
     var canBeGoal = false;
     var hasStack = false;
     var isUpgradable = false;
@@ -456,7 +456,7 @@ function formulaFromSkill(skill) {
     if (formula) {
         formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb};
     }
-    if (canBeGoal) {
+    if (canBeGoal || multicast) {
         if (hasStack && !caracts.includes("stack")) {
             caracts.push("stack");
         }
@@ -493,6 +493,11 @@ function formulaFromEffect(effect) {
         return {
             "type": "killers",
             "value": effect.effect
+        }
+    } else if (effect.effect.skillEnhancement) {
+        return {
+            "type": "skillEnhancement",
+            "value": effect.effect.skillEnhancement
         }
     } else if (effect.effect.cooldownSkill) {
         return formulaFromSkill(effect.effect.cooldownSkill);

@@ -1305,6 +1305,18 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 }
             }
         }
+    
+    // skill enhancement
+    } else if (rawEffect[2] == 136) {
+        let result = {'skillEnhancement':{}};
+        let increase = rawEffect[3][3] / 100;
+        let skillIds = rawEffect[3][0];
+        if (!Array.isArray(skillIds)) {
+            skillIds = [skillIds];
+        }
+        skillIds.forEach(enhancedSkillId => result.skillEnhancement[enhancedSkillId] = increase);
+        result.turn = rawEffect[3][4];
+        return result;
     }
     
     if (result && result.damage) {

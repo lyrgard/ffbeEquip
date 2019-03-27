@@ -809,6 +809,21 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "max": 0,
             "switchWeapons": false
         };
+    } else if (formula.type == "skillEnhancement") {
+        var skills = Object.keys(formula.value);
+        for (var i = skills.length; i--;) {
+            if (!context.skillEnhancement[skills[i]]) {
+                context.skillEnhancement[skills[i]] = formula.value[skills[i]];
+            } else {
+                context.skillEnhancement[skills[i]] += formula.value[skills[i]];
+            }
+        }
+        return {
+            "min": 0,
+            "avg": 0,
+            "max": 0,
+            "switchWeapons": false
+        };
     } else if (formula.type == "elementCondition") {
         var elements = [];
         if (itemAndPassives[0] && itemAndPassives[0].element) {

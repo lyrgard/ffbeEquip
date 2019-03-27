@@ -296,7 +296,7 @@ function readGoal(index = currentUnitIndex) {
                     var skillChoiceValue = $("#multicastSelect" + i).val();
                     var skillChoiceId = skillChoiceValue.substr(6);
                     var skillChoice = getSkillFromId(skillChoiceId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                    skillChoiceFormulas.push(formulaFromSkill(skillChoice));
+                    skillChoiceFormulas.push(formulaFromSkill(skillChoice, true));
                 }
                 formula = {type:"multicast", skills: skillChoiceFormulas};
             } else {
@@ -967,7 +967,7 @@ function goalSelectTemplate(state) {
                 html += '<span class="upgradedSkillIcon" title="' + unlockers + '">☆</span>';
             }
             
-            var formula = formulaFromSkill(skill);
+            var formula = formulaFromSkill(skill, true);
             if (formula.notSupported) {
                 html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
             } else {
@@ -1533,7 +1533,7 @@ function manageMulticast(selectedSkills) {
                         if (multicastEffect.type=="blackMagic" && (!dcSkill.magic || dcSkill.magic != "black")) {
                             continue;
                         }
-                        var dcFormula = formulaFromSkill(dcSkill);
+                        var dcFormula = formulaFromSkill(dcSkill, true);
                         if (dcFormula) {
                             options += '<option value=' + '"SKILL_' + dcSkill.id + '" ' + (dcFormula.notSupported ? "disabled":"") + '>' + dcSkill.name + (dcFormula.notSupported ? " - Not supported yet":"") + '</option>';    
                         }
