@@ -1210,7 +1210,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         var gainedSkill = skills[gainedSkillId];
         
         var multicastskill = {
-            "id":"200160",
+            "id":gainedSkillId,
             "name":gainedSkill.name,
             "icon":gainedSkill.icon,
             "effects":[{

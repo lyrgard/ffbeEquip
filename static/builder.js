@@ -761,11 +761,11 @@ function getValueWithVariationHtml(value) {
         } else {
             valueToDisplay = Math.floor(valueToDisplay);
         }
-        valueString = '<span class="goal">' + valueToDisplay + '</span>';
+        valueString = '<span class="goal">' + valueToDisplay.toLocaleString() + '</span>';
     } else {
-        valueString = '<span class="min ' + ((goalVariation == "min") ? "goal":"")  + '">' + Math.floor(value.min) + "</span> - " +
-            '<span class="avg ' + ((goalVariation == "avg") ? "goal":"")  + '">' + Math.floor(value.avg) + "</span> - " +
-            '<span class="max ' + ((goalVariation == "max") ? "goal":"")  + '">' + Math.floor(value.max) + "</span>";
+        valueString = '<span class="min ' + ((goalVariation == "min") ? "goal":"")  + '">' + Math.floor(value.min).toLocaleString() + "</span> - " +
+            '<span class="avg ' + ((goalVariation == "avg") ? "goal":"")  + '">' + Math.floor(value.avg).toLocaleString() + "</span> - " +
+            '<span class="max ' + ((goalVariation == "max") ? "goal":"")  + '">' + Math.floor(value.max).toLocaleString() + "</span>";
     }
     return valueString;
 }
@@ -1157,12 +1157,12 @@ function updateGoal() {
                 base = base.formula;
             } 
             if (base.type == "*") {
-                chainMultiplier = base.value1.value;
                 base = base.value2;
             }
             if (base.type == "multicast" || base.type == "skill") {
                 selectedSkill = base;
             }
+            chainMultiplier = getChainMultiplier(builds[currentUnitIndex]._formula);
         }
         var multicastedSkills;
         if (selectedSkill) {
@@ -1197,7 +1197,10 @@ function updateGoal() {
             }
         }
         manageMulticast(multicastedSkills);
+        
     }
+    
+    updateSimpleConditionsFromFormula(currentUnitIndex);
     
     if (choiceSelect.hasClass("select2-hidden-accessible")) {
         choiceSelect.select2('destroy');
@@ -1347,6 +1350,7 @@ function loadBuild(buildIndex) {
         }
     }
     
+    
     $(".goal #normalGoalChoice option").prop("selected", false);
     if (build.goal) {
         if (build.goal == "custom") {
@@ -1357,6 +1361,7 @@ function loadBuild(buildIndex) {
         }
     }
     
+    updateSimpleConditionsFromFormula(buildIndex);
     updateUnitLevelDisplay();
     updateUnitStats();
     displayUnitEnhancements();
@@ -2539,27 +2544,13 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         
         var unit = data.units[i];
-
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
         
-        customFormula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
-        var simpleConditions = getSimpleConditions(customFormula);
-        unselectAll("forcedElements");
-        select("forcedElements", simpleConditions.forcedElements);
-        unselectAll("ailmentImunities");
-        select("ailmentImunities", simpleConditions.ailmentImunity);
-        for (var elementIndex = elementList.length; elementIndex--;) {
-            if (simpleConditions.elementalResist[elementList[elementIndex]]) {
-                $(".goal .elements .element." + elementList[elementIndex] + " input").val(simpleConditions.elementalResist[elementList[elementIndex]]);
-            } else {
-                $(".goal .elements .element." + elementList[elementIndex] + " input").val("");
-            }
-        }
-        if (customFormula.type != 'skill' && isSimpleFormula(customFormula)) {
-            $("#simpleConditionsButton").attr("aria-expanded", "true");
-            $("#simpleConditionsList").addClass("in");
-        }
+        builds[i].goal = "custom";
+        builds[i].formula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
+        updateSimpleConditionsFromFormula(i);
+        
         updateGoal();
         onGoalChange();
 
@@ -2632,6 +2623,37 @@ function loadStateHashAndBuild(data, importMode = false) {
     selectUnitTab(0);
     dataLoadedFromHash = true;
     window.location.hash = "";
+}
+
+function updateSimpleConditionsFromFormula(buildIndex) {
+    unselectAll("forcedElements");
+    unselectAll("ailmentImunities");
+    unselectAll("simpleConditionVarious")
+    $(".goal .elements .element input").val("");
+    $(".goal .chainMultiplier input").val("");
+    
+    let formula = builds[buildIndex].formula;
+    if (formula && isSimpleFormula(formula)) {
+        var simpleConditions = getSimpleConditions(formula);
+        select("forcedElements", simpleConditions.forcedElements);
+        select("ailmentImunities", simpleConditions.ailmentImunity);
+        for (var elementIndex = elementList.length; elementIndex--;) {
+            if (simpleConditions.elementalResist[elementList[elementIndex]]) {
+                $(".goal .elements .element." + elementList[elementIndex] + " input").val(simpleConditions.elementalResist[elementList[elementIndex]]);
+            }
+        }
+        select("simpleConditionVarious", simpleConditions.various);
+        let chainMultiplier = getChainMultiplier(formula);
+        if (chainMultiplier != 1) {
+            $(".goal .chainMultiplier input").val(chainMultiplier);
+        }
+        if (formula.type != 'skill') {
+            $("#simpleConditionsButton").attr("aria-expanded", "true");
+            $("#simpleConditionsList").addClass("in");
+        }    
+    }
+        
+    
 }
 
 function clearItemsFromBuild(keepPinnedItems = false)

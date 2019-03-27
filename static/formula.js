@@ -64,6 +64,7 @@ const attributeByVariable = {
 
 const simpleImunityValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
 const simpleResistValues = ["resist|fire.percent","resist|ice.percent","resist|lightning.percent","resist|water.percent","resist|earth.percent","resist|wind.percent","resist|light.percent","resist|dark.percent"];
+const simpleVariousValues = ['evade.physical', 'accuracy', 'drawAttacks'];
 
 var formulaByVariable = {
     "physicalDamage":                   {"type":"skill", "id":"0","name":"1x physical ATK damage", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1}}},
@@ -569,6 +570,19 @@ function getSimpleConditions(formula) {
     return simpleConditions;
 }
 
+function getChainMultiplier(formula) {
+    let chainMultiplier = 1;
+    if (formula) {
+        if (formula.type == "condition") {
+            formula = formula.formula;
+        }
+        if (formula.type == "*" && formula.value1.type == "constant" && formula.value2.type == "skill") {
+            chainMultiplier = formula.value1.value;
+        }
+    }
+    return chainMultiplier;
+}
+
 function innerGetSimpleConditions(formula, simpleConditions) {
     switch(formula.type) {
         case ">":
@@ -715,6 +729,8 @@ function isSimpleFormula(formula) {
                 if (simpleImunityValues.includes(formula.value1.name) && formula.value2.type == "constant" && formula.value2.value == 100) {
                     return true;
                 } else if (simpleResistValues.includes(formula.value1.name)) {
+                    return true;
+                } else if (simpleVariousValues.includes(formula.value1.name) && formula.value2.type == "constant" && formula.value2.value == 100) {
                     return true;
                 }
             }
