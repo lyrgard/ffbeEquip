@@ -1181,8 +1181,8 @@ function updateGoal() {
                     multicastedSkills.push(getSkillFromId(selectedSkill.skills[i].id, unitWithSkills));
                 }
                 multicastSkill = getMulticastSkillAbleToMulticast(multicastedSkills, unitWithSkills);
-                if (multicastedSkills) {
-                    choiceSelect.val("MULTICAST_" + multicastedSkills.id);
+                if (multicastSkill) {
+                    choiceSelect.val("MULTICAST_" + multicastSkill.id);
                 }
             }
             if (chainMultiplier) {
@@ -2547,6 +2547,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
         
+        if (unit.enhancementLevels) {
+            builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
+            displayUnitEnhancements();
+            onUnitChange();
+        }
+        
         builds[i].goal = "custom";
         builds[i].formula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
         updateSimpleConditionsFromFormula(i);
@@ -2554,11 +2560,6 @@ function loadStateHashAndBuild(data, importMode = false) {
         updateGoal();
         onGoalChange();
 
-        if (unit.enhancementLevels) {
-            builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
-            displayUnitEnhancements();
-            onUnitChange();
-        }
         
         if (unit.level) {
             $("#unitLevel select").val(unit.level);
