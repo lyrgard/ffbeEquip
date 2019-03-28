@@ -2784,6 +2784,12 @@ function selectMonster(monsterIndex) {
         setMonsterStatBreakibility('def', monster.breakability.def);
         setMonsterStatBreakibility('spr', monster.breakability.spr);
     }  
+    if (monster['def%']) {
+        $("#monsterDefensiveStats .def .buff").val(monster['def%']);
+    }
+    if (monster['spr%']) {
+        $("#monsterDefensiveStats .spr .buff").val(monster['spr%']);
+    }
     unselectAll("races");
     select("races", monster.races);
     Modal.hide();
