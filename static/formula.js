@@ -494,6 +494,11 @@ function formulaFromEffect(effect) {
             "type": "killers",
             "value": effect.effect
         }
+    } else if(effect.effect.heal){
+        return{
+            "type":"heal",
+            "value":effect.effect.heal
+        }
     } else if (effect.effect.skillEnhancement) {
         return {
             "type": "skillEnhancement",
