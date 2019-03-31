@@ -1143,7 +1143,15 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             console.log(rawEffect);
         }
         result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
-        
+    // Evo Damage
+    } else if(rawEffect[2] == 124){
+        result = {"damage":{"mecanism":"evoMag", "damageType":"evoke", "coef":rawEffect[3][8]/100}}
+    // Healing
+    } else if(rawEffect[2] == 2){
+        result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}
+    // Healing over time
+    } else if(rawEffect[2] == 8){
+        result={"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100, "split":rawEffect[3][3]}}
     // Damage increased against a race
     } else if (rawEffect[2] == 22) {
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};    
