@@ -262,6 +262,8 @@ class UnitBuild {
                 }
             } else if (formula.value.mecanism == "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
+            } else if(formula.value.mecanism == "evoMag"){
+                this.addToInvolvedStats(["mag","spr","evoMag"])
             }
         } else if (formula.type == "value") {
             var name = formula.name;
@@ -299,6 +301,8 @@ class UnitBuild {
                 // only consider value1 if this criteria is not already met
                 this.calculateInvolvedStats(formula.value1);
             }
+        } else if(formula.type=="heal"){
+            this.addToInvolvedStats(["spr","mag"])
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
