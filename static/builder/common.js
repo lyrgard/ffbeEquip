@@ -430,6 +430,16 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "max": (baseDamage * variance.max + magDamage) * context.damageMultiplier.max / 2,
                 "switchWeapons": switchWeapons
             }   
+        } else if(formula.value.mecanism == "evoMag"){
+            var magStat = Math.pow(getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total,2);
+            var sprStat=Math.pow(getStatCalculatedValue(context, itemAndPassives,"spr", unitBuild).total, 2);
+            var evoDamage=(magStat+sprStat)/((ennemyStats.spr*(1-ennemyStats.breaks.spr))*2)*evoMagMultiplier*coef*newJpDamageFormulaCoef*resistModifier
+            result={
+                "min":evoDamage*context.damageMultiplier.min,
+                "avg":evoDamage*context.damageMultiplier.avg,
+                "max":evoDamage*context.damageMultiplier.max,
+                "switchWeapons":switchWeapons
+            }
         } else {
             result = {
                 "min": baseDamage * context.damageMultiplier.min * variance.min,
@@ -648,6 +658,22 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.alreadyCalculatedValues[formula.name] = result;
             return result;
         }   
+    } else if(formula.type=="heal"){
+        var sprStat=getStatCalculatedValue(context, itemAndPassives,"spr", unitBuild).total/2;
+        var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total/10;
+        var coef=formula.value.coef;
+        result=formula.value.split ? {
+            "min":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split))*.85,
+            "avg":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split))*.925,
+            "max":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split)),
+            "switchWeapons":false
+        } : {
+            "min":formula.value.base+((sprStat+magStat)*coef)*.85,
+            "avg":formula.value.base+((sprStat+magStat)*coef)*.925,
+            "max":formula.value.base+((sprStat+magStat)*coef),
+            "switchWeapons":false
+        }
+        return result;
     } else if (formula.type == "constant") {
         return {
             "min": formula.value,
