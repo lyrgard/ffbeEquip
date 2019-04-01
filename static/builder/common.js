@@ -409,10 +409,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
         }
         
-        /*var evoMagMultiplier = 1;
+        var evoMagMultiplier = 1;
         if (unitBuild.involvedStats.includes("evoMag")) {
             evoMagMultiplier += getStatCalculatedValue(context, itemAndPassives, "evoMag", unitBuild).total/100;
-        }*/
+        }
         
         var defendingStatValue = ennemyStats[defendingStat];
         if (formula.value.ignore && formula.value.ignore[defendingStat]) {
