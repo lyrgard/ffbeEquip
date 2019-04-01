@@ -1027,7 +1027,7 @@ function goalSelectTemplate(state) {
 
 function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
-        var unitId = $(this).val();
+        var unitId = $("#unitsSelect").val();
         var selectedUnitData;
         if (unitId.endsWith("-6")) {
             selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
@@ -3256,6 +3256,12 @@ function startPage() {
                 loadStateHashAndBuild(hashData);
             } else {
                 reinitBuild(currentUnitIndex);
+                $("#unitsSelect").val("100011305");
+                onUnitChange();
+                $.notify("The builder calculated that Jiraiya is optimal for your needs", {
+                    className: "info",
+                    autoHide:true
+                });
             }
         });
     });
