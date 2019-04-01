@@ -1027,7 +1027,7 @@ function goalSelectTemplate(state) {
 
 function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
-        var unitId = $("#unitsSelect").val();
+        var unitId = $(this).val();
         var selectedUnitData;
         if (unitId.endsWith("-6")) {
             selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
@@ -3257,11 +3257,23 @@ function startPage() {
             } else {
                 reinitBuild(currentUnitIndex);
                 $("#unitsSelect").val("100011305");
-                onUnitChange();
+                $('#unitsSelect').select2().trigger('change');
+                builds[0].build[0] = data.find(i => i.id == "302006000");
+                builds[0].build[2] = data.find(i => i.id == "1100000114");
+                builds[0].build[3] = data.find(i => i.id == "405002500");
+                builds[0].build[4] = data.find(i => i.id == "409014900");
+                builds[0].build[5] = data.find(i => i.id == "409006300");
+                builds[0].build[6] = data.find(i => i.id == "504206630");
+                builds[0].build[7] = data.find(i => i.id == "504204260");
+                builds[0].build[8] = data.find(i => i.id == "504203190");
+                builds[0].build[9] = data.find(i => i.id == "504227411");
+                logCurrentBuild();
                 $.notify("The builder calculated that Jiraiya is optimal for your needs", {
                     className: "info",
                     autoHide:true
                 });
+                
+                
             }
         });
     });
@@ -3307,7 +3319,7 @@ function startPage() {
     });
     
     
-    builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
+    //builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
     $("#normalGoalChoice").change(function() {
         customFormula = null; 
