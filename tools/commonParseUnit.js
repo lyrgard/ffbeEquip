@@ -1336,6 +1336,9 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         if (result.damage.mecanism == "magic") {
             result.damage.mecanism = "magical";
         }
+        if(result.damage.damageType == "evoke"){
+            result.damage.mecanism = "evoMag";
+        }
         
         if (skillIn.element_inflict) {
             result.damage.elements = [];
