@@ -1263,18 +1263,12 @@ function prepareSearch(data) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when single wielding"
                 }
             }
-            if (item.singleWielding.accuracy){
-                textToSearch += "|" + "Increase Accuracy: " + item.singleWielding.accuracy + "%"; 
-            }
         }
         if (item.singleWieldingOneHanded) {
             for (var index in baseStats) {
                 if (item.singleWieldingOneHanded[baseStats[index]]) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon"
                 }
-            }
-            if (item.singleWieldingOneHanded.accuracy){
-                textToSearch += "|" + "Increase Accuracy: " + item.singleWieldingOneHanded.accuracy + "%"; 
             }
         }
         if (item.dualWielding) {
