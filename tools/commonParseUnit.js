@@ -1145,7 +1145,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
     // Evo Damage
     } else if(rawEffect[2] == 124){
-        result = {"damage":{"mecanism":"evoMag", "damageType":"evoke", "coef":rawEffect[3][8]/100}}
+        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "coef":rawEffect[3][8]/100}}
     // Healing
     } else if(rawEffect[2] == 2){
         result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}
@@ -1337,7 +1337,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.damage.mecanism = "magical";
         }
         if(result.damage.damageType == "evoke"){
-            result.damage.mecanism = "evoMag";
+            result.damage.mecanism = "summonerSkill";
         }
         
         if (skillIn.element_inflict) {
