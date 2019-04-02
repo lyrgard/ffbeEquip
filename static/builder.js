@@ -2771,6 +2771,10 @@ function selectMonster(monsterIndex) {
     var monster = bestiary.monsters[monsterIndex];
     $("#monsterDefensiveStats .def .stat").val(monster.def);
     $("#monsterDefensiveStats .spr .stat").val(monster.spr);
+    $("#monsterDefensiveStats .def .buff").val('');
+    $("#monsterDefensiveStats .spr .buff").val('');
+    setMonsterStatBreakibility('def', false);
+    setMonsterStatBreakibility('spr', false);
     for(var elementIndex = elementList.length; elementIndex--;) {
         var element = elementList[elementIndex];
         $("#elementalResists ." + element + " input.elementalResist").val("");
