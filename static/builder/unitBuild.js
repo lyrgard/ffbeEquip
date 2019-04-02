@@ -164,6 +164,9 @@ class UnitBuild {
             if (this.fixedItems[0] && this.fixedItems[1]) {
                 return -1;
             }
+            if(forceDoubleHand && (this.fixedItems[0] || this.fixedItems[1])){
+                return -1;
+            }
             if (!this.fixedItems[0]) {
                 return 0;
             } else {
