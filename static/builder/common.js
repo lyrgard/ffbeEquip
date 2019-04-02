@@ -430,7 +430,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "max": (baseDamage * variance.max + magDamage) * context.damageMultiplier.max / 2,
                 "switchWeapons": switchWeapons
             }   
-        } else if(formula.value.mecanism == "evoMag"){
+        } else if(formula.value.mecanism == "summonerSkill"){
             var magStat = Math.pow(getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total,2);
             var sprStat=Math.pow(getStatCalculatedValue(context, itemAndPassives,"spr", unitBuild).total, 2);
             var evoDamage=(magStat+sprStat)/((ennemyStats.spr*(1-ennemyStats.breaks.spr))*2)*evoMagMultiplier*coef*newJpDamageFormulaCoef*resistModifier
