@@ -421,6 +421,9 @@ function formulaFromSkill(skill, multicast = false) {
     var isLb = false;
     
     var effects;
+    if (!skill) {
+        console.log('!!');
+    }
     if (skill.maxEffects) {
         effects = skill.maxEffects;
         isLb = true;
@@ -513,6 +516,9 @@ function formulaToString(formula, useParentheses = false) {
 }
 
 function innerFormulaToString(formula, useParentheses = false) {
+    if (!formula) {
+        console.log('!!');
+    }
     if (formula.type == "skill") {
         if (formula.lb) {
             return "LB_DAMAGE";

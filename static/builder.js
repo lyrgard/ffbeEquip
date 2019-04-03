@@ -1367,8 +1367,8 @@ function loadBuild(buildIndex) {
     displayUnitEnhancements();
     
     updateGoal();
-    readGoal();
     updateDisplayAfterGoalChange();
+    readGoal();
     
     
     if (builds[currentUnitIndex].unit) {
@@ -1463,12 +1463,12 @@ function onGoalChange() {
     manageMulticast();
     readGoal();
     updateDisplayAfterGoalChange();
-}
-
-function updateDisplayAfterGoalChange() {
     if (builds[currentUnitIndex].unit) { 
         logCurrentBuild();
     }
+}
+
+function updateDisplayAfterGoalChange() {
     var goal = builds[currentUnitIndex].goal;
     $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
@@ -2555,9 +2555,11 @@ function loadStateHashAndBuild(data, importMode = false) {
         
         builds[i].goal = "custom";
         builds[i].formula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
+        customFormula = builds[i].formula;
         updateSimpleConditionsFromFormula(i);
         
         updateGoal();
+        updateDisplayAfterGoalChange();
         onGoalChange();
 
         
@@ -2648,7 +2650,7 @@ function updateSimpleConditionsFromFormula(buildIndex) {
         if (chainMultiplier != 1) {
             $(".goal .chainMultiplier input").val(chainMultiplier);
         }
-        if (formula.type != 'skill') {
+        if (chainMultiplier != 1 || simpleConditions.ailmentImunity.length > 0 || Object.keys(simpleConditions.elementalResist).length > 0 || simpleConditions.forcedElements.length > 0 || simpleConditions.various.length > 0 ) {
             $("#simpleConditionsButton").attr("aria-expanded", "true");
             $("#simpleConditionsList").addClass("in");
         }    
