@@ -1202,7 +1202,20 @@ function updateGoal() {
             if (builds[currentUnitIndex].goal && builds[currentUnitIndex].goal != 'custom') {
                 choiceSelect.val(builds[currentUnitIndex].goal);    
             } else {
-                choiceSelect.val("physicalDamage");
+                let formula = builds[currentUnitIndex].formula;
+                if (formula.type == 'condition') {
+                    formula = formula.formula;
+                }
+                let formulaString = JSON.stringify(formula);
+                goal = Object.keys(formulaByGoal).find(goal => {
+                    return JSON.stringify(formulaByGoal[goal]) == formulaString;
+                });
+            
+                if (goal) {
+                    $(".goal #normalGoalChoice").val(goal);  
+                } else {
+                   choiceSelect.val("physicalDamage");
+                }
             }
         }
         manageMulticast(multicastedSkills);

@@ -752,7 +752,32 @@ function isSimpleFormula(formula) {
             return false;
             break;
         case "*":
-            return formula.value1.type == 'chainMultiplier' && isSimpleFormula(formula.value2);
+            if (formula.value1.type == 'chainMultiplier' && isSimpleFormula(formula.value2)) return true;
+            if (formula.value1.type == 'value' && formula.value2.type == 'value') {
+                if (formula.value1.name == 'hp' && formula.value2.name == 'def') return true;
+                if (formula.value1.name == 'hp' && formula.value2.name == 'spr') return true;
+                if (formula.value1.name == 'mp' && formula.value2.name == 'mpRefresh') return true;
+            }
+            return false;
+        case "+":
+             return formula.value1.type == '/' && formula.value2.type == '/'
+                && formula.value1.value1.type == 'value' && formula.value1.value1.name == "spr"
+                && formula.value1.value2.type == 'constant' && formula.value1.value2.value == 2
+                && formula.value2.value1.type == 'value' && formula.value2.value1.name == "mag"
+                && formula.value2.value2.type == 'constant' && formula.value2.value2.value == 10;
+        case "value":
+            return formula.name == "hp" 
+            || formula.name == "mp" 
+            || formula.name == "atk" 
+            || formula.name == "def" 
+            || formula.name == "mag" 
+            || formula.name == "spr"
+            || formula.name == "evade.physical"
+            || formula.name == "evade.magical"
+            || formula.name == "atkDamageWithFixedMecanism"
+            || formula.name == "physicalDamageMultiCast"
+            || formula.name == "fixedDamageWithPhysicalMecanism"
+            || formula.name == "summonerSkill";
         default:
             return false;
     }
