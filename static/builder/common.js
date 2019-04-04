@@ -331,8 +331,15 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             } else {
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
+        } 
+        else if(formula.value.mecanism == "summonerSkill"){//new condition evoMag
+            defendingStat= "spr"
+            if(formula.value.use){
+                statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+            statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                }
         }
-        
         // Killer
         var killerMultiplicator = 1;
         if (applicableKillerType && ennemyStats.races.length > 0) {
@@ -419,7 +426,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
@@ -431,14 +438,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "switchWeapons": switchWeapons
             }   
         } else if(formula.value.mecanism == "summonerSkill"){
-            var magStat = Math.pow(getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total,2);
-            var sprStat=Math.pow(getStatCalculatedValue(context, itemAndPassives,"spr", unitBuild).total, 2);
-            var evoDamage=(magStat+sprStat)/((ennemyStats.spr*(1-ennemyStats.breaks.spr))*2)*evoMagMultiplier*coef*newJpDamageFormulaCoef*resistModifier
-            result={
-                "min":evoDamage*context.damageMultiplier.min,
-                "avg":evoDamage*context.damageMultiplier.avg,
-                "max":evoDamage*context.damageMultiplier.max,
-                "switchWeapons":switchWeapons
+            var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+            var sprDamage = coef * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            result = {
+                "min" : (baseDamage + sprDamage) * context.damageMultiplier.min / 2,
+                "avg" : (baseDamage + sprDamage) * context.damageMultiplier.avg / 2,
+                "max" : (baseDamage + sprDamage) * context.damageMultiplier.max / 2,
+                "switchWeapons" : switchWeapons
             }
         } else {
             result = {
