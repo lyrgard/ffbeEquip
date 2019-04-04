@@ -264,9 +264,6 @@ function readGoal(index = currentUnitIndex) {
     if (customFormula) {
         builds[currentUnitIndex].goal = "custom";
         formula = customFormula;
-        if (!isSimpleFormula(formula)) {
-            $(".goal .chainMultiplier").addClass("hidden");
-        }
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
@@ -292,6 +289,9 @@ function readGoal(index = currentUnitIndex) {
                     }
                 }
                 var skillChoiceFormulas = [];
+                if ($("#multicastSelect0").hasClass("hidden")) {
+                    manageMulticast();
+                }
                 for (var i = 0, len = multicastEffect.time; i < len; i++) {
                     var skillChoiceValue = $("#multicastSelect" + i).val();
                     var skillChoiceId = skillChoiceValue.substr(6);
@@ -329,18 +329,28 @@ function readSimpleConditions(formula) {
             }
         }
         
-        let chainMult = parseInt($(".goal .chainMultiplier input").val()) || 0;
-        if (chainMult && formula.type == 'skill') { 
+        let chainMult = readChainMultiplier();
+        if (chainMult != 1) {
             formula = {
-                type:'*',
+                type: '*',
                 value1: {
-                    type: "constant",
-                    value: chainMult
+                    type:'chainMultiplier',
+                    value: chainMult,
                 },
                 value2: formula
             }
         }
         return makeSureFormulaHaveSimpleConditions(formula, simpleConditions);
+    }
+}
+
+function readChainMultiplier() {
+    let stringValue = $(".goal .chainMultiplier input").val();
+    if (stringValue) {
+        stringValue = stringValue.replace(',', '.');
+        return parseFloat(stringValue) || 1;
+    } else {
+        return 1;
     }
 }
 
@@ -1074,7 +1084,7 @@ function onUnitChange() {
             $(".panel.goal .simpleConditions").removeClass("hidden");
             
             updateGoal();
-            onGoalChange();
+            readGoal();
         
             recalculateApplicableSkills();
             logCurrentBuild();
@@ -1098,7 +1108,6 @@ function onUnitChange() {
 function updateGoal() {
             
     var choiceSelect = $("#normalGoalChoice");
-    var selectedChoice = choiceSelect.val();
     choiceSelect.empty();
 
     if (builds[currentUnitIndex].unit) {
@@ -1190,14 +1199,36 @@ function updateGoal() {
                 $(".goal .chainMultiplier").removeClass('hidden');
             }
         } else {
-            if (!selectedChoice || selectedChoice.startsWith("SKILL_") || selectedChoice.startsWith("MULTICAST_")) {
-                choiceSelect.val("physicalDamage");
+            if (builds[currentUnitIndex].goal && builds[currentUnitIndex].goal != 'custom') {
+                choiceSelect.val(builds[currentUnitIndex].goal);    
             } else {
-                choiceSelect.val(selectedChoice);    
+                choiceSelect.val("physicalDamage");
             }
         }
         manageMulticast(multicastedSkills);
         
+        $(".monster").addClass("hidden");
+        $(".unitAttackElement").addClass("hidden");
+        if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
+            || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
+            || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+            $(".monster").removeClass("hidden");
+            $(".unitAttackElement").removeClass("hidden");
+        }
+        if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+            $(".unitAttackElement").removeClass("hidden");
+        }
+
+        if (customFormula) {
+            $('.normalGoalChoices').addClass("hidden");
+            $('.customGoalChoice').removeClass("hidden");
+            $("#customGoalFormula").text(formulaToString(customFormula));
+            $(".goal .chainMultiplier").addClass("hidden");
+        } else {
+            $('.normalGoalChoices').removeClass("hidden");
+            $('.customGoalChoice').addClass("hidden");
+            $(".goal .chainMultiplier").remove("hidden");
+        }
     }
     
     updateSimpleConditionsFromFormula(currentUnitIndex);
@@ -1350,24 +1381,11 @@ function loadBuild(buildIndex) {
         }
     }
     
-    
-    $(".goal #normalGoalChoice option").prop("selected", false);
-    if (build.goal) {
-        if (build.goal == "custom") {
-            customFormula = build._formula;
-        } else {
-            customFormula = null;
-            $('.goal #normalGoalChoice option[value="' + build.goal + '"]').prop("selected", true);
-        }
-    }
-    
-    updateSimpleConditionsFromFormula(buildIndex);
     updateUnitLevelDisplay();
     updateUnitStats();
     displayUnitEnhancements();
     
     updateGoal();
-    updateDisplayAfterGoalChange();
     readGoal();
     
     
@@ -1460,35 +1478,10 @@ function notLoaded() {
 }
 
 function onGoalChange() {
-    manageMulticast();
     readGoal();
-    updateDisplayAfterGoalChange();
+    updateGoal();
     if (builds[currentUnitIndex].unit) { 
         logCurrentBuild();
-    }
-}
-
-function updateDisplayAfterGoalChange() {
-    var goal = builds[currentUnitIndex].goal;
-    $(".monster").addClass("hidden");
-    $(".unitAttackElement").addClass("hidden");
-    if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
-        || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
-        || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
-        $(".monster").removeClass("hidden");
-        $(".unitAttackElement").removeClass("hidden");
-    }
-    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
-        $(".unitAttackElement").removeClass("hidden");
-    }
-    
-    if (customFormula && !isSimpleFormula(customFormula)) {
-        $('.normalGoalChoices').addClass("hidden");
-        $('.customGoalChoice').removeClass("hidden");
-        $("#customGoalFormula").text(formulaToString(customFormula));
-    } else {
-        $('.normalGoalChoices').removeClass("hidden");
-        $('.customGoalChoice').addClass("hidden");
     }
 }
 
@@ -1504,7 +1497,7 @@ function manageMulticast(selectedSkills) {
         select.removeData();
     }
     
-    if (!customFormula || isSimpleFormula(customFormula)) {
+    if (!customFormula) {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
             if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
@@ -1575,9 +1568,16 @@ function chooseCustomFormula() {
     }
     var formula = parseFormula(formulaString, unitsWithSkills[builds[currentUnitIndex].unit.id]);
     if (formula) {
-        customFormula = formula;
+        if (!isSimpleFormula(formula)) {
+            customFormula = formula;    
+        } else {
+            customFormula = null;
+        }
+        
         builds[currentUnitIndex].goal = "custom";
+        builds[currentUnitIndex].formula = formula;
         $('#customFormulaModal').modal('hide');
+        updateGoal();
         onGoalChange();
     }
 }
@@ -1588,6 +1588,9 @@ function addToCustomFormula(string) {
 
 function removeCustomGoal() {
     customFormula = null;
+    builds[currentUnitIndex].goal = "physicalDamage";
+    builds[currentUnitIndex].formula = formulaByGoal["physicalDamage"];
+    updateGoal();
     onGoalChange();
     $('#customFormulaModal').modal('hide');
 }
@@ -2555,12 +2558,12 @@ function loadStateHashAndBuild(data, importMode = false) {
         
         builds[i].goal = "custom";
         builds[i].formula = parseFormula(unit.goal, unitsWithSkills[unit.id]);
-        customFormula = builds[i].formula;
-        updateSimpleConditionsFromFormula(i);
+        if (!isSimpleFormula(builds[i].formula)) {
+            customFormula = builds[i].formula;
+        }
         
         updateGoal();
-        updateDisplayAfterGoalChange();
-        onGoalChange();
+        readGoal();
 
         
         if (unit.level) {
@@ -3409,6 +3412,7 @@ function startPage() {
         logCurrentBuild();
     }));
     
+    $(".chainMultiplier input").change($.debounce(300,onGoalChange));
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
 }

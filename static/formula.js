@@ -170,6 +170,8 @@ function parseExpression(formula, pos, unit) {
                 alert("Error. skill not understood : " + token);
                 return;
             }
+        } else if (token.startsWith("CHAIN_MULT(") && token.endsWith(")")) {
+            outputQueue.push({"type":"chainMultiplier", "value":parseFloat(token.substr(11, token.length - 12))});
         } else if (token == "LB_DAMAGE") {
             outputQueue.push(formulaFromSkill(unit.lb));
         } else if (baseVariables.includes(token)) {
@@ -266,7 +268,7 @@ function getNextToken(formula) {
         }
         if (!readingFunction && (operators.includes(char) || char === "(" || char === ")")) {
             if (currentVar.length != 0) {
-                if ((currentVar == "MULTICAST" || currentVar == "SKILL") && char === "(") {
+                if ((currentVar == "MULTICAST" || currentVar == "SKILL" || currentVar == "CHAIN_MULT") && char === "(") {
                     readingFunction = true;
                     currentVar += char;
                 } else {
@@ -537,6 +539,8 @@ function innerFormulaToString(formula, useParentheses = false) {
         return name;
     } else if (formula.type == "constant") {
         return formula.value.toString();
+    } else if (formula.type == "chainMultiplier") {
+        return "CHAIN_MULT(" + formula.value + ")";
     } else if (formula.type == "elementCondition") {
         return "E_" + formula.element.replace("lightning","thunder").toUpperCase();    
     } else if (formula.type == "condition") {
@@ -587,7 +591,7 @@ function getChainMultiplier(formula) {
         if (formula.type == "condition") {
             formula = formula.formula;
         }
-        if (formula.type == "*" && formula.value1.type == "constant" && formula.value2.type == "skill") {
+        if (formula.type == "*" && formula.value1.type == "chainMultiplier") {
             chainMultiplier = formula.value1.value;
         }
     }
@@ -748,7 +752,7 @@ function isSimpleFormula(formula) {
             return false;
             break;
         case "*":
-            return formula.value1.type == 'constant' && formula.value2.type == 'skill';
+            return formula.value1.type == 'chainMultiplier' && isSimpleFormula(formula.value2);
         default:
             return false;
     }
