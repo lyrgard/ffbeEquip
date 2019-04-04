@@ -289,9 +289,6 @@ function readGoal(index = currentUnitIndex) {
                     }
                 }
                 var skillChoiceFormulas = [];
-                if ($("#multicastSelect0").hasClass("hidden")) {
-                    manageMulticast();
-                }
                 for (var i = 0, len = multicastEffect.time; i < len; i++) {
                     var skillChoiceValue = $("#multicastSelect" + i).val();
                     var skillChoiceId = skillChoiceValue.substr(6);
@@ -3328,7 +3325,8 @@ function startPage() {
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
     $("#normalGoalChoice").change(function() {
-        customFormula = null; 
+        customFormula = null;
+        manageMulticast();
         onGoalChange();
     });
     

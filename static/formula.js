@@ -820,7 +820,7 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
                 break;
             }
         }
-        if (multicastEffect) {
+        if (multicastEffect && multicastEffect.time == skills.length) {
             switch(multicastEffect.type) {
                 case "skills":
                     var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
