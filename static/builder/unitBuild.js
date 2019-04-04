@@ -49,7 +49,7 @@ class UnitBuild {
     
     getPartialDualWield() {
         for (var index = this.unit.skills.length; index--;) {
-            if (this.unit.skills[index].partialDualWield && (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)) {
+            if (this.unit.skills[index] && this.unit.skills[index].partialDualWield && (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)) {
                 if ((this.build[0] == null || this.unit.skills[index].partialDualWield.includes(this.build[0].type))
                     && (this.build[1] == null || this.unit.skills[index].partialDualWield.includes(this.build[1].type))) {
                     return this.unit.skills[index].partialDualWield;

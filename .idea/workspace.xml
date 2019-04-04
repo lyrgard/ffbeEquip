@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/formula.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/formula.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder/unitBuild.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/unitBuild.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder/unitBuild.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="285" column="138" selection-start-line="285" selection-start-column="138" selection-end-line="285" selection-end-column="138" />
+            <state relative-caret-position="285">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/GL/unitsWithPassives.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="1660" column="36" selection-start-line="1660" selection-start-column="27" selection-end-line="1660" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -27,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="3328" column="26" selection-start-line="3328" selection-start-column="26" selection-end-line="3328" selection-end-column="26" />
+            <state relative-caret-position="324">
+              <caret line="2656" column="105" selection-start-line="2656" selection-start-column="105" selection-end-line="2656" selection-end-column="105" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -41,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/formula.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="836" column="69" lean-forward="true" selection-start-line="836" selection-start-column="69" selection-end-line="836" selection-end-column="69" />
+            <state relative-caret-position="174">
+              <caret line="642" column="92" selection-start-line="642" selection-start-column="78" selection-end-line="642" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -50,17 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="183" column="56" selection-start-line="183" selection-start-column="40" selection-end-line="183" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/GL/data.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="2163" column="20" selection-start-line="2163" selection-start-column="20" selection-end-line="2163" selection-end-column="20" />
+            <state relative-caret-position="174">
+              <caret line="201" column="106" selection-start-line="201" selection-start-column="92" selection-end-line="201" selection-end-column="106" />
             </state>
           </provider>
         </entry>
@@ -114,14 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawAttacks</find>
-      <find>min-wi</find>
-      <find>displayItemLine</find>
-      <find>getSpecialHtml</find>
-      <find>getVal</find>
-      <find>logB</find>
-      <find>statsToDisplay</find>
-      <find>calculateStatValue</find>
       <find>useNewJpDamageFormula</find>
       <find>newJpDamageFormulaCoef</find>
       <find>Rena</find>
@@ -144,6 +135,14 @@
       <find>getSkill</find>
       <find>readGoal</find>
       <find>onGoalchan</find>
+      <find>the Flame</find>
+      <find>skills</find>
+      <find>&quot;forcedElements</find>
+      <find>onUnitChange</find>
+      <find>forcedElements</find>
+      <find>noElement</find>
+      <find>none</find>
+      <find>updateSimple</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,11 +169,11 @@
         <option value="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/GL/monsters.json" />
-        <option value="$PROJECT_DIR$/static/builder/unitBuild.js" />
         <option value="$PROJECT_DIR$/tools/GL/data.json" />
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/formula.js" />
+        <option value="$PROJECT_DIR$/static/builder/unitBuild.js" />
         <option value="$PROJECT_DIR$/static/builder.js" />
       </list>
     </option>
@@ -305,12 +304,12 @@
       <workItem from="1553949507806" duration="814000" />
       <workItem from="1554240078833" duration="1113000" />
       <workItem from="1554319907433" duration="1082000" />
-      <workItem from="1554406720171" duration="4755000" />
+      <workItem from="1554406720171" duration="6084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36498000" />
+    <option name="totallyTimeSpent" value="37827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
@@ -623,31 +622,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.html">
+    <entry file="file://$PROJECT_DIR$/static/GL/unitsWithPassives.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="183" column="56" selection-start-line="183" selection-start-column="40" selection-end-line="183" selection-end-column="56" />
+        <state relative-caret-position="84">
+          <caret line="1660" column="36" selection-start-line="1660" selection-start-column="27" selection-end-line="1660" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/unitBuild.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="285" column="138" selection-start-line="285" selection-start-column="138" selection-end-line="285" selection-end-column="138" />
+        <state relative-caret-position="285">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="201" column="106" selection-start-line="201" selection-start-column="92" selection-end-line="201" selection-end-column="106" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/formula.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="836" column="69" lean-forward="true" selection-start-line="836" selection-start-column="69" selection-end-line="836" selection-end-column="69" />
+        <state relative-caret-position="174">
+          <caret line="642" column="92" selection-start-line="642" selection-start-column="78" selection-end-line="642" selection-end-column="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="3328" column="26" selection-start-line="3328" selection-start-column="26" selection-end-line="3328" selection-end-column="26" />
+        <state relative-caret-position="324">
+          <caret line="2656" column="105" selection-start-line="2656" selection-start-column="105" selection-end-line="2656" selection-end-column="105" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />

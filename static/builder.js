@@ -1079,7 +1079,8 @@ function onUnitChange() {
             $(".panel.unit").removeClass("hidden");
             $(".panel.goal .goalLine").removeClass("hidden");
             $(".panel.goal .simpleConditions").removeClass("hidden");
-            
+
+            builds[currentUnitIndex].goal = null;
             updateGoal();
             readGoal();
         
@@ -2653,7 +2654,7 @@ function updateSimpleConditionsFromFormula(buildIndex) {
     let formula = builds[buildIndex].formula;
     if (formula && isSimpleFormula(formula)) {
         var simpleConditions = getSimpleConditions(formula);
-        select("forcedElements", simpleConditions.forcedElements);
+        select("forcedElements", simpleConditions.forcedElements.map(e => (e == "none") ? "noElement": e ));
         select("ailmentImunities", simpleConditions.ailmentImunity);
         for (var elementIndex = elementList.length; elementIndex--;) {
             if (simpleConditions.elementalResist[elementList[elementIndex]]) {
