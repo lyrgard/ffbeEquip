@@ -1199,7 +1199,9 @@ function updateGoal() {
                 $(".goal .chainMultiplier").removeClass('hidden');
             }
         } else {
-            if (builds[currentUnitIndex].goal && builds[currentUnitIndex].goal != 'custom') {
+            if (!builds[currentUnitIndex].goal) {
+                choiceSelect.val("physicalDamage");
+            } else if (builds[currentUnitIndex].goal != 'custom') {
                 choiceSelect.val(builds[currentUnitIndex].goal);    
             } else {
                 let formula = builds[currentUnitIndex].formula;
