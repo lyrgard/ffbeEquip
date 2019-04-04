@@ -265,8 +265,6 @@ class UnitBuild {
                 }
             } else if (formula.value.mecanism == "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
-            } else if(formula.value.mecanism == "summonerSkill"){
-                this.addToInvolvedStats(["mag","spr","evoMag"])
             }
         } else if (formula.type == "value") {
             var name = formula.name;
