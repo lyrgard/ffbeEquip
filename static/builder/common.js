@@ -332,7 +332,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
         } 
-        else if(formula.value.mecanism == "summonerSkill"){//new condition evoMag
+        else if(formula.value.mecanism == "summonerSkill"){
             defendingStat= "spr"
             if(formula.value.use){
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
