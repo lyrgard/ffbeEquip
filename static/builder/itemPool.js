@@ -163,46 +163,50 @@ class ItemPool {
         group.equivalents[group.currentEquivalent].currentAvailable++;
     }
     
-    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true) {
+    static getComparison(entry1, entry2, stats, ennemyStats, desirableElements, desirableItemIds, skillIds, includeSingleWielding = true, includeDualWielding = true, simplifiedAilments) {
         var comparisionStatus = [];
+        let ailmentsToSimplify;
         for (var index = stats.length; index--;) {
-            if (stats[index] == "physicalKiller") {
+            let stat = stats[index];
+            if (stat == "physicalKiller") {
                 comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "physical", ennemyStats.races));
-            } else if (stats[index] == "magicalKiller") {
+            } else if (stat == "magicalKiller") {
                 comparisionStatus.push(TreeComparator.compareByKillers(entry1.item, entry2.item, "magical", ennemyStats.races));
-            } else if (stats[index] == "weaponElement") {
+            } else if (stat == "weaponElement") {
                 comparisionStatus.push(TreeComparator.compareByElementCoef(entry1.item, entry2.item));
-            } else if (stats[index] == "meanDamageVariance" || stats[index] == "evade.physical" || stats[index] == "evade.magical" || stats[index] == "mpRefresh") {
-                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stats[index]));
-            } else if (stats[index] == "lbPerTurn") {
+            } else if (stat == "meanDamageVariance" || stat == "evade.physical" || stat == "evade.magical" || stat == "mpRefresh") {
+                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stat));
+            } else if (stat == "lbPerTurn") {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbFillRate"));
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbPerTurn.min"));
-            } else if (stats[index] == "lbDamage") {
+            } else if (stat == "lbDamage") {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "lbDamage"));
-            } else if (stats[index] == "accuracy") {
+            } else if (stat == "accuracy") {
                 comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "accuracy"));
                 if (includeSingleWielding) {
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWielding.accuracy"));
                     comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "singleWieldingOneHanded.accuracy"));
                 }
             } else {
-                if (!baseStats.includes(stats[index]) || getValue(entry1.item, stats[index]) >= 5 ||  getValue(entry2.item, stats[index]) >= 5) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stats[index]));
+                if (!baseStats.includes(stat) || getValue(entry1.item, stat) >= 5 ||  getValue(entry2.item, stat) >= 5) {
+                    if (!simplifiedAilments) {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, stat));    
+                    }
+                    
                 }
-                if (baseStats.includes(stats[index])) {
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "total_" + stats[index]));
-                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "esperStatsBonus." + stats[index]));
+                if (baseStats.includes(stat)) {
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "total_" + stat));
+                    comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "esperStatsBonus." + stat));
                     if (includeSingleWielding) {
-                        comparisionStatus.push(TreeComparator.compareByDoublehand(entry1.item, entry2.item, stats[index]));
+                        comparisionStatus.push(TreeComparator.compareByDoublehand(entry1.item, entry2.item, stat));
                     }
                     if (includeDualWielding) {
-                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "dualWielding." + stats[index]));
-                        if (stats[index] == 'atk') {
+                        comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, "dualWielding." + stat));
+                        if (stat == 'atk') {
                                comparisionStatus.push(TreeComparator.compareByValue(entry1.item, entry2.item, 'atk%'));
                         }
                     }
                 }
-                
             }
         }
         if (desirableElements && desirableElements.length != 0) {
@@ -215,6 +219,9 @@ class ItemPool {
             skillIds.forEach(skillId => comparisionStatus.push(TreeComparator.compareBySkillEnhancement(entry1.item, entry2.item, skillId)));
         }
         comparisionStatus.push(TreeComparator.compareByNumberOfHandsNeeded(entry1.item, entry2.item));
+        if (simplifiedAilments) {
+            comparisionStatus.push(TreeComparator.compareByAllAilments(entry1.item, entry2.item, simplifiedAilments));
+        }
 
         return TreeComparator.combineComparison(comparisionStatus);
     }

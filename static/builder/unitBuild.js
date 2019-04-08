@@ -49,7 +49,7 @@ class UnitBuild {
     
     getPartialDualWield() {
         for (var index = this.unit.skills.length; index--;) {
-            if (this.unit.skills[index].partialDualWield && (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)) {
+            if (this.unit.skills[index] && this.unit.skills[index].partialDualWield && (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level)) {
                 if ((this.build[0] == null || this.unit.skills[index].partialDualWield.includes(this.build[0].type))
                     && (this.build[1] == null || this.unit.skills[index].partialDualWield.includes(this.build[1].type))) {
                     return this.unit.skills[index].partialDualWield;
@@ -288,23 +288,26 @@ class UnitBuild {
             this.calculateInvolvedStats(formula.condition);
             this.calculateInvolvedStats(formula.formula);  
         } else if (this.unit && formula.type == ">" && formula.value1.type == "value" && formula.value2.type == "constant") {
-            
-            var applicableSkills = [];
-            for (var skillIndex = this.unit.skills.length; skillIndex--;) {
-                var skill = this.unit.skills[skillIndex];
-                if (areConditionOK(skill, this.fixedItems, this._level)) {
-                    applicableSkills.push(skill);
+            if (formula.value1.name.startsWith("resist|") && ailmentList.includes(formula.value1.name.substr(7, formula.value1.name.length - 15))) {
+                var applicableSkills = [];
+                for (var skillIndex = this.unit.skills.length; skillIndex--;) {
+                    var skill = this.unit.skills[skillIndex];
+                    if (areConditionOK(skill, this.fixedItems, this._level)) {
+                        applicableSkills.push(skill);
+                    }
                 }
-            }
-            
-            var currentBuildWithFixedItems = this.fixedItems.concat(applicableSkills);
-            
-            var value = calculateStatValue(currentBuildWithFixedItems, formula.value1.name, this).total;
-            if (value < formula.value2.value) {
-                // only consider value1 if this criteria is not already met
+
+                var currentBuildWithFixedItems = this.fixedItems.concat(applicableSkills);
+
+                var value = calculateStatValue(currentBuildWithFixedItems, formula.value1.name, this).total;
+                if (value < formula.value2.value) {
+                    // only consider value1 if this criteria is not already met
+                    this.calculateInvolvedStats(formula.value1);
+                }
+            } else {
                 this.calculateInvolvedStats(formula.value1);
             }
-        } else if(formula.type=="heal"){
+        } else if (formula.type=="heal"){
             this.addToInvolvedStats(["spr","mag"])
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement") {
             this.calculateInvolvedStats(formula.value1);

@@ -337,6 +337,32 @@ class TreeComparator {
         }
     }
     
+    static compareByAllAilments(item1, item2, ailments) {
+        let item1CoversAllAilments = TreeComparator.itemCoversAilmentsNeeds(item1, ailments);
+        let item2CoversAllAilments = TreeComparator.itemCoversAilmentsNeeds(item2, ailments);
+        if (item1CoversAllAilments) {
+            if (item2CoversAllAilments) {
+                return "equivalent"
+            } else {
+                return "strictlyWorse";
+            }
+        } else {
+            if (item2CoversAllAilments) {
+                return "strictlyBetter";
+            } else {
+                return "equivalent"
+            }
+        }
+    }
+    
+    static itemCoversAilmentsNeeds(item, ailments) {
+        if (item.resist) {
+            return item.resist.filter(r => ailments[r.name] && (ailments[r.name] <= r.percent)).length == Object.keys(ailments).length;
+        } else {
+            return false;
+        }
+    }
+    
     
         // Return true if the two arrays share at least one value
     static matches(array1, array2) {

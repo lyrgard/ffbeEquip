@@ -170,6 +170,8 @@ function parseExpression(formula, pos, unit) {
                 alert("Error. skill not understood : " + token);
                 return;
             }
+        } else if (token.startsWith("CHAIN_MULT(") && token.endsWith(")")) {
+            outputQueue.push({"type":"chainMultiplier", "value":parseFloat(token.substr(11, token.length - 12))});
         } else if (token == "LB_DAMAGE") {
             outputQueue.push(formulaFromSkill(unit.lb));
         } else if (baseVariables.includes(token)) {
@@ -266,7 +268,7 @@ function getNextToken(formula) {
         }
         if (!readingFunction && (operators.includes(char) || char === "(" || char === ")")) {
             if (currentVar.length != 0) {
-                if ((currentVar == "MULTICAST" || currentVar == "SKILL") && char === "(") {
+                if ((currentVar == "MULTICAST" || currentVar == "SKILL" || currentVar == "CHAIN_MULT") && char === "(") {
                     readingFunction = true;
                     currentVar += char;
                 } else {
@@ -421,6 +423,9 @@ function formulaFromSkill(skill, multicast = false) {
     var isLb = false;
     
     var effects;
+    if (!skill) {
+        console.log('!!');
+    }
     if (skill.maxEffects) {
         effects = skill.maxEffects;
         isLb = true;
@@ -518,6 +523,9 @@ function formulaToString(formula, useParentheses = false) {
 }
 
 function innerFormulaToString(formula, useParentheses = false) {
+    if (!formula) {
+        console.log('!!');
+    }
     if (formula.type == "skill") {
         if (formula.lb) {
             return "LB_DAMAGE";
@@ -536,6 +544,8 @@ function innerFormulaToString(formula, useParentheses = false) {
         return name;
     } else if (formula.type == "constant") {
         return formula.value.toString();
+    } else if (formula.type == "chainMultiplier") {
+        return "CHAIN_MULT(" + formula.value + ")";
     } else if (formula.type == "elementCondition") {
         return "E_" + formula.element.replace("lightning","thunder").toUpperCase();    
     } else if (formula.type == "condition") {
@@ -586,7 +596,7 @@ function getChainMultiplier(formula) {
         if (formula.type == "condition") {
             formula = formula.formula;
         }
-        if (formula.type == "*" && formula.value1.type == "constant" && formula.value2.type == "skill") {
+        if (formula.type == "*" && formula.value1.type == "chainMultiplier") {
             chainMultiplier = formula.value1.value;
         }
     }
@@ -747,7 +757,32 @@ function isSimpleFormula(formula) {
             return false;
             break;
         case "*":
-            return formula.value1.type == 'constant' && formula.value2.type == 'skill';
+            if (formula.value1.type == 'chainMultiplier' && isSimpleFormula(formula.value2)) return true;
+            if (formula.value1.type == 'value' && formula.value2.type == 'value') {
+                if (formula.value1.name == 'hp' && formula.value2.name == 'def') return true;
+                if (formula.value1.name == 'hp' && formula.value2.name == 'spr') return true;
+                if (formula.value1.name == 'mp' && formula.value2.name == 'mpRefresh') return true;
+            }
+            return false;
+        case "+":
+             return formula.value1.type == '/' && formula.value2.type == '/'
+                && formula.value1.value1.type == 'value' && formula.value1.value1.name == "spr"
+                && formula.value1.value2.type == 'constant' && formula.value1.value2.value == 2
+                && formula.value2.value1.type == 'value' && formula.value2.value1.name == "mag"
+                && formula.value2.value2.type == 'constant' && formula.value2.value2.value == 10;
+        case "value":
+            return formula.name == "hp" 
+            || formula.name == "mp" 
+            || formula.name == "atk" 
+            || formula.name == "def" 
+            || formula.name == "mag" 
+            || formula.name == "spr"
+            || formula.name == "evade.physical"
+            || formula.name == "evade.magical"
+            || formula.name == "atkDamageWithFixedMecanism"
+            || formula.name == "physicalDamageMultiCast"
+            || formula.name == "fixedDamageWithPhysicalMecanism"
+            || formula.name == "summonerSkill";
         default:
             return false;
     }
@@ -771,7 +806,7 @@ function getSkillIds(formula) {
         );
     } else if (formula.type == "condition") {
         return getSkillIds(formula.formula).concat(getSkillIds(formula.condition));
-    } else if (formula.type == "value" || formula.type == "constant" || formula.type == "elementCondition" || formula.type == "damage") {
+    } else if (formula.type == "value" || formula.type == "constant" || formula.type == "chainMultiplier" || formula.type == "elementCondition" || formula.type == "damage") {
         return [];
     } else {
         return getSkillIds(formula.value1).concat(getSkillIds(formula.value2));
@@ -790,7 +825,7 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
                 break;
             }
         }
-        if (multicastEffect) {
+        if (multicastEffect && multicastEffect.time == skills.length) {
             switch(multicastEffect.type) {
                 case "skills":
                     var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());

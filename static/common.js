@@ -1235,9 +1235,6 @@ function prepareSearch(data) {
         if (item["condition"]) {
             textToSearch += "|Only " + item["condition"];
         }
-        if (item["condition"]) {
-            textToSearch += "|Only " + item["condition"];
-        }
         if (item["equipedConditions"]) {
             item.equipedConditions.forEach(c => {
                 textToSearch += "|If equiped with " + c;
@@ -1263,12 +1260,18 @@ function prepareSearch(data) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWielding[baseStats[index]] + "%) when single wielding"
                 }
             }
+            if (item.singleWielding.accuracy) {
+                textToSearch += "|" + "Increase Accuracy (" + item.singleWielding.accuracy + "%) when single wielding";
+            }
         }
         if (item.singleWieldingOneHanded) {
             for (var index in baseStats) {
                 if (item.singleWieldingOneHanded[baseStats[index]]) {
                     textToSearch += "|" + "Increase equipment " + baseStats[index].toUpperCase() + "(" + item.singleWieldingOneHanded[baseStats[index]] + "%) when single wielding a one-handed weapon"
                 }
+            }
+            if (item.singleWieldingOneHanded.accuracy) {
+                textToSearch += "|" + "Increase Accuracy (" + item.singleWieldingOneHanded.accuracy + "%) when single wielding a one-handed wreapon";
             }
         }
         if (item.dualWielding) {

@@ -686,7 +686,14 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "avg": formula.value,
             "max": formula.value,
             "switchWeapons": false
-        };     
+        };  
+    } else if (formula.type == "chainMultiplier") {
+        return {
+            "min": formula.value,
+            "avg": formula.value,
+            "max": formula.value,
+            "switchWeapons": false
+        };  
     } else if (operatorsInFormula.includes(formula.type)) {
         var result1 = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value1, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
         if (formula.type == "OR") {
