@@ -612,30 +612,30 @@ function addKillers(esper, killers) {
         addKiller(esper, killers[i].name, killers[i].physical, killers[i].magical);
     }
 }
-function addKiller(skill, race, physicalPercent, magicalPercent) {
-    if (!skill.killers) {
-        skill.killers = [];
+function addKiller(esper, race, physicalPercent, magicalPercent) {
+    if (!esper.killers) {
+        esper.killers = [];
     }
     var killerData;
-    for (var index in skill.killers) {
-        if (skill.killers[index].name == race) {
-            killerData = skill.killers[index];
+    for (var index in esper.killers) {
+        if (esper.killers[index].name == race) {
+            killerData = esper.killers[index];
             break;
         }
     }
     
     if (!killerData) {
         killerData = {"name":race};
-        skill.killers.push(killerData);
+        esper.killers.push(killerData);
     }
-    if (physicalPercent != 0) {
+    if (physicalPercent) {
         if (killerData.physical) {
             killerData.physical += physicalPercent;
         } else {
             killerData.physical = physicalPercent;
         }
     }
-    if (magicalPercent != 0) {
+    if (magicalPercent) {
         if (killerData.magical) {
             killerData.magical += magicalPercent;
         } else {
