@@ -3904,7 +3904,7 @@
 		"equip":["dagger","sword","greatSword","axe","spear","lightShield","hat","helm","clothes","lightArmor"]
 	},
 	"100020803": {
-		"name":"Milfas",
+		"name":"Mirfas",
 		"jpname":"ミルファス",
 		"id":"100020803",
 		"max_rarity":"5",
@@ -4316,6 +4316,37 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","katana","spear","throwing","fist","hat","clothes"]
 	},
+	"100023005": {
+		"name":"CG King Lasswell",
+		"jpname":"ヘス王ラスウェル",
+		"id":"100023005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4823,"mp":248,"atk":210,"def":192,"mag":166,"spr":188},
+			"minStats":{"hp":1592,"mp":82,"atk":69,"def":63,"mag":55,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"CG King Lasswell",
+			"jpname":"ヘス王ラスウェル",
+			"id":"100023005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3710,"mp":191,"atk":162,"def":148,"mag":128,"spr":145},
+				"minStats":{"hp":1224,"mp":63,"atk":53,"def":49,"mag":42,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"100023205": {
 		"name":"CG Aldore King Rain",
 		"jpname":"アルドール王レイン",
@@ -4561,6 +4592,37 @@
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","robe"]
 	},
+	"100024605": {
+		"name":"Arie",
+		"jpname":"アリエ",
+		"id":"100024605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4690,"mp":219,"atk":204,"def":165,"mag":154,"spr":176},
+			"minStats":{"hp":1548,"mp":72,"atk":67,"def":54,"mag":51,"spr":58},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],
+		"6_form": {
+			"name":"Arie",
+			"jpname":"アリエ",
+			"id":"100024605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3608,"mp":169,"atk":157,"def":127,"mag":119,"spr":136},
+				"minStats":{"hp":1191,"mp":56,"atk":52,"def":42,"mag":39,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"]
+		}
+	},
 	"100024705": {
 		"name":"シャンティレーナ",
 		"jpname":"シャンティレーナ",
@@ -4668,6 +4730,36 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"100025104": {
+		"name":"Skulltio",
+		"jpname":"スカルティオ",
+		"id":"100025104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3828,"mp":146,"atk":158,"def":139,"mag":98,"spr":104},
+			"minStats":{"hp":1263,"mp":48,"atk":52,"def":46,"mag":32,"spr":34},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","axe","hammer","hat","helm","lightArmor","heavyArmor"]
+	},
+	"100025203": {
+		"name":"Sister",
+		"jpname":"シスタ",
+		"id":"100025203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2892,"mp":146,"atk":120,"def":113,"mag":109,"spr":120},
+			"minStats":{"hp":954,"mp":48,"atk":40,"def":37,"mag":36,"spr":40},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","staff","bow","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -8479,7 +8571,7 @@
 		"enhancementSkills":["名もなき詩","歴史の綴り手","デュライ白書"]
 	},
 	"253001305": {
-		"name":"Ultima",
+		"name":"High Seraph Ultima",
 		"jpname":"聖天使アルテマ",
 		"id":"253001305",
 		"max_rarity":"7",
@@ -8493,7 +8585,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Ultima",
+			"name":"High Seraph Ultima",
 			"jpname":"聖天使アルテマ",
 			"id":"253001305",
 			"sixStarForm":true,
