@@ -468,6 +468,8 @@ function startPage() {
 
     // Additional stat filter
     addIconChoicesTo("additionalStat", baseStats, "checkbox", "stat", function(v){return v.toUpperCase();});
+    //twoHanded option to Additional stat filter
+    addIconChoicesTo("additionalStat", ["twoHanded"], "checkbox", "stat", function(v){return v.toUpperCase();})
 	
     filterReady = true;
 	tryToLoadHash();
