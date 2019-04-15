@@ -256,7 +256,7 @@ function updateStats() {
         var baseStat = baseStats[index];
         var bonusValue = calculateStatBonus(currentEsper, baseStat);
         $("#esper_" + baseStat).html(
-            ownedEspers[currentEsper][baseStat] + "&nbsp;"+
+            Math.round(ownedEspers[currentEsper][baseStat]) + "&nbsp;"+
             "<span class='statsBonus' title='Gives a bonus of +"+bonusValue+" "+ baseStat.toUpperCase() +" to unit equipped with this Esper'>"+
             "(+" + bonusValue + ")" +
             "</span>");

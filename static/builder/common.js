@@ -331,8 +331,15 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             } else {
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
+        } 
+        else if(formula.value.mecanism == "summonerSkill"){
+            defendingStat= "spr"
+            if(formula.value.use){
+                statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+            statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                }
         }
-        
         // Killer
         var killerMultiplicator = 1;
         if (applicableKillerType && ennemyStats.races.length > 0) {
@@ -409,17 +416,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
         }
         
-        /*var evoMagMultiplier = 1;
+        var evoMagMultiplier = 1;
         if (unitBuild.involvedStats.includes("evoMag")) {
             evoMagMultiplier += getStatCalculatedValue(context, itemAndPassives, "evoMag", unitBuild).total/100;
-        }*/
+        }
         
         var defendingStatValue = ennemyStats[defendingStat];
         if (formula.value.ignore && formula.value.ignore[defendingStat]) {
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
@@ -430,6 +437,15 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "max": (baseDamage * variance.max + magDamage) * context.damageMultiplier.max / 2,
                 "switchWeapons": switchWeapons
             }   
+        } else if(formula.value.mecanism == "summonerSkill"){
+            var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+            var sprDamage = coef * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            result = {
+                "min" : (baseDamage + sprDamage) * context.damageMultiplier.min / 2,
+                "avg" : (baseDamage + sprDamage) * context.damageMultiplier.avg / 2,
+                "max" : (baseDamage + sprDamage) * context.damageMultiplier.max / 2,
+                "switchWeapons" : switchWeapons
+            }
         } else {
             result = {
                 "min": baseDamage * context.damageMultiplier.min * variance.min,
@@ -648,6 +664,22 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.alreadyCalculatedValues[formula.name] = result;
             return result;
         }   
+    } else if(formula.type=="heal"){
+        var sprStat=getStatCalculatedValue(context, itemAndPassives,"spr", unitBuild).total/2;
+        var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total/10;
+        var coef=formula.value.coef;
+        result=formula.value.split ? {
+            "min":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split))*.85,
+            "avg":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split))*.925,
+            "max":(formula.value.base/formula.value.split)+((sprStat+magStat)*(coef/formula.value.split)),
+            "switchWeapons":false
+        } : {
+            "min":formula.value.base+((sprStat+magStat)*coef)*.85,
+            "avg":formula.value.base+((sprStat+magStat)*coef)*.925,
+            "max":formula.value.base+((sprStat+magStat)*coef),
+            "switchWeapons":false
+        }
+        return result;
     } else if (formula.type == "constant") {
         return {
             "min": formula.value,

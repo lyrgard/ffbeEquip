@@ -164,6 +164,9 @@ class UnitBuild {
             if (this.fixedItems[0] && this.fixedItems[1]) {
                 return -1;
             }
+            if(forceDoubleHand && (this.fixedItems[0] || this.fixedItems[1])){
+                return -1;
+            }
             if (!this.fixedItems[0]) {
                 return 0;
             } else {
@@ -262,6 +265,8 @@ class UnitBuild {
                 }
             } else if (formula.value.mecanism == "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
+            } else if (formula.value.mecanism == "summonerSkill"){
+                this.addToInvolvedStats(["mag","spr","evoMag"])
             }
         } else if (formula.type == "value") {
             var name = formula.name;
@@ -302,6 +307,8 @@ class UnitBuild {
             } else {
                 this.calculateInvolvedStats(formula.value1);
             }
+        } else if (formula.type=="heal"){
+            this.addToInvolvedStats(["spr","mag"])
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);

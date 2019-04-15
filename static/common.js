@@ -1024,6 +1024,10 @@ var hasStats = function(additionalStat, item) {
             match = false;
         }
     });
+    if(addStat=='twoHanded' && item.special && item.special.includes(addStat)){
+            match = true;
+        }
+    });
     return match;
 };
 
