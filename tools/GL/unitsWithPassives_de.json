@@ -4859,8 +4859,8 @@
 		}
 	},
 	"100020605": {
-		"name":"Crimson",
-		"wikiEntry":"クリムゾン",
+		"name":"Porphura",
+		"wikiEntry":"Crimson",
 		"id":"100020605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4882,8 +4882,8 @@
 			{"atk%":40, "lbPerTurn":{"min":3,"max":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Crimson",
-			"wikiEntry":"クリムゾン",
+			"name":"Porphura",
+			"wikiEntry":"Crimson",
 			"id":"100020605",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4905,7 +4905,7 @@
 	},
 	"100020704": {
 		"name":"Kyanos",
-		"wikiEntry":"キュアノス",
+		"wikiEntry":"Kyanos",
 		"id":"100020704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4922,8 +4922,8 @@
 		]
 	},
 	"100020803": {
-		"name":"Milfas",
-		"wikiEntry":"ミルファス",
+		"name":"Mirfas",
+		"wikiEntry":"Mirfas",
 		"id":"100020803",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -7451,7 +7451,7 @@
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 		"skills": [
 			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"The Sending","minEffects":[{"effect":null,"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":null,"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":null,"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":null,"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311003000"]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"The Sending","minEffects":[{"effect":{"heal":{"base":2500,"coef":12},"area":"AOE","target":"ALLY"},"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":{"heal":{"base":3000,"coef":12,"split":3},"area":"AOE","target":"ALLY"},"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":{"heal":{"base":2500,"coef":19.25},"area":"AOE","target":"ALLY"},"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":{"heal":{"base":3000,"coef":14.9,"split":3},"area":"AOE","target":"ALLY"},"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311003000"]},
 			{"def%":20, "levelCondition":115},
 			{"mag%":30, "spr%":30, "evoMag":30, "skillEnhancement":{"508013":0.5,"508014":1.5,"508015":0.5,"508016":1.5,"508670":0.5,"508671":1.5,"508672":0.5,"508673":1.5,"508674":0.5,"508675":1.5,"508676":0.5,"508677":1.5}, "levelCondition":120}
 		],

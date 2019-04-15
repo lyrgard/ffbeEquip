@@ -1020,16 +1020,16 @@ var hasStat = function(stat, item) {
 var hasStats = function(additionalStat, item) {
     var match = true;
     $(additionalStat).each(function(index, addStat) {
-        if (!item[addStat] && !item[addStat + '%']) {
+        if (!item[addStat] && !item[addStat + '%'] && (addStat=='twoHanded' && !isTwoHanded(item))) {
             match = false;
-        }
-    });
-    if(addStat=='twoHanded' && item.special && item.special.includes(addStat)){
-            match = true;
         }
     });
     return match;
 };
+
+function isTwoHanded(item) {
+    return (item && item.special && item.special.includes("twoHanded"));
+}
 
 // Return true if the item has at least one access that is not forbidden by filters
 var haveAuthorizedAccess = function(forbiddenAccessList, item) {

@@ -5344,7 +5344,7 @@
 		]
 	},
 	"100020803": {
-		"name":"Milfas",
+		"name":"Mirfas",
 		"jpname":"ミルファス",
 		"id":"100020803",
 		"max_rarity":"5",
@@ -5895,6 +5895,49 @@
 			{"hp%":20, "atk%":80, "def%":20, "spr%":20, "evade":{"physical":10}, "resist":[{"name":"paralysis","percent":100},{"name":"wind","percent":30},{"name":"water","percent":30}], "mpRefresh":5}
 		]
 	},
+	"100023005": {
+		"name":"CG King Lasswell",
+		"jpname":"ヘス王ラスウェル",
+		"id":"100023005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4823,"mp":248,"atk":210,"def":192,"mag":166,"spr":188},
+			"minStats":{"hp":1592,"mp":82,"atk":69,"def":63,"mag":55,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":30, "atk%":80, "def%":50, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":80},{"name":"fire","percent":80},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"atk%":50, "equipedConditions":["katana"]},
+			{"atk%":50, "lbPerTurn":{"min":4,"max":4}, "replaceLb":{"name":"八垓抜刀 軌ら星","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":17.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (17.1x * 2 = 34.2x, ATK) to all enemies (ignore cover)"},{"effect":{"skillEnhancement":{"231703":2.5,"231706":2.5,"231713":2.5,"510207":2.5,"510208":2.5},"turn":5},"desc":"Increase damage of 三十烈斬 (231706), 明鏡・断 (231703), 極・明鏡 (231713), 絶・明鏡　─紅焔─ (510207) and 絶・明鏡　─蒼氷─ (510208) by 250% for 5 turns"},{"effect":{"skillEnhancement":{"510204":4},"turn":5},"desc":"Increase damage of 明鏡・天地 (510204) by 400% for 5 turns"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"510202","name":"T絶刀"}]}},"desc":"Gain 3 uses of 一念通天 (800134), 三十烈斬 (231706), 完全覚醒【ヘス王】 (231719), 旭日の覇刀 (231711), 明鏡　─止め氷─ (231705), 明鏡　─纏い火─ (231704), 明鏡・天地 (510204), 明鏡・断 (231703), 明鏡・火華 (231709), 明鏡・雪華 (231710), 極・明鏡 (231713), 極星の覇刀 (231712), 氷炎滅却刃 (231718), 真・明鏡 (231721), 終・明鏡 (231720), 絶・明鏡　─氷─ (510206), 絶・明鏡　─焔─ (510205), 絶・明鏡　─紅焔─ (510207), 絶・明鏡　─蒼氷─ (510208) and 醒夢 (200330) for 4 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"510204","name":"明鏡・天地"},{"id":"510207","name":"絶・明鏡　─紅焔─"},{"id":"510208","name":"絶・明鏡　─蒼氷─"}]},"area":"SELF","target":"SELF"},"desc":"Gain 明鏡・天地 (510204), 絶・明鏡　─紅焔─ (510207) and 絶・明鏡　─蒼氷─ (510208) for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":20,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (20x * 2 = 40x, ATK) to all enemies (ignore cover)"},{"effect":{"skillEnhancement":{"231703":2.5,"231706":2.5,"231713":2.5,"510207":2.5,"510208":2.5},"turn":5},"desc":"Increase damage of 三十烈斬 (231706), 明鏡・断 (231703), 極・明鏡 (231713), 絶・明鏡　─紅焔─ (510207) and 絶・明鏡　─蒼氷─ (510208) by 250% for 5 turns"},{"effect":{"skillEnhancement":{"510204":4},"turn":5},"desc":"Increase damage of 明鏡・天地 (510204) by 400% for 5 turns"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"510202","name":"T絶刀"}]}},"desc":"Gain 3 uses of 一念通天 (800134), 三十烈斬 (231706), 完全覚醒【ヘス王】 (231719), 旭日の覇刀 (231711), 明鏡　─止め氷─ (231705), 明鏡　─纏い火─ (231704), 明鏡・天地 (510204), 明鏡・断 (231703), 明鏡・火華 (231709), 明鏡・雪華 (231710), 極・明鏡 (231713), 極星の覇刀 (231712), 氷炎滅却刃 (231718), 真・明鏡 (231721), 終・明鏡 (231720), 絶・明鏡　─氷─ (510206), 絶・明鏡　─焔─ (510205), 絶・明鏡　─紅焔─ (510207), 絶・明鏡　─蒼氷─ (510208) and 醒夢 (200330) for 4 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"510204","name":"明鏡・天地"},{"id":"510207","name":"絶・明鏡　─紅焔─"},{"id":"510208","name":"絶・明鏡　─蒼氷─"}]},"area":"SELF","target":"SELF"},"desc":"Gain 明鏡・天地 (510204), 絶・明鏡　─紅焔─ (510207) and 絶・明鏡　─蒼氷─ (510208) for 2 turns"}]}, "equipedConditions":[["504231651","304004800"]]},
+			{"hp%":20, "mp%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"atk%":40, "lbDamage":50, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"CG King Lasswell",
+			"jpname":"ヘス王ラスウェル",
+			"id":"100023005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3710,"mp":191,"atk":162,"def":148,"mag":128,"spr":145},
+				"minStats":{"hp":1224,"mp":63,"atk":53,"def":49,"mag":42,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":80, "def%":50, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":150, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"ice","percent":80},{"name":"fire","percent":80},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"atk%":50, "equipedConditions":["katana"]}
+			]
+		}
+	},
 	"100023205": {
 		"name":"CG Aldore King Rain",
 		"jpname":"アルドール王レイン",
@@ -6217,6 +6260,49 @@
 			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["rod"]}
 		]
 	},
+	"100024605": {
+		"name":"Arie",
+		"jpname":"アリエ",
+		"id":"100024605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4690,"mp":219,"atk":204,"def":165,"mag":154,"spr":176},
+			"minStats":{"hp":1548,"mp":72,"atk":67,"def":54,"mag":51,"spr":58},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],
+		"skills": [
+			{"hp%":30, "mp%":20, "atk%":60, "def%":30, "spr%":20, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":30}], "killers":[{"physical":25}], "mpRefresh":7, "special":["dualWield"]},
+			{"atk%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "evade":{"physical":10}, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["302009400","405006800"]]},
+			{"hp%":20, "atk%":20, "killers":[{"physical":50}], "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"def%":20, "dualWielding":{"atk":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Arie",
+			"jpname":"アリエ",
+			"id":"100024605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3608,"mp":169,"atk":157,"def":127,"mag":119,"spr":136},
+				"minStats":{"hp":1191,"mp":56,"atk":52,"def":42,"mag":39,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","whip","throwing","fist","hat","clothes"],
+			"skills": [
+				{"hp%":30, "mp%":20, "atk%":60, "def%":30, "spr%":20, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":30}], "killers":[{"physical":25}], "mpRefresh":7, "special":["dualWield"]},
+				{"atk%":30, "equipedConditions":["sword"]}
+			]
+		}
+	},
 	"100024705": {
 		"name":"シャンティレーナ",
 		"jpname":"シャンティレーナ",
@@ -6374,6 +6460,42 @@
 			{"atk%":30, "equipedConditions":["katana"]},
 			{"atk%":40, "equipedConditions":["katana"]},
 			{"atk%":40, "equipedConditions":["greatSword"]}
+		]
+	},
+	"100025104": {
+		"name":"Skulltio",
+		"jpname":"スカルティオ",
+		"id":"100025104",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3828,"mp":146,"atk":158,"def":139,"mag":98,"spr":104},
+			"minStats":{"hp":1263,"mp":48,"atk":52,"def":46,"mag":32,"spr":34},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","axe","hammer","hat","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":40, "atk%":90, "def%":20, "resist":[{"name":"earth","percent":20}], "killers":[{"physical":25}]}
+		]
+	},
+	"100025203": {
+		"name":"Sister",
+		"jpname":"シスタ",
+		"id":"100025203",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2892,"mp":146,"atk":120,"def":113,"mag":109,"spr":120},
+			"minStats":{"hp":954,"mp":48,"atk":40,"def":37,"mag":36,"spr":40},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","staff","bow","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "atk%":30, "spr%":50}
 		]
 	},
 	"201000104": {
@@ -11755,7 +11877,7 @@
 		]
 	},
 	"253001305": {
-		"name":"Ultima",
+		"name":"High Seraph Ultima",
 		"jpname":"聖天使アルテマ",
 		"id":"253001305",
 		"max_rarity":"7",
@@ -11776,7 +11898,7 @@
 			{"skillEnhancement":{"229121":1.5,"229122":0.75,"229123":1.5,"229124":1.5,"229125":1.5,"508906":0.75}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Ultima",
+			"name":"High Seraph Ultima",
 			"jpname":"聖天使アルテマ",
 			"id":"253001305",
 			"sixStarForm":true,
