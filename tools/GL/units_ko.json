@@ -2177,7 +2177,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"]
+		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"],
+		"enhancementSkills":["Dagger Technique","Into Darkness","Funeral Knife"]
 	},
 	"100012203": {
 		"name":"라일리",
@@ -2207,7 +2208,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["axe","hammer","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+		"equip":["axe","hammer","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Guard Smite","Faithful Protector","Mime - Impregnable"]
 	},
 	"100012405": {
 		"name":"벚꽃의 현자 사쿠라",
@@ -2411,7 +2413,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Gear-up","True Doublehand","Ignitor"]
 	},
 	"100013504": {
 		"name":"실트",
@@ -2426,7 +2429,8 @@
 			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","mace","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Spiritual Barrier","Reduction","Triteleia Wall"]
 	},
 	"100013704": {
 		"name":"Vesuvia",
@@ -5499,6 +5503,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Moon Crest","Prayer to the Aeons","Guardian Bonds","Unbroken Promise"],
 		"6_form": {
 			"name":"유우나",
 			"wikiEntry":"Yuna",
@@ -5513,7 +5518,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"]
+			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["Moon Crest","Prayer to the Aeons","Guardian Bonds","Unbroken Promise"]
 		}
 	},
 	"210000303": {
@@ -5546,6 +5552,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"],
 		"6_form": {
 			"name":"루루",
 			"wikiEntry":"Lulu",
@@ -5560,7 +5567,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+			"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"]
 		}
 	},
 	"210000605": {
@@ -6416,6 +6424,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Soulless Hammer","Polearm Arts","Aerial Supremacy","High Dragoon Dive","Miss Mercenary"],
 		"6_form": {
 			"name":"아라네아",
 			"wikiEntry":"Aranea",
@@ -6430,7 +6439,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Soulless Hammer","Polearm Arts","Aerial Supremacy","High Dragoon Dive","Miss Mercenary"]
 		}
 	},
 	"215000705": {
@@ -6447,6 +6457,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker"],
 		"6_form": {
 			"name":"프롬프토",
 			"wikiEntry":"Prompto",
@@ -6461,7 +6472,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker"]
 		}
 	},
 	"215001004": {
@@ -10317,6 +10329,68 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401006805": {
+		"name":"에스더",
+		"wikiEntry":"Esther",
+		"id":"401006805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4856,"mp":211,"atk":206,"def":192,"mag":161,"spr":182},
+			"minStats":{"hp":1602,"mp":70,"atk":68,"def":63,"mag":53,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"에스더",
+			"wikiEntry":"Esther",
+			"id":"401006805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3736,"mp":163,"atk":159,"def":148,"mag":124,"spr":140},
+				"minStats":{"hp":1233,"mp":54,"atk":52,"def":49,"mag":41,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"401006905": {
+		"name":"실비",
+		"wikiEntry":"Sylvie",
+		"id":"401006905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4560,"mp":289,"atk":102,"def":189,"mag":154,"spr":206},
+			"minStats":{"hp":1505,"mp":95,"atk":34,"def":62,"mag":51,"spr":68},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"실비",
+			"wikiEntry":"Sylvie",
+			"id":"401006905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3508,"mp":223,"atk":79,"def":146,"mag":119,"spr":159},
+				"minStats":{"hp":1158,"mp":74,"atk":26,"def":48,"mag":39,"spr":52},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 		}
 	}
 }

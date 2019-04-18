@@ -2945,9 +2945,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","bow","whip","throwing","hat","clothes"],
+		"enhancementSkills":["Dagger Technique","Into Darkness","Funeral Knife"],
+		"enhancements": [
+			{"name":"Dagger Technique","levels":[[{"equipedConditions":["dagger"],"atk%":20,"spr%":20}],[{"equipedConditions":["dagger"],"atk%":40,"spr%":30}],[{"equipedConditions":["dagger"],"atk%":80,"spr%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "spr%":10, "partialDualWield":["dagger"], "resist":[{"name":"dark","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"human","physical":50}]},
-			{"atk%":20, "spr%":20, "equipedConditions":["dagger"]}
+			{"hp%":20, "atk%":20, "spr%":10, "partialDualWield":["dagger"], "resist":[{"name":"dark","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"human","physical":50}]}
 		]
 	},
 	"100012203": {
@@ -2982,10 +2985,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["axe","hammer","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Guard Smite","Faithful Protector","Mime - Impregnable"],
+		"enhancements": [
+			{"name":"Faithful Protector","levels":[[{"equipedConditions":["heavyShield"],"def%":15,"spr%":15},{"equipedConditions":["heavyArmor"],"def%":15,"spr%":15}],[{"equipedConditions":["heavyShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyArmor"],"def%":25,"spr%":25}],[{"hp%":20},{"equipedConditions":["heavyShield"],"def%":40,"spr%":40},{"equipedConditions":["heavyArmor"],"def%":40,"spr%":40}]]}
+		],
 		"skills": [
-			{"hp%":30, "drawAttacks":50},
-			{"def%":15, "spr%":15, "equipedConditions":["heavyShield"]},
-			{"def%":15, "spr%":15, "equipedConditions":["heavyArmor"]}
+			{"hp%":30, "drawAttacks":50}
 		]
 	},
 	"100012405": {
@@ -3280,8 +3285,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Gear-up","True Doublehand","Ignitor"],
+		"enhancements": [
+			{"name":"True Doublehand","levels":[[{"singleWielding":{"accuracy":25,"atk":50}}],[{"singleWielding":{"accuracy":25,"atk":75}}],[{"singleWielding":{"accuracy":25,"atk":100}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"plant","physical":50},{"name":"stone","physical":50}]},
+			{"hp%":20, "atk%":20, "resist":[{"name":"disease","percent":100},{"name":"fire","percent":30}], "killers":[{"name":"plant","physical":50},{"name":"stone","physical":50}]},
 			{"atk%":40, "equipedConditions":["axe"]}
 		]
 	},
@@ -3299,8 +3308,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Spiritual Barrier","Reduction","Triteleia Wall"],
+		"enhancements": [
+			{"name":"Spiritual Barrier","levels":[[{"spr%":30}],[{"spr%":40}],[{"spr%":60}]]}
+		],
 		"skills": [
-			{"mp%":10, "def%":50, "spr%":30}
+			{"mp%":10, "def%":50}
 		]
 	},
 	"100013704": {
@@ -7449,11 +7462,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"enhancementSkills":["Moon Crest","Prayer to the Aeons","Guardian Bonds","Unbroken Promise"],
+		"enhancements": [
+			{"name":"Moon Crest","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"spr%":10,"hp%":10,"evoMag":10}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"spr%":30,"hp%":30,"evoMag":30}]]},
+			{"name":"Unbroken Promise","levels":[[{"spr%":30,"mag%":30,"evoMag":30,"skillEnhancement":{"508013":0.5,"508014":1.5,"508015":0.5,"508016":1.5,"508670":0.5,"508671":1.5,"508672":0.5,"508673":1.5,"508674":0.5,"508675":1.5,"508676":0.5,"508677":1.5},"levelCondition":120}],[{"spr%":30,"mag%":30,"evoMag":30,"skillEnhancement":{"508013":3,"508014":5.5,"508015":3,"508016":5.5,"508670":3,"508671":5.5,"508672":3,"508673":5.5,"508674":3,"508675":5.5,"508676":3,"508677":5.5},"levelCondition":120}],[{"spr%":30,"mag%":30,"evoMag":30,"skillEnhancement":{"508013":6,"508014":10.5,"508015":6,"508016":10.5,"508670":6,"508671":10.5,"508672":6,"508673":10.5,"508674":6,"508675":10.5,"508676":6,"508677":10.5},"lbFillRate":50,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+			{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "replaceLb":{"name":"The Sending","minEffects":[{"effect":{"heal":{"base":2500,"coef":12},"area":"AOE","target":"ALLY"},"desc":"Restore 2500 (+12x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (60% HP)"},{"effect":{"heal":{"base":3000,"coef":12,"split":3},"area":"AOE","target":"ALLY"},"desc":"Restore 3000 (+12x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":105,"spr":105},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 105% for 3 turns to all allies"},{"effect":null,"desc":"Restore 36 (+0.2x, Heal) MP split over 3 turns to all allies"}],"maxEffects":[{"effect":{"heal":{"base":2500,"coef":19.25},"area":"AOE","target":"ALLY"},"desc":"Restore 2500 (+19.25x, Heal) HP to all allies"},{"effect":null,"desc":"Revive all allies from KO (89% HP)"},{"effect":{"heal":{"base":3000,"coef":14.9,"split":3},"area":"AOE","target":"ALLY"},"desc":"Restore 3000 (+14.9x, Heal) HP split over 3 turns to all allies"},{"effect":{"statsBuff":{"def":134,"spr":134},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase DEF and SPR by 134% for 3 turns to all allies"},{"effect":null,"desc":"Restore 65 (+0.2x, Heal) MP split over 3 turns to all allies"}]}, "equipedConditions":["311003000"]},
-			{"def%":20, "levelCondition":115},
-			{"mag%":30, "spr%":30, "evoMag":30, "skillEnhancement":{"508013":0.5,"508014":1.5,"508015":0.5,"508016":1.5,"508670":0.5,"508671":1.5,"508672":0.5,"508673":1.5,"508674":0.5,"508675":1.5,"508676":0.5,"508677":1.5}, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Yuna",
@@ -7470,8 +7487,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+			"enhancementSkills":["Moon Crest","Prayer to the Aeons","Guardian Bonds","Unbroken Promise"],
+		"enhancements": [
+			{"name":"Moon Crest","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"spr%":10,"hp%":10,"evoMag":10}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"spr%":30,"hp%":30,"evoMag":30}]]}
+		],
 			"skills": [
-				{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"undead","magical":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}}
+				{"mp%":30, "mag%":30, "spr%":30, "evoMag":50, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}}
 			]
 		}
 	},
@@ -7511,9 +7532,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"],
+		"enhancements": [
+			{"name":"Venus Crest","levels":[[{"mag%":30,"resist":[{"name":"fire","percent":30}]}],[{"mag%":40,"resist":[{"name":"fire","percent":40}]}],[{"mag%":60,"resist":[{"name":"fire","percent":60}]}]]},
+			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]}
+		],
 		"skills": [
-			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "mpRefresh":5},
-			{"mag%":40, "equipedConditions":["rod"]},
+			{"mp%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":50, "lbPerTurn":{"min":1,"max":1}, "mpRefresh":5, "equipedConditions":["310003000"]},
 			{"skillEnhancement":{"20230":3,"20320":3,"20380":3,"20760":4,"70434":3,"70435":3}, "levelCondition":105},
 			{"def%":20, "levelCondition":115},
@@ -7536,9 +7561,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+			"enhancementSkills":["Venus Crest","Magical Mog","Standby - Water","Flood","Flare Fury"],
+		"enhancements": [
+			{"name":"Venus Crest","levels":[[{"mag%":30,"resist":[{"name":"fire","percent":30}]}],[{"mag%":40,"resist":[{"name":"fire","percent":40}]}],[{"mag%":60,"resist":[{"name":"fire","percent":60}]}]]},
+			{"name":"Magical Mog","levels":[[{"equipedConditions":["rod"],"mag%":40}],[{"equipedConditions":["rod"],"mag%":60}],[{"equipedConditions":["rod"],"mag%":100}]]}
+		],
 			"skills": [
-				{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":30}], "mpRefresh":5},
-				{"mag%":40, "equipedConditions":["rod"]}
+				{"mp%":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5}
 			]
 		}
 	},
@@ -8720,12 +8749,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Soulless Hammer","Polearm Arts","Aerial Supremacy","High Dragoon Dive","Miss Mercenary"],
+		"enhancements": [
+			{"name":"Soulless Hammer","levels":[[{"killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]}],[{"killers":[{"name":"demon","physical":100},{"name":"machine","physical":100},{"name":"undead","physical":100}]}],[{"killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}]}]]},
+			{"name":"Polearm Arts","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":150},"lbDamage":50},{"equipedConditions":["spear"],"atk%":30}]]},
+			{"name":"Miss Mercenary","levels":[[{"mp%":20,"hp%":20,"jumpDamage":50,"levelCondition":120}],[{"atk%":30,"mp%":20,"hp%":20,"jumpDamage":50,"levelCondition":120}],[{"atk%":30,"mp%":20,"hp%":20,"jumpDamage":100,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"accuracy":25,"atk":100}, "jumpDamage":100, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
+			{"hp%":30, "def%":30, "evade":{"magical":20}, "jumpDamage":100, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":["308003500"]},
-			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "jumpDamage":50, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Aranea",
@@ -8742,8 +8776,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","spear","whip","gun","lightShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Soulless Hammer","Polearm Arts","Aerial Supremacy","High Dragoon Dive","Miss Mercenary"],
+		"enhancements": [
+			{"name":"Soulless Hammer","levels":[[{"killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}]}],[{"killers":[{"name":"demon","physical":100},{"name":"machine","physical":100},{"name":"undead","physical":100}]}],[{"killers":[{"name":"demon","physical":125},{"name":"machine","physical":125},{"name":"undead","physical":125}]}]]},
+			{"name":"Polearm Arts","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["spear"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":150},"lbDamage":50},{"equipedConditions":["spear"],"atk%":30}]]}
+		],
 			"skills": [
-				{"hp%":30, "def%":30, "evade":{"magical":20}, "singleWielding":{"accuracy":25,"atk":100}, "jumpDamage":100, "killers":[{"name":"demon","physical":75},{"name":"machine","physical":75},{"name":"undead","physical":75}], "mpRefresh":5},
+				{"hp%":30, "def%":30, "evade":{"magical":20}, "jumpDamage":100, "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
 		}
@@ -8762,9 +8801,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker"],
+		"enhancements": [
+			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":120,"def%":30}]]}
+		],
 		"skills": [
 			{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-			{"atk%":50, "equipedConditions":["gun"]},
 			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":null,"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}]}, "equipedConditions":["504221550"]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
@@ -8787,9 +8829,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Gun Mastery","Starshell","Circular Saw","Gravity Well","Drillbreaker"],
+		"enhancements": [
+			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":120,"def%":30}]]}
+		],
 			"skills": [
-				{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-				{"atk%":50, "equipedConditions":["gun"]}
+				{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100}
 			]
 		}
 	},
@@ -14060,6 +14105,95 @@
 				{"hp%":30, "mp%":20, "atk%":30, "spr%":30, "evade":{"physical":30}, "singleWielding":{"spr":30,"atk":130}, "lbFillRate":100, "mpRefresh":5, "special":["dualWield"]},
 				{"hp%":20, "def%":20, "equipedConditions":["fist"]},
 				{"atk%":20, "spr%":20, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"401006805": {
+		"name":"Ostera",
+		"wikiEntry":"Esther",
+		"id":"401006805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4856,"mp":211,"atk":206,"def":192,"mag":161,"spr":182},
+			"minStats":{"hp":1602,"mp":70,"atk":68,"def":63,"mag":53,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":40, "mp%":20, "atk%":70, "def%":40, "spr%":30, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"physical":[100,100],"magical":[0,0]}], "mpRefresh":7},
+			{"atk%":40, "def%":40, "equipedConditions":["clothes"]},
+			{"hp%":30, "atk%":30, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbDamage":30, "equipedConditions":["1100000269"]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"physical":[50,50],"magical":[0,0]}], "replaceLb":{"name":"Absolute Raikiri","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (13x * 2 = 26x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":null,"desc":"Increase LB damage by 200% for 3 turns"},{"effect":null,"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":97},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 97% for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.9,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.9x * 2 = 31.8x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":null,"desc":"Increase LB damage by 200% for 3 turns"},{"effect":null,"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":300},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 3 turns to caster"}]}, "levelCondition":120},
+			{"atk%":60, "equipedConditions":["greatSword"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Ostera",
+			"wikiEntry":"Esther",
+			"id":"401006805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3736,"mp":163,"atk":159,"def":148,"mag":124,"spr":140},
+				"minStats":{"hp":1233,"mp":54,"atk":52,"def":49,"mag":41,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","mace","fist","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":20, "atk%":70, "def%":40, "spr%":30, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}], "killers":[{"physical":[100,100],"magical":[0,0]}], "mpRefresh":7},
+				{"atk%":40, "def%":40, "equipedConditions":["clothes"]}
+			]
+		}
+	},
+	"401006905": {
+		"name":"Sylvie",
+		"wikiEntry":"Sylvie",
+		"id":"401006905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4560,"mp":289,"atk":102,"def":189,"mag":154,"spr":206},
+			"minStats":{"hp":1505,"mp":95,"atk":34,"def":62,"mag":51,"spr":68},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":30, "def%":20, "spr%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50}], "mpRefresh":5},
+			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
+			{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]},
+			{"hp%":30, "mp%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "equipedConditions":["1100000267"]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":10, "mp%":10, "def%":10, "spr%":10, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sylvie",
+			"wikiEntry":"Sylvie",
+			"id":"401006905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3508,"mp":223,"atk":79,"def":146,"mag":119,"spr":159},
+				"minStats":{"hp":1158,"mp":74,"atk":26,"def":48,"mag":39,"spr":52},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":30, "def%":20, "spr%":20, "evade":{"physical":20,"magical":20}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"earth","percent":50}], "mpRefresh":5},
+				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
+				{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
 			]
 		}
 	}
