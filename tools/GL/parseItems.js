@@ -520,7 +520,20 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         // Killers
     } else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
         (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
-        addKiller(item, rawEffect[3][0],rawEffect[3][1],rawEffect[3][2]);
+        
+        var killerRaces = rawEffect[3][0];
+        var physicalPercents = rawEffect[3][1];
+        var magicalPercents = rawEffect[3][2];
+        
+        if (!Array.isArray(killerRaces)) {
+            killerRaces = [killerRaces];
+            physicalPercents = [physicalPercents];
+            magicalPercents = [magicalPercents];
+        }
+        
+        for (var raceIndex = 0; raceIndex < killerRaces.length; raceIndex++) {
+            addKiller(item, killerRaces[raceIndex], physicalPercents[raceIndex], magicalPercents[raceIndex]);    
+        }
 
     // evade
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 22) {

@@ -96,14 +96,14 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     var defBuff = unitBuild.baseValues.def.buff;
     var magBuff = unitBuild.baseValues.mag.buff;
     var sprBuff = unitBuild.baseValues.spr.buff;
-    var lbDamageBuff = unitBuild.baseValues.lbDamage.buff;
+    var lbDamageBuff = unitBuild.baseValues.lbDamage;
     var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, EnnemyStats.copy(ennemyStats), formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions);
     // restore initial buffs
     unitBuild.baseValues.atk.buff = atkBuff;
     unitBuild.baseValues.def.buff = defBuff;
     unitBuild.baseValues.mag.buff = magBuff;
     unitBuild.baseValues.spr.buff = sprBuff;
-    unitBuild.baseValues.lbDamage.buff = lbDamageBuff;
+    unitBuild.baseValues.lbDamage = lbDamageBuff;
     return result;
 }
 
@@ -416,9 +416,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         var lbMultiplier = 1;
         if (context.isLb) {
             lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
-            if (unitBuild.baseValues.lbDamage.buff) {
-                lbMultiplier += unitBuild.baseValues.lbDamage.buff/100;
-            }
         }
         
         var evoMagMultiplier = 1;
@@ -788,8 +785,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             }
         }
         if (formula.value.lbDamage) {
-            if (unitBuild.baseValues.lbDamage.buff < formula.value.lbDamage) {
-                unitBuild.baseValues.lbDamage.buff = formula.value.lbDamage;
+            if (unitBuild.baseValues.lbDamage < formula.value.lbDamage) {
+                unitBuild.baseValues.lbDamage = formula.value.lbDamage;
+                delete context.savedValues.lbDamage;
             }
         }
         return {
@@ -983,6 +981,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;
     } else if (stat == 'drawAttacks') {
         baseValue = unitBuild.baseValues["drawAttacks"];
+    } else if (stat == 'lbDamage') {
+        baseValue = unitBuild.baseValues["lbDamage"];
     }
     var calculatedValue = baseValue + buffValue;
     

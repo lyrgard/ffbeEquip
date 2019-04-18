@@ -402,16 +402,13 @@ function readStatsValues() {
         "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
-    builds[currentUnitIndex].baseValues["lbDamage"] = {
-        "total" : 1,
-        "buff" : 0
-    };
     builds[currentUnitIndex].baseValues["mitigation"] = {
         "physical" : parseInt($(".unitStats .stat.pMitigation .buff input").val()) || 0,
         "magical" : parseInt($(".unitStats .stat.mMitigation .buff input").val()) || 0,
         "global" : parseInt($(".unitStats .stat.mitigation .buff input").val()) || 0
     };
     builds[currentUnitIndex].baseValues["drawAttacks"] = parseInt($(".unitStats .stat.drawAttacks .buff input").val()) || 0;
+    builds[currentUnitIndex].baseValues["lbDamage"] = parseInt($(".unitStats .stat.lbDamage .buff input").val()) || 0;
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
 }
@@ -1343,6 +1340,11 @@ function updateUnitStats() {
         $(".unitStats .stat.drawAttacks .buff input").val(builds[currentUnitIndex].baseValues["drawAttacks"]);
     } else {
         $(".unitStats .stat.drawAttacks .buff input").val("");
+    }
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].baseValues["lbDamage"]) {
+        $(".unitStats .stat.lbDamage .buff input").val(builds[currentUnitIndex].baseValues["lbDamage"]);
+    } else {
+        $(".unitStats .stat.lbDamage .buff input").val("");
     }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
@@ -2276,6 +2278,7 @@ function getStateHash(onlyCurrent = true) {
                 "global":build.baseValues.mitigation.global
             }
             unit.drawAttacks = build.baseValues.drawAttacks;
+            unit.lbDamage = build.baseValues.lbDamage;
             if (build.baseValues.currentStack) {
                 unit.stack = build.baseValues.currentStack;
             }
@@ -2636,6 +2639,9 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         if (unit.drawAttacks) {
             $(".unitStats .stat.drawAttacks .buff input").val(unit.drawAttacks);
+        }
+        if (unit.lbDamage) {
+            $(".unitStats .stat.lbDamage .buff input").val(unit.lbDamage);
         }
         if (unit.stack) {
             $(".unitStack input").val(unit.stack);
@@ -3410,6 +3416,7 @@ function startPage() {
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
+    $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
 
