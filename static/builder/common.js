@@ -96,12 +96,14 @@ function calculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats,
     var defBuff = unitBuild.baseValues.def.buff;
     var magBuff = unitBuild.baseValues.mag.buff;
     var sprBuff = unitBuild.baseValues.spr.buff;
+    var lbDamageBuff = unitBuild.baseValues.lbDamage.buff;
     var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, EnnemyStats.copy(ennemyStats), formula, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions);
     // restore initial buffs
     unitBuild.baseValues.atk.buff = atkBuff;
     unitBuild.baseValues.def.buff = defBuff;
     unitBuild.baseValues.mag.buff = magBuff;
     unitBuild.baseValues.spr.buff = sprBuff;
+    unitBuild.baseValues.lbDamage.buff = lbDamageBuff;
     return result;
 }
 
@@ -414,6 +416,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         var lbMultiplier = 1;
         if (context.isLb) {
             lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
+            if (unitBuild.baseValues.lbDamage.buff) {
+                lbMultiplier += unitBuild.baseValues.lbDamage.buff/100;
+            }
         }
         
         var evoMagMultiplier = 1;
@@ -780,6 +785,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             if (unitBuild.baseValues.spr.buff < formula.value.spr) {
                 unitBuild.baseValues.spr.buff = formula.value.spr;
                 delete context.savedValues.spr;
+            }
+        }
+        if (formula.value.lbDamage) {
+            if (unitBuild.baseValues.lbDamage.buff < formula.value.lbDamage) {
+                unitBuild.baseValues.lbDamage.buff = formula.value.lbDamage;
             }
         }
         return {

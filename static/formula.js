@@ -806,7 +806,7 @@ function getSkillIds(formula) {
         );
     } else if (formula.type == "condition") {
         return getSkillIds(formula.formula).concat(getSkillIds(formula.condition));
-    } else if (formula.type == "value" || formula.type == "constant" || formula.type == "chainMultiplier" || formula.type == "elementCondition" || formula.type == "damage") {
+    } else if (formula.type == "value" || formula.type == "constant" || formula.type == "chainMultiplier" || formula.type == "elementCondition" || formula.type == "damage" || formula.type == "lbFill") {
         return [];
     } else {
         return getSkillIds(formula.value1).concat(getSkillIds(formula.value2));

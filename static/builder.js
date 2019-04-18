@@ -402,6 +402,10 @@ function readStatsValues() {
         "total" : lbShardsPerTurn,
         "buff" : parseInt($(".unitStats .stat.lbFillRate .buff input").val()) || 0
     };
+    builds[currentUnitIndex].baseValues["lbDamage"] = {
+        "total" : 1,
+        "buff" : 0
+    };
     builds[currentUnitIndex].baseValues["mitigation"] = {
         "physical" : parseInt($(".unitStats .stat.pMitigation .buff input").val()) || 0,
         "magical" : parseInt($(".unitStats .stat.mMitigation .buff input").val()) || 0,

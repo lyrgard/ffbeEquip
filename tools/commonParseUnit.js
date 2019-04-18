@@ -1180,6 +1180,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 65) {
         result = {"noUse":true};
 
+        // auto cast skill later
+    } else if (rawEffect[2] == 132) {
+        result = {"noUse":true};
+        
         // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
@@ -1198,7 +1202,18 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 "type": "blackMagic"
             }
         }
+        
+    // +LB damage
+    } else if (rawEffect[2] == 120) {
+        result = {"statsBuff":{"lbDamage":rawEffect[3][0]}, "turns":rawEffect[3][1]};
+        
+    // +LB
+    } else if (rawEffect[2] == 125) {
+        result = {"lbFill":{"min":rawEffect[3][0]/100, "max":rawEffect[3][1]/100}};    
     
+        
+        
+        
     // Gain Skill
     } else if (rawEffect[2] == 97) {
         
