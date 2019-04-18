@@ -181,7 +181,11 @@ function parseExpression(formula, pos, unit) {
                 outputQueue.push({"type":"value", "name":attributeByVariable[token]});
             }
         } else if (token.startsWith("LB_") && baseVariables.includes(token.substr(3))) {
-            outputQueue.push({"type":"value", "name":attributeByVariable[token.substr(3)], "lb":true});
+            if (token.startsWith("LB_REPLACED")) {
+                outputQueue.push({"type":"value", "name":attributeByVariable[token.substr(3)], "lb":true, "replacedLb":true});
+            } else {
+                outputQueue.push({"type":"value", "name":attributeByVariable[token.substr(3)], "lb":true});
+            }
         } else if (elementVariables.includes(token)) {
             var element = token.substr(2).toLocaleLowerCase().replace("thunder", "lightning");
             outputQueue.push({"type":"elementCondition", "element":element});
@@ -415,17 +419,13 @@ function getSkillFromId(skillId, unitWithSkills) {
 }
 
 
-function formulaFromSkill(skill, multicast = false) {
+function formulaFromSkill(skill, multicast = false, isLb = false) {
     var canBeGoal = false;
     var hasStack = false;
     var isUpgradable = false;
     var formula;
-    var isLb = false;
     
     var effects;
-    if (!skill) {
-        console.log('!!');
-    }
     if (skill.maxEffects) {
         effects = skill.maxEffects;
         isLb = true;
@@ -523,9 +523,6 @@ function formulaToString(formula, useParentheses = false) {
 }
 
 function innerFormulaToString(formula, useParentheses = false) {
-    if (!formula) {
-        console.log('!!');
-    }
     if (formula.type == "skill") {
         if (formula.lb) {
             return "LB_DAMAGE";
@@ -539,7 +536,11 @@ function innerFormulaToString(formula, useParentheses = false) {
     } else if (formula.type == "value") {
         var name = getVariableName(formula.name);
         if (formula.lb) {
-            name = "LB_" + name
+            if (formula.replacedLb) {
+                name = "LB_REPLACED_" + name;
+            } else {
+                name = "LB_" + name;
+            }
         }
         return name;
     } else if (formula.type == "constant") {

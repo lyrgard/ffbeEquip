@@ -271,6 +271,21 @@ function readGoal(index = currentUnitIndex) {
                 builds[currentUnitIndex].goal = "custom";
                 var skill = unitsWithSkills[builds[currentUnitIndex].unit.id].lb;
                 formula = formulaFromSkill(skill);
+            } else if (goalValue == "LB_REPLACED" && builds[currentUnitIndex].unit) {
+                let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+                skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+                    var passive = unitWithSkills.passives[skillIndex];
+                    for (var effectIndex = passive.effects.length; effectIndex--;) {
+                        var effect = passive.effects[effectIndex].effect;
+                        if (effect && effect.replaceLb) {
+                            builds[currentUnitIndex].goal = "custom";
+                            var formula = formulaFromSkill(effect.replaceLb);
+                            formula.lb = true;
+                            formula.replacedLb = true;
+                            break skillLoop;
+                        }
+                    }
+                }
 
             } else if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
@@ -964,6 +979,25 @@ function goalSelectTemplate(state) {
         } else {
             html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
         }
+    } else if (state.id == "LB_REPLACED") {
+        html = '<img class="selectIcon" src="img/icons/lb.png"> ' + state.text;
+        skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+            var passive = unitWithSkills.passives[skillIndex];
+            for (var effectIndex = passive.effects.length; effectIndex--;) {
+                var effect = passive.effects[effectIndex].effect;
+                if (effect && effect.replaceLb) {
+                    var formula = formulaFromSkill(effect.replaceLb);
+                    html += '<span class="upgradedSkillIcon" title="Upgraded LB">☆</span>';
+                    if (formula.notSupported) {
+                        html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
+                    } else {
+                        html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
+                    }
+                    break skillLoop;
+                }
+            }
+        }
+
     } else if (state.id.startsWith("SKILL_")) {
         var skill = getSkillFromId(state.id.substr(6), unitsWithSkills[builds[currentUnitIndex].unit.id]);
         if (skill) {
@@ -1121,6 +1155,13 @@ function updateGoal() {
             var passive = unitWithSkills.passives[skillIndex];
             for (var effectIndex = passive.effects.length; effectIndex--;) {
                 var effect = passive.effects[effectIndex].effect;
+                if (effect && effect.replaceLb) {
+                    var formula = formulaFromSkill(effect.replaceLb);
+                    if (formula) {
+                        var option = '<option value="LB_REPLACED" ' + (formula.notSupported ? "disabled":"") + '>' + effect.replaceLb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                        choiceSelect.append(option);
+                    }
+                }
                 if (effect && effect.multicast) {
                     var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
                     choiceSelect.append(option);
@@ -1176,7 +1217,11 @@ function updateGoal() {
         if (selectedSkill) {
             if (selectedSkill.type == "skill") {
                 if (selectedSkill.lb) {
-                    choiceSelect.val("LB");    
+                    if (selectedSkill.replacedLb) {
+                        choiceSelect.val("LB_REPLACED");
+                    } else {
+                        choiceSelect.val("LB");
+                    }
                 } else if (selectedSkill.id && selectedSkill.id != "0") {
                     choiceSelect.val("SKILL_" + selectedSkill.id);    
                 } else {
