@@ -123,14 +123,18 @@ var defaultWeaponEnhancement = [];
 var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
 
-function build() {
-    secondaryOptimization = false;
-    if (running) {
+function onBuildClick() {
+    if (running || runningParamChallenge) {
         stopBuild();
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         return;
     }
-    
+    build();
+}
+
+function build() {
+    secondaryOptimization = false;
+
     $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].unit) {
@@ -3417,7 +3421,7 @@ function startPage() {
     
     $(".equipments select").change(onEquipmentsChange);
     
-    $("#buildButton").click(build);
+    $("#buildButton").click(onBuildClick);
     $("#paramChallengeButton").click(findUnitForParamChallenge);
     
     // Elements

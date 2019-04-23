@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/formula.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/formula.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,15 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder/unitBuild.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/unitsWithPassives.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -35,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="1220" column="53" selection-start-line="1220" selection-start-column="53" selection-end-line="1220" selection-end-column="53" />
+            <state relative-caret-position="129">
+              <caret line="3423" column="40" selection-start-line="3423" selection-start-column="40" selection-end-line="3423" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -47,9 +38,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/GL/data.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="1490" column="348" selection-start-line="1490" selection-start-column="348" selection-end-line="1490" selection-end-column="348" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/formula.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
+            <state relative-caret-position="7890">
               <caret line="526" column="22" selection-start-line="526" selection-start-column="19" selection-end-line="526" selection-end-column="22" />
             </state>
           </provider>
@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/static/builder.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3015">
-              <caret line="201" column="106" selection-start-line="201" selection-start-column="92" selection-end-line="201" selection-end-column="106" />
+              <caret line="216" column="106" selection-start-line="216" selection-start-column="92" selection-end-line="216" selection-end-column="106" />
             </state>
           </provider>
         </entry>
@@ -67,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="315">
               <caret line="21" column="88" selection-start-line="21" selection-start-column="88" selection-end-line="21" selection-end-column="88" />
             </state>
           </provider>
@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/unitsWithSkill.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21522" column="361" selection-start-line="21522" selection-start-column="345" selection-end-line="21522" selection-end-column="361" />
+            <state relative-caret-position="322830">
+              <caret line="21522" column="361" selection-start-line="21522" selection-start-column="361" selection-end-line="21522" selection-end-column="361" />
             </state>
           </provider>
         </entry>
@@ -113,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Chu-</find>
       <find>selectMonster</find>
       <find>Buster Style</find>
       <find>Increase A</find>
@@ -143,6 +142,7 @@
       <find>Esther</find>
       <find>LB_RE</find>
       <find>readGoal</find>
+      <find>build</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -306,17 +306,19 @@
       <workItem from="1554319907433" duration="1082000" />
       <workItem from="1554406720171" duration="6084000" />
       <workItem from="1555617042450" duration="2312000" />
+      <workItem from="1555919350597" duration="1586000" />
+      <workItem from="1556035702763" duration="1239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40139000" />
+    <option name="totallyTimeSpent" value="42964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2330407" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24102154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -522,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27465">
-          <caret line="1831" column="43" selection-start-line="1831" selection-start-column="43" selection-end-line="1831" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6765">
@@ -602,16 +597,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/formula.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7890">
+          <caret line="526" column="22" selection-start-line="526" selection-start-column="19" selection-end-line="526" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3015">
-          <caret line="201" column="106" selection-start-line="201" selection-start-column="92" selection-end-line="201" selection-end-column="106" />
+          <caret line="216" column="106" selection-start-line="216" selection-start-column="92" selection-end-line="216" selection-end-column="106" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="315">
           <caret line="21" column="88" selection-start-line="21" selection-start-column="88" selection-end-line="21" selection-end-column="88" />
         </state>
       </provider>
@@ -637,24 +639,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/formula.js">
+    <entry file="file://$PROJECT_DIR$/static/GL/unitsWithSkill.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="526" column="22" selection-start-line="526" selection-start-column="19" selection-end-line="526" selection-end-column="22" />
+        <state relative-caret-position="322830">
+          <caret line="21522" column="361" selection-start-line="21522" selection-start-column="361" selection-end-line="21522" selection-end-column="361" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/unitsWithSkill.json">
+    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21522" column="361" selection-start-line="21522" selection-start-column="345" selection-end-line="21522" selection-end-column="361" />
+        <state relative-caret-position="219">
+          <caret line="1490" column="348" selection-start-line="1490" selection-start-column="348" selection-end-line="1490" selection-end-column="348" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="1220" column="53" selection-start-line="1220" selection-start-column="53" selection-end-line="1220" selection-end-column="53" />
+        <state relative-caret-position="129">
+          <caret line="3423" column="40" selection-start-line="3423" selection-start-column="40" selection-end-line="3423" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
