@@ -120,6 +120,7 @@ var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
 var defaultWeaponEnhancement = [];
+var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
 
 function build() {
@@ -167,7 +168,7 @@ function stopBuild() {
     running = false;
     $("#buildButton").text("Build !");
     $("body").removeClass("building");
-    currentUnitIdIndexForParamChallenge = -1;
+    runningParamChallenge = false;
 }
 
 function optimize() {
@@ -3321,6 +3322,7 @@ function modifyDefaultWeaponEnhancement() {
 }
 
 function findUnitForParamChallenge() {
+    runningParamChallenge = true;
     let ids = Object.keys(ownedUnits);
     let goal = $("#paramChallengeSelect").val();
     let tokens = goal.split("_");
@@ -3335,6 +3337,7 @@ function findUnitForParamChallenge() {
         }
     }
     currentUnitIdIndexForParamChallenge = -1;
+    runningParamChallenge = false;
     Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
 }
 
@@ -3491,6 +3494,7 @@ function startPage() {
     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
+    $("#paramChallengeSelect").change(function() {currentUnitIdIndexForParamChallenge = -1});
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
@@ -3586,7 +3590,7 @@ function initWorkers() {
                     }
                     if (workerWorkingCount == 0) {
                         if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            if (currentUnitIdIndexForParamChallenge > -1) {
+                            if (runningParamChallenge > -1) {
                                 running = false;
                                 findUnitForParamChallenge();
                             } else {
