@@ -3322,13 +3322,13 @@ function modifyDefaultWeaponEnhancement() {
 
 function findUnitForParamChallenge() {
     let ids = Object.keys(ownedUnits);
+    let goal = $("#paramChallengeSelect").val();
+    let tokens = goal.split("_");
     for (i = currentUnitIdIndexForParamChallenge + 1; i < ids.length; i++) {
-        if (ownedUnits[ids[i]].sevenStar) {
+        if (ownedUnits[ids[i]].sevenStar || ids[i] == "306000804") {
             currentUnitIdIndexForParamChallenge = i;
             selectUnitDropdownWithoutNotify(ids[i]);
             onUnitChange();
-            let goal = $("#paramChallengeSelect").val();
-            let tokens = goal.split("_");
             chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
             build();
             return;
