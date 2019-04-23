@@ -4761,6 +4761,37 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","staff","bow","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"]
 	},
+	"100025305": {
+		"name":"Cafe Charlotte",
+		"jpname":"カフェシャルロット",
+		"id":"100025305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4512,"mp":245,"atk":138,"def":168,"mag":188,"spr":213},
+			"minStats":{"hp":1489,"mp":81,"atk":46,"def":55,"mag":62,"spr":70},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Cafe Charlotte",
+			"jpname":"カフェシャルロット",
+			"id":"100025305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3470,"mp":188,"atk":106,"def":129,"mag":144,"spr":163},
+				"minStats":{"hp":1145,"mp":62,"atk":35,"def":43,"mag":48,"spr":54},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -5341,6 +5372,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"203001705": {
+		"name":"Cloud of Darkness v2",
+		"jpname":"暗闇の雲",
+		"id":"203001705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4666,"mp":283,"atk":165,"def":174,"mag":219,"spr":208},
+			"minStats":{"hp":1540,"mp":93,"atk":54,"def":57,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","throwing","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"Cloud of Darkness v2",
+			"jpname":"暗闇の雲",
+			"id":"203001705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3589,"mp":217,"atk":126,"def":133,"mag":168,"spr":160},
+				"minStats":{"hp":1184,"mp":72,"atk":42,"def":44,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","throwing","mace","hat","clothes","robe"]
 		}
 	},
 	"203001805": {
