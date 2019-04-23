@@ -484,7 +484,20 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         // Killers
     } else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
         (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
-        addKiller(item, rawEffect[3][0],rawEffect[3][1],rawEffect[3][2]);
+        
+        var killerRaces = rawEffect[3][0];
+        var physicalPercents = rawEffect[3][1];
+        var magicalPercents = rawEffect[3][2];
+        
+        if (!Array.isArray(killerRaces)) {
+            killerRaces = [killerRaces];
+            physicalPercents = [physicalPercents];
+            magicalPercents = [magicalPercents];
+        }
+        
+        for (var raceIndex = 0; raceIndex < killerRaces.length; raceIndex++) {
+            addKiller(item, killerRaces[raceIndex], physicalPercents[raceIndex], magicalPercents[raceIndex]);    
+        }
 
     // evade
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 22) {
@@ -811,7 +824,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/ja/item_item1/70/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/ja/item_item1/71/" + icon ,filePath);
     }
 }
 

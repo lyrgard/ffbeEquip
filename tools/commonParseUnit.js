@@ -417,11 +417,21 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
         (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
         var killerData = rawEffect[3];
-
-        var killerRace = raceMap[killerData[0]];
-        var physicalPercent = killerData[1];
-        var magicalPercent = killerData[2];
-        addKiller(result, killerRace, physicalPercent, magicalPercent);
+        
+        var killerRaces = killerData[0];
+        var physicalPercents = killerData[1];
+        var magicalPercents = killerData[2];
+        
+        if (!Array.isArray(killerRaces)) {
+            killerRaces = [killerRaces];
+            physicalPercents = [physicalPercents];
+            magicalPercents = [magicalPercents];
+        }
+        
+        for (var raceIndex = 0; raceIndex < killerRaces.length; raceIndex++) {
+            addKiller(result, raceMap[killerRaces[raceIndex]], physicalPercents[raceIndex], magicalPercents[raceIndex]);    
+        }
+        
         return [result];
     }
 
@@ -1180,6 +1190,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 65) {
         result = {"noUse":true};
 
+        // auto cast skill later
+    } else if (rawEffect[2] == 132) {
+        result = {"noUse":true};
+        
         // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
@@ -1198,7 +1212,18 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 "type": "blackMagic"
             }
         }
+        
+    // +LB damage
+    } else if (rawEffect[2] == 120) {
+        result = {"statsBuff":{"lbDamage":rawEffect[3][0]}, "turns":rawEffect[3][1]};
+        
+    // +LB
+    } else if (rawEffect[2] == 125) {
+        result = {"lbFill":{"min":rawEffect[3][0]/100, "max":rawEffect[3][1]/100}};    
     
+        
+        
+        
     // Gain Skill
     } else if (rawEffect[2] == 97) {
         

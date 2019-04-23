@@ -526,7 +526,7 @@ i.img.img-slot-hand.leftHand {
 .unitStats .stat .baseStat {
     flex: 2;
 }
-.unitStats .stat.lbFillRate .baseStat,.unitStats .stat.lbShardsPerTurn .baseStat, .unitStats .stat.pMitigation .baseStat, .unitStats .stat.mMitigation .baseStat, .unitStats .stat.mitigation .baseStat, .unitStats .stat.drawAttacks .baseStat   {
+.unitStats .stat.lbFillRate .baseStat,.unitStats .stat.lbShardsPerTurn .baseStat, .unitStats .stat.pMitigation .baseStat, .unitStats .stat.mMitigation .baseStat, .unitStats .stat.mitigation .baseStat, .unitStats .stat.drawAttacks .baseStat, , .unitStats .stat.lbDamage .baseStat   {
     flex: 3;
 }
 
@@ -1019,6 +1019,11 @@ i.img.img-slot-hand.leftHand {
 
 #defaultWeaponEnhancement .btn {
     padding: 0 6px;
+}
+
+.line.paramChallenge button {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media (max-width: 991px) {

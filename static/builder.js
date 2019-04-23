@@ -120,15 +120,21 @@ var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
 var defaultWeaponEnhancement = [];
+var runningParamChallenge = false;
+var currentUnitIdIndexForParamChallenge = -1;
 
-function build() {
-    secondaryOptimization = false;
-    if (running) {
+function onBuildClick() {
+    if (running || runningParamChallenge) {
         stopBuild();
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         return;
     }
-    
+    build();
+}
+
+function build() {
+    secondaryOptimization = false;
+
     $(".buildLinks").addClass("hidden");
     
     if (!builds[currentUnitIndex].unit) {
@@ -158,14 +164,15 @@ function build() {
 
 function stopBuild() {
     for (var index = workers.length; index--; index) {
-            workers[index].terminate();
-        }   
-        console.timeEnd("optimize");
-        initWorkers();
-        workerWorkingCount = 0;
-        running = false;
-        $("#buildButton").text("Build !");
-        $("body").removeClass("building");
+        workers[index].terminate();
+    }   
+    console.timeEnd("optimize");
+    initWorkers();
+    workerWorkingCount = 0;
+    running = false;
+    $("#buildButton").text("Build !");
+    $("body").removeClass("building");
+    runningParamChallenge = false;
 }
 
 function optimize() {
@@ -271,6 +278,21 @@ function readGoal(index = currentUnitIndex) {
                 builds[currentUnitIndex].goal = "custom";
                 var skill = unitsWithSkills[builds[currentUnitIndex].unit.id].lb;
                 formula = formulaFromSkill(skill);
+            } else if (goalValue == "LB_REPLACED" && builds[currentUnitIndex].unit) {
+                let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+                skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+                    var passive = unitWithSkills.passives[skillIndex];
+                    for (var effectIndex = passive.effects.length; effectIndex--;) {
+                        var effect = passive.effects[effectIndex].effect;
+                        if (effect && effect.replaceLb) {
+                            builds[currentUnitIndex].goal = "custom";
+                            var formula = formulaFromSkill(effect.replaceLb);
+                            formula.lb = true;
+                            formula.replacedLb = true;
+                            break skillLoop;
+                        }
+                    }
+                }
 
             } else if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
@@ -408,6 +430,7 @@ function readStatsValues() {
         "global" : parseInt($(".unitStats .stat.mitigation .buff input").val()) || 0
     };
     builds[currentUnitIndex].baseValues["drawAttacks"] = parseInt($(".unitStats .stat.drawAttacks .buff input").val()) || 0;
+    builds[currentUnitIndex].baseValues["lbDamage"] = parseInt($(".unitStats .stat.lbDamage .buff input").val()) || 0;
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
 }
@@ -963,6 +986,25 @@ function goalSelectTemplate(state) {
         } else {
             html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
         }
+    } else if (state.id == "LB_REPLACED") {
+        html = '<img class="selectIcon" src="img/icons/lb.png"> ' + state.text;
+        skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+            var passive = unitWithSkills.passives[skillIndex];
+            for (var effectIndex = passive.effects.length; effectIndex--;) {
+                var effect = passive.effects[effectIndex].effect;
+                if (effect && effect.replaceLb) {
+                    var formula = formulaFromSkill(effect.replaceLb);
+                    html += '<span class="upgradedSkillIcon" title="Upgraded LB">☆</span>';
+                    if (formula.notSupported) {
+                        html = html.replace("- Not supported yet", "<span class='selectTag notSupportedTag'>Not yet</span>");
+                    } else {
+                        html = html.replace("(Limit Burst)", "<span class='selectTag lbTag'>Limit burst</span>");
+                    }
+                    break skillLoop;
+                }
+            }
+        }
+
     } else if (state.id.startsWith("SKILL_")) {
         var skill = getSkillFromId(state.id.substr(6), unitsWithSkills[builds[currentUnitIndex].unit.id]);
         if (skill) {
@@ -1120,6 +1162,13 @@ function updateGoal() {
             var passive = unitWithSkills.passives[skillIndex];
             for (var effectIndex = passive.effects.length; effectIndex--;) {
                 var effect = passive.effects[effectIndex].effect;
+                if (effect && effect.replaceLb) {
+                    var formula = formulaFromSkill(effect.replaceLb);
+                    if (formula) {
+                        var option = '<option value="LB_REPLACED" ' + (formula.notSupported ? "disabled":"") + '>' + effect.replaceLb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
+                        choiceSelect.append(option);
+                    }
+                }
                 if (effect && effect.multicast) {
                     var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
                     choiceSelect.append(option);
@@ -1175,7 +1224,11 @@ function updateGoal() {
         if (selectedSkill) {
             if (selectedSkill.type == "skill") {
                 if (selectedSkill.lb) {
-                    choiceSelect.val("LB");    
+                    if (selectedSkill.replacedLb) {
+                        choiceSelect.val("LB_REPLACED");
+                    } else {
+                        choiceSelect.val("LB");
+                    }
                 } else if (selectedSkill.id && selectedSkill.id != "0") {
                     choiceSelect.val("SKILL_" + selectedSkill.id);    
                 } else {
@@ -1340,6 +1393,11 @@ function updateUnitStats() {
     } else {
         $(".unitStats .stat.drawAttacks .buff input").val("");
     }
+    if (builds[currentUnitIndex].unit && builds[currentUnitIndex].baseValues["lbDamage"]) {
+        $(".unitStats .stat.lbDamage .buff input").val(builds[currentUnitIndex].baseValues["lbDamage"]);
+    } else {
+        $(".unitStats .stat.lbDamage .buff input").val("");
+    }
     populateUnitEquip();
     if (builds[currentUnitIndex].unit) {
         for (var index in builds[currentUnitIndex].unit.equip) {
@@ -1483,6 +1541,7 @@ function inventoryLoaded() {
     if (!dataLoadedFromHash) {
         $(".equipments select").val("owned");
         onEquipmentsChange();
+        $(".line.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
 }
@@ -1573,9 +1632,14 @@ function openCustomGoalModal() {
     $("#customFormulaModal").modal();
 }
 
-function chooseCustomFormula() {
-    var formulaString = $("#customFormulaModal #formulaInput").val();
-    var formulaConditionString = $("#customFormulaModal #formulaConditionInput").val();
+function chooseCustomFormula(optionalCustomFormula) {
+    if (optionalCustomFormula) {
+        var formulaString = optionalCustomFormula;
+        var formulaConditionString = "";
+    } else {
+        var formulaString = $("#customFormulaModal #formulaInput").val();
+        var formulaConditionString = $("#customFormulaModal #formulaConditionInput").val();
+    }
     if (formulaConditionString && formulaConditionString.length > 0) {
         formulaString += ";" + formulaConditionString;
     }
@@ -2272,6 +2336,7 @@ function getStateHash(onlyCurrent = true) {
                 "global":build.baseValues.mitigation.global
             }
             unit.drawAttacks = build.baseValues.drawAttacks;
+            unit.lbDamage = build.baseValues.lbDamage;
             if (build.baseValues.currentStack) {
                 unit.stack = build.baseValues.currentStack;
             }
@@ -2632,6 +2697,9 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         if (unit.drawAttacks) {
             $(".unitStats .stat.drawAttacks .buff input").val(unit.drawAttacks);
+        }
+        if (unit.lbDamage) {
+            $(".unitStats .stat.lbDamage .buff input").val(unit.lbDamage);
         }
         if (unit.stack) {
             $(".unitStack input").val(unit.stack);
@@ -3257,6 +3325,26 @@ function modifyDefaultWeaponEnhancement() {
     selectEnchantement(fakeItem);
 }
 
+function findUnitForParamChallenge() {
+    runningParamChallenge = true;
+    let ids = Object.keys(ownedUnits);
+    let goal = $("#paramChallengeSelect").val();
+    let tokens = goal.split("_");
+    for (i = currentUnitIdIndexForParamChallenge + 1; i < ids.length; i++) {
+        if (ownedUnits[ids[i]].sevenStar || ids[i] == "306000804") {
+            currentUnitIdIndexForParamChallenge = i;
+            selectUnitDropdownWithoutNotify(ids[i]);
+            onUnitChange();
+            chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
+            build();
+            return;
+        }
+    }
+    currentUnitIdIndexForParamChallenge = -1;
+    runningParamChallenge = false;
+    Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+}
+
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
@@ -3333,7 +3421,8 @@ function startPage() {
     
     $(".equipments select").change(onEquipmentsChange);
     
-    $("#buildButton").click(build);
+    $("#buildButton").click(onBuildClick);
+    $("#paramChallengeButton").click(findUnitForParamChallenge);
     
     // Elements
 	addIconChoicesTo("elements", elementList, "checkbox", "element", ucFirst);
@@ -3406,8 +3495,10 @@ function startPage() {
     $(".unitStats .stat.mMitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mMitigation")}));
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
+    $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
+    $("#paramChallengeSelect").change(function() {currentUnitIdIndexForParamChallenge = -1});
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
@@ -3503,7 +3594,12 @@ function initWorkers() {
                     }
                     if (workerWorkingCount == 0) {
                         if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+                            if (runningParamChallenge > -1) {
+                                running = false;
+                                findUnitForParamChallenge();
+                            } else {
+                                Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+                            }
                         }
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
