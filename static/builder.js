@@ -120,6 +120,7 @@ var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
 var defaultWeaponEnhancement = [];
+var currentUnitIdIndexForParamChallenge = -1;
 
 function build() {
     secondaryOptimization = false;
@@ -158,14 +159,15 @@ function build() {
 
 function stopBuild() {
     for (var index = workers.length; index--; index) {
-            workers[index].terminate();
-        }   
-        console.timeEnd("optimize");
-        initWorkers();
-        workerWorkingCount = 0;
-        running = false;
-        $("#buildButton").text("Build !");
-        $("body").removeClass("building");
+        workers[index].terminate();
+    }   
+    console.timeEnd("optimize");
+    initWorkers();
+    workerWorkingCount = 0;
+    running = false;
+    $("#buildButton").text("Build !");
+    $("body").removeClass("building");
+    currentUnitIdIndexForParamChallenge = -1;
 }
 
 function optimize() {
@@ -1534,6 +1536,7 @@ function inventoryLoaded() {
     if (!dataLoadedFromHash) {
         $(".equipments select").val("owned");
         onEquipmentsChange();
+        $(".line.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
 }
@@ -1624,9 +1627,14 @@ function openCustomGoalModal() {
     $("#customFormulaModal").modal();
 }
 
-function chooseCustomFormula() {
-    var formulaString = $("#customFormulaModal #formulaInput").val();
-    var formulaConditionString = $("#customFormulaModal #formulaConditionInput").val();
+function chooseCustomFormula(optionalCustomFormula) {
+    if (optionalCustomFormula) {
+        var formulaString = optionalCustomFormula;
+        var formulaConditionString = "";
+    } else {
+        var formulaString = $("#customFormulaModal #formulaInput").val();
+        var formulaConditionString = $("#customFormulaModal #formulaConditionInput").val();
+    }
     if (formulaConditionString && formulaConditionString.length > 0) {
         formulaString += ";" + formulaConditionString;
     }
@@ -3312,6 +3320,24 @@ function modifyDefaultWeaponEnhancement() {
     selectEnchantement(fakeItem);
 }
 
+function findUnitForParamChallenge() {
+    let ids = Object.keys(ownedUnits);
+    for (i = currentUnitIdIndexForParamChallenge + 1; i < ids.length; i++) {
+        if (ownedUnits[ids[i]].sevenStar) {
+            currentUnitIdIndexForParamChallenge = i;
+            selectUnitDropdownWithoutNotify(ids[i]);
+            onUnitChange();
+            let goal = $("#paramChallengeSelect").val();
+            let tokens = goal.split("_");
+            chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
+            build();
+            return;
+        }
+    }
+    currentUnitIdIndexForParamChallenge = -1;
+    Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+}
+
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
@@ -3389,6 +3415,7 @@ function startPage() {
     $(".equipments select").change(onEquipmentsChange);
     
     $("#buildButton").click(build);
+    $("#paramChallengeButton").click(findUnitForParamChallenge);
     
     // Elements
 	addIconChoicesTo("elements", elementList, "checkbox", "element", ucFirst);
@@ -3559,7 +3586,12 @@ function initWorkers() {
                     }
                     if (workerWorkingCount == 0) {
                         if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+                            if (currentUnitIdIndexForParamChallenge > -1) {
+                                running = false;
+                                findUnitForParamChallenge();
+                            } else {
+                                Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+                            }
                         }
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
