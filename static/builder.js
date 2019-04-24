@@ -3404,7 +3404,7 @@ function startPage() {
         $("#monsterListLink").removeClass("hidden");
     });
     $.get(server + "/defaultExclusionList", function(result) {
-        if (Array.isArray(defaultItemsToExclude)) {
+        if (Array.isArray(result)) {
             defaultItemsToExclude = result;
             itemsToExclude = defaultItemsToExclude.slice();
         }
@@ -3596,7 +3596,7 @@ function initWorkers() {
                     }
                     if (workerWorkingCount == 0) {
                         if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            if (runningParamChallenge > -1) {
+                            if (runningParamChallenge) {
                                 running = false;
                                 findUnitForParamChallenge();
                             } else {
