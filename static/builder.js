@@ -3340,7 +3340,7 @@ function findUnitForParamChallenge() {
         } else if (unitPool == "potentialSevenStar") {
             return ownedUnits[id].sevenStar || id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 2);
         } else {
-            return id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 1);
+            return id == "306000804" || (id.endsWith("5") && (ownedUnits[id].number >= 1 || ownedUnits[id].sevenStar));
         }
     }).map(id => {
         if (unitPool == "rainbows" && id.endsWith("5") && !(ownedUnits[id].sevenStar || ownedUnits[id].number >= 2) && units[id]['6_form']) {
