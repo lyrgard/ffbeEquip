@@ -129,6 +129,8 @@ function onBuildClick() {
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         return;
     }
+    runningParamChallenge = false;
+    currentUnitIdIndexForParamChallenge = -1;
     build();
 }
 
