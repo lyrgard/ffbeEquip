@@ -3332,19 +3332,30 @@ function findUnitForParamChallenge() {
     let ids = Object.keys(ownedUnits);
     let goal = $("#paramChallengeSelect").val();
     let tokens = goal.split("_");
-    for (i = currentUnitIdIndexForParamChallenge + 1; i < ids.length; i++) {
-        if (ownedUnits[ids[i]].sevenStar || ids[i] == "306000804") {
-            currentUnitIdIndexForParamChallenge = i;
-            selectUnitDropdownWithoutNotify(ids[i]);
-            onUnitChange();
-            chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
-            build();
-            return;
-        }
+    let statToSearch = tokens[0].toLocaleLowerCase();
+    let idsToSearch = ids.filter(id => ownedUnits[id].sevenStar || id == "306000804").sort((id1, id2) => {
+        return getUnitBaseValue(statToSearch, units[id2]) - getUnitBaseValue(statToSearch, units[id1]);
+    });
+    for (i = currentUnitIdIndexForParamChallenge + 1; i < idsToSearch.length; i++) {
+        currentUnitIdIndexForParamChallenge = i;
+        selectUnitDropdownWithoutNotify(idsToSearch[i]);
+        onUnitChange();
+        chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
+        build();
+        return;
     }
     currentUnitIdIndexForParamChallenge = -1;
     runningParamChallenge = false;
     Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+}
+
+function getUnitBaseValue(stat, unit) {
+    let baseValue = unit.stats.maxStats[stat] + unit.stats.pots[stat];
+    let coef = 1;
+    if (unit.skills && unit.skills[0] && unit.skills[0][stat + '%']) {
+        coef += unit.skills[0][stat + '%'] / 100;
+    }
+    return baseValue * coef;
 }
 
 // will be called by common.js at page load
