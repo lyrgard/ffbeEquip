@@ -124,13 +124,13 @@ var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
 
 function onBuildClick() {
+    runningParamChallenge = false;
+    currentUnitIdIndexForParamChallenge = -1;
     if (running || runningParamChallenge) {
         stopBuild();
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
         return;
     }
-    runningParamChallenge = false;
-    currentUnitIdIndexForParamChallenge = -1;
     build();
 }
 
@@ -1543,7 +1543,7 @@ function inventoryLoaded() {
     if (!dataLoadedFromHash) {
         $(".equipments select").val("owned");
         onEquipmentsChange();
-        $(".line.paramChallenge").removeClass("hidden");
+        $(".panel.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
 }
@@ -3333,8 +3333,25 @@ function findUnitForParamChallenge() {
     let goal = $("#paramChallengeSelect").val();
     let tokens = goal.split("_");
     let statToSearch = tokens[0].toLocaleLowerCase();
-    let idsToSearch = ids.filter(id => ownedUnits[id].sevenStar || id == "306000804").sort((id1, id2) => {
-        return getUnitBaseValue(statToSearch, units[id2]) - getUnitBaseValue(statToSearch, units[id1]);
+    let unitPool = $('.paramChallenge input[name=paramChallengeUnitChoice]:checked').val();
+    let idsToSearch = ids.filter(id => {
+        if (unitPool == "sevenStar") {
+            return ownedUnits[id].sevenStar || id == "306000804"
+        } else if (unitPool == "potentialSevenStar") {
+            return ownedUnits[id].sevenStar || id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 2);
+        } else {
+            return id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 1);
+        }
+    }).map(id => {
+        if (unitPool == "rainbows" && id.endsWith("5") && !ownedUnits[id].sevenStar && ownedUnits[id].number < 2 && units[id]['6_form']) {
+            return id + "-6"
+        } else {
+            return id;
+        }
+    }).sort((id1, id2) => {
+        var value1 = (id1.endsWith("-6") ? getUnitBaseValue(statToSearch, units[id1.substr(0, id1.length - 2)]['6_form']) : getUnitBaseValue(statToSearch, units[id1]));
+        var value2 = (id2.endsWith("-6") ? getUnitBaseValue(statToSearch, units[id2.substr(0, id2.length - 2)]['6_form']) : getUnitBaseValue(statToSearch, units[id2]));
+        return value2 - value1;
     });
     for (i = currentUnitIdIndexForParamChallenge + 1; i < idsToSearch.length; i++) {
         currentUnitIdIndexForParamChallenge = i;
@@ -3350,12 +3367,15 @@ function findUnitForParamChallenge() {
 }
 
 function getUnitBaseValue(stat, unit) {
-    let baseValue = unit.stats.maxStats[stat] + unit.stats.pots[stat];
-    let coef = 1;
+    if (!unit) {
+        console.log("!!");
+    }
+    let baseStatValue = unit.stats.maxStats[stat] + unit.stats.pots[stat];
+    var coef = 1;
     if (unit.skills && unit.skills[0] && unit.skills[0][stat + '%']) {
         coef += unit.skills[0][stat + '%'] / 100;
     }
-    return baseValue * coef;
+    return baseStatValue * coef;
 }
 
 // will be called by common.js at page load
