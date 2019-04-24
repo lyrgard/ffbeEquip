@@ -3343,7 +3343,7 @@ function findUnitForParamChallenge() {
             return id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 1);
         }
     }).map(id => {
-        if (unitPool == "rainbows" && id.endsWith("5") && !ownedUnits[id].sevenStar && ownedUnits[id].number < 2 && units[id]['6_form']) {
+        if (unitPool == "rainbows" && id.endsWith("5") && !(ownedUnits[id].sevenStar || ownedUnits[id].number >= 2) && units[id]['6_form']) {
             return id + "-6"
         } else {
             return id;
