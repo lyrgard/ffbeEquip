@@ -3725,8 +3725,10 @@ function initWorkers() {
                                 running = false;
                                 progressElement.addClass("finished");
                                 console.timeEnd("optimize");
-                                $("#buildButton").text("Build !"); 
-                                $("body").removeClass("building");
+                                if (!runningParamChallenge) {
+                                    $("#buildButton").text("Build !"); 
+                                    $("body").removeClass("building");
+                                }
                             }
                             
                         }
