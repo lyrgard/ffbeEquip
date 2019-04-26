@@ -8311,6 +8311,78 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
+	"215002005": {
+		"name":"Prince Noctis",
+		"id":"215002005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4976,"mp":248,"atk":206,"def":195,"mag":198,"spr":195},
+			"minStats":{"hp":1642,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"ノクティス王子",
+			"id":"215002005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3828,"mp":191,"atk":159,"def":150,"mag":153,"spr":143},
+				"minStats":{"hp":1263,"mp":63,"atk":52,"def":50,"mag":50,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
+		}
+	},
+	"215002605": {
+		"name":"Gentiana",
+		"id":"215002605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4729,"mp":276,"atk":153,"def":163,"mag":209,"spr":192},
+			"minStats":{"hp":1561,"mp":91,"atk":50,"def":54,"mag":69,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"6_form": {
+			"name":"ゲンティアナ",
+			"id":"215002605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3638,"mp":213,"atk":118,"def":126,"mag":161,"spr":141},
+				"minStats":{"hp":1201,"mp":70,"atk":39,"def":42,"mag":53,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+		}
+	},
+	"215002804": {
+		"name":"Kenny Crow",
+		"id":"215002804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3823,"mp":152,"atk":156,"def":144,"mag":92,"spr":127},
+			"minStats":{"hp":1262,"mp":50,"atk":51,"def":48,"mag":30,"spr":42},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
+	},
 	"253000105": {
 		"name":"Ramza",
 		"jpname":"ラムザ",
@@ -10567,7 +10639,7 @@
 		}
 	},
 	"331000805": {
-		"name":"Maria",
+		"name":"Maria (Xenogears)",
 		"jpname":"マリア",
 		"id":"331000805",
 		"max_rarity":"7",
@@ -10582,7 +10654,7 @@
 		"equip":["dagger","rod","hammer","whip","mace","fist","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["天才二コラの娘","グラビトンパンチ","人機融合ギア・ゼプツェン","ミサイルポッド","ファイアドライブ","マグニートブレス"],
 		"6_form": {
-			"name":"Maria",
+			"name":"Maria (Xenogears)",
 			"jpname":"マリア",
 			"id":"331000805",
 			"sixStarForm":true,
