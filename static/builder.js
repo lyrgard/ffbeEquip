@@ -122,6 +122,11 @@ var secondaryOptimizationFormulaSave;
 var defaultWeaponEnhancement = [];
 var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
+var currentBestParamChallengeBuild = {
+    goal:0,
+    value:0,
+    build:null
+}
 
 function onBuildClick() {
     runningParamChallenge = false;
@@ -3357,13 +3362,24 @@ function findUnitForParamChallenge() {
         currentUnitIdIndexForParamChallenge = i;
         selectUnitDropdownWithoutNotify(idsToSearch[i]);
         onUnitChange();
-        chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
+        chooseCustomFormula(tokens[0]);
+        currentBestParamChallengeBuild.goal = parseInt(tokens[1]);
         build();
         return;
     }
     currentUnitIdIndexForParamChallenge = -1;
     runningParamChallenge = false;
-    Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+    
+    if (currentBestParamChallengeBuild.value >= currentBestParamChallengeBuild.goal) {
+        Modal.showMessage("No more possible builds", "Best build found has been displayed");    
+    } else {
+        Modal.showMessage("Impossible to do the challenge", "Best build found has been displayed");    
+    }
+    selectUnitDropdownWithoutNotify(currentBestParamChallengeBuild.build.unit.id);
+    onUnitChange();
+    chooseCustomFormula(tokens[0]);
+    builds[currentUnitIndex] = currentBestParamChallengeBuild.build;
+    logCurrentBuild();
 }
 
 function getUnitBaseValue(stat, unit) {
@@ -3531,7 +3547,11 @@ function startPage() {
     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
-    $("#paramChallengeSelect").change(function() {currentUnitIdIndexForParamChallenge = -1});
+    $("#paramChallengeSelect").change(function() {
+        currentBestParamChallengeBuild.value = 0;
+        currentBestParamChallengeBuild.build = null;
+        currentUnitIdIndexForParamChallenge = -1
+    });
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
@@ -3604,13 +3624,29 @@ function initWorkers() {
                             builds[currentUnitIndex].fixedItems[0] = builds[currentUnitIndex].fixedItems[1];
                             builds[currentUnitIndex].fixedItems[1] = tmp;
                         }
-                        logCurrentBuild();
-                        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any") {
-                            // any build will do. We found one, stop there
-                            stopBuild();
-                            progressElement.width("100%");
-                            progressElement.text("100%");    
-                            document.title = "100% - FFBE Equip - Builder";
+                        if (runningParamChallenge) {
+                            if (messageData.value.max >= currentBestParamChallengeBuild.goal) {
+                                // any build will do. We found one, stop there
+                                logCurrentBuild();  
+                                stopBuild();
+                                progressElement.width("100%");
+                                progressElement.text("100%");    
+                                document.title = "100% - FFBE Equip - Builder";
+                            } else {
+                                if (messageData.value.max > currentBestParamChallengeBuild.value) {
+                                    currentBestParamChallengeBuild.build = builds[currentUnitIndex];
+                                    currentBestParamChallengeBuild.value = messageData.value.max;
+                                }
+                            }
+                        } else {
+                            logCurrentBuild();
+                            if ((builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any")) {
+                                // any build will do. We found one, stop there
+                                stopBuild();
+                                progressElement.width("100%");
+                                progressElement.text("100%");    
+                                document.title = "100% - FFBE Equip - Builder";
+                            }    
                         }
                     }
                     break;
@@ -3626,14 +3662,15 @@ function initWorkers() {
                         document.title = progress + "% - FFBE Equip - Builder";
                     }
                     if (workerWorkingCount == 0) {
-                        if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            if (runningParamChallenge) {
-                                running = false;
-                                findUnitForParamChallenge();
-                            } else {
+                        if (runningParamChallenge) {
+                            running = false;
+                            findUnitForParamChallenge();
+                        } else {
+                            if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
                                 Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
-                            }
+                            }    
                         }
+                        
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
                             $.notify("Weapons hands were switched to optimize build", "info");
