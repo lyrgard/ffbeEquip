@@ -841,6 +841,7 @@ function importInventory() {
         title: "Import inventory",
         body: '<p class="label label-danger">This feature is a Work in Progress. It will override your inventory on FFBE Equip</p><br/><br/>' +
               '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/><br/>'+
+              '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/asd3ps/ffbe_data_exporter_its_back/?st=jsc28fu2&sh=a61614c2">Instructions to import your data directly from the game</a> (require +login to FFBE with Facebook for now. Google login will probably be supported later)</p><br>' +
               '<p id="importSummary"></p>',
         buttons: [{
             text: "Import",

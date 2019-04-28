@@ -661,6 +661,7 @@ function loadInventory() {
         Modal.show({
             title: "Google Authentication",
             body: '<p>You\'ll be redirected to a google authentication page</p>'+
+                  "<p>This account is only for FFBE Equip to store your data. It will NOT link automatically to your FFBE account. You don't need to switch to Google to log in FFBE.</p>" +
                   '<p class="loginMessageDetail">'+
                     'This site is using '+
                     '<a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> '+
