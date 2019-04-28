@@ -98,6 +98,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
 
 function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
     result = false;
+    var dataArr=[]
     if (criteria.values.length == 0) {
         return true;
     }
@@ -119,7 +120,8 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                     dataToCheck = dataToCheck[unitProperty];
                 }
                 if (Array.isArray(dataToCheck)) {
-                    if (includeAll(dataToCheck, criteria.values)) {
+                    dataArr.push(...dataToCheck)
+                    if (includeAll(dataArr, criteria.values)) {
                         return true;
                     }
                 } else {
