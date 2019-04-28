@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/units.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_zh.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -85,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/GL/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="165" column="202" selection-start-line="165" selection-start-column="202" selection-end-line="165" selection-end-column="202" />
+            <state relative-caret-position="174">
+              <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
             </state>
           </provider>
         </entry>
@@ -125,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>goalValuesCaract</find>
       <find>228750</find>
       <find>getSkill</find>
       <find>onGoalchan</find>
@@ -155,6 +139,7 @@
       <find>Impene</find>
       <find>OAuth</find>
       <find>import</find>
+      <find>importF</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -187,11 +172,11 @@
         <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/builder.html" />
-        <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/inventory.html" />
         <option value="$PROJECT_DIR$/static/inventory.js" />
         <option value="$PROJECT_DIR$/static/units.js" />
+        <option value="$PROJECT_DIR$/static/GL/data.json" />
       </list>
     </option>
   </component>
@@ -224,6 +209,12 @@
               <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
               <item name="ffbeEquip" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ffbeEquip" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="GL" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -293,12 +284,12 @@
       <workItem from="1556124479508" duration="1715000" />
       <workItem from="1556168652662" duration="20000" />
       <workItem from="1556353332579" duration="1520000" />
-      <workItem from="1556480334925" duration="1094000" />
+      <workItem from="1556480334925" duration="1244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50348000" />
+    <option name="totallyTimeSpent" value="50498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -622,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="165" column="202" selection-start-line="165" selection-start-column="202" selection-end-line="165" selection-end-column="202" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -662,15 +646,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/units.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="892" column="14" selection-start-line="892" selection-start-column="14" selection-end-line="892" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/homepage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1350" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.js">
+    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="892" column="14" selection-start-line="892" selection-start-column="14" selection-end-line="892" selection-end-column="14" />
+        <state relative-caret-position="174">
+          <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
         </state>
       </provider>
     </entry>
