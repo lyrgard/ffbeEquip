@@ -1182,10 +1182,15 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 17) {
         result = {"noUse":true};
 
-        // mitigation
+       //Global mitigation
     } else if (rawEffect[2] == 101) {
-        result = {"noUse":true};
-
+        result = {"noUse":true, "globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        //Magical mitigation
+    } else if (rawEffect[2] == 19) {
+        result = {"noUse":true, "magicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        //Physical mitigation
+    } else if (rawEffect[2] == 18) {
+        result = {"noUse":true, "physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
         // recover HP/MP percentage
     } else if (rawEffect[2] == 65) {
         result = {"noUse":true};
@@ -1908,6 +1913,18 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                 if (!effectOut.statsBuff.spr || effectOut.statsBuff.spr < effect.effect.statsBuff.spr) {
                     effectOut.statsBuff.spr = effect.effect.statsBuff.spr;
                 }
+            } else if (effect.effect.globalMitigation){
+                if(!effectOut.globalMitigation){
+                    effectOut.globalMitigation = effect.effect.globalMitigation
+                }
+            } else if (effect.effect.magicalMitigation){
+                if(!effectOut.magicalMitigation){
+                    effectOut.magicalMitigation = effect.effect.magicalMitigation
+                }
+            } else if(effect.effect.physicalMitigation){
+                if(!effectOut.physicalMitigation){
+                    effectOut.physicalMitigation = effect.effect.physicalMitigation
+                } 
             } else if (effect.effect.imbue) {
                 if (!effectOut.imbue) {
                     effectOut.imbue = [];
