@@ -10443,15 +10443,15 @@
 		"name":"Randi",
 		"wikiEntry":"Randi",
 		"id":"304000105",
-		"max_rarity":"7",
+		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":4746,"mp":208,"atk":198,"def":166,"mag":144,"spr":154},
-			"minStats":{"hp":1566,"mp":69,"atk":65,"def":55,"mag":48,"spr":51},
-			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+			"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
+			"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
-		"stats_pattern":4,
+		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
 		"enhancements": [
@@ -10461,32 +10461,7 @@
 		],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":15}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]}
-		],
-		"6_form": {
-			"name":"Randi",
-			"wikiEntry":"Randi",
-			"id":"304000105",
-			"sixStarForm":true,
-			"max_rarity":"7",
-			"min_rarity":"5",
-			"sex":"male",
-			"stats": {
-				"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
-				"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
-				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-			},
-			"stats_pattern":1,
-			"equip":["sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
-			"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"],
-		"enhancements": [
-			{"name":"Auto-Charge","levels":[[{"lbPerTurn":{"min":2,"max":2}}],[{"lbPerTurn":{"min":4,"max":4}}],[{"lbPerTurn":{"min":6,"max":6},"atk%":30}]]},
-			{"name":"Mana's Bond","levels":[[{"atk%":10,"resist":[{"name":"poison","percent":25},{"name":"blind","percent":25},{"name":"sleep","percent":25},{"name":"silence","percent":25},{"name":"paralysis","percent":25},{"name":"confuse","percent":25},{"name":"disease","percent":25},{"name":"petrification","percent":25}]}],[{"atk%":10,"resist":[{"name":"poison","percent":50},{"name":"blind","percent":50},{"name":"sleep","percent":50},{"name":"silence","percent":50},{"name":"paralysis","percent":50},{"name":"confuse","percent":50},{"name":"disease","percent":50},{"name":"petrification","percent":50}]}],[{"atk%":10,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}],"mpRefresh":5}]]},
-			{"name":"Hero of Legend","levels":[[{"equipedConditions":["sword"],"atk%":35,"def%":20,"spr%":20}],[{"equipedConditions":["sword"],"atk%":50,"def%":35,"spr%":35}],[{"singleWieldingOneHanded":{"spr":50,"def":50,"atk":100}},{"equipedConditions":["sword"],"atk%":70,"def%":35,"spr%":35}]]}
-		],
-			"skills": [
-				{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":15}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]}
-			]
-		}
+		]
 	},
 	"304000204": {
 		"name":"Primm",
