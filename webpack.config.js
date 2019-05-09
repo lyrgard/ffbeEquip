@@ -25,6 +25,20 @@ const addFileHash = function (match, p1, p2, offset, string) {
   return match;
 };
 
+const addTimeStamp = function (match, p1, p2, offset, string) {
+  // Get current base path 
+  var current_base_path = path.dirname(this.resource.split('?')[0]);
+  // Get targeted file
+  var target_file_path = path.normalize(path.join(current_base_path, p2));
+  if (fs.existsSync(target_file_path)) {
+    // Add timestamp
+    return match + '?' + Date.now();
+  }
+  console.warn(`File not found for hashing: ${target_file_path}`);
+  return match;
+};
+
+
 module.exports = {
   entry: {
     // Check all html files
@@ -70,7 +84,7 @@ module.exports = {
             loader: StringReplacePlugin.replace({
               replacements: [
                 { pattern: /importScripts *\(('|")([^'|"|?]+)/ig, replacement: addFileHash },
-                { pattern: /new +Worker *\(('|")([^'|"|?]+)/ig, replacement: addFileHash }
+                { pattern: /new +Worker *\(('|")([^'|"|?]+)/ig, replacement: addTimeStamp }
               ]}),
           }
         ],
