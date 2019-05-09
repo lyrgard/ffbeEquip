@@ -386,9 +386,23 @@ class UnitBuild {
             if (server == "JP") {
                 this._tdwCap = { "value": 2};
             } else {
-                this._tdwCap = { "value": 1};
+                if (this.hasDualWieldMastery()) {
+                    this._tdwCap = { "value": 2};
+                } else {
+                    this._tdwCap = { "value": 1};
+                }
             }
             return this._tdwCap.value;
+        }
+    }
+    
+    hasDualWieldMastery() {
+        for (var index in this.unit.skills) {
+            if (!this.unit.skills[index].levelCondition || this.unit.skills[index].levelCondition <= this._level) {
+                if (this.unit.skills[index].improvedDW) {
+                    return true;
+                }
+            }
         }
     }
 }

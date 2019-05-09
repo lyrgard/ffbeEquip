@@ -230,7 +230,7 @@ function treatItem(items, itemId, result, skills) {
         var unit = unitNamesById[unitId];
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
         addAccess(itemOut,"STMR");   
-        if (!releasedUnits[unitId] || unit.maxRarity < 7) {
+        if (!releasedUnits[unitId] || unit.maxRarity < 7 || unitId == "304000105") {
             addAccess(itemOut,"not released yet");
         }
     }
@@ -937,7 +937,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/global/item_item1_common/113/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/global/item_item1_common/117/" + icon ,filePath);
     }
 }
 

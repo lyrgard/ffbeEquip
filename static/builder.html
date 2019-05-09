@@ -131,6 +131,7 @@
         </div>
 
         <div class="container-fluid">
+            <div class="col-xs-12 center quotaWarning hidden"><span class="label label-warning">FFBE Equip is under heavy load, and exceeded its quota to access data, so you may encounter difficulties using it. I hope it will be solved soon.</span></div>
             <button class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('body').toggleClass('expanded'); $('#actionButtonIcon').toggleClass('glyphicon-tasks glyphicon-th-large');">
                 <span id="actionButtonIcon" class="glyphicon glyphicon-tasks"></span>
             </button>
@@ -142,21 +143,6 @@
                             <div class="unitSelectDiv">
                                 <select id="unitsSelect" name="units"></select>
                             </div>
-                        </div>
-                        <div class="line paramChallenge hidden">
-                            <span class="goalLabel">Param challenge</span>
-                            <div class="paramChallengeSelectDiv">
-                                <select id="paramChallengeSelect" name="paramChallenge" class="form-control">
-                                    <option value="HP_25500">HP > 25500</option>
-                                    <option value="MP_1850">MP > 1850</option>
-                                    <option value="ATK_2650">ATK > 2650</option>
-                                    <option value="DEF_1650">DEF > 1650</option>
-                                    <option value="MAG_2000">MAG > 2000</option>
-                                    <option value="SPR_1850">SPR > 1850</option>
-                                </select>
-                            </div>
-                            <button class="btn btn-primary" id="paramChallengeButton">Find a way !</button>
-                            <span>(Assuming unit lvl 120 and fully potted)</span>
                         </div>
                         <div class="line goalLine hidden">
                             <span class="normalGoalChoices goalLabel">Maximize</span>
@@ -263,6 +249,43 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default goal paramChallenge hidden">
+                    <div class="panel-heading">
+                        <div class="line">
+                            <span class="goalLabel">Param challenge</span>
+                            <div class="paramChallengeSelectDiv">
+                                <select id="paramChallengeSelect" name="paramChallenge" class="form-control">
+                                    <option value="HP_25500">HP > 25500</option>
+                                    <option value="MP_1850">MP > 1850</option>
+                                    <option value="ATK_2650">ATK > 2650</option>
+                                    <option value="DEF_1650">DEF > 1650</option>
+                                    <option value="MAG_2000">MAG > 2000</option>
+                                    <option value="SPR_1850">SPR > 1850</option>
+                                    <option value="HP_14000">HP > 14000</option>
+                                    <option value="MP_1100">MP > 1100</option>
+                                    <option value="ATK_1650">ATK > 1650</option>
+                                    <option value="DEF_1000">DEF > 1000</option>
+                                    <option value="MAG_1200">MAG > 1200</option>
+                                    <option value="SPR_1100">SPR > 1100</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="paramChallengeButton">Find a way !</button>
+                            
+                        </div>
+                        <div class="line">
+                            <span class="goalLabel"></span>
+                            <div>
+                                <div><input type="radio" id="sevenStar" name="paramChallengeUnitChoice" value="sevenStar" checked> Only 7★ units</div>
+                                <div><input type="radio" id="potentialSevenStar" name="paramChallengeUnitChoice" value="potentialSevenStar"> 7★ units and potential 7★ units (2 or more 5★ owned)</div>
+                                <div><input type="radio" id="rainbows" name="paramChallengeUnitChoice" value="rainbows"> All rainbow units</div>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <span class="goalLabel"></span>
+                            <span>(Units will be assumed fully leveled, fully potted, and with relevent abilities enhanced)</span>
                         </div>
                     </div>
                 </div>
@@ -548,7 +571,7 @@
                         <a id="monsterListLink" class="buttonLink hidden" onclick="showMonsterList();">Monster list</a>
                     </div>
                     <div class="panel-body">
-                        <div id="negativeBreakImperilWarning"><span class="label label-danger"><span class="glyphicon glyphicon-warning-sign"></span> You entered negative breaks or imperils. Break and imperil usually are positive numbers. You are currently buffing the enemy</span></div>
+                        <div id="negativeBreakImperilWarning" class="hidden"><span class="label label-danger"><span class="glyphicon glyphicon-warning-sign"></span> You entered negative breaks or imperils. Break and imperil usually are positive numbers. You are currently buffing the enemy</span></div>
                         <div id="monsterDefensiveStats">
                             <div class="input-group def">
                                 <span class="input-group-addon">DEF</span>

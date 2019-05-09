@@ -1021,9 +1021,15 @@ i.img.img-slot-hand.leftHand {
     padding: 0 6px;
 }
 
-.line.paramChallenge button {
+.paramChallenge button {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.quotaWarning {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 991px) {

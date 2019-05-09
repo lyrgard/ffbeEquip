@@ -661,6 +661,7 @@ function loadInventory() {
         Modal.show({
             title: "Google Authentication",
             body: '<p>You\'ll be redirected to a google authentication page</p>'+
+                  "<p>This account is only for FFBE Equip to store your data. It will NOT link automatically to your FFBE account. You don't need to switch to Google to log in FFBE.</p>" +
                   '<p class="loginMessageDetail">'+
                     'This site is using '+
                     '<a href="https://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noreferrer">OAuth2 <span class="glyphicon glyphicon-question-sign"/></a> '+
@@ -996,6 +997,7 @@ var containsText = function(text, item) {
     return result;
 };
 
+
 // Add support for search text with quote. Text between quote won't be further splited for search
 function getSearchTokens(text) {
     let tokens = [];
@@ -1006,7 +1008,9 @@ function getSearchTokens(text) {
             text = text.replace(token, '');
         });
     }
-    tokens = tokens.concat(text.split(' '));
+    if (text) {
+        tokens = tokens.concat(text.split(' '));
+    }
     return tokens;
 }
 
@@ -1945,7 +1949,7 @@ function waitingCallbackKeyReady(key) {
 }
 
 $(function() {
-
+    $.notify.defaults({"globalPosition":"bottom right"});
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018

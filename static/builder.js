@@ -122,8 +122,15 @@ var secondaryOptimizationFormulaSave;
 var defaultWeaponEnhancement = [];
 var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
+var currentBestParamChallengeBuild = {
+    goal:0,
+    value:0,
+    build:null
+}
 
 function onBuildClick() {
+    runningParamChallenge = false;
+    currentUnitIdIndexForParamChallenge = -1;
     if (running || runningParamChallenge) {
         stopBuild();
         Modal.showMessage("Build cancelled", "The build calculation has been stopped. The best calculated result is displayed, but it may not be the overall best build.");
@@ -331,6 +338,19 @@ function readGoal(index = currentUnitIndex) {
     goalVariation = $("#goalVariance").val();
     
     $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
+        
+    $(".monster").addClass("hidden");
+    $(".unitAttackElement").addClass("hidden");
+    if (builds[currentUnitIndex].unit && 
+        (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
+            || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
+            || builds[currentUnitIndex].involvedStats.includes("weaponElement"))) {
+        $(".monster").removeClass("hidden");
+        $(".unitAttackElement").removeClass("hidden");
+    }
+    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+        $(".unitAttackElement").removeClass("hidden");
+    }
 }
 
 function readSimpleConditions(formula) {
@@ -1272,18 +1292,6 @@ function updateGoal() {
             }
         }
         manageMulticast(multicastedSkills);
-        
-        $(".monster").addClass("hidden");
-        $(".unitAttackElement").addClass("hidden");
-        if (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
-            || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
-            || builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
-            $(".monster").removeClass("hidden");
-            $(".unitAttackElement").removeClass("hidden");
-        }
-        if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
-            $(".unitAttackElement").removeClass("hidden");
-        }
 
         if (customFormula) {
             $('.normalGoalChoices').addClass("hidden");
@@ -1541,7 +1549,7 @@ function inventoryLoaded() {
     if (!dataLoadedFromHash) {
         $(".equipments select").val("owned");
         onEquipmentsChange();
-        $(".line.paramChallenge").removeClass("hidden");
+        $(".panel.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
 }
@@ -3330,19 +3338,61 @@ function findUnitForParamChallenge() {
     let ids = Object.keys(ownedUnits);
     let goal = $("#paramChallengeSelect").val();
     let tokens = goal.split("_");
-    for (i = currentUnitIdIndexForParamChallenge + 1; i < ids.length; i++) {
-        if (ownedUnits[ids[i]].sevenStar || ids[i] == "306000804") {
-            currentUnitIdIndexForParamChallenge = i;
-            selectUnitDropdownWithoutNotify(ids[i]);
-            onUnitChange();
-            chooseCustomFormula("ANY WITH " + tokens[0] + " > " + tokens[1]);
-            build();
-            return;
+    let statToSearch = tokens[0].toLocaleLowerCase();
+    let unitPool = $('.paramChallenge input[name=paramChallengeUnitChoice]:checked').val();
+    let idsToSearch = ids.filter(id => {
+        if (unitPool == "sevenStar") {
+            return ownedUnits[id].sevenStar || id == "306000804"
+        } else if (unitPool == "potentialSevenStar") {
+            return ownedUnits[id].sevenStar || id == "306000804" || (id.endsWith("5") && ownedUnits[id].number >= 2);
+        } else {
+            return id == "306000804" || (id.endsWith("5") && (ownedUnits[id].number >= 1 || ownedUnits[id].sevenStar));
         }
+    }).map(id => {
+        if (unitPool == "rainbows" && id.endsWith("5") && !(ownedUnits[id].sevenStar || ownedUnits[id].number >= 2) && units[id]['6_form']) {
+            return id + "-6"
+        } else {
+            return id;
+        }
+    }).sort((id1, id2) => {
+        var value1 = (id1.endsWith("-6") ? getUnitBaseValue(statToSearch, units[id1.substr(0, id1.length - 2)]['6_form']) : getUnitBaseValue(statToSearch, units[id1]));
+        var value2 = (id2.endsWith("-6") ? getUnitBaseValue(statToSearch, units[id2.substr(0, id2.length - 2)]['6_form']) : getUnitBaseValue(statToSearch, units[id2]));
+        return value2 - value1;
+    });
+    for (i = currentUnitIdIndexForParamChallenge + 1; i < idsToSearch.length; i++) {
+        currentUnitIdIndexForParamChallenge = i;
+        selectUnitDropdownWithoutNotify(idsToSearch[i]);
+        onUnitChange();
+        chooseCustomFormula(tokens[0]);
+        currentBestParamChallengeBuild.goal = parseInt(tokens[1]);
+        build();
+        return;
     }
     currentUnitIdIndexForParamChallenge = -1;
     runningParamChallenge = false;
-    Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
+    
+    if (currentBestParamChallengeBuild.value >= currentBestParamChallengeBuild.goal) {
+        Modal.showMessage("No more possible builds", "Best build found has been displayed");    
+    } else {
+        Modal.showMessage("Impossible to do the challenge", "Best build found has been displayed");    
+    }
+    selectUnitDropdownWithoutNotify(currentBestParamChallengeBuild.build.unit.id);
+    onUnitChange();
+    chooseCustomFormula(tokens[0]);
+    builds[currentUnitIndex] = currentBestParamChallengeBuild.build;
+    logCurrentBuild();
+}
+
+function getUnitBaseValue(stat, unit) {
+    if (!unit) {
+        console.log("!!");
+    }
+    let baseStatValue = unit.stats.maxStats[stat] + unit.stats.pots[stat];
+    var coef = 1;
+    if (unit.skills && unit.skills[0] && unit.skills[0][stat + '%']) {
+        coef += unit.skills[0][stat + '%'] / 100;
+    }
+    return baseStatValue * coef;
 }
 
 // will be called by common.js at page load
@@ -3402,7 +3452,7 @@ function startPage() {
         $("#monsterListLink").removeClass("hidden");
     });
     $.get(server + "/defaultExclusionList", function(result) {
-        if (Array.isArray(defaultItemsToExclude)) {
+        if (Array.isArray(result)) {
             defaultItemsToExclude = result;
             itemsToExclude = defaultItemsToExclude.slice();
         }
@@ -3498,7 +3548,11 @@ function startPage() {
     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
-    $("#paramChallengeSelect").change(function() {currentUnitIdIndexForParamChallenge = -1});
+    $("#paramChallengeSelect").change(function() {
+        currentBestParamChallengeBuild.value = 0;
+        currentBestParamChallengeBuild.build = null;
+        currentUnitIdIndexForParamChallenge = -1
+    });
 
     $("#unitLevel select").change(function() {
         builds[currentUnitIndex].setLevel($("#unitLevel select").val());
@@ -3571,13 +3625,29 @@ function initWorkers() {
                             builds[currentUnitIndex].fixedItems[0] = builds[currentUnitIndex].fixedItems[1];
                             builds[currentUnitIndex].fixedItems[1] = tmp;
                         }
-                        logCurrentBuild();
-                        if (builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any") {
-                            // any build will do. We found one, stop there
-                            stopBuild();
-                            progressElement.width("100%");
-                            progressElement.text("100%");    
-                            document.title = "100% - FFBE Equip - Builder";
+                        if (runningParamChallenge) {
+                            if (messageData.value.max >= currentBestParamChallengeBuild.goal) {
+                                // any build will do. We found one, stop there
+                                logCurrentBuild();  
+                                stopBuild();
+                                progressElement.width("100%");
+                                progressElement.text("100%");    
+                                document.title = "100% - FFBE Equip - Builder";
+                            } else {
+                                if (messageData.value.max > currentBestParamChallengeBuild.value) {
+                                    currentBestParamChallengeBuild.build = builds[currentUnitIndex];
+                                    currentBestParamChallengeBuild.value = messageData.value.max;
+                                }
+                            }
+                        } else {
+                            logCurrentBuild();
+                            if ((builds[currentUnitIndex].formula.type == "condition" && builds[currentUnitIndex].formula.formula.type == "value" && builds[currentUnitIndex].formula.formula.name == "any")) {
+                                // any build will do. We found one, stop there
+                                stopBuild();
+                                progressElement.width("100%");
+                                progressElement.text("100%");    
+                                document.title = "100% - FFBE Equip - Builder";
+                            }    
                         }
                     }
                     break;
@@ -3593,14 +3663,15 @@ function initWorkers() {
                         document.title = progress + "% - FFBE Equip - Builder";
                     }
                     if (workerWorkingCount == 0) {
-                        if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
-                            if (runningParamChallenge > -1) {
-                                running = false;
-                                findUnitForParamChallenge();
-                            } else {
+                        if (runningParamChallenge) {
+                            running = false;
+                            findUnitForParamChallenge();
+                        } else {
+                            if (!builds[currentUnitIndex].buildValue  && builds[currentUnitIndex].formula.condition) {
                                 Modal.showMessage("Build error", "The condition set in the goal are impossible to meet.");
-                            }
+                            }    
                         }
+                        
                         if (initialPinnedWeapons[0] && (builds[currentUnitIndex].fixedItems[0] && builds[currentUnitIndex].fixedItems[0].id != initialPinnedWeapons[0].id || !builds[currentUnitIndex].fixedItems[0]) ||
                            initialPinnedWeapons[1] && (builds[currentUnitIndex].fixedItems[1] && builds[currentUnitIndex].fixedItems[1].id != initialPinnedWeapons[1].id || ! builds[currentUnitIndex].fixedItems[1])) {
                             $.notify("Weapons hands were switched to optimize build", "info");
@@ -3692,8 +3763,10 @@ function initWorkers() {
                                 running = false;
                                 progressElement.addClass("finished");
                                 console.timeEnd("optimize");
-                                $("#buildButton").text("Build !"); 
-                                $("body").removeClass("building");
+                                if (!runningParamChallenge) {
+                                    $("#buildButton").text("Build !"); 
+                                    $("body").removeClass("building");
+                                }
                             }
                             
                         }
