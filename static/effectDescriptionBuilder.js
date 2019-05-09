@@ -107,7 +107,12 @@ function getEquipedCondition(effect) {
             } else if (elementList.includes(condition)) {
                 return '<i class="img img-equipment-sword miniIcon"></i><i class="img img-element-' + condition + ' withMiniIcon"></i>';
             } else {
-                return '<img src="img/items/' + dataById[condition].icon + '" class="icon">' + dataById[condition].name;
+                if (Array.isArray(condition)) {
+                    return condition.map(itemId => '<img src="img/items/' + dataById[itemId].icon + '" class="icon">' + dataById[itemId].name).join(' and ');
+                } else {
+                    return '<img src="img/items/' + dataById[condition].icon + '" class="icon">' + dataById[condition].name;
+                }
+
             }
         }).join(', ');
         return text;
