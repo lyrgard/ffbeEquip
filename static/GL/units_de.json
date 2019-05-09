@@ -3500,7 +3500,7 @@
 	},
 	"100020005": {
 		"name":"Akstar",
-		"wikiEntry":"アクスター",
+		"wikiEntry":"Akstar",
 		"id":"100020005",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -3514,7 +3514,7 @@
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
 		"6_form": {
 			"name":"Akstar",
-			"wikiEntry":"アクスター",
+			"wikiEntry":"Akstar",
 			"id":"100020005",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -3530,8 +3530,8 @@
 		}
 	},
 	"100020104": {
-		"name":"Gravie",
-		"wikiEntry":"グレイビー",
+		"name":"Gravey",
+		"wikiEntry":"Gravey",
 		"id":"100020104",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -3546,7 +3546,7 @@
 	},
 	"100020204": {
 		"name":"Tomoe",
-		"wikiEntry":"トモエ",
+		"wikiEntry":"Tomoe",
 		"id":"100020204",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -3561,7 +3561,7 @@
 	},
 	"100020303": {
 		"name":"Majora",
-		"wikiEntry":"マジョラ",
+		"wikiEntry":"Majora",
 		"id":"100020303",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -10374,6 +10374,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"401007605": {
+		"name":"Beta-Stern-Zeno",
+		"wikiEntry":"Zeno_of the Beta Star",
+		"id":"401007605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4985,"mp":242,"atk":206,"def":198,"mag":164,"spr":193},
+			"minStats":{"hp":1645,"mp":80,"atk":68,"def":65,"mag":54,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Beta-Stern-Zeno",
+			"wikiEntry":"Zeno_of the Beta Star",
+			"id":"401007605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3835,"mp":186,"atk":159,"def":153,"mag":126,"spr":148},
+				"minStats":{"hp":1266,"mp":61,"atk":52,"def":50,"mag":42,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	}
 }

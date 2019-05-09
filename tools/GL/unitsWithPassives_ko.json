@@ -4731,8 +4731,8 @@
 		}
 	},
 	"100020005": {
-		"name":"Akstar",
-		"wikiEntry":"アクスター",
+		"name":"엑스타",
+		"wikiEntry":"Akstar",
 		"id":"100020005",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4754,8 +4754,8 @@
 			{"atk%":30, "def%":30, "equipedConditions":["katana"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Akstar",
-			"wikiEntry":"アクスター",
+			"name":"엑스타",
+			"wikiEntry":"Akstar",
 			"id":"100020005",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4776,8 +4776,8 @@
 		}
 	},
 	"100020104": {
-		"name":"Gravie",
-		"wikiEntry":"グレイビー",
+		"name":"그레이비",
+		"wikiEntry":"Gravey",
 		"id":"100020104",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4795,8 +4795,8 @@
 		]
 	},
 	"100020204": {
-		"name":"Tomoe",
-		"wikiEntry":"トモエ",
+		"name":"토모에",
+		"wikiEntry":"Tomoe",
 		"id":"100020204",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4814,8 +4814,8 @@
 		]
 	},
 	"100020303": {
-		"name":"Majora",
-		"wikiEntry":"マジョラ",
+		"name":"마조라",
+		"wikiEntry":"Majora",
 		"id":"100020303",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -14169,6 +14169,51 @@
 				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
 				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
 				{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
+			]
+		}
+	},
+	"401007605": {
+		"name":"이성투사 제노",
+		"wikiEntry":"Zeno_of the Beta Star",
+		"id":"401007605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4985,"mp":242,"atk":206,"def":198,"mag":164,"spr":193},
+			"minStats":{"hp":1645,"mp":80,"atk":68,"def":65,"mag":54,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":30, "atk%":50, "def%":50, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "special":["dualWield"]},
+			{"atk%":50, "equipedConditions":["katana"]},
+			{"atk%":30, "equipedConditions":["katana"]},
+			{"dualWielding":{"atk":100}, "equipedConditions":["1100000271"]},
+			{"lbFillRate":50, "levelCondition":110},
+			{"atk%":30, "def%":30, "equipedConditions":["katana"], "levelCondition":110},
+			{"spr%":20, "levelCondition":115}
+		],
+		"6_form": {
+			"name":"이성투사 제노",
+			"wikiEntry":"Zeno_of the Beta Star",
+			"id":"401007605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3835,"mp":186,"atk":159,"def":153,"mag":126,"spr":148},
+				"minStats":{"hp":1266,"mp":61,"atk":52,"def":50,"mag":42,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":50, "def%":50, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "special":["dualWield"]},
+				{"atk%":50, "equipedConditions":["katana"]},
+				{"atk%":30, "equipedConditions":["katana"]}
 			]
 		}
 	}

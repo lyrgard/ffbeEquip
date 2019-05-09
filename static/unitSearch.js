@@ -51,8 +51,8 @@ var update = function() {
     $("#results").unmark({
         done: function() {
             if (searchText && searchText.length != 0) {
-                searchText.split(" ").forEach(function (token) {
-                    $("#results").mark(token);
+                getSearchTokens(searchText).forEach(function (token) {
+                    $("#results").mark(token, {"separateWordSearch": false});
                 });
             }
         }
@@ -68,17 +68,17 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
             console.log("!!");
         }
         if (releasedUnits[unit.id]) {
-            if (searchText.length == 0 || units[unit.id].name.toLowerCase().indexOf(searchText) >= 0 ) {
-                if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
-                    if (types.length == 0 || includeAll(unit.equip, types)) {
-                        if (matchesCriteria(elements, unit, "elementalResist")) {
-                            if (matchesCriteria(ailments, unit, "ailmentResist")) {
-                                if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
-                                    if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                        if (matchesCriteria(imperils, unit, "imperil")) {
-                                            if (matchesCriteria(breaks, unit, "break")) {
-                                                if (matchesCriteria(imbues, unit, "imbue")) {
-                                                    if (matchesCriteria(tankAbilities, unit, null, true)) {
+            if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
+                if (types.length == 0 || includeAll(unit.equip, types)) {
+                    if (matchesCriteria(elements, unit, "elementalResist")) {
+                        if (matchesCriteria(ailments, unit, "ailmentResist")) {
+                            if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
+                                if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
+                                    if (matchesCriteria(imperils, unit, "imperil")) {
+                                        if (matchesCriteria(breaks, unit, "break")) {
+                                            if (matchesCriteria(imbues, unit, "imbue")) {
+                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
                                                         result.push({"searchData": unit, "unit": units[unit.id]});
                                                     }
                                                 }
@@ -426,7 +426,7 @@ function displayUnitsAsync(units, start, div) {
         html += '</div>';
         
         html += '<div class="lb">';
-            if (mustDisplaySkill(unitData.unit.lb.maxEffects, "lb")) {
+            if (mustDisplaySkill(unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name)) {
                 html += getLbHtml(unitData.unit.lb);             
             }
         html += '</div>';
@@ -434,7 +434,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="passives">';
             for (var i = 0, len = unitData.unit.passives.length; i < len; i++) {
                 var passive = unitData.unit.passives[i];
-                if (mustDisplaySkill(passive.effects, "passives")) {
+                if (mustDisplaySkill(passive.effects, "passives", passive.name)) {
                     html += getSkillHtml(passive);             
                 }
             }
@@ -443,7 +443,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="actives">';
             for (var i = 0, len = unitData.unit.actives.length; i < len; i++) {
                 var active = unitData.unit.actives[i];
-                if (mustDisplaySkill(active.effects, "actives")) {
+                if (mustDisplaySkill(active.effects, "actives", active.name)) {
                     html += getSkillHtml(active);         
                 }
             }
@@ -452,7 +452,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="magics">';
             for (var i = 0, len = unitData.unit.magics.length; i < len; i++) {
                 var magic = unitData.unit.magics[i];
-                if (mustDisplaySkill(magic.effects, "actives")) {
+                if (mustDisplaySkill(magic.effects, "actives", magic.name)) {
                     html += getSkillHtml(magic);   
                 }
             }
@@ -535,10 +535,16 @@ function getLbHtml(lb) {
     return html;
 }
 
-function mustDisplaySkill(effects, type) {
+function mustDisplaySkill(effects, type, skillName) {
     var mustBeDisplayed = false;
+    if (skillName && matchesOneSearchToken(searchText, skillName)) {
+        return true;
+    }
     for (var j = effects.length; j--;) {
         var effect = effects[j];
+        if (effect.desc && matchesOneSearchToken(searchText, effect.desc)) {
+            return true;
+        }
         if (effect.effect) {
             if (types.length > 0 && effect.effect.equipedConditions && matches(effect.effect.equipedConditions, types)) {
                 return true;
@@ -599,6 +605,16 @@ function mustDisplaySkill(effects, type) {
             }
         }
     }
+}
+
+function matchesOneSearchToken(searchText, text) {
+    let tokens = getSearchTokens(searchText);
+    for (let i = 0; i < tokens.length; i++) {
+        if (text.match(new RegExp(escapeRegExp(tokens[i]),'i'))) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function isTargetToBeDispalyed(criteria, effect, type) {
@@ -685,6 +701,50 @@ function initFilters() {
     
     select("killersSkillTypes", physicalKillers.skillTypes);
     select("killersTargetAreaTypes", physicalKillers.targetAreaTypes);
+}
+
+function prepareUnitSearch() {
+    for(const [id, unit] of Object.entries(units)) {
+        let textToSearch = unit.name.toLowerCase();
+        for (i = 0; i < unit.magics.length; i++) {
+            let magic = unit.magics[i];
+            textToSearch += "|" + magic.name.toLowerCase();
+            for (j = 0; j < magic.effects.length; j++) {
+                let effect = magic.effects[j];
+                if(effect.desc != null) {
+                    textToSearch += "|" + effect.desc.toLowerCase();
+                }
+            }
+        }
+        for (i = 0; i < unit.actives.length; i++) {
+            let active = unit.actives[i];
+            textToSearch += "|" + active.name.toLowerCase();
+            for (j = 0; j < active.effects.length; j++) {
+                let effect = active.effects[j];
+                if(effect.desc != null) {
+                    textToSearch += "|" + effect.desc.toLowerCase();
+                }
+            }
+        }
+        for (i = 0; i < unit.passives.length; i++) {
+            let passive = unit.passives[i];
+            textToSearch += "|" + passive.name.toLowerCase();
+            for (j = 0; j < passive.effects.length; j++) {
+                let effect = passive.effects[j];
+                if(effect.desc != null) {
+                    textToSearch += "|" + effect.desc.toLowerCase();
+                }
+            }
+        }
+        textToSearch += "|" + unit.lb.name.toLowerCase();
+        for (i = 0; i < unit.lb.maxEffects.length; i++) {
+            let effect = unit.lb.maxEffects[i];
+            if(effect.desc != null) {
+                textToSearch += "|" + effect.desc.toLowerCase();
+            }
+        }
+        unit.searchString = textToSearch;
+    }
 }
 
 function updateHash() {
@@ -778,6 +838,7 @@ function startPage() {
         result.forEach(e => dataById[e.id] = e);
         getStaticData("unitsWithSkill", false, function(result) {
             units = result;
+            prepareUnitSearch();
             getStaticData("unitSearch", false, function(result) {    
                 unitSearch = result;
                 getStaticData("releasedUnits", false, function(result) {    

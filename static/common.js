@@ -997,6 +997,7 @@ var containsText = function(text, item) {
     return result;
 };
 
+
 // Add support for search text with quote. Text between quote won't be further splited for search
 function getSearchTokens(text) {
     let tokens = [];
@@ -1007,7 +1008,9 @@ function getSearchTokens(text) {
             text = text.replace(token, '');
         });
     }
-    tokens = tokens.concat(text.split(' '));
+    if (text) {
+        tokens = tokens.concat(text.split(' '));
+    }
     return tokens;
 }
 
@@ -1946,7 +1949,7 @@ function waitingCallbackKeyReady(key) {
 }
 
 $(function() {
-
+    $.notify.defaults({"globalPosition":"bottom right"});
     try {
         // Bust the whole localStorage in case of old array used in order to get a clean state
         // @TODO: can be removed after october 2018
