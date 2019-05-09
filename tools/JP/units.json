@@ -3780,7 +3780,7 @@
 		}
 	},
 	"100020104": {
-		"name":"Gravie",
+		"name":"Gravey",
 		"jpname":"グレイビー",
 		"id":"100020104",
 		"max_rarity":"6",
@@ -8340,6 +8340,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
+		}
+	},
+	"215002105": {
+		"name":"Lunafreya",
+		"jpname":"ルナフレーナ",
+		"id":"215002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4667,"mp":278,"atk":127,"def":158,"mag":198,"spr":204},
+			"minStats":{"hp":1540,"mp":92,"atk":42,"def":52,"mag":65,"spr":67},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Lunafreya",
+			"jpname":"ルナフレーナ",
+			"id":"215002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3590,"mp":214,"atk":98,"def":122,"mag":153,"spr":150},
+				"minStats":{"hp":1185,"mp":71,"atk":32,"def":40,"mag":50,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"]
 		}
 	},
 	"215002605": {
