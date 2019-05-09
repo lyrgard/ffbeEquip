@@ -18,6 +18,8 @@ var physicalKillers;
 var magicalKillers;
 var tankAbilities;
 
+var fullyDisplayedUnits = [];
+
 var defaultFilter = {
     "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
@@ -370,6 +372,15 @@ var displayUnits = function(units) {
     
 };
 
+function toogleAllSkillDisplay(unitId) {
+    if (fullyDisplayedUnits.includes(unitId)) {
+        fullyDisplayedUnits.splice(fullyDisplayedUnits.indexOf(unitId), 1);
+    } else {
+        fullyDisplayedUnits.push(unitId);
+    }
+    update();
+}
+
 function displayUnitsAsync(units, start, div) {
     var html = '';
     var end = Math.min(start + 20, units.length);
@@ -424,9 +435,16 @@ function displayUnitsAsync(units, start, div) {
             }
         }
         html += '</div>';
+        html += '<span class="showAllSkills glyphicon '
+        if (fullyDisplayedUnits.includes(unitData.unit.id)) {
+            html += "glyphicon-chevron-up";
+        } else {
+            html += "glyphicon-chevron-down";
+        }
+        html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
         
         html += '<div class="lb">';
-            if (mustDisplaySkill(unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name)) {
+            if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name)) {
                 html += getLbHtml(unitData.unit.lb);             
             }
         html += '</div>';
@@ -434,7 +452,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="passives">';
             for (var i = 0, len = unitData.unit.passives.length; i < len; i++) {
                 var passive = unitData.unit.passives[i];
-                if (mustDisplaySkill(passive.effects, "passives", passive.name)) {
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(passive.effects, "passives", passive.name)) {
                     html += getSkillHtml(passive);             
                 }
             }
@@ -443,7 +461,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="actives">';
             for (var i = 0, len = unitData.unit.actives.length; i < len; i++) {
                 var active = unitData.unit.actives[i];
-                if (mustDisplaySkill(active.effects, "actives", active.name)) {
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(active.effects, "actives", active.name)) {
                     html += getSkillHtml(active);         
                 }
             }
@@ -452,7 +470,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="magics">';
             for (var i = 0, len = unitData.unit.magics.length; i < len; i++) {
                 var magic = unitData.unit.magics[i];
-                if (mustDisplaySkill(magic.effects, "actives", magic.name)) {
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(magic.effects, "actives", magic.name)) {
                     html += getSkillHtml(magic);   
                 }
             }
@@ -472,11 +490,15 @@ function displayUnitsAsync(units, start, div) {
 function getSkillHtml(skill) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/items/' + skill.icon + '"/></div>'
-    html += '<div class="nameAndEffects"><span class="name">' + skill.name;
+    html += '<div class="nameAndEffects"><div class="nameLine"><div><span class="name">' + skill.name;
     if (skill.equipedConditions) {
         html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
     }
-    html += '</span>';
+    html += '</span></div>'
+    if (skill.rarity && skill.level) {
+        html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
+    }
+    html += '</div>';
     for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
         if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
             html += '<span class="effect">Randomly use :</span>';

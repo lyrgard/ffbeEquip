@@ -3,6 +3,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .unitImage {
@@ -84,6 +85,7 @@
     flex-direction: column;
     font-size: 90%;
     padding-top: 5px;
+    width: 100%;
 }
 
 .nameAndEffects .name {
@@ -119,4 +121,32 @@
 .unitDescriptionLines .killers i.img {
     width: 33px;
     height: 33px;
+}
+
+.showAllSkills {
+    position: absolute;
+    left: 28px;
+    top: 44px;
+    cursor: pointer;
+}
+
+.nameLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+.unit .rarity {
+    margin-right: 5px;
+}
+
+.unitDescriptionLines {
+    width: 100%;
+}
+
+.passives {
+    width: 100%;
+}
+
+.actives {
+    width: 100%;
 }
