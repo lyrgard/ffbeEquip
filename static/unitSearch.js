@@ -9,6 +9,8 @@ var dataById;
 
 var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities"];
 
+var baseRarity;
+var maxRarity;
 var imperils;
 var breaks;
 var elements;
@@ -21,6 +23,8 @@ var tankAbilities;
 var fullyDisplayedUnits = [];
 
 var defaultFilter = {
+    "baseRarity": [],
+    "maxRarity": [],
     "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
@@ -38,7 +42,7 @@ var update = function() {
 	updateFilterHeadersDisplay();
     updateHash();
     
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0) {
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0) {
 		// Empty filters => no results
         $("#results").html("");
         $("#results").addClass("notSorted");
@@ -47,7 +51,7 @@ var update = function() {
     }
     
 	// filter, sort and display the results
-    displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers, breaks)));
+    displayUnits(sortUnits(filterUnits(unitSearch, onlyShowOwnedUnits, searchText, types, elements, ailments, physicalKillers, magicalKillers, breaks, baseRarity, maxRarity)));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -63,26 +67,27 @@ var update = function() {
 }
 
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], breaks = []) {
+var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = "", types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], breaks = [], baseRarity = [], maxRarity = []) {
     var result = [];
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
-        if (unit.id == "212000505") {
-            console.log("!!");
-        }
         if (releasedUnits[unit.id]) {
             if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
-                if (types.length == 0 || includeAll(unit.equip, types)) {
-                    if (matchesCriteria(elements, unit, "elementalResist")) {
-                        if (matchesCriteria(ailments, unit, "ailmentResist")) {
-                            if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
-                                if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                    if (matchesCriteria(imperils, unit, "imperil")) {
-                                        if (matchesCriteria(breaks, unit, "break")) {
-                                            if (matchesCriteria(imbues, unit, "imbue")) {
-                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                        result.push({"searchData": unit, "unit": units[unit.id]});
+                if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
+                    if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
+                        if (types.length == 0 || includeAll(unit.equip, types)) {
+                            if (matchesCriteria(elements, unit, "elementalResist")) {
+                                if (matchesCriteria(ailments, unit, "ailmentResist")) {
+                                    if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
+                                        if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
+                                            if (matchesCriteria(imperils, unit, "imperil")) {
+                                                if (matchesCriteria(breaks, unit, "break")) {
+                                                    if (matchesCriteria(imbues, unit, "imbue")) {
+                                                        if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                            if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                result.push({"searchData": unit, "unit": units[unit.id]});
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
@@ -282,6 +287,9 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
 var readFilterValues = function() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
     
+    baseRarity = getSelectedValuesFor("baseRarity").map(parseInt);
+    maxRarity = getSelectedValuesFor("maxRarity").map(parseInt);
+    
     types = getSelectedValuesFor("types");
     
     elements.values = getSelectedValuesFor("elements");
@@ -320,6 +328,7 @@ var readFilterValues = function() {
 
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
 var updateFilterHeadersDisplay = function() {
+    $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0); 
     $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
     $(".elements .unselectAll").toggleClass("hidden", elements.length == 0); 
@@ -707,6 +716,14 @@ function initFilters() {
     if (state.searchText) {
         $("#searchText").val(state.searchText);
     }
+    if (state.baseRarity) {
+        baseRarity = state.baseRarity;
+        select("baseRarity", baseRarity.map(r => r.toString()));
+    }
+    if (state.maxRarity) {
+        maxRarity = state.maxRarity;
+        select("maxRarity", maxRarity.map(r => r.toString()));
+    }
     if (state.equipmentTypes) {
         types = state.equipmentTypes;
         select("types", types);
@@ -728,9 +745,6 @@ function initFilters() {
 
 function prepareUnitSearch() {
     for(const [id, unit] of Object.entries(units)) {
-        if (id == "100006704") {
-            console.log("!!");
-        }
         let textToSearch = unit.name.toLowerCase();
         for (i = 0; i < unit.magics.length; i++) {
             textToSearch += "|" + getSkillSearchText(unit.magics[i]);
@@ -790,6 +804,12 @@ function updateHash() {
     if (types && types.length > 0) {
         state.equipmentTypes = types;
     }
+    if (baseRarity.length > 0) {
+        state.baseRarity = baseRarity;
+    }
+    if (maxRarity.length > 0) {
+        state.maxRarity = maxRarity;
+    }
     
     window.location.hash = '#' + window.btoa(JSON.stringify(state));
 }
@@ -810,6 +830,10 @@ function startPage() {
     
     // Populates the various filters
 	
+    // Rarity
+    addTextChoicesTo("maxRarity",'checkbox',{'2★':'2', '3★':'3','4★':'4','5★':'5', '6★':'6', '7★':'7'});
+    addTextChoicesTo("baseRarity",'checkbox',{'1★':'1','2★':'2', '3★':'3','4★':'4','5★':'5'});
+    
 	// Item types
 	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
     
@@ -850,6 +874,7 @@ function startPage() {
     // Tank abilities
     addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover"]);
     addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
+    
     
     $("#results").addClass(server);
     
