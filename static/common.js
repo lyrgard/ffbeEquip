@@ -992,10 +992,14 @@ var containsText = function(text, item) {
 
     var result = true;
     getSearchTokens(text).forEach(function (token) {
-        result = result && item.searchString.match(new RegExp(escapeRegExp(token),'i'));
+        result = result && matchesToken(token, item.searchString);
     });
     return result;
 };
+
+function matchesToken(token, text) {
+    return text.match(new RegExp(escapeRegExp(token).replace('\\*', '\\d+(-\\d+)?'),'i'))
+}
 
 
 // Add support for search text with quote. Text between quote won't be further splited for search
@@ -1011,7 +1015,7 @@ function getSearchTokens(text) {
     if (text) {
         tokens = tokens.concat(text.split(' '));
     }
-    return tokens;
+    return tokens.filter(token => token.trim() != '');
 }
 
 

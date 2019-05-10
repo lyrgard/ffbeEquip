@@ -131,7 +131,7 @@
                     <div class="panel-heading">
                         <div class="input-group">
                             <span class="input-group-addon">Search</span>
-                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in unit names, skill names, skill effects, ...">
+                            <input type="text" class="form-control" id="searchText" placeholder='Enter search text. eg : "Increase LB Gauge by * to all allies"'>
                         </div>
 					</div>
                 </div>
@@ -144,6 +144,17 @@
 
                 <div id="advancedSearch" class="collapse">
 
+                    <div class="panel panel-default rarity">
+                        <div class="panel-heading">
+                            <span>Rarity</span>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('maxRarity');unselectAll('baseRarity');">unselect all</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="baseRarity"><span class="subTitle">Base :</span><div class="btn-group types choice" data-toggle="buttons" id="baseRarity"></div></div>
+                            <div class="maxRarity"><span class="subTitle">Max :</span><div class="btn-group types choice" data-toggle="buttons" id="maxRarity"></div></div>
+                        </div>
+                    </div>
+                    
                     <div class="panel panel-default types">
                         <div class="panel-heading">
                             <span>Equipment types</span>

@@ -1752,6 +1752,9 @@ function formatForSearch(units) {
             var unitOut = {"passives":{}, "actives":{"SELF":{}, "ST":{},"AOE":{}}, "lb":{"SELF":{}, "ST":{},"AOE":{}}, "counter":{"SELF":{}, "ST":{},"AOE":{}}};
             unitOut.equip = unit.equip;
             unitOut.id = unit.id;
+            unitOut.minRarity = unit.min_rarity;
+            unitOut.maxRarity = unit.max_rarity;
+            
             
             if (unit.innates.resist) {
                 for (var resistIndex = unit.innates.resist.length; resistIndex--;) {
