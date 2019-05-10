@@ -54,7 +54,8 @@ var update = function() {
         done: function() {
             if (searchText && searchText.length != 0) {
                 getSearchTokens(searchText).forEach(function (token) {
-                    $("#results").mark(token, {"separateWordSearch": false});
+                    
+                    $("#results").mark(token, {"separateWordSearch": false, "wildcards":"enabled"});
                 });
             }
         }
@@ -510,7 +511,7 @@ function getSkillHtml(skill) {
                 html += '</div>';
             }
         } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
-            html += '<span class="effect">' + skill.effects[j].effect.percent + '% of chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
+            html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
             html += '<div class="subSkill">';
             html += getSkillHtml(skill.effects[j].effect.counterSkill);
             html += '</div>';
@@ -632,7 +633,7 @@ function mustDisplaySkill(effects, type, skillName) {
 function matchesOneSearchToken(searchText, text) {
     let tokens = getSearchTokens(searchText);
     for (let i = 0; i < tokens.length; i++) {
-        if (text.match(new RegExp(escapeRegExp(tokens[i]),'i'))) {
+        if (matchesToken(tokens[i], text)) {
             return true;
         }
     }
@@ -727,36 +728,18 @@ function initFilters() {
 
 function prepareUnitSearch() {
     for(const [id, unit] of Object.entries(units)) {
+        if (id == "100006704") {
+            console.log("!!");
+        }
         let textToSearch = unit.name.toLowerCase();
         for (i = 0; i < unit.magics.length; i++) {
-            let magic = unit.magics[i];
-            textToSearch += "|" + magic.name.toLowerCase();
-            for (j = 0; j < magic.effects.length; j++) {
-                let effect = magic.effects[j];
-                if(effect.desc != null) {
-                    textToSearch += "|" + effect.desc.toLowerCase();
-                }
-            }
+            textToSearch += "|" + getSkillSearchText(unit.magics[i]);
         }
         for (i = 0; i < unit.actives.length; i++) {
-            let active = unit.actives[i];
-            textToSearch += "|" + active.name.toLowerCase();
-            for (j = 0; j < active.effects.length; j++) {
-                let effect = active.effects[j];
-                if(effect.desc != null) {
-                    textToSearch += "|" + effect.desc.toLowerCase();
-                }
-            }
+            textToSearch += "|" + getSkillSearchText(unit.actives[i]);
         }
         for (i = 0; i < unit.passives.length; i++) {
-            let passive = unit.passives[i];
-            textToSearch += "|" + passive.name.toLowerCase();
-            for (j = 0; j < passive.effects.length; j++) {
-                let effect = passive.effects[j];
-                if(effect.desc != null) {
-                    textToSearch += "|" + effect.desc.toLowerCase();
-                }
-            }
+            textToSearch += "|" + getSkillSearchText(unit.passives[i]);
         }
         textToSearch += "|" + unit.lb.name.toLowerCase();
         for (i = 0; i < unit.lb.maxEffects.length; i++) {
@@ -767,6 +750,29 @@ function prepareUnitSearch() {
         }
         unit.searchString = textToSearch;
     }
+}
+
+function getSkillSearchText(skill) {
+    var textToSearch = skill.name.toLowerCase();
+    for (let j = 0; j < skill.effects.length; j++) {
+        let effect = skill.effects[j];
+        if(effect.desc != null) {
+            textToSearch += "|" + effect.desc.toLowerCase();
+        }
+        if (effect.effect && effect.effect.cooldownSkill) {
+            textToSearch += '|Available turn ' + effect.effect.startTurn + ' (' + effect.effect.cooldownTurns + ' turns cooldown)';
+            textToSearch += '|' + getSkillSearchText(effect.effect.cooldownSkill);
+        }
+        if (effect.effect && effect.effect.counterSkill) {
+            textToSearch += '|' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :';
+            textToSearch += '|' + getSkillSearchText(effect.effect.counterSkill);
+        }
+        if (effect.effect && effect.effect.autoCastedSkill) {
+            textToSearch += '|Cast at the start of battle or when revived :';
+            textToSearch += '|' + getSkillSearchText(effect.effect.autoCastedSkill);
+        }
+    }
+    return textToSearch;
 }
 
 function updateHash() {
