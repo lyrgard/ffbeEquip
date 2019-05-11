@@ -76,9 +76,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
         if (releasedUnits[unit.id]) {
-
             if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
-
                 if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
                     if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
                         if (types.length == 0 || includeAll(unit.equip, types)) {
@@ -90,14 +88,13 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                                 if (matchesCriteria(breaks, unit, "break")) {
                                                     if (matchesCriteria(imbues, unit, "imbue")) {
                                                         if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                          if(matchesCriteria(mitigation, unit, null, true)) {
-                                                            if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                result.push({"searchData": unit, "unit": units[unit.id]});
+                                                            if(matchesCriteria(mitigation, unit, null, true)) {
+                                                                if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                    result.push({"searchData": unit, "unit": units[unit.id]});
+                                                                }
                                                             }
-                                          }
                                                         }
                                                     }
-                                                  }
                                                 }
                                             }
                                         }
@@ -111,7 +108,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
         }
     }
     return result;
-};
+}
 
 function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
     result = false;
