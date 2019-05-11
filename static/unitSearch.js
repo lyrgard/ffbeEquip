@@ -7,7 +7,7 @@ var unitSearch = [];
 var releasedUnits;
 var dataById;
 
-var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities"];
+var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities", "mitigation"];
 
 var baseRarity;
 var maxRarity;
@@ -19,6 +19,7 @@ var imbues;
 var physicalKillers;
 var magicalKillers;
 var tankAbilities;
+var mitigation;
 
 var fullyDisplayedUnits = [];
 
@@ -33,6 +34,7 @@ var defaultFilter = {
     "physicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "magicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
     "tankAbilities": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
+    "mitigation":{values:[], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]}
 };
 
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
@@ -42,7 +44,9 @@ var update = function() {
 	updateFilterHeadersDisplay();
     updateHash();
     
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0) {
+
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0) {
+
 		// Empty filters => no results
         $("#results").html("");
         $("#results").addClass("notSorted");
@@ -84,8 +88,10 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                                                 if (matchesCriteria(breaks, unit, "break")) {
                                                     if (matchesCriteria(imbues, unit, "imbue")) {
                                                         if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                            if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                result.push({"searchData": unit, "unit": units[unit.id]});
+                                                            if(matchesCriteria(mitigation, unit, null, true)) {
+                                                                if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                    result.push({"searchData": unit, "unit": units[unit.id]});
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -102,7 +108,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
         }
     }
     return result;
-};
+}
 
 function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
     result = false;
@@ -236,7 +242,19 @@ function sortUnits(units) {
                 return 1
             }
         }
-        
+        if (mitigation.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = mitigation.values.length; i--;) {
+                value1 += getValue(unit1.searchData, null, mitigation, i);
+                value2 += getValue(unit2.searchData, null, mitigation, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
         
         return unit1.unit.name.localeCompare(unit2.unit.name);
     });
@@ -323,6 +341,9 @@ var readFilterValues = function() {
     tankAbilities.values = getSelectedValuesFor("tankAbilities");
     tankAbilities.skillTypes = getSelectedValuesFor("tankAbilitiesSkillTypes");
     
+    mitigation.values = getSelectedValuesFor("mitigation")
+    mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
+    
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
@@ -335,7 +356,8 @@ var updateFilterHeadersDisplay = function() {
     $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
     $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0); 
     $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0); 
-    $(".tankAbilities .unselectAll").toggleClass("hidden", tankAbilities.length == 0); 
+    $(".tankAbilities .unselectAll").toggleClass("hidden", tankAbilities.length == 0);
+    $(".mitigation .unselectAll").toggleClass("hidden", mitigation.length == 0);
     
     $(".elements .filters").toggleClass("hidden", elements.values.length == 0);
     $(".ailments .filters").toggleClass("hidden", ailments.values.length == 0);
@@ -344,6 +366,7 @@ var updateFilterHeadersDisplay = function() {
     $(".breaks .filters").toggleClass("hidden", breaks.values.length == 0);
     $(".imbues .filters").toggleClass("hidden", imbues.values.length == 0);
     $(".tankAbilities .filters").toggleClass("hidden", tankAbilities.values.length == 0);
+    $(".mitigation .filters").toggleClass("hidden", mitigation.values.length == 0);
     $("#elementsTargetAreaTypes").toggleClass("hidden", !elements.skillTypes.includes("actives") && !elements.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#killersTargetAreaTypes").toggleClass("hidden", !physicalKillers.skillTypes.includes("actives") && !physicalKillers.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
@@ -601,6 +624,11 @@ function mustDisplaySkill(effects, type, skillName) {
             }
             if (imbues.values.length > 0 && imbues.skillTypes.includes(type) && isTargetToBeDispalyed(imbues, effect, type) && effect.effect.imbue && matches(imbues.values, effect.effect.imbue)) {
                 return true;
+            }
+            if (mitigation.values.length > 0 && mitigation.skillTypes.includes(type) && isTargetToBeDispalyed(mitigation, effect, type)) {
+                if (matches(mitigation.values, Object.keys(effect.effect))) {
+                    return true;
+                }
             }
             if (tankAbilities.values.length > 0 && tankAbilities.skillTypes.includes(type) && isTargetToBeDispalyed(tankAbilities, effect, type)) {
                 if (matches(tankAbilities.values, Object.keys(effect.effect))) {
@@ -875,6 +903,11 @@ function startPage() {
     addIconChoicesTo("tankAbilities", ["drawAttacks", "stCover", "physicalAoeCover", "magicalAoeCover"], "checkbox", "tankAbilities", ["Draw Attacks", "ST Cover", "Physical AOE Cover", "Magical AOE Cover"]);
     addTextChoicesTo("tankAbilitiesSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     
+
+    // Mitigation
+    addIconChoicesTo("mitigation", ["globalMitigation", "magicalMitigation", "physicalMitigation"], "checkbox", "mitigation", ["Mitigation", "Magic Mitigation", "Physical Mitigation"])
+    addTextChoicesTo("mitigationSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
+
     
     $("#results").addClass(server);
     

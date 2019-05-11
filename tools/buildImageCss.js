@@ -102,6 +102,11 @@ const LISTING = [
         basePath: '../static/img/icons/tankAbilities', 
         outPath: '../static/css-img/tankAbilities.css'
     },
+    {
+        className: 'mitigation',
+        basePath: '../static/img/icons/mitigationAbilities',
+        outPath: '../static/css-img/mitigationAbilities.css'
+    },
 ];
 
 var CssTemplate = function(className, filename, dimensions, base64Data) {

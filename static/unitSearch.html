@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css-img/ailments.css">
         <link rel="stylesheet" type="text/css" href="css-img/killers.css">
         <link rel="stylesheet" type="text/css" href="css-img/tankAbilities.css">
+        <link rel="stylesheet" type="text/css" href="css-img/mitigationAbilities.css">
 		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="encyclopedia.css">
         <link rel="stylesheet" type="text/css" href="unitSearch.css">
@@ -271,6 +272,22 @@
                         </div>
                         <div class="panel-body">
                             <div class="btn-group imbues choice" data-toggle="buttons" id="imbues">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default mitigation">
+                        <div class="panel-heading">
+                            <span>Mitigation</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('mitigation')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="mitigationTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="mitigationSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group mitigation choice" data-toggle="buttons" id="mitigation">
                             </div>
                         </div>
                     </div>
