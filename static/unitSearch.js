@@ -341,7 +341,8 @@ var readFilterValues = function() {
     tankAbilities.values = getSelectedValuesFor("tankAbilities");
     tankAbilities.skillTypes = getSelectedValuesFor("tankAbilitiesSkillTypes");
     
-    mitigation.values = getSelectedValuesFor("mitigation")
+    mitigation.values = getSelectedValuesFor("mitigation");
+    mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
     mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
     
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
@@ -373,6 +374,7 @@ var updateFilterHeadersDisplay = function() {
     $("#imperilsTargetAreaTypes").toggleClass("hidden", !imperils.skillTypes.includes("actives") && !imperils.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#breaksTargetAreaTypes").toggleClass("hidden", !breaks.skillTypes.includes("actives") && !breaks.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#imbuesTargetAreaTypes").toggleClass("hidden", !imbues.skillTypes.includes("actives") && !imbues.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#mitigationTargetAreaTypes").toggleClass("hidden", !mitigation.skillTypes.includes("actives") && !mitigation.skillTypes.includes("lb"));
 }
 
 
@@ -907,6 +909,7 @@ function startPage() {
     // Mitigation
     addIconChoicesTo("mitigation", ["globalMitigation", "magicalMitigation", "physicalMitigation"], "checkbox", "mitigation", ["Mitigation", "Magic Mitigation", "Physical Mitigation"])
     addTextChoicesTo("mitigationSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("mitigationTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
     
     $("#results").addClass(server);
