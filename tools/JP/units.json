@@ -4439,6 +4439,37 @@
 		"stats_pattern":1,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"]
 	},
+	"100023605": {
+		"name":"Madame Edel",
+		"jpname":"マダム・エーデル",
+		"id":"100023605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4755,"mp":240,"atk":210,"def":195,"mag":162,"spr":190},
+			"minStats":{"hp":1569,"mp":79,"atk":69,"def":64,"mag":53,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Madame Edel",
+			"jpname":"マダム・エーデル",
+			"id":"100023605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3657,"mp":184,"atk":161,"def":150,"mag":124,"spr":146},
+				"minStats":{"hp":1207,"mp":61,"atk":53,"def":50,"mag":41,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"100023704": {
 		"name":"Neisha",
 		"jpname":"ネイシャ",
@@ -4453,6 +4484,36 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","robe"]
+	},
+	"100023804": {
+		"name":"Almers",
+		"jpname":"アルマース",
+		"id":"100023804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3601,"mp":204,"atk":99,"def":102,"mag":167,"spr":158},
+			"minStats":{"hp":1188,"mp":67,"atk":33,"def":34,"mag":55,"spr":52},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","hat","clothes","robe"]
+	},
+	"100023903": {
+		"name":"Winkel",
+		"jpname":"ヴィンケル",
+		"id":"100023903",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2811,"mp":120,"atk":120,"def":115,"mag":80,"spr":95},
+			"minStats":{"hp":928,"mp":40,"atk":40,"def":38,"mag":26,"spr":31},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["sword","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
 	},
 	"100024003": {
 		"name":"Latale",
@@ -9038,6 +9099,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"],
 		"6_form": {
 			"name":"Machina",
 			"jpname":"マキナ",
@@ -9052,7 +9114,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hat","clothes"]
+			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+			"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"]
 		}
 	},
 	"254001905": {
@@ -9069,6 +9132,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["命の炎","的確な指揮","絶剣・驟雨","冷気魔力解放","ダイヤモンドレイン"],
 		"6_form": {
 			"name":"Kurasame",
 			"jpname":"クラサメ",
@@ -9083,7 +9147,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["命の炎","的確な指揮","絶剣・驟雨","冷気魔力解放","ダイヤモンドレイン"]
 		}
 	},
 	"254002004": {
@@ -9099,7 +9164,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","harp","hat","clothes","robe"]
+		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["白のセレナーデ","クレシェンド","不協和音のソナタ"]
 	},
 	"255000104": {
 		"name":"Juggler",
