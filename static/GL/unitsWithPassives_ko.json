@@ -4464,8 +4464,8 @@
 		]
 	},
 	"100019105": {
-		"name":"Nagi",
-		"wikiEntry":"ナギ",
+		"name":"나기",
+		"wikiEntry":"Nagi",
 		"id":"100019105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4478,16 +4478,16 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"mag%":20, "equipedConditions":["fist"]},
 			{"atk%":20, "mag%":20, "equipedConditions":["fist"]},
-			{"atk%":50, "mag%":50, "dualWielding":{"atk":50}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "equipedConditions":["403046300"]},
+			{"atk%":50, "mag%":50, "dualWielding":{"atk":100}, "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "equipedConditions":["403046300"]},
 			{"mag%":20, "levelCondition":115},
-			{"evade":{"physical":30}, "dualWielding":{"mag":50}, "lbDamage":20, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2}, "levelCondition":120}
+			{"evade":{"physical":30}, "dualWielding":{"mag":100}, "lbDamage":50, "skillEnhancement":{"229392":1,"229393":1,"229399":2,"229400":2,"229401":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Nagi",
-			"wikiEntry":"ナギ",
+			"name":"나기",
+			"wikiEntry":"Nagi",
 			"id":"100019105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4501,15 +4501,15 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","rod","whip","fist","hat","clothes","lightArmor","robe"],
 			"skills": [
-				{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":25,"magical":25},{"name":"human","physical":25,"magical":25},{"name":"undead","physical":25,"magical":25}], "mpRefresh":5, "special":["dualWield"]},
+				{"hp%":20, "mp%":40, "atk%":70, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"poison","percent":100},{"name":"blind","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
 				{"mag%":20, "equipedConditions":["fist"]},
 				{"atk%":20, "mag%":20, "equipedConditions":["fist"]}
 			]
 		}
 	},
 	"100019205": {
-		"name":"Yego",
-		"wikiEntry":"イーゴ",
+		"name":"이고",
+		"wikiEntry":"Yego",
 		"id":"100019205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4530,8 +4530,8 @@
 			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"229412":1.5,"229419":1,"229420":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Yego",
-			"wikiEntry":"イーゴ",
+			"name":"이고",
+			"wikiEntry":"Yego",
 			"id":"100019205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4550,8 +4550,8 @@
 		}
 	},
 	"100019304": {
-		"name":"Zolulu & Delulu",
-		"wikiEntry":"ゾルル&デルル",
+		"name":"조루루&데루루",
+		"wikiEntry":"Zolulu_& Delulu",
 		"id":"100019304",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4570,8 +4570,8 @@
 		]
 	},
 	"100019403": {
-		"name":"Galas",
-		"wikiEntry":"ガーラス",
+		"name":"갈라스",
+		"wikiEntry":"Galas",
 		"id":"100019403",
 		"max_rarity":"5",
 		"min_rarity":"3",
