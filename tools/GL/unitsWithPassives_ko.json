@@ -3239,11 +3239,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","hammer","gun","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Blade Adept","Zoldaad Pedigree","Flughöhe","Wach Fire","Declaration of War"],
+		"enhancements": [
+			{"name":"Blade Adept","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":50}],[{"killers":[{"name":"dragon","physical":50},{"name":"demon","physical":25},{"name":"plant","physical":25}],"dualWielding":{"atk":20}},{"equipedConditions":["sword"],"atk%":50}]]},
+			{"name":"Zoldaad Pedigree","levels":[[{"resist":[{"name":"fire","percent":50}]},{"equipedConditions":["lightArmor"],"atk%":20,"def%":20}],[{"resist":[{"name":"fire","percent":70}]},{"equipedConditions":["lightArmor"],"atk%":30,"def%":30}],[{"resist":[{"name":"fire","percent":70}],"hp%":20},{"equipedConditions":["lightArmor"],"atk%":30,"def%":30,"spr%":30}]]}
+		],
 		"skills": [
-			{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
-			{"atk%":30, "equipedConditions":["sword"]},
+			{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":20, "def%":20, "equipedConditions":["lightArmor"]},
 			{"lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"beast","physical":25},{"name":"demon","physical":25},{"name":"plant","physical":25}], "replaceLb":{"name":"Kaiser Verteidiger","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.05x * 2 = 10.1x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.5x * 2 = 13x, ATK) to all enemies (ignore cover)"},{"effect":null,"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}]}, "equipedConditions":["504222860"]},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "levelCondition":120}
@@ -3263,11 +3266,14 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","hammer","gun","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["Blade Adept","Zoldaad Pedigree","Flughöhe","Wach Fire","Declaration of War"],
+		"enhancements": [
+			{"name":"Blade Adept","levels":[[{"equipedConditions":["sword"],"atk%":30}],[{"equipedConditions":["sword"],"atk%":50}],[{"killers":[{"name":"dragon","physical":50},{"name":"demon","physical":25},{"name":"plant","physical":25}],"dualWielding":{"atk":20}},{"equipedConditions":["sword"],"atk%":50}]]},
+			{"name":"Zoldaad Pedigree","levels":[[{"resist":[{"name":"fire","percent":50}]},{"equipedConditions":["lightArmor"],"atk%":20,"def%":20}],[{"resist":[{"name":"fire","percent":70}]},{"equipedConditions":["lightArmor"],"atk%":30,"def%":30}],[{"resist":[{"name":"fire","percent":70}],"hp%":20},{"equipedConditions":["lightArmor"],"atk%":30,"def%":30,"spr%":30}]]}
+		],
 			"skills": [
-				{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
-				{"atk%":30, "equipedConditions":["sword"]},
-				{"atk%":50, "equipedConditions":["sword"]},
-				{"atk%":20, "def%":20, "equipedConditions":["lightArmor"]}
+				{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["sword"]}
 			]
 		}
 	},
@@ -3350,18 +3356,21 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Martial Arts - Heaven Shift","Martial Arts Mastery","Martial Arts - Tojin Combo","Neidan","Secret Approach"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"atk%":75,"spr%":20}],[{"equipedConditions":["fist"],"atk%":100,"spr%":50}]]},
+			{"name":"Secret Approach","levels":[[{"spr%":60,"mp%":30,"mpRefresh":5,"dualWielding":{"spr":30},"singleWielding":{"spr":50},"levelCondition":120}],[{"spr%":60,"atk%":30,"mp%":30,"mpRefresh":5,"dualWielding":{"spr":30},"singleWielding":{"spr":50},"levelCondition":120}],[{"spr%":120,"atk%":30,"mp%":30,"mpRefresh":5,"dualWielding":{"spr":50},"singleWielding":{"spr":50},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"mp%":20, "evade":{"physical":20}, "partialDualWield":["fist"], "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":200, "equipedConditions":["unarmed"]},
 			{"spr%":20, "equipedConditions":["hat"]},
 			{"spr%":20, "equipedConditions":["clothes"]},
-			{"atk%":50, "equipedConditions":["fist"]},
 			{"hp%":30, "atk%":30, "equipedConditions":["fist"]},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"Flower Barrage","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts - Burning Heart (228061), Martial Arts - Burst (224640), Martial Arts - Calm Mind (224690), Martial Arts - Flaming Spirit (224700), Martial Arts - Heaven Scar (224670), Martial Arts - Heaven Shift (224660), Martial Arts - Lightning Spirit (224710), Martial Arts - Opposing Fist (224720), Martial Arts - Overthrow (224650), Martial Arts - Self-Discipline (228063), Martial Arts - Shield Breaker (228062), Martial Arts - Tojin Combo (224680), Martial Arts - Twin Palms (224630), Martial Arts - Waking Palm (228060), 格闘術・操気天衝+1 (707607), 格闘術・操気天衝+2 (707608), 格闘術・闘神連撃+1 (707609) and 格闘術・闘神連撃+2 (707610) for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts - Burning Heart (228061), Martial Arts - Burst (224640), Martial Arts - Calm Mind (224690), Martial Arts - Flaming Spirit (224700), Martial Arts - Heaven Scar (224670), Martial Arts - Heaven Shift (224660), Martial Arts - Lightning Spirit (224710), Martial Arts - Opposing Fist (224720), Martial Arts - Overthrow (224650), Martial Arts - Self-Discipline (228063), Martial Arts - Shield Breaker (228062), Martial Arts - Tojin Combo (224680), Martial Arts - Twin Palms (224630), Martial Arts - Waking Palm (228060), 格闘術・操気天衝+1 (707607), 格闘術・操気天衝+2 (707608), 格闘術・闘神連撃+1 (707609) and 格闘術・闘神連撃+2 (707610) for one turn"}]}, "equipedConditions":["309002400"]},
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"Flower Barrage","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}]}, "equipedConditions":["309002400"]},
 			{"resist":[{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
-			{"spr%":20, "levelCondition":115},
-			{"mp%":30, "spr%":60, "singleWielding":{"spr":50}, "dualWielding":{"spr":30}, "mpRefresh":5, "levelCondition":120}
+			{"spr%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"리라",
@@ -3378,12 +3387,15 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","spear","fist","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Martial Arts - Heaven Shift","Martial Arts Mastery","Martial Arts - Tojin Combo","Neidan","Secret Approach"],
+		"enhancements": [
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"atk%":75,"spr%":20}],[{"equipedConditions":["fist"],"atk%":100,"spr%":50}]]}
+		],
 			"skills": [
 				{"mp%":20, "evade":{"physical":20}, "partialDualWield":["fist"], "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"atk%":200, "equipedConditions":["unarmed"]},
 				{"spr%":20, "equipedConditions":["hat"]},
 				{"spr%":20, "equipedConditions":["clothes"]},
-				{"atk%":50, "equipedConditions":["fist"]},
 				{"hp%":30, "atk%":30, "equipedConditions":["fist"]}
 			]
 		}
@@ -3463,10 +3475,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Wind Sway","Rod Decoration","Tornado"],
+		"enhancements": [
+			{"name":"Rod Decoration","levels":[[{"equipedConditions":["rod"],"mp%":20,"mag%":30}],[{"equipedConditions":["rod"],"mp%":30,"mag%":60}],[{"equipedConditions":["rod"],"mp%":50,"mag%":100}]]}
+		],
 		"skills": [
 			{"mag%":20, "resist":[{"name":"confuse","percent":100},{"name":"wind","percent":30}]},
-			{"mag%":30, "spr%":30, "equipedConditions":["hat"]},
-			{"mp%":20, "mag%":30, "equipedConditions":["rod"]}
+			{"mag%":30, "spr%":30, "equipedConditions":["hat"]}
 		]
 	},
 	"100014204": {
@@ -3483,8 +3498,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","fist","hat","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Invincible Muscle","Doublehand+","Flare Impact"],
+		"enhancements": [
+			{"name":"Doublehand+","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":75}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":150}}]]}
+		],
 		"skills": [
-			{"hp%":30, "def%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]},
+			{"hp%":30, "def%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}]},
 			{"atk%":50, "equipedConditions":["greatSword"]}
 		]
 	},
@@ -5825,10 +5844,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["hammer","fist","hat","clothes"],
+		"enhancementSkills":["Bare Knuckle Extreme","All-out Scuffle","Martial Arts Mastery"],
+		"enhancements": [
+			{"name":"Bare Knuckle Extreme","levels":[[{"equipedConditions":["unarmed"],"atk%":200}],[{"spr%":10,"def%":10},{"equipedConditions":["unarmed"],"atk%":250}],[{"spr%":30,"def%":30},{"equipedConditions":["unarmed"],"atk%":300}]]},
+			{"name":"Martial Arts Mastery","levels":[[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"atk%":75}],[{"equipedConditions":["fist"],"atk%":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "evade":{"physical":15}, "partialDualWield":["fist"]},
-			{"atk%":200, "equipedConditions":["unarmed"]},
-			{"atk%":50, "equipedConditions":["fist"]}
+			{"hp%":30, "atk%":30, "evade":{"physical":15}, "partialDualWield":["fist"]}
 		]
 	},
 	"204001103": {
@@ -5900,10 +5922,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
+		"enhancementSkills":["Mother's Teachings","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"],
+		"enhancements": [
+			{"name":"Mother's Teachings","levels":[[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50},"evoMag":10,"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}]]}
+		],
 		"skills": [
-			{"mp%":30, "mag%":30, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}},
+			{"mp%":30, "mag%":30, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]},
-			{"evoMag":50, "mpRefresh":5, "skillEnhancement":{"223400":1.5,"223410":1.5,"223420":1.5,"223430":1.5,"707564":1.5,"707565":1.5}, "equipedConditions":["504221680"]},
+			{"evoMag":50, "mpRefresh":5, "skillEnhancement":{"223400":1.5,"223410":1.5,"223420":1.5,"223430":1.5,"707564":1.5,"707565":1.5,"912406":1.5}, "equipedConditions":["504221680"]},
 			{"mag%":30, "spr%":30, "skillEnhancement":{"20350":1,"20390":1,"20400":1,"20430":1,"70440":1,"70441":1,"70442":1,"70443":1}, "levelCondition":105},
 			{"mag%":20, "levelCondition":115},
 			{"hp%":30, "mp%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
@@ -5923,8 +5949,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","whip","hat","clothes","robe"],
+			"enhancementSkills":["Mother's Teachings","Eidolon Mindflayer's Chant","Tradition","Eidolon King's Prayer","Burst Storm"],
+		"enhancements": [
+			{"name":"Mother's Teachings","levels":[[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}}],[{"esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50},"evoMag":10,"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}]]}
+		],
 			"skills": [
-				{"mp%":30, "mag%":30, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}},
+				{"mp%":30, "mag%":30, "spr%":20, "evoMag":60, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"mag%":50, "equipedConditions":["rod"]}
 			]
 		}
@@ -5943,15 +5973,19 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Piercing Darkness","Piercing Aqua","Dragoon Spirit","Piercing Air","Dragon Raid+","Ready For Redemption"],
+		"enhancements": [
+			{"name":"Dragoon Spirit","levels":[[{"jumpDamage":120}],[{"jumpDamage":135,"singleWielding":{"accuracy":25,"atk":25}}],[{"jumpDamage":150,"singleWielding":{"accuracy":25,"atk":50}}]]},
+			{"name":"Ready For Redemption","levels":[[{"spr%":20,"mag%":20,"def%":20,"atk%":20,"lbDamage":25,"levelCondition":120}],[{"spr%":20,"mag%":20,"def%":20,"atk%":60,"lbDamage":25,"dualWielding":{"atk":10},"levelCondition":120}],[{"spr%":20,"mag%":20,"def%":20,"atk%":60,"lbDamage":25,"dualWielding":{"atk":10},"mpRefresh":10,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":220, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":75,"magical":75}]},
+			{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":75,"magical":75}]},
 			{"atk%":20, "equipedConditions":["spear"]},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"mp%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":40}, "lbFillRate":50, "equipedConditions":["404002800"]},
-			{"partialDualWield":["spear"], "skillEnhancement":{"223470":1.2,"223480":2.5,"223490":2.5,"223500":2.5}, "levelCondition":105},
+			{"partialDualWield":["spear"], "skillEnhancement":{"223470":1.2,"223480":2.5,"223490":2.5,"223500":2.5,"707568":2.5,"707569":2.5,"707570":2.5,"707571":2.5,"707572":2.5,"707573":2.5}, "levelCondition":105},
 			{"atk%":30, "equipedConditions":["spear"], "levelCondition":105},
-			{"hp%":20, "levelCondition":115},
-			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "lbDamage":25, "levelCondition":120}
+			{"hp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"궁극의 용기사 카인",
@@ -5968,8 +6002,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","axe","spear","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Piercing Darkness","Piercing Aqua","Dragoon Spirit","Piercing Air","Dragon Raid+","Ready For Redemption"],
+		"enhancements": [
+			{"name":"Dragoon Spirit","levels":[[{"jumpDamage":120}],[{"jumpDamage":135,"singleWielding":{"accuracy":25,"atk":25}}],[{"jumpDamage":150,"singleWielding":{"accuracy":25,"atk":50}}]]}
+		],
 			"skills": [
-				{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":220, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":75,"magical":75}]},
+				{"hp%":20, "atk%":20, "spr%":20, "jumpDamage":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"dragon","physical":75,"magical":75}]},
 				{"atk%":20, "equipedConditions":["spear"]},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
@@ -6540,8 +6578,8 @@
 		]
 	},
 	"206001905": {
-		"name":"King Edgar",
-		"wikiEntry":"フィガロの王エドガー",
+		"name":"피가로의 왕 에드가",
+		"wikiEntry":"King_Edgar of Figaro",
 		"id":"206001905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6561,8 +6599,8 @@
 			{"hp%":20, "atk%":40, "def%":20, "spr%":20, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"King Edgar",
-			"wikiEntry":"フィガロの王エドガー",
+			"name":"피가로의 왕 에드가",
+			"wikiEntry":"King_Edgar of Figaro",
 			"id":"206001905",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6581,8 +6619,8 @@
 		}
 	},
 	"206002005": {
-		"name":"Fighter Sabin",
-		"wikiEntry":"コルツの格闘家マッシュ",
+		"name":"콜츠의 격투가 매시",
+		"wikiEntry":"Monk_Sabin of Kolts",
 		"id":"206002005",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6604,8 +6642,8 @@
 			{"hp%":20, "mp%":20, "atk%":40, "spr%":20, "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Fighter Sabin",
-			"wikiEntry":"コルツの格闘家マッシュ",
+			"name":"콜츠의 격투가 매시",
+			"wikiEntry":"Monk_Sabin of Kolts",
 			"id":"206002005",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6938,12 +6976,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Katana Mastery","Legendary SOLDIER","The Heavens Wept","Reunion","Tragic End","ATK +20%"],
+		"enhancements": [
+			{"name":"Katana Mastery","levels":[[{"equipedConditions":["katana"],"atk%":50}],[{"equipedConditions":["katana"],"atk%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80}]]},
+			{"name":"Legendary SOLDIER","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}]]},
+			{"name":"ATK +20%","levels":[[{"atk%":20,"levelCondition":115}],[{"atk%":30,"levelCondition":115}],[]]}
+		],
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-			{"atk%":50, "equipedConditions":["katana"]},
+			{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
 			{"atk%":50, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}], "skillEnhancement":{"224570":1.1}, "equipedConditions":["304002600"]},
 			{"skillEnhancement":{"224520":2,"224530":2,"224540":1,"707586":2,"707587":2}, "levelCondition":105},
-			{"atk%":20, "levelCondition":115},
 			{"singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":40}, "lbFillRate":50, "levelCondition":120}
 		],
 		"6_form": {
@@ -6961,9 +7003,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Katana Mastery","Legendary SOLDIER","The Heavens Wept","Reunion","Tragic End","ATK +20%"],
+		"enhancements": [
+			{"name":"Katana Mastery","levels":[[{"equipedConditions":["katana"],"atk%":50}],[{"equipedConditions":["katana"],"atk%":80}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":30}},{"equipedConditions":["katana"],"atk%":80}]]},
+			{"name":"Legendary SOLDIER","levels":[[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}],[{"spr%":30,"mag%":30,"def%":30,"atk%":60,"mp%":50,"hp%":50}]]}
+		],
 			"skills": [
-				{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-				{"atk%":50, "equipedConditions":["katana"]}
+				{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5}
 			]
 		}
 	},
