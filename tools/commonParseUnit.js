@@ -857,6 +857,10 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         }
         for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
             var skill = skills[rawEffect[3][3][i]];
+            if (!skill) {
+                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
+                continue;
+            }
             result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
         }
         return [result];
