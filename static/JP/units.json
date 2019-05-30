@@ -3201,7 +3201,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","mace","hat","clothes","robe"]
+		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["流聖瀑","ルミナスフォール","大魔道士のたしなみ！","マグナカウンター"]
 	},
 	"100017403": {
 		"name":"Forelsket",
@@ -3293,7 +3294,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"]
+		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["炎熱斬","カーマインバイセクト","炎刀の使い手"]
 	},
 	"100017803": {
 		"name":"Ishil",
@@ -3591,6 +3593,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["モルボルライダー","くさい息","グラウンドウィップ","ブルタルウィップ","強毒性スクィーズウィップ","HP+20%"],
 		"6_form": {
 			"name":"Yego",
 			"jpname":"イーゴ",
@@ -3605,7 +3608,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["モルボルライダー","くさい息","グラウンドウィップ","ブルタルウィップ","強毒性スクィーズウィップ","HP+20%"]
 		}
 	},
 	"100019304": {
@@ -3825,7 +3829,7 @@
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
 	},
 	"100020505": {
-		"name":"Summer Fina & Lid 2018",
+		"name":"Summer Fina & Lid",
 		"jpname":"フィーナ&リド2018夏",
 		"id":"100020505",
 		"max_rarity":"7",
@@ -3839,7 +3843,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
 		"6_form": {
-			"name":"Summer Fina & Lid 2018",
+			"name":"Summer Fina & Lid",
 			"jpname":"フィーナ&リド2018夏",
 			"id":"100020505",
 			"sixStarForm":true,
@@ -4853,6 +4857,20 @@
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	},
+	"100025705": {
+		"name":"青魔道士フィーナ",
+		"id":"100025705",
+		"max_rarity":"5",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2770,"mp":163,"atk":86,"def":95,"mag":123,"spr":126},
+			"minStats":{"hp":914,"mp":54,"atk":28,"def":31,"mag":41,"spr":42},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -5671,6 +5689,20 @@
 		"equip":["hammer","fist","hat","clothes"],
 		"enhancementSkills":["徒手空拳の極み","ぜんりょくかくとう","格闘の極意"]
 	},
+	"204001004": {
+		"name":"シド(FFⅣ)",
+		"id":"204001004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3712,"mp":143,"atk":163,"def":132,"mag":118,"spr":130},
+			"minStats":{"hp":1225,"mp":47,"atk":54,"def":44,"mag":39,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["bow","axe","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
 	"204001103": {
 		"name":"Edge",
 		"jpname":"エッジ",
@@ -5889,6 +5921,93 @@
 		},
 		"stats_pattern":1,
 		"equip":["fist","helm","lightArmor","heavyArmor"]
+	},
+	"204002205": {
+		"name":"聖騎士セシル",
+		"id":"204002205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5014,"mp":217,"atk":166,"def":188,"mag":132,"spr":219},
+			"minStats":{"hp":1655,"mp":72,"atk":55,"def":62,"mag":44,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"聖騎士セシル",
+			"id":"204002205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3856,"mp":166,"atk":127,"def":144,"mag":101,"spr":168},
+				"minStats":{"hp":1272,"mp":55,"atk":42,"def":48,"mag":33,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+		}
+	},
+	"204002405": {
+		"name":"白魔道士ローザ",
+		"id":"204002405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4475,"mp":270,"atk":156,"def":158,"mag":198,"spr":212},
+			"minStats":{"hp":1477,"mp":89,"atk":51,"def":52,"mag":65,"spr":70},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","mace","lightShield","hat","helm","clothes","robe"],
+		"6_form": {
+			"name":"白魔道士ローザ",
+			"id":"204002405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3442,"mp":207,"atk":120,"def":121,"mag":152,"spr":163},
+				"minStats":{"hp":1136,"mp":68,"atk":40,"def":40,"mag":50,"spr":54},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","mace","lightShield","hat","helm","clothes","robe"]
+		}
+	},
+	"204002605": {
+		"name":"パロム＆ポロム",
+		"id":"204002605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4670,"mp":288,"atk":132,"def":131,"mag":219,"spr":209},
+			"minStats":{"hp":1541,"mp":95,"atk":44,"def":43,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"],
+		"6_form": {
+			"name":"パロム＆ポロム",
+			"id":"204002605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3592,"mp":221,"atk":101,"def":100,"mag":168,"spr":160},
+				"minStats":{"hp":1185,"mp":73,"atk":33,"def":33,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"]
+		}
 	},
 	"205000103": {
 		"name":"Bartz",
@@ -8193,6 +8312,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"],
 		"6_form": {
 			"name":"Ignis",
 			"jpname":"イグニス",
@@ -8207,7 +8327,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"]
 		}
 	},
 	"215000605": {

@@ -2046,10 +2046,13 @@ $(function() {
                 notLoaded();
             }
         });
+        console.log("Starts to load owned espers");
         $.get(server + '/espers', function(result) {
             ownedEspers = result;
+            console.log("owned espers loaded");
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            console.log("error loading owned espers");
             $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();

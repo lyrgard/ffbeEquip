@@ -3129,10 +3129,10 @@ function onBuffChange(stat) {
 }
 
 function updateEspers() {
-    
+
     var esperSource = espers;
     var equipments = $(".equipments select").val();
-    if (equipments == "owned" && ownedEspers && Object.keys(ownedEspers).length > 0) {
+    if (ownedEspers && Object.keys(ownedEspers).length > 0) {
         esperSource = [];
         for (var index in ownedEspers) {
             esperSource.push(getEsperItem(ownedEspers[index]));
