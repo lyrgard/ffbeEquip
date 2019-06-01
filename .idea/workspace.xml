@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/lastItemReleases.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/lastItemReleases.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder/unitBuild.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/unitBuild.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/formula.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/formula.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/commonParseUnit.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/commonParseUnit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder/unitBuild.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -79,6 +59,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="219">
               <caret line="1385" column="38" selection-start-line="1385" selection-start-column="38" selection-end-line="1385" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/GL/defaultBuilderEspers.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="289" selection-start-line="8" selection-start-column="289" selection-end-line="8" selection-end-column="289" />
             </state>
           </provider>
         </entry>
@@ -124,15 +113,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="118" selection-start-line="5" selection-start-column="118" selection-end-line="5" selection-end-column="118" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/contribute.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3435">
-              <caret line="229" column="20" selection-start-line="229" selection-start-column="12" selection-end-line="229" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -186,7 +166,6 @@
         <option value="$PROJECT_DIR$/tools/GL/parseItems.js" />
         <option value="$PROJECT_DIR$/server/routes/firebase.js" />
         <option value="$PROJECT_DIR$/static/GL/espers.json" />
-        <option value="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" />
         <option value="$PROJECT_DIR$/static/GL/monsters.json" />
         <option value="$PROJECT_DIR$/tools/GL/data.json" />
         <option value="$PROJECT_DIR$/static/builder.css" />
@@ -214,6 +193,7 @@
         <option value="$PROJECT_DIR$/static/formula.js" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/builder/unitBuild.js" />
+        <option value="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" />
       </list>
     </option>
   </component>
@@ -363,12 +343,12 @@
       <workItem from="1558643101854" duration="1338000" />
       <workItem from="1559203993868" duration="5046000" />
       <workItem from="1559227909731" duration="1710000" />
-      <workItem from="1559392189469" duration="3473000" />
+      <workItem from="1559392189469" duration="3927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76527000" />
+    <option name="totallyTimeSpent" value="76981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -646,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/defaultBuilderEspers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/JP/parseItems.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12390">
@@ -734,6 +707,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="272" column="16" selection-start-line="272" selection-start-column="16" selection-end-line="272" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/defaultBuilderEspers.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="289" selection-start-line="8" selection-start-column="289" selection-end-line="8" selection-end-column="289" />
         </state>
       </provider>
     </entry>
