@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,11 +81,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="135">
+              <caret line="9" column="144" selection-start-line="9" selection-start-column="144" selection-end-line="9" selection-end-column="144" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -179,7 +184,6 @@
         <option value="$PROJECT_DIR$/static/builder/treeComparator.js" />
         <option value="$PROJECT_DIR$/static/builder/dataStorage.js" />
         <option value="$PROJECT_DIR$/static/JP/units.json" />
-        <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/espers.js" />
         <option value="$PROJECT_DIR$/static/GL/units.json" />
@@ -194,6 +198,7 @@
         <option value="$PROJECT_DIR$/static/builder/unitBuild.js" />
         <option value="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/builder.js" />
       </list>
     </option>
   </component>
@@ -343,12 +348,12 @@
       <workItem from="1558643101854" duration="1338000" />
       <workItem from="1559203993868" duration="5046000" />
       <workItem from="1559227909731" duration="1710000" />
-      <workItem from="1559392189469" duration="3994000" />
+      <workItem from="1559392189469" duration="4164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77048000" />
+    <option name="totallyTimeSpent" value="77218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -675,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/formula.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -714,6 +712,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="144" selection-start-line="9" selection-start-column="144" selection-end-line="9" selection-end-column="144" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
