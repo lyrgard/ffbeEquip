@@ -1167,7 +1167,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result = {"damage":{"mecanism":"hybrid", "coef":rawEffect[3][8]/100}};    
     // Evo Damage
     } else if(rawEffect[2] == 124){
-        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "coef":rawEffect[3][8]/100}}
+        result = {"damage":{"mecanism":"summonerSkill", "damageType":"evoke", "coef":rawEffect[3][8]/100, "magSplit":0.5, "sprSplit":0.5}};
+        if (rawEffect[3].length >= 10 && Array.isArray(rawEffect[3][9])) {
+            result.damage.magSplit = rawEffect[3][9][0] / 100;
+            result.damage.sprSplit = rawEffect[3][9][1] / 100;
+        }
     // Healing
     } else if(rawEffect[2] == 2){
         result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}

@@ -333,14 +333,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             } else {
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
-        } 
-        else if(formula.value.mecanism == "summonerSkill"){
+        } else if(formula.value.mecanism == "summonerSkill"){
             defendingStat= "spr"
             if(formula.value.use){
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
-                } else {
-            statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
-                }
+            } else {
+                statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+            }
         }
         // Killer
         var killerMultiplicator = 1;
@@ -443,9 +442,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
             var sprDamage = coef * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
             result = {
-                "min" : (baseDamage + sprDamage) * context.damageMultiplier.min / 2,
-                "avg" : (baseDamage + sprDamage) * context.damageMultiplier.avg / 2,
-                "max" : (baseDamage + sprDamage) * context.damageMultiplier.max / 2,
+                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min / 2,
+                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg / 2,
+                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max / 2,
                 "switchWeapons" : switchWeapons
             }
         } else {
