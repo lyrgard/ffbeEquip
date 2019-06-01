@@ -3201,7 +3201,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","mace","hat","clothes","robe"]
+		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["流聖瀑","ルミナスフォール","大魔道士のたしなみ！","マグナカウンター"]
 	},
 	"100017403": {
 		"name":"Forelsket",
@@ -3293,7 +3294,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"]
+		"equip":["dagger","sword","greatSword","katana","throwing","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["炎熱斬","カーマインバイセクト","炎刀の使い手"]
 	},
 	"100017803": {
 		"name":"Ishil",
@@ -3591,6 +3593,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["モルボルライダー","くさい息","グラウンドウィップ","ブルタルウィップ","強毒性スクィーズウィップ","HP+20%"],
 		"6_form": {
 			"name":"Yego",
 			"jpname":"イーゴ",
@@ -3605,7 +3608,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","rod","bow","whip","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["モルボルライダー","くさい息","グラウンドウィップ","ブルタルウィップ","強毒性スクィーズウィップ","HP+20%"]
 		}
 	},
 	"100019304": {
@@ -3825,7 +3829,7 @@
 		"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
 	},
 	"100020505": {
-		"name":"Summer Fina & Lid 2018",
+		"name":"Summer Fina & Lid",
 		"jpname":"フィーナ&リド2018夏",
 		"id":"100020505",
 		"max_rarity":"7",
@@ -3839,7 +3843,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","hammer","harp","whip","throwing","fist","hat","clothes","robe"],
 		"6_form": {
-			"name":"Summer Fina & Lid 2018",
+			"name":"Summer Fina & Lid",
 			"jpname":"フィーナ&リド2018夏",
 			"id":"100020505",
 			"sixStarForm":true,
@@ -4439,6 +4443,37 @@
 		"stats_pattern":1,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"]
 	},
+	"100023605": {
+		"name":"Madame Edel",
+		"jpname":"マダム・エーデル",
+		"id":"100023605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4755,"mp":240,"atk":210,"def":195,"mag":162,"spr":190},
+			"minStats":{"hp":1569,"mp":79,"atk":69,"def":64,"mag":53,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Madame Edel",
+			"jpname":"マダム・エーデル",
+			"id":"100023605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3657,"mp":184,"atk":161,"def":150,"mag":124,"spr":146},
+				"minStats":{"hp":1207,"mp":61,"atk":53,"def":50,"mag":41,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","hammer","spear","whip","throwing","gun","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
 	"100023704": {
 		"name":"Neisha",
 		"jpname":"ネイシャ",
@@ -4453,6 +4488,36 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","robe"]
+	},
+	"100023804": {
+		"name":"Almers",
+		"jpname":"アルマース",
+		"id":"100023804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3601,"mp":204,"atk":99,"def":102,"mag":167,"spr":158},
+			"minStats":{"hp":1188,"mp":67,"atk":33,"def":34,"mag":55,"spr":52},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","hat","clothes","robe"]
+	},
+	"100023903": {
+		"name":"Winkel",
+		"jpname":"ヴィンケル",
+		"id":"100023903",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2811,"mp":120,"atk":120,"def":115,"mag":80,"spr":95},
+			"minStats":{"hp":928,"mp":40,"atk":40,"def":38,"mag":26,"spr":31},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["sword","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
 	},
 	"100024003": {
 		"name":"Latale",
@@ -4791,6 +4856,20 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"100025705": {
+		"name":"青魔道士フィーナ",
+		"id":"100025705",
+		"max_rarity":"5",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2770,"mp":163,"atk":86,"def":95,"mag":123,"spr":126},
+			"minStats":{"hp":914,"mp":54,"atk":28,"def":31,"mag":41,"spr":42},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -5610,6 +5689,20 @@
 		"equip":["hammer","fist","hat","clothes"],
 		"enhancementSkills":["徒手空拳の極み","ぜんりょくかくとう","格闘の極意"]
 	},
+	"204001004": {
+		"name":"シド(FFⅣ)",
+		"id":"204001004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3712,"mp":143,"atk":163,"def":132,"mag":118,"spr":130},
+			"minStats":{"hp":1225,"mp":47,"atk":54,"def":44,"mag":39,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["bow","axe","hammer","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
 	"204001103": {
 		"name":"Edge",
 		"jpname":"エッジ",
@@ -5829,6 +5922,93 @@
 		"stats_pattern":1,
 		"equip":["fist","helm","lightArmor","heavyArmor"]
 	},
+	"204002205": {
+		"name":"聖騎士セシル",
+		"id":"204002205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5014,"mp":217,"atk":166,"def":188,"mag":132,"spr":219},
+			"minStats":{"hp":1655,"mp":72,"atk":55,"def":62,"mag":44,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"聖騎士セシル",
+			"id":"204002205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3856,"mp":166,"atk":127,"def":144,"mag":101,"spr":168},
+				"minStats":{"hp":1272,"mp":55,"atk":42,"def":48,"mag":33,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","axe","hammer","spear","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+		}
+	},
+	"204002405": {
+		"name":"白魔道士ローザ",
+		"id":"204002405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4475,"mp":270,"atk":156,"def":158,"mag":198,"spr":212},
+			"minStats":{"hp":1477,"mp":89,"atk":51,"def":52,"mag":65,"spr":70},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","mace","lightShield","hat","helm","clothes","robe"],
+		"6_form": {
+			"name":"白魔道士ローザ",
+			"id":"204002405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3442,"mp":207,"atk":120,"def":121,"mag":152,"spr":163},
+				"minStats":{"hp":1136,"mp":68,"atk":40,"def":40,"mag":50,"spr":54},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","mace","lightShield","hat","helm","clothes","robe"]
+		}
+	},
+	"204002605": {
+		"name":"パロム＆ポロム",
+		"id":"204002605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4670,"mp":288,"atk":132,"def":131,"mag":219,"spr":209},
+			"minStats":{"hp":1541,"mp":95,"atk":44,"def":43,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"],
+		"6_form": {
+			"name":"パロム＆ポロム",
+			"id":"204002605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3592,"mp":221,"atk":101,"def":100,"mag":168,"spr":160},
+				"minStats":{"hp":1185,"mp":73,"atk":33,"def":33,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"]
+		}
+	},
 	"205000103": {
 		"name":"Bartz",
 		"jpname":"バッツ",
@@ -5847,7 +6027,7 @@
 	},
 	"205000203": {
 		"name":"Lenna",
-		"jpname":"レナ",
+		"jpname":"レナ(FFV)",
 		"id":"205000203",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -6365,7 +6545,7 @@
 		"equip":["dagger","sword","greatSword","axe","hammer","spear","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"206001905": {
-		"name":"King Edgar",
+		"name":"King Edgar of Figaro",
 		"jpname":"フィガロの王エドガー",
 		"id":"206001905",
 		"max_rarity":"7",
@@ -6379,7 +6559,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"King Edgar",
+			"name":"King Edgar of Figaro",
 			"jpname":"フィガロの王エドガー",
 			"id":"206001905",
 			"sixStarForm":true,
@@ -6396,7 +6576,7 @@
 		}
 	},
 	"206002005": {
-		"name":"Fighter Sabin",
+		"name":"Monk Sabin of Kolts",
 		"jpname":"コルツの格闘家マッシュ",
 		"id":"206002005",
 		"max_rarity":"7",
@@ -6410,7 +6590,7 @@
 		"stats_pattern":4,
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"Fighter Sabin",
+			"name":"Monk Sabin of Kolts",
 			"jpname":"コルツの格闘家マッシュ",
 			"id":"206002005",
 			"sixStarForm":true,
@@ -8132,6 +8312,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"],
 		"6_form": {
 			"name":"Ignis",
 			"jpname":"イグニス",
@@ -8146,7 +8327,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["レガリアドライバー","調理","エンハンス","父王たちのご馳走カナッペ"]
 		}
 	},
 	"215000605": {
@@ -8213,6 +8395,37 @@
 			"stats_pattern":1,
 			"equip":["dagger","hammer","harp","whip","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
 			"enhancementSkills":["銃の極意","スターシェル","アトラクトウェイブ","ドリルブレイカー"]
+		}
+	},
+	"215000805": {
+		"name":"Ardyn",
+		"jpname":"アーデン",
+		"id":"215000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4841,"mp":240,"atk":206,"def":182,"mag":161,"spr":183},
+			"minStats":{"hp":1598,"mp":79,"atk":68,"def":60,"mag":53,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","spear","throwing","gun","lightShield","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Ardyn",
+			"jpname":"アーデン",
+			"id":"215000805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3723,"mp":184,"atk":158,"def":140,"mag":123,"spr":140},
+				"minStats":{"hp":1229,"mp":61,"atk":52,"def":46,"mag":41,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","spear","throwing","gun","lightShield","hat","clothes","lightArmor","robe"]
 		}
 	},
 	"215001004": {
@@ -8402,6 +8615,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+		}
+	},
+	"215002705": {
+		"name":"Regis",
+		"jpname":"レギス",
+		"id":"215002705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4475,"mp":245,"atk":137,"def":161,"mag":195,"spr":209},
+			"minStats":{"hp":1477,"mp":81,"atk":45,"def":53,"mag":64,"spr":69},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Regis",
+			"jpname":"レギス",
+			"id":"215002705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3442,"mp":188,"atk":105,"def":123,"mag":150,"spr":160},
+				"minStats":{"hp":1136,"mp":62,"atk":35,"def":41,"mag":50,"spr":53},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","spear","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
 		}
 	},
 	"215002804": {
@@ -9038,6 +9282,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"],
 		"6_form": {
 			"name":"Machina",
 			"jpname":"マキナ",
@@ -9052,7 +9297,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hat","clothes"]
+			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+			"enhancementSkills":["ドレインソード","故郷の生き残り","スタンブレイド","エレメントアイガー","精神+20%"]
 		}
 	},
 	"254001905": {
@@ -9069,6 +9315,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["命の炎","的確な指揮","絶剣・驟雨","冷気魔力解放","ダイヤモンドレイン"],
 		"6_form": {
 			"name":"Kurasame",
 			"jpname":"クラサメ",
@@ -9083,7 +9330,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["命の炎","的確な指揮","絶剣・驟雨","冷気魔力解放","ダイヤモンドレイン"]
 		}
 	},
 	"254002004": {
@@ -9099,7 +9347,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","harp","hat","clothes","robe"]
+		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["白のセレナーデ","クレシェンド","不協和音のソナタ"]
 	},
 	"255000104": {
 		"name":"Juggler",
@@ -10315,31 +10564,94 @@
 		"name":"Rena",
 		"jpname":"レナ",
 		"id":"317000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":3445,"mp":196,"atk":116,"def":128,"mag":127,"spr":152},
-			"minStats":{"hp":1137,"mp":65,"atk":38,"def":42,"mag":42,"spr":50},
-			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			"maxStats":{"hp":4518,"mp":254,"atk":154,"def":167,"mag":168,"spr":214},
+			"minStats":{"hp":1491,"mp":84,"atk":51,"def":55,"mag":55,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","staff","fist","hat","clothes","robe"]
+		"stats_pattern":4,
+		"equip":["dagger","staff","fist","hat","clothes","robe"],
+		"6_form": {
+			"name":"Rena",
+			"jpname":"レナ",
+			"id":"317000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3445,"mp":196,"atk":116,"def":128,"mag":127,"spr":152},
+				"minStats":{"hp":1137,"mp":65,"atk":38,"def":42,"mag":42,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","fist","hat","clothes","robe"]
+		}
 	},
 	"318000105": {
 		"name":"Fayt",
 		"jpname":"フェイト",
 		"id":"318000105",
-		"max_rarity":"6",
+		"max_rarity":"7",
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3781,"mp":142,"atk":159,"def":148,"mag":125,"spr":120},
-			"minStats":{"hp":1248,"mp":47,"atk":52,"def":49,"mag":41,"spr":40},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			"maxStats":{"hp":4915,"mp":210,"atk":208,"def":192,"mag":162,"spr":172},
+			"minStats":{"hp":1622,"mp":69,"atk":69,"def":63,"mag":53,"spr":57},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
 		},
-		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","mace","hat","clothes","lightArmor"]
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","mace","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Fayt",
+			"jpname":"フェイト",
+			"id":"318000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3781,"mp":142,"atk":159,"def":148,"mag":125,"spr":120},
+				"minStats":{"hp":1248,"mp":47,"atk":52,"def":49,"mag":41,"spr":40},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","mace","hat","clothes","lightArmor"]
+		}
+	},
+	"318000205": {
+		"name":"Sophia",
+		"jpname":"ソフィア",
+		"id":"318000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4478,"mp":278,"atk":131,"def":152,"mag":218,"spr":205},
+			"minStats":{"hp":1478,"mp":92,"atk":43,"def":50,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","throwing","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Sophia",
+			"jpname":"ソフィア",
+			"id":"318000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3445,"mp":214,"atk":101,"def":117,"mag":167,"spr":158},
+				"minStats":{"hp":1137,"mp":71,"atk":33,"def":39,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","throwing","hat","clothes","lightArmor","robe"]
+		}
 	},
 	"319000104": {
 		"name":"Reimi",

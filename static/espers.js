@@ -804,6 +804,7 @@ function findPathTo(x,y, fromNode, currentPath = []) {
 }
 
 function displayEspers() {
+    console.log("Entering displayEspers function. logged : " + logged + ", linkMode : " + linkMode + ", ownedEspers : " + Object.keys(ownedEspers).length)
     if (!logged && !linkMode) {
         ownedEspers = {};
         for (var index in espers) {
@@ -930,6 +931,8 @@ function getPositionFromString(posString) {
 }
 
 function notLoaded() {
+    console.log("entering notLoaded function");
+    console.trace();
     ownedEspers = {};
     loadLink();
     
@@ -941,18 +944,23 @@ function notLoaded() {
         $("#loginMessage").removeClass("hidden");
     }
     $("#inventory").addClass("hidden");
+    console.log("exiting notLoaded function");
 }
 
 function inventoryLoaded() {
+    console.log("entering inventoryLoaded function");
+    console.trace();
     logged = true;
     loadLink();
     if (esperBoards) {
         displayEspers();
     }
+    console.log("exiting inventoryLoaded function");
 }
 
 function loadLink() {
     if (window.location.hash.length > 1) {
+        console.log("Loading esper link");
         var hashValue = window.location.hash.substr(1);
         
         try {
@@ -964,6 +972,7 @@ function loadLink() {
         $('.navbar').addClass("hidden");
         $("#header").addClass("hidden");
         linkMode = true;
+        console.log("finished Loading esper link");
     }    
 }
 

@@ -1527,7 +1527,12 @@ function saveInventory(successCallback, errorCallback) {
     });
 }
 
- function saveEspers(successCallback, errorCallback) {
+ function saveEspers(successCallback, errorCallback, forceSave = false) {
+    if (!forceSave && (!ownedEspers || Object.keys(ownedEspers).length == 0)) {
+        if (confirm("You're trying to save empty espers. Are you sure you want to erase your espers ?")) {
+            saveEspers(successCallback, errorCallback, true);
+        }
+    }
     $.ajax({
         url: server + '/espers',
         method: 'PUT',
@@ -2041,10 +2046,13 @@ $(function() {
                 notLoaded();
             }
         });
+        console.log("Starts to load owned espers");
         $.get(server + '/espers', function(result) {
             ownedEspers = result;
+            console.log("owned espers loaded");
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+            console.log("error loading owned espers");
             $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
             if (notLoaded) {
                 notLoaded();

@@ -1,8 +1,8 @@
 const skillToken = "SKILL";
 const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
-const operators = ["/","*","+","-",">", "OR", "AND"];
-const booleanResultOperators=[">", "OR", "AND"];
+const operators = ["/","*","+","-",">", "OR", "AND", ";"];
+const booleanResultOperators=[">", "OR", "AND", ";"];
 const operatorPrecedence = {
     "/": 4,
     "*": 4,
@@ -10,7 +10,8 @@ const operatorPrecedence = {
     "-": 3,
     ">": 2,
     "OR": 1,
-    "AND": 1
+    "AND": 1,
+    ";":0,
 }
 const attributeByVariable = {
     "HP":"hp",
@@ -75,6 +76,7 @@ var formulaByVariable = {
     "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "formulaName":"physicalDamage", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
     "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "summonerSkill":                    {"type":"skill", "id":"0","name":"1x Evoke damage", "formulaName":"summonerSkill", "value": {"type":"damage", "value":{"mecanism":"summonerSkill", "damageType":"mind", "coef":1, "magSplit":0.5, "sprSplit":0.5}}},
 }
 const abbreviations = {
     "I_AILMENTS" : "I_POISON; I_BLIND; I_SLEEP; I_SILENCE; I_PARALYSIS; I_CONFUSION; I_DISEASE; I_PETRIFICATION",
@@ -132,7 +134,7 @@ function parseFormula(formula, unit) {
         result = parsedFormula;
     } else {
         var parsedFormula = parseExpression(formula.substr(0,separatorIndex), 0, unit);
-        var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" AND "), separatorIndex + 1, unit);
+        var condition = parseExpression(formula.substr(separatorIndex + 1).split(";").join(" ; "), separatorIndex + 1, unit);
         
         if (booleanResultOperators.includes(parsedFormula.type)) {
             alert("Maximize goal must result to a value, not to a boolean");
@@ -311,6 +313,9 @@ function popOperator(operatorStack, outputQueue) {
     }
     var value2 = outputQueue.pop();
     var value1 = outputQueue.pop();
+    if (operator == ";") {
+        operator = "AND";
+    }
     if (operator == "OR" || operator == "AND") {
         if (value1.type != "elementCondition" && !booleanResultOperators.includes(value1.type)) {
             alert("Error. Left part of a " + operator + " must evaluate to a boolean.");

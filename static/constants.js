@@ -1,5 +1,5 @@
 const baseStats = ['hp','mp','atk','def','mag','spr'];
-const elementList = ['fire','ice','lightning','water','earth','wind','light','dark'];
+const elementList = ['fire','ice','lightning','water','wind','earth','light','dark'];
 const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
 const ailmentListWithoutDeath = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
 const disablingAilmentList = ['sleep','paralysis','confuse','petrification'];
