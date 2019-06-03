@@ -372,7 +372,7 @@ class BuildOptimizer {
                 continue;
             }
             for (var skillIndex = build.length - 1; skillIndex > 10; skillIndex--) {
-                if (build[skillIndex].equipedConditions && build[skillIndex].equipedConditions.includes(build[slotToRemove].id)) {
+                if (this.desirableItemIds.includes(build[slotToRemove].id)) {
                     slotToRemove--;
                     continue slotToRemoveLoop;
                 }
