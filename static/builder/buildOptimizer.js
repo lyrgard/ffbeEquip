@@ -371,11 +371,9 @@ class BuildOptimizer {
                 slotToRemove--;
                 continue;
             }
-            for (var skillIndex = build.length - 1; skillIndex > 10; skillIndex--) {
-                if (this.desirableItemIds.includes(build[slotToRemove].id)) {
-                    slotToRemove--;
-                    continue slotToRemoveLoop;
-                }
+            if (this.desirableItemIds.includes(build[slotToRemove].id)) {
+                slotToRemove--;
+                continue slotToRemoveLoop;
             }
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
