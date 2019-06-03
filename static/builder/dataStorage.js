@@ -21,6 +21,7 @@ class DataStorage {
         this.alreadyUsedEspers = [];
         this.itemInventory;
         this.availableTmr;
+        this.availableStmr;
         this.defaultWeaponEnhancement = null;
     }
     
@@ -170,6 +171,9 @@ class DataStorage {
             
             if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id) {
                 this.availableTmr = item;
+            }
+            if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.stmrUnit && item.stmrUnit == this.unitBuild.unit.id) {
+                this.availableStmr = item;
             }
             
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {

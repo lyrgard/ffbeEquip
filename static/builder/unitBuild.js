@@ -74,10 +74,7 @@ class UnitBuild {
                 if (this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1) {
                     for (var itemIndex = 0; itemIndex < 10; itemIndex++) {
                         if (itemIndex != ignoreSlot) {
-                            if (this.fixedItems[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.fixedItems[itemIndex].id)) {
-                                return true;
-                            }
-                            if (this.build[itemIndex] && this.unit.skills[index].equipedConditions.includes(this.build[itemIndex].id)) {
+                            if (this.build[itemIndex] && (Array.isArray(this.unit.skills[index].equipedConditions) && this.unit.skills[index].equipedConditions[0].includes(this.build[itemIndex].id) || this.unit.skills[index].equipedConditions.includes(this.build[itemIndex].id))) {
                                 return true;
                             }
                         }
@@ -102,8 +99,10 @@ class UnitBuild {
     
     hasDualWieldIfItemEquiped(itemId) {
         for (var index in this.unit.skills) {
-            if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield") && this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1 && this.unit.skills[index].equipedConditions.includes(itemId)) {
-                return true;
+            if (this.unit.skills[index].special && this.unit.skills[index].special.includes("dualWield") && this.unit.skills[index].equipedConditions && this.unit.skills[index].equipedConditions.length == 1) {
+                if (Array.isArray(this.unit.skills[index].equipedConditions) && this.unit.skills[index].equipedConditions[0].includes(itemId) || this.unit.skills[index].equipedConditions.includes(itemId)) {
+                    return true;
+                }
             }
         }
         return false;

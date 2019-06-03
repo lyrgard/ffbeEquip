@@ -44,6 +44,7 @@ class TypeCombinationGenerator {
             this.unitBuild.equipable[1] = savedEquipable1;
         }
         if (!this.forceDoubleHand && !this.unitBuild.hasDualWield() && !(this.unitBuild.fixedItems[0] && isTwoHanded(this.unitBuild.fixedItems[0]))) {
+            // If TMR grants DW
             var tmr = dataStorage.availableTmr;
             if (tmr && this.unitBuild.hasDualWieldIfItemEquiped(tmr.id)) {
                 var savedForceDualWield = this.forceDualWield;
@@ -60,6 +61,31 @@ class TypeCombinationGenerator {
                         this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
 
                         this.buildTypeCombination(0,typeCombination,combinations, [tmr.id]);
+                        this.unitBuild.fixedItems = savedFixedItems;
+                        this.unitBuild.equipable[0] = savedEquipable0;
+                        this.unitBuild.equipable[1] = savedEquipable1;
+                    });
+                }
+                this.forceDualWield = savedForceDualWield;
+            }
+            
+            // If STMR grants DW
+            var stmr = dataStorage.availableStmr;
+            if (stmr && this.unitBuild.hasDualWieldIfItemEquiped(stmr.id)) {
+                var savedForceDualWield = this.forceDualWield;
+                this.forceDualWield = true;
+                var slot = this.unitBuild.getItemSlotFor(stmr, this.forceDoubleHand);
+                if (slot != -1) {
+                    this.dataByType[stmr.type].filter(entry => entry.item.id == stmr.id).forEach(stmrVersion => {
+                        var savedFixedItems = this.unitBuild.fixedItems;
+                        this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+                        this.unitBuild.fixedItems[slot] = stmrVersion.item;
+                        var savedEquipable0 = this.unitBuild.equipable[0];
+                        var savedEquipable1 = this.unitBuild.equipable[1];
+
+                        this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
+
+                        this.buildTypeCombination(0,typeCombination,combinations, [stmr.id]);
                         this.unitBuild.fixedItems = savedFixedItems;
                         this.unitBuild.equipable[0] = savedEquipable0;
                         this.unitBuild.equipable[1] = savedEquipable1;
