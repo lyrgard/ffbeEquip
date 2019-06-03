@@ -1098,13 +1098,16 @@ function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
         var unitId = $(this).val();
         var selectedUnitData;
+        let iconId;
         if (unitId.endsWith("-6")) {
             selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
+            iconId = unitId.substr(0,unitId.length-3) + '6';
         } else {
-            selectedUnitData = units[unitId];    
+            selectedUnitData = units[unitId];
+            iconId = unitId.substr(0,unitId.length-1) + selectedUnitData.max_rarity;
         }
         if (selectedUnitData) {
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + selectedUnitData.id + ".png\"/>" + selectedUnitData.name);
+            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
             var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
             var oldValues = builds[currentUnitIndex].baseValues;
             var oldLevel = builds[currentUnitIndex]._level;
