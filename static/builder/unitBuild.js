@@ -139,7 +139,11 @@ class UnitBuild {
                 if (skill.equipedConditions) {
                     for (var j = skill.equipedConditions.length; j--;) {
                         if (!typeList.includes(skill.equipedConditions[j]) && !elementList.includes(skill.equipedConditions[j]) && !this.desirableItemIds.includes(skill.equipedConditions[j])) {
-                            this.desirableItemIds.push(skill.equipedConditions[j]);
+                            if (Array.isArray(skill.equipedConditions[j])) {
+                                this.desirableItemIds = this.desirableItemIds.concat(skill.equipedConditions[j]);
+                            } else {
+                                this.desirableItemIds.push(skill.equipedConditions[j]);
+                            }
                         }
                     }
                 }
