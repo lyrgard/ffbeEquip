@@ -271,7 +271,7 @@ function addStats(level, star, esperName) {
     for (index = 0; index < baseStats.length; index++) {
         var minStat = board.stats[star][baseStats[index].toUpperCase()][0];
         var maxStat = board.stats[star][baseStats[index].toUpperCase()][1];
-        ownedEsper[baseStats[index]] = minStat + (maxStat - minStat) / maxStatLevelByStar[star] * level;
+        ownedEsper[baseStats[index]] = minStat + (maxStat - minStat) * level / maxStatLevelByStar[star];
     }
     
     for (index in board.nodes) {
@@ -979,7 +979,11 @@ function loadLink() {
 function onLevelChange() {
     var star = $("#esperStar").val();
     var level = parseInt($("#level").val());
-    if (level > maxLevelByStar[star]) {
+    if (level < 1) {
+        $("#level").val("1");
+        setEsperLevel(1);
+    } else if (level > maxLevelByStar[star]) {
+        $("#level").val(maxLevelByStar[value]);
         setEsperLevel(maxLevelByStar[value]);
     } else {
         setEsperLevel(level);

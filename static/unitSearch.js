@@ -764,7 +764,11 @@ function initFilters() {
         } else {
             window[unitSearchFilters[i]] = defaultFilter[unitSearchFilters[i]];
         }
-        select(unitSearchFilters[i], window[unitSearchFilters[i]].values);
+        if (unitSearchFilters[i] == 'breaks') {
+            select(unitSearchFilters[i], window[unitSearchFilters[i]].values.map(v => 'break_' + v));
+        } else {
+            select(unitSearchFilters[i], window[unitSearchFilters[i]].values);    
+        }
         select(unitSearchFilters[i] + "SkillTypes", window[unitSearchFilters[i]].skillTypes);
         select(unitSearchFilters[i] + "TargetAreaTypes", window[unitSearchFilters[i]].targetAreaTypes);
     }
