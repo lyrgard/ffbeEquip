@@ -162,7 +162,7 @@ function parseExpression(formula, pos, unit) {
         var token = tokenInfo.token;
         
         if (token.startsWith("MULTICAST(") && token.endsWith(")")) {
-            var skills = token.substr(10, token.length - 11).split(",").map(x => x.trim()).map(x => getFormulaFromSkillToken(x, unit));
+            var skills = token.substr(10, token.length - 11).split(",").map(x => x.trim()).map(x => getFormulaFromSkillToken(x, unit, true));
             outputQueue.push({"type":"multicast", "skills":skills});
         } else if (token.startsWith("SKILL(") && token.endsWith(")")) {
             var skillFormula = getFormulaFromSkillToken(token, unit);
@@ -244,15 +244,15 @@ function parseExpression(formula, pos, unit) {
     return outputQueue[0];
 }
 
-function getFormulaFromSkillToken(token, unit) {
+function getFormulaFromSkillToken(token, unit, multicast = false) {
     if (token.startsWith("SKILL(") && token.endsWith(")")) {
         var upgradeTriggerUsed = false;
         var skillName = token.substr(6, token.length - 7);
         var skill = getSkillFromName(skillName, unit);
         if (!skill) {
-            skill = getSkillFromId(skillName, unit);
+            skill = getSkillFromId(skillName, unit, multicast);
         }
-        return formulaFromSkill(skill);
+        return formulaFromSkill(skill, multicast);
     } else {
         return null;
     }
@@ -475,7 +475,7 @@ function formulaFromSkill(skill, multicast = false, isLb = false) {
     return null;
 }
 
-function formulaFromEffect(effect) {
+function formulaFromEffect(effect, multicast = false) {
     if (effect.effect.damage) {
         var coef = effect.effect.damage.coef;
         return {"type":"damage", "value":effect.effect.damage};
@@ -515,7 +515,7 @@ function formulaFromEffect(effect) {
             "value": effect.effect.skillEnhancement
         }
     } else if (effect.effect.cooldownSkill) {
-        return formulaFromSkill(effect.effect.cooldownSkill);
+        return formulaFromSkill(effect.effect.cooldownSkill, multicast);
     }
     return null;
 }
