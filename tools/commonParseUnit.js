@@ -211,7 +211,10 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     if (unlockedSkills[unitId]) {
         var skillId = unlockedSkills[unitId];
         var skillIn = skills[skillId];
-        manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs);
+        if (!(skillIn.requirements && skillIn.requirements[0][0] == "SWITCH")) { // Do not manage skills already managed generically
+            manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs);    
+        }
+        
     }
     unitOut.innates = {};
     addElementalResist(baseEffects, unitData.element_resist);
