@@ -199,6 +199,8 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
                 skillsOut.push(skillsOutLevelCondition[i]);
             }
             unitOut.passives.push(skill);
+        } else if (skills[skillId].requirements && skills[skillId].requirements[0][0] == "SWITCH") {
+            manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs);
         } else {
             skill = getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unitOut, lbs);
             skill.rarity = skillsIn[skillIndex].rarity;
@@ -207,23 +209,9 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
         }
     }
     if (unlockedSkills[unitId]) {
-        if (!unitOut.enhancements) {
-            unitOut.enhancements = [];
-        }
-        
         var skillId = unlockedSkills[unitId];
         var skillIn = skills[skillId];
-        
-        var enhancementData = {"name":skillIn.name, "levels":[[]]}
-        var enhancementBaseEffects = {};
-        var enhancementSkillsOut = [enhancementBaseEffects];
-        var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
-        unitOut.passives.push(skill);
-        if (Object.keys(enhancementBaseEffects).length === 0) {
-            enhancementSkillsOut.splice(0,1);
-        }
-        enhancementData.levels.push(enhancementSkillsOut);
-        unitOut.enhancements.push(enhancementData);
+        manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs);
     }
     unitOut.innates = {};
     addElementalResist(baseEffects, unitData.element_resist);
@@ -241,6 +229,24 @@ function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, uni
     }
     
     return skillsOut;
+}
+
+function manageUnlockableSkill(skillIn, skillId, unitOut, skills, lbs) {
+    if (!unitOut.enhancements) {
+        unitOut.enhancements = [];
+    }
+    var enhancementData = {"name":skillIn.name, "levels":[[]]}
+    var enhancementBaseEffects = {};
+    var enhancementSkillsOut = [enhancementBaseEffects];
+    var skill = getPassive(skillIn, skillId, enhancementBaseEffects, enhancementSkillsOut, skills, unitOut, lbs);
+    skill.rarity = unitOut.min_rarity;
+    skill.level = 1;
+    unitOut.passives.push(skill);
+    if (Object.keys(enhancementBaseEffects).length === 0) {
+        enhancementSkillsOut.splice(0,1);
+    }
+    enhancementData.levels.push(enhancementSkillsOut);
+    unitOut.enhancements.push(enhancementData);
 }
 
 function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs) {
@@ -281,6 +287,7 @@ function getPassive(skillIn, skillId, baseEffects, skillsOut, skills, unit, lbs)
             skillsOut.push(condensedSkills[i]);    
         }
     }
+    
     return skill;
 }
 
@@ -1785,6 +1792,9 @@ function formatForSearch(units) {
             for (var i = 0, leni = unit.passives.length; i < leni; i++) {
                 var skill = unit.passives[i];
                 if (passivesWithOnlyBestEnhancements.length != 0) {
+                    if (!skill.name) {
+                        console.log(JSON.stringify(skill));
+                    }
                     if (skill.name.endsWith("+1")) {
                         continue;
                     }
