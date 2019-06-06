@@ -114,7 +114,7 @@ getData('summons.json', function (espers) {
                             }
                         }
                     }
-
+                    
                     fs.writeFileSync('esperBoards.json', JSON.stringify(out));
                 }
             });
@@ -472,32 +472,18 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-function formatOutput(items) {
+function formatOutput(espers) {
     var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
-    var result = "[\n";
+    var result = "{\n";
     var first = true;
-    for (var index in items) {
-        var item = items[index]
+    Object.entries(espers).forEach((name, value) => {
         if (first) {
             first = false;
         } else {
-            result += ",";
+            result += ",\n";
         }
-        result += "\n\t{";
-        var firstProperty = true;
-        for (var propertyIndex in properties) {
-            var property = properties[propertyIndex];
-            if (item[property]) {
-                if (firstProperty) {
-                    firstProperty = false;
-                } else {
-                    result += ", ";
-                }
-                result+= "\"" + property + "\":" + JSON.stringify(item[property]);
-            }
-        }
-        result += "}";
-    }
-    result += "\n]";
+        result += '"' + name + '":' + JSON.stringify(value);
+    });
+    result += "\n}";
     return result;
 }

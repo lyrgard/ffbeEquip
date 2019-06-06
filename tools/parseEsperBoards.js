@@ -145,31 +145,34 @@ getData('summons.json', function (espers) {
                 var out = {};
                 for (var esperId in espers) {
                     var esper = espers[esperId];
-                    var boardOut = {"nodes":[]};
+                    var boardOut = {};
                     var esperName = esper.names[0];
                     if (espersMap[esperName]) {
                         esperName = espersMap[esperName];
                     }
                     out[esperName] = boardOut;
-                    boardOut.progression = esperProgression[esperName];
                     boardOut.stats = {};
                     boardOut.resist = {};
+                    boardOut.statPattern = {};
                     for (var i = 0; i < esper.entries.length; i++) {
                         boardOut.stats[i+1] = esper.entries[i].stats;
                         boardOut.resist[i+1] = getResist(esper.entries[i]);
+                        boardOut.statPattern[i+1] = esper.entries[i]['stat_pattern'];
                     }
                     var boardIn = esperBoards[esperId];
                     var nodeByIds = {};
                     var rootNodeId = 0;
                     for (var nodeId in boardIn) {
                         var node = boardIn[nodeId];
-                        if (!node.parent_node_id) {
+                        if (!node.parent_node_id && !rootNodeId) {
                             rootNodeId = nodeId
                         } else {
                             var nodeOut = getNode(node, skills);
                             nodeByIds[nodeId] = nodeOut;
                         }
                     }
+                    
+                    boardOut.nodes = [];
                     for (var nodeId in boardIn) {
                         var node = boardIn[nodeId];
                         var nodeOut = nodeByIds[nodeId];
@@ -178,12 +181,19 @@ getData('summons.json', function (espers) {
                                 boardOut.nodes.push(nodeOut);
                             } else {
                                 var parentNode = nodeByIds[node.parent_node_id];
+                                if (!parentNode) {
+                                    console.log(esperName);
+                                    console.log(nodeId);
+                                    console.log(rootNodeId);
+                                    console.log(node.parent_node_id);
+                                }
                                 parentNode.children.push(nodeOut);
                             }
                         }
                     }
+                    boardOut.progression = esperProgression[esperName];
 
-                    fs.writeFileSync(server + '/esperBoards.json', JSON.stringify(out));
+                    fs.writeFileSync(server + '/esperBoards.json', formatOutput(out));
                 }
             });
         });
@@ -563,32 +573,17 @@ function addLbPerTurn(item, min, max) {
     item.lbPerTurn.max += max;
 }
 
-function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","conditional","tmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills", "rarity"];
-    var result = "[\n";
+function formatOutput(espers) {
+    var result = "{\n";
     var first = true;
-    for (var index in items) {
-        var item = items[index]
+    Object.entries(espers).forEach(entry => {
         if (first) {
             first = false;
         } else {
-            result += ",";
+            result += ",\n";
         }
-        result += "\n\t{";
-        var firstProperty = true;
-        for (var propertyIndex in properties) {
-            var property = properties[propertyIndex];
-            if (item[property]) {
-                if (firstProperty) {
-                    firstProperty = false;
-                } else {
-                    result += ", ";
-                }
-                result+= "\"" + property + "\":" + JSON.stringify(item[property]);
-            }
-        }
-        result += "}";
-    }
-    result += "\n]";
+        result += '"' + entry[0] + '":' + JSON.stringify(entry[1]);
+    });
+    result += "\n}";
     return result;
 }
