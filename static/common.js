@@ -1992,7 +1992,8 @@ $(function() {
         Modal.showErrorGet(this.url, errorThrown);
     });
     
-    if (window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) {
+    if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) && window.location.hash.length > 1) {
+    //if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
         notLoaded();
     } else {
         $.get(server + '/itemInventory', function(result) {
