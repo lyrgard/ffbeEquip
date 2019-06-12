@@ -2471,6 +2471,6 @@
 	{"id":"1500000099", "name":"마법 부스터", "wikiEntry":"Magical_Booster", "type":"materia", "hp%":10, "mag%":40, "lbPerTurn":{"min":1,"max":1}, "access":["premium"], "icon":"ability_77.png", "sortId":90099},
 	{"id":"1500000100", "name":"영원한 환상", "wikiEntry":"Everlasting_Fantasy", "type":"materia", "mp%":20, "special":["[Everlasting Fantasy|영원한 환상|global_materia_1500000006.png]:악기 장착 시 마력 30% 상승+MP 20% 상승+적의 공격 대상이 될 확률 감소"], "tmrUnit":"401007305", "access":["TMR-5*"], "icon":"global_materia_1500000006.png", "sortId":90100},
 	{"id":"1500000100", "name":"영원한 환상", "wikiEntry":"Everlasting_Fantasy", "type":"materia", "mp%":20, "mag%":30, "special":["[Everlasting Fantasy|영원한 환상|global_materia_1500000006.png]:악기 장착 시 마력 30% 상승+MP 20% 상승+적의 공격 대상이 될 확률 감소"], "equipedConditions":["harp"], "tmrUnit":"401007305", "access":["TMR-5*"], "icon":"global_materia_1500000006.png", "sortId":90100},
-	{"id":"1500000101", "name":"포르투나의 믿음", "wikiEntry":"Fortuna's_Faith", "type":"materia", "hp%":15, "def%":15, "mpRefresh":3, "access":["not released yet"], "icon":"ability_91.png", "sortId":90101},
+	{"id":"1500000101", "name":"포르투나의 믿음", "wikiEntry":"Fortuna's_Faith", "type":"materia", "hp%":15, "def%":15, "mpRefresh":3, "access":["event"], "maxNumber":1, "eventName":"Pop Hits", "icon":"ability_91.png", "sortId":90101},
 	{"id":"1500000104", "name":"검의 비법", "wikiEntry":"Sword_Mastery", "type":"materia", "atk%":50, "special":["notStackable"], "equipedConditions":["sword"], "access":["not released yet"], "icon":"ability_95.png", "sortId":90104}
 ]
