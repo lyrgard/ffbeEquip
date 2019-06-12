@@ -1028,7 +1028,7 @@ var hasStat = function(stat, item) {
 var hasStats = function(additionalStat, item) {
     var match = true;
     $(additionalStat).each(function(index, addStat) {
-        if (!item[addStat] && !item[addStat + '%'] && (addStat=='twoHanded' && !isTwoHanded(item))) {
+        if (!item[addStat] && !item[addStat + '%'] && !(addStat=='twoHanded' && isTwoHanded(item))) {
             match = false;
         }
     });

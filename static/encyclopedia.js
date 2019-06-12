@@ -467,9 +467,8 @@ function startPage() {
     addIconChoicesTo("accessToRemove", accessListFilters, "checkbox", "access", function(o){return "Filter out "+o.tooltip;});
 
     // Additional stat filter
-    addIconChoicesTo("additionalStat", baseStats, "checkbox", "stat", function(v){return v.toUpperCase();});
-    //twoHanded option to Additional stat filter
-    addIconChoicesTo("additionalStat", ["twoHanded"], "checkbox", "stat", function(v){return v.toUpperCase();})
+    addIconChoicesTo("additionalStat", baseStats.concat("twoHanded"), "checkbox", "stat", function(v){return v.toUpperCase();});
+    
 	
     filterReady = true;
 	tryToLoadHash();

@@ -937,7 +937,7 @@ function formatOutput(items) {
 function verifyImage(icon) {
     var filePath = "../../static/img/items/" + icon;
     if (!fs.existsSync(filePath)) {
-        download("http://diffs.exvius.gg/asset_files/global/item_item1_common/117/" + icon ,filePath);
+        download("http://diffs.exvius.gg/asset_files/global/item_item1_common/121/" + icon ,filePath);
     }
 }
 

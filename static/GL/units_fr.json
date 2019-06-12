@@ -5399,7 +5399,7 @@
 	},
 	"207000405": {
 		"name":"Aerith",
-		"wikiEntry":"エアリス",
+		"wikiEntry":"Aerith",
 		"id":"207000405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5413,7 +5413,7 @@
 		"equip":["staff","rod","bow","mace","hat","clothes","robe"],
 		"6_form": {
 			"name":"Aerith",
-			"wikiEntry":"エアリス",
+			"wikiEntry":"Aerith",
 			"id":"207000405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5429,8 +5429,8 @@
 		}
 	},
 	"207000505": {
-		"name":"Red XIII",
-		"wikiEntry":"レッドXIII",
+		"name":"Rouge XIII",
+		"wikiEntry":"Red_XIII",
 		"id":"207000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5443,8 +5443,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","fist","hat","helm","clothes"],
 		"6_form": {
-			"name":"Red XIII",
-			"wikiEntry":"レッドXIII",
+			"name":"Rouge XIII",
+			"wikiEntry":"Red_XIII",
 			"id":"207000505",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -10941,6 +10941,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"401007305": {
+		"name":"Katy flamme immortelle",
+		"wikiEntry":"Immortal_Flame Katy",
+		"id":"401007305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":169,"spr":111},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":56,"spr":37},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","harp","whip","throwing","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Katy flamme immortelle",
+			"wikiEntry":"Immortal_Flame Katy",
+			"id":"401007305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2665,"mp":151,"atk":75,"def":101,"mag":130,"spr":85},
+				"minStats":{"hp":879,"mp":50,"atk":25,"def":33,"mag":43,"spr":28},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","harp","whip","throwing","lightShield","hat","clothes","robe"]
 		}
 	},
 	"401007605": {

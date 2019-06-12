@@ -7337,7 +7337,7 @@
 	},
 	"207000405": {
 		"name":"Aerith",
-		"wikiEntry":"エアリス",
+		"wikiEntry":"Aerith",
 		"id":"207000405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7357,7 +7357,7 @@
 		],
 		"6_form": {
 			"name":"Aerith",
-			"wikiEntry":"エアリス",
+			"wikiEntry":"Aerith",
 			"id":"207000405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7377,7 +7377,7 @@
 	},
 	"207000505": {
 		"name":"Red XIII",
-		"wikiEntry":"レッドXIII",
+		"wikiEntry":"Red_XIII",
 		"id":"207000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7392,13 +7392,13 @@
 		"skills": [
 			{"hp%":40, "mp%":20, "atk%":50, "def%":60, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"confuse","percent":100}], "killers":[{"name":"beast"},{"name":"demon"},{"name":"undead"}]},
 			{"atk%":200, "equipedConditions":["unarmed"]},
-			{"mp%":20, "def%":20, "spr%":20, "killers":[{"name":"beast"},{"name":"demon"},{"name":"undead"}], "skillEnhancement":{"229780":1.5,"229783":0.75,"229785":1.5}, "equipedConditions":[["409026900","409027000"]]},
+			{"mp%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"beast"},{"name":"demon"},{"name":"undead"}], "skillEnhancement":{"229780":1.5,"229783":0.75,"229785":1.5}, "equipedConditions":[["409026900","409027000"]]},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":40, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Red XIII",
-			"wikiEntry":"レッドXIII",
+			"wikiEntry":"Red_XIII",
 			"id":"207000505",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -14962,6 +14962,51 @@
 				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
 				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
 				{"def%":30, "spr%":30, "equipedConditions":["heavyArmor"]}
+			]
+		}
+	},
+	"401007305": {
+		"name":"Unvergängliche Flamme Katy",
+		"wikiEntry":"Immortal_Flame Katy",
+		"id":"401007305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3465,"mp":197,"atk":98,"def":131,"mag":169,"spr":111},
+			"minStats":{"hp":1143,"mp":65,"atk":32,"def":43,"mag":56,"spr":37},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","harp","whip","throwing","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":10, "mag%":30, "spr%":10, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}]},
+			{"mp%":20, "equipedConditions":["robe"]},
+			{"hp%":20, "equipedConditions":["hat"]},
+			{"lbFillRate":50, "mpRefresh":10, "equipedConditions":[["1500000100","1100000273"]]},
+			{"mp%":20, "levelCondition":115},
+			{"mag%":30, "spr%":30, "lbDamage":20, "levelCondition":120},
+			{"mag%":50, "equipedConditions":["harp"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Unvergängliche Flamme Katy",
+			"wikiEntry":"Immortal_Flame Katy",
+			"id":"401007305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2665,"mp":151,"atk":75,"def":101,"mag":130,"spr":85},
+				"minStats":{"hp":879,"mp":50,"atk":25,"def":33,"mag":43,"spr":28},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","harp","whip","throwing","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "def%":10, "mag%":30, "spr%":10, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}]},
+				{"mp%":20, "equipedConditions":["robe"]},
+				{"hp%":20, "equipedConditions":["hat"]}
 			]
 		}
 	},
