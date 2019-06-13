@@ -349,12 +349,16 @@
     display: block;
 }
 
-.readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv,.readOnly .explanation, .explanation.readOnly {
+.readOnly #header, .readOnly #loginMessage, .readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv,.readOnly .explanation, .explanation.readOnly {
     display: none;
 }
 
 .readOnly .modifyCounterButton {
     visibility: hidden;
+}
+
+.readOnly #units {
+    margin-top: 10px;
 }
 
 .readOnly .unit {
@@ -373,13 +377,19 @@
 
 .farmedButton {
     display: none;
-}
-
-.farmable .farmedButton {
     height: 44px;
     margin-top: -10px;
     margin-bottom: -10px;
+    margin-left: -5px;
+    margin-right: -5px;
     cursor: pointer;
+}
+
+.farmable .farmedButton.tmr {
+    display: block;
+}
+
+.farmableStmr .farmedButton.stmr {
     display: block;
 }
 
