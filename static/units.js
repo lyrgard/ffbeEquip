@@ -310,10 +310,10 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notOwned';
         }
-        if (ownedUnits[unit.id] && (!is7Stars  && ownedUnits[unit.id].farmable > 0) || (is7Stars && ownedUnits[unit.id].farmableStmr > 0)) {
+        if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
             html += ' farmable';
         }
-        if (!is7Stars && !unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 2) {
+        if (!unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 1) {
             html += ' awakenable';
         }
         if (is7Stars) {
@@ -618,18 +618,19 @@ function awaken(unitId) {
 }
 
 function awakenFollowUp(unitId) {
-    if (ownedUnits[unitId].number < 2) {
+    if (ownedUnits[unitId].number < 1) {
         $(".unit." + unitId).removeClass("awakenable");
     }
-    $(".unit." + unitId + " .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
+    
     if (!ownedUnits[unitId].sevenStar) {
         ownedUnits[unitId].sevenStar = 0;
         ownedUnits[unitId].farmableStmr = 0;
     }
     ownedUnits[unitId].sevenStar++;
     ownedUnits[unitId].farmableStmr++;
-    currentSort();
-
+    $(".unit." + unitId + " .ownedNumber.base.badge").html(ownedUnits[unitId].number);
+    $(".unit." + unitId + " .ownedNumber.sevenStar.badge").html(ownedUnits[unitId].sevenStar);
+    
     markSaveNeeded();
 }
 
