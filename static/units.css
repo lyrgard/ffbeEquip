@@ -371,15 +371,21 @@
     color: #999;
 }
 
+.farmedButton {
+    display: none;
+}
+
 .farmable .farmedButton {
     height: 44px;
     margin-top: -10px;
     margin-bottom: -10px;
     cursor: pointer;
+    display: block;
 }
 
 .awakenButton {
     cursor: pointer;
+    display: none;
 }
 
 .actions > .glyphicon.glyphicon-pencil {
@@ -389,18 +395,17 @@
     width: 24px;
 }
 
-i.awakenButton {
-    height: 28px;
-    position: absolute;
-    top: 2px;
-    left: 7px;
+.unit.notOwned .actions > .glyphicon.glyphicon-pencil {
     display: none;
 }
 
-.awakenable:hover .awakenButton,
-.farmable:hover .farmedButton {
-    display: block;
+.unit.notOwned .awakenButton {
+    display: none;
 }
+
+.awakenable .awakenButton {
+    display: block;
+} 
 
 .stats {
     margin-top: 10px;

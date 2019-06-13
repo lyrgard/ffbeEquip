@@ -339,7 +339,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else if (unit.min_rarity == 5) {
             html += '<i class="img img-crystal-rainbowCrystal"></i>';
         }
-        html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
+        html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
         html += '</div>'    
         
         
@@ -372,27 +372,23 @@ function getUnitDisplay(unit, useTmrName = false) {
         
         html += '<div class="actions">'
         html += '<span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')" title="Add one ' + unit.name + ' to your collection"></span>'
-        if (ownedUnits[unit.id]) {
-            if (ownedUnits[unit.id].farmable > 0) {
-                html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will add 1 of this TMR to your inventory"></img>';
-            }
-            if (unit.max_rarity == 7 && ownedUnits[unit.id].number > 0) {
-                html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>';
-            }
-            html += '<span class="glyphicon glyphicon-pencil" onclick="event.stopPropagation();editUnit(\'' + unit.id + '\')" title="Edit unit values"></span>'
+        html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will add 1 of this TMR to your inventory"></img>';
+        if (unit.max_rarity == 7) {
+            html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>';
         }
+        html += '<span class="glyphicon glyphicon-pencil" onclick="event.stopPropagation();editUnit(\'' + unit.id + '\')" title="Edit unit values"></span>'
         html += '</div>'; 
         
         html += '</div>';
         
         html += '<div class="thirdColumn">';
         if (ownedUnits[unit.id] && tmrNameByUnitId[unit.id]) {
-            let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
-            html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTMR + '/' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></div>'
             if (is7Stars) {
                 let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
                 html += '<div class="stmr">STMR <span class="badge badge-success">' + farmedSTMR + '/' + (farmedSTMR + ownedUnits[unit.id].farmableStmr) + '</span></div>'
             }
+            let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
+            html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTMR + '/' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></div>'
         }
         html += '</div>';
         
@@ -419,18 +415,18 @@ function addToOwnedUnits(unitId) {
         ownedUnits[unitId] = {"number":0, "farmable":0};
     }
     if (ownedUnits[unitId].number == 0) {
-        $(".unit.notSevenStars." + unitId).addClass("owned");
-        $(".unit.notSevenStars." + unitId).removeClass("notOwned");
+        $(".unit." + unitId).addClass("owned");
+        $(".unit." + unitId).removeClass("notOwned");
     }
     
     ownedUnits[unitId].number += 1;
-    if (ownedUnits[unitId].number >= 2 && !allUnits[unitId].unreleased7Star && allUnits[unitId].max_rarity == 7) {
-        $(".unit.notSevenStars." + unitId).addClass("awakenable");
+    if (ownedUnits[unitId].number >= 1 && !allUnits[unitId].unreleased7Star && allUnits[unitId].max_rarity == 7) {
+        $(".unit." + unitId).addClass("awakenable");
     }
     if (!tmrNumberByUnitId[unitId] || (tmrNumberByUnitId[unitId] < ownedUnits[unitId].number)) {
         addToFarmableNumberFor(unitId);
     }
-    $(".unit." + unitId + ".notSevenStars .numberOwnedDiv .badge").html(ownedUnits[unitId].number);
+    $(".unit." + unitId + " .ownedNumber.base.badge").html(ownedUnits[unitId].number);
     markSaveNeeded();
     displayStats();
 }
@@ -673,6 +669,11 @@ function editUnit(unitId) {
                         if (unit.max_rarity == '7') {
                             ownedUnits[unitId].sevenStar = parseInt($("#ownedSeventStarNumber").val() || 0);
                             ownedUnits[unitId].farmableStmr = parseInt($("#farmableSTMR").val() || 0);
+                        }
+                        if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0) {
+                            if (unit.max_rarity != '7' || (ownedUnits[unitId].sevenStar == 0 && ownedUnits[unitId].farmableStmr == 0)) {
+                                delete ownedUnits[unitId];
+                            }
                         }
                         currentSort();
                         markSaveNeeded();
