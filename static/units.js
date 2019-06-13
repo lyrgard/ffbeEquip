@@ -250,7 +250,11 @@ function displayUnitsByRarity(units, minRarity = 1) {
         var rarity_list = []; // will gather rarity to display a jump list later
         for (var index = 0, len = units.length; index < len; index++) {
             var unit = units[index];
-            if (unit.min_rarity < minRarity) {
+            if (minRarity == 7) {
+                if (!ownedUnits[unit.id] || !ownedUnits[unit.id].sevenStar) {
+                    continue;
+                }
+            } else if (unit.min_rarity < minRarity) {
                 continue;
             }
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
@@ -299,7 +303,7 @@ function displayUnitsByRarity(units, minRarity = 1) {
 function getUnitDisplay(unit, useTmrName = false) {
   var html = "";
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
-        var is7Stars = unit.min_rarity == 7;
+        var is7Stars = ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
         html += '<div class="unit ' + unit.id;
         if (ownedUnits[unit.id]) {
             html += ' owned';
@@ -318,61 +322,81 @@ function getUnitDisplay(unit, useTmrName = false) {
             html += ' notSevenStars';
         }
         html += '"';
-        if (!is7Stars) {
+        /*if (!is7Stars) {
             html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
             html += ' title="Add one ' + unit.name + ' to your collection"';
-        }
+        }*/
         html += '>';
+        html += '<div class="ownedNumbers">';
+        if (ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar) {
+            html += '<div><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + ownedUnits[unit.id].sevenStar + '</span></div>';
+        }
+        html += '<div>'
+        if (unit.min_rarity == 3) {
+            html += '<i class="img img-crystal-blueCrystal"></i>';
+        } else if (unit.min_rarity == 4) {
+            html += '<i class="img img-crystal-goldCrystal"></i>';
+        } else if (unit.min_rarity == 5) {
+            html += '<i class="img img-crystal-rainbowCrystal"></i>';
+        }
+        html += '<span class="ownedNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
+        html += '</div>'    
         
-        if (unit.summon_type === 'event') {
-            html +='<span class="glyphicon glyphicon-time"/>';
-        }
-        var addFunction = (is7Stars ? "addTo7Stars" : "addToOwnedUnits");
-        html += '<div class="numberOwnedDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addFunction + '(\'' + unit.id + '\')" title="Add one ' + unit.name + ' to your collection"></span>';
-        var numberOwned = (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0);
-        if (is7Stars) {
-            numberOwned = ownedUnits[unit.id].sevenStar;
-        }
-        html += '<span class="ownedNumber badge badge-success">' + numberOwned + '</span>';
         
-        var removeFunction = (is7Stars ? "removeFrom7Stars" : "removeFromOwnedUnits");
-        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFunction + '(\'' + unit.id + '\');" title="Remove one ' + unit.name + ' from your collection"></span></div>';
-        var addToFarmableNumberFunction = (is7Stars ? "addToFarmable7StarsNumber" : "addToFarmableNumberFor");
-        html += '<div class="farmableTMRDiv numberDiv"><span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();' + addToFarmableNumberFunction + '(\'' + unit.id + '\')" title="Augment by one the number of TMR remaining"></span>';
-        if (is7Stars) {
-            if (showNumberTMRFarmed) {
-                html += '<span class="farmableNumber badge badge-success">' + (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) + '</span>';
-            } else {
-                html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmableStmr : 0) + '</span>';
-            }
-        } else {
-            if (showNumberTMRFarmed) {
-                html += '<span class="farmableNumber badge badge-success">' + (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + '</span>';
-            } else {
-                html += '<span class="farmableNumber badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].farmable : 0) + '</span>';
-            }
-        }
-        var removeFromFarmableFunction = (is7Stars ? "removeFromStmrFarmableNumberFor" : "removeFromFarmableNumberFor");
-        html += '<span class="glyphicon glyphicon-minus modifyCounterButton" onclick="event.stopPropagation();' + removeFromFarmableFunction + '(\'' + unit.id + '\');" title="Reduce by one the number of TMR remaining"></span></div>';
-        var farmedFunction = (is7Stars ? "farmedSTMR" : "farmedTMR");
-        html += '<img class="farmedButton" onclick="event.stopPropagation();' + farmedFunction + '(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="' +  (is7Stars ? 'STMR acquired !' : 'TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1') + '"></img>';
-        //html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>'
-        html += '<i class="img img-crystal-sevenStarCrystal awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" title="Awaken this unit !"></i>';
+        html += '<div class="secondColumn">'
+        html += '<div class="imageAndName">'
         var formToDisplay = unit.max_rarity;
-        if (formToDisplay == 7 && unit.min_rarity != 7) {
+        if (formToDisplay == 7 && ownedUnits[unit.id] && !ownedUnits[unit.id].sevenStar) {
             formToDisplay = 6;
         }
-        html += '<div class="unitImageWrapper"><div><img class="unitImage lazyload" data-src="/img/units/unit_ills_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div></div>';
-        html +='<div class="unitName"><div>';
+        html += '<div><img class="unitImage lazyload" data-src="/img/units/unit_icon_' + unit.id.substr(0, unit.id.length - 1) + formToDisplay + '.png"/></div>';
+        
+        html +='<div class="unitNameAndRarity">';
+        html +='<div class="unitName">';
         if (useTmrName) {
             html += toLink(tmrNameByUnitId[unit.id]);
         } else {
             html += toLink(unit.name);
         }
-        html += '</div></div>';
+        if (unit.summon_type === 'event') {
+            html +='<span class="glyphicon glyphicon-time"/>';
+        }
+        html += '</div>';
+        
         html += '<div class="unitRarity">'
         html += getRarity(unit.min_rarity, (unit.unreleased7Star ? 6 : unit.max_rarity));
-        html += '</div></div>';
+        html += '</div>';
+        
+        html += '</div>'
+        html += '</div>' 
+        
+        html += '<div class="actions">'
+        html += '<span class="glyphicon glyphicon-plus modifyCounterButton" onclick="event.stopPropagation();addToOwnedUnits(\'' + unit.id + '\')" title="Add one ' + unit.name + ' to your collection"></span>'
+        if (ownedUnits[unit.id]) {
+            if (ownedUnits[unit.id].farmable > 0) {
+                html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + unit.id + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will add 1 of this TMR to your inventory"></img>';
+            }
+            if (unit.max_rarity == 7 && ownedUnits[unit.id].number > 0) {
+                html += '<img class="awakenButton" onclick="event.stopPropagation();awaken(' + unit.id + ')" src="/img/icons/crystals/sevenStarCrystal.png" title="Awaken this unit !"></img>';
+            }
+            html += '<span class="glyphicon glyphicon-pencil" onclick="event.stopPropagation();editUnit(\'' + unit.id + '\')" title="Edit unit values"></span>'
+        }
+        html += '</div>'; 
+        
+        html += '</div>';
+        
+        html += '<div class="thirdColumn">';
+        if (ownedUnits[unit.id] && tmrNameByUnitId[unit.id]) {
+            let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
+            html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTMR + '/' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></div>'
+            if (is7Stars) {
+                let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
+                html += '<div class="stmr">STMR <span class="badge badge-success">' + farmedSTMR + '/' + (farmedSTMR + ownedUnits[unit.id].farmableStmr) + '</span></div>'
+            }
+        }
+        html += '</div>';
+        
+        html += '</div>';
     }
     return html;
 }
@@ -564,10 +588,40 @@ function farmedSTMR(unitId) {
 
 function awaken(unitId) {
     if (readOnly) return;
-    if (!ownedUnits[unitId] || ownedUnits[unitId].number < 2 || allUnits[unitId].max_rarity != 7) {
+    if (!ownedUnits[unitId] || ownedUnits[unitId].number < 1 || allUnits[unitId].max_rarity != 7) {
         return;
     }
-    ownedUnits[unitId].number -= 2;
+    if (ownedUnits[unitId].number == 1) {
+        ownedUnits[unitId].number -= 1;
+        awakenFollowUp(unitId);
+    } else {
+        Modal.show({
+            title: 'Awaken ' + allUnits[unitId].name,
+            body: '<p>How to awaken ?</p>',
+            withCancelButton: true,
+            buttons: [
+                {
+                    text: "Awaken using 2 units",
+                    className: "",
+                    onClick: function() {
+                        ownedUnits[unitId].number -= 2;
+                        awakenFollowUp(unitId);
+                    }
+                }, 
+                {
+                    text: "Awaken using 1 unit and a prism",
+                    className: "",
+                    onClick: function() {
+                        ownedUnits[unitId].number -= 1;
+                        awakenFollowUp(unitId);
+                    }
+                }
+            ]
+        });
+    }
+}
+
+function awakenFollowUp(unitId) {
     if (ownedUnits[unitId].number < 2) {
         $(".unit." + unitId).removeClass("awakenable");
     }
@@ -581,6 +635,51 @@ function awaken(unitId) {
     currentSort();
 
     markSaveNeeded();
+}
+
+function editUnit(unitId) {
+    let form = '<form>' +
+      '<div class="form-group">' +
+        '<label for="ownedNumber">Owned number</label>' +
+        '<input type="number" class="form-control" id="ownedNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + ownedUnits[unitId].number + '">' +
+      '</div>'+
+      '<div class="form-group">' +
+        '<label for="farmableTMR">Number of TMR that can still be farmed</label>' +
+        '<input type="number" class="form-control" id="farmableTMR" aria-describedby="emailHelp" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '">' +
+      '</div>';
+    let unit = allUnits[unitId];
+    if (unit.max_rarity == '7') {
+        form += '<div class="form-group">' +
+            '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
+            '<input type="number" class="form-control" id="ownedSeventStarNumber" aria-describedby="emailHelp" placeholder="Enter owned number" value="' + (ownedUnits[unitId].sevenStar || 0) + '">' +
+          '</div>'+
+          '<div class="form-group">' +
+            '<label for="farmableSTMR">Number of STMR that can still be farmed</label>' +
+            '<input type="number" class="form-control" id="farmableSTMR" aria-describedby="emailHelp" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '">' +
+          '</div>';
+    }
+    form += '</form>';
+    Modal.show({
+            title: 'Edit ' + unit.name,
+            body: form,
+            withCancelButton: true,
+            buttons: [
+                {
+                    text: "Save",
+                    className: "",
+                    onClick: function() {
+                        ownedUnits[unitId].number = parseInt($("#ownedNumber").val() || 0);
+                        ownedUnits[unitId].farmable = parseInt($("#farmableTMR").val() || 0);
+                        if (unit.max_rarity == '7') {
+                            ownedUnits[unitId].sevenStar = parseInt($("#ownedSeventStarNumber").val() || 0);
+                            ownedUnits[unitId].farmableStmr = parseInt($("#farmableSTMR").val() || 0);
+                        }
+                        currentSort();
+                        markSaveNeeded();
+                    }
+                }
+            ]
+        });
 }
 
 function markSaveNeeded() {
@@ -710,15 +809,6 @@ function sortTMRAlphabetically(units) {
 
 function sortByRarity(units) {
     var unitsToSort = units.slice();
-    if (ownedUnits) {
-        for (var i = units.length; i--;) {
-            if (ownedUnits[units[i].id] && ownedUnits[units[i].id].sevenStar) {
-                sevenForm = JSON.parse(JSON.stringify(units[i]));
-                sevenForm.min_rarity = 7;
-                unitsToSort.push(sevenForm);
-            }
-        }
-    }
     return unitsToSort.sort(function (unit1, unit2){
         var maxRarity1 = unit1.max_rarity;
         var maxRarity2 = unit2.max_rarity;
@@ -1100,17 +1190,6 @@ function startPage() {
     }
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
-    
-    $('#modeToggle').bootstrapToggle({
-        on: 'Simple <span class="collapsedHidden">Mode</span>',
-        off: 'Edit <span class="collapsedHidden">Mode</span>',
-        onstyle: "default",
-        offstyle: "default"
-    });
-    $('#modeToggle').bootstrapToggle('on');
-    $('#modeToggle').change(function() {
-      $("#results").toggleClass("simpleMode");
-    });
 }
 
 // create new JJV environment
