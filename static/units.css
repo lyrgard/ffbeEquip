@@ -363,18 +363,8 @@
     text-decoration: none;
 }
 
-.explanation {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 0.9em;
-}
 
-.readOnly .explanation.readOnly {
-    display: block;
-}
-
-.readOnly #header, .readOnly #loginMessage, .readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv,.readOnly .explanation, .explanation.readOnly {
+.readOnly #header, .readOnly #loginMessage, .readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv {
     display: none;
 }
 
