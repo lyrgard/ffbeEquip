@@ -332,9 +332,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         }*/
         html += '>';
         html += '<div class="ownedNumbers">';
-        if (ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar) {
-            html += '<div><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + ownedUnits[unit.id].sevenStar + '</span></div>';
-        }
+        html += '<div class="sevenStarNumber"><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].sevenStar || 0) : 0) + '</span></div>';
         html += '<div>'
         if (unit.min_rarity == 3) {
             html += '<i class="img img-crystal-blueCrystal"></i>';
@@ -397,12 +395,10 @@ function getUnitDisplay(unit, useTmrName = false) {
                 html += '<div class="tmr">TMR <span class="badge badge-success">' + (ownedUnits[unit.id].farmed || 0) + '</span></div>'
             } else {
                 if (tmrNameByUnitId[unit.id]) {
-                    if (is7Stars) {
-                        let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
-                        html += '<div class="stmr trustCounter">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + ownedUnits[unit.id].farmableStmr) + '</span></span></div>'
-                    }
+                    let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
+                    html += '<div class="stmr trustCounter">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + ownedUnits[unit.id].farmableStmr || 0) + '</span></span></div>'
                     let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
-                    html += '<div class="tmr trustCounter">TMR <span class="badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="farmedSTMR">' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></span></div>'
+                    html += '<div class="tmr trustCounter">TMR <span class="badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="totalTMR">' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></span></div>'
                 }
             }
         }
@@ -712,6 +708,16 @@ function awakenFollowUp(unitId) {
     ownedUnits[unitId].farmableStmr++;
     $(".unit." + unitId + " .ownedNumber.base.badge").html(ownedUnits[unitId].number);
     $(".unit." + unitId + " .ownedNumber.sevenStar.badge").html(ownedUnits[unitId].sevenStar);
+    $(".unit." + unitId).removeClass("notSevenStars");
+    $(".unit." + unitId).addClass("sevenStars");
+    $(".unit." + unitId).addClass("farmableStmr");
+    for (var index = data.length; index--;) {
+        if (data[index].tmrUnit && data[index].tmrUnit == unitId) {
+            break;
+        }
+    }
+    $(".unit." + unitId + " .farmedSTMR").html(itemInventory[data[index].id] || 0);
+    $(".unit." + unitId + " .totalSTMR").html((itemInventory[data[index].id] || 0) + ownedUnits[unitId].farmableStmr);
     
     markSaveNeeded();
 }

@@ -496,8 +496,24 @@
     justify-content: space-between;
 }
 
+.trustCounter.stmr {
+    display: none;
+}
+
+.sevenStars .trustCounter.stmr {
+    display: block;
+}
+
 .trustCounter .badge {
     margin-left: 3px;
+}
+
+.ownedNumbers .sevenStarNumber {
+    display: none;
+}
+
+.sevenStars .ownedNumbers .sevenStarNumber {
+    display: block;
 }
 
 #importLink {

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/units.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/units.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/units.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/units.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="585" column="62" selection-start-line="585" selection-start-column="62" selection-end-line="585" selection-end-column="62" />
+            <state relative-caret-position="414">
+              <caret line="400" column="164" lean-forward="true" selection-start-line="400" selection-start-column="164" selection-end-line="400" selection-end-column="164" />
             </state>
           </provider>
         </entry>
@@ -80,17 +79,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="296" column="24" lean-forward="true" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="24" />
+            <state relative-caret-position="174">
+              <caret line="304" column="51" selection-start-line="304" selection-start-column="51" selection-end-line="304" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="374" column="18" lean-forward="true" selection-start-line="374" selection-start-column="18" selection-end-line="374" selection-end-column="18" />
+            <state relative-caret-position="463">
+              <caret line="514" column="42" selection-start-line="514" selection-start-column="42" selection-end-line="514" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -126,10 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Equip</find>
-      <find>Battle Garb</find>
-      <find>Equip Whip</find>
-      <find>Guardian of Thunder</find>
       <find>Wilderness Scarf</find>
       <find>evoke</find>
       <find>124</find>
@@ -155,7 +150,11 @@
       <find>removeFromFarmableNumberFor</find>
       <find>320</find>
       <find>left</find>
+      <find>stmr</find>
+      <find>trustCounter</find>
       <find>explanation</find>
+      <find>farme</find>
+      <find>farmedSTMR</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -198,9 +197,9 @@
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/static/espers.js" />
-        <option value="$PROJECT_DIR$/static/units.js" />
         <option value="$PROJECT_DIR$/static/units.html" />
         <option value="$PROJECT_DIR$/static/units.css" />
+        <option value="$PROJECT_DIR$/static/units.js" />
       </list>
     </option>
   </component>
@@ -353,12 +352,12 @@
       <workItem from="1559392189469" duration="4869000" />
       <workItem from="1559850616520" duration="1024000" />
       <workItem from="1560278440857" duration="676000" />
-      <workItem from="1560453531467" duration="6919000" />
+      <workItem from="1560453531467" duration="8941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86542000" />
+    <option name="totallyTimeSpent" value="88564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -713,24 +712,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.js">
+    <entry file="file://$PROJECT_DIR$/static/units.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="585" column="62" selection-start-line="585" selection-start-column="62" selection-end-line="585" selection-end-column="62" />
+        <state relative-caret-position="463">
+          <caret line="514" column="42" selection-start-line="514" selection-start-column="42" selection-end-line="514" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/units.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="296" column="24" lean-forward="true" selection-start-line="296" selection-start-column="24" selection-end-line="296" selection-end-column="24" />
+        <state relative-caret-position="174">
+          <caret line="304" column="51" selection-start-line="304" selection-start-column="51" selection-end-line="304" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.css">
+    <entry file="file://$PROJECT_DIR$/static/units.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="374" column="18" lean-forward="true" selection-start-line="374" selection-start-column="18" selection-end-line="374" selection-end-column="18" />
+        <state relative-caret-position="414">
+          <caret line="400" column="164" lean-forward="true" selection-start-line="400" selection-start-column="164" selection-end-line="400" selection-end-column="164" />
         </state>
       </provider>
     </entry>
