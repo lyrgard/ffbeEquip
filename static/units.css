@@ -92,6 +92,15 @@
 .unit.owned.sevenStars {
     background-color: #F9D2DA;
 }
+
+.onlyOwnedUnits .unit.notOwned {
+    display: none;
+}
+
+.onlySevenStar .unit.notSevenStars{
+    display: none;
+}
+
 .sevenStars .numberDiv .glyphicon {
     color: #F9D2DA;
 }
@@ -279,7 +288,6 @@
 .thirdColumn {
     display: flex;
     flex-direction: column;
-    width: 76px;
     align-items: end;
     justify-content: space-evenly;
     flex-shrink: 0;
@@ -291,6 +299,23 @@
 
 .farmableTMRDiv {
     right: 5px;
+}
+
+.filterOptions {
+    display: flex;
+    flex-direction: column;
+    padding-top: 6px;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+}
+
+.checkboxGroup label {
+    padding-left: 5px;
+    margin-bottom: 0px;
+    font-weight: 100;
 }
 
 .notOwned .numberDiv .glyphicon {
@@ -479,6 +504,10 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+}
+
+.trustCounter .badge {
+    margin-left: 3px;
 }
 
 #importLink {

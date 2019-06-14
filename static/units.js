@@ -10,6 +10,7 @@ var stmrNumberByUnitId = {};
 var stmrNameByUnitId = {};
 
 var onlyShowOwnedUnits = false;
+var onlyShow7Star = false;
 var showNumberTMRFarmed = false;
 var readOnly;
 
@@ -398,10 +399,10 @@ function getUnitDisplay(unit, useTmrName = false) {
                 if (tmrNameByUnitId[unit.id]) {
                     if (is7Stars) {
                         let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
-                        html += '<div class="stmr">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + ownedUnits[unit.id].farmableStmr) + '</span></span></div>'
+                        html += '<div class="stmr trustCounter">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + ownedUnits[unit.id].farmableStmr) + '</span></span></div>'
                     }
                     let farmedTMR = tmrNumberByUnitId[unit.id] || 0;
-                    html += '<div class="tmr">TMR <span class="badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="farmedSTMR">' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></span></div>'
+                    html += '<div class="tmr trustCounter">TMR <span class="badge badge-success"><span class="farmedTMR">' + farmedTMR + '</span>/<span class="farmedSTMR">' + (farmedTMR + ownedUnits[unit.id].farmable) + '</span></span></div>'
                 }
             }
         }
@@ -1272,6 +1273,23 @@ function startPage() {
     }
 
     $("#searchBox").on("input", $.debounce(300,updateResults));
+    
+    $("#onlyOwnedUnits").on('input', function () {
+        let checked = $("#onlyOwnedUnits").prop('checked');
+        $(".onlySevenStarInoutGroup").toggleClass('hidden', !checked);
+        if (!checked) {
+            $("#onlySevenStar").prop('checked', false);
+        }
+        $('body').toggleClass('onlyOwnedUnits', checked);
+        $('body').removeClass('onlySevenStar');
+    });
+    
+    $("#onlySevenStar").on('input', function () {
+        $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
+    });
+    $('body').toggleClass('onlyOwnedUnits', $("#onlyOwnedUnits").prop('checked'));
+    $(".onlySevenStarInoutGroup").toggleClass('hidden', !$("#onlyOwnedUnits").prop('checked'));
+    $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
 }
 
 // create new JJV environment
