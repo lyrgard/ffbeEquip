@@ -492,7 +492,6 @@
 .trustCounter {
     width: 100%;
     align-items: center;
-    display: flex;
     justify-content: space-between;
 }
 
@@ -501,7 +500,15 @@
 }
 
 .sevenStars .trustCounter.stmr {
-    display: block;
+    display: flex;
+}
+
+.trustCounter.tmr {
+    display: none;
+}
+
+.owned .trustCounter.tmr {
+    display: flex;
 }
 
 .trustCounter .badge {
