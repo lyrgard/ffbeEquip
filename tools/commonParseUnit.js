@@ -1225,6 +1225,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 132) {
         result = {"noUse":true};
         
+        // auto reraise
+    } else if (rawEffect[2] == 27) {
+        result = {"noUse":true};
+        
         // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
