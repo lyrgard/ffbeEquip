@@ -1225,8 +1225,20 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 132) {
         result = {"noUse":true};
         
+    // cure breaks
+    } else if (rawEffect[2] == 111) {
+        result = {"noUse":true};
+        
         // auto reraise
     } else if (rawEffect[2] == 27) {
+        result = {"noUse":true};
+    
+        // Dodge x physical attacks
+    } else if (rawEffect[2] == 54) {
+        result = {"noUse":true};
+        
+        // HP barrier
+    } else if (rawEffect[2] == 127) {
         result = {"noUse":true};
         
         // Dualcast
