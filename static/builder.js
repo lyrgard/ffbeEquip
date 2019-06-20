@@ -229,9 +229,10 @@ function optimize() {
             "useNewJpDamageFormula": useNewJpDamageFormula,
         }));
     }
+    let forceTmrAbility = $("#forceTmrAbility input").prop('checked');
     
     
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands);
+    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands, forceTmrAbility);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
@@ -1538,8 +1539,16 @@ var displayUnitRarity = function(unit) {
         for (var i = 0; i < rarity; i++) {
             rarityWrapper.append('<i class="rarity-star"></i>');
         }
+        if (rarity == "7") {
+            $('#forceTmrAbility').removeClass('hidden');
+        } else {
+            $('#forceTmrAbility').addClass('hidden');
+            $("#tryReduceOverCap input").prop('checked', false);
+        }
     } else {
         rarityWrapper.hide();
+        $('#forceTmrAbility').addClass('hidden');
+        $("#tryReduceOverCap input").prop('checked', false);
     }
 };
 

@@ -1,10 +1,11 @@
 class TypeCombinationGenerator {
-    constructor(forceDoubleHand, forceDualWield, tryEquipSources, unitBuild, dualWieldSources, equipSources, dataByType, weaponsByTypeAndHands) {
+    constructor(forceDoubleHand, forceDualWield, tryEquipSources, unitBuild, dualWieldSources, equipSources, dataByType, weaponsByTypeAndHands, forceTmrAbility = false) {
         this.forceDoubleHand = forceDoubleHand;
         this.forceDualWield = forceDualWield;
         this.unitBuild = unitBuild;
         this.dualWieldSources = dualWieldSources;
         this.equipSourcesByType = {};
+        this.forceTmrAbility = forceTmrAbility;
         for (var index = equipSources.length; index --;) {
             if (!this.equipSourcesByType[equipSources[index].allowUseOf]) {
                 this.equipSourcesByType[equipSources[index].allowUseOf] = [];
@@ -18,17 +19,43 @@ class TypeCombinationGenerator {
     
    
     
-    generateTypeCombinations() {
+    generateTypeCombinations(forcedItem) {
         var combinations = [];
+
+        if (this.forceTmrAbility && !forcedItem) {
+            if (dataStorage.availableTmr) {
+                combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableTmr));
+            }
+            if (dataStorage.availableStmr) {
+                combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableStmr));
+            }
+            return combinations;
+        }
+
+        let baseForcedItems;
+        let forcedItemSlot = -1;
+        if (!forcedItem) {
+            baseForcedItems = [];
+        } else {
+            forcedItemSlot = this.unitBuild.getItemSlotFor(forcedItem, this.forceDoubleHand);
+            if (forcedItemSlot == -1) {
+                return [];
+            } else {
+                this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
+                this.unitBuild.fixedItems[forcedItemSlot] = forcedItem;
+            }
+            baseForcedItems = [forcedItem];
+        }
+
         var typeCombination = [null, null, null, null, null, null, null, null, null, null];
-        this.buildTypeCombination(0,typeCombination, combinations, []);
+        this.buildTypeCombination(0,typeCombination, combinations, baseForcedItems);
         this.unitBuild.build.splice(0, 11, ...(this.unitBuild.fixedItems));
         
         if (!this.unitBuild.build[0] 
             && !this.unitBuild.build[1] 
             && this.unitBuild.unit.skills.some(skill => skill.equipedConditions && skill.equipedConditions.includes("unarmed"))) {
             // If no weapons are pinned and the unit has an "unarmed" passive, try combinations without weapons
-            this.buildTypeCombination(2,[null, null, null, null, null, null, null, null, null, null], combinations, []);
+            this.buildTypeCombination(2,[null, null, null, null, null, null, null, null, null, null], combinations, baseForcedItems);
         }
 
         var unitPartialDualWield = this.unitBuild.getPartialDualWield();
@@ -38,7 +65,7 @@ class TypeCombinationGenerator {
 
             this.unitBuild.equipable[0] = unitPartialDualWield;
             this.unitBuild.equipable[1] = unitPartialDualWield;
-            this.buildTypeCombination(0,typeCombination,combinations, []);
+            this.buildTypeCombination(0,typeCombination,combinations, baseForcedItems);
 
             this.unitBuild.equipable[0] = savedEquipable0;
             this.unitBuild.equipable[1] = savedEquipable1;
@@ -60,7 +87,14 @@ class TypeCombinationGenerator {
 
                         this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
 
-                        this.buildTypeCombination(0,typeCombination,combinations, [tmr.id]);
+                        let forcedItems;
+                        if (baseForcedItems.map(i => i.id).includes(tmr.id)) {
+                            forcedItems = baseForcedItems;
+                        } else {
+                            forcedItems = baseForcedItems.concat([tmr]);
+                        }
+
+                        this.buildTypeCombination(0,typeCombination,combinations, forcedItems);
                         this.unitBuild.fixedItems = savedFixedItems;
                         this.unitBuild.equipable[0] = savedEquipable0;
                         this.unitBuild.equipable[1] = savedEquipable1;
@@ -85,7 +119,14 @@ class TypeCombinationGenerator {
 
                         this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
 
-                        this.buildTypeCombination(0,typeCombination,combinations, [stmr.id]);
+                        let forcedItems;
+                        if (baseForcedItems.map(i => i.id).includes(stmr.id)) {
+                            forcedItems = baseForcedItems;
+                        } else {
+                            forcedItems = baseForcedItems.concat([stmr]);
+                        }
+
+                        this.buildTypeCombination(0,typeCombination,combinations, forcedItems);
                         this.unitBuild.fixedItems = savedFixedItems;
                         this.unitBuild.equipable[0] = savedEquipable0;
                         this.unitBuild.equipable[1] = savedEquipable1;
@@ -114,7 +155,15 @@ class TypeCombinationGenerator {
                             } else {
                                 this.unitBuild.equipable[1] = this.unitBuild.equipable[0];
                             }
-                            this.buildTypeCombination(0,typeCombination,combinations, [item.id]);
+
+                            let forcedItems;
+                            if (baseForcedItems.map(i => i.id).includes(item.id)) {
+                                forcedItems = baseForcedItems;
+                            } else {
+                                forcedItems = baseForcedItems.concat([item]);
+                            }
+
+                            this.buildTypeCombination(0,typeCombination,combinations, forcedItems);
                             this.unitBuild.fixedItems = savedFixedItems;
                             this.unitBuild.equipable[0] = savedEquipable0;
                             this.unitBuild.equipable[1] = savedEquipable1;
@@ -123,6 +172,10 @@ class TypeCombinationGenerator {
                 }
                 this.forceDualWield = savedForceDualWield;
             }
+        }
+
+        if (forcedItemSlot != -1) {
+            this.unitBuild.fixedItems[forcedItemSlot] = null;
         }
         return combinations;
     }
@@ -145,7 +198,7 @@ class TypeCombinationGenerator {
                 } else {
                     var found = false;
                     for (var typeIndex = 0, len = this.unitBuild.equipable[index].length; typeIndex < len; typeIndex++) {
-                        var type = this.unitBuild.equipable[index][typeIndex]
+                        var type = this.unitBuild.equipable[index][typeIndex];
                         if (index == 1 && !this.unitBuild.fixedItems[0] && this.alreadyTriedInSlot0(type, typeCombination[0], this.unitBuild.equipable[0])) {
                             continue;
                         }
@@ -182,7 +235,7 @@ class TypeCombinationGenerator {
                                 this.unitBuild.fixedItems = this.unitBuild.fixedItems.slice();
                                 this.unitBuild.fixedItems[slot] = equipSource;
                                 this.unitBuild.equipable[index] = this.unitBuild.equipable[index].concat([typeToTry]);
-                                this.tryType(index, typeCombination, typeToTry, combinations, forcedItems.concat([equipSource.id]));
+                                this.tryType(index, typeCombination, typeToTry, combinations, forcedItems.concat([equipSource]));
                                 this.unitBuild.fixedItems = savedFixedItems;
                                 this.unitBuild.equipable[index] = savedEquipable;
                                 if (index == 0 && this.unitBuild.hasDualWield()) {
@@ -258,11 +311,34 @@ class TypeCombinationGenerator {
                 }
             }
         }
+        if (index == 2 && forcedItems.length > 0) {
+            let forcedHeadGear = forcedItems.map(i => i.type).filter(t => headList.includes(t)).filter(this.onlyUnique);
+            if (forcedHeadGear.length > 1) {
+                return; // impossible to have more that one type of forced head gear;
+            }
+            if (forcedHeadGear.length == 1 && !forcedHeadGear.includes(type)) {
+                return; // impossible to try a head gear type different than the forced one
+            }
+        }
+
+        if (index == 3 && forcedItems.length > 0) {
+            let forcedBodyGear = forcedItems.map(i => i.type).filter(t => bodyList.includes(t)).filter(this.onlyUnique);
+            if (forcedBodyGear.length > 1) {
+                return; // impossible to have more that one type of forced body gear;
+            }
+            if (forcedBodyGear.length == 1 && !forcedBodyGear.includes(type)) {
+                return; // impossible to try a body gear type different than the forced one
+            }
+        }
         typeCombination[index] = type;
         if (index == 9) {
-            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems.slice(), "forcedItems": forcedItems});
+            combinations.push({"combination": typeCombination.slice(), "fixedItems": this.unitBuild.fixedItems.slice(), "forcedItems": forcedItems.map(i => i.id)});
         } else {
             this.buildTypeCombination(index+1, typeCombination, combinations, forcedItems);
         }
+    }
+
+    onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
     }
 }

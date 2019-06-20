@@ -137,6 +137,8 @@ class DataStorage {
         this.dualWieldSources = [];
         this.equipSources = [];
         this.weaponsByTypeAndHands = {};
+        this.availableTmr = null;
+        this.availableStmr = null;
         for (var i = weaponList.length; i--;) {
             this.weaponsByTypeAndHands[weaponList[i]] = {};
         }
