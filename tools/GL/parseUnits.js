@@ -123,11 +123,6 @@ function treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, m
     
     var unreleased7Star = false;
     
-    if (unitId == "304000105") {
-        unitIn["rarity_max"] = 6;
-        maxRarity = 6;
-    }
-    
     if (jpUnits && unitIn["rarity_max"] == 6 && unitIn.skills && unitIn.skills[unitIn.skills.length - 1].rarity == 7) {
         var maxRarityInGLData = 0;
         for (entryId in unitIn.entries) {
