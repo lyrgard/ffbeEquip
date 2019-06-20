@@ -230,7 +230,7 @@ function treatItem(items, itemId, result, skills) {
         var unit = unitNamesById[unitId];
         itemOut.stmrUnit = unitIdBySTmrId[itemOut.id];
         addAccess(itemOut,"STMR");   
-        if (!releasedUnits[unitId] || unit.maxRarity < 7 || unitId == "304000105") {
+        if (!releasedUnits[unitId] || unit.maxRarity < 7) {
             addAccess(itemOut,"not released yet");
         }
     }
