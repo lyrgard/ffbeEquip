@@ -444,6 +444,13 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
             killerRaces = [killerRaces];
             physicalPercents = [physicalPercents];
             magicalPercents = [magicalPercents];
+        } else {
+            if (!Array.isArray(physicalPercents)) {
+                physicalPercents = Array(killerRaces.length).fill(physicalPercents)
+            }
+            if (!Array.isArray(magicalPercents)) {
+                magicalPercents = Array(killerRaces.length).fill(magicalPercents)
+            }
         }
         
         for (var raceIndex = 0; raceIndex < killerRaces.length; raceIndex++) {

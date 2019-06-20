@@ -2511,6 +2511,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Eternal Witch","Rod Mastery","Freeze","Raging Ice","Ice Catastrophe","Magical Erudition"],
 		"6_form": {
 			"name":"Mediena",
 			"wikiEntry":"Mediena",
@@ -2525,7 +2526,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","sword","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Eternal Witch","Rod Mastery","Freeze","Raging Ice","Ice Catastrophe","Magical Erudition"]
 		}
 	},
 	"100014104": {
@@ -2603,7 +2605,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Undermine+","Escort Leader","Incorruptible Armor","Standout","Blade of Resolution","D Rising Lava"]
 	},
 	"100015104": {
 		"name":"Ryumynui",
@@ -2618,7 +2621,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["Charming Warm-up","Instrumental Knowledge","Song of Praise"]
 	},
 	"100015204": {
 		"name":"Zile",
@@ -2633,7 +2637,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor"]
+		"equip":["sword","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Auto-Regen","Bombardier's Intuition","Blank Fire"]
 	},
 	"100015303": {
 		"name":"Lucille",
@@ -5614,6 +5619,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Flame Barret","Wind Barret","Thunder Barret","Light Barret","Gunblade Wielder","Blasting Zone","Keen Edge","GF","DEF +20%"],
 		"6_form": {
 			"name":"Squall",
 			"wikiEntry":"Squall",
@@ -5628,7 +5634,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Flame Barret","Wind Barret","Thunder Barret","Light Barret","Gunblade Wielder","Blasting Zone","Keen Edge","GF","DEF +20%"]
 		}
 	},
 	"208000205": {
@@ -5645,6 +5652,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+		"enhancementSkills":["Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"],
 		"6_form": {
 			"name":"Rinoa",
 			"wikiEntry":"Rinoa",
@@ -5659,7 +5667,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"]
+			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
+			"enhancementSkills":["Angelo Recover","Pet Pals","Angelo Tackle","Angel Wing","GF","MP +20%"]
 		}
 	},
 	"208000404": {
@@ -5675,7 +5684,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["fist","hat","clothes","lightArmor"]
+		"equip":["fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Chicken-wuss Zell","Combat King Reader","GF"]
 	},
 	"209000103": {
 		"name":"Zidane",
@@ -6277,7 +6287,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"]
+		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Traverser Stone Supplier","Scroll of Sword Madrigal","Visitor from Abyssea"]
 	},
 	"212000103": {
 		"name":"Vaan",
@@ -8212,8 +8223,8 @@
 		"min_rarity":"5",
 		"sex":"male",
 		"stats": {
-			"maxStats":{"hp":3651,"mp":153,"atk":142,"def":128,"mag":111,"spr":119},
-			"minStats":{"hp":1205,"mp":50,"atk":47,"def":42,"mag":37,"spr":39},
+			"maxStats":{"hp":3651,"mp":153,"atk":157,"def":128,"mag":111,"spr":119},
+			"minStats":{"hp":1205,"mp":50,"atk":52,"def":42,"mag":37,"spr":39},
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
@@ -8221,7 +8232,7 @@
 		"enhancementSkills":["Power Charge","Auto-Charge","Slice Thrice","Mana's Bond","Hero of Legend"]
 	},
 	"304000204": {
-		"name":"Primm",
+		"name":"Prim",
 		"wikiEntry":"Primm",
 		"id":"304000204",
 		"max_rarity":"6",
@@ -8253,7 +8264,7 @@
 		"enhancementSkills":["Acid Storm","Burst"]
 	},
 	"304000405": {
-		"name":"Flammie",
+		"name":"Flämmchen",
 		"wikiEntry":"Flammie",
 		"id":"304000405",
 		"max_rarity":"7",
@@ -8267,7 +8278,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","spear","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Flammie",
+			"name":"Flämmchen",
 			"wikiEntry":"Flammie",
 			"id":"304000405",
 			"sixStarForm":true,
@@ -8284,7 +8295,7 @@
 		}
 	},
 	"304000503": {
-		"name":"Pogopuschel",
+		"name":"Mümmler",
 		"wikiEntry":"Rabite",
 		"id":"304000503",
 		"max_rarity":"5",
