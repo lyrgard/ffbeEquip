@@ -389,9 +389,11 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '<div class="thirdColumn">';
         if (readOnly) {
             if (is7Stars) {
-                html += '<div class="stmr">STMR <span class="badge badge-success sevenStar">' + (ownedUnits[unit.id].farmedStmr || 0) + '</span></div>'
+                let farmedStmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmedStmr || 0) : 0;
+                html += '<div class="stmr">STMR <span class="badge badge-success sevenStar">' + farmedStmr + '</span></div>'
             }
-            html += '<div class="tmr">TMR <span class="badge badge-success">' + (ownedUnits[unit.id].farmed || 0) + '</span></div>'
+            let farmedTmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmed || 0) : 0;
+            html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTmr + '</span></div>'
         } else {
             if (tmrNameByUnitId[unit.id]) {
                 let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;

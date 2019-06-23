@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/parseItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/parseItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/imgUrls.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/imgUrls.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/units.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,32 +29,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="239" column="15" selection-start-line="239" selection-start-column="15" selection-end-line="239" selection-end-column="15" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="29280">
               <caret line="1952" column="162" selection-start-line="1952" selection-start-column="162" selection-end-line="1952" selection-end-column="162" />
             </state>
           </provider>
@@ -94,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/JP/parseItems.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="12390">
               <caret line="826" column="69" selection-start-line="826" selection-start-column="69" selection-end-line="826" selection-end-column="69" />
             </state>
           </provider>
@@ -103,17 +67,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JP/units.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="91215">
               <caret line="6081" column="24" selection-start-line="6081" selection-start-column="24" selection-end-line="6081" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/units.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="976" column="44" selection-start-line="976" selection-start-column="44" selection-end-line="976" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="1839" column="83" selection-start-line="1839" selection-start-column="83" selection-end-line="1839" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#65#72#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,9 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>removeFrom7Stars</find>
-      <find>addTo7Stars</find>
-      <find>addToFarmableNumberFor</find>
       <find>trustCounter</find>
       <find>toggleC</find>
       <find>Aeri</find>
@@ -170,6 +154,9 @@
       <find>Elnath</find>
       <find>アンジェラ</find>
       <find>セオドア</find>
+      <find>publicLi</find>
+      <find>http://ffbeE</find>
+      <find>http:</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -194,7 +181,6 @@
         <option value="$PROJECT_DIR$/static/effectDescriptionBuilder.js" />
         <option value="$PROJECT_DIR$/static/unitSearch.js" />
         <option value="$PROJECT_DIR$/static/builder/treeComparator.js" />
-        <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/GL/units.json" />
         <option value="$PROJECT_DIR$/tools/commonParseUnit.js" />
         <option value="$PROJECT_DIR$/static/builder/common.js" />
@@ -205,7 +191,6 @@
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/espers.js" />
         <option value="$PROJECT_DIR$/static/units.html" />
-        <option value="$PROJECT_DIR$/static/units.js" />
         <option value="$PROJECT_DIR$/static/units.css" />
         <option value="$PROJECT_DIR$/static/builder/typeCombinationGenerator.js" />
         <option value="$PROJECT_DIR$/static/builder.html" />
@@ -216,6 +201,8 @@
         <option value="$PROJECT_DIR$/tools/JP/parseItems.js" />
         <option value="$PROJECT_DIR$/static/JP/units.json" />
         <option value="$PROJECT_DIR$/static/JP/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/units.js" />
+        <option value="$PROJECT_DIR$/static/common.js" />
       </list>
     </option>
   </component>
@@ -236,6 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -293,7 +281,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -373,17 +360,18 @@
       <workItem from="1560884986347" duration="2656000" />
       <workItem from="1561059179803" duration="6036000" />
       <workItem from="1561205288787" duration="2538000" />
+      <workItem from="1561304608274" duration="250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100393000" />
+    <option name="totallyTimeSpent" value="100643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19015151" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19318181" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -577,13 +565,6 @@
     <entry file="file://$PROJECT_DIR$/tools/JP/parseUnits.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30810">
-          <caret line="2054" column="12" selection-start-line="2054" selection-start-column="12" selection-end-line="2054" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/itemPool.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -647,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10005">
-          <caret line="667" column="25" selection-start-line="667" selection-start-column="25" selection-end-line="667" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/units.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4560">
@@ -706,42 +680,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/units_fr.json">
+    <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81075">
-          <caret line="5405" column="20" selection-start-line="5405" selection-start-column="16" selection-end-line="5405" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/units.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75915">
-          <caret line="5061" column="21" selection-start-line="5061" selection-start-column="16" selection-end-line="5061" selection-end-column="21" />
+        <state relative-caret-position="3585">
+          <caret line="239" column="15" selection-start-line="239" selection-start-column="15" selection-end-line="239" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="2100">
           <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="239" column="15" selection-start-line="239" selection-start-column="15" selection-end-line="239" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="29280">
           <caret line="1952" column="162" selection-start-line="1952" selection-start-column="162" selection-end-line="1952" selection-end-column="162" />
         </state>
       </provider>
@@ -762,22 +717,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/JP/parseItems.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="12390">
           <caret line="826" column="69" selection-start-line="826" selection-start-column="69" selection-end-line="826" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/units.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="91215">
           <caret line="6081" column="24" selection-start-line="6081" selection-start-column="24" selection-end-line="6081" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/units_fr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81075">
+          <caret line="5405" column="20" selection-start-line="5405" selection-start-column="16" selection-end-line="5405" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/units.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75915">
+          <caret line="5061" column="21" selection-start-line="5061" selection-start-column="16" selection-end-line="5061" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/units.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="976" column="44" selection-start-line="976" selection-start-column="44" selection-end-line="976" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="1839" column="83" selection-start-line="1839" selection-start-column="83" selection-end-line="1839" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#65#72#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

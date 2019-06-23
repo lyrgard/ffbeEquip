@@ -1837,7 +1837,7 @@ Modal = {
             body: "<p>This link will allow anyone to visualize your "+name+"</p>"+
                   '<div class="input-group">' + 
                     '<span class="input-group-addon">🔗</span>' +
-                    '<input class="form-control linkInput" type="text" value="http://ffbeEquip.com/'+link+'"/>' + 
+                    '<input class="form-control linkInput" type="text" value="https://ffbeEquip.com/'+link+'"/>' +
                   '</div>'+
                   '<p class="hidden linkInputCopied">Link copied to your clipboard.</p>',
             withCancelButton: false,
