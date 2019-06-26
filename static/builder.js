@@ -235,6 +235,10 @@ function optimize() {
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands, forceTmrAbility);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
     
+    if (remainingTypeCombinations.length == 0) {
+        alert("Build is impossible with the chosen build rules. ");
+    }
+    
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
     
     initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
@@ -863,7 +867,7 @@ function getItemLine(index, short = false) {
     } else if (!item.placeHolder) {
         var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
         html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/icons/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/icons/delete.png"></img>`;
-        html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\')" />';
+        html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\', ' + index + ')" />';
         if (weaponList.includes(item.type)) {
             html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
         }
@@ -1786,7 +1790,7 @@ function updateSearchResult() {
         }
     }
     readItemsExcludeInclude();
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true)));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true), builds[currentUnitIndex].unit.id));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -2021,11 +2025,13 @@ function removeItemAt(slot) {
     logCurrentBuild();
 }
 
-function excludeItem(itemId) {
+function excludeItem(itemId, slot = -1) {
     if (!itemsToExclude.includes(itemId)) {
         for (var index = 0; index < 11; index++) {
             if (builds[currentUnitIndex].build[index] && builds[currentUnitIndex].build[index].id == itemId) {
-                removeItemAt(index);
+                if (slot == index || builds[currentUnitIndex].fixedItems[index] == null) {
+                    removeItemAt(index);
+                }
             }
         }
         itemsToExclude.push(itemId);

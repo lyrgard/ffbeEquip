@@ -23,13 +23,17 @@ class TypeCombinationGenerator {
         var combinations = [];
 
         if (this.forceTmrAbility && !forcedItem) {
-            if (dataStorage.availableTmr) {
-                combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableTmr));
+            let tmrPinned = dataStorage.availableTmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableTmr.id);
+            let stmrPinned = dataStorage.availableStmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableStmr.id);
+            if (!tmrPinned && !stmrPinned) {
+                if (dataStorage.availableTmr) {
+                    combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableTmr));
+                }
+                if (dataStorage.availableStmr) {
+                    combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableStmr));
+                }
+                return combinations;
             }
-            if (dataStorage.availableStmr) {
-                combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableStmr));
-            }
-            return combinations;
         }
 
         let baseForcedItems;

@@ -822,7 +822,7 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
     for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
         if (!onlyShowOwnedItems || itemInventory && itemInventory[item.id]) {
-            if (showNotReleasedYet || !item.access.includes("not released yet")) {
+            if (showNotReleasedYet || !item.access.includes("not released yet") || (selectedUnitId && item.tmrUnit == selectedUnitId) || (selectedUnitId && item.stmrUnit == selectedUnitId)) {
                 if (types.length == 0 || types.includes(item.type)) {
                     if (elements.length == 0 || (item.element && matches(elements, item.element)) || (elements.includes("noElement") && !item.element) || (item.resist && matches(elements, item.resist.map(function(resist){return resist.name;})))) {
                         if (ailments.length == 0 || (item.ailments && matches(ailments, item.ailments.map(function(ailment){return ailment.name;}))) || (item.resist && matches(ailments, item.resist.map(function(res){return res.name;})))) {
@@ -884,8 +884,28 @@ function keepOnlyOneInstance(data) {
 }
 
 // Sort by calculated value (will be 0 if not sort is asked) then by name
-var sort = function(items) {
+var sort = function(items, unitId) {
     return items.sort(function (item1, item2){
+        if (unitId) {
+            if (item1.tmrUnit == unitId) {
+                if (item2.tmrUnit != unitId) {
+                    return -1;
+                }
+            } else if (item2.tmrUnit == unitId) {
+                if (item1.tmrUnit != unitId) {
+                    return 1;
+                }
+            }
+            if (item1.stmrUnit == unitId) {
+                if (item2.stmrUnit != unitId) {
+                    return -1;
+                }
+            } else if (item2.stmrUnit == unitId) {
+                if (item1.stmrUnit != unitId) {
+                    return 1;
+                }
+            }
+        }
 		if (item2.calculatedValue == item1.calculatedValue) {
             var typeIndex1 = typeListWithEsper.indexOf(item1.type);
             var typeIndex2 = typeListWithEsper.indexOf(item2.type);
