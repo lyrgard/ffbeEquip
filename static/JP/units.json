@@ -774,7 +774,7 @@
 	},
 	"100004303": {
 		"name":"Charlotte",
-		"jpname":"シャルロット",
+		"jpname":"シャルロット(FFBE)",
 		"id":"100004303",
 		"max_rarity":"6",
 		"min_rarity":"3",
@@ -2552,7 +2552,7 @@
 		"enhancementSkills":["精神防壁","リダクション","ブローディアウォール"]
 	},
 	"100013704": {
-		"name":"Vesuvia",
+		"name":"Vesvia",
 		"jpname":"ベスビア",
 		"id":"100013704",
 		"max_rarity":"6",
@@ -3999,7 +3999,7 @@
 		"equip":["dagger","mace","fist","hat","clothes","robe"]
 	},
 	"100021603": {
-		"name":"Chrowa",
+		"name":"Krowa",
 		"jpname":"クローワ",
 		"id":"100021603",
 		"max_rarity":"5",
@@ -4857,17 +4857,78 @@
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	},
+	"100025405": {
+		"name":"Elnath",
+		"jpname":"エルナト",
+		"id":"100025405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4832,"mp":214,"atk":208,"def":193,"mag":162,"spr":193},
+			"minStats":{"hp":1595,"mp":71,"atk":69,"def":64,"mag":53,"spr":64},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Elnath",
+			"jpname":"エルナト",
+			"id":"100025405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3716,"mp":164,"atk":160,"def":148,"mag":124,"spr":148},
+				"minStats":{"hp":1226,"mp":54,"atk":53,"def":49,"mag":41,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","hammer","spear","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100025504": {
+		"name":"Alde",
+		"jpname":"アルデ",
+		"id":"100025504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3692,"mp":163,"atk":164,"def":125,"mag":115,"spr":124},
+			"minStats":{"hp":1218,"mp":54,"atk":54,"def":41,"mag":38,"spr":41},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["sword","greatSword","axe","hammer","spear","hat","helm","clothes","lightArmor"]
+	},
+	"100025603": {
+		"name":"Timorus",
+		"jpname":"ティモルス",
+		"id":"100025603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":2933,"mp":141,"atk":116,"def":104,"mag":123,"spr":96},
+			"minStats":{"hp":968,"mp":47,"atk":38,"def":34,"mag":41,"spr":32},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","bow","whip","gun","lightShield","hat","clothes","robe"]
+	},
 	"100025705": {
 		"name":"青魔道士フィーナ",
 		"jpname":"青魔道士フィーナ",
 		"id":"100025705",
-		"max_rarity":"5",
+		"max_rarity":"6",
 		"min_rarity":"5",
 		"sex":"female",
 		"stats": {
-			"maxStats":{"hp":2770,"mp":163,"atk":86,"def":95,"mag":123,"spr":126},
-			"minStats":{"hp":914,"mp":54,"atk":28,"def":31,"mag":41,"spr":42},
-			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+			"maxStats":{"hp":3601,"mp":212,"atk":112,"def":124,"mag":160,"spr":164},
+			"minStats":{"hp":1188,"mp":70,"atk":37,"def":41,"mag":53,"spr":54},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
@@ -5692,7 +5753,7 @@
 	},
 	"204001004": {
 		"name":"Cid (FFIV)",
-		"jpname":"シド(FFⅣ)",
+		"jpname":"シド(FFIV)",
 		"id":"204001004",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -6015,6 +6076,68 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","mace","hat","helm","clothes","robe"]
+		}
+	},
+	"204002705": {
+		"name":"Theodore",
+		"jpname":"セオドア",
+		"id":"204002705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4910,"mp":255,"atk":206,"def":193,"mag":164,"spr":192},
+			"minStats":{"hp":1620,"mp":84,"atk":68,"def":64,"mag":54,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","hat","helm","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Theodore",
+			"jpname":"セオドア",
+			"id":"204002705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3776,"mp":196,"atk":158,"def":148,"mag":126,"spr":147},
+				"minStats":{"hp":1246,"mp":65,"atk":52,"def":49,"mag":42,"spr":49},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","axe","spear","mace","lightShield","hat","helm","lightArmor","heavyArmor"]
+		}
+	},
+	"204002805": {
+		"name":"アーシュラ",
+		"jpname":"アーシュラ",
+		"id":"204002805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4798,"mp":246,"atk":208,"def":176,"mag":158,"spr":176},
+			"minStats":{"hp":1583,"mp":81,"atk":69,"def":58,"mag":52,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"],
+		"6_form": {
+			"name":"アーシュラ",
+			"jpname":"アーシュラ",
+			"id":"204002805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3690,"mp":189,"atk":160,"def":135,"mag":121,"spr":135},
+				"minStats":{"hp":1218,"mp":62,"atk":53,"def":45,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","hammer","throwing","mace","fist","hat","clothes","robe"]
 		}
 	},
 	"205000103": {
@@ -10441,6 +10564,68 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","staff","rod","bow","harp","whip","mace","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["ヒールライト","生き返るでち","ブラックカース"]
+	},
+	"312000505": {
+		"name":"Duran",
+		"jpname":"デュラン",
+		"id":"312000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5008,"mp":210,"atk":209,"def":197,"mag":139,"spr":168},
+			"minStats":{"hp":1653,"mp":69,"atk":69,"def":65,"mag":46,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Duran",
+			"jpname":"デュラン",
+			"id":"312000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3852,"mp":161,"atk":160,"def":151,"mag":106,"spr":129},
+				"minStats":{"hp":1271,"mp":53,"atk":53,"def":50,"mag":35,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","axe","hammer","mace","fist","lightShield","heavyShield","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"312000605": {
+		"name":"Angela",
+		"jpname":"アンジェラ",
+		"id":"312000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4576,"mp":287,"atk":130,"def":165,"mag":219,"spr":202},
+			"minStats":{"hp":1510,"mp":95,"atk":43,"def":54,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","robe"],
+		"6_form": {
+			"name":"Angela",
+			"jpname":"アンジェラ",
+			"id":"312000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3520,"mp":220,"atk":100,"def":126,"mag":168,"spr":155},
+				"minStats":{"hp":1162,"mp":73,"atk":33,"def":42,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","hat","clothes","robe"]
+		}
 	},
 	"313000105": {
 		"name":"Tiz",

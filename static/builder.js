@@ -230,10 +230,15 @@ function optimize() {
         }));
     }
     let forceTmrAbility = $("#forceTmrAbility input").prop('checked');
-    
-    
+
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands, forceTmrAbility);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
+
+    if (remainingTypeCombinations.length == 0) {
+        stopBuild();
+        alert("The build rules chosen are not compatible with available equipments");
+        return;
+    }
     
     if (remainingTypeCombinations.length == 0) {
         alert("Build is impossible with the chosen build rules. ");
