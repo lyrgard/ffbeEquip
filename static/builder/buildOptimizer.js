@@ -378,7 +378,7 @@ class BuildOptimizer {
             var removedItem = build[slotToRemove];
             build[slotToRemove] = null;
             
-            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation);
+            var testValue = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
             if (testValue[this.goalVariation] >= value[this.goalVariation]) {
                 slotToRemove--;
                 slotsRemoved++;
