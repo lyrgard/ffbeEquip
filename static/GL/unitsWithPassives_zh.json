@@ -2272,7 +2272,7 @@
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "equipedConditions":["katana"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"dualWielding":{"atk":40}, "skillEnhancement":{"226120":2,"226130":2,"226140":2,"226150":2,"226160":2,"226170":2,"226180":2,"707787":2,"707788":2}, "equipedConditions":[["504226380","406003600"]]},
+			{"dualWielding":{"atk":40}, "skillEnhancement":{"226120":2,"226130":2,"226140":2,"226150":2,"226160":2,"226170":2,"226180":2}, "equipedConditions":[["504226380","406003600"]]},
 			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
@@ -2804,7 +2804,7 @@
 			{"resist":[{"name":"light","percent":20}], "equipedConditions":["staff"], "levelCondition":110},
 			{"resist":[{"name":"light","percent":20}], "equipedConditions":["bow"], "levelCondition":110},
 			{"def%":20, "levelCondition":115},
-			{"skillEnhancement":{"221060":0.8,"221070":0.8,"707745":0.8,"707746":0.8}, "levelCondition":120}
+			{"skillEnhancement":{"221060":0.8,"221070":0.8}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"白蓮魔道士菲娜",
@@ -3014,9 +3014,9 @@
 			{"hp%":20, "mp%":30, "mag%":30, "spr%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
 			{"mag%":50, "equipedConditions":["rod"]},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "lbDamage":20, "equipedConditions":[["504219890","408003900"]]},
-			{"skillEnhancement":{"219320":1.5,"219330":1.5,"219360":1.5,"707735":1.5,"707736":1.5}, "levelCondition":105},
+			{"skillEnhancement":{"219320":1.5,"219330":1.5,"219360":1.5}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
-			{"mag%":30, "resist":[{"name":"lightning","percent":50}], "skillEnhancement":{"219490":0.8,"707733":0.8,"707734":0.8}, "levelCondition":120}
+			{"mag%":30, "resist":[{"name":"lightning","percent":50}], "skillEnhancement":{"219490":0.8}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"櫻雲賢者櫻",
@@ -3655,7 +3655,7 @@
 			{"atk%":25, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504226900","308003800"]]},
 			{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
-			{"skillEnhancement":{"226910":0.7,"226911":0.7,"226912":0.7,"226913":0.7,"507490":0.7,"707675":0.7,"707676":0.7,"707677":0.7,"707678":0.7}, "levelCondition":120}
+			{"skillEnhancement":{"226910":0.7,"226911":0.7,"226912":0.7,"226913":0.7,"507490":0.7}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"娜露",
@@ -4419,7 +4419,7 @@
 			{"resist":[{"name":"fire","percent":50}], "equipedConditions":["axe"]},
 			{"atk%":50, "equipedConditions":["axe"]},
 			{"singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["504228983","305002500"]]},
-			{"skillEnhancement":{"228961":2.25,"228962":2.25,"228965":2.25,"707809":2.25,"707810":2.25,"707811":2.25,"707812":2.25}, "levelCondition":110},
+			{"skillEnhancement":{"228961":2.25,"228962":2.25,"228965":2.25}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"hp%":30, "atk%":30, "lbFillRate":100, "levelCondition":120}
 		],
@@ -5032,8 +5032,8 @@
 		}
 	},
 	"100021304": {
-		"name":"Chocobo Rain",
-		"wikiEntry":"レイン&チョコボ",
+		"name":"雷因&陸行鳥",
+		"wikiEntry":"Chocobo_Rain",
 		"id":"100021304",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5150,8 +5150,8 @@
 		]
 	},
 	"100021905": {
-		"name":"Kimono Ayaka",
-		"wikiEntry":"晴れ着アヤカ",
+		"name":"正裝彩花",
+		"wikiEntry":"Kimono_Ayaka",
 		"id":"100021905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5169,11 +5169,11 @@
 			{"spr%":40, "equipedConditions":[["408004400","403048200"]]},
 			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"light","percent":40}], "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
-			{"hp%":30, "mp%":30, "dualWielding":{"spr":60}, "improvedDW":true, "levelCondition":120}
+			{"hp%":30, "mp%":30, "dualWielding":{"spr":100}, "improvedDW":true, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Kimono Ayaka",
-			"wikiEntry":"晴れ着アヤカ",
+			"name":"正裝彩花",
+			"wikiEntry":"Kimono_Ayaka",
 			"id":"100021905",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5193,8 +5193,8 @@
 		}
 	},
 	"100022005": {
-		"name":"Dress up Eileen",
-		"wikiEntry":"ドレスアップアイリーン",
+		"name":"裙裝艾琳",
+		"wikiEntry":"Dressy_Aileen",
 		"id":"100022005",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5214,8 +5214,8 @@
 			{"hp%":30, "mp%":30, "atk%":40, "lbFillRate":100, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Dress up Eileen",
-			"wikiEntry":"ドレスアップアイリーン",
+			"name":"裙裝艾琳",
+			"wikiEntry":"Dressy_Aileen",
 			"id":"100022005",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -11615,7 +11615,7 @@
 		"skills": [
 			{"hp%":20, "atk%":70, "special":["dualWield"]},
 			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":[["504226980","302005700"]]},
-			{"skillEnhancement":{"226981":0.9,"707695":0.9,"707696":0.9}, "levelCondition":110},
+			{"skillEnhancement":{"226981":0.9}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"dualWielding":{"atk":30}, "mpRefresh":15, "levelCondition":120}
 		],

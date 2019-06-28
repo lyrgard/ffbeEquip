@@ -240,10 +240,6 @@ function optimize() {
         return;
     }
     
-    if (remainingTypeCombinations.length == 0) {
-        alert("Build is impossible with the chosen build rules. ");
-    }
-    
     typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
     
     initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
