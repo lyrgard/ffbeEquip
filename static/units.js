@@ -320,6 +320,9 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (!unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unit.id] && ownedUnits[unit.id].number >= 1) {
             html += ' awakenable';
         }
+        if (unit.summon_type === 'event') {
+            html += ' timeLimited';
+        }
         if (is7Stars) {
             html += ' sevenStars';
         } else {
@@ -1193,11 +1196,14 @@ function startPage() {
         $('body').toggleClass('onlyOwnedUnits', checked);
         $('body').removeClass('onlySevenStar');
     });
-    
+    $("#onlyTimeLimited").on('input', function () {
+        $('body').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
+    });
     $("#onlySevenStar").on('input', function () {
         $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
     });
     $('body').toggleClass('onlyOwnedUnits', $("#onlyOwnedUnits").prop('checked'));
+    $('body').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
     $(".onlySevenStarInoutGroup").toggleClass('hidden', !$("#onlyOwnedUnits").prop('checked'));
     $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
 }

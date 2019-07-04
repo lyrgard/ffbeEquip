@@ -97,6 +97,10 @@
     display: none;
 }
 
+.onlyTimeLimited .unit:not(.timeLimited) {
+    display: none;
+}
+
 .onlySevenStar .unit.notSevenStars{
     display: none;
 }
