@@ -5087,8 +5087,8 @@
 		]
 	},
 	"100021705": {
-		"name":"CG Charlotte",
-		"wikiEntry":"聖盾の騎士シャルロット",
+		"name":"신성한 방패의 샤를로트",
+		"wikiEntry":"Sacred_Shield Charlotte",
 		"id":"100021705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5109,8 +5109,8 @@
 			{"hp%":20, "mp%":20, "def%":20, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Charlotte",
-			"wikiEntry":"聖盾の騎士シャルロット",
+			"name":"신성한 방패의 샤를로트",
+			"wikiEntry":"Sacred_Shield Charlotte",
 			"id":"100021705",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5131,8 +5131,8 @@
 		}
 	},
 	"100021803": {
-		"name":"Shepard",
-		"wikiEntry":"シェパード",
+		"name":"셰퍼드",
+		"wikiEntry":"Shepard",
 		"id":"100021803",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5235,8 +5235,8 @@
 		}
 	},
 	"100022104": {
-		"name":"Friese",
-		"wikiEntry":"フリーゼ",
+		"name":"프리제",
+		"wikiEntry":"Friese",
 		"id":"100022104",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -14125,11 +14125,11 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"hp%":20, "mag%":30, "spr%":40, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"mag%":50, "equipedConditions":["rod"]},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "lbDamage":20, "equipedConditions":[["1100000196","1100000197"]]},
 			{"spr%":20, "levelCondition":115},
-			{"mp%":40, "mag%":40, "levelCondition":120},
+			{"mp%":40, "mag%":40, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "levelCondition":120},
 			{"hp%":30, "mag%":30, "equipedConditions":["robe"], "levelCondition":120}
 		],
 		"6_form": {
@@ -14148,7 +14148,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":20, "mag%":30, "spr%":20, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"hp%":20, "mag%":30, "spr%":40, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 				{"mag%":50, "equipedConditions":["rod"]}
 			]
 		}
@@ -14168,9 +14168,9 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"hp%":40, "mp%":30, "def%":20, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"hp%":40, "mp%":30, "def%":20, "spr%":60, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
 			{"mp%":20, "def%":20, "spr%":50, "lbFillRate":100, "resist":[{"name":"fire","percent":20},{"name":"light","percent":20}], "equipedConditions":[["1100000245","1100000246"]]},
-			{"spr%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
+			{"hp%":10, "spr%":40, "lbPerTurn":{"min":1,"max":1}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"마이라",
@@ -14188,7 +14188,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","robe"],
 			"skills": [
-				{"hp%":40, "mp%":30, "def%":20, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5}
+				{"hp%":40, "mp%":30, "def%":20, "spr%":60, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5}
 			]
 		}
 	},
@@ -14207,11 +14207,11 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","rod","fist","hat","clothes","robe"],
 		"skills": [
-			{"hp%":10, "mp%":30, "atk%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
+			{"hp%":10, "mp%":30, "atk%":60, "mag%":60, "evade":{"physical":20,"magical":20}, "dualWielding":{"atk":50,"mag":50}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
 			{"atk%":50, "mag%":50, "equipedConditions":["fist"]},
-			{"atk%":20, "mag%":20, "dualWielding":{"atk":30,"mag":30}, "lbFillRate":50, "equipedConditions":[["1100000194","1100000195"]]},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "dualWielding":{"atk":50,"mag":50}, "lbFillRate":100, "equipedConditions":[["1100000194","1100000195"]]},
 			{"spr%":20, "levelCondition":115},
-			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "lbDamage":20, "skillEnhancement":{"911340":4,"911341":4}, "levelCondition":120}
+			{"killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "lbDamage":30, "skillEnhancement":{"911340":4,"911341":4,"911345":4,"911346":4,"912623":4}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"멜파지",
@@ -14229,7 +14229,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","rod","fist","hat","clothes","robe"],
 			"skills": [
-				{"hp%":10, "mp%":30, "atk%":30, "mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
+				{"hp%":10, "mp%":30, "atk%":60, "mag%":60, "evade":{"physical":20,"magical":20}, "dualWielding":{"atk":50,"mag":50}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"bird","physical":50,"magical":50}], "mpRefresh":8, "special":["dualWield"]},
 				{"atk%":50, "mag%":50, "equipedConditions":["fist"]}
 			]
 		}
@@ -14249,11 +14249,11 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":50, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"stop","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
 			{"atk%":30, "equipedConditions":["katana"]},
-			{"atk%":40, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "equipedConditions":[["1100000213","1500000080"]]},
+			{"atk%":40, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "killers":[{"name":"demon","physical":50},{"name":"human","physical":50}], "equipedConditions":[["1100000213","1500000080","1100000302"]]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}, "levelCondition":120}
+			{"hp%":20, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}, "mpRefresh":5, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"엘레스페리스",
@@ -14271,7 +14271,7 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor"],
 			"skills": [
-				{"hp%":30, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+				{"hp%":30, "mp%":50, "atk%":60, "def%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":75}, "resist":[{"name":"stop","percent":100},{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
 				{"atk%":30, "equipedConditions":["katana"]}
 			]
 		}
@@ -14296,7 +14296,7 @@
 			{"hp%":30, "mp%":30, "evade":{"physical":30}, "resist":[{"name":"light","percent":30},{"name":"dark","percent":30},{"name":"stop","percent":100}], "equipedConditions":[["1500000079","1100000214"]]},
 			{"mp%":20, "levelCondition":115},
 			{"skillEnhancement":{"911580":1,"911583":2}, "levelCondition":120},
-			{"mag%":40, "spr%":40, "equipedConditions":["robe"], "levelCondition":120}
+			{"def%":40, "mag%":40, "spr%":40, "equipedConditions":["robe"], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"베릴",

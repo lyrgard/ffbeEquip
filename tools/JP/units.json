@@ -4091,7 +4091,7 @@
 		}
 	},
 	"100022005": {
-		"name":"Dress up Eileen",
+		"name":"Dressy Aileen",
 		"jpname":"ドレスアップアイリーン",
 		"id":"100022005",
 		"max_rarity":"7",
@@ -4105,7 +4105,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"Dress up Eileen",
+			"name":"Dressy Aileen",
 			"jpname":"ドレスアップアイリーン",
 			"id":"100022005",
 			"sixStarForm":true,
@@ -7273,7 +7273,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["レイズ","ケアルガ","アレクサンドリア王女"]
+		"enhancementSkills":["ケアルガ","レイズ","アレクサンドリア王女"]
 	},
 	"209000404": {
 		"name":"Steiner",
@@ -7433,6 +7433,150 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","hat","clothes","robe"]
+	},
+	"209001405": {
+		"name":"黒魔道士の少年ビビ",
+		"id":"209001405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4660,"mp":289,"atk":129,"def":148,"mag":219,"spr":202},
+			"minStats":{"hp":1538,"mp":95,"atk":43,"def":49,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","hat","clothes","robe"],
+		"6_form": {
+			"name":"黒魔道士の少年ビビ",
+			"id":"209001405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3584,"mp":222,"atk":99,"def":113,"mag":168,"spr":155},
+				"minStats":{"hp":1183,"mp":73,"atk":33,"def":37,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","hat","clothes","robe"]
+		}
+	},
+	"209001505": {
+		"name":"尻尾の少年ジタン",
+		"id":"209001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4979,"mp":249,"atk":207,"def":179,"mag":189,"spr":193},
+			"minStats":{"hp":1643,"mp":82,"atk":68,"def":59,"mag":62,"spr":64},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"尻尾の少年ジタン",
+			"id":"209001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3830,"mp":191,"atk":159,"def":137,"mag":145,"spr":148},
+				"minStats":{"hp":1264,"mp":63,"atk":52,"def":45,"mag":48,"spr":49},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","mace","fist","lightShield","hat","clothes","lightArmor"]
+		}
+	},
+	"209001705": {
+		"name":"クイナ",
+		"id":"209001705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4872,"mp":278,"atk":147,"def":192,"mag":209,"spr":208},
+			"minStats":{"hp":1608,"mp":92,"atk":49,"def":63,"mag":69,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"クイナ",
+			"id":"209001705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3747,"mp":213,"atk":113,"def":147,"mag":160,"spr":160},
+				"minStats":{"hp":1237,"mp":70,"atk":37,"def":49,"mag":53,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"]
+		}
+	},
+	"209001805": {
+		"name":"ブルメシアの竜騎士フライヤ",
+		"id":"209001805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4815,"mp":208,"atk":204,"def":188,"mag":170,"spr":188},
+			"minStats":{"hp":1589,"mp":69,"atk":67,"def":62,"mag":56,"spr":62},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"ブルメシアの竜騎士フライヤ",
+			"id":"209001805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3703,"mp":160,"atk":156,"def":144,"mag":130,"spr":144},
+				"minStats":{"hp":1222,"mp":53,"atk":51,"def":48,"mag":43,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"209001904": {
+		"name":"フラットレイ",
+		"id":"209001904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3823,"mp":154,"atk":156,"def":154,"mag":128,"spr":152},
+			"minStats":{"hp":1262,"mp":51,"atk":51,"def":51,"mag":42,"spr":50},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","spear","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+	},
+	"209002004": {
+		"name":"ゾーン&ソーン",
+		"id":"209002004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3592,"mp":221,"atk":96,"def":100,"mag":169,"spr":160},
+			"minStats":{"hp":1185,"mp":73,"atk":32,"def":33,"mag":56,"spr":53},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","whip","lightShield","hat","clothes","robe"]
 	},
 	"210000105": {
 		"name":"Tidus",
