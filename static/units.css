@@ -500,19 +500,25 @@
 }
 
 .trustCounter.stmr {
+    display: flex;
+    opacity: 0.4;
+}
+
+.unit:not(.showStmr) .trustCounter.stmr {
     display: none;
 }
 
 .sevenStars .trustCounter.stmr {
-    display: flex;
+    opacity: 1
 }
 
 .trustCounter.tmr {
-    display: none;
+    display: flex;
+    opacity: 0.4
 }
 
 .owned .trustCounter.tmr {
-    display: flex;
+    opacity: 1
 }
 
 .trustCounter .badge {

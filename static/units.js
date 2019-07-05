@@ -349,6 +349,9 @@ function getUnitDisplay(unit, useTmrName = false) {
         } else {
             html += ' notSevenStars';
         }
+        if (unit.max_rarity == 7) {
+            html += ' showStmr';
+        } 
         html += '"';
         /*if (!is7Stars) {
             html +=' onclick="addToOwnedUnits(\'' + unit.id + '\')"';    
