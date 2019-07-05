@@ -3,11 +3,11 @@ var lastItemReleases;
 
 var currentSort = showRaritySort;
 
-var allUnits;
+var releasedUnits;
 var tmrNumberByUnitId = {};
-var tmrNameByUnitId = {};
+var tmrByUnitId = {};
 var stmrNumberByUnitId = {};
-var stmrNameByUnitId = {};
+var stmrByUnitId = {};
 
 var onlyShowOwnedUnits = false;
 var onlyShow7Star = false;
@@ -34,7 +34,7 @@ function showAlphabeticalSort() {
     $("#searchBox").removeClass("hidden");
     $(".nav-tabs li.alphabeticalSort").addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnits(sortAlphabetically(filterName(units))));
+    $("#results").html(displayUnits(sortAlphabetically(filterName(releasedUnits))));
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -43,7 +43,7 @@ function showAlphabeticalSort() {
             }
         }
     });
-    lazyLoader.update();
+    afterShow();
 }
 
 function showRaritySort(minRarity = 1) {
@@ -52,7 +52,7 @@ function showRaritySort(minRarity = 1) {
     $("#searchBox").removeClass("hidden");
     $(".nav-tabs li.raritySort").addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(units)), minRarity));
+    $("#results").html(displayUnitsByRarity(sortByRarity(filterName(releasedUnits)), minRarity));
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -61,7 +61,7 @@ function showRaritySort(minRarity = 1) {
             }
         }
     });
-    lazyLoader.update();
+    afterShow();
 }
 
 function showTMRAlphabeticalSort() {
@@ -72,7 +72,7 @@ function showTMRAlphabeticalSort() {
 
     $(".nav-tabs li.tmrAlphabeticalSort").addClass("active");
     // filter, sort and display the results
-    $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(units)), true));
+    $("#results").html(displayUnits(sortTMRAlphabetically(filterTMRName(releasedUnits)), true));
     $("#results").unmark({
         done: function() {
             var textToSearch = $("#searchBox").val();
@@ -81,7 +81,7 @@ function showTMRAlphabeticalSort() {
             }
         }
     });
-    lazyLoader.update();
+    afterShow();
 }
 
 function showHistory() {
@@ -103,8 +103,8 @@ function showHistory() {
                 var unitNames = lastItemReleases[dateIndex].sources[sourceIndex].units;
                 for (var unitNameIndex = 0, len = unitNames.length; unitNameIndex < len; unitNameIndex++) {
                     var unitName = unitNames[unitNameIndex];
-                    if (allUnits[unitName]) {
-                        unitsTodisplay.push(allUnits[unitName]);
+                    if (units[unitName]) {
+                        unitsTodisplay.push(units[unitName]);
                     }
                 }
                 html += displayUnits(unitsTodisplay);
@@ -112,7 +112,28 @@ function showHistory() {
         }
     }
     $("#results").html(html);
+    afterShow();
+}
+
+function afterShow() {
     lazyLoader.update();
+    $(document).tooltip({
+        items: ".unit .tmr, .unit .stmr",
+        content: function() {
+            let element = $(this);
+            let unitDiv = element.closest('.unit');
+            let item;
+            if (element.is(".tmr")) {
+                item = tmrByUnitId[unitDiv.prop('classList')[1]];
+            } else {
+                item = stmrByUnitId[unitDiv.prop('classList')[1]];
+            }
+            return '<div class="table notSorted items results"><div class="tbody"><div class="tr">' +  displayItemLine(item) + '</div></div></div>';
+        },
+        open: function() {
+            lazyLoader.update();
+        }
+    });
 }
 
 function showPullSimulator() {
@@ -134,9 +155,9 @@ function displayStats() {
             "3": {"different":0, "total":0, "number":0},
         }
     }
-    var unitIds = Object.keys(units);
+    var unitIds = Object.keys(releasedUnits);
     for (var i = unitIds.length; i--;) {
-        var unit = units[unitIds[i]];
+        var unit = releasedUnits[unitIds[i]];
         if (unit.min_rarity >= 3) {
             var maxRarity = (unit.unreleased7Star ? 6 : unit.max_rarity);
             stats.all[unit.min_rarity].total++;
@@ -359,7 +380,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         html +='<div class="unitNameAndRarity">';
         html +='<div class="unitName">';
         if (useTmrName) {
-            html += toLink(tmrNameByUnitId[unit.id]);
+            html += toLink(tmrByUnitId[unit.id].name);
         } else {
             html += toLink(unit.name);
         }
@@ -398,7 +419,7 @@ function getUnitDisplay(unit, useTmrName = false) {
             let farmedTmr = ownedUnits[unit.id] ? (ownedUnits[unit.id].farmed || 0) : 0;
             html += '<div class="tmr">TMR <span class="badge badge-success">' + farmedTmr + '</span></div>'
         } else {
-            if (tmrNameByUnitId[unit.id]) {
+            if (tmrByUnitId[unit.id]) {
                 let farmedSTMR = stmrNumberByUnitId[unit.id] || 0;
                 let farmableSTMR = (ownedUnits[unit.id] ? (ownedUnits[unit.id].farmableStmr || 0) : 0);
                 html += '<div class="stmr trustCounter">STMR <span class="badge badge-success sevenStar"><span class="farmedSTMR">' + farmedSTMR + '</span>/<span class="totalSTMR">' + (farmedSTMR + farmableSTMR) + '</span></span></div>'
@@ -415,7 +436,7 @@ function getUnitDisplay(unit, useTmrName = false) {
 }
 
 function updateUnitDisplay(unitId) {
-    let unit = allUnits[unitId];
+    let unit = units[unitId];
     let is7Stars = !!(ownedUnits[unitId] && ownedUnits[unitId].sevenStar);
     let owned = !!ownedUnits[unitId];
     let farmable = ownedUnits[unitId] && ownedUnits[unitId].farmable > 0;
@@ -555,7 +576,7 @@ function farmedSTMR(unitId) {
         }
     })
     Modal.show({
-        title: 'Farmed ' + allUnits[unitId].name + ' STMR',
+        title: 'Farmed ' + units[unitId].name + ' STMR',
         body: '<p>How was it created ?</p>',
         withCancelButton: true,
         buttons: buttons
@@ -581,7 +602,7 @@ function farmedSTMRFollowUp(unitId) {
 
 function awaken(unitId) {
     if (readOnly) return;
-    if (!ownedUnits[unitId] || ownedUnits[unitId].number < 1 || allUnits[unitId].max_rarity != 7) {
+    if (!ownedUnits[unitId] || ownedUnits[unitId].number < 1 || units[unitId].max_rarity != 7) {
         return;
     }
     if (ownedUnits[unitId].number == 1) {
@@ -589,7 +610,7 @@ function awaken(unitId) {
         awakenFollowUp(unitId);
     } else {
         Modal.show({
-            title: 'Awaken ' + allUnits[unitId].name,
+            title: 'Awaken ' + units[unitId].name,
             body: '<p>How to awaken ?</p>',
             withCancelButton: true,
             buttons: [
@@ -639,7 +660,7 @@ function editUnit(unitId) {
         '<label for="farmableTMR">Number of TMR that can still be farmed</label>' +
         '<input type="number" class="form-control" id="farmableTMR" aria-describedby="emailHelp" placeholder="Enter farmable TMR number" value="' + ownedUnits[unitId].farmable + '">' +
       '</div>';
-    let unit = allUnits[unitId];
+    let unit = units[unitId];
     if (unit.max_rarity == '7') {
         form += '<div class="form-group">' +
             '<label for="ownedSeventStarNumber">Owned 7* number</label>' +
@@ -691,8 +712,8 @@ function markSaveNeeded() {
 
 function savePublicLink(callback) {
     var publicUnitcollection = {};
-    for (var index = 0, len = units.length; index < len; index++) {
-        var unit = units[index];
+    for (var index = 0, len = releasedUnits.length; index < len; index++) {
+        var unit = releasedUnits[index];
         if (ownedUnits[unit.id]) {
             var publicUnit = {
                 "number": ownedUnits[unit.id].number,
@@ -761,14 +782,14 @@ function filterTMRName(units) {
         textToSearch = textToSearch.toLowerCase();
         for (var index = units.length; index--;) {
             var unit = units[index];
-            if (tmrNameByUnitId[unit.id] && tmrNameByUnitId[unit.id].toLowerCase().indexOf(textToSearch) >= 0) {
+            if (tmrByUnitId[unit.id] && tmrByUnitId[unit.id].name.toLowerCase().indexOf(textToSearch) >= 0) {
                 result.push(unit);
             }
         }
     } else {
         for (var index = units.length; index--;) {
             var unit = units[index];
-            if (tmrNameByUnitId[unit.id]) {
+            if (tmrByUnitId[unit.id]) {
                 result.push(unit);
             }
         }
@@ -797,10 +818,7 @@ function sortAlphabetically(units) {
 
 function sortTMRAlphabetically(units) {
     return units.sort(function (unit1, unit2){
-        if (!tmrNameByUnitId[unit1.id]) {
-            console.log(unit1.name);
-        }
-        return tmrNameByUnitId[unit1.id].localeCompare(tmrNameByUnitId[unit2.id]);
+        return tmrByUnitId[unit1.id].name.localeCompare(tmrByUnitId[unit2.id].name);
     });
 };
 
@@ -863,13 +881,13 @@ function prepareData() {
             if (itemInventory[item.id]) {
                 tmrNumberByUnitId[item.tmrUnit] = itemInventory[item.id];
             }
-            tmrNameByUnitId[item.tmrUnit] = item.name;
+            tmrByUnitId[item.tmrUnit] = item;
         }
         if (item.stmrUnit) {
             if (itemInventory[item.id]) {
                 stmrNumberByUnitId[item.stmrUnit] = itemInventory[item.id];
             }
-            stmrNameByUnitId[item.tmrUnit] = item.name;
+            stmrByUnitId[item.stmrUnit] = item;
         }
     }
 }
@@ -926,11 +944,11 @@ function exportAsCsv() {
 
 function exportAsText() {
     var text = "";
-    var sortedUnits = sortByBaseRarity(units);
+    var sortedUnits = sortByBaseRarity(releasedUnits);
     var currentBaseRarity;
     first = true;
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
-        var unit = units[index];
+        var unit = sortedUnits[index];
         if (ownedUnits[unit.id]) {
             if (!currentBaseRarity || currentBaseRarity != unit.min_rarity) {
                 if (currentBaseRarity) {
@@ -957,7 +975,7 @@ function exportAsText() {
 function importUnits() {
     if (!baseUnitIdBySpecificRarityUnitId) {
         baseUnitIdBySpecificRarityUnitId = {};
-        units.forEach(unit => {
+        releasedUnits.forEach(unit => {
             let unitIdBase = unit.id.substring(0,unit.id.length - 1);
            for (i = parseInt(unit.min_rarity); i <= parseInt(unit.max_rarity); i++) {
                baseUnitIdBySpecificRarityUnitId[unitIdBase + i] = unit.id;
@@ -1070,7 +1088,7 @@ function treatImportFile(evt) {
 }
 
 function onDataReady() {
-    if (units && data) {
+    if (releasedUnits && data) {
         if (window.location.hash.length > 1 && isLinkId(window.location.hash.substr(1))) {
             $.ajax({
                 accepts: "application/json",
@@ -1108,13 +1126,13 @@ function startPage() {
     
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("units", true, function(unitResult) {
-        allUnits = unitResult;
+        units = unitResult;
         getStaticData("releasedUnits", false, function(releasedUnitResult) {
-            units = [];
+            releasedUnits = [];
             for (var unitId in unitResult) {
                 if (releasedUnitResult[unitId]) {
                     unitResult[unitId].summon_type = releasedUnitResult[unitId].type;
-                    units.push(unitResult[unitId]);
+                    releasedUnits.push(unitResult[unitId]);
                 }
             }
             onDataReady();

@@ -527,6 +527,18 @@
     display: block;
 }
 
+.ui-tooltip {
+    max-width: 600px !important;
+}
+
+.items .tbody .tr .td, .results {
+    border-top: none !important;
+}
+
+.unit .tmr, .unit .stmr {
+    cursor: help;
+}
+
 #importLink {
     margin-left: 10px;
 }
