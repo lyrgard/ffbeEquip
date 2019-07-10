@@ -253,6 +253,9 @@ function getItemDisplay(item)
     if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
         html += ' excludedFromExpeditions';
     }
+    if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) {
+        html += ' maxNumberOverflow';
+    }
     html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
     if (itemInventory) {
         html+= '<div class="td inventory">';
