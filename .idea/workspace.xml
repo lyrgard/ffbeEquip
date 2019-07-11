@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/inventory.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/units.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/GL/monsters.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/monsters.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +28,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -60,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <caret line="1" column="512" selection-start-line="1" selection-start-column="512" selection-end-line="1" selection-end-column="512" />
             </state>
           </provider>
         </entry>
@@ -83,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/inventory.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
@@ -95,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2911">
+            <state relative-caret-position="-2897">
               <caret line="11" column="51" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
             </state>
           </provider>
@@ -151,8 +150,8 @@
       <find>Peace R</find>
       <find>Standar</find>
       <find>import</find>
-      <find>importL</find>
       <find>las</find>
+      <find>importL</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -192,14 +191,14 @@
         <option value="$PROJECT_DIR$/static/units.js" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/inventory.js" />
-        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/GL/releasedUnits.json" />
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/GL/data.json" />
-        <option value="$PROJECT_DIR$/static/GL/monsters.json" />
         <option value="$PROJECT_DIR$/static/units.html" />
         <option value="$PROJECT_DIR$/static/inventory.html" />
         <option value="$PROJECT_DIR$/static/inventory.css" />
+        <option value="$PROJECT_DIR$/static/GL/monsters.json" />
+        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
       </list>
     </option>
   </component>
@@ -359,12 +358,12 @@
       <workItem from="1561205288787" duration="2538000" />
       <workItem from="1561304608274" duration="250000" />
       <workItem from="1562742487911" duration="1036000" />
-      <workItem from="1562857749690" duration="2374000" />
+      <workItem from="1562857749690" duration="3445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104053000" />
+    <option name="totallyTimeSpent" value="105124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -697,13 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/units.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -732,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/units.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -755,7 +740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2911">
+        <state relative-caret-position="-2897">
           <caret line="11" column="51" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="51" />
         </state>
       </provider>
@@ -764,6 +749,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="368" column="12" selection-start-line="368" selection-start-column="12" selection-end-line="368" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="512" selection-start-line="1" selection-start-column="512" selection-end-line="1" selection-end-column="512" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
