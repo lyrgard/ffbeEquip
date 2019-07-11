@@ -237,12 +237,14 @@ class BuildOptimizer {
     
     
     findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills) {
-        let savedItemPools = [];
-        savedItemPools.push(dataWithConditionItems[typeCombination[2]]);
-        savedItemPools.push(dataWithConditionItems[typeCombination[3]]);
-        savedItemPools.push(dataWithConditionItems[typeCombination[4]]);
-        savedItemPools.push(dataWithConditionItems[typeCombination[6]]);
+        let restorePool;
+        let savedItemPools;
         if (index == 2) {
+            savedItemPools = [];
+            savedItemPools.push(dataWithConditionItems[typeCombination[2]]);
+            savedItemPools.push(dataWithConditionItems[typeCombination[3]]);
+            savedItemPools.push(dataWithConditionItems[typeCombination[4]]);
+            savedItemPools.push(dataWithConditionItems[typeCombination[6]]);
             // weapon set, try elemental based skills
             for (var skillIndex = elementBasedSkills.length; skillIndex--;) {
                 if (build.includes(elementBasedSkills[skillIndex])) {
@@ -290,6 +292,7 @@ class BuildOptimizer {
             }
             if (Object.keys(activatedItemsByType).length > 0) {
                 Object.keys(activatedItemsByType).forEach(type => {
+                    restorePool = true;
                     dataWithConditionItems[type] = dataWithConditionItems[type].clone();
                     dataWithConditionItems[type].addItems(activatedItemsByType[type]);
                     dataWithConditionItems[type].prepare();
@@ -320,11 +323,13 @@ class BuildOptimizer {
                 this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, itemBasedSkills);
             }
         }
-        build[index] = null;
-        dataWithConditionItems[typeCombination[2]] = savedItemPools[0];
-        dataWithConditionItems[typeCombination[3]] = savedItemPools[1];
-        dataWithConditionItems[typeCombination[4]] = savedItemPools[2];
-        dataWithConditionItems[typeCombination[6]] = savedItemPools[3];
+        if (restorePool) {
+            build[index] = null;
+            dataWithConditionItems[typeCombination[2]] = savedItemPools[0];
+            dataWithConditionItems[typeCombination[3]] = savedItemPools[1];
+            dataWithConditionItems[typeCombination[4]] = savedItemPools[2];
+            dataWithConditionItems[typeCombination[6]] = savedItemPools[3];
+        }
     }
 
     tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills) {
