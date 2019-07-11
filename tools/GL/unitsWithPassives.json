@@ -2207,6 +2207,7 @@
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["Blast Gem","Heat Gem","Blessed Spellblade","Cold Gem","Sunlight Gem"],
 		"enhancements": [
+			{"name":"Spellblade Knight","levels":[[],[{"mag%":30,"atk%":30}]]},
 			{"name":"Blessed Spellblade","levels":[[{"equipedConditions":["sword"],"atk%":20,"mag%":20}],[{"equipedConditions":["sword"],"atk%":50,"mag%":50}],[{"equipedConditions":["sword"],"atk%":80,"mag%":80}]]}
 		],
 		"skills": [
@@ -2264,10 +2265,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
-		"enhancements": [
-			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
-		],
+		"enhancementSkills":["Life's Refrain","Fool's Ballad"],
 		"skills": [
 			{"hp%":10, "def%":20, "spr%":30},
 			{"def%":30, "equipedConditions":["clothes"]},
@@ -2290,10 +2288,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-			"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
-		"enhancements": [
-			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
-		],
+			"enhancementSkills":["Life's Refrain","Fool's Ballad"],
 			"skills": [
 				{"hp%":10, "def%":20, "spr%":30},
 				{"def%":30, "equipedConditions":["clothes"]},
