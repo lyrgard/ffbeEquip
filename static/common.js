@@ -441,7 +441,11 @@ function getEquipedConditionHtml(item) {
         } else {
             conditions += " and ";
         }
-        conditions += "<i class='img img-equipment-" + item.equipedConditions[equipedConditionsIndex] + "'></i>";
+        if (elementList.includes(item.equipedConditions[equipedConditionsIndex])) {
+            conditions += "<i class='img img-element-" + item.equipedConditions[equipedConditionsIndex] + "'></i>";
+        } else {
+            conditions += "<i class='img img-equipment-" + item.equipedConditions[equipedConditionsIndex] + "'></i>";
+        }
     }
     return "<div class='exclusive'>If equiped with " + conditions + "</div>";
 }
