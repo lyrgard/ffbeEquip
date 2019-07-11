@@ -129,7 +129,18 @@ class DataStorage {
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }
     }
-    
+
+    addDesirableElementsFromItems(ennemyStats) {
+        this.data.forEach(i => {
+           if (i.equipedConditions && this.itemCanBeOfUseForGoal(i, ennemyStats)) {
+               i.equipedConditions.forEach(c => {
+                   if (elementList.includes(c) && !this.desirableElements.includes(c)) {
+                       this.desirableElements.push(c);
+                   }
+               })
+           }
+        });
+    }
     
     prepareData(itemsToExclude, ennemyStats) {
         this.dataByType = {};
@@ -159,6 +170,7 @@ class DataStorage {
             }
         }
 
+        this.addDesirableElementsFromItems(ennemyStats);
         
         for (var index = 0; index < itemNumber; index++) {
             var item = this.data[this.data.length - 1 - index];

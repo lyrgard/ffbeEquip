@@ -17,6 +17,12 @@ class ItemPool {
         this.lesserGroupsById = {};
         this.skillIds = skillIds;
     }
+
+    clone() {
+        let clone = new ItemPool(this.maxDepth, this.involvedStats, this.ennemyStats, this.desirableElements, this.desirableItemIds, this.skillIds, this.includeSingleWielding, this.includeDualWielding);
+        clone.addItems(this.getEntries());
+        return clone;
+    }
     
     addItems(entries) {
         for (var i = entries.length; i--;) {

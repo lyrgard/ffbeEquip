@@ -331,14 +331,17 @@ function readSkills(itemIn, itemOut, skills) {
 
                         // Mastery (+X% stat if equiped with ...)
                         if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                            masterySkills.push(rawEffect[3]);
-                            
+                            masterySkills.push(rawEffect);
+
+                        // element based mastery
+                        } else if (rawEffect[1] == 3 && rawEffect[2] == 10004) {
+                            masterySkills.push(rawEffect);
                         } else {
                             if (!addEffectToItem(itemOut, skill, rawEffectIndex, skills)) {
                                 effectsNotTreated.push(rawEffectIndex)
-                                //console.log(rawEffect + " - " + skill.effects);
                             }
-                        }            
+
+                        }
                     }
                     addNotTreatedEffects(itemOut, effectsNotTreated, skill);
                 }
@@ -368,7 +371,7 @@ function readSkills(itemIn, itemOut, skills) {
                 if (!unitFoud) { console.log("No units found in " + JSON.stringify(skill.unit_restriction) + " for skill " + skill.name );}
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
-                    if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
+                    if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
                         masterySkills.push(rawEffect[3]);
                     } else if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
                         effectsNotTreated.push(rawEffectIndex);
@@ -393,7 +396,7 @@ function readSkills(itemIn, itemOut, skills) {
                 for (var rawEffectIndex in skill.effects_raw) {
                     rawEffect = skill.effects_raw[rawEffectIndex];
                     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 6) {
-                        masterySkills.push(rawEffect[3]);
+                        masterySkills.push(rawEffect);
                     } else if (!addEffectToItem(copy, skill, rawEffectIndex, skills)) {
                         effectsNotTreated.push(rawEffectIndex);
                     }
@@ -647,6 +650,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var drawAttacks = rawEffect[3][0];
         addStat(item, "drawAttacks", drawAttacks);
 
+
     } else {
         return false;
     }
@@ -729,16 +733,45 @@ function addMastery(item, mastery) {
     if (!item.equipedConditions) {
         item.equipedConditions = [];
     }
-    item.equipedConditions.push(typeMap[mastery[0]]);
-    addStat(item, "atk%", mastery[1]);
-    addStat(item, "def%", mastery[2]);
-    addStat(item, "mag%", mastery[3]);
-    addStat(item, "spr%", mastery[4]);
-    if (mastery.length >= 6) {
-        addStat(item, "hp%", mastery[5]);
-    }
-    if (mastery.length >= 7) {
-        addStat(item, "mp%", mastery[6]);
+
+    // element based mastery
+    if (mastery[1] == 3 && mastery[2] == 10004) {
+        var masteryEffect = mastery[3];
+        if (Array.isArray(masteryEffect[0])) {
+            item.equipedConditions = item.equipedConditions.concat([masteryEffect[0].map(x => elementsMap[x])]);
+        } else {
+            item.equipedConditions.push(elementsMap[masteryEffect[0]]);
+        }
+        if (masteryEffect[3]) {
+            addStat(item, "atk%", masteryEffect[3]);
+        }
+        if (masteryEffect[5]) {
+            addStat(item, "def%", masteryEffect[5]);
+        }
+        if (masteryEffect[4]) {
+            addStat(item, "mag%", masteryEffect[4]);
+        }
+        if (masteryEffect[6]) {
+            addStat(item, "spr%", masteryEffect[6]);
+        }
+        if (masteryEffect[1]) {
+            addStat(item, "hp%", masteryEffect[1]);
+        }
+        if (masteryEffect[2]) {
+            addStat(item, "mp%", masteryEffect[2]);
+        }
+    } else {
+        item.equipedConditions.push(typeMap[mastery[3][0]]);
+        addStat(item, "atk%", mastery[3][1]);
+        addStat(item, "def%", mastery[3][2]);
+        addStat(item, "mag%", mastery[3][3]);
+        addStat(item, "spr%", mastery[3][4]);
+        if (mastery[3].length >= 6) {
+            addStat(item, "hp%", mastery[3][5]);
+        }
+        if (mastery[3].length >= 7) {
+            addStat(item, "mp%", mastery[3][6]);
+        }
     }
 }
 
