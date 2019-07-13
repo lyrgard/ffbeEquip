@@ -1,9 +1,9 @@
 class Bestiary {
     constructor(monsters) {
-        this.monsters = monsters;
-        for (var index = monsters.length; index--;) {
-            monsters[index].type = "monster";
-        }
+        this.monstersByCategory = monsters;
+        Object.keys(this.monstersByCategory).forEach(c => {
+            this.monstersByCategory[c].forEach(monster => monster.type = "monster");
+        });
     }
     
     

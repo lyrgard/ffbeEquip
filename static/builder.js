@@ -2858,30 +2858,72 @@ function showExcludedItems() {
 }
 
 function showMonsterList() {
-    var text = "";
-    for (var index = 0, len = bestiary.monsters.length; index < len; index++) {
-        var monster = bestiary.monsters[index];
-        text += '<div class="tr" onclick="selectMonster(' + index +')">' +
-            getNameColumnHtml(monster) + 
-            '<div class="td special">' + getSpecialHtml(monster) + '</div>';
-        text += '<div class="td access">';
-        for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
-            text += "<div>" + monster.races[raceIndex] + "</div>";
+    var text = '<ul class="nav nav-tabs">';
+    let first = true;
+    Object.keys(bestiary.monstersByCategory).forEach(c => {
+        text += '<li class="bestiaryCategory ' + escapeName(c);
+        if (first) {
+            text += ' active';
+            first = false;
         }
+        text += '"><a href="#" onclick="selectBestiaryCategory(\'' + escapeName(c) + '\')">' + c + '</a></li>';
+    });
+    text += '</ul>'
+
+    text += '<div class="tab-content">';
+    Object.keys(bestiary.monstersByCategory).forEach(c => {
+        text += '<div class="bestiaryMonsters ' + escapeName(c) + ' tab-pane fade in active">';
+        text += '<div class="table items monsters">';
+        bestiary.monstersByCategory[c].forEach((monster, index) => {
+            text += '<div class="tr" onclick="selectMonster(\'' + c + '\',' + index +')">' +
+                getNameColumnHtml(monster) +
+                '<div class="td special">' + getSpecialHtml(monster) + '</div>';
+            text += '<div class="td access">';
+            for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
+                text += "<div>" + monster.races[raceIndex] + "</div>";
+            }
+            text += '</div>';
+            text += '</div>';
+
+        });
         text += '</div>';
         text += '</div>';
-    }
+    });
+    // var text = "";
+    // for (var index = 0, len = bestiary.monsters.length; index < len; index++) {
+    //     var monster = bestiary.monsters[index];
+    //     text += '<div class="tr" onclick="selectMonster(' + index +')">' +
+    //         getNameColumnHtml(monster) +
+    //         '<div class="td special">' + getSpecialHtml(monster) + '</div>';
+    //     text += '<div class="td access">';
+    //     for (var raceIndex = 0, racesLen = monster.races.length; raceIndex < racesLen; raceIndex++) {
+    //         text += "<div>" + monster.races[raceIndex] + "</div>";
+    //     }
+    //     text += '</div>';
+    //     text += '</div>';
+    // }
     
     Modal.show({
         title: "Monster List",
-        body: '<div class="table items monsters">' + text + '</div>',
+        body: '<div>' + text + '</div>',
         size: 'large',
         withCancelButton: false
     });
+    if (Object.keys(bestiary.monstersByCategory).length) {
+        selectBestiaryCategory(escapeName(Object.keys(bestiary.monstersByCategory)[0]));
+    }
 }
 
-function selectMonster(monsterIndex) {
-    var monster = bestiary.monsters[monsterIndex];
+function selectBestiaryCategory(category) {
+    $('.bestiaryCategory').removeClass("active");
+    $('.bestiaryMonsters').addClass("hidden");
+    $('.bestiaryCategory.' + category).addClass("active");
+    $('.bestiaryMonsters.' + category).removeClass("hidden");
+
+}
+
+function selectMonster(category, monsterIndex) {
+    var monster = bestiary.monstersByCategory[category][monsterIndex];
     $("#monsterDefensiveStats .def .stat").val(monster.def);
     $("#monsterDefensiveStats .spr .stat").val(monster.spr);
     $("#monsterDefensiveStats .def .buff").val('');
