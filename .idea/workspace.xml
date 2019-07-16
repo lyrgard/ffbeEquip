@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/monsters.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/monsters.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/monsters.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/monsters.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder/bestiary.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/bestiary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,10 +40,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/GL/data.json">
+        <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="78" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="78" />
+            <state relative-caret-position="174">
+              <caret line="49" column="130" selection-start-line="49" selection-start-column="113" selection-end-line="49" selection-end-column="130" />
             </state>
           </provider>
         </entry>
@@ -59,25 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="8295">
               <caret line="553" column="48" selection-start-line="553" selection-start-column="48" selection-end-line="553" selection-end-column="48" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="e#65#72#1" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="985" column="93" lean-forward="true" selection-start-line="985" selection-start-column="92" selection-end-line="985" selection-end-column="93" />
+            <state relative-caret-position="238">
+              <caret line="3120" column="24" lean-forward="true" selection-start-line="3120" selection-start-column="24" selection-end-line="3120" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -99,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-376">
-              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+            <state relative-caret-position="1575">
+              <caret line="105" column="213" selection-start-line="105" selection-start-column="213" selection-end-line="105" selection-end-column="213" />
             </state>
           </provider>
         </entry>
@@ -128,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Barret</find>
       <find>Peace Rin</find>
       <find>Warrior's M</find>
       <find>Catastr</find>
@@ -158,6 +150,7 @@
       <find>rarity</find>
       <find>replace</find>
       <find>3*</find>
+      <find>door</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -206,10 +199,10 @@
         <option value="$PROJECT_DIR$/static/builder/buildOptimizer.js" />
         <option value="$PROJECT_DIR$/static/JP/monsters.json" />
         <option value="$PROJECT_DIR$/static/builder/bestiary.js" />
-        <option value="$PROJECT_DIR$/static/builder.js" />
-        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
-        <option value="$PROJECT_DIR$/static/GL/monsters.json" />
         <option value="$PROJECT_DIR$/static/common.js" />
+        <option value="$PROJECT_DIR$/static/GL/monsters.json" />
+        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/builder.js" />
       </list>
     </option>
   </component>
@@ -230,7 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -288,6 +280,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,18 +363,20 @@
       <workItem from="1561304608274" duration="250000" />
       <workItem from="1562742487911" duration="1036000" />
       <workItem from="1562857749690" duration="15064000" />
-      <workItem from="1563005915251" duration="5882000" />
+      <workItem from="1563005915251" duration="6561000" />
+      <workItem from="1563098467132" duration="1196000" />
+      <workItem from="1563304088052" duration="181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122625000" />
+    <option name="totallyTimeSpent" value="124681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20227273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20833333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -684,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6600">
@@ -719,6 +707,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/GL/parseItems.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
@@ -726,16 +721,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/parseUnits.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/JP/data.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/bestiary.js">
+    <entry file="file://$PROJECT_DIR$/static/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="8295">
+          <caret line="553" column="48" selection-start-line="553" selection-start-column="48" selection-end-line="553" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -746,40 +735,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="213" selection-start-line="105" selection-start-column="213" selection-end-line="105" selection-end-column="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder/bestiary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/GL/parseUnits.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/JP/data.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="49" column="130" selection-start-line="49" selection-start-column="113" selection-end-line="49" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="985" column="93" lean-forward="true" selection-start-line="985" selection-start-column="92" selection-end-line="985" selection-end-column="93" />
+        <state relative-caret-position="238">
+          <caret line="3120" column="24" lean-forward="true" selection-start-line="3120" selection-start-column="24" selection-end-line="3120" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/monsters.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-376">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="553" column="48" selection-start-line="553" selection-start-column="48" selection-end-line="553" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#65#72#1" expanded="true" />
           </folding>
         </state>
       </provider>

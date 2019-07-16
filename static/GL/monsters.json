@@ -103,7 +103,8 @@
         {"name":"Tolfidan (Conqueror of Izander)","wikiEntry":"Conqueror_of_Izander","hp":4000000,"mp":10000,"atk":240,"def":70,"mag":210,"spr":70,"races":["dragon"],"resist":[{"name":"fire","percent":50}, {"name":"dark","percent":50}], "breakability":{"atk":true, "def":true, "mag":true, "spr":true}}
     ],
     "Others": [
-        {"name":"Bennu","wikiEntry":"AncientRuins-_Level_1","hp":100000000,"mp":10000,"atk":710,"def":63,"mag":720,"spr":48,"races":["bird"],"resist":[], "breakability":{"atk":true, "def":true, "mag":true, "spr":true}},
+        {"name":"Bennu","wikiEntry":"Ancient_Ruins_Level_1","hp":100000000,"mp":10000,"atk":710, "atk%": 50,"def":63, "def%": 50,"mag":720, "mag%": 50,"spr":48, "spr%": 50,"races":["bird"],"resist":[], "special":["Immune to ailments"], "breakability":{"atk":true, "def":true, "mag":true, "spr":true}},
+        {"name":"Undine (Madam's Manor)", "wikiEntry":"Ancient_Ruins_Level_2", "hp":100000000, "mp":3000000, "atk":999, "def":55, "mag":699, "spr":44, "races":["spirit"], "resist":[{"name":"lightning", "percent":-300}, {"name":"water", "percent":999}], "special":["Absorbs Water", "Counters lightning", "Use Ice magic, else immune to physical attacks", "Immune to ailments"], "breakability":{"atk":true, "def":false, "mag":false, "spr":false}},
         {"name":"Abominable Wooden Soldier", "wikiEntry":"Abominable_Wooden_Soldier", "hp":1, "mp":0, "atk":1, "def":25, "mag":1, "spr":25, "races":["human"], "resist":[], "breakability":{"atk":false, "def":false, "mag":false, "spr":false}}
     ]
 }
