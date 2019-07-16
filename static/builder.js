@@ -3087,16 +3087,11 @@ function onPotsChange(stat) {
     if (builds[currentUnitIndex].unit) {
         let element = $(".unitStats .stat." + stat + " .pots input");
         var value = parseInt(element.val()) || 0;
-        
-        if (server == "JP") {
-            if (value > Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
-                element.val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
-            }
-        } else {
-            if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
-                element.val(builds[currentUnitIndex].unit.stats.pots[stat]);
-            }  
+
+        if (value > Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
+            element.val(Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5));
         }
+
         updatePotStyle(stat);
         logCurrentBuild();
     }
@@ -3109,27 +3104,18 @@ function updatePotStyle(stat) {
     element.removeClass("maxPot");
     element.removeClass("door");
     element.removeClass("maxDoor");
-    if (server == "JP") {
-        if (value == Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
-          element.addClass("maxDoor");
-        } else if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
-          element.addClass("door");
-        } else if (value == builds[currentUnitIndex].unit.stats.pots[stat]) {
-          element.addClass("maxPot");
-        } else if (value > 0) {
-          element.addClass("poted");
-        }
-    } else {
-      if (value == builds[currentUnitIndex].unit.stats.pots[stat]) {
-          element.addClass("maxPot");
-        } else if (value > 0) {
-          element.addClass("poted");
-        }
+    if (value == Math.floor(builds[currentUnitIndex].unit.stats.pots[stat] * 1.5)) {
+      element.addClass("maxDoor");
+    } else if (value > builds[currentUnitIndex].unit.stats.pots[stat]) {
+      element.addClass("door");
+    } else if (value == builds[currentUnitIndex].unit.stats.pots[stat]) {
+      element.addClass("maxPot");
+    } else if (value > 0) {
+      element.addClass("poted");
     }
 }
 
 function switchPots() {
-  if (server == "JP") {
     var allZero = baseStats.every(stat => {
       let value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
       return value == 0;
@@ -3156,23 +3142,6 @@ function switchPots() {
         });
       }
     }
-  } else {
-    var notMaxed = baseStats.some(stat => {
-      let value = parseInt($(".unitStats .stat." + stat + " .pots input").val()) || 0;
-      return value < builds[currentUnitIndex].unit.stats.pots[stat]
-    });
-    if (notMaxed) {
-      baseStats.forEach(stat => {
-        $(".unitStats .stat." + stat + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[stat]);
-        updatePotStyle(stat);
-      });
-    } else {
-      baseStats.forEach(stat => {
-        $(".unitStats .stat." + stat + " .pots input").val("0");
-        updatePotStyle(stat);
-      })
-    }
-  }
 }
 
 function onBuffChange(stat) {
