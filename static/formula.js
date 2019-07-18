@@ -777,7 +777,7 @@ function isSimpleFormula(formula) {
                 && formula.value2.value1.type == 'value' && formula.value2.value1.name == "mag"
                 && formula.value2.value2.type == 'constant' && formula.value2.value2.value == 10;
         case "value":
-            return formula.name == "hp" 
+            return !formula.lb && (formula.name == "hp"
             || formula.name == "mp" 
             || formula.name == "atk" 
             || formula.name == "def" 
@@ -788,7 +788,7 @@ function isSimpleFormula(formula) {
             || formula.name == "atkDamageWithFixedMecanism"
             || formula.name == "physicalDamageMultiCast"
             || formula.name == "fixedDamageWithPhysicalMecanism"
-            || formula.name == "summonerSkill";
+            || formula.name == "summonerSkill");
         default:
             return false;
     }

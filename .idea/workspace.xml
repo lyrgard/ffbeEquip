@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/builder/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/commonParseUnit.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/commonParseUnit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/formula.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/formula.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +28,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="14" selection-start-column="14" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/formula.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="790" column="47" selection-start-line="790" selection-start-column="47" selection-end-line="790" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -68,20 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="450" column="69" selection-start-line="450" selection-start-column="69" selection-end-line="450" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/GL/units.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154335">
-              <caret line="10289" column="29" selection-start-line="10289" selection-start-column="29" selection-end-line="10289" selection-end-column="29" />
+            <state relative-caret-position="383">
+              <caret line="655" column="194" selection-start-line="655" selection-start-column="194" selection-end-line="655" selection-end-column="194" />
             </state>
           </provider>
         </entry>
@@ -118,7 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>las</find>
       <find>importL</find>
       <find>10004</find>
       <find>electrifying</find>
@@ -148,6 +143,7 @@
       <find>March</find>
       <find>Morga</find>
       <find>124</find>
+      <find>.lb</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -170,7 +166,6 @@
         <option value="$PROJECT_DIR$/static/unitSearch.js" />
         <option value="$PROJECT_DIR$/static/builder/treeComparator.js" />
         <option value="$PROJECT_DIR$/static/GL/units.json" />
-        <option value="$PROJECT_DIR$/static/formula.js" />
         <option value="$PROJECT_DIR$/static/builder/unitBuild.js" />
         <option value="$PROJECT_DIR$/static/GL/defaultBuilderEspers.json" />
         <option value="$PROJECT_DIR$/static/espers.js" />
@@ -198,8 +193,9 @@
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/tools/commonParseUnit.js" />
-        <option value="$PROJECT_DIR$/static/builder/common.js" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/formula.js" />
+        <option value="$PROJECT_DIR$/static/builder/common.js" />
       </list>
     </option>
   </component>
@@ -364,12 +360,12 @@
       <workItem from="1563098467132" duration="1196000" />
       <workItem from="1563304088052" duration="181000" />
       <workItem from="1563452248580" duration="1990000" />
-      <workItem from="1563464174789" duration="2269000" />
+      <workItem from="1563464174789" duration="4333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128940000" />
+    <option name="totallyTimeSpent" value="131004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -518,13 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="289" selection-start-line="8" selection-start-column="289" selection-end-line="8" selection-end-column="289" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/formula.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -754,17 +743,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="450" column="69" selection-start-line="450" selection-start-column="69" selection-end-line="450" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/formula.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="790" column="47" selection-start-line="790" selection-start-column="47" selection-end-line="790" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="655" column="194" selection-start-line="655" selection-start-column="194" selection-end-line="655" selection-end-column="194" />
         </state>
       </provider>
     </entry>

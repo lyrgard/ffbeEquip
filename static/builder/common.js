@@ -538,6 +538,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
             }
 
+            let lbMultiplier = 1;
+            if (formula.lb) {
+                lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
+            }
+
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
             var level;
             if (unitBuild._level) {
@@ -637,9 +642,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                             }
                         }
                         var ennemyResistanceStat = ennemyStats.def * (1 - ennemyStats.breaks.def / 100);
-                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min * newJpDamageFormulaCoef / ennemyResistanceStat;
-                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg * newJpDamageFormulaCoef / ennemyResistanceStat;
-                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        let base = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier  * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        total.min += base * damageMultiplier.min * variance.min;
+                        total.avg += base * damageMultiplier.avg * variance.avg;
+                        total.max += base * damageMultiplier.max * variance.max;
                         total.switchWeapons = total.switchWeapons || switchWeapons;
                     } else {
                         var ennemyResistanceStat = ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100);
@@ -647,7 +653,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                             dualWieldCoef = 2;
                         }
-                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyResistanceStat;
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * lbMultiplier / ennemyResistanceStat;
                         total.min += base * damageMultiplier.min;
                         total.avg += base * damageMultiplier.avg;
                         total.max += base * damageMultiplier.max;
