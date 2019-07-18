@@ -976,7 +976,7 @@ function getEsperStatBonus(itemAndPassives, stat) {
             }
         }
     }
-    return Math.min(2, statsBonus / 100);
+    return Math.min(3, statsBonus / 100);
 }
 
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
