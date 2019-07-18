@@ -225,6 +225,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         var dualWielding = itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
         let newJpDamageFormulaCoef = 1;
+        var coef = formula.value.coef;
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
@@ -334,11 +335,16 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
         } else if(formula.value.mecanism == "summonerSkill"){
-            defendingStat= "spr"
-            if(formula.value.use){
-                statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+            defendingStat= "spr";
+            coef = formula.value.magCoef;
+            if (formula.value.magSplit > 0) {
+                if (formula.value.use) {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                }
             } else {
-                statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                statValueToUse = 0;
             }
         }
         // Killer
@@ -393,7 +399,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             jumpMultiplier += getStatCalculatedValue(context, itemAndPassives, "jumpDamage", unitBuild).total/100;
         }
         
-        var coef = formula.value.coef;
+
         if (formula.value.ifUsedAgain && ennemyStats.races.includes(formula.value.ifUsedAgain.race)) {
             coef = formula.value.ifUsedAgain.coef;
         }
@@ -439,8 +445,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "switchWeapons": switchWeapons
             }   
         } else if(formula.value.mecanism == "summonerSkill"){
-            var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
-            var sprDamage = coef * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            if (formula.value.sprSplit > 0) {
+                var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+                let coefIncrease = coef - formula.value.magCoef;
+                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            } else {
+                sprDamage = 0;
+            }
             result = {
                 "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min / 2,
                 "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg / 2,
