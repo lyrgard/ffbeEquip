@@ -1685,7 +1685,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-		"enhancementSkills":["Life's Refrain","Fool's Ballad"],
+		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
 		"6_form": {
 			"name":"Roy",
 			"id":"100010405",
@@ -1700,7 +1700,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-			"enhancementSkills":["Life's Refrain","Fool's Ballad"]
+			"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"]
 		}
 	},
 	"100010504": {
@@ -10273,6 +10273,35 @@
 			"equip":["dagger","sword","staff","rod","hammer","harp","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 		}
 	},
+	"401007005": {
+		"name":"Morgana",
+		"id":"401007005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4360,"mp":287,"atk":132,"def":127,"mag":218,"spr":198},
+			"minStats":{"hp":1439,"mp":95,"atk":44,"def":42,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Morgana",
+			"id":"401007005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3354,"mp":221,"atk":102,"def":98,"mag":171,"spr":153},
+				"minStats":{"hp":1107,"mp":73,"atk":34,"def":32,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
 	"401007305": {
 		"name":"Immortal Flame Katy",
 		"id":"401007305",
@@ -10329,6 +10358,35 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"401008405": {
+		"name":"Elena",
+		"id":"401008405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":260,"atk":205,"def":190,"mag":205,"spr":190},
+			"minStats":{"hp":1584,"mp":86,"atk":68,"def":63,"mag":68,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Elena",
+			"id":"401008405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":200,"atk":158,"def":147,"mag":158,"spr":147},
+				"minStats":{"hp":1219,"mp":66,"atk":52,"def":49,"mag":52,"spr":49},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"]
 		}
 	}
 }

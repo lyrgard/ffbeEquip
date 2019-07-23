@@ -2265,7 +2265,10 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-		"enhancementSkills":["Life's Refrain","Fool's Ballad"],
+		"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
+		"enhancements": [
+			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
+		],
 		"skills": [
 			{"hp%":10, "def%":20, "spr%":30},
 			{"def%":30, "equipedConditions":["clothes"]},
@@ -2288,7 +2291,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
-			"enhancementSkills":["Life's Refrain","Fool's Ballad"],
+			"enhancementSkills":["Pizzicato Tonic","Life's Refrain","Fool's Ballad"],
+		"enhancements": [
+			{"name":"Pizzicato Tonic","levels":[[{"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}]}],[{"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}]}]]}
+		],
 			"skills": [
 				{"hp%":10, "def%":20, "spr%":30},
 				{"def%":30, "equipedConditions":["clothes"]},
@@ -14332,6 +14338,50 @@
 			]
 		}
 	},
+	"401007005": {
+		"name":"Morgana",
+		"id":"401007005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4360,"mp":287,"atk":132,"def":127,"mag":218,"spr":198},
+			"minStats":{"hp":1439,"mp":95,"atk":44,"def":42,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":50, "mag%":110, "spr%":30, "evoMag":40, "dualWielding":{"mag":50,"spr":20}, "resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":5, "special":["dualWield"]},
+			{"mag%":40, "equipedConditions":["rod"]},
+			{"resist":[{"name":"ice","percent":30},{"name":"dark","percent":30}], "equipedConditions":["rod"]},
+			{"def%":20, "spr%":20, "equipedConditions":["robe"]},
+			{"equipedConditions":[["1500000110","1100000303"]]},
+			{"hp%":20, "levelCondition":115},
+			{"lbPerTurn":{"min":3,"max":3}, "skillEnhancement":{"912647":1.5,"912649":1.5,"912651":1.5,"912655":1.5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Morgana",
+			"id":"401007005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3354,"mp":221,"atk":102,"def":98,"mag":171,"spr":153},
+				"minStats":{"hp":1107,"mp":73,"atk":34,"def":32,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "mag%":110, "spr%":30, "evoMag":20, "dualWielding":{"mag":50,"spr":20}, "resist":[{"name":"poison","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "mpRefresh":5, "special":["dualWield"]},
+				{"mag%":40, "equipedConditions":["rod"]},
+				{"resist":[{"name":"ice","percent":30},{"name":"dark","percent":30}], "equipedConditions":["rod"]},
+				{"def%":20, "spr%":20, "equipedConditions":["robe"]}
+			]
+		}
+	},
 	"401007305": {
 		"name":"Immortal Flame Katy",
 		"id":"401007305",
@@ -14415,6 +14465,57 @@
 				{"hp%":50, "mp%":30, "atk%":50, "def%":50, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":15, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["katana"]},
 				{"atk%":30, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"401008405": {
+		"name":"Elena",
+		"id":"401008405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":260,"atk":205,"def":190,"mag":205,"spr":190},
+			"minStats":{"hp":1584,"mp":86,"atk":68,"def":63,"mag":68,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":80, "def%":30, "mag%":80, "spr%":30, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":50,"atk":100,"mag":100}, "lbFillRate":50, "resist":[{"name":"ice","percent":20},{"name":"light","percent":20},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}], "mpRefresh":5},
+			{"hp%":20, "mp%":20, "atk%":30, "def%":20, "mag%":30, "spr%":20, "equipedConditions":["sword"]},
+			{"hp%":20, "mp%":20, "atk%":30, "def%":20, "mag%":30, "spr%":20, "equipedConditions":["greatSword"]},
+			{"mp%":30, "atk%":30, "mag%":30, "equipedConditions":["light"]},
+			{"hp%":30, "atk%":30, "mag%":30, "equipedConditions":["ice"]},
+			{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["robe"]},
+			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "lbDamage":50, "equipedConditions":[["1500000109","1100000284"]]},
+			{"singleWielding":{"accuracy":25,"atk":50,"mag":50}, "mpRefresh":10, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"skillEnhancement":{"912569":8,"912570":8,"912571":8,"912572":8,"912577":8,"912578":8,"912580":8,"912581":8,"912592":8}, "levelCondition":120},
+			{"atk%":60, "mag%":60, "equipedConditions":["sword"], "levelCondition":120},
+			{"atk%":30, "mag%":30, "equipedConditions":["greatSword"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Elena",
+			"id":"401008405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":200,"atk":158,"def":147,"mag":158,"spr":147},
+				"minStats":{"hp":1219,"mp":66,"atk":52,"def":49,"mag":52,"spr":49},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":80, "def%":30, "mag%":80, "spr%":30, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":50,"atk":100,"mag":100}, "lbFillRate":50, "resist":[{"name":"ice","percent":20},{"name":"light","percent":20},{"name":"petrification","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}], "mpRefresh":5},
+				{"hp%":20, "mp%":20, "atk%":30, "def%":20, "mag%":30, "spr%":20, "equipedConditions":["sword"]},
+				{"hp%":20, "mp%":20, "atk%":30, "def%":20, "mag%":30, "spr%":20, "equipedConditions":["greatSword"]},
+				{"mp%":30, "atk%":30, "mag%":30, "equipedConditions":["light"]},
+				{"hp%":30, "atk%":30, "mag%":30, "equipedConditions":["ice"]},
+				{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["robe"]}
 			]
 		}
 	}

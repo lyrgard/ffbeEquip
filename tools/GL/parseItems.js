@@ -94,7 +94,7 @@ var oldItemsMaxNumberById = {};
 var oldItemsWikiEntryById = {};
 var releasedUnits;
 var skillNotIdentifiedNumber = 0;
-var dev = true;
+var dev = false;
 var languageId;
 
 

@@ -225,6 +225,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         var dualWielding = itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type) && itemAndPassives[1] && weaponList.includes(itemAndPassives[1].type);
         let newJpDamageFormulaCoef = 1;
+        var coef = formula.value.coef;
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
@@ -334,11 +335,16 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
             }
         } else if(formula.value.mecanism == "summonerSkill"){
-            defendingStat= "spr"
-            if(formula.value.use){
-                statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+            defendingStat= "spr";
+            coef = formula.value.magCoef;
+            if (formula.value.magSplit > 0) {
+                if (formula.value.use) {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                } else {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                }
             } else {
-                statValueToUse=getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
+                statValueToUse = 0;
             }
         }
         // Killer
@@ -393,7 +399,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             jumpMultiplier += getStatCalculatedValue(context, itemAndPassives, "jumpDamage", unitBuild).total/100;
         }
         
-        var coef = formula.value.coef;
+
         if (formula.value.ifUsedAgain && ennemyStats.races.includes(formula.value.ifUsedAgain.race)) {
             coef = formula.value.ifUsedAgain.coef;
         }
@@ -439,8 +445,13 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "switchWeapons": switchWeapons
             }   
         } else if(formula.value.mecanism == "summonerSkill"){
-            var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
-            var sprDamage = coef * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            if (formula.value.sprSplit > 0) {
+                var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
+                let coefIncrease = coef - formula.value.magCoef;
+                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+            } else {
+                sprDamage = 0;
+            }
             result = {
                 "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min / 2,
                 "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg / 2,
@@ -525,6 +536,11 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             var evoMagMultiplier = 1;
             if (unitBuild.involvedStats.includes("evoMag")) {
                 evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
+            }
+
+            let lbMultiplier = 1;
+            if (formula.lb) {
+                lbMultiplier += getStatCalculatedValue(context, itemAndPassives, "lbDamage", unitBuild).total/100;
             }
 
             // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
@@ -626,9 +642,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                             }
                         }
                         var ennemyResistanceStat = ennemyStats.def * (1 - ennemyStats.breaks.def / 100);
-                        total.min += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.min * variance.min * newJpDamageFormulaCoef / ennemyResistanceStat;
-                        total.avg += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.avg * variance.avg * newJpDamageFormulaCoef / ennemyResistanceStat;
-                        total.max += (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * damageMultiplier.max * variance.max * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        let base = (calculatedValue.right * calculatedValue.right + calculatedValue.left * calculatedValue.left) * (1 - resistModifier) * killerMultiplicator * jumpMultiplier * lbMultiplier  * newJpDamageFormulaCoef / ennemyResistanceStat;
+                        total.min += base * damageMultiplier.min * variance.min;
+                        total.avg += base * damageMultiplier.avg * variance.avg;
+                        total.max += base * damageMultiplier.max * variance.max;
                         total.switchWeapons = total.switchWeapons || switchWeapons;
                     } else {
                         var ennemyResistanceStat = ennemyStats.spr * (1 - ennemyStats.breaks.spr / 100);
@@ -636,7 +653,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                             dualWieldCoef = 2;
                         }
-                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier  / ennemyResistanceStat;
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * lbMultiplier / ennemyResistanceStat;
                         total.min += base * damageMultiplier.min;
                         total.avg += base * damageMultiplier.avg;
                         total.max += base * damageMultiplier.max;
@@ -959,7 +976,7 @@ function getEsperStatBonus(itemAndPassives, stat) {
             }
         }
     }
-    return Math.min(2, statsBonus / 100);
+    return Math.min(3, statsBonus / 100);
 }
 
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
