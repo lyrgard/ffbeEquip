@@ -236,19 +236,21 @@ function verifyImage(serieId, minRarity, maxRarity) {
         var icon = "unit_icon_" + unitId + ".png";
         var filePath = basePath + illus;
         if (!fs.existsSync(filePath)) {
-            if (imgUrls[illus]) {
-                download(imgUrls[illus],filePath);
-            } else {
-                console.log("!! Img url not known : " + illus);
-            }
+            // if (imgUrls[illus]) {
+            //     download(imgUrls[illus],filePath);
+            // } else {
+            //     console.log("!! Img url not known : " + illus);
+            // }
+            console.log("Missing image : " + illus);
         }
         var filePath = basePath + icon;
         if (!fs.existsSync(filePath)) {
-            if (imgUrls[icon]) {
-                download(imgUrls[icon],filePath);
-            } else {
-                console.log("!! Img url not known : " + icon);
-            }
+            // if (imgUrls[icon]) {
+            //     download(imgUrls[icon],filePath);
+            // } else {
+            //     console.log("!! Img url not known : " + icon);
+            // }
+            console.log("Missing image : " + icon);
         }
     }
 }

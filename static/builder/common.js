@@ -453,9 +453,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 sprDamage = 0;
             }
             result = {
-                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min / 2,
-                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg / 2,
-                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max / 2,
+                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min,
+                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg,
+                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max,
                 "switchWeapons" : switchWeapons
             }
         } else {
