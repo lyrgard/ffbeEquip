@@ -453,9 +453,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 sprDamage = 0;
             }
             result = {
-                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min / 2,
-                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg / 2,
-                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max / 2,
+                "min" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.min,
+                "avg" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.avg,
+                "max" : (formula.value.magSplit * baseDamage + formula.value.sprSplit * sprDamage) * context.damageMultiplier.max,
                 "switchWeapons" : switchWeapons
             }
         } else {
@@ -933,7 +933,7 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
 }
     
 
-function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 1) {
+function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) {
     if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         let normalStack = 0;
         let twoHanded = isTwoHanded(itemAndPassives[0]);
@@ -980,7 +980,7 @@ function getEsperStatBonus(itemAndPassives, stat) {
 }
 
 function calculateStatValue(itemAndPassives, stat, unitBuild) {
-    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true, unitBuild.tdwCap);
+    var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
         esperStatBonus = getEsperStatBonus(itemAndPassives, stat);

@@ -648,7 +648,7 @@ function logBuild(build, value) {
         
         var upperCaseStat = statsToDisplay[statIndex].toUpperCase();
         if (baseStats.includes(statsToDisplay[statIndex])) {
-            var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, statsToDisplay[statIndex], false, builds[currentUnitIndex].tdwCap) - 1) * 100);
+            var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
                 bonusTextElement.attr("title", `(${upperCaseStat} increase % - Equipped ${upperCaseStat} (DH) increase %) modifiers, capped individually.`);
                 bonusPercent += "&nbsp;-&nbsp;";
@@ -3726,7 +3726,7 @@ function initWorkers() {
                                 if (percent > statsBonusCap[server]) {
                                     overcapedStats.push(percentValues[baseStats[i]]);
                                 }
-                                var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(builds[currentUnitIndex].build, baseStats[i], false, builds[currentUnitIndex].tdwCap) - 1) * 100);
+                                var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(builds[currentUnitIndex].build, baseStats[i], false) - 1) * 100);
                                 if (equipmentFlatStatBonus > 0) {
                                     if (builds[currentUnitIndex].build[0] && builds[currentUnitIndex].build[1] && weaponList.includes(builds[currentUnitIndex].build[0].type) && weaponList.includes(builds[currentUnitIndex].build[1].type)) {
                                         if (equipmentFlatStatBonus > 100) {

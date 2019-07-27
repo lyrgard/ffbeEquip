@@ -392,15 +392,7 @@ class UnitBuild {
         if(this._tdwCap) {
             return this._tdwCap.value;
         } else {
-            if (server == "JP") {
-                this._tdwCap = { "value": 2};
-            } else {
-                if (this.hasDualWieldMastery()) {
-                    this._tdwCap = { "value": 2};
-                } else {
-                    this._tdwCap = { "value": 1};
-                }
-            }
+            this._tdwCap = { "value": 2};
             return this._tdwCap.value;
         }
     }

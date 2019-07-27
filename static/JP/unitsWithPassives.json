@@ -6846,6 +6846,123 @@
 			{"spr%":30, "equipedConditions":["hat"]}
 		]
 	},
+	"100025805": {
+		"name":"四闘星のサクラ",
+		"id":"100025805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4677,"mp":287,"atk":131,"def":165,"mag":220,"spr":204},
+			"minStats":{"hp":1543,"mp":95,"atk":43,"def":54,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":30, "mag%":90, "singleWielding":{"mag":50}, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"mag%":30, "spr%":30, "equipedConditions":["rod"]},
+			{"singleWielding":{"mag":100}, "equipedConditions":[["403048900","310005700"]]},
+			{"mag%":20, "levelCondition":115},
+			{"mag%":60, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"四闘星のサクラ",
+			"id":"100025805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3597,"mp":220,"atk":100,"def":126,"mag":169,"spr":156},
+				"minStats":{"hp":1187,"mp":73,"atk":33,"def":42,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
+			"skills": [
+				{"mp%":30, "mag%":90, "singleWielding":{"mag":50}, "resist":[{"name":"lightning","percent":50},{"name":"light","percent":50},{"name":"dark","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+				{"mag%":30, "spr%":30, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"100025905": {
+		"name":"五闘星のニコル",
+		"id":"100025905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4740,"mp":279,"atk":154,"def":166,"mag":195,"spr":208},
+			"minStats":{"hp":1564,"mp":92,"atk":51,"def":55,"mag":64,"spr":69},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":40, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"water","percent":100},{"name":"dark","percent":30},{"name":"ice","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":12},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"mp%":50, "spr%":50, "equipedConditions":["robe"]},
+			{"hp%":40, "def%":40, "spr%":40, "resist":[{"name":"disease","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}, "equipedConditions":[["403049000","504232511"]]},
+			{"mag%":20, "levelCondition":115},
+			{"spr%":50, "lbFillRate":100, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"五闘星のニコル",
+			"id":"100025905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3646,"mp":214,"atk":118,"def":127,"mag":150,"spr":160},
+				"minStats":{"hp":1203,"mp":71,"atk":39,"def":42,"mag":50,"spr":53},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":40, "def%":20, "mag%":30, "spr%":20, "resist":[{"name":"water","percent":100},{"name":"dark","percent":30},{"name":"ice","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":12},
+				{"mag%":50, "equipedConditions":["rod"]},
+				{"mp%":50, "spr%":50, "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"100026004": {
+		"name":"カランド",
+		"id":"100026004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3585,"mp":173,"atk":136,"def":127,"mag":119,"spr":120},
+			"minStats":{"hp":1183,"mp":57,"atk":45,"def":42,"mag":39,"spr":40},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","gun","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"mp%":10, "spr%":10, "evade":{"physical":10}, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}},
+			{"mp%":30, "spr%":30, "equipedConditions":["clothes"]}
+		]
+	},
+	"100026103": {
+		"name":"カロライン",
+		"id":"100026103",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3010,"mp":118,"atk":134,"def":108,"mag":73,"spr":104},
+			"minStats":{"hp":993,"mp":39,"atk":44,"def":36,"mag":24,"spr":34},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","hammer","gun","mace","hat","clothes"],
+		"skills": [
+			{"hp%":20, "atk%":10, "def%":10, "resist":[{"name":"wind","percent":50}]}
+		]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -15779,12 +15896,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["魂を選定する者","蒼穹の戦乙女","インフィニティブラスト","グロウイングピアス","コードブレイク","イセリアルショット","白翼の煌き","ファイト"],
+		"enhancements": [
+			{"name":"魂を選定する者","levels":[[{"mp%":10,"hp%":10}],[{"atk%":30,"mp%":10,"hp%":10,"lbPerTurn":{"min":5,"max":5}}],[{"atk%":30,"mp%":10,"hp%":10,"lbPerTurn":{"min":5,"max":5},"skillEnhancement":{"227737":24,"227738":30}}]]},
+			{"name":"蒼穹の戦乙女","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":60,"spr%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["sword"],"atk%":60,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":90,"spr%":30}],[{"singleWielding":{"accuracy":25,"atk":100},"lbDamage":60},{"equipedConditions":["sword"],"atk%":60,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":90,"spr%":30}]]},
+			{"name":"ファイト","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":20,"mag%":20,"def%":20,"atk%":20,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mpRefresh":5,"levelCondition":115}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
-			{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
-			{"atk%":60, "spr%":30, "equipedConditions":["bow"]},
+			{"atk%":20, "def%":20, "spr%":20},
 			{"hp%":30, "mp%":30, "mpRefresh":10, "lbDamage":40, "equipedConditions":[["302006100","312002300"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
 			{"hp%":20, "atk%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120},
 			{"hp%":20, "mp%":20, "equipedConditions":["bow"], "levelCondition":120}
 		],
@@ -15803,10 +15923,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","lightShield","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["魂を選定する者","蒼穹の戦乙女","インフィニティブラスト","グロウイングピアス","コードブレイク","イセリアルショット","白翼の煌き","ファイト"],
+		"enhancements": [
+			{"name":"魂を選定する者","levels":[[{"mp%":10,"hp%":10}],[{"atk%":30,"mp%":10,"hp%":10,"lbPerTurn":{"min":5,"max":5}}],[{"atk%":30,"mp%":10,"hp%":10,"lbPerTurn":{"min":5,"max":5},"skillEnhancement":{"227737":24,"227738":30}}]]},
+			{"name":"蒼穹の戦乙女","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":60,"spr%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["sword"],"atk%":60,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":90,"spr%":30}],[{"singleWielding":{"accuracy":25,"atk":100},"lbDamage":60},{"equipedConditions":["sword"],"atk%":60,"def%":30,"spr%":30},{"equipedConditions":["bow"],"atk%":90,"spr%":30}]]}
+		],
 			"skills": [
-				{"hp%":10, "mp%":10, "atk%":20, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}},
-				{"atk%":30, "def%":30, "spr%":30, "equipedConditions":["sword"]},
-				{"atk%":60, "spr%":30, "equipedConditions":["bow"]}
+				{"atk%":20, "def%":20, "spr%":20}
 			]
 		}
 	},
@@ -15824,11 +15947,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["hat","clothes","robe"],
+		"enhancementSkills":["エリアルバースト","浄化してあげるわ","サンダーソード","ミスティックゾーン","ビクトリーソード","ヘブンリィパニッシュメント","ファイト","粛清の女神"],
+		"enhancements": [
+			{"name":"ミスティックゾーン","levels":[[{"mag%":30}],[{"mag%":30,"mp%":20,"hp%":20}],[{"mag%":30,"mp%":20,"hp%":20}]]},
+			{"name":"ファイト","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":20,"mag%":20,"def%":20,"atk%":20,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mpRefresh":5,"levelCondition":115}]]},
+			{"name":"粛清の女神","levels":[[{"mag%":30,"lbDamage":50,"skillEnhancement":{"227765":1.5,"227774":1.5,"708145":1.5,"708146":1.5,"708151":1.5,"708152":1.5},"levelCondition":120}],[{"mag%":30,"lbDamage":125,"skillEnhancement":{"227765":1.5,"227774":1.5,"708145":1.5,"708146":1.5,"708151":1.5,"708152":1.5},"levelCondition":120}],[{"mag%":30,"lbDamage":200,"skillEnhancement":{"227765":1.5,"227774":1.5,"708145":1.5,"708146":1.5,"708151":1.5,"708152":1.5},"replaceLb":{"name":"エーテルストライク","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":52.2},"area":"ST","target":"ENEMY"},"desc":"Magic damage (52.2x, MAG) to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":58},"area":"ST","target":"ENEMY"},"desc":"Magic damage (58x, MAG) to one enemy"}]},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "def%":20, "mag%":120, "spr%":20, "mpRefresh":5},
-			{"hp%":10, "mp%":10, "def%":10, "mag%":50, "spr%":10, "equipedConditions":[["409021000","403045500"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
-			{"mag%":30, "lbDamage":50, "skillEnhancement":{"227765":1.5,"227774":1.5}, "levelCondition":120}
+			{"hp%":20, "mp%":20, "def%":20, "mag%":90, "spr%":20, "mpRefresh":5},
+			{"hp%":10, "mp%":10, "def%":10, "mag%":50, "spr%":10, "equipedConditions":[["409021000","403045500"]]}
 		],
 		"6_form": {
 			"name":"Freya (VP)",
@@ -15845,8 +15972,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["hat","clothes","robe"],
+			"enhancementSkills":["エリアルバースト","浄化してあげるわ","サンダーソード","ミスティックゾーン","ビクトリーソード","ヘブンリィパニッシュメント","ファイト","粛清の女神"],
+		"enhancements": [
+			{"name":"ミスティックゾーン","levels":[[{"mag%":30}],[{"mag%":30,"mp%":20,"hp%":20}],[{"mag%":30,"mp%":20,"hp%":20}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":20, "def%":20, "mag%":120, "spr%":20, "mpRefresh":5}
+				{"hp%":20, "mp%":20, "def%":20, "mag%":90, "spr%":20, "mpRefresh":5}
 			]
 		}
 	},
@@ -15864,15 +15995,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["ハイウインド","ドラゴンスレイヤー","ブレイズブレイド","ストームエッジ","デッドエンド","ファイト","戦場の死神"],
+		"enhancements": [
+			{"name":"ファイト","levels":[[{"spr%":10,"mag%":10,"def%":10,"atk%":10,"levelCondition":115}],[{"spr%":20,"mag%":20,"def%":20,"atk%":20,"levelCondition":115}],[{"spr%":30,"mag%":30,"def%":30,"atk%":30,"mpRefresh":5,"levelCondition":115}]]},
+			{"name":"戦場の死神","levels":[[{"spr%":20,"atk%":20,"hp%":20,"lbDamage":20,"levelCondition":120}],[{"spr%":20,"atk%":55,"hp%":20,"lbDamage":20,"mpRefresh":10,"levelCondition":120}],[{"spr%":20,"atk%":90,"hp%":20,"lbDamage":200,"mpRefresh":10,"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":40, "mp%":40, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"atk%":30, "equipedConditions":["greatSword"]},
 			{"atk%":30, "equipedConditions":["spear"]},
 			{"atk%":30, "equipedConditions":["fist"]},
-			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":75}, "equipedConditions":[["409021100","303005000"]]},
-			{"atk%":10, "def%":10, "mag%":10, "spr%":10, "levelCondition":115},
-			{"hp%":20, "atk%":20, "spr%":20, "lbDamage":20, "levelCondition":120}
+			{"hp%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":75}, "equipedConditions":[["409021100","303005000"]]}
 		],
 		"6_form": {
 			"name":"Arngrim",
@@ -15889,6 +16023,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","axe","hammer","spear","mace","fist","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["ハイウインド","ドラゴンスレイヤー","ブレイズブレイド","ストームエッジ","デッドエンド","ファイト","戦場の死神"],
 			"skills": [
 				{"hp%":40, "mp%":40, "atk%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":75}},
 				{"atk%":30, "equipedConditions":["sword"]},
@@ -15912,8 +16047,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["スランティングブロウ","スカーレット・エッジ","迅雷の早業","シャイニングボルト"],
+		"enhancements": [
+			{"name":"迅雷の早業","levels":[[{"atk%":30,"evade":{"physical":20}}],[{"atk%":30,"evade":{"physical":30}}],[{"atk%":50,"evade":{"physical":30}}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":10, "atk%":60, "def%":20, "evade":{"physical":20}}
+			{"hp%":20, "mp%":10, "atk%":30, "def%":20}
 		]
 	},
 	"330000503": {
@@ -15930,8 +16069,112 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"enhancementSkills":["バーン・ストーム","ファイア・ランス","無礼者が、万死に値するぞ"],
 		"skills": [
 			{"def%":10, "mag%":20, "spr%":10, "resist":[{"name":"poison","percent":50},{"name":"paralysis","percent":50},{"name":"petrification","percent":50}]}
+		]
+	},
+	"330000605": {
+		"name":"レザード・ヴァレス",
+		"id":"330000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4599,"mp":285,"atk":130,"def":168,"mag":218,"spr":210},
+			"minStats":{"hp":1518,"mp":94,"atk":43,"def":55,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":50, "mag%":80, "singleWielding":{"mag":100}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"lightning","percent":30}], "killers":[{"name":"human","magical":75},{"name":"spirit","magical":75},{"name":"undead","magical":75}]},
+			{"hp%":30, "spr%":30, "equipedConditions":["robe"]},
+			{"mag%":30, "spr%":30, "equipedConditions":["rod"]},
+			{"def%":50, "mag%":50, "replaceLb":{"name":"メテオスウォーム","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":29},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (29x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 200 MP to caster"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"lbDamage":150},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 150% for one turn"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":55},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (55x, MAG) to all enemies"},{"effect":{"imperil":{"fire":120,"lightning":120,"dark":120},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire, Lightning and Dark by 120% for 3 turns to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 350 MP to caster"}]}, "equipedConditions":[["408005500","310005900"]]},
+			{"mp%":20, "levelCondition":115},
+			{"mag%":50, "spr%":50, "resist":[{"name":"dark","percent":50}], "skillEnhancement":{"232612":2,"232613":2,"232614":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"レザード・ヴァレス",
+			"id":"330000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3537,"mp":219,"atk":100,"def":129,"mag":167,"spr":161},
+				"minStats":{"hp":1167,"mp":72,"atk":33,"def":43,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+			"skills": [
+				{"hp%":30, "mp%":50, "mag%":80, "singleWielding":{"mag":100}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"lightning","percent":30}], "killers":[{"name":"human","magical":75},{"name":"spirit","magical":75},{"name":"undead","magical":75}]},
+				{"hp%":30, "spr%":30, "equipedConditions":["robe"]},
+				{"mag%":30, "spr%":30, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"330000805": {
+		"name":"メルティーナ",
+		"id":"330000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4646,"mp":280,"atk":132,"def":171,"mag":217,"spr":207},
+			"minStats":{"hp":1533,"mp":92,"atk":44,"def":56,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","hat","clothes","robe"],
+		"skills": [
+			{"mp%":50, "def%":30, "mag%":20, "spr%":60, "resist":[{"name":"fire","percent":30},{"name":"wind","percent":30},{"name":"dark","percent":50}], "mpRefresh":10},
+			{"mag%":25, "equipedConditions":["rod"]},
+			{"mag%":25, "equipedConditions":["hat"]},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"mag%":50, "singleWielding":{"mag":100}, "equipedConditions":[["310006000","504232603"]]},
+			{"hp%":20, "levelCondition":115},
+			{"hp%":30, "spr%":30, "skillEnhancement":{"232637":1.5,"232638":1.5,"232639":1.5}, "replaceLb":{"name":"セレスティアルスター","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":25,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (25x, MAG) to all enemies"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":45,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (45x, MAG) to all enemies"}]}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"メルティーナ",
+			"id":"330000805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3573,"mp":215,"atk":101,"def":131,"mag":166,"spr":159},
+				"minStats":{"hp":1179,"mp":71,"atk":33,"def":43,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","hat","clothes","robe"],
+			"skills": [
+				{"mp%":50, "def%":30, "mag%":20, "spr%":60, "resist":[{"name":"fire","percent":30},{"name":"wind","percent":30},{"name":"dark","percent":50}], "mpRefresh":10},
+				{"mag%":25, "equipedConditions":["rod"]},
+				{"mag%":25, "equipedConditions":["hat"]},
+				{"mag%":50, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"330000904": {
+		"name":"エイミ",
+		"id":"330000904",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3750,"mp":144,"atk":159,"def":148,"mag":121,"spr":130},
+			"minStats":{"hp":1238,"mp":48,"atk":52,"def":49,"mag":40,"spr":43},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","spear","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":20, "atk%":50, "def%":20}
 		]
 	},
 	"331000105": {
