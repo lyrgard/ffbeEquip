@@ -4935,6 +4935,7 @@
 	},
 	"100025805": {
 		"name":"四闘星のサクラ",
+		"jpname":"四闘星のサクラ",
 		"id":"100025805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4948,6 +4949,7 @@
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 		"6_form": {
 			"name":"四闘星のサクラ",
+			"jpname":"四闘星のサクラ",
 			"id":"100025805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -4964,6 +4966,7 @@
 	},
 	"100025905": {
 		"name":"五闘星のニコル",
+		"jpname":"五闘星のニコル",
 		"id":"100025905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4977,6 +4980,7 @@
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"6_form": {
 			"name":"五闘星のニコル",
+			"jpname":"五闘星のニコル",
 			"id":"100025905",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -4993,6 +4997,7 @@
 	},
 	"100026004": {
 		"name":"カランド",
+		"jpname":"カランド",
 		"id":"100026004",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5007,6 +5012,7 @@
 	},
 	"100026103": {
 		"name":"カロライン",
+		"jpname":"カロライン",
 		"id":"100026103",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -7789,6 +7795,35 @@
 			"enhancementSkills":["火星の印","マジカル・モグ","スタンバイ・水","フラッド"]
 		}
 	},
+	"210000505": {
+		"name":"キマリ",
+		"id":"210000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4874,"mp":277,"atk":202,"def":193,"mag":202,"spr":208},
+			"minStats":{"hp":1608,"mp":91,"atk":67,"def":64,"mag":67,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"キマリ",
+			"id":"210000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3749,"mp":213,"atk":155,"def":148,"mag":155,"spr":160},
+				"minStats":{"hp":1237,"mp":70,"atk":51,"def":49,"mag":51,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"]
+		}
+	},
 	"210000605": {
 		"name":"Auron",
 		"jpname":"アーロン",
@@ -7852,6 +7887,35 @@
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念"]
 	},
+	"210000905": {
+		"name":"ユウナレスカ",
+		"id":"210000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4571,"mp":289,"atk":128,"def":166,"mag":219,"spr":210},
+			"minStats":{"hp":1508,"mp":95,"atk":42,"def":55,"mag":72,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"6_form": {
+			"name":"ユウナレスカ",
+			"id":"210000905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3516,"mp":222,"atk":98,"def":127,"mag":168,"spr":161},
+				"minStats":{"hp":1160,"mp":73,"atk":32,"def":42,"mag":55,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
+		}
+	},
 	"210001005": {
 		"name":"Jecht",
 		"jpname":"ジェクト",
@@ -7899,6 +7963,49 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
+	"210001704": {
+		"name":"イサール",
+		"id":"210001704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3510,"mp":180,"atk":98,"def":123,"mag":140,"spr":120},
+			"minStats":{"hp":1158,"mp":59,"atk":32,"def":41,"mag":46,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"]
+	},
+	"210001805": {
+		"name":"ザナルカンドのティーダ",
+		"id":"210001805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4980,"mp":247,"atk":207,"def":194,"mag":196,"spr":195},
+			"minStats":{"hp":1643,"mp":82,"atk":68,"def":64,"mag":65,"spr":64},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"ザナルカンドのティーダ",
+			"id":"210001805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3830,"mp":190,"atk":159,"def":149,"mag":150,"spr":150},
+				"minStats":{"hp":1264,"mp":63,"atk":52,"def":49,"mag":50,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
 	},
 	"210001904": {
 		"name":"Belgemine",
@@ -8430,7 +8537,7 @@
 		"equip":["dagger","sword","katana","spear","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"213001005": {
-		"name":"CG Lightning",
+		"name":"Radiant Lightning",
 		"jpname":"閃光のライトニング",
 		"id":"213001005",
 		"max_rarity":"7",
@@ -8444,7 +8551,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"CG Lightning",
+			"name":"Radiant Lightning",
 			"jpname":"閃光のライトニング",
 			"id":"213001005",
 			"sixStarForm":true,
@@ -8461,7 +8568,7 @@
 		}
 	},
 	"213001105": {
-		"name":"Future Hope",
+		"name":"Neverending Hope",
 		"jpname":"未来へのホープ",
 		"id":"213001105",
 		"max_rarity":"7",
@@ -8475,7 +8582,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"Future Hope",
+			"name":"Neverending Hope",
 			"jpname":"未来へのホープ",
 			"id":"213001105",
 			"sixStarForm":true,
@@ -8570,6 +8677,35 @@
 		"stats_pattern":1,
 		"equip":["dagger","rod","hat","clothes","robe"],
 		"enhancementSkills":["アストラルファイア","アンブラルブリザード","フレア"]
+	},
+	"214000605": {
+		"name":"魔女ヤ・シュトラ",
+		"id":"214000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4480,"mp":280,"atk":122,"def":156,"mag":220,"spr":208},
+			"minStats":{"hp":1478,"mp":92,"atk":40,"def":51,"mag":73,"spr":69},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"魔女ヤ・シュトラ",
+			"id":"214000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3446,"mp":215,"atk":93,"def":120,"mag":169,"spr":160},
+				"minStats":{"hp":1137,"mp":71,"atk":31,"def":40,"mag":56,"spr":53},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"]
+		}
 	},
 	"215000105": {
 		"name":"Noctis",
@@ -11249,6 +11385,7 @@
 	},
 	"330000605": {
 		"name":"レザード・ヴァレス",
+		"jpname":"レザード・ヴァレス",
 		"id":"330000605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11262,6 +11399,7 @@
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"6_form": {
 			"name":"レザード・ヴァレス",
+			"jpname":"レザード・ヴァレス",
 			"id":"330000605",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -11278,6 +11416,7 @@
 	},
 	"330000805": {
 		"name":"メルティーナ",
+		"jpname":"メルティーナ",
 		"id":"330000805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11291,6 +11430,7 @@
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"6_form": {
 			"name":"メルティーナ",
+			"jpname":"メルティーナ",
 			"id":"330000805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -11307,6 +11447,7 @@
 	},
 	"330000904": {
 		"name":"エイミ",
+		"jpname":"エイミ",
 		"id":"330000904",
 		"max_rarity":"6",
 		"min_rarity":"4",

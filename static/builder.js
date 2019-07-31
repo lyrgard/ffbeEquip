@@ -1363,6 +1363,15 @@ function displayUnitEnhancements() {
                     } else {
                         html += '>' + enhancement.name + ' unlocked</option>';
                     }
+                } else if (enhancement.levels[0].length == 0) {
+                    // latent skills
+                    if (j == 0) {
+                        html += '>' + enhancement.name + ' not unlocked</option>';
+                    } else if (j == 1) {
+                        html += '>' + enhancement.name + '</option>';
+                    } else {
+                        html += '>' + enhancement.name + ' +' + (j-1) + '</option>';
+                    }
                 } else {
                     html += '>' + enhancement.name + ' +' + j + '</option>';    
                 }
