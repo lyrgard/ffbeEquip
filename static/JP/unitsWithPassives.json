@@ -942,7 +942,7 @@
 	},
 	"100004303": {
 		"name":"Charlotte",
-		"jpname":"シャルロット(FFBE)",
+		"jpname":"シャルロット",
 		"id":"100004303",
 		"max_rarity":"6",
 		"min_rarity":"3",
@@ -6492,7 +6492,7 @@
 		}
 	},
 	"100024705": {
-		"name":"シャンティレーナ",
+		"name":"Cantilena",
 		"jpname":"シャンティレーナ",
 		"id":"100024705",
 		"max_rarity":"7",
@@ -6514,7 +6514,7 @@
 			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"シャンティレーナ",
+			"name":"Cantilena",
 			"jpname":"シャンティレーナ",
 			"id":"100024705",
 			"sixStarForm":true,
@@ -6847,7 +6847,7 @@
 		]
 	},
 	"100025805": {
-		"name":"四闘星のサクラ",
+		"name":"Sakura of the Delta Star",
 		"jpname":"四闘星のサクラ",
 		"id":"100025805",
 		"max_rarity":"7",
@@ -6868,7 +6868,7 @@
 			{"mag%":60, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"四闘星のサクラ",
+			"name":"Sakura of the Delta Star",
 			"jpname":"四闘星のサクラ",
 			"id":"100025805",
 			"sixStarForm":true,
@@ -6889,7 +6889,7 @@
 		}
 	},
 	"100025905": {
-		"name":"五闘星のニコル",
+		"name":"Nichol of the Epsilon Star",
 		"jpname":"五闘星のニコル",
 		"id":"100025905",
 		"max_rarity":"7",
@@ -6911,7 +6911,7 @@
 			{"spr%":50, "lbFillRate":100, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"五闘星のニコル",
+			"name":"Nichol of the Epsilon Star",
 			"jpname":"五闘星のニコル",
 			"id":"100025905",
 			"sixStarForm":true,
@@ -6968,6 +6968,125 @@
 		"skills": [
 			{"hp%":20, "atk%":10, "def%":10, "resist":[{"name":"wind","percent":50}]}
 		]
+	},
+	"100026705": {
+		"name":"Seaside Nichol",
+		"jpname":"トロピカルニコル",
+		"id":"100026705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4921,"mp":258,"atk":203,"def":193,"mag":167,"spr":189},
+			"minStats":{"hp":1624,"mp":85,"atk":67,"def":64,"mag":55,"spr":62},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":30, "mag%":50, "spr%":30, "resist":[{"name":"water","percent":80},{"name":"ice","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"aquatic","magical":50}], "mpRefresh":7, "special":["dualWield"]},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"mp%":30, "mag%":30, "lbPerTurn":{"min":5,"max":5}, "equipedConditions":[["405007800","405007900","504232801"]]},
+			{"mag%":20, "levelCondition":115},
+			{"hp%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Seaside Nichol",
+			"jpname":"トロピカルニコル",
+			"id":"100026705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3785,"mp":198,"atk":156,"def":148,"mag":128,"spr":145},
+				"minStats":{"hp":1249,"mp":65,"atk":51,"def":49,"mag":42,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "def%":30, "mag%":50, "spr%":30, "resist":[{"name":"water","percent":80},{"name":"ice","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"aquatic","magical":50}], "mpRefresh":7, "special":["dualWield"]},
+				{"mag%":50, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"100026804": {
+		"name":"夏空のルルカ",
+		"jpname":"夏空のルルカ",
+		"id":"100026804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3591,"mp":219,"atk":99,"def":115,"mag":168,"spr":155},
+			"minStats":{"hp":1185,"mp":72,"atk":33,"def":38,"mag":55,"spr":51},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","harp","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":30, "spr%":60, "resist":[{"name":"water","percent":30}], "mpRefresh":5}
+		]
+	},
+	"100026903": {
+		"name":"波乗りスカーハ",
+		"jpname":"波乗りスカーハ",
+		"id":"100026903",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3009,"mp":115,"atk":137,"def":107,"mag":74,"spr":105},
+			"minStats":{"hp":993,"mp":38,"atk":45,"def":35,"mag":24,"spr":35},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","spear","hat","helm","clothes"],
+		"skills": [
+			{"hp%":40, "mp%":10, "jumpDamage":100, "resist":[{"name":"water","percent":20}], "killers":[{"name":"dragon","physical":50}]},
+			{"atk%":30, "def%":30, "equipedConditions":["spear"]}
+		]
+	},
+	"100027005": {
+		"name":"Aloha Lasswell",
+		"jpname":"バカンスラスウェル",
+		"id":"100027005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":208,"atk":176,"def":210,"mag":151,"spr":200},
+			"minStats":{"hp":1659,"mp":69,"atk":58,"def":69,"mag":50,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":50, "def%":90, "spr%":70, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"water","percent":80},{"name":"fire","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":50},
+			{"hp%":60, "def%":60, "equipedConditions":[["409035300","402004400"]]},
+			{"spr%":20, "levelCondition":115},
+			{"mp%":30, "def%":30, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Aloha Lasswell",
+			"jpname":"バカンスラスウェル",
+			"id":"100027005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3867,"mp":160,"atk":135,"def":161,"mag":116,"spr":153},
+				"minStats":{"hp":1276,"mp":53,"atk":45,"def":53,"mag":38,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":50, "def%":90, "spr%":70, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"water","percent":80},{"name":"fire","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":50}
+			]
+		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -11128,7 +11247,7 @@
 		"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 		"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"],
 		"enhancements": [
-			{"name":"まやかしの希望との決別","levels":[[],[{"mag%":90,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"dualWielding":{"mag":100},"singleWielding":{"mag":100},"skillEnhancement":{"219140":20,"219150":20,"508013":20,"508014":20,"508015":20,"508016":20}}]]},
+			{"name":"まやかしの希望との決別","levels":[[],[{"mag%":90,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"dualWielding":{"mag":100},"singleWielding":{"mag":100},"skillEnhancement":{"508013":20,"508014":20,"508015":20,"508016":20,"508670":20,"508671":20,"508672":20,"508673":20,"508674":20,"508675":20,"508676":20,"508677":20}}]]},
 			{"name":"月輪の印","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"hp%":20}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"hp%":20,"evoMag":20}]]}
 		],
 		"skills": [
@@ -11154,7 +11273,7 @@
 			"equip":["staff","rod","harp","lightShield","hat","clothes","robe"],
 			"enhancementSkills":["月輪の印","シューティング・レイ","召喚獣への祈り","シューティング・パワー"],
 		"enhancements": [
-			{"name":"まやかしの希望との決別","levels":[[],[{"mag%":90,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"dualWielding":{"mag":100},"singleWielding":{"mag":100},"skillEnhancement":{"219140":20,"219150":20,"508013":20,"508014":20,"508015":20,"508016":20}}]]},
+			{"name":"まやかしの希望との決別","levels":[[],[{"mag%":90,"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"dualWielding":{"mag":100},"singleWielding":{"mag":100},"skillEnhancement":{"508013":20,"508014":20,"508015":20,"508016":20,"508670":20,"508671":20,"508672":20,"508673":20,"508674":20,"508675":20,"508676":20,"508677":20}}]]},
 			{"name":"月輪の印","levels":[[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}],"killers":[{"name":"undead","magical":100}],"hp%":20}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"earth","percent":30},{"name":"light","percent":30},{"name":"dark","percent":30}],"killers":[{"name":"undead","magical":100}],"hp%":20,"evoMag":20}]]}
 		],
 			"skills": [
@@ -11241,7 +11360,8 @@
 		}
 	},
 	"210000505": {
-		"name":"キマリ",
+		"name":"Kimahri",
+		"jpname":"キマリ",
 		"id":"210000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11264,7 +11384,8 @@
 			{"hp%":20, "mp%":20, "mag%":40, "singleWielding":{"accuracy":25,"atk":100}, "jumpDamage":100, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"キマリ",
+			"name":"Kimahri",
+			"jpname":"キマリ",
 			"id":"210000505",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -11381,7 +11502,8 @@
 		]
 	},
 	"210000905": {
-		"name":"ユウナレスカ",
+		"name":"Yunalesca",
+		"jpname":"ユウナレスカ",
 		"id":"210000905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11404,7 +11526,8 @@
 			{"mag%":50, "spr%":50, "evoMag":70, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ユウナレスカ",
+			"name":"Yunalesca",
+			"jpname":"ユウナレスカ",
 			"id":"210000905",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -11502,6 +11625,7 @@
 	},
 	"210001704": {
 		"name":"イサール",
+		"jpname":"イサール",
 		"id":"210001704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -11522,7 +11646,8 @@
 		]
 	},
 	"210001805": {
-		"name":"ザナルカンドのティーダ",
+		"name":"Tidus of Zanarkand",
+		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -11546,7 +11671,8 @@
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ザナルカンドのティーダ",
+			"name":"Tidus of Zanarkand",
+			"jpname":"ザナルカンドのティーダ",
 			"id":"210001805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -12512,7 +12638,8 @@
 		]
 	},
 	"214000605": {
-		"name":"魔女ヤ・シュトラ",
+		"name":"Witch Y'shtola",
+		"jpname":"魔女ヤ・シュトラ",
 		"id":"214000605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -12533,7 +12660,8 @@
 			{"mp%":20, "mag%":40, "singleWielding":{"mag":100}, "skillEnhancement":{"510611":1.5,"510612":1.5,"510613":1.5,"510614":1.5,"510616":1.5,"510617":1.5,"510618":1.5,"510619":1.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"魔女ヤ・シュトラ",
+			"name":"Witch Y'shtola",
+			"jpname":"魔女ヤ・シュトラ",
 			"id":"214000605",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -15687,7 +15815,7 @@
 	},
 	"312000404": {
 		"name":"Carlie",
-		"jpname":"シャルロット",
+		"jpname":"シャルロット(聖剣伝説3)",
 		"id":"312000404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -16320,7 +16448,7 @@
 		]
 	},
 	"330000605": {
-		"name":"レザード・ヴァレス",
+		"name":"Lezard Valeth",
 		"jpname":"レザード・ヴァレス",
 		"id":"330000605",
 		"max_rarity":"7",
@@ -16342,7 +16470,7 @@
 			{"mag%":50, "spr%":50, "resist":[{"name":"dark","percent":50}], "skillEnhancement":{"232612":2,"232613":2,"232614":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"レザード・ヴァレス",
+			"name":"Lezard Valeth",
 			"jpname":"レザード・ヴァレス",
 			"id":"330000605",
 			"sixStarForm":true,
@@ -16364,7 +16492,7 @@
 		}
 	},
 	"330000805": {
-		"name":"メルティーナ",
+		"name":"Mystina",
 		"jpname":"メルティーナ",
 		"id":"330000805",
 		"max_rarity":"7",
@@ -16387,7 +16515,7 @@
 			{"hp%":30, "spr%":30, "skillEnhancement":{"232637":1.5,"232638":1.5,"232639":1.5}, "replaceLb":{"name":"セレスティアルスター","minEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":25,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (25x, MAG) to all enemies"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"AOE","target":"ENEMY"},"desc":"No effect"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove MAG and SPR debuff from caster"},{"effect":{"statsBuff":{"mag":300},"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase MAG by 300% for one turn to caster"},{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":45,"elements":["wind"]},"area":"AOE","target":"ENEMY"},"desc":"Magic wind damage (45x, MAG) to all enemies"}]}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"メルティーナ",
+			"name":"Mystina",
 			"jpname":"メルティーナ",
 			"id":"330000805",
 			"sixStarForm":true,
@@ -16411,7 +16539,7 @@
 	},
 	"330000904": {
 		"name":"エイミ",
-		"jpname":"エイミ",
+		"jpname":"エイミ(ヴァルキリープロファイル)",
 		"id":"330000904",
 		"max_rarity":"6",
 		"min_rarity":"4",

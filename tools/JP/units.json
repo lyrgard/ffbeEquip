@@ -774,7 +774,7 @@
 	},
 	"100004303": {
 		"name":"Charlotte",
-		"jpname":"シャルロット(FFBE)",
+		"jpname":"シャルロット",
 		"id":"100004303",
 		"max_rarity":"6",
 		"min_rarity":"3",
@@ -4689,7 +4689,7 @@
 		}
 	},
 	"100024705": {
-		"name":"シャンティレーナ",
+		"name":"Cantilena",
 		"jpname":"シャンティレーナ",
 		"id":"100024705",
 		"max_rarity":"7",
@@ -4703,7 +4703,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"シャンティレーナ",
+			"name":"Cantilena",
 			"jpname":"シャンティレーナ",
 			"id":"100024705",
 			"sixStarForm":true,
@@ -4934,7 +4934,7 @@
 		"equip":["sword","staff","rod","bow","whip","mace","hat","clothes","robe"]
 	},
 	"100025805": {
-		"name":"四闘星のサクラ",
+		"name":"Sakura of the Delta Star",
 		"jpname":"四闘星のサクラ",
 		"id":"100025805",
 		"max_rarity":"7",
@@ -4948,7 +4948,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","axe","spear","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"四闘星のサクラ",
+			"name":"Sakura of the Delta Star",
 			"jpname":"四闘星のサクラ",
 			"id":"100025805",
 			"sixStarForm":true,
@@ -4965,7 +4965,7 @@
 		}
 	},
 	"100025905": {
-		"name":"五闘星のニコル",
+		"name":"Nichol of the Epsilon Star",
 		"jpname":"五闘星のニコル",
 		"id":"100025905",
 		"max_rarity":"7",
@@ -4979,7 +4979,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"五闘星のニコル",
+			"name":"Nichol of the Epsilon Star",
 			"jpname":"五闘星のニコル",
 			"id":"100025905",
 			"sixStarForm":true,
@@ -5024,6 +5024,98 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","hammer","gun","mace","hat","clothes"]
+	},
+	"100026705": {
+		"name":"Seaside Nichol",
+		"jpname":"トロピカルニコル",
+		"id":"100026705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4921,"mp":258,"atk":203,"def":193,"mag":167,"spr":189},
+			"minStats":{"hp":1624,"mp":85,"atk":67,"def":64,"mag":55,"spr":62},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"],
+		"6_form": {
+			"name":"Seaside Nichol",
+			"jpname":"トロピカルニコル",
+			"id":"100026705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3785,"mp":198,"atk":156,"def":148,"mag":128,"spr":145},
+				"minStats":{"hp":1249,"mp":65,"atk":51,"def":49,"mag":42,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"]
+		}
+	},
+	"100026804": {
+		"name":"夏空のルルカ",
+		"jpname":"夏空のルルカ",
+		"id":"100026804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3591,"mp":219,"atk":99,"def":115,"mag":168,"spr":155},
+			"minStats":{"hp":1185,"mp":72,"atk":33,"def":38,"mag":55,"spr":51},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","harp","mace","hat","clothes","robe"]
+	},
+	"100026903": {
+		"name":"波乗りスカーハ",
+		"jpname":"波乗りスカーハ",
+		"id":"100026903",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3009,"mp":115,"atk":137,"def":107,"mag":74,"spr":105},
+			"minStats":{"hp":993,"mp":38,"atk":45,"def":35,"mag":24,"spr":35},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","spear","hat","helm","clothes"]
+	},
+	"100027005": {
+		"name":"Aloha Lasswell",
+		"jpname":"バカンスラスウェル",
+		"id":"100027005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":208,"atk":176,"def":210,"mag":151,"spr":200},
+			"minStats":{"hp":1659,"mp":69,"atk":58,"def":69,"mag":50,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Aloha Lasswell",
+			"jpname":"バカンスラスウェル",
+			"id":"100027005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3867,"mp":160,"atk":135,"def":161,"mag":116,"spr":153},
+				"minStats":{"hp":1276,"mp":53,"atk":45,"def":53,"mag":38,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -7796,7 +7888,8 @@
 		}
 	},
 	"210000505": {
-		"name":"キマリ",
+		"name":"Kimahri",
+		"jpname":"キマリ",
 		"id":"210000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7809,7 +7902,8 @@
 		"stats_pattern":4,
 		"equip":["rod","bow","spear","gun","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"キマリ",
+			"name":"Kimahri",
+			"jpname":"キマリ",
 			"id":"210000505",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -7888,7 +7982,8 @@
 		"enhancementSkills":["インサニティダーク","死刃の交撃","暗き執念"]
 	},
 	"210000905": {
-		"name":"ユウナレスカ",
+		"name":"Yunalesca",
+		"jpname":"ユウナレスカ",
 		"id":"210000905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7901,7 +7996,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"6_form": {
-			"name":"ユウナレスカ",
+			"name":"Yunalesca",
+			"jpname":"ユウナレスカ",
 			"id":"210000905",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -7966,6 +8062,7 @@
 	},
 	"210001704": {
 		"name":"イサール",
+		"jpname":"イサール",
 		"id":"210001704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -7979,7 +8076,8 @@
 		"equip":["dagger","staff","rod","lightShield","hat","clothes","robe"]
 	},
 	"210001805": {
-		"name":"ザナルカンドのティーダ",
+		"name":"Tidus of Zanarkand",
+		"jpname":"ザナルカンドのティーダ",
 		"id":"210001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7992,7 +8090,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","throwing","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"ザナルカンドのティーダ",
+			"name":"Tidus of Zanarkand",
+			"jpname":"ザナルカンドのティーダ",
 			"id":"210001805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -8679,7 +8778,8 @@
 		"enhancementSkills":["アストラルファイア","アンブラルブリザード","フレア"]
 	},
 	"214000605": {
-		"name":"魔女ヤ・シュトラ",
+		"name":"Witch Y'shtola",
+		"jpname":"魔女ヤ・シュトラ",
 		"id":"214000605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8692,7 +8792,8 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","hammer","lightShield","hat","clothes","robe"],
 		"6_form": {
-			"name":"魔女ヤ・シュトラ",
+			"name":"Witch Y'shtola",
+			"jpname":"魔女ヤ・シュトラ",
 			"id":"214000605",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -10927,7 +11028,7 @@
 	},
 	"312000404": {
 		"name":"Carlie",
-		"jpname":"シャルロット",
+		"jpname":"シャルロット(聖剣伝説3)",
 		"id":"312000404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -11384,7 +11485,7 @@
 		"enhancementSkills":["バーン・ストーム","ファイア・ランス","無礼者が、万死に値するぞ"]
 	},
 	"330000605": {
-		"name":"レザード・ヴァレス",
+		"name":"Lezard Valeth",
 		"jpname":"レザード・ヴァレス",
 		"id":"330000605",
 		"max_rarity":"7",
@@ -11398,7 +11499,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
 		"6_form": {
-			"name":"レザード・ヴァレス",
+			"name":"Lezard Valeth",
 			"jpname":"レザード・ヴァレス",
 			"id":"330000605",
 			"sixStarForm":true,
@@ -11415,7 +11516,7 @@
 		}
 	},
 	"330000805": {
-		"name":"メルティーナ",
+		"name":"Mystina",
 		"jpname":"メルティーナ",
 		"id":"330000805",
 		"max_rarity":"7",
@@ -11429,7 +11530,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","hat","clothes","robe"],
 		"6_form": {
-			"name":"メルティーナ",
+			"name":"Mystina",
 			"jpname":"メルティーナ",
 			"id":"330000805",
 			"sixStarForm":true,
@@ -11447,7 +11548,7 @@
 	},
 	"330000904": {
 		"name":"エイミ",
-		"jpname":"エイミ",
+		"jpname":"エイミ(ヴァルキリープロファイル)",
 		"id":"330000904",
 		"max_rarity":"6",
 		"min_rarity":"4",
