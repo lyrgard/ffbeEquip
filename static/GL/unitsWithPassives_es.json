@@ -1653,7 +1653,7 @@
 		]
 	},
 	"100007705": {
-		"name":"Veritas el tenebroso",
+		"name":"Veritas el Tenebroso",
 		"wikiEntry":"Veritas_of the Dark",
 		"id":"100007705",
 		"max_rarity":"7",
@@ -1683,7 +1683,7 @@
 			{"lbDamage":30, "skillEnhancement":{"210710":1,"210730":1,"211110":1,"226871":0.5,"705790":1,"705800":1,"705810":1,"705820":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Veritas el tenebroso",
+			"name":"Veritas el Tenebroso",
 			"wikiEntry":"Veritas_of the Dark",
 			"id":"100007705",
 			"sixStarForm":true,
@@ -1708,7 +1708,7 @@
 		}
 	},
 	"100007804": {
-		"name":"Veritas el celestial",
+		"name":"Veritas el Celestial",
 		"wikiEntry":"Veritas_of the Heavens",
 		"id":"100007804",
 		"max_rarity":"6",
@@ -1730,7 +1730,7 @@
 		]
 	},
 	"100007904": {
-		"name":"Veritas el marino",
+		"name":"Veritas el Marino",
 		"wikiEntry":"Veritas_of the Waters",
 		"id":"100007904",
 		"max_rarity":"6",
@@ -1754,7 +1754,7 @@
 		]
 	},
 	"100008005": {
-		"name":"Veritas el llameante",
+		"name":"Veritas el Llameante",
 		"wikiEntry":"Veritas_of the Flame",
 		"id":"100008005",
 		"max_rarity":"7",
@@ -1780,7 +1780,7 @@
 			{"atk%":50, "def%":50, "equipedConditions":["axe"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Veritas el llameante",
+			"name":"Veritas el Llameante",
 			"wikiEntry":"Veritas_of the Flame",
 			"id":"100008005",
 			"sixStarForm":true,
@@ -1805,7 +1805,7 @@
 		}
 	},
 	"100008104": {
-		"name":"Veritas el terrestre",
+		"name":"Veritas el Terrestre",
 		"wikiEntry":"Veritas_of the Earth",
 		"id":"100008104",
 		"max_rarity":"6",
@@ -1827,7 +1827,7 @@
 		]
 	},
 	"100008205": {
-		"name":"Veritas el luminoso",
+		"name":"Veritas el Luminoso",
 		"wikiEntry":"Veritas_of the Light",
 		"id":"100008205",
 		"max_rarity":"7",
@@ -1854,7 +1854,7 @@
 			{"dualWielding":{"atk":50,"mag":50}, "lbFillRate":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Veritas el luminoso",
+			"name":"Veritas el Luminoso",
 			"wikiEntry":"Veritas_of the Light",
 			"id":"100008205",
 			"sixStarForm":true,
@@ -2278,12 +2278,15 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Dual Blade Mastery","levels":[[],[{"improvedDW":true}]]}
+		],
 		"skills": [
 			{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
-			{"atk%":50, "equipedConditions":["katana"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"atk%":50, "equipedConditions":["katana"]},
 			{"dualWielding":{"atk":40}, "skillEnhancement":{"226120":2,"226130":2,"226140":2,"226150":2,"226160":2,"226170":2,"226180":2}, "equipedConditions":[["504226380","406003600"]]},
 			{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
@@ -2304,12 +2307,15 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Dual Blade Mastery","levels":[[],[{"improvedDW":true}]]}
+		],
 			"skills": [
 				{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]},
 				{"atk%":50, "equipedConditions":["dagger"]},
-				{"atk%":50, "equipedConditions":["katana"]},
-				{"atk%":50, "equipedConditions":["greatSword"]}
+				{"atk%":50, "equipedConditions":["greatSword"]},
+				{"atk%":50, "equipedConditions":["katana"]}
 			]
 		}
 	},
@@ -3794,6 +3800,7 @@
 		"enhancementSkills":["Guardian's Fighting Spirit","Escort Leader","Standout","Esper Covenant","Magical Distraction","Complete Focus","Energy Wall","Scarlet Healing"],
 		"enhancements": [
 			{"name":"Guardian's Fighting Spirit","levels":[[{"spr%":30,"def%":30}],[{"spr%":40,"def%":40}],[{"spr%":40,"def%":40,"hp%":20}]]},
+			{"name":"Octad Protection","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]},
 			{"name":"Esper Covenant","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":60,"mag":60,"def":60,"atk":60,"mp":60,"hp":60}}]]},
 			{"name":"Believer of Fate","levels":[[],[{"mp%":20}],[{"spr%":20,"mp%":20}],[{"spr%":20,"mp%":20,"lbPerTurn":{"min":3,"max":3}}]]}
 		],
@@ -3825,6 +3832,7 @@
 			"enhancementSkills":["Guardian's Fighting Spirit","Escort Leader","Standout","Esper Covenant","Magical Distraction","Complete Focus","Energy Wall","Scarlet Healing"],
 		"enhancements": [
 			{"name":"Guardian's Fighting Spirit","levels":[[{"spr%":30,"def%":30}],[{"spr%":40,"def%":40}],[{"spr%":40,"def%":40,"hp%":20}]]},
+			{"name":"Octad Protection","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]},
 			{"name":"Esper Covenant","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":60,"mag":60,"def":60,"atk":60,"mp":60,"hp":60}}]]},
 			{"name":"Believer of Fate","levels":[[],[{"mp%":20}],[{"spr%":20,"mp%":20}],[{"spr%":20,"mp%":20,"lbPerTurn":{"min":3,"max":3}}]]}
 		],

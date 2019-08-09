@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_de.json" afterDir="false" />
@@ -11,9 +12,7 @@
       <change beforePath="$PROJECT_DIR$/static/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_ko.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data_zh.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/lastItemReleases.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/lastItemReleases.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/releasedUnits.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithPassives.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithPassives_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithPassives_de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithPassives_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithPassives_es.json" afterDir="false" />
@@ -21,32 +20,14 @@
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithPassives_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithPassives_ko.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithPassives_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithPassives_zh.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/units_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units_de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/GL/units_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/units_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/units_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/units_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/units_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_es.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_fr.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_ko.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/parseUnits.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/parseUnits.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/sources/enhancements.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/sources/enhancements.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/sources/limitbursts.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/sources/limitbursts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/sources/skills.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/sources/skills.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/sources/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/sources/units.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithPassives.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithPassives_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithPassives_de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithPassives_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithPassives_es.json" afterDir="false" />
@@ -54,18 +35,7 @@
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithPassives_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithPassives_ko.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithPassives_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithPassives_zh.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/units_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units_de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/GL/units_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/units_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/units_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/units_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/units_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/releasedUnits.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/releasedUnits.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitSearch.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitSearch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/units.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/units.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithPassives.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/JP/unitsWithSkill.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/commonParseUnit.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/commonParseUnit.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,29 +60,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="1372" column="69" selection-start-line="1372" selection-start-column="69" selection-end-line="1372" selection-end-column="69" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/releasedUnits.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
+            <state relative-caret-position="5685">
               <caret line="379" column="59" selection-start-line="379" selection-start-column="59" selection-end-line="379" selection-end-column="59" />
             </state>
           </provider>
@@ -134,8 +81,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="1214" column="214" selection-start-line="1214" selection-start-column="214" selection-end-line="1214" selection-end-column="214" />
+            <state relative-caret-position="189">
+              <caret line="2362" column="149" selection-start-line="2362" selection-start-column="149" selection-end-line="2362" selection-end-column="149" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/routes/links.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/routes/firebase.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -144,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="52" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="52" />
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -152,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithPassives.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9216" column="23" selection-start-line="9216" selection-start-column="23" selection-end-line="9216" selection-end-column="23" />
+            <state relative-caret-position="138240">
+              <caret line="9224" column="23" selection-start-line="9224" selection-start-column="23" selection-end-line="9224" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -161,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/GL/sources/units.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
+            <state relative-caret-position="1398480">
               <caret line="93232" column="14" selection-start-line="93232" selection-start-column="14" selection-end-line="93232" selection-end-column="14" />
             </state>
           </provider>
@@ -170,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/units.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
+            <state relative-caret-position="98265">
               <caret line="6551" column="14" selection-start-line="6551" selection-start-column="5" selection-end-line="6551" selection-end-column="14" />
             </state>
           </provider>
@@ -179,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/commonParseUnit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="3615">
               <caret line="241" column="12" selection-start-line="241" selection-start-column="12" selection-end-line="241" selection-end-column="12" />
             </state>
           </provider>
@@ -189,12 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Morga</find>
-      <find>124</find>
-      <find>.lb</find>
-      <find>getStatCalculatedValue</find>
-      <find>Rivera</find>
-      <find>Sworn Six's Pride - Light</find>
       <find>Succubus</find>
       <find>Imperial Ambitions</find>
       <find>Exp +50</find>
@@ -219,6 +174,12 @@
       <find>Radiant</find>
       <find>Eagletalon</find>
       <find>Brother's</find>
+      <find>Hawkey</find>
+      <find>Wind Res</find>
+      <find>Great Mage</find>
+      <find>Manufactur</find>
+      <find>Photo L</find>
+      <find>Sanctum</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -232,7 +193,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/static/constants.js" />
-        <option value="$PROJECT_DIR$/server/routes/firebase.js" />
         <option value="$PROJECT_DIR$/static/GL/espers.json" />
         <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/unitSearch.css" />
@@ -268,11 +228,12 @@
         <option value="$PROJECT_DIR$/tools/GL/parseUnits.js" />
         <option value="$PROJECT_DIR$/tools/commonParseUnit.js" />
         <option value="$PROJECT_DIR$/static/builder.js" />
-        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/GL/releasedUnits.json" />
-        <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
-        <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/static/JP/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
+        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/GL/data.json" />
+        <option value="$PROJECT_DIR$/server/routes/firebase.js" />
       </list>
     </option>
   </component>
@@ -300,13 +261,23 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
               <item name="ffbeEquip" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ffbeEquip" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ffbeEquip" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ffbeEquip" type="b2602c69:ProjectViewProjectNode" />
@@ -364,6 +335,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,17 +437,18 @@
       <workItem from="1564153466574" duration="2629000" />
       <workItem from="1564580249304" duration="2355000" />
       <workItem from="1564597702031" duration="5919000" />
+      <workItem from="1565336114109" duration="2075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147775000" />
+    <option name="totallyTimeSpent" value="149850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22878788" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23257576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -541,16 +514,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/unitSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3720">
@@ -808,22 +771,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/commonParseUnit.js">
+    <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="241" column="12" selection-start-line="241" selection-start-column="12" selection-end-line="241" selection-end-column="12" />
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="20580">
           <caret line="1372" column="69" selection-start-line="1372" selection-start-column="69" selection-end-line="1372" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/releasedUnits.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5685">
+          <caret line="379" column="59" selection-start-line="379" selection-start-column="59" selection-end-line="379" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithPassives.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138240">
+          <caret line="9224" column="23" selection-start-line="9224" selection-start-column="23" selection-end-line="9224" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/GL/sources/units.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1398480">
+          <caret line="93232" column="14" selection-start-line="93232" selection-start-column="14" selection-end-line="93232" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/units.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98265">
+          <caret line="6551" column="14" selection-start-line="6551" selection-start-column="5" selection-end-line="6551" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/commonParseUnit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3615">
+          <caret line="241" column="12" selection-start-line="241" selection-start-column="12" selection-end-line="241" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -834,52 +834,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithPassives.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9216" column="23" selection-start-line="9216" selection-start-column="23" selection-end-line="9216" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/sources/units.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="93232" column="14" selection-start-line="93232" selection-start-column="14" selection-end-line="93232" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/releasedUnits.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="379" column="59" selection-start-line="379" selection-start-column="59" selection-end-line="379" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/units.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="6551" column="14" selection-start-line="6551" selection-start-column="5" selection-end-line="6551" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="52" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/GL/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="1214" column="214" selection-start-line="1214" selection-start-column="214" selection-end-line="1214" selection-end-column="214" />
+        <state relative-caret-position="189">
+          <caret line="2362" column="149" selection-start-line="2362" selection-start-column="149" selection-end-line="2362" selection-end-column="149" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JP/dataVersion.json">
+    <entry file="file://$PROJECT_DIR$/server/routes/links.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/firebase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
         </state>
       </provider>
     </entry>
