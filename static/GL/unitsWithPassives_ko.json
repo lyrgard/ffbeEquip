@@ -15672,6 +15672,52 @@
 			]
 		}
 	},
+	"401007105": {
+		"name":"츠키코",
+		"wikiEntry":"Tsukiko",
+		"id":"401007105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4716,"mp":280,"atk":136,"def":124,"mag":219,"spr":202},
+			"minStats":{"hp":1556,"mp":92,"atk":45,"def":41,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":40, "mag%":50, "spr%":20, "singleWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":25},{"name":"spirit","magical":25}]},
+			{"mag%":20, "equipedConditions":["rod"]},
+			{"mag%":30, "equipedConditions":["hat"]},
+			{"hp%":20, "mp%":20, "spr%":40, "equipedConditions":["robe"]},
+			{"singleWielding":{"mag":50}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1100000335","1100000336"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mag%":50, "resist":[{"name":"stop","percent":100}], "mpRefresh":5, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"츠키코",
+			"wikiEntry":"Tsukiko",
+			"id":"401007105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3705,"mp":213,"atk":105,"def":96,"mag":167,"spr":157},
+				"minStats":{"hp":1223,"mp":70,"atk":35,"def":32,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "def%":40, "mag%":50, "spr%":20, "singleWielding":{"mag":50}, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"demon","magical":25},{"name":"spirit","magical":25}]},
+				{"mag%":20, "equipedConditions":["rod"]},
+				{"mag%":30, "equipedConditions":["hat"]},
+				{"hp%":20, "mp%":20, "spr%":40, "equipedConditions":["robe"]}
+			]
+		}
+	},
 	"401007305": {
 		"name":"불멸의 화염 케이티",
 		"wikiEntry":"Immortal_Flame Katy",
@@ -15865,6 +15911,48 @@
 				{"mp%":30, "atk%":30, "mag%":30, "equipedConditions":["light"]},
 				{"hp%":30, "atk%":30, "mag%":30, "equipedConditions":["ice"]},
 				{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"401008505": {
+		"name":"카이토",
+		"wikiEntry":"Kaito",
+		"id":"401008505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4451,"mp":210,"atk":214,"def":180,"mag":142,"spr":171},
+			"minStats":{"hp":1468,"mp":69,"atk":70,"def":59,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","bow","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":40, "mp%":10, "atk%":100, "def%":10, "spr%":10, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":25},{"name":"dark","percent":25},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75},{"name":"spirit","physical":75}], "mpRefresh":5},
+			{"mp%":10, "atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["1100000337","1500000111"]]},
+			{"spr%":20, "levelCondition":115},
+			{"skillEnhancement":{"912801":3,"912810":3,"912811":5,"912812":5,"912813":5,"912814":5}, "levelCondition":120},
+			{"resist":[{"name":"stop","percent":100}], "killers":[{"name":"demon","physical":25},{"name":"spirit","physical":25}], "mpRefresh":10, "levelCondition":120},
+			{"atk%":20, "equipedConditions":["katana"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"카이토",
+			"wikiEntry":"Kaito",
+			"id":"401008505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3424,"mp":160,"atk":165,"def":138,"mag":109,"spr":132},
+				"minStats":{"hp":1130,"mp":53,"atk":54,"def":45,"mag":36,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","bow","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":10, "atk%":100, "def%":10, "spr%":10, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":25},{"name":"dark","percent":25},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75},{"name":"spirit","physical":75}], "mpRefresh":5}
 			]
 		}
 	}
