@@ -13968,18 +13968,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["Pike Master","Mystic Thrust","Death Crimson"],
-		"enhancements": [
-			{"name":"Pike Master","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"jumpDamage":50},{"equipedConditions":["spear"],"atk%":100}]]}
-		],
 		"skills": [
-			{"hp%":20, "atk%":30, "def%":20, "jumpDamage":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]},
-			{"dualWielding":{"atk":30}, "replaceLb":{"name":"Destructive Thrust","minEffects":[{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.1x, ATK) to one enemy"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"break":{"def":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to one enemy"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14x, ATK) to one enemy"},{"effect":{"imperil":{"fire":104,"ice":104,"lightning":104},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 104% for 3 turns to one enemy"}]}, "special":["dualWield"], "equipedConditions":[["1100000077","1500000068"]]},
-			{"skillEnhancement":{"910213":1,"910214":1,"910215":2,"910216":2,"911066":1,"911067":1,"911068":1,"911069":1,"911070":1,"911079":2,"911080":2,"911081":2,"911082":2}, "levelCondition":105},
-			{"atk%":60, "equipedConditions":[["fire","ice","lightning"]], "levelCondition":110},
-			{"mp%":20, "equipedConditions":["fire"], "levelCondition":110},
-			{"def%":20, "equipedConditions":["ice"], "levelCondition":110},
-			{"hp%":20, "equipedConditions":["lightning"], "levelCondition":110},
+			{"hp%":20, "atk%":30, "def%":20, "dualWielding":{"atk":50}, "jumpDamage":250, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100,"magical":100}], "special":["dualWield"]},
+			{"atk%":100, "equipedConditions":["spear"]},
+			{"dualWielding":{"atk":50}, "improvedDW":true, "equipedConditions":[["1100000077","1500000068"]]},
+			{"jumpDamage":100, "lbFillRate":100, "levelCondition":105},
+			{"hp%":20, "mp%":20, "atk%":60, "def%":20, "levelCondition":110},
 			{"spr%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "def%":20, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}], "levelCondition":120}
 		],
@@ -13998,12 +13992,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","spear","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["Pike Master","Mystic Thrust","Death Crimson"],
-		"enhancements": [
-			{"name":"Pike Master","levels":[[{"equipedConditions":["spear"],"atk%":50}],[{"equipedConditions":["spear"],"atk%":75}],[{"jumpDamage":50},{"equipedConditions":["spear"],"atk%":100}]]}
-		],
 			"skills": [
-				{"hp%":20, "atk%":30, "def%":20, "jumpDamage":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100}]}
+				{"hp%":20, "atk%":30, "def%":20, "dualWielding":{"atk":50}, "jumpDamage":250, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"confuse","percent":100}], "killers":[{"name":"dragon","physical":100,"magical":100}], "special":["dualWield"]},
+				{"atk%":100, "equipedConditions":["spear"]}
 			]
 		}
 	},
@@ -14060,14 +14051,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
-		"enhancements": [
-			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"mag%":30},{"equipedConditions":["dark"],"hp%":30}],[{"equipedConditions":["fire"],"mag%":40,"mp%":10},{"equipedConditions":["dark"],"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"mag%":50,"mp%":20},{"equipedConditions":["dark"],"hp%":50,"mp%":20}]]}
-		],
 		"skills": [
-			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]},
+			{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}], "mpRefresh":5},
+			{"mp%":20, "mag%":50, "equipedConditions":["fire"]},
+			{"hp%":50, "mp%":20, "equipedConditions":["dark"]},
 			{"equipedConditions":[["1100000109","1500000071"]]},
-			{"mag%":30, "skillEnhancement":{"910520":1,"910526":1,"911450":1,"911451":1,"911452":1,"911453":1}, "levelCondition":105},
+			{"mag%":30, "skillEnhancement":{"911459":4,"912903":2,"912904":4}, "levelCondition":105},
+			{"mag%":40, "equipedConditions":["spear"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "mag%":20, "singleWielding":{"mag":50,"spr":50}, "mpRefresh":5, "levelCondition":120}
 		],
@@ -14086,12 +14076,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","rod","bow","spear","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["Grim - Soul Barrage","Grim - Eldritch Flames","Vicious"],
-		"enhancements": [
-			{"name":"Vicious","levels":[[{"equipedConditions":["fire"],"mag%":30},{"equipedConditions":["dark"],"hp%":30}],[{"equipedConditions":["fire"],"mag%":40,"mp%":10},{"equipedConditions":["dark"],"hp%":40,"mp%":10}],[{"mpRefresh":5},{"equipedConditions":["fire"],"mag%":50,"mp%":20},{"equipedConditions":["dark"],"hp%":50,"mp%":20}]]}
-		],
 			"skills": [
-				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}]}
+				{"mp%":20, "mag%":30, "spr%":20, "singleWielding":{"hp":50,"mag":100,"spr":100}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":50},{"name":"light","percent":50},{"name":"dark","percent":-50}], "killers":[{"name":"human","magical":50},{"name":"demon","magical":50},{"name":"undead","magical":50}], "mpRefresh":5},
+				{"mp%":20, "mag%":50, "equipedConditions":["fire"]},
+				{"hp%":50, "mp%":20, "equipedConditions":["dark"]}
 			]
 		}
 	},
@@ -14211,16 +14199,13 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
-		"enhancementSkills":["Snowbear's Gift","Absolute Zero","Winter Fall"],
-		"enhancements": [
-			{"name":"Snowbear's Gift","levels":[[{"mag%":20,"hp%":20}],[{"mag%":30,"mp%":10,"hp%":30}],[{"mag%":50,"mp%":20,"hp%":50}]]}
-		],
 		"skills": [
-			{"mp%":20, "mag%":50, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5},
-			{"hp%":20, "def%":20, "spr%":20, "evade":{"physical":20}, "replaceLb":{"name":"Snowbear Rampage","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":10,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (10x, MAG) to all enemies"},{"effect":{"imbue":["ice"],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Add Ice element (100%) to physical attacks for 2 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"911796","name":"Multi-Frost"}]}},"desc":"Gain 4 uses of Absolute Zero (910652), Absolute Zero+1 (911790), Absolute Zero+2 (911791), Frost Nova (910640), Glacial Storm (910651), Ice Shards (910643), Snow Burial (910654), Snow Burial+1 (911794) and Snow Burial+2 (911795) for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":12.9,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (12.9x, MAG) to all enemies"},{"effect":{"imbue":["ice"],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Add Ice element (100%) to physical attacks for 2 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"911796","name":"Multi-Frost"}]}},"desc":"Gain 4 uses of Absolute Zero (910652), Absolute Zero+1 (911790), Absolute Zero+2 (911791), Frost Nova (910640), Glacial Storm (910651), Ice Shards (910643), Snow Burial (910654), Snow Burial+1 (911794) and Snow Burial+2 (911795) for one turn"}]}, "equipedConditions":[["1100000121","1500000088"]]},
+			{"hp%":50, "mp%":40, "mag%":100, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":20, "def%":20, "spr%":20, "evade":{"physical":20}, "equipedConditions":[["1100000121","1500000088"]]},
 			{"mag%":30, "skillEnhancement":{"910652":1,"910654":1,"911790":1,"911791":1,"911794":1,"911795":1}, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
-			{"hp%":20, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+			{"hp%":20, "spr%":20, "levelCondition":115},
+			{"mag%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"크리스틴",
@@ -14237,12 +14222,8 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","harp","whip","hat","clothes","robe"],
-			"enhancementSkills":["Snowbear's Gift","Absolute Zero","Winter Fall"],
-		"enhancements": [
-			{"name":"Snowbear's Gift","levels":[[{"mag%":20,"hp%":20}],[{"mag%":30,"mp%":10,"hp%":30}],[{"mag%":50,"mp%":20,"hp%":50}]]}
-		],
 			"skills": [
-				{"mp%":20, "mag%":50, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5}
+				{"hp%":50, "mp%":40, "mag%":100, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5, "special":["dualWield"]}
 			]
 		}
 	},
@@ -14260,18 +14241,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
-		"enhancementSkills":["Clairvoyant","Jinx - Sap DEF Pot","Jinx - Sap SPR Pot","Jinx - Sap MAG Pot","Jinx - Sap ATK Pot"],
-		"enhancements": [
-			{"name":"Clairvoyant","levels":[[{"evade":{"physical":20,"magical":20},"mp%":30}],[{"evade":{"physical":20,"magical":20},"mp%":30,"hp%":30}],[{"mpRefresh":5,"evade":{"physical":30,"magical":20},"mp%":30,"hp%":30}]]}
-		],
 		"skills": [
-			{"hp%":30, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}]},
-			{"def%":20, "equipedConditions":["clothes"]},
-			{"spr%":20, "equipedConditions":["robe"]},
+			{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5},
 			{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226"]]},
-			{"spr%":30, "skillEnhancement":{"910610":1,"910611":1,"910613":1}, "levelCondition":110},
+			{"spr%":30, "skillEnhancement":{"910610":1,"910611":1,"910613":1,"912869":1}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "levelCondition":120}
+			{"hp%":20, "mp%":20, "spr%":20, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"크라일라",
@@ -14288,14 +14263,8 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
-			"enhancementSkills":["Clairvoyant","Jinx - Sap DEF Pot","Jinx - Sap SPR Pot","Jinx - Sap MAG Pot","Jinx - Sap ATK Pot"],
-		"enhancements": [
-			{"name":"Clairvoyant","levels":[[{"evade":{"physical":20,"magical":20},"mp%":30}],[{"evade":{"physical":20,"magical":20},"mp%":30,"hp%":30}],[{"mpRefresh":5,"evade":{"physical":30,"magical":20},"mp%":30,"hp%":30}]]}
-		],
 			"skills": [
-				{"hp%":30, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":15},{"name":"ice","percent":15},{"name":"lightning","percent":15},{"name":"water","percent":15},{"name":"wind","percent":15},{"name":"earth","percent":15},{"name":"light","percent":15},{"name":"dark","percent":15},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}]},
-				{"def%":20, "equipedConditions":["clothes"]},
-				{"spr%":20, "equipedConditions":["robe"]}
+				{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5}
 			]
 		}
 	},
@@ -15043,13 +15012,13 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","clothes"],
 		"skills": [
-			{"def%":30, "evade":{"physical":20}, "dualWielding":{"def":30}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+			{"def%":30, "evade":{"physical":20}, "dualWielding":{"def":50}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["hat"]},
 			{"atk%":30, "equipedConditions":["clothes"]},
-			{"dualWielding":{"atk":40}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "equipedConditions":[["1100000184","1100000185"]]},
+			{"evade":{"physical":10}, "dualWielding":{"atk":50}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "equipedConditions":[["1100000184","1100000185"]]},
 			{"resist":[{"name":"water","percent":30},{"name":"wind","percent":30}], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
-			{"skillEnhancement":{"911272":1.5,"911278":1.5,"911279":1.5,"911280":1.5}, "levelCondition":120},
+			{"skillEnhancement":{"911272":1.5,"911278":10.5,"911279":9,"911280":1.5,"912848":1.5}, "levelCondition":120},
 			{"atk%":20, "def%":20, "equipedConditions":["katana"], "levelCondition":120}
 		],
 		"6_form": {
@@ -15068,7 +15037,7 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","hat","clothes"],
 			"skills": [
-				{"def%":30, "evade":{"physical":20}, "dualWielding":{"def":30}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
+				{"def%":30, "evade":{"physical":20}, "dualWielding":{"def":50}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["hat"]},
 				{"atk%":30, "equipedConditions":["clothes"]}
 			]
