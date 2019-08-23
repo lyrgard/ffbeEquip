@@ -96,6 +96,8 @@ var releasedUnits;
 var skillNotIdentifiedNumber = 0;
 var dev = false;
 var languageId;
+let skillNameTrads;
+let skillDescTrads;
 
 
 function getData(filename, callback) {
@@ -122,60 +124,108 @@ if (!fs.existsSync('../../static/GL/data.json')) {
 }
 getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
-        getData('skills.json', function (skills) {
-            getData('units.json', function (units) {
-                fs.readFile('../../static/GL/data.json', function (err, content) {
-                    var oldItems = JSON.parse(content);
-                    fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
-                        releasedUnits = JSON.parse(content);
-                        
-                        for (var index in oldItems) {
-                            oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                            if (oldItems[index].maxNumber) {
-                                oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                            }
-                            if (oldItems[index].wikiEntry) {
-                                oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
-                            }
-                        }
-                        
-                        for (languageId = 0; languageId < languages.length; languageId++) {
+        getData('skills_ability.json', function (skills) {
+            getData('skills_passive.json', function (passives) {
+                getData('skills_magic.json', function (magics) {
+                    Object.keys(skills).forEach(skillId => {
+                        skills[skillId].active = true;
+                        skills[skillId].type = "ABILITY";
+                    });
+                    Object.keys(passives).forEach(skillId => {
+                        skills[skillId] = passives[skillId];
+                        skills[skillId].active = false;
+                        skills[skillId].type = "PASSIVE";
+                    });
+                    Object.keys(magics).forEach(skillId => {
+                        skills[skillId] = magics[skillId];
+                        skills[skillId].active = true;
+                        skills[skillId].type = "MAGIC";
+                    });
+                    getData('units.json', function (units) {
+                        fs.readFile('../../static/GL/data.json', function (err, content) {
+                            var oldItems = JSON.parse(content);
+                            fs.readFile('../../static/GL/releasedUnits.json', function (err, content) {
+                                releasedUnits = JSON.parse(content);
+                                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_NAME.json', function (error, response, body) {
+                                    if (!error && response.statusCode == 200) {
+                                        skillNameTrads = JSON.parse(body);
+                                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_NAME.json', function (error, response, body) {
+                                            if (!error && response.statusCode == 200) {
+                                                let magicNameTrads = JSON.parse(body);
+                                                Object.keys(magicNameTrads).forEach(skillId => {
+                                                    skillNameTrads[skillId] = magicNameTrads[skillId];
+                                                });
+                                                request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_ABILITY_SHORTDESCRIPTION.json', function (error, response, body) {
+                                                    if (!error && response.statusCode == 200) {
+                                                        skillDescTrads = JSON.parse(body);
+                                                        request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_SHORTDESCRIPTION.json', function (error, response, body) {
+                                                            if (!error && response.statusCode == 200) {
+                                                                let magicDescTrads = JSON.parse(body);
+                                                                Object.keys(magicDescTrads).forEach(skillId => {
+                                                                    skillDescTrads[skillId] = magicDescTrads[skillId];
+                                                                });
 
-                            for (var unitIndex in units) {
-                                var unit = units[unitIndex];
-                                if (!unit.names) {
-                                    continue;
-                                }
-                                unitNamesById[unitIndex] = {"name":unit.names[languageId], "minRarity":unit.rarity_min, "maxRarity":unit.rarity_max};
-                                
-                                if (unit.TMR) {
-                                    unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                                    if (unit.rarity_min > 3 && !unit.is_summonable) {
-                                        unitNamesById[unitIndex].event = true;
+                                                                for (var index in oldItems) {
+                                                                    oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                                                    oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                                                    if (oldItems[index].maxNumber) {
+                                                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                                                    }
+                                                                    if (oldItems[index].wikiEntry) {
+                                                                        oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
+                                                                    }
+                                                                }
+
+                                                                for (languageId = 0; languageId < languages.length; languageId++) {
+
+                                                                    for (var unitIndex in units) {
+                                                                        var unit = units[unitIndex];
+                                                                        if (!unit.names) {
+                                                                            continue;
+                                                                        }
+                                                                        unitNamesById[unitIndex] = {
+                                                                            "name": unit.names[languageId],
+                                                                            "minRarity": unit.rarity_min,
+                                                                            "maxRarity": unit.rarity_max
+                                                                        };
+
+                                                                        if (unit.TMR) {
+                                                                            unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                                                            if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                                                                unitNamesById[unitIndex].event = true;
+                                                                            }
+                                                                        }
+                                                                        if (unit.sTMR) {
+                                                                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                                                        }
+                                                                    }
+
+
+                                                                    var result = {"items": []};
+                                                                    for (var itemId in items) {
+                                                                        treatItem(items, itemId, result, skills);
+                                                                    }
+                                                                    for (var materiaId in materias) {
+                                                                        treatItem(materias, materiaId, result, skills);
+                                                                    }
+                                                                    console.log(skillNotIdentifiedNumber);
+                                                                    console.log(result.items.length);
+                                                                    var filename = 'data.json';
+                                                                    if (languageId != 0) {
+                                                                        filename = 'data_' + languages[languageId] + '.json';
+                                                                    }
+                                                                    fs.writeFileSync(filename, formatOutput(result.items));
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
                                     }
-                                }
-                                if (unit.sTMR) {
-                                    unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
-                                }
-                            }
-
-
-                            var result = {"items":[]};
-                            for (var itemId in items) {
-                                treatItem(items,itemId, result, skills);
-                            }
-                            for (var materiaId in materias) {
-                                treatItem(materias,materiaId, result, skills);
-                            }
-                            console.log(skillNotIdentifiedNumber);
-                            console.log(result.items.length);
-                            var filename = 'data.json';
-                            if (languageId != 0) {
-                                filename = 'data_' + languages[languageId] +'.json';
-                            }
-                            fs.writeFileSync(filename, formatOutput(result.items));
-                        }
+                                });
+                            });
+                        });
                     });
                 });
             });
@@ -353,6 +403,7 @@ function readSkills(itemIn, itemOut, skills) {
         for (var skillIndex in itemIn.skills) {
             var skillId = itemIn.skills[skillIndex];
             var skill = skills[skillId];
+            skill.id = skillId;
             if (skill) {
                 if (skill.unique && !skill.active) {
                     if (!itemOut.notStackableSkills) {
@@ -366,7 +417,7 @@ function readSkills(itemIn, itemOut, skills) {
                     itemOut.notStackableSkills[skillId] = notStackableSkill;
                 }
                 if (skill.type == "MAGIC") {
-                    addSpecial(itemOut, getSkillString(skill));
+                    addSpecial(itemOut, getSkillString(skill, skillId));
                 } else if (skill.unit_restriction) {
                     restrictedSkills.push(skill);
                 } else if (skill.effects_raw[0][2] == 74) {
@@ -390,7 +441,7 @@ function readSkills(itemIn, itemOut, skills) {
                             //console.log(rawEffect + " - " + skill.effects);
                         }
                     }
-                    addNotTreatedEffects(itemOut, effectsNotTreated, skill);
+                    addNotTreatedEffects(itemOut, effectsNotTreated, skill, skillId);
                 }
             }
         }
@@ -431,7 +482,7 @@ function readSkills(itemIn, itemOut, skills) {
                             effectsNotTreated.push(rawEffectIndex);
                         }
                     }
-                    addNotTreatedEffects(copy, effectsNotTreated, skill);
+                    addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
                     result.push(copy);
                     if (masterySkills.length > 0) {
                         addMasterySkills(copy, masterySkills, result);
@@ -461,7 +512,7 @@ function readSkills(itemIn, itemOut, skills) {
                             effectsNotTreated.push(rawEffectIndex);
                         }
                     }
-                    addNotTreatedEffects(copy, effectsNotTreated, skill);
+                    addNotTreatedEffects(copy, effectsNotTreated, skill, skill.id);
                     result.push(copy);
                     if (masterySkills.length > 0) {
                         addMasterySkills(copy, masterySkills, result);
@@ -519,11 +570,13 @@ function addMasterySkills(item, masterySkills, result) {
     }
 }
 
-function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
+function addNotTreatedEffects(itemOut, effectsNotTreated, skill, skillId) {
     if (effectsNotTreated.length > 0) {
         var special = "[" + skill.name;
         if (languageId != 0) {
-            special += "|" + skill.strings.name[languageId];
+            if (skillNameTrads[skillId]) {
+                special += "|" + skillNameTrads[skillId][languageId];
+            }
         }
         if (skill.icon) {
             special += "|" + skill.icon;
@@ -540,7 +593,9 @@ function addNotTreatedEffects(itemOut, effectsNotTreated, skill) {
                 special += skill.effects[effectsNotTreated[index]];
             }
         } else {
-            special += skill.strings.desc_short[languageId];
+            if (skillDescTrads[skillId]) {
+                special += skillDescTrads[skillId][languageId];
+            }
         }
         addSpecial(itemOut, special);
     }
@@ -574,7 +629,6 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }
 
     // killers
-        // Killers
     } else if (((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 11) ||
         (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 11)) {
         
@@ -608,7 +662,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
     // Auto- abilities
     } else if (rawEffect[0] == 1 && rawEffect[1] == 3 && rawEffect[2] == 35) {
-        addSpecial(item, "Gain at the start of a battle: " + getSkillString(skills[rawEffect[3][0]]));
+        addSpecial(item, "Gain at the start of a battle: " + getSkillString(skills[rawEffect[3][0]], rawEffect[3][0]));
 
     // Element Resist
     } else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
@@ -809,7 +863,7 @@ function addKiller(item, raceId, physicalPercent, magicalPercent) {
     item.killers.push(killer);
 }
 
-function getSkillString(skill) {
+function getSkillString(skill, skillId) {
     var first = true;
     var effect = "";
     for (var effectIndex in skill.effects) {
@@ -822,7 +876,7 @@ function getSkillString(skill) {
     }
     var result = "[" + skill.name;
     if (languageId != 0) {
-        result += "|" + skill.strings.name[languageId];
+        result += "|" + skillNameTrads[skillId][languageId];
     }
     if (skill.icon) {
         result += "|" + skill.icon;

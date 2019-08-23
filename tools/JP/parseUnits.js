@@ -38,47 +38,65 @@ function getData(filename, callback) {
 
 console.log("Starting");
 getData('units.json', function (units) {
-    getData('skills.json', function (skills) {
-        getData('limitbursts.json', function (lbs) {
-            getData('enhancements.json', function (enhancements) {
-                fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
-                    var nameData = JSON.parse(nameDatacontent);
-                    for (var unitId in nameData) {
-                        glNameById[unitId] = nameData[unitId].name;
-                    }
-                    fs.readFile('../../static/GL/units.json', function (err, nameDatacontent) {
-                        fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
+    getData('skills_ability.json', function (skills) {
+        getData('skills_passive.json', function (passives) {
+            getData('skills_magic.json', function (magics) {
+                Object.keys(skills).forEach(skillId => {
+                    skills[skillId].active = true;
+                    skills[skillId].type = "ABILITY";
+                });
+                Object.keys(passives).forEach(skillId => {
+                    skills[skillId] = passives[skillId];
+                    skills[skillId].active = false;
+                    skills[skillId].type = "PASSIVE";
+                });
+                Object.keys(magics).forEach(skillId => {
+                    skills[skillId] = magics[skillId];
+                    skills[skillId].active = true;
+                    skills[skillId].type = "MAGIC";
+                });
+                getData('limitbursts.json', function (lbs) {
+                    getData('enhancements.json', function (enhancements) {
+                        fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
                             var nameData = JSON.parse(nameDatacontent);
-                            imgUrls = JSON.parse(imgUrlContent);
                             for (var unitId in nameData) {
-                                if (nameData[unitId].name != "undefined" && nameData[unitId].name != "null") {
-                                    glNameById[unitId] = nameData[unitId].name;
-                                }
+                                glNameById[unitId] = nameData[unitId].name;
                             }
-                            for (var index in enhancements) {
-                                var enhancement = enhancements[index];
-                                for (var unitIdIndex in enhancement.units) {
-                                    var unitId = enhancement.units[unitIdIndex].toString();
-                                    if (!enhancementsByUnitId[unitId]) {
-                                        enhancementsByUnitId[unitId] = {};
+                            fs.readFile('../../static/GL/units.json', function (err, nameDatacontent) {
+                                fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
+                                    var nameData = JSON.parse(nameDatacontent);
+                                    imgUrls = JSON.parse(imgUrlContent);
+                                    for (var unitId in nameData) {
+                                        if (nameData[unitId].name != "undefined" && nameData[unitId].name != "null") {
+                                            glNameById[unitId] = nameData[unitId].name;
+                                        }
                                     }
-                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
-                                }
-                            }
+                                    for (var index in enhancements) {
+                                        var enhancement = enhancements[index];
+                                        for (var unitIdIndex in enhancement.units) {
+                                            var unitId = enhancement.units[unitIdIndex].toString();
+                                            if (!enhancementsByUnitId[unitId]) {
+                                                enhancementsByUnitId[unitId] = {};
+                                            }
+                                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                        }
+                                    }
 
-                            var unitsOut = {};
-                            for (var unitId in units) {
-                                var unitIn = units[unitId];
-                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
-                                    var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
-                                    unitsOut[unitOut.data.id] = unitOut.data;
-                                }
-                            }
+                                    var unitsOut = {};
+                                    for (var unitId in units) {
+                                        var unitIn = units[unitId];
+                                        if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name &&!filterUnits.includes(unitId)) {
+                                            var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId);
+                                            unitsOut[unitOut.data.id] = unitOut.data;
+                                        }
+                                    }
 
-                            fs.writeFileSync('unitsWithPassives.json', commonParse.formatOutput(unitsOut));
-                            fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
-                            fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                            fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                    fs.writeFileSync('unitsWithPassives.json', commonParse.formatOutput(unitsOut));
+                                    fs.writeFileSync('units.json', commonParse.formatSimpleOutput(unitsOut));
+                                    fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                });
+                            });
                         });
                     });
                 });

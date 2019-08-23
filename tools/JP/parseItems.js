@@ -111,52 +111,70 @@ if (!fs.existsSync('../../static/JP/data.json')) {
 }
 getData('equipment.json', function (items) {
     getData('materia.json', function (materias) {
-        getData('skills.json', function (skills) {
-            getData('units.json', function (units) {
-                fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
-                    var glData = JSON.parse(glDatacontent);
-                    for (var glIndex = glData.length; glIndex--;) {
-                        glNameById[glData[glIndex].id] = glData[glIndex].name;
-                    }
-                    for (var unitIndex in units) {
-                        var unit = units[unitIndex];
-                        unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
-
-                        if (unit.TMR) {
-                            unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                            if (unit.rarity_min > 3 && !unit.is_summonable) {
-                                unitNamesById[unitIndex].event = true;
+        getData('skills_ability.json', function (skills) {
+            getData('skills_passive.json', function (passives) {
+                getData('skills_magic.json', function (magics) {
+                    Object.keys(skills).forEach(skillId => {
+                        skills[skillId].active = true;
+                        skills[skillId].type = "ABILITY";
+                    });
+                    Object.keys(passives).forEach(skillId => {
+                        skills[skillId] = passives[skillId];
+                        skills[skillId].active = false;
+                        skills[skillId].type = "PASSIVE";
+                    });
+                    Object.keys(magics).forEach(skillId => {
+                        skills[skillId] = magics[skillId];
+                        skills[skillId].active = true;
+                        skills[skillId].type = "MAGIC";
+                    });
+                    getData('units.json', function (units) {
+                        fs.readFile('../../static/GL/data.json', function (err, glDatacontent) {
+                            var glData = JSON.parse(glDatacontent);
+                            for (var glIndex = glData.length; glIndex--;) {
+                                glNameById[glData[glIndex].id] = glData[glIndex].name;
                             }
-                        }
-                        if (unit.sTMR) {
-                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
-                        }
-                    }
+                            for (var unitIndex in units) {
+                                var unit = units[unitIndex];
+                                unitNamesById[unitIndex] = {"name":unit.name, "minRarity":unit.rarity_min};
 
-
-
-                    fs.readFile('../../static/JP/data.json', function (err, content) {
-                        var oldItems = JSON.parse(content);
-                        for (var index in oldItems) {
-                            oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                            oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                            if (oldItems[index].maxNumber) {
-                                oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                if (unit.TMR) {
+                                    unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                    if (unit.rarity_min > 3 && !unit.is_summonable) {
+                                        unitNamesById[unitIndex].event = true;
+                                    }
+                                }
+                                if (unit.sTMR) {
+                                    unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                }
                             }
-                        }
 
-                        fs.readFile('../../static/JP/releasedUnits.json', function (err, content) {
-                            releasedUnits = JSON.parse(content);
 
-                            var result = {"items":[]};
-                            for (var itemId in items) {
-                                treatItem(items,itemId, result, skills);
-                            }
-                            for (var materiaId in materias) {
-                                treatItem(materias,materiaId, result, skills);
-                            }
-                            console.log(skillNotIdentifiedNumber);
-                            fs.writeFileSync('data.json', formatOutput(result.items));
+
+                            fs.readFile('../../static/JP/data.json', function (err, content) {
+                                var oldItems = JSON.parse(content);
+                                for (var index in oldItems) {
+                                    oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                    oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                    if (oldItems[index].maxNumber) {
+                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                    }
+                                }
+
+                                fs.readFile('../../static/JP/releasedUnits.json', function (err, content) {
+                                    releasedUnits = JSON.parse(content);
+
+                                    var result = {"items":[]};
+                                    for (var itemId in items) {
+                                        treatItem(items,itemId, result, skills);
+                                    }
+                                    for (var materiaId in materias) {
+                                        treatItem(materias,materiaId, result, skills);
+                                    }
+                                    console.log(skillNotIdentifiedNumber);
+                                    fs.writeFileSync('data.json', formatOutput(result.items));
+                                });
+                            });
                         });
                     });
                 });

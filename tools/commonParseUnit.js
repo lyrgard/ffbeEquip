@@ -899,6 +899,7 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     } else if (rawEffect[2] == 72) {
         
         var lbIn = lbs[rawEffect[3][0]];
+        console.log(JSON.stringify(rawEffect));
         var lb = parseLb(lbIn, unit, skills);
         result = {
             "replaceLb": lb

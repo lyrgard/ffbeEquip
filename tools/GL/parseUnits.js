@@ -50,82 +50,100 @@ function getData(filename, callback) {
 
 console.log("Starting");
 getData('units.json', function (units) {
-    getData('skills.json', function (skills) {
-        getData('limitbursts.json', function (lbs) {
-            getData('enhancements.json', function (enhancements) {
-                getData('unit_latent_skills.json', function (latentSkills) {
-                    request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/units.json', function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
-                            console.log("jp units downloaded");
-                            var jpUnits = JSON.parse(body);
-                            fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
-                                imgUrls = JSON.parse(imgUrlContent);
+    getData('skills_ability.json', function (skills) {
+        getData('skills_passive.json', function (passives) {
+            getData('skills_magic.json', function (magics) {
+                Object.keys(skills).forEach(skillId => {
+                    skills[skillId].active = true;
+                    skills[skillId].type = "ABILITY";
+                });
+                Object.keys(passives).forEach(skillId => {
+                    skills[skillId] = passives[skillId];
+                    skills[skillId].active = false;
+                    skills[skillId].type = "PASSIVE";
+                });
+                Object.keys(magics).forEach(skillId => {
+                    skills[skillId] = magics[skillId];
+                    skills[skillId].active = true;
+                    skills[skillId].type = "MAGIC";
+                });
+                getData('limitbursts.json', function (lbs) {
+                    getData('enhancements.json', function (enhancements) {
+                        getData('unit_latent_skills.json', function (latentSkills) {
+                            request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-jp/master/units.json', function (error, response, body) {
+                                if (!error && response.statusCode == 200) {
+                                    console.log("jp units downloaded");
+                                    var jpUnits = JSON.parse(body);
+                                    fs.readFile('../imgUrls.json', function (err, imgUrlContent) {
+                                        imgUrls = JSON.parse(imgUrlContent);
 
-                                fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
+                                        fs.readFile('../../static/JP/units.json', function (err, nameDatacontent) {
 
-                                    var nameData = JSON.parse(nameDatacontent);
-                                    for (var unitId in nameData) {
-                                        jpNameById[unitId] = nameData[unitId].name;
-                                    }
+                                            var nameData = JSON.parse(nameDatacontent);
+                                            for (var unitId in nameData) {
+                                                jpNameById[unitId] = nameData[unitId].name;
+                                            }
 
-                                    for (var index in enhancements) {
-                                        var enhancement = enhancements[index];
-                                        for (var unitIdIndex in enhancement.units) {
-                                            var unitId = enhancement.units[unitIdIndex].toString();
-                                            if (!enhancementsByUnitId[unitId]) {
-                                                enhancementsByUnitId[unitId] = {};
+                                            for (var index in enhancements) {
+                                                var enhancement = enhancements[index];
+                                                for (var unitIdIndex in enhancement.units) {
+                                                    var unitId = enhancement.units[unitIdIndex].toString();
+                                                    if (!enhancementsByUnitId[unitId]) {
+                                                        enhancementsByUnitId[unitId] = {};
+                                                    }
+                                                    enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
+                                                }
                                             }
-                                            enhancementsByUnitId[unitId][enhancement.skill_id_old.toString()] = enhancement.skill_id_new.toString();
-                                        }
-                                    }
-                                    let enhancedLatentAbilities = [];
-                                    Object.keys(latentSkills).forEach(id => {
-                                        let latentSkill = latentSkills[id];
-                                        let unitId = latentSkill.units[0].toString();
-                                        if (latentSkill.next_id) {
-                                            if (!enhancementsByUnitId[unitId]) {
-                                                enhancementsByUnitId[unitId] = {};
+                                            let enhancedLatentAbilities = [];
+                                            Object.keys(latentSkills).forEach(id => {
+                                                let latentSkill = latentSkills[id];
+                                                let unitId = latentSkill.units[0].toString();
+                                                if (latentSkill.next_id) {
+                                                    if (!enhancementsByUnitId[unitId]) {
+                                                        enhancementsByUnitId[unitId] = {};
+                                                    }
+                                                    enhancementsByUnitId[unitId][latentSkill.skill_id.toString()] = latentSkills[latentSkill.next_id].skill_id.toString();
+                                                    enhancedLatentAbilities.push(latentSkills[latentSkill.next_id].skill_id.toString());
+                                                }
+                                                if (!enhancedLatentAbilities.includes(latentSkill.skill_id.toString())) {
+                                                    if (!latentSkillsByUnitId[unitId]) {
+                                                        latentSkillsByUnitId[unitId] = [];
+                                                    }
+                                                    latentSkillsByUnitId[unitId].push(latentSkill.skill_id.toString());
+                                                }
+                                            });
+                                            for (languageId = 0; languageId < languages.length; languageId++) {
+
+                                                var unitsOut = {};
+                                                for (var unitId in units) {
+                                                    var unitIn = units[unitId];
+                                                    if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name && !filterUnits.includes(unitId)) {
+                                                        var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, latentSkillsByUnitId);
+                                                        unitsOut[unitOut.data.id] = unitOut.data;
+                                                    }
+                                                }
+
+                                                var filename = 'unitsWithPassives.json';
+                                                if (languageId != 0) {
+                                                    filename = 'unitsWithPassives_' + languages[languageId] + '.json';
+                                                }
+                                                fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
+                                                filename = 'units.json';
+                                                if (languageId != 0) {
+                                                    filename = 'units_' + languages[languageId] + '.json';
+                                                }
+                                                fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
+
+                                                if (languageId == 0) {
+                                                    fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
+                                                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                                }
                                             }
-                                            enhancementsByUnitId[unitId][latentSkill.skill_id.toString()] = latentSkills[latentSkill.next_id].skill_id.toString();
-                                            enhancedLatentAbilities.push(latentSkills[latentSkill.next_id].skill_id.toString());
-                                        }
-                                        if (!enhancedLatentAbilities.includes(latentSkill.skill_id.toString())) {
-                                            if (!latentSkillsByUnitId[unitId]) {
-                                                latentSkillsByUnitId[unitId] = [];
-                                            }
-                                            latentSkillsByUnitId[unitId].push(latentSkill.skill_id.toString());
-                                        }
+                                        });
                                     });
-                                    for (languageId = 0; languageId < languages.length; languageId++) {
-
-                                        var unitsOut = {};
-                                        for (var unitId in units) {
-                                            var unitIn = units[unitId];
-                                            if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name && !filterUnits.includes(unitId)) {
-                                                var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, latentSkillsByUnitId);
-                                                unitsOut[unitOut.data.id] = unitOut.data;
-                                            }
-                                        }
-
-                                        var filename = 'unitsWithPassives.json';
-                                        if (languageId != 0) {
-                                            filename = 'unitsWithPassives_' + languages[languageId] + '.json';
-                                        }
-                                        fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                                        filename = 'units.json';
-                                        if (languageId != 0) {
-                                            filename = 'units_' + languages[languageId] + '.json';
-                                        }
-                                        fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-
-                                        if (languageId == 0) {
-                                            fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                                            fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
-                                        }
-                                    }
-                                });
+                                }
                             });
-                        }
+                        });
                     });
                 });
             });

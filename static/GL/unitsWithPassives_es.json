@@ -5667,8 +5667,8 @@
 		]
 	},
 	"100024305": {
-		"name":"Kimono Fina",
-		"wikiEntry":"晴れ着フィーナ",
+		"name":"Fina con kimono",
+		"wikiEntry":"Kimono_Fina",
 		"id":"100024305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5681,15 +5681,15 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":15, "mp%":20, "mag%":110, "spr%":30, "singleWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10, "skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2}},
+			{"hp%":15, "mp%":20, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10},
 			{"killers":[{"name":"bird","magical":25}], "equipedConditions":["bow"]},
-			{"hp%":30, "mp%":30, "mag%":30, "equipedConditions":[["312002600","405006500"]]},
+			{"hp%":30, "mp%":30, "mag%":30, "skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2}, "equipedConditions":[["312002600","405006500"]]},
 			{"mp%":20, "levelCondition":115},
-			{"mag%":40, "singleWielding":{"mag":50}, "levelCondition":120}
+			{"mag%":40, "singleWielding":{"mag":50}, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Kimono Fina",
-			"wikiEntry":"晴れ着フィーナ",
+			"name":"Fina con kimono",
+			"wikiEntry":"Kimono_Fina",
 			"id":"100024305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5703,7 +5703,7 @@
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":15, "mp%":20, "mag%":110, "spr%":30, "singleWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10, "skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2}},
+				{"hp%":15, "mp%":20, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10},
 				{"killers":[{"name":"bird","magical":25}], "equipedConditions":["bow"]}
 			]
 		}
@@ -13248,7 +13248,7 @@
 	},
 	"334000105": {
 		"name":"Primrose",
-		"wikiEntry":"プリムロゼ",
+		"wikiEntry":"Primrose",
 		"id":"334000105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -13256,19 +13256,19 @@
 		"stats": {
 			"maxStats":{"hp":4461,"mp":276,"atk":124,"def":161,"mag":193,"spr":205},
 			"minStats":{"hp":1472,"mp":91,"atk":41,"def":53,"mag":64,"spr":68},
-			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
-			{"hp%":20, "mp%":40, "def%":10, "mag%":50, "spr%":50, "resist":[{"name":"dark","percent":20},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
-			{"hp%":30, "mag%":30, "equipedConditions":[["409026600","504229633"]]},
+			{"hp%":20, "mp%":40, "def%":30, "mag%":70, "spr%":70, "resist":[{"name":"dark","percent":20},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"hp%":30, "spr%":30, "equipedConditions":[["409026600","504229633"]]},
 			{"mag%":20, "levelCondition":115},
-			{"def%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"dark","percent":30}], "levelCondition":120}
+			{"def%":30, "spr%":30, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"dark","percent":30}], "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Primrose",
-			"wikiEntry":"プリムロゼ",
+			"wikiEntry":"Primrose",
 			"id":"334000105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -13277,18 +13277,18 @@
 			"stats": {
 				"maxStats":{"hp":3432,"mp":213,"atk":96,"def":124,"mag":149,"spr":158},
 				"minStats":{"hp":1133,"mp":70,"atk":32,"def":41,"mag":49,"spr":52},
-				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","lightShield","hat","clothes","lightArmor","robe"],
 			"skills": [
-				{"hp%":20, "mp%":40, "def%":10, "mag%":50, "spr%":50, "resist":[{"name":"dark","percent":20},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"charm","percent":100}], "mpRefresh":5}
+				{"hp%":20, "mp%":40, "def%":30, "mag%":70, "spr%":70, "resist":[{"name":"dark","percent":20},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"charm","percent":100}], "mpRefresh":5}
 			]
 		}
 	},
 	"334000205": {
 		"name":"Olberic",
-		"wikiEntry":"オルベリク",
+		"wikiEntry":"Olberic",
 		"id":"334000205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -13301,9 +13301,9 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":70, "atk%":70, "def%":20, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
-			{"def%":20, "equipedConditions":["lightShield"]},
-			{"def%":20, "equipedConditions":["heavyShield"]},
+			{"hp%":70, "atk%":70, "def%":20, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
+			{"def%":30, "equipedConditions":["lightShield"]},
+			{"def%":30, "equipedConditions":["heavyShield"]},
 			{"def%":30, "equipedConditions":["lightArmor"]},
 			{"atk%":50, "def%":50, "equipedConditions":[["504229634","406004000"]]},
 			{"mp%":20, "levelCondition":115},
@@ -13311,7 +13311,7 @@
 		],
 		"6_form": {
 			"name":"Olberic",
-			"wikiEntry":"オルベリク",
+			"wikiEntry":"Olberic",
 			"id":"334000205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -13325,16 +13325,16 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","staff","hammer","spear","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":70, "atk%":70, "def%":20, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
-				{"def%":20, "equipedConditions":["lightShield"]},
-				{"def%":20, "equipedConditions":["heavyShield"]},
+				{"hp%":70, "atk%":70, "def%":20, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "drawAttacks":50},
+				{"def%":30, "equipedConditions":["lightShield"]},
+				{"def%":30, "equipedConditions":["heavyShield"]},
 				{"def%":30, "equipedConditions":["lightArmor"]}
 			]
 		}
 	},
 	"334000304": {
 		"name":"Therion",
-		"wikiEntry":"テリオン",
+		"wikiEntry":"Therion",
 		"id":"334000304",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -13347,12 +13347,12 @@
 		"stats_pattern":1,
 		"equip":["dagger","sword","whip","throwing","lightShield","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":50, "evade":{"physical":20}}
+			{"hp%":20, "mp%":20, "atk%":70, "evade":{"physical":20}}
 		]
 	},
 	"334000403": {
 		"name":"Tressa",
-		"wikiEntry":"トレサ",
+		"wikiEntry":"Tressa",
 		"id":"334000403",
 		"max_rarity":"5",
 		"min_rarity":"3",
