@@ -13421,6 +13421,139 @@
 			{"atk%":30, "equipedConditions":["spear"]}
 		]
 	},
+	"249000105": {
+		"name":"Yuna (FFX-2)",
+		"jpname":"ユウナ(FFX-2)",
+		"id":"249000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4952,"mp":245,"atk":207,"def":196,"mag":198,"spr":199},
+			"minStats":{"hp":1634,"mp":81,"atk":68,"def":65,"mag":65,"spr":66},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","whip","gun","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":50, "atk%":60, "def%":30, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100}], "mpRefresh":10, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}, "special":["dualWield"]},
+			{"atk%":30, "spr%":30, "equipedConditions":["clothes"]},
+			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "equipedConditions":[["504232860","313006200"]]},
+			{"atk%":50, "killers":[{"name":"undead","physical":50}], "lbDamage":50, "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"atk%":40, "dualWielding":{"atk":50}, "skillEnhancement":{"232868":7.5,"232869":7.5,"232870":7.5,"232871":7.5,"232872":4,"232874":4,"510694":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Yuna (FFX-2)",
+			"jpname":"ユウナ(FFX-2)",
+			"id":"249000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3809,"mp":188,"atk":159,"def":150,"mag":152,"spr":153},
+				"minStats":{"hp":1257,"mp":62,"atk":52,"def":50,"mag":50,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","whip","gun","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":50, "atk%":60, "def%":30, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100}], "mpRefresh":10, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}, "special":["dualWield"]},
+				{"atk%":30, "spr%":30, "equipedConditions":["clothes"]}
+			]
+		}
+	},
+	"249000205": {
+		"name":"Rikku (FFX-2)",
+		"jpname":"リュック(FFX-2)",
+		"id":"249000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4910,"mp":243,"atk":205,"def":194,"mag":196,"spr":197},
+			"minStats":{"hp":1620,"mp":80,"atk":68,"def":64,"mag":65,"spr":65},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":70, "def%":50, "improvedDW":true, "resist":[{"name":"lightning","percent":40},{"name":"disease","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"spr%":30, "equipedConditions":["clothes"]},
+			{"atk%":30, "equipedConditions":["dagger"]},
+			{"hp%":40, "mp%":40, "atk%":40, "dualWielding":{"atk":50}, "equipedConditions":[["409035600","504232863"]]},
+			{"atk%":20, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"dualWielding":{"atk":50}, "skillEnhancement":{"232895":5,"232897":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Rikku (FFX-2)",
+			"jpname":"リュック(FFX-2)",
+			"id":"249000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3776,"mp":186,"atk":157,"def":149,"mag":150,"spr":151},
+				"minStats":{"hp":1246,"mp":61,"atk":52,"def":49,"mag":50,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","fist","lightShield","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":70, "def%":50, "improvedDW":true, "resist":[{"name":"lightning","percent":40},{"name":"disease","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+				{"spr%":30, "equipedConditions":["clothes"]},
+				{"atk%":30, "equipedConditions":["dagger"]}
+			]
+		}
+	},
+	"249000305": {
+		"name":"Paine",
+		"jpname":"パイン",
+		"id":"249000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5000,"mp":244,"atk":209,"def":196,"mag":138,"spr":168},
+			"minStats":{"hp":1650,"mp":81,"atk":69,"def":65,"mag":46,"spr":55},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":40, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"atk%":30, "equipedConditions":["greatSword"]},
+			{"hp%":20, "atk%":20, "def%":20, "equipedConditions":["greatSword"]},
+			{"atk%":40, "lbFillRate":150, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["409035700","303007100"]]},
+			{"hp%":20, "mp%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"stop","percent":100}], "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"atk%":50, "lbDamage":100, "skillEnhancement":{"232910":15,"232911":15,"232912":15,"232913":15,"232914":5,"232915":5,"232918":4,"510702":15,"510703":15}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Paine",
+			"jpname":"パイン",
+			"id":"249000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3846,"mp":187,"atk":160,"def":150,"mag":106,"spr":129},
+				"minStats":{"hp":1269,"mp":62,"atk":53,"def":50,"mag":35,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":40, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"atk%":30, "equipedConditions":["greatSword"]},
+				{"hp%":20, "atk%":20, "def%":20, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
 	"253000105": {
 		"name":"Ramza",
 		"jpname":"ラムザ",
@@ -17124,6 +17257,92 @@
 			"skills": [
 				{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"335000305": {
+		"name":"Sephiroth (KH)",
+		"jpname":"セフィロス(キングダム ハーツ)",
+		"id":"335000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4822,"mp":247,"atk":209,"def":187,"mag":157,"spr":177},
+			"minStats":{"hp":1591,"mp":82,"atk":69,"def":62,"mag":52,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":30, "atk%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
+			{"atk%":30, "def%":30, "equipedConditions":["clothes"]},
+			{"atk%":50, "equipedConditions":["katana"]},
+			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405008400","304005000"]]},
+			{"atk%":40, "resist":[{"name":"light","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"human","physical":100}], "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"mp%":30, "def%":30, "lbPerTurn":{"min":6,"max":6}, "skillEnhancement":{"232975":5,"232976":5,"232980":1}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sephiroth (KH)",
+			"jpname":"セフィロス(キングダム ハーツ)",
+			"id":"335000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3709,"mp":190,"atk":160,"def":143,"mag":120,"spr":136},
+				"minStats":{"hp":1224,"mp":63,"atk":53,"def":47,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":30, "atk%":20, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
+				{"atk%":30, "def%":30, "equipedConditions":["clothes"]},
+				{"atk%":50, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"335000405": {
+		"name":"Riku",
+		"jpname":"リク",
+		"id":"335000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4885,"mp":240,"atk":207,"def":191,"mag":134,"spr":173},
+			"minStats":{"hp":1612,"mp":79,"atk":68,"def":63,"mag":44,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":[["302010500","504232931"]]},
+			{"def%":30, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"dualWielding":{"atk":100}, "lbPerTurn":{"min":5,"max":5}, "skillEnhancement":{"232954":3,"232955":5.5,"232957":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Riku",
+			"jpname":"リク",
+			"id":"335000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3757,"mp":184,"atk":159,"def":146,"mag":103,"spr":133},
+				"minStats":{"hp":1240,"mp":61,"atk":52,"def":48,"mag":34,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "special":["dualWield"]}
 			]
 		}
 	},

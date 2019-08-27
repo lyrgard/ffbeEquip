@@ -728,7 +728,7 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         }
         
     // +EQ stat when dual wielding
-    } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 69) {
+    } else if (rawEffect[2] == 69) {
         if (!item.dualWielding) {item.dualWielding = {}};
         var dualWieldingStat;
         if (rawEffect[3][0] == 1) {
