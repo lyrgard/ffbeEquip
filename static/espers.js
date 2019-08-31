@@ -863,6 +863,7 @@ function displayEspers() {
         tabs += "<li class='ALL' data-esper='ALL' title='Stats on all espers'><a><i class='img img-esper-ALL'></i></a></li>";
         for (var index = 0; index < espers.length; index++) {
             var escapedName = escapeName(espers[index].name);
+            console.log(escapedName);
             var owned = ownedEspers[espers[index].name] ? true : false;
             tabs += "<li class=\"" + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
                     "data-esper=\"" + espers[index].name + "\" "+

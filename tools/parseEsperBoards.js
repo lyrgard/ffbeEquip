@@ -139,62 +139,81 @@ function getData(filename, callback) {
 console.log("Starting");
 getData('summons.json', function (espers) {
     getData('summons_boards.json', function (esperBoards) {
-        getData('skills.json', function (skills) {
-            fs.readFile('./esperProgression.json', function (err, content) {
-                var esperProgression = JSON.parse(content);
-                var out = {};
-                for (var esperId in espers) {
-                    var esper = espers[esperId];
-                    var boardOut = {};
-                    var esperName = esper.names[0];
-                    if (espersMap[esperName]) {
-                        esperName = espersMap[esperName];
-                    }
-                    out[esperName] = boardOut;
-                    boardOut.stats = {};
-                    boardOut.resist = {};
-                    boardOut.statPattern = {};
-                    for (var i = 0; i < esper.entries.length; i++) {
-                        boardOut.stats[i+1] = esper.entries[i].stats;
-                        boardOut.resist[i+1] = getResist(esper.entries[i]);
-                        boardOut.statPattern[i+1] = esper.entries[i]['stat_pattern'];
-                    }
-                    var boardIn = esperBoards[esperId];
-                    var nodeByIds = {};
-                    var rootNodeId = 0;
-                    for (var nodeId in boardIn) {
-                        var node = boardIn[nodeId];
-                        if (!node.parent_node_id && !rootNodeId) {
-                            rootNodeId = nodeId
-                        } else {
-                            var nodeOut = getNode(node, skills);
-                            nodeByIds[nodeId] = nodeOut;
-                        }
-                    }
-                    
-                    boardOut.nodes = [];
-                    for (var nodeId in boardIn) {
-                        var node = boardIn[nodeId];
-                        var nodeOut = nodeByIds[nodeId];
-                        if (node.parent_node_id) {
-                            if (node.parent_node_id == rootNodeId) {
-                                boardOut.nodes.push(nodeOut);
-                            } else {
-                                var parentNode = nodeByIds[node.parent_node_id];
-                                if (!parentNode) {
-                                    console.log(esperName);
-                                    console.log(nodeId);
-                                    console.log(rootNodeId);
-                                    console.log(node.parent_node_id);
-                                }
-                                parentNode.children.push(nodeOut);
+        getData('skills_ability.json', function (skills) {
+            getData('skills_passive.json', function (passives) {
+                getData('skills_magic.json', function (magics) {
+                    Object.keys(skills).forEach(skillId => {
+                        skills[skillId].active = true;
+                        skills[skillId].type = "ABILITY";
+                    });
+                    Object.keys(passives).forEach(skillId => {
+                        skills[skillId] = passives[skillId];
+                        skills[skillId].active = false;
+                        skills[skillId].type = "PASSIVE";
+                    });
+                    Object.keys(magics).forEach(skillId => {
+                        skills[skillId] = magics[skillId];
+                        skills[skillId].active = true;
+                        skills[skillId].type = "MAGIC";
+                    });
+                    fs.readFile('./esperProgression.json', function (err, content) {
+                        var esperProgression = JSON.parse(content);
+                        var out = {};
+                        Object.keys(espers).forEach(esperId => {
+                            var esper = espers[esperId];
+                            var boardOut = {};
+                            var esperName = esper.names[0];
+                            console.log(esperName);
+                            if (espersMap[esperName]) {
+                                esperName = espersMap[esperName];
                             }
-                        }
-                    }
-                    boardOut.progression = esperProgression[esperName];
+                            out[esperName] = boardOut;
+                            boardOut.stats = {};
+                            boardOut.resist = {};
+                            boardOut.statPattern = {};
+                            for (var i = 0; i < esper.entries.length; i++) {
+                                boardOut.stats[i+1] = esper.entries[i].stats;
+                                boardOut.resist[i+1] = getResist(esper.entries[i]);
+                                boardOut.statPattern[i+1] = esper.entries[i]['stat_pattern'];
+                            }
+                            var boardIn = esperBoards[esperId];
+                            var nodeByIds = {};
+                            var rootNodeId = 0;
+                            for (var nodeId in boardIn) {
+                                var node = boardIn[nodeId];
+                                if (!node.parent_node_id && !rootNodeId) {
+                                    rootNodeId = nodeId
+                                } else {
+                                    var nodeOut = getNode(node, skills);
+                                    nodeByIds[nodeId] = nodeOut;
+                                }
+                            }
 
-                    fs.writeFileSync(server + '/esperBoards.json', formatOutput(out));
-                }
+                            boardOut.nodes = [];
+                            for (var nodeId in boardIn) {
+                                var node = boardIn[nodeId];
+                                var nodeOut = nodeByIds[nodeId];
+                                if (node.parent_node_id) {
+                                    if (node.parent_node_id == rootNodeId) {
+                                        boardOut.nodes.push(nodeOut);
+                                    } else {
+                                        var parentNode = nodeByIds[node.parent_node_id];
+                                        if (!parentNode) {
+                                            console.log(esperName);
+                                            console.log(nodeId);
+                                            console.log(rootNodeId);
+                                            console.log(node.parent_node_id);
+                                        }
+                                        parentNode.children.push(nodeOut);
+                                    }
+                                }
+                            }
+                            boardOut.progression = esperProgression[esperName];
+
+                            fs.writeFileSync(server + '/esperBoards.json', formatOutput(out));
+                        });
+                    });
+                });
             });
         });
     });
