@@ -1287,7 +1287,7 @@ importValidator.addSchema('units', {
       },
       enhancements: {
         type: 'array',
-        maxItems: 20,
+        maxItems: 30,
         items: {
           type: "string",
           minLength: 5,

@@ -13583,7 +13583,7 @@
 		"skills": [
 			{"hp%":50, "mp%":40, "mag%":100, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5, "special":["dualWield"]},
 			{"hp%":20, "def%":20, "spr%":20, "evade":{"physical":20}, "equipedConditions":[["1100000121","1500000088"]]},
-			{"mag%":30, "skillEnhancement":{"910652":1,"910654":1,"911790":1,"911791":1,"911794":1,"911795":1}, "levelCondition":110},
+			{"mag%":30, "skillEnhancement":{"912854":1,"912855":1}, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
 			{"hp%":20, "spr%":20, "levelCondition":115},
 			{"mag%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "resist":[{"name":"stop","percent":100}], "levelCondition":120}
@@ -14361,7 +14361,7 @@
 			{"evade":{"physical":10}, "dualWielding":{"atk":50}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "equipedConditions":[["1100000184","1100000185"]]},
 			{"resist":[{"name":"water","percent":30},{"name":"wind","percent":30}], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
-			{"skillEnhancement":{"911272":1.5,"911278":10.5,"911279":9,"911280":1.5,"912848":1.5}, "levelCondition":120},
+			{"skillEnhancement":{"911272":1.5,"911278":9,"911279":9,"911280":1.5,"912848":1.5}, "levelCondition":120},
 			{"atk%":20, "def%":20, "equipedConditions":["katana"], "levelCondition":120}
 		],
 		"6_form": {
@@ -15105,10 +15105,8 @@
 			{"def%":10, "spr%":10, "equipedConditions":["clothes"]},
 			{"def%":10, "spr%":10, "equipedConditions":["lightArmor"]},
 			{"def%":10, "spr%":10, "equipedConditions":["robe"]},
-			{"equipedConditions":[["1100000300","1100000301"]]},
 			{"mp%":30, "def%":30, "spr%":30, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "equipedConditions":[["1100000300","1100000301"]]},
 			{"mp%":20, "equipedConditions":["robe",["1100000300","1100000301"]]},
-			{"equipedConditions":[["1100000300","1100000301"]]},
 			{"mp%":20, "levelCondition":115},
 			{"resist":[{"name":"charm","percent":100}], "levelCondition":120}
 		],
