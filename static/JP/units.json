@@ -4414,7 +4414,7 @@
 		}
 	},
 	"100023404": {
-		"name":"Atri",
+		"name":"Atlie",
 		"jpname":"アトリ",
 		"id":"100023404",
 		"max_rarity":"6",
@@ -6513,7 +6513,7 @@
 		}
 	},
 	"205001105": {
-		"name":"Light Warrior Bartz",
+		"name":"Warrior of Light Bartz",
 		"jpname":"光の戦士バッツ",
 		"id":"205001105",
 		"max_rarity":"7",
@@ -6527,7 +6527,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"Light Warrior Bartz",
+			"name":"Warrior of Light Bartz",
 			"jpname":"光の戦士バッツ",
 			"id":"205001105",
 			"sixStarForm":true,
@@ -6544,7 +6544,7 @@
 		}
 	},
 	"205001205": {
-		"name":"Light Warrior Lenna",
+		"name":"Warrior of Light Lenna",
 		"jpname":"光の戦士レナ",
 		"id":"205001205",
 		"max_rarity":"7",
@@ -6558,7 +6558,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"Light Warrior Lenna",
+			"name":"Warrior of Light Lenna",
 			"jpname":"光の戦士レナ",
 			"id":"205001205",
 			"sixStarForm":true,
@@ -12113,6 +12113,207 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"337000105": {
+		"name":"Luminary",
+		"jpname":"勇者イレブン",
+		"id":"337000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4979,"mp":245,"atk":208,"def":193,"mag":160,"spr":185},
+			"minStats":{"hp":1643,"mp":81,"atk":69,"def":64,"mag":53,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Luminary",
+			"jpname":"勇者イレブン",
+			"id":"337000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3830,"mp":188,"atk":160,"def":148,"mag":123,"spr":142},
+				"minStats":{"hp":1264,"mp":62,"atk":53,"def":49,"mag":41,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"337000205": {
+		"name":"Veronica",
+		"jpname":"ベロニカ",
+		"id":"337000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4488,"mp":288,"atk":146,"def":150,"mag":220,"spr":204},
+			"minStats":{"hp":1481,"mp":95,"atk":48,"def":50,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"6_form": {
+			"name":"Veronica",
+			"jpname":"ベロニカ",
+			"id":"337000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3452,"mp":221,"atk":112,"def":115,"mag":169,"spr":156},
+				"minStats":{"hp":1139,"mp":73,"atk":37,"def":38,"mag":56,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","hat","clothes","robe"]
+		}
+	},
+	"337000305": {
+		"name":"Serena",
+		"jpname":"セーニャ",
+		"id":"337000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4616,"mp":266,"atk":149,"def":171,"mag":172,"spr":215},
+			"minStats":{"hp":1523,"mp":88,"atk":49,"def":56,"mag":57,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"],
+		"6_form": {
+			"name":"Serena",
+			"jpname":"セーニャ",
+			"id":"337000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3550,"mp":204,"atk":114,"def":131,"mag":132,"spr":165},
+				"minStats":{"hp":1172,"mp":67,"atk":38,"def":43,"mag":44,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"]
+		}
+	},
+	"337000405": {
+		"name":"Erik",
+		"jpname":"カミュ",
+		"id":"337000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4691,"mp":246,"atk":208,"def":183,"mag":155,"spr":182},
+			"minStats":{"hp":1548,"mp":81,"atk":69,"def":60,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Erik",
+			"jpname":"カミュ",
+			"id":"337000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3608,"mp":189,"atk":160,"def":140,"mag":119,"spr":140},
+				"minStats":{"hp":1191,"mp":62,"atk":53,"def":46,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"]
+		}
+	},
+	"337000505": {
+		"name":"Mordegon",
+		"jpname":"魔道士ウルノーガ",
+		"id":"337000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4644,"mp":281,"atk":150,"def":158,"mag":217,"spr":206},
+			"minStats":{"hp":1533,"mp":93,"atk":50,"def":52,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe"],
+		"6_form": {
+			"name":"Mordegon",
+			"jpname":"魔道士ウルノーガ",
+			"id":"337000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3572,"mp":216,"atk":115,"def":121,"mag":166,"spr":158},
+				"minStats":{"hp":1179,"mp":71,"atk":38,"def":40,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hat","clothes","robe"]
+		}
+	},
+	"337000605": {
+		"name":"Jasper Unbound",
+		"jpname":"魔軍司令ホメロス",
+		"id":"337000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":248,"atk":207,"def":184,"mag":163,"spr":196},
+			"minStats":{"hp":1586,"mp":82,"atk":68,"def":61,"mag":54,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","fist","hat","lightArmor"],
+		"6_form": {
+			"name":"Jasper Unbound",
+			"jpname":"魔軍司令ホメロス",
+			"id":"337000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3696,"mp":190,"atk":159,"def":141,"mag":125,"spr":150},
+				"minStats":{"hp":1220,"mp":63,"atk":52,"def":47,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","spear","fist","hat","lightArmor"]
+		}
+	},
+	"337000704": {
+		"name":"Great Dragon",
+		"jpname":"グレイトドラゴン",
+		"id":"337000704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3830,"mp":128,"atk":162,"def":128,"mag":102,"spr":134},
+			"minStats":{"hp":1264,"mp":42,"atk":53,"def":42,"mag":34,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["fist","hat","helm","lightArmor"]
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",

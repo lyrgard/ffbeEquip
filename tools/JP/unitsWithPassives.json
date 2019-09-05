@@ -3007,8 +3007,7 @@
 			{"name":"超高性能カスタムゴーグル","levels":[[],[{"spr%":30,"def%":30,"resist":[{"name":"blind","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"耐衝撃エアバッグ","levels":[[{"spr%":20,"def%":20}],[{"spr%":30,"def%":30}],[{"spr%":30,"def%":30}]]},
 			{"name":"ボアアップ","levels":[[{"lbFillRate":100}],[{"lbFillRate":125}],[{"lbFillRate":150,"lbPerTurn":{"min":1,"max":1}}]]},
-			{"name":"攻撃+20%","levels":[[{"atk%":20,"levelCondition":115}],[{"atk%":30,"levelCondition":115}],[{"atk%":30,"hp%":30,"levelCondition":115}]]},
-			{"name":"AJ式カモフバリーオイル","levels":[[],[]]}
+			{"name":"攻撃+20%","levels":[[{"atk%":20,"levelCondition":115}],[{"atk%":30,"levelCondition":115}],[{"atk%":30,"hp%":30,"levelCondition":115}]]}
 		],
 		"skills": [
 			{"mp%":20, "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
@@ -3036,8 +3035,7 @@
 			{"name":"AJ式カモフバリーオイル","levels":[[],[]]},
 			{"name":"超高性能カスタムゴーグル","levels":[[],[{"spr%":30,"def%":30,"resist":[{"name":"blind","percent":100}],"lbPerTurn":{"min":3,"max":3}}]]},
 			{"name":"耐衝撃エアバッグ","levels":[[{"spr%":20,"def%":20}],[{"spr%":30,"def%":30}],[{"spr%":30,"def%":30}]]},
-			{"name":"ボアアップ","levels":[[{"lbFillRate":100}],[{"lbFillRate":125}],[{"lbFillRate":150,"lbPerTurn":{"min":1,"max":1}}]]},
-			{"name":"AJ式カモフバリーオイル","levels":[[],[]]}
+			{"name":"ボアアップ","levels":[[{"lbFillRate":100}],[{"lbFillRate":125}],[{"lbFillRate":150,"lbPerTurn":{"min":1,"max":1}}]]}
 		],
 			"skills": [
 				{"mp%":20, "killers":[{"name":"machine","physical":75,"magical":75}], "mpRefresh":5},
@@ -6116,7 +6114,7 @@
 		}
 	},
 	"100023404": {
-		"name":"Atri",
+		"name":"Atlie",
 		"jpname":"アトリ",
 		"id":"100023404",
 		"max_rarity":"6",
@@ -9318,7 +9316,7 @@
 		}
 	},
 	"205001105": {
-		"name":"Light Warrior Bartz",
+		"name":"Warrior of Light Bartz",
 		"jpname":"光の戦士バッツ",
 		"id":"205001105",
 		"max_rarity":"7",
@@ -9342,7 +9340,7 @@
 			{"atk%":40, "skillEnhancement":{"230661":1.5,"230664":1.5,"230665":1.5,"230666":1.5,"509623":1.5,"509624":0.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Light Warrior Bartz",
+			"name":"Warrior of Light Bartz",
 			"jpname":"光の戦士バッツ",
 			"id":"205001105",
 			"sixStarForm":true,
@@ -9366,7 +9364,7 @@
 		}
 	},
 	"205001205": {
-		"name":"Light Warrior Lenna",
+		"name":"Warrior of Light Lenna",
 		"jpname":"光の戦士レナ",
 		"id":"205001205",
 		"max_rarity":"7",
@@ -9389,7 +9387,7 @@
 			{"spr%":40, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Light Warrior Lenna",
+			"name":"Warrior of Light Lenna",
 			"jpname":"光の戦士レナ",
 			"id":"205001205",
 			"sixStarForm":true,
@@ -17345,6 +17343,288 @@
 				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "special":["dualWield"]}
 			]
 		}
+	},
+	"337000105": {
+		"name":"Luminary",
+		"jpname":"勇者イレブン",
+		"id":"337000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4979,"mp":245,"atk":208,"def":193,"mag":160,"spr":185},
+			"minStats":{"hp":1643,"mp":81,"atk":69,"def":64,"mag":53,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"mp%":20, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"lightning","percent":50}], "special":["dualWield"]},
+			{"atk%":30, "def%":30, "equipedConditions":["sword"]},
+			{"hp%":30, "mp%":30, "atk%":40, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "equipedConditions":[["404004500","302010700"]]},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "resist":[{"name":"lightning","percent":50}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Luminary",
+			"jpname":"勇者イレブン",
+			"id":"337000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3830,"mp":188,"atk":160,"def":148,"mag":123,"spr":142},
+				"minStats":{"hp":1264,"mp":62,"atk":53,"def":49,"mag":41,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"mp%":20, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"lightning","percent":50}], "special":["dualWield"]},
+				{"atk%":30, "def%":30, "equipedConditions":["sword"]}
+			]
+		}
+	},
+	"337000205": {
+		"name":"Veronica",
+		"jpname":"ベロニカ",
+		"id":"337000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4488,"mp":288,"atk":146,"def":150,"mag":220,"spr":204},
+			"minStats":{"hp":1481,"mp":95,"atk":48,"def":50,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":40, "def%":20, "mag%":80, "spr%":80, "singleWielding":{"mag":125}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":70},{"name":"light","percent":20},{"name":"sleep","percent":100}], "mpRefresh":10},
+			{"mp%":30, "equipedConditions":["rod"]},
+			{"resist":[{"name":"light","percent":50}], "equipedConditions":["robe"]},
+			{"mp%":30, "mag%":30, "singleWielding":{"mag":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["504233006","403049200"]]},
+			{"mag%":40, "resist":[{"name":"charm","percent":100}], "skillEnhancement":{"233138":4.5}, "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"mag%":30, "spr%":30, "skillEnhancement":{"233021":5,"233023":5,"233132":5,"233133":5,"233136":3,"233137":3,"233139":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Veronica",
+			"jpname":"ベロニカ",
+			"id":"337000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3452,"mp":221,"atk":112,"def":115,"mag":169,"spr":156},
+				"minStats":{"hp":1139,"mp":73,"atk":37,"def":38,"mag":56,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":40, "def%":20, "mag%":80, "spr%":80, "singleWielding":{"mag":125}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":70},{"name":"light","percent":20},{"name":"sleep","percent":100}], "mpRefresh":10},
+				{"mp%":30, "equipedConditions":["rod"]},
+				{"resist":[{"name":"light","percent":50}], "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"337000305": {
+		"name":"Serena",
+		"jpname":"セーニャ",
+		"id":"337000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4616,"mp":266,"atk":149,"def":171,"mag":172,"spr":215},
+			"minStats":{"hp":1523,"mp":88,"atk":49,"def":56,"mag":57,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"],
+		"skills": [
+			{"hp%":60, "mp%":50, "def%":20, "spr%":80, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"resist":[{"name":"dark","percent":50}], "equipedConditions":["staff"]},
+			{"resist":[{"name":"wind","percent":30},{"name":"dark","percent":30}], "equipedConditions":["robe"]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":60, "resist":[{"name":"stop","percent":100}], "mpRefresh":5, "equipedConditions":[["408005600","504233009"]]},
+			{"def%":20, "levelCondition":115},
+			{"mp%":30, "spr%":30, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Serena",
+			"jpname":"セーニャ",
+			"id":"337000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3550,"mp":204,"atk":114,"def":131,"mag":132,"spr":165},
+				"minStats":{"hp":1172,"mp":67,"atk":38,"def":43,"mag":44,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"],
+			"skills": [
+				{"hp%":60, "mp%":50, "def%":20, "spr%":80, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"resist":[{"name":"dark","percent":50}], "equipedConditions":["staff"]},
+				{"resist":[{"name":"wind","percent":30},{"name":"dark","percent":30}], "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"337000405": {
+		"name":"Erik",
+		"jpname":"カミュ",
+		"id":"337000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4691,"mp":246,"atk":208,"def":183,"mag":155,"spr":182},
+			"minStats":{"hp":1548,"mp":81,"atk":69,"def":60,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "evade":{"physical":40}, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"earth","percent":40}], "special":["dualWield"]},
+			{"atk%":40, "equipedConditions":["dagger"]},
+			{"mp%":30, "atk%":30, "equipedConditions":["clothes"]},
+			{"hp%":40, "atk%":40, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["301005100","504233011"]]},
+			{"atk%":30, "spr%":30, "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"dualWielding":{"atk":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Erik",
+			"jpname":"カミュ",
+			"id":"337000405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3608,"mp":189,"atk":160,"def":140,"mag":119,"spr":140},
+				"minStats":{"hp":1191,"mp":62,"atk":53,"def":46,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "evade":{"physical":40}, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":40},{"name":"earth","percent":40}], "special":["dualWield"]},
+				{"atk%":40, "equipedConditions":["dagger"]},
+				{"mp%":30, "atk%":30, "equipedConditions":["clothes"]}
+			]
+		}
+	},
+	"337000505": {
+		"name":"Mordegon",
+		"jpname":"魔道士ウルノーガ",
+		"id":"337000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4644,"mp":281,"atk":150,"def":158,"mag":217,"spr":206},
+			"minStats":{"hp":1533,"mp":93,"atk":50,"def":52,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe"],
+		"skills": [
+			{"hp%":50, "mp%":50, "def%":30, "mag%":50, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"ice","percent":30},{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"mag%":40, "equipedConditions":["rod"]},
+			{"equipedConditions":[["409036500","310006300"]]},
+			{"mag%":40, "singleWielding":{"mag":100}, "dualWielding":{"mag":100}, "lbDamage":100, "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"mag%":50, "skillEnhancement":{"233025":2,"233026":2,"510722":2,"510723":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Mordegon",
+			"jpname":"魔道士ウルノーガ",
+			"id":"337000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3572,"mp":216,"atk":115,"def":121,"mag":166,"spr":158},
+				"minStats":{"hp":1179,"mp":71,"atk":38,"def":40,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hat","clothes","robe"],
+			"skills": [
+				{"hp%":50, "mp%":50, "def%":30, "mag%":50, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"ice","percent":30},{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"mag%":40, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"337000605": {
+		"name":"Jasper Unbound",
+		"jpname":"魔軍司令ホメロス",
+		"id":"337000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":248,"atk":207,"def":184,"mag":163,"spr":196},
+			"minStats":{"hp":1586,"mp":82,"atk":68,"def":61,"mag":54,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","fist","hat","lightArmor"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"lightning","percent":30},{"name":"dark","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["fist"]},
+			{"hp%":30, "mp%":30, "atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504233001","504233002"]]},
+			{"atk%":30, "def%":30, "spr%":30, "lbDamage":50, "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"hp%":20, "spr%":30, "resist":[{"name":"dark","percent":50}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Jasper Unbound",
+			"jpname":"魔軍司令ホメロス",
+			"id":"337000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3696,"mp":190,"atk":159,"def":141,"mag":125,"spr":150},
+				"minStats":{"hp":1220,"mp":63,"atk":52,"def":47,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","spear","fist","hat","lightArmor"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"lightning","percent":30},{"name":"dark","percent":30},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["fist"]}
+			]
+		}
+	},
+	"337000704": {
+		"name":"Great Dragon",
+		"jpname":"グレイトドラゴン",
+		"id":"337000704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3830,"mp":128,"atk":162,"def":128,"mag":102,"spr":134},
+			"minStats":{"hp":1264,"mp":42,"atk":53,"def":42,"mag":34,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["fist","hat","helm","lightArmor"],
+		"skills": [
+			{"atk%":60, "lbFillRate":200, "special":["dualWield"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":40, "equipedConditions":["fist"]}
+		]
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
