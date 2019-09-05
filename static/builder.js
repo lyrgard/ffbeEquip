@@ -120,6 +120,7 @@ var secondaryOptimizationFixedItemSave;
 var secondaryOptimizationFormulaSave;
 
 var defaultWeaponEnhancement = [];
+var parameterChallengesMode = false;
 var runningParamChallenge = false;
 var currentUnitIdIndexForParamChallenge = -1;
 var currentBestParamChallengeBuild = {
@@ -160,7 +161,7 @@ function build() {
     
     running = true;
     $("body").addClass("building");
-    $("#buildButton").text("STOP");
+    updateBuildButtonDisplay();
     
     try {
         optimize();
@@ -177,9 +178,23 @@ function stopBuild() {
     initWorkers();
     workerWorkingCount = 0;
     running = false;
-    $("#buildButton").text("Build !");
+    updateBuildButtonDisplay();
     $("body").removeClass("building");
     runningParamChallenge = false;
+}
+
+function updateBuildButtonDisplay() {
+    if (running) {
+        $("#buildButton").removeClass('hidden');
+        $("#buildButton").text("STOP");
+    } else {
+        $("#buildButton").text("Build !");
+        if (parameterChallengesMode) {
+            $("#buildButton").addClass('hidden');
+        } else {
+            $("#buildButton").removeClass('hidden');
+        }
+    }
 }
 
 function optimize() {
@@ -1460,6 +1475,16 @@ function updateUnitStats() {
         
 }
 
+function reinitBuilds() {
+    for (var i = builds.length; i-- > 1; ) {
+        closeTab(i);
+    }
+    builds[0] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
+    loadBuild(0);
+    $(".panel.goal .goalLine").addClass("hidden");
+    $(".panel.goal .simpleConditions").addClass("hidden");
+}
+
 function reinitBuild(buildIndex) {
     builds[buildIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
     readGoal(buildIndex);
@@ -1578,6 +1603,14 @@ function inventoryLoaded() {
         $(".panel.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
+}
+
+function updateSavedTeamPanelVisibility() {
+    if (itemInventory) {
+        $("#savedTeamPanel").removeClass("hidden");
+    } else {
+        $("#savedTeamPanel").addClass("hidden");
+    }
 }
 
 function notLoaded() {
@@ -3420,12 +3453,18 @@ function findUnitForParamChallenge() {
     chooseCustomFormula(tokens[0]);
     builds[currentUnitIndex] = currentBestParamChallengeBuild.build;
     logCurrentBuild();
+    updateFindAWayButtonDisplay();
+}
+
+function updateFindAWayButtonDisplay() {
+    if (currentUnitIdIndexForParamChallenge == -1) {
+        $('#paramChallengeButton').text('Find a way !');
+    } else {
+        $('#paramChallengeButton').text('Find another way !');
+    }
 }
 
 function getUnitBaseValue(stat, unit) {
-    if (!unit) {
-        console.log("!!");
-    }
     let baseStatValue = unit.stats.maxStats[stat] + unit.stats.pots[stat];
     var coef = 1;
     if (unit.skills && unit.skills[0] && unit.skills[0][stat + '%']) {
@@ -3433,6 +3472,34 @@ function getUnitBaseValue(stat, unit) {
     }
     return baseStatValue * coef;
 }
+
+
+function onFeatureSelect(selectedFeature) {
+    if (selectedFeature === 'buildAUnit') {
+        $('.panel.buildRules').removeClass('hidden');
+        $('#addNewUnitButton').removeClass('hidden');
+        updateSavedTeamPanelVisibility();
+        parameterChallengesMode = false;
+    } else {
+        reinitBuilds();
+        $('.panel.unit').addClass('hidden');
+        $('.panel.buildRules').addClass('hidden');
+        $('.panel.monster').addClass('hidden');
+        $('#addNewUnitButton').addClass('hidden');
+        $("#savedTeamPanel").addClass("hidden");
+        if (itemInventory) {
+            $('#parameterChallenges .content').removeClass("hidden");
+            $('#parameterChallenges .notAvailableMessage').addClass("hidden");
+        } else {
+            $('#parameterChallenges .content').addClass("hidden");
+            $('#parameterChallenges .notAvailableMessage').removeClass("hidden");
+        }
+        currentUnitIdIndexForParamChallenge = -1;
+        parameterChallengesMode = true;
+    }
+    updateBuildButtonDisplay();
+}
+
 
 // will be called by common.js at page load
 function startPage() {
@@ -3672,6 +3739,7 @@ function initWorkers() {
                                 progressElement.width("100%");
                                 progressElement.text("100%");    
                                 document.title = "100% - FFBE Equip - Builder";
+                                updateFindAWayButtonDisplay();
                             } else {
                                 if (messageData.value.max > currentBestParamChallengeBuild.value) {
                                     currentBestParamChallengeBuild.build = builds[currentUnitIndex];
@@ -3723,7 +3791,7 @@ function initWorkers() {
                             progressElement.addClass("finished");
                             $("body").removeClass("building");
                             console.timeEnd("optimize");
-                            $("#buildButton").text("Build !"); 
+                            updateBuildButtonDisplay();
                             logCurrentBuild();
                             dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
                             builds[currentUnitIndex].prepareEquipable();
@@ -3803,7 +3871,7 @@ function initWorkers() {
                                 progressElement.addClass("finished");
                                 console.timeEnd("optimize");
                                 if (!runningParamChallenge) {
-                                    $("#buildButton").text("Build !"); 
+                                    updateBuildButtonDisplay();
                                     $("body").removeClass("building");
                                 }
                             }

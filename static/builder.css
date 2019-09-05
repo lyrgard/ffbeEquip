@@ -1,10 +1,10 @@
-.goal .panel-heading .line {
+.goal .panel-body .line {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.goal .panel-heading .line .goalLabel {
+.goal .panel-body .line .goalLabel {
     width: 70px;
     min-width: 70px;
 }
@@ -930,10 +930,6 @@ i.img.img-slot-hand.leftHand {
     display: flex;
 }
 
-.simpleConditions {
-    display: flex;
-}
-
 .normalGoalChoices.select {
     width: 300px;
 }
@@ -946,6 +942,7 @@ i.img.img-slot-hand.leftHand {
 #simpleConditionsButton {
     padding: 0px 4px;
     height: 22px;
+    margin-top: 5px;
 }
 
 #simpleConditionsButton[aria-expanded=true] .glyphicon-plus {
@@ -956,6 +953,10 @@ i.img.img-slot-hand.leftHand {
 }
 
 #simpleConditionsList {
+    margin-left: 10px;
+}
+
+#paramChallengeButton {
     margin-left: 10px;
 }
 
