@@ -890,7 +890,9 @@ function prepareData() {
             if (itemInventory[item.id]) {
                 stmrNumberByUnitId[item.stmrUnit] = itemInventory[item.id];
             }
-            stmrByUnitId[item.stmrUnit] = item;
+            if (!stmrByUnitId[item.stmrUnit]) {
+                stmrByUnitId[item.stmrUnit] = item;
+            }
         }
     }
 }

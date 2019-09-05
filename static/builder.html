@@ -136,156 +136,165 @@
                 <span id="actionButtonIcon" class="glyphicon glyphicon-tasks"></span>
             </button>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default goal">
+                
+                <div class="panel panel-default with-nav-tabs goal">
                     <div class="panel-heading">
-                        <div class="line">
-                            <span class="goalLabel">Unit</span>
-                            <div class="unitSelectDiv">
-                                <select id="unitsSelect" name="units"></select>
-                            </div>
-                        </div>
-                        <div class="line goalLine hidden">
-                            <span class="normalGoalChoices goalLabel">Maximize</span>
-                            <div class="normalGoalChoices select">
-                                <select id="normalGoalChoice" class="form-control">
-                                    <option value="physicalDamage">Physical damage</option>
-                                    <option value="magicalDamage">Magical damage</option>
-                                    <option value="hybridDamage">Hybrid damage</option>
-                                    <option value="jumpDamage">Jump damage</option>
-                                    <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
-                                    <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
-                                    <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
-                                    <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
-                                    <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
-                                    <option value="physicalDamageMultiCast">Physical damage Multicast</option>
-                                    <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
-                                    <option value="summonerSkill">Summoner skill</option>
-                                    <option value="physicaleHp">Physical eHP (HP * DEF)</option>
-                                    <option value="magicaleHp">Magical eHP (HP * SPR)</option>
-                                    <option value="def">DEF</option>
-                                    <option value="spr">SPR</option>
-                                    <option value="hp">HP</option>
-                                    <option value="mp">MP</option>
-                                    <option value="physicalEvasion">Physical evasion</option>
-                                    <option value="magicalEvasion">Magical evasion</option>
-                                    <option value="mpRefresh">MP/turn</option>
-                                    <option value="heal">Heal</option>
-                                </select>
-                            </div>
-                            <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
-                            <span class="customGoalChoice hidden goalLabel">Custom Goal: </span>
-                            <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
-                            <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
-                        </div>
-                        <div id="multicastSkillsDiv">
-                            <select id="multicastSelect0" class="hidden"></select>
-                            <select id="multicastSelect1" class="hidden"></select>
-                            <select id="multicastSelect2" class="hidden"></select>
-                            <select id="multicastSelect3" class="hidden"></select>
-                            <select id="multicastSelect4" class="hidden"></select>
-                        </div>
-                        <div class="unitStack line hidden">
-                            <div class="goalLabel">Skill stack</div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="0"/>
-                            </div>
-                        </div>
-                        <div class="simpleConditions hidden">
-                            <a id="simpleConditionsButton" href="#simpleConditionsList" class="btn btn-default" data-toggle="collapse" aria-expanded="false"><div data-toggle="tooltip" data-original-title="Display/Hide additional build conditions"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span></div></a>
-                            <div id="simpleConditionsList" class="collapse">
-                                <div class="section chainMultiplier">
-                                    <span class="title">Chain Mult.</span>
-                                    <input type="text" class="choice form-control">
-                                    <span class="ffbeChainLink">(get it from <a href="https://ffbe-chain.com/" target="_blank">FFBE-Chain</a>)</span>
-                                </div>
-                                <div class="section">
-                                    <span class="title">Force element</span>
-                                    <div class="btn-group choice" data-toggle="buttons" id="forcedElements"></div>
-                                </div>
-                                <div class="section">
-                                    <span class="title link" data-toggle="tooltip" data-original-title='Switch between "All ailment", "Disabling ailments" and "No ailments"' onclick="switchSimpleConditionAilments()">Ailment Immunity</span>
-                                    <div class="btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
-                                </div>
-                                <div class="section elementalResists">
-                                    <span class="title">Elemental resist</span>
-                                    <div class="elements">
-                                        <div class="element fire">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-fire withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Fire resistance"/>
-                                        </div>
-                                        <div class="element ice">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-ice withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Ice resistance"/>
-                                        </div>
-                                        <div class="element lightning">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-lightning withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Lightning resistance"/>
-                                        </div>
-                                        <div class="element water">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-water withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Water resistance"/>
-                                        </div>
-                                        <div class="element wind">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-wind withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Wind resistance"/>
-                                        </div>
-                                        <div class="element earth">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-earth withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Earth resistance"/>
-                                        </div>
-                                        <div class="element light">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-light withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Light resistance"/>
-                                        </div>
-                                        <div class="element dark">
-                                            <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-dark withMiniIcon"></i></div>
-                                            <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Dark resistance"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section">
-                                    <span class="title">Evasion</span>
-                                    <div id="simpleConditionVarious" class="btn-group" data-toggle="buttons">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#buildAUnit" onclick="onFeatureSelect('buildAUnit')">Build a unit</a></li>
+                            <li><a data-toggle="tab" href="#parameterChallenges" onclick="onFeatureSelect('parameterChallenges')">Parameter challenges</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="panel panel-default goal paramChallenge hidden">
-                    <div class="panel-heading">
-                        <div class="line">
-                            <span class="goalLabel">Param challenge</span>
-                            <div class="paramChallengeSelectDiv">
-                                <select id="paramChallengeSelect" name="paramChallenge" class="form-control">
-                                    <option value="HP_25500">HP > 25500</option>
-                                    <option value="MP_1850">MP > 1850</option>
-                                    <option value="ATK_2650">ATK > 2650</option>
-                                    <option value="DEF_1650">DEF > 1650</option>
-                                    <option value="MAG_2000">MAG > 2000</option>
-                                    <option value="SPR_1850">SPR > 1850</option>
-                                    <option value="HP_14000">HP > 14000</option>
-                                    <option value="MP_1100">MP > 1100</option>
-                                    <option value="ATK_1650">ATK > 1650</option>
-                                    <option value="DEF_1000">DEF > 1000</option>
-                                    <option value="MAG_1200">MAG > 1200</option>
-                                    <option value="SPR_1100">SPR > 1100</option>
-                                </select>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="buildAUnit">
+                                <div class="line">
+                                    <span class="goalLabel">Unit</span>
+                                    <div class="unitSelectDiv">
+                                        <select id="unitsSelect" name="units"></select>
+                                    </div>
+                                </div>
+                                <div class="line goalLine hidden">
+                                    <span class="normalGoalChoices goalLabel">Maximize</span>
+                                    <div class="normalGoalChoices select">
+                                        <select id="normalGoalChoice" class="form-control">
+                                            <option value="physicalDamage">Physical damage</option>
+                                            <option value="magicalDamage">Magical damage</option>
+                                            <option value="hybridDamage">Hybrid damage</option>
+                                            <option value="jumpDamage">Jump damage</option>
+                                            <option value="magDamageWithPhysicalMecanism">Physical type MAG damage</option>
+                                            <option value="sprDamageWithPhysicalMecanism">Physical type SPR damage</option>
+                                            <option value="defDamageWithPhysicalMecanism">Physical type DEF damage</option>
+                                            <option value="sprDamageWithMagicalMecanism">Magical type SPR damage</option>
+                                            <option value="atkDamageWithFixedMecanism">Fixed type ATK damage</option>
+                                            <option value="physicalDamageMultiCast">Physical damage Multicast</option>
+                                            <option value="fixedDamageWithPhysicalMecanism">Physical type Fixed damage (1000)</option>
+                                            <option value="summonerSkill">Summoner skill</option>
+                                            <option value="physicaleHp">Physical eHP (HP * DEF)</option>
+                                            <option value="magicaleHp">Magical eHP (HP * SPR)</option>
+                                            <option value="def">DEF</option>
+                                            <option value="spr">SPR</option>
+                                            <option value="hp">HP</option>
+                                            <option value="mp">MP</option>
+                                            <option value="physicalEvasion">Physical evasion</option>
+                                            <option value="magicalEvasion">Magical evasion</option>
+                                            <option value="mpRefresh">MP/turn</option>
+                                            <option value="heal">Heal</option>
+                                        </select>
+                                    </div>
+                                    <span class="customGoalLinkSpan normalGoalChoices">or <a class="link" onclick="openCustomGoalModal()">Custom Goal</a></span>
+                                    <span class="customGoalChoice hidden goalLabel">Custom Goal: </span>
+                                    <a id="customGoalFormula" class="link customGoalChoice hidden" onclick="openCustomGoalModal()"></a>
+                                    <span class="link glyphicon glyphicon-remove customGoalChoice hidden" onclick="removeCustomGoal()" ></span>
+                                </div>
+                                <div id="multicastSkillsDiv">
+                                    <select id="multicastSelect0" class="hidden"></select>
+                                    <select id="multicastSelect1" class="hidden"></select>
+                                    <select id="multicastSelect2" class="hidden"></select>
+                                    <select id="multicastSelect3" class="hidden"></select>
+                                    <select id="multicastSelect4" class="hidden"></select>
+                                </div>
+                                <div class="unitStack line hidden">
+                                    <div class="goalLabel">Skill stack</div>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="0"/>
+                                    </div>
+                                </div>
+                                <div class="simpleConditions hidden">
+                                    <a id="simpleConditionsButton" href="#simpleConditionsList" class="btn btn-default" data-toggle="collapse" aria-expanded="false"><div data-toggle="tooltip" data-original-title="Display/Hide additional build conditions"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-minus"></span> options</div></a>
+                                    <div id="simpleConditionsList" class="collapse">
+                                        <div class="section chainMultiplier">
+                                            <span class="title">Chain Mult.</span>
+                                            <input type="text" class="choice form-control">
+                                            <span class="ffbeChainLink">(get it from <a href="https://ffbe-chain.com/" target="_blank">FFBE-Chain</a>)</span>
+                                        </div>
+                                        <div class="section">
+                                            <span class="title">Force element</span>
+                                            <div class="btn-group choice" data-toggle="buttons" id="forcedElements"></div>
+                                        </div>
+                                        <div class="section">
+                                            <span class="title link" data-toggle="tooltip" data-original-title='Switch between "All ailment", "Disabling ailments" and "No ailments"' onclick="switchSimpleConditionAilments()">Ailment Immunity</span>
+                                            <div class="btn-group choice" data-toggle="buttons" id="ailmentImunities"></div>
+                                        </div>
+                                        <div class="section elementalResists">
+                                            <span class="title">Elemental resist</span>
+                                            <div class="elements">
+                                                <div class="element fire">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-fire withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Fire resistance"/>
+                                                </div>
+                                                <div class="element ice">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-ice withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Ice resistance"/>
+                                                </div>
+                                                <div class="element lightning">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-lightning withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Lightning resistance"/>
+                                                </div>
+                                                <div class="element water">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-water withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Water resistance"/>
+                                                </div>
+                                                <div class="element wind">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-wind withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Wind resistance"/>
+                                                </div>
+                                                <div class="element earth">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-earth withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Earth resistance"/>
+                                                </div>
+                                                <div class="element light">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-light withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Light resistance"/>
+                                                </div>
+                                                <div class="element dark">
+                                                    <div><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-dark withMiniIcon"></i></div>
+                                                    <input class="form-control elementalResist" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="Base Dark resistance"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section">
+                                            <span class="title">Evasion</span>
+                                            <div id="simpleConditionVarious" class="btn-group" data-toggle="buttons">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn btn-primary" id="paramChallengeButton">Find a way !</button>
-                            
-                        </div>
-                        <div class="line">
-                            <span class="goalLabel"></span>
-                            <div>
-                                <div><input type="radio" id="sevenStar" name="paramChallengeUnitChoice" value="sevenStar" checked> Only 7★ units</div>
-                                <div><input type="radio" id="potentialSevenStar" name="paramChallengeUnitChoice" value="potentialSevenStar"> 7★ units and potential 7★ units (2 or more 5★ owned)</div>
-                                <div><input type="radio" id="rainbows" name="paramChallengeUnitChoice" value="rainbows"> All rainbow units</div>
+                            <div class="tab-pane fade" id="parameterChallenges">
+                                <div class="notAvailableMessage hidden">Parameter Challenge feature is only available when logged-in</div>
+                                <div class="content">
+                                    <div class="line">
+                                        <div class="paramChallengeSelectDiv">
+                                            <select id="paramChallengeSelect" name="paramChallenge" class="form-control">
+                                                <option value="HP_25500">HP > 25500</option>
+                                                <option value="MP_1850">MP > 1850</option>
+                                                <option value="ATK_2650">ATK > 2650</option>
+                                                <option value="DEF_1650">DEF > 1650</option>
+                                                <option value="MAG_2000">MAG > 2000</option>
+                                                <option value="SPR_1850">SPR > 1850</option>
+                                                <option value="HP_14000">HP > 14000</option>
+                                                <option value="MP_1100">MP > 1100</option>
+                                                <option value="ATK_1650">ATK > 1650</option>
+                                                <option value="DEF_1000">DEF > 1000</option>
+                                                <option value="MAG_1200">MAG > 1200</option>
+                                                <option value="SPR_1100">SPR > 1100</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-primary" id="paramChallengeButton">Find a way !</button>
+
+                                    </div>
+                                    <div class="line">
+                                        <div>
+                                            <div><input type="radio" id="sevenStar" name="paramChallengeUnitChoice" value="sevenStar" checked> Only 7★ units</div>
+                                            <div><input type="radio" id="potentialSevenStar" name="paramChallengeUnitChoice" value="potentialSevenStar"> 7★ units and potential 7★ units (2 or more 5★ owned)</div>
+                                            <div><input type="radio" id="rainbows" name="paramChallengeUnitChoice" value="rainbows"> All rainbow units</div>
+                                        </div>
+                                    </div>
+                                    <div class="line">
+                                        <span>(Units will be assumed fully leveled, fully potted, and with relevent abilities enhanced)</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="line">
-                            <span class="goalLabel"></span>
-                            <span>(Units will be assumed fully leveled, fully potted, and with relevent abilities enhanced)</span>
                         </div>
                     </div>
                 </div>

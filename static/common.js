@@ -588,7 +588,7 @@ function isEnter(evt) {
 // Get the values for a filter type
 var getSelectedValuesFor = function(type) {
     var values = [];
-        $('.active input[name='+ type +']').each(function() {
+        $('.active>input[name='+ type +']').each(function() {
             values.push($(this).val());
         });
     return values;
