@@ -3627,20 +3627,12 @@ function startPage() {
         $(".unitStats .stat." + baseStats[statIndex] + " .pots .leftIcon").click(function(stat) {
             if (builds[currentUnitIndex].unit) {
                 var value = parseInt($(".unitStats .stat." + baseStats[statIndex] + " .pots input").val()) || 0;
-                if (server == "JP") {
-                    if (value < builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
-                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
-                    } else if (value < Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5)) {
-                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5));
-                    } else {
-                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
-                    }
+                if (value < builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
+                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
+                } else if (value < Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5)) {
+                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(Math.floor(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]] * 1.5));
                 } else {
-                    if (value == builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]) {
-                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
-                    } else {
-                        $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val(builds[currentUnitIndex].unit.stats.pots[baseStats[statIndex]]);
-                    }  
+                    $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
                 }
             }
         });
