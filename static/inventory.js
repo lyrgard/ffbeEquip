@@ -787,12 +787,31 @@ function prepareLastItemReleases() {
 }
 
 function exportAsCsv() {
-    var csv = "Item Id;Item Name;Item type;Number Owned;TMR of;Access\n";
+    var csv = "Item Id;Item Name;Item type;Number Owned;TMR of;Access;Enhancement 1;Enhancement 2;Enhancement 3\n";
     var sortedItems = sort(equipments).concat(sort(materia));
     for (var index = 0, len = sortedItems.length; index < len; index++) {
         var item = sortedItems[index];
         if (itemInventory[item.id]) {
-            csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + itemInventory[item.id] + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
+            let ownedNumber = itemInventory[item.id];
+            if (itemInventory.enchantments[item.id]) {
+                ownedNumber -= itemInventory.enchantments[item.id].length;
+                itemInventory.enchantments[item.id].forEach(enhancements => {
+                    csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + '";1;"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + '";"' + item.access.join(", ") + '"';
+                    enhancements.forEach(enhancement => {
+                        if (enhancement.startsWith('rare')) {
+                            csv += ';"' + itemEnhancementLabels[enhancement][item.type] + '"';
+                        } else {
+                            csv += ';"' + itemEnhancementLabels[enhancement] + '"';
+                        }
+
+                    });
+                    csv += '\n';
+
+                });
+            }
+            if (ownedNumber) {
+                csv += "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + ownedNumber + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
+            }
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Equipment.csv');

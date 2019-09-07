@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,20 +28,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/firebase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/drive.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/units.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57885">
@@ -60,8 +44,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18585">
-              <caret line="1239" column="13" selection-start-line="1239" selection-start-column="13" selection-end-line="1239" selection-end-column="13" />
+            <state relative-caret-position="39">
+              <caret line="930" column="20" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/inventory.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="813" column="13" selection-start-line="813" selection-start-column="13" selection-end-line="813" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -89,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -120,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Water Dragon</find>
       <find>Jewel</find>
       <find>Light Resist</find>
       <find>Christine</find>
@@ -150,6 +151,7 @@
       <find>セフィロス(キングダム ハーツ)</find>
       <find>maxItems</find>
       <find>false S</find>
+      <find>csv</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -172,7 +174,6 @@
         <option value="$PROJECT_DIR$/static/units.css" />
         <option value="$PROJECT_DIR$/static/builder/typeCombinationGenerator.js" />
         <option value="$PROJECT_DIR$/static/builder.html" />
-        <option value="$PROJECT_DIR$/static/inventory.js" />
         <option value="$PROJECT_DIR$/static/units.html" />
         <option value="$PROJECT_DIR$/static/inventory.html" />
         <option value="$PROJECT_DIR$/static/inventory.css" />
@@ -210,6 +211,7 @@
         <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
+        <option value="$PROJECT_DIR$/static/inventory.js" />
       </list>
     </option>
   </component>
@@ -414,12 +416,12 @@
       <workItem from="1567617050759" duration="734000" />
       <workItem from="1567707490851" duration="3339000" />
       <workItem from="1567777047199" duration="638000" />
-      <workItem from="1567870629600" duration="394000" />
+      <workItem from="1567870629600" duration="1481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179266000" />
+    <option name="totallyTimeSpent" value="180353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -491,13 +493,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/inventory.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="368" column="12" selection-start-line="368" selection-start-column="12" selection-end-line="368" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder/buildOptimizer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4875">
@@ -698,9 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/constants.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/GL/esperBoards.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -762,13 +754,6 @@
     <entry file="file://$PROJECT_DIR$/static/unitSearch.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18585">
-          <caret line="1239" column="13" selection-start-line="1239" selection-start-column="13" selection-end-line="1239" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/units.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180840">
@@ -806,6 +791,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/units.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="930" column="20" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="813" column="13" selection-start-line="813" selection-start-column="13" selection-end-line="813" selection-end-column="13" />
         </state>
       </provider>
     </entry>
