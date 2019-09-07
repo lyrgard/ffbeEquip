@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,17 +60,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="18585">
               <caret line="1239" column="13" selection-start-line="1239" selection-start-column="13" selection-end-line="1239" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="3634" column="28" lean-forward="true" selection-start-line="3634" selection-start-column="28" selection-end-line="3634" selection-end-column="28" />
+              <caret line="3634" column="28" selection-start-line="3634" selection-start-column="28" selection-end-line="3634" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -82,13 +83,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11715">
-              <caret line="781" column="162" selection-start-line="781" selection-start-column="162" selection-end-line="781" selection-end-column="162" />
+            <state relative-caret-position="174">
+              <caret line="1963" column="155" selection-start-line="1963" selection-start-column="155" selection-end-line="1963" selection-end-column="155" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -100,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+            <state relative-caret-position="45">
+              <caret line="3" column="55" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -119,7 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>334000403</find>
       <find>Water Dragon</find>
       <find>Jewel</find>
       <find>Light Resist</find>
@@ -149,6 +149,7 @@
       <find>Aranea</find>
       <find>セフィロス(キングダム ハーツ)</find>
       <find>maxItems</find>
+      <find>false S</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -204,11 +205,11 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/server/routes/firebase.js" />
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
-        <option value="$PROJECT_DIR$/static/GL/data.json" />
-        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/static/JP/units.json" />
         <option value="$PROJECT_DIR$/static/units.js" />
         <option value="$PROJECT_DIR$/static/builder.js" />
+        <option value="$PROJECT_DIR$/static/GL/data.json" />
+        <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
       </list>
     </option>
   </component>
@@ -235,8 +236,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +297,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,11 +414,12 @@
       <workItem from="1567617050759" duration="734000" />
       <workItem from="1567707490851" duration="3339000" />
       <workItem from="1567777047199" duration="638000" />
+      <workItem from="1567870629600" duration="394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178872000" />
+    <option name="totallyTimeSpent" value="179266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -760,24 +762,10 @@
     <entry file="file://$PROJECT_DIR$/static/unitSearch.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
+    <entry file="file://$PROJECT_DIR$/static/units.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11715">
-          <caret line="781" column="162" selection-start-line="781" selection-start-column="162" selection-end-line="781" selection-end-column="162" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        <state relative-caret-position="18585">
+          <caret line="1239" column="13" selection-start-line="1239" selection-start-column="13" selection-end-line="1239" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -788,22 +776,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/units.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1239" column="13" selection-start-line="1239" selection-start-column="13" selection-end-line="1239" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="3634" column="28" lean-forward="true" selection-start-line="3634" selection-start-column="28" selection-end-line="3634" selection-end-column="28" />
+          <caret line="3634" column="28" selection-start-line="3634" selection-start-column="28" selection-end-line="3634" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="55" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="1963" column="155" selection-start-line="1963" selection-start-column="155" selection-end-line="1963" selection-end-column="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
