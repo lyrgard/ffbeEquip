@@ -826,7 +826,7 @@ function sortTMRAlphabetically(units) {
 };
 
 function sortByRarity(units) {
-    var unitsToSort = units.slice();
+    var unitsToSort = Object.values(units).slice();
     return unitsToSort.sort(function (unit1, unit2){
         var maxRarity1 = unit1.max_rarity;
         var maxRarity2 = unit2.max_rarity;
