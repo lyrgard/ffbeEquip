@@ -3411,7 +3411,7 @@ function findUnitForParamChallenge() {
     let goal = $("#paramChallengeSelect").val();
     let tokens = goal.split("_");
     let statToSearch = tokens[0].toLocaleLowerCase();
-    let unitPool = $('.paramChallenge input[name=paramChallengeUnitChoice]:checked').val();
+    let unitPool = $('#parameterChallenges input[name=paramChallengeUnitChoice]:checked').val();
     let idsToSearch = ids.filter(id => {
         if (unitPool == "sevenStar") {
             return ownedUnits[id].sevenStar || id == "306000804"
