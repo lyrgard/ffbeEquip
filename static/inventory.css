@@ -78,8 +78,16 @@
     background-color: white;
 }
 
+.item.notOwned.stmr {
+    background-color: #f5fcff;
+}
+
+
 .item.notOwned .type, #results .item.notOwned .name{
     opacity: 0.3;
+}
+.item.notOwned.stmr .type, #results .item.notOwned.stmr .name{
+    opacity: 0.6;
 }
 
 .item.maxNumberOverflow {
@@ -395,8 +403,8 @@ a#exportLinks:hover {
 .stmrRecipe {
     display: flex;
     align-self: self-start;
-    margin-left: 80px;
-    margin-top: -16px;
+    margin-left: 20px;
+    margin-top: -10px;
 }
 
 .stmrRecipe .then{
@@ -409,10 +417,25 @@ a#exportLinks:hover {
     margin-right: 4px;
 }
 
-.stmrRecipe img,  .searchHeader .stmrMoogleAvailableDiv img {
+.stmrRecipe .stmrMoogle,  .searchHeader .stmrMoogleAvailableDiv img {
     width: 40px;
+    height: 40px;
     margin-left: -4px;
     margin-top: -10px;
+}
+
+.stmrRecipe .column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.stmrRecipe .recipe {
+    display: flex;
+}
+
+.unitName {
+    font-weight: bold;
 }
 
 .searchHeader {

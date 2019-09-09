@@ -303,6 +303,12 @@ function getItemDisplay(item, showStmrRecipe = false)
     if (showStmrRecipe && item.stmrAccess) {
         html += "</div>";
         html += '<div class="stmrRecipe">'
+        html += '<div><img class="unitImage" src="/img/units/unit_icon_' + item.stmrUnit.substr(0, item.stmrUnit.length - 1) + 7 + '.png"/></div>';
+        html += '<div class="column">'
+        
+        html += '<div class="unitName">' + toLink(allUnits[item.stmrUnit].name) + '</div>';
+        
+        html += '<div class="recipe">';
         if (item.stmrAccess.base == "sixStar") {
             html += '<i class="img img-crystal-rainbowCrystal"></i><i class="img img-crystal-rainbowCrystal"></i> &rArr; <i class="img img-crystal-sevenStarCrystal"></i><div class="then">then</div>'
         }
@@ -317,8 +323,10 @@ function getItemDisplay(item, showStmrRecipe = false)
             }
         }
         if (item.stmrAccess.stmrMoogle) {
-            html += ' + ' + item.stmrAccess.stmrMoogle + '% <img src="/img/units/unit_ills_906000105.png">'
+            html += ' + ' + item.stmrAccess.stmrMoogle + '% <img class="stmrMoogle" src="/img/units/unit_ills_906000105.png">'
         }
+        html += '</div>';
+        html += '</div>';
         html += '</div>';
     }
     
