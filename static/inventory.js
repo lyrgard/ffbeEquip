@@ -568,9 +568,6 @@ function keepOnlyOneOfEachMateria() {
 
 function keepOnlyStmrs() {
     stmrs = equipments.filter(item => {
-        if (item.stmrUnit == "207000105") {
-            console.log("!!");
-        }
         return item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].farmableStmr > 0 || ownedUnits[item.stmrUnit].number >= 2)
     });
     stmrs = stmrs.concat(materia.filter(item => item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].farmableStmr > 0 || ownedUnits[item.stmrUnit].number >= 2)));
