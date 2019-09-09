@@ -580,6 +580,9 @@ function keepOnlyStmrs() {
     });
     stmrs = stmrs.concat(materia.filter(item => item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].farmableStmr > 0 || ownedUnits[item.stmrUnit].number >= 2)));
     stmrs.forEach(stmr => {
+        if (stmr.stmrUnit == "100005805") {
+            console.log("!!");
+        }
         stmr.stmrAccess = {
             'base':"",
             'sevenStar': 0,
@@ -595,7 +598,7 @@ function keepOnlyStmrs() {
             stmr.stmrAccess.sevenStar = 1;
             stmr.stmrAccess.stmrMoogle = 0;
         } else {
-            let sixStarNumber = base = "sixStar" ? ownedUnits[stmr.stmrUnit].number - 2 : ownedUnits[stmr.stmrUnit].number;
+            let sixStarNumber = stmr.stmrAccess.base == "sixStar" ? ownedUnits[stmr.stmrUnit].number - 2 : ownedUnits[stmr.stmrUnit].number;
             if (sixStarNumber >= 2) {
                 stmr.stmrAccess.sixStar = 2;
                 stmr.stmrAccess.stmrMoogle = 0;
