@@ -871,10 +871,6 @@ function updateResults() {
 
 function inventoryLoaded() {
     onDataReady();
-
-    if (Object.keys(ownedUnits).length === 0) {
-        $("#firstTimeMessage").removeClass('hidden');
-    }
 }
 
 function prepareData() {

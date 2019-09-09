@@ -149,6 +149,18 @@
     cursor: pointer;
 }
 
+.nav-tabs .farmableStmr a {
+    width: 72px;
+    height: 62px;
+}
+
+.nav-tabs .farmableStmr img {
+    height: 70px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
 #tabsRightData {
     position: absolute;
     right: 20px;
@@ -159,6 +171,7 @@
 #searchBox {
     margin-top: 10px;
     margin-bottom: 10px;
+    flex: 1;
 }
 
 .source {
@@ -334,7 +347,7 @@
 #exportLinks {
     position: absolute;
     top: 15px;
-    left: 320px;
+    left: 360px;
     z-index: 1;
     margin-left: 10px;
     padding: 4px 6px;
@@ -360,14 +373,65 @@ a#exportLinks:hover {
 #importLink {
     position: absolute;
     top: 20px;
-    left: 480px;
+    left: 530px;
 }
 
 #exportLink {
     position: absolute;
     top: 20px;
-    left: 620px;
+    left: 660px;
 }
+
+.item.stmr {
+    flex-direction: column;
+}
+
+.wrapperForStmr {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+}
+
+.stmrRecipe {
+    display: flex;
+    align-self: self-start;
+    margin-left: 80px;
+    margin-top: -16px;
+}
+
+.stmrRecipe .then{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.stmrRecipe .img-crystal-sevenStarCrystal {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.stmrRecipe img,  .searchHeader .stmrMoogleAvailableDiv img {
+    width: 40px;
+    margin-left: -4px;
+    margin-top: -10px;
+}
+
+.searchHeader {
+    display: flex;
+}
+
+.searchHeader .stmrMoogleAvailableDiv {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.searchHeader #stmrMoogleAvailable {
+    width: 80px;
+    padding-right: 15px;
+    margin-right: 5px;
+}
+
 
 @media (min-width: 991px) {
     

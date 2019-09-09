@@ -1,5 +1,6 @@
 var equipments;
 var materia;
+var stmrs;
 var lastItemReleases;
 var allUnits;
 
@@ -10,6 +11,7 @@ var displayId = 0;
 
 var equipmentLastSearch = "";
 var materiaLastSearch = "";
+var farmableStmrLastSearch = "";
 
 function beforeShow(clearTabSelection = true) {
     $("#pleaseWaitMessage").addClass("hidden");
@@ -21,10 +23,13 @@ function beforeShow(clearTabSelection = true) {
     
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
+    // Hidden by default, enabled by farmable stmr tab
+    $('.searchHeader .stmrMoogleAvailableDiv').addClass("hidden");
 
     if(clearTabSelection) {
         $(".nav-tabs li.equipment").removeClass("active");
         $(".nav-tabs li.materia").removeClass("active");
+        $(".nav-tabs li.farmableStmr").removeClass("active");
         $(".nav-tabs li.history").removeClass("active");
         $(".nav-tabs li.settings").removeClass("active");
     }
@@ -54,8 +59,20 @@ function showEquipments() {
     displayStats();
 }
 
+function showFarmableStmr() {
+    beforeShow();
+    
+    $(".nav-tabs li.farmableStmr").addClass("active");
+    $("#sortType").text("");
+    $("#searchBox").val(farmableStmrLastSearch);
+    $("#searchBox").removeClass("hidden");
+    // filter, sort and display the results
+    showSearch();
+    displayStats();
+    $('.searchHeader .stmrMoogleAvailableDiv').removeClass("hidden");
+}
+
 function showSearch() {
-    beforeShow(false);
     
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
 
@@ -78,6 +95,7 @@ function showHistory() {
     var $resultDiv = $("#results").empty();
     displayId++;
     displayItemsByHistoryAsync(0, 4, displayId, $resultDiv);
+    afterShow();
 }
 
 function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $loadMore) {
@@ -162,6 +180,7 @@ var displayItems = function(items, byType = false) {
     var resultDiv = $("#results");
     resultDiv.empty();
     displayId++;
+    var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
     if (byType) {
         // Jump list display
         htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
@@ -179,7 +198,7 @@ var displayItems = function(items, byType = false) {
 
         displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'));
     } else {
-        displayItemsAsync(items, 0, resultDiv, displayId);
+        displayItemsAsync(items, 0, resultDiv, displayId, inFarmableStmr);
     }
 };
 
@@ -216,12 +235,12 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     }
 }
 
-function displayItemsAsync(items, start, div, id, max = 20) {
+function displayItemsAsync(items, start, div, id, showStmrRecipe = false, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
         if (items[index] === undefined || (items[index].access.includes("not released yet") && !itemInventory[items[index].id])) continue;
-        html += getItemDisplay(items[index]);
+        html += getItemDisplay(items[index], showStmrRecipe);
     }
 
     if (id == displayId) {
@@ -231,12 +250,12 @@ function displayItemsAsync(items, start, div, id, max = 20) {
         if (start === 0 || index >= items.length) lazyLoader.update();
         // Launch next run of type
         if (index < items.length) {
-            setTimeout(displayItemsAsync, 0, items, index, div, id);
+            setTimeout(displayItemsAsync, 0, items, index, div, id, showStmrRecipe);
         }    
     }
 }
 
-function getItemDisplay(item)
+function getItemDisplay(item, showStmrRecipe = false)
 {
     var html = "";
 
@@ -256,7 +275,13 @@ function getItemDisplay(item)
     if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) {
         html += ' maxNumberOverflow';
     }
+    if (showStmrRecipe && item.stmrAccess) {
+        html += ' stmr';
+    }
     html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
+    if (showStmrRecipe && item.stmrAccess) {
+        html += '<div class="wrapperForStmr">'
+    }
     if (itemInventory) {
         html+= '<div class="td inventory">';
         html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
@@ -275,7 +300,31 @@ function getItemDisplay(item)
     }
     html += getImageHtml(item) + getNameColumnHtml(item);
     
+    if (showStmrRecipe && item.stmrAccess) {
+        html += "</div>";
+        html += '<div class="stmrRecipe">'
+        if (item.stmrAccess.base == "sixStar") {
+            html += '<i class="img img-crystal-rainbowCrystal"></i><i class="img img-crystal-rainbowCrystal"></i> &rArr; <i class="img img-crystal-sevenStarCrystal"></i><div class="then">then</div>'
+        }
+        html += '<i class="img img-crystal-sevenStarCrystal"></i>'
+        if (item.stmrAccess.sevenStar) {
+            html += ' + <i class="img img-crystal-sevenStarCrystal"></i>'
+        }
+        if (item.stmrAccess.sixStar) {
+            html += ' + '
+            for (let i = 0; i < item.stmrAccess.sixStar; i++) {
+                html += '<i class="img img-crystal-rainbowCrystal"></i>'
+            }
+        }
+        if (item.stmrAccess.stmrMoogle) {
+            html += ' + ' + item.stmrAccess.stmrMoogle + '% <img src="/img/units/unit_ills_906000105.png">'
+        }
+        html += '</div>';
+    }
+    
     html += "</div>";
+    
+    
 
     return html;
 }
@@ -441,12 +490,18 @@ function farmedTMR(unitId) {
 function search(textToSearch) {
     var result = [];
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
+    var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active")
     
     var itemsToSearch = [];
     if(inEquipment) {
         itemsToSearch = equipments;
         equipmentLastSearch = textToSearch;
+    } else if (inFarmableStmr) {
+        let availableStmrMoogle = $('#stmrMoogleAvailable').val() || 0;
+        itemsToSearch = stmrs.filter(stmr => stmr.stmrAccess.stmrMoogle <= availableStmrMoogle);
+        farmableStmrLastSearch = textToSearch;
     } else {
+        // In materia tab
         itemsToSearch = materia;
         materiaLastSearch = textToSearch;
     }
@@ -509,6 +564,37 @@ function keepOnlyOneOfEachMateria() {
         }
     }
     return result;
+}
+
+function keepOnlyStmrs() {
+    stmrs = equipments.filter(item => item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].farmableStmr || ownedUnits[item.stmrUnit].number > 2));
+    stmrs = stmrs.concat(materia.filter(item => item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].sevenStar || ownedUnits[item.stmrUnit].number > 2)));
+    stmrs.forEach(stmr => {
+        stmr.stmrAccess = {
+            'base':"",
+            'sevenStar': 0,
+            'sixStar': 0,
+            'stmrMoogle': 100
+        }
+        if (ownedUnits[stmr.stmrUnit].farmableStmr) {
+            stmr.stmrAccess.base = "sevenStar";
+        } else {
+            stmr.stmrAccess.base = "sixStar";
+        }
+        if (ownedUnits[stmr.stmrUnit].farmableStmr > 1) {
+            stmr.stmrAccess.sevenStar = 1;
+            stmr.stmrAccess.stmrMoogle = 0;
+        } else {
+            let sixStarNumber = base = "sixStar" ? ownedUnits[stmr.stmrUnit].number - 2 : ownedUnits[stmr.stmrUnit].number;
+            if (sixStarNumber >= 2) {
+                stmr.stmrAccess.sixStar = 2;
+                stmr.stmrAccess.stmrMoogle = 0;
+            } else if (sixStarNumber == 1) {
+                stmr.stmrAccess.sixStar = 1;
+                stmr.stmrAccess.stmrMoogle = 50;
+            }
+        }
+    });
 }
 
 var sortOrderDefault = ["atk","mag","def","spr", "sortId"];
@@ -711,6 +797,7 @@ function toggleItemEnhancement(enhancement) {
 function inventoryLoaded() {
     if (data) {
         showEquipments();
+        keepOnlyStmrs();
     }
 }
 
@@ -1031,6 +1118,7 @@ function startPage() {
     });
     
     $("#searchBox").on("input", $.debounce(300,showSearch));
+    $("#stmrMoogleAvailable").on("input", $.debounce(300,showSearch));
 
     // Start stats collapse for small screen
     if ($window.outerWidth() < 990) {

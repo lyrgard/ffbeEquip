@@ -9,11 +9,13 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css-img/crystals.css">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/tabs.css">
 		<link rel="stylesheet" type="text/css" href="common.css">
         <link rel="stylesheet" type="text/css" href="inventory.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
@@ -393,6 +395,9 @@
                             <li class="materia" onclick="showMateria()" title="Show all materia">
                                 <a><i class='img img-tab-materia tab'></i></a>
                             </li>
+                            <li class="farmableStmr" onclick="showFarmableStmr()" title="Show obtainable STMR">
+                                <a><img src="/img/units/unit_ills_906000105.png"/></a>
+                            </li>
                             <li class="history" onclick="showHistory()" title="Show inventory by events">
                                 <a><i class='img img-tab-history tab'></i></a>
                             </li>
@@ -418,7 +423,14 @@
                         <div class="result-tab-pane">
                             <div class="panel-body" style="padding:0;">
                                 <div class="col-xs-12">
-                                    <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
+                                    <div class="searchHeader">
+                                        <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
+                                        <div class="stmrMoogleAvailableDiv">
+                                            Available <div><img src="/img/units/unit_ills_906000105.png"></div>
+                                            <input id="stmrMoogleAvailable" type="number" min="0" step="50" value="0" class="form-control" placeholder="0"/>
+                                            %
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="results" class="">
                                 </div>
@@ -576,6 +588,7 @@
                 integrity="sha384-eNkRPZsMXXue2PfnzB86JZZm8l6laWo6c2YuXambKDG9ko5QbTktAKCM7MIhZ7AO" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="lib/FileSaver.min.js"></script>
