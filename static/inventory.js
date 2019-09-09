@@ -323,7 +323,7 @@ function getItemDisplay(item, showStmrRecipe = false)
             }
         }
         if (item.stmrAccess.stmrMoogle) {
-            html += ' + ' + item.stmrAccess.stmrMoogle + '% <img class="stmrMoogle" src="/img/units/unit_ills_906000105.png">'
+            html += ' + ' + item.stmrAccess.stmrMoogle + '% <div style="position:relative;"><img class="stmrMoogle" src="/img/units/unit_ills_906000105.png"></div>'
         }
         html += '</div>';
         html += '</div>';

@@ -417,11 +417,17 @@ a#exportLinks:hover {
     margin-right: 4px;
 }
 
-.stmrRecipe .stmrMoogle,  .searchHeader .stmrMoogleAvailableDiv img {
+.stmrRecipe .stmrMoogle {
     width: 40px;
     height: 40px;
     margin-left: -4px;
     margin-top: -10px;
+    position: absolute;
+}
+
+.searchHeader .stmrMoogleAvailableDiv img {
+    width: 40px;
+    height: 40px;
 }
 
 .stmrRecipe .column {
