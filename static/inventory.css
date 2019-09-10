@@ -476,6 +476,14 @@ a#exportLinks:hover {
     margin-left: 5px;
 }
 
+.ui-tooltip {
+    max-width: 600px !important;
+}
+
+.items .tbody .tr .td, .results {
+    border-top: none !important;
+}
+
 
 @media (min-width: 991px) {
     

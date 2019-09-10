@@ -1,8 +1,9 @@
 var equipments;
 var materia;
+let itemsById = {};
 var stmrs = [];
 var lastItemReleases;
-var allUnits;
+var units;
 
 var currentEnhancementItem;
 var currentEnhancementItemPos;
@@ -98,6 +99,23 @@ function showHistory() {
     afterShow();
 }
 
+function setTooltips() {
+    $(document).tooltip({
+        items: ".item .type",
+        content: function() {
+            let element = $(this);
+            let itemDiv = element.closest('.item');
+            let itemId = itemDiv.prop('classList')[4]
+            let item = itemsById[itemId];
+            
+            return '<div class="table notSorted items results"><div class="tbody"><div class="tr">' +  displayItemLine(item) + '</div></div></div>';
+        },
+        open: function() {
+            lazyLoader.update();
+        }
+    });
+}
+
 function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $loadMore) {
     if ($resultDiv == undefined) $resultDiv = $("#results");
     if ($loadMore == undefined) $loadMore = $("#loadMore");
@@ -120,7 +138,7 @@ function displayItemsByHistoryAsync(dateIndex, dateIndexMax, id, $resultDiv, $lo
                 } else if (unitIndex > 0) {
                     html += ", ";
                 }
-                html += allUnits[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
+                html += units[currentItemReleases.sources[sourceIndex].units[unitIndex]].name;
             }
             html += "</div>";
         } else if (currentItemReleases.sources[sourceIndex].type == "event" || currentItemReleases.sources[sourceIndex].type == "storyPart") {
@@ -231,6 +249,8 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
         // Launch next run of type
         if (index < items.length) {
             setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
+        } else {
+            setTooltips();
         }
     }
 }
@@ -251,7 +271,9 @@ function displayItemsAsync(items, start, div, id, showStmrRecipe = false, max = 
         // Launch next run of type
         if (index < items.length) {
             setTimeout(displayItemsAsync, 0, items, index, div, id, showStmrRecipe);
-        }    
+        } else {
+            setTooltips();
+        }
     }
 }
 
@@ -307,7 +329,7 @@ function getItemDisplay(item, showStmrRecipe = false)
         html += '<div><img class="unitImage" src="/img/units/unit_icon_' + item.stmrUnit.substr(0, item.stmrUnit.length - 1) + 7 + '.png"/></div>';
         html += '<div class="column">'
         
-        html += '<div class="unitName">' + toLink(allUnits[item.stmrUnit].name) + '</div>';
+        html += '<div class="unitName">' + toLink(units[item.stmrUnit].name) + '</div>';
         
         html += '<div class="recipe">';
         if (item.stmrAccess.base == "sixStar") {
@@ -510,7 +532,7 @@ function search(textToSearch) {
         let availableStmrMoogle = $('#stmrMoogleAvailable').val() || 0;
         itemsToSearch = stmrs.filter(stmr => stmr.stmrAccess.stmrMoogle <= availableStmrMoogle);
         if (onlyTimeLimited) {
-            itemsToSearch = itemsToSearch.filter(stmr => allUnits[stmr.stmrUnit].summon_type === 'event')
+            itemsToSearch = itemsToSearch.filter(stmr => units[stmr.stmrUnit].summon_type === 'event')
         }
         farmableStmrLastSearch = textToSearch;
     } else {
@@ -534,7 +556,6 @@ function search(textToSearch) {
 }
 
 function keepOnlyOneOfEachEquipement() {
-    var idsAlreadyKept = [];
     var tempResult = {};
     for (var index in data) {
         var item = data[index];
@@ -562,20 +583,43 @@ function keepOnlyOneOfEachEquipement() {
     var result = [];
     for (var index in tempResult) {
         result.push(tempResult[index]);
+        itemsById[tempResult[index].id] = tempResult[index];
     }
     return result;
 }
 
 function keepOnlyOneOfEachMateria() {
-    var idsAlreadyKept = [];
     var result = [];
+    
+    var tempResult = {};
     for (var index in data) {
         var item = data[index];
-        if (item.type == "materia" && !idsAlreadyKept.includes(item.id)) {
-            result.push(item);
-            idsAlreadyKept.push(item.id);
+        if (item.type == "materia") {
+            if (tempResult[item.id]) {
+                var alreadyPutItem = tempResult[item.id];
+                if (item.equipedConditions) {
+                    if (alreadyPutItem.equipedConditions) {
+                        if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
+                            tempResult[item.id] = item;
+                        }
+                    } else {
+                        tempResult[item.id] = item;
+                    }
+                }
+                if (item.exclusiveUnits) {
+                    tempResult[item.id] = item;
+                }
+            } else {
+                tempResult[item.id] = item;
+            }
         }
     }
+    
+    for (var index in tempResult) {
+        result.push(tempResult[index]);
+        itemsById[tempResult[index].id] = tempResult[index];
+    }
+    
     return result;
 }
 
@@ -832,11 +876,11 @@ function prepareSearch(data) {
         if (item.jpname) {
             item.searchString += "|" + item.jpname;
         }
-        if (item.tmrUnit && allUnits[item.tmrUnit]) {
-            item.searchString += "|" + allUnits[item.tmrUnit].name;
+        if (item.tmrUnit && units[item.tmrUnit]) {
+            item.searchString += "|" + units[item.tmrUnit].name;
         }
-        if (item.stmrUnit && allUnits[item.stmrUnit]) {
-            item.searchString += "|" + allUnits[item.stmrUnit].name;
+        if (item.stmrUnit && units[item.stmrUnit]) {
+            item.searchString += "|" + units[item.stmrUnit].name;
         }
     }
 }
@@ -901,7 +945,7 @@ function exportAsCsv() {
             if (itemInventory.enchantments[item.id]) {
                 ownedNumber -= itemInventory.enchantments[item.id].length;
                 itemInventory.enchantments[item.id].forEach(enhancements => {
-                    csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + '";1;"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + '";"' + item.access.join(", ") + '"';
+                    csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + '";1;"' + (item.tmrUnit ? units[item.tmrUnit].name : "") + '";"' + item.access.join(", ") + '"';
                     enhancements.forEach(enhancement => {
                         if (enhancement.startsWith('rare')) {
                             csv += ';"' + itemEnhancementLabels[enhancement][item.type] + '"';
@@ -915,7 +959,7 @@ function exportAsCsv() {
                 });
             }
             if (ownedNumber) {
-                csv += "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + ownedNumber + ';\"' + (item.tmrUnit ? allUnits[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
+                csv += "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + "\";" + ownedNumber + ';\"' + (item.tmrUnit ? units[item.tmrUnit].name : "") + "\";\"" + item.access.join(", ") + "\"\n";
             }
         }
     }
@@ -1101,7 +1145,7 @@ function startPage() {
     getStaticData("data", true, function(result) {
         data = result;
         getStaticData("units", true, function(unitResult) {
-            allUnits = unitResult;
+            units = unitResult;
             prepareSearch(data);
             equipments = keepOnlyOneOfEachEquipement();
             materia = keepOnlyOneOfEachMateria();
@@ -1113,9 +1157,9 @@ function startPage() {
                 prepareLastItemReleases();
             });
             getStaticData("releasedUnits", false, function(releasedUnitResult) {
-                for (var unitId in allUnits) {
+                for (var unitId in units) {
                     if (releasedUnitResult[unitId]) {
-                        allUnits[unitId].summon_type = releasedUnitResult[unitId].type;
+                        units[unitId].summon_type = releasedUnitResult[unitId].type;
                     }
                 }
             });
