@@ -496,9 +496,10 @@ function farmedTMR(unitId) {
 }
 
 function search(textToSearch) {
-    var result = [];
-    var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
-    var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active")
+    let result = [];
+    let inEquipment = $(".nav-tabs li.equipment").hasClass("active");
+    let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+    let onlyTimeLimited = $('#onlyTimeLimited').prop('checked');
     
     var itemsToSearch = [];
     if(inEquipment) {
@@ -507,6 +508,9 @@ function search(textToSearch) {
     } else if (inFarmableStmr) {
         let availableStmrMoogle = $('#stmrMoogleAvailable').val() || 0;
         itemsToSearch = stmrs.filter(stmr => stmr.stmrAccess.stmrMoogle <= availableStmrMoogle);
+        if (onlyTimeLimited) {
+            itemsToSearch = itemsToSearch.filter(stmr => allUnits[stmr.stmrUnit].summon_type === 'event')
+        }
         farmableStmrLastSearch = textToSearch;
     } else {
         // In materia tab
@@ -1107,6 +1111,13 @@ function startPage() {
                 lastItemReleases = result;
                 prepareLastItemReleases();
             });
+            getStaticData("releasedUnits", false, function(releasedUnitResult) {
+                for (var unitId in allUnits) {
+                    if (releasedUnitResult[unitId]) {
+                        allUnits[unitId].summon_type = releasedUnitResult[unitId].type;
+                    }
+                }
+            });
         });
     });
 	
@@ -1132,6 +1143,7 @@ function startPage() {
     
     $("#searchBox").on("input", $.debounce(300,showSearch));
     $("#stmrMoogleAvailable").on("input", $.debounce(300,showSearch));
+    $('#onlyTimeLimited').on("input", showSearch);
 
     // Start stats collapse for small screen
     if ($window.outerWidth() < 990) {

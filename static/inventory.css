@@ -446,6 +446,7 @@ a#exportLinks:hover {
 
 .searchHeader {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .searchHeader .stmrMoogleAvailableDiv {
@@ -459,6 +460,16 @@ a#exportLinks:hover {
     width: 80px;
     padding-right: 15px;
     margin-right: 5px;
+}
+
+.searchHeader .additionalFilters {
+    display: flex;
+    margin-left: 20px;
+}
+
+.searchHeader .additionalFilters label {
+    font-weight: normal;
+    margin-left: 5px;
 }
 
 
