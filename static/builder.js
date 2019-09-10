@@ -9,6 +9,7 @@ const formulaByGoal = {
     "magDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical MAG damage", "formulaName":"magDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1}}},
     "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
+    "atkDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"atkDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"body", "coef":1}}},
     "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
@@ -37,6 +38,7 @@ const goalQuickSelectDefaultValues = [
     ["magDamageWithPhysicalMecanism","Physical type MAG damage"],
     ["sprDamageWithPhysicalMecanism","Physical type SPR damage"],
     ["defDamageWithPhysicalMecanism","Physical type DEF damage"],
+    ["atkDamageWithMagicalMecanism","Magical type ATK damage"],
     ["sprDamageWithMagicalMecanism","Magical type SPR damage"],
     ["atkDamageWithFixedMecanism","Fixed type ATK damage"],
     ["physicalDamageMultiCast","Physical damage Multicast"],
@@ -1087,6 +1089,7 @@ function goalSelectTemplate(state) {
             case "magDamageWithPhysicalMecanism":
             case "sprDamageWithPhysicalMecanism":
             case "defDamageWithPhysicalMecanism":
+            case "atkDamageWithMagicalMecanism":
             case "sprDamageWithMagicalMecanism":
             case "atkDamageWithFixedMecanism":
             case "physicalDamageMultiCast":

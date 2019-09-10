@@ -9,6 +9,8 @@ const involvedStatsByValue = {
     "magDamageWithPhysicalMecanismMultiCast":    ["mag","weaponElement","physicalKiller","meanDamageVariance"],
     "sprDamageWithPhysicalMecanismMultiCast":    ["spr","weaponElement","physicalKiller","meanDamageVariance"],
     "defDamageWithPhysicalMecanismMultiCast":    ["def","weaponElement","physicalKiller","meanDamageVariance"],
+    "atkDamageWithMagicalMecanism":     ["atk","magicalKiller"],
+    "atkDamageWithMagicalMecanismMultiCast":     ["atk","magicalKiller"],
     "sprDamageWithMagicalMecanism":     ["spr","magicalKiller"],
     "atkDamageWithFixedMecanism":       ["atk","meanDamageVariance"],
     "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance"],
@@ -261,10 +263,14 @@ class UnitBuild {
                 }
             } else if (formula.value.mecanism == "magical") {
                 this.addToInvolvedStats(["magicalKiller"]);
-                if (formula.value.use) {
-                    this.addToInvolvedStats([formula.value.use.stat]);
+                if (formula.value.damageType == "mind") {
+                    if (formula.value.use) {
+                        this.addToInvolvedStats([formula.value.use.stat]);
+                    } else {
+                        this.addToInvolvedStats(["mag"]);
+                    }
                 } else {
-                    this.addToInvolvedStats(["mag"]);
+                    this.addToInvolvedStats(["atk"]);
                 }
             } else if (formula.value.mecanism == "hybrid") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);

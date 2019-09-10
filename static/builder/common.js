@@ -1,4 +1,4 @@
-const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "magDamageWithPhysicalMecanismMultiCast", "sprDamageWithPhysicalMecanismMultiCast", "defDamageWithPhysicalMecanismMultiCast", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
+const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "magDamageWithPhysicalMecanismMultiCast", "sprDamageWithPhysicalMecanismMultiCast", "defDamageWithPhysicalMecanismMultiCast", "atkDamageWithMagicalMecanism", "atkDamageWithMagicalMecanismMulticast", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
 const statsBonusCap = {
     "GL": 400,
     "JP": 400
@@ -319,20 +319,25 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             
         } else if (formula.value.mecanism == "magical") {
             applicableKillerType = "magical";
-            defendingStat = "spr";
-            
-            if (formula.value.use) {
-                statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
-                if (formula.value.use.percent) {
-                    statValueToUse *= formula.value.use.percent / 100;
-                }
-                if (formula.value.use.max) {
-                    if (statValueToUse > formula.value.use.max) {
-                        statValueToUse = max;
+            if (formula.damageType == "mind") {
+                defendingStat = "spr";
+
+                if (formula.value.use) {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, formula.value.use.stat, unitBuild).total;
+                    if (formula.value.use.percent) {
+                        statValueToUse *= formula.value.use.percent / 100;
                     }
+                    if (formula.value.use.max) {
+                        if (statValueToUse > formula.value.use.max) {
+                            statValueToUse = max;
+                        }
+                    }
+                } else {
+                    statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
                 }
             } else {
-                statValueToUse = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;   
+                defendingStat = "def";
+                statValueToUse = getStatCalculatedValue(context, itemAndPassives, "atk", unitBuild).right;   
             }
         } else if(formula.value.mecanism == "summonerSkill"){
             defendingStat= "spr";
