@@ -319,7 +319,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             
         } else if (formula.value.mecanism == "magical") {
             applicableKillerType = "magical";
-            if (formula.damageType == "mind") {
+            if (formula.value.damageType == "mind") {
                 defendingStat = "spr";
 
                 if (formula.value.use) {
