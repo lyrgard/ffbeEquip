@@ -276,9 +276,10 @@ function getItemDisplay(item, showStmrRecipe = false)
         html += ' maxNumberOverflow';
     }
     if (showStmrRecipe && item.stmrAccess) {
-        html += ' stmr';
+        html += ' stmr">';
+    } else {
+        html += '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
     }
-    html+= '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
     if (showStmrRecipe && item.stmrAccess) {
         html += '<div class="wrapperForStmr">'
     }

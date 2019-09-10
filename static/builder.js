@@ -3504,9 +3504,7 @@ function onFeatureSelect(selectedFeature) {
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
-    if (server == "JP") {
-        $('#useNewJpDamageFormula').prop('checked', true);
-    }
+    $('#useNewJpDamageFormula').prop('checked', true);
     
     registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill"], () => {
         populateUnitSelect();
