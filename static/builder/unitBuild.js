@@ -47,6 +47,7 @@ class UnitBuild {
             this.stats = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
         }
         this._tdwCap = null;
+        this._bannedEquipableTypes = [];
     }
     
     getPartialDualWield() {
@@ -110,6 +111,24 @@ class UnitBuild {
         return false;
     }
     
+    set bannedEquipableTypes(bannedEquipableTypes) {
+        this._bannedEquipableTypes = bannedEquipableTypes;
+        this.prepareEquipable();
+    }
+    
+    get bannedEquipableTypes() {
+        return this._bannedEquipableTypes;
+    }
+    
+    toogleEquipableType(equipableType) {
+        if (this._bannedEquipableTypes.includes(equipableType)) {
+            this._bannedEquipableTypes = this._bannedEquipableTypes.filter(e => e != equipableType);
+        } else {
+            this._bannedEquipableTypes.push(equipableType);
+        }
+        this.prepareEquipable();
+    }   
+    
     prepareEquipable(ignoreSlot = -1) {
         this.equipable = [[],[],[],[],["accessory"],["accessory"],["materia"],["materia"],["materia"],["materia"],["esper"]];
         if (this.unit) {
@@ -160,7 +179,7 @@ class UnitBuild {
                 equip.push(this.build[index].allowUseOf);
             }
         }
-        return equip;
+        return equip.filter(e => !this._bannedEquipableTypes.includes(e));
     }
     
     getItemSlotFor(item, forceDoubleHand = false) {
@@ -362,6 +381,7 @@ class UnitBuild {
 
     setUnit(unit) {
         this.unit = unit;
+        this._bannedEquipableTypes = [];
         this.prepareEquipable();
         if (this.unit) {
             this.stats = this.unit.stats.maxStats;

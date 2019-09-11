@@ -26,10 +26,10 @@ class TypeCombinationGenerator {
             let tmrPinned = dataStorage.availableTmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableTmr.id);
             let stmrPinned = dataStorage.availableStmr && this.unitBuild.fixedItems.filter(i => i).some(i => i.id == dataStorage.availableStmr.id);
             if (!tmrPinned && !stmrPinned) {
-                if (dataStorage.availableTmr) {
+                if (dataStorage.availableTmr && !this.unitBuild.bannedEquipableTypes.includes(dataStorage.availableTmr.type)) {
                     combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableTmr));
                 }
-                if (dataStorage.availableStmr) {
+                if (dataStorage.availableStmr && !this.unitBuild.bannedEquipableTypes.includes(dataStorage.availableStmr.type)) {
                     combinations = combinations.concat(this.generateTypeCombinations(dataStorage.availableStmr));
                 }
                 return combinations;
@@ -224,7 +224,7 @@ class TypeCombinationGenerator {
                 var typesToTry = this.getEquipSourceToTry(index);
                 for (var typeIndex = 0, lenType = typesToTry.length; typeIndex < lenType; typeIndex++) {
                     var typeToTry = typesToTry[typeIndex];
-                    if (this.equipSourcesByType[typeToTry]) {
+                    if (this.equipSourcesByType[typeToTry] && !this.unitBuild.bannedEquipableTypes.includes(typeToTry)) {
                         for (var equipSourceIndex = 0, lenEquipSources = this.equipSourcesByType[typeToTry].length; equipSourceIndex < lenEquipSources; equipSourceIndex++) {
                             var equipSource = this.equipSourcesByType[typeToTry][equipSourceIndex];
                             var slot = this.unitBuild.getItemSlotFor(equipSource, this.forceDoubleHand);

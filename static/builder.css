@@ -1033,6 +1033,21 @@ i.img.img-slot-hand.leftHand {
     margin-bottom: 10px;
 }
 
+.unitEquipable .img {
+    cursor: pointer;
+}
+
+.unitEquipable .img.banned::after {
+    content: "\e090";
+    color: red;
+    font-family: 'Glyphicons Halflings';
+    font-size: 24px;
+    font-style: initial;
+    left: 2px;
+    position: relative;
+    top: -1px;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {

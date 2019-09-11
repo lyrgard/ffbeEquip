@@ -3187,6 +3187,7 @@ function switchPots() {
         });
       }
     }
+    logCurrentBuild();
 }
 
 function onBuffChange(stat) {
@@ -3635,6 +3636,7 @@ function startPage() {
                 } else {
                     $(".unitStats .stat." + baseStats[statIndex] + " .pots input").val("0");
                 }
+                onPotsChange(baseStats[statIndex]);
             }
         });
     }
@@ -3889,19 +3891,27 @@ function populateUnitEquip() {
             var target = $(".unitEquipable.weapons2");
             target.html("");
         }
-        target.append('<i class="img img-equipment-'+weaponList[key]+' notEquipable"></i>');
+        target.append('<i class="img img-equipment-'+weaponList[key]+' notEquipable" onclick="toogleEquipableType(\'' + weaponList[key] + '\');"></i>');
 	}
     var target = $(".unitEquipable.armors");
     target.html("");
     for (var key in shieldList) {
-        target.append('<i class="img img-equipment-'+shieldList[key]+' notEquipable"></i>');
+        target.append('<i class="img img-equipment-'+shieldList[key]+' notEquipable" onclick="toogleEquipableType(\'' + shieldList[key] + '\');"></i>');
 	}
     for (var key in headList) {
-        target.append('<i class="img img-equipment-'+headList[key]+' notEquipable"></i>');
+        target.append('<i class="img img-equipment-'+headList[key]+' notEquipable" onclick="toogleEquipableType(\'' + headList[key] + '\');"></i>');
 	}
     for (var key in bodyList) {
-        target.append('<i class="img img-equipment-'+bodyList[key]+' notEquipable"></i>');
+        target.append('<i class="img img-equipment-'+bodyList[key]+' notEquipable" onclick="toogleEquipableType(\'' + bodyList[key] + '\');"></i>');
 	}
+    if (builds[currentUnitIndex]) {
+        builds[currentUnitIndex].bannedEquipableTypes.forEach(type => $('.unitEquipable .img-equipment-' + type).addClass("banned"));
+    }
+}
+
+function toogleEquipableType(equipableType) {
+    builds[currentUnitIndex].toogleEquipableType(equipableType);
+    $('.unitEquipable .img-equipment-' + equipableType).toggleClass("banned");
 }
     
 function populateItemType(equip) {
