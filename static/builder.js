@@ -131,6 +131,8 @@ var currentBestParamChallengeBuild = {
     build:null
 }
 
+let buildCounter = 0;
+
 function onBuildClick() {
     runningParamChallenge = false;
     currentUnitIdIndexForParamChallenge = -1;
@@ -146,6 +148,9 @@ function build() {
     secondaryOptimization = false;
 
     $(".buildLinks").addClass("hidden");
+    buildCounter = 0;
+    logBuildCounter();
+    $(".buildCounterDiv").removeClass("hidden");
     
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
@@ -3702,6 +3707,12 @@ function initWorkerNumber() {
     }));
 }
 
+let buildCounterThrottle = throttle(logBuildCounter, 1000);
+
+function logBuildCounter() {
+    $("#buildCounter").text(buildCounter.toLocaleString());
+}
+
 function initWorkers() {
     workers = [];
     for (var index = 0, len = numberOfWorkers; index < len; index++) {
@@ -3710,6 +3721,10 @@ function initWorkers() {
         workers[index].onmessage = function(event) {
             var messageData = JSON.parse(event.data);
             switch(messageData.type) {
+                case "buildCounterUpdate":
+                    buildCounter += messageData.counter;
+                    buildCounterThrottle();
+                    break;
                 case "betterBuildFound":
                     if (!builds[currentUnitIndex].buildValue[goalVariation] 
                             || builds[currentUnitIndex].buildValue[goalVariation] < messageData.value[goalVariation]

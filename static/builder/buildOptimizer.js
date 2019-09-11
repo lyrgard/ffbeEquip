@@ -1,8 +1,10 @@
 class BuildOptimizer {
-    constructor(allItemVersions) {
+    constructor(allItemVersions, buildCounterUpdateCallback) {
         this.allItemVersions = allItemVersions;
         this.goalVariation = "avg";
         this._alreadyUsedEspers = [];
+        this.buildCounter = 0;
+        this.buildCounterUpdateCallback = buildCounterUpdateCallback;
     }
     
     set unitBuild(unitBuild) {
@@ -32,7 +34,7 @@ class BuildOptimizer {
     }
     
     optimizeFor(typeCombinations, betterBuildFoundCallback) {
-
+        this.buildCounter = 0;
         this.elementalConditionItemsByType = {};
         this.betterBuildFoundCallback = betterBuildFoundCallback;
         this.itemConditionalElements = {};
@@ -72,6 +74,7 @@ class BuildOptimizer {
             var build = [null, null, null, null, null, null, null, null, null, null,null].concat(applicableSkills);
             this.findBestBuildForCombination(0, build, typeCombinations[index].combination, dataWithdConditionItems, typeCombinations[index].fixedItems, this.getElementBasedSkills(), this.getItemBasedSkills());
         }
+        this.buildCounterUpdateCallback(this.buildCounter);
     }
     
     selectEspers(alreadyUsedEspers, ennemyStats, typeCombination) {
@@ -422,6 +425,11 @@ class BuildOptimizer {
                     this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, slotsRemoved);
                 }
             }
+        }
+        this.buildCounter++;
+        if (this.buildCounter >= 5000) {
+            this.buildCounterUpdateCallback(this.buildCounter);
+            this.buildCounter = 0;
         }
     }
     

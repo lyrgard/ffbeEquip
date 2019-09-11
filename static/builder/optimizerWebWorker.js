@@ -16,7 +16,9 @@ onmessage = function(event) {
     var messageData = JSON.parse(event.data);
     switch(messageData.type) {
         case "init":
-            optimizer = new BuildOptimizer(messageData.allItemVersions);
+            optimizer = new BuildOptimizer(messageData.allItemVersions, function(buildCounter) {
+                postMessage(JSON.stringify({"type":"buildCounterUpdate","counter":buildCounter}))
+            });
             number = messageData.number;
             break;
         case "setData":
