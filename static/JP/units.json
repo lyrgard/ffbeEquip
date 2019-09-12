@@ -4199,7 +4199,7 @@
 		}
 	},
 	"100022404": {
-		"name":"Heliak",
+		"name":"Heliarc",
 		"jpname":"ヘリアーク",
 		"id":"100022404",
 		"max_rarity":"6",
@@ -4229,7 +4229,7 @@
 		"equip":["dagger","staff","rod","bow","whip","mace","fist","hat","clothes","robe"]
 	},
 	"100022603": {
-		"name":"Pelteira",
+		"name":"Pertira",
 		"jpname":"ペルテイラ",
 		"id":"100022603",
 		"max_rarity":"5",
@@ -5024,6 +5024,35 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","hammer","gun","mace","hat","clothes"]
+	},
+	"100026605": {
+		"name":"ジャン＝ピニヨン",
+		"id":"100026605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":252,"atk":205,"def":193,"mag":169,"spr":192},
+			"minStats":{"hp":1602,"mp":83,"atk":68,"def":64,"mag":56,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","harp","throwing","gun","fist","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"ジャン＝ピニヨン",
+			"id":"100026605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3733,"mp":193,"atk":157,"def":148,"mag":130,"spr":147},
+				"minStats":{"hp":1232,"mp":64,"atk":52,"def":49,"mag":43,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","harp","throwing","gun","fist","hat","clothes","lightArmor"]
+		}
 	},
 	"100026705": {
 		"name":"Seaside Nichol",
@@ -12113,6 +12142,78 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"336000105": {
+		"name":"アリス",
+		"id":"336000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4801,"mp":244,"atk":207,"def":186,"mag":155,"spr":183},
+			"minStats":{"hp":1584,"mp":81,"atk":68,"def":61,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"アリス",
+			"id":"336000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":187,"atk":159,"def":143,"mag":119,"spr":140},
+				"minStats":{"hp":1219,"mp":62,"atk":52,"def":47,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"336000205": {
+		"name":"スノウホワイト",
+		"id":"336000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4722,"mp":253,"atk":205,"def":193,"mag":148,"spr":181},
+			"minStats":{"hp":1558,"mp":83,"atk":68,"def":64,"mag":49,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"スノウホワイト",
+			"id":"336000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3632,"mp":194,"atk":157,"def":148,"mag":113,"spr":139},
+				"minStats":{"hp":1199,"mp":64,"atk":52,"def":49,"mag":37,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"336000304": {
+		"name":"グレーテル",
+		"id":"336000304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3610,"mp":206,"atk":111,"def":116,"mag":139,"spr":154},
+			"minStats":{"hp":1191,"mp":68,"atk":37,"def":38,"mag":46,"spr":51},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","rod","harp","lightShield","hat","clothes","robe"]
 	},
 	"337000105": {
 		"name":"Luminary",

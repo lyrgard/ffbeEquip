@@ -5803,7 +5803,7 @@
 		}
 	},
 	"100022404": {
-		"name":"Heliak",
+		"name":"Heliarc",
 		"jpname":"ヘリアーク",
 		"id":"100022404",
 		"max_rarity":"6",
@@ -5841,7 +5841,7 @@
 		]
 	},
 	"100022603": {
-		"name":"Pelteira",
+		"name":"Pertira",
 		"jpname":"ペルテイラ",
 		"id":"100022603",
 		"max_rarity":"5",
@@ -6966,6 +6966,46 @@
 		"skills": [
 			{"hp%":20, "atk%":10, "def%":10, "resist":[{"name":"wind","percent":50}]}
 		]
+	},
+	"100026605": {
+		"name":"ジャン＝ピニヨン",
+		"id":"100026605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4854,"mp":252,"atk":205,"def":193,"mag":169,"spr":192},
+			"minStats":{"hp":1602,"mp":83,"atk":68,"def":64,"mag":56,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","harp","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":40, "mp%":50, "atk%":50, "def%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["fist"]},
+			{"hp%":30, "atk%":30, "replaceLb":{"name":"グラン・ギニョール","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.1x * 2 = 30.2x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510793","name":"T傀儡術"}]}},"desc":"Gain 3 uses of からくり妙技・堕天 (233239), からくり妙技・昇天 (233240), 傀儡の抱擁 (233231), 夢幻の糸 (233230), 幻操乱舞 (233236), 幻操戯・土 (233234), 幻操戯・雷 (233235), 糸繰り・離れ土 (233232), 糸繰り・離れ雷 (233233) and 赤き薔薇の傀廊 (233238) for 3 turns"},{"effect":{"heal":{"base":9000,"coef":0,"split":3},"area":"SELF","target":"SELF"},"desc":"Restore 9000 HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 210 MP split over 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (18x * 2 = 36x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"510793","name":"T傀儡術"}]}},"desc":"Gain 3 uses of からくり妙技・堕天 (233239), からくり妙技・昇天 (233240), 傀儡の抱擁 (233231), 夢幻の糸 (233230), 幻操乱舞 (233236), 幻操戯・土 (233234), 幻操戯・雷 (233235), 糸繰り・離れ土 (233232), 糸繰り・離れ雷 (233233) and 赤き薔薇の傀廊 (233238) for 3 turns"},{"effect":{"heal":{"base":9000,"coef":0,"split":3},"area":"SELF","target":"SELF"},"desc":"Restore 9000 HP split over 3 turns to caster"},{"effect":null,"desc":"Restore 210 MP split over 3 turns to caster"}]}, "equipedConditions":["504233220"]},
+			{"def%":20, "levelCondition":115},
+			{"atk%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"ジャン＝ピニヨン",
+			"id":"100026605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3733,"mp":193,"atk":157,"def":148,"mag":130,"spr":147},
+				"minStats":{"hp":1232,"mp":64,"atk":52,"def":49,"mag":43,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","harp","throwing","gun","fist","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":40, "mp%":50, "atk%":50, "def%":30, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["fist"]}
+			]
+		}
 	},
 	"100026705": {
 		"name":"Seaside Nichol",
@@ -17343,6 +17383,107 @@
 				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "special":["dualWield"]}
 			]
 		}
+	},
+	"336000105": {
+		"name":"アリス",
+		"id":"336000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4801,"mp":244,"atk":207,"def":186,"mag":155,"spr":183},
+			"minStats":{"hp":1584,"mp":81,"atk":68,"def":61,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "atk%":60, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]},
+			{"mp%":30, "atk%":50, "equipedConditions":["sword"]},
+			{"hp%":30, "atk%":30, "equipedConditions":[["302011000","504233250"]]},
+			{"mp%":30, "def%":30, "lbPerTurn":{"min":3,"max":3}, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"233265":6,"233268":6}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"アリス",
+			"id":"336000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3693,"mp":187,"atk":159,"def":143,"mag":119,"spr":140},
+				"minStats":{"hp":1219,"mp":62,"atk":52,"def":47,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "atk%":60, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]},
+				{"mp%":30, "atk%":50, "equipedConditions":["sword"]}
+			]
+		}
+	},
+	"336000205": {
+		"name":"スノウホワイト",
+		"id":"336000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4722,"mp":253,"atk":205,"def":193,"mag":148,"spr":181},
+			"minStats":{"hp":1558,"mp":83,"atk":68,"def":64,"mag":49,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "equipedConditions":[["303007200","409036700"]]},
+			{"hp%":30, "atk%":30, "def%":20, "spr%":20, "lbPerTurn":{"min":4,"max":4}, "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"atk%":40, "skillEnhancement":{"233288":4,"233289":4}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"スノウホワイト",
+			"id":"336000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3632,"mp":194,"atk":157,"def":148,"mag":113,"spr":139},
+				"minStats":{"hp":1199,"mp":64,"atk":52,"def":49,"mag":37,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","hammer","spear","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"336000304": {
+		"name":"グレーテル",
+		"id":"336000304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3610,"mp":206,"atk":111,"def":116,"mag":139,"spr":154},
+			"minStats":{"hp":1191,"mp":68,"atk":37,"def":38,"mag":46,"spr":51},
+			"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","rod","harp","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":20, "mag%":30, "spr%":50, "mpRefresh":5},
+			{"mp%":20, "mag%":20, "equipedConditions":["rod"]},
+			{"mag%":30, "spr%":30, "equipedConditions":["robe"]}
+		]
 	},
 	"337000105": {
 		"name":"Luminary",
