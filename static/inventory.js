@@ -229,7 +229,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     html += '<div class="itemList">';
     for (var index = start, len = items.length; index < len; index++) {
         var item = items[index];
-        if (item === undefined || (item.access.includes("not released yet") && !itemInventory[item.id])) continue;
+        if (item === undefined || (item.id != "9999999999" && item.access.includes("not released yet") && !itemInventory[item.id])) continue;
 
         if (item.type === currentItemType) {
             html += getItemDisplay(item);
@@ -259,7 +259,7 @@ function displayItemsAsync(items, start, div, id, showStmrRecipe = false, max = 
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
-        if (items[index] === undefined || (items[index].access.includes("not released yet") && !itemInventory[items[index].id])) continue;
+        if (items[index] === undefined || (items[index].id != "9999999999" && items[index].access.includes("not released yet") && !itemInventory[items[index].id])) continue;
         html += getItemDisplay(items[index], showStmrRecipe);
     }
 
