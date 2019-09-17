@@ -249,7 +249,13 @@ function getSpecialHtml(item) {
         special += "</li>";
     }
     if (item.allowUseOf) {
-        special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
+        if (Array.isArray(item.allowUseOf)) {
+            special += "<li>Allow use of ";
+            special += item.allowUseOf.map(allowUseOf => "<i class='img img-equipment-" + allowUseOf + " inline'></i>").join(", ");
+            special += "</li>";
+        } else {
+            special += "<li>Allow use of <i class='img img-equipment-" + item.allowUseOf + " inline'></i></li>";
+        }
     }
     if (item.conditional) {
         special += getConditionalHtml(item.conditional);
@@ -1273,7 +1279,11 @@ function prepareSearch(data) {
             });
         }
         if (item.allowUseOf) {
-            textToSearch += "|Allow use of " + item.allowUseOf;
+            if (Array.isArray(item.allowUseOf)) {
+                textToSearch += item.allowUseOf.map(allowUseOf => "|Allow use of " + item.allowUseOf).join("");       
+            } else {
+                textToSearch += "|Allow use of " + item.allowUseOf;    
+            }
         }
         if (item.mpRefresh) {
             textToSearch += "|Recover MP (" + item.mpRefresh + "%) per turn";

@@ -377,9 +377,15 @@ class DataStorage {
             if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
                 this.dualWieldSources.push(this.getItemEntry(item, 1, ownedAvailableNumber > 0));
             }
-            if (item.allowUseOf && !equipable.includes(item.allowUseOf)) {
-                this.equipSources.push(item);
-            } 
+            if (item.allowUseOf) {
+                let allowUseOf = item.allowUseOf;
+                if (!Array.isArray(item.allowUseOf)) {
+                    allowUseOf = [allowUseOf];
+                }
+                if (allowUseOf.filter(a => !equipable.includes(a)).length > 0) {
+                    this.equipSources.push(item);
+                }
+            }
             if (this.itemCanBeOfUseForGoal(item, ennemyStats)) {
                 if (this.itemWithUnstackableSkillOnlyUsefulInOne(item, ennemyStats)) {
                     availableNumber = Math.min(1, availableNumber);

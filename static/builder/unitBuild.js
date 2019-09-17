@@ -175,8 +175,16 @@ class UnitBuild {
     getCurrentUnitEquip() {
         var equip = this.unit.equip.concat(["accessory", "materia"]);
         for (var index = 10; index--;) {
-            if (this.build[index] && this.build[index].allowUseOf && !equip.includes(this.build[index].allowUseOf)) {
-                equip.push(this.build[index].allowUseOf);
+            if (this.build[index] && this.build[index].allowUseOf) {
+                let allowUseOf = this.build[index].allowUseOf;
+                if (!Array.isArray(allowUseOf)) {
+                    allowUseOf = [allowUseOf];
+                }
+                allowUseOf.forEach(a => {
+                    if (!equip.includes(a)) {
+                        equip.push(a);
+                    }
+                });
             }
         }
         return equip.filter(e => !this._bannedEquipableTypes.includes(e));

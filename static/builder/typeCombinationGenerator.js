@@ -7,10 +7,16 @@ class TypeCombinationGenerator {
         this.equipSourcesByType = {};
         this.forceTmrAbility = forceTmrAbility;
         for (var index = equipSources.length; index --;) {
-            if (!this.equipSourcesByType[equipSources[index].allowUseOf]) {
-                this.equipSourcesByType[equipSources[index].allowUseOf] = [];
+            let allowUseOfs = equipSources[index].allowUseOf;
+            if (!Array.isArray(equipSources[index].allowUseOf)) {
+                allowUseOfs = [allowUseOfs];
             }
-            this.equipSourcesByType[equipSources[index].allowUseOf].push(equipSources[index]);
+            allowUseOfs.forEach(allowUseOf => {
+                if (!this.equipSourcesByType[allowUseOf]) {
+                    this.equipSourcesByType[allowUseOf] = [];
+                }
+                this.equipSourcesByType[allowUseOf].push(equipSources[index]);    
+            });
         }
         this.dataByType = dataByType;
         this.weaponsByTypeAndHands = weaponsByTypeAndHands;
