@@ -296,9 +296,11 @@ class BuildOptimizer {
             if (Object.keys(activatedItemsByType).length > 0) {
                 Object.keys(activatedItemsByType).forEach(type => {
                     restorePool = true;
-                    dataWithConditionItems[type] = dataWithConditionItems[type].clone();
-                    dataWithConditionItems[type].addItems(activatedItemsByType[type]);
-                    dataWithConditionItems[type].prepare();
+                    if (dataWithConditionItems[type]) {
+                        dataWithConditionItems[type] = dataWithConditionItems[type].clone();
+                        dataWithConditionItems[type].addItems(activatedItemsByType[type]);
+                        dataWithConditionItems[type].prepare();
+                    }
                 });
             }
         }
