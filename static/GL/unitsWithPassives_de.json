@@ -13417,13 +13417,13 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":20}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
-			{"hp%":20, "mp%":20, "atk%":20, "equipedConditions":[["302008400","504230832"]]},
+			{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "atk%":40, "equipedConditions":[["302008400","504230832"]]},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008500",["302008400","504230832"]]},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":["302008400",["302008400","504230832"]]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
-			{"dualWielding":{"atk":20}, "lbDamage":30, "skillEnhancement":{"230849":1,"230851":1}, "levelCondition":120}
+			{"dualWielding":{"atk":50}, "lbDamage":30, "skillEnhancement":{"230849":3,"230851":3}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Sora",
@@ -13441,7 +13441,7 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":20}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]}
+				{"hp%":30, "mp%":30, "atk%":60, "def%":40, "mag%":20, "spr%":40, "evade":{"physical":30}, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100}], "mpRefresh":10, "special":["dualWield"]}
 			]
 		}
 	},
@@ -13460,12 +13460,12 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":30, "def%":10, "mag%":10, "spr%":10, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
+			{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
 			{"atk%":30, "equipedConditions":["greatSword"]},
-			{"atk%":40, "lbDamage":20, "equipedConditions":[["409029900","303006300"]]},
+			{"atk%":40, "lbDamage":40, "equipedConditions":[["409029900","303006300"]]},
 			{"atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
-			{"hp%":20, "def%":20, "spr%":20, "skillEnhancement":{"230879":1,"509745":1}, "levelCondition":120}
+			{"hp%":20, "def%":20, "spr%":20, "skillEnhancement":{"230879":3,"509745":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Cloud (KH)",
@@ -13483,8 +13483,92 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":30, "mp%":30, "atk%":30, "def%":10, "mag%":10, "spr%":10, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
+				{"hp%":50, "mp%":50, "atk%":50, "def%":30, "mag%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":5,"max":5}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}], "mpRefresh":7},
 				{"atk%":30, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"335000305": {
+		"name":"Sephiroth (KH)",
+		"wikiEntry":"Sephiroth_(KH)",
+		"id":"335000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4822,"mp":247,"atk":209,"def":187,"mag":157,"spr":177},
+			"minStats":{"hp":1591,"mp":82,"atk":69,"def":62,"mag":52,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"atk%":50, "equipedConditions":["katana"]},
+			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405008400","304005000"]]},
+			{"hp%":20, "atk%":40, "resist":[{"name":"light","percent":50},{"name":"dark","percent":50}], "skillEnhancement":{"232970":2}, "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"mp%":30, "def%":30, "lbPerTurn":{"min":2,"max":2}, "skillEnhancement":{"232970":1,"232973":1,"232980":1}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sephiroth (KH)",
+			"wikiEntry":"Sephiroth_(KH)",
+			"id":"335000305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3709,"mp":190,"atk":160,"def":143,"mag":120,"spr":136},
+				"minStats":{"hp":1224,"mp":63,"atk":53,"def":47,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":30, "atk%":50, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"disease","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+				{"atk%":50, "equipedConditions":["katana"]}
+			]
+		}
+	},
+	"335000405": {
+		"name":"Riku",
+		"wikiEntry":"Riku",
+		"id":"335000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4885,"mp":240,"atk":207,"def":191,"mag":134,"spr":173},
+			"minStats":{"hp":1612,"mp":79,"atk":68,"def":63,"mag":44,"spr":57},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":50, "equipedConditions":[["302010500","504232931"]]},
+			{"def%":30, "mpRefresh":5, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "skillEnhancement":{"232950":1,"232951":1,"232952":1,"232953":1,"232954":1,"232955":1,"232957":1,"510713":1}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Riku",
+			"wikiEntry":"Riku",
+			"id":"335000405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3757,"mp":184,"atk":159,"def":146,"mag":103,"spr":133},
+				"minStats":{"hp":1240,"mp":61,"atk":52,"def":48,"mag":34,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":80, "def%":40, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"light","percent":50}], "special":["dualWield"]}
 			]
 		}
 	},
@@ -15763,6 +15847,173 @@
 				{"hp%":20, "mp%":20, "def%":10, "mag%":30, "spr%":10, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100}]},
 				{"mp%":20, "equipedConditions":["robe"]},
 				{"hp%":20, "equipedConditions":["hat"]}
+			]
+		}
+	},
+	"401007405": {
+		"name":"KI Katy",
+		"wikiEntry":"A.I._Katy",
+		"id":"401007405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":250,"atk":200,"def":170,"mag":200,"spr":170},
+			"minStats":{"hp":1617,"mp":83,"atk":66,"def":56,"mag":66,"spr":56},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}]},
+			{"atk%":30, "equipedConditions":["sword"]},
+			{"atk%":30, "equipedConditions":["greatSword"]},
+			{"atk%":30, "equipedConditions":["katana"]},
+			{"atk%":30, "equipedConditions":["axe"]},
+			{"atk%":30, "equipedConditions":["fist"]},
+			{"mag%":30, "equipedConditions":["sword"]},
+			{"mag%":30, "equipedConditions":["rod"]},
+			{"mag%":30, "equipedConditions":["whip"]},
+			{"mag%":30, "equipedConditions":["throwing"]},
+			{"mag%":30, "equipedConditions":["harp"]},
+			{"spr%":50, "equipedConditions":["staff"]},
+			{"spr%":50, "equipedConditions":["harp"]},
+			{"spr%":30, "equipedConditions":["robe"]},
+			{"spr%":30, "equipedConditions":["hat"]},
+			{"spr%":30, "equipedConditions":["lightShield"]},
+			{"def%":30, "equipedConditions":["heavyShield"]},
+			{"def%":30, "equipedConditions":["heavyArmor"]},
+			{"def%":30, "equipedConditions":["helm"]},
+			{"hp%":40, "mp%":40, "equipedConditions":["clothes"]},
+			{"def%":30, "equipedConditions":["lightArmor"]},
+			{"atk%":30, "equipedConditions":["greatSword"]},
+			{"atk%":30, "equipedConditions":["katana"]},
+			{"atk%":30, "equipedConditions":["axe"]},
+			{"atk%":30, "equipedConditions":["fist"]},
+			{"mag%":30, "equipedConditions":["rod"]},
+			{"mag%":30, "equipedConditions":["whip"]},
+			{"mag%":30, "equipedConditions":["throwing"]},
+			{"mag%":30, "equipedConditions":["harp"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":50, "equipedConditions":["whip"]},
+			{"mag%":50, "equipedConditions":["dagger"]},
+			{"mag%":50, "equipedConditions":["spear"]},
+			{"spr%":50, "equipedConditions":["bow"]},
+			{"atk%":30, "def%":30, "mag%":30, "spr%":30, "skillEnhancement":{"20290":2,"20300":2,"20310":2,"20320":2,"20330":2,"20340":2,"20350":2,"20360":2,"20380":2,"20390":2,"20400":2,"20430":2,"20440":2,"70350":2,"70360":2,"70432":2,"70433":2,"70434":2,"70435":2,"70438":2,"70439":2,"70440":2,"70441":2,"70442":2,"70443":2}, "equipedConditions":[["1100000339","1100000338"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "levelCondition":115},
+			{"atk%":40, "equipedConditions":["sword"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["greatSword"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["katana"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["axe"], "levelCondition":120},
+			{"atk%":40, "equipedConditions":["fist"], "levelCondition":120},
+			{"mag%":40, "equipedConditions":["sword"], "levelCondition":120},
+			{"mag%":40, "equipedConditions":["rod"], "levelCondition":120},
+			{"mag%":40, "equipedConditions":["whip"], "levelCondition":120},
+			{"mag%":40, "equipedConditions":["throwing"], "levelCondition":120},
+			{"mag%":40, "equipedConditions":["harp"], "levelCondition":120},
+			{"spr%":30, "equipedConditions":["lightShield"], "levelCondition":120},
+			{"def%":30, "equipedConditions":["heavyShield"], "levelCondition":120},
+			{"singleWielding":{"accuracy":25,"atk":100,"mag":100}, "killers":[{"name":"human","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"KI Katy",
+			"wikiEntry":"A.I._Katy",
+			"id":"401007405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3769,"mp":192,"atk":153,"def":130,"mag":153,"spr":130},
+				"minStats":{"hp":1244,"mp":63,"atk":50,"def":43,"mag":50,"spr":43},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"petrification","percent":100}]},
+				{"atk%":30, "equipedConditions":["sword"]},
+				{"atk%":30, "equipedConditions":["greatSword"]},
+				{"atk%":30, "equipedConditions":["katana"]},
+				{"atk%":30, "equipedConditions":["axe"]},
+				{"atk%":30, "equipedConditions":["fist"]},
+				{"mag%":30, "equipedConditions":["sword"]},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"mag%":30, "equipedConditions":["whip"]},
+				{"mag%":30, "equipedConditions":["throwing"]},
+				{"mag%":30, "equipedConditions":["harp"]},
+				{"spr%":50, "equipedConditions":["staff"]},
+				{"spr%":50, "equipedConditions":["harp"]},
+				{"spr%":30, "equipedConditions":["robe"]},
+				{"spr%":30, "equipedConditions":["hat"]},
+				{"spr%":30, "equipedConditions":["lightShield"]},
+				{"def%":30, "equipedConditions":["heavyShield"]},
+				{"def%":30, "equipedConditions":["heavyArmor"]},
+				{"def%":30, "equipedConditions":["helm"]},
+				{"hp%":40, "mp%":40, "equipedConditions":["clothes"]},
+				{"def%":30, "equipedConditions":["lightArmor"]},
+				{"atk%":30, "equipedConditions":["greatSword"]},
+				{"atk%":30, "equipedConditions":["katana"]},
+				{"atk%":30, "equipedConditions":["axe"]},
+				{"atk%":30, "equipedConditions":["fist"]},
+				{"mag%":30, "equipedConditions":["rod"]},
+				{"mag%":30, "equipedConditions":["whip"]},
+				{"mag%":30, "equipedConditions":["throwing"]},
+				{"mag%":30, "equipedConditions":["harp"]},
+				{"atk%":200, "equipedConditions":["unarmed"]},
+				{"atk%":50, "equipedConditions":["whip"]},
+				{"mag%":50, "equipedConditions":["dagger"]},
+				{"mag%":50, "equipedConditions":["spear"]},
+				{"spr%":50, "equipedConditions":["bow"]}
+			]
+		}
+	},
+	"401007505": {
+		"name":"Reizende Katy",
+		"wikiEntry":"Lovely_Katy",
+		"id":"401007505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3500,"mp":220,"atk":70,"def":130,"mag":150,"spr":172},
+			"minStats":{"hp":1155,"mp":73,"atk":23,"def":43,"mag":50,"spr":57},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","bow","harp","throwing","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+			{"spr%":20, "equipedConditions":["robe"]},
+			{"def%":20, "equipedConditions":["robe"]},
+			{"hp%":20, "spr%":20, "equipedConditions":[["1500000115","1100000340"]]},
+			{"spr%":30, "equipedConditions":["staff",["1500000115","1100000340"]]},
+			{"spr%":30, "equipedConditions":["harp",["1500000115","1100000340"]]},
+			{"mp%":20, "levelCondition":115},
+			{"resist":[{"name":"charm","percent":100}], "mpRefresh":10, "levelCondition":120},
+			{"spr%":30, "equipedConditions":["staff"], "levelCondition":120},
+			{"spr%":30, "equipedConditions":["harp"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Reizende Katy",
+			"wikiEntry":"Lovely_Katy",
+			"id":"401007505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":2692,"mp":169,"atk":53,"def":100,"mag":115,"spr":132},
+				"minStats":{"hp":888,"mp":56,"atk":17,"def":33,"mag":38,"spr":44},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","bow","harp","throwing","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]},
+				{"spr%":20, "equipedConditions":["robe"]},
+				{"def%":20, "equipedConditions":["robe"]}
 			]
 		}
 	},

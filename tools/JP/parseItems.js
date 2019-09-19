@@ -548,7 +548,11 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
 
     // Equip X
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 5) {
-        item.allowUseOf = typeMap[rawEffect[3]];
+        if (item.allowUseOf) {
+            item.allowUseOf.push(typeMap[rawEffect[3]]);
+        } else {
+            item.allowUseOf = [typeMap[rawEffect[3]]];
+        }
         
     // Doublehand
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 13) {
