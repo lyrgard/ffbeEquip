@@ -1325,7 +1325,7 @@ function updateGoal() {
         }
         manageMulticast(multicastedSkills);
 
-        if (builds[currentUnitIndex].goal == 'custom') {
+        if (builds[currentUnitIndex].goal == 'custom' && !isSimpleFormula(builds[currentUnitIndex]._formula)) {
             $('.normalGoalChoices').addClass("hidden");
             $('.customGoalChoice').removeClass("hidden");
             $("#customGoalFormula").text(formulaToString(builds[currentUnitIndex]._formula));
