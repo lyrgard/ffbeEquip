@@ -361,10 +361,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-width: 5px;
-    border-style: solid;
-    border-color: white;
-    border-radius: 10px;
     border-top: none;
 }
 
@@ -1053,6 +1049,12 @@ i.img.img-slot-hand.leftHand {
     font-size: 0.9em;
     margin-left: 80px;
     margin-top: -5px;
+}
+
+.themeChanger {
+    width: 23px;
+    height: 30px;
+    position: absolute;
 }
 
 @media (max-width: 991px) {

@@ -488,6 +488,7 @@ mark {
 .unit-rarity {
     display: inline-flex;
     margin-left: 20px;
+    font-size: 2em;
 }
 
 .rarity-star {
@@ -802,6 +803,7 @@ nav {
 
 .item.enhanced {
     border: 2px solid brown !important;
+    border-radius: 15px;
 }
 
 .choice .btn {

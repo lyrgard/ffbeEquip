@@ -68,6 +68,10 @@ var localStorageAvailable = function(){
     return enabled;
 }();
 
+function toggleTheme() {
+    $('body').toggleClass('dark');
+}
+
 function getImageHtml(item, actionOnImage = undefined) {
     var html = '<div class="td type">';
 
