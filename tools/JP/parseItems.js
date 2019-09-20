@@ -171,7 +171,6 @@ getData('equipment.json', function (items) {
                                     for (var materiaId in materias) {
                                         treatItem(materias,materiaId, result, skills);
                                     }
-                                    console.log(skillNotIdentifiedNumber);
                                     fs.writeFileSync('data.json', formatOutput(result.items));
                                 });
                             });
@@ -277,7 +276,7 @@ function treatItem(items, itemId, result, skills) {
     if (!oldItemsAccessById[itemOut.id]) {
         console.log("new item : " + itemOut.id + " - " + itemOut.name);
     }
-
+    
     result.items = result.items.concat(readSkills(itemIn, itemOut,skills));
 }
 
@@ -373,6 +372,7 @@ function readSkills(itemIn, itemOut, skills) {
             addMasterySkills(itemOut, masterySkills, result);
         }
         
+        masterySkills = [];
         for (var restrictedIndex in restrictedSkills) {
             var skill = restrictedSkills[restrictedIndex];
             var effectsNotTreated = [];
@@ -476,9 +476,6 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         return false; // don't consider active skills
     }
     var rawEffect = skill.effects_raw[rawEffectIndex];
-    if (skill.name == "祈り子の夢") {
-        console.log(rawEffect);
-    }
     // + X % to a stat
     if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 1) {
         var effectData = rawEffect[3]            

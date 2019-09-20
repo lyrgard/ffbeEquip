@@ -1325,10 +1325,11 @@ function updateGoal() {
         }
         manageMulticast(multicastedSkills);
 
-        if (customFormula) {
+        if (builds[currentUnitIndex].goal == 'custom') {
             $('.normalGoalChoices').addClass("hidden");
             $('.customGoalChoice').removeClass("hidden");
-            $("#customGoalFormula").text(formulaToString(customFormula));
+            $("#customGoalFormula").text(formulaToString(builds[currentUnitIndex]._formula));
+            customFormula = builds[currentUnitIndex]._formula;
             $(".goal .chainMultiplier").addClass("hidden");
         } else {
             $('.normalGoalChoices').removeClass("hidden");
@@ -1515,6 +1516,7 @@ function loadBuild(buildIndex) {
     updateUnitStats();
     displayUnitEnhancements();
     
+    customFormula = null;
     updateGoal();
     readGoal();
     
@@ -1524,7 +1526,7 @@ function loadBuild(buildIndex) {
     }
 }
 
-function addNewUnit() {
+function addNewUnit(focusUnitSelect = true) {
     $("#unitTabs li").removeClass("active");
     let newId = builds.length;
     var newTab = $("<li class='active tab_" + newId + "'><a href='#'>Select unit</a><span class=\"closeTab glyphicon glyphicon-remove\" onclick=\"closeTab()\"></span></li>");
@@ -1542,7 +1544,9 @@ function addNewUnit() {
         $("#addNewUnitButton").addClass("hidden");
     }
     selectUnitDropdownWithoutNotify(null);
-    $('#unitsSelect').select2('open');
+    if (focusUnitSelect) {
+        $('#unitsSelect').select2('open');
+    }
 }
 
 function selectUnitTab(index) {
@@ -2692,13 +2696,13 @@ function loadStateHashAndBuild(data, importMode = false) {
         
         if (first) {
             if (importMode && (builds.length > 1 || builds[0].unit != null)) {
-                addNewUnit();
+                addNewUnit(false);
             } else {
                 reinitBuild(0);
             }
             first = false;
         } else {
-            addNewUnit();
+            addNewUnit(false);
         }
         
         var unit = data.units[i];
@@ -3198,7 +3202,7 @@ function switchPots() {
 function onBuffChange(stat) {
     if (builds[currentUnitIndex].unit) {
         var value = parseInt($(".unitStats .stat." + stat + " .buff input").val()) || 0;
-        var maxValue = 600;
+        var maxValue = (stat === "hp" ? 10000 : 600);
         if (stat == "pMitigation" || stat == "mMitigation" || stat == "mitigation") {
             maxValue = 99;
         }

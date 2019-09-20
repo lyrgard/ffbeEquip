@@ -535,13 +535,8 @@ i.img.img-slot-hand.leftHand {
 }
 
 .potSwitcher {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.potSwitcher .btn.btn-default{
-  padding: 2px 6px;
+    padding: 2px 6px;
+    margin-left: 10px;
 }
 
 .unitStats .stat .pots input.poted {
@@ -589,6 +584,12 @@ i.img.img-slot-hand.leftHand {
     line-height: 34px;
     opacity: 0.6;
     z-index: 10;
+}
+
+.inputWithIcon img.leftIcon {
+    width: 20px;
+    top: 7px;
+    left: 3px;
 }
 
 .unitStats .pots .leftIcon {

@@ -996,7 +996,11 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     var buffValue = 0
     if (baseStats.includes(stat)) {
         baseValue = unitBuild.baseValues[stat].total;
-        buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
+        if (stat === 'hp') {
+            buffValue = unitBuild.baseValues[stat].buff;   
+        } else {
+            buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
+        }
     } else if (stat == "lbPerTurn") {
         baseValue = unitBuild.baseValues["lbFillRate"].total;
         buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;

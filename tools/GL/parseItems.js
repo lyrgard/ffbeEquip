@@ -276,7 +276,13 @@ function treatItem(items, itemId, result, skills) {
         var uitId = unitIdByTmrId[itemOut.id];
         var unit = unitNamesById[uitId];
         var access = "TMR-" + unit.minRarity + "*";
+        if (uitId == "401008505") {
+            console.log(JSON.stringify(releasedUnits[uitId]));
+        }
         if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
+            if (uitId == "401008505") {
+                console.log("added event");
+            }
             access += "-event";
         }
         if (!releasedUnits[uitId]) {
@@ -453,6 +459,7 @@ function readSkills(itemIn, itemOut, skills) {
         if (masterySkills.length > 0) {
             addMasterySkills(itemOut, masterySkills, result);
         }
+        masterySkills = [];
         for (var restrictedIndex in restrictedSkills) {
             var skill = restrictedSkills[restrictedIndex];
             var effectsNotTreated = [];
@@ -466,9 +473,7 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                 }
                 if (copy.exclusiveUnits) {
-                    console.log(JSON.stringify(copy.exclusiveUnits) + " + " + JSON.stringify(unitsFound));
                     unitsFound = intersect(copy.exclusiveUnits, unitsFound);
-                    console.log(" => " + JSON.stringify(unitsFound));
                 }   
                 copy.exclusiveUnits = [];
                 unitsFound.forEach(u => addExclusiveUnit(copy, u));
