@@ -191,9 +191,6 @@ getData('equipment.json', function (items) {
 
                                                                         if (unit.TMR) {
                                                                             unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                                                                            if (unit.rarity_min > 3 && !unit.is_summonable) {
-                                                                                unitNamesById[unitIndex].event = true;
-                                                                            }
                                                                         }
                                                                         if (unit.sTMR) {
                                                                             unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
@@ -282,6 +279,7 @@ function treatItem(items, itemId, result, skills) {
         if (unit.event || (releasedUnits[uitId] && releasedUnits[uitId].type == "event")) {
             if (uitId == "401008505") {
                 console.log("added event");
+                console.log(unit.event);
             }
             access += "-event";
         }

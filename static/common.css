@@ -374,7 +374,7 @@ ul {
 .item .enhancements {
     font-weight: bold;
     font-size: small;
-    color: darkviolet;
+    color: brown;
     display: flex;
     align-items: center;
 }
@@ -801,9 +801,8 @@ nav {
     display: inline-flex;
 }
 
-.item.enhanced {
-    border: 2px solid brown !important;
-    border-radius: 15px;
+.item.enhanced .itemName {
+    color: brown;
 }
 
 .choice .btn {

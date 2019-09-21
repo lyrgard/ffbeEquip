@@ -25,7 +25,8 @@
         <link rel="stylesheet" type="text/css" href="builder.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <!--<link rel="stylesheet" type="text/css" href="lib/dark-bootstrap.min.css">-->
-        <link rel="stylesheet" type="text/css" href="dark-mode.css">
+        <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
+
     </head>
     <body>
         <div class="glassPanel"></div>
@@ -361,7 +362,7 @@
                                     <span class="leftIcon glyphicon glyphicon-plus link" title="pots"></span>
                                     <input type="text" class="form-control" placeholder="0" data-toggle="tooltip" data-original-title="HP pots"/>
                                 </div>
-                                <div class="inputWithIcon withPercent buff">
+                                <div class="inputWithIcon buff">
                                     <img src="img/icons/shield.png" class="leftIcon" title="HP Shield"/>
                                     <input type="text" class="form-control" placeholder="0" data-toggle="tooltip" data-original-title="HP Shield"/>
                                 </div>
@@ -747,9 +748,9 @@
                     <div class="panel-heading">
                         <span class="savedTeamName">New team</span>
                         <div>
-                            <div id="saveTeamButton" class="btn hidden" onclick="saveTeam()" title="Save"><span class="glyphicon glyphicon-floppy-disk"></span></div>
-                            <div id="saveTeamAsButton" class="btn hidden" onclick="showSaveAsPopup()" title="Save as..."><span class="glyphicon glyphicon-floppy-save"></span></div>
-                            <div id="openSavedTeamsButton" class="btn" onclick="showSavedTeams()" title="Show saved teams list"><span class="glyphicon glyphicon-th-list"></span></div>
+                            <div id="saveTeamButton" class="btn hidden" onclick="saveTeam()" title="Save"><i class="fas fa-save"></i></div>
+                            <div id="saveTeamAsButton" class="btn hidden" onclick="showSaveAsPopup()" title="Save as..."><span class="fas fa-plus-square"></span></div>
+                            <div id="openSavedTeamsButton" class="btn" onclick="showSavedTeams()" title="Show saved teams list"><span class="fas fa-list"></span></div>
                         </div>
                     </div>
                 </div>
@@ -995,6 +996,16 @@
                         <div class="dropdown stat">
                             <i class="img img-sort-a-z dropdown-toggle statChoice" type="button" data-toggle="dropdown"></i>
                             <div class="dropdown-menu pull-right">
+                            </div>
+                        </div>
+                        <div id="options">
+                            <div id="onlyOwnedItems" class="checkboxGroup">
+                                    <input type="checkbox"/>
+                                    Only owned items
+                            </div>
+                            <div id="excludeNotReleasedYetOption" class="checkboxGroup">
+                                <input type="checkbox"/>
+                                Exclude not released yet
                             </div>
                         </div>
                         <a id="backToAllItems" class="link" onclick="updateSearchResult();"><span class="glyphicon glyphicon-chevron-left"></span> Back to item list</a>
@@ -1397,7 +1408,7 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

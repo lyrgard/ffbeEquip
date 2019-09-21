@@ -880,7 +880,7 @@ function getItemLine(index, short = false) {
     }
     
     if (index >= 0 && builds[currentUnitIndex].fixedItems[index]) {
-        html += '<div class="td actions"><img class="pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')" src="img/icons/pinned.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt(\'' + index +'\')" src="img/icons/delete.png"></img>';
+        html += '<div class="td actions"><i class="fas fa-thumbtack pin fixed" title="Unpin this item" onclick="removeFixedItemAt(\'' + index +'\')"></i><i class="fas fa-trash-alt delete" title="Remove this item" onclick="removeItemAt(\'' + index +'\')"></i>';
         if (weaponList.includes(item.type)) {
             html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].fixedItems[' + index + ']))" />';
         }
@@ -889,8 +889,8 @@ function getItemLine(index, short = false) {
         html += '<div class="td actions"></div><div class="td type slot" onclick="displayFixItemModal(' + index + ');">'+ getSlotIcon(index) + '</div><div class="td name slot">'+ getSlotName(index) + '</div>'
     } else if (!item.placeHolder) {
         var enhancementText = item.enhancements ? JSON.stringify(item.enhancements).replace(/\"/g, "'") : false;
-        html += `<div class="td actions"><img title="Pin this item" class="pin notFixed" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" src="img/icons/pin.png"></img><img title="Remove this item" class="delete" onclick="removeItemAt('${index}')" src="img/icons/delete.png"></img>`;
-        html += '<span title="Exclude this item from builds" class="excludeItem glyphicon glyphicon-ban-circle" onclick="excludeItem(\'' + item.id +'\', ' + index + ')" />';
+        html += `<div class="td actions"><i class="fas fa-thumbtack pin notFixed" title="Pin this item" onclick="fixItem('${item.id}', ${index}, ${enhancementText});" <i class="fas fa-trash-alt delete" title="Remove this item" onclick="removeItemAt(\'' + index +'\')"></i>`;
+        html += '<span title="Exclude this item from builds" class="excludeItem fas fa-ban" onclick="excludeItem(\'' + item.id +'\', ' + index + ')" />';
         if (weaponList.includes(item.type)) {
             html += '<img class="itemEnchantmentButton" title="Modify this weapon enchantment" src="img/icons/dwarf.png" onclick="currentItemSlot = ' + index + ';selectEnchantement(getRawItemForEnhancements(builds[currentUnitIndex].build[' + index + ']))" />';
         }
@@ -1804,6 +1804,8 @@ function onEquipmentsChange() {
      
 function updateSearchResult() {
     $("#fixItemModal").removeClass("showEnhancements");
+    let onlyOwnedItems = $('#onlyOwnedItems input').prop('checked');
+    let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
         $("#fixItemModal .results .tbody").html("");    
@@ -1845,7 +1847,7 @@ function updateSearchResult() {
         }
     }
     readItemsExcludeInclude();
-    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, false, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !dataStorage.excludeNotReleasedYet, true), builds[currentUnitIndex].unit.id));
+    displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
     
     if (searchStat == "") {
         $("#fixItemModal .results").addClass("notSorted");
@@ -1920,6 +1922,11 @@ function displayFixItemModal(slot) {
     $("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
+
+    let equipmentChoice = $(".equipments select").val();
+    $('#onlyOwnedItems input').prop('checked', equipmentChoice == "owned" && equipmentChoice == "ownedAvailableForExpedition");
+    $('#excludeNotReleasedYetOption input').prop('checked', dataStorage.excludeNotReleasedYet);
+
     selectSearchStat(searchStat);
     selectSearchType(builds[currentUnitIndex].equipable[slot]);
     selectSearchClickBehavior(ClickBehaviors.EQUIP);
@@ -2243,15 +2250,15 @@ function getItemEnhancementLink(item) {
 
 function getItemExclusionLink(itemId, excluded) {
     var html = "";
-    html += '<span title="Exclude this item from builds" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
-    html += '<span title="Include this item in builds again" class="miniIcon left excludeItem glyphicon glyphicon-ban-circle true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></span>';
+    html += '<i title="Exclude this item from builds" class="miniIcon left excludeItem fas fa-ban false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Include this item in builds again" class="miniIcon left excludeItem fas fa-ban true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
     return html;
 }
 
 function toggleExclusionIcon(itemId) {
     var excluded = itemsToExclude.includes(itemId);
-    $('.excludeItem.glyphicon-ban-circle.' + !excluded + '.itemid' + itemId).css('display', 'none');
-    $('.excludeItem.glyphicon-ban-circle.' + excluded + '.itemid' + itemId).css('display', 'inline');
+    $('.excludeItem.fas.fa-ban.' + !excluded + '.itemid' + itemId).css('display', 'none');
+    $('.excludeItem.fas.fa-ban.' + excluded + '.itemid' + itemId).css('display', 'inline');
 }
 
 function selectEnchantedItem(itemId) {
@@ -3612,6 +3619,8 @@ function startPage() {
     
     // Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,updateSearchResult));
+    $('#onlyOwnedItems input').on("input", updateSearchResult);
+    $('#excludeNotReleasedYetOption input').on("input", updateSearchResult);
     $('#fixItemModal').on('shown.bs.modal', function () {
         $('#searchText').focus();
     })  

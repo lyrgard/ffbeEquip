@@ -73,6 +73,12 @@ body.dark .btn-default {
     border-color: #888;
 }
 
+body.dark .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
 body.dark .btn-default:hover {
     color: #ffffff;
     background-color: #282828;
@@ -92,13 +98,18 @@ body.dark .btn-default:focus, body.dark .btn-default.focus {
     border-color: #020202;
 }
 
-body.dark a, body.dark .link {
+body.dark a, body.dark .link, body.dark .wikiLink {
     color: #2a9fd6;
 }
 
 body.dark a:hover, body.dark .link:hover {
     color: #2a9fd6;
 }
+
+body.dark .navigationMenu .desktop a {
+    margin-top: 1px;
+}
+
 
 body.dark .result-tab-pane {
     border-bottom: 1px solid #464545;
@@ -108,7 +119,7 @@ body.dark .result-tab-pane {
     border-bottom-right-radius: 5px;
 }
 
-body.dark .items .tbody .tr .td, .results {
+body.dark .items .tbody .tr .td, body.dark .results {
     border-top: 1px solid #464545;
 }
 
@@ -140,4 +151,26 @@ body.dark .code {
 
 body.dark .stat .baseStat .leftIcon {
     color: #dddddd  !important;
+}
+
+body.dark .glassPanel {
+    opacity: 0.5;
+}
+
+body.dark.building #buildResult .wikiLink, body.dark.building #conciseViewLink a, body.dark.building #detailedViewLink a, body.dark.building #unitLink, body.dark.building .footerButtons a {
+    background-color: #464545;
+}
+
+body.dark.building #buildButton, body.dark.building #buildResult .wikiLink, body.dark.building #conciseViewLink a, body.dark.building #detailedViewLink a, body.dark.building #unitLink, body.dark.building .footerButtons a {
+    box-shadow: 0 0 5px 5px #464545;
+}
+
+body.dark #inventoryDiv button.inventoryStatus {
+    color: #dddddd !important;
+    background-color: #424242 !important;
+    border-color: #464545;
+}
+
+body.dark #fixItemModal .results .tr.selectable:hover {
+    background-color: #464545;
 }

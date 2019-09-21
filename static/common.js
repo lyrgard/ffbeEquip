@@ -106,7 +106,7 @@ function getImageHtml(item, actionOnImage = undefined) {
 }
 
 function getNameColumnHtml(item) {
-    var html = '<div class="td name"><div>';
+    var html = '<div class="td name"><div class="itemName">';
 
     if (item.rarity) {
       html += '<span class="rarity">' + item.rarity + '★</span> ';

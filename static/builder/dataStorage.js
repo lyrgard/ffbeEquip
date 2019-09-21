@@ -580,11 +580,13 @@ class DataStorage {
                         var access = item.access[index];
                         if ((this.excludeNotReleasedYet && access == "not released yet")
                            || (this.excludeTMR5 && access.startsWith("TMR-5*") && item.tmrUnit != builds[currentUnitIndex].unit.id)
-                           || (this.exludeEventEquipment && access.endsWith("event"))
                            || (this.excludePremium && access == "premium")
                            || (this.excludeSTMR && access == "STMR")) {
                             return {"total":0,"available":0,"totalOwnedNumber":0};
                         }        
+                    }
+                    if (this.exludeEventEquipment && item.access.matchAll(a => a.endsWith("event"))) {
+                        return {"total":0,"available":0,"totalOwnedNumber":0};
                     }
                 }
                 number = 4;

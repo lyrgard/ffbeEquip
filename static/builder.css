@@ -127,7 +127,7 @@
 }
 #fixItemModal .modal-header .stat {
     margin-left: 10px;
-    margin-right: 50px
+    margin-right: 10px
 }
 #fixItemModal .modal-header .dropdown {
     cursor: pointer;
@@ -175,6 +175,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     height: 100%
 }
 
@@ -194,6 +195,14 @@
     cursor: pointer;
 }
 
+.td.actions i {
+    cursor: pointer;
+}
+
+.td.actions .pin.fixed {
+    color: limegreen;
+}
+
 .td.actions .pin.fixed:hover {
     opacity: 0.2;
 }
@@ -211,7 +220,6 @@
 }
 .td.actions .delete:hover {
     opacity: 1;
-    cursor: pointer;
 }
 
 .td.actions .excludeItem {
@@ -684,6 +692,17 @@ i.img.img-slot-hand.leftHand {
 
 #fixItemModal .results .td.mobile .menu {
     position: relative;
+}
+
+#fixItemModal .modal-header .checkboxGroup {
+    margin-right: 30px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#fixItemModal .modal-header .checkboxGroup input{
+    margin: 0 3px 0 0;
 }
 
 .customEnchantment {
