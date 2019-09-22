@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder/dataStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/dataStorage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,29 +95,34 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="587" column="70" selection-start-line="587" selection-start-column="70" selection-end-line="587" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/builder.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="891" column="167" selection-start-line="891" selection-start-column="167" selection-end-line="891" selection-end-column="167" />
+              <caret line="18" column="69" lean-forward="true" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
+        <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="67" />
+            <state relative-caret-position="354">
+              <caret line="891" column="167" selection-start-line="891" selection-start-column="167" selection-end-line="891" selection-end-column="167" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -209,7 +214,6 @@
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
         <option value="$PROJECT_DIR$/static/GL/data.json" />
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
-        <option value="$PROJECT_DIR$/static/builder/dataStorage.js" />
         <option value="$PROJECT_DIR$/tools/GL/parseItems.js" />
         <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/builder.html" />
@@ -220,6 +224,7 @@
         <option value="$PROJECT_DIR$/static/dark-mode.css" />
         <option value="$PROJECT_DIR$/static/units.html" />
         <option value="$PROJECT_DIR$/static/builder.js" />
+        <option value="$PROJECT_DIR$/static/builder/dataStorage.js" />
       </list>
     </option>
   </component>
@@ -421,12 +426,12 @@
       <workItem from="1568927619065" duration="599000" />
       <workItem from="1569001826954" duration="2029000" />
       <workItem from="1569098506028" duration="6600000" />
-      <workItem from="1569154717445" duration="5639000" />
+      <workItem from="1569154717445" duration="5829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204099000" />
+    <option name="totallyTimeSpent" value="204289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -701,13 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8805">
-          <caret line="587" column="80" selection-start-line="587" selection-start-column="80" selection-end-line="587" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1935">
@@ -726,13 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="22" column="38" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/homepage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -785,8 +776,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="354">
           <caret line="891" column="167" selection-start-line="891" selection-start-column="167" selection-end-line="891" selection-end-column="167" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="69" lean-forward="true" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="587" column="70" selection-start-line="587" selection-start-column="70" selection-end-line="587" selection-end-column="70" />
         </state>
       </provider>
     </entry>

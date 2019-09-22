@@ -585,7 +585,7 @@ class DataStorage {
                             return {"total":0,"available":0,"totalOwnedNumber":0};
                         }        
                     }
-                    if (this.exludeEventEquipment && item.access.matchAll(a => a.endsWith("event"))) {
+                    if (this.exludeEventEquipment && item.access.every(a => a.endsWith("event"))) {
                         return {"total":0,"available":0,"totalOwnedNumber":0};
                     }
                 }
