@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dark-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dark-mode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/encyclopedia.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/encyclopedia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/units.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/units.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -110,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="2161" column="32" lean-forward="true" selection-start-line="2161" selection-start-column="32" selection-end-line="2161" selection-end-column="32" />
+              <caret line="891" column="167" selection-start-line="891" selection-start-column="167" selection-end-line="891" selection-end-column="167" />
             </state>
           </provider>
         </entry>
@@ -132,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
       <find>fixed</find>
       <find>ban</find>
       <find>flopp</find>
@@ -162,6 +155,7 @@
       <find>toggleTh</find>
       <find>themeChanger</find>
       <find>panel</find>
+      <find>fas fa-</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -219,13 +213,13 @@
         <option value="$PROJECT_DIR$/tools/GL/parseItems.js" />
         <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/builder.html" />
-        <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/homepage.html" />
         <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/encyclopedia.html" />
         <option value="$PROJECT_DIR$/static/inventory.html" />
         <option value="$PROJECT_DIR$/static/dark-mode.css" />
         <option value="$PROJECT_DIR$/static/units.html" />
+        <option value="$PROJECT_DIR$/static/builder.js" />
       </list>
     </option>
   </component>
@@ -427,12 +421,12 @@
       <workItem from="1568927619065" duration="599000" />
       <workItem from="1569001826954" duration="2029000" />
       <workItem from="1569098506028" duration="6600000" />
-      <workItem from="1569154717445" duration="4941000" />
+      <workItem from="1569154717445" duration="5639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203401000" />
+    <option name="totallyTimeSpent" value="204099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -742,13 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="2161" column="32" lean-forward="true" selection-start-line="2161" selection-start-column="32" selection-end-line="2161" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -793,6 +780,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="891" column="167" selection-start-line="891" selection-start-column="167" selection-end-line="891" selection-end-column="167" />
         </state>
       </provider>
     </entry>
