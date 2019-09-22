@@ -10,7 +10,7 @@ body.dark .panel {
     border: 1px solid transparent;
 }
 
-body.dark .panel-default > .panel-heading {
+body.dark .panel-default > .panel-heading, body.dark .panel-default > .panel-footer {
     background-color: #464545;
     border-color: #464545;
     color: #dddddd;
@@ -110,6 +110,18 @@ body.dark .navigationMenu .desktop a {
     margin-top: 1px;
 }
 
+body.dark .dropdown-menu {
+    background-color: #303030;
+}
+
+body.dark .dropdown-menu > li > a:hover, body.dark .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #375a7f;
+}
+
+
+
 
 body.dark .result-tab-pane {
     border-bottom: 1px solid #464545;
@@ -174,3 +186,50 @@ body.dark #inventoryDiv button.inventoryStatus {
 body.dark #fixItemModal .results .tr.selectable:hover {
     background-color: #464545;
 }
+
+/* Encyclopedia */
+body.dark .items .thead .tr .td {
+    border-bottom: 2px solid #464545;
+}
+
+/* My inventory */
+
+body.dark .typeJumpList .typeJump {
+    border: 1px solid #303030;
+    background: #303030;
+}
+
+body.dark .typeJumpList .typeJump:hover {
+    border: 1px solid #808080;
+}
+
+body.dark .itemList .item, body.dark #itemEnhancement .item {
+    background: #303030;
+    border-color: #222;
+}
+
+body.dark .itemList .item.notOwned {
+    background: #222;
+}
+
+body.dark .item .inventory .glyphicon {
+    color: #555;
+}
+
+body.dark .inventory .number {
+    background-color: #555;
+    color: #ddd;
+}
+
+body.dark #exportLinks {
+    color: #ffffff;
+    background-color: #424242;
+    border-color: #888;
+}
+
+body.dark #exportLinks:hover {
+    background-color: #282828;
+    border-color: #232323;
+}
+
+

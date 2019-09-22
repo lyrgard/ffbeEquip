@@ -69,7 +69,32 @@ var localStorageAvailable = function(){
 }();
 
 function toggleTheme() {
-    $('body').toggleClass('dark');
+    let theme = 'dark';
+    if ($('body').hasClass('dark')) {
+        theme = 'light';
+    }
+    setTheme(theme);
+}
+
+function setTheme(theme) {
+    if (localStorageAvailable) {
+        localStorage.setItem("theme", theme);
+    }
+    if (theme === 'light') {
+        $('body').removeClass('dark');
+    } else {
+        $('body').addClass('dark');
+    }
+}
+
+function loadTheme() {
+    let theme = 'light';
+    if (localStorageAvailable) {
+        if (localStorage.getItem("theme") === 'dark') {
+            theme = 'dark';
+        };
+    }
+    setTheme(theme);
 }
 
 function getImageHtml(item, actionOnImage = undefined) {
@@ -690,7 +715,7 @@ function loadInventory() {
                 text: "Continue",
                 onClick: function() {
                     // Reset localStorage on connection
-                    if (localStorageAvailable) localStorage.clear();
+                    if (localStorageAvailable) staticFileCache.clear();
                     // Redirect to GoogleAuth
                     window.location.href = result.url + "&state=" + encodeURIComponent(window.location.href.replace(".lyrgard.fr",".com"));
                 }
@@ -703,7 +728,7 @@ function loadInventory() {
 
 function unloadInventory() {
     // Reset localStorage on disconnection
-    if (localStorageAvailable) localStorage.clear();
+    if (localStorageAvailable) staticFileCache.clear();
     // Redirect to GoogleAuth
     location.href='/googleOAuthLogout';
 }
@@ -2152,6 +2177,7 @@ $(function() {
  * 
  */
 (function(){
+    loadTheme();
     // queries: object holding all "media query" => [elements...]
     var queries = {};
 

@@ -3,24 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/dataVersion.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/dataVersion.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/GL/lastItemReleases.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/GL/lastItemReleases.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder/dataStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder/dataStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/dark-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dark-mode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_de.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_es.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_ko.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/data_zh.json" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/data_zh.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/GL/parseItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/tools/GL/parseItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/encyclopedia.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/encyclopedia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/inventory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/units.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/units.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,17 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="722" column="78" selection-start-line="722" selection-start-column="51" selection-end-line="722" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/GL/parseItems.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="192" column="115" selection-start-line="192" selection-start-column="115" selection-end-line="192" selection-end-column="115" />
+            <state relative-caret-position="264">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -66,8 +45,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+            <state relative-caret-position="389">
+              <caret line="120" column="1" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/inventory.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/units.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="2179" column="16" selection-start-line="2179" selection-start-column="16" selection-end-line="2179" selection-end-column="16" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#65#72#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/encyclopedia.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="25" column="69" lean-forward="true" selection-start-line="25" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -75,58 +95,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/GL/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="1288" column="267" selection-start-line="1288" selection-start-column="267" selection-end-line="1288" selection-end-column="267" />
+            <state relative-caret-position="189">
+              <caret line="22" column="38" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/GL/defaultBuilderEspers.json">
+        <entry file="file://$PROJECT_DIR$/static/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="330" selection-start-line="19" selection-start-column="330" selection-end-line="19" selection-end-column="330" />
+            <state relative-caret-position="270">
+              <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="3622" column="35" selection-start-line="3622" selection-start-column="35" selection-end-line="3622" selection-end-column="35" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/GL/dataVersion.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8625">
-              <caret line="587" column="80" selection-start-line="587" selection-start-column="80" selection-end-line="587" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/builder.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+            <state relative-caret-position="309">
+              <caret line="2161" column="32" lean-forward="true" selection-start-line="2161" selection-start-column="32" selection-end-line="2161" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -144,17 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Sephi</find>
-      <find>Knight's</find>
-      <find>Sephir</find>
-      <find>allow</find>
-      <find>Diamond Shi</find>
-      <find>body.dark .building</find>
-      <find>.result</find>
-      <find>brown</find>
-      <find>name</find>
-      <find>delete.png</find>
-      <find>Content-Security-Policy</find>
       <find>delete</find>
       <find>fixed</find>
       <find>ban</find>
@@ -174,6 +151,17 @@
       <find>displayFix</find>
       <find>search</find>
       <find>onlyOwnedItems</find>
+      <find>localS</find>
+      <find>;</find>
+      <find>localStora</find>
+      <find>localStorage.cle</find>
+      <find>localStorage.clea</find>
+      <find>theme</find>
+      <find>toggle</find>
+      <find>toggleTheme</find>
+      <find>toggleTh</find>
+      <find>themeChanger</find>
+      <find>panel</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -187,15 +175,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/constants.js" />
-        <option value="$PROJECT_DIR$/static/unitSearch.css" />
         <option value="$PROJECT_DIR$/static/effectDescriptionBuilder.js" />
         <option value="$PROJECT_DIR$/static/unitSearch.js" />
         <option value="$PROJECT_DIR$/static/builder/treeComparator.js" />
         <option value="$PROJECT_DIR$/static/GL/units.json" />
         <option value="$PROJECT_DIR$/static/units.css" />
-        <option value="$PROJECT_DIR$/static/units.html" />
-        <option value="$PROJECT_DIR$/static/inventory.html" />
         <option value="$PROJECT_DIR$/static/builder/itemPool.js" />
         <option value="$PROJECT_DIR$/static/builder/buildOptimizer.js" />
         <option value="$PROJECT_DIR$/static/JP/monsters.json" />
@@ -226,7 +210,6 @@
         <option value="$PROJECT_DIR$/tools/JP/parseItems.js" />
         <option value="$PROJECT_DIR$/static/builder/typeCombinationGenerator.js" />
         <option value="$PROJECT_DIR$/static/GL/releasedUnits.json" />
-        <option value="$PROJECT_DIR$/static/common.js" />
         <option value="$PROJECT_DIR$/static/common.css" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/static/GL/lastItemReleases.json" />
@@ -235,9 +218,14 @@
         <option value="$PROJECT_DIR$/static/builder/dataStorage.js" />
         <option value="$PROJECT_DIR$/tools/GL/parseItems.js" />
         <option value="$PROJECT_DIR$/static/builder.css" />
-        <option value="$PROJECT_DIR$/static/dark-mode.css" />
         <option value="$PROJECT_DIR$/static/builder.html" />
         <option value="$PROJECT_DIR$/static/builder.js" />
+        <option value="$PROJECT_DIR$/static/homepage.html" />
+        <option value="$PROJECT_DIR$/static/common.js" />
+        <option value="$PROJECT_DIR$/static/encyclopedia.html" />
+        <option value="$PROJECT_DIR$/static/inventory.html" />
+        <option value="$PROJECT_DIR$/static/dark-mode.css" />
+        <option value="$PROJECT_DIR$/static/units.html" />
       </list>
     </option>
   </component>
@@ -438,12 +426,13 @@
       <workItem from="1568916744450" duration="3471000" />
       <workItem from="1568927619065" duration="599000" />
       <workItem from="1569001826954" duration="2029000" />
-      <workItem from="1569098506028" duration="6032000" />
+      <workItem from="1569098506028" duration="6600000" />
+      <workItem from="1569154717445" duration="4941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197892000" />
+    <option name="totallyTimeSpent" value="203401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -489,27 +478,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithSkill.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73425">
-          <caret line="4934" column="14" selection-start-line="4934" selection-start-column="14" selection-end-line="4934" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithPassives.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138240">
-          <caret line="9224" column="23" selection-start-line="9224" selection-start-column="23" selection-end-line="9224" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/sources/units.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1398480">
-          <caret line="93232" column="14" selection-start-line="93232" selection-start-column="14" selection-end-line="93232" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JP/defaultBuilderEspers.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -662,9 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/inventory.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/inventory.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1545">
@@ -690,13 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137730">
           <caret line="9182" column="14" selection-start-line="9182" selection-start-column="5" selection-end-line="9182" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="57" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -728,17 +686,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
+    <entry file="file://$PROJECT_DIR$/tools/GL/parseItems.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="1288" column="267" selection-start-line="1288" selection-start-column="267" selection-end-line="1288" selection-end-column="267" />
+        <state relative-caret-position="2880">
+          <caret line="192" column="115" selection-start-line="192" selection-start-column="115" selection-end-line="192" selection-end-column="115" />
         </state>
       </provider>
     </entry>
@@ -756,50 +707,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/GL/parseItems.js">
+    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="192" column="115" selection-start-line="192" selection-start-column="115" selection-end-line="192" selection-end-column="115" />
+        <state relative-caret-position="8805">
+          <caret line="587" column="80" selection-start-line="587" selection-start-column="80" selection-end-line="587" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="1935">
           <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
+    <entry file="file://$PROJECT_DIR$/static/GL/lastItemReleases.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+        <state relative-caret-position="60">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder/dataStorage.js">
+    <entry file="file://$PROJECT_DIR$/static/GL/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8625">
-          <caret line="587" column="80" selection-start-line="587" selection-start-column="80" selection-end-line="587" selection-end-column="80" />
+        <state relative-caret-position="189">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.html">
+    <entry file="file://$PROJECT_DIR$/static/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="722" column="78" selection-start-line="722" selection-start-column="51" selection-end-line="722" selection-end-column="78" />
+        <state relative-caret-position="270">
+          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="3622" column="35" selection-start-line="3622" selection-start-column="35" selection-end-line="3622" selection-end-column="35" />
+        <state relative-caret-position="309">
+          <caret line="2161" column="32" lean-forward="true" selection-start-line="2161" selection-start-column="32" selection-end-line="2161" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="2179" column="16" selection-start-line="2179" selection-start-column="16" selection-end-line="2179" selection-end-column="16" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="e#65#72#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/encyclopedia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="69" lean-forward="true" selection-start-line="25" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="120" column="1" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/units.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
         </state>
       </provider>
     </entry>
