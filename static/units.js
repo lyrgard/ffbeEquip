@@ -307,7 +307,7 @@ function displayUnitsByRarity(units, minRarity = 1) {
             // Loop from end to begin, to show smaller star first
             // Also, do not show index 0 because it's the one just below, so don't need to jump...
             for (index = 1, len = rarity_list.length; index < len; index++) {
-                rarity_jump_html += '<a class="rarityJump" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
+                rarity_jump_html += '<a class="rarityJump btn btn-default" href="#' + buildRarityID(rarity_list[index].min_rarity, rarity_list[index].max_rarity) + '">';
                 rarity_jump_html += getRarity(rarity_list[index].min_rarity, rarity_list[index].max_rarity) ;
                 rarity_jump_html += "</a>";
             }
@@ -493,10 +493,10 @@ function updateUnitDisplay(unitId) {
 function getRarity(minRarity, maxRarity) {
     var html = '';
     for (var rarityIndex = 0; rarityIndex < minRarity; rarityIndex++ ) {
-        html += '<img src="/img/icons/star_icon_filled.png"/>';
+        html += '★';
     }
     for (var rarityIndex = 0; rarityIndex < (maxRarity - minRarity); rarityIndex++ ) {
-        html += '<img src="/img/icons/star_icon.png"/>';
+        html += '☆';
     }
     return html;
 }

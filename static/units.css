@@ -193,7 +193,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
 }
 
 #results.hackForImage {
@@ -205,6 +204,7 @@
 
 .raritySeparator {
     margin-top: 30px;
+    font-size: 2em;
 }
 
 .rarityJumpList {
@@ -347,25 +347,23 @@
 
 #exportLinks {
     position: absolute;
-    top: 20px;
+    top: 16px;
     left: 320px;
     z-index: 1;
-}
-
-#exportLinks a.dropdown-toggle {
     margin-left: 10px;
     padding: 4px 6px;
     border: 1px solid #c8c8c8;
+    border-top-color: rgb(200, 200, 200);
+    border-right-color: rgb(200, 200, 200);
+    border-bottom-color: rgb(200, 200, 200);
+    border-left-color: rgb(200, 200, 200);
     background: #f7f7f7;
+    background-color: rgb(247, 247, 247);
     border-radius: 4px;
     white-space: nowrap;
 }
 
-#exportLinks a.dropdown-toggle:hover {
-    border: 1px solid #808080;
-    background: #f0f0f0;
-    text-decoration: none;
-}
+
 
 
 .readOnly #header, .readOnly #loginMessage, .readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv {
@@ -546,7 +544,15 @@
 }
 
 #importLink {
-    margin-left: 10px;
+    position: absolute;
+    top: 20px;
+    left: 530px;
+}
+
+#exportDataLink {
+    position: absolute;
+    top: 20px;
+    left: 700px;
 }
 
 /* For small screen, show stats in line and mode fixed lower right */

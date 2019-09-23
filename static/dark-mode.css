@@ -21,6 +21,11 @@ body.dark .panel-default {
     border-color: #464545;
 }
 
+body.dark .panel-body {
+    background-color: #303030;
+}
+
+
 body.dark .nav-tabs > li.active > a, body.dark .nav-tabs > li.active > a:focus, body.dark .nav-tabs > li.active > a:hover {
     background-color: #303030;
     border: 1px solid #464545;
@@ -121,7 +126,15 @@ body.dark .dropdown-menu > li > a:hover, body.dark .dropdown-menu > li > a:focus
 }
 
 
+body.dark .item .enhancements, body.dark .item.enhanced .itemName {
+    color: #e74c3c;
+}
 
+#scrollToTopButton {
+    background-color: #2a9fd6;
+}
+
+/* Builder */
 
 body.dark .result-tab-pane {
     border-bottom: 1px solid #464545;
@@ -136,7 +149,7 @@ body.dark .items .tbody .tr .td, body.dark .results {
 }
 
 body.dark .buildLine .slot {
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 body.dark .progressBar.finished {
@@ -187,6 +200,10 @@ body.dark #fixItemModal .results .tr.selectable:hover {
     background-color: #464545;
 }
 
+#resultStats .stat {
+    color: #4673a3;
+}
+
 /* Encyclopedia */
 body.dark .items .thead .tr .td {
     border-bottom: 2px solid #464545;
@@ -204,12 +221,12 @@ body.dark .typeJumpList .typeJump:hover {
 }
 
 body.dark .itemList .item, body.dark #itemEnhancement .item {
-    background: #303030;
-    border-color: #222;
+    background: #222;
+    border-color: #303030;
 }
 
 body.dark .itemList .item.notOwned {
-    background: #222;
+    background: #303030;
 }
 
 body.dark .item .inventory .glyphicon {
@@ -232,4 +249,46 @@ body.dark #exportLinks:hover {
     border-color: #232323;
 }
 
+/* My units */
 
+body.dark #units .unit.owned {
+    background-color: #222;
+}
+
+body.dark #units .unit.owned.sevenStars {
+    background-color: #222;
+    border: 1px solid indianred;
+}
+
+body.dark #units .badge.sevenStar {
+    background-color: indianred;
+}
+
+body.dark .actions > .glyphicon {
+    color: #ddd;
+    background-color: #424242;
+    border-color: #888;
+}
+
+/* My espers */
+
+body.dark #espers .tabsWrapper::before {
+    background: linear-gradient(to right,#222,rgba(248,247,238,0));
+}
+
+body.dark #espers .tabsWrapper::after {
+    background: linear-gradient(to left,#222,rgba(248,247,238,0));
+}
+
+body.dark #espers .table > thead > tr > th.active {
+    background-color: #424242;
+}
+
+body.dark #espers table.allEspers > thead > tr > th.active::after {
+    color: #d3d3d3;
+}
+
+body.dark #grid li .hexagon {
+    background-color: #292929;
+    color: #606060;
+}
