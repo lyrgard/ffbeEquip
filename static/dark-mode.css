@@ -220,16 +220,16 @@ body.dark .typeJumpList .typeJump:hover {
     border: 1px solid #808080;
 }
 
-body.dark .itemList .item, body.dark #itemEnhancement .item {
+body.dark #inventory .item, body.dark #itemEnhancement .item {
     background: #222;
     border-color: #303030;
 }
 
-body.dark .itemList .item.notOwned {
+body.dark #inventory .item.notOwned {
     background: #303030;
 }
 
-body.dark .item .inventory .glyphicon {
+body.dark item .inventory .glyphicon {
     color: #555;
 }
 
