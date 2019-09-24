@@ -1008,9 +1008,12 @@ function populateUnitSelect() {
             options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
         }
     });
-    $("#unitsSelect").html(options);
-    $("#unitsSelect").change(onUnitChange);
-    $('#unitsSelect').select2({
+    let selector = $("#unitsSelect");
+    selector.empty();
+    selector.removeData();
+    selector.html(options);
+    selector.change(onUnitChange);
+    selector.select2({
         placeholder: 'Select a unit...',
         theme: 'bootstrap'
     });
@@ -1205,6 +1208,10 @@ function updateGoal() {
     if (builds[currentUnitIndex].unit) {
         var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
 
+        for (var selectDefaultIndex = goalQuickSelectDefaultValues.length - 1; selectDefaultIndex >= 0; selectDefaultIndex--) {
+            choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
+        }
+        
         var formula = formulaFromSkill(unitWithSkills.lb);
         if (formula) {
             var option = '<option value="LB" ' + (formula.notSupported ? "disabled":"") + '>' + unitWithSkills.lb.name + " (Limit Burst)" + (formula.notSupported ? " - Not supported yet":"") + '</option>';
@@ -1253,9 +1260,7 @@ function updateGoal() {
         }
 
 
-        for (var selectDefaultIndex = 0, lenSelectDefaultIndex = goalQuickSelectDefaultValues.length; selectDefaultIndex < lenSelectDefaultIndex; selectDefaultIndex++) {
-            choiceSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
-        }
+        
 
         var selectedSkill;
         var chainMultiplier;
@@ -3583,7 +3588,7 @@ function startPage() {
         $(".excludedItemNumber").html(itemsToExclude.length);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
-    
+
     
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
@@ -3693,6 +3698,7 @@ function startPage() {
     $(".chainMultiplier input").change($.debounce(300,onGoalChange));
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
+    
 }
 
 function initWorkerNumber() {

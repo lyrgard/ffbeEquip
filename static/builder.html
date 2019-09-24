@@ -34,7 +34,6 @@
 
         <div id="header" class="headerLid">
             <div class="headerContent">
-                <div class="themeChanger" onclick="toggleTheme()"></div>
                 <div class="headerTitle">
                     Builder
                 </div>
@@ -116,6 +115,13 @@
                 </div>
             </div>
             <div class="headerTopButtons">
+                <div id="themeSelector">
+                    <span class="title">Theme :</span>
+                    <select class="form-control smallSelect">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
                 <div id="languages">
                     <span class="lang lang-sm" lang="en" onclick="switchToLanguage('en')"></span>
                     <span class="lang lang-sm" lang="zh" onclick="switchToLanguage('zh')"></span>
@@ -575,7 +581,7 @@
                                         Use new damage formula
                                     </label>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 goalVarianceDiv">
                                     <span class="goalLabel">Damage variance</span>
                                     <select id="goalVariance" name="goalVariance" class="form-control smallSelect">
                                         <option value="min">Minimum</option>

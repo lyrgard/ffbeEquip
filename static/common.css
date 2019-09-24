@@ -916,6 +916,16 @@ p.linkInputCopied {
     display: inline;
 }
 
+#themeSelector {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#themeSelector .title {
+    margin-right: 5px;
+}
+
 @media (max-width: 991px) {
 
     /* Adapt scroll button with button sidebar */

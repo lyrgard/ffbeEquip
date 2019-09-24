@@ -951,7 +951,6 @@ i.img.img-slot-hand.leftHand {
 }
 
 .select2-container {
-    width: 100% !important;
     padding: 0;
 }
 
@@ -1070,10 +1069,17 @@ i.img.img-slot-hand.leftHand {
     margin-top: -5px;
 }
 
-.themeChanger {
-    width: 23px;
-    height: 30px;
-    position: absolute;
+.buildRules .select2-selection {
+    height: 24px;
+    padding: 1px 10px;
+}
+
+.goalVarianceDiv {
+    display: flex;
+}
+
+.goalVarianceDiv .goalLabel {
+    margin-right: 5px;
 }
 
 @media (max-width: 991px) {
@@ -1126,5 +1132,9 @@ i.img.img-slot-hand.leftHand {
     .goal .section .title {
         width: 50px;
         margin-top: 0px;
+    }
+    
+    #fixItemModal .modal-header {
+        flex-wrap: wrap;
     }
 }

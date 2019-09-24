@@ -831,35 +831,41 @@ function getMulticastSkillAbleToMulticast(skills, unit) {
         for (var j = skill.effects.length; j--;) {
             if (skill.effects[j].effect && skill.effects[j].effect.multicast) {
                 multicastEffect = skill.effects[j].effect.multicast;
-                break;
-            }
-        }
-        if (multicastEffect && multicastEffect.time == skills.length) {
-            switch(multicastEffect.type) {
-                case "skills":
-                    var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
-                    if (skills.every(x => x && possibleSkillIds.includes(x.id))) {
-                        return skill;
-                    }
-                    break;
-                case "magic":
-                    if (skills.every(x => x && x.magic)) {
-                        return skill;
-                    }
-                    break;
-                case "whiteMagic":
-                    if (skills.every(x => x && x.magic == "white")) {
-                        return skill;
-                    }
-                    break;
-                case "blackMagic":
-                    if (skills.every(x => x && x.magic == "black")) {
-                        return skill;
-                    }
-                    break;
+                if (multicaEffectMatch(multicastEffect, skills)) {
+                    return skill;
+                }
             }
         }
     }
+}
+
+function multicaEffectMatch(multicastEffect, skills) {
+    if (multicastEffect.time === skills.length) {
+        switch(multicastEffect.type) {
+            case "skills":
+                var possibleSkillIds = multicastEffect.skills.map(x => x.id.toString());
+                if (skills.every(x => x && possibleSkillIds.includes(x.id))) {
+                    return true;
+                }
+                break;
+            case "magic":
+                if (skills.every(x => x && x.magic)) {
+                    return true;
+                }
+                break;
+            case "whiteMagic":
+                if (skills.every(x => x && x.magic == "white")) {
+                    return true;
+                }
+                break;
+            case "blackMagic":
+                if (skills.every(x => x && x.magic == "black")) {
+                    return true;
+                }
+                break;
+        }
+    }
+    return false;
 }
 
 

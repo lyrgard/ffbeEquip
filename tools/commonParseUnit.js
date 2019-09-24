@@ -850,22 +850,36 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
             }
         }];
         
-    // Dual White Magic
+    // Dual cast Magic
     } else if (rawEffect[2] == 52) {
-        var magicType = "";
-        if (rawEffect[3][0] ==  0) {
-            magicType = "magic";
-        } else if (rawEffect[3][0] ==  1) {
-            magicType = "blackMagic";
-        } else if (rawEffect[3][0] ==  2) {
-            magicType = "whiteMagic";
-        }
-        return [{
-            "multicast": {
-                "time": rawEffect[3][1],
-                "type": magicType
+//        var magicType = "";
+//        if (rawEffect[3][0] ==  0) {
+//            magicType = "magic";
+//        } else if (rawEffect[3][0] ==  1) {
+//            magicType = "blackMagic";
+//        } else if (rawEffect[3][0] ==  2) {
+//            magicType = "whiteMagic";
+//        }
+//        return [{
+//            "multicast": {
+//                "time": rawEffect[3][1],
+//                "type": magicType
+//            }
+//        }];
+        let gainedSkillId = rawEffect[3][2].toString();
+        let gainedSkillIn = skills[gainedSkillId];
+        let gainedSkill = parseActiveSkill(gainedSkillId, gainedSkillIn, skills, unit);
+        
+        addUnlockedSkill(gainedSkillId, gainedSkill, unit);
+
+        result = {
+            "gainSkills": {
+                "skills": [{
+                    "id": gainedSkillId,
+                    "name": gainedSkill.name
+                }]
             }
-        }];
+        }
     
     // Dual Black Magic
     } else if (rawEffect[2] == 44) {
@@ -878,21 +892,37 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
         
     // Skill multicast
     } else if (rawEffect[2] == 53) {
+        
+//        result = {
+//            "multicast": {
+//                "time": rawEffect[3][0],
+//                "type": "skills",
+//                "skills":[]
+//            }
+//        }
+//        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
+//            var skill = skills[rawEffect[3][3][i]];
+//            if (!skill) {
+//                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
+//                continue;
+//            }
+//            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
+//        }
+        
+        let gainedSkillId = rawEffect[3][1].toString();
+        let gainedSkillIn = skills[gainedSkillId];
+        let gainedSkill = parseActiveSkill(gainedSkillId, gainedSkillIn, skills, unit);
+        addUnlockedSkill(gainedSkillId, gainedSkill, unit);
+
         result = {
-            "multicast": {
-                "time": rawEffect[3][0],
-                "type": "skills",
-                "skills":[]
+            "gainSkills": {
+                "skills": [{
+                    "id": gainedSkillId,
+                    "name": gainedSkill.name
+                }]
             }
         }
-        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
-            var skill = skills[rawEffect[3][3][i]];
-            if (!skill) {
-                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
-                continue;
-            }
-            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
-        }
+        
         return [result];
         
     // Replace LB
@@ -1158,7 +1188,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":(rawEffect[3][3] + rawEffect[3][4])/100, "stack":rawEffect[3][5]/100, "maxStack":rawEffect[3][6] - 1}};    
         
     // Jump damage
-    } else if (rawEffect[2] == 52) {
+    } else if (rawEffect[0] == 1 && rawEffect[1] == 1 && rawEffect[2] == 52) {
         if (rawEffect[3].length != 5 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != rawEffect[3][3]) {
             console.log("Strange Jump damage");
             console.log(rawEffect);
@@ -1219,6 +1249,14 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
     // inflict status
     } else if (rawEffect[2] == 6) {
+        result = {"noUse":true};
+        
+    // inflict multiple status
+    } else if (rawEffect[2] == 34) {
+        result = {"noUse":true};
+        
+    // Remove all debuff
+    } else if (rawEffect[2] == 59) {
         result = {"noUse":true};
         
     // inflict stop
@@ -1410,6 +1448,44 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 }
             }
         }
+        
+    // multicast skills
+    } else if (rawEffect[2] == 53 && rawEffect[3].length > 2) {
+        
+        let result = {
+            "multicast": {
+                "time": rawEffect[3][0],
+                "type": "skills",
+                "skills":[]
+            }
+        }
+        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
+            var skill = skills[rawEffect[3][3][i]];
+            if (!skill) {
+                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
+                continue;
+            }
+            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
+        }
+        
+        return result;
+        
+    // Multicast magic
+    } else if (rawEffect[2] == 52) {    
+        var magicType = "";
+        if (rawEffect[3][0] ==  0) {
+            magicType = "magic";
+        } else if (rawEffect[3][0] ==  1) {
+            magicType = "blackMagic";
+        } else if (rawEffect[3][0] ==  2) {
+            magicType = "whiteMagic";
+        }
+        return {
+            "multicast": {
+                "time": rawEffect[3][1],
+                "type": magicType
+            }
+        };
     
     // skill enhancement
     } else if (rawEffect[2] == 136) {

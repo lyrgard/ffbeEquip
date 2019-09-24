@@ -68,6 +68,10 @@ var localStorageAvailable = function(){
     return enabled;
 }();
 
+function onThemeChange() {
+    setTheme($('#themeSelector select').val());
+}
+
 function toggleTheme() {
     let theme = 'dark';
     if ($('body').hasClass('dark')) {
@@ -82,8 +86,10 @@ function setTheme(theme) {
     }
     if (theme === 'light') {
         $('body').removeClass('dark');
+        $('#themeSelector select').val('light');
     } else {
         $('body').addClass('dark');
+        $('#themeSelector select').val('dark');
     }
 }
 
@@ -2131,6 +2137,11 @@ $(function() {
         e.stopPropagation();
         e.preventDefault();
     });
+    
+    let themeSelector = $('#themeSelector select');
+    if (themeSelector.length) {
+        themeSelector.change(onThemeChange);
+    }
 
     /* Back to top button feature */
     var $scroll = $('#scrollToTopButton');

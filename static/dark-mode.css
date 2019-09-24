@@ -3,6 +3,15 @@ body.dark {
     color: #dddddd;
 }
 
+body.dark #header .bannerPicture {
+    background-image: url(/img/banner/banner_blank_dark.png);
+}
+
+body.dark #header .bannerBackground {
+    background-color: #222222;
+    border: 1px solid #464545;
+}
+
 body.dark .panel {
     background-color: #303030;
     border-radius: 4px;
@@ -134,6 +143,11 @@ body.dark .item .enhancements, body.dark .item.enhanced .itemName {
     background-color: #2a9fd6;
 }
 
+body.dark #themeSelector select {
+    background-color: #424242 !important;
+    color: #ddd !important;
+}
+
 /* Builder */
 
 body.dark .result-tab-pane {
@@ -149,7 +163,7 @@ body.dark .items .tbody .tr .td, body.dark .results {
 }
 
 body.dark .buildLine .slot {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 body.dark .progressBar.finished {
@@ -200,8 +214,13 @@ body.dark #fixItemModal .results .tr.selectable:hover {
     background-color: #464545;
 }
 
-#resultStats .stat {
+body.dark #resultStats .stat {
     color: #4673a3;
+}
+
+body.dark #fixItemModal .modal-body .nav > li.active > a, body.dark #fixItemModal .modal-body .nav > li:hover > a {
+    opacity: 1;
+    background-color: #464545;
 }
 
 /* Encyclopedia */
@@ -248,6 +267,11 @@ body.dark #exportLinks:hover {
     background-color: #282828;
     border-color: #232323;
 }
+
+body.dark .item.stmr {
+    padding: 25px 5px;
+}
+
 
 /* My units */
 
