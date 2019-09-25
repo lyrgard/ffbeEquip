@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/static/builder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dark-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dark-mode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/constants.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,28 +30,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/builder.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="804" column="56" selection-start-line="804" selection-start-column="48" selection-end-line="804" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/builder.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="570" selection-start-line="570" selection-end-line="570" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/units.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="307" column="62" lean-forward="true" selection-start-line="307" selection-start-column="62" selection-end-line="307" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/unitSearch.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="337" lean-forward="true" selection-start-line="337" selection-end-line="337" />
+            <state relative-caret-position="204">
+              <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="477" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -77,22 +68,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/contribute.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="178">
               <caret line="271" column="14" lean-forward="true" selection-start-line="271" selection-start-column="14" selection-end-line="271" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/inventory.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="598" lean-forward="true" selection-start-line="598" selection-end-line="598" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/common.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="159">
@@ -113,8 +95,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="1591" column="29" selection-start-line="1591" selection-start-column="29" selection-end-line="1591" selection-end-column="29" />
+            <state relative-caret-position="174">
+              <caret line="3614" column="63" selection-start-line="3614" selection-start-column="63" selection-end-line="3614" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithSkill.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="5266" column="316" selection-start-line="5266" selection-start-column="310" selection-end-line="5266" selection-end-column="316" />
             </state>
           </provider>
         </entry>
@@ -123,10 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>toggleTheme</find>
-      <find>toggleTh</find>
-      <find>themeChanger</find>
-      <find>fas fa-</find>
       <find>#importL</find>
       <find>panel</find>
       <find>#export</find>
@@ -153,6 +154,10 @@
       <find>search</find>
       <find>searchB</find>
       <find>searc</find>
+      <find>ailments</find>
+      <find>ailmentList</find>
+      <find>&quot;stop&quot;</find>
+      <find>ailmentImunities</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -166,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/GL/units.json" />
         <option value="$PROJECT_DIR$/static/builder/itemPool.js" />
         <option value="$PROJECT_DIR$/static/builder/buildOptimizer.js" />
         <option value="$PROJECT_DIR$/static/JP/monsters.json" />
@@ -202,11 +206,9 @@
         <option value="$PROJECT_DIR$/static/GL/dataVersion.json" />
         <option value="$PROJECT_DIR$/tools/GL/parseItems.js" />
         <option value="$PROJECT_DIR$/static/common.js" />
-        <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/builder/dataStorage.js" />
         <option value="$PROJECT_DIR$/static/units.css" />
         <option value="$PROJECT_DIR$/static/units.js" />
-        <option value="$PROJECT_DIR$/static/builder.css" />
         <option value="$PROJECT_DIR$/static/builder.html" />
         <option value="$PROJECT_DIR$/static/dark-mode.css" />
         <option value="$PROJECT_DIR$/static/units.html" />
@@ -217,6 +219,9 @@
         <option value="$PROJECT_DIR$/static/encyclopedia.html" />
         <option value="$PROJECT_DIR$/static/contribute.html" />
         <option value="$PROJECT_DIR$/static/common.css" />
+        <option value="$PROJECT_DIR$/static/constants.js" />
+        <option value="$PROJECT_DIR$/static/builder.js" />
+        <option value="$PROJECT_DIR$/static/builder.css" />
       </list>
     </option>
   </component>
@@ -421,12 +426,12 @@
       <workItem from="1569154717445" duration="5829000" />
       <workItem from="1569266248110" duration="6459000" />
       <workItem from="1569350087499" duration="300000" />
-      <workItem from="1569438415849" duration="5882000" />
+      <workItem from="1569438415849" duration="6411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216930000" />
+    <option name="totallyTimeSpent" value="217459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -472,13 +477,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/JP/parseUnits.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="19" selection-start-line="43" selection-start-column="16" selection-end-line="56" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/GL/sources/skills_ability.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -566,13 +564,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/unitSearch.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../ffbeDataExporter/src/facebook/popup.js">
       <provider selected="true" editor-type-id="text-editor" />
@@ -721,27 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="1418" column="8" selection-start-line="1418" selection-start-column="8" selection-end-line="1418" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="1591" column="29" selection-start-line="1591" selection-start-column="29" selection-end-line="1591" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="570" selection-start-line="570" selection-end-line="570" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/units.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -784,17 +754,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/contribute.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="271" column="14" lean-forward="true" selection-start-line="271" selection-start-column="14" selection-end-line="271" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="973" column="1" lean-forward="true" selection-start-line="973" selection-start-column="1" selection-end-line="973" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/contribute.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="271" column="14" lean-forward="true" selection-start-line="271" selection-start-column="14" selection-end-line="271" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/GL/unitsWithSkill.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="5266" column="316" selection-start-line="5266" selection-start-column="310" selection-end-line="5266" selection-end-column="316" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="3614" column="63" selection-start-line="3614" selection-start-column="63" selection-end-line="3614" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="804" column="56" selection-start-line="804" selection-start-column="48" selection-end-line="804" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="477" selection-end-column="20" />
         </state>
       </provider>
     </entry>

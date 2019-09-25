@@ -3612,7 +3612,7 @@ function startPage() {
             return "Force use of " + ucFirst(v);
         }
     });
-    addIconChoicesTo("ailmentImunities", ailmentList, "checkbox", "ailment", ucFirst);
+    addIconChoicesTo("ailmentImunities", ailmentList.slice(0, 9), "checkbox", "ailment", ucFirst);
     // Killers
 	addTextChoicesTo("races",'checkbox',{'Aquatic':'aquatic', 'Beast':'beast', 'Bird':'bird', 'Bug':'bug', 'Demon':'demon', 'Dragon':'dragon', 'Human':'human', 'Machine':'machine', 'Plant':'plant', 'Undead':'undead', 'Stone':'stone', 'Spirit':'spirit'});
     
@@ -3981,6 +3981,7 @@ function populateResists() {
                    '<div class="value">0%<div></div>');
     }
     var div = $("#resultStats .resists .ailments");
+
     for (var index in ailmentList) {
         div.append('<div class="resist ' + ailmentList[index] + ' ' +  escapeDot("resist|" + ailmentList[index] + ".percent") +'">'+
                    '<i class="img img-ailment-' + ailmentList[index] + '"></i>'+
