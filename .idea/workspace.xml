@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d8bde93-c192-4e97-9d60-d265306ec758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/builder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dark-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dark-mode.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,6 +37,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/builder.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -52,15 +59,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="365">
               <caret line="271" column="14" lean-forward="true" selection-start-line="271" selection-start-column="14" selection-end-line="271" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/homepage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
             </state>
           </provider>
         </entry>
@@ -128,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#importL</find>
       <find>panel</find>
       <find>#export</find>
       <find>#resul</find>
@@ -146,7 +143,6 @@
       <find>brown</find>
       <find>text</find>
       <find>select</find>
-      <find>select2</find>
       <find>panel-heading</find>
       <find>export</find>
       <find>.hp</find>
@@ -158,6 +154,8 @@
       <find>ailmentList</find>
       <find>&quot;stop&quot;</find>
       <find>ailmentImunities</find>
+      <find>#resultStats .resists .ailments</find>
+      <find>select2</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter-mission</replace>
@@ -210,7 +208,6 @@
         <option value="$PROJECT_DIR$/static/units.css" />
         <option value="$PROJECT_DIR$/static/units.js" />
         <option value="$PROJECT_DIR$/static/builder.html" />
-        <option value="$PROJECT_DIR$/static/dark-mode.css" />
         <option value="$PROJECT_DIR$/static/units.html" />
         <option value="$PROJECT_DIR$/static/unitSearch.html" />
         <option value="$PROJECT_DIR$/static/inventory.html" />
@@ -222,6 +219,7 @@
         <option value="$PROJECT_DIR$/static/constants.js" />
         <option value="$PROJECT_DIR$/static/builder.js" />
         <option value="$PROJECT_DIR$/static/builder.css" />
+        <option value="$PROJECT_DIR$/static/dark-mode.css" />
       </list>
     </option>
   </component>
@@ -426,12 +424,12 @@
       <workItem from="1569154717445" duration="5829000" />
       <workItem from="1569266248110" duration="6459000" />
       <workItem from="1569350087499" duration="300000" />
-      <workItem from="1569438415849" duration="6411000" />
+      <workItem from="1569438415849" duration="6752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217459000" />
+    <option name="totallyTimeSpent" value="217800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -705,13 +703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="310" column="15" selection-start-line="310" selection-start-column="15" selection-end-line="310" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/units.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -794,6 +785,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/builder.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="477" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/builder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -801,10 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/builder.css">
+    <entry file="file://$PROJECT_DIR$/static/dark-mode.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="477" selection-end-column="20" />
+        <state relative-caret-position="189">
+          <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
         </state>
       </provider>
     </entry>
