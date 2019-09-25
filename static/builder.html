@@ -535,27 +535,27 @@
                         <div class="section">
                             <span class="title">Build rules</span>
                             <div>
-                                <div id="forceDoublehand" class="col-xs-12 col-lg-6 checkboxGroup">
-                                    <label>
-                                        <input type="checkbox"/>
+                                <div id="forceDoublehand" class="col-xs-12 col-lg-6">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
                                         Force Doublehand build
                                     </label>
                                 </div>
-                                <div id="forceDualWield" class="col-xs-12 col-lg-6 checkboxGroup">
-                                    <label>
-                                        <input type="checkbox"/>
+                                <div id="forceDualWield" class="col-xs-12 col-lg-6">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
                                         Force Dual Wield build
                                     </label>
                                 </div>
-                                <div id="tryEquipsources" class="col-xs-12 col-lg-6 checkboxGroup">
-                                    <label>
-                                        <input type="checkbox"/>
+                                <div id="tryEquipsources" class="col-xs-12 col-lg-6">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
                                         Try "Allow use of &lt;type&gt;" items
                                     </label>
                                 </div>
-                                <div id="tryReduceOverCap" class="col-xs-12 checkboxGroup">
-                                    <label>
-                                        <input type="checkbox"/>
+                                <div id="tryReduceOverCap" class="col-xs-12">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
                                         Try to reduce overcap in favor of &nbsp;
                                     </label>
                                     <select class="form-control smallSelect">
@@ -568,16 +568,16 @@
                                         <option value="lbPerTurn">LB/turn</option>
                                     </select>
                                 </div>
-                                <div id="forceTmrAbility" class="col-xs-12 checkboxGroup hidden">
-                                    <label>
-                                        <input type="checkbox"/>
+                                <div id="forceTmrAbility" class="col-xs-12 hidden">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
                                         <span class="experimentalTag">Experimental</span>
                                         Force use of TMR or STMR
                                     </label>
                                 </div>
-                                <div class="col-xs-12 col-lg-6 checkboxGroup">
-                                    <label>
-                                        <input type="checkbox" id="useNewJpDamageFormula"/>
+                                <div class="col-xs-12 col-lg-6">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="useNewJpDamageFormula" class="checkbox"/><span></span>
                                         Use new damage formula
                                     </label>
                                 </div>
@@ -733,19 +733,21 @@
                         </form>
                     </div>
                     <div class="panel-body">
-                        <div class="checkboxGroup hidden"><input id="includeEasilyObtainableItems" type="checkbox"><label>Include easily obtainable items (from chests, shops, quests, keys, and non-event recipes)</label></div>
-                        <div class="checkboxGroup hidden"><input id="includeChocoboItems" type="checkbox"><label>Include items sold by the Chocobo vendors</label></div>
-                        <div class="checkboxGroup hidden"><input id="includeTMROfOwnedUnits" type="checkbox"><label>Include TMR of owned units not farmed yet</label></div>
-                        <div class="checkboxGroup hidden"><input id="includeTrialRewards" type="checkbox"><label>Include Trial rewards not acquired yet</label></div>
-                        <div class="checkboxGroup"><input id="exludeEvent" type="checkbox"><label>Exclude event items</label></div>
-                        <div class="checkboxGroup"><input id="excludePremium" type="checkbox"/><label>Exclude Premium items</label></div>
-                        <div class="checkboxGroup"><input id="excludeTMR5" type="checkbox"/><label>Exclude TMR of base 5* units</label></div>
-                        <div class="checkboxGroup"><input id="excludeSTMR" type="checkbox"/><label>Exclude STMR</label></div>
-                        <div class="checkboxGroup"><input id="excludeNotReleasedYet" type="checkbox" checked="true"><label>Exclude unreleased equipment</label></div>
-                        <div id="defaultWeaponEnhancement" class="item">Weapon enhancement : <span class="display"></span><button class="btn btn-default" onclick="modifyDefaultWeaponEnhancement()">Set default</button></div>
-                        
-                        <div><a class="link" onclick="displayEquipableItemList();">Select items to exclude</a></div>
-                        <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
+                        <div class="options">
+                            <label class="checkbox-label hidden"><input id="includeEasilyObtainableItems" type="checkbox" class="checkbox"><span></span>Include easily obtainable items (from chests, shops, quests, keys, and non-event recipes)</label>
+                            <label class="checkbox-label hidden"><input id="includeChocoboItems" type="checkbox" class="checkbox"><span></span>Include items sold by the Chocobo vendors</label>
+                            <label class="checkbox-label hidden"><input id="includeTMROfOwnedUnits" type="checkbox" class="checkbox"><span></span>Include TMR of owned units not farmed yet</label>
+                            <label class="checkbox-label hidden"><input id="includeTrialRewards" type="checkbox" class="checkbox"><span></span>Include Trial rewards not acquired yet</label>
+                            <label class="checkbox-label"><input id="exludeEvent" type="checkbox" class="checkbox"><span></span>Exclude event items</label>
+                            <label class="checkbox-label"><input id="excludePremium" type="checkbox" class="checkbox"/><span></span>Exclude Premium items</label>
+                            <label class="checkbox-label"><input id="excludeTMR5" type="checkbox" class="checkbox"/><span></span>Exclude TMR of base 5* units</label>
+                            <label class="checkbox-label"><input id="excludeSTMR" type="checkbox" class="checkbox"/><span></span>Exclude STMR</label>
+                            <label class="checkbox-label"><input id="excludeNotReleasedYet" type="checkbox" checked="true" class="checkbox"><span></span>Exclude unreleased equipment</label>
+                            <div id="defaultWeaponEnhancement" class="item">Weapon enhancement : <span class="display"></span><button class="btn btn-default" onclick="modifyDefaultWeaponEnhancement()">Set default</button></div>
+
+                            <div><a class="link" onclick="displayEquipableItemList();">Select items to exclude</a></div>
+                            <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1005,14 +1007,14 @@
                             </div>
                         </div>
                         <div id="options">
-                            <div id="onlyOwnedItems" class="checkboxGroup">
-                                    <input type="checkbox"/>
-                                    Only owned items
-                            </div>
-                            <div id="excludeNotReleasedYetOption" class="checkboxGroup">
-                                <input type="checkbox"/>
+                            <label id="onlyOwnedItems" class="checkbox-label">
+                                <input type="checkbox" class="checkbox"><span></span>
+                                Exclude unreleased equipment
+                            </label>
+                            <label id="excludeNotReleasedYetOption" class="checkbox-label">
+                                <input type="checkbox" class="checkbox"><span></span>
                                 Exclude not released yet
-                            </div>
+                            </label>
                         </div>
                         <a id="backToAllItems" class="link" onclick="updateSearchResult();"><span class="glyphicon glyphicon-chevron-left"></span> Back to item list</a>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>

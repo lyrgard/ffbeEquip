@@ -65,8 +65,12 @@ body.dark .navigationMenu .desktop a.active {
     color: #dddddd;
 }
 
+.checkbox + span {
+    background-color: #ddd;
+}
+
 body.dark input, body.dark select, body.dark .select2-selection, body.dark .select2-dropdown {
-    background-color: #eeeeee !important;
+    background-color: #dddddd !important;
     color: #111 !important;
     border-color: #888 !important;
 }

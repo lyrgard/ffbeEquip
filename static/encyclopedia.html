@@ -281,8 +281,14 @@
                     <div class="panel-heading">
                         <div>Results : <span id="resultNumber"></span></div>
                         <div class="checkbox-inline userInputedResultsChoice">
-                            <div id="onlyShowOwnedItemsDiv" class="hidden"><input id="onlyShowOwnedItems" type="checkbox" value="" onchange="update();"><label>Only show owned items</label></div>
-                            <div><input id="showNotReleasedYet" type="checkbox" value="" onchange="update();"><label>Show unreleased items</label></div>
+                            <label id="onlyShowOwnedItemsDiv" class="checkbox-label hidden">
+                                <input id="onlyShowOwnedItems" type="checkbox" class="checkbox" onchange="update();"><span></span>
+                                Only show owned items
+                            </label>
+                            <label class="checkbox-label">
+                                <input id="showNotReleasedYet" type="checkbox" class="checkbox" onchange="update();"><span></span>
+                                Show unreleased items
+                            </label>
                         </div>
                     </div>
                     <div class="panel-body" style="padding:0;">
