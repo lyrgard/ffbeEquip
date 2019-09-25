@@ -99,6 +99,7 @@ body.dark .btn-default:hover {
     border-color: #232323;
 }
 
+
 body.dark .btn.disabled, body.dark .btn[disabled], body.dark fieldset[disabled] .btn {
     cursor: not-allowed;
     filter: alpha(opacity=65);
@@ -110,6 +111,12 @@ body.dark .btn-default:focus, body.dark .btn-default.focus {
     color: #ffffff;
     background-color: #282828;
     border-color: #020202;
+}
+
+body.dark .btn-default.active {
+    border-color: black;
+    background-color: #337ab7;
+    color: aliceblue;
 }
 
 body.dark a, body.dark .link, body.dark .wikiLink {
