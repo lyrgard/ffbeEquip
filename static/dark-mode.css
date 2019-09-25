@@ -65,30 +65,19 @@ body.dark .navigationMenu .desktop a.active {
     color: #dddddd;
 }
 
-.checkbox + span {
-    background-color: #ddd;
+body.dark .checkbox + span {
+    background-color: rgba(0,0,0,.25);
+    border-color: rgba(0,0,0,.25);
 }
 
-body.dark input, body.dark select, body.dark .select2-selection, body.dark .select2-dropdown {
-    background-color: #dddddd !important;
-    color: #111 !important;
-    border-color: #888 !important;
-}
-
-body.dark input[readonly], body.dark .input-group-addon {
-    background-color: #303030 !important;
-    color: #dddddd  !important;
-    border-color: #888 !important;
-}
-
-body.dark .inputWithIcon .leftIcon, body.dark .inputWithIcon .rightIcon {
-    color: #222222  !important;
+body.dark .checkbox:checked + span {
+    background-color: #337ab7;
 }
 
 body.dark .btn-default {
-    color: #ffffff;
-    background-color: #424242;
-    border-color: #888;
+    color: #ddd;
+    background-color: rgba(0,0,0,.25);
+    border: 1px solid rgba(0,0,0,.5);
 }
 
 body.dark .btn-primary {
@@ -99,8 +88,8 @@ body.dark .btn-primary {
 
 body.dark .btn-default:hover {
     color: #ffffff;
-    background-color: #282828;
-    border-color: #232323;
+    background-color: rgba(0,0,0,.10);
+    border: 1px solid rgba(0,0,0,.30);
 }
 
 
@@ -121,6 +110,49 @@ body.dark .btn-default.active {
     border-color: black;
     background-color: #337ab7;
     color: aliceblue;
+}
+
+body.dark button,
+body.dark input,
+body.dark select,
+body.dark textarea {
+    border: 0;
+    outline: 0;
+    color: #ddd;
+}
+
+body.dark [placeholder]::-webkit-input-placeholder { color: rgba(255,255,255,.6); }
+body.dark [placeholder]:hover::-webkit-input-placeholder { color: rgba(255,255,255,.3); }
+body.dark [placeholder]:focus::-webkit-input-placeholder { color: transparent; }
+
+body.dark [placeholder]::-moz-placeholder { color: rgba(255,255,255,.6); }
+body.dark [placeholder]:hover::-moz-placeholder { color: rgba(255,255,255,.3); }
+body.dark [placeholder]:focus::-moz-placeholder { color: transparent; }
+
+body.dark [placeholder]:-ms-input-placeholder { color: rgba(255,255,255,.6); }
+body.dark [placeholder]:hover:-ms-input-placeholder { color: rgba(255,255,255,.3); }
+body.dark [placeholder]:focus:-ms-input-placeholder { color: transparent; }
+
+body.dark input, body.dark select, body.dark .select2-selection {
+    border: 1px solid rgba(0,0,0,.5);
+    background: rgba(0,0,0,.25);
+}
+
+body.dark .select2-dropdown, body.dark select option {
+    border: 1px solid rgba(0,0,0,.5);
+    background: #303030;
+}
+
+
+body.dark input[readonly], body.dark .input-group-addon {
+    background-color: #303030 !important;
+    color: #dddddd  !important;
+    border: 1px solid rgba(0,0,0,.5);
+    box-shadow: none;
+}
+
+body.dark .inputWithIcon .leftIcon, body.dark .inputWithIcon .rightIcon {
+    color: #dddddd  !important;
 }
 
 body.dark a, body.dark .link, body.dark .wikiLink {
@@ -152,11 +184,6 @@ body.dark .item .enhancements, body.dark .item.enhanced .itemName {
 
 #scrollToTopButton {
     background-color: #2a9fd6;
-}
-
-body.dark #themeSelector select {
-    background-color: #424242 !important;
-    color: #ddd !important;
 }
 
 /* Builder */
@@ -218,7 +245,7 @@ body.dark.building #buildButton, body.dark.building #buildResult .wikiLink, body
 body.dark #inventoryDiv button.inventoryStatus {
     color: #dddddd !important;
     background-color: #424242 !important;
-    border-color: #464545;
+    border-color: #464545 !important;
 }
 
 body.dark #fixItemModal .results .tr.selectable:hover {
@@ -232,6 +259,18 @@ body.dark #resultStats .stat {
 body.dark #fixItemModal .modal-body .nav > li.active > a, body.dark #fixItemModal .modal-body .nav > li:hover > a {
     opacity: 1;
     background-color: #464545;
+}
+
+body.dark .experimentalTag {
+    background-color: #777;
+}
+
+body.dark .unitStats .stat .pots input.maxPot {
+    color: #4673a3;
+}
+
+body.dark .unitStats .stat .pots input.maxDoor {
+    color: darkorchid;
 }
 
 /* Encyclopedia */
@@ -269,14 +308,14 @@ body.dark .inventory .number {
 }
 
 body.dark #exportLinks {
-    color: #ffffff;
-    background-color: #424242;
-    border-color: #888;
+    color: #ddd;
+    background-color: rgba(0,0,0,.25);
+    border: 1px solid rgba(0,0,0,.5);
 }
 
 body.dark #exportLinks:hover {
-    background-color: #282828;
-    border-color: #232323;
+    background-color: rgba(0,0,0,.15);
+    border: 1px solid rgba(0,0,0,.30);
 }
 
 body.dark .item.stmr {

@@ -369,8 +369,8 @@
                                     <input type="text" class="form-control" placeholder="0" data-toggle="tooltip" data-original-title="HP pots"/>
                                 </div>
                                 <div class="inputWithIcon buff">
-                                    <img src="img/icons/shield.png" class="leftIcon" title="HP Shield"/>
-                                    <input type="text" class="form-control" placeholder="0" data-toggle="tooltip" data-original-title="HP Shield"/>
+                                    <span class="leftIcon fas fa-shield-alt link" title="HP barrier"></span>
+                                    <input type="text" class="form-control" placeholder="0" data-toggle="tooltip" data-original-title="HP barrier"/>
                                 </div>
                             </div>
                             <div class="stat mp">
@@ -532,64 +532,62 @@
                 </div>
                 <div class="panel panel-default buildRules">
                     <div class="panel-heading">
-                        <div class="section">
-                            <span class="title">Build rules</span>
-                            <div>
-                                <div id="forceDoublehand" class="col-xs-12 col-lg-6">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox"/><span></span>
-                                        Force Doublehand build
-                                    </label>
-                                </div>
-                                <div id="forceDualWield" class="col-xs-12 col-lg-6">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox"/><span></span>
-                                        Force Dual Wield build
-                                    </label>
-                                </div>
-                                <div id="tryEquipsources" class="col-xs-12 col-lg-6">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox"/><span></span>
-                                        Try "Allow use of &lt;type&gt;" items
-                                    </label>
-                                </div>
-                                <div id="tryReduceOverCap" class="col-xs-12">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox"/><span></span>
-                                        Try to reduce overcap in favor of &nbsp;
-                                    </label>
-                                    <select class="form-control smallSelect">
-                                        <option value="hp" selected>HP</option>
-                                        <option value="mp">MP</option>
-                                        <option value="atk">ATK</option>
-                                        <option value="def">DEF</option>
-                                        <option value="mag">MAG</option>
-                                        <option value="spr">SPR</option>
-                                        <option value="lbPerTurn">LB/turn</option>
-                                    </select>
-                                </div>
-                                <div id="forceTmrAbility" class="col-xs-12 hidden">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox"/><span></span>
-                                        <span class="experimentalTag">Experimental</span>
-                                        Force use of TMR or STMR
-                                    </label>
-                                </div>
-                                <div class="col-xs-12 col-lg-6">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="useNewJpDamageFormula" class="checkbox"/><span></span>
-                                        Use new damage formula
-                                    </label>
-                                </div>
-                                <div class="col-xs-12 goalVarianceDiv">
-                                    <span class="goalLabel">Damage variance</span>
-                                    <select id="goalVariance" name="goalVariance" class="form-control smallSelect">
-                                        <option value="min">Minimum</option>
-                                        <option value="avg" selected="selected">Average</option>
-                                        <option value="max">Maximum</option>
-                                    </select>
-                                </div>
-                            </div>
+                        Build rules
+                    </div>
+                    <div class="panel-body">
+                        <div id="forceDoublehand" class="col-xs-12 col-lg-6">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox"/><span></span>
+                                Force Doublehand build
+                            </label>
+                        </div>
+                        <div id="forceDualWield" class="col-xs-12 col-lg-6">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox"/><span></span>
+                                Force Dual Wield build
+                            </label>
+                        </div>
+                        <div id="tryEquipsources" class="col-xs-12 col-lg-6">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox"/><span></span>
+                                Try "Allow use of &lt;type&gt;" items
+                            </label>
+                        </div>
+                        <div id="tryReduceOverCap" class="col-xs-12">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox"/><span></span>
+                                Try to reduce overcap in favor of &nbsp;
+                            </label>
+                            <select class="form-control smallSelect">
+                                <option value="hp" selected>HP</option>
+                                <option value="mp">MP</option>
+                                <option value="atk">ATK</option>
+                                <option value="def">DEF</option>
+                                <option value="mag">MAG</option>
+                                <option value="spr">SPR</option>
+                                <option value="lbPerTurn">LB/turn</option>
+                            </select>
+                        </div>
+                        <div id="forceTmrAbility" class="col-xs-12 hidden">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox"/><span></span>
+                                <span class="experimentalTag">Experimental</span>
+                                Force use of TMR or STMR
+                            </label>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="useNewJpDamageFormula" class="checkbox"/><span></span>
+                                Use new damage formula
+                            </label>
+                        </div>
+                        <div class="col-xs-12 goalVarianceDiv">
+                            <span class="goalLabel">Damage variance</span>
+                            <select id="goalVariance" name="goalVariance" class="form-control smallSelect">
+                                <option value="min">Minimum</option>
+                                <option value="avg" selected="selected">Average</option>
+                                <option value="max">Maximum</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -762,12 +760,14 @@
                         </div>
                     </div>
                 </div>
-                <div id="buildDiv" class="hidden">
-                    <ul id="unitTabs" class="nav nav-tabs">
-                        <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
-                        <li id="addNewUnitButton" onclick="addNewUnit()"><a><span class="glyphicon glyphicon-plus"/></a></li>
-                    </ul>
-                    <div class="result-tab-pane">
+                <div id="buildDiv" class="hidden panel panel-default with-nav-tabs">
+                    <div class="panel-heading">
+                        <ul id="unitTabs" class="nav nav-tabs">
+                            <li class="active tab_0"><a href="#" onclick="selectUnitTab(0)">Select unit</a></li>
+                            <li id="addNewUnitButton" onclick="addNewUnit()"><a><span class="glyphicon glyphicon-plus"/></a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body result-tab-pane">
                         <div class="panel-body" style="padding:0;">
                             <div id="pleaseSelectUnitMessage" class="hidden">Please select a unit</div>
                             <div class="buildDiv">
