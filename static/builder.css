@@ -78,18 +78,15 @@
     margin-left:10px;
 }
 
-.result-tab-pane {
-    border-bottom: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
 .buildDiv {
     padding: 5px;
     display: flex;
     flex-direction: row;
+}
+
+#buildDiv .panel-body {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #buildButton {

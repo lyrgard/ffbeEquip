@@ -159,15 +159,11 @@ body.dark #themeSelector select {
     color: #ddd !important;
 }
 
-/* Builder */
-
-body.dark .result-tab-pane {
-    border-bottom: 1px solid #464545;
-    border-left: 1px solid #464545;
-    border-right: 1px solid #464545;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+body.dark .experimentalTag {
+    background-color: #666666;
 }
+
+/* Builder */
 
 body.dark .items .tbody .tr .td, body.dark .results {
     border-top: 1px solid #464545;
