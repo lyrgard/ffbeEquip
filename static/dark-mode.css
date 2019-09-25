@@ -133,7 +133,7 @@ body.dark [placeholder]:-ms-input-placeholder { color: rgba(255,255,255,.6); }
 body.dark [placeholder]:hover:-ms-input-placeholder { color: rgba(255,255,255,.3); }
 body.dark [placeholder]:focus:-ms-input-placeholder { color: transparent; }
 
-body.dark input, body.dark select, body.dark .select2-selection {
+body.dark input, body.dark select, body.dark .select2-selection, body.dark .select2-container--bootstrap .select2-search--dropdown .select2-search__field {
     border: 1px solid rgba(0,0,0,.5);
     background: rgba(0,0,0,.25);
 }
