@@ -1187,6 +1187,10 @@ p.linkInputCopied {
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    #themeSelector .title {
+        display: none;
+    }
 }
 
 @media (max-width: 380px) {
@@ -1212,4 +1216,6 @@ p.linkInputCopied {
         font-size: 1em;
         font-weight: bold;
     }
+
+
 }

@@ -1,6 +1,6 @@
 const baseStats = ['hp','mp','atk','def','mag','spr'];
 const elementList = ['fire','ice','lightning','water','wind','earth','light','dark'];
-const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death'];
+const ailmentList = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death', "charm", "stop"];
 const ailmentListWithoutDeath = ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification'];
 const disablingAilmentList = ['sleep','paralysis','confuse','petrification'];
 const killerList = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];

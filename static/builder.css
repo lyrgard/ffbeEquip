@@ -97,6 +97,7 @@
 #fixItemModal .modal-header {
     display: flex;
     flex-direction: row;
+    padding-right: 32px;
 }
 
 #fixItemModal .type .dropdown-menu {
@@ -469,9 +470,11 @@ i.img.img-slot-hand.leftHand {
 
 #resultStats .resists .elements {
     display: flex;
+    flex-wrap: wrap;
 }
 #resultStats .resists .ailments {
     display: flex;
+    flex-wrap: wrap;
 }
 
 #resultStats .resists .resist {
@@ -564,7 +567,8 @@ i.img.img-slot-hand.leftHand {
 .unitStats .stat .pots input{
     border-radius: 0;
 }
-.unitStats .stat.hp .pots input, .unitStats .stat.mp .pots input{
+
+.unitStats .stat.mp .pots input{
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-top-left-radius: 0;
@@ -700,6 +704,11 @@ i.img.img-slot-hand.leftHand {
 
 #fixItemModal .modal-header .checkboxGroup input{
     margin: 0 3px 0 0;
+}
+
+#fixItemModal .modal-header .searchBoxAndSortDiv {
+    display: flex;
+    flex:1;
 }
 
 .customEnchantment {
