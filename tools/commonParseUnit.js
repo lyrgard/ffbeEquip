@@ -80,6 +80,43 @@ var unlockedSkills = {
     "100012505": "225970"
 }
 
+let chainingFamilies = {
+    "none,42,48,54,60,66,72,78,84,90": "912190",            // Boltinng Strike
+    "none,70,77,82,89,96,103,110": "204700",                // Divine Ruination
+    "none,70,76,82,88,94,100,106,112":"229561",             // Absolute Mirror of Equity
+    "walk,2,10,18,26,34,42,50":"702580",                    // Piledriver
+    "none,22,27,32,37,42,47,52,57,62,67,72,92":"702960",    // Quick Hit
+    "none,42,49,56,63,70,77,84,91,98,105,112,119":"506850", // Onion Slice
+    "none,42,52,62,72,82,92,102,112":"224570",              // Octaslash
+    "none,42,46,50,54,58,62,66,70,74,78,82,86,90,94,98,102,106,110,114,118,122,126,130,134,138,142,146,150,154,158":"704530", // Aureole Ray
+    "none,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230":"229084",  // Short-Range Graviton
+    "none,110,120,130,140,150,160,170,180,190,200":"229783",// Stardust Ray
+    "none,42,50,58,66,74,82,98":"910881",                   // Chainsaw
+    "none,82,90,98,106,114,122,130,138":"213360",           // Kingsglaive   
+    "none,212,200,188,176,164,152,140,128,116,104,92,80": "70440", // Tornado
+    "none,133,145,157,169,181,193,205,217,229,241,253,265": "20380", // Flood
+    "none,140,154,168,182,196,210,225,240": "70438",        // Freeze
+    "none,52,72,92,112,132": "500580",                      // Chaos Wave
+    "none,92,102,112,122,132,142,152,162": "505790",        // Fatal Barrage
+    "none,42,52,62,72,82,92,102": "209320",                 // Sword of King
+    "none,42,47,52,57,62,67,72,77,82,87": "703690",         // Disorder
+    "none,42,52,62,72,82,92": "214040",                     // Firm Punch
+    "none,42,50,58,66,74,82,90,98": "217430",               // Free Energy
+    "none,84,92,100,108,116,124,132,140": "230870",         // Meteor Rain
+    "none,40,45,50,55,60,65,70,75,80,85,90": "910652",      // Absolute Zero
+    "none,2,12,22,32,42": "228723",                         // Ryujin
+}
+
+let moveTypes = {
+    0: "none",
+    1: "walk",
+    2: "walk",
+    3: "warp",
+    4: "none",
+    5: "dash",
+    6: "dashThrough"
+    
+}
 
 
 function getPassives(unitId, skillsIn, skills, lbs, enhancements, maxRarity, unitData, unitOut, latentSkillsByUnitId) {
@@ -929,7 +966,6 @@ function parsePassiveRawEffet(rawEffect, skills, unit, lbs) {
     } else if (rawEffect[2] == 72) {
         
         var lbIn = lbs[rawEffect[3][0]];
-        console.log(JSON.stringify(rawEffect));
         var lb = parseLb(lbIn, unit, skills);
         result = {
             "replaceLb": lb
@@ -969,6 +1005,7 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
         }
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
+    addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
     return skill;
 }
 
@@ -986,7 +1023,27 @@ function parseLb(lb, unit, skills) {
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
         lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
     }
+    addChainInfoToSkill(lbOut, lbOut.maxEffects, lb.attack_frames, lb.move_type, skills);
     return lbOut;
+}
+
+function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
+    let hasDamage = false;
+    let chain = [];
+    effects.forEach((effect, index) => {
+        if (effect.effect && effect.effect.damage) {
+            hasDamage = true;
+            chain = chain.concat(attackFrames[index]);
+        }
+    });
+    if (hasDamage) {
+        skill.frames = chain;
+        let chainId = moveTypes[moveType] + ',' + chain.join(',');
+        if (chainingFamilies[chainId]) {
+            skill.chainFamily = skills[chainingFamilies[chainId]].name;
+        }
+        skill.move = moveTypes[moveType];
+    }
 }
 
 function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhancementLevel = 0) {
@@ -1934,9 +1991,15 @@ function formatForSearch(units) {
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
                 addSkillEffectToSearch(skill.effects, unitOut, "actives");
+                if (skill.chainFamily) {
+                    addChainingFamilyToSearch(unitOut,skill.chainFamily);
+                }
             }
             if (unit.lb) {
                 addSkillEffectToSearch(unit.lb.maxEffects, unitOut, "lb");
+                if (unit.lb.chainFamily) {
+                    addChainingFamilyToSearch(unitOut,unit.lb.chainFamily);
+                }
             }
             if (first) {
                 first = false;
@@ -1948,6 +2011,15 @@ function formatForSearch(units) {
     }
     result += "\n]";
     return result;
+}
+
+function addChainingFamilyToSearch(unitOut, chainFamily) {
+    if (!unitOut.chainFamily) {
+        unitOut.chainFamily = [];
+    }
+    if (!unitOut.chainFamily.includes(chainFamily)) {
+        unitOut.chainFamily.push(chainFamily);
+    }
 }
 
 function addSkillEffectToSearch(effects, unitOut, effectType) {
