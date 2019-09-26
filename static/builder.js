@@ -2184,10 +2184,12 @@ function displaySearchResultsAsync(items, start, div) {
             
             var excluded = itemsToExclude.includes(item.id);
 
+            $('#fixItemModal').removeClass('exclusion');
             if(searchClickBehavior == ClickBehaviors.IGNORE) {
                 html += '" >';
             } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
                 html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
+                $('#fixItemModal').addClass('exclusion');
             } else {
                 html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
             }
@@ -2223,8 +2225,10 @@ function displaySearchResultsAsync(items, start, div) {
                 html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
                 html+=      '<ul class="dropdown-menu pull-right">';
                 html+=          '<li>' + getAccessHtml(item) + '</li>';               
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';                
-                html+=          '<li class="inventory"><span class="badge' + notEnoughClass + '">' + owned + '</span></li>';
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+                html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
+                }
                 html+=      '</ul>';
                 html+= '</div></div>';
             } else {

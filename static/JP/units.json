@@ -8314,6 +8314,83 @@
 		"equip":["dagger","sword","staff","rod","harp","throwing","mace","hat","clothes","lightArmor","robe"],
 		"enhancementSkills":["トラバーサー石の供給者","剣闘士のマドリガル","アビセアからの来訪者"]
 	},
+	"211001205": {
+		"name":"連邦の黒い悪魔シャントット",
+		"jpname":"連邦の黒い悪魔シャントット",
+		"id":"211001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4641,"mp":282,"atk":143,"def":161,"mag":218,"spr":207},
+			"minStats":{"hp":1532,"mp":93,"atk":47,"def":53,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"6_form": {
+			"name":"連邦の黒い悪魔シャントット",
+			"jpname":"連邦の黒い悪魔シャントット",
+			"id":"211001205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3570,"mp":216,"atk":110,"def":123,"mag":167,"spr":159},
+				"minStats":{"hp":1178,"mp":71,"atk":36,"def":41,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"]
+		}
+	},
+	"211001305": {
+		"name":"リリゼット",
+		"jpname":"リリゼット",
+		"id":"211001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4848,"mp":251,"atk":196,"def":187,"mag":182,"spr":184},
+			"minStats":{"hp":1600,"mp":83,"atk":65,"def":62,"mag":60,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"リリゼット",
+			"jpname":"リリゼット",
+			"id":"211001305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3729,"mp":193,"atk":150,"def":143,"mag":140,"spr":141},
+				"minStats":{"hp":1231,"mp":64,"atk":50,"def":47,"mag":46,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"211001404": {
+		"name":"ザイド",
+		"jpname":"ザイド",
+		"id":"211001404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3777,"mp":158,"atk":158,"def":130,"mag":110,"spr":121},
+			"minStats":{"hp":1246,"mp":52,"atk":52,"def":43,"mag":36,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["sword","greatSword","katana","axe","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+	},
 	"212000103": {
 		"name":"Vaan",
 		"jpname":"ヴァン",
@@ -12213,7 +12290,7 @@
 		"id":"336000304",
 		"max_rarity":"6",
 		"min_rarity":"4",
-		"sex":"female",
+		"sex":"other",
 		"stats": {
 			"maxStats":{"hp":3610,"mp":206,"atk":111,"def":116,"mag":139,"spr":154},
 			"minStats":{"hp":1191,"mp":68,"atk":37,"def":38,"mag":46,"spr":51},
@@ -12437,5 +12514,36 @@
 		},
 		"stats_pattern":1,
 		"equip":["harp","hat","clothes","robe"]
+	},
+	"401006305": {
+		"name":"Popstar Katy",
+		"jpname":"Popstar Katy",
+		"id":"401006305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4591,"mp":278,"atk":130,"def":157,"mag":214,"spr":198},
+			"minStats":{"hp":1515,"mp":92,"atk":43,"def":52,"mag":71,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Popstar Katy",
+			"jpname":"Popstar Katy",
+			"id":"401006305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3531,"mp":213,"atk":100,"def":120,"mag":164,"spr":152},
+				"minStats":{"hp":1165,"mp":70,"atk":33,"def":40,"mag":54,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","lightShield","hat","clothes","robe"]
+		}
 	}
 }

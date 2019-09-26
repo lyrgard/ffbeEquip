@@ -669,6 +669,30 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         var drawAttacks = rawEffect[3][0];
         addStat(item, "drawAttacks", drawAttacks);
 
+    // Break, stop and charm resistance with turn number
+    } else if (rawEffect[2] == 89 || rawEffect[2] == 55) {
+        if (!item.resist) {
+            item.resist = [];
+        }
+        if (rawEffect[3][0]) {
+            item.resist.push({"name":"break_atk","percent":rawEffect[3][0]});
+        }
+        if (rawEffect[3][1]) {
+            item.resist.push({"name":"break_def","percent":rawEffect[3][1]});
+        }
+        if (rawEffect[3][2]) {
+            item.resist.push({"name":"break_mag","percent":rawEffect[3][2]});
+        }
+        if (rawEffect[3][3]) {
+            item.resist.push({"name":"break_spr","percent":rawEffect[3][3]});
+        }
+        if (rawEffect[3][4]) {
+            item.resist.push({"name":"stop","percent":rawEffect[3][4]});
+        }
+        if (rawEffect[3][5]) {
+            item.resist.push({"name":"charm","percent":rawEffect[3][5]});
+        }
+        
 
     } else {
         return false;

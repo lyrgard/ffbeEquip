@@ -1089,6 +1089,10 @@ i.img.img-slot-hand.leftHand {
     margin-right: 5px;
 }
 
+#fixItemModal .mobile {
+    display: none;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
@@ -1119,10 +1123,6 @@ i.img.img-slot-hand.leftHand {
         width: 100%;
     }
     
-    #fixItemModal .results .td.access {
-        display: none;
-    }
-    
     #fixItemModal .results .td.mobile .td.access {
         display: block;
     }
@@ -1144,4 +1144,17 @@ i.img.img-slot-hand.leftHand {
     #fixItemModal .modal-header {
         flex-wrap: wrap;
     }
+    
+    #fixItemModal .td.mobile {
+        display: table-cell;
+    }
+    
+    #fixItemModal .td.enchantment, #fixItemModal .td.access, #fixItemModal .td.exclude, #fixItemModal .td.special  {
+        display: none;
+    }
+    
+    #fixItemModal.exclusion .td.exclude {
+        display: table-cell;
+    }
+    
 }
