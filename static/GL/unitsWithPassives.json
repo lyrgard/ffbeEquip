@@ -1434,7 +1434,7 @@
 		],
 		"skills": [
 			{"mp%":30, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":50},{"name":"light","percent":-50},{"name":"dark","percent":50}], "mpRefresh":5},
-			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}]}, "equipedConditions":[["405002000","314001500"]]},
+			{"hp%":30, "mag%":50, "resist":[{"name":"water","percent":50}], "replaceLb":{"name":"Hell's Waters","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4.55,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (4.55x * 2 = 9.1x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6,"ignore":{"spr":50},"elements":["water"]},"area":"AOE","target":"ENEMY"},"desc":"Magic water damage (6x * 2 = 12x, MAG) to all enemies (ignore reflect)"},{"effect":null,"desc":"Magic water damage (0.3x, MAG) as MP drain (30%) to all enemies"}],"frames":[6,18,30,42,54,96,100,104],"move":"walk"}, "equipedConditions":[["405002000","314001500"]]},
 			{"mag%":30, "spr%":30, "equipedConditions":["whip",["405002000","314001500"]]},
 			{"mag%":20, "levelCondition":115},
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "skillEnhancement":{"208150":3,"910600":3,"910601":3}, "levelCondition":120}
@@ -1592,7 +1592,7 @@
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":30}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "replaceLb":{"name":"Seal of Conviction","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.55,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (8.55x, ATK) to all enemies"},{"effect":{"break":{"atk":45,"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 45% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (10x, ATK) to all enemies"},{"effect":{"break":{"atk":74,"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 74% for 3 turns to all enemies"}]}, "equipedConditions":[["504210720","407003200"]]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":30}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100}], "replaceLb":{"name":"Seal of Conviction","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.55,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (8.55x, ATK) to all enemies"},{"effect":{"break":{"atk":45,"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 45% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10,"elements":["dark"]},"area":"AOE","target":"ENEMY"},"desc":"Physical dark damage (10x, ATK) to all enemies"},{"effect":{"break":{"atk":74,"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and DEF by 74% for 3 turns to all enemies"}],"frames":[45,50,56,61,67,72,78,83,89,94,100,105,111,116,122,127,133,139,144,166],"move":"walk"}, "equipedConditions":[["504210720","407003200"]]},
 			{"atk%":20, "equipedConditions":["dagger"], "levelCondition":110},
 			{"atk%":20, "equipedConditions":["sword"], "levelCondition":110},
 			{"atk%":20, "equipedConditions":["greatSword"], "levelCondition":110},
@@ -1951,7 +1951,7 @@
 		"skills": [
 			{"hp%":30, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"Kingdom's Order","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Greased Lightning (501980), Quickbolt Blade (501970) and Swiftwind Blade (501960) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Greased Lightning (501980), Quickbolt Blade (501970) and Swiftwind Blade (501960) for 3 turns"}]}, "equipedConditions":[["504213800","303004500"]]},
+			{"dualWielding":{"atk":50}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"Kingdom's Order","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.05x * 2 = 14.1x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":50,"wind":50,"light":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Greased Lightning (501980), Quickbolt Blade (501970) and Swiftwind Blade (501960) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8.5x * 2 = 17x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"lightning":79,"wind":79,"light":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Lightning, Wind and Light by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"501960","name":"Swiftwind Blade"},{"id":"501970","name":"Quickbolt Blade"},{"id":"501980","name":"Greased Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Greased Lightning (501980), Quickbolt Blade (501970) and Swiftwind Blade (501960) for 3 turns"}],"frames":[34,44,57,71,85,95,108,122,146,158,192,210,228,246,262],"move":"walk"}, "equipedConditions":[["504213800","303004500"]]},
 			{"atk%":50, "equipedConditions":["dagger"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["katana"], "levelCondition":105},
 			{"atk%":50, "equipedConditions":["greatSword"], "levelCondition":105},
@@ -2172,12 +2172,11 @@
 		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["Blades of Azure Crimson","Forsaken Armor","Octostrike Blade","Crimson Frost Edge","Azure Flame Edge","Kingdom's Hero"],
 		"enhancements": [
-			{"name":"Dual Blade Mastery","levels":[[],[{"improvedDW":true}]]},
 			{"name":"Forsaken Armor","levels":[[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"levelCondition":105}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"atk%":25,"levelCondition":105}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"dark","percent":30}],"atk%":50,"levelCondition":105}]]},
-			{"name":"Kingdom's Hero","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":60},"replaceLb":{"name":"Darkness Purging Blades of Azure Crimson","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x, ATK) to all enemies"},{"effect":{"imperil":{"fire":76,"ice":76},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 76% for 3 turns to all enemies"},{"effect":{"skillEnhancement":{"228081":14,"707783":14,"707784":14},"turn":2},"desc":"Increase damage of Octostrike Blade skills  [(228081) / +1 (707783) / +2 (707784)] by 1400% for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":21},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x, ATK) to all enemies"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 5 turns to all enemies"},{"effect":{"skillEnhancement":{"228081":14,"707783":14,"707784":14},"turn":2},"desc":"Increase damage of Octostrike Blade skills  [(228081) / +1 (707783) / +2 (707784)] by 1400% for 2 turns"}]},"levelCondition":120}]]}
+			{"name":"Kingdom's Hero","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":10},"levelCondition":120}],[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50,"dualWielding":{"atk":60},"replaceLb":{"name":"Darkness Purging Blades of Azure Crimson","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.2},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (15.2x, ATK) to all enemies"},{"effect":{"imperil":{"fire":76,"ice":76},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 76% for 3 turns to all enemies"},{"effect":{"skillEnhancement":{"228081":14,"707783":14,"707784":14},"turn":2},"desc":"Increase damage of Octostrike Blade skills  [(228081) / +1 (707783) / +2 (707784)] by 1400% for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":21},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (21x, ATK) to all enemies"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 5 turns to all enemies"},{"effect":{"skillEnhancement":{"228081":14,"707783":14,"707784":14},"turn":2},"desc":"Increase damage of Octostrike Blade skills  [(228081) / +1 (707783) / +2 (707784)] by 1400% for 2 turns"}],"frames":[22,32,42,52,62,72,85],"move":"walk"},"levelCondition":120}]]}
 		],
 		"skills": [
-			{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
+			{"hp%":30, "mag%":20, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"atk%":50, "equipedConditions":["greatSword"]},
@@ -2200,11 +2199,8 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["Blades of Azure Crimson","Forsaken Armor","Octostrike Blade","Crimson Frost Edge","Azure Flame Edge","Kingdom's Hero"],
-		"enhancements": [
-			{"name":"Dual Blade Mastery","levels":[[],[{"improvedDW":true}]]}
-		],
 			"skills": [
-				{"hp%":30, "mag%":20, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
+				{"hp%":30, "mag%":20, "improvedDW":true, "lbPerTurn":{"min":2,"max":2}, "mpRefresh":10, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]},
 				{"atk%":50, "equipedConditions":["dagger"]},
 				{"atk%":50, "equipedConditions":["greatSword"]},
@@ -2529,7 +2525,7 @@
 		],
 		"skills": [
 			{"hp%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"human","physical":75,"magical":75}], "mpRefresh":5},
-			{"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}], "replaceLb":{"name":"Toad Art - Raiden","minEffects":[{"effect":{"damage":{"mecanism":"physical","coef":21.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (21.4x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","coef":27.2,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (27.2x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}]}, "equipedConditions":[["409015000","304003200"]]},
+			{"evade":{"magical":20}, "lbPerTurn":{"min":2,"max":2}, "killers":[{"name":"human","physical":50,"magical":50}], "replaceLb":{"name":"Toad Art - Raiden","minEffects":[{"effect":{"damage":{"mecanism":"physical","coef":21.4,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (21.4x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","coef":27.2,"elements":["lightning"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid* lightning damage (27.2x, ATK & MAG) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Paralyze (30%) on all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (30%) for one turn on all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"911920","name":"True Purgatory Fire Slash"},{"id":"911921","name":"True Thunder Strike Stance"},{"id":"227963","name":"Shadow Dragon Roar"}]},"area":"SELF","target":"SELF"},"desc":"Gain Shadow Dragon Roar (227963), True Purgatory Fire Slash (911920) and True Thunder Strike Stance (911921) for 3 turns"}],"frames":[133,143,153,163,173,183,193],"move":"walk"}, "equipedConditions":[["409015000","304003200"]]},
 			{"atk%":50, "mag%":50, "skillEnhancement":{"503400":6.1,"503410":4.3,"912121":6.1,"912122":6.1,"912123":4.3,"912124":4.3}, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "dualWielding":{"atk":40,"mag":40}, "levelCondition":120}
@@ -2637,7 +2633,7 @@
 			{"lbFillRate":100, "partialDualWield":["greatSword","katana"], "resist":[{"name":"ice","percent":5},{"name":"wind","percent":5},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":10}], "mpRefresh":5},
 			{"atk%":40, "equipedConditions":["katana"]},
 			{"hp%":30, "mp%":30, "equipedConditions":["greatSword"]},
-			{"dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "replaceLb":{"name":"Unstoppable Wave","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (9x * 2 = 18x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain Blade Flash - Final (503610), Crimson Era (503630) and Fatal Bloom (503620) for 2 turns"},{"effect":{"imperil":{"fire":70,"ice":70},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 70% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain Absolute Mirror of Equity (508001) for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x * 2 = 24x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain Blade Flash - Final (503610), Crimson Era (503630) and Fatal Bloom (503620) for 5 turns"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain Absolute Mirror of Equity (508001) for 2 turns"}]}, "equipedConditions":[["504218380","304003100"]]},
+			{"dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40}, "replaceLb":{"name":"Unstoppable Wave","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (9x * 2 = 18x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain Blade Flash - Final (503610), Crimson Era (503630) and Fatal Bloom (503620) for 2 turns"},{"effect":{"imperil":{"fire":70,"ice":70},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 70% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain Absolute Mirror of Equity (508001) for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x * 2 = 24x, ATK) to one enemy (ignore cover)"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"503610","name":"Blade Flash - Final"},{"id":"503620","name":"Fatal Bloom"},{"id":"503630","name":"Crimson Era"}]},"area":"SELF","target":"SELF"},"desc":"Gain Blade Flash - Final (503610), Crimson Era (503630) and Fatal Bloom (503620) for 5 turns"},{"effect":{"imperil":{"fire":100,"ice":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire and Ice by 100% for 3 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508001","name":"Absolute Mirror of Equity"}]},"area":"SELF","target":"SELF"},"desc":"Gain Absolute Mirror of Equity (508001) for 2 turns"}],"frames":[28],"move":"walk"}, "equipedConditions":[["504218380","304003100"]]},
 			{"resist":[{"name":"ice","percent":15},{"name":"wind","percent":15}], "levelCondition":120},
 			{"atk%":40, "equipedConditions":["sword"], "levelCondition":120},
 			{"atk%":40, "equipedConditions":["greatSword"], "levelCondition":120},
@@ -3146,7 +3142,7 @@
 		"skills": [
 			{"hp%":30, "spr%":20, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"beast","physical":25},{"name":"demon","physical":25},{"name":"plant","physical":25}], "replaceLb":{"name":"Kaiser Verteidiger","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.05x * 2 = 10.1x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.5x * 2 = 13x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}]}, "equipedConditions":[["504222860","409021500"]]},
+			{"lbPerTurn":{"min":3,"max":3}, "killers":[{"name":"beast","physical":25},{"name":"demon","physical":25},{"name":"plant","physical":25}], "replaceLb":{"name":"Kaiser Verteidiger","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.05,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.05x * 2 = 10.1x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.5x * 2 = 13x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 4 random status effects (50%) to all enemies"},{"effect":{"noUse":true,"globalMitigation":40,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 40% to all allies for 2 turns"},{"effect":null,"desc":"Restore 10% MP to all allies"},{"effect":{"killers":[{"name":"beast","physical":25},{"name":"bird","physical":25},{"name":"aquatic","physical":25}],"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase physical damage against Beasts, Avians and Aquatics by 25% to all allies for 2 turns"}],"frames":[85,89,110,118,203,207,211,233,239,245,257],"move":"walk"}, "equipedConditions":[["504222860","409021500"]]},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "levelCondition":120}
 		],
@@ -3261,7 +3257,7 @@
 			{"spr%":20, "equipedConditions":["hat"]},
 			{"spr%":20, "equipedConditions":["clothes"]},
 			{"hp%":30, "atk%":30, "equipedConditions":["fist"]},
-			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"Flower Barrage","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}]}, "equipedConditions":[["309002400","405005200"]]},
+			{"atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":40}, "replaceLb":{"name":"Flower Barrage","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":15.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (15.1x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":18},"area":"ST","target":"ENEMY"},"desc":"Physical damage (18x, ATK) to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 200% for 3 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"506810","name":"Open Eyes - Flash"}]}},"desc":"Gain 3 uses of Martial Arts skills  [Burning Heart (228061) / Burst (224640) / Calm Mind (224690) / Flaming Spirit (224700) / Heaven Scar (224670) / Heaven Shift (224660) / Heaven Shift+1 (707607) / Heaven Shift+2 (707608) / Lightning Spirit (224710) / Opposing Fist (224720) / Overthrow (224650) / Self-Discipline (228063) / Shield Breaker (228062) / Tojin Combo (224680) / Tojin Combo+1 (707609) / Tojin Combo+2 (707610) / Twin Palms (224630) / Waking Palm (228060)] for one turn"}],"frames":[49,65,81,93,101,116,122,125,179],"move":"walk"}, "equipedConditions":[["309002400","405005200"]]},
 			{"resist":[{"name":"fire","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"spr%":20, "levelCondition":115}
@@ -3331,7 +3327,7 @@
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":30, "lbFillRate":100, "mpRefresh":5},
-			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2}, "replaceLb":{"name":"Cosmo Plume","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}]}, "equipedConditions":[["504224490","310003900"]]},
+			{"resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "skillEnhancement":{"20290":1,"20300":2,"20310":1,"20330":1,"20360":2,"20550":2,"70436":2,"70437":2,"70438":2,"70439":2}, "replaceLb":{"name":"Cosmo Plume","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":6.35,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (6.35x * 2 = 12.7x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":106,"def":106,"mag":106,"spr":106},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 106% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":7.8,"ignore":{"spr":50}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (7.8x * 2 = 15.6x, MAG) to all enemies (ignore reflect)"},{"effect":{"statsBuff":{"atk":135,"def":135,"mag":135,"spr":135},"turns":3,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 135% for 3 turns to all allies"},{"effect":null,"desc":"Increase MAG by an additional 100% (max 100%) for the next skill to caster"}],"frames":[40,48,100,108,122,170,182,194,204,214],"move":"walk"}, "equipedConditions":[["504224490","310003900"]]},
 			{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"wind","percent":20}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115}
 		],
@@ -3627,12 +3623,11 @@
 		"enhancementSkills":["Guardian's Fighting Spirit","Escort Leader","Standout","Esper Covenant","Magical Distraction","Complete Focus","Energy Wall","Scarlet Healing"],
 		"enhancements": [
 			{"name":"Guardian's Fighting Spirit","levels":[[{"spr%":30,"def%":30}],[{"spr%":40,"def%":40}],[{"spr%":40,"def%":40,"hp%":20}]]},
-			{"name":"Octad Protection","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]},
 			{"name":"Esper Covenant","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":60,"mag":60,"def":60,"atk":60,"mp":60,"hp":60}}]]},
 			{"name":"Believer of Fate","levels":[[],[{"mp%":20}],[{"spr%":20,"mp%":20}],[{"spr%":20,"mp%":20,"lbPerTurn":{"min":3,"max":3}}]]}
 		],
 		"skills": [
-			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50}], "mpRefresh":5},
+			{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":60},{"name":"light","percent":10},{"name":"dark","percent":10},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 			{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
 			{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
 			{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
@@ -3658,12 +3653,11 @@
 			"enhancementSkills":["Guardian's Fighting Spirit","Escort Leader","Standout","Esper Covenant","Magical Distraction","Complete Focus","Energy Wall","Scarlet Healing"],
 		"enhancements": [
 			{"name":"Guardian's Fighting Spirit","levels":[[{"spr%":30,"def%":30}],[{"spr%":40,"def%":40}],[{"spr%":40,"def%":40,"hp%":20}]]},
-			{"name":"Octad Protection","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]},
 			{"name":"Esper Covenant","levels":[[{"esperStatsBonus":{"spr":10,"mag":10,"def":10,"atk":10,"mp":10,"hp":10}}],[{"esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}],[{"esperStatsBonus":{"spr":60,"mag":60,"def":60,"atk":60,"mp":60,"hp":60}}]]},
 			{"name":"Believer of Fate","levels":[[],[{"mp%":20}],[{"spr%":20,"mp%":20}],[{"spr%":20,"mp%":20,"lbPerTurn":{"min":3,"max":3}}]]}
 		],
 			"skills": [
-				{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50}], "mpRefresh":5},
+				{"hp%":50, "mp%":50, "atk%":30, "def%":30, "mag%":30, "spr%":30, "lbFillRate":100, "resist":[{"name":"fire","percent":60},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":60},{"name":"light","percent":10},{"name":"dark","percent":10},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
 				{"def%":20, "spr%":20, "equipedConditions":["lightShield"]},
 				{"def%":20, "spr%":20, "equipedConditions":["heavyShield"]},
 				{"def%":30, "spr%":30, "equipedConditions":["lightArmor"]},
@@ -5367,6 +5361,87 @@
 			{"hp%":20, "atk%":80, "def%":20, "spr%":20, "evade":{"physical":10}, "resist":[{"name":"paralysis","percent":100},{"name":"wind","percent":30},{"name":"water","percent":30}], "mpRefresh":5}
 		]
 	},
+	"100023205": {
+		"name":"CG Aldore King Rain",
+		"id":"100023205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4825,"mp":245,"atk":209,"def":195,"mag":158,"spr":190},
+			"minStats":{"hp":1592,"mp":81,"atk":69,"def":64,"mag":52,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "atk%":50, "def%":80, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["greatSword"]},
+			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"クリムゾンノヴァ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14.5x * 2 = 29x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 90% for 2 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":17.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (17.5x * 2 = 35x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 120% for 2 turns to all enemies"}],"frames":[28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173],"move":"walk"}, "equipedConditions":[["407004700","303006800"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"CG Aldore King Rain",
+			"id":"100023205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3711,"mp":188,"atk":160,"def":150,"mag":121,"spr":146},
+				"minStats":{"hp":1225,"mp":62,"atk":53,"def":50,"mag":40,"spr":48},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "atk%":50, "def%":80, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["greatSword"]}
+			]
+		}
+	},
+	"100023305": {
+		"name":"CG Majin Fina",
+		"id":"100023305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4625,"mp":289,"atk":161,"def":169,"mag":220,"spr":204},
+			"minStats":{"hp":1526,"mp":95,"atk":53,"def":56,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":30, "atk%":20, "def%":20, "mag%":70, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
+			{"mag%":30, "equipedConditions":["robe"]},
+			{"mag%":50, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["504231201","314002200"]]},
+			{"hp%":30, "mp%":30, "mag%":30, "levelCondition":110},
+			{"mag%":20, "levelCondition":115},
+			{"def%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"231213":1,"231214":1,"231215":1,"231216":1,"231217":1,"231222":0.5,"231223":0.5,"231224":0.5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"CG Majin Fina",
+			"id":"100023305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3558,"mp":223,"atk":124,"def":130,"mag":169,"spr":150},
+				"minStats":{"hp":1174,"mp":74,"atk":41,"def":43,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "atk%":20, "def%":20, "mag%":70, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
+				{"mag%":30, "equipedConditions":["robe"]}
+			]
+		}
+	},
 	"100023404": {
 		"name":"Atlie",
 		"id":"100023404",
@@ -5436,6 +5511,86 @@
 			{"hp%":10, "mp%":10, "spr%":20}
 		]
 	},
+	"100024105": {
+		"name":"Sweet Nichol",
+		"id":"100024105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4732,"mp":284,"atk":153,"def":163,"mag":219,"spr":203},
+			"minStats":{"hp":1562,"mp":94,"atk":50,"def":54,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "def%":20, "mag%":30, "resist":[{"name":"ice","percent":50},{"name":"water","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":10},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"mp%":50, "mag%":50, "equipedConditions":["clothes"]},
+			{"equipedConditions":[["405006700","504231203"]]},
+			{"def%":20, "levelCondition":115},
+			{"mag%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbPerTurn":{"min":3,"max":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sweet Nichol",
+			"id":"100024105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3640,"mp":219,"atk":118,"def":126,"mag":169,"spr":149},
+				"minStats":{"hp":1201,"mp":72,"atk":39,"def":42,"mag":56,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "def%":20, "mag%":30, "resist":[{"name":"ice","percent":50},{"name":"water","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":10},
+				{"mag%":50, "equipedConditions":["rod"]},
+				{"mp%":50, "mag%":50, "equipedConditions":["clothes"]}
+			]
+		}
+	},
+	"100024205": {
+		"name":"Sweet Luka",
+		"id":"100024205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4639,"mp":288,"atk":166,"def":175,"mag":217,"spr":207},
+			"minStats":{"hp":1531,"mp":95,"atk":55,"def":58,"mag":72,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":50, "def%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
+			{"equipedConditions":[["409030800","504231204"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sweet Luka",
+			"id":"100024205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3569,"mp":222,"atk":128,"def":135,"mag":167,"spr":152},
+				"minStats":{"hp":1178,"mp":73,"atk":42,"def":45,"mag":55,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":50, "def%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7}
+			]
+		}
+	},
 	"100024305": {
 		"name":"Kimono Fina",
 		"id":"100024305",
@@ -5473,6 +5628,84 @@
 			"skills": [
 				{"hp%":15, "mp%":20, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10},
 				{"killers":[{"name":"bird","magical":25}], "equipedConditions":["bow"]}
+			]
+		}
+	},
+	"100024404": {
+		"name":"Diesel",
+		"id":"100024404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3728,"mp":178,"atk":146,"def":130,"mag":111,"spr":120},
+			"minStats":{"hp":1230,"mp":59,"atk":48,"def":43,"mag":37,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "atk%":60, "def%":20, "dualWielding":{"atk":30}, "resist":[{"name":"lightning","percent":50},{"name":"paralysis","percent":100}], "mpRefresh":5, "special":["dualWield"]}
+		]
+	},
+	"100024503": {
+		"name":"Meiji",
+		"id":"100024503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":2765,"mp":180,"atk":92,"def":85,"mag":118,"spr":100},
+			"minStats":{"hp":912,"mp":59,"atk":30,"def":28,"mag":39,"spr":33},
+			"pots":{"hp":240,"mp":40,"atk":16,"def":16,"mag":24,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","mace","hat","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":20, "spr%":20},
+			{"mag%":50, "equipedConditions":["rod"]},
+			{"resist":[{"name":"earth","percent":50}], "equipedConditions":["rod"]}
+		]
+	},
+	"100024705": {
+		"name":"Cantilena",
+		"id":"100024705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4560,"mp":285,"atk":128,"def":156,"mag":216,"spr":207},
+			"minStats":{"hp":1505,"mp":94,"atk":42,"def":51,"mag":71,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+			{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
+			{"mag%":30, "equipedConditions":["rod"]},
+			{"equipedConditions":[["504231383","408004900"]]},
+			{"def%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Cantilena",
+			"id":"100024705",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3507,"mp":219,"atk":98,"def":120,"mag":166,"spr":159},
+				"minStats":{"hp":1157,"mp":72,"atk":32,"def":40,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"skills": [
+				{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"spr":50,"mag":50,"def":50,"atk":50,"mp":50,"hp":50}},
+				{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
+				{"mag%":30, "equipedConditions":["rod"]}
 			]
 		}
 	},
@@ -5537,6 +5770,88 @@
 		"skills": [
 			{"mp%":10}
 		]
+	},
+	"201000405": {
+		"name":"CG Warrior of Light",
+		"id":"201000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4987,"mp":216,"atk":168,"def":211,"mag":151,"spr":200},
+			"minStats":{"hp":1646,"mp":71,"atk":55,"def":70,"mag":50,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":60, "def%":80, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}},
+			{"hp%":40, "def%":40, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"light","percent":30}], "equipedConditions":[["302009000","402003900"]]},
+			{"hp%":30, "mp%":30, "spr%":30, "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"mp%":20, "def%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"CG Warrior of Light",
+			"id":"201000405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3836,"mp":166,"atk":129,"def":162,"mag":116,"spr":153},
+				"minStats":{"hp":1266,"mp":55,"atk":43,"def":53,"mag":38,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":60, "def%":80, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}}
+			]
+		}
+	},
+	"201000505": {
+		"name":"Garland v2",
+		"id":"201000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5012,"mp":204,"atk":206,"def":196,"mag":142,"spr":170},
+			"minStats":{"hp":1654,"mp":67,"atk":68,"def":65,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":30, "atk%":40, "def%":70, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":30}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+			{"atk%":25, "equipedConditions":["greatSword"]},
+			{"atk%":25, "equipedConditions":["helm"]},
+			{"hp%":30, "mp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504231302","407004500"]]},
+			{"hp%":20, "atk%":40, "def%":40, "lbPerTurn":{"min":2,"max":2}, "levelCondition":105},
+			{"spr%":20, "levelCondition":115},
+			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Garland v2",
+			"id":"201000505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3855,"mp":156,"atk":158,"def":150,"mag":109,"spr":130},
+				"minStats":{"hp":1272,"mp":51,"atk":52,"def":50,"mag":36,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":40, "def%":70, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":30}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+				{"atk%":25, "equipedConditions":["greatSword"]},
+				{"atk%":25, "equipedConditions":["helm"]}
+			]
+		}
 	},
 	"202000103": {
 		"name":"Firion",
@@ -5901,7 +6216,7 @@
 		],
 		"skills": [
 			{"hp%":20, "atk%":30, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-			{"hp%":20, "atk%":20, "def%":20, "replaceLb":{"name":"Strong Heart","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (10.6x, ATK) to one enemy"},{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":45,"water":45,"wind":45,"earth":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 45% for 3 turns to one enemy"},{"effect":null,"desc":"Restore 100% MP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (13.5x, ATK) to one enemy"},{"effect":{"break":{"def":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":74,"water":74,"wind":74,"earth":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 74% for 3 turns to one enemy"},{"effect":null,"desc":"Restore 100% MP to caster"}]}, "equipedConditions":[["409008000","405004800"]]},
+			{"hp%":20, "atk%":20, "def%":20, "replaceLb":{"name":"Strong Heart","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (10.6x, ATK) to one enemy"},{"effect":{"break":{"def":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":45,"water":45,"wind":45,"earth":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 45% for 3 turns to one enemy"},{"effect":null,"desc":"Restore 100% MP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (13.5x, ATK) to one enemy"},{"effect":{"break":{"def":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":74,"water":74,"wind":74,"earth":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 74% for 3 turns to one enemy"},{"effect":null,"desc":"Restore 100% MP to caster"}],"frames":[142],"move":"walk"}, "equipedConditions":[["409008000","405004800"]]},
 			{"spr%":20, "levelCondition":115},
 			{"dualWielding":{"atk":30}, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
@@ -6096,7 +6411,7 @@
 		"skills": [
 			{"mp%":30, "atk%":20, "def%":20, "mag%":20, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"water","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}], "mpRefresh":5, "lbDamage":17, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"atk%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"Radiant Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}]}, "equipedConditions":[["504228565","302007100"]]},
+			{"atk%":30, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"water","percent":20},{"name":"dark","percent":20}], "replaceLb":{"name":"Radiant Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"ST","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to one enemy"},{"effect":{"imperil":{"fire":50,"water":50,"wind":50,"earth":50},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 50% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"imperil":{"fire":80,"water":80,"wind":80,"earth":80},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Water, Wind and Earth by 80% for 5 turns to one enemy"},{"effect":{"skillEnhancement":{"228551":3,"508620":3,"508622":3},"turn":5},"desc":"Increase damage of Hacked to Pieces (508620), Onion Meteor (508622) and Onion Shredder (228551) by 300% for 5 turns"}],"frames":[61,67,73,79,101,107,113,119,125,180],"move":"walk"}, "equipedConditions":[["504228565","302007100"]]},
 			{"atk%":30, "def%":20, "spr%":20, "levelCondition":105},
 			{"hp%":20, "levelCondition":115},
 			{"dualWielding":{"atk":60}, "killers":[{"name":"undead","physical":100,"magical":100}], "skillEnhancement":{"211420":1.5,"228551":1.5,"508620":1.5}, "levelCondition":120}
@@ -7587,7 +7902,7 @@
 		"skills": [
 			{"hp%":30, "atk%":30, "spr%":20, "evade":{"physical":20}, "lbPerTurn":{"min":1,"max":1}, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["fist"]},
-			{"atk%":50, "dualWielding":{"atk":50}, "replaceLb":{"name":"Limit Reels","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}]}, "equipedConditions":[["504227847","309003300"]]},
+			{"atk%":50, "dualWielding":{"atk":50}, "replaceLb":{"name":"Limit Reels","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.6},"area":"ST","target":"ENEMY"},"desc":"Physical damage (11.6x, ATK) to one enemy"},{"effect":{"imperil":{"water":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 75% for 5 turns to one enemy"},{"effect":{"break":{"def":45},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 45% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"imperil":{"water":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Water by 100% for 5 turns to one enemy"},{"effect":{"break":{"def":74},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 74% for 5 turns to one enemy"},{"effect":null,"desc":"Increase the limit burst gauge fill rate by 300% for one turn to caster"},{"effect":{"statsBuff":{"atk":200},"turns":5,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 200% for 5 turns to caster"}],"frames":[133,143,163,198,253,310,362,499,583],"move":"walk"}, "equipedConditions":[["504227847","309003300"]]},
 			{"def%":30, "spr%":30, "lbFillRate":100, "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "atk%":20, "def%":20, "skillEnhancement":{"227830":1.5,"227831":1.5,"227832":1.5,"227833":1.5,"227834":1.5,"227835":1.5,"227836":2.5,"227837":0.75,"508161":1.5,"508162":0.75}, "levelCondition":120}
@@ -8223,7 +8538,7 @@
 		],
 		"skills": [
 			{"hp%":30, "atk%":20, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"hp%":20, "atk%":20, "mag%":20, "replaceLb":{"name":"Rose of May","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":45,"mag":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.75x * 2 = 13.5x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"mag":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}]}, "equipedConditions":[["303003500","504227273"]]},
+			{"hp%":20, "atk%":20, "mag%":20, "replaceLb":{"name":"Rose of May","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":45,"mag":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 45% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.75x * 2 = 13.5x, ATK) to all enemies (ignore cover)"},{"effect":{"break":{"atk":74,"mag":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK and MAG by 74% for 3 turns to all enemies"},{"effect":{"noUse":true,"globalMitigation":30,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 30% to all allies for 3 turns"}],"frames":[98,130,189,276],"move":"walk"}, "equipedConditions":[["303003500","504227273"]]},
 			{"mag%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "dualWielding":{"atk":30,"mag":30}, "levelCondition":120}
 		],
@@ -8450,7 +8765,7 @@
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"earth","percent":30},{"name":"blind","percent":100}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["katana"]},
-			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"Tornado","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.3x * 2 = 14.6x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":50,"wind":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Wind by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (9x * 2 = 18x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":79,"wind":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Wind by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}]}, "equipedConditions":[["504228861","304003600"]]},
+			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"Tornado","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.3,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.3x * 2 = 14.6x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":50,"wind":50},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Wind by 50% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (9x * 2 = 18x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":79,"wind":79},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire and Wind by 79% for 3 turns to all enemies"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"frames":[225,237,249,261,273,285,297,309,321,333,345,357,369,381,393,405,417,429,441,453,465,477],"move":"none"}, "equipedConditions":[["504228861","304003600"]]},
 			{"hp%":30, "def%":30, "mpRefresh":5, "levelCondition":105},
 			{"spr%":20, "levelCondition":115},
 			{"atk%":40, "skillEnhancement":{"228901":1.5,"228902":0.75,"228903":1.5,"228906":1.5,"228907":1.5,"508761":0.75}, "levelCondition":120}
@@ -8666,7 +8981,7 @@
 		],
 		"skills": [
 			{"hp%":50, "atk%":30, "spr%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"atk%":40, "skillEnhancement":{"209960":1,"209980":1,"501240":1,"501250":1,"501280":1,"501290":1,"501320":1,"501330":1,"501340":1,"501350":1,"501360":1,"504920":1,"504930":1,"504940":1,"504950":1,"504960":1,"504970":1}, "replaceLb":{"name":"Nullifying Dropkick","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":45,"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.2x * 2 = 16.4x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":74,"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to one enemy"}]}, "equipedConditions":[["403042000","309003000"]]},
+			{"atk%":40, "skillEnhancement":{"209960":1,"209980":1,"501240":1,"501250":1,"501280":1,"501290":1,"501320":1,"501330":1,"501340":1,"501350":1,"501360":1,"504920":1,"504930":1,"504940":1,"504950":1,"504960":1,"504970":1}, "replaceLb":{"name":"Nullifying Dropkick","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5.3,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (5.3x * 2 = 10.6x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":45,"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.2x * 2 = 16.4x, ATK) to one enemy (ignore cover)"},{"effect":{"break":{"def":74,"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF and SPR by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"fire":60,"ice":60,"lightning":60,"water":60,"wind":60,"earth":60,"light":60,"dark":60},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to all elements by 60% for 3 turns to one enemy"}],"frames":[98],"move":"walk"}, "equipedConditions":[["403042000","309003000"]]},
 			{"def%":20, "levelCondition":115},
 			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "resist":[{"name":"dark","percent":50},{"name":"petrification","percent":100}], "levelCondition":120}
 		],
@@ -9522,7 +9837,7 @@
 		],
 		"skills": [
 			{"hp%":10, "def%":30, "spr%":20, "mpRefresh":5},
-			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}]}, "equipedConditions":[["402002100","504227555"]]},
+			{"hp%":20, "def%":40, "spr%":20, "replaceLb":{"name":"Impulse","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":4.75,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (4.75x * 2 = 9.5x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":31},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 31% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.2,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.2x * 2 = 12.4x, ATK) to all enemies (ignore cover)"},{"effect":{"drawAttacks":100,"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase chance of being targeted by 100% for 3 turns"},{"effect":{"noUse":true,"globalMitigation":50,"turns":1,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 50% to caster for one turn"},{"effect":{"break":{"def":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 60% for 3 turns to all enemies"}],"frames":[200],"move":"walk"}, "equipedConditions":[["402002100","504227555"]]},
 			{"hp%":20, "levelCondition":115},
 			{"atk%":20, "def%":20, "spr%":20, "lbFillRate":50, "skillEnhancement":{"216070":2,"216080":2}, "levelCondition":120},
 			{"atk%":200, "equipedConditions":["304001100"], "levelCondition":120}
@@ -9607,7 +9922,7 @@
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
-			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}]}, "equipedConditions":[["409020400","301003300"]]},
+			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"frames":[178],"move":"walk"}, "equipedConditions":[["409020400","301003300"]]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":50, "mag%":40, "spr%":40, "levelCondition":120}
@@ -9700,7 +10015,7 @@
 		],
 		"skills": [
 			{"mp%":10, "spr%":20, "evade":{"physical":20}, "lbFillRate":100},
-			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}]}, "equipedConditions":[["504221550","313003700"]]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "replaceLb":{"name":"Trigger-Happy","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":7.8},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (7.8x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":10.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (10.7x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict 3 random status effects (60%) to all enemies"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508080","name":"Crackshot"}]},"area":"SELF","target":"SELF"},"desc":"Gain Crackshot (508080) for one turn (1 use)"}],"frames":[180,188,196,204,212,220,228,236,268,276,284,292,300,308,404],"move":"walk"}, "equipedConditions":[["504221550","313003700"]]},
 			{"partialDualWield":["dagger","gun"], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"lbDamage":30, "levelCondition":120},
@@ -9766,7 +10081,7 @@
 		],
 		"skills": [
 			{"hp%":20, "atk%":20, "mag%":20, "evade":{"physical":30}, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-			{"hp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"Lethal Combat","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.55,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.55x * 2 = 13.1x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Remove all buffs and debuffs from all enemies"},{"effect":{"imperil":{"fire":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 60% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8x * 2 = 16x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Remove all buffs and debuffs from all enemies"},{"effect":{"imperil":{"fire":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 60% for 3 turns to all enemies"}]}, "equipedConditions":[["504213420","301003500"]]},
+			{"hp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbPerTurn":{"min":2,"max":2}, "replaceLb":{"name":"Lethal Combat","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.55,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.55x * 2 = 13.1x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Remove all buffs and debuffs from all enemies"},{"effect":{"imperil":{"fire":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 60% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (8x * 2 = 16x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Remove all buffs and debuffs from all enemies"},{"effect":{"imperil":{"fire":60},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 60% for 3 turns to all enemies"}],"frames":[36,79,106,140],"move":"walk"}, "equipedConditions":[["504213420","301003500"]]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "skillEnhancement":{"213320":1.5,"213330":0.5,"213340":0.5,"213360":0.2,"213370":0.5,"706830":0.5,"706840":0.5,"706850":0.5,"706860":0.5,"706870":0.5,"706880":0.5}, "levelCondition":120},
 			{"atk%":40, "equipedConditions":["dagger"], "levelCondition":120}
@@ -10010,7 +10325,7 @@
 		],
 		"skills": [
 			{"hp%":30, "atk%":30, "def%":20, "mpRefresh":5},
-			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "replaceLb":{"name":"Blade of Dark Desire","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (13.1x, ATK) to one enemy"},{"effect":{"break":{"atk":45,"def":45,"mag":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF and MAG by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"lightning":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"break":{"atk":74,"def":74,"mag":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF and MAG by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"lightning":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}]}, "equipedConditions":[["407001800","504227271"]]},
+			{"atk%":20, "def%":20, "mag%":20, "spr%":20, "replaceLb":{"name":"Blade of Dark Desire","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":13.1},"area":"ST","target":"ENEMY"},"desc":"Physical damage (13.1x, ATK) to one enemy"},{"effect":{"break":{"atk":45,"def":45,"mag":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF and MAG by 45% for 3 turns to one enemy"},{"effect":{"imperil":{"lightning":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":16},"area":"ST","target":"ENEMY"},"desc":"Physical damage (16x, ATK) to one enemy"},{"effect":{"break":{"atk":74,"def":74,"mag":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce ATK, DEF and MAG by 74% for 3 turns to one enemy"},{"effect":{"imperil":{"lightning":100},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Lightning by 100% for 3 turns to one enemy"}],"frames":[58,78,100,177],"move":"walk"}, "equipedConditions":[["407001800","504227271"]]},
 			{"lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "levelCondition":110},
 			{"mp%":20, "levelCondition":115},
 			{"atk%":20, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":30}, "skillEnhancement":{"210300":1,"210310":1.2,"705590":1,"705600":1,"911060":1.2,"911061":1.2}, "levelCondition":120}
@@ -10152,7 +10467,7 @@
 		],
 		"skills": [
 			{"hp%":30, "atk%":30, "lbFillRate":200, "mpRefresh":5},
-			{"atk%":50, "dualWielding":{"atk":30}, "replaceLb":{"name":"Swordplay: Raiden","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (9.1x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (40%) for 3 turns on all enemies"},{"effect":{"break":{"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to all enemies"},{"effect":null,"desc":"Restore 100% HP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (40%) for 3 turns on all enemies"},{"effect":{"break":{"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to all enemies"},{"effect":null,"desc":"Restore 100% HP to caster"}]}, "equipedConditions":[["409008500","303004200"]]},
+			{"atk%":50, "dualWielding":{"atk":30}, "replaceLb":{"name":"Swordplay: Raiden","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":9.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (9.1x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (40%) for 3 turns on all enemies"},{"effect":{"break":{"def":45},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 45% for 3 turns to all enemies"},{"effect":null,"desc":"Restore 100% HP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":12},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (12x, ATK) to all enemies"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Stop (40%) for 3 turns on all enemies"},{"effect":{"break":{"def":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 74% for 3 turns to all enemies"},{"effect":null,"desc":"Restore 100% HP to caster"}],"frames":[53,111,153],"move":"walk"}, "equipedConditions":[["409008500","303004200"]]},
 			{"mp%":20, "levelCondition":115},
 			{"def%":30, "spr%":30, "skillEnhancement":{"204700":0.8,"210610":0.8,"701150":0.8,"701160":0.8,"703090":0.8,"703100":0.8}, "levelCondition":120}
 		],
@@ -10352,7 +10667,7 @@
 		],
 		"skills": [
 			{"mp%":10, "mag%":30, "spr%":20, "mpRefresh":5},
-			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"Jackpot Shot","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}]}, "equipedConditions":[["504203150","315022100"]]},
+			{"mag%":50, "skillEnhancement":{"202980":6.5,"501420":6.5,"501430":6.5,"501440":6.5,"501450":6.5,"701170":6.5}, "replaceLb":{"name":"Jackpot Shot","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":7.55,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (7.55x * 2 = 15.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":45},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 45% for 3 turns to one enemy"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":9,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic* damage (9x * 2 = 18x, MAG) to one enemy (ignore reflect)"},{"effect":{"break":{"spr":74},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 74% for 3 turns to one enemy"}],"frames":[190],"move":"walk"}, "equipedConditions":[["504203150","315022100"]]},
 			{"singleWielding":{"mag":50}, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "levelCondition":120},
@@ -10699,7 +11014,7 @@
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":80, "mag%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5},
-			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}]}, "equipedConditions":[["409023400","302006600"]]},
+			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"508522","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"frames":[176],"move":"walk"}, "equipedConditions":[["409023400","302006600"]]},
 			{"def%":20, "levelCondition":115},
 			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
 		],
@@ -11236,7 +11551,7 @@
 		"skills": [
 			{"hp%":20, "atk%":30, "spr%":20, "lbFillRate":200, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"machine","physical":50}], "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["gun"]},
-			{"hp%":20, "atk%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":50}, "replaceLb":{"name":"Death from Above","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"}]}, "equipedConditions":[["1100000056","1100000172"]]},
+			{"hp%":20, "atk%":20, "singleWieldingOneHanded":{"accuracy":25,"atk":50}, "replaceLb":{"name":"Death from Above","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.02,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.02x * 2 = 4.04x, ATK) to one random enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.6,"ignore":{"def":50}},"area":"RND","target":"ENEMY"},"desc":"Physical damage (2.6x * 2 = 5.2x, ATK) to one random enemy (ignore cover)"}],"frames":[290,305,311,328,340],"move":"none"}, "equipedConditions":[["1100000056","1100000172"]]},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "skillEnhancement":{"910123":2.5,"910132":1.5,"910912":2.5,"910913":2.5,"910914":1.5,"910915":1.5,"911185":1}, "levelCondition":120}
 		],
@@ -11376,7 +11691,7 @@
 		],
 		"skills": [
 			{"hp%":20, "atk%":20, "def%":20, "evade":{"physical":15}, "killers":[{"name":"spirit","physical":125},{"name":"beast","physical":125},{"name":"undead","physical":125},{"name":"dragon","physical":125}]},
-			{"singleWielding":{"accuracy":25,"atk":150}, "killers":[{"name":"beast","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "replaceLb":{"name":"Torpedo Slash","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.7},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.7x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}]}, "equipedConditions":[["302001900","504228254"]]},
+			{"singleWielding":{"accuracy":25,"atk":150}, "killers":[{"name":"beast","physical":75,"magical":75},{"name":"dragon","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "replaceLb":{"name":"Torpedo Slash","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":8.7},"area":"ST","target":"ENEMY"},"desc":"Physical damage (8.7x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5},"area":"ST","target":"ENEMY"},"desc":"Physical damage (14.5x, ATK) to one enemy"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"}],"frames":[42,46,50,54,58,62,66,70,74,78,82,86,90,94,98,102,106,110,114,118,122,126,130,134,138,142,146,150,154,158],"chainFamily":"Aureole Ray","move":"none"}, "equipedConditions":[["302001900","504228254"]]},
 			{"mp%":20, "spr%":20, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":40},{"name":"dark","percent":20}], "levelCondition":105},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":20, "atk%":40, "lbPerTurn":{"min":1,"max":1}, "lbDamage":30, "skillEnhancement":{"203460":3,"502050":2.4,"502060":3,"502070":3}, "levelCondition":120}
@@ -11893,7 +12208,7 @@
 		"equip":["sword","greatSword","katana","axe","hammer","spear","throwing","fist","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
 			{"hp%":40, "atk%":80, "evade":{"physical":20,"magical":10}, "killers":[{"name":"machine","physical":100}], "special":["dualWield"]},
-			{"atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "mpRefresh":7, "replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}]}, "equipedConditions":[["304001900","504230010"]]},
+			{"atk%":30, "def%":30, "singleWielding":{"accuracy":25,"atk":100}, "mpRefresh":7, "replaceLb":{"name":"Ho229 Type-B","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11.1x * 2 = 22.2x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"noUse":true,"physicalMitigation":20,"turns":5,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken from physical attacks taken by 20% to caster for 5 turns"},{"effect":{"break":{"atk":74,"def":74,"mag":74,"spr":74},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce ATK, DEF, MAG and SPR by 74% for 3 turns to all enemies"}],"frames":[125,135,145,155,166,178,190,202,214,226],"move":"walk"}, "equipedConditions":[["304001900","504230010"]]},
 			{"mp%":40, "atk%":40, "spr%":40, "dualWielding":{"atk":50}, "killers":[{"name":"machine","physical":50}], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"def%":20, "skillEnhancement":{"503900":1,"503910":1}, "levelCondition":120}
@@ -12946,6 +13261,193 @@
 			]
 		}
 	},
+	"337000105": {
+		"name":"Eleven",
+		"id":"337000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4979,"mp":245,"atk":208,"def":193,"mag":160,"spr":185},
+			"minStats":{"hp":1643,"mp":81,"atk":69,"def":64,"mag":53,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"mp%":20, "atk%":60, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"lightning","percent":50}], "mpRefresh":10, "special":["dualWield"]},
+			{"atk%":30, "def%":30, "equipedConditions":["sword"]},
+			{"mp%":30, "atk%":40, "equipedConditions":[["404004500","302010700"]]},
+			{"hp%":30, "spr%":20, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Eleven",
+			"id":"337000105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3830,"mp":188,"atk":160,"def":148,"mag":123,"spr":142},
+				"minStats":{"hp":1264,"mp":62,"atk":53,"def":49,"mag":41,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"mp%":20, "atk%":60, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":50}, "improvedDW":true, "resist":[{"name":"lightning","percent":50}], "mpRefresh":10, "special":["dualWield"]},
+				{"atk%":30, "def%":30, "equipedConditions":["sword"]}
+			]
+		}
+	},
+	"337000205": {
+		"name":"Veronica",
+		"id":"337000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4488,"mp":288,"atk":146,"def":150,"mag":220,"spr":204},
+			"minStats":{"hp":1481,"mp":95,"atk":48,"def":50,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":40, "def%":20, "mag%":100, "spr%":80, "singleWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":70},{"name":"light","percent":20},{"name":"sleep","percent":100}], "mpRefresh":10},
+			{"resist":[{"name":"light","percent":50}], "equipedConditions":["robe"]},
+			{"mp%":30, "equipedConditions":["rod"]},
+			{"mp%":30, "mag%":30, "singleWielding":{"mag":100}, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["504233006","403049200"]]},
+			{"mag%":40, "resist":[{"name":"charm","percent":100}], "skillEnhancement":{"233021":5,"233023":3,"233132":5,"233133":3,"233136":1,"233137":1,"233138":3,"233139":1}, "levelCondition":110},
+			{"def%":20, "levelCondition":115},
+			{"mag%":30, "spr%":30, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Veronica",
+			"id":"337000205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3452,"mp":221,"atk":112,"def":115,"mag":169,"spr":156},
+				"minStats":{"hp":1139,"mp":73,"atk":37,"def":38,"mag":56,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","whip","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":40, "def%":20, "mag%":100, "spr%":80, "singleWielding":{"mag":100}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"fire","percent":70},{"name":"light","percent":20},{"name":"sleep","percent":100}], "mpRefresh":10},
+				{"resist":[{"name":"light","percent":50}], "equipedConditions":["robe"]},
+				{"mp%":30, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"337000305": {
+		"name":"Serena",
+		"id":"337000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4616,"mp":266,"atk":149,"def":171,"mag":172,"spr":215},
+			"minStats":{"hp":1523,"mp":88,"atk":49,"def":56,"mag":57,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"],
+		"skills": [
+			{"hp%":60, "mp%":50, "def%":20, "spr%":80, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30}], "mpRefresh":5, "special":["dualWield"]},
+			{"resist":[{"name":"dark","percent":30}], "equipedConditions":["staff"]},
+			{"resist":[{"name":"wind","percent":20},{"name":"dark","percent":20}], "equipedConditions":["robe"]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "mpRefresh":5, "equipedConditions":[["408005600","504233009"]]},
+			{"spr%":40, "resist":[{"name":"stop","percent":100}], "levelCondition":105},
+			{"def%":20, "levelCondition":115},
+			{"mp%":30, "spr%":30, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Serena",
+			"id":"337000305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3550,"mp":204,"atk":114,"def":131,"mag":132,"spr":165},
+				"minStats":{"hp":1172,"mp":67,"atk":38,"def":43,"mag":44,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"],
+			"skills": [
+				{"hp%":60, "mp%":50, "def%":20, "spr%":80, "evade":{"physical":20}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":30}], "mpRefresh":5, "special":["dualWield"]},
+				{"resist":[{"name":"dark","percent":30}], "equipedConditions":["staff"]},
+				{"resist":[{"name":"wind","percent":20},{"name":"dark","percent":20}], "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"337000505": {
+		"name":"Mordegon",
+		"id":"337000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4644,"mp":281,"atk":150,"def":158,"mag":217,"spr":206},
+			"minStats":{"hp":1533,"mp":93,"atk":50,"def":52,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","robe"],
+		"skills": [
+			{"hp%":50, "mp%":50, "def%":30, "mag%":50, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"ice","percent":30},{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"mag%":40, "equipedConditions":["rod"]},
+			{"equipedConditions":[["409036500","310006300"]]},
+			{"mag%":40, "singleWielding":{"mag":100}, "dualWielding":{"mag":100}, "lbDamage":30, "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"mag%":50, "skillEnhancement":{"233025":4,"233026":4}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Mordegon",
+			"id":"337000505",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3572,"mp":216,"atk":115,"def":121,"mag":166,"spr":158},
+				"minStats":{"hp":1179,"mp":71,"atk":38,"def":40,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hat","clothes","robe"],
+			"skills": [
+				{"hp%":50, "mp%":50, "def%":30, "mag%":50, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":6,"max":6}, "resist":[{"name":"ice","percent":30},{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"silence","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"mag%":40, "equipedConditions":["rod"]}
+			]
+		}
+	},
+	"337000704": {
+		"name":"Great Dragon",
+		"id":"337000704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3830,"mp":128,"atk":162,"def":128,"mag":102,"spr":134},
+			"minStats":{"hp":1264,"mp":42,"atk":53,"def":42,"mag":34,"spr":44},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["fist","hat","helm","lightArmor"],
+		"skills": [
+			{"hp%":30, "atk%":60, "lbFillRate":200, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}], "special":["dualWield"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"atk%":40, "equipedConditions":["fist"]}
+		]
+	},
 	"401000104": {
 		"name":"Dangerous Ariana",
 		"id":"401000104",
@@ -13230,7 +13732,7 @@
 			{"def%":30, "equipedConditions":["heavyArmor"]},
 			{"hp%":20, "atk%":20, "equipedConditions":["light"]},
 			{"mp%":20, "mag%":20, "equipedConditions":["fire"]},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"stop","percent":100}], "replaceLb":{"name":"Alexander Crest","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 2 turns to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.45,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.45x * 2 = 12.9x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":150,"def":150,"mag":150,"spr":150},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 150% for 2 turns to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}]}, "equipedConditions":[["1100000086","1500000069"]]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"stop","percent":100}], "replaceLb":{"name":"Alexander Crest","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (5x * 2 = 10x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":120,"def":120,"mag":120,"spr":120},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 120% for 2 turns to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":6.45,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (6.45x * 2 = 12.9x, ATK) to all enemies (ignore cover)"},{"effect":{"statsBuff":{"atk":150,"def":150,"mag":150,"spr":150},"turns":2,"area":"AOE","target":"ALLY"},"desc":"Increase ATK, DEF, MAG and SPR by 150% for 2 turns to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":2,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 2 turns"}],"frames":[180],"move":"none"}, "equipedConditions":[["1100000086","1500000069"]]},
 			{"special":["dualWield"], "levelCondition":105},
 			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["sword"], "levelCondition":105},
 			{"atk%":15, "def%":15, "spr%":15, "equipedConditions":["greatSword"], "levelCondition":105},
@@ -14922,7 +15424,7 @@
 			{"atk%":40, "def%":40, "equipedConditions":["clothes"]},
 			{"hp%":30, "atk%":30, "singleWieldingOneHanded":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbDamage":30, "equipedConditions":[["1100000269","1100000270"]]},
 			{"mp%":20, "levelCondition":115},
-			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "replaceLb":{"name":"Absolute Raikiri","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11x * 2 = 22x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":{"statsBuff":{"lbDamage":35},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 35% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":100},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 100% for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":{"statsBuff":{"lbDamage":35},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 35% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for 3 turns to caster"}]}, "levelCondition":120},
+			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"machine","physical":50},{"name":"stone","physical":50}], "replaceLb":{"name":"Absolute Raikiri","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":11,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (11x * 2 = 22x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":{"statsBuff":{"lbDamage":35},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 35% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":100},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 100% for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14x * 2 = 28x, ATK) to all enemies (ignore cover)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"912193","name":"Tempest Charge"}]}},"desc":"Gain 3 uses of Bolting Strike (912190), Combat Overdrive (912184), Demagnetizing Strike (912180), Shatter Arms (912166), Shatter Guard (912167), Shock Embrace (912186), Shock Reflex (912169), Storm Brand (912173), Storm Calling (912176) and Storm Clouds (912188) for 2 turns"},{"effect":{"statsBuff":{"lbDamage":35},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase LB damage by 35% for 3 turns"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Use Absolute Tempest Shift (912197) next turn on caster"},{"effect":{"statsBuff":{"atk":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for 3 turns to caster"}],"frames":[42,46,50,54,58,62,66,70,74,78,82,86,90,94,98,102,106,110,114,118,122,126,130,134,138,142,146,150,154,158],"chainFamily":"Aureole Ray","move":"none"}, "levelCondition":120},
 			{"atk%":60, "equipedConditions":["greatSword"], "levelCondition":120}
 		],
 		"6_form": {
