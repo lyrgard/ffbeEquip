@@ -138,8 +138,13 @@ function startPage() {
 
     $.get("https://api.github.com/repos/lyrgard/ffbeEquip/tags", function(tags) {
         var length = Math.min(5, tags.length);
-        for (var id = length; id--;) {
-            var tag = tags[id];
+        let improvements = 0;
+        let features = 0;
+        let dataUpdate = 0;
+        Object.values(tags)
+            .filter(tag => tag.name.length > 10 && tag.name.substr(tag.name.length - 10, 10).match(/\d\d\d\d_\d\d_\d\d/g))
+            .sort((tag1, tag2) => tag2.name.substr(tag2.name.length - 10, 10).localeCompare(tag1.name.substr(tag1.name.length - 10, 10)))
+            .forEach(tag => {
             var tag_class = '';
             var tag_icon = 'glyphicon-tag';
             var tag_type = 'Update';
@@ -147,14 +152,20 @@ function startPage() {
                 tag_icon = "glyphicon-wrench";
                 tag_type = 'Improvement';
                 tag_class = 'improvement';
+                improvements++;
+                if (improvements > 4) return;
             } else if (tag.name.startsWith("FEATURE_")) {
                 tag_icon = "glyphicon-flash";
                 tag_type = 'New feature';
                 tag_class = 'feature';
+                features++;
+                if (features > 4) return;
             } else if (tag.name.startsWith("UPDATE_DATA")) {
                 tag_icon = "glyphicon-book";
                 tag_type = 'Data update';
                 tag_class = 'dataUpdate';
+                dataUpdate++;
+                if (dataUpdate > 4) return;
             }
             var html = '<div class="hidden tagline '+tag_class+' '+tag.commit.sha+'">';
             html += "<div>";
@@ -173,7 +184,7 @@ function startPage() {
                 $tagline.find('.tagdesc').html(commit.commit.message.replace(/(?:\r\n|\r|\n)+/g, '<br>'));
                 $tagline.removeClass('hidden');
             }, 'json');
-        }
+        })
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
         $('#panel-github .panel-body').html("Error");
     });
