@@ -1262,6 +1262,12 @@ function getEsperItem(esper) {
     if (esper.lbPerTurn) {
         item.lbPerTurn = esper.lbPerTurn;
     }
+    if (esper.lbFillRate) {
+        item.lbFillRate = esper.lbFillRate;
+    }
+    if (esper.lbDamage) {
+        item.lbDamage = esper.lbDamage;
+    }
     if (esper.evade) {
         item.evade = esper.evade;
     }

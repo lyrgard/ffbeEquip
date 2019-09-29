@@ -36,6 +36,9 @@ class EsperTreeComparator {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
             } else if (stats[index] == "lbPerTurn") {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, "lbPerTurn.min"));
+                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, "lbFillRate"));
+            } else if (stats[index] == "lbDamage") {
+                comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, "lbDamage"));
             } else if (stats[index] == "evade.physical" || stats[index] == "evade.magical") {
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index]));
             }
