@@ -1,5 +1,4 @@
 page = "unitSearch";
-var defaultFilter = {};
 var itemInventory = null;
 var saveNeeded = false;
 var onlyShowOwnedUnits = false;
@@ -11,6 +10,7 @@ var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","phy
 
 var baseRarity;
 var maxRarity;
+var chain;
 var imperils;
 var breaks;
 var elements;
@@ -26,6 +26,7 @@ var fullyDisplayedUnits = [];
 var defaultFilter = {
     "baseRarity": [],
     "maxRarity": [],
+    "chain": {value:"none", count:1,"targetAreaTypes": ["ST", "AOE"], "skillTypes": ["actives", "lb"]},
     "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
@@ -79,18 +80,23 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
             if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
                 if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
                     if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
-                        if (types.length == 0 || includeAll(unit.equip, types)) {
-                            if (matchesCriteria(elements, unit, "elementalResist")) {
-                                if (matchesCriteria(ailments, unit, "ailmentResist")) {
-                                    if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
-                                        if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                            if (matchesCriteria(imperils, unit, "imperil")) {
-                                                if (matchesCriteria(breaks, unit, "break")) {
-                                                    if (matchesCriteria(imbues, unit, "imbue")) {
-                                                        if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                            if(matchesCriteria(mitigation, unit, null, true)) {
-                                                                if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                    result.push({"searchData": unit, "unit": units[unit.id]});
+                        if (chain.value == 'none' || matchesChain(unit)) {
+                            if (types.length == 0 || includeAll(unit.equip, types)) {
+                                if (matchesCriteria(elements, unit, "elementalResist")) {
+                                    if (matchesCriteria(ailments, unit, "ailmentResist")) {
+                                        if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
+                                            if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
+                                                if (matchesCriteria(imperils, unit, "imperil")) {
+                                                    if (matchesCriteria(breaks, unit, "break")) {
+                                                        if (matchesCriteria(imbues, unit, "imbue")) {
+                                                            if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                                if (matchesCriteria(mitigation, unit, null, true)) {
+                                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                        result.push({
+                                                                            "searchData": unit,
+                                                                            "unit": units[unit.id]
+                                                                        });
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -108,6 +114,58 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
         }
     }
     return result;
+}
+
+function matchesChain(unit) {
+    let matches = matchesChainFamily(unit);
+    if (matches) {
+        if (chain.count == 1) {
+            return true;
+        } else {
+            let actives = units[unit.id].actives;
+            let magics = units[unit.id].magics;
+            let chainingActives = actives.filter(skill => skill.chainFamily == chain.value);
+            let chainingMagics = magics.filter(skill => skill.chainFamily == chain.value);
+            for (let z = 0; z < actives.length; z++) {
+                let active = actives[z];
+                for (let i = 0; i < active.effects.length; i++) {
+                    let effect = active.effects[i];
+                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                        let multicastableSkills = null;
+                        if (effect.effect.multicast.type == 'magic') {
+                            multicastableSkills = chainingMagics;
+                        } else if (effect.effect.multicast.type == 'blackMagic') {
+                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "black");
+                        } else if (effect.effect.multicast.type == 'whiteMagic') {
+                            multicastableSkills = chainingMagics.filter(magic => magic.magic == "white");
+                        } else if (effect.effect.multicast.type == 'skills') {
+                            multicastableSkills = chainingActives.filter(skill => effect.effect.multicast.skills.map(skill => skill.id).includes(skill.id));
+                        }
+                        if (multicastableSkills && multicastableSkills.length > 0) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+function matchesChainFamily(unit) {
+    result = false;
+
+    for (var i = chain.skillTypes.length; i--;) {
+        var skillType = chain.skillTypes[i];
+
+        for (var j = chain.targetAreaTypes.length; j--;) {
+            var targetArea = chain.targetAreaTypes[j];
+            var chainFamilies = unit[skillType][targetArea].chain;
+            if (chainFamilies && chainFamilies.includes(chain.value)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
@@ -305,10 +363,13 @@ var containAllKeyPositive = function(object, array, acceptZero = false) {
 var readFilterValues = function() {
 	searchText = $("#searchText").val().toLocaleLowerCase();
     
-    baseRarity = getSelectedValuesFor("baseRarity").map(parseInt);
-    maxRarity = getSelectedValuesFor("maxRarity").map(parseInt);
-    
-    types = getSelectedValuesFor("types");
+    baseRarity = getSelectedValuesFor("baseRarity").map(i => parseInt(i));
+    maxRarity = getSelectedValuesFor("maxRarity").map(i => parseInt(i));
+
+    chain.value = $('#chainFamily').val();
+    chain.count = parseInt($('#chainMulticastCount').val());
+    chain.targetAreaTypes = getSelectedValuesFor("chainTargetAreaTypes");
+    chain.skillTypes = getSelectedValuesFor("chainSkillTypes");
     
     elements.values = getSelectedValuesFor("elements");
     elements.targetAreaTypes = getSelectedValuesFor("elementsTargetAreaTypes");
@@ -344,13 +405,17 @@ var readFilterValues = function() {
     mitigation.values = getSelectedValuesFor("mitigation");
     mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
     mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
+
+    types = getSelectedValuesFor("types");
     
     onlyShowOwnedUnits = $("#onlyShowOwnedUnits").prop('checked');
 }
 
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
 var updateFilterHeadersDisplay = function() {
-    $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0); 
+    $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0);
+    $(".chainMulticastCountDiv, .chainFamily .filters").toggleClass("hidden", chain.value == 'none');
+
     $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
     $(".elements .unselectAll").toggleClass("hidden", elements.length == 0); 
@@ -479,7 +544,7 @@ function displayUnitsAsync(units, start, div) {
         html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
         
         html += '<div class="lb">';
-            if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name)) {
+            if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(unitData.unit.lb, unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name, unitData.unit)) {
                 html += getLbHtml(unitData.unit.lb);             
             }
         html += '</div>';
@@ -487,7 +552,7 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="passives">';
             for (var i = 0, len = unitData.unit.passives.length; i < len; i++) {
                 var passive = unitData.unit.passives[i];
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(passive.effects, "passives", passive.name)) {
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(passive, passive.effects, "passives", passive.name, unitData.unit)) {
                     html += getSkillHtml(passive);             
                 }
             }
@@ -496,7 +561,21 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="actives">';
             for (var i = 0, len = unitData.unit.actives.length; i < len; i++) {
                 var active = unitData.unit.actives[i];
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(active.effects, "actives", active.name)) {
+                let multicastSkill;
+                if (chain.count > 1) {
+                    multicastSkill = unitData.unit.actives.filter(skill => {
+                        for (let i = 0; i < skill.effects.length; i++) {
+                            let effect = skill.effects[i];
+                            if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                                if (effect.effect.multicast.type == 'skills') {
+                                    return effect.effect.multicast.skills.map(skill => skill.id).includes(active.id);
+                                }
+                            }
+                        }
+                        return false;
+                    });
+                }
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(active, active.effects, "actives", active.name, unitData.unit, multicastSkill)) {
                     html += getSkillHtml(active);         
                 }
             }
@@ -505,7 +584,25 @@ function displayUnitsAsync(units, start, div) {
         html += '<div class="magics">';
             for (var i = 0, len = unitData.unit.magics.length; i < len; i++) {
                 var magic = unitData.unit.magics[i];
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(magic.effects, "actives", magic.name)) {
+                let multicastSkill;
+                if (chain.count > 1) {
+                    multicastSkill = unitData.unit.actives.filter(skill => {
+                        for (let i = 0; i < skill.effects.length; i++) {
+                            let effect = skill.effects[i];
+                            if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                                if (effect.effect.multicast.type == 'magic') {
+                                    return true;
+                                } else if (magic.magic == 'black' && effect.effect.multicast.type == 'blackMagic') {
+                                    return true;
+                                } else if (magic.magic == 'white' && effect.effect.multicast.type == 'whiteMagic') {
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                    });
+                }
+                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(magic, magic.effects, "actives", magic.name, unitData.unit, multicastSkill)) {
                     html += getSkillHtml(magic);   
                 }
             }
@@ -614,7 +711,7 @@ function getDamageTypeHtml(effects) {
 
 function getChainFamilyHtml(skill) {
     if (skill.chainFamily) {
-        return '<span class="chainFamily"><span class="bullet"><i class="fas fa-link"></i></span title="' + chainFamilySkillName[skill.chainFamily] + '">' + skill.chainFamily + '</span>';
+        return '<span class="chainFamily"><span class="bullet" title="' + chainFamilySkillName[skill.chainFamily] + '"><i class="fas fa-link"></i></span>' + skill.chainFamily + '</span>';
     } else {
         return '';
     }
@@ -682,11 +779,15 @@ function getLbHtml(lb) {
     return html;
 }
 
-function mustDisplaySkill(effects, type, skillName) {
+function mustDisplaySkill(skill, effects, type, skillName, unit, multicastSkills = []) {
     var mustBeDisplayed = false;
     if (skillName && matchesOneSearchToken(searchText, skillName)) {
         return true;
     }
+    if (mustDisplaySkillForChainFamily(skill, effects, type, skillName, unit, multicastSkills)) {
+        return true;
+    }
+
     for (var j = effects.length; j--;) {
         var effect = effects[j];
         if (effect.desc && matchesOneSearchToken(searchText, effect.desc)) {
@@ -733,28 +834,68 @@ function mustDisplaySkill(effects, type, skillName) {
                     return true;
                 }
             }
+            if (effect.effect.multicast && chain.count > 1 && effect.effect.multicast.time == chain.count) {
+                switch(effect.effect.multicast.type) {
+                    case 'magic':
+                        if (unit.magics.some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
+                            return true;
+                        }
+                        break;
+                    case 'blackMagic':
+                        if (unit.magics.filter(magic => magic.magic === 'black').some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
+                            return true;
+                        }
+                        break;
+                    case 'whiteMagic':
+                        if (unit.magics.filter(magic => magic.magic === 'white').some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
+                            return true;
+                        }
+                        break;
+                    case 'skills':
+                        let multicastId = effect.effect.multicast.skills.map(skill => skill.id);
+                        if (unit.actives.filter(active => multicastId.includes(active.id)).some(active => mustDisplaySkillForChainFamily(active, active.effects, 'actives', active.name, unit, [skill]))) {
+                            return true;
+                        }
+                        break;
+                }
+            }
             if (effect.effect.randomlyUse) {
                 for (var i = effect.effect.randomlyUse.length; i--;) {
-                    if (mustDisplaySkill(effect.effect.randomlyUse[i].skill.effects, type)) {
+                    if (mustDisplaySkill(effect.effect.randomlyUse[i].skill, effect.effect.randomlyUse[i].skill.effects, type, unit)) {
                         return true;
                     }
                 }
             }
             if (effect.effect.cooldownSkill) {
-                if (mustDisplaySkill(effect.effect.cooldownSkill.effects, type)) {
+                if (mustDisplaySkill(effect.effect.cooldownSkill, effect.effect.cooldownSkill.effects, type, unit)) {
                     return true;
                 }
             }
             if (effect.effect.counterSkill) {
-                if (mustDisplaySkill(effect.effect.counterSkill.effects, "counter")) {
+                if (mustDisplaySkill(effect.effect.counterSkill, effect.effect.counterSkill.effects, "counter", unit)) {
                     return true;
                 }
             }
             if (effect.effect.autoCastedSkill) {
-                if (mustDisplaySkill(effect.effect.autoCastedSkill.effects, type)) {
+                if (mustDisplaySkill(effect.effect.autoCastedSkill, effect.effect.autoCastedSkill.effects, type, unit)) {
                     return true;
                 }
             }
+        }
+    }
+}
+
+function mustDisplaySkillForChainFamily(skill, effects, type, skillName, unit, multicastSkills = []) {
+    let chainFamilyMatches = false;
+    if (chain.value != 'none' && skill.chainFamily === chain.value) {
+        if (chain.count == 1 || multicastSkills.length > 0) {
+            chainFamilyMatches = true;
+        }
+    }
+    for (var j = effects.length; j--;) {
+        var effect = effects[j];
+        if (effect.effect && effect.effect.damage && chainFamilyMatches && chain.skillTypes.includes(type) && isTargetToBeDispalyed(chain, effect, type)) {
+            return true;
         }
     }
 }
@@ -836,6 +977,16 @@ function initFilters() {
     if (state.searchText) {
         $("#searchText").val(state.searchText);
     }
+    if (state.chain) {
+        chain = state.chain;
+    } else {
+        chain = defaultFilter.chain;
+    }
+    $('#chainFamily').val(chain.value);
+    $('#chainMulticastCount').val(chain.count);
+    select("chainSkillTypes", chain.skillTypes);
+    select("chainTargetAreaTypes", chain.targetAreaTypes);
+
     if (state.baseRarity) {
         baseRarity = state.baseRarity;
         select("baseRarity", baseRarity.map(r => r.toString()));
@@ -934,8 +1085,19 @@ function updateHash() {
     if (maxRarity.length > 0) {
         state.maxRarity = maxRarity;
     }
+    if (chain.value != 'none') {
+        state.chain = chain;
+    }
     
     window.location.hash = '#' + window.btoa(JSON.stringify(state));
+}
+
+function populateSkillChain() {
+    let options = '<option value="none">No filter</option>';
+    Object.keys(chainFamilySkillName).sort().forEach(chain => {
+        options += '<option value="' + chain + '">' + chain + ' - ' + chainFamilySkillName[chain] + '</options>';
+    });
+    $('#chainFamily').html(options);
 }
 
 // will be called by common.js at page load
@@ -957,10 +1119,12 @@ function startPage() {
     // Rarity
     addTextChoicesTo("maxRarity",'checkbox',{'2★':'2', '3★':'3','4★':'4','5★':'5', '6★':'6', '7★':'7'});
     addTextChoicesTo("baseRarity",'checkbox',{'1★':'1','2★':'2', '3★':'3','4★':'4','5★':'5'});
-    
-	// Item types
-	addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
-    
+
+    // Chaining skill
+    populateSkillChain();
+    addTextChoicesTo("chainSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb'});
+    addTextChoicesTo("chainTargetAreaTypes",'checkbox',{'ST':'ST', 'AOE':'AOE'});
+
 	// Elements
 	addIconChoicesTo("elements", elementList, "checkbox", "element", function(v){return ucFirst(v)+" resistance"});
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
@@ -1005,11 +1169,14 @@ function startPage() {
     addTextChoicesTo("mitigationSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb'});
     addTextChoicesTo("mitigationTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});
 
+    // Item types
+    addIconChoicesTo("types", typeList.slice(0,typeList.length-2), "checkbox", "equipment", function(v){return typeListLitterals[v]});
     
     $("#results").addClass(server);
     
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
+    $('.chainFamily select').change(update);
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));

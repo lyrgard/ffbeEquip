@@ -190,14 +190,14 @@
     margin-left: 2px;
 }
 
-.chainFamily {
+#results .chainFamily {
     margin-left: 2px;
     position: relative;
     padding-left: 16px;
     color: #ddd;
 }
 
-.chainFamily .bullet {
+#results .chainFamily .bullet {
     font-size: 1.3em;
     position: absolute;
     left: 0;
@@ -222,4 +222,17 @@
     padding: 2px;
     color: white;
     text-transform: uppercase;
+}
+
+.chainFamily select {
+    width: initial;
+}
+
+.chainFamily .line {
+    display: flex;
+    align-items: center;
+}
+
+.chainFamily .line .title{
+    width: 110px;
 }

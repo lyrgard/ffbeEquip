@@ -162,14 +162,28 @@
                             <div class="maxRarity"><span class="subTitle">Max :</span><div class="btn-group types choice" data-toggle="buttons" id="maxRarity"></div></div>
                         </div>
                     </div>
-                    
-                    <div class="panel panel-default types">
+
+                    <div class="panel panel-default chainFamily">
                         <div class="panel-heading">
-                            <span>Equipment types</span>
-                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+                            <span>Chaining skills</span>
+                            <div class="filters hidden">
+                                <div class="btn-group choice" id="chainTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="chainSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
                         </div>
                         <div class="panel-body">
-                            <div class="btn-group types choice" data-toggle="buttons" id="types">
+                            <div class="line"><span class="title">Chaining family:</span><select id="chainFamily" class="form-control"></select></div>
+                            <div class="line chainMulticastCountDiv">
+                                <span class="title">Multicast count:</span>
+                                <select id="chainMulticastCount" class="form-control">
+                                    <option value="1">Single cast (1/Any)</option>
+                                    <option value="2">W-cast (2)</option>
+                                    <option value="3">T-cast (3)</option>
+                                    <option value="4">Q-cast (4)</option>
+                                    <option value="5">V-cast (5)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -299,9 +313,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="panel panel-default types">
+                        <div class="panel-heading">
+                            <span>Equipment types</span>
+                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group types choice" data-toggle="buttons" id="types">
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
-
-
             </div>
             <div  class="col-xs-12 col-md-6">
                 <div id="resultsDiv" class="panel panel-default collapse in">

@@ -84,14 +84,14 @@ let chainingFamilies = {
     "none,42,48,54,60,66,72,78,84,90": "BS",            // Boltinng Strike
     "none,70,77,82,89,96,103,110": "DR",                // Divine Ruination
     "none,70,76,82,88,94,100,106,112":"AMoE",             // Absolute Mirror of Equity
-    "walk,2,10,18,26,34,42,50":"PD",                    // Piledriver
+    "walk,2,10,18,26,34,42,50":"Pd",                    // Piledriver
     "none,22,27,32,37,42,47,52,57,62,67,72,92":"QH",    // Quick Hit
-    "none,42,49,56,63,70,77,84,91,98,105,112,119":"OS", // Onion Slice
+    "none,42,49,56,63,70,77,84,91,98,105,112,119":"OnS", // Onion Slice
     "none,42,52,62,72,82,92,102,112":"OcS",              // Octaslash
     "none,42,46,50,54,58,62,66,70,74,78,82,86,90,94,98,102,106,110,114,118,122,126,130,134,138,142,146,150,154,158":"AR", // Aureole Ray
     "none,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230":"GC",  // Short-Range Graviton
     "none,110,120,130,140,150,160,170,180,190,200":"SR",// Stardust Ray
-    "none,42,50,58,66,74,82,98":"Cha",                   // Chainsaw
+    "none,42,50,58,66,74,82,98":"Cs",                   // Chainsaw
     "none,82,90,98,106,114,122,130,138":"KG",           // Kingsglaive   
     "none,212,200,188,176,164,152,140,128,116,104,92,80": "Tnd", // Tornado
     "none,133,145,157,169,181,193,205,217,229,241,253,265": "Fld", // Flood
@@ -1985,21 +1985,15 @@ function formatForSearch(units) {
             
             for (var i = passivesWithOnlyBestEnhancements.length; i--;) {
                 var skill = passivesWithOnlyBestEnhancements[i];
-                addSkillEffectToSearch(skill.effects, unitOut, "passives");
+                addSkillEffectToSearch(skill, skill.effects, unitOut, "passives");
             }
             var activeAndMagic = unit.actives.concat(unit.magics);
             for (var i = activeAndMagic.length; i--;) {
                 var skill = activeAndMagic[i];
-                addSkillEffectToSearch(skill.effects, unitOut, "actives");
-                if (skill.chainFamily) {
-                    addChainingFamilyToSearch(unitOut,skill.chainFamily);
-                }
+                addSkillEffectToSearch(skill, skill.effects, unitOut, "actives");
             }
             if (unit.lb) {
-                addSkillEffectToSearch(unit.lb.maxEffects, unitOut, "lb");
-                if (unit.lb.chainFamily) {
-                    addChainingFamilyToSearch(unitOut,unit.lb.chainFamily);
-                }
+                addSkillEffectToSearch(unit.lb, unit.lb.maxEffects, unitOut, "lb");
             }
             if (first) {
                 first = false;
@@ -2013,16 +2007,7 @@ function formatForSearch(units) {
     return result;
 }
 
-function addChainingFamilyToSearch(unitOut, chainFamily) {
-    if (!unitOut.chainFamily) {
-        unitOut.chainFamily = [];
-    }
-    if (!unitOut.chainFamily.includes(chainFamily)) {
-        unitOut.chainFamily.push(chainFamily);
-    }
-}
-
-function addSkillEffectToSearch(effects, unitOut, effectType) {
+function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
     for (var i = effects.length; i--;) {
         var effect = effects[i];
         if (effect.effect) {
@@ -2100,7 +2085,7 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                 }
             } else if (effect.effect.randomlyUse) {
                 for (var j = 0, len = effect.effect.randomlyUse.length; j < len; j++) {
-                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill.effects, unitOut, effectType);
+                    addSkillEffectToSearch(effect.effect.randomlyUse[j].skill, effect.effect.randomlyUse[j].skill.effects, unitOut, effectType);
                 }
             } else if (effect.effect.break) {
                 if (!effectOut.break) {
@@ -2156,7 +2141,7 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                     }
                 }
             } else if (effect.effect.cooldownSkill) {
-                addSkillEffectToSearch(effect.effect.cooldownSkill.effects, unitOut, effectType)
+                addSkillEffectToSearch(effect.effect.cooldownSkill, effect.effect.cooldownSkill.effects, unitOut, effectType)
             } else if (effect.effect.drawAttacks) {
                 if (!effectOut.drawAttacks || effectOut.drawAttacks < effect.effect.drawAttacks) {
                     effectOut.drawAttacks = effect.effect.drawAttacks;
@@ -2179,9 +2164,16 @@ function addSkillEffectToSearch(effects, unitOut, effectType) {
                     effectOut.stCover = meanMitigation;
                 }
             } else if (effect.effect.autoCastedSkill) {
-                addSkillEffectToSearch(effect.effect.autoCastedSkill.effects, unitOut, "passives");    
+                addSkillEffectToSearch(effect.effect.autoCastedSkill, effect.effect.autoCastedSkill.effects, unitOut, "passives");
             } else if (effect.effect.counterSkill) {
-                addSkillEffectToSearch(effect.effect.counterSkill.effects, unitOut, "counter");
+                addSkillEffectToSearch(effect.effect.counterSkill, effect.effect.counterSkill.effects, unitOut, "counter");
+            } else if (effect.effect.damage && skill.chainFamily) {
+                if (!effectOut.chain) {
+                    effectOut.chain = [];
+                }
+                if (!effectOut.chain.includes(skill.chainFamily)) {
+                    effectOut.chain.push(skill.chainFamily)
+                }
             }
         }
     }
