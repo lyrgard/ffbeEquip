@@ -649,6 +649,7 @@ function getWarningStrangeStatsUsed(effects) {
             }
         }
     }
+    return "";
 }
 
 function getLbHtml(lb) {
