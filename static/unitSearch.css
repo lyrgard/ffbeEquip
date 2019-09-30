@@ -54,6 +54,7 @@
 
 .skill {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .skill .skillIcon {
@@ -90,6 +91,7 @@
 
 .nameAndEffects .name {
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 #results .selected {
@@ -162,4 +164,62 @@
 
 .rarity .baseRarity {
     margin-right: 15px;
+}
+
+.effect {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.effect:after {
+    content: '\f111';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: bold;
+    font-size: 0.5em;
+}
+
+#results .nameAndEffects .name i.img {
+    width: 28px;
+    height: 28px;
+    margin-top: -3px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.chainFamily {
+    margin-left: 2px;
+    position: relative;
+    padding-left: 16px;
+    color: #ddd;
+}
+
+.chainFamily .bullet {
+    font-size: 1.3em;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+.strangeStatsUsed {
+    position: relative;
+    padding-left: 12px;
+}
+
+.strangeStatsUsed i {
+    position: absolute;
+    left: -4px;
+    top: 2px;
+}
+
+.strangeStatsUsed .stat, .strangeStatsUsed .monsterStat {
+    font-weight: bold;
+    background-color: #777;
+    border-radius: 4px;
+    padding: 2px;
+    color: white;
+    text-transform: uppercase;
 }

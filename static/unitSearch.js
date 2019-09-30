@@ -529,11 +529,18 @@ function getSkillHtml(skill) {
     if (skill.equipedConditions) {
         html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
     }
+    
+    html += getDamageTypeHtml(skill.effects).join('');
+    html += getInnateElementsHtml(skill.effects).join('');
+    html += getChainFamilyHtml(skill);
+    
     html += '</span></div>'
     if (skill.rarity && skill.level) {
         html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
     }
     html += '</div>';
+    html += getWarningStrangeStatsUsed(skill.effects);
+    
     for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
         if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
             html += '<span class="effect">Randomly use :</span>';
@@ -567,10 +574,92 @@ function getSkillHtml(skill) {
     return html;
 }
 
+function getInnateElementsHtml(effects) {
+    let elements = [];
+    effects.forEach(effect => {
+        if (effect.effect && effect.effect.damage) {
+            let damage = effect.effect.damage;
+            if (damage.elements) {
+                damage.elements.forEach(element => {
+                   if (!elements.includes(element)) {
+                        elements.push(element);
+                    }
+                });
+            }
+        }
+    });
+    return elements.map(element => '<i class="img img-element-'+ element + '"></i>');
+}
+
+function getDamageTypeHtml(effects) {
+    let damageTypes = [];
+    effects.forEach(effect => {
+        if (effect.effect && effect.effect.damage) {
+            let damageType = "";
+            let damage = effect.effect.damage;
+            if (damage.mecanism === "physical") {
+               damageType = '<i class="img img-equipment-sword"></i>';
+            } else if (damage.mecanism === "magical") {
+               damageType = '<i class="img img-equipment-rod"></i>';
+            } else if (damage.mecanism === "hybrid") {
+               damageType = '<i class="img img-equipment-hybrid"></i>';
+            }
+            if (!damageTypes.includes(damageType)) {
+                damageTypes.push(damageType);
+            }
+        }
+    });
+    return damageTypes;
+}
+
+function getChainFamilyHtml(skill) {
+    if (skill.chainFamily) {
+        return '<span class="chainFamily"><span class="bullet"><i class="fas fa-link"></i></span title="' + chainFamilySkillName[skill.chainFamily] + '">' + skill.chainFamily + '</span>';
+    } else {
+        return '';
+    }
+}
+
+function getWarningStrangeStatsUsed(effects) {
+    for (var j = 0, lenj = effects.length; j < lenj; j++) {
+        let effect = effects[j];
+        if (effect.effect && effect.effect.damage) {
+            let damageType = "";
+            let damage = effect.effect.damage;
+            if (damage.mecanism === "physical") {
+                if (damage.damageType === "mind") {
+                    if (damage.use) {
+                        return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span> to damage monster <span class="monsterStat">SPR</span></span>';
+                    } else {
+                        return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">MAG</span> to damage monster <span class="monsterStat">SPR</span></span>';
+                    }
+                } else if (damage.use) {
+                    return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span></span>';
+                }
+            } else if (damage.mecanism === "magical") {
+               if (damage.damageType === "body") {
+                    if (damage.use) {
+                        return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span> to damage monster <span class="monsterStat">DEF</span></span>';
+                    } else {
+                        return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">ATK</span> to damage monster <span class="monsterStat">DEF</span></span>';
+                    }
+                } else if (damage.use) {
+                    return '<span class="strangeStatsUsed"><i class="fas fa-exclamation-triangle"></i>Uses <span class="stat">' + damage.use.stat + '</span></span>';
+                }
+            }
+        }
+    }
+}
+
 function getLbHtml(lb) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/icons/lb.png"/></div>'
-    html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name + '</span>'
+    html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name;
+    html += getDamageTypeHtml(lb.maxEffects).join('');
+    html += getInnateElementsHtml(lb.maxEffects).join('');
+    html += getChainFamilyHtml(lb);
+    html += '</span>';
+    html += getWarningStrangeStatsUsed(lb.maxEffects);
     html += '<div class="subSkill">';
     html += '<span class="case">Min :</span>'
     html += '<div class="skill"><div class="nameAndEffects">';

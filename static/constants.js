@@ -319,3 +319,30 @@ const esperNameById = {
   "16": "Fenrir",
   "17": "Anima"
 }
+
+const chainFamilySkillName = {
+    "BS": "Bolting Strike",
+    "DR": "Divine Ruination",
+    "AMoE":"Absolute Mirror of Equity",
+    "PD": "Piledriver",
+    "QH": "Quick Hit",
+    "OS": "Onion Slice",
+    "OcS": "Octaslash",
+    "AR": "Aureole Ray",
+    "GC": "Graviton Cannon",
+    "SR": "Stardust Ray",
+    "Cha": "Chainsaw", 
+    "KG": "Kingsglaive",
+    "Tnd": "Tornado",
+    "Fld": "Flood",
+    "Frz": "Freeze",
+    "CW": "Chaos Wave",
+    "FB": "Fatal Barrage",
+    "SoK": "Sword of King",
+    "Dsd": "Disorder",
+    "FP": "Firm Punch",
+    "FE": "Free Energy",
+    "MR": "Meteor Rain",
+    "AZ": "Absolute Zero",
+    "Ryu": "Ryujin"
+}
