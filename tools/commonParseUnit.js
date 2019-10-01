@@ -1427,7 +1427,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         
         result = {
             "gainSkills": {
-                "turns": rawEffect[3][4] - 1,
+                "turns": rawEffect[3][3] - 1,
                 "skills": [multicastskill]
             }
         }

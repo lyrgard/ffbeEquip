@@ -117,9 +117,6 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
 }
 
 function matchesChain(unit) {
-    if (unit.id == '401001705') {
-        console.log("!!");
-    }
     let matches = matchesChainFamily(unit);
     if (matches) {
         if (chain.count == 1) {
@@ -854,12 +851,12 @@ function getSkillsToDisplay(unit) {
             }
         });
         unit.magics.forEach(magic => {
-            let multicastForThisSkill = Object.keys(multicastMagic).filter(id => multicastMagic[id] === 'magic' || multicastMagic[id] === magic.magic);
+            let multicastForThisSkill = Object.keys(multicastMagic).filter(id => multicastMagic[id] === 'magic' || multicastMagic[id] === 'blackMagic' && magic.magic === 'black' || multicastMagic[id] === 'white  Magic' && magic.magic === 'white');
             if (mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', multicastForThisSkill)) {
                 if (!skillsDisplayedForChain.includes(magic.magic)) {
                     skillsDisplayedForChain.push(magic.magic);
                 }
-                result.push(skill.id);
+                result.push(magic.id);
             } else if (mustDisplaySkill(magic, magic.effects, "actives", magic.name)) {
                 result.push(magic.id);        
             }
@@ -872,7 +869,7 @@ function getSkillsToDisplay(unit) {
                    } 
                 });
                 Object.keys(multicastMagic).forEach(id => {
-                   if (multicastMagic[id] === multicastedId && !result.includes(id)) {
+                   if ((multicastMagic[id] === 'magic' || multicastMagic[id] === 'blackMagic' && multicastedId === 'black' || multicastMagic[id] === 'whiteMagic' && multicastedId === 'white') && !result.includes(id)) {
                        result.push(id);
                    } 
                 });
