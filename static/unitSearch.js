@@ -46,7 +46,7 @@ var update = function() {
     updateHash();
     
 
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0) {
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && chain.value == "none") {
 
 		// Empty filters => no results
         $("#results").html("");
@@ -367,7 +367,11 @@ var readFilterValues = function() {
     maxRarity = getSelectedValuesFor("maxRarity").map(i => parseInt(i));
 
     chain.value = $('#chainFamily').val();
-    chain.count = parseInt($('#chainMulticastCount').val());
+    if (chain.value === 'none') {
+        chain.count = 1;
+    } else {
+        chain.count = parseInt($('#chainMulticastCount').val());
+    }
     chain.targetAreaTypes = getSelectedValuesFor("chainTargetAreaTypes");
     chain.skillTypes = getSelectedValuesFor("chainSkillTypes");
     
@@ -543,69 +547,24 @@ function displayUnitsAsync(units, start, div) {
         }
         html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
         
+        skillIdToDisplay = getSkillsToDisplay(unitData.unit);
+        
         html += '<div class="lb">';
-            if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(unitData.unit.lb, unitData.unit.lb.maxEffects, "lb", unitData.unit.lb.name, unitData.unit)) {
-                html += getLbHtml(unitData.unit.lb);             
-            }
+        if (skillIdToDisplay.includes('lb')) {
+            html += getLbHtml(unitData.unit.lb);
+        }
         html += '</div>';
         
         html += '<div class="passives">';
-            for (var i = 0, len = unitData.unit.passives.length; i < len; i++) {
-                var passive = unitData.unit.passives[i];
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(passive, passive.effects, "passives", passive.name, unitData.unit)) {
-                    html += getSkillHtml(passive);             
-                }
-            }
+        unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id)).forEach(passive => html += getSkillHtml(passive, unitData.unit));
         html += '</div>';
         
         html += '<div class="actives">';
-            for (var i = 0, len = unitData.unit.actives.length; i < len; i++) {
-                var active = unitData.unit.actives[i];
-                let multicastSkill;
-                if (chain.count > 1) {
-                    multicastSkill = unitData.unit.actives.filter(skill => {
-                        for (let i = 0; i < skill.effects.length; i++) {
-                            let effect = skill.effects[i];
-                            if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
-                                if (effect.effect.multicast.type == 'skills') {
-                                    return effect.effect.multicast.skills.map(skill => skill.id).includes(active.id);
-                                }
-                            }
-                        }
-                        return false;
-                    });
-                }
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(active, active.effects, "actives", active.name, unitData.unit, multicastSkill)) {
-                    html += getSkillHtml(active);         
-                }
-            }
+        unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id)).forEach(active => html += getSkillHtml(active, unitData.unit));
         html += '</div>';
         
         html += '<div class="magics">';
-            for (var i = 0, len = unitData.unit.magics.length; i < len; i++) {
-                var magic = unitData.unit.magics[i];
-                let multicastSkill;
-                if (chain.count > 1) {
-                    multicastSkill = unitData.unit.actives.filter(skill => {
-                        for (let i = 0; i < skill.effects.length; i++) {
-                            let effect = skill.effects[i];
-                            if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
-                                if (effect.effect.multicast.type == 'magic') {
-                                    return true;
-                                } else if (magic.magic == 'black' && effect.effect.multicast.type == 'blackMagic') {
-                                    return true;
-                                } else if (magic.magic == 'white' && effect.effect.multicast.type == 'whiteMagic') {
-                                    return true;
-                                }
-                            }
-                        }
-                        return false;
-                    });
-                }
-                if (fullyDisplayedUnits.includes(unitData.unit.id) || mustDisplaySkill(magic, magic.effects, "actives", magic.name, unitData.unit, multicastSkill)) {
-                    html += getSkillHtml(magic);   
-                }
-            }
+        unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id)).forEach(magic => html += getSkillHtml(magic, unitData.unit));
         html += '</div>';
         
         html += '</div>';
@@ -619,7 +578,7 @@ function displayUnitsAsync(units, start, div) {
     }
 }
 
-function getSkillHtml(skill) {
+function getSkillHtml(skill, unit) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/items/' + skill.icon + '"/></div>'
     html += '<div class="nameAndEffects"><div class="nameLine"><div><span class="name">' + skill.name;
@@ -637,6 +596,9 @@ function getSkillHtml(skill) {
     }
     html += '</div>';
     html += getWarningStrangeStatsUsed(skill.effects);
+    if (skill.unlockedBy) {
+        html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
+    }
     
     for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
         if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
@@ -645,13 +607,13 @@ function getSkillHtml(skill) {
                 var randomSkill = skill.effects[j].effect.randomlyUse[i];
                 html += '<div class="subSkill">';
                 html += '<span class="percent">' + randomSkill.percent + '%</span>'
-                html += getSkillHtml(randomSkill.skill);
+                html += getSkillHtml(randomSkill.skill, unit);
                 html += '</div>';
             }
         } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
             html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
             html += '<div class="subSkill">';
-            html += getSkillHtml(skill.effects[j].effect.counterSkill);
+            html += getSkillHtml(skill.effects[j].effect.counterSkill, unit);
             html += '</div>';
         } else if (skill.effects[j].effect && skill.effects[j].effect.cooldownSkill) {
             html += '<span class="effect">Available turn ' + skill.effects[j].effect.startTurn + ' (' + skill.effects[j].effect.cooldownTurns + ' turns cooldown):</span>';
@@ -661,13 +623,60 @@ function getSkillHtml(skill) {
         } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
             html += '<span class="effect">Cast at the start of battle or when revived :</span>';
             html += '<div class="subSkill">';
-            html += getSkillHtml(skill.effects[j].effect.autoCastedSkill);
+            html += getSkillHtml(skill.effects[j].effect.autoCastedSkill, unit);
             html += '</div>';
+        } else if (skill.effects[j].effect && skill.effects[j].effect.gainSkills) {
+            html += '<span class="effect">Gain for ';
+            if (skill.effects[j].effect.gainSkills.turns === 0) {
+                html += 'current turn'
+            } else {
+                html += skill.effects[j].effect.gainSkills.turns + ' turns';
+            }
+            html += ':</span>';
+            skill.effects[j].effect.gainSkills.skills.forEach(skill => {
+                let activesAndMagics = unit.actives.concat(unit.magics);
+                activesAndMagics.filter(gainedSkill => gainedSkill.id === skill.id).forEach(skill => {
+                    html += '<div class="subSkill">';
+                    html += getSkillHtml(skill, unit);
+                    html += '</div>';
+                });
+            });
         } else {
             html += '<span class="effect">' + getEffectDescription(skill.effects[j]) + '</span>';    
         }
     }
     html += '</div></div>'; 
+    return html;
+}
+
+function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
+    let html = "";
+    unlockerSkillIds.forEach(id => {
+        unit.actives.filter(skill => skill.id === id).forEach(skill => {
+            skill.effects.forEach(effect => {
+                if (effect.effect && effect.effect.gainSkills) {
+                    if (effect.effect.gainSkills.skills.map(skill => skill.id).includes(skillId)) {
+                        html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + skill.name + ' for ';
+                        if (effect.effect.gainSkills.turns === 0) {
+                            html += 'current turn';
+                        } else {
+                            html += effect.effect.gainSkills.turns + ' turn(s)';
+                        }
+                        html += '</div>'
+                    }
+                }
+            });
+        });
+        unit.passives.filter(skill => skill.id === id).forEach(skill => {
+            skill.effects.forEach(effect => {
+                if (effect.effect && effect.effect.autoCastedSkill) {
+                    if (effect.effect.autoCastedSkill.id === skillId) {
+                        html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Autocasted at start of battle by ' + skill.name + '</div>';
+                    }
+                }
+            });
+        });
+    });
     return html;
 }
 
@@ -779,12 +788,81 @@ function getLbHtml(lb) {
     return html;
 }
 
-function mustDisplaySkill(skill, effects, type, skillName, unit, multicastSkills = []) {
+function getSkillsToDisplay(unit) {
+    if (fullyDisplayedUnits.includes(unit.id)) {
+        return unit.passives.concat(unit.actives).concat(unit.magics).map(skill => skill.id).concat('lb');
+    } else {
+        let result = [];
+        let multicastSkills = {};
+        let multicastMagic = {};
+        if (chain.count > 1) {
+            unit.actives.forEach(skill => {
+                skill.effects.forEach(effect => {
+                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                        switch(effect.effect.multicast.type) {
+                            case 'skills':
+                                multicastSkills[skill.id] = effect.effect.multicast.skills.map(skill => skill.id);
+                                break;
+                            case 'magic':
+                            case 'blackMagic':
+                            case 'whiteMagic':
+                                multicastMagic[skill.id] = effect.effect.multicast.type;
+                                break;
+                        }
+                    }
+                });
+            });
+        }
+        let skillsDisplayedForChain = [];
+        if (mustDisplaySkillForChainFamily(unit.lb, unit.lb.maxEffects, "lb") || mustDisplaySkill(unit.lb, unit.lb.maxEffects, "lb", unit.lb.name)) {
+            result.push('lb');
+        } 
+        unit.passives.forEach(passive => {
+            if (mustDisplaySkill(passive, passive.effects, "passives", passive.name)) {
+                result.push(passive.id);
+            }
+        });
+        unit.actives.forEach(active => {
+            let multicastForThisSkill = Object.keys(multicastSkills).filter(id => multicastSkills[id].includes(active.id));
+            if (mustDisplaySkillForChainFamily(active, active.effects, 'actives', multicastForThisSkill)) {
+                skillsDisplayedForChain.push(active.id);
+                result.push(active.id);
+            } else if (mustDisplaySkill(active, active.effects, "actives", active.name)) {
+                result.push(active.id);        
+            }
+        });
+        unit.magics.forEach(magic => {
+            let multicastForThisSkill = Object.keys(multicastMagic).filter(id => multicastMagic[id] === 'magic' || multicastMagic[id] === magic.magic);
+            if (mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', multicastForThisSkill)) {
+                if (!skillsDisplayedForChain.includes(magic.magic)) {
+                    skillsDisplayedForChain.push(magic.magic);
+                }
+                result.push(skill.id);
+            } else if (mustDisplaySkill(magic, magic.effects, "actives", magic.name)) {
+                result.push(magic.id);        
+            }
+        });
+        if (chain.count > 1) {
+            skillsDisplayedForChain.forEach(multicastedId => {
+                Object.keys(multicastSkills).forEach(id => {
+                   if (multicastSkills[id].includes(multicastedId) && !result.includes(id)) {
+                       result.push(id);
+                   } 
+                });
+                Object.keys(multicastMagic).forEach(id => {
+                   if (multicastMagic[id] === multicastedId && !result.includes(id)) {
+                       result.push(id);
+                   } 
+                });
+            });
+        }
+        return result;
+    }
+}
+
+function mustDisplaySkill(skill, effects, type, skillName) {
     var mustBeDisplayed = false;
     if (skillName && matchesOneSearchToken(searchText, skillName)) {
-        return true;
-    }
-    if (mustDisplaySkillForChainFamily(skill, effects, type, skillName, unit, multicastSkills)) {
         return true;
     }
 
@@ -834,50 +912,25 @@ function mustDisplaySkill(skill, effects, type, skillName, unit, multicastSkills
                     return true;
                 }
             }
-            if (effect.effect.multicast && chain.count > 1 && effect.effect.multicast.time == chain.count) {
-                switch(effect.effect.multicast.type) {
-                    case 'magic':
-                        if (unit.magics.some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
-                            return true;
-                        }
-                        break;
-                    case 'blackMagic':
-                        if (unit.magics.filter(magic => magic.magic === 'black').some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
-                            return true;
-                        }
-                        break;
-                    case 'whiteMagic':
-                        if (unit.magics.filter(magic => magic.magic === 'white').some(magic => mustDisplaySkillForChainFamily(magic, magic.effects, 'actives', magic.name, unit, [skill]))) {
-                            return true;
-                        }
-                        break;
-                    case 'skills':
-                        let multicastId = effect.effect.multicast.skills.map(skill => skill.id);
-                        if (unit.actives.filter(active => multicastId.includes(active.id)).some(active => mustDisplaySkillForChainFamily(active, active.effects, 'actives', active.name, unit, [skill]))) {
-                            return true;
-                        }
-                        break;
-                }
-            }
             if (effect.effect.randomlyUse) {
                 for (var i = effect.effect.randomlyUse.length; i--;) {
-                    if (mustDisplaySkill(effect.effect.randomlyUse[i].skill, effect.effect.randomlyUse[i].skill.effects, type, unit)) {
+                    if (mustDisplaySkill(effect.effect.randomlyUse[i].skill, effect.effect.randomlyUse[i].skill.effects, type)) {
                         return true;
                     }
                 }
             }
             if (effect.effect.cooldownSkill) {
-                if (mustDisplaySkill(effect.effect.cooldownSkill, effect.effect.cooldownSkill.effects, type, unit)) {
+                if (mustDisplaySkill(effect.effect.cooldownSkill, effect.effect.cooldownSkill.effects, type)) {
                     return true;
                 }
             }
             if (effect.effect.counterSkill) {
-                if (mustDisplaySkill(effect.effect.counterSkill, effect.effect.counterSkill.effects, "counter", unit)) {
+                if (mustDisplaySkill(effect.effect.counterSkill, effect.effect.counterSkill.effects, "counter")) {
                     return true;
                 }
             }
             if (effect.effect.autoCastedSkill) {
-                if (mustDisplaySkill(effect.effect.autoCastedSkill, effect.effect.autoCastedSkill.effects, type, unit)) {
+                if (mustDisplaySkill(effect.effect.autoCastedSkill, effect.effect.autoCastedSkill.effects, type)) {
                     return true;
                 }
             }
@@ -885,7 +938,7 @@ function mustDisplaySkill(skill, effects, type, skillName, unit, multicastSkills
     }
 }
 
-function mustDisplaySkillForChainFamily(skill, effects, type, skillName, unit, multicastSkills = []) {
+function mustDisplaySkillForChainFamily(skill, effects, type, multicastSkills = []) {
     let chainFamilyMatches = false;
     if (chain.value != 'none' && skill.chainFamily === chain.value) {
         if (chain.count == 1 || multicastSkills.length > 0) {

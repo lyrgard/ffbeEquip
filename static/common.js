@@ -48,7 +48,6 @@ window.cancelIdleCallback =
             clearTimeout(id);
         }
 
-
 /* 
  * Check if localStorage is enable and available
  * Adapted from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js

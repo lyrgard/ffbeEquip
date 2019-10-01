@@ -194,7 +194,7 @@
     margin-left: 2px;
     position: relative;
     padding-left: 16px;
-    color: #ddd;
+    color: #333;
 }
 
 #results .chainFamily .bullet {
@@ -235,4 +235,15 @@
 
 .chainFamily .line .title{
     width: 110px;
+}
+
+.unlockedBy {
+    position: relative;
+    padding-left: 12px;
+}
+
+.unlockedBy i {
+    position: absolute;
+    left: -4px;
+    top: 2px;
 }
