@@ -1032,10 +1032,12 @@ function parseLb(lb, unit, skills) {
 function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
     let hasDamage = false;
     let chain = [];
-    effects.forEach((effect, index) => {
+    let attackFrameIndex = 0;
+    effects.forEach((effect) => {
         if (effect.effect && effect.effect.damage) {
             hasDamage = true;
-            chain = chain.concat(attackFrames[index]);
+            chain = chain.concat(attackFrames[attackFrameIndex]);
+            attackFrameIndex++;
         }
     });
     if (hasDamage) {

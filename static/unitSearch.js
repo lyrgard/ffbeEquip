@@ -117,14 +117,18 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
 }
 
 function matchesChain(unit) {
+    if (unit.id == '401001705') {
+        console.log("!!");
+    }
     let matches = matchesChainFamily(unit);
     if (matches) {
         if (chain.count == 1) {
             return true;
         } else {
-            let actives = units[unit.id].actives;
+            let unitWithSkill = units[unit.id];
+            let actives = unitWithSkill.actives.concat(unitWithSkill.passives);
             let magics = units[unit.id].magics;
-            let chainingActives = actives.filter(skill => skill.chainFamily == chain.value);
+            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily == chain.value);
             let chainingMagics = magics.filter(skill => skill.chainFamily == chain.value);
             for (let z = 0; z < actives.length; z++) {
                 let active = actives[z];
@@ -491,7 +495,7 @@ function displayUnitsAsync(units, start, div) {
     for (var index = start; index < end; index++) {
         var unitData = units[index];
         html += '<div class="unit">'
-        html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id + '.png"/></div>';
+        html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
         html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
         html += '<div class="killers">';
         var killers = [];
@@ -814,7 +818,7 @@ function getSkillsToDisplay(unit) {
         let multicastSkills = {};
         let multicastMagic = {};
         if (chain.count > 1) {
-            unit.actives.forEach(skill => {
+            unit.actives.concat(unit.passives).forEach(skill => {
                 skill.effects.forEach(effect => {
                     if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
                         switch(effect.effect.multicast.type) {
