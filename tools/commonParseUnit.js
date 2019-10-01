@@ -1153,7 +1153,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         var skillIn = skills[rawEffect[3][0]];
         if (skillIn) {
             result = {};
-            result.cooldownSkill = parseActiveSkill(rawEffect[3][0], skillIn, skills, unit);
+            result.cooldownSkill = parseActiveSkill(rawEffect[3][0].toString(), skillIn, skills, unit);
             result.cooldownTurns = rawEffect[3][2][0] + 1;
             result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
         }

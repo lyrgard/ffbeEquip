@@ -378,3 +378,13 @@ body.dark .nameAndEffects .name {
 body.dark #results .chainFamily {
     color: #ddd;
 }
+
+body.dark .skillGroup {
+    border-left: 1px solid #ddd;
+}
+
+
+body.dark .skillGroup:before {   
+    background-color: grey;
+    color: #ddd;
+}

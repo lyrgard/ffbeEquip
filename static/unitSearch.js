@@ -555,17 +555,26 @@ function displayUnitsAsync(units, start, div) {
         }
         html += '</div>';
         
-        html += '<div class="passives">';
-        unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id)).forEach(passive => html += getSkillHtml(passive, unitData.unit));
-        html += '</div>';
+        let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
+        if (passivesToDisplay.length > 0) {
+            html += '<div class="passives skillGroup">';
+            passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
+            html += '</div>';
+        }
         
-        html += '<div class="actives">';
-        unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id)).forEach(active => html += getSkillHtml(active, unitData.unit));
-        html += '</div>';
+        let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
+        if (activesToDisplay.length > 0) {
+            html += '<div class="actives skillGroup">';
+            activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
+            html += '</div>';
+        }
         
-        html += '<div class="magics">';
-        unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id)).forEach(magic => html += getSkillHtml(magic, unitData.unit));
-        html += '</div>';
+        let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
+        if (magicsToDisplay.length > 0) {
+            html += '<div class="magics skillGroup">';
+            magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
+            html += '</div>';
+        }
         
         html += '</div>';
         html += '</div>';
@@ -652,20 +661,11 @@ function getSkillHtml(skill, unit) {
 function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
     let html = "";
     unlockerSkillIds.forEach(id => {
-        unit.actives.filter(skill => skill.id === id).forEach(skill => {
-            skill.effects.forEach(effect => {
-                if (effect.effect && effect.effect.gainSkills) {
-                    if (effect.effect.gainSkills.skills.map(skill => skill.id).includes(skillId)) {
-                        html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + skill.name + ' for ';
-                        if (effect.effect.gainSkills.turns === 0) {
-                            html += 'current turn';
-                        } else {
-                            html += effect.effect.gainSkills.turns + ' turn(s)';
-                        }
-                        html += '</div>'
-                    }
-                }
-            });
+        unit.actives.filter(skill => skill.id === id || skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+            html += addGetUnlockedBySkillHtml(skillId, unit, skill);
+        });
+        unit.actives.filter(skill => skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+            html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill);
         });
         unit.passives.filter(skill => skill.id === id).forEach(skill => {
             skill.effects.forEach(effect => {
@@ -676,6 +676,24 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
                 }
             });
         });
+    });
+    return html;
+}
+
+function addGetUnlockedBySkillHtml(skillId, unit, testedSkill) {
+    let html = "";
+    testedSkill.effects.forEach(effect => {
+        if (effect.effect && effect.effect.gainSkills) {
+            if (effect.effect.gainSkills.skills.map(skill => skill.id).includes(skillId)) {
+                html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + testedSkill.name + ' for ';
+                if (effect.effect.gainSkills.turns === 0) {
+                    html += 'current turn';
+                } else {
+                    html += effect.effect.gainSkills.turns + ' turn(s)';
+                }
+                html += '</div>'
+            }
+        }
     });
     return html;
 }

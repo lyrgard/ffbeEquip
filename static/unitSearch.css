@@ -147,6 +147,17 @@
 
 .passives {
     width: 100%;
+    border-radius: 20px;
+    border-left: 1px solid white;
+    margin-left: -20px;
+    padding-left: 20px;
+    position: relative;
+}
+.passives:before {
+    content: 'Passives';
+    position: sticky;
+    top:0;
+    left:0;
 }
 
 .actives {
@@ -246,4 +257,42 @@
     position: absolute;
     left: -4px;
     top: 2px;
+}
+
+.skillGroup {
+    border-radius: 20px;
+    border-left: 1px solid #aaa;
+    margin-left: -27px;
+    padding-left: 27px;
+    position: relative;
+}
+
+
+.skillGroup:before {   
+    position: sticky;
+    top: 0;
+    left: 0;
+    text-orientation: upright;
+    writing-mode: tb;
+    text-transform: uppercase;
+    margin-left: -24px;
+    float: left;
+    margin-top: 6px;
+    background-color: lightgray;
+    color: gray;
+    border-radius: 20px;
+    padding: 5px 2px;
+    font-weight: bold;
+}
+
+.passives:before {
+    content: 'Passives';
+}
+
+.actives:before {
+    content: 'Actives';
+}
+
+.magics:before {
+    content: 'Magics';
 }
