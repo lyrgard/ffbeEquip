@@ -1016,13 +1016,13 @@ function parseLb(lb, unit, skills) {
     for (var rawEffectIndex in lb.levels[0][1]) {
         var rawEffect = lb.levels[0][1][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 'lb');
         lbOut.minEffects.push({"effect":effect, "desc": lb.min_level[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.levels[lb.levels.length - 1][1]) {
         var rawEffect = lb.levels[lb.levels.length - 1][1][rawEffectIndex];
 
-        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 0);
+        var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 'lb');
         lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
     }
     addChainInfoToSkill(lbOut, lbOut.maxEffects, lb.attack_frames, lb.move_type, skills);
@@ -1630,7 +1630,10 @@ function addUnlockedSkill(gainedSkillId, gainedSkill, unit, unlockedBy) {
                 if (!activesAndMagics[i].unlockedBy) {
                     activesAndMagics[i].unlockedBy = [];
                 }
-                activesAndMagics[i].unlockedBy.push(unlockedBy.toString());
+                if (!activesAndMagics[i].unlockedBy.includes(unlockedBy.toString())) {
+                    activesAndMagics[i].unlockedBy.push(unlockedBy.toString());    
+                }
+                
             }
             break;
         }
@@ -2024,6 +2027,10 @@ function addSkillEffectToSearch(skill, effects, unitOut, effectType) {
             if (effectType == "passives") {
                 effectOut = unitOut.passives;
             } else {
+                if (unitOut.id === '401005305' && skill.chainFamily) {
+                    console.log(skill.name);
+                    console.log(i + ' - ' + effect.effect.area + ' - ' + effect.desc);
+                }
                 effectOut = unitOut[effectType][effect.effect.area];
                 if (!effectOut) {
                     continue;

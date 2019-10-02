@@ -10,7 +10,7 @@ var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","phy
 
 var baseRarity;
 var maxRarity;
-var chain;
+var skillFilter;
 var imperils;
 var breaks;
 var elements;
@@ -26,7 +26,7 @@ var fullyDisplayedUnits = [];
 var defaultFilter = {
     "baseRarity": [],
     "maxRarity": [],
-    "chain": {value:"none", count:1,"targetAreaTypes": ["ST", "AOE"], "skillTypes": ["actives", "lb"]},
+    "skillFilter": {chainFamily:"none", multicastCount:1, excludeUnlockedMulticast : false,"targetAreaTypes": ["ST", "AOE"], "skillTypes": ["actives", "lb"]},
     "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
@@ -46,7 +46,7 @@ var update = function() {
     updateHash();
     
 
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && chain.value == "none") {
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
 
 		// Empty filters => no results
         $("#results").html("");
@@ -80,7 +80,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
             if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
                 if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
                     if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
-                        if (chain.value == 'none' || matchesChain(unit)) {
+                        if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
                             if (types.length == 0 || includeAll(unit.equip, types)) {
                                 if (matchesCriteria(elements, unit, "elementalResist")) {
                                     if (matchesCriteria(ailments, unit, "ailmentResist")) {
@@ -116,22 +116,35 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     return result;
 }
 
-function matchesChain(unit) {
-    let matches = matchesChainFamily(unit);
+function matchesSkill(unit) {
+    let matches = matchesSkillCriteria(unit);
     if (matches) {
-        if (chain.count == 1) {
+        if (skillFilter.multicastCount == 1) {
             return true;
         } else {
             let unitWithSkill = units[unit.id];
             let actives = unitWithSkill.actives.concat(unitWithSkill.passives);
             let magics = units[unit.id].magics;
-            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily == chain.value);
-            let chainingMagics = magics.filter(skill => skill.chainFamily == chain.value);
+            let chainingActives = unitWithSkill.actives.filter(skill => skill.chainFamily === skillFilter.chainFamily);
+            let chainingMagics = magics.filter(skill => skill.chainFamily === skillFilter.chainFamily);
             for (let z = 0; z < actives.length; z++) {
                 let active = actives[z];
+                if (skillFilter.excludeUnlockedMulticast && active.unlockedBy) {
+                    let foundUnlockedByAutocastedTurn1 = false;
+                    unitWithSkill.passives.forEach(passive => {
+                       passive.effects.forEach(effect => {
+                           if (effect.effect && effect.effect.autoCastedSkill && active.unlockedBy.includes(effect.effect.autoCastedSkill.id)) {
+                               foundUnlockedByAutocastedTurn1 = true;
+                           }
+                       });
+                    });
+                    if (!foundUnlockedByAutocastedTurn1) {
+                        continue;
+                    }
+                }
                 for (let i = 0; i < active.effects.length; i++) {
                     let effect = active.effects[i];
-                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
                         let multicastableSkills = null;
                         if (effect.effect.multicast.type == 'magic') {
                             multicastableSkills = chainingMagics;
@@ -152,16 +165,17 @@ function matchesChain(unit) {
     }
     return false;
 }
-function matchesChainFamily(unit) {
+
+function matchesSkillCriteria(unit) {
     result = false;
 
-    for (var i = chain.skillTypes.length; i--;) {
-        var skillType = chain.skillTypes[i];
+    for (var i = skillFilter.skillTypes.length; i--;) {
+        var skillType = skillFilter.skillTypes[i];
 
-        for (var j = chain.targetAreaTypes.length; j--;) {
-            var targetArea = chain.targetAreaTypes[j];
+        for (var j = skillFilter.targetAreaTypes.length; j--;) {
+            var targetArea = skillFilter.targetAreaTypes[j];
             var chainFamilies = unit[skillType][targetArea].chain;
-            if (chainFamilies && chainFamilies.includes(chain.value)) {
+            if (chainFamilies && chainFamilies.includes(skillFilter.chainFamily)) {
                 return true;
             }
         }
@@ -367,14 +381,19 @@ var readFilterValues = function() {
     baseRarity = getSelectedValuesFor("baseRarity").map(i => parseInt(i));
     maxRarity = getSelectedValuesFor("maxRarity").map(i => parseInt(i));
 
-    chain.value = $('#chainFamily').val();
-    if (chain.value === 'none') {
-        chain.count = 1;
+    skillFilter.chainFamily = $('#chainFamily').val();
+    if (skillFilter.chainFamily === 'none') {
+        skillFilter.multicastCount = 1;
     } else {
-        chain.count = parseInt($('#chainMulticastCount').val());
+        skillFilter.multicastCount = parseInt($('#chainMulticastCount').val());
     }
-    chain.targetAreaTypes = getSelectedValuesFor("chainTargetAreaTypes");
-    chain.skillTypes = getSelectedValuesFor("chainSkillTypes");
+    if (skillFilter.multicastCount > 1) {
+        skillFilter.excludeUnlockedMulticast = $('.excludeUnlockedMulticast input').prop('checked');
+    } else {
+        skillFilter.excludeUnlockedMulticast = false;
+    }
+    skillFilter.targetAreaTypes = getSelectedValuesFor("chainTargetAreaTypes");
+    skillFilter.skillTypes = getSelectedValuesFor("chainSkillTypes");
     
     elements.values = getSelectedValuesFor("elements");
     elements.targetAreaTypes = getSelectedValuesFor("elementsTargetAreaTypes");
@@ -419,7 +438,7 @@ var readFilterValues = function() {
 // Hide or show the "unselect all", "select unit weapons" and so on in the filter headers
 var updateFilterHeadersDisplay = function() {
     $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0);
-    $(".chainMulticastCountDiv, .chainFamily .filters").toggleClass("hidden", chain.value == 'none');
+    $(".chainMulticastCountDiv, .chainFamily .filters").toggleClass("hidden", skillFilter.chainFamily == 'none');
 
     $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
@@ -596,6 +615,12 @@ function getSkillHtml(skill, unit) {
         html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
     }
     
+    let cooldownHtml = "";
+    if (skill.effects[0].effect && skill.effects[0].effect.cooldownSkill) {
+        cooldownHtml = '<span class="effect">Available turn ' + skill.effects[0].effect.startTurn + ' (' + skill.effects[0].effect.cooldownTurns + ' turns cooldown):</span>';
+        skill = skill.effects[0].effect.cooldownSkill;
+    }
+    
     html += getDamageTypeHtml(skill.effects).join('');
     html += getInnateElementsHtml(skill.effects).join('');
     html += getChainFamilyHtml(skill);
@@ -605,6 +630,7 @@ function getSkillHtml(skill, unit) {
         html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
     }
     html += '</div>';
+    html += cooldownHtml;
     html += getWarningStrangeStatsUsed(skill.effects);
     if (skill.unlockedBy) {
         html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
@@ -625,11 +651,6 @@ function getSkillHtml(skill, unit) {
             html += '<div class="subSkill">';
             html += getSkillHtml(skill.effects[j].effect.counterSkill, unit);
             html += '</div>';
-        } else if (skill.effects[j].effect && skill.effects[j].effect.cooldownSkill) {
-            html += '<span class="effect">Available turn ' + skill.effects[j].effect.startTurn + ' (' + skill.effects[j].effect.cooldownTurns + ' turns cooldown):</span>';
-            lenj = skill.effects[j].effect.cooldownSkill.effects.length;
-            skill = skill.effects[j].effect.cooldownSkill;
-            j = -1;
         } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
             html += '<span class="effect">Cast at the start of battle or when revived :</span>';
             html += '<div class="subSkill">';
@@ -662,31 +683,35 @@ function getSkillHtml(skill, unit) {
 function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
     let html = "";
     unlockerSkillIds.forEach(id => {
-        unit.actives.filter(skill => skill.id === id || skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
-            html += addGetUnlockedBySkillHtml(skillId, unit, skill);
-        });
-        unit.actives.filter(skill => skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
-            html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill);
-        });
-        unit.passives.filter(skill => skill.id === id).forEach(skill => {
-            skill.effects.forEach(effect => {
-                if (effect.effect && effect.effect.autoCastedSkill) {
-                    if (effect.effect.autoCastedSkill.id === skillId) {
-                        html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Autocasted at start of battle by ' + skill.name + '</div>';
-                    }
-                }
+        if (id === 'lb') {
+            html += addGetUnlockedBySkillHtml(skillId, unit, unit.lb.maxEffects, 'LB');
+        } else {
+            unit.actives.filter(skill => skill.id === id || skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects, skill.name);
             });
-        });
+            unit.actives.filter(skill => skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill.effects, skill.effects[0].effect.name);
+            });
+            unit.passives.filter(skill => skill.id === id).forEach(skill => {
+                skill.effects.forEach(effect => {
+                    if (effect.effect && effect.effect.autoCastedSkill) {
+                        if (effect.effect.autoCastedSkill.id === skillId) {
+                            html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Autocasted at start of battle by ' + skill.name + '</div>';
+                        }
+                    }
+                });
+            });
+        }
     });
     return html;
 }
 
-function addGetUnlockedBySkillHtml(skillId, unit, testedSkill) {
+function addGetUnlockedBySkillHtml(skillId, unit, testedSkillEffects, testedSkillName) {
     let html = "";
-    testedSkill.effects.forEach(effect => {
+    testedSkillEffects.forEach(effect => {
         if (effect.effect && effect.effect.gainSkills) {
             if (effect.effect.gainSkills.skills.map(skill => skill.id).includes(skillId)) {
-                html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + testedSkill.name + ' for ';
+                html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>Unlocked by ' + testedSkillName + ' for ';
                 if (effect.effect.gainSkills.turns === 0) {
                     html += 'current turn';
                 } else {
@@ -814,10 +839,23 @@ function getSkillsToDisplay(unit) {
         let result = [];
         let multicastSkills = {};
         let multicastMagic = {};
-        if (chain.count > 1) {
+        if (skillFilter.multicastCount > 1) {
             unit.actives.concat(unit.passives).forEach(skill => {
+                if (skillFilter.excludeUnlockedMulticast && skill.unlockedBy) {
+                    let foundUnlockedByAutocastedTurn1 = false;
+                    unit.passives.forEach(passive => {
+                       passive.effects.forEach(effect => {
+                           if (effect.effect && effect.effect.autoCastedSkill && skill.unlockedBy.includes(effect.effect.autoCastedSkill.id)) {
+                               foundUnlockedByAutocastedTurn1 = true;
+                           }
+                       });
+                    });
+                    if (!foundUnlockedByAutocastedTurn1) {
+                        return;
+                    }
+                }
                 skill.effects.forEach(effect => {
-                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === chain.count) {
+                    if (effect.effect && effect.effect.multicast && effect.effect.multicast.time === skillFilter.multicastCount) {
                         switch(effect.effect.multicast.type) {
                             case 'skills':
                                 multicastSkills[skill.id] = effect.effect.multicast.skills.map(skill => skill.id);
@@ -861,7 +899,7 @@ function getSkillsToDisplay(unit) {
                 result.push(magic.id);        
             }
         });
-        if (chain.count > 1) {
+        if (skillFilter.multicastCount > 1) {
             skillsDisplayedForChain.forEach(multicastedId => {
                 Object.keys(multicastSkills).forEach(id => {
                    if (multicastSkills[id].includes(multicastedId) && !result.includes(id)) {
@@ -959,15 +997,20 @@ function mustDisplaySkill(skill, effects, type, skillName) {
 
 function mustDisplaySkillForChainFamily(skill, effects, type, multicastSkills = []) {
     let chainFamilyMatches = false;
-    if (chain.value != 'none' && skill.chainFamily === chain.value) {
-        if (chain.count == 1 || multicastSkills.length > 0) {
+    if (skillFilter.chainFamily != 'none' && skill.chainFamily === skillFilter.chainFamily) {
+        if (skillFilter.multicastCount == 1 || multicastSkills.length > 0) {
             chainFamilyMatches = true;
         }
     }
     for (var j = effects.length; j--;) {
         var effect = effects[j];
-        if (effect.effect && effect.effect.damage && chainFamilyMatches && chain.skillTypes.includes(type) && isTargetToBeDispalyed(chain, effect, type)) {
+        if (effect.effect && effect.effect.damage && chainFamilyMatches && skillFilter.skillTypes.includes(type) && isTargetToBeDispalyed(skillFilter, effect, type)) {
             return true;
+        }
+        if (effect.effect && effect.effect.cooldownSkill) {
+             if (mustDisplaySkillForChainFamily(effect.effect.cooldownSkill, effect.effect.cooldownSkill.effects, type, multicastSkills)) {
+                 return true;
+             }
         }
     }
 }
@@ -1049,15 +1092,15 @@ function initFilters() {
     if (state.searchText) {
         $("#searchText").val(state.searchText);
     }
-    if (state.chain) {
-        chain = state.chain;
+    if (state.skillFilter) {
+        skillFilter = state.skillFilter;
     } else {
-        chain = defaultFilter.chain;
+        skillFilter = defaultFilter.skillFilter;
     }
-    $('#chainFamily').val(chain.value);
-    $('#chainMulticastCount').val(chain.count);
-    select("chainSkillTypes", chain.skillTypes);
-    select("chainTargetAreaTypes", chain.targetAreaTypes);
+    $('#chainFamily').val(skillFilter.chainFamily);
+    $('#chainMulticastCount').val(skillFilter.multicastCount);
+    select("chainSkillTypes", skillFilter.skillTypes);
+    select("chainTargetAreaTypes", skillFilter.targetAreaTypes);
 
     if (state.baseRarity) {
         baseRarity = state.baseRarity;
@@ -1157,8 +1200,8 @@ function updateHash() {
     if (maxRarity.length > 0) {
         state.maxRarity = maxRarity;
     }
-    if (chain.value != 'none') {
-        state.chain = chain;
+    if (skillFilter.chainFamily != 'none') {
+        state.skillFilter = skillFilter;
     }
     
     window.location.hash = '#' + window.btoa(JSON.stringify(state));
@@ -1249,6 +1292,8 @@ function startPage() {
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));
     $('.chainFamily select').change(update);
+    $('.chainFamily input').change(update);
+    
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));

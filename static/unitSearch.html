@@ -176,14 +176,22 @@
                         <div class="panel-body">
                             <div class="line"><span class="title">Chaining family:</span><select id="chainFamily" class="form-control"></select></div>
                             <div class="line chainMulticastCountDiv">
-                                <span class="title">Multicast count:</span>
-                                <select id="chainMulticastCount" class="form-control">
-                                    <option value="1">Single cast (1/Any)</option>
-                                    <option value="2">W-cast (2)</option>
-                                    <option value="3">T-cast (3)</option>
-                                    <option value="4">Q-cast (4)</option>
-                                    <option value="5">V-cast (5)</option>
-                                </select>
+                                <div class="line">
+                                    <span class="title">Multicast count:</span>
+                                    <select id="chainMulticastCount" class="form-control">
+                                        <option value="1">Single cast (1/Any)</option>
+                                        <option value="2">W-cast (2)</option>
+                                        <option value="3">T-cast (3)</option>
+                                        <option value="4">Q-cast (4)</option>
+                                        <option value="5">V-cast (5)</option>
+                                    </select>
+                                </div>
+                                <div class="line excludeUnlockedMulticast">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="checkbox"/><span></span>
+                                        Exclude not available T1
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
