@@ -439,6 +439,8 @@ var readFilterValues = function() {
 var updateFilterHeadersDisplay = function() {
     $(".rarity .unselectAll").toggleClass("hidden", baseRarity.length == 0 && maxRarity.length == 0);
     $(".chainMulticastCountDiv, .chainFamily .filters").toggleClass("hidden", skillFilter.chainFamily == 'none');
+    $(".excludeUnlockedMulticast").toggleClass("hidden", skillFilter.multicastCount === 1);
+    
 
     $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
