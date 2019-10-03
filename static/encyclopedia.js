@@ -71,8 +71,8 @@ var update = function() {
     $("#results").unmark({
         done: function() {
             if (searchText && searchText.length != 0) {
-                searchText.split(" ").forEach(function (token) {
-                    $("#results").mark(token);
+                getSearchTokens(searchText).forEach(function (token) {
+                    $("#results").mark(token, {separateWordSearch: false});
                 });
             }
         }
