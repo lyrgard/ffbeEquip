@@ -3527,13 +3527,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["Panther Strike","Fearless","Blaster","Hunting Expertise","Lightning Spear Jab","Thunder Spear","SPR +20%"],
+		"enhancements": [
+			{"name":"Fearless","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"atk%":25}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}],"spr%":30,"atk%":50,"mpRefresh":10}]]},
+			{"name":"Hunting Expertise","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}],"singleWielding":{"accuracy":25,"atk":25}}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}],"singleWielding":{"accuracy":25,"atk":50}}]]},
+			{"name":"SPR +20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]},
+			{"hp%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
 			{"atk%":50, "equipedConditions":["spear"]},
 			{"atk%":25, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504226900","308003800"]]},
 			{"def%":30, "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}], "levelCondition":110},
-			{"spr%":20, "levelCondition":115},
-			{"skillEnhancement":{"226910":0.7,"226911":0.7,"226912":0.7,"226913":0.7,"507490":0.7}, "levelCondition":120}
+			{"skillEnhancement":{"226910":0.7,"226911":0.7,"226912":0.7,"226913":0.7,"507490":0.7,"707675":0.7,"707676":0.7,"707677":0.7,"707678":0.7,"913045":0.7,"913046":0.7,"913047":0.7,"913048":0.7}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Nalu",
@@ -3549,8 +3554,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","hammer","spear","whip","mace","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["Panther Strike","Fearless","Blaster","Hunting Expertise","Lightning Spear Jab","Thunder Spear","SPR +20%"],
+		"enhancements": [
+			{"name":"Fearless","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100}],"spr%":30,"atk%":25}],[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100}],"spr%":30,"atk%":50,"mpRefresh":10}]]},
+			{"name":"Hunting Expertise","levels":[[{"atk%":30,"killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]}],[{"atk%":30,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}],"singleWielding":{"accuracy":25,"atk":25}}],[{"atk%":65,"killers":[{"name":"beast","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75}],"singleWielding":{"accuracy":25,"atk":50}}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"disease","percent":100},{"name":"lightning","percent":30}], "killers":[{"name":"beast","physical":50},{"name":"bug","physical":50},{"name":"plant","physical":50}]},
+				{"hp%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"lightning","percent":30}]},
 				{"atk%":50, "equipedConditions":["spear"]}
 			]
 		}
@@ -3568,8 +3578,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","throwing","gun","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Hide Shadow","Full Power Throw","Veteran Thrower"],
+		"enhancements": [
+			{"name":"Veteran Thrower","levels":[[{"dualWielding":{"atk":30}}],[{"dualWielding":{"atk":45}}],[{"dualWielding":{"atk":60}}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "dualWielding":{"atk":30}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}], "drawAttacks":30}
+			{"hp%":20, "atk%":10, "spr%":10, "evade":{"physical":20}, "partialDualWield":["throwing","gun"], "resist":[{"name":"blind","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30}], "drawAttacks":30}
 		]
 	},
 	"100015604": {
@@ -3585,8 +3599,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","whip","fist","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Girly Makeup","Binding Whip","Violent Tail","Shut up already!"],
+		"enhancements": [
+			{"name":"Girly Makeup","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"charm","percent":100}]}],[{"resist":[{"name":"poison","percent":100},{"name":"charm","percent":100}],"atk%":25}],[{"resist":[{"name":"poison","percent":100},{"name":"stop","percent":100},{"name":"charm","percent":100}],"atk%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":20, "resist":[{"name":"poison","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
+			{"hp%":20, "atk%":20, "mpRefresh":5},
 			{"atk%":30, "equipedConditions":["whip"]}
 		]
 	},
@@ -5962,7 +5980,8 @@
 		"enhancementSkills":["Fire From Below","I'll never die!","Insolent fools!","Control"],
 		"enhancements": [
 			{"name":"I'll never die!","levels":[[{"mpRefresh":10}],[{"mpRefresh":10,"hp%":30}],[{"mpRefresh":10,"hp%":30}]]},
-			{"name":"Insolent fools!","levels":[[],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["rod"],"mag%":50}]]}
+			{"name":"Insolent fools!","levels":[[],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["rod"],"mag%":50}]]},
+			{"name":"Lord of Pandaemonium","levels":[[],[{"mag%":40,"hp%":10,"skillEnhancement":{"204980":2.5,"702710":2.5,"702720":2.5}}],[{"mag%":60,"hp%":15,"skillEnhancement":{"204980":5,"702710":5,"702720":5}}],[{"mag%":80,"hp%":20,"skillEnhancement":{"204980":7.5,"702710":7.5,"702720":7.5}}]]}
 		],
 		"skills": [
 			{"mp%":20, "mag%":30},
@@ -5987,7 +6006,8 @@
 			"enhancementSkills":["Fire From Below","I'll never die!","Insolent fools!","Control"],
 		"enhancements": [
 			{"name":"I'll never die!","levels":[[{"mpRefresh":10}],[{"mpRefresh":10,"hp%":30}],[{"mpRefresh":10,"hp%":30}]]},
-			{"name":"Insolent fools!","levels":[[],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["rod"],"mag%":50}]]}
+			{"name":"Insolent fools!","levels":[[],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]}],[{"resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["rod"],"mag%":50}]]},
+			{"name":"Lord of Pandaemonium","levels":[[],[{"mag%":40,"hp%":10,"skillEnhancement":{"204980":2.5,"702710":2.5,"702720":2.5}}],[{"mag%":60,"hp%":15,"skillEnhancement":{"204980":5,"702710":5,"702720":5}}],[{"mag%":80,"hp%":20,"skillEnhancement":{"204980":7.5,"702710":7.5,"702720":7.5}}]]}
 		],
 			"skills": [
 				{"mp%":20, "mag%":30}
@@ -6012,7 +6032,7 @@
 		]
 	},
 	"202001605": {
-		"name":"Wild Rose Swordsman Firion",
+		"name":"Wild Rose Firion",
 		"id":"202001605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6024,6 +6044,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"Core of Fynn's Liberation","levels":[[],[{"atk%":10,"mp%":10,"hp%":10,"skillEnhancement":{"231162":0.5,"509901":0.2,"509902":0.2,"509903":0.5,"509904":0.2,"509905":0.2}}],[{"atk%":20,"mp%":20,"hp%":20,"skillEnhancement":{"231162":0.75,"509901":0.35,"509902":0.35,"509903":0.75,"509904":0.35,"509905":0.35}}],[{"atk%":30,"mp%":30,"hp%":30,"skillEnhancement":{"231162":1,"509901":0.5,"509902":0.5,"509903":1,"509904":0.5,"509905":0.5}}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":20, "atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75},{"name":"human","physical":75},{"name":"machine","physical":75},{"name":"stone","physical":75},{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"dragon","physical":75}], "mpRefresh":10},
 			{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
@@ -6058,7 +6081,7 @@
 			{"atk%":20, "skillEnhancement":{"231162":1,"509910":1,"509912":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Wild Rose Swordsman Firion",
+			"name":"Wild Rose Firion",
 			"id":"202001605",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6071,6 +6094,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"Core of Fynn's Liberation","levels":[[],[{"atk%":10,"mp%":10,"hp%":10,"skillEnhancement":{"231162":0.5,"509901":0.2,"509902":0.2,"509903":0.5,"509904":0.2,"509905":0.2}}],[{"atk%":20,"mp%":20,"hp%":20,"skillEnhancement":{"231162":0.75,"509901":0.35,"509902":0.35,"509903":0.75,"509904":0.35,"509905":0.35}}],[{"atk%":30,"mp%":30,"hp%":30,"skillEnhancement":{"231162":1,"509901":0.5,"509902":0.5,"509903":1,"509904":0.5,"509905":0.5}}]]}
+		],
 			"skills": [
 				{"hp%":30, "mp%":20, "atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"poison","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"bird","physical":75},{"name":"bug","physical":75},{"name":"plant","physical":75},{"name":"human","physical":75},{"name":"machine","physical":75},{"name":"stone","physical":75},{"name":"beast","physical":75},{"name":"demon","physical":75},{"name":"dragon","physical":75}], "mpRefresh":10},
 				{"mag%":30, "spr%":30, "equipedConditions":["staff"]},
@@ -6116,6 +6142,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Preemptive Dark Technique","levels":[[],[{"mp%":10,"skillEnhancement":{"231185":0.5,"509920":0.5}}],[{"mp%":20,"skillEnhancement":{"231185":0.75,"509920":0.75}}],[{"mp%":30,"skillEnhancement":{"231185":1,"509920":1}}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 			{"atk%":30, "def%":20, "equipedConditions":["sword"]},
@@ -6140,6 +6169,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","bow","axe","spear","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Preemptive Dark Technique","levels":[[],[{"mp%":10,"skillEnhancement":{"231185":0.5,"509920":0.5}}],[{"mp%":20,"skillEnhancement":{"231185":0.75,"509920":0.75}}],[{"mp%":30,"skillEnhancement":{"231185":1,"509920":1}}]]}
+		],
 			"skills": [
 				{"hp%":20, "mp%":20, "atk%":20, "def%":30, "spr%":20, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"disease","percent":100},{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "mpRefresh":5, "special":["dualWield"]},
 				{"atk%":30, "def%":20, "equipedConditions":["sword"]},
@@ -7207,6 +7239,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"Spreading One's Wings","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}]}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}]}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":20, "def%":10, "spr%":80, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"water","percent":50}], "mpRefresh":5, "skillEnhancement":{"10170":2,"10210":2,"10290":5}},
 			{"mp%":40, "spr%":40, "resist":[{"name":"stop","percent":100}], "equipedConditions":[["504230651","311004800"]]},
@@ -7227,6 +7262,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","bow","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"Spreading One's Wings","levels":[[],[{"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10}]}],[{"resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20}]}],[{"resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30}]}]]}
+		],
 			"skills": [
 				{"hp%":20, "mp%":20, "def%":10, "spr%":80, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"water","percent":50}], "mpRefresh":5, "skillEnhancement":{"10170":2,"10210":2,"10290":5}}
 			]
@@ -8956,8 +8994,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","mace","hat","clothes","robe"],
+		"enhancementSkills":["Devotion","Rolanberries are Great","Rolanberry Lover"],
+		"enhancements": [
+			{"name":"Rolanberry Lover","levels":[[{"spr%":10,"mp%":20}],[{"spr%":20,"mp%":30}],[{"spr%":30,"def%":30,"mp%":40}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":40, "spr%":30, "resist":[{"name":"poison","percent":100}]},
+			{"hp%":10, "mp%":20, "spr%":20, "resist":[{"name":"poison","percent":100}]},
 			{"def%":15, "spr%":15, "equipedConditions":["lightShield"]},
 			{"mp%":20, "spr%":20, "equipedConditions":["mace"]}
 		]
@@ -9021,12 +9063,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["Former Orastery Minister","Elemental Seal","Spirit Magic Skill: A+","Mana Wall","Flood II","Flare II","Manafont","Doublehand Staff Skill: A+","DEF +20%","You're making me lose my temper, dear!"],
+		"enhancements": [
+			{"name":"Former Orastery Minister","levels":[[{"spr%":30,"mag%":30,"mp%":50}],[{"spr%":30,"mag%":30,"def%":30,"mp%":50,"hp%":30}],[{"spr%":50,"mag%":50,"def%":50,"mp%":50,"hp%":50}]]},
+			{"name":"Spirit Magic Skill: A+","levels":[[{"mag%":50}],[{"mag%":70}],[{"mag%":100,"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3,"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}}]]},
+			{"name":"Doublehand Staff Skill: A+","levels":[[{"singleWielding":{"mag":60},"levelCondition":110}],[{"singleWielding":{"mag":100},"levelCondition":110}],[{"singleWielding":{"mag":150},"levelCondition":110}]]},
+			{"name":"DEF +20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]},
+			{"name":"You're making me lose my temper, dear!","levels":[[{"mag%":40,"levelCondition":120}],[{"mag%":50,"levelCondition":120}],[{"mag%":50,"replaceLb":{"name":"Play Rough","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":12,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (12x * 2 = 24x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":70,"ice":70,"lightning":70,"water":70,"wind":70,"earth":70},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 70% for 4 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"91023","name":"Stonega V"},{"id":"91024","name":"Waterga V"},{"id":"91025","name":"Aeroga V"},{"id":"91026","name":"Firaga V"},{"id":"91027","name":"Blizzaga V"},{"id":"91028","name":"Thundaga V"}]},"area":"SELF","target":"SELF"},"desc":"Gain Aeroga V+2 (91025), Blizzaga V+2 (91027), Firaga V+2 (91026), Stonega V+2 (91023), Thundaga V+2 (91028) and Waterga V+2 (91024) for 3 turns"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"509671","name":"Quadruple Chainspell","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}],"unlockedBy":["lb"]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":17,"ignore":{"spr":50}},"area":"ST","target":"ENEMY"},"desc":"Magic damage (17x * 2 = 34x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100,"water":100,"wind":100,"earth":100},"turns":4,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice, Lightning, Water, Wind and Earth by 100% for 4 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"91023","name":"Stonega V"},{"id":"91024","name":"Waterga V"},{"id":"91025","name":"Aeroga V"},{"id":"91026","name":"Firaga V"},{"id":"91027","name":"Blizzaga V"},{"id":"91028","name":"Thundaga V"}]},"area":"SELF","target":"SELF"},"desc":"Gain Aeroga V+2 (91025), Blizzaga V+2 (91027), Firaga V+2 (91026), Stonega V+2 (91023), Thundaga V+2 (91028) and Waterga V+2 (91024) for 3 turns"},{"effect":{"gainSkills":{"turns":3,"skills":[{"id":"509671","name":"Quadruple Chainspell","icon":"ability_26.png","effects":[{"effect":{"multicast":{"time":4,"type":"magic"}},"desc":"Enable unit to cast 4 magic spells"}]}]}},"desc":"Grant Quadra-cast all magic for 3 turns to caster"}],"frames":[50,69,89,108,128,147,167,186,206,225,245,265,285,305,325,345,365,385,405,425,445],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":50, "mag%":80, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-			{"equipedConditions":[["310003700","504227209"]]},
-			{"singleWielding":{"mag":60}, "levelCondition":110},
-			{"def%":20, "levelCondition":115},
-			{"mag%":40, "levelCondition":120}
+			{"hp%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"equipedConditions":[["310003700","504227209"]]}
 		],
 		"6_form": {
 			"name":"Livid Shantotto",
@@ -9042,8 +9089,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["Former Orastery Minister","Elemental Seal","Spirit Magic Skill: A+","Mana Wall","Flood II","Flare II","Manafont","Doublehand Staff Skill: A+","DEF +20%","You're making me lose my temper, dear!"],
+		"enhancements": [
+			{"name":"Former Orastery Minister","levels":[[{"spr%":30,"mag%":30,"mp%":50}],[{"spr%":30,"mag%":30,"def%":30,"mp%":50,"hp%":30}],[{"spr%":50,"mag%":50,"def%":50,"mp%":50,"hp%":50}]]},
+			{"name":"Spirit Magic Skill: A+","levels":[[{"mag%":50}],[{"mag%":70}],[{"mag%":100,"skillEnhancement":{"20570":3,"20580":3,"20590":3,"20600":3,"20610":3,"20620":3,"20700":2,"20730":2,"70444":2,"70445":2,"70446":2,"70447":2}}]]}
+		],
 			"skills": [
-				{"mp%":50, "mag%":80, "spr%":30, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
+				{"lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10}
 			]
 		}
 	},
@@ -9060,13 +9112,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon","Shadow Lord","SPR +20%","Immortal Justice"],
+		"enhancements": [
+			{"name":"Hatred for the Talekeeper","levels":[[{"hp%":30}],[{"atk%":30,"hp%":30}],[{"atk%":70,"hp%":70}]]},
+			{"name":"Shadow Lord","levels":[[{"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":50},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":200},"dualWielding":{"atk":50},"levelCondition":110}]]},
+			{"name":"SPR +20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]},
+			{"name":"Immortal Justice","levels":[[{"def%":30,"levelCondition":120}],[{"spr%":30,"def%":30,"levelCondition":120}],[{"spr%":30,"def%":30,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
+			{"atk%":30, "resist":[{"name":"dark","percent":100}]},
 			{"atk%":50, "equipedConditions":["sword"]},
-			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1}, "equipedConditions":[["504227237","302005800"]]},
-			{"singleWielding":{"accuracy":25,"atk":100}, "dualWielding":{"atk":30}, "levelCondition":110},
-			{"spr%":20, "levelCondition":115},
-			{"def%":30, "levelCondition":120}
+			{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "skillEnhancement":{"507700":1,"507701":1,"507702":1,"507703":1,"507704":1,"507705":1,"507706":1,"507707":1,"507708":1,"507709":1,"507710":1,"507711":1,"509672":1,"509673":1,"509674":1,"509675":1,"509676":1,"509677":1,"509678":1,"509679":1,"913075":1,"913076":1,"913077":1,"913078":1}, "equipedConditions":[["504227237","302005800"]]}
 		],
 		"6_form": {
 			"name":"Shadow Lord",
@@ -9082,8 +9138,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon","Shadow Lord","SPR +20%","Immortal Justice"],
+		"enhancements": [
+			{"name":"Hatred for the Talekeeper","levels":[[{"hp%":30}],[{"atk%":30,"hp%":30}],[{"atk%":70,"hp%":70}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":30, "resist":[{"name":"dark","percent":100}]},
+				{"atk%":30, "resist":[{"name":"dark","percent":100}]},
 				{"atk%":50, "equipedConditions":["sword"]}
 			]
 		}
@@ -14978,9 +15038,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"],
+		"enhancementSkills":["Lifeguard - Rejuvenator","Lifeguard - Refreshment","Sunblock","Sunscreen","Diver - Waterfall","Diver - Icicle","Sandcastle","Foam","Fancy Beverage","Diver - Submersion","Diver - Regelation","Summer Fiesta"],
+		"enhancements": [
+			{"name":"Fancy Beverage","levels":[[{"esperStatsBonus":{"spr":20,"mag":20,"def":20,"atk":20,"mp":20,"hp":20},"spr%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}],"equipedConditions":[["1100000182","1100000183"]]}],[{"esperStatsBonus":{"spr":40,"mag":40,"def":40,"atk":40,"mp":40,"hp":40},"spr%":20,"mag%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}],"equipedConditions":[["1100000182","1100000183"]]}],[{"esperStatsBonus":{"spr":60,"mag":60,"def":60,"atk":60,"mp":60,"hp":60},"spr%":20,"mag%":20,"def%":20,"hp%":20,"resist":[{"name":"silence","percent":100}],"singleWielding":{"mag":50},"equipedConditions":[["1100000182","1100000183"]]}]]}
+		],
 		"skills": [
 			{"mp%":30, "mag%":30, "spr%":20, "resist":[{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5},
-			{"hp%":20, "def%":20, "spr%":20, "resist":[{"name":"silence","percent":100}], "esperStatsBonus":{"spr":20,"mag":20,"def":20,"atk":20,"mp":20,"hp":20}, "equipedConditions":[["1100000182","1100000183"]]},
 			{"mag%":20, "levelCondition":115},
 			{"mp%":20, "mag%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
 		],
@@ -14998,6 +15061,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","throwing","hat","clothes","robe"],
+			"enhancementSkills":["Lifeguard - Rejuvenator","Lifeguard - Refreshment","Sunblock","Sunscreen","Diver - Waterfall","Diver - Icicle","Sandcastle","Foam","Fancy Beverage","Diver - Submersion","Diver - Regelation","Summer Fiesta"],
 			"skills": [
 				{"mp%":30, "mag%":30, "spr%":20, "resist":[{"name":"water","percent":30},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":5}
 			]
@@ -15016,9 +15080,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","harp","mace","hat","clothes","robe"],
+		"enhancementSkills":["Priestess Miracle","Aqua - Stream","Aqua - Whirlpool","Refreshing Summer","Aqua - Tidal Party"],
+		"enhancements": [
+			{"name":"Refreshing Summer","levels":[[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}]},{"equipedConditions":["rod"],"mag%":40,"spr%":40}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}],"hp%":20},{"equipedConditions":["rod"],"mag%":40,"spr%":40}],[{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"fire","percent":25},{"name":"water","percent":25}],"hp%":20},{"equipedConditions":["rod"],"mag%":60,"spr%":60}]]}
+		],
 		"skills": [
-			{"hp%":10, "mp%":20, "mag%":30, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "mpRefresh":5},
-			{"mag%":40, "spr%":40, "equipedConditions":["rod"]}
+			{"hp%":10, "mp%":20, "mag%":30, "mpRefresh":5}
 		]
 	},
 	"401005603": {
