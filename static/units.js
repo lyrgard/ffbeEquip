@@ -385,7 +385,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         if (useTmrName) {
             html += toLink(tmrByUnitId[unit.id].name);
         } else {
-            html += toLink(unit.name);
+            html += toLink(unit.name, unit.name, true);
         }
         if (unit.summon_type === 'event') {
             html +='<span class="glyphicon glyphicon-time"/>';

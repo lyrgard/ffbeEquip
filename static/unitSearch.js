@@ -514,7 +514,7 @@ function displayUnitsAsync(units, start, div) {
         var unitData = units[index];
         html += '<div class="unit">'
         html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
-        html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name) + '</span>';
+        html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
         html += '<div class="killers">';
         var killers = [];
         for (var i = killerList.length; i--;) {

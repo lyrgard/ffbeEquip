@@ -579,14 +579,23 @@ var toHtml = function(text) {
 
 // Return the wiki url corresponding to the name
 var toUrl = function(name) {
-    return wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
+    let link = wikiBaseUrl + encodeURIComponent(name.replace(/ /g, '_'));
+    if (server == 'JP') {
+        link += '/JP';
+    }
+    return link;
 };
 
-var toLink = function(text, link = text) {
+var toLink = function(text, link = text, forceLinkDisplay = false) {
     if (server == "GL") {
         return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank" rel="noreferrer" onclick="event.stopPropagation();"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
     } else {
-        return "<span>" + text + "</span>";
+        if (forceLinkDisplay) {
+            return '<span>' + text + '</span><a href="' + toUrl(link) + '" target="_blank" rel="noreferrer" onclick="event.stopPropagation();"><span class="glyphicon glyphicon-new-window wikiLink"></span></a>';
+        } else {
+            return "<span>" + text + "</span>";
+        }
+
     }
 }
 
