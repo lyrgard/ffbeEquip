@@ -1215,7 +1215,15 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             console.log(rawEffect);
         }
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}};
-        
+
+    // Physical Damage with HP sacrifice
+    } else if (rawEffect[2] == 81) {
+        if (rawEffect[3].length != 7 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0 && rawEffect[3][2] != 0 && rawEffect[3][3] != 0 && rawEffect[3][4] != 0  && rawEffect[3][5] != 0) {
+            console.log("Strange Physic damage");
+            console.log(rawEffect);
+        }
+        result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][6]/100}, hpSacrifice:rawEffect[3][7]};
+
     // Physical Damage with ignore DEF
     } else if (rawEffect[2] == 21) {
         if (rawEffect[3].length != 4 && rawEffect[3][0] != 0 && rawEffect[3][1] != 0) {
