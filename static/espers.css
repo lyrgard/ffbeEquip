@@ -588,6 +588,20 @@ table.allEspers > tbody > tr > td.stats .bonus {
     margin-top: -14px;
 }
 
+.glassPanel {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    background-color: black;
+    z-index: 100;
+    cursor: wait;
+}
+
 @media (max-width: 1200px) {
     #allEspers {
         max-width: none;

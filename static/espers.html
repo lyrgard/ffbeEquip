@@ -132,6 +132,7 @@
             <div class="bannerPicturePerson"></div>
         </div>
         <div class="container-fluid">
+            <span class="glassPanel hidden"></span>
             <div style="text-align: center">
                 <div id="pleaseWaitMessage" class="alert alert-info alert-inline" role="alert">
                     <span class="glyphicon glyphicon-info-sign"></span>
@@ -150,6 +151,12 @@
                     <ul id="tabs" class="nav nav-tabs"></ul>
                 </div>
                 <div id="allEspers">
+                    <a id="importLink" class="link hidden" onclick="importEspers();">
+                        <span class="glyphicon glyphicon-save"></span>
+                        <span class="text hidden-xs hidden-sm">
+                            Import Espers
+                        </span>
+                    </a>
 
                     <div id="noEsperMessage" class="alert alert-info" role="alert">
                         <span class="glyphicon glyphicon-info-sign"></span>
@@ -282,6 +289,7 @@
         <script src="lib/notify.min.js"></script>
         <script src="lib/FileSaver.min.js"></script>
         <script src="lib/html2canvas.min.js"></script>
+        <script src="lib/jjv.js"></script>
         <script src="constants.js"></script>
         <script src="common.js"></script>
 		<script src="espers.js"></script>

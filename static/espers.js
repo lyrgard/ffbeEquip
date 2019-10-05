@@ -37,6 +37,33 @@ const statsProgressionByTypeAndRarity = {
     }
 }
 
+const importBoardConversion = [[0,0], [-1,-1], [0,-1], [-1,0], [1,0], [0,1], [1,1],
+                        [-2,-2],[-1,-2],[0,-2],[-2,-1],[1,-1],[-2,0],[2,0],[-1,1],[2,1],[0,2],[1,2],[2,2],
+                        [-3,-3],[-2,-3],[-1,-3],[0,-3],[-3,-2],[1,-2],[-3,-1],[2,-1],[-3,0],[3,0],[-2,1],[3,1],[-1,2],[3,2],[0,3],[1,3],[2,3],[3,3],
+                        [-4,-3],[1,-3],[-4,-2],[2,-2],[-4,-1],[3,-1],[-4,0],[4,0],[-3,1],[4,1],[-2,2],[4,2],[-1,3],[4,3],[-4,-4],[-3,-4],[-2,-4],[-1,-4],[0,-4],[1,4],[2,4],[3,4],[4,4]];
+
+const importIdConversion = {
+    1: "Siren",
+    2: "Ifrit",
+    3: "Shiva",
+    4: "Carbuncle",
+    5: "Diabolos",
+    6: "Golem",
+    7: "Ramuh",
+    8: "Titan",
+    9: "Tetra Sylphid",
+    10: "Odin",
+    11: "Lakshmi",
+    12: "Leviathan",
+    13: "Alexander",
+    14: "Phoenix",
+    15: "Bahamut",
+    16: "Fenrir",
+    17: "Anima",
+    18: "Asura",
+    19: "Kokuryu"
+};
+
 function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#esper").removeClass("hidden");
@@ -967,6 +994,7 @@ function inventoryLoaded() {
     console.trace();
     logged = true;
     loadLink();
+    $('#importLink').removeClass('hidden');
     if (esperBoards) {
         displayEspers();
     }
@@ -1019,6 +1047,105 @@ function getPublicEsperLink() {
 
 }
 
+function importEsper(id, rarity, level, board) {
+    let esperName = importIdConversion[id];
+    currentEsper = esperName;
+    show(esperName);
+    setEsperRarity(rarity);
+    setEsperLevel(level);
+    let binary = hex2bin(board);
+    [...binary].forEach((char, index) => {
+        let coordinate = importBoardConversion[index];
+        if (coordinate) {
+            let positionString = getPositionString(coordinate[0], coordinate[1]);
+            if (char == '1' && !ownedEspers[currentEsper].selectedSkills.includes(positionString)) {
+                selectNode(coordinate[0], coordinate[1]);
+            }
+        }
+    });
+}
+
+function importEspers() {
+    importedEspers = null;
+    Modal.show({
+        title: "Import espers",
+        body: '<p class="label label-danger">This feature is a Work in Progress. It will override your inventory on FFBE Equip</p><br/><br/>' +
+            '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/><br/>'+
+            '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (require +login to FFBE with Facebook for now. Google login will probably be supported later)</p><br>' +
+            '<p id="importSummary"></p>',
+        buttons: [{
+            text: "Import",
+            onClick: function() {
+                if (importedEspers) {
+                    $('.glassPanel').removeClass("hidden");
+
+                    setTimeout(function() {
+                        importedEspers.forEach(esperData => {
+                            importEsper(esperData.id, parseInt(esperData.rarity), parseInt(esperData.level), esperData.board);
+                        });
+                        showAll();
+                        saveUserData(false, false, true);
+                        $('.glassPanel').addClass("hidden");
+                    }, 200);
+                } else {
+                    Modal.show("Please select a file to import");
+                }
+
+            }
+        }]
+    });
+    $('#importFile').change(treatImportFile);
+}
+
+let importedEspers = null;
+
+function treatImportFile(evt) {
+    var f = evt.target.files[0]; // FileList object
+
+    var reader = new FileReader();
+
+    reader.onload = function(){
+        try {
+            let temporaryResult = JSON.parse(reader.result);
+            var errors = importValidator.validate('espers', temporaryResult);
+
+            // validation was successful
+            if (errors) {
+                Modal.showMessage("imported file doesn't have the correct form : " + JSON.stringify(errors));
+                return;
+            }
+            importedEspers = temporaryResult;
+            $('#importSummary').text('Espers to import : ' + importedEspers.length);
+        } catch(e) {
+            Modal.showError('imported file is not in json format', e);
+        }
+
+    };
+    reader.readAsText(f);
+
+}
+
+function hex2bin(hex){
+    let result = "";
+    [...hex].forEach(char => result += ("0000" + (parseInt(char, 16)).toString(2)).substr(-4));
+    return result;
+}
+
+function setEsperRarity(rarity) {
+    $("#esper .levelLine").removeClass("hidden");
+    $("#esper .spLine").removeClass("hidden");
+    ownedEspers[currentEsper] = {"name":currentEsper, "id":currentEsper, "rarity":rarity,"selectedSkills":[]};
+    ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[rarity]));
+    $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
+    $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+    setEsperLevel(maxLevelByStar[rarity]);
+    showBoard(currentEsper, rarity);
+    $(".stats").removeClass("invisible");
+    $(".esperOtherStats").removeClass("invisible");
+    $("#tabs li."+currentEsper).removeClass("notOwned");
+    $("#esper .shareLink").removeClass("hidden");
+}
+
 // will be called by common.js at page load
 function startPage() {
     var $window = $(window);
@@ -1060,18 +1187,7 @@ function startPage() {
             $("#tabs li."+currentEsper).addClass("notOwned");
             $("#esper .shareLink").addClass("hidden");
         } else {
-            $("#esper .levelLine").removeClass("hidden");
-            $("#esper .spLine").removeClass("hidden");
-            ownedEspers[currentEsper] = {"name":currentEsper, "id":currentEsper, "rarity":parseInt(value),"selectedSkills":[]};
-            ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[value]));
-            $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
-            $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
-            setEsperLevel(maxLevelByStar[value]);
-            showBoard(currentEsper, parseInt(value));
-            $(".stats").removeClass("invisible");
-            $(".esperOtherStats").removeClass("invisible");
-            $("#tabs li."+currentEsper).removeClass("notOwned");
-            $("#esper .shareLink").removeClass("hidden");
+            setEsperRarity(parseInt(value));
         }
         prepareSave();
     });
@@ -1177,3 +1293,32 @@ function startPage() {
         }
     }));
 }
+
+// create new JJV environment
+let importValidator = jjv();
+
+// Register a `user` schema
+importValidator.addSchema('espers', {
+    type: 'array',
+    maxItems: 20,
+    items: {
+        type: 'object',
+        properties: {
+            id: {
+                type: 'string',
+                maxLength: 2
+            },
+            rarity: {
+                type: 'number'
+            },
+            level: {
+                type: 'number'
+            },
+            board: {
+                type: 'string',
+                maxLength: 40
+            },
+        },
+        required: ['id', 'rarity', 'level', 'board']
+    }
+});
