@@ -40,7 +40,7 @@ const statsProgressionByTypeAndRarity = {
 const importBoardConversion = [[0,0], [-1,-1], [0,-1], [-1,0], [1,0], [0,1], [1,1],
                         [-2,-2],[-1,-2],[0,-2],[-2,-1],[1,-1],[-2,0],[2,0],[-1,1],[2,1],[0,2],[1,2],[2,2],
                         [-3,-3],[-2,-3],[-1,-3],[0,-3],[-3,-2],[1,-2],[-3,-1],[2,-1],[-3,0],[3,0],[-2,1],[3,1],[-1,2],[3,2],[0,3],[1,3],[2,3],[3,3],
-                        [-4,-3],[1,-3],[-4,-2],[2,-2],[-4,-1],[3,-1],[-4,0],[4,0],[-3,1],[4,1],[-2,2],[4,2],[-1,3],[4,3],[-4,-4],[-3,-4],[-2,-4],[-1,-4],[0,-4],[1,4],[2,4],[3,4],[4,4]];
+                        [-4,-3],[1,-3],[-4,-2],[2,-2],[-4,-1],[3,-1],[-4,0],[4,0],[-3,1],[4,1],[-2,2],[4,2],[-1,3],[4,3],[-4,-4],[-3,-4],[-2,-4],[-1,-4],[0,-4],[0,4],[1,4],[2,4],[3,4],[4,4]];
 
 const importIdConversion = {
     1: "Siren",
@@ -892,7 +892,7 @@ function displayEspers() {
             var escapedName = escapeName(espers[index].name);
             console.log(escapedName);
             var owned = ownedEspers[espers[index].name] ? true : false;
-            tabs += "<li class=\"" + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
+            tabs += "<li class=\"esper " + escapedName + " " + (!owned ? 'notOwned' : '') +"\" "+
                     "data-esper=\"" + espers[index].name + "\" "+
                     "title=\"" + espers[index].name + (owned ? " (owned)" : " (not owned)") + "\"><a>";
             tabs += "<i class='img img-esper-" + escapedName +"'></i>";
@@ -1080,6 +1080,8 @@ function importEspers() {
                     $('.glassPanel').removeClass("hidden");
 
                     setTimeout(function() {
+                        ownedEspers = {};
+                        $("#tabs li.esper").addClass("notOwned");
                         importedEspers.forEach(esperData => {
                             importEsper(esperData.id, parseInt(esperData.rarity), parseInt(esperData.level), esperData.board);
                         });
@@ -1138,6 +1140,7 @@ function setEsperRarity(rarity) {
     ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[rarity]));
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+    $("#esperStar").val(rarity);
     setEsperLevel(maxLevelByStar[rarity]);
     showBoard(currentEsper, rarity);
     $(".stats").removeClass("invisible");
