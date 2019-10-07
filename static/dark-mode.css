@@ -142,7 +142,7 @@ body.dark input[disabled] {
     background: #303030;
 }
 
-body.dark body.dark input.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+body.dark .select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
     color: #ddd;
 }
 
@@ -190,10 +190,14 @@ body.dark .item .enhancements, body.dark .item.enhanced .itemName {
     color: #e74c3c;
 }
 
-#scrollToTopButton {
+body.dark #scrollToTopButton {
     background-color: #2a9fd6;
 }
 
+
+body.dark .enhancementType .value:hover {
+    color: #222;
+}
 
 /* Builder */
 

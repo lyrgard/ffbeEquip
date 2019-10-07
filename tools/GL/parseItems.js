@@ -641,8 +641,12 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         
         if (!Array.isArray(killerRaces)) {
             killerRaces = [killerRaces];
-            physicalPercents = [physicalPercents];
-            magicalPercents = [magicalPercents];
+        }
+        if (!Array.isArray(physicalPercents)) {
+            physicalPercents = new Array(killerRaces.length).fill(physicalPercents);
+        }
+        if (!Array.isArray(magicalPercents)) {
+            magicalPercents = new Array(killerRaces.length).fill(magicalPercents);
         }
         
         for (var raceIndex = 0; raceIndex < killerRaces.length; raceIndex++) {
