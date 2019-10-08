@@ -1012,7 +1012,7 @@ function populateUnitSelect() {
     selector.empty();
     selector.removeData();
     selector.html(options);
-    selector.change(onUnitChange);
+    selector.on("select2:select", onUnitChange);
     selector.select2({
         placeholder: 'Select a unit...',
         theme: 'bootstrap'
@@ -3596,7 +3596,7 @@ function startPage() {
     
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
     
-    $("#normalGoalChoice").change(function() {
+    $("#normalGoalChoice").on("select2:select", function() {
         customFormula = null;
         manageMulticast();
         onGoalChange();

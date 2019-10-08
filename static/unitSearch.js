@@ -1014,6 +1014,13 @@ function mustDisplaySkillForChainFamily(skill, effects, type, multicastSkills = 
                  return true;
              }
         }
+        if (effect.effect && effect.effect.randomlyUse) {
+            for (let i = 0; i < effect.effect.randomlyUse.length; i++) {
+                if (mustDisplaySkillForChainFamily(effect.effect.randomlyUse[i].skill, effect.effect.randomlyUse[i].skill.effects, type, multicastSkills)) {
+                    return true;
+                }
+            }
+        }
     }
 }
 
