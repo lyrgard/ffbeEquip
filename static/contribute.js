@@ -249,7 +249,7 @@ function startPage() {
         var itemId = $("#accessList").data("id");
         setAccess(itemId, getSelectedValuesFor("accessList"));
     });
-    addTextChoicesTo("accessList",'checkbox',{ 'Shop':'shop', 'Chest':'chest', 'Quest':'quest', 'Key':'key', 'Colosseum':'colosseum', 'Event':'event', 'Recipe':'recipe', 'Event Recipe':'recipe-event', 'Trophy':'trophy', 'Chocobo':'chocobo', 'Trial':'trial', 'STMR':'STMR', 'Not released yet':'not released yet'});
+    addTextChoicesTo("accessList",'checkbox',{ 'Shop':'shop', 'Recipe':'recipe', 'Chest':'chest', 'Chest Recipe':'recipe-chest', 'Quest':'quest', 'Key':'key', 'Chocobo':'chocobo', 'Event':'event', 'Event Recipe':'recipe-event', 'Trial':'trial', 'Trophy':'trophy', 'Colosseum':'colosseum', 'Premium':'premium', 'STMR':'STMR', 'TMR 5*':'TMR-5*', 'TMR 4*':'TMR-4*', 'TMR 3*':'TMR-3*', 'TMR 2*':'TMR-2*', 'TMR 1*':'TMR-1*', 'Not released yet':'not released yet'});
 }
   
 function inventoryLoaded() {
