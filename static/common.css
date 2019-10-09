@@ -973,6 +973,10 @@ p.linkInputCopied {
     flex-direction: column;
 }
 
+input.has-error {
+    border-color: rgba(255, 0, 0, 0.5) !important;
+}
+
 @media (max-width: 991px) {
 
     /* Adapt scroll button with button sidebar */

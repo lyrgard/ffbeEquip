@@ -327,10 +327,13 @@ function getUnitDisplay(unit, useTmrName = false) {
     if (!onlyShowOwnedUnits || ownedUnits[unit.id]) {
         var is7Stars = ownedUnits[unit.id] && ownedUnits[unit.id].sevenStar;
         html += '<div class="unit ' + unit.id;
-        if (ownedUnits[unit.id]) {
+        if (ownedUnits[unit.id] && (ownedUnits[unit.id].number || ownedUnits[unit.id].sevenStar)) {
             html += ' owned';
         } else {
             html += ' notOwned';
+        }
+        if (ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) {
+            html += ' tmrMoogles';
         }
         if (ownedUnits[unit.id] && ownedUnits[unit.id].farmable > 0) {
             html += ' farmable';
@@ -369,6 +372,7 @@ function getUnitDisplay(unit, useTmrName = false) {
             html += '<i class="img img-crystal-rainbowCrystal"></i>';
         }
         html += '<span class="ownedNumber base badge badge-success">' + (ownedUnits[unit.id] ? ownedUnits[unit.id].number : 0) + '</span></div>';
+        html += '<div class="tmrMoogles"><img src="img/units/unit_ills_904000103.png"></img><span class="ownedNumber badge badge-success" title="' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.map(p => p + '%').join(', ') : '') + '">' + ((ownedUnits[unit.id] && ownedUnits[unit.id].tmrMoogles) ? ownedUnits[unit.id].tmrMoogles.length : 0) + '</span></div>';
         html += '</div>'    
         
         
@@ -674,6 +678,12 @@ function editUnit(unitId) {
             '<input type="number" class="form-control" id="farmableSTMR" aria-describedby="emailHelp" placeholder="Enter farmable STMR number" value="' + (ownedUnits[unitId].farmableStmr || 0) + '">' +
           '</div>';
     }
+    if (tmrByUnitId[unitId]) {
+        form += '<div class="form-group">' +
+            '<label for="tmrMoogles">TMR Moogles owned</label>' +
+            '<input type="text" class="form-control" id="tmrMoogles" aria-describedby="emailHelp" placeholder="Enter values of tmr moogles, separated by coma" value="' + (ownedUnits[unitId].tmrMoogles? ownedUnits[unitId].tmrMoogles.join(", ") : "") + '">' +
+            '</div>'
+    }
     form += '</form>';
     Modal.show({
             title: 'Edit ' + unit.name,
@@ -690,7 +700,26 @@ function editUnit(unitId) {
                             ownedUnits[unitId].sevenStar = parseInt($("#ownedSeventStarNumber").val() || 0);
                             ownedUnits[unitId].farmableStmr = parseInt($("#farmableSTMR").val() || 0);
                         }
-                        if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0) {
+                        let tmrMooglesText = $('#tmrMoogles').val();
+                        let tmrMoogles = [];
+                        if (tmrMooglesText) {
+                            tmrMooglesText.split(",").forEach(text => {
+                                text = text.trim();
+                                if (isNaN(text) || !text) {
+                                    $('#tmrMoogles').addClass("has-error");
+                                    throw "wrong value for Tmr Moogles"
+                                } else {
+                                    tmrMoogles.push(+text);
+                                }
+                            });
+                        }
+                        $('#tmrMoogles').removeClass("has-error");
+                        if (tmrMoogles.length > 0) {
+                            ownedUnits[unitId].tmrMoogles = tmrMoogles;
+                        } else {
+                            delete ownedUnits[unitId].tmrMoogles;
+                        }
+                        if (ownedUnits[unitId].number == 0 && ownedUnits[unitId].farmable == 0 && !ownedUnits[unitId].tmrMoogles) {
                             if (unit.max_rarity != '7' || (ownedUnits[unitId].sevenStar == 0 && ownedUnits[unitId].farmableStmr == 0)) {
                                 delete ownedUnits[unitId];
                             }
@@ -1043,12 +1072,24 @@ function treatImportFile(evt) {
                 } else {
                     if (unit.id == '904000115') {
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
-                        if (baseUnitId && unit.tmr < 1000) {
+                        if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
                                 importedOwnedUnit[baseUnitId] = {"number":0,"farmable":1,"sevenStar":0,"farmableStmr":0};
                             } else {
                                 importedOwnedUnit[baseUnitId].farmable++;
                             }
+                        }
+                    } else if (unit.id == '904000103') {
+                        let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
+                        if (baseUnitId) {
+                            if (!importedOwnedUnit[baseUnitId]) {
+                                importedOwnedUnit[baseUnitId] = {"number":0,"farmable":0,"sevenStar":0,"farmableStmr":0, "tmrMoogles": []};
+                            } else {
+                                if (!importedOwnedUnit[baseUnitId].tmrMoogles) {
+                                    importedOwnedUnit[baseUnitId].tmrMoogles = [];
+                                }
+                            }
+                            importedOwnedUnit[baseUnitId].tmrMoogles.push(unit.tmr / 10);
                         }
                     } else if (!unit.id.startsWith('9')) {
                         let baseUnitId = baseUnitIdBySpecificRarityUnitId[unit.id];

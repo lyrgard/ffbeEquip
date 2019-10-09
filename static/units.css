@@ -422,10 +422,6 @@
     width: 24px;
 }
 
-.unit.notOwned .actions > .glyphicon.glyphicon-pencil {
-    display: none;
-}
-
 .unit.notOwned .awakenButton {
     display: none;
 }
@@ -528,6 +524,23 @@
 }
 
 .sevenStars .ownedNumbers .sevenStarNumber {
+    display: block;
+}
+
+.ownedNumbers .tmrMoogles {
+    display: none;
+    position: relative;
+    padding-left: 22px;
+}
+
+.ownedNumbers .tmrMoogles img {
+    width: 32px;
+    position: absolute;
+    top: -10px;
+    left: -6px;
+}
+
+.tmrMoogles .ownedNumbers .tmrMoogles {
     display: block;
 }
 
