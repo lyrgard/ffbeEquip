@@ -448,7 +448,7 @@ function updateUnitDisplay(unitId) {
     let owned = !!ownedUnits[unitId];
     let farmable = ownedUnits[unitId] && ownedUnits[unitId].farmable > 0;
     let farmableStmr = ownedUnits[unitId] && ownedUnits[unitId].farmableStmr > 0;
-    let hasTmrMoogles = ownedUnits[unitId] && ownedUnits[unitId].tmrMoogles && ownedUnits[unitId].tmrMoogles.length > 0;
+    let hasTmrMoogles = !!(ownedUnits[unitId] && ownedUnits[unitId].tmrMoogles && ownedUnits[unitId].tmrMoogles.length > 0) ;
     let awakenable = !unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unitId] && ownedUnits[unitId].number >= 1;
 
     let div = $(".unit." + unitId);
@@ -665,6 +665,9 @@ function awakenFollowUp(unitId) {
 }
 
 function editUnit(unitId) {
+    if (!ownedUnits[unitId]) {
+        ownedUnits[unitId] = {"number":0, "farmable":0, "sevenStar":0, "farmableStmr":0};
+    }
     let form = '<form>' +
       '<div class="form-group">' +
         '<label for="ownedNumber">Owned number</label>' +
