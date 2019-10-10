@@ -14,6 +14,7 @@ class DataStorage {
         this.onlyUseOwnedItemsAvailableForExpeditions = false;
         this.includeTrialRewards = false;
         this.includeTMROfOwnedUnits = false;
+        this.includeTmrMoogles = false;
         this.includeEasilyObtainableItems = false;
         this.includeChocoboItems = false;
         this.alreadyUsedItems = {};
@@ -626,6 +627,11 @@ class DataStorage {
         if (this.includeTMROfOwnedUnits) {
             if (item.tmrUnit && ownedUnits[item.tmrUnit]) {
                 totalNumber += ownedUnits[item.tmrUnit].farmable;
+            }
+        }
+        if (this.includeTmrMoogles) {
+            if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].tmrMoogles) {
+                totalNumber += ownedUnits[item.tmrUnit].tmrMoogles.length;
             }
         }
         if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {

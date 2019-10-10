@@ -148,6 +148,7 @@ const partyBuildSchema = Joi.object().keys({
             Joi.string().valid("includeEasilyObtainableItems"),
             Joi.string().valid("includeChocoboItems"),
             Joi.string().valid("includeTMROfOwnedUnits"),
+            Joi.string().valid("includeTmrMoogles"),
             Joi.string().valid("includeTrialRewards"),
             Joi.string().valid("exludeEvent"),
             Joi.string().valid("excludePremium"),
