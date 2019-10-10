@@ -7117,7 +7117,7 @@
 			{"name":"Demise of the Guardian Tree","levels":[[],[{"mag%":5,"mp%":5,"mpRefresh":3}],[{"mag%":7,"mp%":7,"mpRefresh":4}],[{"mag%":10,"mp%":10,"mpRefresh":5}]]}
 		],
 		"skills": [
-			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":50, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":10},
+			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":50, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":10, "allowUseOf":["robe"]},
 			{"mag%":30, "equipedConditions":["sword"]},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"equipedConditions":[["409029500","504230563"]]},

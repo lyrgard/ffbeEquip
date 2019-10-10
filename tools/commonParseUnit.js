@@ -395,6 +395,16 @@ function addEffectsToEffectList(effectList, effects) {
                     addToAilmentsList(effectList[0], effect.ailments[i]);
                 }
             }
+            if (effect.allowUseOf) {
+                if (!effectList[0].allowUseOf) {
+                    effectList[0].allowUseOf = [];
+                }
+                for (var i = 0, len = effect.allowUseOf.length; i < len; i++) {
+                    if (!effectList[0].allowUseOf.includes(effect.allowUseOf[i])) {
+                        effectList[0].allowUseOf.push(effect.allowUseOf[i])
+                    }
+                }
+            }
             if (effect.improvedDW) {
                 effectList[0].improvedDW = true;
             }
@@ -530,6 +540,12 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     // magical evade
     else if (rawEffect[1] == 3 && rawEffect[2] == 54 && rawEffect[3][0] == -1) {
         result.evade = {"magical":rawEffect[3][1]}
+        return [result];
+    }
+    
+    // allow use of
+    else if (rawEffect[2] == 5) {
+        result.allowUseOf = rawEffect[3].map(n => typeMap[n]);
         return [result];
     }
 
@@ -1824,7 +1840,7 @@ function getEquip(equipIn) {
     return equip;
 }
 
-var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
+var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWielding","singleWieldingOneHanded","dualWielding","improvedDW","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","lbDamage","esperStatsBonus","drawAttacks","skillEnhancement","replaceLb","special", "allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions", "equipedConditionIsOr","levelCondition","tmrUnit","access","icon"];
 
 function formatOutput(units) {
     var result = "{\n";

@@ -174,7 +174,7 @@ class UnitBuild {
     
     getCurrentUnitEquip() {
         var equip = this.unit.equip.concat(["accessory", "materia"]);
-        for (var index = 10; index--;) {
+        for (var index = this.build.length; index--;) {
             if (this.build[index] && this.build[index].allowUseOf) {
                 let allowUseOf = this.build[index].allowUseOf;
                 if (!Array.isArray(allowUseOf)) {
@@ -187,6 +187,15 @@ class UnitBuild {
                 });
             }
         }
+        this.unit.skills.forEach(skill => {
+           if (skill.allowUseOf && (!skill.levelCondition || skill.levelCondition <= this._level))  {
+               skill.allowUseOf.forEach(a => {
+                    if (!equip.includes(a)) {
+                        equip.push(a);
+                    }
+                });
+            }
+        });
         return equip.filter(e => !this._bannedEquipableTypes.includes(e));
     }
     

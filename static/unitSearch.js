@@ -650,6 +650,8 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
                     html += getSkillHtml(randomSkill.skill, unit, false, alreadyDisplayedSkills.concat(skill.id));
                     html += '</div>';
                 }
+            } else if (skill.effects[j].effect && skill.effects[j].effect.allowUseOf) {
+                html += '<span class="effect">Allow use of ' + skill.effects[j].effect.allowUseOf.map(eq => '<i class="img img-equipment-' + eq + '"></i>').join(", ") + '</span>';
             } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
                 html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
                 html += '<div class="subSkill">';
