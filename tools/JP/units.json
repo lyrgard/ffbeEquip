@@ -5272,6 +5272,36 @@
 			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"]
 		}
 	},
+	"100028003": {
+		"name":"Thanksgiving Moogle",
+		"jpname":"感謝祭モーグリ",
+		"id":"100028003",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2814,"mp":128,"atk":111,"def":95,"mag":88,"spr":90},
+			"minStats":{"hp":929,"mp":42,"atk":37,"def":31,"mag":29,"spr":30},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["hammer","spear","harp","mace","hat"]
+	},
+	"100029003": {
+		"name":"Anniversary Moogle",
+		"jpname":"アニバーサリーモーグリ",
+		"id":"100029003",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2814,"mp":128,"atk":111,"def":95,"mag":88,"spr":90},
+			"minStats":{"hp":929,"mp":42,"atk":37,"def":31,"mag":29,"spr":30},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["hammer","spear","harp","mace","hat"]
+	},
 	"201000104": {
 		"name":"Warrior of Light",
 		"jpname":"光の戦士",
@@ -6637,7 +6667,7 @@
 		}
 	},
 	"205001005": {
-		"name":"Dawn Warrior Galuf",
+		"name":"Warrior of Dawn Galuf",
 		"jpname":"暁の四戦士ガラフ",
 		"id":"205001005",
 		"max_rarity":"7",
@@ -6651,7 +6681,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Dawn Warrior Galuf",
+			"name":"Warrior of Dawn Galuf",
 			"jpname":"暁の四戦士ガラフ",
 			"id":"205001005",
 			"sixStarForm":true,
@@ -6730,7 +6760,7 @@
 		}
 	},
 	"205001305": {
-		"name":"Light Warrior Krile",
+		"name":"Warrior of Light Krile",
 		"jpname":"光の戦士クルル",
 		"id":"205001305",
 		"max_rarity":"7",
@@ -6744,7 +6774,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
 		"6_form": {
-			"name":"Light Warrior Krile",
+			"name":"Warrior of Light Krile",
 			"jpname":"光の戦士クルル",
 			"id":"205001305",
 			"sixStarForm":true,

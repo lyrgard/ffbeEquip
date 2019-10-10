@@ -121,7 +121,7 @@
     background-color: #ff8888;
 }
 
-.unit.notOwned {
+.unit.notOwned .ownedNumberDiv,.unit.notOwned .secondColumn, .unit.notOwned .thirdColumn {
     opacity: 0.3;
 }
 .unit .glyphicon-time {
@@ -544,6 +544,10 @@
     position: absolute;
     top: -10px;
     left: -6px;
+}
+
+.ownedNumbers .tmrMoogles .ownedNumber {
+    cursor: help;
 }
 
 .tmrMoogles .ownedNumbers .tmrMoogles {

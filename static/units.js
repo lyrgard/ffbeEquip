@@ -363,7 +363,7 @@ function getUnitDisplay(unit, useTmrName = false) {
         html += '>';
         html += '<div class="ownedNumbers">';
         html += '<div class="sevenStarNumber"><i class="img img-crystal-sevenStarCrystal"></i><span class="ownedNumber badge badge-success sevenStar">' + (ownedUnits[unit.id] ? (ownedUnits[unit.id].sevenStar || 0) : 0) + '</span></div>';
-        html += '<div>'
+        html += '<div class="ownedNumberDiv">'
         if (unit.min_rarity == 3) {
             html += '<i class="img img-crystal-blueCrystal"></i>';
         } else if (unit.min_rarity == 4) {
@@ -448,11 +448,13 @@ function updateUnitDisplay(unitId) {
     let owned = !!ownedUnits[unitId];
     let farmable = ownedUnits[unitId] && ownedUnits[unitId].farmable > 0;
     let farmableStmr = ownedUnits[unitId] && ownedUnits[unitId].farmableStmr > 0;
+    let hasTmrMoogles = ownedUnits[unitId] && ownedUnits[unitId].tmrMoogles && ownedUnits[unitId].tmrMoogles.length > 0;
     let awakenable = !unit.unreleased7Star && unit.max_rarity == 7 && ownedUnits[unitId] && ownedUnits[unitId].number >= 1;
 
     let div = $(".unit." + unitId);
     div.toggleClass("owned", owned);
     div.toggleClass("notOwned", !owned);
+    div.toggleClass("tmrMoogles", hasTmrMoogles);
     div.toggleClass("sevenStars", is7Stars);
     div.toggleClass("notSevenStars", !is7Stars);
     div.toggleClass("farmable", farmable);
@@ -466,6 +468,11 @@ function updateUnitDisplay(unitId) {
     if (is7Stars) {
         let owned7Stars = ownedUnits[unitId].sevenStar || 0;
         div.find(".ownedNumber.sevenStar.badge").html(owned7Stars);
+    }
+    if (hasTmrMoogles) {
+        let counter = div.find(".tmrMoogles .ownedNumber");
+        counter.html(ownedUnits[unitId].tmrMoogles.length);
+        counter.prop('title', ownedUnits[unitId].tmrMoogles.map(n => n + '%').join(', '));
     }
 
     if (owned) {

@@ -7440,8 +7440,8 @@
 		}
 	},
 	"205000905": {
-		"name":"Dark Mage Exdeath",
-		"wikiEntry":"暗黒魔道士エクスデス",
+		"name":"Dunkelmagier Exdeath",
+		"wikiEntry":"Dark_Mage Exdeath",
 		"id":"205000905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7453,8 +7453,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Demise of the Guardian Tree","levels":[[],[{"mag%":5,"mp%":5,"mpRefresh":3}],[{"mag%":7,"mp%":7,"mpRefresh":4}],[{"mag%":10,"mp%":10,"mpRefresh":5}]]}
+		],
 		"skills": [
-			{"hp%":40, "mp%":30, "atk%":20, "def%":20, "mag%":60, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":15},
+			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":50, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":10},
 			{"mag%":30, "equipedConditions":["sword"]},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"equipedConditions":[["409029500","504230563"]]},
@@ -7463,8 +7466,8 @@
 			{"mag%":40, "lbDamage":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Dark Mage Exdeath",
-			"wikiEntry":"暗黒魔道士エクスデス",
+			"name":"Dunkelmagier Exdeath",
+			"wikiEntry":"Dark_Mage Exdeath",
 			"id":"205000905",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7477,16 +7480,19 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Demise of the Guardian Tree","levels":[[],[{"mag%":5,"mp%":5,"mpRefresh":3}],[{"mag%":7,"mp%":7,"mpRefresh":4}],[{"mag%":10,"mp%":10,"mpRefresh":5}]]}
+		],
 			"skills": [
-				{"hp%":40, "mp%":30, "atk%":20, "def%":20, "mag%":60, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":15},
+				{"hp%":40, "mp%":20, "atk%":20, "def%":20, "mag%":50, "spr%":60, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"dark","percent":30},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"wind","percent":30},{"name":"earth","percent":30}], "killers":[{"name":"human","magical":50},{"name":"bird","magical":50},{"name":"beast","magical":50},{"name":"plant","magical":50},{"name":"bug","magical":50}], "mpRefresh":10},
 				{"mag%":30, "equipedConditions":["sword"]},
 				{"mag%":30, "equipedConditions":["rod"]}
 			]
 		}
 	},
 	"205001005": {
-		"name":"Dawn Warrior Galuf",
-		"wikiEntry":"暁の四戦士ガラフ",
+		"name":"Krieger der Morgendämmerung Galuf",
+		"wikiEntry":"Warrior_of Dawn Galuf",
 		"id":"205001005",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7498,8 +7504,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Fiery Spirit","levels":[[],[{"spr%":5,"mp%":5,"resist":[{"name":"fire","percent":10},{"name":"light","percent":10}]}],[{"spr%":7,"mp%":7,"resist":[{"name":"fire","percent":20},{"name":"light","percent":20}]}],[{"spr%":10,"mp%":10,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":70, "mp%":30, "atk%":50, "def%":80, "spr%":40, "evade":{"physical":10}, "resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":80},
+			{"hp%":70, "mp%":20, "atk%":50, "def%":80, "spr%":30, "evade":{"physical":10}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":80},
 			{"def%":20, "spr%":20, "equipedConditions":["sword"]},
 			{"atk%":30, "equipedConditions":["sword"]},
 			{"hp%":40, "def%":40, "equipedConditions":[["302007900","504230564"]]},
@@ -7508,8 +7517,8 @@
 			{"def%":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Dawn Warrior Galuf",
-			"wikiEntry":"暁の四戦士ガラフ",
+			"name":"Krieger der Morgendämmerung Galuf",
+			"wikiEntry":"Warrior_of Dawn Galuf",
 			"id":"205001005",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7522,8 +7531,11 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"Fiery Spirit","levels":[[],[{"spr%":5,"mp%":5,"resist":[{"name":"fire","percent":10},{"name":"light","percent":10}]}],[{"spr%":7,"mp%":7,"resist":[{"name":"fire","percent":20},{"name":"light","percent":20}]}],[{"spr%":10,"mp%":10,"resist":[{"name":"fire","percent":30},{"name":"light","percent":30}]}]]}
+		],
 			"skills": [
-				{"hp%":70, "mp%":30, "atk%":50, "def%":80, "spr%":40, "evade":{"physical":10}, "resist":[{"name":"fire","percent":30},{"name":"light","percent":30},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":80},
+				{"hp%":70, "mp%":20, "atk%":50, "def%":80, "spr%":30, "evade":{"physical":10}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "drawAttacks":80},
 				{"def%":20, "spr%":20, "equipedConditions":["sword"]},
 				{"atk%":30, "equipedConditions":["sword"]}
 			]
@@ -7618,8 +7630,8 @@
 		}
 	},
 	"205001305": {
-		"name":"Light Warrior Krile",
-		"wikiEntry":"光の戦士クルル",
+		"name":"Kriegerin des Lichts Krile",
+		"wikiEntry":"Warrior_of Light Krile",
 		"id":"205001305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7631,16 +7643,19 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"Mother Nature's Prediction","levels":[[],[{"def%":5,"hp%":5,"skillEnhancement":{"230575":1,"230592":0.3,"230593":0.3},"killers":[{"name":"beast","physical":15,"magical":15},{"name":"spirit","physical":15,"magical":15}]}],[{"def%":7,"hp%":7,"skillEnhancement":{"230575":1.15,"230592":0.4,"230593":0.4},"killers":[{"name":"beast","physical":20,"magical":20},{"name":"spirit","physical":20,"magical":20}]}],[{"def%":10,"hp%":10,"skillEnhancement":{"230575":1.3,"230592":0.5,"230593":0.5},"killers":[{"name":"beast","physical":25,"magical":25},{"name":"spirit","physical":25,"magical":25}]}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":40, "def%":30, "mag%":80, "spr%":60, "evoMag":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "mpRefresh":7, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}, "skillEnhancement":{"230575":1.3,"230592":0.5,"230593":0.5}},
+			{"hp%":20, "mp%":40, "def%":20, "mag%":80, "spr%":60, "evoMag":60, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":7, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}},
 			{"mag%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":100, "equipedConditions":[["504230561","403048300"]]},
-			{"mp%":20, "mag%":40, "lbDamage":30, "levelCondition":110},
+			{"mp%":20, "mag%":40, "lbDamage":30, "skillEnhancement":{"20390":5}, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
 			{"lbPerTurn":{"min":3,"max":3}, "skillEnhancement":{"230575":2.5,"230592":0.5,"230593":0.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Light Warrior Krile",
-			"wikiEntry":"光の戦士クルル",
+			"name":"Kriegerin des Lichts Krile",
+			"wikiEntry":"Warrior_of Light Krile",
 			"id":"205001305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7653,8 +7668,11 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"Mother Nature's Prediction","levels":[[],[{"def%":5,"hp%":5,"skillEnhancement":{"230575":1,"230592":0.3,"230593":0.3},"killers":[{"name":"beast","physical":15,"magical":15},{"name":"spirit","physical":15,"magical":15}]}],[{"def%":7,"hp%":7,"skillEnhancement":{"230575":1.15,"230592":0.4,"230593":0.4},"killers":[{"name":"beast","physical":20,"magical":20},{"name":"spirit","physical":20,"magical":20}]}],[{"def%":10,"hp%":10,"skillEnhancement":{"230575":1.3,"230592":0.5,"230593":0.5},"killers":[{"name":"beast","physical":25,"magical":25},{"name":"spirit","physical":25,"magical":25}]}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":40, "def%":30, "mag%":80, "spr%":60, "evoMag":30, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75,"magical":75},{"name":"spirit","physical":75,"magical":75}], "mpRefresh":7, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}, "skillEnhancement":{"230575":1.3,"230592":0.5,"230593":0.5}}
+				{"hp%":20, "mp%":40, "def%":20, "mag%":80, "spr%":60, "evoMag":60, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":7, "esperStatsBonus":{"spr":30,"mag":30,"def":30,"atk":30,"mp":30,"hp":30}}
 			]
 		}
 	},
