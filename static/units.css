@@ -105,6 +105,10 @@
     display: none;
 }
 
+.onlyTmrMoogles .unit:not(.tmrMoogles) {
+    display: none;
+}
+
 .sevenStars .numberDiv .glyphicon {
     color: #F9D2DA;
 }
@@ -309,6 +313,8 @@
     display: flex;
     flex-direction: column;
     padding-top: 6px;
+    flex-wrap: wrap;
+    max-height: 64px;
 }
 
 .checkboxGroup {

@@ -609,74 +609,80 @@ function displayUnitsAsync(units, start, div) {
     }
 }
 
-function getSkillHtml(skill, unit) {
+function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills = []) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/items/' + skill.icon + '"/></div>'
     html += '<div class="nameAndEffects"><div class="nameLine"><div><span class="name">' + skill.name;
-    if (skill.equipedConditions) {
-        html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
-    }
-    
-    let cooldownHtml = "";
-    if (skill.effects[0].effect && skill.effects[0].effect.cooldownSkill) {
-        cooldownHtml = '<span class="effect">Available turn ' + skill.effects[0].effect.startTurn + ' (' + skill.effects[0].effect.cooldownTurns + ' turns cooldown):</span>';
-        skill = skill.effects[0].effect.cooldownSkill;
-    }
-    
-    html += getDamageTypeHtml(skill.effects).join('');
-    html += getInnateElementsHtml(skill.effects).join('');
-    html += getChainFamilyHtml(skill);
-    
-    html += '</span></div>'
-    if (skill.rarity && skill.level) {
-        html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
-    }
-    html += '</div>';
-    html += cooldownHtml;
-    html += getWarningStrangeStatsUsed(skill.effects);
-    if (skill.unlockedBy) {
-        html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
-    }
-    
-    for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
-        if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
-            html += '<span class="effect">Randomly use :</span>';
-            for (var i = 0, len = skill.effects[j].effect.randomlyUse.length; i < len; i++) {
-                var randomSkill = skill.effects[j].effect.randomlyUse[i];
-                html += '<div class="subSkill">';
-                html += '<span class="percent">' + randomSkill.percent + '%</span>'
-                html += getSkillHtml(randomSkill.skill, unit);
-                html += '</div>';
-            }
-        } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
-            html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
-            html += '<div class="subSkill">';
-            html += getSkillHtml(skill.effects[j].effect.counterSkill, unit);
-            html += '</div>';
-        } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
-            html += '<span class="effect">Cast at the start of battle or when revived :</span>';
-            html += '<div class="subSkill">';
-            html += getSkillHtml(skill.effects[j].effect.autoCastedSkill, unit);
-            html += '</div>';
-        } else if (skill.effects[j].effect && skill.effects[j].effect.gainSkills) {
-            html += '<span class="effect">Gain for ';
-            if (skill.effects[j].effect.gainSkills.turns === 0) {
-                html += 'current turn'
-            } else {
-                html += skill.effects[j].effect.gainSkills.turns + ' turns';
-            }
-            html += ':</span>';
-            skill.effects[j].effect.gainSkills.skills.forEach(skill => {
-                let activesAndMagics = unit.actives.concat(unit.magics);
-                activesAndMagics.filter(gainedSkill => gainedSkill.id === skill.id).forEach(skill => {
-                    html += '<div class="subSkill">';
-                    html += getSkillHtml(skill, unit);
-                    html += '</div>';
-                });
-            });
-        } else {
-            html += '<span class="effect">' + getEffectDescription(skill.effects[j]) + '</span>';    
+    if (!alreadyDisplayedSkills.includes(skill.id)) {
+        
+        if (skill.equipedConditions) {
+            html += '<span class="condition">' + getEquipedCondition(skill) + '</span>';
         }
+
+        let cooldownHtml = "";
+        if (skill.effects[0].effect && skill.effects[0].effect.cooldownSkill) {
+            cooldownHtml = '<span class="effect">Available turn ' + skill.effects[0].effect.startTurn + ' (' + skill.effects[0].effect.cooldownTurns + ' turns cooldown):</span>';
+            skill = skill.effects[0].effect.cooldownSkill;
+        }
+
+        html += getDamageTypeHtml(skill.effects).join('');
+        html += getInnateElementsHtml(skill.effects).join('');
+        html += getChainFamilyHtml(skill);
+
+        html += '</span></div>'
+        if (skill.rarity && skill.level) {
+            html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
+        }
+        html += '</div>';
+        html += cooldownHtml;
+        html += getWarningStrangeStatsUsed(skill.effects);
+        if (topLevelSkill && skill.unlockedBy) {
+            html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
+        }
+
+        for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
+            if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
+                html += '<span class="effect">Randomly use :</span>';
+                for (var i = 0, len = skill.effects[j].effect.randomlyUse.length; i < len; i++) {
+                    var randomSkill = skill.effects[j].effect.randomlyUse[i];
+                    html += '<div class="subSkill">';
+                    html += '<span class="percent">' + randomSkill.percent + '%</span>'
+                    html += getSkillHtml(randomSkill.skill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+                    html += '</div>';
+                }
+            } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
+                html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
+                html += '<div class="subSkill">';
+                html += getSkillHtml(skill.effects[j].effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+                html += '</div>';
+            } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
+                html += '<span class="effect">Cast at the start of battle or when revived :</span>';
+                html += '<div class="subSkill">';
+                html += getSkillHtml(skill.effects[j].effect.autoCastedSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+                html += '</div>';
+            } else if (skill.effects[j].effect && skill.effects[j].effect.gainSkills) {
+                html += '<span class="effect">Gain for ';
+                if (skill.effects[j].effect.gainSkills.turns === 0) {
+                    html += 'current turn'
+                } else {
+                    html += skill.effects[j].effect.gainSkills.turns + ' turns';
+                }
+                html += ':</span>';
+                let skillId = skill.id;
+                skill.effects[j].effect.gainSkills.skills.forEach(skill => {
+                    let activesAndMagics = unit.actives.concat(unit.magics);
+                    activesAndMagics.filter(gainedSkill => gainedSkill.id === skill.id).forEach(gainedSkill => {
+                        html += '<div class="subSkill">';
+                        html += getSkillHtml(gainedSkill, unit, false, alreadyDisplayedSkills.concat(skillId).concat(gainedSkill.id));
+                        html += '</div>';
+                    });
+                });
+            } else {
+                html += '<span class="effect">' + getEffectDescription(skill.effects[j]) + '</span>';    
+            }
+        }
+    } else {
+        html += '</span></div></div>';
     }
     html += '</div></div>'; 
     return html;
@@ -1256,7 +1262,7 @@ function startPage() {
     
 	// Ailments
     addIconChoicesTo("ailments", 
-                     ailmentList.concat("stop", "charm", "break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "ailment",
+                     ailmentList.concat("break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "ailment",
                      function(v){return (v.indexOf('break') === 0 ? "Break " + v.replace('break_','').toUpperCase() : ucFirst(v))+" resistance"});
     addTextChoicesTo("ailmentsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("ailmentsTargetAreaTypes",'checkbox',{'Self':'SELF','ST':'ST', 'AOE':'AOE'});

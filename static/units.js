@@ -1070,7 +1070,7 @@ function treatImportFile(evt) {
                     importedOwnedUnit = null;
                     return;
                 } else {
-                    if (unit.id == '904000115') {
+                    if (unit.id == '904000115' && unit.tmr < 1000) {
                         let baseUnitId = baseUnitIdByTmrId[unit.tmrId]
                         if (baseUnitId) {
                             if (!importedOwnedUnit[baseUnitId]) {
@@ -1262,10 +1262,15 @@ function startPage() {
     $("#onlySevenStar").on('input', function () {
         $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
     });
+    $("#onlyTmrMoogles").on('input', function () {
+        $('body').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
+    });
     $('body').toggleClass('onlyOwnedUnits', $("#onlyOwnedUnits").prop('checked'));
     $('body').toggleClass('onlyTimeLimited', $("#onlyTimeLimited").prop('checked'));
     $(".onlySevenStarInoutGroup").toggleClass('hidden', !$("#onlyOwnedUnits").prop('checked'));
     $('body').toggleClass('onlySevenStar', $("#onlySevenStar").prop('checked'));
+    $('body').toggleClass('onlyTmrMoogles', $("#onlyTmrMoogles").prop('checked'));
+    
 }
 
 // create new JJV environment
