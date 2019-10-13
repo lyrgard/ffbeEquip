@@ -77,7 +77,7 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
     for (var index = 0, len = searchUnits.length; index < len; index++) {
         var unit = searchUnits[index];
         if (releasedUnits[unit.id]) {
-            if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id]) {
+            if (!onlyShowOwnedUnits || ownedUnits && ownedUnits[unit.id] && (ownedUnits[unit.id].number > 0 || ownedUnits[unit.id].sevenStar > 0)) {
                 if (baseRarity.length == 0 || baseRarity.includes(unit.minRarity)) {
                     if (maxRarity.length == 0 || maxRarity.includes(unit.maxRarity)) {
                         if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
