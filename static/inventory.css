@@ -173,6 +173,12 @@
     margin-left: -10px;
 }
 
+.nav-tabs .sellableItems img {
+    height: 40px;
+    margin: 5px;
+}
+
+
 #tabsRightData {
     position: absolute;
     right: 20px;
@@ -359,7 +365,7 @@
 #exportLinks {
     position: absolute;
     top: 15px;
-    left: 360px;
+    left: 440px;
     z-index: 1;
     margin-left: 10px;
     padding: 4px 6px;
@@ -385,13 +391,13 @@ a#exportLinks:hover {
 #importLink {
     position: absolute;
     top: 20px;
-    left: 530px;
+    left: 610px;
 }
 
 #exportLink {
     position: absolute;
     top: 20px;
-    left: 660px;
+    left: 740px;
 }
 
 .item.stmr {
@@ -482,6 +488,15 @@ a#exportLinks:hover {
 
 .items .tbody .tr .td, .results {
     border-top: none !important;
+}
+
+.betterItems {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+body.computing {
+    cursor: progress !important;
 }
 
 

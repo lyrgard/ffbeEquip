@@ -409,6 +409,9 @@
                             <li class="farmableStmr" onclick="showFarmableStmr()" title="Show obtainable STMR">
                                 <a><img src="/img/units/unit_ills_906000105.png"/></a>
                             </li>
+                            <li class="sellableItems" onclick="showSellableItems()" title="Show sellable items">
+                                <a><img src="/img/icons/gil.png"/></a>
+                            </li>
                             <li class="history" onclick="showHistory()" title="Show inventory by events">
                                 <a><i class='img img-tab-history tab'></i></a>
                             </li>
@@ -448,7 +451,11 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        
+                                        <div class="sellableItemsHeader" class="hidden">
+                                            <div><i class="fas fa-exclamation-triangle"></i> This is a work in progress</div>
+                                            <div>It displays the items you own, with no special abilities, for which you own at least 4 strictly better items</div>
+                                            <div>Hover on the second number to display the list of better owned items</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="results" class="">
@@ -596,7 +603,7 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -615,6 +622,8 @@
         <script src="constants.js"></script>
         <script src="common.js"></script>
         <script src="builder/common.js"></script>
+        <script src="builder/treeComparator.js"></script>
+        <script src="builder/itemPool.js"></script>
 		<script src="inventory.js"></script>
         <script src="googleAnalytics.js"></script>
     </body>

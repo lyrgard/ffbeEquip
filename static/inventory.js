@@ -21,6 +21,7 @@ function beforeShow(clearTabSelection = true) {
     $("#itemEnhancement").addClass("hidden");
     $("#results").removeClass("hidden");
     $("#loadMore").addClass('hidden');
+    $('.sellableItemsHeader').addClass('hidden');
     
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
@@ -31,6 +32,7 @@ function beforeShow(clearTabSelection = true) {
         $(".nav-tabs li.equipment").removeClass("active");
         $(".nav-tabs li.materia").removeClass("active");
         $(".nav-tabs li.farmableStmr").removeClass("active");
+        $(".nav-tabs li.sellableItems").removeClass("active");
         $(".nav-tabs li.history").removeClass("active");
         $(".nav-tabs li.settings").removeClass("active");
     }
@@ -73,11 +75,23 @@ function showFarmableStmr() {
     $('.searchHeader .stmrMoogleAvailableDiv').removeClass("hidden");
 }
 
+function showSellableItems() {
+    $('body').addClass("computing");
+    beforeShow();
+    $('.sellableItemsHeader').removeClass('hidden');
+    
+    $(".nav-tabs li.sellableItems").addClass("active");
+    $("#sortType").text("");
+    // filter, sort and display the results
+    showSearch();
+    displayStats();
+    $('body').removeClass("computing");
+}
+
 function showSearch() {
     
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
 
-    $("#searchBox").removeClass("hidden");
     // filter, sort and display the results
     var textToSearch = $("#searchBox").val();
     displayItems(sort(search(textToSearch)), inEquipment);
@@ -199,6 +213,7 @@ var displayItems = function(items, byType = false) {
     resultDiv.empty();
     displayId++;
     var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+    let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
     if (byType) {
         // Jump list display
         htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
@@ -216,7 +231,7 @@ var displayItems = function(items, byType = false) {
 
         displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'));
     } else {
-        displayItemsAsync(items, 0, resultDiv, displayId, inFarmableStmr);
+        displayItemsAsync(items, 0, resultDiv, displayId, inFarmableStmr, inSellableItems);
     }
 };
 
@@ -255,12 +270,12 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
     }
 }
 
-function displayItemsAsync(items, start, div, id, showStmrRecipe = false, max = 20) {
+function displayItemsAsync(items, start, div, id, showStmrRecipe = false, inSellableItems = false, max = 20) {
     var html = '';
     var end = Math.min(start + max, items.length);
     for (var index = start; index < end; index++) {
         if (items[index] === undefined || (items[index].id != "9999999999" && items[index].access.includes("not released yet") && !itemInventory[items[index].id])) continue;
-        html += getItemDisplay(items[index], showStmrRecipe);
+        html += getItemDisplay(items[index], showStmrRecipe, inSellableItems);
     }
 
     if (id == displayId) {
@@ -270,14 +285,14 @@ function displayItemsAsync(items, start, div, id, showStmrRecipe = false, max = 
         if (start === 0 || index >= items.length) lazyLoader.update();
         // Launch next run of type
         if (index < items.length) {
-            setTimeout(displayItemsAsync, 0, items, index, div, id, showStmrRecipe);
+            setTimeout(displayItemsAsync, 0, items, index, div, id, showStmrRecipe, inSellableItems);
         } else {
             setTooltips();
         }
     }
 }
 
-function getItemDisplay(item, showStmrRecipe = false)
+function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
 {
     var html = "";
 
@@ -297,28 +312,45 @@ function getItemDisplay(item, showStmrRecipe = false)
     if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) {
         html += ' maxNumberOverflow';
     }
-    if (showStmrRecipe && item.stmrAccess) {
+    if (inSellableItems) {
+        html += '">';
+    } else if (showStmrRecipe && item.stmrAccess) {
         html += ' stmr">';
     } else {
         html += '" onclick="addToInventory(\'' + escapeQuote(item.id) + '\')">';
     }
+
     if (showStmrRecipe && item.stmrAccess) {
         html += '<div class="wrapperForStmr">'
     }
     if (itemInventory) {
         html+= '<div class="td inventory">';
-        html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
+        if (!inSellableItems) {
+            html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
+        }
         html += '<span class="number badge badge-success">';
         if (itemInventory[item.id]) {
             html += itemInventory[item.id];
         }
         html += '</span>';
-        html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
-        html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
-        if (weaponList.includes(item.type)) {
-            html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></img>';
-        }
-        html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
+        if (!inSellableItems) {
+            html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
+            html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
+            if (weaponList.includes(item.type)) {
+                html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></img>';
+            }
+            html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
+        } else {
+            let betterItemsNumber = 0;
+            let betterItemsString = '';
+            Object.keys(betterItemsByIds[item.id]).forEach(id => {
+                let entry = betterItemsByIds[item.id][id];
+                betterItemsNumber += entry.available;
+                betterItemsString += ', ' + entry.name + ' x' + entry.available;
+            });
+            betterItemsString = betterItemsString.substr(2);
+            html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
+        }   
         html += '</div>';
     }
     html += getImageHtml(item) + getNameColumnHtml(item);
@@ -522,6 +554,7 @@ function search(textToSearch) {
     let result = [];
     let inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
+    let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
     let onlyTimeLimited = $('#onlyTimeLimited').prop('checked');
     
     var itemsToSearch = [];
@@ -535,6 +568,9 @@ function search(textToSearch) {
             itemsToSearch = itemsToSearch.filter(stmr => units[stmr.stmrUnit].summon_type === 'event')
         }
         farmableStmrLastSearch = textToSearch;
+    } else if (inSellableItems) {
+        textToSearch = "";
+        itemsToSearch = getSellableItems();
     } else {
         // In materia tab
         itemsToSearch = materia;
@@ -555,28 +591,106 @@ function search(textToSearch) {
     return result;
 }
 
-function keepOnlyOneOfEachEquipement() {
+function getSellableItems() {
+    let enemyStats = {
+        "races": killerList,
+        "def": 100,
+        "spr": 100,
+        "elementalResists": {"dark": 0,"light": 0,"earth": 0,"wind": 0,"water": 0,"lightning": 0,"ice": 0,"fire": 0},
+        "breaks": {"atk": 0,"def": 0,"mag": 0,"spr": 0},
+        "buffs": {"atk": 0,"def": 0,"mag": 0,"spr": 0},
+        "breakability": {"atk": true,"def": true,"mag": true,"spr": true},
+        "imperils": {"fire": 0,"ice": 0,"lightning": 0,"water": 0,"earth": 0,"wind": 0,"light": 0,"dark": 0}
+    }
+    let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
+    
+    let sellableItemIds = [];
+    typeList.forEach(type => {
+        let itemPool = new ItemPool(9999, involvedStats, enemyStats, elementList, [], [], true, true);
+        let items = equipments.concat(materia).filter(item => !item.allowUseOf && !item.special && item.type === type && itemInventory[item.id]).map(item => {
+            let itemEntry = {
+                "item":item, 
+                "name":item.name, 
+                "defenseValue":0,
+                "mpValue":0,
+                "available":itemInventory[item.id],
+                "owned": true,
+                "ownedNumber": itemInventory[item.id]
+            }
+            for (var index = 0, len = baseStats.length; index < len; index++) {
+                item['total_' + baseStats[index]] = item[baseStats[index] + '%'] || 0;
+            }
+            return itemEntry;
+        });
+        itemPool.addItems(items);
+        itemPool.prepare();
+        let alreadyManagedGroupIds = [];
+        itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds)});    
+    });
+    
+    return data.filter(i => sellableItemIds.includes(i.id));
+}
+
+let betterItemsByIds = {};
+
+function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, currentBetterItemsNumber = 0) {
+    if (alreadyManagedGroupIds.includes(group.id)) {
+        return;
+    }
+    alreadyManagedGroupIds.push(group.id);
+    if (currentBetterItemsNumber > 4) {
+        let betterItems = {};
+        findBetterItemList(itemPool, group, betterItems);
+        group.equivalents.forEach(itemEntry => {
+            let id = itemEntry.item.id;
+            if (!sellableItemIds.includes(id)) {
+                sellableItemIds.push(id);
+                betterItemsByIds[id] = betterItems;
+            }
+        }) 
+    }
+    if (itemPool.lesserGroupsById[group.id]) {
+        itemPool.lesserGroupsById[group.id].forEach(id => {
+            findSellableItems(itemPool, itemPool.groupByIds[id], sellableItemIds, alreadyManagedGroupIds, currentBetterItemsNumber + group.available);
+        });
+    }
+}
+
+function findBetterItemList(itemPool, group, betterItems) {
+    if (group.betterGroups && group.betterGroups.length > 0) {
+        group.betterGroups.forEach(id => {
+            let betterGroup = itemPool.groupByIds[id];
+            findBetterItemList(itemPool, betterGroup, betterItems);
+            betterGroup.equivalents.forEach(eq => {
+                let name = eq.name + ' x' + eq.available;
+                if (!betterItems[eq.item.id]) {
+                    betterItems[eq.item.id] = eq;
+                }
+            });
+        });
+    }
+}
+
+function keepOnlyOneOfEach(data) {
     var tempResult = {};
     for (var index in data) {
         var item = data[index];
-        if (item.type != "materia") {
-            if (tempResult[item.id]) {
-                var alreadyPutItem = tempResult[item.id];
-                if (item.equipedConditions) {
-                    if (alreadyPutItem.equipedConditions) {
-                        if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
-                            tempResult[item.id] = item;
-                        }
-                    } else {
+        if (tempResult[item.id]) {
+            var alreadyPutItem = tempResult[item.id];
+            if (item.equipedConditions) {
+                if (alreadyPutItem.equipedConditions) {
+                    if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
                         tempResult[item.id] = item;
                     }
-                }
-                if (item.exclusiveUnits) {
+                } else {
                     tempResult[item.id] = item;
                 }
-            } else {
+            }
+            if (item.exclusiveUnits) {
                 tempResult[item.id] = item;
             }
+        } else {
+            tempResult[item.id] = item;
         }
     }
     
@@ -588,40 +702,6 @@ function keepOnlyOneOfEachEquipement() {
     return result;
 }
 
-function keepOnlyOneOfEachMateria() {
-    var result = [];
-    
-    var tempResult = {};
-    for (var index in data) {
-        var item = data[index];
-        if (item.type == "materia") {
-            if (tempResult[item.id]) {
-                var alreadyPutItem = tempResult[item.id];
-                if (item.equipedConditions) {
-                    if (alreadyPutItem.equipedConditions) {
-                        if (item.equipedConditions.length > alreadyPutItem.equipedConditions.length) {
-                            tempResult[item.id] = item;
-                        }
-                    } else {
-                        tempResult[item.id] = item;
-                    }
-                }
-                if (item.exclusiveUnits) {
-                    tempResult[item.id] = item;
-                }
-            } else {
-                tempResult[item.id] = item;
-            }
-        }
-    }
-    
-    for (var index in tempResult) {
-        result.push(tempResult[index]);
-        itemsById[tempResult[index].id] = tempResult[index];
-    }
-    
-    return result;
-}
 
 function keepOnlyStmrs() {
     stmrs = equipments.filter(item => {
@@ -1147,8 +1227,8 @@ function startPage() {
         getStaticData("units", true, function(unitResult) {
             units = unitResult;
             prepareSearch(data);
-            equipments = keepOnlyOneOfEachEquipement();
-            materia = keepOnlyOneOfEachMateria();
+            equipments = keepOnlyOneOfEach(data.filter(d => d.type != "materia"));
+            materia = keepOnlyOneOfEach(data.filter(d => d.type == "materia"));
             if (itemInventory) {
                 showEquipments();
             }
