@@ -91,10 +91,11 @@ function showSellableItems() {
 function showSearch() {
     
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
+    var inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
 
     // filter, sort and display the results
     var textToSearch = $("#searchBox").val();
-    displayItems(sort(search(textToSearch)), inEquipment);
+    displayItems(sort(search(textToSearch)), inEquipment || inSellableItems);
     if (textToSearch) {
         $("#sortType").text("");
     }
@@ -229,13 +230,13 @@ var displayItems = function(items, byType = false) {
         htmlTypeJump += '</div>';
         resultDiv.append(htmlTypeJump);
 
-        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'));
+        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'), inFarmableStmr, inSellableItems);
     } else {
         displayItemsAsync(items, 0, resultDiv, displayId, inFarmableStmr, inSellableItems);
     }
 };
 
-function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
+function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr = false, inSellableItems = false) {
     // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
     var currentItemTypeImgHtml = '<i class="img img-equipment-' + currentItemType + '"/>';
@@ -247,7 +248,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
         if (item === undefined || (item.id != "9999999999" && item.access.includes("not released yet") && !itemInventory[item.id])) continue;
 
         if (item.type === currentItemType) {
-            html += getItemDisplay(item);
+            html += getItemDisplay(item, inFarmableStmr, inSellableItems);
         } else {
             break;
         }
@@ -263,7 +264,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv) {
         if (start === 0 || index >= items.length) lazyLoader.update();
         // Launch next run of type
         if (index < items.length) {
-            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv);
+            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv, inFarmableStmr, inSellableItems);
         } else {
             setTooltips();
         }
@@ -303,7 +304,7 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
     if (item.tmrUnit && ownedUnits[item.tmrUnit] && ownedUnits[item.tmrUnit].farmable > 0) {
         html += ' farmable';
     }
-    if (itemInventory.enchantments[item.id]) {
+    if (itemInventory.enchantments[item.id] && (!inSellableItems || item.enchantments)) {
         html += ' enhanced';
     }
     if (itemInventory.excludeFromExpeditions && itemInventory.excludeFromExpeditions.includes(item.id)) {
@@ -330,7 +331,15 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
         }
         html += '<span class="number badge badge-success">';
         if (itemInventory[item.id]) {
-            html += itemInventory[item.id];
+            if (inSellableItems && itemInventory.enchantments[item.id]) {
+                if (item.enchantments) {
+                    html += '1';
+                } else {
+                    html += itemInventory[item.id] - itemInventory.enchantments[item.id].length;
+                }
+            } else {
+                html += itemInventory[item.id];
+            }
         }
         html += '</span>';
         if (!inSellableItems) {
@@ -341,15 +350,19 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
             }
             html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
         } else {
-            let betterItemsNumber = 0;
-            let betterItemsString = '';
-            Object.keys(betterItemsByIds[item.id]).forEach(id => {
-                let entry = betterItemsByIds[item.id][id];
-                betterItemsNumber += entry.available;
-                betterItemsString += ', ' + entry.name + ' x' + entry.available;
-            });
-            betterItemsString = betterItemsString.substr(2);
-            html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
+            if (item.access.includes("shop")) {
+                html += '<span class="betterItems" title="Can be bought in a shop"><i class="fas fa-shopping-cart"></i></span>';
+            } else {
+                let betterItemsNumber = 0;
+                let betterItemsString = '';
+                Object.keys(betterItemsByIds[item.id]).forEach(id => {
+                    let entry = betterItemsByIds[item.id][id];
+                    betterItemsNumber += entry.available;
+                    betterItemsString += ', ' + entry.name + ' x' + entry.available;
+                });
+                betterItemsString = betterItemsString.substr(2);
+                html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
+            }
         }   
         html += '</div>';
     }
@@ -605,30 +618,47 @@ function getSellableItems() {
     let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
     
     let sellableItemIds = [];
+    let baseItemsToSearchIn = equipments.concat(materia).filter(item => !item.exclusiveUnits && !item.equipedConditions && itemInventory[item.id]);
+    let itemEntriesToSearchIn = [];
+    baseItemsToSearchIn.forEach(item => {
+        if (itemInventory.enchantments[item.id]) {
+            itemInventory.enchantments[item.id].forEach(enhancements => {
+                itemEntriesToSearchIn.push(getItemEntry(applyEnhancements(item, enhancements), 1, JSON.stringify(enhancements) ," (IW)"));
+            });
+            if (itemInventory[item.id] > itemInventory.enchantments[item.id].length) {
+                itemEntriesToSearchIn.push(getItemEntry(item, itemInventory[item.id] - itemInventory.enchantments[item.id].length));
+            }
+        } else {
+            itemEntriesToSearchIn.push(getItemEntry(item, itemInventory[item.id]));
+        }
+    });
     typeList.forEach(type => {
-        let itemPool = new ItemPool(9999, involvedStats, enemyStats, elementList, [], [], true, true);
-        let items = equipments.concat(materia).filter(item => !item.partialDualWield && !item.equipedConditions && !item.allowUseOf && !item.special && item.type === type && itemInventory[item.id]).map(item => {
-            let itemEntry = {
-                "item":item, 
-                "name":item.name, 
-                "defenseValue":0,
-                "mpValue":0,
-                "available":itemInventory[item.id],
-                "owned": true,
-                "ownedNumber": itemInventory[item.id]
-            }
-            for (var index = 0, len = baseStats.length; index < len; index++) {
-                item['total_' + baseStats[index]] = item[baseStats[index] + '%'] || 0;
-            }
-            return itemEntry;
-        });
+        let itemPool = new ItemPool(9999, involvedStats, enemyStats, elementList.concat(["none"]), [], [], true, true);
+        let items = itemEntriesToSearchIn.filter(entry => entry.item.type == type);
         itemPool.addItems(items);
         itemPool.prepare();
         let alreadyManagedGroupIds = [];
         itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds)});    
     });
     
-    return equipments.concat(materia).filter(i => sellableItemIds.includes(i.id));
+    return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.access.includes("shop") || !entry.item.partialDualWield && !entry.item.equipedConditions && !entry.item.allowUseOf && !entry.item.special && sellableItemIds.includes(entry.id))).map(entry => entry.item);
+}
+
+function getItemEntry(item, number, enhancements = "",additionalText = "") {
+    let itemEntry = {
+        "item":item,
+        "name":item.name + additionalText,
+        "defenseValue":0,
+        "mpValue":0,
+        "available":number,
+        "owned": true,
+        "ownedNumber": number,
+        "id": item.id + enhancements
+    }
+    for (var index = 0, len = baseStats.length; index < len; index++) {
+        item['total_' + baseStats[index]] = item[baseStats[index] + '%'] || 0;
+    }
+    return itemEntry;
 }
 
 let betterItemsByIds = {};
@@ -646,7 +676,7 @@ function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroup
         let betterItems = {};
         findBetterItemList(itemPool, group, betterItems);
         group.equivalents.forEach(itemEntry => {
-            let id = itemEntry.item.id;
+            let id = itemEntry.id;
             if (!sellableItemIds.includes(id)) {
                 sellableItemIds.push(id);
                 betterItemsByIds[id] = betterItems;
