@@ -628,17 +628,21 @@ function getSellableItems() {
         itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds)});    
     });
     
-    return data.filter(i => sellableItemIds.includes(i.id));
+    return equipments.concat(materia).filter(i => sellableItemIds.includes(i.id));
 }
 
 let betterItemsByIds = {};
 
-function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, currentBetterItemsNumber = 0) {
+function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds) {
     if (alreadyManagedGroupIds.includes(group.id)) {
         return;
     }
     alreadyManagedGroupIds.push(group.id);
-    if (currentBetterItemsNumber > 4) {
+    let betterItemsNumbers = 0;
+    group.betterGroups.forEach(betterGroupId => {
+        betterItemsNumbers += itemPool.groupByIds[betterGroupId].available;
+    });
+    if (betterItemsNumbers > 4) {
         let betterItems = {};
         findBetterItemList(itemPool, group, betterItems);
         group.equivalents.forEach(itemEntry => {
@@ -651,7 +655,7 @@ function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroup
     }
     if (itemPool.lesserGroupsById[group.id]) {
         itemPool.lesserGroupsById[group.id].forEach(id => {
-            findSellableItems(itemPool, itemPool.groupByIds[id], sellableItemIds, alreadyManagedGroupIds, currentBetterItemsNumber + group.available);
+            findSellableItems(itemPool, itemPool.groupByIds[id], sellableItemIds, alreadyManagedGroupIds);
         });
     }
 }
@@ -660,9 +664,7 @@ function findBetterItemList(itemPool, group, betterItems) {
     if (group.betterGroups && group.betterGroups.length > 0) {
         group.betterGroups.forEach(id => {
             let betterGroup = itemPool.groupByIds[id];
-            findBetterItemList(itemPool, betterGroup, betterItems);
             betterGroup.equivalents.forEach(eq => {
-                let name = eq.name + ' x' + eq.available;
                 if (!betterItems[eq.item.id]) {
                     betterItems[eq.item.id] = eq;
                 }
