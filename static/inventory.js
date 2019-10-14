@@ -695,8 +695,8 @@ function findBetterItemList(itemPool, group, betterItems) {
         group.betterGroups.forEach(id => {
             let betterGroup = itemPool.groupByIds[id];
             betterGroup.equivalents.forEach(eq => {
-                if (!betterItems[eq.item.id]) {
-                    betterItems[eq.item.id] = eq;
+                if (!betterItems[eq.id]) {
+                    betterItems[eq.id] = eq;
                 }
             });
         });
