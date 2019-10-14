@@ -607,7 +607,7 @@ function getSellableItems() {
     let sellableItemIds = [];
     typeList.forEach(type => {
         let itemPool = new ItemPool(9999, involvedStats, enemyStats, elementList, [], [], true, true);
-        let items = equipments.concat(materia).filter(item => !item.allowUseOf && !item.special && item.type === type && itemInventory[item.id]).map(item => {
+        let items = equipments.concat(materia).filter(item => !item.partialDualWield && !item.equipedConditions && !item.allowUseOf && !item.special && item.type === type && itemInventory[item.id]).map(item => {
             let itemEntry = {
                 "item":item, 
                 "name":item.name, 
