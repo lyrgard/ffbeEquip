@@ -24,6 +24,7 @@ function beforeShow(clearTabSelection = true) {
     $("#results").removeClass("hidden");
     $("#loadMore").addClass('hidden');
     $('.sellableItemsHeader').addClass('hidden');
+    $('.enhancementCandidatesHeader').addClass('hidden');
     
     // Hidden by default, enabled by materia and equipment tabs
     $("#searchBox").addClass("hidden");
@@ -35,6 +36,7 @@ function beforeShow(clearTabSelection = true) {
         $(".nav-tabs li.materia").removeClass("active");
         $(".nav-tabs li.farmableStmr").removeClass("active");
         $(".nav-tabs li.sellableItems").removeClass("active");
+        $(".nav-tabs li.enhancementCandidates").removeClass("active");
         $(".nav-tabs li.history").removeClass("active");
         $(".nav-tabs li.settings").removeClass("active");
     }
@@ -90,14 +92,28 @@ function showSellableItems() {
     $('body').removeClass("computing");
 }
 
+function showEnhancementCandidates() {
+    $('body').addClass("computing");
+    beforeShow();
+    $('.enhancementCandidatesHeader').removeClass('hidden');
+    
+    $(".nav-tabs li.enhancementCandidates").addClass("active");
+    $("#sortType").text("");
+    // filter, sort and display the results
+    showSearch();
+    displayStats();
+    $('body').removeClass("computing");
+}
+
 function showSearch() {
     
     var inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     var inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+    let inEnhancementCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
 
     // filter, sort and display the results
     var textToSearch = $("#searchBox").val();
-    displayItems(sort(search(textToSearch)), inEquipment || inSellableItems);
+    displayItems(sort(search(textToSearch)), inEquipment || inSellableItems || inEnhancementCandidates);
     if (textToSearch) {
         $("#sortType").text("");
     }
@@ -113,7 +129,6 @@ function showHistory() {
     var $resultDiv = $("#results").empty();
     displayId++;
     displayItemsByHistoryAsync(0, 4, displayId, $resultDiv);
-    afterShow();
 }
 
 function setTooltips() {
@@ -217,6 +232,7 @@ var displayItems = function(items, byType = false) {
     displayId++;
     var inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
     let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+    let inEnhancementCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
     if (byType) {
         // Jump list display
         htmlTypeJump = '<div class="typeJumpList" data-html2canvas-ignore>';
@@ -232,13 +248,13 @@ var displayItems = function(items, byType = false) {
         htmlTypeJump += '</div>';
         resultDiv.append(htmlTypeJump);
 
-        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'), inFarmableStmr, inSellableItems);
+        displayItemsByTypeAsync(items, 0, resultDiv, displayId, resultDiv.find('.typeJumpList'), inFarmableStmr, inSellableItems, inEnhancementCandidates);
     } else {
         displayItemsAsync(items, 0, resultDiv, displayId, inFarmableStmr, inSellableItems);
     }
 };
 
-function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr = false, inSellableItems = false) {
+function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr = false, inSellableItems = false, inEnhancementCandidates = false) {
     // Set item type for this run and various useful vars
     var currentItemType = items[start].type;
     var currentItemTypeImgHtml = '<i class="img img-equipment-' + currentItemType + '"/>';
@@ -266,7 +282,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr 
         if (start === 0 || index >= items.length) lazyLoader.update();
         // Launch next run of type
         if (index < items.length) {
-            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv, inFarmableStmr, inSellableItems);
+            setTimeout(displayItemsByTypeAsync, 0, items, index, div, id, jumpDiv, inFarmableStmr, inSellableItems, inEnhancementCandidates);
         } else {
             setTooltips();
         }
@@ -295,7 +311,7 @@ function displayItemsAsync(items, start, div, id, showStmrRecipe = false, inSell
     }
 }
 
-function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
+function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false, inEnhancementsCandidates = false)
 {
     var html = "";
 
@@ -315,7 +331,7 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
     if (itemInventory[item.id] && item.maxNumber && itemInventory[item.id] > item.maxNumber) {
         html += ' maxNumberOverflow';
     }
-    if (inSellableItems) {
+    if (inSellableItems ||inSellableItems) {
         html += '">';
     } else if (showStmrRecipe && item.stmrAccess) {
         html += ' stmr">';
@@ -328,12 +344,12 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
     }
     if (itemInventory) {
         html+= '<div class="td inventory">';
-        if (!inSellableItems) {
+        if (!inSellableItems && !inEnhancementsCandidates) {
             html += '<span class="glyphicon glyphicon-plus" onclick="event.stopPropagation();addToInventory(\'' + escapeQuote(item.id) + '\')" />';
         }
         html += '<span class="number badge badge-success">';
         if (itemInventory[item.id]) {
-            if (inSellableItems && itemInventory.enchantments[item.id]) {
+            if ((inSellableItems || inEnhancementsCandidates) && itemInventory.enchantments[item.id]) {
                 if (item.enchantments) {
                     html += '1';
                 } else {
@@ -344,7 +360,7 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
             }
         }
         html += '</span>';
-        if (!inSellableItems) {
+        if (!inSellableItems && !inEnhancementsCandidates) {
             html += '<span class="glyphicon glyphicon-minus" onclick="event.stopPropagation();removeFromInventory(\'' + item.id + '\');" />';
             html += '<img class="farmedButton" onclick="event.stopPropagation();farmedTMR(' + item.tmrUnit + ')" src="/img/units/unit_ills_904000105.png" title="TMR Farmed ! Click here to indicate you farmed this TMR. It will decrease the number you can farm and increase the number you own this TMR by 1"></img>';
             if (weaponList.includes(item.type)) {
@@ -581,6 +597,7 @@ function search(textToSearch) {
     let inEquipment = $(".nav-tabs li.equipment").hasClass("active");
     let inFarmableStmr = $(".nav-tabs li.farmableStmr").hasClass("active");
     let inSellableItems = $(".nav-tabs li.sellableItems").hasClass("active");
+    let inEnhancementsCandidates = $(".nav-tabs li.enhancementCandidates").hasClass("active");
     let onlyTimeLimited = $('#onlyTimeLimited').prop('checked');
     
     var itemsToSearch = [];
@@ -597,6 +614,9 @@ function search(textToSearch) {
     } else if (inSellableItems) {
         textToSearch = "";
         itemsToSearch = getSellableItems();
+    } else if (inEnhancementsCandidates) {
+        textToSearch = "";
+        itemsToSearch = getEnhancementCandidates();
     } else {
         // In materia tab
         itemsToSearch = materia;
@@ -615,6 +635,62 @@ function search(textToSearch) {
     }
     
     return result;
+}
+
+function getEnhancementCandidates() {
+    let searchDepth = parseInt($('#enhancementCandidatesSearchDepth').val() || 1);
+    let enemyStats = {
+        "races": killerList,
+        "def": 100,
+        "spr": 100,
+        "elementalResists": {"dark": 0,"light": 0,"earth": 0,"wind": 0,"water": 0,"lightning": 0,"ice": 0,"fire": 0},
+        "breaks": {"atk": 0,"def": 0,"mag": 0,"spr": 0},
+        "buffs": {"atk": 0,"def": 0,"mag": 0,"spr": 0},
+        "breakability": {"atk": true,"def": true,"mag": true,"spr": true},
+        "imperils": {"fire": 0,"ice": 0,"lightning": 0,"water": 0,"earth": 0,"wind": 0,"light": 0,"dark": 0}
+    }
+    let involvedStats = baseStats.concat(["physicalKiller", "magicalKiller","meanDamageVariance", "evoMag", "jumpDamage", "lbDamage", "drawAttacks", "lbPerTurn", "evade.physical", "evade.magical", "mpRefresh"]).concat(ailmentList.map(a => 'resist|' + a + '.percent')).concat(elementList.map(e => 'resist|' + e + '.percent'));
+    
+    let candidateItemIds = [];
+    let baseItemsToSearchIn = equipments.filter(item => weaponList.includes(item.type) && itemInventory[item.id]);
+    let itemEntriesToSearchIn = [];
+    baseItemsToSearchIn.forEach(item => {
+        if (itemInventory.enchantments[item.id]) {
+            itemInventory.enchantments[item.id].forEach(enhancements => {
+                itemEntriesToSearchIn.push(getItemEntry(applyEnhancements(item, enhancements), 1, JSON.stringify(enhancements) ," (IW)"));
+            });
+            if (itemInventory[item.id] > itemInventory.enchantments[item.id].length) {
+                itemEntriesToSearchIn.push(getItemEntry(item, itemInventory[item.id] - itemInventory.enchantments[item.id].length));
+            }
+        } else {
+            itemEntriesToSearchIn.push(getItemEntry(item, itemInventory[item.id]));
+        }
+    });
+    let byTypeAndElements = {};
+    itemEntriesToSearchIn.forEach(entry => {
+        if (weaponList.includes(entry.item.type)) {
+            if (!byTypeAndElements[entry.item.type]) {
+                byTypeAndElements[entry.item.type] = {};
+            }
+            let elements = getItemElementsKey(entry.item);
+            if (!byTypeAndElements[entry.item.type][elements]) {
+                byTypeAndElements[entry.item.type][elements] = [];
+            }
+            byTypeAndElements[entry.item.type][elements].push(entry);
+        } else {
+            if (!byTypeAndElements[entry.item.type]) {
+                byTypeAndElements[entry.item.type] = [];
+            }
+            byTypeAndElements[entry.item.type].push(entry);
+        }
+    });
+    typeList.forEach(type => {
+        if (byTypeAndElements[type]) {
+            Object.keys(byTypeAndElements[type]).forEach(elements => treatTypeForEnhancementCandidates(byTypeAndElements[type][elements], involvedStats, enemyStats, candidateItemIds, searchDepth));
+        }
+    });
+    
+    return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.partialDualWield || (entry.item.special && entry.item.special.includes('dualWield')) || candidateItemIds.includes(entry.id))).map(entry => entry.item);
 }
 
 function getSellableItems() {
@@ -688,6 +764,14 @@ function getItemElementsKey(item) {
     }
 }
 
+function treatTypeForEnhancementCandidates(items, involvedStats, enemyStats, candidateItemIds, searchDepth) {
+    let itemPool = new ItemPool(searchDepth +1, involvedStats, enemyStats, [], [], [], true, true);
+    itemPool.addItems(items);
+    itemPool.prepare();
+    let alreadyManagedGroupIds = [];
+    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findEnhancementCandidates(itemPool, group, candidateItemIds, alreadyManagedGroupIds, searchDepth)});    
+}
+
 function treatTypeForSellableItems(items, involvedStats, enemyStats, sellableItemIds, searchDepth) {
     let itemPool = new ItemPool(9999, involvedStats, enemyStats, [], [], [], true, true);
     itemPool.addItems(items);
@@ -714,6 +798,30 @@ function getItemEntry(item, number, enhancements = "",additionalText = "") {
 }
 
 let betterItemsByIds = {};
+
+function findEnhancementCandidates(itemPool, group, candidateItemIds, alreadyManagedGroupIds, searchDepth) {
+    if (alreadyManagedGroupIds.includes(group.id)) {
+        return;
+    }
+    alreadyManagedGroupIds.push(group.id);
+    let betterItemsNumbers = 0;
+    group.betterGroups.forEach(betterGroupId => {
+        betterItemsNumbers += itemPool.groupByIds[betterGroupId].available;
+    });
+    if (betterItemsNumbers <= searchDepth) {
+        group.equivalents.forEach(itemEntry => {
+            let id = itemEntry.id;
+            if (!candidateItemIds.includes(id)) {
+                candidateItemIds.push(id);
+            }
+        }) 
+    }
+    if (itemPool.lesserGroupsById[group.id]) {
+        itemPool.lesserGroupsById[group.id].forEach(id => {
+            findEnhancementCandidates(itemPool, itemPool.groupByIds[id], candidateItemIds, alreadyManagedGroupIds, searchDepth);
+        });
+    }
+}
 
 function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, searchDepth) {
     if (alreadyManagedGroupIds.includes(group.id)) {
@@ -1351,6 +1459,7 @@ function startPage() {
     $("#stmrMoogleAvailable").on("input", $.debounce(300,showSearch));
     $('#onlyTimeLimited').on("input", showSearch);
     $('#betterItemsNumber').on("input", $.debounce(300,showSearch));
+    $('#enhancementCandidatesSearchDepth').on("input", $.debounce(300,showSearch));
     $('#includeRecipeItems').on("input", showSearch);
     
 

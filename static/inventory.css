@@ -72,6 +72,7 @@
     border-width: 2px;
     border-color: white;
     border-style: solid;
+    min-height: 82px;
 }
 
 .item.notOwned {
@@ -173,10 +174,12 @@
     margin-left: -10px;
 }
 
-.nav-tabs .sellableItems img {
+.nav-tabs .sellableItems img, .nav-tabs .enhancementCandidates img {
     height: 40px;
     margin: 5px;
 }
+
+
 
 
 #tabsRightData {
@@ -365,7 +368,7 @@
 #exportLinks {
     position: absolute;
     top: 15px;
-    left: 440px;
+    left: 520px;
     z-index: 1;
     margin-left: 10px;
     padding: 4px 6px;
@@ -391,13 +394,13 @@ a#exportLinks:hover {
 #importLink {
     position: absolute;
     top: 20px;
-    left: 610px;
+    left: 690px;
 }
 
 #exportLink {
     position: absolute;
     top: 20px;
-    left: 740px;
+    left: 820px;
 }
 
 .item.stmr {
@@ -500,12 +503,12 @@ body.computing {
     cursor: progress !important;
 }
 
-#betterItemsNumberDiv {
+#betterItemsNumberDiv, #enhancementCandidatesSearchDepthDiv {
     display: flex;
     align-items: center;
 }
 
-#betterItemsNumber {
+#betterItemsNumber, #enhancementCandidatesSearchDepth {
     width: 60px;
     margin-left: 5px;
 }
