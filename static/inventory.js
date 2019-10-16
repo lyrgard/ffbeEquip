@@ -1,3 +1,5 @@
+const SELLABLE_ITEMS_ACCESS = ["shop", "recipe", "recipe-chest", "recipe-key", "recipe-quest", "recipe-shop"];
+const sellableExclusionList = ["1100000302"];
 var equipments;
 var materia;
 let itemsById = {};
@@ -349,27 +351,38 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false)
                 html += '<img class="itemWorldButton" onclick="event.stopPropagation();showItemEnhancements(' + item.id + ')" src="/img/icons/dwarf.png" title="Open item management popup"></img>';
             }
             html += '<img class="excludeFromExpeditionButton" onclick="event.stopPropagation();excludeFromExpedition(' + item.id + ')" src="/img/icons/excludeExpedition.png" title="Exclude this item from builds made for expeditions"></img>';
-        } else {
-            if (item.access.includes("shop")) {
-                html += '<span class="betterItems" title="Can be bought in a shop"><i class="fas fa-shopping-cart"></i></span>';
-            } else {
-                let betterItemsNumber = 0;
-                let betterItemsString = '';
-                Object.keys(betterItemsByIds[item.id]).forEach(id => {
-                    let entry = betterItemsByIds[item.id][id];
-                    betterItemsNumber += entry.available;
-                    betterItemsString += ', ' + entry.name + ' x' + entry.available;
-                });
-                betterItemsString = betterItemsString.substr(2);
-                html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
-            }
         }   
         html += '</div>';
     }
+    if (inSellableItems) {
+        html += '<div class="td"><div class="sellableReasons">'
+        if (item.access.some(access => SELLABLE_ITEMS_ACCESS.includes(access))) {
+            if (item.access.includes("shop")) {
+                html += '<span class="betterItems" title="Can be bought in a shop"><i class="fas fa-shopping-cart"></i></span>';
+            } else {
+                html += '<span class="betterItems" title="Can be crafted"><i class="fas fa-scroll"></i></span>';
+            }
+        } 
+        if (betterItemsByIds[item.id] && !item.special) {
+            let betterItemsNumber = 0;
+            let betterItemsString = '';
+            Object.keys(betterItemsByIds[item.id]).forEach(id => {
+                let entry = betterItemsByIds[item.id][id];
+                betterItemsNumber += entry.available;
+                betterItemsString += ', ' + entry.name + ' x' + entry.available;
+            });
+            betterItemsString = betterItemsString.substr(2);
+            html += '<span class="betterItems" title="' + betterItemsString + '">' + betterItemsNumber + '<i class="fas fa-angle-double-up"></i></span>';
+        }
+        html += '</div></div>'
+    }
+    
     html += getImageHtml(item) + getNameColumnHtml(item);
     
     if (showStmrRecipe && item.stmrAccess) {
         html += "</div>";
+        
+        
         html += '<div class="stmrRecipe">'
         html += '<div><img class="unitImage" src="/img/units/unit_icon_' + item.stmrUnit.substr(0, item.stmrUnit.length - 1) + 7 + '.png"/></div>';
         html += '<div class="column">'
@@ -605,6 +618,7 @@ function search(textToSearch) {
 }
 
 function getSellableItems() {
+    let searchDepth = parseInt($('#betterItemsNumber').val() || 4);
     let enemyStats = {
         "races": killerList,
         "def": 100,
@@ -632,16 +646,54 @@ function getSellableItems() {
             itemEntriesToSearchIn.push(getItemEntry(item, itemInventory[item.id]));
         }
     });
+    let byTypeAndElements = {};
+    itemEntriesToSearchIn.forEach(entry => {
+        if (weaponList.includes(entry.item.type)) {
+            if (!byTypeAndElements[entry.item.type]) {
+                byTypeAndElements[entry.item.type] = {};
+            }
+            let elements = getItemElementsKey(entry.item);
+            if (!byTypeAndElements[entry.item.type][elements]) {
+                byTypeAndElements[entry.item.type][elements] = [];
+            }
+            byTypeAndElements[entry.item.type][elements].push(entry);
+        } else {
+            if (!byTypeAndElements[entry.item.type]) {
+                byTypeAndElements[entry.item.type] = [];
+            }
+            byTypeAndElements[entry.item.type].push(entry);
+        }
+    });
     typeList.forEach(type => {
-        let itemPool = new ItemPool(9999, involvedStats, enemyStats, elementList.concat(["none"]), [], [], true, true);
-        let items = itemEntriesToSearchIn.filter(entry => entry.item.type == type);
-        itemPool.addItems(items);
-        itemPool.prepare();
-        let alreadyManagedGroupIds = [];
-        itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds)});    
+        if (byTypeAndElements[type]) {
+            if (weaponList.includes(type)) {
+                Object.keys(byTypeAndElements[type]).forEach(elements => treatTypeForSellableItems(byTypeAndElements[type][elements], involvedStats, enemyStats, sellableItemIds, searchDepth));
+            } else {
+                treatTypeForSellableItems(byTypeAndElements[type], involvedStats, enemyStats, sellableItemIds, searchDepth);
+            }
+        }
     });
     
-    return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.access.includes("shop") || !entry.item.partialDualWield && !entry.item.equipedConditions && !entry.item.allowUseOf && !entry.item.special && sellableItemIds.includes(entry.id))).map(entry => entry.item);
+    let includeRecipeItems = $('#includeRecipeItems').prop('checked');
+    let accessToDisplay = (includeRecipeItems ? SELLABLE_ITEMS_ACCESS : ["shop"]);
+    
+    return itemEntriesToSearchIn.filter(entry => itemInventory[entry.item.id] && (entry.item.access.some(access => accessToDisplay.includes(access)) || !entry.item.partialDualWield && !entry.item.equipedConditions && !entry.item.allowUseOf && !entry.item.special && sellableItemIds.includes(entry.id))).map(entry => entry.item);
+}
+
+function getItemElementsKey(item) {
+    if (!item.element) {
+        return elements = "none";
+    } else {
+        return item.element.sort().join('-');
+    }
+}
+
+function treatTypeForSellableItems(items, involvedStats, enemyStats, sellableItemIds, searchDepth) {
+    let itemPool = new ItemPool(9999, involvedStats, enemyStats, [], [], [], true, true);
+    itemPool.addItems(items);
+    itemPool.prepare();
+    let alreadyManagedGroupIds = [];
+    itemPool.keptItems.filter(ki => ki.active).forEach(group => {findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, searchDepth)});    
 }
 
 function getItemEntry(item, number, enhancements = "",additionalText = "") {
@@ -663,7 +715,7 @@ function getItemEntry(item, number, enhancements = "",additionalText = "") {
 
 let betterItemsByIds = {};
 
-function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds) {
+function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroupIds, searchDepth) {
     if (alreadyManagedGroupIds.includes(group.id)) {
         return;
     }
@@ -672,7 +724,7 @@ function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroup
     group.betterGroups.forEach(betterGroupId => {
         betterItemsNumbers += itemPool.groupByIds[betterGroupId].available;
     });
-    if (betterItemsNumbers > 4) {
+    if (betterItemsNumbers > searchDepth) {
         let betterItems = {};
         findBetterItemList(itemPool, group, betterItems);
         group.equivalents.forEach(itemEntry => {
@@ -685,7 +737,7 @@ function findSellableItems(itemPool, group, sellableItemIds, alreadyManagedGroup
     }
     if (itemPool.lesserGroupsById[group.id]) {
         itemPool.lesserGroupsById[group.id].forEach(id => {
-            findSellableItems(itemPool, itemPool.groupByIds[id], sellableItemIds, alreadyManagedGroupIds);
+            findSellableItems(itemPool, itemPool.groupByIds[id], sellableItemIds, alreadyManagedGroupIds, searchDepth);
         });
     }
 }
@@ -741,9 +793,6 @@ function keepOnlyStmrs() {
     });
     stmrs = stmrs.concat(materia.filter(item => item.stmrUnit && ownedUnits[item.stmrUnit] && (ownedUnits[item.stmrUnit].farmableStmr > 0 || ownedUnits[item.stmrUnit].number >= 2)));
     stmrs.forEach(stmr => {
-        if (stmr.stmrUnit == "100005805") {
-            console.log("!!");
-        }
         stmr.stmrAccess = {
             'base':"",
             'sevenStar': 0,
@@ -1301,6 +1350,9 @@ function startPage() {
     $("#searchBox").on("input", $.debounce(300,showSearch));
     $("#stmrMoogleAvailable").on("input", $.debounce(300,showSearch));
     $('#onlyTimeLimited').on("input", showSearch);
+    $('#betterItemsNumber').on("input", $.debounce(300,showSearch));
+    $('#includeRecipeItems').on("input", showSearch);
+    
 
     // Start stats collapse for small screen
     if ($window.outerWidth() < 990) {

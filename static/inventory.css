@@ -500,6 +500,24 @@ body.computing {
     cursor: progress !important;
 }
 
+#betterItemsNumberDiv {
+    display: flex;
+    align-items: center;
+}
+
+#betterItemsNumber {
+    width: 60px;
+    margin-left: 5px;
+}
+
+.sellableReasons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 5px;
+}
+
 
 @media (min-width: 991px) {
     
