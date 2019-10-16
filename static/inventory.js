@@ -266,7 +266,7 @@ function displayItemsByTypeAsync(items, start, div, id, jumpDiv, inFarmableStmr 
         if (item === undefined || (item.id != "9999999999" && item.access.includes("not released yet") && !itemInventory[item.id])) continue;
 
         if (item.type === currentItemType) {
-            html += getItemDisplay(item, inFarmableStmr, inSellableItems);
+            html += getItemDisplay(item, inFarmableStmr, inSellableItems, inEnhancementCandidates);
         } else {
             break;
         }
@@ -350,7 +350,7 @@ function getItemDisplay(item, showStmrRecipe = false, inSellableItems = false, i
         html += '<span class="number badge badge-success">';
         if (itemInventory[item.id]) {
             if ((inSellableItems || inEnhancementsCandidates) && itemInventory.enchantments[item.id]) {
-                if (item.enchantments) {
+                if (item.enhancements) {
                     html += '1';
                 } else {
                     html += itemInventory[item.id] - itemInventory.enchantments[item.id].length;
