@@ -1177,9 +1177,12 @@ function prepareLastItemReleases() {
         if (items[index].tmrUnit && unitsToSearch.includes(items[index].tmrUnit)) {
             tmrs[items[index].tmrUnit] = items[index];
         }
-        if (items[index].eventName && eventsToSearch.includes(items[index].eventName)) {
-            if (!events[items[index].eventName]) {events[items[index].eventName] = []}
-            events[items[index].eventName].push(items[index]);
+        if (items[index].eventNames && items[index].eventNames.some(event => eventsToSearch.includes(event))) {
+            items[index].eventNames.forEach(eventNames => {
+                if (!events[eventNames]) {events[eventNames] = []}
+                events[eventNames].push(items[index]);
+            });
+
         }
         if (items[index].id && idsToSearch.includes(items[index].id)) {
             itemsById[items[index].id] = items[index];

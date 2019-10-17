@@ -155,7 +155,11 @@ getData('equipment.json', function (items) {
                                 var oldItems = JSON.parse(content);
                                 for (var index in oldItems) {
                                     oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                    oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                    if (oldItems[index].eventName) {
+                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                    } else if (oldItems[index].eventNames) {
+                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
+                                    }
                                     if (oldItems[index].maxNumber) {
                                         oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
                                     }
@@ -264,8 +268,11 @@ function treatItem(items, itemId, result, skills) {
             }
         }
     }
-    if (!itemOut.eventName && oldItemsEventById[itemOut.id]) {
-        itemOut.eventName = oldItemsEventById[itemOut.id];
+    if (!itemOut.eventNames && oldItemsEventById[itemOut.id]) {
+        itemOut.eventNames = oldItemsEventById[itemOut.id];
+        if (!Array.isArray(itemOut.eventNames)) {
+            itemOut.eventNames = [itemOut.eventNames];
+        }
     }
     if (!itemOut.maxNumber && oldItemsMaxNumberById[itemOut.id]) {
         itemOut.maxNumber = oldItemsMaxNumberById[itemOut.id];
@@ -872,7 +879,7 @@ function addLbPerTurn(item, min, max) {
 } 
 
 function formatOutput(items) {
-    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventName","icon","sortId","notStackableSkills","rarity"];
+    var properties = ["id","name","jpname","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding","dualWielding","accuracy","damageVariance","jumpDamage","lbFillRate", "lbPerTurn","element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage","drawAttacks","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit","stmrUnit","access","maxNumber","eventNames","icon","sortId","notStackableSkills","rarity"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

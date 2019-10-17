@@ -5389,8 +5389,8 @@
 		]
 	},
 	"100022205": {
-		"name":"Chocobo Fina",
-		"wikiEntry":"フィーナ&チョコボ",
+		"name":"Fina à dos de chocobo",
+		"wikiEntry":"Chocobo_Fina",
 		"id":"100022205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5402,6 +5402,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Chocobo Outing","levels":[[],[{"spr%":20,"resist":[{"name":"wind","percent":10},{"name":"light","percent":10}]}],[{"spr%":30,"resist":[{"name":"wind","percent":20},{"name":"light","percent":20}]}],[{"spr%":40,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]}]]}
+		],
 		"skills": [
 			{"hp%":70, "mp%":50, "def%":20, "spr%":50, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"spr%":50, "equipedConditions":["staff"]},
@@ -5411,8 +5414,8 @@
 			{"def%":20, "spr%":20, "dualWielding":{"spr":40}, "skillEnhancement":{"230740":2,"230745":2,"230746":2,"230750":2,"509663":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Chocobo Fina",
-			"wikiEntry":"フィーナ&チョコボ",
+			"name":"Fina à dos de chocobo",
+			"wikiEntry":"Chocobo_Fina",
 			"id":"100022205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5425,6 +5428,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Chocobo Outing","levels":[[],[{"spr%":20,"resist":[{"name":"wind","percent":10},{"name":"light","percent":10}]}],[{"spr%":30,"resist":[{"name":"wind","percent":20},{"name":"light","percent":20}]}],[{"spr%":40,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]}]]}
+		],
 			"skills": [
 				{"hp%":70, "mp%":50, "def%":20, "spr%":50, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50}], "mpRefresh":5, "special":["dualWield"]},
 				{"spr%":50, "equipedConditions":["staff"]},
