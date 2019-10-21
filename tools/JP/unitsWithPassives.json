@@ -5205,14 +5205,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["明鏡・鋭","一刀千剣","明鏡・乱","極・明鏡","真・明鏡","灰の魂"],
+		"enhancements": [
+			{"name":"一刀千剣","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["katana"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["katana"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":150},"resist":[{"name":"confuse","percent":100}]},{"equipedConditions":["katana"],"atk%":30}]]},
+			{"name":"灰の魂","levels":[[{"lbFillRate":50,"levelCondition":120},{"equipedConditions":["katana"],"atk%":30,"def%":30,"levelCondition":120}],[{"lbFillRate":100,"levelCondition":120},{"equipedConditions":["katana"],"hp%":30,"mp%":30,"atk%":30,"def%":30,"levelCondition":120}],[{"lbFillRate":100,"lbDamage":100,"levelCondition":120},{"equipedConditions":["katana"],"hp%":30,"mp%":30,"atk%":30,"def%":30,"levelCondition":120}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":20, "def%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-			{"atk%":30, "equipedConditions":["katana"]},
+			{"hp%":30, "mp%":20, "atk%":20, "def%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"atk%":50, "equipedConditions":["katana"]},
 			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["409026300","304004300"]]},
-			{"spr%":20, "levelCondition":115},
-			{"lbFillRate":50, "levelCondition":120},
-			{"atk%":30, "def%":30, "equipedConditions":["katana"], "levelCondition":120}
+			{"spr%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Akstar",
@@ -5229,9 +5231,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["明鏡・鋭","一刀千剣","明鏡・乱","極・明鏡","真・明鏡","灰の魂"],
+		"enhancements": [
+			{"name":"一刀千剣","levels":[[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["katana"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":100}},{"equipedConditions":["katana"],"atk%":30}],[{"singleWielding":{"accuracy":25,"atk":150},"resist":[{"name":"confuse","percent":100}]},{"equipedConditions":["katana"],"atk%":30}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":20, "atk%":20, "def%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
-				{"atk%":30, "equipedConditions":["katana"]},
+				{"hp%":30, "mp%":20, "atk%":20, "def%":20, "evade":{"physical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 				{"atk%":50, "equipedConditions":["katana"]}
 			]
 		}
@@ -5557,8 +5562,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣"],
+		"enhancements": [
+			{"name":"不滅の忠義","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"atk%":30,"hp%":30,"skillEnhancement":{"509432":7.5,"509433":7.5}}]]}
+		],
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":30, "def%":50, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"ice","percent":70},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}], "mpRefresh":7, "drawAttacks":50},
+			{"hp%":50, "mp%":30, "atk%":30, "def%":50, "spr%":50, "resist":[{"name":"ice","percent":70}], "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}], "mpRefresh":7, "drawAttacks":50},
 			{"spr%":40, "equipedConditions":["lightShield"]},
 			{"spr%":40, "equipedConditions":["heavyShield"]},
 			{"hp%":30, "def%":30, "spr%":30, "resist":[{"name":"light","percent":70}], "equipedConditions":[["404003900","402003500"]]},
@@ -5580,8 +5589,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["不滅の忠義","ナイトオブナイツ","グランシェルトの光","誠光の騎士剣","氷晶の騎士剣"],
+		"enhancements": [
+			{"name":"不滅の忠義","levels":[[{"lbPerTurn":{"min":2,"max":2},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}]}],[{"lbPerTurn":{"min":4,"max":4},"resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}],"spr%":30,"atk%":30,"hp%":30,"skillEnhancement":{"509432":7.5,"509433":7.5}}]]}
+		],
 			"skills": [
-				{"hp%":50, "mp%":30, "atk%":30, "def%":50, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"ice","percent":70},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}], "mpRefresh":7, "drawAttacks":50},
+				{"hp%":50, "mp%":30, "atk%":30, "def%":50, "spr%":50, "resist":[{"name":"ice","percent":70}], "killers":[{"name":"undead","physical":50},{"name":"demon","physical":50}], "mpRefresh":7, "drawAttacks":50},
 				{"spr%":40, "equipedConditions":["lightShield"]},
 				{"spr%":40, "equipedConditions":["heavyShield"]}
 			]
@@ -5774,9 +5787,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"enhancementSkills":["ユライシャの教え","ディヴァインソーラー","エクスキューション","イグゾーストヒート","賢者の知恵","カオスノヴァ"],
+		"enhancements": [
+			{"name":"ユライシャの教え","levels":[[{"mp%":20,"hp%":20},{"equipedConditions":["rod"],"mag%":50}],[{"mp%":20,"hp%":20,"singleWielding":{"mag":50}},{"equipedConditions":["rod"],"mag%":50}],[{"mp%":20,"hp%":20,"singleWielding":{"mag":150},"dualWielding":{"mag":100},"lbDamage":225},{"equipedConditions":["rod"],"mag%":50}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":50, "mag%":60, "spr%":20, "dualWielding":{"mag":50}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50}], "mpRefresh":10, "special":["dualWield"]},
-			{"mag%":50, "equipedConditions":["rod"]},
+			{"mp%":30, "mag%":60, "spr%":20, "dualWielding":{"mag":50}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50}], "mpRefresh":10, "special":["dualWield"]},
 			{"dualWielding":{"mag":50}, "resist":[{"name":"stop","percent":100},{"name":"charm","percent":100}], "equipedConditions":[["408004600","409029200"]]},
 			{"def%":20, "levelCondition":115},
 			{"hp%":20, "mp%":20, "mag%":40, "lbFillRate":50, "levelCondition":120}
@@ -5796,9 +5812,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","mace","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"enhancementSkills":["ユライシャの教え","ディヴァインソーラー","エクスキューション","イグゾーストヒート","賢者の知恵","カオスノヴァ"],
+		"enhancements": [
+			{"name":"ユライシャの教え","levels":[[{"mp%":20,"hp%":20},{"equipedConditions":["rod"],"mag%":50}],[{"mp%":20,"hp%":20,"singleWielding":{"mag":50}},{"equipedConditions":["rod"],"mag%":50}],[{"mp%":20,"hp%":20,"singleWielding":{"mag":150},"dualWielding":{"mag":100},"lbDamage":225},{"equipedConditions":["rod"],"mag%":50}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":50, "mag%":60, "spr%":20, "dualWielding":{"mag":50}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50}], "mpRefresh":10, "special":["dualWield"]},
-				{"mag%":50, "equipedConditions":["rod"]}
+				{"mp%":30, "mag%":60, "spr%":20, "dualWielding":{"mag":50}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":50},{"name":"dark","percent":50}], "mpRefresh":10, "special":["dualWield"]}
 			]
 		}
 	},
@@ -5921,8 +5940,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["局所アイスチャージャー","F型最強アイス弾","終わりなき成長期","いっぱい鍛える","友だち作戦 －変顔にらめっこ－","タイプ・ハンティング"],
+		"enhancements": [
+			{"name":"終わりなき成長期","levels":[[{"atk%":30,"mp%":30,"hp%":30,"mpRefresh":5}],[{"atk%":30,"mp%":30,"hp%":30,"mpRefresh":5,"dualWielding":{"atk":50}}],[{"atk%":50,"mp%":30,"hp%":30,"mpRefresh":5,"dualWielding":{"atk":100}}]]}
+		],
 		"skills": [
-			{"hp%":60, "mp%":50, "atk%":90, "improvedDW":true, "partialDualWield":["gun"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+			{"hp%":30, "mp%":20, "atk%":60, "improvedDW":true, "partialDualWield":["gun"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"dualWielding":{"atk":50}, "skillEnhancement":{"230789":1.5,"230792":1.5}, "equipedConditions":[["504230770","313005500"]]},
 			{"def%":20, "levelCondition":115},
@@ -5943,8 +5966,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["局所アイスチャージャー","F型最強アイス弾","終わりなき成長期","いっぱい鍛える","友だち作戦 －変顔にらめっこ－","タイプ・ハンティング"],
+		"enhancements": [
+			{"name":"終わりなき成長期","levels":[[{"atk%":30,"mp%":30,"hp%":30,"mpRefresh":5}],[{"atk%":30,"mp%":30,"hp%":30,"mpRefresh":5,"dualWielding":{"atk":50}}],[{"atk%":50,"mp%":30,"hp%":30,"mpRefresh":5,"dualWielding":{"atk":100}}]]}
+		],
 			"skills": [
-				{"hp%":60, "mp%":50, "atk%":90, "improvedDW":true, "partialDualWield":["gun"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":5},
+				{"hp%":30, "mp%":20, "atk%":60, "improvedDW":true, "partialDualWield":["gun"], "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},
 				{"atk%":50, "equipedConditions":["gun"]}
 			]
 		}
