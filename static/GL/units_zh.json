@@ -5735,7 +5735,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Mage of Destruction","Roar of Laughter","Light of Judgment"]
+		"enhancementSkills":["Mage of Destruction","Roar of Laughter (FFVI)","Light of Judgment (FFVI)"]
 	},
 	"206001803": {
 		"name":"利奧",
@@ -11850,6 +11850,37 @@
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"]
 		}
 	},
+	"401007205": {
+		"name":"卡爾頓",
+		"wikiEntry":"Karten",
+		"id":"401007205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5016,"mp":182,"atk":210,"def":201,"mag":143,"spr":171},
+			"minStats":{"hp":1655,"mp":60,"atk":69,"def":66,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"卡爾頓",
+			"wikiEntry":"Karten",
+			"id":"401007205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3858,"mp":140,"atk":161,"def":154,"mag":110,"spr":132},
+				"minStats":{"hp":1273,"mp":46,"atk":53,"def":51,"mag":36,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
 	"401007305": {
 		"name":"不朽之焰凱蒂",
 		"wikiEntry":"Immortal_Flame Katy",
@@ -12065,6 +12096,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","bow","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401008605": {
+		"name":"高德拉",
+		"wikiEntry":"Godrea",
+		"id":"401008605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4921,"mp":256,"atk":205,"def":187,"mag":158,"spr":196},
+			"minStats":{"hp":1624,"mp":84,"atk":68,"def":62,"mag":52,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"高德拉",
+			"wikiEntry":"Godrea",
+			"id":"401008605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3785,"mp":196,"atk":157,"def":143,"mag":121,"spr":150},
+				"minStats":{"hp":1249,"mp":65,"atk":52,"def":47,"mag":40,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	}
 }

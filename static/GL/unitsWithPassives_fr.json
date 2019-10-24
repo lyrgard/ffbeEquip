@@ -7972,7 +7972,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Mage of Destruction","Roar of Laughter","Light of Judgment"],
+		"enhancementSkills":["Mage of Destruction","Roar of Laughter (FFVI)","Light of Judgment (FFVI)"],
 		"enhancements": [
 			{"name":"Mage of Destruction","levels":[[{"mag%":20,"killers":[{"name":"human","magical":50}]}],[{"mag%":40,"killers":[{"name":"human","magical":50}]}],[{"mag%":40,"killers":[{"name":"human","magical":50}]}]]}
 		],
@@ -16423,6 +16423,56 @@
 			]
 		}
 	},
+	"401007205": {
+		"name":"Karten",
+		"wikiEntry":"Karten",
+		"id":"401007205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5016,"mp":182,"atk":210,"def":201,"mag":143,"spr":171},
+			"minStats":{"hp":1655,"mp":60,"atk":69,"def":66,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":60, "atk%":100, "def%":20, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"dark","percent":30}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"atk%":20, "equipedConditions":["fist"]},
+			{"atk%":200, "equipedConditions":["unarmed"]},
+			{"def%":20, "equipedConditions":["clothes"]},
+			{"def%":20, "equipedConditions":["robe"]},
+			{"hp%":30, "mp%":30, "atk%":20, "dualWielding":{"atk":50}, "equipedConditions":[["1100000343","1100000344"]]},
+			{"def%":30, "levelCondition":105},
+			{"mp%":20, "levelCondition":115},
+			{"killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "replaceLb":{"name":"Moonlit Strike","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":19},"area":"ST","target":"ENEMY"},"desc":"Physical damage (19x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913181","name":"Lunar Basher"}]},"area":"SELF","target":"SELF"},"desc":"Gain Lunar Basher (913181) (1 use)"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked1140970561","name":"Triple Claws"}]}},"desc":"Gain 3 uses of Full Moon skills  [Bestial Barrage (913214) / Bestial Slash (913188, 913189) / Bestial Wrath (913184, 913185) / Crimson Blitz (913219) / Cursed Blood (913205) / Dark Side (913210, 913211) / Feign Weakness (913193) / Frenzy (913207, 913208) / Ravenous Appetite (913190) / Savage Awakening (913224) / Shadow Fire (913195, 913196) / Terrifying Howl (913199, 913200) / Wild Slash (913223)] for one turn"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Dodge 3 physical attacks for one turn to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22},"area":"ST","target":"ENEMY"},"desc":"Physical damage (22x, ATK) to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913181","name":"Lunar Basher"}]},"area":"SELF","target":"SELF"},"desc":"Gain Lunar Basher (913181) (1 use)"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked1140970561","name":"Triple Claws"}]}},"desc":"Gain 3 uses of Full Moon skills  [Bestial Barrage (913214) / Bestial Slash (913188, 913189) / Bestial Wrath (913184, 913185) / Crimson Blitz (913219) / Cursed Blood (913205) / Dark Side (913210, 913211) / Feign Weakness (913193) / Frenzy (913207, 913208) / Ravenous Appetite (913190) / Savage Awakening (913224) / Shadow Fire (913195, 913196) / Terrifying Howl (913199, 913200) / Wild Slash (913223)] for one turn"},{"effect":{"statsBuff":{"atk":300},"turns":2,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 300% for 2 turns to caster"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Dodge 3 physical attacks for one turn to caster"}],"frames":[70,110,170],"move":"walk"}, "levelCondition":120},
+			{"atk%":30, "equipedConditions":["fist"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Karten",
+			"wikiEntry":"Karten",
+			"id":"401007205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3858,"mp":140,"atk":161,"def":154,"mag":110,"spr":132},
+				"minStats":{"hp":1273,"mp":46,"atk":53,"def":51,"mag":36,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":60, "atk%":100, "def%":20, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"light","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"dark","percent":30}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"atk%":20, "equipedConditions":["fist"]},
+				{"atk%":200, "equipedConditions":["unarmed"]},
+				{"def%":20, "equipedConditions":["clothes"]},
+				{"def%":20, "equipedConditions":["robe"]}
+			]
+		}
+	},
 	"401007305": {
 		"name":"Katy flamme immortelle",
 		"wikiEntry":"Immortal_Flame Katy",
@@ -16823,6 +16873,51 @@
 			"equip":["dagger","sword","katana","bow","hat","clothes","lightArmor","robe"],
 			"skills": [
 				{"hp%":40, "mp%":10, "atk%":100, "def%":10, "spr%":10, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"water","percent":25},{"name":"wind","percent":25},{"name":"poison","percent":100},{"name":"disease","percent":100},{"name":"fire","percent":25},{"name":"dark","percent":25},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":75},{"name":"spirit","physical":75}], "mpRefresh":5}
+			]
+		}
+	},
+	"401008605": {
+		"name":"Godréa",
+		"wikiEntry":"Godrea",
+		"id":"401008605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4921,"mp":256,"atk":205,"def":187,"mag":158,"spr":196},
+			"minStats":{"hp":1624,"mp":84,"atk":68,"def":62,"mag":52,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":50, "def%":50, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":25},{"name":"undead","physical":25}]},
+			{"atk%":30, "equipedConditions":["gun"]},
+			{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["clothes"]},
+			{"atk%":30, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["1100000341","1100000342"]]},
+			{"mp%":20, "levelCondition":115},
+			{"atk%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":75}, "killers":[{"name":"spirit","physical":75},{"name":"undead","physical":75}], "mpRefresh":10, "levelCondition":120},
+			{"atk%":40, "equipedConditions":["gun"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Godréa",
+			"wikiEntry":"Godrea",
+			"id":"401008605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3785,"mp":196,"atk":157,"def":143,"mag":121,"spr":150},
+				"minStats":{"hp":1249,"mp":65,"atk":52,"def":47,"mag":40,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":50, "def%":50, "spr%":20, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"spirit","physical":25},{"name":"undead","physical":25}]},
+				{"atk%":30, "equipedConditions":["gun"]},
+				{"hp%":30, "def%":30, "spr%":30, "equipedConditions":["clothes"]}
 			]
 		}
 	}
