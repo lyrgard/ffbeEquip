@@ -83,6 +83,28 @@ var elementsMapNumber = {
     8: 'dark'
 }
 
+let espersById = {
+    "1":"Siren",
+    "2":"Ifrit",
+    "3":"Shiva",
+    "4":"Carbuncle",
+    "5":"Diabolos",
+    "6":"Golem",
+    "7":"Ramuh",
+    "8":"Titan",
+    "9":"Tetra Sylphid",
+    "10":"Odin",
+    "11":"Lakshmi",
+    "12":"Leviathan",
+    "13":"Alexander",
+    "14":"Phoenix",
+    "15":"Bahamut",
+    "16":"Fenrir",
+    "17":"Anima",
+    "18":"Asura",
+    "19":"Black Dragon"
+}
+
 const languages = ["en", "zh", "ko", "fr", "de", "es"];
 
 var unitNamesById = {};
@@ -792,15 +814,24 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // +Stats from espers boost
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 63) {
         var esperStatsBonus = rawEffect[3];
+        var esper;
+        if (esperStatsBonus.length == 6 || esperStatsBonus[6] == 0) {
+            esper = 'all';
+        } else {
+            esper = espersById[esperStatsBonus[6]];
+        }
         if (!item.esperStatsBonus) {
             item.esperStatsBonus = {};
         }
-        addStat(item.esperStatsBonus, "hp", esperStatsBonus[0]);
-        addStat(item.esperStatsBonus, "mp", esperStatsBonus[1]);
-        addStat(item.esperStatsBonus, "atk", esperStatsBonus[2]);
-        addStat(item.esperStatsBonus, "def", esperStatsBonus[3]);
-        addStat(item.esperStatsBonus, "mag", esperStatsBonus[4]);
-        addStat(item.esperStatsBonus, "spr", esperStatsBonus[5]);
+        if (!item.esperStatsBonus[esper]) {
+            item.esperStatsBonus[esper] = {};
+        }
+        addStat(item.esperStatsBonus[esper], "hp", esperStatsBonus[0]);
+        addStat(item.esperStatsBonus[esper], "mp", esperStatsBonus[1]);
+        addStat(item.esperStatsBonus[esper], "atk", esperStatsBonus[2]);
+        addStat(item.esperStatsBonus[esper], "def", esperStatsBonus[3]);
+        addStat(item.esperStatsBonus[esper], "mag", esperStatsBonus[4]);
+        addStat(item.esperStatsBonus[esper], "spr", esperStatsBonus[5]);
     
     // +LB damage
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 68) {
