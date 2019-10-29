@@ -20,11 +20,11 @@ class EsperTreeComparator {
             if (baseStats.includes(stats[index])) {
                 var coef1 = 1;
                 var coef2 = 1;
-                if (treeNode1.esper.esperStatsBonus && treeNode1.esper.esperStatsBonus[stats[index]]) {
-                    coef1 += treeNode1.esper.esperStatsBonus[stats[index]] / 100;
+                if (treeNode1.esper.esperStatsBonus && treeNode1.esper.esperStatsBonus.all[stats[index]]) {
+                    coef1 += treeNode1.esper.esperStatsBonus.all[stats[index]] / 100;
                 }
-                if (treeNode2.esper.esperStatsBonus && treeNode2.esper.esperStatsBonus[stats[index]]) {
-                    coef2 += treeNode2.esper.esperStatsBonus[stats[index]] / 100;
+                if (treeNode2.esper.esperStatsBonus && treeNode2.esper.esperStatsBonus.all[stats[index]]) {
+                    coef2 += treeNode2.esper.esperStatsBonus.all[stats[index]] / 100;
                 }
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, stats[index], coef1, coef2));
                 comparisionStatus.push(TreeComparator.compareByValue(treeNode1.esper, treeNode2.esper, percentValues[stats[index]]));

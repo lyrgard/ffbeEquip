@@ -971,13 +971,18 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) 
     }
 }
 
-function getEsperStatBonus(itemAndPassives, stat) {
+function getEsperStatBonus(itemAndPassives, stat, esper) {
     var statsBonus = 100;
     if (baseStats.includes(stat)) {
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
-            if (item && item.esperStatsBonus && item.esperStatsBonus[stat]) {
-                statsBonus += item.esperStatsBonus[stat];
+            if (item && item.esperStatsBonus) {
+                if (item.esperStatsBonus.all && item.esperStatsBonus.all[stat]) {
+                    statsBonus += item.esperStatsBonus.all[stat];
+                }
+                if (esper && item.esperStatsBonus[esper.id] && item.esperStatsBonus[esper.id][stat]) {
+                    statsBonus += item.esperStatsBonus[esper.id][stat];
+                }
             }
         }
     }
@@ -988,7 +993,7 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
-        esperStatBonus = getEsperStatBonus(itemAndPassives, stat);
+        esperStatBonus = getEsperStatBonus(itemAndPassives, stat, itemAndPassives[10]);
     }
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
@@ -1445,6 +1450,8 @@ function applyEnhancements(item, enhancements) {
             var enhancementValue;
             if (enhancement == "rare_3" || enhancement == "rare_4") {
                 enhancementValue = itemEnhancementAbilities[enhancement][item.type];
+            } else if (enhancement === 'special_1') {
+                enhancementValue = itemEnhancementAbilities[enhancement][item.id];
             } else {
                 enhancementValue = itemEnhancementAbilities[enhancement];
             }

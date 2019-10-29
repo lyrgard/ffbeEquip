@@ -42,10 +42,10 @@ const goalValuesCaract = {
 const itemEnhancementLabels = {
     "rare_3":{
         "dagger": "+100% LB fill rate", 
-        "sword": "HP/ATK + 15%", 
-        "greatSword": "HP/ATK + 15%", 
-        "katana": "HP/ATK + 15%", 
-        "staff": "SPR/MP + 15%", 
+        "sword": "HP/ATK +15%", 
+        "greatSword": "HP/ATK +15%", 
+        "katana": "HP/ATK +15%", 
+        "staff": "SPR/MP +15%", 
         "rod": "MAG/MP +15%", 
         "bow": "ATK/MAG +30%", 
         "axe": "ATK +30%", 
@@ -61,10 +61,10 @@ const itemEnhancementLabels = {
     },
     "rare_4":{
         "dagger": "+150% LB fill rate",
-        "sword": "HP/ATK + 20%",
-        "greatSword": "HP/ATK + 20%",
-        "katana": "HP/ATK + 20%",
-        "staff": "SPR/MP + 20%",
+        "sword": "HP/ATK +20%",
+        "greatSword": "HP/ATK +20%",
+        "katana": "HP/ATK +20%",
+        "staff": "SPR/MP +20%",
         "rod": "MAG/MP +20%",
         "bow": "ATK/MAG +35%",
         "axe": "ATK +40%",
@@ -78,6 +78,16 @@ const itemEnhancementLabels = {
         "fist": "HP/ATK +20%",
         "fake": "Rare+"
     },
+    "special_1": {
+        "303007600":"ATK/Fire resist +20%",
+        "304005600":"ATK/Ice resist +20%",
+        "304005500":"ATK/Lightning resist +20%",
+        "308006100":"MAG/Water resist +20%",
+        "313006400":"ATK/Wind resist +20%",
+        "302011500":"ATK/Earth resist +20%",
+        "312003300":"MAG/Light resist +20%",
+        "310006900":"MAG/Dark resist +20%",
+    },
     "hp_15": "HP +15%", "hp_12": "HP +12%", "hp_10": "HP +10%", "hp_7": "HP +7%", "hp_5": "HP +5%", "hp_3": "HP +3%", "hp_1": "HP +1%",
     "mp_15": "MP +15%", "mp_12": "MP +12%", "mp_10": "MP +10%", "mp_7": "MP +7%", "mp_5": "MP +5%", "mp_3": "MP +3%", "mp_1": "MP +1%",
     "atk_15": "ATK +15%", "atk_12": "ATK +12%", "atk_10": "ATK +10%", "atk_7": "ATK +7%", "atk_5": "ATK +5%", "atk_3": "ATK +3%", "atk_1": "ATK +1%",
@@ -89,53 +99,63 @@ const itemEnhancementLabels = {
     "autoProtect_5": "Auto-Protect 5","autoProtect_4": "Auto-Protect 4","autoProtect_3": "Auto-Protect 3","autoProtect_2": "Auto-Protect 2","autoProtect_1": "Auto-Protect 1",
     "autoShell_5": "Auto-Shell 5","autoShell_4": "Auto-Shell 4","autoShell_3": "Auto-Shell 3","autoShell_2": "Auto-Shell 2","autoShell_1": "Auto-Shell 1",
 };
-    const itemEnhancementAbilities = {
-        "rare_3":{
-            "dagger": {"lbFillRate":100},
-            "sword": {"hp%":15, "atk%":15},
-            "greatSword": {"hp%":15, "atk%":15},
-            "katana": {"hp%":15, "atk%":15},
-            "staff": {"mp%":15, "spr%":15},
-            "rod": {"mp%":15, "mag%":15},
-            "bow": {"atk%":30, "mag%":30},
-            "axe": {"atk%":30},
-            "hammer": {"hp%":15, "def%":15},
-            "spear": {"hp%":15, "atk%":15},
-            "harp": {"hp%":15, "spr%":15},
-            "whip": {"mp%":30},
-            "throwing": {"hp%":15, "mp%":15},
-            "gun": {"atk%":30},
-            "mace": {"hp%":30},
-            "fist": {"hp%":15, "atk%":15},
-            "fake": {}
-        },
-        "rare_4":{
-            "dagger": {"lbFillRate":150},
-            "sword": {"hp%":20, "atk%":20},
-            "greatSword": {"hp%":20, "atk%":20},
-            "katana": {"hp%":20, "atk%":20},
-            "staff": {"mp%":20, "spr%":20},
-            "rod": {"mp%":20, "mag%":20},
-            "bow": {"atk%":35, "mag%":35},
-            "axe": {"atk%":40},
-            "hammer": {"hp%":20, "def%":20},
-            "spear": {"hp%":20, "atk%":20},
-            "harp": {"hp%":20, "spr%":20},
-            "whip": {"mp%":40},
-            "throwing": {"hp%":20, "mp%":20},
-            "gun": {"atk%":40},
-            "mace": {"hp%":40},
-            "fist": {"hp%":20, "atk%":20},
-            "fake": {}
-        },
-        "hp_15": {"hp%":15}, "hp_12": {"hp%":12}, "hp_10": {"hp%":10}, "hp_7": {"hp%":7}, "hp_5": {"hp%":5}, "hp_3": {"hp%":3}, "hp_1": {"hp%":1},
-        "mp_15": {"mp%":15}, "mp_12": {"mp%":12}, "mp_10": {"mp%":10}, "mp_7": {"mp%":7}, "mp_5": {"mp%":5}, "mp_3": {"mp%":3}, "mp_1": {"mp%":1},
-        "atk_15": {"atk%":15}, "atk_12": {"atk%":12}, "atk_10": {"atk%":10}, "atk_7": {"atk%":7}, "atk_5": {"atk%":5}, "atk_3": {"atk%":3}, "atk_1": {"atk%":1},
-        "def_15": {"def%":15}, "def_12": {"def%":12}, "def_10": {"def%":10}, "def_7": {"def%":7}, "def_5": {"def%":5}, "def_3": {"def%":3}, "def_1": {"def%":1},
-        "mag_15": {"mag%":15}, "mag_12": {"mag%":12}, "mag_10": {"mag%":10}, "mag_7": {"mag%":7}, "mag_5": {"mag%":5}, "mag_3": {"mag%":3}, "mag_1": {"mag%":1},
-        "spr_15": {"spr%":15}, "spr_12": {"spr%":12}, "spr_10": {"spr%":10}, "spr_7": {"spr%":7}, "spr_5": {"spr%":5}, "spr_3": {"spr%":3}, "spr_1": {"spr%":1},
-        "autoRefresh_2": {"mpRefresh":5},"autoRefresh_1": {"mpRefresh":3}
-    };
+const itemEnhancementAbilities = {
+    "rare_3":{
+        "dagger": {"lbFillRate":100},
+        "sword": {"hp%":15, "atk%":15},
+        "greatSword": {"hp%":15, "atk%":15},
+        "katana": {"hp%":15, "atk%":15},
+        "staff": {"mp%":15, "spr%":15},
+        "rod": {"mp%":15, "mag%":15},
+        "bow": {"atk%":30, "mag%":30},
+        "axe": {"atk%":30},
+        "hammer": {"hp%":15, "def%":15},
+        "spear": {"hp%":15, "atk%":15},
+        "harp": {"hp%":15, "spr%":15},
+        "whip": {"mp%":30},
+        "throwing": {"hp%":15, "mp%":15},
+        "gun": {"atk%":30},
+        "mace": {"hp%":30},
+        "fist": {"hp%":15, "atk%":15},
+        "fake": {}
+    },
+    "rare_4":{
+        "dagger": {"lbFillRate":150},
+        "sword": {"hp%":20, "atk%":20},
+        "greatSword": {"hp%":20, "atk%":20},
+        "katana": {"hp%":20, "atk%":20},
+        "staff": {"mp%":20, "spr%":20},
+        "rod": {"mp%":20, "mag%":20},
+        "bow": {"atk%":35, "mag%":35},
+        "axe": {"atk%":40},
+        "hammer": {"hp%":20, "def%":20},
+        "spear": {"hp%":20, "atk%":20},
+        "harp": {"hp%":20, "spr%":20},
+        "whip": {"mp%":40},
+        "throwing": {"hp%":20, "mp%":20},
+        "gun": {"atk%":40},
+        "mace": {"hp%":40},
+        "fist": {"hp%":20, "atk%":20},
+        "fake": {}
+    },
+    "special_1": {
+        "303007600":{"atk%":20, "resist":[{"name":"fire", "percent":20}]},
+        "304005600":{"atk%":20, "resist":[{"name":"ice", "percent":20}]},
+        "304005500":{"atk%":20, "resist":[{"name":"lightning", "percent":20}]},
+        "308006100":{"mag%":20, "resist":[{"name":"water", "percent":20}]},
+        "313006400":{"atk%":20, "resist":[{"name":"wind", "percent":20}]},
+        "302011500":{"atk%":20, "resist":[{"name":"earth", "percent":20}]},
+        "312003300":{"mag%":20, "resist":[{"name":"light", "percent":20}]},
+        "310006900":{"mag%":20, "resist":[{"name":"dark", "percent":20}]}
+    },
+    "hp_15": {"hp%":15}, "hp_12": {"hp%":12}, "hp_10": {"hp%":10}, "hp_7": {"hp%":7}, "hp_5": {"hp%":5}, "hp_3": {"hp%":3}, "hp_1": {"hp%":1},
+    "mp_15": {"mp%":15}, "mp_12": {"mp%":12}, "mp_10": {"mp%":10}, "mp_7": {"mp%":7}, "mp_5": {"mp%":5}, "mp_3": {"mp%":3}, "mp_1": {"mp%":1},
+    "atk_15": {"atk%":15}, "atk_12": {"atk%":12}, "atk_10": {"atk%":10}, "atk_7": {"atk%":7}, "atk_5": {"atk%":5}, "atk_3": {"atk%":3}, "atk_1": {"atk%":1},
+    "def_15": {"def%":15}, "def_12": {"def%":12}, "def_10": {"def%":10}, "def_7": {"def%":7}, "def_5": {"def%":5}, "def_3": {"def%":3}, "def_1": {"def%":1},
+    "mag_15": {"mag%":15}, "mag_12": {"mag%":12}, "mag_10": {"mag%":10}, "mag_7": {"mag%":7}, "mag_5": {"mag%":5}, "mag_3": {"mag%":3}, "mag_1": {"mag%":1},
+    "spr_15": {"spr%":15}, "spr_12": {"spr%":12}, "spr_10": {"spr%":10}, "spr_7": {"spr%":7}, "spr_5": {"spr%":5}, "spr_3": {"spr%":3}, "spr_1": {"spr%":1},
+    "autoRefresh_2": {"mpRefresh":5},"autoRefresh_1": {"mpRefresh":3}
+};
 
 const itemEnhancementBySkillId = {
     "410001" : "hp_1",
@@ -220,6 +240,14 @@ const itemEnhancementBySkillId = {
     "410140": "rare_4", // MP +40%
     "410040": "rare_4", // HP +40%
     "910339": "rare_4", // ATK +40%
+    "451050": "special_1",
+    "451054": "special_1",
+    "451053": "special1",
+    "451056": "special_1",
+    "451057": "special1",
+    "451055": "special_1",
+    "451051": "special_1",
+    "451052": "special_1",
 }  
 
 const skillIdByItemEnhancement = {
@@ -258,6 +286,16 @@ const skillIdByItemEnhancement = {
         "gun": "410240",
         "mace": "410040",
         "fist": "450870"
+    },
+    "special_1": {
+        "303007600":"451050",
+        "304005600":"451054",
+        "304005500":"451053",
+        "308006100":"451056",
+        "313006400":"451057",
+        "302011500":"451055",
+        "312003300":"451051",
+        "310006900":"451052"
     },
     "hp_15": "410015", "hp_12": "410012", "hp_10": "410010", "hp_7": "410007", "hp_5": "410005", "hp_3": "410003", "hp_1": "410001",
     "mp_15": "410115", "mp_12": "410112", "mp_10": "410110", "mp_7": "410107", "mp_5": "410105", "mp_3": "410103", "mp_1": "410101",
