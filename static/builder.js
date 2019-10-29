@@ -2333,6 +2333,12 @@ function selectEnchantement(item) {
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(currentEnchantmentItem) + getNameColumnHtml(currentEnchantmentItem));
     $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][currentEnchantmentItem.type]);
     $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][currentEnchantmentItem.type]);
+    if (itemEnhancementLabels["special_1"][item.id]) {
+        $("#modifyEnhancementModal .value.special_1").removeClass("hidden");
+        $("#modifyEnhancementModal .value.special_1").html(itemEnhancementLabels["special_1"][item.id]);
+    } else {
+        $("#modifyEnhancementModal .value.special_1").addClass("hidden");
+    }
 }
 
 function toggleItemEnhancement(enhancement) {
@@ -3092,7 +3098,12 @@ function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
             if (builds && builds[buildIndex] && builds[buildIndex].build) {
                 for (var i = 0; i < builds[buildIndex].build.length; i++) {
                     if (builds[buildIndex].build[i] && builds[buildIndex].build[i].esperStatsBonus) {
-                        statBonusCoef += builds[buildIndex].build[i].esperStatsBonus["hp"] / 100;
+                        if (builds[buildIndex].build[i].esperStatsBonus.all) {
+                            statBonusCoef += builds[buildIndex].build[i].esperStatsBonus.all["hp"] / 100;
+                        }
+                        if (builds[buildIndex].build[10] && builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[10].id]) {
+                            statBonusCoef += builds[buildIndex].build[i].esperStatsBonus[builds[buildIndex].build[10].id]["hp"] / 100;
+                        }
                     }
                 }
             }
@@ -3128,9 +3139,11 @@ function getItemLineAsText(prefix, slot, buildIndex = currentUnitIndex) {
                     resultText += ", ";
                 }
                 if (item.enhancements[i] == "rare_3") {
-                    resultText += "Rare lvl3";
+                    resultText += itemEnhancementLabels["rare_3"][item.type];
                 } else if (item.enhancements[i] == "rare_4") {
-                    resultText += "Rare lvl4";
+                    resultText += itemEnhancementLabels["rare_4"][item.type];
+                } else if (item.enhancements[i] == "special_1") {
+                    resultText += itemEnhancementLabels["special_1"][item.id];                    
                 } else {
                     resultText += itemEnhancementLabels[item.enhancements[i]];
                 }

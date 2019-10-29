@@ -323,8 +323,8 @@ function addStats(level, star, esperName) {
 function calculateStatBonus(esperName, baseStat) {
     var ownedEsper = ownedEspers[esperName];
     var statBonusCoef = 1;
-    if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus[baseStat]) {
-        statBonusCoef += ownedEsper.esperStatsBonus[baseStat] / 100;
+    if (ownedEsper.esperStatsBonus && ownedEsper.esperStatsBonus.all[baseStat]) {
+        statBonusCoef += ownedEsper.esperStatsBonus.all[baseStat] / 100;
     }
     return Math.floor(ownedEsper[baseStat] * statBonusCoef / 100);
 }
@@ -751,18 +751,18 @@ function removeElementalResist(item, resist) {
 
 function addEsperStatsBonus(item, bonus) {
     if (!item.esperStatsBonus) {
-        item.esperStatsBonus = {"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0};
+        item.esperStatsBonus = {"all":{"hp":0, "mp":0, "atk":0, "def":0, "mag":0, "spr":0}};
     }
     for (var i = 0; i < baseStats.length; i++) {
-        item.esperStatsBonus[baseStats[i]] += bonus[baseStats[i]];
+        item.esperStatsBonus.all[baseStats[i]] += bonus[baseStats[i]];
     }
 }
 function removeEsperStatsBonus(item, bonus) {
     for (var i = 0; i < baseStats.length; i++) {
-        item.esperStatsBonus[baseStats[i]] -= bonus[baseStats[i]];
+        item.esperStatsBonus.all[baseStats[i]] -= bonus[baseStats[i]];
     }
-    if (item.esperStatsBonus.hp == 0 && item.esperStatsBonus.mp == 0 && item.esperStatsBonus.atk == 0 && 
-        item.esperStatsBonus.def == 0 && item.esperStatsBonus.mag == 0 && item.esperStatsBonus.spr == 0) 
+    if (item.esperStatsBonus.all.hp == 0 && item.esperStatsBonus.all.mp == 0 && item.esperStatsBonus.all.atk == 0 && 
+        item.esperStatsBonus.all.def == 0 && item.esperStatsBonus.all.mag == 0 && item.esperStatsBonus.all.spr == 0) 
     {
         delete item.esperStatsBonus;
     }

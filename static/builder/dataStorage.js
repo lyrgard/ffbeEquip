@@ -481,7 +481,7 @@ class DataStorage {
                 if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
                 if (item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stats[index]]) return true;
                 if (item.dualWielding && item.dualWielding[stats[index]]) return true;
-                if (item.esperStatsBonus && item.esperStatsBonus[stats[index]]) return true;
+                if (item.esperStatsBonus && item.esperStatsBonus.all && item.esperStatsBonus.all[stats[index]]) return true;
             }
         }
         if (this.desirableElements.length != 0) {

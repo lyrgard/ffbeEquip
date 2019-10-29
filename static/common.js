@@ -361,7 +361,13 @@ function getSpecialHtml(item) {
         special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
     }
     if (item.esperStatsBonus) {
-        special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
+        Object.keys(item.esperStatsBonus).forEach(esper => {
+            if (esper === 'all') {
+                special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)</li>";    
+            } else {
+                special += "<li>Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)</li>";    
+            }
+        });
     }
     if (item.drawAttacks) {
         special += "<li>+" + item.drawAttacks + "% draw attacks</li>";
@@ -410,13 +416,23 @@ var getStatDetail = function(item) {
     var statBonusCoef = 1;
     if (item.type == "esper") {
         if (item.esperStatsBonus) {
-            statBonusCoef += item.esperStatsBonus["hp"] / 100;
+            if (item.esperStatsBonus.all) {
+                statBonusCoef += item.esperStatsBonus.all["hp"] / 100;
+            }
+            if (item.esperStatsBonus[item.id]) {
+                statBonusCoef += item.esperStatsBonus[item.id]["hp"] / 100;
+            }
         }
         if (builds && builds[currentUnitIndex] && builds[currentUnitIndex].build) {
             for (var i = 0; i < builds[currentUnitIndex].build.length; i++) {
                 if (i != 10) {
                     if (builds[currentUnitIndex].build[i] && builds[currentUnitIndex].build[i].esperStatsBonus) {
-                        statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus["hp"] / 100;
+                        if (builds[currentUnitIndex].build[i].esperStatsBonus.all) {
+                            statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus.all["hp"] / 100;
+                        }
+                        if (builds[currentUnitIndex].build[i].esperStatsBonus[item.id]) {
+                            statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus[item.id]["hp"] / 100;
+                        }
                     }
                 }
             }
@@ -464,6 +480,8 @@ function getEnhancements(item) {
             html += itemEnhancementLabels["rare_3"][item.type];
         } else if (enhancement == "rare_4") {
             html += itemEnhancementLabels["rare_4"][item.type];
+        } else if (enhancement == "special_1") {
+            html += itemEnhancementLabels["special_1"][item.id];
         } else {
             html += itemEnhancementLabels[enhancement];
         }
@@ -1397,7 +1415,13 @@ function prepareSearch(data) {
             textToSearch += "|" + "Increase Esper summon damage by "+ item.evoMag + "%";
         }
         if (item.esperStatsBonus) {
-            textToSearch += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)";
+            Object.keys(item.esperStatsBonus).forEach(esper => {
+                if (esper === 'all') {
+                    textToSearch += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)";
+                } else {
+                    textToSearch += "|" + "Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)";
+                }
+            });
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;
@@ -2127,6 +2151,13 @@ $(function() {
         console.log("Starts to load owned espers");
         $.get(server + '/espers', function(result) {
             ownedEspers = result;
+            
+            Object.keys(ownedEspers).forEach(esper => {
+                 if (ownedEspers[esper].esperStatsBonus && !ownedEspers[esper].esperStatsBonus.all) {
+                     ownedEspers[esper].esperStatsBonus = {"all":ownedEspers[esper].esperStatsBonus};
+                 }
+            });
+            
             console.log("owned espers loaded");
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
