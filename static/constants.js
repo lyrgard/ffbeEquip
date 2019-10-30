@@ -81,7 +81,7 @@ const itemEnhancementLabels = {
     "special_1": {
         "303007600":"ATK/Fire resist +20%",
         "304005600":"ATK/Ice resist +20%",
-        "304005500":"ATK/Lightning resist +20%",
+        "304005300":"ATK/Lightning resist +20%",
         "308006100":"MAG/Water resist +20%",
         "313006400":"ATK/Wind resist +20%",
         "302011500":"ATK/Earth resist +20%",
@@ -141,7 +141,7 @@ const itemEnhancementAbilities = {
     "special_1": {
         "303007600":{"atk%":20, "resist":[{"name":"fire", "percent":20}]},
         "304005600":{"atk%":20, "resist":[{"name":"ice", "percent":20}]},
-        "304005500":{"atk%":20, "resist":[{"name":"lightning", "percent":20}]},
+        "304005300":{"atk%":20, "resist":[{"name":"lightning", "percent":20}]},
         "308006100":{"mag%":20, "resist":[{"name":"water", "percent":20}]},
         "313006400":{"atk%":20, "resist":[{"name":"wind", "percent":20}]},
         "302011500":{"atk%":20, "resist":[{"name":"earth", "percent":20}]},
