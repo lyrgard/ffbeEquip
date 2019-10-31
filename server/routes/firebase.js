@@ -58,7 +58,7 @@ const partyBuildSchema = Joi.object().keys({
         esperId: Joi.string().max(50),
         esperPinned: Joi.boolean(),
         pots: Joi.object().keys({
-            hp: Joi.number().min(0).max(1000),
+            hp: Joi.number().min(0).max(5000),
             mp: Joi.number().min(0).max(1000),
             atk: Joi.number().min(0).max(99),
             def: Joi.number().min(0).max(99),
