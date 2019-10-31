@@ -1218,6 +1218,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.cooldownSkill = parseActiveSkill(id.toString(), skillIn, skills, unit);
             result.cooldownTurns = rawEffect[3][2][0] + 1;
             result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+            if (rawEffect[3][3] == 0) {
+                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mecanism == 'physical')) {
+                   result.cooldownSkill.preventDualCastWithDualWield = true; 
+                }
+            }
         }
     
     // Draw attacks
@@ -1375,6 +1380,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     // Critical Physical Damage
     } else if (rawEffect[2] == 43) {
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
+        
+    // Self inflict Berserk
+    } else if (rawEffect[2] == 68) {
+        result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
 
     // inflict status
     } else if (rawEffect[2] == 6) {
@@ -1431,6 +1440,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         
         // HP barrier
     } else if (rawEffect[2] == 127) {
+        result = {"noUse":true};
+        
+        // Gain counters when ally is hit
+    } else if (rawEffect[2] == 123) {
         result = {"noUse":true};
         
         // Dualcast

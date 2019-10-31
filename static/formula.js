@@ -468,6 +468,9 @@ function formulaFromSkill(skill, multicast = false, isLb = false) {
     }
     if (formula) {
         formula = {"type": "skill", "id":skill.id, "name":skill.name, "value":formula, "stack":hasStack, "lb":isLb};
+        if (skill.preventDualCastWithDualWield) {
+            formula.preventDualCastWithDualWield = true;
+        }
     }
     if (canBeGoal || multicast) {
         if (hasStack && !caracts.includes("stack")) {
@@ -519,7 +522,14 @@ function formulaFromEffect(effect, multicast = false) {
         }
     } else if (effect.effect.cooldownSkill) {
         return formulaFromSkill(effect.effect.cooldownSkill, multicast);
+    } else if (effect.effect.berserk) {
+        return {
+            "type": "berserk",
+            "value": effect.effect.berserk.percent,
+            "duration": effect.effect.berserk.duration
+        };
     }
+    
     return null;
 }
 

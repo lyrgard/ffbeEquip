@@ -185,7 +185,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         context.currentSkill = formula.id;
         context.isLb = !!formula.lb;
         var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
-        if (context.remainingLeftHandAttacks && context.remainingLeftHandAttacks.length > 0) {
+        if (!formula.preventDualCastWithDualWield && context.remainingLeftHandAttacks && context.remainingLeftHandAttacks.length > 0) {
             context.treatingLeftHandAttacks = true;
             for (var i = 0, len = context.remainingLeftHandAttacks.length; i < len; i++) {
                 var leftHandAttackResult = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, context.remainingLeftHandAttacks[i], goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
@@ -193,9 +193,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 result.avg += leftHandAttackResult.avg;
                 result.max += leftHandAttackResult.max;
             }
-            context.treatingLeftHandAttacks = false;
-            context.remainingLeftHandAttacks = [];
         }
+        context.treatingLeftHandAttacks = false;
+        context.remainingLeftHandAttacks = [];
         context.currentSkill = null;
         context.isLb = false;
         return result;
@@ -584,7 +584,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             } else {
                 for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
                     var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
-                    var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
+                    var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild, context.berserk);
 
                     if ("atk" == stat || "def" == stat) {
                         var variance;
@@ -674,7 +674,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.alreadyCalculatedValues[formula.name] = value;
             return value
         } else {
-            var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
+            var value = calculateStatValue(itemAndPassives, formula.name, unitBuild, context.berserk).total;
             if (formula.name == "mpRefresh") {
                 value /= 100;
             }
@@ -817,6 +817,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "max": 0,
             "switchWeapons": false
         };
+    } else if (formula.type == "berserk") {
+        if (!context.berserk || context.berserk < formula.value) {
+            context.berserk = formula.value;
+            delete context.savedValues.atk;
+        }
+        return {
+            "min": 0,
+            "avg": 0,
+            "max": 0,
+            "switchWeapons": false
+        };
     } else if (formula.type == "break") {
         if (formula.value.def && ennemyStats.breakability.def) {
             if (ennemyStats.breaks.def < formula.value.def) {
@@ -931,7 +942,7 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
     if (context.savedValues[stat]) {
         return context.savedValues[stat];
     } else {
-        var result = calculateStatValue(itemAndPassives, stat, unitBuild);
+        var result = calculateStatValue(itemAndPassives, stat, unitBuild, context.berserk);
         context.savedValues[stat] = result;
         return result;
     }
@@ -989,7 +1000,7 @@ function getEsperStatBonus(itemAndPassives, stat, esper) {
     return Math.min(3, statsBonus / 100);
 }
 
-function calculateStatValue(itemAndPassives, stat, unitBuild) {
+function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
@@ -1003,6 +1014,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         baseValue = unitBuild.baseValues[stat].total;
         if (stat === 'hp') {
             buffValue = unitBuild.baseValues[stat].buff;   
+        } else if (stat === 'atk' && berserk) {
+            buffValue = (unitBuild.baseValues[stat].buff + berserk) * baseValue / 100;
         } else {
             buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
         }

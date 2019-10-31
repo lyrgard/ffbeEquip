@@ -8175,8 +8175,8 @@
 		}
 	},
 	"206002305": {
-		"name":"Great Mage Kefka",
-		"wikiEntry":"大魔導士ケフカ",
+		"name":"대마도사 케프카",
+		"wikiEntry":"Archmage_Kefka",
 		"id":"206002305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8189,7 +8189,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":20, "def%":30, "mag%":100, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","magical":100}], "mpRefresh":10},
+			{"hp%":40, "mp%":20, "def%":50, "mag%":100, "spr%":70, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","magical":100}], "mpRefresh":10, "skillEnhancement":{"231123":1}},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"equipedConditions":[["409030500","504231073"]]},
 			{"hp%":20, "mag%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"231118":1.5,"231119":1.5,"231120":1.5,"231128":1,"231129":1,"231130":1}, "levelCondition":110},
@@ -8197,8 +8197,8 @@
 			{"mp%":40, "mag%":30, "lbPerTurn":{"min":5,"max":5}, "lbDamage":50, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Great Mage Kefka",
-			"wikiEntry":"大魔導士ケフカ",
+			"name":"대마도사 케프카",
+			"wikiEntry":"Archmage_Kefka",
 			"id":"206002305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -8212,14 +8212,14 @@
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":20, "mp%":20, "def%":30, "mag%":100, "spr%":50, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","magical":100}], "mpRefresh":10},
+				{"hp%":40, "mp%":20, "def%":50, "mag%":100, "spr%":70, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"human","magical":100}], "mpRefresh":10, "skillEnhancement":{"231123":1}},
 				{"mag%":30, "equipedConditions":["rod"]}
 			]
 		}
 	},
 	"206002405": {
-		"name":"Assassin Shadow",
-		"wikiEntry":"アサシン_シャドウ",
+		"name":"어쌔신 섀도우",
+		"wikiEntry":"Assassin_Shadow",
 		"id":"206002405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8232,15 +8232,15 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","throwing","fist","hat","helm","clothes","lightArmor"],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":100, "def%":20, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":20}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":25}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":40, "mp%":20, "atk%":120, "def%":40, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"wind","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":7, "skillEnhancement":{"231099":2,"231100":2,"509881":1,"509882":1}, "special":["dualWield"]},
 			{"atk%":30, "evade":{"physical":20}, "lbDamage":30, "equipedConditions":[["504231071","304004600"]]},
-			{"mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":30}, "resist":[{"name":"wind","percent":30},{"name":"dark","percent":30}], "levelCondition":110},
+			{"mp%":20, "def%":20, "spr%":20, "dualWielding":{"atk":50}, "resist":[{"name":"wind","percent":30},{"name":"dark","percent":30}], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"hp%":20, "atk%":40, "skillEnhancement":{"231099":3,"231100":3,"509881":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Assassin Shadow",
-			"wikiEntry":"アサシン_シャドウ",
+			"name":"어쌔신 섀도우",
+			"wikiEntry":"Assassin_Shadow",
 			"id":"206002405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -8254,7 +8254,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","throwing","fist","hat","helm","clothes","lightArmor"],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":100, "def%":20, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":20}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":25}], "mpRefresh":7, "special":["dualWield"]}
+				{"hp%":40, "mp%":20, "atk%":120, "def%":40, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"wind","percent":20},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":7, "skillEnhancement":{"231099":2,"231100":2,"509881":1,"509882":1}, "special":["dualWield"]}
 			]
 		}
 	},
@@ -15871,11 +15871,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Serpenté - Kiss of Dusk","Serpenté - Kiss of Dawn","Counter-curse","Demonic Guard - Physical","Demonic Guard - Magical","Serpenté - Dusk Lash","Serpenté - Dawn Lash","Serpenté - Kiss of Midnight","Dream Chemistry"],
+		"enhancements": [
+			{"name":"Dream Chemistry","levels":[[{"spr%":30,"hp%":30,"levelCondition":120}],[{"spr%":30,"def%":30,"hp%":30,"skillEnhancement":{"911496":2.4,"911497":2.4,"913274":2.4},"levelCondition":120}],[{"spr%":60,"def%":30,"hp%":60,"skillEnhancement":{"911496":4.8,"911497":4.8,"913275":4.8},"replaceLb":{"name":"Sinister Dance","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":24,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (24x, SPR) to all enemies"},{"effect":{"noUse":true,"globalMitigation":25,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 25% to all allies for 3 turns"},{"effect":{"noUse":true,"globalMitigation":45,"turns":3,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 45% to caster for 3 turns"},{"effect":null,"desc":"Restore 60% HP and MP to caster"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":30,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (30x, SPR) to all enemies"},{"effect":{"noUse":true,"globalMitigation":35,"turns":3,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 35% to all allies for 3 turns"},{"effect":{"noUse":true,"globalMitigation":55,"turns":3,"area":"SELF","target":"SELF"},"desc":"Reduce damage taken by 55% to caster for 3 turns"},{"effect":null,"desc":"Restore 70% HP and MP to caster"}],"frames":[85,87,89,91,93,95,97,99,101,103,105,107],"move":"none"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"def%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"dark","percent":100}], "killers":[{"name":"demon","magical":50},{"name":"human","magical":50},{"name":"undead","magical":50}]},
 			{"def%":30, "spr%":30, "lbPerTurn":{"min":2,"max":2}, "equipedConditions":[["1100000206","1500000073"]]},
-			{"def%":20, "levelCondition":115},
-			{"hp%":30, "spr%":30, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"릴리스",
@@ -15892,6 +15895,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Serpenté - Kiss of Dusk","Serpenté - Kiss of Dawn","Counter-curse","Demonic Guard - Physical","Demonic Guard - Magical","Serpenté - Dusk Lash","Serpenté - Dawn Lash","Serpenté - Kiss of Midnight","Dream Chemistry"],
 			"skills": [
 				{"def%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"dark","percent":100}], "killers":[{"name":"demon","magical":50},{"name":"human","magical":50},{"name":"undead","magical":50}]}
 			]
@@ -15911,12 +15915,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Dusk Barrage","Dawn Barrage","Demon Chemistry","Piercing Barrage","Cleaving Barrage","Crushing Barrage","Unholy Strength","Immortal Demon","Aggressive Presence","Dark Commandment"],
+		"enhancements": [
+			{"name":"Demon Chemistry","levels":[[],[{"atk%":25}],[{"atk%":50}]]},
+			{"name":"Unholy Strength","levels":[[{"atk%":30,"mp%":30,"lbDamage":20,"dualWielding":{"atk":40},"equipedConditions":[["1500000074","1100000207"]]}],[{"atk%":30,"mp%":30,"lbDamage":40,"dualWielding":{"atk":50},"equipedConditions":[["1500000074","1100000207"]]}],[{"atk%":30,"mp%":30,"lbDamage":50,"dualWielding":{"atk":100},"improvedDW":true,"replaceLb":{"name":"Sinister Fury","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"atk":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for 3 turns to caster"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":26},"area":"ST","target":"ENEMY"},"desc":"Physical damage (26x, ATK) to one enemy"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"statsBuff":{"atk":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK by 250% for 3 turns to caster"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":38},"area":"ST","target":"ENEMY"},"desc":"Physical damage (38x, ATK) to one enemy"}],"frames":[105,115,120,125,135,140,145,155,165,185],"move":"walk"},"equipedConditions":[["1500000074","1100000207"]]}]]},
+			{"name":"Dark Commandment","levels":[[{"skillEnhancement":{"911518":1,"911519":2,"911520":2,"913280":1,"913281":1,"913282":2,"913283":2,"913284":2,"913285":2},"levelCondition":110}],[{"skillEnhancement":{"911518":1,"911519":2,"911520":2,"911524":3.6,"913280":1,"913281":1,"913282":2,"913283":2,"913284":2,"913285":2},"mpRefresh":3,"levelCondition":110}],[{"skillEnhancement":{"911505":2,"911506":2,"911518":1,"911519":2,"911520":2,"911524":3.6,"913280":1,"913281":1,"913282":2,"913283":2,"913284":2,"913285":2},"mpRefresh":5,"levelCondition":110}]]},
+			{"name":"Crimson Destiny","levels":[[],[{"atk%":10,"hp%":10,"killers":[{"name":"human","physical":25}]}],[{"atk%":20,"hp%":20,"killers":[{"name":"human","physical":50}],"resist":[{"name":"dark","percent":50}]}],[{"atk%":30,"hp%":30,"killers":[{"name":"human","physical":50}],"resist":[{"name":"dark","percent":100}]}]]}
+		],
 		"skills": [
 			{"atk%":30, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["fist"]},
 			{"atk%":200, "equipedConditions":["unarmed"]},
-			{"mp%":30, "atk%":30, "dualWielding":{"atk":40}, "lbDamage":20, "equipedConditions":[["1500000074","1100000207"]]},
-			{"skillEnhancement":{"911518":1,"911519":2,"911520":2}, "levelCondition":110},
 			{"hp%":20, "levelCondition":115},
 			{"hp%":20, "atk%":20, "def%":20, "spr%":20, "levelCondition":120}
 		],
@@ -15935,6 +15944,11 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"],
+			"enhancementSkills":["Dusk Barrage","Dawn Barrage","Demon Chemistry","Piercing Barrage","Cleaving Barrage","Crushing Barrage","Unholy Strength","Immortal Demon","Aggressive Presence","Dark Commandment"],
+		"enhancements": [
+			{"name":"Demon Chemistry","levels":[[],[{"atk%":25}],[{"atk%":50}]]},
+			{"name":"Crimson Destiny","levels":[[],[{"atk%":10,"hp%":10,"killers":[{"name":"human","physical":25}]}],[{"atk%":20,"hp%":20,"killers":[{"name":"human","physical":50}],"resist":[{"name":"dark","percent":50}]}],[{"atk%":30,"hp%":30,"killers":[{"name":"human","physical":50}],"resist":[{"name":"dark","percent":100}]}]]}
+		],
 			"skills": [
 				{"atk%":30, "evade":{"physical":20}, "lbFillRate":100, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"human","physical":50},{"name":"undead","physical":50}], "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["fist"]},

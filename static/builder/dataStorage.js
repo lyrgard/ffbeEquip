@@ -125,7 +125,7 @@ class DataStorage {
         } else if (formula.type == "condition") {
             this.addDesirableElementsFromImperilInFormula(formula.formula);    
             this.addDesirableElementsFromImperilInFormula(formula.condition);
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation" && formula.type != "berserk") {
             this.addDesirableElementsFromImperilInFormula(formula.value1);
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }

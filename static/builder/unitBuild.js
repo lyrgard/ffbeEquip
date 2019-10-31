@@ -360,7 +360,7 @@ class UnitBuild {
             }
         } else if (formula.type=="heal"){
             this.addToInvolvedStats(["spr","mag"])
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "lbFill") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "lbFill" && formula.type != "berserk") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }
