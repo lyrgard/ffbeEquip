@@ -1442,6 +1442,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 127) {
         result = {"noUse":true};
         
+        // Restore HP
+    } else if (rawEffect[2] == 16) {
+        result = {"noUse":true};
+        
         // Gain counters when ally is hit
     } else if (rawEffect[2] == 123) {
         result = {"noUse":true};
