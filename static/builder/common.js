@@ -229,7 +229,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
-            newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
             
             if (!context.savedValues.hasOwnProperty("resistModifier")) {
                 // Takes elements from weapons into account
@@ -251,6 +250,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             
             if (formula.value.damageType == "body" || formula.value.mecanism == "hybrid") {
                 defendingStat = "def";
+
+                newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
                 
                 var stat = "atk";
                 if (formula.value.use) {
