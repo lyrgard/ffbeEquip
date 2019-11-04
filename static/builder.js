@@ -1397,7 +1397,7 @@ function displayUnitEnhancements() {
                     } else {
                         html += '>' + enhancement.name + ' unlocked</option>';
                     }
-                } else if (enhancement.levels[0].length == 0) {
+                } else if (enhancement.levels.length == 4 && enhancement.levels[0].length == 0) {
                     // latent skills
                     if (j == 0) {
                         html += '>' + enhancement.name + ' not unlocked</option>';
