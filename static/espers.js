@@ -117,7 +117,7 @@ function showAll() {
             html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
             html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
             let killerHtml = getKillerHtml(esper.killers);
-            html += "<td class='killers'>" + killerHtml.physical + killerHtml.magical + "</td>";
+            html += "<td class='killers'><div>" + killerHtml.physical + '</div><div>' + killerHtml.magical + "</div></td>";
 
             html += "</tr>";
         }
@@ -164,7 +164,7 @@ function show(esperName) {
             $(".esperOtherStats").removeClass("invisible");
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
             let killers = getKillerHtml(ownedEspers[currentEsper].killers);
-            $("#esperSkills").html(killers.physical + killers.magical);
+            $("#esperSkills").html('<div>' + killers.physical + '</div><div>' + killers.magical + '</div>');
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
@@ -552,7 +552,7 @@ function selectNode(x,y) {
     updateStats();
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     let killers = getKillerHtml(ownedEspers[currentEsper].killers)
-    $("#esperSkills").html(killers.physical + killers.magical);
+    $("#esperSkills").html('<div>' + killers.physical + '</div><div>' + killers.magical + '</div>');
     prepareSave();
 }
 
@@ -1167,7 +1167,7 @@ function setEsperRarity(rarity) {
     ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[rarity]));
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
     let killerHtml = getKillerHtml(ownedEspers[currentEsper].killers);
-    $("#esperSkills").html(killerHtml.physical + killerHtml.magical);
+    $("#esperSkills").html('<div>' + killerHtml.physical + '</div><div>' + killerHtml.magical + '</div>');
     $("#esperStar").val(rarity);
     setEsperLevel(maxLevelByStar[rarity]);
     showBoard(currentEsper, rarity);
