@@ -269,7 +269,9 @@ function getSpecialHtml(item) {
     }
 
     if (item.killers) {
-        special += getKillersHtml(item);
+        let killers = getKillerHtml(item.killers);
+        special += '<div>' + killers.physical + '</div>';
+        special += '<div>' + killers.magical + '</div>';
     }
     
     if (item.special && item.special.includes("dualWield")) {

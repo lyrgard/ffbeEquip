@@ -602,6 +602,18 @@ table.allEspers > tbody > tr > td.stats .bonus {
     cursor: wait;
 }
 
+.hexagon.killer .iconHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+}
+
+#esperSkills {
+    flex-direction: column;
+}
+
 @media (max-width: 1200px) {
     #allEspers {
         max-width: none;

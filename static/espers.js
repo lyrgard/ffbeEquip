@@ -116,7 +116,8 @@ function showAll() {
             html += "<td class='stats mag'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'mag') + "</span> ("+ esper.mag +")</td>";
             html += "<td class='stats spr'><span class='bonus sortValue'>+" +calculateStatBonus(esper.name, 'spr') + "</span> ("+ esper.spr +")</td>";
             html += "<td class='resists'>" + getResistHtml(esper) + "</td>";
-            html += "<td class='killers'>" + getKillersHtml(esper) + "</td>";
+            let killerHtml = getKillerHtml(esper.killers);
+            html += "<td class='killers'>" + killerHtml.physical + killerHtml.magical + "</td>";
 
             html += "</tr>";
         }
@@ -162,7 +163,8 @@ function show(esperName) {
             $(".stats").removeClass("invisible");
             $(".esperOtherStats").removeClass("invisible");
             $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
-            $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+            let killers = getKillerHtml(ownedEspers[currentEsper].killers);
+            $("#esperSkills").html(killers.physical + killers.magical);
         } else {
             $("#esper .levelLine").addClass("hidden");
             $("#esper .spLine").addClass("hidden");
@@ -426,18 +428,8 @@ function showNode(node, parentNodeHtml, star, scale=1) {
     if (node.killers) {
         var killer = node.killers[0];
         var html = '<span class="iconHolder">';
-        if (killer.physical) {
-            html+= '<i class="img img-equipment-sword miniIcon physical"></i>';
-        }
-        if (killer.magical) {
-            html+= '<i class="img img-equipment-rod miniIcon magical"></i>';
-        }
-        html += '<img class="icon" src="/img/items/ability_79.png"></img></span><span class="text"><span class="capitalize">' + killer.name + '</span> ';
-        if (killer.physical) {
-            html+= killer.physical + '%';
-        } else {
-            html+= killer.magical + '%';
-        }
+        let killers = getKillerHtml(node.killers);
+        html += killers.physical + killers.magical;
         html+='</span><span class="cost">' + node.cost + ' SP</span>';
         nodeHtml.html(html);
         nodeHtml.addClass("killer");
@@ -559,7 +551,8 @@ function selectNode(x,y) {
     updateSp();
     updateStats();
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
-    $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+    let killers = getKillerHtml(ownedEspers[currentEsper].killers)
+    $("#esperSkills").html(killers.physical + killers.magical);
     prepareSave();
 }
 
@@ -976,9 +969,9 @@ function notLoaded() {
     console.log("entering notLoaded function");
     console.trace();
     ownedEspers = {};
-    loadLink();
     
     if (esperBoards) {
+        loadLink();
         displayEspers();
     }
     $("#pleaseWaitMessage").addClass("hidden");
@@ -993,9 +986,8 @@ function inventoryLoaded() {
     console.log("entering inventoryLoaded function");
     console.trace();
     logged = true;
-    loadLink();
-    $('#importLink').removeClass('hidden');
     if (esperBoards) {
+        $('#importLink').removeClass('hidden');
         displayEspers();
     }
     console.log("exiting inventoryLoaded function");
@@ -1006,10 +998,39 @@ function loadLink() {
         console.log("Loading esper link");
         var hashValue = window.location.hash.substr(1);
         
-        try {
-            ownedEspers = JSON.parse(atob(hashValue));
-        } catch (e) {
-            ownedEspers = hashValue;
+        if (hashValue.includes('|')) {
+            let tokens = hashValue.split('|');
+            let esperName = tokens[0].replace('_', ' ');
+            let rarity = parseInt(tokens[1]);
+            let level = parseInt(tokens[2]);
+            let board = tokens[3];
+            let esper = espers.find(esper => esper.id.toUpperCase() == esperName.toUpperCase());
+            if (esper) {
+                ownedEspers = {};
+                ownedEspers[esperName] = JSON.parse(JSON.stringify(esper));
+                ownedEspers[esperName].rarity = rarity;
+                ownedEspers[esperName].level = level; 
+                ownedEspers[esperName].selectedSkills = [];
+                let binary = hex2bin(board);
+                [...binary].forEach((char, index) => {
+                    if (char == '1') {
+                        let coordinate = importBoardConversion[index];
+                        if (coordinate) {
+                            let positionString = getPositionString(coordinate[0], coordinate[1]);
+                            ownedEspers[esperName].selectedSkills.push(positionString);
+                        }
+                    }
+                });
+                ownedEspers[esperName].board = board;
+            }
+            
+            //importEsper(esperName, rarity, level, board);
+        } else {
+            try {
+                ownedEspers = JSON.parse(atob(hashValue));
+            } catch (e) {
+                ownedEspers = hashValue;
+            }    
         }
         
         $('.navbar').addClass("hidden");
@@ -1035,20 +1056,18 @@ function onLevelChange() {
 }
 
 function getPublicEsperLink() {
-    var esperToExport = {};
-    esperToExport[currentEsper] = {
-        "name":ownedEspers[currentEsper].name,
-        "rarity":ownedEspers[currentEsper].rarity,
-        "level":ownedEspers[currentEsper].level,
-        "selectedSkills":ownedEspers[currentEsper].selectedSkills,
-    };
-
-    Modal.showWithBuildLink("Esper build", "espers.html?server=" + server + '&o#' + btoa(JSON.stringify(esperToExport)));
+    let linkData = escapeName(ownedEspers[currentEsper].name) + '|' + ownedEspers[currentEsper].rarity + '|' + ownedEspers[currentEsper].level + '|';
+    
+    let boardStateBin = importBoardConversion.map(coordinate => getPositionString(coordinate[0], coordinate[1])).map(positionString => ownedEspers[currentEsper].selectedSkills.includes(positionString) ? '1': '0').join('');
+    let boardState = bin2hex(boardStateBin);
+    
+    linkData += boardState;
+    
+    Modal.showWithBuildLink("Esper build", "espers.html?server=" + server + '&o#' + linkData);
 
 }
 
-function importEsper(id, rarity, level, board) {
-    let esperName = importIdConversion[id];
+function importEsper(esperName, rarity, level, board) {
     currentEsper = esperName;
     show(esperName);
     setEsperRarity(rarity);
@@ -1083,7 +1102,7 @@ function importEspers() {
                         ownedEspers = {};
                         $("#tabs li.esper").addClass("notOwned");
                         importedEspers.forEach(esperData => {
-                            importEsper(esperData.id, parseInt(esperData.rarity), parseInt(esperData.level), esperData.board);
+                            importEsper(importIdConversion[esperData.id], parseInt(esperData.rarity), parseInt(esperData.level), esperData.board);
                         });
                         showAll();
                         saveUserData(false, false, true);
@@ -1133,13 +1152,22 @@ function hex2bin(hex){
     return result;
 }
 
+function bin2hex(bin) {
+    let zeroToAdd = (4 - bin.length % 4) % 4;
+    for (let i = 0; i < zeroToAdd; i++) {
+        bin += '0';
+    }
+    return parseInt(bin, 2).toString(16);
+}
+
 function setEsperRarity(rarity) {
     $("#esper .levelLine").removeClass("hidden");
     $("#esper .spLine").removeClass("hidden");
     ownedEspers[currentEsper] = {"name":currentEsper, "id":currentEsper, "rarity":rarity,"selectedSkills":[]};
     ownedEspers[currentEsper].resist = JSON.parse(JSON.stringify(esperBoards[currentEsper].resist[rarity]));
     $("#esperResist").html(getResistHtml(ownedEspers[currentEsper]));
-    $("#esperSkills").html(getKillersHtml(ownedEspers[currentEsper]));
+    let killerHtml = getKillerHtml(ownedEspers[currentEsper].killers);
+    $("#esperSkills").html(killerHtml.physical + killerHtml.magical);
     $("#esperStar").val(rarity);
     setEsperLevel(maxLevelByStar[rarity]);
     showBoard(currentEsper, rarity);
@@ -1165,6 +1193,7 @@ function startPage() {
         getStaticData("esperBoards", false, function(result) {
             esperBoards = result;
             if (ownedEspers) {
+                loadLink();
                 displayEspers();
             }
         });

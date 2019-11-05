@@ -58,8 +58,6 @@ const goalQuickSelectDefaultValues = [
     ["heal","Heal"]
 ]
 
-const statsToDisplay = baseStats.concat(["evade.physical","evade.magical"]);
-
 var customFormula;
 
 var espers;
@@ -655,12 +653,12 @@ function logBuild(build, value) {
     $("#fixedItemsTitle").addClass("hidden");
     $("#resultStats").removeClass("hidden");
     var values = {};
-    for (var statIndex = 0, len = statsToDisplay.length; statIndex < len; statIndex++) {
-        var result = calculateStatValue(build, statsToDisplay[statIndex], builds[currentUnitIndex]);
-        values[statsToDisplay[statIndex]] = result.total;
+    for (var statIndex = 0, len = baseStats.length; statIndex < len; statIndex++) {
+        var result = calculateStatValue(build, baseStats[statIndex], builds[currentUnitIndex]);
+        values[baseStats[statIndex]] = result.total;
         
-        $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .value").html(Math.floor(result.total));
-        var bonusTextElement = $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus");
+        $("#resultStats ." + escapeDot(baseStats[statIndex]) + " .value").html(Math.floor(result.total));
+        var bonusTextElement = $("#resultStats ." + escapeDot(baseStats[statIndex]) + " .bonus");
 
         var bonusPercent;
         if (result.bonusPercent > statsBonusCap[server]) {
@@ -669,9 +667,9 @@ function logBuild(build, value) {
             bonusPercent = result.bonusPercent + "%";
         }
         
-        var upperCaseStat = statsToDisplay[statIndex].toUpperCase();
-        if (baseStats.includes(statsToDisplay[statIndex])) {
-            var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, statsToDisplay[statIndex], false) - 1) * 100);
+        var upperCaseStat = baseStats[statIndex].toUpperCase();
+        if (baseStats.includes(baseStats[statIndex])) {
+            var equipmentFlatStatBonus = Math.round((getEquipmentStatBonus(build, baseStats[statIndex], false) - 1) * 100);
             if (equipmentFlatStatBonus > 0) {
                 bonusTextElement.attr("title", `(${upperCaseStat} increase % - Equipped ${upperCaseStat} (DH) increase %) modifiers, capped individually.`);
                 bonusPercent += "&nbsp;-&nbsp;";
@@ -688,7 +686,7 @@ function logBuild(build, value) {
                 bonusTextElement.attr("title", `${upperCaseStat} increase % modifier.`);
             }
         }
-        $("#resultStats ." + escapeDot(statsToDisplay[statIndex]) + " .bonus").html(bonusPercent);
+        $("#resultStats ." + escapeDot(baseStats[statIndex]) + " .bonus").html(bonusPercent);
     }
 
     var pMitigation = 1;
@@ -703,33 +701,18 @@ function logBuild(build, value) {
         pMitigation = pMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].physical / 100));
         mMitigation = mMitigation * (1 - (builds[currentUnitIndex].baseValues["mitigation"].global / 100)) * (1 - (builds[currentUnitIndex].baseValues["mitigation"].magical / 100))
     }
-    $("#resultStats .physicaleHp .value").html(Math.floor(values["def"] * values["hp"] / pMitigation).toLocaleString());
-    $("#resultStats .magicaleHp .value").html(Math.floor(values["spr"] * values["hp"] / mMitigation).toLocaleString());
-    $("#resultStats .mpRefresh .value").html(Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
-    $("#resultStats .lbPerTurn .value").html(calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
-    $("#resultStats .evoMag .value").html(calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
-    $("#resultStats .accuracy .value").html(calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total + "%");
-    let drawAttacks = calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total;
-    if (drawAttacks) {
-        $("#resultStats .drawAttacks").removeClass('hidden');
-        $("#resultStats .drawAttacks .value").html(drawAttacks + "%");
-    } else {
-        $("#resultStats .drawAttacks").addClass('hidden');
-    }
-    let jumpDamage = calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total;
-    if (jumpDamage) {
-        $("#resultStats .jumpDamage").removeClass('hidden');
-        $("#resultStats .jumpDamage .value").html(jumpDamage + "%");
-    } else {
-        $("#resultStats .jumpDamage").addClass('hidden');
-    }
-    let lbDamage = calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total;
-    if (lbDamage) {
-        $("#resultStats .lbDamage").removeClass('hidden');
-        $("#resultStats .lbDamage .value").html(lbDamage + "%");
-    } else {
-        $("#resultStats .lbDamage").addClass('hidden');
-    }
+    displayStat("#resultStats .physicaleHp", Math.floor(values["def"] * values["hp"] / pMitigation).toLocaleString());
+    displayStat("#resultStats .magicaleHp", Math.floor(values["spr"] * values["hp"] / mMitigation).toLocaleString());
+    displayStat("#resultStats .evade_physical", calculateStatValue(build, "evade.physical", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .evade_magical", calculateStatValue(build, "evade.magical", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .mpRefresh", Math.floor(values["mp"] * calculateStatValue(build, "mpRefresh", builds[currentUnitIndex]).total / 100));
+    displayStat("#resultStats .lbPerTurn", calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .lbFillRate", calculateStatValue(build, "lbFillRate", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .evoMag", calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total);
+    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total)
 
     
     for (var index in elementList) {
@@ -745,6 +728,9 @@ function logBuild(build, value) {
     var importantStats = builds[currentUnitIndex].involvedStats;
     for (var index in importantStats) {
         $("#resultStats ." + escapeDot(importantStats[index])).addClass("statToMaximize");    
+    }
+    if (importantStats.includes('lbPerTurn')) {
+        $("#resultStats .lbFillRate .value").addClass("statToMaximize");
     }
 
     if (!value) {
@@ -829,6 +815,16 @@ function logBuild(build, value) {
     $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
     $("#resultStats .damageCoef").html("1x");
+}
+
+function displayStat(htmlClass, value) {
+    if (value === 0 || value === "0") {
+        $(htmlClass).addClass("hidden");
+    } else {
+        let div = $(htmlClass);
+        div.removeClass("hidden");
+        div.find('.value').html(value);    
+    }
 }
 
 function getValueWithVariationHtml(value) {
