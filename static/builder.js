@@ -3547,6 +3547,16 @@ function onFeatureSelect(selectedFeature) {
     updateBuildButtonDisplay();
 }
 
+function showExportAsImage() {
+    $("#exportAsImageModal").modal();
+    BuildAsImage.drawTeam($('#exportAsImageCanvas')[0], builds);
+}
+
+function exportAsImage() {
+    $('#exportAsImageCanvas')[0].toBlob(function (blob) {
+        window.saveAs(blob, builds.map(build => build.unit.name).join("-") + ".png");
+    });
+}
 
 // will be called by common.js at page load
 function startPage() {

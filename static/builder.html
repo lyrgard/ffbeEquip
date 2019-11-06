@@ -850,6 +850,11 @@
                                                     <span class="glyphicon glyphicon-list"></span> Builds as text (all units)
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a class="buildAsImage link" onclick="showExportAsImage()">
+                                                    <span class="glyphicon glyphicon-picture"></span> Builds as image
+                                                </a>
+                                            </li>
                                             
                                         </ul>
                                     </div>
@@ -1424,6 +1429,22 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exportAsImageModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="title">Export as image</span>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="exportAsImageCanvas" width="730" height="235"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="exportAsImage();">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"
                 integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -1442,6 +1463,7 @@
         <script src="constants.js"></script>
         <script src="common.js"></script>
         <script src="builder/common.js"></script>
+        <script src="lib/FileSaver.min.js"></script>
         <script src="formula.js"></script>
         <script src="builder/unitBuild.js"></script>
         <script src="builder/dataStorage.js"></script>
@@ -1454,6 +1476,7 @@
         <script src="builder/typeCombinationGenerator.js"></script>
         <script src="builder/itemPool.js"></script>
         <script src="builder.js"></script>
+        <script src="exportBuildAsImage.js"></script>
         <script src="googleAnalytics.js"></script>
         <script src="builder/links.js"></script>
         

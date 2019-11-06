@@ -229,7 +229,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
-            
+
             if (!context.savedValues.hasOwnProperty("resistModifier")) {
                 // Takes elements from weapons into account
                 if (itemAndPassives[0] && itemAndPassives[0].element) {

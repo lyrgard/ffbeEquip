@@ -70,7 +70,7 @@
                 return lines;
             }
             
-            var grd = ctx.createLinearGradient(0, 0, 900, 235);
+            let grd = ctx.createLinearGradient(0, 0, 900, 235);
             grd.addColorStop(0, "#0000b2");
             grd.addColorStop(1, "#00002d");
 
@@ -80,8 +80,8 @@
             
             drawImage('img/box.png', 0, 0, 730, 235);
             
-            var x = 105;
-            var y = 5;
+            let x = 105;
+            let y = 20;
             ctx.fillStyle = 'white';
             ctx.strokeStyle = 'black';
             ctx.font = "italic 12px Arial";
@@ -102,75 +102,91 @@
             ctx.fillText("250", x + 180, y + 60);
             
             drawImage('img/units/unit_ills_401007207.png', 5, 5, 100, 100);
-            
-            
-            var x = 105;
-            var y = 65;
-            ctx.textAlign = "start"
-            ctx.fillStyle = 'white';
-            ctx.strokeStyle = 'black';
-            ctx.font = "italic 12px Arial";
-            ctx.fillText("Evasion", x, y + 20);
-            ctx.fillText("Provoke", x + 100, y + 20);
-            ctx.fillText("LB Dam.", x, y + 40);
-            ctx.font = "bold 16px Arial";
-            ctx.textAlign = "end"
-            ctx.fillText("100", x + 80, y + 20);
-            ctx.fillText("100", x + 180, y + 20);
-            ctx.fillText("30", x + 80, y + 40);
+
+
+            drawImage('img/espers/Odin.jpg', x + 205, y, 50, 50);
+            drawText('Odin', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+
+            ctx.textBaseline = "bottom";
+            let additionalValues = [
+                {"name":"Evasion", "value":30},
+                {"name":"Provoke", "value":50},
+                {"name":"LB Dam.", "value":30},
+                {"name":"MP/turn", "value":29},
+                {"name":"LB/turn", "value":4},
+                {"name":"LB fill", "value":100},
+                {"name":"Jmp Dam.", "value":125},
+
+            ];
+            x = 25;
+            y = 95;
+            let line = 0;
+            let column = 0;
+            additionalValues.forEach(valueData => {
+                if (valueData.value) {
+                    ctx.textAlign = "start"
+                    ctx.fillStyle = 'white';
+                    ctx.strokeStyle = 'black';
+                    ctx.font = "italic 12px Arial";
+                    ctx.fillText(valueData.name, x + column * 100, y + line * 20 + 20);
+                    ctx.font = "bold 14px Arial";
+                    ctx.textAlign = "end"
+                    ctx.fillText(valueData.value, x + column * 100 + 80, y + line * 20 + 20);
+                    column++;
+                    if (column == 3) {
+                        line++;
+                        column = 0;
+                    }
+                }
+            });
             
             x = 375;
             y = 5;
             
-            var line = 0;
-            var column = 0;
+            line = 0;
+            column = 0;
             drawImage('img/items/item_11641.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Tiger Fangs (FFBE)', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             column = 1;
             drawImage('img/items/item_11044.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Longinus (FFBE)', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             
-            var line = 1;
-            var column = 0;
+            line = 1;
+            column = 0;
             drawImage('img/items/item_30148.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Scanning Goggles', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             column = 1;
             drawImage('img/items/item_20144.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Luneth\'s Clothes', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             
-            var line = 2;
-            var column = 0;
+            line = 2;
+            column = 0;
             drawImage('img/items/item_50390.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Limited Moon', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             column = 1;
             drawImage('img/items/item_50389.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Seraph Comb', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             
-            var line = 3;
-            var column = 0;
+            line = 3;
+            column = 0;
             drawImage('img/items/ability_95.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Dragoon\'s Wisdom', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             column = 1;
             drawImage('img/items/ability_72.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Dual Form', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             
-            var line = 4;
-            var column = 0;
+            line = 4;
+            column = 0;
             drawImage('img/items/ability_77.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Past Regrets', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             column = 1;
             drawImage('img/items/ability_77.png', x + column * 170, y + line * 30, 40, 40);
             drawText('Sworn Six\'s Pride - Wind', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
             
-            var line = 5;
-            var column = 1;
-            drawImage('img/espers/Odin.jpg', x + column * 170, y + line * 30 + 10, 40, 40);
-            drawText('Odin', 'bold', 12, 'start', 'middle', x + 50 + column * 170, y + line * 30 + 30, 130);
-            
             let red ='#ff0000';
             let green ='#00ff00';
             x=10;
-            y=100;
+            y=164;
             let resists = [30,0, 0, 30, 30, 30, 50, -30];
             ['fire','ice','lightning','water','wind','earth','light','dark'].forEach((element, index) => {
                 let savedX = x;
@@ -196,7 +212,7 @@
                 });
             });
             x=10;
-            y=132;
+            y=196;
             let ailmentsResists = [0,100, 100, 0, 100, 100, 0, 100, 0, 100, 0];
             ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death', "charm", "stop"].forEach((ailment, index) => {
                 let savedX = x;
@@ -227,7 +243,7 @@
             //let physicalKillers = [{"races": ['undead'], "percent":"150"},{"races": ['dragon'], "percent":"125"},{"races": ['demon', 'human'], "percent":"100"},{"races": ['aquatic', 'spirit'], "percent":"75"},{"races": ['bug', 'machine', 'plant', 'stone'], "percent":"50"}];
             //let magicalKillers = [{"races": ['dragon', 'spirit'], "percent":"75"}];
             
-            x = 10;
+            x = 355;
             y = 164;
             races.forEach((race, index) => {
                 let savedX = x;
@@ -259,7 +275,7 @@
 //                currentX += textWidth + 5;
 //            });
             
-            x = 10;
+            x = 355;
             y = 196;
             races.forEach((race, index) => {
                 let savedX = x;
