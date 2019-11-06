@@ -1,0 +1,284 @@
+<html>
+    <head>
+        <style>
+        </style>
+        
+        
+    </head>
+    <body>
+        
+        <canvas id="image" width="730" height="235"></canvas>
+        
+        <script>
+            const canvas = document.getElementById('image');
+            const ctx = canvas.getContext('2d');
+            
+            
+            function drawImage(imageUrl, x, y, w, h, alpha = 1, callback) {
+                let image = new Image();
+                image.onload = () => {
+                    ctx.globalAlpha = alpha;
+                    ctx.drawImage(image, x, y, w, h);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                image.src = imageUrl;
+            }
+            
+            function drawText(text, style, size, textAlign, textBaseline, x, y, maxX, color = 'white') {
+                let font = size + 'px Arial';
+                if (style) {
+                    font = style + ' ' + font;
+                }
+                ctx.globalAlpha = 1;
+                ctx.font = font;
+                ctx.textBaseline = textBaseline;
+                ctx.textAlign = textAlign;
+                ctx.fillStyle = color;
+                let lines = [];
+                if (maxX) {
+                    lines = getLines(text, maxX);
+                } else {
+                    lines = [text];
+                }
+                let baseY = 0;
+                if (textBaseline === 'middle') {
+                    baseY = -(lines.length - 1) * (size + 2) / 2
+                }
+                for (let i = 0; i < lines.length; i++) {
+                    ctx.fillText(lines[i], x, baseY + y + i * (size + 2));
+                }
+            }
+            
+            function getLines(text, maxWidth) {
+                var words = text.split(" ");
+                var lines = [];
+                var currentLine = words[0];
+
+                for (var i = 1; i < words.length; i++) {
+                    var word = words[i];
+                    var width = ctx.measureText(currentLine + " " + word).width;
+                    if (width < maxWidth) {
+                        currentLine += " " + word;
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            }
+            
+            var grd = ctx.createLinearGradient(0, 0, 900, 235);
+            grd.addColorStop(0, "#0000b2");
+            grd.addColorStop(1, "#00002d");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(4, 4, 726, 226);
+            
+            drawImage('img/box.png', 0, 0, 730, 235);
+            
+            var x = 105;
+            var y = 5;
+            ctx.fillStyle = 'white';
+            ctx.strokeStyle = 'black';
+            ctx.font = "italic 12px Arial";
+            ctx.fillText("HP", x, y + 20);
+            ctx.fillText("MP", x +100, y + 20);
+            ctx.fillText("ATK", x, y + 40);
+            ctx.fillText("DEF", x + 100, y + 40);
+            ctx.fillText("MAG", x, y + 60);
+            ctx.fillText("SPR", x +100, y + 60);
+            
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "end"
+            ctx.fillText("12315", x + 80, y + 20);
+            ctx.fillText("593", x + 180, y + 20);
+            ctx.fillText("3187", x + 80, y + 40);
+            ctx.fillText("541", x + 180, y + 40);
+            ctx.fillText("240", x + 80, y + 60);
+            ctx.fillText("250", x + 180, y + 60);
+            
+            drawImage('img/units/unit_ills_401007207.png', 5, 5, 100, 100);
+            
+            
+            var x = 105;
+            var y = 65;
+            ctx.textAlign = "start"
+            ctx.fillStyle = 'white';
+            ctx.strokeStyle = 'black';
+            ctx.font = "italic 12px Arial";
+            ctx.fillText("Evasion", x, y + 20);
+            ctx.fillText("Provoke", x + 100, y + 20);
+            ctx.fillText("LB Dam.", x, y + 40);
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "end"
+            ctx.fillText("100", x + 80, y + 20);
+            ctx.fillText("100", x + 180, y + 20);
+            ctx.fillText("30", x + 80, y + 40);
+            
+            x = 375;
+            y = 5;
+            
+            var line = 0;
+            var column = 0;
+            drawImage('img/items/item_11641.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Tiger Fangs (FFBE)', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            column = 1;
+            drawImage('img/items/item_11044.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Longinus (FFBE)', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            
+            var line = 1;
+            var column = 0;
+            drawImage('img/items/item_30148.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Scanning Goggles', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            column = 1;
+            drawImage('img/items/item_20144.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Luneth\'s Clothes', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            
+            var line = 2;
+            var column = 0;
+            drawImage('img/items/item_50390.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Limited Moon', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            column = 1;
+            drawImage('img/items/item_50389.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Seraph Comb', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            
+            var line = 3;
+            var column = 0;
+            drawImage('img/items/ability_95.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Dragoon\'s Wisdom', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            column = 1;
+            drawImage('img/items/ability_72.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Dual Form', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            
+            var line = 4;
+            var column = 0;
+            drawImage('img/items/ability_77.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Past Regrets', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            column = 1;
+            drawImage('img/items/ability_77.png', x + column * 170, y + line * 30, 40, 40);
+            drawText('Sworn Six\'s Pride - Wind', 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+            
+            var line = 5;
+            var column = 1;
+            drawImage('img/espers/Odin.jpg', x + column * 170, y + line * 30 + 10, 40, 40);
+            drawText('Odin', 'bold', 12, 'start', 'middle', x + 50 + column * 170, y + line * 30 + 30, 130);
+            
+            let red ='#ff0000';
+            let green ='#00ff00';
+            x=10;
+            y=100;
+            let resists = [30,0, 0, 30, 30, 30, 50, -30];
+            ['fire','ice','lightning','water','wind','earth','light','dark'].forEach((element, index) => {
+                let savedX = x;
+                let savedY = y;
+                let alpha = 1;
+                if (!resists[index]) {
+                    alpha = 0.4;
+                }
+                let color = green;
+                if (resists[index] < 0) {
+                    color = red;
+                }
+                
+                drawImage(`img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, () => {
+                    if (resists[index]) {
+                        ctx.font = "bold 14px Arial";
+                        let textWidth = ctx.measureText(resists[index]).width;
+                        ctx.fillStyle = 'black';
+                        ctx.globalAlpha = 1;
+                        ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
+                        drawText(resists[index], 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
+                    }
+                });
+            });
+            x=10;
+            y=132;
+            let ailmentsResists = [0,100, 100, 0, 100, 100, 0, 100, 0, 100, 0];
+            ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death', "charm", "stop"].forEach((ailment, index) => {
+                let savedX = x;
+                let savedY = y;
+                let alpha = 1;
+                if (!ailmentsResists[index]) {
+                    alpha = 0.4;
+                }
+                let color = green;
+                if (ailmentsResists[index] < 0) {
+                    color = red;
+                }
+                drawImage(`img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, () => {
+                    if (ailmentsResists[index]) {
+                        ctx.font = "bold 14px Arial";
+                        let textWidth = ctx.measureText(ailmentsResists[index]).width;
+                        ctx.fillStyle = 'black';
+                        ctx.globalAlpha = 1;
+                        ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
+                        drawText(ailmentsResists[index], 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
+                    }
+                });    
+            });
+            
+            let races = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
+            let physicalKillers = [75, 0, 0, 50, 100, 125, 100, 50, 50, 150, 50, 75];
+            let magicalKillers = [75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 75];
+            //let physicalKillers = [{"races": ['undead'], "percent":"150"},{"races": ['dragon'], "percent":"125"},{"races": ['demon', 'human'], "percent":"100"},{"races": ['aquatic', 'spirit'], "percent":"75"},{"races": ['bug', 'machine', 'plant', 'stone'], "percent":"50"}];
+            //let magicalKillers = [{"races": ['dragon', 'spirit'], "percent":"75"}];
+            
+            x = 10;
+            y = 164;
+            races.forEach((race, index) => {
+                let savedX = x;
+                let savedY = y;
+                let alpha = 1;
+                if (!physicalKillers[index]) {
+                    alpha = 0.4;
+                }
+                drawImage(`img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, () => {
+                    if (physicalKillers[index]) {
+                        ctx.font = "bold 14px Arial";
+                        let textWidth = ctx.measureText(physicalKillers[index]).width;
+                        ctx.fillStyle = 'black';
+                        ctx.globalAlpha = 0.5;
+                        ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
+                        drawText(physicalKillers[index], 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
+                    }
+                });    
+            });
+//            let currentX = x;
+//            physicalKillers.forEach(killerData => {
+//                killerData.races.forEach(race => {
+//                    drawImage(`img/icons/killers/physical-${race}.png`, currentX, y, 30, 30);
+//                    currentX += 30;
+//                });
+//                drawText(killerData.percent + '%', 'bold', 12, 'start', 'middle', currentX, y + 15);
+//                ctx.font = "bold 14px Arial";
+//                let textWidth = ctx.measureText(killerData.percent + '%').width;
+//                currentX += textWidth + 5;
+//            });
+            
+            x = 10;
+            y = 196;
+            races.forEach((race, index) => {
+                let savedX = x;
+                let savedY = y;
+                let alpha = 1;
+                if (!magicalKillers[index]) {
+                    alpha = 0.4;
+                }
+                drawImage(`img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, () => {
+                    if (magicalKillers[index]) {
+                        ctx.font = "bold 14px Arial";
+                        let textWidth = ctx.measureText(magicalKillers[index]).width;
+                        ctx.fillStyle = 'black';
+                        ctx.globalAlpha = 0.5;
+                        ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
+                        drawText(magicalKillers[index], 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
+                    }
+                });    
+            });
+        </script>
+    </body>
+</html>
