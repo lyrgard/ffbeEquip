@@ -27,25 +27,59 @@ BuildAsImage = {
             let x = 105;
             let y = 20 + unitLine * BuildAsImage.unitLineHeight;
             ctx.fillStyle = 'white';
-            ctx.strokeStyle = 'black';
+            ctx.strokeStyle = 'white';
             ctx.textAlign = "start"
             ctx.textBaseline = "bottom";
             ctx.font = "italic 12px Arial";
             ctx.fillText("HP", x, y + 20);
             ctx.fillText("MP", x +100, y + 20);
             ctx.fillText("ATK", x, y + 40);
-            ctx.fillText("DEF", x + 100, y + 40);
-            ctx.fillText("MAG", x, y + 60);
+            ctx.fillText("MAG", x + 100, y + 40);
+            ctx.fillText("DEF", x, y + 60);
             ctx.fillText("SPR", x +100, y + 60);
 
-            ctx.font = "bold 16px Arial";
+            ctx.font = "bold 18px Arial";
             ctx.textAlign = "end"
-            ctx.fillText(calculateStatValue(unitBuild.build, "hp", unitBuild).total, x + 80, y + 20);
-            ctx.fillText(calculateStatValue(unitBuild.build, "mp", unitBuild).total, x + 180, y + 20);
-            ctx.fillText(calculateStatValue(unitBuild.build, "atk", unitBuild).total, x + 80, y + 40);
-            ctx.fillText(calculateStatValue(unitBuild.build, "def", unitBuild).total, x + 180, y + 40);
-            ctx.fillText(calculateStatValue(unitBuild.build, "mag", unitBuild).total, x + 80, y + 60);
-            ctx.fillText(calculateStatValue(unitBuild.build, "spr", unitBuild).total, x + 180, y + 60);
+            let line = 0;
+            let column = 0;
+            ["hp", "mp", "atk", "mag", "def", "spr"].forEach(stat => {
+                ctx.fillText(calculateStatValue(unitBuild.build, stat, unitBuild).total, x + 80 + column * 100, y + 21 + line * 20);
+                if (unitBuild.baseValues[stat].pots) {
+                    ctx.strokeStyle = 'black';
+                    ctx.beginPath();
+                    ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
+                    ctx.lineTo(x + 85 + column * 100, y + 3 + line * 20);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = '#00ff00';
+                    ctx.beginPath();
+                    ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
+                    ctx.lineTo(x + 85 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, unitBuild.baseValues[stat].pots / unitBuild.unit.stats.pots[stat])));
+                    ctx.stroke();
+                }
+
+                if (unitBuild.baseValues[stat].pots > unitBuild.unit.stats.pots[stat]) {
+                    ctx.strokeStyle = 'black';
+                    ctx.beginPath();
+                    ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
+                    ctx.lineTo(x + 88 + column * 100, y + 3 + line * 20);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = '#00ff00';
+                    ctx.beginPath();
+                    ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
+                    ctx.lineTo(x + 88 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, (unitBuild.baseValues[stat].pots - unitBuild.unit.stats.pots[stat]) / (unitBuild.unit.stats.pots[stat] / 2))));
+                    ctx.stroke();
+                }
+
+                column++;
+                if (column === 2) {
+                    line++;
+                    column = 0;
+                }
+            });
+
+
 
             if (unitBuild.build[10]) {
                 BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50, 1, true);
@@ -68,8 +102,8 @@ BuildAsImage = {
             ];
             x = 25;
             y = 95 + unitLine * BuildAsImage.unitLineHeight;
-            let line = 0;
-            let column = 0;
+            line = 0;
+            column = 0;
             additionalValues.forEach(valueData => {
                 if (valueData.value) {
                     ctx.textAlign = "start"
