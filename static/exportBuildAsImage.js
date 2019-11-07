@@ -20,83 +20,89 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
 
         BuildAsImage.drawImage(ctx, 'img/box.png', 0, 0 + unitLine * BuildAsImage.unitLineHeight, 730, 235);
 
-        let x = 105;
-        let y = 20 + unitLine * BuildAsImage.unitLineHeight;
-        ctx.fillStyle = 'white';
-        ctx.strokeStyle = 'black';
-        ctx.font = "italic 12px Arial";
-        ctx.fillText("HP", x, y + 20);
-        ctx.fillText("MP", x +100, y + 20);
-        ctx.fillText("ATK", x, y + 40);
-        ctx.fillText("DEF", x + 100, y + 40);
-        ctx.fillText("MAG", x, y + 60);
-        ctx.fillText("SPR", x +100, y + 60);
-
-        ctx.font = "bold 16px Arial";
-        ctx.textAlign = "end"
-        ctx.fillText(calculateStatValue(unitBuild.build, "hp", unitBuild).total, x + 80, y + 20);
-        ctx.fillText(calculateStatValue(unitBuild.build, "mp", unitBuild).total, x + 180, y + 20);
-        ctx.fillText(calculateStatValue(unitBuild.build, "atk", unitBuild).total, x + 80, y + 40);
-        ctx.fillText(calculateStatValue(unitBuild.build, "def", unitBuild).total, x + 180, y + 40);
-        ctx.fillText(calculateStatValue(unitBuild.build, "mag", unitBuild).total, x + 80, y + 60);
-        ctx.fillText(calculateStatValue(unitBuild.build, "spr", unitBuild).total, x + 180, y + 60);
-
         let unitId = unitBuild.unit.id;
         let iconId = unitId.substr(0,unitId.length-1) + unitBuild.unit.max_rarity;
-        BuildAsImage.drawImage(ctx, `img/units/unit_ills_${iconId}.png`, 5, 5 + unitLine * BuildAsImage.unitLineHeight, 100, 100);
+        BuildAsImage.drawImageCentered(ctx, `img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * BuildAsImage.unitLineHeight, 1, () => {
+    
+            let x = 105;
+            let y = 20 + unitLine * BuildAsImage.unitLineHeight;
+            ctx.fillStyle = 'white';
+            ctx.strokeStyle = 'black';
+            ctx.textAlign = "start"
+            ctx.textBaseline = "bottom";
+            ctx.font = "italic 12px Arial";
+            ctx.fillText("HP", x, y + 20);
+            ctx.fillText("MP", x +100, y + 20);
+            ctx.fillText("ATK", x, y + 40);
+            ctx.fillText("DEF", x + 100, y + 40);
+            ctx.fillText("MAG", x, y + 60);
+            ctx.fillText("SPR", x +100, y + 60);
 
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "end"
+            ctx.fillText(calculateStatValue(unitBuild.build, "hp", unitBuild).total, x + 80, y + 20);
+            ctx.fillText(calculateStatValue(unitBuild.build, "mp", unitBuild).total, x + 180, y + 20);
+            ctx.fillText(calculateStatValue(unitBuild.build, "atk", unitBuild).total, x + 80, y + 40);
+            ctx.fillText(calculateStatValue(unitBuild.build, "def", unitBuild).total, x + 180, y + 40);
+            ctx.fillText(calculateStatValue(unitBuild.build, "mag", unitBuild).total, x + 80, y + 60);
+            ctx.fillText(calculateStatValue(unitBuild.build, "spr", unitBuild).total, x + 180, y + 60);
 
-        if (unitBuild.build[10]) {
-            BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50);
-            BuildAsImage.drawText(ctx, unitBuild.build[10].name, 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
-        } else {
-            BuildAsImage.drawImage(ctx, `img/espers/ALL.jpg`, x + 205, y, 50, 50);
-            BuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
-        }
-
-
-        ctx.textBaseline = "bottom";
-        let additionalValues = [
-            {"name":"Evasion", "value":calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total},
-            {"name":"Provoke", "value":calculateStatValue(unitBuild.build, "drawAttacks", unitBuild).total},
-            {"name":"LB Dmg", "value":calculateStatValue(unitBuild.build, "lbDamage", unitBuild).total},
-            {"name":"MP/turn", "value":calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total},
-            {"name":"LB/turn", "value":calculateStatValue(unitBuild.build, "lbPerTurn", unitBuild).total},
-            {"name":"LB fill", "value":calculateStatValue(unitBuild.build, "lbFillRate", unitBuild).total},
-            {"name":"Jmp Dmg", "value":calculateStatValue(unitBuild.build, "jumpDamage", unitBuild).total},
-
-        ];
-        x = 25;
-        y = 95 + unitLine * BuildAsImage.unitLineHeight;
-        let line = 0;
-        let column = 0;
-        additionalValues.forEach(valueData => {
-            if (valueData.value) {
-                ctx.textAlign = "start"
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = 'black';
-                ctx.font = "italic 12px Arial";
-                ctx.fillText(valueData.name, x + column * 100, y + line * 20 + 20);
-                ctx.font = "bold 14px Arial";
-                ctx.textAlign = "end"
-                ctx.fillText(valueData.value, x + column * 100 + 80, y + line * 20 + 20);
-                column++;
-                if (column == 3) {
-                    line++;
-                    column = 0;
-                }
+            if (unitBuild.build[10]) {
+                BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50);
+                BuildAsImage.drawText(ctx, unitBuild.build[10].name, 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+            } else {
+                BuildAsImage.drawImage(ctx, `img/espers/ALL.jpg`, x + 205, y, 50, 50);
+                BuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             }
+            
+            ctx.textBaseline = "bottom";
+            let additionalValues = [
+                {"name":"Evasion", "value":calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total},
+                {"name":"Provoke", "value":calculateStatValue(unitBuild.build, "drawAttacks", unitBuild).total},
+                {"name":"LB Dmg", "value":calculateStatValue(unitBuild.build, "lbDamage", unitBuild).total},
+                {"name":"MP/turn", "value":calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total},
+                {"name":"LB/turn", "value":calculateStatValue(unitBuild.build, "lbPerTurn", unitBuild).total},
+                {"name":"LB fill", "value":calculateStatValue(unitBuild.build, "lbFillRate", unitBuild).total},
+                {"name":"Jmp Dmg", "value":calculateStatValue(unitBuild.build, "jumpDamage", unitBuild).total},
+
+            ];
+            x = 25;
+            y = 95 + unitLine * BuildAsImage.unitLineHeight;
+            let line = 0;
+            let column = 0;
+            additionalValues.forEach(valueData => {
+                if (valueData.value) {
+                    ctx.textAlign = "start"
+                    ctx.fillStyle = 'white';
+                    ctx.strokeStyle = 'black';
+                    ctx.font = "italic 12px Arial";
+                    ctx.fillText(valueData.name, x + column * 100, y + line * 20 + 20);
+                    ctx.font = "bold 14px Arial";
+                    ctx.textAlign = "end"
+                    ctx.fillText(valueData.value, x + column * 100 + 80, y + line * 20 + 20);
+                    column++;
+                    if (column == 3) {
+                        line++;
+                        column = 0;
+                    }
+                }
+            });
+            
         });
 
-        x = 375;
-        y = 5 + unitLine * BuildAsImage.unitLineHeight;
+        let x = 375;
+        let y = 5 + unitLine * BuildAsImage.unitLineHeight;
 
         line = 0;
         column = 0;
         for (let i = 0; i < 10; i++) {
             if (unitBuild.build[i]) {
                 BuildAsImage.drawImage(ctx, `img/items/${unitBuild.build[i].icon}`, x + column * 170, y + line * 30, 40, 40);
-                BuildAsImage.drawText(ctx, unitBuild.build[i].name, 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130);
+                let color = 'white';
+                if (unitBuild.build[i].enhancements) {
+                    color = '#e74c3c';
+                }
+                BuildAsImage.drawText(ctx, unitBuild.build[i].name, 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130, color);
             }
             column++;
             if (column === 2) {
@@ -233,6 +239,20 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
         image.onload = () => {
             ctx.globalAlpha = alpha;
             ctx.drawImage(image, x, y, w, h);
+            if (callback) {
+                callback();
+            }
+        }
+        image.src = imageUrl;
+    },
+    
+    drawImageCentered: function(ctx, imageUrl, x, y, ratio, callback) {
+        let image = new Image();
+        image.onload = () => {
+            let w = image.width * ratio;
+            let h = image.height * ratio;
+            ctx.globalAlpha = 1;
+            ctx.drawImage(image, x - w /2, y - h / 2, w, h);
             if (callback) {
                 callback();
             }
