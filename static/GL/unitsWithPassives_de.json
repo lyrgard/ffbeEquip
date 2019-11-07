@@ -3871,13 +3871,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Flame Blade","Voltage Blade","Mysterious Swordsman","Ruthless Blade","Double Blade","Servant of the Blade","Way of the Void","SPR +20%"],
+		"enhancements": [
+			{"name":"Mysterious Swordsman","levels":[[{"mp%":20,"hp%":20}],[{"spr%":30,"atk%":30,"mp%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":50}}],[{"spr%":30,"atk%":30,"mp%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":100}}]]},
+			{"name":"SPR +20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[]]},
+			{"name":"Trace of Crimson Rain","levels":[[],[],[{"spr%":10,"def%":10,"mp%":10}],[{"spr%":20,"def%":20,"mp%":20,"replaceLb":{"name":"Extreme Nova+","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.1x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (25x, ATK) to all enemies"}],"frames":[28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173],"move":"walk"}}]]}
+		],
 		"skills": [
-			{"hp%":50, "mp%":20, "atk%":30, "mpRefresh":5},
+			{"hp%":30, "atk%":30, "mpRefresh":5},
 			{"atk%":50, "equipedConditions":["greatSword"]},
 			{"singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["405004900","303004600"]]},
-			{"skillEnhancement":{"227281":0.5}, "levelCondition":110},
-			{"spr%":20, "levelCondition":115},
-			{"skillEnhancement":{"227280":0.5}, "levelCondition":120},
+			{"skillEnhancement":{"227281":0.5,"913335":0.5,"913336":0.5}, "levelCondition":110},
+			{"skillEnhancement":{"227280":0.5,"707895":0.5,"707896":0.5}, "levelCondition":120},
 			{"atk%":30, "equipedConditions":["greatSword"], "levelCondition":120}
 		],
 		"6_form": {
@@ -3895,8 +3900,13 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Flame Blade","Voltage Blade","Mysterious Swordsman","Ruthless Blade","Double Blade","Servant of the Blade","Way of the Void","SPR +20%"],
+		"enhancements": [
+			{"name":"Mysterious Swordsman","levels":[[{"mp%":20,"hp%":20}],[{"spr%":30,"atk%":30,"mp%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":50}}],[{"spr%":30,"atk%":30,"mp%":20,"hp%":20,"singleWielding":{"accuracy":25,"atk":100}}]]},
+			{"name":"Trace of Crimson Rain","levels":[[],[],[{"spr%":10,"def%":10,"mp%":10}],[{"spr%":20,"def%":20,"mp%":20,"replaceLb":{"name":"Extreme Nova+","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.1},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.1x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (25x, ATK) to all enemies"}],"frames":[28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173],"move":"walk"}}]]}
+		],
 			"skills": [
-				{"hp%":50, "mp%":20, "atk%":30, "mpRefresh":5},
+				{"hp%":30, "atk%":30, "mpRefresh":5},
 				{"atk%":50, "equipedConditions":["greatSword"]}
 			]
 		}
@@ -3915,9 +3925,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Shield Strike","Defensive Axe Stance","Armor Eraser","Auxiliary Iron Heart"],
+		"enhancements": [
+			{"name":"Defensive Axe Stance","levels":[[{"equipedConditions":["axe"],"def%":20,"spr%":20}],[{"equipedConditions":["axe"],"def%":40,"spr%":40}],[{"equipedConditions":["axe"],"hp%":30,"def%":60,"spr%":60}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":20, "spr%":10, "lbPerTurn":{"min":1,"max":1}},
-			{"def%":20, "spr%":20, "equipedConditions":["axe"]}
+			{"hp%":20, "def%":20, "spr%":10, "lbPerTurn":{"min":1,"max":1}}
 		]
 	},
 	"100016403": {
@@ -3989,9 +4002,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","bow","hammer","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["Bullet Barrage","Shooting Arm","Gun Mastery","Shot in the Dark"],
+		"enhancements": [
+			{"name":"Gun Mastery","levels":[[{"equipedConditions":["gun"],"atk%":50}],[{"equipedConditions":["gun"],"atk%":75}],[{"equipedConditions":["gun"],"atk%":100}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]},
-			{"atk%":50, "equipedConditions":["gun"]}
+			{"hp%":20, "mp%":10, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"confuse","percent":100}]}
 		]
 	},
 	"100016803": {
@@ -5646,8 +5662,8 @@
 		]
 	},
 	"100023205": {
-		"name":"CG Aldore King Rain",
-		"wikiEntry":"アルドール王レイン",
+		"name":"König Rain von Aldore",
+		"wikiEntry":"Aldore_King Rain",
 		"id":"100023205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5660,15 +5676,15 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":50, "atk%":50, "def%":80, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+			{"hp%":50, "atk%":80, "def%":110, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "lbDamage":50},
 			{"atk%":50, "equipedConditions":["greatSword"]},
-			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"クリムゾンノヴァ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14.5x * 2 = 29x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 90% for 2 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":17.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (17.5x * 2 = 35x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 120% for 2 turns to all enemies"}],"frames":[28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173],"move":"walk"}, "equipedConditions":[["407004700","303006800"]]},
+			{"singleWielding":{"accuracy":25,"atk":50}, "replaceLb":{"name":"Crimson Nova","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":14.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (14.5x * 2 = 29x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 90% for 2 turns to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":17.5,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (17.5x * 2 = 35x, ATK) to all enemies (ignore cover)"},{"effect":{"imperil":{"fire":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Fire by 120% for 2 turns to all enemies"}],"frames":[28,33,38,43,48,53,58,63,68,73,78,83,88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173],"move":"walk"}, "equipedConditions":[["407004700","303006800"]]},
 			{"mp%":20, "levelCondition":115},
 			{"hp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":100}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Aldore King Rain",
-			"wikiEntry":"アルドール王レイン",
+			"name":"König Rain von Aldore",
+			"wikiEntry":"Aldore_King Rain",
 			"id":"100023205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5682,7 +5698,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":50, "atk%":50, "def%":80, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7},
+				{"hp%":50, "atk%":80, "def%":110, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "lbDamage":50},
 				{"atk%":50, "equipedConditions":["greatSword"]}
 			]
 		}
@@ -5930,8 +5946,8 @@
 		}
 	},
 	"100024404": {
-		"name":"Diesel",
-		"wikiEntry":"ディーゼル",
+		"name":"Dizelle",
+		"wikiEntry":"Diezell",
 		"id":"100024404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5948,8 +5964,8 @@
 		]
 	},
 	"100024503": {
-		"name":"Meiji",
-		"wikiEntry":"メイジィ",
+		"name":"Maisie",
+		"wikiEntry":"Maisie",
 		"id":"100024503",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -10480,8 +10496,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé"],
+		"enhancements": [
+			{"name":"Regalia Driver","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+		],
 		"skills": [
-			{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5},
+			{"mag%":30, "spr%":30, "mpRefresh":5},
 			{"replaceLb":{"name":"Sagefire","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":2.55,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (2.55x * 2 = 5.1x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":75,"ice":75,"lightning":75},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 75% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":4,"ignore":{"spr":50},"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (4x * 2 = 8x, MAG) to one enemy (ignore reflect)"},{"effect":{"imperil":{"fire":100,"ice":100,"lightning":100},"turns":5,"area":"ST","target":"ENEMY"},"desc":"Reduce resistance to Fire, Ice and Lightning by 100% for 5 turns to one enemy"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"507872","name":"Enhancement - Fire"},{"id":"507873","name":"Enhancement - Ice"},{"id":"507874","name":"Enhancement - Lightning"}]},"area":"SELF","target":"SELF"},"desc":"Gain Enhancement skills  [Fire (507872) / Ice (507873) / Lightning (507874)] for one turn"}],"frames":[178],"move":"walk"}, "equipedConditions":[["409020400","301003300"]]},
 			{"atk%":30, "mag%":30, "resist":[{"name":"blind","percent":100}], "levelCondition":105},
 			{"atk%":20, "levelCondition":115},
@@ -10502,8 +10522,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé"],
+		"enhancements": [
+			{"name":"Regalia Driver","levels":[[{"spr%":20,"def%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}],[{"spr%":40,"def%":40,"hp%":20,"resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}]}]]}
+		],
 			"skills": [
-				{"def%":20, "mag%":30, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":5}
+				{"mag%":30, "spr%":30, "mpRefresh":5}
 			]
 		}
 	},
@@ -10624,8 +10648,13 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Capturing the Moment","Niflheim's High Commander","Magitek Arm","Shadow Parry"],
+		"enhancements": [
+			{"name":"Niflheim's High Commander","levels":[[{"atk%":20,"hp%":20,"resist":[{"name":"confuse","percent":100}]}],[{"atk%":35,"hp%":35,"resist":[{"name":"confuse","percent":100}]}],[{"atk%":50,"hp%":50,"resist":[{"name":"confuse","percent":100}]}]]},
+			{"name":"Magitek Arm","levels":[[{"def%":20,"atk%":30,"resist":[{"name":"fire","percent":10}]}],[{"def%":20,"atk%":40,"resist":[{"name":"fire","percent":20}]}],[{"def%":40,"atk%":50,"resist":[{"name":"fire","percent":30}]}]]}
+		],
 		"skills": [
-			{"hp%":20, "atk%":50, "def%":20, "resist":[{"name":"dark","percent":30},{"name":"disease","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":10}]}
+			{"resist":[{"name":"dark","percent":30},{"name":"disease","percent":100}]}
 		]
 	},
 	"215001105": {
