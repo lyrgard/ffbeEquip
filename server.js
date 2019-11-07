@@ -50,7 +50,7 @@ var cspDirectives = {
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com'],
   imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com', 'kit-free.fontawesome.com'],
-  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com'],
+  connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image'],
   mediaSrc: ["'none'"],
   objectSrc: ["'none'"],
   childSrc: ["'self'"],

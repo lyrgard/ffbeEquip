@@ -3555,6 +3555,31 @@ function showExportAsImage() {
 function exportAsImage() {
     $('#exportAsImageCanvas')[0].toBlob(function (blob) {
         window.saveAs(blob, builds.map(build => build.unit.name).join("-") + ".png");
+        $("#exportAsImageModal").modal('hide');
+    });
+}
+
+function uploadToImgur() {
+    var img = $('#exportAsImageCanvas')[0].toDataURL().split(',')[1];
+
+    $.ajax({
+        url: 'https://api.imgur.com/3/image',
+        type: 'post',
+        headers: {
+            Authorization: 'Client-ID ' + window.clientConfig.imgurClientId,
+        },
+        data: {
+            image: img
+        },
+        dataType: 'json',
+        success: function(response) {
+            if(response.success) {
+                Modal.showWithBuildLink("Build image on Imgur", response.data.link);
+                $("#exportAsImageModal").modal('hide');
+            } else {
+                Modal.showMessage("Imposible to upload to Imgur", "The daily quota of free upload to Imgur has been reached. Please try again later.");
+            }
+        }
     });
 }
 

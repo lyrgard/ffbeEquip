@@ -1933,14 +1933,16 @@ Modal = {
         }
     },
 
-    showWithBuildLink: function(name, link)
-    {
+    showWithBuildLink: function(name, link) {
+        if (!link.startsWith('http')) {
+            link = 'https://ffbeEquip.com/'+link;
+        }
         Modal.show({
             title: "Link to your " + name,
             body: "<p>This link will allow anyone to visualize your "+name+"</p>"+
                   '<div class="input-group">' + 
                     '<span class="input-group-addon">🔗</span>' +
-                    '<input class="form-control linkInput" type="text" value="https://ffbeEquip.com/'+link+'"/>' +
+                    '<input class="form-control linkInput" type="text" value="'+link+'"/>' +
                   '</div>'+
                   '<p class="hidden linkInputCopied">Link copied to your clipboard.</p>',
             withCancelButton: false,

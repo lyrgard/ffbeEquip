@@ -8,7 +8,7 @@ BuildAsImage = {
     },
 
 
-drawBuild: function(ctx, unitBuild, unitLine = 0) {
+    drawBuild: function(ctx, unitBuild, unitLine = 0) {
 
         let grd = ctx.createLinearGradient(0, 0, 900, 235);
         grd.addColorStop(0, "#0000b2");
@@ -48,7 +48,7 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
             ctx.fillText(calculateStatValue(unitBuild.build, "spr", unitBuild).total, x + 180, y + 60);
 
             if (unitBuild.build[10]) {
-                BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50);
+                BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50, 1, true);
                 BuildAsImage.drawText(ctx, unitBuild.build[10].name, 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             } else {
                 BuildAsImage.drawImage(ctx, `img/espers/ALL.jpg`, x + 205, y, 50, 50);
@@ -128,7 +128,7 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
                 color = red;
             }
 
-            BuildAsImage.drawImage(ctx, `img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, () => {
+            BuildAsImage.drawImage(ctx, `img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
@@ -153,7 +153,7 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
             if (resist < 0) {
                 color = red;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, () => {
+            BuildAsImage.drawImage(ctx, `img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
@@ -194,7 +194,7 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
             if (!killer) {
                 alpha = 0.4;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, () => {
+            BuildAsImage.drawImage(ctx, `img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
@@ -221,7 +221,7 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
             if (!killer) {
                 alpha = 0.4;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, () => {
+            BuildAsImage.drawImage(ctx, `img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
@@ -234,11 +234,19 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
         });
     },
 
-    drawImage: function(ctx, imageUrl, x, y, w, h, alpha = 1, callback) {
+    drawImage: function(ctx, imageUrl, x, y, w, h, alpha = 1, rounded = false, callback) {
         let image = new Image();
         image.onload = () => {
             ctx.globalAlpha = alpha;
+            if (rounded) {
+                ctx.save();
+                BuildAsImage.roundedImagePath(ctx, x,y,w,h);
+                ctx.clip();
+            }
             ctx.drawImage(image, x, y, w, h);
+            if (rounded) {
+                ctx.restore();
+            }
             if (callback) {
                 callback();
             }
@@ -258,6 +266,21 @@ drawBuild: function(ctx, unitBuild, unitLine = 0) {
             }
         }
         image.src = imageUrl;
+    },
+    
+    roundedImagePath: function(ctx, x,y,width,height){
+        let radius = 10;
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
     },
 
     drawText: function(ctx, text, style, size, textAlign, textBaseline, x, y, maxX, color = 'white'){
