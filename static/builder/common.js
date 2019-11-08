@@ -24,6 +24,8 @@ const weaponBaseDamageVariance = {
     "none" : {"min":1,"avg":1,"max":1}
 }
 
+const valuesToNotRoundDown = ["lbPerTurn"];
+
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
     if (value == undefined) {
@@ -1079,7 +1081,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0) {
         }
         return result;   
     } else {
-        var result = {"right":0,"left":0,"total":Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value}; 
+        if (!valuesToNotRoundDown.includes(stat)) {
+            calculatedValue = Math.floor(calculatedValue);
+        }
+        var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value}; 
         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }

@@ -185,10 +185,18 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id) {
-                this.availableTmr = item;
+                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
+                    this.availableTmr = applyEnhancements(item, this.defaultWeaponEnhancement);
+                } else {
+                    this.availableTmr = item;
+                }
             }
             if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.stmrUnit && item.stmrUnit == this.unitBuild.unit.id) {
-                this.availableStmr = item;
+                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
+                    this.availableStmr = applyEnhancements(item, this.defaultWeaponEnhancement);
+                } else {
+                    this.availableStmr = item;
+                }
             }
             
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
