@@ -131,6 +131,8 @@ var currentBestParamChallengeBuild = {
 
 let buildCounter = 0;
 
+let displayOnly7StarsUnits = true;
+
 function onBuildClick() {
     runningParamChallenge = false;
     currentUnitIdIndexForParamChallenge = -1;
@@ -996,24 +998,47 @@ function redrawBuildLine(index) {
 
 // Populate the unit html select with a line per unit
 function populateUnitSelect() {
-    var options = '<option value=""></option>';
-    Object.keys(units).sort(function(id1, id2) {
-        return units[id1].name.localeCompare(units[id2].name);
-    }).forEach(function(value, index) {
-        options += '<option value="'+ value + '">' + units[value].name + (units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  (units[value].unreleased7Star ? ' - JP data' : "") + '</option>';
-        if (units[value]["6_form"]) {
-            options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
-        }
-    });
     let selector = $("#unitsSelect");
     selector.empty();
     selector.removeData();
-    selector.html(options);
+    selector.html(getUnitSelectOptions());
     selector.on("select2:select", onUnitChange);
+    selector.on('select2:open', function (e) {
+        $('<label class="checkbox-label"><input id="displayOnly7StarsUnits" class="checkbox" type="checkbox" ' + (displayOnly7StarsUnits ? 'checked' : '') + '><span></span>Only 7★ units</label>') 
+            .insertAfter(".select2-search")
+            .on('mousedown mouseup click', function(e) { e.stopPropagation(); })
+            .children('input')
+            .on('change', function(e) {
+                displayOnly7StarsUnits = !displayOnly7StarsUnits;
+                $(this).prop("checked", displayOnly7StarsUnits);
+                selector.html(getUnitSelectOptions());
+                selector.trigger('change');
+                selector.select2('close');
+                selector.select2('open');
+                e.stopPropagation(); 
+            });
+        selector.off("select2:open");
+    });
     selector.select2({
         placeholder: 'Select a unit...',
         theme: 'bootstrap'
     });
+}
+
+function getUnitSelectOptions() {
+    var options = '<option value=""></option>';
+    Object.keys(units).sort(function(id1, id2) {
+        return units[id1].name.localeCompare(units[id2].name);
+    }).forEach(function(value, index) {
+        if (displayOnly7StarsUnits && units[value].max_rarity != 7) {
+            return;
+        }
+        options += '<option value="'+ value + '">' + units[value].name + (!displayOnly7StarsUnits && units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  (units[value].unreleased7Star ? ' - JP data' : "") + '</option>';
+        if (!displayOnly7StarsUnits && units[value]["6_form"]) {
+            options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
+        }
+    });
+    return options;
 }
 
 function selectUnitDropdownWithoutNotify(unitId) {

@@ -5,6 +5,11 @@ BuildAsImage = {
         let ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         builds.forEach((unitBuild, index) => BuildAsImage.drawBuild(ctx, unitBuild, index));
+        
+        ctx.fillStyle = 'white';
+        ctx.textAlign = "start"
+        ctx.textBaseline = "bottom";
+        ctx.font = "8px Arial";
     },
 
 
@@ -51,7 +56,7 @@ BuildAsImage = {
                 BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50, 1, true);
                 BuildAsImage.drawText(ctx, unitBuild.build[10].name, 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             } else {
-                BuildAsImage.drawImage(ctx, `img/espers/ALL.jpg`, x + 205, y, 50, 50);
+                BuildAsImage.drawImage(ctx, `img/espers/ALL.png`, x + 205, y, 50, 50);
                 BuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             }
             
