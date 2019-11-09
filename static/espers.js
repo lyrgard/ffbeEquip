@@ -867,6 +867,7 @@ function displayEspers() {
         }
         
         var esperName = Object.keys(ownedEspers)[0];
+        console.log(esperName);
         ownedEspers[esperName].resist = JSON.parse(JSON.stringify(esperBoards[esperName].resist[ownedEspers[esperName].rarity]));
         for (var i = 0, len = ownedEspers[esperName].selectedSkills.length; i < len; i++) {
             var pos = getPositionFromString(ownedEspers[esperName].selectedSkills[i]);
@@ -965,34 +966,6 @@ function getPositionFromString(posString) {
     return result;
 }
 
-function notLoaded() {
-    console.log("entering notLoaded function");
-    console.trace();
-    ownedEspers = {};
-    
-    if (esperBoards) {
-        loadLink();
-        displayEspers();
-    }
-    $("#pleaseWaitMessage").addClass("hidden");
-    if (!linkMode) {
-        $("#loginMessage").removeClass("hidden");
-    }
-    $("#inventory").addClass("hidden");
-    console.log("exiting notLoaded function");
-}
-
-function inventoryLoaded() {
-    console.log("entering inventoryLoaded function");
-    console.trace();
-    logged = true;
-    if (esperBoards) {
-        $('#importLink').removeClass('hidden');
-        displayEspers();
-    }
-    console.log("exiting inventoryLoaded function");
-}
-
 function loadLink() {
     if (window.location.hash.length > 1) {
         console.log("Loading esper link");
@@ -1023,8 +996,6 @@ function loadLink() {
                 });
                 ownedEspers[esperName].board = board;
             }
-            
-            //importEsper(esperName, rarity, level, board);
         } else {
             try {
                 ownedEspers = JSON.parse(atob(hashValue));
@@ -1175,6 +1146,34 @@ function setEsperRarity(rarity) {
     $(".esperOtherStats").removeClass("invisible");
     $("#tabs li."+currentEsper).removeClass("notOwned");
     $("#esper .shareLink").removeClass("hidden");
+}
+
+function inventoryLoaded() {
+    console.log("entering inventoryLoaded function");
+    console.trace();
+    logged = true;
+    if (esperBoards) {
+        $('#importLink').removeClass('hidden');
+        displayEspers();
+    }
+    console.log("exiting inventoryLoaded function");
+}
+
+function notLoaded() {
+    console.log("entering notLoaded function");
+    console.trace();
+    ownedEspers = {};
+
+    if (esperBoards) {
+        loadLink();
+        displayEspers();
+    }
+    $("#pleaseWaitMessage").addClass("hidden");
+    if (!linkMode) {
+        $("#loginMessage").removeClass("hidden");
+    }
+    $("#inventory").addClass("hidden");
+    console.log("exiting notLoaded function");
 }
 
 // will be called by common.js at page load

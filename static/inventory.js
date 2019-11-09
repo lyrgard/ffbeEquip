@@ -459,13 +459,13 @@ function findInventoryItemById(id) {
     return inventoryItem;
 }
 
-function addToInventory(id, showAlert = true) {
+function addToInventory(id, showAlert = true, force = false) {
     var inventoryDiv = $(".item." + escapeName(id));
     if(itemInventory[id]) {
         var item = findInventoryItemById(id);
-        if (item.maxNumber && itemInventory[id] >= item.maxNumber) {
+        if (!force && item.maxNumber && itemInventory[id] >= item.maxNumber) {
             if (showAlert) {
-                Modal.showMessage("Limited item", 'You can only have up to ' + item.maxNumber + ' of these');
+                Modal.confirm("Limited item", 'You can only have up to ' + item.maxNumber + ' of these. If you own more, please report it to correct that value. Do you want to add the item nonetheless?', () => {addToInventory(id, false, true)});
             }
             return false;
         } else {
