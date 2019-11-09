@@ -3613,16 +3613,15 @@ function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
     $('#useNewJpDamageFormula').prop('checked', true);
     
-    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill"], () => {
-        populateUnitSelect();
-        prepareSearch(data);
-        waitingCallbackKeyReady("unitsAndItems");
-    });
-    registerWaitingCallback(["unitsAndItems", "defaultBuilderEspers"], () => {
-        initWorkerNumber();
-        initWorkers();
-        
-        var hashData = readStateHashData(function(hashData) {
+    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill", "defaultBuilderEspers"], () => {
+        readStateHashData(function(hashData) {
+            if (hashData) {
+                displayOnly7StarsUnits = false
+            }
+            populateUnitSelect();
+            prepareSearch(data);
+            initWorkerNumber();
+            initWorkers();
             if (hashData) {
                 loadStateHashAndBuild(hashData);
             } else {
