@@ -971,8 +971,8 @@ function loadLink() {
         console.log("Loading esper link");
         var hashValue = window.location.hash.substr(1);
         
-        if (hashValue.includes('|')) {
-            let tokens = hashValue.split('|');
+        if (decodeURI(hashValue).includes('|')) {
+            let tokens = decodeURI(hashValue).split('|');
             let esperName = tokens[0].replace('_', ' ');
             let rarity = parseInt(tokens[1]);
             let level = parseInt(tokens[2]);
