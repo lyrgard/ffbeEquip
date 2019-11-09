@@ -867,7 +867,7 @@ function displayEspers() {
         }
         
         var esperName = Object.keys(ownedEspers)[0];
-        console.log(esperName);
+        console.log(JSON.stringify(ownedEspers));
         ownedEspers[esperName].resist = JSON.parse(JSON.stringify(esperBoards[esperName].resist[ownedEspers[esperName].rarity]));
         for (var i = 0, len = ownedEspers[esperName].selectedSkills.length; i < len; i++) {
             var pos = getPositionFromString(ownedEspers[esperName].selectedSkills[i]);
