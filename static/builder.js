@@ -2826,7 +2826,7 @@ function loadStateHashAndBuild(data, importMode = false) {
                 $(".unitStats .stat." + baseStats[index] + " .buff input").val(unit.buffs[baseStats[index]]);
             }
             if (unit.buffs.lbFillRate) {
-                $(".unitStats .stat.lbFillRate .buff input").val(data.buffs.lbFillRate);
+                $(".unitStats .stat.lbFillRate .buff input").val(unit.buffs.lbFillRate);
             }
         }
         if (unit.lbShardsPerTurn) {
