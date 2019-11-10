@@ -101,7 +101,10 @@ class BuildOptimizer {
             }
         }
         this._unitBuild.unit.skills.filter(skill => skill.esperStatsBonus && Object.keys(skill.esperStatsBonus).some(esper => esper != 'all')).forEach(skill => {
-            Object.keys(skill.esperStatsBonus).filter(esper => esper != 'all').forEach(esperName => {
+            Object.keys(skill.esperStatsBonus)
+                .filter(esper => esper != 'all')
+                .filter(esperName => !alreadyUsedEspers.includes(esperName))
+                .forEach(esperName => {
                 if (!selectedEspers.includes(espersToUse[esperName])) {
                     selectedEspers.push(espersToUse[esperName]);
                 }
