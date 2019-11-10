@@ -1010,11 +1010,7 @@ function populateUnitSelect() {
             .children('input')
             .on('change', function(e) {
                 displayOnly7StarsUnits = !displayOnly7StarsUnits;
-                $(this).prop("checked", displayOnly7StarsUnits);
-                selector.html(getUnitSelectOptions());
-                selector.trigger('change');
-                selector.select2('close');
-                selector.select2('open');
+                refreshUnitSelect();
                 e.stopPropagation(); 
             });
         selector.off("select2:open");
@@ -1023,6 +1019,15 @@ function populateUnitSelect() {
         placeholder: 'Select a unit...',
         theme: 'bootstrap'
     });
+}
+
+function refreshUnitSelect() {
+    var selector = $("#unitsSelect");
+    $("#displayOnly7StarsUnits").prop("checked", displayOnly7StarsUnits);
+    selector.html(getUnitSelectOptions());
+    selector.trigger('change');
+    selector.select2('close');
+    selector.select2('open');
 }
 
 function getUnitSelectOptions() {
@@ -2758,6 +2763,10 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         
         var unit = data.units[i];
+        if (!unit.id.endsWith("7") && displayOnly7StarsUnits) {
+            displayOnly7StarsUnits = !displayOnly7StarsUnits;
+            refreshUnitSelect();
+        }
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
         onUnitChange();
         
@@ -3615,9 +3624,6 @@ function startPage() {
     
     registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill", "defaultBuilderEspers"], () => {
         readStateHashData(function(hashData) {
-            if (hashData) {
-                displayOnly7StarsUnits = false
-            }
             populateUnitSelect();
             prepareSearch(data);
             initWorkerNumber();
