@@ -3233,6 +3233,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+		"enhancementSkills":["マスターオーダー","ワンハンドカスタム","VSスピリットパーツ","VSデーモンパーツ","VSマシンパーツ","ジェネレイトパワー"],
 		"6_form": {
 			"name":"Regina",
 			"jpname":"レジーナ",
@@ -3247,7 +3248,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"]
+			"equip":["dagger","throwing","gun","fist","lightShield","hat","helm","clothes","lightArmor"],
+			"enhancementSkills":["マスターオーダー","ワンハンドカスタム","VSスピリットパーツ","VSデーモンパーツ","VSマシンパーツ","ジェネレイトパワー"]
 		}
 	},
 	"100017605": {
@@ -3264,6 +3266,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["断刃の法","断魔の法","王族の威徳","獣撃法","祓魔法","ヘスの母"],
 		"6_form": {
 			"name":"Yuraisha",
 			"jpname":"ユライシャ",
@@ -3278,7 +3281,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","rod","harp","whip","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["断刃の法","断魔の法","王族の威徳","獣撃法","祓魔法","ヘスの母"]
 		}
 	},
 	"100017704": {
@@ -5496,6 +5500,68 @@
 		},
 		"stats_pattern":1,
 		"equip":["hammer","spear","harp","mace","hat"]
+	},
+	"100028105": {
+		"name":"Morgana",
+		"jpname":"モルガナ",
+		"id":"100028105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4406,"mp":287,"atk":132,"def":130,"mag":217,"spr":198},
+			"minStats":{"hp":1454,"mp":95,"atk":44,"def":43,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Morgana",
+			"jpname":"モルガナ",
+			"id":"100028105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3389,"mp":220,"atk":101,"def":100,"mag":166,"spr":152},
+				"minStats":{"hp":1118,"mp":73,"atk":33,"def":33,"mag":55,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"100028905": {
+		"name":"Elena",
+		"jpname":"エレナ",
+		"id":"100028905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":260,"atk":206,"def":190,"mag":205,"spr":190},
+			"minStats":{"hp":1584,"mp":86,"atk":68,"def":63,"mag":68,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Elena",
+			"jpname":"エレナ",
+			"id":"100028905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3692,"mp":200,"atk":158,"def":146,"mag":157,"spr":146},
+				"minStats":{"hp":1218,"mp":66,"atk":52,"def":48,"mag":52,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
 	},
 	"100029003": {
 		"name":"Anniversary Moogle",
@@ -7822,7 +7888,7 @@
 		}
 	},
 	"207001904": {
-		"name":"ヤズー&ロッズ",
+		"name":"Yazoo & Loz",
 		"jpname":"ヤズー&ロッズ",
 		"id":"207001904",
 		"max_rarity":"6",
