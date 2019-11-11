@@ -2402,6 +2402,17 @@ function pinChosenEnchantment() {
     }
 }
 
+const stateHashCalculatedValues = {
+    "physicalEvasion": "evade.physical",
+    "magicalEvasion": "evade.magical",
+    "drawAttacks": "drawAttacks",
+    "lbDamage": "lbDamage",
+    "mpRefresh": "mpRefresh",
+    "lbFillRate": "lbFillRate",
+    "lbPerTurn": "lbPerTurn",
+    "jumpDamage": "jumpDamage"
+}
+
 function getStateHash(onlyCurrent = true) {
     var min = 0;
     var num = builds.length;
@@ -2481,6 +2492,54 @@ function getStateHash(onlyCurrent = true) {
             if (build._level) {
                 unit.level = build._level;
             }
+            unit.calculatedValues = {
+                "elementResists": {},
+                "ailmentResists": {},
+                "killers": {}
+            };
+            baseStats.forEach(stat => {
+                let value = calculateStatValue(build.build, stat, build);
+                unit.calculatedValues[stat] = {
+                    "value": value.total,
+                    "bonus": value.bonusPercent,
+                    "flatStatBonus": (getEquipmentStatBonus(build.build, stat, false) - 1) * 100
+                };
+            });
+            Object.keys(stateHashCalculatedValues).forEach(stat => {
+                let value = calculateStatValue(build.build, stateHashCalculatedValues[stat], build).total;
+                unit.calculatedValues[stat] = {
+                    "value": value
+                };
+            });
+            elementList.forEach(element => {
+                let value = calculateStatValue(build.build, "resist|" + element + ".percent", build).total;
+                unit.calculatedValues.elementResists[element] = value;
+            });
+            ailmentList.forEach(ailment => {
+                let value = calculateStatValue(build.build, "resist|" + ailment + ".percent", build).total;
+                unit.calculatedValues.ailmentResists[ailment] = value;
+            });
+            var killers = [];
+            for (var index = build.build.length; index--;) {
+                if (build.build[index] && build.build[index].killers) {
+                    for (var j = 0; j < build.build[index].killers.length; j++) {
+                        addToKiller(killers, build.build[index].killers[j]);
+                    }
+                }
+            }
+            killerList.forEach(race => {
+                let killer = killers.filter(k => k.name === race);
+                let physicalKiller = 0;
+                let magicalKiller = 0;
+                if (killer.length > 0) {
+                    physicalKiller = killer[0].physical || 0;
+                    magicalKiller = killer[0].magicalKiller || 0;
+                }
+                unit.calculatedValues.killers[race] = {
+                    "physical": physicalKiller,
+                    "magical": magicalKiller
+                };
+            });
             data.units.push(unit);
         }
     }

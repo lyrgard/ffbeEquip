@@ -99,7 +99,7 @@ BuildAsImage = {
                 {"name":"Evasion", "value":calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total},
                 {"name":"Provoke", "value":calculateStatValue(unitBuild.build, "drawAttacks", unitBuild).total},
                 {"name":"LB Dmg", "value":calculateStatValue(unitBuild.build, "lbDamage", unitBuild).total},
-                {"name":"MP/turn", "value":Math.floor(calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total * calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total / 100)},
+                {"name":"MP/turn", "value":Math.floor(calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total * calculateStatValue(unitBuild.build, "mp", unitBuild).total / 100)},
                 {"name":"LB/turn", "value":calculateStatValue(unitBuild.build, "lbPerTurn", unitBuild).total},
                 {"name":"LB fill", "value":calculateStatValue(unitBuild.build, "lbFillRate", unitBuild).total},
                 {"name":"Jmp Dmg", "value":calculateStatValue(unitBuild.build, "jumpDamage", unitBuild).total},

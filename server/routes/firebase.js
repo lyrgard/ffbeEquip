@@ -45,6 +45,11 @@ const itemEnchantmentsSchema =  [
     Joi.string().valid('autoProtect_5'),Joi.string().valid('autoProtect_4'),Joi.string().valid('autoProtect_3'),Joi.string().valid('autoProtect_2'),Joi.string().valid('autoProtect_1'),
     Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
 ];
+const calculatedValuesBaseStatsSchema = Joi.object().keys({
+    value:Joi.number().integer(),
+    bonus:Joi.number().integer(),
+    flatStatBonus:Joi.number().integer(),
+});
 const partyBuildSchema = Joi.object().keys({
     version: Joi.number().min(0),
     units: Joi.array().items(Joi.object().keys({
@@ -83,7 +88,60 @@ const partyBuildSchema = Joi.object().keys({
         drawAttacks: Joi.number().min(0).max(600),
         lbDamage: Joi.number().min(0).max(600),
         stack: Joi.number().min(0).max(99),
-        level: Joi.number().min(0).max(120)
+        level: Joi.number().min(0).max(120),
+        calculatedValues: Joi.object().keys({
+            hp:calculatedValuesBaseStatsSchema,
+            mp:calculatedValuesBaseStatsSchema,
+            atk:calculatedValuesBaseStatsSchema,
+            def:calculatedValuesBaseStatsSchema,
+            mag:calculatedValuesBaseStatsSchema,
+            spr:calculatedValuesBaseStatsSchema,
+            physicalEvasion: Joi.object().keys({value:Joi.number().integer()}),
+            magicalEvasion: Joi.object().keys({value:Joi.number().integer()}),
+            drawAttacks: Joi.object().keys({value:Joi.number().integer()}),
+            lbDamage: Joi.object().keys({value:Joi.number().integer()}),
+            mpRefresh: Joi.object().keys({value:Joi.number().integer()}),
+            lbFillRate: Joi.object().keys({value:Joi.number().integer()}),
+            lbPerTurn: Joi.object().keys({value:Joi.number().integer()}),
+            jumpDamage: Joi.object().keys({value:Joi.number().integer()}),
+            elementResists: Joi.object().keys({
+                fire:Joi.number().integer(),
+                ice:Joi.number().integer(),
+                water:Joi.number().integer(),
+                lightning:Joi.number().integer(),
+                earth:Joi.number().integer(),
+                wind:Joi.number().integer(),
+                light:Joi.number().integer(),
+                dark:Joi.number().integer(),
+            }),
+            ailmentResists: Joi.object().keys({
+                poison:Joi.number().integer(),
+                blind:Joi.number().integer(),
+                sleep:Joi.number().integer(),
+                silence:Joi.number().integer(),
+                paralysis:Joi.number().integer(),
+                confuse:Joi.number().integer(),
+                disease:Joi.number().integer(),
+                petrification:Joi.number().integer(),
+                death:Joi.number().integer(),
+                charm:Joi.number().integer(),
+                stop:Joi.number().integer(),
+            }),
+            killers:Joi.object().keys({
+                aquatic:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                beast:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                bird:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                bug:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                demon:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                dragon:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                human:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                machine:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                plant:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                undead:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                stone:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+                spirit:Joi.object().keys({physical:Joi.number().integer(), magical:Joi.number().integer()}),
+            }),
+        }),
     })).required(),
     "monster":Joi.object().keys({
         "races": Joi.array().items(
