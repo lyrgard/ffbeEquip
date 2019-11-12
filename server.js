@@ -48,7 +48,7 @@ var cspDirectives = {
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'gitcdn.github.io', 'www.google-analytics.com', 'kit.fontawesome.com'],
   styleSrc: ["'self'", "'unsafe-inline'",
     'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'gitcdn.github.io', 'cdnjs.cloudflare.com', 'kit-free.fontawesome.com'],
-  imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com'],
+  imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'code.jquery.com', 'ffbeequip.com'],
   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com', 'kit-free.fontawesome.com'],
   connectSrc: ["'self'", 'www.google-analytics.com', 'firebasestorage.googleapis.com', 'https://api.github.com', 'https://discordapp.com', 'https://api.imgur.com/3/image'],
   mediaSrc: ["'none'"],

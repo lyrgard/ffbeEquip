@@ -11,7 +11,9 @@ const idSchema = Joi.string().regex(/^([0-9]{9,10}$|dagger|sword|greatSword|kata
 const itemSlotSchema = {
     slot:Joi.number().min(0).max(9),
     id:idSchema,
-    pinned:Joi.boolean()
+    pinned:Joi.boolean(),
+    icon:Joi.string().max(50),
+    name:Joi.string().max(300)
 };
 const elementsSchema = [
     Joi.string().valid('fire'),
@@ -63,6 +65,14 @@ const partyBuildSchema = Joi.object().keys({
         esperId: Joi.string().max(50),
         esperPinned: Joi.boolean(),
         pots: Joi.object().keys({
+            hp: Joi.number().min(0).max(5000),
+            mp: Joi.number().min(0).max(1000),
+            atk: Joi.number().min(0).max(99),
+            def: Joi.number().min(0).max(99),
+            mag: Joi.number().min(0).max(99),
+            spr: Joi.number().min(0).max(99),
+        }),
+        maxPots: Joi.object().keys({
             hp: Joi.number().min(0).max(5000),
             mp: Joi.number().min(0).max(1000),
             atk: Joi.number().min(0).max(99),

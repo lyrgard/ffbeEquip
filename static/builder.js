@@ -2443,7 +2443,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -2451,7 +2451,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !item.allowUseOf && hasDualWieldOrPartialDualWield(item)) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
                     addEnhancementsIfAny(item, unit);
                 }
             }
@@ -2459,7 +2459,7 @@ function getStateHash(onlyCurrent = true) {
             for (var index = 0; index < 10; index++) {
                 var item = build.build[index];
                 if (item && !item.placeHolder && item.type != "unavailable" && !hasDualWieldOrPartialDualWield(item) && !item.allowUseOf) {
-                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null});
+                    unit.items.push({slot:index, id:item.id, pinned: build.fixedItems[index] != null, icon:item.icon, name:item.name});
                     addEnhancementsIfAny(item, unit);
                 }
                 if (item && item.placeHolder) {
@@ -2472,9 +2472,11 @@ function getStateHash(onlyCurrent = true) {
             }
 
             unit.pots = {};
+            unit.maxPots = {};
             unit.buffs = {};
             for (var index = baseStats.length; index--;) {
                 unit.pots[baseStats[index]] = build.baseValues[baseStats[index]].pots;
+                unit.maxPots[baseStats[index]] = build.unit.stats.pots[baseStats[index]];
                 unit.buffs[baseStats[index]] = build.baseValues[baseStats[index]].buff;
             }
             unit.buffs.lbFillRate = build.baseValues.lbFillRate.buff;
@@ -2500,9 +2502,9 @@ function getStateHash(onlyCurrent = true) {
             baseStats.forEach(stat => {
                 let value = calculateStatValue(build.build, stat, build);
                 unit.calculatedValues[stat] = {
-                    "value": value.total,
-                    "bonus": value.bonusPercent,
-                    "flatStatBonus": (getEquipmentStatBonus(build.build, stat, false) - 1) * 100
+                    "value": Math.floor(value.total),
+                    "bonus": Math.floor(value.bonusPercent),
+                    "flatStatBonus": Math.floor((getEquipmentStatBonus(build.build, stat, false) - 1) * 100)
                 };
             });
             Object.keys(stateHashCalculatedValues).forEach(stat => {
@@ -2578,6 +2580,12 @@ function addEnhancementsIfAny(item, unit) {
     } else {
         unit.itemEnchantments.push(null);
     }
+}
+function addIconIfAny(item, unit) {
+    if (!unit.itemIcons) {
+        unit.itemIcons = [];
+    }
+    unit.itemIcons.push(item.icon);
 }
 
 function readStateHashData(callback) {
@@ -3645,7 +3653,7 @@ function onFeatureSelect(selectedFeature) {
 
 function showExportAsImage() {
     $("#exportAsImageModal").modal();
-    BuildAsImage.drawTeam($('#exportAsImageCanvas')[0], builds);
+    FFBEEquipBuildAsImage.drawTeam($('#exportAsImageCanvas')[0], getStateHash());
 }
 
 function exportAsImage() {

@@ -1,10 +1,10 @@
-BuildAsImage = {
+FFBEEquipBuildAsImage = {
     unitLineHeight:235,
-    drawTeam: function(canvas, builds) {
-        canvas.height = BuildAsImage.unitLineHeight * builds.length;
+    drawTeam: function(canvas, data) {
+        canvas.height = FFBEEquipBuildAsImage.unitLineHeight * data.units.length;
         let ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        builds.forEach((unitBuild, index) => BuildAsImage.drawBuild(ctx, unitBuild, index));
+        data.units.forEach((unit, index) => FFBEEquipBuildAsImage.drawBuild(ctx, unit, index));
         
         ctx.fillStyle = 'white';
         ctx.textAlign = "start"
@@ -13,7 +13,7 @@ BuildAsImage = {
     },
 
 
-    drawBuild: function(ctx, unitBuild, unitLine = 0) {
+    drawBuild: function(ctx, unit, unitLine = 0) {
 
         let grd = ctx.createLinearGradient(0, 0, 900, 235);
         grd.addColorStop(0, "#0000b2");
@@ -21,16 +21,16 @@ BuildAsImage = {
 
         // Fill with gradient
         ctx.fillStyle = grd;
-        ctx.fillRect(4, 4 + unitLine * BuildAsImage.unitLineHeight, 726, 226);
+        ctx.fillRect(4, 4 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 726, 226);
 
-        BuildAsImage.drawImage(ctx, 'img/box.png', 0, 0 + unitLine * BuildAsImage.unitLineHeight, 730, 235);
+        FFBEEquipBuildAsImage.drawImage(ctx, 'https://ffbeEquip.com/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 235);
 
-        let unitId = unitBuild.unit.id;
-        let iconId = unitId.substr(0,unitId.length-1) + unitBuild.unit.max_rarity;
-        BuildAsImage.drawImageCentered(ctx, `img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * BuildAsImage.unitLineHeight, 1, () => {
+        let unitId = unit.id;
+        let iconId = unitId.substr(0,unitId.length-1) + unit.rarity;
+        FFBEEquipBuildAsImage.drawImageCentered(ctx, `https://ffbeEquip.com/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
     
             let x = 105;
-            let y = 20 + unitLine * BuildAsImage.unitLineHeight;
+            let y = 20 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
             ctx.fillStyle = 'white';
             ctx.strokeStyle = 'white';
             ctx.textAlign = "start"
@@ -48,8 +48,8 @@ BuildAsImage = {
             let line = 0;
             let column = 0;
             ["hp", "mp", "atk", "mag", "def", "spr"].forEach(stat => {
-                ctx.fillText(calculateStatValue(unitBuild.build, stat, unitBuild).total, x + 80 + column * 100, y + 21 + line * 20);
-                if (unitBuild.baseValues[stat].pots) {
+                ctx.fillText(unit.calculatedValues[stat].value, x + 80 + column * 100, y + 21 + line * 20);
+                if (unit.pots[stat]) {
                     ctx.strokeStyle = 'black';
                     ctx.beginPath();
                     ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
@@ -59,11 +59,11 @@ BuildAsImage = {
                     ctx.strokeStyle = '#00ff00';
                     ctx.beginPath();
                     ctx.moveTo(x + 85 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 85 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, unitBuild.baseValues[stat].pots / unitBuild.unit.stats.pots[stat])));
+                    ctx.lineTo(x + 85 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, unit.pots[stat] / unit.maxPots[stat])));
                     ctx.stroke();
                 }
 
-                if (unitBuild.baseValues[stat].pots > unitBuild.unit.stats.pots[stat]) {
+                if (unit.pots[stat] > unit.maxPots[stat]) {
                     ctx.strokeStyle = 'black';
                     ctx.beginPath();
                     ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
@@ -73,7 +73,7 @@ BuildAsImage = {
                     ctx.strokeStyle = '#00ff00';
                     ctx.beginPath();
                     ctx.moveTo(x + 88 + column * 100, y + 18 + line * 20);
-                    ctx.lineTo(x + 88 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, (unitBuild.baseValues[stat].pots - unitBuild.unit.stats.pots[stat]) / (unitBuild.unit.stats.pots[stat] / 2))));
+                    ctx.lineTo(x + 88 + column * 100, y + 18 + line * 20 - (15 * Math.min(1, (unit.pots[stat] - unit.maxPots[stat]) / (unit.maxPots[stat] / 2))));
                     ctx.stroke();
                 }
 
@@ -86,27 +86,27 @@ BuildAsImage = {
 
 
 
-            if (unitBuild.build[10]) {
-                BuildAsImage.drawImage(ctx, `img/espers/${escapeName(unitBuild.build[10].name)}.jpg`, x + 205, y, 50, 50, 1, true);
-                BuildAsImage.drawText(ctx, unitBuild.build[10].name, 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+            if (unit.esperId) {
+                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/espers/${unit.esperId}.jpg`, x + 205, y, 50, 50, 1, true);
+                FFBEEquipBuildAsImage.drawText(ctx, unit.esperId.replace('_', ' '), 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             } else {
-                BuildAsImage.drawImage(ctx, `img/espers/ALL.png`, x + 205, y, 50, 50);
-                BuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
+                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/espers/ALL.png`, x + 205, y, 50, 50);
+                FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             }
             
             ctx.textBaseline = "bottom";
             let additionalValues = [
-                {"name":"Evasion", "value":calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total},
-                {"name":"Provoke", "value":calculateStatValue(unitBuild.build, "drawAttacks", unitBuild).total},
-                {"name":"LB Dmg", "value":calculateStatValue(unitBuild.build, "lbDamage", unitBuild).total},
-                {"name":"MP/turn", "value":Math.floor(calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total * calculateStatValue(unitBuild.build, "mp", unitBuild).total / 100)},
-                {"name":"LB/turn", "value":calculateStatValue(unitBuild.build, "lbPerTurn", unitBuild).total},
-                {"name":"LB fill", "value":calculateStatValue(unitBuild.build, "lbFillRate", unitBuild).total},
-                {"name":"Jmp Dmg", "value":calculateStatValue(unitBuild.build, "jumpDamage", unitBuild).total},
+                {"name":"Evasion", "value":unit.calculatedValues.physicalEvasion.value},
+                {"name":"Provoke", "value":unit.calculatedValues.drawAttacks.value},
+                {"name":"LB Dmg", "value":unit.calculatedValues.lbDamage.value},
+                {"name":"MP/turn", "value":unit.calculatedValues.mpRefresh.value * unit.calculatedValues.mp.value / 100},
+                {"name":"LB/turn", "value":unit.calculatedValues.lbPerTurn.value},
+                {"name":"LB fill", "value":unit.calculatedValues.lbFillRate.value},
+                {"name":"Jmp Dmg", "value":unit.calculatedValues.jumpDamage.value},
 
             ];
             x = 25;
-            y = 95 + unitLine * BuildAsImage.unitLineHeight;
+            y = 95 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
             line = 0;
             column = 0;
             additionalValues.forEach(valueData => {
@@ -130,35 +130,30 @@ BuildAsImage = {
         });
 
         let x = 375;
-        let y = 5 + unitLine * BuildAsImage.unitLineHeight;
+        let y = 5 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
 
-        line = 0;
-        column = 0;
-        for (let i = 0; i < 10; i++) {
-            if (unitBuild.build[i]) {
-                BuildAsImage.drawImage(ctx, `img/items/${unitBuild.build[i].icon}`, x + column * 170, y + line * 30, 40, 40);
+        unit.items.forEach((item, index) => {
+            if (item) {
+                let line = Math.floor(item.slot / 2);
+                let column = item.slot % 2;
+                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/items/${item.icon}`, x + column * 170, y + line * 30, 40, 40);
                 let color = 'white';
-                if (unitBuild.build[i].enhancements) {
+                if (unit.itemEnchantments[index]) {
                     color = '#e74c3c';
                 }
-                BuildAsImage.drawText(ctx, unitBuild.build[i].name, 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130, color);
+                FFBEEquipBuildAsImage.drawText(ctx, item.name, 'bold', 12, 'start', 'middle', x + 40 + column * 170, y + line * 30 + 20, 130, color);
             }
-            column++;
-            if (column === 2) {
-                line ++;
-                column = 0;
-            }
-        }
+        });
 
         let red ='#ff0000';
         let green ='#00ff00';
         x=10;
-        y=164 + unitLine * BuildAsImage.unitLineHeight;
-        elementList.forEach((element, index) => {
+        y=164 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        ['fire','ice','lightning','water','wind','earth','light','dark'].forEach((element, index) => {
             let savedX = x;
             let savedY = y;
             let alpha = 1;
-            let resist = calculateStatValue(unitBuild.build, "resist|" + element + ".percent", unitBuild).total
+            let resist = unit.calculatedValues.elementResists[element];
             if (!resist) {
                 alpha = 0.4;
             }
@@ -167,24 +162,24 @@ BuildAsImage = {
                 color = red;
             }
 
-            BuildAsImage.drawImage(ctx, `img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
                     ctx.fillStyle = 'black';
                     ctx.globalAlpha = 1;
                     ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
-                    BuildAsImage.drawText(ctx, resist, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
+                    FFBEEquipBuildAsImage.drawText(ctx, resist, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
                 }
             });
         });
         x=10;
-        y=196 + unitLine * BuildAsImage.unitLineHeight;
-        ailmentList.forEach((ailment, index) => {
+        y=196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        ['poison','blind','sleep','silence','paralysis','confuse','disease','petrification','death', "charm", "stop"].forEach((ailment, index) => {
             let savedX = x;
             let savedY = y;
             let alpha = 1;
-            let resist = Math.min(100, calculateStatValue(unitBuild.build, "resist|" + ailmentList[index] + ".percent", unitBuild).total);
+            let resist = Math.min(100, unit.calculatedValues.ailmentResists[ailment]);
             if (!resist) {
                 alpha = 0.4;
             }
@@ -192,82 +187,60 @@ BuildAsImage = {
             if (resist < 0) {
                 color = red;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
                     ctx.fillStyle = 'black';
                     ctx.globalAlpha = 1;
                     ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
-                    BuildAsImage.drawText(ctx, resist, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
+                    FFBEEquipBuildAsImage.drawText(ctx, resist, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30, 0, color);
                 }
             });
         });
 
         let races = ['aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'];
-        let physicalKillers = [75, 0, 0, 50, 100, 125, 100, 50, 50, 150, 50, 75];
-        let magicalKillers = [75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 75];
-
-        var killers = [];
-        let build = unitBuild.build;
-        for (var i = build.length; i--;) {
-            if (build[i] && build[i].killers) {
-                for (var j = 0; j < build[i].killers.length; j++) {
-                    addToKiller(killers, build[i].killers[j]);
-                }
-            }
-        }
 
         x = 355;
-        y = 164 + unitLine * BuildAsImage.unitLineHeight;
-        killerList.forEach((race, index) => {
+        y = 164 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+        races.forEach((race, index) => {
             let savedX = x;
             let savedY = y;
             let alpha = 1;
-            let killer = killers.filter(k => k.name === race);
-            if (killer.length > 0) {
-                killer = killer[0].physical || 0;
-            } else {
-                killer = 0;
-            }
+            let killer = unit.calculatedValues.killers[race].physical;
             if (!killer) {
                 alpha = 0.4;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
                     ctx.fillStyle = 'black';
                     ctx.globalAlpha = 0.5;
                     ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
-                    BuildAsImage.drawText(ctx, killer, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
+                    FFBEEquipBuildAsImage.drawText(ctx, killer, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
                 }
             });
         });
 
         x = 355;
-        y = 196 + unitLine * BuildAsImage.unitLineHeight;
+        y = 196 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
         races.forEach((race, index) => {
             let savedX = x;
             let savedY = y;
             let alpha = 1;
-            let killer = killers.filter(k => k.name === race);
-            if (killer.length > 0) {
-                killer = killer[0].magical || 0;
-            } else {
-                killer = 0;
-            }
+            let killer = unit.calculatedValues.killers[race].magical;
             if (!killer) {
                 alpha = 0.4;
             }
-            BuildAsImage.drawImage(ctx, `img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
                     ctx.fillStyle = 'black';
                     ctx.globalAlpha = 0.5;
                     ctx.fillRect(savedX + 29 - textWidth + index * 30, savedY + 16, textWidth, 12);
-                    BuildAsImage.drawText(ctx, killer, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
+                    FFBEEquipBuildAsImage.drawText(ctx, killer, 'bold', 12, 'end', 'bottom', savedX + 28 + index * 30, savedY + 30);
                 }
             });
         });
@@ -279,7 +252,7 @@ BuildAsImage = {
             ctx.globalAlpha = alpha;
             if (rounded) {
                 ctx.save();
-                BuildAsImage.roundedImagePath(ctx, x,y,w,h);
+                FFBEEquipBuildAsImage.roundedImagePath(ctx, x,y,w,h);
                 ctx.clip();
             }
             ctx.drawImage(image, x, y, w, h);
@@ -334,7 +307,7 @@ BuildAsImage = {
         ctx.fillStyle = color;
         let lines = [];
         if (maxX) {
-            lines = BuildAsImage.getLines(ctx, text, maxX);
+            lines = FFBEEquipBuildAsImage.getLines(ctx, text, maxX);
         } else {
             lines = [text];
         }
