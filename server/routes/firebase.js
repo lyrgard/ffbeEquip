@@ -77,16 +77,16 @@ const partyBuildSchema = Joi.object().keys({
             def: Joi.number().min(0).max(600),
             mag: Joi.number().min(0).max(600),
             spr: Joi.number().min(0).max(600),
-            lbFillRate: Joi.number().min(0).max(600)
+            lbFillRate: Joi.number().min(0).max(600),
+            mitigation: Joi.object().keys({
+                global: Joi.number().min(0).max(100),
+                physical: Joi.number().min(0).max(100),
+                magical: Joi.number().min(0).max(100)
+            }),
+            drawAttacks: Joi.number().min(0).max(600),
+            lbDamage: Joi.number().min(0).max(600),
         }),
         lbShardsPerTurn: Joi.number().min(0).max(100),
-        mitigation: Joi.object().keys({
-            global: Joi.number().min(0).max(100),
-            physical: Joi.number().min(0).max(100),
-            magical: Joi.number().min(0).max(100)
-        }),
-        drawAttacks: Joi.number().min(0).max(600),
-        lbDamage: Joi.number().min(0).max(600),
         stack: Joi.number().min(0).max(99),
         level: Joi.number().min(0).max(120),
         calculatedValues: Joi.object().keys({
@@ -102,7 +102,7 @@ const partyBuildSchema = Joi.object().keys({
             lbDamage: Joi.object().keys({value:Joi.number().integer()}),
             mpRefresh: Joi.object().keys({value:Joi.number().integer()}),
             lbFillRate: Joi.object().keys({value:Joi.number().integer()}),
-            lbPerTurn: Joi.object().keys({value:Joi.number().integer()}),
+            lbPerTurn: Joi.object().keys({value:Joi.number()}),
             jumpDamage: Joi.object().keys({value:Joi.number().integer()}),
             elementResists: Joi.object().keys({
                 fire:Joi.number().integer(),

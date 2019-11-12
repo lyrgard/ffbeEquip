@@ -2479,13 +2479,13 @@ function getStateHash(onlyCurrent = true) {
             }
             unit.buffs.lbFillRate = build.baseValues.lbFillRate.buff;
             unit.lbShardsPerTurn = build.baseValues.lbFillRate.total;
-            unit.mitigation = {
+            unit.buffs.mitigation = {
                 "physical":build.baseValues.mitigation.physical,
                 "magical":build.baseValues.mitigation.magical,
                 "global":build.baseValues.mitigation.global
             }
-            unit.drawAttacks = build.baseValues.drawAttacks;
-            unit.lbDamage = build.baseValues.lbDamage;
+            unit.buffs.drawAttacks = build.baseValues.drawAttacks;
+            unit.buffs.lbDamage = build.baseValues.lbDamage;
             if (build.baseValues.currentStack) {
                 unit.stack = build.baseValues.currentStack;
             }
@@ -2533,7 +2533,7 @@ function getStateHash(onlyCurrent = true) {
                 let magicalKiller = 0;
                 if (killer.length > 0) {
                     physicalKiller = killer[0].physical || 0;
-                    magicalKiller = killer[0].magicalKiller || 0;
+                    magicalKiller = killer[0].magical || 0;
                 }
                 unit.calculatedValues.killers[race] = {
                     "physical": physicalKiller,
@@ -2891,16 +2891,19 @@ function loadStateHashAndBuild(data, importMode = false) {
         if (unit.lbShardsPerTurn) {
             $(".unitStats .stat.lbShardsPerTurn .buff input").val(unit.lbShardsPerTurn);
         }
-        if (unit.mitigation) {
-            $(".unitStats .stat.pMitigation .buff input").val(unit.mitigation.physical);
-            $(".unitStats .stat.mMitigation .buff input").val(unit.mitigation.magical);
-            $(".unitStats .stat.mitigation .buff input").val(unit.mitigation.global);
+        let mitigation = unit.buffs.mitigataion || unit.mitigation;
+        if (mitigation) {
+            $(".unitStats .stat.pMitigation .buff input").val(mitigation.physical);
+            $(".unitStats .stat.mMitigation .buff input").val(mitigation.magical);
+            $(".unitStats .stat.mitigation .buff input").val(mitigation.global);
         }
-        if (unit.drawAttacks) {
-            $(".unitStats .stat.drawAttacks .buff input").val(unit.drawAttacks);
+        let drawAttacks = unit.buffs.drawAttacks || unit.drawAttacks;
+        if (drawAttacks) {
+            $(".unitStats .stat.drawAttacks .buff input").val(drawAttacks);
         }
-        if (unit.lbDamage) {
-            $(".unitStats .stat.lbDamage .buff input").val(unit.lbDamage);
+        let lbDamage = unit.buffs.lbDamage || unit.lbDamage;
+        if (lbDamage) {
+            $(".unitStats .stat.lbDamage .buff input").val(lbDamage);
         }
         if (unit.stack) {
             $(".unitStack input").val(unit.stack);
