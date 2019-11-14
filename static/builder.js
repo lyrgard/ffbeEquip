@@ -1980,8 +1980,11 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
     } else {
         if (typeList.includes(key)) {
             item = getPlaceHolder(key);
-        } else if (espersByName[key])  {
-            item = espersByName[key]; 
+        } else if (espers.some(e => e.id == key))  {
+            item = espersByName[key];
+            if (!item) {
+                item = espers.filter(e => e.id == key)[0];
+            }
         } else if (key == "unavailable") {
             item = {"name":"Unavailable slot", "type":"unavailable", "placeHolder":true};
         } else {
@@ -3506,10 +3509,11 @@ function importSavedTeam(index) {
     });
 }
 
+let savedTeamModal;
 function showSavedTeams() {
     getSavedBuilds(function(savedBuilds) {
-        
-        Modal.show({
+
+        savedTeamModal = Modal.show({
             title: "Saved teams",
             body: getSavedTeamList,
             size: 'large',
@@ -3536,18 +3540,23 @@ function getSavedTeamList() {
 }
 
 function deleteSavedTeam(index) {
-    savedBuilds.teams.splice(index, 1);
-    if (currentSavedBuildIndex >= 0) {
-        if (currentSavedBuildIndex == index) {
-            $("#saveTeamAsButton").addClass("hidden");
-            $(".savedTeamName").text("New team");
-            currentSavedBuildIndex = -1;
-        } else if (currentSavedBuildIndex > index) {
-            currentSavedBuildIndex--;
+    var r = confirm("Are you sure to delete that team ?");
+    if (r == true) {
+        savedBuilds.teams.splice(index, 1);
+        if (currentSavedBuildIndex >= 0) {
+            if (currentSavedBuildIndex == index) {
+                $("#saveTeamAsButton").addClass("hidden");
+                $(".savedTeamName").text("New team");
+                currentSavedBuildIndex = -1;
+            } else if (currentSavedBuildIndex > index) {
+                currentSavedBuildIndex--;
+            }
         }
+        writeSavedTeams();
+        savedTeamModal.modal('hide');
+        showSavedTeams();
     }
-    writeSavedTeams();
-    showSavedTeams();
+
 }
 
 
@@ -3653,7 +3662,7 @@ function onFeatureSelect(selectedFeature) {
 
 function showExportAsImage() {
     $("#exportAsImageModal").modal();
-    FFBEEquipBuildAsImage.drawTeam($('#exportAsImageCanvas')[0], getStateHash());
+    FFBEEquipBuildAsImage.drawTeam($('#exportAsImageCanvas')[0], getStateHash(false));
 }
 
 function exportAsImage() {

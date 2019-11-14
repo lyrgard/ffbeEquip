@@ -1925,6 +1925,7 @@ Modal = {
         });
         
         if (conf.onOpen) conf.onOpen($modal);
+        return $modal;
     },
     
     hide: function() {
