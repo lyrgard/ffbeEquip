@@ -5785,7 +5785,7 @@
 	},
 	"100023704": {
 		"name":"Neisha",
-		"wikiEntry":"ネイシャ",
+		"wikiEntry":"Neisha",
 		"id":"100023704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -5802,8 +5802,8 @@
 		]
 	},
 	"100024003": {
-		"name":"Latale",
-		"wikiEntry":"ラテール",
+		"name":"Latyl",
+		"wikiEntry":"Latyl",
 		"id":"100024003",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -8102,8 +8102,8 @@
 		}
 	},
 	"206002105": {
-		"name":"Magitek Warrior Terra",
-		"wikiEntry":"魔導戦士ティナ",
+		"name":"Guerrera Magitec Terra",
+		"wikiEntry":"Magitek_Warrior Terra",
 		"id":"206002105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8116,7 +8116,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"],
 		"skills": [
-			{"mp%":30, "mag%":50, "spr%":30, "evade":{"physical":30}, "singleWielding":{"mag":50}, "dualWielding":{"mag":25}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"silence","percent":100}], "mpRefresh":10, "skillEnhancement":{"20290":4,"20300":4,"20310":4,"20420":1.5,"20440":1.5}, "special":["dualWield"]},
+			{"mp%":30, "mag%":50, "spr%":30, "evade":{"physical":30}, "singleWielding":{"mag":100}, "dualWielding":{"mag":75}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"silence","percent":100}], "mpRefresh":10, "skillEnhancement":{"20290":4,"20300":4,"20310":4,"20420":1.5,"20440":1.5}, "special":["dualWield"]},
 			{"mag%":30, "equipedConditions":["sword"]},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"mp%":30, "mag%":30, "skillEnhancement":{"230963":1,"230964":1,"230965":1,"230966":1,"509811":1,"509813":1}, "equipedConditions":[["302008600","504230910"]]},
@@ -8126,8 +8126,8 @@
 			{"singleWielding":{"mag":50}, "dualWielding":{"mag":25}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Magitek Warrior Terra",
-			"wikiEntry":"魔導戦士ティナ",
+			"name":"Guerrera Magitec Terra",
+			"wikiEntry":"Magitek_Warrior Terra",
 			"id":"206002105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -8141,15 +8141,15 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"],
 			"skills": [
-				{"mp%":30, "mag%":50, "spr%":30, "evade":{"physical":30}, "singleWielding":{"mag":50}, "dualWielding":{"mag":25}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"silence","percent":100}], "mpRefresh":10, "skillEnhancement":{"20290":4,"20300":4,"20310":4,"20420":1.5,"20440":1.5}, "special":["dualWield"]},
+				{"mp%":30, "mag%":50, "spr%":30, "evade":{"physical":30}, "singleWielding":{"mag":100}, "dualWielding":{"mag":75}, "lbFillRate":100, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":40},{"name":"ice","percent":40},{"name":"lightning","percent":40},{"name":"silence","percent":100}], "mpRefresh":10, "skillEnhancement":{"20290":4,"20300":4,"20310":4,"20420":1.5,"20440":1.5}, "special":["dualWield"]},
 				{"mag%":30, "equipedConditions":["sword"]},
 				{"mag%":30, "equipedConditions":["rod"]}
 			]
 		}
 	},
 	"206002205": {
-		"name":"Adventurer Locke",
-		"wikiEntry":"冒険者ロック",
+		"name":"Aventurero Locke",
+		"wikiEntry":"Adventurer_Locke",
 		"id":"206002205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -8162,16 +8162,16 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":30, "def%":50, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+			{"hp%":30, "mp%":20, "atk%":30, "def%":50, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["dagger"]},
 			{"mp%":30, "atk%":30, "dualWielding":{"atk":50}, "equipedConditions":[["504230911","301004600"]]},
 			{"atk%":40, "esperStatsBonus":{"Phoenix":{"hp":150}}, "levelCondition":105},
 			{"spr%":20, "levelCondition":115},
-			{"skillEnhancement":{"230991":1,"230998":2,"230999":2,"509824":2,"509825":1}, "levelCondition":120}
+			{"skillEnhancement":{"230991":1,"230998":3,"230999":3,"509824":3,"509825":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Adventurer Locke",
-			"wikiEntry":"冒険者ロック",
+			"name":"Aventurero Locke",
+			"wikiEntry":"Adventurer_Locke",
 			"id":"206002205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -8185,7 +8185,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":30, "mp%":20, "atk%":30, "def%":50, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+				{"hp%":30, "mp%":20, "atk%":30, "def%":50, "dualWielding":{"atk":50}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["dagger"]}
 			]
 		}
@@ -12840,57 +12840,6 @@
 			"skills": [
 			]
 		}
-	},
-	"307000204": {
-		"name":"Kaliva",
-		"wikiEntry":"Kaliva",
-		"id":"307000204",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3281,"mp":189,"atk":116,"def":119,"mag":150,"spr":135},
-			"minStats":{"hp":1083,"mp":62,"atk":38,"def":39,"mag":50,"spr":45},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"],
-		"skills": [
-		]
-	},
-	"307000303": {
-		"name":"Barusa",
-		"wikiEntry":"Barusa",
-		"id":"307000303",
-		"max_rarity":"5",
-		"min_rarity":"3",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":2919,"mp":106,"atk":107,"def":113,"mag":75,"spr":96},
-			"minStats":{"hp":963,"mp":35,"atk":35,"def":37,"mag":25,"spr":32},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","heavyArmor"],
-		"skills": [
-		]
-	},
-	"307000404": {
-		"name":"Toby",
-		"wikiEntry":"Toby",
-		"id":"307000404",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3522,"mp":151,"atk":144,"def":124,"mag":120,"spr":123},
-			"minStats":{"hp":1162,"mp":50,"atk":48,"def":41,"mag":40,"spr":41},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","katana","bow","whip","throwing","hat","clothes","lightArmor","robe"],
-		"skills": [
-		]
 	},
 	"310000105": {
 		"name":"2B",
