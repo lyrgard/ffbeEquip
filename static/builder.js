@@ -2071,7 +2071,7 @@ function fixItem(key, slotParam = -1, enhancements, pinItem = true) {
 function adaptEsperMasteryToBuild() {
     if (builds[currentUnitIndex].build[10]) {
       
-        esper = espersByName[builds[currentUnitIndex].build[10].id];
+        esper = getEsperItem(builds[currentUnitIndex].build[10].originalEsper);
         let typeCombination = [];
         builds[currentUnitIndex].build.forEach(i => {
             if (i && i.type && !typeCombination.includes(i.type)) {
@@ -2475,6 +2475,10 @@ function getStateHash(onlyCurrent = true) {
             if (build.build[10]) {
                 unit.esperId = build.build[10].name;
                 unit.esperPinned = (build.fixedItems[10] != null);
+                unit.esper = JSON.parse(JSON.stringify(build.build[10].originalEsper));
+                delete unit.esper.buildLink;
+                delete unit.esper.selectedSkills;
+                delete unit.esper.maxLevel;
             }
 
             unit.pots = {};
@@ -2883,8 +2887,10 @@ function loadStateHashAndBuild(data, importMode = false) {
         }
         
         if (unit.esperId) {
-            if (dataVersion >= 2) {
-                fixItem(unit.esperId, -1, undefined, unit.esperPinned)
+            if (unit.esper) {
+                fixItem(getEsperItem(unit.esper), 10, undefined, unit.esperPinned);
+            } else if (dataVersion >= 2) {
+                fixItem(unit.esperId, -1, undefined, unit.esperPinned);
             } else {
                 fixItem(unit.esperId, -1, undefined, true);
             }

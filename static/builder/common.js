@@ -1306,6 +1306,7 @@ function getEsperItem(esper) {
             item[percentValues[baseStats[i]]] = esper[percentValues[baseStats[i]]];
         }
     }
+    item.originalEsper = esper;
     return item;
 }
 
