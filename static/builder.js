@@ -1651,6 +1651,9 @@ function inventoryLoaded() {
         $(".panel.paramChallenge").removeClass("hidden");
     }
     $("#savedTeamPanel").removeClass("hidden");
+    if (builds[0].unit) {
+        $("#saveTeamButton").removeClass("hidden");
+    }
 }
 
 function updateSavedTeamPanelVisibility() {
