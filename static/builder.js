@@ -2464,14 +2464,16 @@ function getStateHash(onlyCurrent = true) {
             if (build.build[10]) {
                 unit.esperId = build.build[10].name;
                 unit.esperPinned = (build.fixedItems[10] != null);
-                unit.esper = JSON.parse(JSON.stringify(build.build[10].originalEsper));
-                delete unit.esper.buildLink;
-                delete unit.esper.selectedSkills;
-                delete unit.esper.maxLevel;
-                if (!unit.esper.resist) {
-                    unit.esper.resist = [];
+                if (build.build[10].originalEsper.selectedSkills) {
+                    unit.esper = JSON.parse(JSON.stringify(build.build[10].originalEsper));
+                    delete unit.esper.buildLink;
+                    delete unit.esper.selectedSkills;
+                    delete unit.esper.maxLevel;
+                    if (!unit.esper.resist) {
+                        unit.esper.resist = [];
+                    }
+                    unit.esper.buildLink = getEsperLink(build.build[10].originalEsper);
                 }
-                unit.esper.buildLink = getEsperLink(build.build[10].originalEsper);
             }
 
             unit.pots = {};
