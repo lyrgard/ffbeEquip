@@ -2066,7 +2066,7 @@ function waitingCallbackKeyReady(key) {
 function getEsperLink(esper) {
     let linkData = escapeName(esper.name) + '|' + esper.rarity + '|' + esper.level + '|';
     
-    let boardStateBin = importBoardConversion.map(coordinate => getEsperBoardPositionString(coordinate[0], coordinate[1])).map(positionString => esper.selectedSkills.includes(positionString) ? '1': '0').join('');
+    let boardStateBin = importBoardConversion.map(coordinate => getEsperBoardPositionString(coordinate[0], coordinate[1])).map(positionString => (positionString === '0_0' || esper.selectedSkills.includes(positionString)) ? '1': '0').join('');
     let boardState = bin2hex(boardStateBin);
     
     linkData += boardState;
