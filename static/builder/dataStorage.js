@@ -136,8 +136,6 @@ class DataStorage {
            if (i.equipedConditions && this.itemCanBeOfUseForGoal(i, ennemyStats)) {
                i.equipedConditions.forEach(c => {
                    if (elementList.includes(c) && !this.desirableElements.includes(c)) {
-                       console.log(i.name);
-                       console.log(this.itemCanBeOfUseForGoal(i, ennemyStats));
                        this.desirableElements.push(c);
                    }
                })
