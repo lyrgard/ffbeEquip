@@ -29,6 +29,7 @@ const ailmentsSchema = [
     Joi.string().valid('poison'),
     Joi.string().valid('blind'),
     Joi.string().valid('sleep'),
+    Joi.string().valid('silence'),
     Joi.string().valid('paralysis'),
     Joi.string().valid('confuse'),
     Joi.string().valid('disease'),

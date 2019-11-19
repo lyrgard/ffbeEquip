@@ -2479,6 +2479,9 @@ function getStateHash(onlyCurrent = true) {
                 delete unit.esper.buildLink;
                 delete unit.esper.selectedSkills;
                 delete unit.esper.maxLevel;
+                if (!unit.esper.resist) {
+                    unit.esper.resist = [];
+                }
             }
 
             unit.pots = {};
