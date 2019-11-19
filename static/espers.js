@@ -1005,7 +1005,7 @@ function onLevelChange() {
 }
 
 function getPublicEsperLink() {
-    Modal.showWithBuildLink("Esper build", getEsperLinkData(ownedEspers[currentEsper]));
+    Modal.showWithBuildLink("Esper build", getEsperLink(ownedEspers[currentEsper]));
 
 }
 
