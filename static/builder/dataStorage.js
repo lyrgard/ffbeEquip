@@ -136,6 +136,8 @@ class DataStorage {
            if (i.equipedConditions && this.itemCanBeOfUseForGoal(i, ennemyStats)) {
                i.equipedConditions.forEach(c => {
                    if (elementList.includes(c) && !this.desirableElements.includes(c)) {
+                       console.log(i.name);
+                       console.log(this.itemCanBeOfUseForGoal(i, ennemyStats));
                        this.desirableElements.push(c);
                    }
                })
@@ -378,7 +380,8 @@ class DataStorage {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
         if (item.element && !includeAll(this.unitBuild.innateElements, item.element)) {
-            item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
+            item.elementType = "element";
+            item.elementCoef = getElementCoef(item.element, ennemyStats) * -1;
         } else {
             item.elementType = "neutral"
         }
@@ -481,6 +484,8 @@ class DataStorage {
                 if (this.getKillerCoef(item, "magical") > 0) return true;
             } else if (stats[index] == "lbPerTurn") {
                 if (item.lbPerTurn || item.lbFillRate) return true;
+            } else if (stats[index] == "meanDamageVariance") {
+                if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item["total_" + stats[index]]) return true;

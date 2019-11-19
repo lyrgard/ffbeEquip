@@ -232,23 +232,32 @@ class TreeComparator {
     }
 
     static compareByElementCoef(item1, item2) {
-        if (item1.elementType == item2.elementType) {
-            return "equivalent";
-        } else {
-            if (item1.elementType == "neutral") {
-                if (item2.elementType == "element_0") {
-                    return "strictlyWorse";
-                } else {
-                    return "sameLevel";
-                }
-            } else if (item1.elementType == "element_0") {
-                if (item2.elementType == "neutral") {
+        if (item1.elementType === "neutral") {
+            if (item2.elementType === "neutral") {
+                return "equivalent";
+            } else {
+                if (item2.elementCoef > 0) {
                     return "strictlyBetter";
                 } else {
-                    return "sameLevel";
+                    return "strictlyWorse";
                 }
-            }
-            return "sameLevel";
+            }    
+        } else {
+            if (item2.elementType === "neutral") {
+                if (item1.elementCoef > 0) {
+                    return "strictlyWorse";
+                } else {
+                    return "strictlyBetter";
+                }
+            } else {
+                if (item1.elementCoef > item2.elementCoef) {
+                    return "strictlyWorse";
+                } else if (item1.elementCoef === item2.elementCoef) {
+                    return "equivalent";
+                } else {
+                    return "strictlyBetter";
+                }
+            }    
         }
     }
 

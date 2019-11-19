@@ -1052,6 +1052,12 @@ function selectUnitDropdownWithoutNotify(unitId) {
     $('#unitsSelect').val(unitId).trigger('change.select2');
 }
 
+function selectUnit(unitId) {
+    $('#unitsSelect').val(unitId);
+    $('#unitsSelect').trigger('change');
+    onUnitChange();
+}
+
 function goalSelectTemplate(state) {
     if (!state.id) return state.text;
     var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
@@ -1224,6 +1230,9 @@ function onUnitChange() {
         }
         displayUnitRarity(selectedUnitData);
         displayUnitEnhancements();
+        if (window !== window.parent) {
+            window.parent.postMessage(JSON.stringify({'type':'unitSelected', 'value':''}), '*');
+        }
     });
 }
 
@@ -1639,29 +1648,12 @@ var displayUnitRarity = function(unit) {
     }
 };
 
-function inventoryLoaded() {
-    dataStorage.itemInventory = itemInventory;
-    $(".equipments select option[value=owned]").prop("disabled", false);
-    if (itemInventory.excludeFromExpeditions) {
-        $(".equipments select option[value=ownedAvailableForExpedition]").prop("disabled", false);
-    }
-    if (!dataLoadedFromHash) {
-        $(".equipments select").val("owned");
-        onEquipmentsChange();
-        $(".panel.paramChallenge").removeClass("hidden");
-    }
-    $("#savedTeamPanel").removeClass("hidden");
-}
-
 function updateSavedTeamPanelVisibility() {
     if (itemInventory) {
         $("#savedTeamPanel").removeClass("hidden");
     } else {
         $("#savedTeamPanel").addClass("hidden");
     }
-}
-
-function notLoaded() {
 }
 
 function onGoalChange() {
@@ -3696,6 +3688,25 @@ function uploadToImgur() {
     });
 }
 
+function inventoryLoaded() {
+    dataStorage.itemInventory = itemInventory;
+    $(".equipments select option[value=owned]").prop("disabled", false);
+    if (itemInventory.excludeFromExpeditions) {
+        $(".equipments select option[value=ownedAvailableForExpedition]").prop("disabled", false);
+    }
+    if (!dataLoadedFromHash) {
+        $(".equipments select").val("owned");
+        onEquipmentsChange();
+        $(".panel.paramChallenge").removeClass("hidden");
+    }
+    $("#savedTeamPanel").removeClass("hidden");
+    waitingCallbackKeyReady("loginStatus");
+}
+
+function notLoaded() {
+    waitingCallbackKeyReady("loginStatus");
+}
+
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
@@ -3712,7 +3723,14 @@ function startPage() {
             } else {
                 reinitBuild(currentUnitIndex);
             }
+            
         });
+    });
+    
+    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill", "defaultBuilderEspers", "loginStatus"], () => {
+        if (window !== window.parent) {
+            window.parent.postMessage(JSON.stringify({'type':'ready'}), '*');
+        }
     });
     
     getStaticData("data", true, function(result) {
@@ -3865,6 +3883,9 @@ function startPage() {
     $("#forcedElements input").change($.debounce(300,onGoalChange));
     $("#ailmentImunities input").change($.debounce(300,onGoalChange));
     
+    if (window !== window.parent) {
+        window.addEventListener("message", handleExternalControl);
+    }
 }
 
 function initWorkerNumber() {
@@ -4069,6 +4090,9 @@ function initWorkers() {
                                     updateBuildButtonDisplay();
                                     $("body").removeClass("building");
                                 }
+                                if (window !== window.parent) {
+                                    parent.postMessage(JSON.stringify({'type':'buildFinished', 'value':getStateHash(false)}), '*');
+                                }
                             }
                             
                         }
@@ -4224,3 +4248,20 @@ validator.addSchema('shortLink', {
 		},
 	]
 });
+
+let handleExternalControl = function(message) {
+    let data = JSON.parse(message.data);
+    console.log("Message received : " + data.type);
+    switch(data.type) {
+        case 'selectUnit': 
+            selectUnit(data.value);
+            break;
+        case 'selectGoal':
+            chooseCustomFormula(data.value);
+            parent.postMessage(JSON.stringify({'type':'goalChanged', 'value':''}), '*');
+            break;
+        case 'build':
+            build();
+            break;
+    }
+}

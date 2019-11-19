@@ -1,0 +1,57 @@
+<html>
+    <head>
+        
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: hidden;
+            }
+            .frame {
+                flex-grow: 1
+            }
+            
+            #results {
+                position: absolute;
+                top:0;
+                left:0;
+                background-color: white;
+                z-index: 10;
+            }
+        </style>
+        
+        
+        <script src="externalControl.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="results"></div>
+        <iframe id="ffbeEquipIframe" class="frame"></iframe>
+        
+        <script>
+            let units = [["Karten", "401007205", "99 * P_DAMAGE_MULTICAST"], ["AK Rain", "100023205", "LB_P_DAMAGE_MULTICAST"], ["Hyoh", "100016205", "LB_P_DAMAGE_MULTICAST"]];
+            let unitIndex = 0;
+            
+            $(function() {    
+                let iframe = document.getElementById('ffbeEquipIframe');
+                FFBEEquipExternalControl.init(iframe)
+                    .then(recursivelySelectUnitAndBuild);    
+            });
+            
+            let recursivelySelectUnitAndBuild = function() {
+                FFBEEquipExternalControl.selectUnit(units[unitIndex][1])
+                    .then(() => FFBEEquipExternalControl.selectGoal(units[unitIndex][2]))
+                    .then(() => FFBEEquipExternalControl.build())
+                    .then((result) => {
+                        $("#results").append($('<div>' + units[unitIndex][0] + ' - ' + result.units[0].calculatedValues.atk.value + '</div>'));
+                        unitIndex++;
+                        if (unitIndex < units.length) {
+                            recursivelySelectUnitAndBuild();
+                        }
+                    });
+            }
+        </script>
+    </body>
+</html>
