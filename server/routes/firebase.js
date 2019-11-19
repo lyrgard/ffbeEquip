@@ -25,6 +25,33 @@ const elementsSchema = [
     Joi.string().valid('light'),
     Joi.string().valid('dark')
 ];
+const ailmentsSchema = [
+    Joi.string().valid('poison'),
+    Joi.string().valid('blind'),
+    Joi.string().valid('sleep'),
+    Joi.string().valid('silence'),
+    Joi.string().valid('paralysis'),
+    Joi.string().valid('confuse'),
+    Joi.string().valid('disease'),
+    Joi.string().valid('petrification'),
+    Joi.string().valid('death'),
+    Joi.string().valid('charm'),
+    Joi.string().valid('stop'),
+];
+const racesSchema = [
+    Joi.string().valid('aquatic'),
+    Joi.string().valid('beast'),
+    Joi.string().valid('bird'),
+    Joi.string().valid('bug'),
+    Joi.string().valid('demon'),
+    Joi.string().valid('dragon'),
+    Joi.string().valid('human'),
+    Joi.string().valid('machine'),
+    Joi.string().valid('plant'),
+    Joi.string().valid('undead'),
+    Joi.string().valid('stone'),
+    Joi.string().valid('spirit'),
+];
 const statsSchema = [
     Joi.string().valid('hp'),
     Joi.string().valid('mp'),
@@ -47,6 +74,69 @@ const itemEnchantmentsSchema =  [
     Joi.string().valid('autoProtect_5'),Joi.string().valid('autoProtect_4'),Joi.string().valid('autoProtect_3'),Joi.string().valid('autoProtect_2'),Joi.string().valid('autoProtect_1'),
     Joi.string().valid('autoShell_5'),Joi.string().valid('autoShell_4'),Joi.string().valid('autoShell_3'),Joi.string().valid('autoShell_2'),Joi.string().valid('autoShell_1')
 ];
+const esperSchema = Joi.object().keys({
+    id:Joi.string().max(50),
+    name:Joi.string().max(50),
+    rarity:Joi.number().min(1).max(3),
+    resist:Joi.array().max(18).items(
+        Joi.object().keys({
+            name:elementsSchema.concat(ailmentsSchema),
+            percent:Joi.number().min(-50).max(100)
+        })
+    ),
+    level:Joi.number().min(0).max(60),
+    hp:Joi.number().min(0).max(10000),
+    mp:Joi.number().min(0).max(10000),
+    atk:Joi.number().min(0).max(10000),
+    def:Joi.number().min(0).max(10000),
+    mag:Joi.number().min(0).max(10000),
+    spr:Joi.number().min(0).max(10000),
+    'hp%':Joi.number().min(0).max(20),
+    'mp%':Joi.number().min(0).max(20),
+    'atk%':Joi.number().min(0).max(20),
+    'def%':Joi.number().min(0).max(20),
+    'mag%':Joi.number().min(0).max(20),
+    'spr%':Joi.number().min(0).max(20),
+    killers:Joi.array().max(12).items(
+        Joi.object().keys({
+            name:racesSchema,
+            physical:Joi.number().min(0).max(300),
+            magical:Joi.number().min(0).max(300),
+        })
+    ),
+    lbPerTurn:Joi.object().keys({
+        min:Joi.number().min(0).max(2),
+        max:Joi.number().min(0).max(2)
+    }),
+    lbFillRate:Joi.number().min(0).max(200),
+    lbDamage:Joi.number().min(0).max(200),
+    evade: Joi.object().keys({
+        physical:Joi.number().min(0).max(10),
+        magical:Joi.number().min(0).max(10),
+    }),
+    esperStatsBonus:Joi.object().keys({
+        all: Joi.object().keys({
+            hp:Joi.number().min(0).max(100),
+            mp:Joi.number().min(0).max(100),
+            atk:Joi.number().min(0).max(100),
+            def:Joi.number().min(0).max(100),
+            mag:Joi.number().min(0).max(100),
+            spr:Joi.number().min(0).max(100),
+        })
+    }),
+    conditional:Joi.array().max(2).items(
+        Joi.object().keys({
+            equipedCondition: Joi.string().max(50),
+            'hp%':Joi.number().min(0).max(20),
+            'mp%':Joi.number().min(0).max(20),
+            'atk%':Joi.number().min(0).max(20),
+            'def%':Joi.number().min(0).max(20),
+            'mag%':Joi.number().min(0).max(20),
+            'spr%':Joi.number().min(0).max(20),
+            icon:Joi.string().max(50),
+        })
+    )
+});
 const calculatedValuesBaseStatsSchema = Joi.object().keys({
     value:Joi.number().integer(),
     bonus:Joi.number().integer(),
@@ -64,6 +154,7 @@ const partyBuildSchema = Joi.object().keys({
         itemEnchantments: Joi.array().items([Joi.allow(null), Joi.array().items(itemEnchantmentsSchema).max(3)]).max(10),
         esperId: Joi.string().max(50),
         esperPinned: Joi.boolean(),
+        esper:esperSchema,
         pots: Joi.object().keys({
             hp: Joi.number().min(0).max(5000),
             mp: Joi.number().min(0).max(1000),
@@ -81,7 +172,7 @@ const partyBuildSchema = Joi.object().keys({
             spr: Joi.number().min(0).max(99),
         }),
         buffs: Joi.object().keys({
-            hp: Joi.number().min(0).max(600),
+            hp: Joi.number().min(0).max(10000),
             mp: Joi.number().min(0).max(600),
             atk: Joi.number().min(0).max(600),
             def: Joi.number().min(0).max(600),
