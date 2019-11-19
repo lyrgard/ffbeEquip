@@ -172,7 +172,7 @@ const partyBuildSchema = Joi.object().keys({
             spr: Joi.number().min(0).max(99),
         }),
         buffs: Joi.object().keys({
-            hp: Joi.number().min(0).max(600),
+            hp: Joi.number().min(0).max(10000),
             mp: Joi.number().min(0).max(600),
             atk: Joi.number().min(0).max(600),
             def: Joi.number().min(0).max(600),
