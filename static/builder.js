@@ -2471,6 +2471,7 @@ function getStateHash(onlyCurrent = true) {
                 if (!unit.esper.resist) {
                     unit.esper.resist = [];
                 }
+                unit.esper.buildLink = getEsperLink(build.build[10].originalEsper);
             }
 
             unit.pots = {};

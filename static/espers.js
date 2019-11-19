@@ -37,11 +37,6 @@ const statsProgressionByTypeAndRarity = {
     }
 }
 
-const importBoardConversion = [[0,0], [-1,-1], [0,-1], [-1,0], [1,0], [0,1], [1,1],
-                        [-2,-2],[-1,-2],[0,-2],[-2,-1],[1,-1],[-2,0],[2,0],[-1,1],[2,1],[0,2],[1,2],[2,2],
-                        [-3,-3],[-2,-3],[-1,-3],[0,-3],[-3,-2],[1,-2],[-3,-1],[2,-1],[-3,0],[3,0],[-2,1],[3,1],[-1,2],[3,2],[0,3],[1,3],[2,3],[3,3],
-                        [-4,-3],[1,-3],[-4,-2],[2,-2],[-4,-1],[3,-1],[-4,0],[4,0],[-3,1],[4,1],[-2,2],[4,2],[-1,3],[4,3],[-4,-4],[-3,-4],[-2,-4],[-1,-4],[0,-4],[0,4],[1,4],[2,4],[3,4],[4,4]];
-
 const importIdConversion = {
     1: "Siren",
     2: "Ifrit",
@@ -332,7 +327,7 @@ function calculateStatBonus(esperName, baseStat) {
 }
 
 function addStatsOfSelectedNodes(node, ownedEsper) {
-    var posString = getPositionString(node.position[0], node.position[1]);
+    var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     if (ownedEsper.selectedSkills.includes(posString)) {
         for (var index = 0; index < baseStats.length; index++) {
             if (node[baseStats[index]]) {
@@ -377,7 +372,7 @@ function calculateSp(level, star, esperName)
 
 function calculateUsedSpNode(node, skills) {
     var cost = 0;
-    var posString = getPositionString(node.position[0], node.position[1]);
+    var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     if (skills.includes(posString)) {
         cost += node.cost;
         for(var i = 0; i < node.children.length; i++) {
@@ -400,7 +395,7 @@ function getCenterY(node, scale=1) {
 }
 
 function showNode(node, parentNodeHtml, star, scale=1) {
-    var posString = getPositionString(node.position[0], node.position[1]);
+    var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     var nodeHtml = $("#grid li." + posString + " .hexagon");
     for (var statIndex = 0; statIndex < baseStats.length; statIndex++) {
         if (node[baseStats[statIndex]]) {
@@ -531,7 +526,7 @@ function prepareSave() {
 }
 
 function selectNode(x,y) {
-    var posString = getPositionString(x, y);
+    var posString = getEsperBoardPositionString(x, y);
     var path = findPathTo(x,y,esperBoards[currentEsper]);
     if (ownedEspers[currentEsper].selectedSkills.includes(posString)) {
         var node = path[path.length - 1];
@@ -539,7 +534,7 @@ function selectNode(x,y) {
     } else {
         if (path) {
             for (var index = 0; index < path.length; index++) {
-                var posString = getPositionString(path[index].position[0], path[index].position[1]);
+                var posString = getEsperBoardPositionString(path[index].position[0], path[index].position[1]);
                 if (!ownedEspers[currentEsper].selectedSkills.includes(posString)) {
                     ownedEspers[currentEsper].selectedSkills.push(posString);
                     addNodeStatToEsper(ownedEspers[currentEsper], path[index]);
@@ -594,7 +589,7 @@ function addNodeStatToEsper(esper, node) {
 }
 
 function unselectNodeAndChildren(esper, node) {
-    var posString = getPositionString(node.position[0], node.position[1]);
+    var posString = getEsperBoardPositionString(node.position[0], node.position[1]);
     var index = ownedEspers[currentEsper].selectedSkills.indexOf(posString)
     if (index >= 0) {
         ownedEspers[currentEsper].selectedSkills.splice(index, 1);
@@ -801,7 +796,7 @@ function onMouseOverNode(x,y) {
     var path = findPathTo(x,y,esperBoards[currentEsper]);
     if (path) {
         for (var index = 0; index < path.length; index++) {
-            var posString = getPositionString(path[index].position[0], path[index].position[1]);
+            var posString = getEsperBoardPositionString(path[index].position[0], path[index].position[1]);
             $("#grid li." + posString + " .hexagon").addClass("hover");
         }
     }
@@ -898,7 +893,7 @@ function displayEspers() {
         var y = Math.trunc(i/9) - 4;
         var x = i % 9 - 4;
         x = x + Math.round(y/2)
-        var posString = getPositionString(x, y);
+        var posString = getEsperBoardPositionString(x, y);
         boardHtml += '<li class="' + posString + '"><div class="hexagon ';
         var dist = distance(x, y);
         if (dist > 4) {
@@ -931,22 +926,6 @@ function displayEspers() {
 
 function distance(x1, y1) {
     return (Math.abs(x1) + Math.abs(x1 - y1) + Math.abs(y1)) / 2;
-}
-
-function getPositionString(x, y) {
-    var posString = "";
-    if (x < 0) {
-        posString += "m" + -x;
-    } else {
-        posString += x;
-    }
-    posString += "_"
-    if (y < 0) {
-        posString += "m" + -y;
-    } else {
-        posString += y;
-    }
-    return posString;
 }
 
 function getPositionFromString(posString) {
@@ -988,7 +967,7 @@ function loadLink() {
                     if (char == '1') {
                         let coordinate = importBoardConversion[index];
                         if (coordinate) {
-                            let positionString = getPositionString(coordinate[0], coordinate[1]);
+                            let positionString = getEsperBoardPositionString(coordinate[0], coordinate[1]);
                             ownedEspers[esperName].selectedSkills.push(positionString);
                         }
                     }
@@ -1026,14 +1005,7 @@ function onLevelChange() {
 }
 
 function getPublicEsperLink() {
-    let linkData = escapeName(ownedEspers[currentEsper].name) + '|' + ownedEspers[currentEsper].rarity + '|' + ownedEspers[currentEsper].level + '|';
-    
-    let boardStateBin = importBoardConversion.map(coordinate => getPositionString(coordinate[0], coordinate[1])).map(positionString => ownedEspers[currentEsper].selectedSkills.includes(positionString) ? '1': '0').join('');
-    let boardState = bin2hex(boardStateBin);
-    
-    linkData += boardState;
-    
-    Modal.showWithBuildLink("Esper build", "espers.html?server=" + server + '&o#' + linkData);
+    Modal.showWithBuildLink("Esper build", getEsperLinkData(ownedEspers[currentEsper]));
 
 }
 
@@ -1046,7 +1018,7 @@ function importEsper(esperName, rarity, level, board) {
     [...binary].forEach((char, index) => {
         let coordinate = importBoardConversion[index];
         if (coordinate) {
-            let positionString = getPositionString(coordinate[0], coordinate[1]);
+            let positionString = getEsperBoardPositionString(coordinate[0], coordinate[1]);
             if (char == '1' && !ownedEspers[currentEsper].selectedSkills.includes(positionString)) {
                 selectNode(coordinate[0], coordinate[1]);
             }
@@ -1114,20 +1086,6 @@ function treatImportFile(evt) {
     };
     reader.readAsText(f);
 
-}
-
-function hex2bin(hex){
-    let result = "";
-    [...hex].forEach(char => result += ("0000" + (parseInt(char, 16)).toString(2)).substr(-4));
-    return result;
-}
-
-function bin2hex(bin) {
-    let zeroToAdd = (4 - bin.length % 4) % 4;
-    for (let i = 0; i < zeroToAdd; i++) {
-        bin += '0';
-    }
-    return parseInt(bin, 2).toString(16);
 }
 
 function setEsperRarity(rarity) {

@@ -2063,6 +2063,46 @@ function waitingCallbackKeyReady(key) {
     })
 }
 
+function getEsperLink(esper) {
+    let linkData = escapeName(esper.name) + '|' + esper.rarity + '|' + esper.level + '|';
+    
+    let boardStateBin = importBoardConversion.map(coordinate => getEsperBoardPositionString(coordinate[0], coordinate[1])).map(positionString => esper.selectedSkills.includes(positionString) ? '1': '0').join('');
+    let boardState = bin2hex(boardStateBin);
+    
+    linkData += boardState;
+    return "https://ffbeEquip.com/espers.html?server=" + server + '&o#' + linkData;
+}
+
+function getEsperBoardPositionString(x, y) {
+    var posString = "";
+    if (x < 0) {
+        posString += "m" + -x;
+    } else {
+        posString += x;
+    }
+    posString += "_"
+    if (y < 0) {
+        posString += "m" + -y;
+    } else {
+        posString += y;
+    }
+    return posString;
+}
+
+function hex2bin(hex){
+    let result = "";
+    [...hex].forEach(char => result += ("0000" + (parseInt(char, 16)).toString(2)).substr(-4));
+    return result;
+}
+
+function bin2hex(bin) {
+    let zeroToAdd = (4 - bin.length % 4) % 4;
+    for (let i = 0; i < zeroToAdd; i++) {
+        bin += '0';
+    }
+    return parseInt(bin, 2).toString(16);
+}
+
 $(function() {
     $.notify.defaults({"globalPosition":"bottom right"});
     try {

@@ -135,7 +135,8 @@ const esperSchema = Joi.object().keys({
             'spr%':Joi.number().min(0).max(20),
             icon:Joi.string().max(50),
         })
-    )
+    ),
+    buildLink:Joi.string().max(150),
 });
 const calculatedValuesBaseStatsSchema = Joi.object().keys({
     value:Joi.number().integer(),
