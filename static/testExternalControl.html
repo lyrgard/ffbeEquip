@@ -46,6 +46,7 @@
                 FFBEEquipExternalControl.selectUnit(units[unitIndex][1])
                     .then(() => FFBEEquipExternalControl.selectGoal(units[unitIndex][2]))
                     .then(() => FFBEEquipExternalControl.setPot('atk', 500))
+                    .then(() => FFBEEquipExternalControl.pinItem("504211360"))
                     .then(() => FFBEEquipExternalControl.checkOption("forceTmrAbility"))
                     .then(() => FFBEEquipExternalControl.build())
                     .then((result) => {
