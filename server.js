@@ -56,7 +56,6 @@ var cspDirectives = {
   childSrc: ["'self'"],
   workerSrc: ["'self'"],
   frameSrc: ["'self'"],
-  frameAncestors: [],
   formAction: ["'self'"],
   blockAllMixedContent: !config.isDev,
   upgradeInsecureRequests: !config.isDev,
