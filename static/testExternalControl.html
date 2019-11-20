@@ -31,18 +31,22 @@
         <iframe id="ffbeEquipIframe" class="frame"></iframe>
         
         <script>
-            let units = [["Karten", "401007205", "99 * P_DAMAGE_MULTICAST"], ["AK Rain", "100023205", "LB_P_DAMAGE_MULTICAST"], ["Hyoh", "100016205", "LB_P_DAMAGE_MULTICAST"]];
+            let units = [["Karten", "401007205", "ATK"], ["AK Rain", "100023205", "ATK"], ["Hyoh", "100016205", "ATK"]];
             let unitIndex = 0;
             
             $(function() {    
                 let iframe = document.getElementById('ffbeEquipIframe');
-                FFBEEquipExternalControl.init(iframe)
-                    .then(recursivelySelectUnitAndBuild);    
+                FFBEEquipExternalControl.init(iframe, true)
+                    .then(() => FFBEEquipExternalControl.setMonsterStats(1000, 1000))
+                    .then(() => FFBEEquipExternalControl.setMonsterRaces(['dragon']))
+                    .then(recursivelySelectUnitAndBuild);
             });
             
             let recursivelySelectUnitAndBuild = function() {
                 FFBEEquipExternalControl.selectUnit(units[unitIndex][1])
                     .then(() => FFBEEquipExternalControl.selectGoal(units[unitIndex][2]))
+                    .then(() => FFBEEquipExternalControl.setPot('atk', 500))
+                    .then(() => FFBEEquipExternalControl.checkOption("forceTmrAbility"))
                     .then(() => FFBEEquipExternalControl.build())
                     .then((result) => {
                         $("#results").append($('<div>' + units[unitIndex][0] + ' - ' + result.units[0].calculatedValues.atk.value + '</div>'));

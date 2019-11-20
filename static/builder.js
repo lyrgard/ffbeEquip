@@ -211,9 +211,9 @@ function optimize() {
     progressElement.text("0%");
     progressElement.removeClass("finished");
     
-    var forceDoubleHand = $("#forceDoublehand input").prop('checked');
-    var forceDualWield = $("#forceDualWield input").prop('checked');
-    var tryEquipSources = $("#tryEquipsources input").prop('checked');
+    var forceDoubleHand = $("#forceDoublehand").prop('checked');
+    var forceDualWield = $("#forceDualWield").prop('checked');
+    var tryEquipSources = $("#tryEquipsources").prop('checked');
     var useNewJpDamageFormula = $("#useNewJpDamageFormula").prop('checked');
     
     prepareDataStorage();
@@ -251,7 +251,7 @@ function optimize() {
             "useNewJpDamageFormula": useNewJpDamageFormula,
         }));
     }
-    let forceTmrAbility = $("#forceTmrAbility input").prop('checked');
+    let forceTmrAbility = $("#forceTmrAbility").prop('checked');
 
     var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands, forceTmrAbility);
     remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
@@ -565,7 +565,7 @@ function readEnnemyStats() {
     
 function getFixedItemItemSlot(item, equipable, fixedItems) {
     var slot = -1;
-    var forceDoubleHand = $("#forceDoublehand input").prop('checked');
+    var forceDoubleHand = $("#forceDoublehand").prop('checked');
     if (weaponList.includes(item.type)) {
         if (fixedItems[0] && fixedItems[1]) {
             return -1;
@@ -1581,9 +1581,9 @@ function addNewUnit(focusUnitSelect = true) {
     })
     builds.push(null);
     reinitBuild(builds.length - 1);
-    $('#forceDoublehand input').prop('checked', false);
-    $('#forceDualWield input').prop('checked', false);
-    $('#tryEquipSources input').prop('checked', false);
+    $('#forceDoublehand').prop('checked', false);
+    $('#forceDualWield').prop('checked', false);
+    $('#tryEquipSources').prop('checked', false);
     loadBuild(builds.length - 1);
     if (builds.length > 9) {
         $("#addNewUnitButton").addClass("hidden");
@@ -1636,15 +1636,15 @@ var displayUnitRarity = function(unit) {
             rarityWrapper.append('☆');
         }
         if (rarity == "7") {
-            $('#forceTmrAbility').removeClass('hidden');
+            $('#forceTmrAbilityDiv').removeClass('hidden');
         } else {
-            $('#forceTmrAbility').addClass('hidden');
-            $("#tryReduceOverCap input").prop('checked', false);
+            $('#forceTmrAbilityDiv').addClass('hidden');
+            $("#tryReduceOverCap").prop('checked', false);
         }
     } else {
         rarityWrapper.hide();
-        $('#forceTmrAbility').addClass('hidden');
-        $("#tryReduceOverCap input").prop('checked', false);
+        $('#forceTmrAbilityDiv').addClass('hidden');
+        $("#tryReduceOverCap").prop('checked', false);
     }
 };
 
@@ -3835,14 +3835,14 @@ function startPage() {
     
     $(".excludedItemNumber").html(itemsToExclude.length);
 
-    $("#forceDoublehand input").change(function() {
-        if ($("#forceDoublehand input").prop('checked')) {
-            $('#forceDualWield input').prop('checked', false);
+    $("#forceDoublehand").change(function() {
+        if ($("#forceDoublehand").prop('checked')) {
+            $('#forceDualWield').prop('checked', false);
         }
     });
-    $("#forceDualWield input").change(function() {
-        if ($("#forceDualWield input").prop('checked')) {
-            $('#forceDoublehand input').prop('checked', false);
+    $("#forceDualWield").change(function() {
+        if ($("#forceDualWield").prop('checked')) {
+            $('#forceDoublehand').prop('checked', false);
         }
     });
     for (let statIndex = baseStats.length; statIndex--;) {
@@ -4050,7 +4050,7 @@ function initWorkers() {
                                     }
                                 }
                             }
-                            if (overcapedStats.length > 0 && $("#tryReduceOverCap input").prop('checked')) {
+                            if (overcapedStats.length > 0 && $("#tryReduceOverCap").prop('checked')) {
                                 secondaryOptimization = true;
                                 secondaryOptimizationFixedItemSave = builds[currentUnitIndex].fixedItems.slice();
                                 secondaryOptimizationFormulaSave = JSON.parse(JSON.stringify(builds[currentUnitIndex].formula));
@@ -4061,7 +4061,7 @@ function initWorkers() {
                                         builds[currentUnitIndex].build[i] = null;
                                     }
                                 }
-                                var statToFavor = $("#tryReduceOverCap select").val();
+                                var statToFavor = $("#tryReduceOverCapSelect").val();
                                 if (builds[currentUnitIndex].formula.type == "condition") {
                                     builds[currentUnitIndex].formula = {
                                         "type": "condition",
@@ -4271,9 +4271,55 @@ let handleExternalControl = function(message) {
         case 'selectUnit': 
             selectUnit(data.value);
             break;
+        case 'pinItem':
+            fixItem(data.value);
+            parent.postMessage(JSON.stringify({'type':'itemPinned' + data.requestId, 'value':''}), '*');
+            break;
+        case 'checkOption':
+            checkbox = $('#' + data.value);
+            if (!checkbox.prop('checked')) {
+                checkbox.prop('checked', true);
+            }
+            parent.postMessage(JSON.stringify({'type':'optionChecked' + data.requestId, 'value':''}), '*');
+            break;
+        case 'uncheckOption':
+            checkbox = $('#' + data.value);
+            if (checkbox.prop('checked')) {
+                checkbox.prop('checked', false);
+            }
+            parent.postMessage(JSON.stringify({'type':'optionUnchecked' + data.requestId, 'value':''}), '*');
+            break;
+        case 'setBuff':
+            $('.stat.' + data.value.stat + ' .buff input').val(data.value.value);
+            onBuffChange(data.value.stat);
+            parent.postMessage(JSON.stringify({'type':'buffSet' + data.requestId, 'value':''}), '*');
+            break;
+        case 'setPot':
+            $('.stat.' + data.value.stat + ' .pots input').val(data.value.value);
+            onPotsChange(data.value.stat);
+            parent.postMessage(JSON.stringify({'type':'potSet' + data.requestId, 'value':''}), '*');
+            break;
+        case 'setMonsterStats':
+            $('#monsterDefensiveStats .def .stat').val(data.value.baseDef);
+            $('#monsterDefensiveStats .spr .stat').val(data.value.baseSpr);
+            $('#monsterDefensiveStats .def .break').val(data.value.defBreak);
+            $('#monsterDefensiveStats .spr .break').val(data.value.sprBreak);
+            $('#monsterDefensiveStats .def .buff').val(data.value.defBuff);
+            $('#monsterDefensiveStats .spr .buff').val(data.value.sprBuff);
+            parent.postMessage(JSON.stringify({'type':'monsterStatsSet', 'value':''}), '*');
+            break;
+        case 'setMonsterElementalResist':
+            $('.panel.monster #elementalResists .element.' + data.value.element + ' .elementalResist').val(data.value.value);
+            parent.postMessage(JSON.stringify({'type':'monsterElementalResistSet' + data.requestId, 'value':''}), '*');
+            break;
+        case 'setMonsterRaces':
+            unselectAll("races");
+            select("races", data.value);
+            parent.postMessage(JSON.stringify({'type':'monsterRacesSet', 'value':''}), '*');
+            break;
         case 'selectGoal':
             chooseCustomFormula(data.value);
-            parent.postMessage(JSON.stringify({'type':'goalChanged', 'value':''}), '*');
+            parent.postMessage(JSON.stringify({'type':'goalChanged' + data.requestId, 'value':''}), '*');
             break;
         case 'build':
             build();

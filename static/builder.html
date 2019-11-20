@@ -535,30 +535,30 @@
                         Build rules
                     </div>
                     <div class="panel-body">
-                        <div id="forceDoublehand" class="col-xs-12 col-lg-6">
+                        <div class="col-xs-12 col-lg-6">
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox"/><span></span>
+                                <input type="checkbox" id="forceDoublehand" class="checkbox"/><span></span>
                                 Force Doublehand build
                             </label>
                         </div>
-                        <div id="forceDualWield" class="col-xs-12 col-lg-6">
+                        <div class="col-xs-12 col-lg-6">
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox"/><span></span>
+                                <input type="checkbox" id="forceDualWield" class="checkbox"/><span></span>
                                 Force Dual Wield build
                             </label>
                         </div>
-                        <div id="tryEquipsources" class="col-xs-12 col-lg-6">
+                        <div class="col-xs-12 col-lg-6">
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox"/><span></span>
+                                <input type="checkbox" id="tryEquipsources" class="checkbox"/><span></span>
                                 Try "Allow use of &lt;type&gt;" items
                             </label>
                         </div>
-                        <div id="tryReduceOverCap" class="col-xs-12">
+                        <div class="col-xs-12">
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox"/><span></span>
+                                <input type="checkbox" id="tryReduceOverCap" class="checkbox"/><span></span>
                                 Try to reduce overcap in favor of &nbsp;
                             </label>
-                            <select class="form-control smallSelect">
+                            <select id="tryReduceOverCapSelect" class="form-control smallSelect">
                                 <option value="hp" selected>HP</option>
                                 <option value="mp">MP</option>
                                 <option value="atk">ATK</option>
@@ -568,9 +568,9 @@
                                 <option value="lbPerTurn">LB/turn</option>
                             </select>
                         </div>
-                        <div id="forceTmrAbility" class="col-xs-12 hidden">
+                        <div id="forceTmrAbilityDiv" class="col-xs-12 hidden">
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox"/><span></span>
+                                <input type="checkbox" id="forceTmrAbility" class="checkbox"/><span></span>
                                 <span class="experimentalTag">Experimental</span>
                                 Force use of TMR or STMR
                             </label>

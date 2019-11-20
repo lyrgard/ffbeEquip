@@ -2051,10 +2051,17 @@ function adaptItemInventoryForMultipleRareEnchantments() {
 }
 
 let waitingCallbacks = [];
+let keysReady = [];
 function registerWaitingCallback(waitingKeys, callback) {
-    waitingCallbacks.push({"keys":waitingKeys, "callback":callback});
+    let keys = waitingKeys.filter(k => !keysReady.includes(k));
+    if (keys.length === 0) {
+        callback();
+    } else {
+        waitingCallbacks.push({"keys":keys, "callback":callback});
+    }
 }
 function waitingCallbackKeyReady(key) {
+    keysReady.push(key);
     waitingCallbacks.filter(wc => wc.keys.includes(key)).forEach(wc => {
         wc.keys.splice(wc.keys.indexOf(key), 1);
         if (wc.keys.length == 0) {
@@ -2138,8 +2145,8 @@ $(function() {
         Modal.showErrorGet(this.url, errorThrown);
     });
     
-    if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) && window.location.hash.length > 1) {
-    //if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
+    if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
+        $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
         notLoaded();
     } else {
         $.get(server + '/itemInventory', function(result) {
