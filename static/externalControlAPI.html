@@ -1,0 +1,192 @@
+<html>
+<head>
+    <style>
+        dt.method {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        dt.parameter {
+            font-style: italic;
+            color: #333;
+        }
+        dd {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>External Control for FFBE Equip</h1>
+    <p>This API allow to embed FFBE Equip Builder in an iFrame, and crontrol it programmatically</p>
+    <p>A working example can be found <a href="https://jsfiddle.net/ks2whgb4/">there</a></p>
+    <p>You need an iframe, and to include the script https://ffbeEquip.com/externalControl.js</p>
+    <p>When this is done, a object FFBEEquipExternalControl will be available, allowing to call various function on it.</p>
+
+    <dl>
+        <dt class="method">init(iframe, [loggedOut])</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">iframe</dt>
+                <dd>The iframe to insert FFBE Equip into</dd>
+                <dt class="parameter">loggedOut, optional, default to false</dt>
+                <dd>If true, logged out behavior will be forced. Else, it will depend on the presence of login cookie on the browser</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">selectUnit(unitId)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">unitId</dt>
+                <dd>id of the unit to select. That's the base id of the unit</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">pinItem(itemId)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">itemId</dt>
+                <dd>id of the item to pin</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setBuff(stat, value)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">stat</dt>
+                <dd>name of the stat to buff. Available values are : 'hp' (barrier), 'atk', 'def', 'mag', 'spr', 'lbFillRate', 'lbShardsPerTurn', 'pMitigation', 'mMitigation', 'mitigation', 'drawAttacks' and 'lbDamage'</dd>
+                <dt class="parameter">value</dt>
+                <dd>value of the buff, in % usually (exception are 'hp' and 'lbShardsPerTurn')</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setBuffs(values)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">values</dt>
+                <dd>An object whose keys are valid stat for function 'setBuff', and values the corresponding value. eg : {'atk': 150, 'lbDamage': 50}</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setPot(stat, value)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">stat</dt>
+                <dd>name of the stat to set the pot value for. Available values are : 'hp', 'mp', 'atk', 'def', 'mag' and 'spr'</dd>
+                <dt class="parameter">value</dt>
+                <dd>value of the pot. Values higher than the door+pots max will be cut at that value</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setPots(values)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">values</dt>
+                <dd>An object whose keys are valid stat for function 'setPot', and values the corresponding value. eg : {'atk': 75, 'def': 50}</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setMonsterStats(baseDef, baseSpr, defBreak, sprBreak, defBuff, sprBuff)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">baseDef</dt>
+                <dd>base DEF of the monster</dd>
+                <dt class="parameter">baseSpr</dt>
+                <dd>base SPR of the monster</dd>
+                <dt class="parameter">defBreak. Optional, defaults to 0</dt>
+                <dd>Existing break on the monster DEF (in %, positive)</dd>
+                <dt class="parameter">sprBreak. Optional, defaults to 0</dt>
+                <dd>Existing break on the monster SPR (in %, positive)</dd>
+                <dt class="parameter">defBuff. Optional, defaults to 0</dt>
+                <dd>Existing buff on the monster DEF (in %, positive)</dd>
+                <dt class="parameter">sprBuff. Optional, defaults to 0</dt>
+                <dd>Existing buff on the monster SPR (in %, positive)</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setMonsterElementalResist(element, value)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">element</dt>
+                <dd>name of the element to set the elemental resist value for. Available values are : 'fire','ice','lightning','water','wind','earth','light','dark'</dd>
+                <dt class="parameter">value</dt>
+                <dd>value of the resist, in %. Positive values for resist, negative for weakness</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setMonsterElementalResists(values)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">values</dt>
+                <dd>An object whose keys are valid element for function 'setMonsterElementalResist', and values the corresponding value. eg : {'fire': 50, 'ice': -50}</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">setMonsterRaces(races)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">races</dt>
+                <dd>An array a string. Values can be from : 'aquatic','beast','bird','bug','demon','dragon','human','machine','plant','undead','stone','spirit'</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">checkOption(optionName)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">optionName</dt>
+                <dd>The name of the option to activate. Can be from : 'forceDoublehand','forceDualWield','tryEquipsources','tryReduceOverCap','forceTmrAbility','useNewJpDamageFormula','includeEasilyObtainableItems','includeChocoboItems','includeTMROfOwnedUnits','includeTmrMoogles','includeTrialRewards','exludeEvent','excludePremium','excludeTMR5','excludeSTMR','excludeNotReleasedYet'</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">uncheckOption(optionName)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">optionName</dt>
+                <dd>The name of the option to deactivate. Can be from : 'forceDoublehand','forceDualWield','tryEquipsources','tryReduceOverCap','forceTmrAbility','useNewJpDamageFormula','includeEasilyObtainableItems','includeChocoboItems','includeTMROfOwnedUnits','includeTmrMoogles','includeTrialRewards','exludeEvent','excludePremium','excludeTMR5','excludeSTMR','excludeNotReleasedYet'</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">selectGoal(goal)</dt>
+        <dd>
+            <dl>
+                <dt class="parameter">goal</dt>
+                <dd>A custom formula valid for FFBE Equip</dd>
+                <dt class="return">return</dt>
+                <dd>A promise, without data</dd>
+            </dl>
+        </dd>
+
+        <dt class="method">build()</dt>
+        <dd>
+            <dl>
+                <dt class="return">return</dt>
+                <dd>A promise, that will resolve with an object containing all the data related to the resulting <build class=""></build></dd>
+            </dl>
+        </dd>
+    </dl>
+</body>
+</html>
