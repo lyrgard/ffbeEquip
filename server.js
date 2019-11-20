@@ -22,7 +22,9 @@ const app = express();
 console.log(`Environment is: ${config.env}`);
 
 // Helmet Middleware
-app.use(helmet());
+app.use(helmet({
+    frameguard: false
+}));
 
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 app.use(helmet.hsts({
