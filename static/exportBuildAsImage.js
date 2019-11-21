@@ -1,5 +1,6 @@
 FFBEEquipBuildAsImage = {
     unitLineHeight:235,
+    ffbeEquipUrl: "https://ffbeEquip.com",
     drawTeam: function(canvas, data) {
         canvas.height = FFBEEquipBuildAsImage.unitLineHeight * data.units.length;
         let ctx = canvas.getContext('2d');
@@ -23,11 +24,11 @@ FFBEEquipBuildAsImage = {
         ctx.fillStyle = grd;
         ctx.fillRect(4, 4 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 726, 226);
 
-        FFBEEquipBuildAsImage.drawImage(ctx, 'https://ffbeEquip.com/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 235);
+        FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/box.png', 0, 0 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 730, 235);
 
         let unitId = unit.id;
         let iconId = unitId.substr(0,unitId.length-1) + unit.rarity;
-        FFBEEquipBuildAsImage.drawImageCentered(ctx, `https://ffbeEquip.com/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
+        FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
     
             let x = 105;
             let y = 20 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
@@ -87,10 +88,10 @@ FFBEEquipBuildAsImage = {
 
 
             if (unit.esperId) {
-                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/espers/${unit.esperId}.jpg`, x + 205, y, 50, 50, 1, true);
+                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/${unit.esperId}.jpg`, x + 205, y, 50, 50, 1, true);
                 FFBEEquipBuildAsImage.drawText(ctx, unit.esperId.replace('_', ' '), 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             } else {
-                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/espers/ALL.png`, x + 205, y, 50, 50);
+                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/espers/ALL.png`, x + 205, y, 50, 50);
                 FFBEEquipBuildAsImage.drawText(ctx, 'No esper', 'bold', 12, 'center', 'middle', x + 230, y + 60, 130);
             }
             
@@ -136,7 +137,7 @@ FFBEEquipBuildAsImage = {
             if (item) {
                 let line = Math.floor(item.slot / 2);
                 let column = item.slot % 2;
-                FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/items/${item.icon}`, x + column * 170, y + line * 30, 40, 40);
+                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/items/${item.icon}`, x + column * 170, y + line * 30, 40, 40);
                 let color = 'white';
                 if (unit.itemEnchantments[index]) {
                     color = '#e74c3c';
@@ -162,7 +163,7 @@ FFBEEquipBuildAsImage = {
                 color = red;
             }
 
-            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/icons/elements/${element}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
@@ -187,7 +188,7 @@ FFBEEquipBuildAsImage = {
             if (resist < 0) {
                 color = red;
             }
-            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/icons/ailments/${ailment}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (resist) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(resist).width;
@@ -211,7 +212,7 @@ FFBEEquipBuildAsImage = {
             if (!killer) {
                 alpha = 0.4;
             }
-            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/icons/killers/physical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
@@ -233,7 +234,7 @@ FFBEEquipBuildAsImage = {
             if (!killer) {
                 alpha = 0.4;
             }
-            FFBEEquipBuildAsImage.drawImage(ctx, `https://ffbeEquip.com/img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
+            FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/icons/killers/magical-${race}.png`, x + index * 30, y, 30, 30, alpha, false, () => {
                 if (killer) {
                     ctx.font = "bold 14px Arial";
                     let textWidth = ctx.measureText(killer).width;
