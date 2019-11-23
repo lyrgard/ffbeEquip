@@ -316,6 +316,20 @@
 .unitEquipable i.img {
     width: 30px;
     height: 30px;
+    position: relative;
+}
+
+.unitEquipable i.img .boostArrow {
+    position: absolute;
+    right: 2px;
+    top: 1px;
+    color: chartreuse;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    display: none;
+}
+
+.unitEquipable i.img.boost .boostArrow {
+    display: initial;
 }
 
 #monsterDefensiveStats {
@@ -1097,6 +1111,7 @@ i.img.img-slot-hand.leftHand {
     margin-top: 2px;
     margin-left: 5px;
 }
+
 
 @media (max-width: 991px) {
     
