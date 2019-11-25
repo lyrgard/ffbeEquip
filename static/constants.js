@@ -20,6 +20,45 @@ const percentValues = {
     "mag": "mag%",
     "spr": "spr%"
 };
+
+const slotTypes = ["weapon", "shield", "head", "body", "accessory", "materia"];
+const slotTypeByType = {
+    "dagger":"weapon", 
+    "sword":"weapon", 
+    "greatSword":"weapon", 
+    "katana":"weapon", 
+    "staff":"weapon", 
+    "rod":"weapon", 
+    "bow":"weapon", 
+    "axe":"weapon", 
+    "hammer":"weapon", 
+    "spear":"weapon", 
+    "harp":"weapon", 
+    "whip":"weapon", 
+    "throwing":"weapon", 
+    "gun":"weapon", 
+    "mace":"weapon", 
+    "fist":"weapon", 
+    "lightShield":"shield",
+    "heavyShield":"shield",
+    "hat":"head",
+    "helm":"head",
+    "clothes":"body",
+    "lightArmor":"body",
+    "heavyArmor":"body",
+    "robe":"body",
+    "accessory":"accessory",
+    "materia":"materia"    
+}
+const numberNeededBySlotType = {
+    "weapon": 2,
+    "shield": 1, 
+    "head": 1, 
+    "body":1, 
+    "accessory":2, 
+    "materia":4
+}
+
 const goalValuesCaract = {
     "physicalDamage":                   {"statsToMaximize":["atk"], "type": "physical"},
     "magicalDamage":                    {"statsToMaximize":["mag"], "type": "magical"},

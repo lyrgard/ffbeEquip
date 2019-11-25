@@ -13,9 +13,17 @@ class ItemPool {
         this.currentGroupId = 0;
         this.currentItemId = 0;
         this.workingArray = [];
-        this.currentTopLevelItems = [];
         this.lesserGroupsById = {};
         this.skillIds = skillIds;
+    }
+    
+    static fromData(itemPool) {
+        let clone = new ItemPool(itemPool.maxDepth, itemPool.involvedStats, itemPool.ennemyStats, itemPool.desirableElements, itemPool.desirableItemIds, itemPool.skillIds, itemPool.includeSingleWielding, itemPool.includeDualWielding);
+        clone.keptItems = itemPool.keptItems;
+        clone.groupByIds = itemPool.groupByIds;
+        clone.groupByItemIds = itemPool.groupByItemIds;
+        clone.lesserGroupsById = itemPool.lesserGroupsById;
+        return clone;
     }
 
     clone() {

@@ -28,7 +28,7 @@ onmessage = function(event) {
             unitBuild.innateElements = messageData.innateElements,
             unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
-            optimizer.dataByType = messageData.dataByType;
+            optimizer.itemPools = messageData.dataByType;
             optimizer.dataWithCondition = messageData.dataWithCondition;
             optimizer.dualWieldSources = messageData.dualWieldSources;
             optimizer.ennemyStats = messageData.ennemyStats;
@@ -41,7 +41,6 @@ onmessage = function(event) {
             break;
         case "optimize":
             optimizer.optimizeFor(
-                messageData.typeCombinations, 
                 function(build, value, freeSlots) {
                     postMessage(JSON.stringify({"type":"betterBuildFound","build":build,"value":value, "freeSlots": freeSlots}));
                 }

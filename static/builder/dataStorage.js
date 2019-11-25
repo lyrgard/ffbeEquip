@@ -144,19 +144,12 @@ class DataStorage {
     }
     
     prepareData(itemsToExclude, ennemyStats) {
-        this.dataByType = {};
-        this.dataWithCondition = [];
-        this.dualWieldSources = [];
+        this.dataBySlotType = {};
         this.equipSources = [];
-        this.weaponsByTypeAndHands = {};
         this.availableTmr = null;
         this.availableStmr = null;
-        for (var i = weaponList.length; i--;) {
-            this.weaponsByTypeAndHands[weaponList[i]] = {};
-        }
         var tempData = {};
         var adventurersAvailable = {};
-        var alreadyAddedIds = [];
         var equipable = this.unitBuild.getCurrentUnitEquip();
         var itemNumber = this.data.length;
         var pinnedItemIds = [];
@@ -213,7 +206,7 @@ class DataStorage {
                     }
                 }
                 for (var i = enhancementsAvailables.length; i--;) {
-                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, true) || addedToItems;
+                    addedToItems = this.prepareItem(applyEnhancements(item, enhancementsAvailables[i]), this.unitBuild.baseValues, ennemyStats, 1, ownedAvailableNumber, adventurersAvailable, equipable, pinnedItemIds, true) || addedToItems;
                     availableNumber--;
                     if (ownedAvailableNumber > 0) {
                         ownedAvailableNumber--;
@@ -222,10 +215,7 @@ class DataStorage {
             }
             
             if (availableNumber > 0) {
-                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds) || addedToItems;  
-            }
-            if (addedToItems && !alreadyAddedIds.includes(item.id)) {
-                alreadyAddedIds.push(item.id);
+                addedToItems = this.prepareItem(item, this.unitBuild.baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, equipable, pinnedItemIds) || addedToItems;  
             }
         }
         var adventurerAlreadyPinned = false;
@@ -238,102 +228,30 @@ class DataStorage {
         if (!adventurerAlreadyPinned) {
             for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
                 if (adventurersAvailable[adventurerIds[index]]) {
-                    if (!this.dataByType["materia"]) {
-                        this.dataByType["materia"] = [];
+                    if (!this.dataBySlotType["materia"]) {
+                        this.dataBySlotType["materia"] = [];
                     }
                     var item = adventurersAvailable[adventurerIds[index]];
                     var availableNumbers = this.getAvailableNumbers(item);
                     var availableNumber = availableNumbers.available;
                     var ownedAvailableNumber = Math.max(availableNumber - availableNumbers.total + availableNumbers.totalOwnedNumber, 0);
-                    this.dataByType["materia"].push(this.getItemEntry(item, availableNumber, ownedAvailableNumber > 0));
+                    this.dataBySlotType["materia"].push(this.getItemEntry(item, availableNumber, ownedAvailableNumber > 0));
                     break;
                 }
             }
         }
-        this.dataWithCondition.sort(function(entry1, entry2) {
-            if (entry1.item.id == entry2.item.id) {
-                return entry2.item.equipedConditions.length - entry1.item.equipedConditions.length; 
-            } else {
-                return entry1.item.id - entry2.item.id;
-            }
-        })
-        for (var typeIndex = 0, len = typeList.length; typeIndex < len; typeIndex++) {
-            var type = typeList[typeIndex];
-            if (this.dataByType[type] && this.dataByType[type].length > 0) {
-                var numberNeeded = 1;
-                if (weaponList.includes(type) || type == "accessory") {numberNeeded = 2}
-                if (type == "materia") {numberNeeded = 4}
+        Object.keys(this.dataBySlotType).forEach(slotType => {
+            if (this.dataBySlotType[slotType] && this.dataBySlotType[slotType].length > 0) {
+                var numberNeeded = numberNeededBySlotType[slotType];
                 var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-                /*if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(type)) {
-                    this.dataByType[type].forEach(entry => {
-                        if (!entry.item.enhancements) {
-                            entry.item = applyEnhancements(entry.item, this.defaultWeaponEnhancement)
-                        }
-                    });
-                }*/
-                itemPool.addItems(this.dataByType[type]);
+                itemPool.addItems(this.dataBySlotType[slotType].slice(0, Math.min(0, this.dataBySlotType[slotType].length)));
                 itemPool.prepare();
-                //var tree = ItemTreeComparator.sort(this.dataByType[type], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
-                this.dataByType[type] = itemPool.getEntries();
+                this.dataBySlotType[slotType] = itemPool.getEntries();
                 
-            } else {
-                this.dataByType[type] = [{"item":getPlaceHolder(type),"available":numberNeeded}];  
-            }
-        }
-        // Manage dual wield sources
-        var dualWieldByType = {};
-        for (var i = this.dualWieldSources.length; i--;) {
-            var entry = this.dualWieldSources[i];
-            if (entry.item.partialDualWield) {
-                if (!dualWieldByType[entry.item.type + "partial"]) {
-                    dualWieldByType[entry.item.type + "partial"] = [];
-                }
-                
-                dualWieldByType[entry.item.type + "partial"].push(entry);
-            } else {
-                if (!dualWieldByType[entry.item.type]) {
-                    dualWieldByType[entry.item.type] = [];
-                }
-                dualWieldByType[entry.item.type].push(entry);
-            }
-        }
-        var types = Object.keys(dualWieldByType);
-        this.dualWieldSources = [];
-        for (var i = types.length; i--;) {
-            var itemPool = new ItemPool(1, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-            itemPool.addItems(dualWieldByType[types[i]]);
-            itemPool.prepare();
-            this.dualWieldSources = this.dualWieldSources.concat(itemPool.getEntries().map(x => x.item));
-            /*var tree = ItemTreeComparator.sort(dualWieldByType[types[i]], numberNeeded, this.unitBuild, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds);
-            for (var index = 0, lenChildren = tree.children.length; index < lenChildren; index++) {
-                this.dualWieldSources.push(tree.children[index].equivalents[0].item);
-            }*/
-        }
-    }
-    
-    /*addEntriesToResult(tree, result, keptNumber, keepEntry) {
-        tree.equivalents.sort(function(entry1, entry2) {
-            if (entry1.defenseValue == entry2.defenseValue) {
-                if (entry2.available == entry1.available) {
-                    return getValue(entry2.item, "atk%") + getValue(entry2.item, "mag%") + getValue(entry2.item, "atk") + getValue(entry2.item, "mag") - (getValue(entry1.item, "atk%") + getValue(entry1.item, "mag%") + getValue(entry1.item, "atk") + getValue(entry1.item, "mag"))
-                } else {
-                    return entry2.available - entry1.available;    
-                }
-            } else {
-                return entry2.defenseValue - entry1.defenseValue;    
             }
         });
-        for (var index = 0, len = tree.equivalents.length; index < len; index++) {
-            if (keepEntry) {
-                result.push(tree.equivalents[index]);
-            } else {
-                result.push(tree.equivalents[index].item);
-            }
-        }
-        for (var index = 0, len = tree.children.length; index < len; index++) {
-            this.addEntriesToResult(tree.children[index], result, keptNumber, keepEntry);    
-        }
-    }*/
+    }
+    
 
     getItemEntry(item, availableNumber = null, owned = false) {
         let ownedNumber = 0;
@@ -369,7 +287,7 @@ class DataStorage {
         return result;
     }
 
-    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, alreadyAddedIds, equipable, pinnedItemIds, tmrAbilityEnhancedItem = false) {
+    prepareItem(item, baseValues, ennemyStats, availableNumber, ownedAvailableNumber, adventurersAvailable, equipable, pinnedItemIds) {
         var added = false;
         if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
             item = applyEnhancements(item, this.defaultWeaponEnhancement)
@@ -384,9 +302,6 @@ class DataStorage {
             item.elementType = "neutral"
         }
         if (availableNumber > 0 && isApplicable(item, this.unitBuild.unit)) {
-            if ((item.special && item.special.includes("dualWield")) || (item.partialDualWield && matches(equipable, item.partialDualWield))) {
-                this.dualWieldSources.push(this.getItemEntry(item, 1, ownedAvailableNumber > 0));
-            }
             if (item.allowUseOf) {
                 let allowUseOf = item.allowUseOf;
                 if (!Array.isArray(item.allowUseOf)) {
@@ -405,58 +320,23 @@ class DataStorage {
                     adventurersAvailable[item.id] = item;
                     return;
                 }
-                if (item.equipedConditions) {
-                        if (ownedAvailableNumber < availableNumber) {
-                            if (ownedAvailableNumber > 0) {
-                                this.dataWithCondition.push(this.getItemEntry(item, ownedAvailableNumber, true));
-                            }
-                            this.dataWithCondition.push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
-                        } else {
-                            this.dataWithCondition.push(this.getItemEntry(item, availableNumber, true));
-                        }
-                } else {
-                    if (!alreadyAddedIds.includes(item.id)) {
-                        if (!this.dataByType[item.type]) {
-                            this.dataByType[item.type] = [];
-                        }
-                        if (ownedAvailableNumber < availableNumber) {
-                            if (ownedAvailableNumber > 0) {
-                                this.dataByType[item.type].push(this.getItemEntry(item, ownedAvailableNumber, true));
-                            }
-                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
-                        } else {
-                            this.dataByType[item.type].push(this.getItemEntry(item, availableNumber, true));
-                        }
-                        if (!tmrAbilityEnhancedItem) {
-                            alreadyAddedIds.push(item.id);
-                        }
-                        added = true;
-                    }
+        
+                if (!this.dataBySlotType[slotTypeByType[item.type]]) {
+                    this.dataBySlotType[slotTypeByType[item.type]] = [];
                 }
+                if (ownedAvailableNumber < availableNumber) {
+                    if (ownedAvailableNumber > 0) {
+                        this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, ownedAvailableNumber, true));
+                    }
+                    this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
+                } else {
+                    this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, availableNumber, true));
+                }
+                added = true;
+                
             }
-            if (weaponList.includes(item.type)) {
-                this.addToWeaponsByTypeAndHands(item);
-            }
-        } else if (pinnedItemIds.includes(item.id)) {
-            this.addToWeaponsByTypeAndHands(item);
         }
         return added;
-    }
-
-    addToWeaponsByTypeAndHands(item) {
-        if (weaponList.includes(item.type)) {
-            if (!this.weaponsByTypeAndHands[item.type]) {
-                this.weaponsByTypeAndHands[item.type] = {};
-            }
-            var handNumber = 1;
-            if (item.special && item.special.includes("twoHanded")) {
-                handNumber = 2;   
-            }
-            if (!this.weaponsByTypeAndHands[item.type][handNumber]) {
-                this.weaponsByTypeAndHands[item.type][handNumber] = 0;
-            }
-            this.weaponsByTypeAndHands[item.type][handNumber]++;
-        }
     }
     
     itemCanBeOfUseForGoal(item, ennemyStats) {

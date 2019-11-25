@@ -240,7 +240,7 @@ function optimize() {
             "baseValues":builds[currentUnitIndex].baseValues,
             "innateElements":builds[currentUnitIndex].innateElements,
             "formula":builds[currentUnitIndex].formula,
-            "dataByType":dataStorage.dataByType,
+            "dataByType":dataStorage.dataBySlotType,
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":dataStorage.alreadyUsedEspers,
@@ -253,26 +253,15 @@ function optimize() {
     }
     let forceTmrAbility = $("#forceTmrAbility").prop('checked');
 
-    var typeCombinationGenerator = new TypeCombinationGenerator(forceDoubleHand, forceDualWield, tryEquipSources, builds[currentUnitIndex], dataStorage.dualWieldSources, dataStorage.equipSources, dataStorage.dataByType, dataStorage.weaponsByTypeAndHands, forceTmrAbility);
-    remainingTypeCombinations = typeCombinationGenerator.generateTypeCombinations();
-
-    if (remainingTypeCombinations.length == 0) {
-        stopBuild();
-        alert("The build rules chosen are not compatible with available equipments");
-        return;
-    }
-    
-    typeCombinationChunckSize = Math.min(typeCombinationChunckSize, Math.ceil(remainingTypeCombinations.length/20));
-    
     initialPinnedWeapons = [builds[currentUnitIndex].fixedItems[0], builds[currentUnitIndex].fixedItems[1]];
     
     document.title = "0% - FFBE Equip - Builder";
     
     processedCount = 0
-    typeCombinationsCount = remainingTypeCombinations.length;
-    for (var index = workers.length; index--; index) {
-        processTypeCombinations(index);
-    }   
+    workers[0].postMessage(JSON.stringify({
+        "type":"optimize"
+    }));
+    workerWorkingCount++;
 }
 
 function prepareDataStorage() {
@@ -3926,6 +3915,7 @@ function initWorkerNumber() {
         console.log("No navigator.hardwareConcurrency support. Suppose 4 cores");
         numberOfWorkers = 4;
     }
+    numberOfWorkers = 1; // TODO
     $("#coreUsage input").val(numberOfWorkers);
     $("#coreUsage input").on('input',$.debounce(300,function() {
         var number = parseInt($("#coreUsage input").val());
@@ -4002,8 +3992,8 @@ function initWorkers() {
                     break;
                 case "finished":
                     workerWorkingCount--;
-                    processTypeCombinations(messageData.number);
-                    processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
+                    //processTypeCombinations(messageData.number);
+                    //processedCount = Math.min(processedCount + typeCombinationChunckSize, typeCombinationsCount);
                     var newProgress = Math.floor(processedCount/typeCombinationsCount*100);
                     if (progress != newProgress) {
                         progress = newProgress;
