@@ -24,6 +24,8 @@ const weaponBaseDamageVariance = {
     "none" : {"min":1,"avg":1,"max":1}
 }
 
+const valuesToNotRoundDown = ["lbPerTurn"];
+
 function getValue(item, valuePath, notStackableSkillsAlreadyUsed) {
     var value = item[valuePath];
     if (value == undefined) {
@@ -185,7 +187,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         context.currentSkill = formula.id;
         context.isLb = !!formula.lb;
         var result = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, formula.value, goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
-        if (context.remainingLeftHandAttacks && context.remainingLeftHandAttacks.length > 0) {
+        if (!formula.preventDualCastWithDualWield && context.remainingLeftHandAttacks && context.remainingLeftHandAttacks.length > 0) {
             context.treatingLeftHandAttacks = true;
             for (var i = 0, len = context.remainingLeftHandAttacks.length; i < len; i++) {
                 var leftHandAttackResult = innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyStats, context.remainingLeftHandAttacks[i], goalVariance, useNewJpDamageFormula, canSwitchWeapon, ignoreConditions, context);
@@ -193,9 +195,9 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 result.avg += leftHandAttackResult.avg;
                 result.max += leftHandAttackResult.max;
             }
-            context.treatingLeftHandAttacks = false;
-            context.remainingLeftHandAttacks = [];
         }
+        context.treatingLeftHandAttacks = false;
+        context.remainingLeftHandAttacks = [];
         context.currentSkill = null;
         context.isLb = false;
         return result;
@@ -229,8 +231,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         
         if (formula.value.mecanism == "physical" || formula.value.mecanism == "hybrid") {
             applicableKillerType = "physical";
-            newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
-            
+
             if (!context.savedValues.hasOwnProperty("resistModifier")) {
                 // Takes elements from weapons into account
                 if (itemAndPassives[0] && itemAndPassives[0].element) {
@@ -251,6 +252,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             
             if (formula.value.damageType == "body" || formula.value.mecanism == "hybrid") {
                 defendingStat = "def";
+
+                newJpDamageFormulaCoef = context.newJpDamageFormulaCoef;
                 
                 var stat = "atk";
                 if (formula.value.use) {
@@ -584,7 +587,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             } else {
                 for (var statIndex = goalValuesCaract[formula.name].statsToMaximize.length; statIndex--;) {
                     var stat = goalValuesCaract[formula.name].statsToMaximize[statIndex];
-                    var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild);
+                    var calculatedValue = calculateStatValue(itemAndPassives, stat, unitBuild, context.berserk);
 
                     if ("atk" == stat || "def" == stat) {
                         var variance;
@@ -674,7 +677,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             context.alreadyCalculatedValues[formula.name] = value;
             return value
         } else {
-            var value = calculateStatValue(itemAndPassives, formula.name, unitBuild).total;
+            var value = calculateStatValue(itemAndPassives, formula.name, unitBuild, context.berserk).total;
             if (formula.name == "mpRefresh") {
                 value /= 100;
             }
@@ -817,6 +820,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "max": 0,
             "switchWeapons": false
         };
+    } else if (formula.type == "berserk") {
+        if (!context.berserk || context.berserk < formula.value) {
+            context.berserk = formula.value;
+            delete context.savedValues.atk;
+        }
+        return {
+            "min": 0,
+            "avg": 0,
+            "max": 0,
+            "switchWeapons": false
+        };
     } else if (formula.type == "break") {
         if (formula.value.def && ennemyStats.breakability.def) {
             if (ennemyStats.breaks.def < formula.value.def) {
@@ -931,7 +945,7 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
     if (context.savedValues[stat]) {
         return context.savedValues[stat];
     } else {
-        var result = calculateStatValue(itemAndPassives, stat, unitBuild);
+        var result = calculateStatValue(itemAndPassives, stat, unitBuild, context.berserk);
         context.savedValues[stat] = result;
         return result;
     }
@@ -971,24 +985,29 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) 
     }
 }
 
-function getEsperStatBonus(itemAndPassives, stat) {
+function getEsperStatBonus(itemAndPassives, stat, esper) {
     var statsBonus = 100;
     if (baseStats.includes(stat)) {
         for (var index = itemAndPassives.length; index--;) {
             var item = itemAndPassives[index];
-            if (item && item.esperStatsBonus && item.esperStatsBonus[stat]) {
-                statsBonus += item.esperStatsBonus[stat];
+            if (item && item.esperStatsBonus) {
+                if (item.esperStatsBonus.all && item.esperStatsBonus.all[stat]) {
+                    statsBonus += item.esperStatsBonus.all[stat];
+                }
+                if (esper && item.esperStatsBonus[esper.id] && item.esperStatsBonus[esper.id][stat]) {
+                    statsBonus += item.esperStatsBonus[esper.id][stat];
+                }
             }
         }
     }
     return Math.min(3, statsBonus / 100);
 }
 
-function calculateStatValue(itemAndPassives, stat, unitBuild) {
+function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
-        esperStatBonus = getEsperStatBonus(itemAndPassives, stat);
+        esperStatBonus = getEsperStatBonus(itemAndPassives, stat, itemAndPassives[10]);
     }
     var calculatedValue = 0   
     var currentPercentIncrease = {"value":0};
@@ -998,6 +1017,8 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         baseValue = unitBuild.baseValues[stat].total;
         if (stat === 'hp') {
             buffValue = unitBuild.baseValues[stat].buff;   
+        } else if (stat === 'atk' && berserk) {
+            buffValue = (unitBuild.baseValues[stat].buff + berserk) * baseValue / 100;
         } else {
             buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
         }
@@ -1060,7 +1081,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild) {
         }
         return result;   
     } else {
-        var result = {"right":0,"left":0,"total":Math.floor(calculatedValue),"bonusPercent":currentPercentIncrease.value}; 
+        if (!valuesToNotRoundDown.includes(stat)) {
+            calculatedValue = Math.floor(calculatedValue);
+        }
+        var result = {"right":0,"left":0,"total":calculatedValue,"bonusPercent":currentPercentIncrease.value}; 
         if (itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
             result.right = result.total;
         }
@@ -1282,6 +1306,7 @@ function getEsperItem(esper) {
             item[percentValues[baseStats[i]]] = esper[percentValues[baseStats[i]]];
         }
     }
+    item.originalEsper = esper;
     return item;
 }
 
@@ -1445,6 +1470,8 @@ function applyEnhancements(item, enhancements) {
             var enhancementValue;
             if (enhancement == "rare_3" || enhancement == "rare_4") {
                 enhancementValue = itemEnhancementAbilities[enhancement][item.type];
+            } else if (enhancement === 'special_1') {
+                enhancementValue = itemEnhancementAbilities[enhancement][item.id];
             } else {
                 enhancementValue = itemEnhancementAbilities[enhancement];
             }

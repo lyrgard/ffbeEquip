@@ -1,0 +1,77 @@
+<html>
+    <head>
+        
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: hidden;
+            }
+            .frame {
+                flex-grow: 1;
+            }
+            
+            #results {
+                position: absolute;
+                top:0;
+                left:0;
+                background-color: white;
+                z-index: 10;
+                display: flex;
+                flex-direction: column;
+                max-height: 100vh;
+                overflow: auto;
+            }
+        </style>
+        
+        
+        <script src="externalControl.js"></script>
+        <script src="exportBuildAsImage.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="results"></div>
+        <iframe id="ffbeEquipIframe" class="frame"></iframe>
+        
+        <script>
+                let units = [["Gabranth","212001105"],
+                    ["Gladiolus","215000205"],
+                    ["Chow","401003805"],
+                    ["Demon Rain","401000205"],
+                    ["Gilgamesh","205000805"],
+                    ["Noctis","215000105"],
+                    ["Wilhelm","100006105"],
+                    ["Sieghard","100017905"],
+                    ["Beryl","401004805"],
+                    ["Warrior of Dawn Galuf","205001005"]
+                ];
+                let unitIndex = 0;
+
+                $(function() {
+                    FFBEEquipExternalControl.ffbeEquipUrl = 'http://localhost:3000/builder.html';
+                    FFBEEquipBuildAsImage.ffbeEquipUrl = 'http://localhost:3000';
+                    let iframe = document.getElementById('ffbeEquipIframe');
+                    FFBEEquipExternalControl.init(iframe, true)
+                        .then(recursivelySelectUnitAndBuild);
+                });
+
+                let recursivelySelectUnitAndBuild = function() {
+                    FFBEEquipExternalControl.selectUnit(units[unitIndex][1])
+                        .then(() => FFBEEquipExternalControl.selectGoal("HP"))
+                        .then(() => FFBEEquipExternalControl.setPot('hp', 1500))
+                        .then(() => FFBEEquipExternalControl.build())
+                        .then((result) => {
+                            let canvas = $('<canvas width="730" height="235"></canvas>');
+                            $("#results").append(canvas[0]);
+                            FFBEEquipBuildAsImage.drawTeam(canvas[0], result);
+                            unitIndex++;
+                            if (unitIndex < units.length) {
+                                recursivelySelectUnitAndBuild();
+                            }
+                        });
+                }
+        </script>
+    </body>
+</html>

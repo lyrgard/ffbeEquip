@@ -620,6 +620,8 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         }
 
         let cooldownHtml = "";
+        let rarity = skill.rarity;
+        let level = skill.level;
         if (skill.effects[0].effect && skill.effects[0].effect.cooldownSkill) {
             cooldownHtml = '<span class="effect">Available turn ' + skill.effects[0].effect.startTurn + ' (' + skill.effects[0].effect.cooldownTurns + ' turns cooldown):</span>';
             skill = skill.effects[0].effect.cooldownSkill;
@@ -630,8 +632,8 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         html += getChainFamilyHtml(skill);
 
         html += '</span></div>'
-        if (skill.rarity && skill.level) {
-            html += '<div class="rarityAndLevel"><span class="rarity">' + skill.rarity + '★</span><span class="level">lvl ' + skill.level + '</span></div>'
+        if (rarity && level) {
+            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>'
         }
         html += '</div>';
         html += cooldownHtml;

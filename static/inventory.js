@@ -459,13 +459,13 @@ function findInventoryItemById(id) {
     return inventoryItem;
 }
 
-function addToInventory(id, showAlert = true) {
+function addToInventory(id, showAlert = true, force = false) {
     var inventoryDiv = $(".item." + escapeName(id));
     if(itemInventory[id]) {
         var item = findInventoryItemById(id);
-        if (item.maxNumber && itemInventory[id] >= item.maxNumber) {
+        if (!force && item.maxNumber && itemInventory[id] >= item.maxNumber) {
             if (showAlert) {
-                Modal.showMessage("Limited item", 'You can only have up to ' + item.maxNumber + ' of these');
+                Modal.confirm("Limited item", 'You can only have up to ' + item.maxNumber + ' of these. If you own more, please report it to correct that value. Do you want to add the item nonetheless?', () => {addToInventory(id, false, true)});
             }
             return false;
         } else {
@@ -1080,6 +1080,12 @@ function modifyItemEnhancements(itemId, enhancementPos) {
     $("#modifyEnhancementModal .modal-header .title").html(getImageHtml(item) + getNameColumnHtml(item));
     $("#modifyEnhancementModal .value.rare_3").html(itemEnhancementLabels["rare_3"][item.type]);
     $("#modifyEnhancementModal .value.rare_4").html(itemEnhancementLabels["rare_4"][item.type]);
+    if (itemEnhancementLabels["special_1"][item.id]) {
+        $("#modifyEnhancementModal .value.special_1").removeClass("hidden");
+        $("#modifyEnhancementModal .value.special_1").html(itemEnhancementLabels["special_1"][item.id]);
+    } else {
+        $("#modifyEnhancementModal .value.special_1").addClass("hidden");
+    }
 }
 
 function toggleItemEnhancement(enhancement) {
@@ -1219,7 +1225,9 @@ function exportAsCsv() {
                 itemInventory.enchantments[item.id].forEach(enhancements => {
                     csv +=  "\"" + item.id + "\";" + "\"" + item.name + "\";" + "\"" + item.type + '";1;"' + (item.tmrUnit ? units[item.tmrUnit].name : "") + '";"' + item.access.join(", ") + '"';
                     enhancements.forEach(enhancement => {
-                        if (enhancement.startsWith('rare')) {
+                        if (enhancement === 'special_1') {
+                            csv += ';"' + itemEnhancementLabels[enhancement][item.id] + '"';
+                        } else if (enhancement.startsWith('rare')) {
                             csv += ';"' + itemEnhancementLabels[enhancement][item.type] + '"';
                         } else {
                             csv += ';"' + itemEnhancementLabels[enhancement] + '"';
@@ -1252,7 +1260,9 @@ function exportAsJson() {
           itemInventory.enchantments[id].forEach(enh => {
             let enhancedItemResult = {"id" : id, "count": 1, "enhancements": [] }
             enhancedItemResult.enhancements = enh.map(e => {
-                if (e == 'rare_3' || e == 'rare_4') {
+                if (e === 'special_1') {
+                    return skillIdByItemEnhancement[e][id];
+                } else if (e == 'rare_3' || e == 'rare_4') {
                     return skillIdByItemEnhancement[e][typeById[id]];
                 } else {
                     return skillIdByItemEnhancement[e];

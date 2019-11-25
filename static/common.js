@@ -269,7 +269,9 @@ function getSpecialHtml(item) {
     }
 
     if (item.killers) {
-        special += getKillersHtml(item);
+        let killers = getKillerHtml(item.killers);
+        special += '<div>' + killers.physical + '</div>';
+        special += '<div>' + killers.magical + '</div>';
     }
     
     if (item.special && item.special.includes("dualWield")) {
@@ -361,7 +363,13 @@ function getSpecialHtml(item) {
         special += "<li>Increase Esper summon damage by "+ item.evoMag + "%</li>";
     }
     if (item.esperStatsBonus) {
-        special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)</li>";
+        Object.keys(item.esperStatsBonus).forEach(esper => {
+            if (esper === 'all') {
+                special += "<li>Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)</li>";    
+            } else {
+                special += "<li>Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)</li>";    
+            }
+        });
     }
     if (item.drawAttacks) {
         special += "<li>+" + item.drawAttacks + "% draw attacks</li>";
@@ -410,13 +418,23 @@ var getStatDetail = function(item) {
     var statBonusCoef = 1;
     if (item.type == "esper") {
         if (item.esperStatsBonus) {
-            statBonusCoef += item.esperStatsBonus["hp"] / 100;
+            if (item.esperStatsBonus.all) {
+                statBonusCoef += item.esperStatsBonus.all["hp"] / 100;
+            }
+            if (item.esperStatsBonus[item.id]) {
+                statBonusCoef += item.esperStatsBonus[item.id]["hp"] / 100;
+            }
         }
         if (builds && builds[currentUnitIndex] && builds[currentUnitIndex].build) {
             for (var i = 0; i < builds[currentUnitIndex].build.length; i++) {
                 if (i != 10) {
                     if (builds[currentUnitIndex].build[i] && builds[currentUnitIndex].build[i].esperStatsBonus) {
-                        statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus["hp"] / 100;
+                        if (builds[currentUnitIndex].build[i].esperStatsBonus.all) {
+                            statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus.all["hp"] / 100;
+                        }
+                        if (builds[currentUnitIndex].build[i].esperStatsBonus[item.id]) {
+                            statBonusCoef += builds[currentUnitIndex].build[i].esperStatsBonus[item.id]["hp"] / 100;
+                        }
                     }
                 }
             }
@@ -464,6 +482,8 @@ function getEnhancements(item) {
             html += itemEnhancementLabels["rare_3"][item.type];
         } else if (enhancement == "rare_4") {
             html += itemEnhancementLabels["rare_4"][item.type];
+        } else if (enhancement == "special_1") {
+            html += itemEnhancementLabels["special_1"][item.id];
         } else {
             html += itemEnhancementLabels[enhancement];
         }
@@ -1397,7 +1417,13 @@ function prepareSearch(data) {
             textToSearch += "|" + "Increase Esper summon damage by "+ item.evoMag + "%";
         }
         if (item.esperStatsBonus) {
-            textToSearch += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.hp + "%)";
+            Object.keys(item.esperStatsBonus).forEach(esper => {
+                if (esper === 'all') {
+                    textToSearch += "|" + "Increase esper's bonus stats ("+ item.esperStatsBonus.all.hp + "%)";
+                } else {
+                    textToSearch += "|" + "Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)";
+                }
+            });
         }
         if (item["tmrUnit"] && units[item["tmrUnit"]]) {
             textToSearch += "|" + units[item["tmrUnit"]].name;
@@ -1899,6 +1925,7 @@ Modal = {
         });
         
         if (conf.onOpen) conf.onOpen($modal);
+        return $modal;
     },
     
     hide: function() {
@@ -1907,14 +1934,16 @@ Modal = {
         }
     },
 
-    showWithBuildLink: function(name, link)
-    {
+    showWithBuildLink: function(name, link) {
+        if (!link.startsWith('http')) {
+            link = 'https://ffbeEquip.com/'+link;
+        }
         Modal.show({
             title: "Link to your " + name,
             body: "<p>This link will allow anyone to visualize your "+name+"</p>"+
                   '<div class="input-group">' + 
                     '<span class="input-group-addon">🔗</span>' +
-                    '<input class="form-control linkInput" type="text" value="https://ffbeEquip.com/'+link+'"/>' +
+                    '<input class="form-control linkInput" type="text" value="'+link+'"/>' +
                   '</div>'+
                   '<p class="hidden linkInputCopied">Link copied to your clipboard.</p>',
             withCancelButton: false,
@@ -2022,16 +2051,63 @@ function adaptItemInventoryForMultipleRareEnchantments() {
 }
 
 let waitingCallbacks = [];
+let keysReady = [];
 function registerWaitingCallback(waitingKeys, callback) {
-    waitingCallbacks.push({"keys":waitingKeys, "callback":callback});
+    let keys = waitingKeys.filter(k => !keysReady.includes(k));
+    if (keys.length === 0) {
+        callback();
+    } else {
+        waitingCallbacks.push({"keys":keys, "callback":callback});
+    }
 }
 function waitingCallbackKeyReady(key) {
+    keysReady.push(key);
     waitingCallbacks.filter(wc => wc.keys.includes(key)).forEach(wc => {
         wc.keys.splice(wc.keys.indexOf(key), 1);
         if (wc.keys.length == 0) {
             wc.callback();
         }
     })
+}
+
+function getEsperLink(esper) {
+    let linkData = escapeName(esper.name) + '|' + esper.rarity + '|' + esper.level + '|';
+    
+    let boardStateBin = importBoardConversion.map(coordinate => getEsperBoardPositionString(coordinate[0], coordinate[1])).map(positionString => (positionString === '0_0' || esper.selectedSkills.includes(positionString)) ? '1': '0').join('');
+    let boardState = bin2hex(boardStateBin);
+    
+    linkData += boardState;
+    return "https://ffbeEquip.com/espers.html?server=" + server + '&o#' + linkData;
+}
+
+function getEsperBoardPositionString(x, y) {
+    var posString = "";
+    if (x < 0) {
+        posString += "m" + -x;
+    } else {
+        posString += x;
+    }
+    posString += "_"
+    if (y < 0) {
+        posString += "m" + -y;
+    } else {
+        posString += y;
+    }
+    return posString;
+}
+
+function hex2bin(hex){
+    let result = "";
+    [...hex].forEach(char => result += ("0000" + (parseInt(char, 16)).toString(2)).substr(-4));
+    return result;
+}
+
+function bin2hex(bin) {
+    let zeroToAdd = (4 - bin.length % 4) % 4;
+    for (let i = 0; i < zeroToAdd; i++) {
+        bin += '0';
+    }
+    return parseInt(bin, 2).toString(16);
 }
 
 $(function() {
@@ -2069,8 +2145,8 @@ $(function() {
         Modal.showErrorGet(this.url, errorThrown);
     });
     
-    if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0) && window.location.hash.length > 1) {
-    //if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
+    if ((window.location.href.indexOf("&o") > 0 || window.location.href.indexOf("?o") > 0)) {
+        $("#inventoryDiv").removeClass("Inventoryloading Inventoryloaded");
         notLoaded();
     } else {
         $.get(server + '/itemInventory', function(result) {
@@ -2127,6 +2203,13 @@ $(function() {
         console.log("Starts to load owned espers");
         $.get(server + '/espers', function(result) {
             ownedEspers = result;
+            
+            Object.keys(ownedEspers).forEach(esper => {
+                 if (ownedEspers[esper].esperStatsBonus && !ownedEspers[esper].esperStatsBonus.all) {
+                     ownedEspers[esper].esperStatsBonus = {"all":ownedEspers[esper].esperStatsBonus};
+                 }
+            });
+            
             console.log("owned espers loaded");
             onUnitsOrInventoryLoaded();
         }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {

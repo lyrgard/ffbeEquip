@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <style>
+        </style>
+        
+        <script src="exportBuildAsImage.js"></script>
+    </head>
+    <body>
+        
+        <canvas id="image" width="730" height="235"></canvas>
+        
+        <script>
+            const canvas = document.getElementById('image');
+            const units = {"version":2,"units":[{"id":"401007405","rarity":"7","goal":"Maximize P_DAMAGE","innateElements":[],"items":[{"slot":4,"id":"1100000339","pinned":false,"icon":"global_equip_10276.png","name":"Upgrade Package"},{"slot":0,"id":"301003100","pinned":false,"icon":"item_10126.png","name":"Assassin Dagger"},{"slot":2,"id":"403044800","pinned":false,"icon":"item_30148.png","name":"Scanning Goggles"},{"slot":3,"id":"405004800","pinned":false,"icon":"item_20144.png","name":"Luneth's Clothes"},{"slot":5,"id":"409027000","pinned":false,"icon":"item_50390.png","name":"Limited Moon"},{"slot":6,"id":"1500000068","pinned":false,"icon":"ability_95.png","name":"Dragoon's Wisdom"},{"slot":7,"id":"504227865","pinned":false,"icon":"ability_77.png","name":"Past Regrets"},{"slot":8,"id":"504226881","pinned":false,"icon":"ability_76.png","name":"Dark Sword Arts"},{"slot":9,"id":"1500000018","pinned":false,"icon":"global_ability_10011.png","name":"Adventurer V"}],"itemEnchantments":[null,["atk_7","atk_10","atk_12"],null,null,null,null,null,null,null],"esperId":"Odin","esperPinned":false,"pots":{"spr":50,"mag":50,"def":50,"atk":50,"mp":100,"hp":600},"maxPots":{"spr":50,"mag":50,"def":50,"atk":50,"mp":100,"hp":600},"buffs":{"spr":0,"mag":0,"def":0,"atk":0,"mp":0,"hp":0,"lbFillRate":0,"mitigation":{"physical":0,"magical":0,"global":0},"drawAttacks":0,"lbDamage":0},"lbShardsPerTurn":0,"level":120,"calculatedValues":{"elementResists":{"fire":30,"ice":0,"lightning":0,"water":30,"wind":30,"earth":30,"light":0,"dark":0},"ailmentResists":{"poison":0,"blind":100,"sleep":100,"silence":100,"paralysis":100,"confuse":0,"disease":0,"petrification":100,"death":0,"charm":0,"stop":0},"killers":{"aquatic":{"physical":0,"magical":0},"beast":{"physical":0,"magical":0},"bird":{"physical":0,"magical":0},"bug":{"physical":50,"magical":0},"demon":{"physical":0,"magical":0},"dragon":{"physical":125,"magical":75},"human":{"physical":75,"magical":75},"machine":{"physical":125,"magical":75},"plant":{"physical":50,"magical":0},"undead":{"physical":50,"magical":0},"stone":{"physical":50,"magical":0},"spirit":{"physical":0,"magical":0}},"hp":{"value":11092,"bonus":100,"flatStatBonus":0},"mp":{"value":881,"bonus":130,"flatStatBonus":0},"atk":{"value":2401,"bonus":319,"flatStatBonus":300},"def":{"value":545,"bonus":110,"flatStatBonus":0},"mag":{"value":757,"bonus":140,"flatStatBonus":150},"spr":{"value":523,"bonus":110,"flatStatBonus":0},"physicalEvasion":{"value":0},"magicalEvasion":{"value":0},"drawAttacks":{"value":0},"lbDamage":{"value":0},"mpRefresh":{"value":0},"lbFillRate":{"value":100},"lbPerTurn":{"value":0},"jumpDamage":{"value":100}}}],"monster":{"races":[],"elementalResist":{"dark":0,"light":0,"earth":0,"wind":0,"water":0,"lightning":0,"ice":0,"fire":0},"def":100,"spr":100,"breaks":{"atk":0,"def":0,"mag":0,"spr":0},"buffs":{"atk":0,"def":0,"mag":0,"spr":0},"breakability":{"atk":true,"def":true,"mag":true,"spr":true},"imperils":{"fire":0,"ice":0,"lightning":0,"water":0,"earth":0,"wind":0,"light":0,"dark":0}},"itemSelector":{"mainSelector":"owned","additionalFilters":["excludeNotReleasedYet"]},"useNewJpDamageFormula":true};
+            
+            FFBEEquipBuildAsImage.drawTeam(canvas, units);
+            
+        </script>
+    </body>
+</html>

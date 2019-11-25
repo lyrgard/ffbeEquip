@@ -125,7 +125,7 @@ class DataStorage {
         } else if (formula.type == "condition") {
             this.addDesirableElementsFromImperilInFormula(formula.formula);    
             this.addDesirableElementsFromImperilInFormula(formula.condition);
-        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation") {
+        } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "value" && formula.type != "damage" && formula.type != "heal" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "mitigation" && formula.type != "berserk") {
             this.addDesirableElementsFromImperilInFormula(formula.value1);
             this.addDesirableElementsFromImperilInFormula(formula.value2);
         }
@@ -185,10 +185,18 @@ class DataStorage {
             var addedToItems = false;
             
             if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.tmrUnit && item.tmrUnit == this.unitBuild.unit.id) {
-                this.availableTmr = item;
+                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
+                    this.availableTmr = applyEnhancements(item, this.defaultWeaponEnhancement);
+                } else {
+                    this.availableTmr = item;
+                }
             }
             if (availableNumber > 0 && this.unitBuild != null && this.unitBuild.unit != null && item.stmrUnit && item.stmrUnit == this.unitBuild.unit.id) {
-                this.availableStmr = item;
+                if (this.defaultWeaponEnhancement && this.defaultWeaponEnhancement.length > 0 && weaponList.includes(item.type) && !item.enhancements) {
+                    this.availableStmr = applyEnhancements(item, this.defaultWeaponEnhancement);
+                } else {
+                    this.availableStmr = item;
+                }
             }
             
             if (availableNumber > 0 && this.onlyUseOwnedItems && this.itemInventory && this.itemInventory.enchantments && this.itemInventory.enchantments[item.id]) {
@@ -370,7 +378,8 @@ class DataStorage {
             item['total_' + baseStats[index]] = this.getStatValueIfExists(item, baseStats[index], baseValues[baseStats[index]].total);
         }
         if (item.element && !includeAll(this.unitBuild.innateElements, item.element)) {
-            item.elementType = "element_" + getElementCoef(item.element, ennemyStats);
+            item.elementType = "element";
+            item.elementCoef = getElementCoef(item.element, ennemyStats) * -1;
         } else {
             item.elementType = "neutral"
         }
@@ -473,6 +482,8 @@ class DataStorage {
                 if (this.getKillerCoef(item, "magical") > 0) return true;
             } else if (stats[index] == "lbPerTurn") {
                 if (item.lbPerTurn || item.lbFillRate) return true;
+            } else if (stats[index] == "meanDamageVariance") {
+                if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
                 if (item["total_" + stats[index]]) return true;
@@ -481,7 +492,7 @@ class DataStorage {
                 if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
                 if (item.singleWieldingOneHandedGL && item.singleWieldingOneHandedGL[stats[index]]) return true;
                 if (item.dualWielding && item.dualWielding[stats[index]]) return true;
-                if (item.esperStatsBonus && item.esperStatsBonus[stats[index]]) return true;
+                if (item.esperStatsBonus && item.esperStatsBonus.all && item.esperStatsBonus.all[stats[index]]) return true;
             }
         }
         if (this.desirableElements.length != 0) {

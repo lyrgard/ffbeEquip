@@ -14,7 +14,8 @@ const configSchema = Joi.object({
   googleOAuthFile: Joi.string().required(),
   firebaseConfFile: Joi.string().required(),
   firebaseBucketUri: Joi.string().required(),
-  firebaseDatabaseId: Joi.string().required()
+  firebaseDatabaseId: Joi.string().required(),
+  imgurClientId: Joi.string().required(),
 });
 
 const oauthSchema = Joi.object({
@@ -141,6 +142,14 @@ const setupConfig = (currentConfig) => {
       type: 'input',
       name: 'firebaseDatabaseId',
       message: 'Firebase database Id',
+      validate: (value) => {
+        return !!value || `"${value}" is not valid`;
+      },
+    },
+    {
+      type: 'input',
+      name: 'imgurClientId',
+      message: 'Imgur Client Id',
       validate: (value) => {
         return !!value || `"${value}" is not valid`;
       },

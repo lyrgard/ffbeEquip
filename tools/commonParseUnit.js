@@ -118,6 +118,28 @@ let moveTypes = {
     
 }
 
+let espersById = {
+    "1":"Siren",
+    "2":"Ifrit",
+    "3":"Shiva",
+    "4":"Carbuncle",
+    "5":"Diabolos",
+    "6":"Golem",
+    "7":"Ramuh",
+    "8":"Titan",
+    "9":"Tetra Sylphid",
+    "10":"Odin",
+    "11":"Lakshmi",
+    "12":"Leviathan",
+    "13":"Alexander",
+    "14":"Phoenix",
+    "15":"Bahamut",
+    "16":"Fenrir",
+    "17":"Anima",
+    "18":"Asura",
+    "19":"Black Dragon"
+}
+
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
   if (this.length === 0) return hash;
@@ -414,7 +436,7 @@ function addEffectsToEffectList(effectList, effects) {
                     addToStat(effectList[0], simpleValues[i], effect[simpleValues[i]]);
                 }
             }
-            const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding","esperStatsBonus"];
+            const baseStatsBasedValues = ["singleWielding","singleWieldingOneHanded","dualWielding"];
             const baseStatsWithAccuracy = baseStats.concat(["accuracy"]);
             for (var i = baseStatsBasedValues.length; i--;) {
                 if (effect[baseStatsBasedValues[i]]) {
@@ -427,6 +449,20 @@ function addEffectsToEffectList(effectList, effects) {
                         }
                     }
                 }
+            }
+            if (effect.esperStatsBonus) {
+                if (!effectList[0].esperStatsBonus) {
+                    effectList[0].esperStatsBonus = {};
+                }
+                Object.keys(effect.esperStatsBonus).forEach(esper => {
+                   if (!effectList[0].esperStatsBonus[esper]) {
+                       effectList[0].esperStatsBonus[esper] = effect.esperStatsBonus[esper];
+                   } else {
+                       baseStats.forEach(stat => {
+                           effectList[0].esperStatsBonus[esper][stat] += effect.esperStatsBonus[esper][stat];
+                       });
+                   }
+                });
             }
             if (effect.evade) {
                 if (!effectList[0].evade) {
@@ -754,13 +790,20 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     // +Stats from espers boost
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 63) {
         var esperStatsBonus = rawEffect[3];
+        var esper;
+        if (esperStatsBonus.length == 6 || esperStatsBonus[6] == 0) {
+            esper = 'all';
+        } else {
+            esper = espersById[esperStatsBonus[6]];
+        }
         result.esperStatsBonus = {};
-        addToStat(result.esperStatsBonus, "hp", esperStatsBonus[0]);
-        addToStat(result.esperStatsBonus, "mp", esperStatsBonus[1]);
-        addToStat(result.esperStatsBonus, "atk", esperStatsBonus[2]);
-        addToStat(result.esperStatsBonus, "def", esperStatsBonus[3]);
-        addToStat(result.esperStatsBonus, "mag", esperStatsBonus[4]);
-        addToStat(result.esperStatsBonus, "spr", esperStatsBonus[5]);
+        result.esperStatsBonus[esper] = {};
+        addToStat(result.esperStatsBonus[esper], "hp", esperStatsBonus[0]);
+        addToStat(result.esperStatsBonus[esper], "mp", esperStatsBonus[1]);
+        addToStat(result.esperStatsBonus[esper], "atk", esperStatsBonus[2]);
+        addToStat(result.esperStatsBonus[esper], "def", esperStatsBonus[3]);
+        addToStat(result.esperStatsBonus[esper], "mag", esperStatsBonus[4]);
+        addToStat(result.esperStatsBonus[esper], "spr", esperStatsBonus[5]);
         return [result];
 
     // Counter
@@ -1175,6 +1218,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             result.cooldownSkill = parseActiveSkill(id.toString(), skillIn, skills, unit);
             result.cooldownTurns = rawEffect[3][2][0] + 1;
             result.startTurn = result.cooldownTurns - rawEffect[3][2][1];
+            if (rawEffect[3][3] == 0) {
+                if (result.cooldownSkill.effects.some(e => e.effect && e.effect.damage && e.effect.damage.mecanism == 'physical')) {
+                   result.cooldownSkill.preventDualCastWithDualWield = true; 
+                }
+            }
         }
     
     // Draw attacks
@@ -1332,6 +1380,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     // Critical Physical Damage
     } else if (rawEffect[2] == 43) {
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":rawEffect[3][2]*1.5/100}};
+        
+    // Self inflict Berserk
+    } else if (rawEffect[2] == 68) {
+        result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
 
     // inflict status
     } else if (rawEffect[2] == 6) {
@@ -1388,6 +1440,14 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         
         // HP barrier
     } else if (rawEffect[2] == 127) {
+        result = {"noUse":true};
+        
+        // Restore HP
+    } else if (rawEffect[2] == 16) {
+        result = {"noUse":true};
+        
+        // Gain counters when ally is hit
+    } else if (rawEffect[2] == 123) {
         result = {"noUse":true};
         
         // Dualcast

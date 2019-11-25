@@ -2796,6 +2796,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["Flame Blade","Voltage Blade","Mysterious Swordsman","Ruthless Blade","Double Blade","Servant of the Blade","Way of the Void","SPR +20%"],
 		"6_form": {
 			"name":"獵豹",
 			"wikiEntry":"Hyoh",
@@ -2810,7 +2811,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["Flame Blade","Voltage Blade","Mysterious Swordsman","Ruthless Blade","Double Blade","Servant of the Blade","Way of the Void","SPR +20%"]
 		}
 	},
 	"100016304": {
@@ -2826,7 +2828,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"]
+		"equip":["dagger","axe","hammer","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Shield Strike","Defensive Axe Stance","Armor Eraser","Auxiliary Iron Heart"]
 	},
 	"100016403": {
 		"name":"多米諾",
@@ -2886,7 +2889,8 @@
 			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","bow","hammer","whip","throwing","gun","fist","lightShield","hat","clothes"]
+		"equip":["dagger","bow","hammer","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["Bullet Barrage","Shooting Arm","Gun Mastery","Shot in the Dark"]
 	},
 	"100016803": {
 		"name":"羅蒂",
@@ -4106,8 +4110,8 @@
 		"equip":["dagger","sword","katana","spear","throwing","fist","hat","clothes"]
 	},
 	"100023205": {
-		"name":"CG Aldore King Rain",
-		"wikiEntry":"アルドール王レイン",
+		"name":"阿爾多爾王雷因",
+		"wikiEntry":"Aldore_King Rain",
 		"id":"100023205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -4120,8 +4124,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"CG Aldore King Rain",
-			"wikiEntry":"アルドール王レイン",
+			"name":"阿爾多爾王雷因",
+			"wikiEntry":"Aldore_King Rain",
 			"id":"100023205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -4198,8 +4202,8 @@
 		"equip":["staff","hammer","spear","mace","fist","hat","clothes","lightArmor","robe"]
 	},
 	"100023704": {
-		"name":"Neisha",
-		"wikiEntry":"ネイシャ",
+		"name":"內莎",
+		"wikiEntry":"Neisha",
 		"id":"100023704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4213,8 +4217,8 @@
 		"equip":["dagger","staff","rod","bow","harp","throwing","mace","lightShield","hat","clothes","robe"]
 	},
 	"100024003": {
-		"name":"Latale",
-		"wikiEntry":"ラテール",
+		"name":"拉特爾",
+		"wikiEntry":"Latyl",
 		"id":"100024003",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -4321,8 +4325,8 @@
 		}
 	},
 	"100024404": {
-		"name":"Diesel",
-		"wikiEntry":"ディーゼル",
+		"name":"提澤爾",
+		"wikiEntry":"Diezell",
 		"id":"100024404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -4336,8 +4340,8 @@
 		"equip":["dagger","sword","greatSword","lightShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"100024503": {
-		"name":"Meiji",
-		"wikiEntry":"メイジィ",
+		"name":"麥茜",
+		"wikiEntry":"Maisie",
 		"id":"100024503",
 		"max_rarity":"5",
 		"min_rarity":"3",
@@ -5735,7 +5739,7 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
-		"enhancementSkills":["Mage of Destruction","Roar of Laughter","Light of Judgment"]
+		"enhancementSkills":["Mage of Destruction","Roar of Laughter (FFVI)","Light of Judgment (FFVI)"]
 	},
 	"206001803": {
 		"name":"利奧",
@@ -5816,8 +5820,8 @@
 		}
 	},
 	"206002105": {
-		"name":"Magitek Warrior Terra",
-		"wikiEntry":"魔導戦士ティナ",
+		"name":"魔導戰士蒂娜",
+		"wikiEntry":"Magitek_Warrior Terra",
 		"id":"206002105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5830,8 +5834,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","gun","mace","lightShield","hat","clothes","robe"],
 		"6_form": {
-			"name":"Magitek Warrior Terra",
-			"wikiEntry":"魔導戦士ティナ",
+			"name":"魔導戰士蒂娜",
+			"wikiEntry":"Magitek_Warrior Terra",
 			"id":"206002105",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5847,8 +5851,8 @@
 		}
 	},
 	"206002205": {
-		"name":"Adventurer Locke",
-		"wikiEntry":"冒険者ロック",
+		"name":"冒險者洛克",
+		"wikiEntry":"Adventurer_Locke",
 		"id":"206002205",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5861,8 +5865,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","whip","throwing","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Adventurer Locke",
-			"wikiEntry":"冒険者ロック",
+			"name":"冒險者洛克",
+			"wikiEntry":"Adventurer_Locke",
 			"id":"206002205",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5878,8 +5882,8 @@
 		}
 	},
 	"206002305": {
-		"name":"Great Mage Kefka",
-		"wikiEntry":"大魔導士ケフカ",
+		"name":"大魔導士凱夫卡",
+		"wikiEntry":"Archmage_Kefka",
 		"id":"206002305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5892,8 +5896,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"Great Mage Kefka",
-			"wikiEntry":"大魔導士ケフカ",
+			"name":"大魔導士凱夫卡",
+			"wikiEntry":"Archmage_Kefka",
 			"id":"206002305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5909,8 +5913,8 @@
 		}
 	},
 	"206002405": {
-		"name":"Assassin Shadow",
-		"wikiEntry":"アサシン_シャドウ",
+		"name":"暗殺者暗影",
+		"wikiEntry":"Assassin_Shadow",
 		"id":"206002405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5923,8 +5927,8 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","katana","throwing","fist","hat","helm","clothes","lightArmor"],
 		"6_form": {
-			"name":"Assassin Shadow",
-			"wikiEntry":"アサシン_シャドウ",
+			"name":"暗殺者暗影",
+			"wikiEntry":"Assassin_Shadow",
 			"id":"206002405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7515,6 +7519,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé"],
 		"6_form": {
 			"name":"伊格尼斯",
 			"wikiEntry":"Ignis",
@@ -7529,7 +7534,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","staff","rod","spear","throwing","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Regalia Driver","Cooking","Enhancement","Overboost","Royal Banquet Canapé"]
 		}
 	},
 	"215000605": {
@@ -7611,7 +7617,8 @@
 			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 		},
 		"stats_pattern":1,
-		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		"equip":["dagger","sword","greatSword","katana","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Capturing the Moment","Niflheim's High Commander","Magitek Arm","Shadow Parry"]
 	},
 	"215001105": {
 		"name":"尼克斯",
@@ -9218,51 +9225,6 @@
 			"equip":["dagger","sword","greatSword","spear","mace","lightShield","helm","clothes","lightArmor","heavyArmor"]
 		}
 	},
-	"307000204": {
-		"name":"卡里瓦",
-		"wikiEntry":"Kaliva",
-		"id":"307000204",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3281,"mp":189,"atk":116,"def":119,"mag":150,"spr":135},
-			"minStats":{"hp":1083,"mp":62,"atk":38,"def":39,"mag":50,"spr":45},
-			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","staff","rod","mace","lightShield","hat","clothes","robe"]
-	},
-	"307000303": {
-		"name":"巴魯薩",
-		"wikiEntry":"Barusa",
-		"id":"307000303",
-		"max_rarity":"5",
-		"min_rarity":"3",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":2919,"mp":106,"atk":107,"def":113,"mag":75,"spr":96},
-			"minStats":{"hp":963,"mp":35,"atk":35,"def":37,"mag":25,"spr":32},
-			"pots":{"hp":240,"mp":40,"atk":16,"def":24,"mag":16,"spr":16}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","axe","hammer","mace","fist","lightShield","heavyShield","hat","clothes","lightArmor","heavyArmor"]
-	},
-	"307000404": {
-		"name":"托比",
-		"wikiEntry":"Toby",
-		"id":"307000404",
-		"max_rarity":"6",
-		"min_rarity":"4",
-		"sex":"male",
-		"stats": {
-			"maxStats":{"hp":3522,"mp":151,"atk":144,"def":124,"mag":120,"spr":123},
-			"minStats":{"hp":1162,"mp":50,"atk":48,"def":41,"mag":40,"spr":41},
-			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
-		},
-		"stats_pattern":1,
-		"equip":["dagger","katana","bow","whip","throwing","hat","clothes","lightArmor","robe"]
-	},
 	"310000105": {
 		"name":"2B",
 		"wikiEntry":"2B",
@@ -10213,6 +10175,37 @@
 			"equip":["staff","spear","harp","lightShield","hat","helm","clothes","robe"]
 		}
 	},
+	"337000405": {
+		"name":"卡繆",
+		"wikiEntry":"Erik",
+		"id":"337000405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4691,"mp":246,"atk":208,"def":183,"mag":155,"spr":182},
+			"minStats":{"hp":1548,"mp":81,"atk":69,"def":60,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"卡繆",
+			"wikiEntry":"Erik",
+			"id":"337000405",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3608,"mp":189,"atk":160,"def":140,"mag":119,"spr":140},
+				"minStats":{"hp":1191,"mp":62,"atk":53,"def":46,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","throwing","fist","lightShield","hat","clothes","lightArmor"]
+		}
+	},
 	"337000505": {
 		"name":"魔道士兀爾諾加",
 		"wikiEntry":"Mordegon",
@@ -10244,6 +10237,37 @@
 			"equip":["staff","rod","hat","clothes","robe"]
 		}
 	},
+	"337000605": {
+		"name":"魔軍司令荷梅洛斯",
+		"wikiEntry":"Jasper_Unbound",
+		"id":"337000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4806,"mp":248,"atk":207,"def":184,"mag":163,"spr":196},
+			"minStats":{"hp":1586,"mp":82,"atk":68,"def":61,"mag":54,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","spear","fist","hat","lightArmor"],
+		"6_form": {
+			"name":"魔軍司令荷梅洛斯",
+			"wikiEntry":"Jasper_Unbound",
+			"id":"337000605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3696,"mp":190,"atk":159,"def":141,"mag":125,"spr":150},
+				"minStats":{"hp":1220,"mp":63,"atk":52,"def":47,"mag":41,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","spear","fist","hat","lightArmor"]
+		}
+	},
 	"337000704": {
 		"name":"大金龍",
 		"wikiEntry":"Great_Dragon",
@@ -10258,6 +10282,130 @@
 		},
 		"stats_pattern":1,
 		"equip":["fist","hat","helm","lightArmor"]
+	},
+	"337000805": {
+		"name":"魔王兀爾諾加",
+		"wikiEntry":"The_Lord of Shadows",
+		"id":"337000805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4811,"mp":242,"atk":208,"def":188,"mag":159,"spr":176},
+			"minStats":{"hp":1588,"mp":80,"atk":69,"def":62,"mag":52,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","katana","bow","axe","hammer","spear","mace","helm","heavyArmor"],
+		"6_form": {
+			"name":"魔王兀爾諾加",
+			"wikiEntry":"The_Lord of Shadows",
+			"id":"337000805",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3700,"mp":186,"atk":160,"def":144,"mag":122,"spr":135},
+				"minStats":{"hp":1221,"mp":61,"atk":53,"def":48,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","katana","bow","axe","hammer","spear","mace","helm","heavyArmor"]
+		}
+	},
+	"337000905": {
+		"name":"施維亞",
+		"wikiEntry":"Sylvando",
+		"id":"337000905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4744,"mp":250,"atk":202,"def":184,"mag":191,"spr":188},
+			"minStats":{"hp":1566,"mp":83,"atk":67,"def":61,"mag":63,"spr":62},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","harp","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"施維亞",
+			"wikiEntry":"Sylvando",
+			"id":"337000905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3649,"mp":192,"atk":155,"def":141,"mag":146,"spr":144},
+				"minStats":{"hp":1204,"mp":63,"atk":51,"def":47,"mag":48,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","harp","whip","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"337001205": {
+		"name":"瑪蒂娜",
+		"wikiEntry":"Jade",
+		"id":"337001205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4922,"mp":238,"atk":207,"def":190,"mag":151,"spr":181},
+			"minStats":{"hp":1624,"mp":79,"atk":68,"def":63,"mag":50,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["spear","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"瑪蒂娜",
+			"wikiEntry":"Jade",
+			"id":"337001205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3786,"mp":183,"atk":159,"def":146,"mag":116,"spr":139},
+				"minStats":{"hp":1249,"mp":60,"atk":52,"def":48,"mag":38,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["spear","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"337001305": {
+		"name":"羅",
+		"wikiEntry":"Rab",
+		"id":"337001305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4679,"mp":269,"atk":169,"def":148,"mag":200,"spr":204},
+			"minStats":{"hp":1544,"mp":89,"atk":56,"def":49,"mag":66,"spr":67},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"羅",
+			"wikiEntry":"Rab",
+			"id":"337001305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3599,"mp":206,"atk":130,"def":113,"mag":153,"spr":156},
+				"minStats":{"hp":1188,"mp":68,"atk":43,"def":37,"mag":50,"spr":51},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","fist","hat","clothes","lightArmor","robe"]
+		}
 	},
 	"401000104": {
 		"name":"危險・亞莉安娜",
@@ -11461,6 +11609,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["Serpenté - Kiss of Dusk","Serpenté - Kiss of Dawn","Counter-curse","Demonic Guard - Physical","Demonic Guard - Magical","Serpenté - Dusk Lash","Serpenté - Dawn Lash","Serpenté - Kiss of Midnight","Dream Chemistry"],
 		"6_form": {
 			"name":"莉莉絲",
 			"wikiEntry":"Lilith",
@@ -11475,7 +11624,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"]
+			"equip":["dagger","staff","rod","harp","whip","mace","lightShield","heavyShield","hat","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["Serpenté - Kiss of Dusk","Serpenté - Kiss of Dawn","Counter-curse","Demonic Guard - Physical","Demonic Guard - Magical","Serpenté - Dusk Lash","Serpenté - Dawn Lash","Serpenté - Kiss of Midnight","Dream Chemistry"]
 		}
 	},
 	"401006005": {
@@ -11492,6 +11642,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"],
+		"enhancementSkills":["Dusk Barrage","Dawn Barrage","Demon Chemistry","Piercing Barrage","Cleaving Barrage","Crushing Barrage","Unholy Strength","Immortal Demon","Aggressive Presence","Dark Commandment"],
 		"6_form": {
 			"name":"路西亞斯",
 			"wikiEntry":"Lucius",
@@ -11506,7 +11657,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"]
+			"equip":["dagger","sword","axe","fist","hat","clothes","lightArmor"],
+			"enhancementSkills":["Dusk Barrage","Dawn Barrage","Demon Chemistry","Piercing Barrage","Cleaving Barrage","Crushing Barrage","Unholy Strength","Immortal Demon","Aggressive Presence","Dark Commandment"]
 		}
 	},
 	"401006105": {
@@ -11850,6 +12002,37 @@
 			"equip":["dagger","staff","rod","bow","harp","hat","clothes","robe"]
 		}
 	},
+	"401007205": {
+		"name":"卡爾頓",
+		"wikiEntry":"Karten",
+		"id":"401007205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5016,"mp":182,"atk":210,"def":201,"mag":143,"spr":171},
+			"minStats":{"hp":1655,"mp":60,"atk":69,"def":66,"mag":47,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"卡爾頓",
+			"wikiEntry":"Karten",
+			"id":"401007205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3858,"mp":140,"atk":161,"def":154,"mag":110,"spr":132},
+				"minStats":{"hp":1273,"mp":46,"atk":53,"def":51,"mag":36,"spr":44},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","hammer","spear","fist","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
 	"401007305": {
 		"name":"不朽之焰凱蒂",
 		"wikiEntry":"Immortal_Flame Katy",
@@ -12065,6 +12248,37 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","katana","bow","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401008605": {
+		"name":"高德拉",
+		"wikiEntry":"Godrea",
+		"id":"401008605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4921,"mp":256,"atk":205,"def":187,"mag":158,"spr":196},
+			"minStats":{"hp":1624,"mp":84,"atk":68,"def":62,"mag":52,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"高德拉",
+			"wikiEntry":"Godrea",
+			"id":"401008605",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3785,"mp":196,"atk":157,"def":143,"mag":121,"spr":150},
+				"minStats":{"hp":1249,"mp":65,"atk":52,"def":47,"mag":40,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
 	}
 }

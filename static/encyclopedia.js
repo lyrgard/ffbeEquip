@@ -106,7 +106,11 @@ var readFilterValues = function() {
     magicalKillers = getSelectedValuesFor("magicalKillers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
-    onlyShowOwnedItems = $("#onlyShowOwnedItems").prop('checked');
+    if (itemInventory) {
+        onlyShowOwnedItems = $("#onlyShowOwnedItems").prop('checked');
+    } else {
+        onlyShowOwnedItems = false;
+    }
     showNotReleasedYet = $("#showNotReleasedYet").prop('checked');
 }
 
@@ -148,6 +152,12 @@ var modifyUrl = function() {
 			state.baseStats[value] = statValue;
 		}
 	});
+    if (onlyShowOwnedItems) {
+        state.onlyShowOwnedItems = true;
+    }
+    if (showNotReleasedYet) {
+        state.showNotReleasedYet = true;
+    }
     window.location.hash = '#' + window.btoa(unescape(encodeURIComponent(JSON.stringify(state))));
 };
 
@@ -357,6 +367,12 @@ function loadHash() {
             select(filter, state[filter]);
         }
     });
+    if (state.onlyShowOwnedItems) {
+        $("#onlyShowOwnedItems").prop('checked', true);
+    }
+    if (state.showNotReleasedYet) {
+        $("#showNotReleasedYet").prop('checked', true);
+    }
 };
 
 // Select on the 'types' filter the provided values that match the selected unit equipable item types
