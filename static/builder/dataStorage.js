@@ -144,7 +144,7 @@ class DataStorage {
     }
     
     prepareData(itemsToExclude, ennemyStats) {
-        this.dataBySlotType = {};
+        this.dataByType = {};
         this.equipSources = [];
         this.availableTmr = null;
         this.availableStmr = null;
@@ -228,25 +228,27 @@ class DataStorage {
         if (!adventurerAlreadyPinned) {
             for (var index = adventurerIds.length -1; index >=0; index--) { // Manage adventurers  to only keep the best available
                 if (adventurersAvailable[adventurerIds[index]]) {
-                    if (!this.dataBySlotType["materia"]) {
-                        this.dataBySlotType["materia"] = [];
+                    if (!this.dataByType["materia"]) {
+                        this.dataByType["materia"] = [];
                     }
                     var item = adventurersAvailable[adventurerIds[index]];
                     var availableNumbers = this.getAvailableNumbers(item);
                     var availableNumber = availableNumbers.available;
                     var ownedAvailableNumber = Math.max(availableNumber - availableNumbers.total + availableNumbers.totalOwnedNumber, 0);
-                    this.dataBySlotType["materia"].push(this.getItemEntry(item, availableNumber, ownedAvailableNumber > 0));
+                    this.dataByType["materia"].push(this.getItemEntry(item, availableNumber, ownedAvailableNumber > 0));
                     break;
                 }
             }
         }
-        Object.keys(this.dataBySlotType).forEach(slotType => {
-            if (this.dataBySlotType[slotType] && this.dataBySlotType[slotType].length > 0) {
-                var numberNeeded = numberNeededBySlotType[slotType];
+        Object.keys(this.dataByType).forEach(type => {
+            if (this.dataByType[type] && this.dataByType[type].length > 0) {
+                var numberNeeded = 4;
+                if (weaponList.includes(type) ||type === 'accessory') numberNeeded = 2;
+                if (headList.includes(type) || bodyList.includes(type) ||shieldList.includes(type)) numberNeeded = 1;
                 var itemPool = new ItemPool(numberNeeded, this.unitBuild.involvedStats, ennemyStats, this.desirableElements, this.unitBuild.desirableItemIds, this.skillIds);
-                itemPool.addItems(this.dataBySlotType[slotType].slice(0, Math.min(0, this.dataBySlotType[slotType].length)));
+                itemPool.addItems(this.dataByType[type].slice(0, Math.min(4, this.dataByType[type].length)));
                 itemPool.prepare();
-                this.dataBySlotType[slotType] = itemPool.getEntries();
+                this.dataByType[type] = itemPool.getEntries();
                 
             }
         });
@@ -321,16 +323,16 @@ class DataStorage {
                     return;
                 }
         
-                if (!this.dataBySlotType[slotTypeByType[item.type]]) {
-                    this.dataBySlotType[slotTypeByType[item.type]] = [];
+                if (!this.dataByType[item.type]) {
+                    this.dataByType[item.type] = [];
                 }
                 if (ownedAvailableNumber < availableNumber) {
                     if (ownedAvailableNumber > 0) {
-                        this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, ownedAvailableNumber, true));
+                        this.dataByType[item.type].push(this.getItemEntry(item, ownedAvailableNumber, true));
                     }
-                    this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
+                    this.dataByType[item.type].push(this.getItemEntry(item, availableNumber - ownedAvailableNumber, false));
                 } else {
-                    this.dataBySlotType[slotTypeByType[item.type]].push(this.getItemEntry(item, availableNumber, true));
+                    this.dataByType[item.type].push(this.getItemEntry(item, availableNumber, true));
                 }
                 added = true;
                 

@@ -240,7 +240,7 @@ function optimize() {
             "baseValues":builds[currentUnitIndex].baseValues,
             "innateElements":builds[currentUnitIndex].innateElements,
             "formula":builds[currentUnitIndex].formula,
-            "dataByType":dataStorage.dataBySlotType,
+            "dataByType":dataStorage.dataByType,
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
             "alreadyUsedEspers":dataStorage.alreadyUsedEspers,

@@ -18,21 +18,37 @@ class BuildOptimizer {
             9: 'materia'
         };
         this.alreadyTried = [];
+        this.equipableBySlot = {};
+        this.dataByType;
     }
     
     
     
     set unitBuild(unitBuild) {
         this._unitBuild = unitBuild;
+        this._unitBuild.prepareEquipable();
+        for (let i = 0; i <= 10; i++) {
+            this.equipableBySlot[i] = this._unitBuild.equipable[i].join('_');
+        }
     }
     
-    set itemPools(itemPools) {
+    set itemPools(dataByType) {
         this._itemPools = {};
-        Object.keys(itemPools).forEach(key => {
-            this._itemPools[key] = new ItemPool(4, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, this._unitBuild.desirableItemIds, []);
-            this._itemPools[key].addItems(itemPools[key]);
-            this._itemPools[key].prepare();
-        });
+        this.dataByType = dataByType;
+    }
+    
+    getItemPoolForSlot(i) {
+        if (this._itemPools[this.equipableBySlot[i]]) {
+            return this._itemPools[this.equipableBySlot[i]];
+        } else {
+            var itemPool = new ItemPool(4, this._unitBuild.involvedStats, this.ennemyStats, this.desirableElements, [], []);
+            this.equipableBySlot[i].split('_').forEach(type => {
+                itemPool.addItems(this.dataByType[type]);    
+            });
+            itemPool.prepare();
+            this._itemPools[this.equipableBySlot[i]] = itemPool;
+            return itemPool;
+        }
     }
     
     set alreadyUsedEspers(alreadyUsedEspers) {
@@ -53,11 +69,12 @@ class BuildOptimizer {
         if (this._unitBuild.fixedItems[index]) {
             this.tryItem(index, build, this._unitBuild.fixedItems[index]);
         } else {
-            let itemPool = this._itemPools[this.typeByIndex[index]];
+            let itemPool = this.getItemPoolForSlot(index);
             var foundAnItem = false;
             for (var i = itemPool.keptItems.length; i--;) {
                 if (itemPool.keptItems[i].active) {
                     var item = itemPool.take(i);
+                    console.log(`${index} - ${item.name}`);
                     this.tryItem(index, build, item);
                     itemPool.putBack(i);
                     foundAnItem = true;
@@ -86,7 +103,7 @@ class BuildOptimizer {
                 this._unitBuild.buildValue = value;
                 this.betterBuildFoundCallback(this._unitBuild.build, this._unitBuild.buildValue, 0);
             }
-            let tried = this._unitBuild.build.map(item => item ? item.name : 'null').join('__');
+            let tried = build.map(item => item ? item.name : 'null').join('__');
             if (this.alreadyTried.includes(tried)) {
                 console.log('Already tried : ' + tried);
             } else {
