@@ -249,7 +249,7 @@ class BuildOptimizer {
     
     
     
-    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills) {
+    findBestBuildForCombination(index, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds = []) {
         let restorePool;
         let savedItemPools;
         if (index == 2) {
@@ -314,28 +314,32 @@ class BuildOptimizer {
                 });
             }
         }
+        if (index == 0 || (index == 1 && typeCombination[0] === typeCombination[1]) || index == 2 || index == 3 || index == 4 || index == 6) {
+            alreadyTriedGroupIds = [];
+        }
 
         if (fixedItems[index]) {
-            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, itemBasedSkills);
+            this.tryItem(index, build, typeCombination, dataWithConditionItems, fixedItems[index], fixedItems,elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds);
         } else {
             if (typeCombination[index]) {
                 let itemPool = dataWithConditionItems[typeCombination[index]];
                 var foundAnItem = false;
                 for (var i = itemPool.keptItems.length; i--;) {
-                    if (itemPool.keptItems[i].active) {
+                    if (itemPool.keptItems[i].active && !alreadyTriedGroupIds.includes(itemPool.keptItems[i].id)) {
                         var item = itemPool.take(i);
-                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills);
+                        this.tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds.slice());
                         itemPool.putBack(i);
                         foundAnItem = true;
+                        alreadyTriedGroupIds.push(itemPool.keptItems[i].id);
                     }
                 }
             
                 if (!foundAnItem) {
-                    this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, itemBasedSkills);
+                    this.tryItem(index, build, typeCombination, dataWithConditionItems, {"name":"Any " + typeCombination[index],"type":typeCombination[index], "placeHolder":true}, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds);
                 }
                 build[index] == null;
             } else {
-                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, itemBasedSkills);
+                this.tryItem(index, build, typeCombination, dataWithConditionItems, null, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds);
             }
         }
         if (restorePool) {
@@ -347,7 +351,7 @@ class BuildOptimizer {
         }
     }
 
-    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills) {
+    tryItem(index, build, typeCombination, dataWithConditionItems, item, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds) {
         if (index == 0 && item && isTwoHanded(item) && typeCombination[1]) {
             return; // Two handed weapon only accepted on DH builds
         }
@@ -391,12 +395,13 @@ class BuildOptimizer {
                 }
             }
         } else {
-            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills);
+            this.findBestBuildForCombination(index + 1, build, typeCombination, dataWithConditionItems, fixedItems, elementBasedSkills, itemBasedSkills, alreadyTriedGroupIds);
         }
     }
 
     tryEsper(build, esper, fixedItems) {
         build[10] = esper;
+
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             
