@@ -382,7 +382,8 @@ const chainFamilySkillName = {
     "FE": "Free Energy",
     "MR": "Meteor Rain",
     "AZ": "Absolute Zero",
-    "Ryu": "Ryujin"
+    "Ryu": "Ryujin",
+    "CWA": "Chaos Wave Awakened",
 }
 
 const importBoardConversion = [[0,0], [-1,-1], [0,-1], [-1,0], [1,0], [0,1], [1,1],

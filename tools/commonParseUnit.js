@@ -105,6 +105,7 @@ let chainingFamilies = {
     "none,84,92,100,108,116,124,132,140": "MR",         // Meteor Rain
     "none,40,45,50,55,60,65,70,75,80,85,90": "AZ",      // Absolute Zero
     "none,2,12,22,32,42": "Ryu",                         // Ryujin
+    "none,42,62,82,102,122,142,162,182": "CWA"               // Chaos Wave Awakened
 }
 
 let moveTypes = {
