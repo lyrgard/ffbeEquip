@@ -122,7 +122,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             "stack": {
                 "currentStack":unitBuild.baseValues.currentStack,
                 "lastStackingSkillId":"any"
-            }
+            },
+            "killerBuff":{}
         }
         for (var i = 0; i < itemAndPassives.length; i++) {
             if (itemAndPassives[i] && itemAndPassives[i].skillEnhancement) {
@@ -135,6 +136,18 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                     }
                 }
             }
+        }
+        if (unitBuild.baseValues.killerBuffs && unitBuild.baseValues.killerBuffs.length) {
+            unitBuild.baseValues.killerBuffs.forEach(killerData => {
+                if (killerData.physical)  {
+                    if (!context.killerBuff.physical) context.killerBuff.physical = {};
+                    context.killerBuff.physical[killerData.name] = killerData.physical;
+                }
+                if (killerData.magical)  {
+                    if (!context.killerBuff.magical) context.killerBuff.magical = {};
+                    context.killerBuff.magical[killerData.name] = killerData.magical;
+                }
+            });
         }
         // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
         var level;

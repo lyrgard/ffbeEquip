@@ -1,0 +1,382 @@
+diff --git a/static/builder.css b/static/builder.css
+index 047b204..9aa5fa1 100644
+--- a/static/builder.css
++++ b/static/builder.css
+@@ -1112,6 +1112,36 @@ i.img.img-slot-hand.leftHand {
+     margin-left: 5px;
+ }
+ 
++.killerBuffs {
++    display: flex;
++    flex-wrap: wrap;
++    margin-top: 10px;
++}
++
++.killerBuff {
++    display: flex;
++    margin-right: 5px;
++}
++
++.killerBuff i.img {
++    height: 38px;
++    width: 34px;
++    margin-right: -8px;
++    z-index: 2;
++}
++
++.killerBuff input {
++    width: 70px;
++    text-align: right;
++}
++
++.killerBuff .inputWithIcon .leftIcon {
++    left: 7px;
++}
++
++#killerBuffSwitch i {
++    margin-right: 5px;
++}
+ 
+ @media (max-width: 991px) {
+     
+diff --git a/static/builder.html b/static/builder.html
+index ad746a4..54714c0 100644
+--- a/static/builder.html
++++ b/static/builder.html
+@@ -523,6 +523,209 @@
+                                     <input type="text" class="form-control" placeholder="0"/>
+                                 </div>
+                             </div>
++                            <div class="stat">
++                                <div id="killerBuffSwitch" class="btn btn-default" onclick="switchDisplayKillerBuffs()"><i class="fas fa-edit"></i>Killer buffs</div>
++                            </div>
++                        </div>
++                        <div class="col-xs-12 killerBuffsSummary">
++                            <div class="physical"></div>
++                            <div class="magical"></div>
++                        </div>
++                        <div class="col-xs-12 killerBuffs physical hidden">
++                            <div class="killerBuff aquatic">
++                                <i class="img img-killer-physical-aquatic" title="aquatic physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff beast">
++                                <i class="img img-killer-physical-beast" title="beast physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff bird">
++                                <i class="img img-killer-physical-bird" title="bird physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff bug">
++                                <i class="img img-killer-physical-bug" title="bug physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff demon">
++                                <i class="img img-killer-physical-demon" title="demon physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff dragon">
++                                <i class="img img-killer-physical-dragon" title="dragon physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff human">
++                                <i class="img img-killer-physical-human" title="human physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff machine">
++                                <i class="img img-killer-physical-machine" title="machine physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff plant">
++                                <i class="img img-killer-physical-plant" title="plant physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff undead">
++                                <i class="img img-killer-physical-undead" title="undead physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff stone">
++                                <i class="img img-killer-physical-stone" title="stone physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff spirit">
++                                <i class="img img-killer-physical-spirit" title="spirit physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                        </div>
++                        <div class="col-xs-12 killerBuffs magical hidden">
++                            <div class="killerBuff aquatic">
++                                <i class="img img-killer-magical-aquatic" title="aquatic physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff beast">
++                                <i class="img img-killer-magical-beast" title="beast physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff bird">
++                                <i class="img img-killer-magical-bird" title="bird physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff bug">
++                                <i class="img img-killer-magical-bug" title="bug physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff demon">
++                                <i class="img img-killer-magical-demon" title="demon physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff dragon">
++                                <i class="img img-killer-magical-dragon" title="dragon physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff human">
++                                <i class="img img-killer-magical-human" title="human physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff machine">
++                                <i class="img img-killer-magical-machine" title="machine physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff plant">
++                                <i class="img img-killer-magical-plant" title="plant physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff undead">
++                                <i class="img img-killer-magical-undead" title="undead physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff stone">
++                                <i class="img img-killer-magical-stone" title="stone physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
++                            <div class="killerBuff spirit">
++                                <i class="img img-killer-magical-spirit" title="spirit physical killer buff"></i>
++                                <div class="inputWithIcon withPercent buff">
++                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
++                                    <span class="rightIcon">%</span>
++                                    <input type="text" class="form-control" placeholder="0"/>
++                                </div>
++                            </div>
+                         </div>
+                         <div class="col-xs-12 unitAttackElement">
+                             <div class="col-xs-3 text-right">Imbue(s):</div>
+diff --git a/static/builder.js b/static/builder.js
+index a3ac8bc..4f0cd9f 100644
+--- a/static/builder.js
++++ b/static/builder.js
+@@ -471,6 +471,22 @@ function readStatsValues() {
+     builds[currentUnitIndex].baseValues["lbDamage"] = parseInt($(".unitStats .stat.lbDamage .buff input").val()) || 0;
+     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
+     builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
++    builds[currentUnitIndex].baseValues["killerBuffs"] = [];
++    killerList.forEach(killer => {
++        let physical = parseInt($(".killerBuffs.physical ." + killer + " input").val()) || 0;
++        let magical = parseInt($(".killerBuffs.magical ." + killer + " input").val()) || 0;
++        
++        if (physical || magical) {
++            let killerData = {'name':killer};
++            if (physical) {
++                killerData.physical = physical;
++            }
++            if (magical) {
++                killerData.magical = magical;
++            }
++            builds[currentUnitIndex].baseValues["killerBuffs"].push(killerData);
++        }
++    });
+ }
+ 
+ 
+@@ -1524,7 +1540,18 @@ function updateUnitStats() {
+     } else {
+         $(".panel.unit").addClass("hidden");
+     }
+-    
++    $('.killerBuffs input').val("");
++    if (builds[currentUnitIndex].baseValues["killerBuffs"]) {
++        builds[currentUnitIndex].baseValues["killerBuffs"].forEach(killerData => {
++            if (killerData.physical)  {
++                $('.killerBuffs.physical .' + killerData.name + ' input').val(killerData.physical);
++            }
++            if (killerData.magical) {
++                $('.killerBuffs.magical .' + killerData.name + ' input').val(killerData.magical);
++            }
++        });
++    }
++    updateKillerBuffSummary();
+     readStatsValues();
+         
+ }
+@@ -3700,6 +3727,24 @@ function uploadToImgur() {
+     });
+ }
+ 
++function switchDisplayKillerBuffs() {
++    $('.unit.panel .killerBuffs.physical').toggleClass('hidden');
++    $('.unit.panel .killerBuffs.magical').toggleClass('hidden');
++    $('.unit.panel .killerBuffsSummary').toggleClass('hidden');
++}
++
++function onKillerBuffChange() {
++    readStatsValues();
++    logCurrentBuild();
++    updateKillerBuffSummary();
++}
++
++function updateKillerBuffSummary() {
++    let killerHtml = getKillerHtml(builds[currentUnitIndex].baseValues["killerBuffs"]);
++    $('.unit.panel .killerBuffsSummary .physical').html(killerHtml.physical);
++    $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
++}
++
+ function inventoryLoaded() {
+     dataStorage.itemInventory = itemInventory;
+     $(".equipments select option[value=owned]").prop("disabled", false);
+@@ -3869,6 +3914,7 @@ function startPage() {
+     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
+     $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
+     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
++    $(".killerBuffs input").on('input',$.debounce(300,function() {onKillerBuffChange();}));
+     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
+     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
+     $("#paramChallengeSelect").change(function() {
+diff --git a/static/builder/common.js b/static/builder/common.js
+index 646e1f8..d5ee33b 100644
+--- a/static/builder/common.js
++++ b/static/builder/common.js
+@@ -122,7 +122,8 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
+             "stack": {
+                 "currentStack":unitBuild.baseValues.currentStack,
+                 "lastStackingSkillId":"any"
+-            }
++            },
++            "killerBuff":{}
+         }
+         for (var i = 0; i < itemAndPassives.length; i++) {
+             if (itemAndPassives[i] && itemAndPassives[i].skillEnhancement) {
+@@ -136,6 +137,18 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
+                 }
+             }
+         }
++        if (unitBuild.baseValues.killerBuffs && unitBuild.baseValues.killerBuffs.length) {
++            unitBuild.baseValues.killerBuffs.forEach(killerData => {
++                if (killerData.physical)  {
++                    if (!context.killerBuff.physical) context.killerBuff.physical = {};
++                    context.killerBuff.physical[killerData.name] = killerData.physical;
++                }
++                if (killerData.magical)  {
++                    if (!context.killerBuff.magical) context.killerBuff.magical = {};
++                    context.killerBuff.magical[killerData.name] = killerData.magical;
++                }
++            });
++        }
+         // Level correction (1+(level/100)) and final multiplier (between 85% and 100%, so 92.5% mean)
+         var level;
+         if (unitBuild._level) {
+diff --git a/static/units.js b/static/units.js
+index 4f10c00..bdd5396 100644
+--- a/static/units.js
++++ b/static/units.js
+@@ -1042,7 +1042,9 @@ function importUnits() {
+             onClick: function() {
+                 if (importedOwnedUnit) {
+                     ownedUnits = importedOwnedUnit;
++                    markSaveNeeded();
+                     saveUserData(false, true, false);
++                    savePublicLink();
+                     showRaritySort();
+                 } else {
+                     Modal.show("Please select a file to import");

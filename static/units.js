@@ -1042,7 +1042,9 @@ function importUnits() {
             onClick: function() {
                 if (importedOwnedUnit) {
                     ownedUnits = importedOwnedUnit;
+                    markSaveNeeded();
                     saveUserData(false, true, false);
+                    savePublicLink();
                     showRaritySort();
                 } else {
                     Modal.show("Please select a file to import");

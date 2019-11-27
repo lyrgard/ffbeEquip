@@ -1112,6 +1112,36 @@ i.img.img-slot-hand.leftHand {
     margin-left: 5px;
 }
 
+.killerBuffs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.killerBuff {
+    display: flex;
+    margin-right: 5px;
+}
+
+.killerBuff i.img {
+    height: 38px;
+    width: 34px;
+    margin-right: -8px;
+    z-index: 2;
+}
+
+.killerBuff input {
+    width: 70px;
+    text-align: right;
+}
+
+.killerBuff .inputWithIcon .leftIcon {
+    left: 7px;
+}
+
+#killerBuffSwitch i {
+    margin-right: 5px;
+}
 
 @media (max-width: 991px) {
     

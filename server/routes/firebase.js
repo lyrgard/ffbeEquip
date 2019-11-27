@@ -187,6 +187,13 @@ const partyBuildSchema = Joi.object().keys({
             }),
             drawAttacks: Joi.number().min(0).max(600),
             lbDamage: Joi.number().min(0).max(600),
+            killers:Joi.array().max(12).items(
+                Joi.object().keys({
+                    name:racesSchema,
+                    physical:Joi.number().min(0).max(300),
+                    magical:Joi.number().min(0).max(300),
+                })
+            ),
         }),
         lbShardsPerTurn: Joi.number().min(0).max(100),
         stack: Joi.number().min(0).max(99),

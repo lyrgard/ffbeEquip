@@ -482,6 +482,22 @@ function readStatsValues() {
     builds[currentUnitIndex].baseValues["lbDamage"] = parseInt($(".unitStats .stat.lbDamage .buff input").val()) || 0;
     builds[currentUnitIndex].innateElements = getSelectedValuesFor("elements");
     builds[currentUnitIndex].baseValues["currentStack"] = parseInt($(".unitStack input").val()) || 0;
+    builds[currentUnitIndex].baseValues["killerBuffs"] = [];
+    killerList.forEach(killer => {
+        let physical = parseInt($(".killerBuffs.physical ." + killer + " input").val()) || 0;
+        let magical = parseInt($(".killerBuffs.magical ." + killer + " input").val()) || 0;
+        
+        if (physical || magical) {
+            let killerData = {'name':killer};
+            if (physical) {
+                killerData.physical = physical;
+            }
+            if (magical) {
+                killerData.magical = magical;
+            }
+            builds[currentUnitIndex].baseValues["killerBuffs"].push(killerData);
+        }
+    });
 }
 
 
@@ -1535,7 +1551,18 @@ function updateUnitStats() {
     } else {
         $(".panel.unit").addClass("hidden");
     }
-    
+    $('.killerBuffs input').val("");
+    if (builds[currentUnitIndex].baseValues["killerBuffs"]) {
+        builds[currentUnitIndex].baseValues["killerBuffs"].forEach(killerData => {
+            if (killerData.physical)  {
+                $('.killerBuffs.physical .' + killerData.name + ' input').val(killerData.physical);
+            }
+            if (killerData.magical) {
+                $('.killerBuffs.magical .' + killerData.name + ' input').val(killerData.magical);
+            }
+        });
+    }
+    updateKillerBuffSummary();
     readStatsValues();
         
 }
@@ -2504,6 +2531,9 @@ function getStateHash(onlyCurrent = true) {
             }
             unit.buffs.drawAttacks = build.baseValues.drawAttacks;
             unit.buffs.lbDamage = build.baseValues.lbDamage;
+            if (build.baseValues.killerBuffs) {
+                unit.buffs.killers = build.baseValues.killerBuffs;
+            }
             if (build.baseValues.currentStack) {
                 unit.stack = build.baseValues.currentStack;
             }
@@ -2912,6 +2942,16 @@ function loadStateHashAndBuild(data, importMode = false) {
             }
             if (unit.buffs.lbFillRate) {
                 $(".unitStats .stat.lbFillRate .buff input").val(unit.buffs.lbFillRate);
+            }
+            if (unit.buffs.killers) {
+                unit.buffs.killers.forEach(killerData => {
+                    if (killerData.physical) {
+                        $('.killerBuffs.physical .' + killerData.name + ' input').val(killerData.physical);
+                    }
+                    if (killerData.magical) {
+                        $('.killerBuffs.magical .' + killerData.name + ' input').val(killerData.magical);
+                    }
+                });
             }
         }
         if (unit.lbShardsPerTurn) {
@@ -3711,6 +3751,36 @@ function uploadToImgur() {
     });
 }
 
+function switchDisplayKillerBuffs() {
+    $('.unit.panel .killerBuffs.physical').toggleClass('hidden');
+    $('.unit.panel .killerBuffs.magical').toggleClass('hidden');
+    $('.unit.panel .killerBuffsSummary').toggleClass('hidden');
+}
+
+function onKillerBuffChange() {
+    killerList.forEach(killer => {
+        let input = $('.killerBuffs.physical .' + killer + ' input');
+        let value = input.val() || 0;
+        if (value > 300) {
+            input.val(300);
+        }
+        input = $('.killerBuffs.magical .' + killer + ' input');
+        value = input.val() || 0;
+        if (value > 300) {
+            input.val(300);
+        }
+    });
+    readStatsValues();
+    logCurrentBuild();
+    updateKillerBuffSummary();
+}
+
+function updateKillerBuffSummary() {
+    let killerHtml = getKillerHtml(builds[currentUnitIndex].baseValues["killerBuffs"]);
+    $('.unit.panel .killerBuffsSummary .physical').html(killerHtml.physical);
+    $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
+}
+
 function inventoryLoaded() {
     dataStorage.itemInventory = itemInventory;
     $(".equipments select option[value=owned]").prop("disabled", false);
@@ -3880,6 +3950,7 @@ function startPage() {
     $(".unitStats .stat.mitigation .buff input").on('input',$.debounce(300,function() {onBuffChange("mitigation")}));
     $(".unitStats .stat.drawAttacks .buff input").on('input',$.debounce(300,function() {onBuffChange("drawAttacks")}));
     $(".unitStats .stat.lbDamage .buff input").on('input',$.debounce(300,function() {onBuffChange("lbDamage")}));
+    $(".killerBuffs input").on('input',$.debounce(300,function() {onKillerBuffChange();}));
     $(".unitStack input").on('input',$.debounce(300,function() {logCurrentBuild();}));
     $("#multicastSkillsDiv select").change(function() {customFormula = null; logCurrentBuild();});
     $("#paramChallengeSelect").change(function() {
