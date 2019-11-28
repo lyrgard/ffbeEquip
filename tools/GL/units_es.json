@@ -8319,6 +8319,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"enhancementSkills":["Siphon Sword","Hometown Survivor","Stunning Slash","Element Eiger","Crystal's Chosen One","Awakening","SPR +20%"],
 		"6_form": {
 			"name":"Machina",
 			"wikiEntry":"Machina",
@@ -8333,7 +8334,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","hat","clothes"]
+			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+			"enhancementSkills":["Siphon Sword","Hometown Survivor","Stunning Slash","Element Eiger","Crystal's Chosen One","Awakening","SPR +20%"]
 		}
 	},
 	"254001905": {
@@ -8350,6 +8352,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Zekken - Freezing Showers","Zekken - Cloudless Rain","Definitive Command","Instant Hellfreeze","Zekken - Sudden Downpour","Double Zekken","The Ice Reaper","Ice Magic Unleashed","Diamond Rain","Intimidating Stance"],
 		"6_form": {
 			"name":"Kurasame",
 			"wikiEntry":"Kurasame",
@@ -8364,7 +8367,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Zekken - Freezing Showers","Zekken - Cloudless Rain","Definitive Command","Instant Hellfreeze","Zekken - Sudden Downpour","Double Zekken","The Ice Reaper","Ice Magic Unleashed","Diamond Rain","Intimidating Stance"]
 		}
 	},
 	"254002004": {
@@ -8380,7 +8384,8 @@
 			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 		},
 		"stats_pattern":1,
-		"equip":["staff","rod","harp","hat","clothes","robe"]
+		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["Hymn of Healing","Acoustic Amplifier","Crescendo","Dissonant Sonata"]
 	},
 	"255000104": {
 		"name":"Malabarista",
@@ -11768,6 +11773,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Flash - Brilliance","Double Flash","Light Streak","Flash - Furious Radiance","Gift of Daylight","First Light","Wielder of Light","Daybringer"],
 		"6_form": {
 			"name":"Aurora Fryevia",
 			"wikiEntry":"Aurora_Fryevia",
@@ -11782,7 +11788,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Flash - Brilliance","Double Flash","Light Streak","Flash - Furious Radiance","Gift of Daylight","First Light","Wielder of Light","Daybringer"]
 		}
 	},
 	"401006505": {
@@ -12186,6 +12193,130 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401007905": {
+		"name":"Doctor Aiden",
+		"wikiEntry":"Doctor_Aiden",
+		"id":"401007905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4690,"mp":260,"atk":140,"def":167,"mag":182,"spr":215},
+			"minStats":{"hp":1548,"mp":86,"atk":46,"def":55,"mag":60,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Doctor Aiden",
+			"wikiEntry":"Doctor_Aiden",
+			"id":"401007905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3607,"mp":200,"atk":107,"def":128,"mag":140,"spr":165},
+				"minStats":{"hp":1190,"mp":66,"atk":35,"def":42,"mag":46,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"401008005": {
+		"name":"Agente Olivia",
+		"wikiEntry":"Agent_Olive",
+		"id":"401008005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4840,"mp":270,"atk":209,"def":188,"mag":150,"spr":192},
+			"minStats":{"hp":1597,"mp":89,"atk":69,"def":62,"mag":50,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Agente Olivia",
+			"wikiEntry":"Agent_Olive",
+			"id":"401008005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3723,"mp":207,"atk":160,"def":144,"mag":115,"spr":147},
+				"minStats":{"hp":1229,"mp":68,"atk":53,"def":48,"mag":38,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["axe","hammer","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"401008105": {
+		"name":"Xon, mente maestra",
+		"wikiEntry":"Mastermind_Xon",
+		"id":"401008105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4969,"mp":213,"atk":210,"def":181,"mag":134,"spr":181},
+			"minStats":{"hp":1640,"mp":70,"atk":69,"def":60,"mag":44,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","throwing","gun","fist","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Xon, mente maestra",
+			"wikiEntry":"Mastermind_Xon",
+			"id":"401008105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3822,"mp":163,"atk":161,"def":139,"mag":103,"spr":139},
+				"minStats":{"hp":1261,"mp":54,"atk":53,"def":46,"mag":34,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","whip","throwing","gun","fist","hat","clothes","lightArmor"]
+		}
+	},
+	"401008205": {
+		"name":"Operario Zyrus",
+		"wikiEntry":"Operative_Zyrus",
+		"id":"401008205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4715,"mp":306,"atk":137,"def":135,"mag":219,"spr":198},
+			"minStats":{"hp":1556,"mp":101,"atk":45,"def":45,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Operario Zyrus",
+			"wikiEntry":"Operative_Zyrus",
+			"id":"401008205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3627,"mp":236,"atk":106,"def":104,"mag":169,"spr":153},
+				"minStats":{"hp":1197,"mp":78,"atk":35,"def":34,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","lightArmor","robe"]
 		}
 	},
 	"401008405": {

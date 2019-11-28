@@ -11612,12 +11612,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+		"enhancementSkills":["Siphon Sword","Hometown Survivor","Stunning Slash","Element Eiger","Crystal's Chosen One","Awakening","SPR +20%"],
+		"enhancements": [
+			{"name":"Hometown Survivor","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"atk%":30,"hp%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"stop","percent":100}]}]]},
+			{"name":"Crystal's Chosen One","levels":[[{"lbPerTurn":{"min":1,"max":1},"equipedConditions":[["504228324","302006500"]]}],[{"lbPerTurn":{"min":1,"max":1},"skillEnhancement":{"228310":1.5,"508511":1.5,"708069":1.5,"708070":1.5,"913527":1.5,"913528":1.5},"dualWielding":{"atk":10},"equipedConditions":[["504228324","302006500"]]}],[{"spr%":20,"def%":20,"hp%":20,"lbPerTurn":{"min":1,"max":1},"skillEnhancement":{"228310":3.5,"508511":3.5,"708069":3.5,"708070":3.5,"913527":3.5,"913528":3.5},"dualWielding":{"atk":60},"equipedConditions":[["504228324","302006500"]]}]]},
+			{"name":"SPR +20%","levels":[[{"spr%":20,"levelCondition":115}],[{"spr%":30,"levelCondition":115}],[{"improvedDW":true,"levelCondition":115}]]}
+		],
 		"skills": [
-			{"hp%":30, "atk%":80, "def%":30, "evoMag":20, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]},
-			{"lbPerTurn":{"min":1,"max":1}, "equipedConditions":[["504228324","302006500"]]},
+			{"hp%":30, "atk%":80, "def%":30, "evoMag":20, "lbFillRate":100, "mpRefresh":5, "special":["dualWield"]},
 			{"mp%":20, "atk%":40, "levelCondition":110},
-			{"spr%":20, "levelCondition":115},
-			{"dualWielding":{"atk":40}, "mpRefresh":5, "skillEnhancement":{"228310":1.5,"228311":1.5,"228312":1.5,"228313":1.5,"508511":0.75}, "levelCondition":120}
+			{"dualWielding":{"atk":40}, "mpRefresh":5, "skillEnhancement":{"228310":1.5,"228311":1.5,"228312":1.5,"228313":1.5,"508511":0.75,"708065":1.5,"708066":1.5,"708067":1.5,"708068":1.5,"708069":1.5,"708070":1.5,"913527":0.75,"913528":0.75}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"馬其納",
@@ -11634,8 +11638,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","clothes"],
+			"enhancementSkills":["Siphon Sword","Hometown Survivor","Stunning Slash","Element Eiger","Crystal's Chosen One","Awakening","SPR +20%"],
+		"enhancements": [
+			{"name":"Hometown Survivor","levels":[[{"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}]}],[{"spr%":30,"def%":30,"atk%":30,"hp%":30,"resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100},{"name":"stop","percent":100}]}]]}
+		],
 			"skills": [
-				{"hp%":30, "atk%":80, "def%":30, "evoMag":20, "lbFillRate":100, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"disease","percent":100}], "mpRefresh":5, "special":["dualWield"]}
+				{"hp%":30, "atk%":80, "def%":30, "evoMag":20, "lbFillRate":100, "mpRefresh":5, "special":["dualWield"]}
 			]
 		}
 	},
@@ -11653,11 +11661,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["Zekken - Freezing Showers","Zekken - Cloudless Rain","Definitive Command","Instant Hellfreeze","Zekken - Sudden Downpour","Double Zekken","The Ice Reaper","Ice Magic Unleashed","Diamond Rain","Intimidating Stance"],
+		"enhancements": [
+			{"name":"The Ice Reaper","levels":[[{"mp%":20,"resist":[{"name":"ice","percent":50}],"replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"frames":[176],"move":"walk"},"equipedConditions":[["409023400","302006600"]]}],[{"mp%":50,"resist":[{"name":"ice","percent":50}],"replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 90% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913505","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain+1 (913505) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 120% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":45,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (45x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913505","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain+1 (913505) for one turn"}],"frames":[176],"move":"walk"},"mpRefresh":5,"equipedConditions":[["409023400","302006600"]]}],[{"spr%":30,"def%":30,"mp%":50,"hp%":30,"resist":[{"name":"ice","percent":50}],"replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":90},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 90% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster (can not be removed)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for 2 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913506","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain+2 (913506) for 2 turns"}],"maxEffects":[{"effect":{"imperil":{"ice":120},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 120% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":45,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (45x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster (can not be removed)"},{"effect":{"gainSkills":{"turns":2,"skills":[{"id":"unlocked839694120","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Cloudless Rain+1 (913509) / Cloudless Rain+2 (913510) / Freezing Showers (228332) / Freezing Showers+1 (913507) / Freezing Showers+2 (913508) / Sudden Downpour (228333) / Sudden Downpour+1 (708077) / Sudden Downpour+2 (708078) / Twilight Rain (508520) / Twilight Rain+1 (913505) / Twilight Rain+2 (913506)] for 2 turns"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"913506","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain+2 (913506) for 2 turns"}],"frames":[70,76,82,88,94,100,106,112,124,130,136,142,148,154,160,166],"move":"none"},"mpRefresh":5,"equipedConditions":[["409023400","302006600"]]}]]},
+			{"name":"Intimidating Stance","levels":[[{"mag%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50,"mag":50},"levelCondition":120}],[{"mag%":40,"atk%":40,"singleWielding":{"accuracy":25,"atk":100,"mag":100},"levelCondition":120}],[{"mag%":80,"atk%":80,"singleWielding":{"accuracy":25,"atk":150,"mag":150},"skillEnhancement":{"228331":7,"228332":7,"228333":7,"508520":10,"708077":7,"708078":7,"913505":10,"913506":10,"913507":7,"913508":7,"913509":7,"913510":7},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":20, "mp%":30, "atk%":80, "mag%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5},
-			{"mp%":20, "resist":[{"name":"ice","percent":50}], "replaceLb":{"name":"Absolute Zero","minEffects":[{"effect":{"imperil":{"ice":75},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 75% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":15.5,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (15.5x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked-1607344144","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"maxEffects":[{"effect":{"imperil":{"ice":100},"turns":2,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice by 100% for 2 turns to all enemies"},{"effect":{"damage":{"mecanism":"hybrid","coef":30,"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Hybrid ice damage (30x, ATK & MAG) to all enemies"},{"effect":{"statsBuff":{"atk":250,"mag":250},"turns":3,"area":"SELF","target":"SELF"},"desc":"Increase ATK and MAG by 250% for 3 turns to caster"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked-1607344144","name":"Triple Zekken"}]}},"desc":"Gain 3 uses of Zekken skills  [Cloudless Rain (228331) / Freezing Showers (228332) / Sudden Downpour (228333) / Twilight Rain (508520)] for one turn"},{"effect":{"gainSkills":{"turns":0,"skills":[{"id":"508520","name":"Zekken - Twilight Rain"}]},"area":"SELF","target":"SELF"},"desc":"Gain Zekken - Twilight Rain (508520) for one turn"}],"frames":[176],"move":"walk"}, "equipedConditions":[["409023400","302006600"]]},
-			{"def%":20, "levelCondition":115},
-			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"暮雨",
@@ -11674,6 +11685,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["Zekken - Freezing Showers","Zekken - Cloudless Rain","Definitive Command","Instant Hellfreeze","Zekken - Sudden Downpour","Double Zekken","The Ice Reaper","Ice Magic Unleashed","Diamond Rain","Intimidating Stance"],
 			"skills": [
 				{"hp%":20, "mp%":30, "atk%":80, "mag%":80, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"ice","percent":30}], "mpRefresh":5}
 			]
@@ -11693,9 +11705,12 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","harp","hat","clothes","robe"],
+		"enhancementSkills":["Hymn of Healing","Acoustic Amplifier","Crescendo","Dissonant Sonata"],
+		"enhancements": [
+			{"name":"Acoustic Amplifier","levels":[[{"equipedConditions":["harp"],"mag%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100}]},{"equipedConditions":["harp"],"def%":30,"mag%":30,"spr%":30}],[{"resist":[{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]},{"equipedConditions":["harp"],"hp%":30,"def%":30,"mag%":30,"spr%":30}]]}
+		],
 		"skills": [
-			{"hp%":20, "def%":10},
-			{"mag%":30, "spr%":30, "equipedConditions":["harp"]}
+			{"hp%":20, "def%":10}
 		]
 	},
 	"255000104": {
@@ -12264,7 +12279,8 @@
 		"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
 		"enhancements": [
 			{"name":"Cold and Confident","levels":[[{"mp%":30,"resist":[{"name":"ice","percent":20}]}],[{"mp%":30,"hp%":10,"resist":[{"name":"ice","percent":30}]}],[{"mp%":30,"hp%":30,"resist":[{"name":"ice","percent":50}]}]]},
-			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]},
+			{"name":"Aurora's Guidance","levels":[[],[{"skillEnhancement":{"910161":4,"911006":4,"911007":4,"911629":4,"911631":4,"911665":4}}],[{"skillEnhancement":{"910161":6,"911006":6,"911007":6,"911629":6,"911631":6,"911665":6},"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}]}],[{"skillEnhancement":{"910161":8,"911006":8,"911007":8,"911629":8,"911631":8,"911665":8},"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}],"singleWielding":{"accuracy":25,"atk":50,"mag":50}}]]}
 		],
 		"skills": [
 			{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
@@ -12293,7 +12309,8 @@
 			"enhancementSkills":["Cold and Confident","Duelist Pose","Second Intention","Frost Flower Blitz"],
 		"enhancements": [
 			{"name":"Cold and Confident","levels":[[{"mp%":30,"resist":[{"name":"ice","percent":20}]}],[{"mp%":30,"hp%":10,"resist":[{"name":"ice","percent":30}]}],[{"mp%":30,"hp%":30,"resist":[{"name":"ice","percent":50}]}]]},
-			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]}
+			{"name":"Duelist Pose","levels":[[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":50}}],[{"singleWieldingOneHanded":{"accuracy":25,"atk":100,"mag":100}}],[{"singleWielding":{"accuracy":25,"atk":100,"mag":100}},{"equipedConditions":["sword"],"atk%":30,"def%":30,"mag%":30,"spr%":30}]]},
+			{"name":"Aurora's Guidance","levels":[[],[{"skillEnhancement":{"910161":4,"911006":4,"911007":4,"911629":4,"911631":4,"911665":4}}],[{"skillEnhancement":{"910161":6,"911006":6,"911007":6,"911629":6,"911631":6,"911665":6},"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}]}],[{"skillEnhancement":{"910161":8,"911006":8,"911007":8,"911629":8,"911631":8,"911665":8},"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}],"singleWielding":{"accuracy":25,"atk":50,"mag":50}}]]}
 		],
 			"skills": [
 				{"mag%":30, "evade":{"physical":20,"magical":20}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
@@ -16335,12 +16352,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["Flash - Brilliance","Double Flash","Light Streak","Flash - Furious Radiance","Gift of Daylight","First Light","Wielder of Light","Daybringer"],
+		"enhancements": [
+			{"name":"Light Streak","levels":[[{"mag%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50,"mag":50},"lbFillRate":50,"equipedConditions":[["1100000219","1100000220"]]}],[{"mag%":30,"atk%":30,"singleWielding":{"accuracy":25,"atk":75,"mag":75},"lbFillRate":50,"equipedConditions":[["1100000219","1100000220"]]}],[{"mag%":50,"atk%":50,"singleWielding":{"accuracy":25,"atk":100,"mag":100},"lbFillRate":50,"equipedConditions":[["1100000219","1100000220"]]}]]},
+			{"name":"Wielder of Light","levels":[[{"spr%":20,"resist":[{"name":"light","percent":30}],"levelCondition":115}],[{"spr%":20,"mag%":20,"def%":20,"atk%":20,"mp%":20,"hp%":20,"resist":[{"name":"light","percent":50}],"levelCondition":115}],[{"spr%":50,"mag%":50,"def%":50,"atk%":50,"mp%":50,"hp%":50,"resist":[{"name":"light","percent":50}],"skillEnhancement":{"911665":6},"mpRefresh":5,"levelCondition":115}]]},
+			{"name":"Daybringer","levels":[[{"singleWielding":{"accuracy":25,"atk":30,"mag":30},"skillEnhancement":{"911642":2,"911645":2,"911651":2,"911654":2,"911657":2,"913483":2,"913484":2,"913489":2,"913490":2},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":30,"mag":30},"skillEnhancement":{"911642":6,"911643":6,"911645":2,"911651":2,"911654":2,"911657":2,"913483":2,"913484":2,"913489":2,"913490":2},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":50,"mag":50},"skillEnhancement":{"911642":6,"911643":6,"911645":5,"911651":15,"911654":15,"911657":5,"913483":5,"913484":5,"913489":5,"913490":5},"levelCondition":120}]]},
+			{"name":"Aurora's Bond","levels":[[],[{"spr%":30,"def%":30,"hp%":20}],[{"spr%":30,"def%":30,"hp%":20,"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}]}],[{"spr%":30,"def%":30,"hp%":20,"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}],"singleWielding":{"accuracy":25,"atk":50,"mag":50}}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":70, "mag%":70, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
-			{"atk%":30, "mag%":30, "equipedConditions":["sword"]},
-			{"atk%":20, "mag%":20, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "lbFillRate":50, "equipedConditions":[["1100000219","1100000220"]]},
-			{"spr%":20, "resist":[{"name":"light","percent":30}], "levelCondition":115},
-			{"singleWielding":{"accuracy":25,"atk":30,"mag":30}, "skillEnhancement":{"911642":2,"911645":2,"911651":2,"911654":2,"911657":2}, "levelCondition":120}
+			{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
 		],
 		"6_form": {
 			"name":"極光弗雷比亞",
@@ -16357,6 +16378,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["Flash - Brilliance","Double Flash","Light Streak","Flash - Furious Radiance","Gift of Daylight","First Light","Wielder of Light","Daybringer"],
+		"enhancements": [
+			{"name":"Aurora's Bond","levels":[[],[{"spr%":30,"def%":30,"hp%":20}],[{"spr%":30,"def%":30,"hp%":20,"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}]}],[{"spr%":30,"def%":30,"hp%":20,"killers":[{"name":"demon","physical":50,"magical":50},{"name":"human","physical":50,"magical":50}],"singleWielding":{"accuracy":25,"atk":50,"mag":50}}]]}
+		],
 			"skills": [
 				{"hp%":30, "mp%":30, "atk%":70, "mag%":40, "evade":{"physical":20,"magical":20}, "singleWielding":{"accuracy":25,"atk":50,"mag":50}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"demon","physical":50,"magical":50},{"name":"undead","physical":50,"magical":50}]},
 				{"atk%":30, "mag%":30, "equipedConditions":["sword"]}
@@ -17033,6 +17058,186 @@
 				{"def%":10, "spr%":10, "equipedConditions":["clothes"]},
 				{"def%":10, "spr%":10, "equipedConditions":["lightArmor"]},
 				{"def%":10, "spr%":10, "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"401007905": {
+		"name":"醫生艾迪恩",
+		"wikiEntry":"Doctor_Aiden",
+		"id":"401007905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4690,"mp":260,"atk":140,"def":167,"mag":182,"spr":215},
+			"minStats":{"hp":1548,"mp":86,"atk":46,"def":55,"mag":60,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":40, "mp%":30, "def%":50, "spr%":70, "evade":{"physical":20}, "singleWielding":{"spr":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":40},{"name":"dark","percent":40},{"name":"blind","percent":100},{"name":"sleep","percent":100}], "mpRefresh":7},
+			{"hp%":30, "mp%":30, "equipedConditions":["robe"]},
+			{"hp%":20, "spr%":20, "evade":{"magical":20}, "equipedConditions":[["1100000357","1100000358"]]},
+			{"spr%":20, "levelCondition":115},
+			{"spr%":40, "lbFillRate":50, "levelCondition":120},
+			{"spr%":20, "equipedConditions":["staff"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"醫生艾迪恩",
+			"wikiEntry":"Doctor_Aiden",
+			"id":"401007905",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3607,"mp":200,"atk":107,"def":128,"mag":140,"spr":165},
+				"minStats":{"hp":1190,"mp":66,"atk":35,"def":42,"mag":46,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","mace","lightShield","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":30, "def%":50, "spr%":70, "evade":{"physical":20}, "singleWielding":{"spr":50}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":40},{"name":"dark","percent":40},{"name":"blind","percent":100},{"name":"sleep","percent":100}], "mpRefresh":7},
+				{"hp%":30, "mp%":30, "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"401008005": {
+		"name":"特工奧利芙",
+		"wikiEntry":"Agent_Olive",
+		"id":"401008005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4840,"mp":270,"atk":209,"def":188,"mag":150,"spr":192},
+			"minStats":{"hp":1597,"mp":89,"atk":69,"def":62,"mag":50,"spr":63},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["axe","hammer","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":30, "def%":30, "spr%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"machine","physical":50}], "mpRefresh":7},
+			{"atk%":50, "equipedConditions":["gun"]},
+			{"def%":20, "spr%":20, "equipedConditions":["hat"]},
+			{"singleWielding":{"accuracy":25,"atk":100}, "skillEnhancement":{"913227":1,"913232":1,"913233":1,"913235":1,"913236":1,"913237":1,"913238":1}, "equipedConditions":[["1500000116","1100000361"]]},
+			{"atk%":50, "equipedConditions":["clothes",["1500000116","1100000361"]]},
+			{"atk%":50, "equipedConditions":["lightArmor",["1500000116","1100000361"]]},
+			{"def%":20, "levelCondition":115},
+			{"hp%":40, "mp%":40, "atk%":60, "levelCondition":120},
+			{"atk%":50, "equipedConditions":["gun"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"特工奧利芙",
+			"wikiEntry":"Agent_Olive",
+			"id":"401008005",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3723,"mp":207,"atk":160,"def":144,"mag":115,"spr":147},
+				"minStats":{"hp":1229,"mp":68,"atk":53,"def":48,"mag":38,"spr":49},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["axe","hammer","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":30, "def%":30, "spr%":30, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"machine","physical":50}], "mpRefresh":7},
+				{"atk%":50, "equipedConditions":["gun"]},
+				{"def%":20, "spr%":20, "equipedConditions":["hat"]}
+			]
+		}
+	},
+	"401008105": {
+		"name":"領導者索恩",
+		"wikiEntry":"Mastermind_Xon",
+		"id":"401008105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4969,"mp":213,"atk":210,"def":181,"mag":134,"spr":181},
+			"minStats":{"hp":1640,"mp":70,"atk":69,"def":60,"mag":44,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","whip","throwing","gun","fist","hat","clothes","lightArmor"],
+		"skills": [
+			{"hp%":40, "mp%":40, "atk%":70, "def%":20, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+			{"def%":30, "equipedConditions":["hat"]},
+			{"spr%":30, "equipedConditions":["clothes"]},
+			{"atk%":50, "equipedConditions":["dagger"]},
+			{"evade":{"physical":30}, "resist":[{"name":"stop","percent":100}], "skillEnhancement":{"913349":5,"913356":5,"913357":5,"913358":5,"913359":5,"913360":5,"913361":5,"913362":5,"913363":5,"913364":5}, "equipedConditions":[["1100000359","1100000360"]]},
+			{"def%":20, "levelCondition":115},
+			{"atk%":30, "dualWielding":{"atk":50}, "mpRefresh":10, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"領導者索恩",
+			"wikiEntry":"Mastermind_Xon",
+			"id":"401008105",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3822,"mp":163,"atk":161,"def":139,"mag":103,"spr":139},
+				"minStats":{"hp":1261,"mp":54,"atk":53,"def":46,"mag":34,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","whip","throwing","gun","fist","hat","clothes","lightArmor"],
+			"skills": [
+				{"hp%":40, "mp%":40, "atk%":70, "def%":20, "spr%":20, "evade":{"physical":20}, "dualWielding":{"atk":100}, "improvedDW":true, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "special":["dualWield"]},
+				{"def%":30, "equipedConditions":["hat"]},
+				{"spr%":30, "equipedConditions":["clothes"]},
+				{"atk%":50, "equipedConditions":["dagger"]}
+			]
+		}
+	},
+	"401008205": {
+		"name":"探員扎拉斯",
+		"wikiEntry":"Operative_Zyrus",
+		"id":"401008205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4715,"mp":306,"atk":137,"def":135,"mag":219,"spr":198},
+			"minStats":{"hp":1556,"mp":101,"atk":45,"def":45,"mag":72,"spr":65},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","mace","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"mp%":30, "def%":30, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"dragon","physical":25,"magical":50}], "mpRefresh":10},
+			{"mp%":20, "mag%":20, "equipedConditions":["robe"]},
+			{"hp%":20, "def%":20, "mag%":50, "spr%":20, "skillEnhancement":{"913429":1.5,"913433":1.5,"913447":1.5,"913450":1.5,"913454":1.5,"913468":1.5,"913469":1.5,"913470":1.5}, "equipedConditions":[["1500000121","1100000362"]]},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "mag%":30, "singleWielding":{"spr":50,"mag":50}, "levelCondition":120},
+			{"killers":[{"name":"dragon","magical":50}], "equipedConditions":["rod"], "levelCondition":120},
+			{"killers":[{"name":"machine","magical":25}], "equipedConditions":["rod"], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"探員扎拉斯",
+			"wikiEntry":"Operative_Zyrus",
+			"id":"401008205",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3627,"mp":236,"atk":106,"def":104,"mag":169,"spr":153},
+				"minStats":{"hp":1197,"mp":78,"atk":35,"def":34,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","mace","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"mp%":30, "def%":30, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"dragon","physical":25,"magical":50}], "mpRefresh":10},
+				{"mp%":20, "mag%":20, "equipedConditions":["robe"]}
 			]
 		}
 	},
