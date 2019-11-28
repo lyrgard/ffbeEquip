@@ -1451,6 +1451,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 123) {
         result = {"noUse":true};
         
+        // Auto KO
+    } else if (rawEffect[2] == 35) {
+        result = {"noUse":true};
+        
         // Dualcast
     } else if (rawEffect[2] == 45) {
         return {
