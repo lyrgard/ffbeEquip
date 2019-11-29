@@ -553,14 +553,14 @@ function getAccessHtml(item) {
         if (units[item.tmrUnit]) {
             html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
         } else {
-            html += '<div>TMR of not released yet unit</div>';
+            html += '<div>TMR of not released yet unit (' + item.tmrUnit + ')</div>';
         }
     }
     if (item.stmrUnit) {
         if (units[item.stmrUnit]) {
             html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
         } else {
-            html += '<div>STMR of not released yet unit</div>';
+            html += '<div>STMR of not released yet unit (' + item.stmrUnit + ')</div>';
         }
     }
     if (item.exclusiveUnits) {
@@ -571,7 +571,7 @@ function getAccessHtml(item) {
     }
     if (item.equipedConditions) {
         html += getEquipedConditionHtml(item);
-    }
+    } 
     html += "</div>";
     return html;
 }
@@ -1425,11 +1425,19 @@ function prepareSearch(data) {
                 }
             });
         }
-        if (item["tmrUnit"] && units[item["tmrUnit"]]) {
-            textToSearch += "|" + units[item["tmrUnit"]].name;
+        if (item["tmrUnit"]) {
+            if (units[item["tmrUnit"]]) {
+                textToSearch += "|" + units[item["tmrUnit"]].name;
+            } else {
+                textToSearch += "|" + item["tmrUnit"];
+            }
         }
-        if (item["stmrUnit"] && units[item["stmrUnit"]]) {
-            textToSearch += "|" + units[item["stmrUnit"]].name;
+        if (item["stmrUnit"]) {
+            if (units[item["stmrUnit"]]) {
+                textToSearch += "|" + units[item["stmrUnit"]].name;
+            } else {
+                textToSearch += "|" + item["stmrUnit"];
+            }
         }
         for (var index in item.access) {
             textToSearch += "|" + item.access[index];

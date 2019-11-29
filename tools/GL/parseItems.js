@@ -183,62 +183,95 @@ getData('equipment.json', function (items) {
                                                         request.get('https://raw.githubusercontent.com/aEnigmatic/ffbe-gl-strings/master/MST_MAGIC_SHORTDESCRIPTION.json', function (error, response, body) {
                                                             if (!error && response.statusCode == 200) {
                                                                 let magicDescTrads = JSON.parse(body);
-                                                                Object.keys(magicDescTrads).forEach(skillId => {
-                                                                    skillDescTrads[skillId] = magicDescTrads[skillId];
+                                                                fs.readFile('../../static/JP/data.json', function (err, content) {
+                                                                    var jpItems = JSON.parse(content);
+                                                                    fs.readFile('../../static/JP/units.json', function (err, content) {
+                                                                        var jpUnits = JSON.parse(content);
+                                                                        Object.keys(magicDescTrads).forEach(skillId => {
+                                                                            skillDescTrads[skillId] = magicDescTrads[skillId];
+                                                                        });
+
+                                                                        for (var index in oldItems) {
+                                                                            oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
+                                                                            if (oldItems[index].eventName) {
+                                                                                oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
+                                                                            } else if (oldItems[index].eventNames) {
+                                                                                oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
+                                                                            }
+                                                                            if (oldItems[index].maxNumber) {
+                                                                                oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
+                                                                            }
+                                                                            if (oldItems[index].wikiEntry) {
+                                                                                oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
+                                                                            }
+                                                                        }
+
+                                                                        for (languageId = 0; languageId < languages.length; languageId++) {
+
+                                                                            for (var unitIndex in units) {
+                                                                                var unit = units[unitIndex];
+                                                                                if (!unit.names) {
+                                                                                    continue;
+                                                                                }
+                                                                                unitNamesById[unitIndex] = {
+                                                                                    "name": unit.names[languageId],
+                                                                                    "minRarity": unit.rarity_min,
+                                                                                    "maxRarity": unit.rarity_max
+                                                                                };
+
+                                                                                if (unit.TMR) {
+                                                                                    unitIdByTmrId[unit.TMR[1]] = unitIndex;
+                                                                                }
+                                                                                if (unit.sTMR) {
+                                                                                    unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
+                                                                                }
+                                                                            }
+
+
+                                                                            var result = {"items": []};
+                                                                            for (var itemId in items) {
+                                                                                treatItem(items, itemId, result, skills);
+                                                                            }
+                                                                            for (var materiaId in materias) {
+                                                                                treatItem(materias, materiaId, result, skills);
+                                                                            }
+                                                                            console.log(skillNotIdentifiedNumber);
+                                                                            console.log(result.items.length);
+
+
+                                                                            let glItemIds = result.items.map(item => item.id);
+                                                                    
+                                                                    
+                                                                            
+                                                                            jpItems
+                                                                                .filter(item => !glItemIds.includes(item.id))
+                                                                                .forEach(item => {
+                                                                                if (item.type == 'materia' && (!item.special || !item.special.includes('notStackable'))) {
+                                                                                    if (!item.special) {
+                                                                                        item.special = [];
+                                                                                    }
+                                                                                    item.special.push('notStackable');
+                                                                                }
+                                                                                item.access.push('not released yet');
+                                                                                if (item.tmrUnit && jpUnits[item.tmrUnit]) {
+                                                                                    item.tmrUnit = jpUnits[item.tmrUnit].name;
+                                                                                }
+                                                                                if (item.stmrUnit && jpUnits[item.stmrUnit]) {
+                                                                                    item.stmrUnit = jpUnits[item.stmrUnit].name;
+                                                                                }
+                                                                                result.items.push(item);
+                                                                            });
+                                                                            
+                                                                            
+                                                                            var filename = 'data.json';
+                                                                            if (languageId != 0) {
+                                                                                filename = 'data_' + languages[languageId] + '.json';
+                                                                            }
+                                                                            fs.writeFileSync(filename, formatOutput(result.items));
+                                                                    
+                                                                        }
+                                                                    });
                                                                 });
-
-                                                                for (var index in oldItems) {
-                                                                    oldItemsAccessById[oldItems[index].id] = oldItems[index].access;
-                                                                    if (oldItems[index].eventName) {
-                                                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventName;
-                                                                    } else if (oldItems[index].eventNames) {
-                                                                        oldItemsEventById[oldItems[index].id] = oldItems[index].eventNames;
-                                                                    }
-                                                                    if (oldItems[index].maxNumber) {
-                                                                        oldItemsMaxNumberById[oldItems[index].id] = oldItems[index].maxNumber;
-                                                                    }
-                                                                    if (oldItems[index].wikiEntry) {
-                                                                        oldItemsWikiEntryById[oldItems[index].id] = oldItems[index].wikiEntry;
-                                                                    }
-                                                                }
-
-                                                                for (languageId = 0; languageId < languages.length; languageId++) {
-
-                                                                    for (var unitIndex in units) {
-                                                                        var unit = units[unitIndex];
-                                                                        if (!unit.names) {
-                                                                            continue;
-                                                                        }
-                                                                        unitNamesById[unitIndex] = {
-                                                                            "name": unit.names[languageId],
-                                                                            "minRarity": unit.rarity_min,
-                                                                            "maxRarity": unit.rarity_max
-                                                                        };
-
-                                                                        if (unit.TMR) {
-                                                                            unitIdByTmrId[unit.TMR[1]] = unitIndex;
-                                                                        }
-                                                                        if (unit.sTMR) {
-                                                                            unitIdBySTmrId[unit.sTMR[1]] = unitIndex;
-                                                                        }
-                                                                    }
-
-
-                                                                    var result = {"items": []};
-                                                                    for (var itemId in items) {
-                                                                        treatItem(items, itemId, result, skills);
-                                                                    }
-                                                                    for (var materiaId in materias) {
-                                                                        treatItem(materias, materiaId, result, skills);
-                                                                    }
-                                                                    console.log(skillNotIdentifiedNumber);
-                                                                    console.log(result.items.length);
-                                                                    var filename = 'data.json';
-                                                                    if (languageId != 0) {
-                                                                        filename = 'data_' + languages[languageId] + '.json';
-                                                                    }
-                                                                    fs.writeFileSync(filename, formatOutput(result.items));
-                                                                }
                                                             }
                                                         });
                                                     }
