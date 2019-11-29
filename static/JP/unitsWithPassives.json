@@ -5734,8 +5734,12 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["パイルショット","社交場の華","ソイルワークスII","バックウイスク","ダブルリバーススピン","Shall We Dance?"],
+		"enhancements": [
+			{"name":"社交場の華","levels":[[{"atk%":30,"resist":[{"name":"earth","percent":50}]}],[{"spr%":30,"def%":30,"atk%":30,"resist":[{"name":"earth","percent":50}]}],[{"spr%":30,"def%":30,"atk%":30,"resist":[{"name":"earth","percent":50}],"lbPerTurn":{"min":4,"max":4},"lbDamage":150}]]}
+		],
 		"skills": [
-			{"hp%":30, "mp%":20, "atk%":90, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"earth","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+			{"hp%":30, "mp%":20, "atk%":60, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 			{"atk%":50, "equipedConditions":["gun"]},
 			{"singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["504230242","313005400"]]},
 			{"spr%":20, "levelCondition":115},
@@ -5756,8 +5760,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["パイルショット","社交場の華","ソイルワークスII","バックウイスク","ダブルリバーススピン","Shall We Dance?"],
+		"enhancements": [
+			{"name":"社交場の華","levels":[[{"atk%":30,"resist":[{"name":"earth","percent":50}]}],[{"spr%":30,"def%":30,"atk%":30,"resist":[{"name":"earth","percent":50}]}],[{"spr%":30,"def%":30,"atk%":30,"resist":[{"name":"earth","percent":50}],"lbPerTurn":{"min":4,"max":4},"lbDamage":150}]]}
+		],
 			"skills": [
-				{"hp%":30, "mp%":20, "atk%":90, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"earth","percent":50},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
+				{"hp%":30, "mp%":20, "atk%":60, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10},
 				{"atk%":50, "equipedConditions":["gun"]}
 			]
 		}
@@ -5949,14 +5957,18 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","bow","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["ウィンタータイム","シャインタイム","シスターズ・レイジ","バトルサンタ","クリスマスバレット","元傭兵＆元諜報員"],
+		"enhancements": [
+			{"name":"バトルサンタ","levels":[[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":50}]}],[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":75}]}],[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":100}]}]]},
+			{"name":"元傭兵＆元諜報員","levels":[[{"mp%":20,"hp%":20,"special":["dualWield"],"dualWielding":{"atk":50},"levelCondition":110}],[{"mp%":20,"hp%":20,"special":["dualWield"],"dualWielding":{"atk":75},"levelCondition":110}],[{"mp%":20,"hp%":20,"special":["dualWield"],"dualWielding":{"atk":100},"levelCondition":110}]]}
+		],
 		"skills": [
-			{"hp%":20, "mp%":20, "atk%":70, "def%":50, "spr%":20, "improvedDW":true, "partialDualWield":["dagger","gun"], "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"human","physical":100}], "mpRefresh":10},
+			{"hp%":20, "atk%":50, "def%":30, "improvedDW":true, "partialDualWield":["dagger","gun"], "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":10},
 			{"atk%":20, "spr%":20, "equipedConditions":["dagger"]},
 			{"atk%":20, "def%":20, "equipedConditions":["gun"]},
 			{"atk%":30, "equipedConditions":["dagger"]},
 			{"atk%":30, "equipedConditions":["gun"]},
-			{"atk%":30, "skillEnhancement":{"230895":5.5,"230901":2.5,"230902":2.5}, "equipedConditions":[["504230834","313005700"]]},
-			{"hp%":20, "mp%":20, "dualWielding":{"atk":50}, "special":["dualWield"], "levelCondition":110},
+			{"atk%":30, "skillEnhancement":{"230895":5.5,"230901":2.5,"230902":2.5,"708297":5.5,"708298":5.5}, "equipedConditions":[["504230834","313005700"]]},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":40, "lbPerTurn":{"min":5,"max":5}, "levelCondition":120}
 		],
@@ -5975,8 +5987,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","bow","whip","throwing","gun","fist","lightShield","hat","clothes"],
+			"enhancementSkills":["ウィンタータイム","シャインタイム","シスターズ・レイジ","バトルサンタ","クリスマスバレット","元傭兵＆元諜報員"],
+		"enhancements": [
+			{"name":"バトルサンタ","levels":[[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":50}]}],[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":75}]}],[{"spr%":20,"def%":20,"atk%":20,"mp%":20,"resist":[{"name":"ice","percent":30},{"name":"light","percent":30}],"killers":[{"name":"human","physical":100}]}]]}
+		],
 			"skills": [
-				{"hp%":20, "mp%":20, "atk%":70, "def%":50, "spr%":20, "improvedDW":true, "partialDualWield":["dagger","gun"], "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"human","physical":100}], "mpRefresh":10},
+				{"hp%":20, "atk%":50, "def%":30, "improvedDW":true, "partialDualWield":["dagger","gun"], "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50}], "mpRefresh":10},
 				{"atk%":20, "spr%":20, "equipedConditions":["dagger"]},
 				{"atk%":20, "def%":20, "equipedConditions":["gun"]},
 				{"atk%":30, "equipedConditions":["dagger"]},
@@ -14596,6 +14612,149 @@
 				{"hp%":20, "atk%":20, "def%":20, "equipedConditions":["greatSword"]}
 			]
 		}
+	},
+	"250000105": {
+		"name":"Serah",
+		"jpname":"セラ",
+		"id":"250000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
+			"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+		"skills": [
+			{"hp%":50, "mp%":40, "def%":20, "mag%":100, "spr%":50, "singleWielding":{"mag":125}, "resist":[{"name":"lightning","percent":30},{"name":"ice","percent":30}], "killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}], "mpRefresh":5},
+			{"mag%":60, "singleWielding":{"mag":100}, "equipedConditions":[["312003400","504234201"]]},
+			{"def%":20, "levelCondition":115},
+			{"mp%":20, "def%":20, "skillEnhancement":{"234210":5,"234211":5,"234212":5,"234214":5,"234216":5,"234217":5,"234218":5,"234220":5,"234224":5}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Serah",
+			"jpname":"セラ",
+			"id":"250000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3573,"mp":216,"atk":116,"def":123,"mag":167,"spr":158},
+				"minStats":{"hp":1179,"mp":71,"atk":38,"def":41,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+			"skills": [
+				{"hp%":50, "mp%":40, "def%":20, "mag%":100, "spr%":50, "singleWielding":{"mag":125}, "resist":[{"name":"lightning","percent":30},{"name":"ice","percent":30}], "killers":[{"name":"bird","magical":75},{"name":"aquatic","magical":75}], "mpRefresh":5}
+			]
+		}
+	},
+	"250000205": {
+		"name":"Lightning (FFXIII-2)",
+		"jpname":"ライトニング(FFXIII-2)",
+		"id":"250000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5007,"mp":228,"atk":165,"def":180,"mag":141,"spr":215},
+			"minStats":{"hp":1652,"mp":75,"atk":54,"def":59,"mag":47,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":70, "mp%":20, "def%":30, "spr%":80, "evade":{"magical":10}, "resist":[{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":3, "drawAttacks":50},
+			{"equipedConditions":[["504234204","302011900"]]},
+			{"mp%":40, "spr%":40, "lbFillRate":100, "esperStatsBonus":{"Odin":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}, "levelCondition":110},
+			{"mp%":20, "levelCondition":115},
+			{"hp%":40, "def%":40, "spr%":40, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Lightning (FFXIII-2)",
+			"jpname":"ライトニング(FFXIII-2)",
+			"id":"250000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3851,"mp":175,"atk":126,"def":138,"mag":108,"spr":165},
+				"minStats":{"hp":1271,"mp":58,"atk":42,"def":46,"mag":36,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":70, "mp%":20, "def%":30, "spr%":80, "evade":{"magical":10}, "resist":[{"name":"lightning","percent":50},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":3, "drawAttacks":50}
+			]
+		}
+	},
+	"250000305": {
+		"name":"Noel",
+		"jpname":"ノエル",
+		"id":"250000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4853,"mp":244,"atk":209,"def":190,"mag":156,"spr":177},
+			"minStats":{"hp":1601,"mp":81,"atk":69,"def":63,"mag":51,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":80, "mp%":20, "atk%":100, "def%":20, "spr%":50, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+			{"mp%":20, "equipedConditions":["sword"]},
+			{"def%":20, "equipedConditions":["spear"]},
+			{"atk%":70, "dualWielding":{"atk":50}, "replaceLb":{"name":"メテオジャベリン","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":22.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (22.1x * 2 = 44.2x, ATK) to all enemies (ignore cover)"},{"effect":{"killers":[{"name":"machine","physical":150},{"name":"dragon","physical":150}],"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas and Dragons by 150% to caster for 4 turns"},{"effect":{"skillEnhancement":{"234241":5,"234242":5,"234243":5,"234244":5,"234245":5,"234246":5,"234247":5,"234249":5,"234253":5,"511600":5,"511601":5},"turn":4},"desc":"Increase damage of アルテマジャベリン (511601), オクタスラスト (234253), スプラッシュブロウ (234242), スマッシュアッパー (234245), ソニックファング【ウリディシム】 (234243), ドリルブロウ【フェヒター型】 (234244), フラッドジャベリン (234247), フリーズジャベリン (234246), フロストブロウ (234241), ラストハンター (511600) and 有害物質注入【デンドロビウム】 (234249) by 500% for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (25x * 2 = 50x, ATK) to all enemies (ignore cover)"},{"effect":{"killers":[{"name":"machine","physical":150},{"name":"dragon","physical":150}],"turns":4,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Machinas and Dragons by 150% to caster for 4 turns"},{"effect":{"skillEnhancement":{"234241":5,"234242":5,"234243":5,"234244":5,"234245":5,"234246":5,"234247":5,"234249":5,"234253":5,"511600":5,"511601":5},"turn":4},"desc":"Increase damage of アルテマジャベリン (511601), オクタスラスト (234253), スプラッシュブロウ (234242), スマッシュアッパー (234245), ソニックファング【ウリディシム】 (234243), ドリルブロウ【フェヒター型】 (234244), フラッドジャベリン (234247), フリーズジャベリン (234246), フロストブロウ (234241), ラストハンター (511600) and 有害物質注入【デンドロビウム】 (234249) by 500% for 4 turns"}],"frames":[115,135,155,175],"move":"walk"}, "equipedConditions":[["308006400","504234202"]]},
+			{"def%":20, "levelCondition":115},
+			{"mp%":30, "atk%":30, "spr%":30, "lbDamage":50, "skillEnhancement":{"234241":2,"234242":2,"234243":2,"234244":2,"234245":2,"234246":2,"234247":2,"234249":2,"234253":2,"511600":2,"511601":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Noel",
+			"jpname":"ノエル",
+			"id":"250000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3733,"mp":187,"atk":160,"def":146,"mag":120,"spr":136},
+				"minStats":{"hp":1232,"mp":62,"atk":53,"def":48,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":80, "mp%":20, "atk%":100, "def%":20, "spr%":50, "dualWielding":{"atk":100}, "improvedDW":true, "lbFillRate":100, "resist":[{"name":"fire","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "mpRefresh":5, "special":["dualWield"]},
+				{"mp%":20, "equipedConditions":["sword"]},
+				{"def%":20, "equipedConditions":["spear"]}
+			]
+		}
+	},
+	"250000404": {
+		"name":"Hope (FFXIII-2)",
+		"jpname":"ホープ(FFXIII-2)",
+		"id":"250000404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3548,"mp":174,"atk":137,"def":133,"mag":123,"spr":132},
+			"minStats":{"hp":1171,"mp":57,"atk":45,"def":44,"mag":41,"spr":44},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":20, "mag%":70, "spr%":40, "mpRefresh":3}
+		]
 	},
 	"253000105": {
 		"name":"Ramza",

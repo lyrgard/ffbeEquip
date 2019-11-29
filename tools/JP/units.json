@@ -4112,6 +4112,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["パイルショット","社交場の華","ソイルワークスII","バックウイスク","ダブルリバーススピン","Shall We Dance?"],
 		"6_form": {
 			"name":"Dressy Aileen",
 			"jpname":"ドレスアップアイリーン",
@@ -4126,7 +4127,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["パイルショット","社交場の華","ソイルワークスII","バックウイスク","ダブルリバーススピン","Shall We Dance?"]
 		}
 	},
 	"100022104": {
@@ -4267,6 +4269,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","bow","whip","throwing","gun","fist","lightShield","hat","clothes"],
+		"enhancementSkills":["ウィンタータイム","シャインタイム","シスターズ・レイジ","バトルサンタ","クリスマスバレット","元傭兵＆元諜報員"],
 		"6_form": {
 			"name":"Holy Night Amelia & Emilia",
 			"jpname":"聖夜のアメリア&エミリア",
@@ -4281,7 +4284,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","bow","whip","throwing","gun","fist","lightShield","hat","clothes"]
+			"equip":["dagger","sword","bow","whip","throwing","gun","fist","lightShield","hat","clothes"],
+			"enhancementSkills":["ウィンタータイム","シャインタイム","シスターズ・レイジ","バトルサンタ","クリスマスバレット","元傭兵＆元諜報員"]
 		}
 	},
 	"100022805": {
@@ -10013,6 +10017,114 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","hat","helm","clothes","lightArmor"]
 		}
+	},
+	"250000105": {
+		"name":"Serah",
+		"jpname":"セラ",
+		"id":"250000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4645,"mp":282,"atk":151,"def":160,"mag":218,"spr":206},
+			"minStats":{"hp":1533,"mp":93,"atk":50,"def":53,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"],
+		"6_form": {
+			"name":"Serah",
+			"jpname":"セラ",
+			"id":"250000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3573,"mp":216,"atk":116,"def":123,"mag":167,"spr":158},
+				"minStats":{"hp":1179,"mp":71,"atk":38,"def":41,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","greatSword","rod","bow","hat","clothes","robe"]
+		}
+	},
+	"250000205": {
+		"name":"Lightning (FFXIII-2)",
+		"jpname":"ライトニング(FFXIII-2)",
+		"id":"250000205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5007,"mp":228,"atk":165,"def":180,"mag":141,"spr":215},
+			"minStats":{"hp":1652,"mp":75,"atk":54,"def":59,"mag":47,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Lightning (FFXIII-2)",
+			"jpname":"ライトニング(FFXIII-2)",
+			"id":"250000205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3851,"mp":175,"atk":126,"def":138,"mag":108,"spr":165},
+				"minStats":{"hp":1271,"mp":58,"atk":42,"def":46,"mag":36,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","spear","gun","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"250000305": {
+		"name":"Noel",
+		"jpname":"ノエル",
+		"id":"250000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4853,"mp":244,"atk":209,"def":190,"mag":156,"spr":177},
+			"minStats":{"hp":1601,"mp":81,"atk":69,"def":63,"mag":51,"spr":58},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Noel",
+			"jpname":"ノエル",
+			"id":"250000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3733,"mp":187,"atk":160,"def":146,"mag":120,"spr":136},
+				"minStats":{"hp":1232,"mp":62,"atk":53,"def":48,"mag":40,"spr":45},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","bow","axe","hammer","spear","whip","throwing","mace","fist","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"250000404": {
+		"name":"Hope (FFXIII-2)",
+		"jpname":"ホープ(FFXIII-2)",
+		"id":"250000404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3548,"mp":174,"atk":137,"def":133,"mag":123,"spr":132},
+			"minStats":{"hp":1171,"mp":57,"atk":45,"def":44,"mag":41,"spr":44},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"]
 	},
 	"253000105": {
 		"name":"Ramza",
