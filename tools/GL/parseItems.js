@@ -253,12 +253,7 @@ getData('equipment.json', function (items) {
                                                                                     item.special.push('notStackable');
                                                                                 }
                                                                                 item.access.push('not released yet');
-                                                                                if (item.tmrUnit && jpUnits[item.tmrUnit]) {
-                                                                                    item.tmrUnit = jpUnits[item.tmrUnit].name;
-                                                                                }
-                                                                                if (item.stmrUnit && jpUnits[item.stmrUnit]) {
-                                                                                    item.stmrUnit = jpUnits[item.stmrUnit].name;
-                                                                                }
+
                                                                                 result.items.push(item);
                                                                             });
                                                                             

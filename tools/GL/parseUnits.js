@@ -112,33 +112,81 @@ getData('units.json', function (units) {
                                                     latentSkillsByUnitId[unitId].push(latentSkill.skill_id.toString());
                                                 }
                                             });
-                                            for (languageId = 0; languageId < languages.length; languageId++) {
 
-                                                var unitsOut = {};
-                                                for (var unitId in units) {
-                                                    var unitIn = units[unitId];
-                                                    if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name && !filterUnits.includes(unitId)) {
-                                                        var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, latentSkillsByUnitId);
-                                                        unitsOut[unitOut.data.id] = unitOut.data;
-                                                    }
-                                                }
-
-                                                var filename = 'unitsWithPassives.json';
-                                                if (languageId != 0) {
-                                                    filename = 'unitsWithPassives_' + languages[languageId] + '.json';
-                                                }
-                                                fs.writeFileSync(filename, commonParse.formatOutput(unitsOut));
-                                                filename = 'units.json';
-                                                if (languageId != 0) {
-                                                    filename = 'units_' + languages[languageId] + '.json';
-                                                }
-                                                fs.writeFileSync(filename, commonParse.formatSimpleOutput(unitsOut));
-
-                                                if (languageId == 0) {
-                                                    fs.writeFileSync('unitSearch.json', commonParse.formatForSearch(unitsOut));
-                                                    fs.writeFileSync('unitsWithSkill.json', commonParse.formatForSkills(unitsOut));
+                                            let unitIds = [];
+                                            for (var unitId in units) {
+                                                var unitIn = units[unitId];
+                                                if (!filterGame.includes(unitIn["game_id"]) && !unitId.startsWith("9") && unitIn.name && !filterUnits.includes(unitId)) {
+                                                    unitIds.push(unitId);
                                                 }
                                             }
+
+                                            fs.readFile('../../static/JP/units.json', function (err, content) {
+                                                let jpUnits = JSON.parse(content);
+                                                let jpUnitsString = Object.keys(jpUnits)
+                                                    .filter(unitId => !unitIds.includes(unitId))
+                                                    .map(unitId => '  "' + unitId + '":' + JSON.stringify(jpUnits[unitId]))
+                                                    .join(',\n');
+                                                fs.readFile('../../static/JP/unitsWithPassives.json', function (err, content) {
+                                                    let jpUnitsWithPassive = JSON.parse(content);
+                                                    let jpUnitsWithPassiveString = Object.keys(jpUnitsWithPassive)
+                                                        .filter(unitId => !unitIds.includes(unitId))
+                                                        .map(unitId => '  "' + unitId + '":' + JSON.stringify(jpUnitsWithPassive[unitId]))
+                                                        .join(',\n');
+                                                    fs.readFile('../../static/JP/unitsWithSkill.json', function (err, content) {
+                                                        let jpUnitsWithSkill = JSON.parse(content);
+                                                        let jpUnitsWithSkillString = Object.keys(jpUnitsWithSkill)
+                                                            .filter(unitId => !unitIds.includes(unitId))
+                                                            .map(unitId => '  "' + unitId + '":' + JSON.stringify(jpUnitsWithSkill[unitId]))
+                                                            .join(',\n');
+                                                        fs.readFile('../../static/JP/unitSearch.json', function (err, content) {
+                                                            let jpUnitSearch = JSON.parse(content);
+                                                            let jpUnitSearchString = jpUnitSearch
+                                                                .filter(entry => !unitIds.includes(entry.id))
+                                                                .map(entry => ' ' + JSON.stringify(entry))
+                                                                .join(',\n');
+
+
+
+                                                            for (languageId = 0; languageId < languages.length; languageId++) {
+
+                                                                var unitsOut = {};
+                                                                unitIds.forEach(unitId => {
+                                                                    var unitIn = units[unitId];
+                                                                    var unitOut = treatUnit(unitId, unitIn, skills, lbs, enhancementsByUnitId, jpUnits, latentSkillsByUnitId);
+                                                                    unitsOut[unitOut.data.id] = unitOut.data;
+                                                                });
+
+                                                                var filename = 'unitsWithPassives.json';
+                                                                if (languageId != 0) {
+                                                                    filename = 'unitsWithPassives_' + languages[languageId] + '.json';
+                                                                }
+                                                                let string = commonParse.formatOutput(unitsOut);
+                                                                string = string.substr(0, string.length - 1) + ',\n' + jpUnitsWithPassiveString + '\n}';
+                                                                fs.writeFileSync(filename, string);
+                                                                filename = 'units.json';
+                                                                if (languageId != 0) {
+                                                                    filename = 'units_' + languages[languageId] + '.json';
+                                                                }
+                                                                string = commonParse.formatSimpleOutput(unitsOut);
+                                                                string = string.substr(0, string.length - 1) + ',\n' + jpUnitsString + '\n}';
+                                                                fs.writeFileSync(filename, string);
+
+                                                                if (languageId == 0) {
+                                                                    string = commonParse.formatForSearch(unitsOut);
+                                                                    string = string.substr(0, string.length - 1) + ',\n' + jpUnitSearchString + '\n]';
+                                                                    fs.writeFileSync('unitSearch.json', string);
+
+                                                                    string = commonParse.formatForSkills(unitsOut);
+                                                                    string = string.substr(0, string.length - 1) + ',\n' + jpUnitsWithSkillString + '\n}';
+                                                                    fs.writeFileSync('unitsWithSkill.json', string);
+                                                                }
+                                                            }
+
+                                                        });
+                                                    });
+                                                });
+                                            });
                                         });
                                     });
                                 }

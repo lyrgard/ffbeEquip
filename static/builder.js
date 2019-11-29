@@ -1054,7 +1054,7 @@ function getUnitSelectOptions() {
         if (displayOnly7StarsUnits && units[value].max_rarity != 7) {
             return;
         }
-        options += '<option value="'+ value + '">' + units[value].name + (!displayOnly7StarsUnits && units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  (units[value].unreleased7Star ? ' - JP data' : "") + '</option>';
+        options += '<option value="'+ value + '">' + units[value].name + (!displayOnly7StarsUnits && units[value]["6_form"] ? ' ' + units[value].max_rarity + '★ ' : "") +  ((units[value].unreleased7Star || units[value].jpname) ? ' - JP data' : "") + '</option>';
         if (!displayOnly7StarsUnits && units[value]["6_form"]) {
             options += '<option value="'+ value + '-6">' + units[value]["6_form"].name + ' 6★</option>';
         }
