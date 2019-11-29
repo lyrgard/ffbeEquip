@@ -645,7 +645,7 @@ class DataStorage {
                 totalNumber += ownedUnits[item.tmrUnit].tmrMoogles.length;
             }
         }
-        if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial")) {
+        if (this.includeTrialRewards && totalNumber == 0 && item.access.includes("trial") && (!item.access.includes('not released yet') || !this.excludeNotReleasedYet )) {
             totalNumber += 1;
         }
         if (this.includeEasilyObtainableItems && totalNumber == 0 && item.access.some(type => DATA_STORAGE_EASILY_OBTAINABLE_ITEMS.includes(type))) {
