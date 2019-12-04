@@ -1,0 +1,30 @@
+{
+
+	"777700004": {
+		"name":"TBD",
+		"id":"777700004",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4000,"mp":200,"atk":150,"def":130,"mag":150,"spr":130},
+			"minStats":{"hp":1500,"mp":50,"atk":50,"def":40,"mag":50,"spr":40},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"lb": {"name":"Shining Nova","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.7,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Physical fire damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.9,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Physical fire damage (3.9x, ATK) to all enemies"}],"frames":[3,42],"move":"walk"},
+		"passives": [
+			{"name":"Resistance Training","id":"777001","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}],"rarity":4,"level":5},
+            {"name":"Mind Training","id":"777002","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}],"rarity":4,"level":10},
+            {"name":"Strenght Training","id":"777003","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}],"rarity":4,"level":15},
+            {"name":"Magical Training","id":"777004","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}],"rarity":4,"level":20},
+            {"name":"Defensive Training","id":"777005","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}],"rarity":4,"level":25},
+            {"name":"Mind Shield Training","id":"777006","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase SPR by 30%"}],"rarity":4,"level":30}
+		],
+		"actives": [
+		],
+		"magics": [
+		]
+	}
+}
