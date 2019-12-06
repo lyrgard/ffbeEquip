@@ -314,7 +314,7 @@ class BuildOptimizer {
                 });
             }
         }
-        if (index == 0 || (index == 1 && typeCombination[0] === typeCombination[1]) || index == 2 || index == 3 || index == 4 || index == 6) {
+        if (index == 0 || (index == 1 && typeCombination[0] !== typeCombination[1]) || index == 2 || index == 3 || index == 4 || index == 6) {
             alreadyTriedGroupIds = [];
         }
 
@@ -401,7 +401,7 @@ class BuildOptimizer {
 
     tryEsper(build, esper, fixedItems) {
         build[10] = esper;
-
+        
         var value = calculateBuildValueWithFormula(build, this._unitBuild, this.ennemyStats, this._unitBuild.formula, this.goalVariation, this.useNewJpDamageFormula);
         if ((value != -1 && this._unitBuild.buildValue[this.goalVariation] == -1) || value[this.goalVariation] > this._unitBuild.buildValue[this.goalVariation]) {
             

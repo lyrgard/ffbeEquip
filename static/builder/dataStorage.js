@@ -486,7 +486,7 @@ class DataStorage {
                 if (item.meanDamageVariance && item.meanDamageVariance > 1) return true;
             } else {
                 if (getValue(item, stats[index]) > 0) return true;
-                if (item["total_" + stats[index]]) return true;
+                if (item[stats[index] + '%'] && item[stats[index] + '%'] > 0) return true;
                 if (item.singleWielding && item.singleWielding[stats[index]]) return true;
                 if (item.singleWieldingGL && item.singleWieldingGL[stats[index]]) return true;
                 if (item.singleWieldingOneHanded && item.singleWieldingOneHanded[stats[index]]) return true;
