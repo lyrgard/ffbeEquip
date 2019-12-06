@@ -989,6 +989,7 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
                 }]
             }
         }
+        return [result]
     
     // Dual Black Magic
     } else if (rawEffect[2] == 44) {
@@ -1002,27 +1003,28 @@ function parsePassiveRawEffet(rawEffect, skillId, skills, unit, lbs) {
     // Skill multicast
     } else if (rawEffect[2] == 53) {
         
-//        result = {
-//            "multicast": {
-//                "time": rawEffect[3][0],
-//                "type": "skills",
-//                "skills":[]
-//            }
-//        }
-//        for (var i = 0, len = rawEffect[3][3].length; i < len; i++) {
-//            var skill = skills[rawEffect[3][3][i]];
-//            if (!skill) {
-//                console.log('Unknown skill : ' + rawEffect[3][3][i] + ' - ' + JSON.stringify(rawEffect));
-//                continue;
-//            }
-//            result.multicast.skills.push({"id": rawEffect[3][3][i].toString(), "name":skill.name});
-//        }
         
         let gainedSkillId = rawEffect[3][1].toString();
         let gainedSkillIn = skills[gainedSkillId];
         let gainedSkill = parseActiveSkill(gainedSkillId, gainedSkillIn, skills, unit);
+        
+        let gainedEffect = parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId);
+        gainedSkill.effects[0].effect = gainedEffect;
+                
+        addUnlockedSkill(gainedSkillId, gainedSkill, unit);
 
-        return gainedSkill.effects.map(effect => effect.effect);
+        result = {
+            "gainSkills": {
+                "skills": [{
+                    "id": gainedSkillId,
+                    "name": gainedSkill.name
+                }]
+            }
+        }
+        
+        return [result];
+
+        //return gainedSkill.effects.map(effect => effect.effect);
         
     // Replace LB
     } else if (rawEffect[2] == 72) {
