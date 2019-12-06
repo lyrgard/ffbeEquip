@@ -834,9 +834,9 @@ function getSkillIds(formula) {
 }
 
 function getMulticastSkillAbleToMulticast(skills, unit) {
-    var passiveAndActives = unit.actives.concat(unit.passives);
-    for (var i = passiveAndActives.length; i--;) {
-        var skill = passiveAndActives[i];
+    var actives = unit.actives;
+    for (var i = actives.length; i--;) {
+        var skill = actives[i];
         var multicastEffect;
         for (var j = skill.effects.length; j--;) {
             if (skill.effects[j].effect && skill.effects[j].effect.multicast) {

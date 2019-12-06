@@ -1381,10 +1381,6 @@ function updateSkillSelectOptions(skillSelect) {
                         skillSelect.append(option);
                     }
                 }
-                if (effect && effect.multicast) {
-                    var option = '<option value="MULTICAST_' + passive.id + '">' + passive.name +'</option>';
-                    skillSelect.append(option);
-                }
             }
         }
         for (var skillIndex = unitWithSkills.actives.length; skillIndex--;) {

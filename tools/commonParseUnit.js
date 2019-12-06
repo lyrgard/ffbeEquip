@@ -1532,9 +1532,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 100) {
         result = {
             "gainSkills": {
-                "turns": rawEffect[3][4] - 1,
                 "skills": []
             }
+        }
+        if (rawEffect > 1) {
+           result.gainSkills.turns = rawEffect[3][3] - 1;
         }
         var gainedSkillIds;
         if (Array.isArray(rawEffect[3][1])) {

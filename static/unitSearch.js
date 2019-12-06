@@ -665,11 +665,13 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
                 html += getSkillHtml(skill.effects[j].effect.autoCastedSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
                 html += '</div>';
             } else if (skill.effects[j].effect && skill.effects[j].effect.gainSkills) {
-                html += '<span class="effect">Gain for ';
-                if (skill.effects[j].effect.gainSkills.turns === 0) {
-                    html += 'current turn'
-                } else {
-                    html += skill.effects[j].effect.gainSkills.turns + ' turns';
+                html += '<span class="effect">Gain ';
+                if (typeof skill.effects[j].effect.gainSkills.turns !== 'undefined') {
+                    if (skill.effects[j].effect.gainSkills.turns === 0) {
+                        html += 'for current turn'
+                    } else {
+                        html += 'for ' + skill.effects[j].effect.gainSkills.turns + ' turns';
+                    }
                 }
                 html += ':</span>';
                 let skillId = skill.id;
