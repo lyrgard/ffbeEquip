@@ -377,6 +377,16 @@ function getSpecialHtml(item) {
     if (item.breakability && (item.breakability.atk || item.breakability.def || item.breakability.mag || item.breakability.spr)) {
         special += '<li>Vulnerable to <span class="uppercase">' + baseStats.filter(s => item.breakability[s]).join("/") + '</span> breaks</li>';
     }
+    if (item.skills) {
+        item.skills.forEach(skill => {
+            special += '<li><img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+        });
+    }
+    if (item.autoCastedSkills) {
+        item.autoCastedSkills.forEach(skill => {
+            special += '<li>Cast at start of battle or when revived: <img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+        });
+    }
     if (item.special) {
         $(item.special).each(function (index, itemSpecial) {
             if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {

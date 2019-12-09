@@ -3960,7 +3960,7 @@
 		}
 	},
 	"100021203": {
-		"name":"Gudon",
+		"name":"Gudon of the Xi Star",
 		"jpname":"十四闘星のグドン",
 		"id":"100021203",
 		"max_rarity":"5",
@@ -4304,7 +4304,7 @@
 		"equip":["dagger","throwing","gun","hat","helm","clothes","lightArmor"],
 		"enhancementSkills":["局所アイスチャージャー","F型最強アイス弾","終わりなき成長期","いっぱい鍛える","友だち作戦 －変顔にらめっこ－","タイプ・ハンティング"],
 		"6_form": {
-			"name":"Faisalith",
+			"name":"Physalis",
 			"jpname":"ファイサリス",
 			"id":"100022805",
 			"sixStarForm":true,
@@ -4322,7 +4322,7 @@
 		}
 	},
 	"100022904": {
-		"name":"Juraga",
+		"name":"Juraga of the Nu Star",
 		"jpname":"十三闘星のジュラガ",
 		"id":"100022904",
 		"max_rarity":"6",
@@ -5534,6 +5534,68 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"]
+		}
+	},
+	"100028605": {
+		"name":"Santa Lotti",
+		"jpname":"サンタロッティ",
+		"id":"100028605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4692,"mp":280,"atk":153,"def":162,"mag":219,"spr":205},
+			"minStats":{"hp":1548,"mp":92,"atk":50,"def":53,"mag":72,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","throwing","gun","mace","fist","hat","clothes","robe"],
+		"6_form": {
+			"name":"Santa Lotti",
+			"jpname":"サンタロッティ",
+			"id":"100028605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3609,"mp":215,"atk":117,"def":124,"mag":168,"spr":157},
+				"minStats":{"hp":1191,"mp":71,"atk":39,"def":41,"mag":55,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","throwing","gun","mace","fist","hat","clothes","robe"]
+		}
+	},
+	"100028805": {
+		"name":"Christmas Ayaka",
+		"jpname":"クリスマスアヤカ",
+		"id":"100028805",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4747,"mp":263,"atk":192,"def":177,"mag":180,"spr":207},
+			"minStats":{"hp":1567,"mp":87,"atk":63,"def":58,"mag":59,"spr":68},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Christmas Ayaka",
+			"jpname":"クリスマスアヤカ",
+			"id":"100028805",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3651,"mp":202,"atk":147,"def":136,"mag":138,"spr":159},
+				"minStats":{"hp":1205,"mp":67,"atk":49,"def":45,"mag":46,"spr":52},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","hat","clothes","lightArmor","robe"]
 		}
 	},
 	"100028905": {
