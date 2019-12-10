@@ -3786,6 +3786,12 @@ function exportUnitForCombat() {
         ailmentResists:{},
         physicalKillers:{},
         magicalKillers:{},
+        elements: [],
+        leftDamageVariance: [1, 1],
+        rightDamageVariance: [1, 1],
+        physicalEvasion:calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total,
+        magicalEvasion:calculateStatValue(unitBuild.build, "evade.magical", unitBuild).total,
+        mpRefresh:calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total,
         dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
         skills:unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []),
         autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), [])
@@ -3799,11 +3805,22 @@ function exportUnitForCombat() {
     });
     if (unitBuild.build[0] && weaponList.includes(unitBuild.build[0].type)) {
         unit.atk.rightFlatAtk = unitBuild.build[0].atk || 0;
+        if (unitBuild.build[0].element) {
+            unit.elements = unit.elements.concat(unitBuild.build[0].element);
+        }
+        if (unitBuild.build[0].damageVariance) {
+            unit.rightDamageVariance = [unitBuild.build[0].damageVariance.min, unitBuild.build[0].damageVariance.max];
+        } else {
+            unit.rightDamageVariance = [weaponBaseDamageVariance[unitBuild.build[0].type].min, weaponBaseDamageVariance[unitBuild.build[0].type].max];
+        }
     } else {
         unit.atk.rightFlatAtk = 0;
     }
     if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type)) {
         unit.atk.leftFlatAtk = unitBuild.build[1].atk || 0;
+        if (unitBuild.build[1].element) {
+            unit.elements = unit.elements.concat(unitBuild.build[1].element);
+        }
     } else {
         unit.atk.leftFlatAtk = 0;
     }
@@ -3820,15 +3837,22 @@ function exportUnitForCombat() {
         });
     });
     killerList.forEach(race => {
-        let killerData = killers.filter(killerData => killerData.name = race);
+        let killerData = killers.filter(killerData => killerData.name == race);
         if (killerData.length == 0) {
             unit.physicalKillers[race] = 0;
             unit.magicalKillers[race] = 0;
         } else {
-            unit.physicalKillers[race] = killerData.physical || 0;
-            unit.magicalKillers[race] = killerData.magical || 0;
+            unit.physicalKillers[race] = killerData[0].physical || 0;
+            unit.magicalKillers[race] = killerData[0].magical || 0;
         }
     });
+    unit.elements = [];
+    if (unitBuild.build[0] && weaponList.includes(unitBuild.build[0].type) && unitBuild.build[0].element) {
+
+    }
+    if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type) && unitBuild.build[1].element) {
+        unit.elements = unit.elements.concat(unitBuild.build[1].element);
+    }
     window.saveAs(new Blob([JSON.stringify(unit)], {type: "text/json;charset=utf-8"}), "unitForCombat.json");
 }
 

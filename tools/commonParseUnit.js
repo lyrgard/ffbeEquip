@@ -116,7 +116,6 @@ let moveTypes = {
     4: "none",
     5: "dash",
     6: "dashThrough"
-    
 }
 
 let espersById = {
@@ -1075,6 +1074,14 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
+    if (skill.magic_type) {
+        skill.type = skill.magic_type.toLowerCase() + 'Magic';
+    } else {
+        skill.type = "ability";
+    }
+    if (skillIn.cost && skillIn.cost.MP) {
+        skill.mpCost = skillIn.cost.MP;
+    }
     return skill;
 }
 
@@ -1409,7 +1416,10 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result= {"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][3]/100}}
     // Healing over time
     } else if(rawEffect[2] == 8){
-        result={"heal":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100, "split":rawEffect[3][3]}}
+        result={"healOverTurn":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100}}
+        if (rawEffect[3][3] > 0) {
+            result.healOverTurn.turns = rawEffect[3][3];
+        }
     // Damage increased against a race
     } else if (rawEffect[2] == 22) {
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
