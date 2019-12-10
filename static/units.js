@@ -18,6 +18,7 @@ function beforeShow() {
     $("#pleaseWaitMessage").addClass("hidden");
     $("#loginMessage").addClass("hidden");
     $("#unitsWrapper").removeClass("hidden");
+    $("#unitsWrapper").removeClass("hidden");
     $("#searchBox").addClass("hidden");
 
     $(".nav-tabs li.alphabeticalSort").removeClass("active");
@@ -964,7 +965,7 @@ function exportAsImage(minRarity = 1) {
 }
 
 function exportAsCsv() {
-    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned;Number of TMR/STMR owned;Number of TMR/STMR still farmable\n";
+    var csv = "Unit Id; Unit Name;Min Rarity;Max Rarity;Number Owned (not 7*); 7* Number owned;Number of TMR owned;Number of STMR owned;Number of TMR still farmable;Number of STMR sill obtainable\n";
     var sortedUnits = sortByRarity(units);
     for (var index = 0, len = sortedUnits.length; index < len; index++) {
         var unit = sortedUnits[index];
@@ -973,10 +974,13 @@ function exportAsCsv() {
             csv +=  "\"" + unit.id + "\";" + 
                 "\"" + unit.name + "\";" + 
                 unit.min_rarity + ';' + 
-                maxRarity + ';' + 
-                (unit.min_rarity == 7 ? ownedUnits[unit.id].sevenStar : ownedUnits[unit.id].number) + ';' + 
-                (unit.min_rarity == 7 ? (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) : (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0)) + ';' + 
-                (unit.min_rarity == 7 ? ownedUnits[unit.id].farmableStmr : ownedUnits[unit.id].farmable) + "\n";
+                maxRarity + ';' +
+                ownedUnits[unit.id].number + ';' +
+                (ownedUnits[unit.id].sevenStar || 0) + ';' +
+                (tmrNumberByUnitId[unit.id] ? tmrNumberByUnitId[unit.id] : 0) + ';' +
+                (stmrNumberByUnitId[unit.id] ? stmrNumberByUnitId[unit.id] : 0) + ';' +
+                ownedUnits[unit.id].farmable + ';' +
+                (ownedUnits[unit.id].farmableStmr || 0) + '\n';
         }
     }
     window.saveAs(new Blob([csv], {type: "text/csv;charset=utf-8"}), 'FFBE_Equip - Unit collection.csv');
