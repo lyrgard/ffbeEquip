@@ -1016,7 +1016,7 @@ function getEsperStatBonus(itemAndPassives, stat, esper) {
     return Math.min(3, statsBonus / 100);
 }
 
-function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0) {
+function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
@@ -1028,12 +1028,14 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0) {
     var buffValue = 0
     if (baseStats.includes(stat)) {
         baseValue = unitBuild.baseValues[stat].total;
-        if (stat === 'hp') {
-            buffValue = unitBuild.baseValues[stat].buff;   
-        } else if (stat === 'atk' && berserk) {
-            buffValue = (unitBuild.baseValues[stat].buff + berserk) * baseValue / 100;
-        } else {
-            buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
+        if (!ignoreBuffs) {
+            if (stat === 'hp') {
+                buffValue = unitBuild.baseValues[stat].buff;   
+            } else if (stat === 'atk' && berserk) {
+                buffValue = (unitBuild.baseValues[stat].buff + berserk) * baseValue / 100;
+            } else {
+                buffValue = unitBuild.baseValues[stat].buff * baseValue / 100;
+            }
         }
     } else if (stat == "lbPerTurn") {
         baseValue = unitBuild.baseValues["lbFillRate"].total;

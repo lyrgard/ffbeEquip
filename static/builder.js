@@ -3777,6 +3777,61 @@ function updateKillerBuffSummary() {
     $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
 }
 
+function exportUnitForCombat() {
+    let unitBuild = builds[currentUnitIndex];
+    let unit = {
+        id: unitBuild.unit.id,
+        name: unitBuild.unit.name,
+        elementalResists:{},
+        ailmentResists:{},
+        physicalKillers:{},
+        magicalKillers:{},
+        dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
+        skills:unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []),
+        autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), [])
+    }
+    baseStats.forEach(stat => {
+        unit[stat] = {};
+        unit[stat].base = unitBuild.stats[stat] + unitBuild.baseValues[stat].pots;
+        value = calculateStatValue(unitBuild.build, stat, unitBuild, 0, true);
+        unit[stat].passiveIncreasePercent = Math.min(400, value.bonusPercent);
+        unit[stat].flatIncrease = value.total - Math.floor(unit[stat].base * (1+unit[stat].passiveIncreasePercent/100));
+    });
+    if (unitBuild.build[0] && weaponList.includes(unitBuild.build[0].type)) {
+        unit.atk.rightFlatAtk = unitBuild.build[0].atk || 0;
+    } else {
+        unit.atk.rightFlatAtk = 0;
+    }
+    if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type)) {
+        unit.atk.leftFlatAtk = unitBuild.build[1].atk || 0;
+    } else {
+        unit.atk.leftFlatAtk = 0;
+    }
+    elementList.forEach(element => {
+        unit.elementalResists[element] = calculateStatValue(unitBuild.build, "resist|" + element + ".percent", unitBuild).total
+    });
+    ailmentList.forEach(ailment => {
+        unit.ailmentResists[ailment] = calculateStatValue(unitBuild.build, "resist|" + ailment + ".percent", unitBuild).total
+    });
+    var killers = [];
+    unitBuild.build.filter(item => item && item.killers).forEach(item => {
+        item.killers.forEach(killer => {
+            addToKiller(killers, killer);
+        });
+    });
+    killerList.forEach(race => {
+        let killerData = killers.filter(killerData => killerData.name = race);
+        if (killerData.length == 0) {
+            unit.physicalKillers[race] = 0;
+            unit.magicalKillers[race] = 0;
+        } else {
+            unit.physicalKillers[race] = killerData.physical || 0;
+            unit.magicalKillers[race] = killerData.magical || 0;
+        }
+    });
+    window.saveAs(new Blob([JSON.stringify(unit)], {type: "text/json;charset=utf-8"}), "unitForCombat.json");
+}
+
 function inventoryLoaded() {
     dataStorage.itemInventory = itemInventory;
     $(".equipments select option[value=owned]").prop("disabled", false);

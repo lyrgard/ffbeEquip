@@ -1067,10 +1067,36 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
             }
             return effect;
         }
+        if (effect && (effect.damage || effect.heal)) {
+            effect.frames = getArrayValueAtIndex(skillIn.attack_frames, rawEffectIndex);
+            effect.repartition = getArrayValueAtIndex(skillIn.attack_damage, rawEffectIndex);
+        }
+        
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
     return skill;
+}
+
+function getValueAtIndex(array, index) {
+    if (!Array.isArray(array)) {
+        array = [array];
+    }
+    if (index < array.length) {
+        return array[index];
+    } else {
+        return array[array.length - 1];
+    }
+}
+
+function getArrayValueAtIndex(array, index) {
+    let value = getValueAtIndex(array, index);
+    if (!Array.isArray(value)) {
+        value = [value];
+    }
+    if (value.length == 0) {
+        value = [0];
+    }
 }
 
 function parseLb(lb, unit, skills) {
@@ -1079,12 +1105,20 @@ function parseLb(lb, unit, skills) {
         var rawEffect = lb.levels[0][1][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 'lb');
+        if (effect && (effect.damage || effect.heal)) {
+            effect.frames = getArrayValueAtIndex(lb.attack_frames, rawEffectIndex);
+            effect.repartition = getArrayValueAtIndex(lb.attack_damage, rawEffectIndex);
+        }
         lbOut.minEffects.push({"effect":effect, "desc": lb.min_level[rawEffectIndex]});
     }
     for (var rawEffectIndex in lb.levels[lb.levels.length - 1][1]) {
         var rawEffect = lb.levels[lb.levels.length - 1][1][rawEffectIndex];
 
         var effect = parseActiveRawEffect(rawEffect, lb, skills, unit, 'lb');
+        if (effect && (effect.damage || effect.heal)) {
+            effect.frames = getArrayValueAtIndex(lb.attack_frames, rawEffectIndex);
+            effect.repartition = getArrayValueAtIndex(lb.attack_damage, rawEffectIndex);
+        }
         lbOut.maxEffects.push({"effect":effect, "desc": lb.max_level[rawEffectIndex]});
     }
     addChainInfoToSkill(lbOut, lbOut.maxEffects, lb.attack_frames, lb.move_type, skills);

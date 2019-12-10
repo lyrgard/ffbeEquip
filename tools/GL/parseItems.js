@@ -1038,10 +1038,36 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
             }
             notParsedSkillType[rawEffect[2]].push(currentItemName + '!!');
         }
+        if (effect && (effect.damage || effect.heal)) {
+            effect.frames = getArrayValueAtIndex(skillIn.attack_frames, rawEffectIndex);
+            effect.repartition = getArrayValueAtIndex(skillIn.attack_damage, rawEffectIndex, 100);
+        }
         skill.effects.push({"effect":effect, "desc": skillIn.effects[rawEffectIndex]});
     }
     addChainInfoToSkill(skill, skill.effects, skillIn.attack_frames, skillIn.move_type, skills);
     return skill;
+}
+
+function getValueAtIndex(array, index) {
+    if (!Array.isArray(array)) {
+        array = [array];
+    }
+    if (index < array.length) {
+        return array[index];
+    } else {
+        return array[array.length - 1];
+    }
+}
+
+function getArrayValueAtIndex(array, index, defaultValue = 0) {
+    let value = getValueAtIndex(array, index);
+    if (!Array.isArray(value)) {
+        value = [value];
+    }
+    if (value.length == 0) {
+        value = [defaultValue];
+    }
+    return value;
 }
 
 function addChainInfoToSkill(skill, effects, attackFrames, moveType, skills) {
