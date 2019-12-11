@@ -1364,7 +1364,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if(rawEffect[2] == 8){
         result={"healOverTurn":{"base":rawEffect[3][2], "coef":rawEffect[3][0]/100}}
         if (rawEffect[3][3] > 0) {
-            result.healOverTurn.turns = rawEffect[3][3];
+            result.turns = rawEffect[3][3];
         }
     // Damage increased against a race
     } else if (rawEffect[2] == 22) {
