@@ -514,7 +514,7 @@ function readSkills(itemIn, itemOut, skills) {
         var restrictedSkills = [];
         var itemSetSkills = [];
         for (var skillIndex in itemIn.skills) {
-            var skillId = itemIn.skills[skillIndex];
+            var skillId = itemIn.skills[skillIndex].toString();
             var skill = skills[skillId];
             skill.id = skillId;
             if (skill) {
@@ -984,6 +984,23 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
         if (rawEffect[3][5]) {
             item.resist.push({"name":"charm","percent":rawEffect[3][5]});
         }
+
+        // Multicast magic
+    } else if (rawEffect[2] == 52) {
+        let skill = parseActiveSkill(rawEffect[3][2], skills[rawEffect[3][2]], skills);
+        var magicType = "";
+        if (rawEffect[3][0] ==  0) {
+            skill.effects[0].effect.multicast.type = "magic";
+        } else if (rawEffect[3][0] ==  1) {
+            skill.effects[0].effect.multicast.type = "blackMagic";
+        } else if (rawEffect[3][0] ==  2) {
+            skill.effects[0].effect.multicast.type = "whiteMagic";
+        }
+        skill.effects[0].effect.multicast.time = rawEffect[3][1];
+        if (!item.skills) {
+            item.skills = [];
+        }
+        item.skills.push(skill);
     
         // item sets
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
@@ -1404,13 +1421,13 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
        //Global mitigation
     } else if (rawEffect[2] == 101) {
-        result = {"noUse":true, "globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        result = {"globalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
         //Magical mitigation
     } else if (rawEffect[2] == 19) {
-        result = {"noUse":true, "magicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        result = {"magicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
         //Physical mitigation
     } else if (rawEffect[2] == 18) {
-        result = {"noUse":true, "physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
+        result = {"physicalMitigation":rawEffect[3][0], "turns":rawEffect[3][1]};
         // recover HP/MP percentage
     } else if (rawEffect[2] == 65) {
         result = {"noUse":true};
