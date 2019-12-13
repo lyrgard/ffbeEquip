@@ -1001,6 +1001,10 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
             item.skills = [];
         }
         item.skills.push(skill);
+        
+    // Guts
+    } else if (rawEffect[2] == 51) {
+        item.guts = {ifHpOver:rawEffect[3][0], chance:rawEffect[3][1], time:rawEffect[3][3]};
     
         // item sets
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
@@ -1395,9 +1399,61 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
     } else if (rawEffect[2] == 68) {
         result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
 
+    // Cure ailments
+    } else if (rawEffect[2] == 6) {
+        result = {cureAilments:[]};
+        if (rawEffect[3][0]) {
+            result.cureAilments.push('poison');
+        }
+        if (rawEffect[3][1]) {
+            result.cureAilments.push('blind');
+        }
+        if (rawEffect[3][2]) {
+            result.cureAilments.push('sleep');
+        }
+        if (rawEffect[3][3]) {
+            result.cureAilments.push('silence');
+        }
+        if (rawEffect[3][4]) {
+            result.cureAilments.push('paralysis');
+        }
+        if (rawEffect[3][5]) {
+            result.cureAilments.push('confuse');
+        }
+        if (rawEffect[3][6]) {
+            result.cureAilments.push('disease');
+        }
+        if (rawEffect[3][7]) {
+            result.cureAilments.push('petrification');
+        }
+        
     // inflict status
     } else if (rawEffect[2] == 6) {
-        result = {"noUse":true};
+        result = {inflict:[]};
+        if (rawEffect[3][0]) {
+            result.inflict.push({name:'poison', percent:rawEffect[3][0]});
+        }
+        if (rawEffect[3][1]) {
+            result.inflict.push({name:'blind', percent:rawEffect[3][1]});
+        }
+        if (rawEffect[3][2]) {
+            result.inflict.push({name:'sleep', percent:rawEffect[3][2]});
+        }
+        if (rawEffect[3][3]) {
+            result.inflict.push({name:'silence', percent:rawEffect[3][3]});
+        }
+        if (rawEffect[3][4]) {
+            result.inflict.push({name:'paralysis', percent:rawEffect[3][4]});
+        }
+        if (rawEffect[3][5]) {
+            result.inflict.push({name:'confuse', percent:rawEffect[3][5]});
+        }
+        if (rawEffect[3][6]) {
+            result.inflict.push({name:'disease', percent:rawEffect[3][6]});
+        }
+        if (rawEffect[3][7]) {
+            result.inflict.push({name:'petrification', percent:rawEffect[3][7]});
+        }
         
     // inflict multiple status
     } else if (rawEffect[2] == 34) {
@@ -1405,7 +1461,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         
     // Remove all debuff
     } else if (rawEffect[2] == 59) {
-        result = {"noUse":true};
+        result = {dispel:true};
         
     // inflict stop
     } else if (rawEffect[2] == 88) {
@@ -1442,7 +1498,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         
         // auto reraise
     } else if (rawEffect[2] == 27) {
-        result = {"noUse":true};
+        result = {"autoReraise":rawEffect[3][0], turns:rawEffect[3][1]};
     
         // Dodge x physical attacks
     } else if (rawEffect[2] == 54) {
@@ -1948,7 +2004,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

@@ -3791,6 +3791,7 @@ function exportUnitForCombat() {
         rightDamageVariance: [1, 1],
         physicalEvasion:calculateStatValue(unitBuild.build, "evade.physical", unitBuild).total,
         magicalEvasion:calculateStatValue(unitBuild.build, "evade.magical", unitBuild).total,
+        accuracy:calculateStatValue(unitBuild.build, "accuracy", unitBuild).total,
         mpRefresh:calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total,
         dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
         skills:unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []),

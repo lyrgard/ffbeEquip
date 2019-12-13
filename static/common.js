@@ -377,6 +377,9 @@ function getSpecialHtml(item) {
     if (item.breakability && (item.breakability.atk || item.breakability.def || item.breakability.mag || item.breakability.spr)) {
         special += '<li>Vulnerable to <span class="uppercase">' + baseStats.filter(s => item.breakability[s]).join("/") + '</span> breaks</li>';
     }
+    if (item.guts) {
+        special += '<li>' + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)</li>';
+    }
     if (item.skills) {
         item.skills.forEach(skill => {
             special += '<li><img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
@@ -1433,6 +1436,19 @@ function prepareSearch(data) {
                 } else {
                     textToSearch += "|" + "Increase " + esper + "'s bonus stats ("+ item.esperStatsBonus[esper].hp + "%)";
                 }
+            });
+        }
+        if (item.guts) {
+            textToSearch += "|" + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)';
+        }
+        if (item.skills) {
+            item.skills.forEach(skill => {
+                textToSearch += "|" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');    
+            });
+        }
+        if (item.autoCastedSkills) {
+            item.autoCastedSkills.forEach(skill => {
+                textToSearch += "|Cast at start of battle or when revived:" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');    
             });
         }
         if (item["tmrUnit"]) {
