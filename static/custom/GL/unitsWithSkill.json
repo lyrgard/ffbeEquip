@@ -1,9 +1,9 @@
 {
 
 	"777700004": {
-		"name":"TBD",
+		"name":"Holiday Hero",
 		"id":"777700004",
-		"max_rarity":"6",
+		"max_rarity":"5",
 		"min_rarity":"4",
 		"sex":"female",
 		"stats": {
@@ -13,18 +13,28 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
-		"lb": {"name":"Shining Nova","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.7,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Physical fire damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.9,"elements":["fire"]},"area":"AOE","target":"ENEMY"},"desc":"Physical fire damage (3.9x, ATK) to all enemies"}],"frames":[3,42],"move":"walk"},
+		"lb": {"name":"Hero's Sword","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":2.7},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (2.7x, ATK) to all enemies"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":3.9},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (3.9x, ATK) to all enemies"}],"frames":[3,42],"move":"walk"},
 		"passives": [
-			{"name":"Resistance Training","id":"777001","icon":"ability_77.png","effects":[{"effect":{"hp%":30},"desc":"Increase HP by 30%"}],"rarity":4,"level":5},
-            {"name":"Mind Training","id":"777002","icon":"ability_77.png","effects":[{"effect":{"mp%":30},"desc":"Increase MP by 30%"}],"rarity":4,"level":10},
-            {"name":"Strenght Training","id":"777003","icon":"ability_77.png","effects":[{"effect":{"atk%":30},"desc":"Increase ATK by 30%"}],"rarity":4,"level":15},
-            {"name":"Magical Training","id":"777004","icon":"ability_77.png","effects":[{"effect":{"mag%":30},"desc":"Increase MAG by 30%"}],"rarity":4,"level":20},
-            {"name":"Defensive Training","id":"777005","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase DEF by 30%"}],"rarity":4,"level":25},
-            {"name":"Mind Shield Training","id":"777006","icon":"ability_77.png","effects":[{"effect":{"def%":30},"desc":"Increase SPR by 30%"}],"rarity":4,"level":30}
+			{"name":"Warrior Training","id":"777001","icon":"ability_77.png","effects":[{"effect":{"hp%":10, "atk%":20},"desc":"Increase ATK by 20% and HP by 10%"}],"rarity":4,"level":10},
+            {"name":"Mage Training","id":"777002","icon":"ability_77.png","effects":[{"effect":{"mp%":10, "mag%":20},"desc":"Increase MAG by 20% and MP by 10%"}],"rarity":4,"level":35},
+            {"name":"Healer Training","id":"777004","icon":"ability_77.png","effects":[{"effect":{"mp%":10, "spr%":20},"desc":"Increase SPR by 20% and MP by 10%"}],"rarity":4,"level":60},
+            {"name":"Tank Training","id":"777003","icon":"ability_77.png","effects":[{"effect":{"hp%":10, "def%":20},"desc":"Increase DEF by 20% and HP by 10%"}],"rarity":5,"level":20},
+            {"name":"Green Mage Training","id":"777005","icon":"ability_77.png","effects":[{"effect":{"mp%":10, "mag%":10, "spr%":10},"desc":"Increase MP/MAG/SPR by 10%"}],"rarity":5,"level":40},
+            {"name":"Warlock Training","id":"777006","icon":"ability_77.png","effects":[{"effect":{"hp%":10, "atk%":10, "def%":10},"desc":"Increase SPR by 30%"}],"rarity":5,"level":60},
+            {"name":"Lightning's Tank","id":"101190","icon":"ability_69.png","effects":[{"effect":{"noUse":true},"desc":"15% chance to intercept attacks on Lightning"}],"rarity":5,"level":80}
 		],
 		"actives": [
+            {"id":"200440","name":"Bladeblitz","icon":"ability_53.png","effects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":1.4},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (1.4x, ATK) to all enemies"}],"frames":[],"move":"walk","type":"ability","mpCost":14,"rarity":4,"level":10}
 		],
 		"magics": [
+            {"id":"20010","name":"Fire","icon":"ability_21.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.2,"elements":["fire"]},"area":"ST","target":"ENEMY"},"desc":"Magic fire damage (1.2x, MAG) to one enemy"}],"magic":"black","frames":[80],"move":"none","type":"ability","mpCost":3},
+            {"id":"20020","name":"Blizzard","icon":"ability_22.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.2,"elements":["ice"]},"area":"ST","target":"ENEMY"},"desc":"Magic ice damage (1.2x, MAG) to one enemy"}],"magic":"black","frames":[130],"move":"none","type":"ability","mpCost":3},
+            {"id":"20030","name":"Thunder","icon":"ability_20.png","effects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":1.2,"elements":["lightning"]},"area":"ST","target":"ENEMY"},"desc":"Magic lightning damage (1.2x, MAG) to one enemy"}],"magic":"black","frames":[70],"move":"none","type":"ability","mpCost":3},
+            {"id":"10020","name":"Cure","icon":"ability_4.png","effects":[{"effect":{"heal":{"base":150,"coef":3},"area":"ST","target":"ANY"},"desc":"Restore 150 (+3x, Heal) HP to target"}],"magic":"white","type":"ability","mpCost":3},
+            {"id":"30090","name":"Protect","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":20},"turns":3,"area":"ST","target":"ALLY"},"desc":"Increase DEF by 20% for 3 turns to one ally"}],"magic":"green","type":"ability","mpCost":4},
+            {"id":"30140","name":"Shell","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":20},"turns":3,"area":"ST","target":"ALLY"},"desc":"Increase SPR by 20% for 3 turns to one ally"}],"magic":"green","type":"ability","mpCost":4},
+            {"id":"30150","name":"Deprotect","icon":"ability_39.png","effects":[{"effect":{"break":{"def":20},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce DEF by 20% for 3 turns to one enemy"}],"magic":"green","type":"ability","mpCost":4},
+            {"id":"30160","name":"Deshell","icon":"ability_39.png","effects":[{"effect":{"break":{"spr":20},"turns":3,"area":"ST","target":"ENEMY"},"desc":"Reduce SPR by 20% for 3 turns to one enemy"}],"magic":"green","type":"ability","mpCost":4}
 		]
 	}
 }

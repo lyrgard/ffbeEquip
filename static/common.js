@@ -380,6 +380,15 @@ function getSpecialHtml(item) {
     if (item.guts) {
         special += '<li>' + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)</li>';
     }
+    if (item.counterSkills) {
+        item.counterSkills.forEach(counter => {
+            special += '<li>Counter ' + counter.counter + ' damage with <img class="icon" src="/img/items/' + counter.skill.icon + '">' + toLink(counter.skill.name) + ': ' + counter.skill.effects.map(effect => effect.desc).join(', ');
+            if (counter.maxTime) {
+                special += ' (max ' + counter.maxTime + '/turn)';
+            }
+            special += '</li>';
+        });
+    }
     if (item.skills) {
         item.skills.forEach(skill => {
             special += '<li><img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    

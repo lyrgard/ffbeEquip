@@ -134,6 +134,11 @@ let buildCounter = 0;
 let displayOnly7StarsUnits = true;
 
 function onBuildClick() {
+    if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
+        Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
+        return;
+    }
+
     runningParamChallenge = false;
     currentUnitIdIndexForParamChallenge = -1;
     if (running || runningParamChallenge) {
@@ -1178,6 +1183,11 @@ function goalSelectTemplate(state) {
 function onUnitChange() {
     $("#unitsSelect").find(':selected').each(function() {
         var unitId = $(this).val();
+        if (unitId === '777700004') {
+            $('#exportForBattle').removeClass('hidden');
+        } else {
+            $('#exportForBattle').addClass('hidden');
+        }
         var selectedUnitData;
         let iconId;
         if (unitId.endsWith("-6")) {
@@ -1601,7 +1611,12 @@ function loadBuild(buildIndex) {
     
     
     if (builds[currentUnitIndex].unit) {
-        logCurrentBuild();  
+        logCurrentBuild();
+        if (builds[currentUnitIndex].unit.id === '777700004') {
+            $('#exportForBattle').removeClass('hidden');
+        } else {
+            $('#exportForBattle').addClass('hidden');
+        }
     }
 }
 
@@ -3777,8 +3792,18 @@ function updateKillerBuffSummary() {
     $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
 }
 
+const effectKeysSupported = ["turns", "damage", "statsBuff", "healOverTurn", "imperil", "break", "globalMitigation", "physicalMitigaiton", "magicalMitigation", "imbue", "dispel", "autoReraise", "restoreMp", "inflict", "cureAilments", "area","target","frames","repartition", "multicast"];
 function exportUnitForCombat() {
     let unitBuild = builds[currentUnitIndex];
+    if (unitBuild.unit.id !== '777700004') {
+        Modal.showMessage("Uh ? It's not Lady!?", "Only Holiday Hero is currently allowed to fight me.");
+        return;
+    }
+    if (unitBuild.build.some(i => i && i.access && i.access.includes('not released yet'))) {
+        Modal.showMessage("Trying to get ahead in time ?", "Your current build includes items that are not yet released in GL. You can't bring them to the challenge.");
+        return;
+    }
+
     let unit = {
         id: unitBuild.unit.id,
         name: unitBuild.unit.name,
@@ -3794,9 +3819,12 @@ function exportUnitForCombat() {
         accuracy:calculateStatValue(unitBuild.build, "accuracy", unitBuild).total,
         mpRefresh:calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total,
         dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
-        skills:unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []),
-        autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), [])
+        guts: unitBuild.build.filter(i => i.guts).map(i => i.guts),
+        autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), []),
+        counterSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.counterSkills).reduce((acc, item) => acc = acc.concat(item.counterSkills), []),
     }
+    unit.skills = unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []);
+    unit.skills = unit.skills.concat(unitsWithSkills[unitBuild.unit.id].actives).concat(unitsWithSkills[unitBuild.unit.id].magics);
     baseStats.forEach(stat => {
         unit[stat] = {};
         unit[stat].base = unitBuild.stats[stat] + unitBuild.baseValues[stat].pots;
@@ -3817,6 +3845,7 @@ function exportUnitForCombat() {
     } else {
         unit.atk.rightFlatAtk = 0;
     }
+    unit.elements = [];
     if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type)) {
         unit.atk.leftFlatAtk = unitBuild.build[1].atk || 0;
         if (unitBuild.build[1].element) {
@@ -3847,14 +3876,40 @@ function exportUnitForCombat() {
             unit.magicalKillers[race] = killerData[0].magical || 0;
         }
     });
-    unit.elements = [];
-    if (unitBuild.build[0] && weaponList.includes(unitBuild.build[0].type) && unitBuild.build[0].element) {
-
-    }
     if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type) && unitBuild.build[1].element) {
         unit.elements = unit.elements.concat(unitBuild.build[1].element);
     }
-    window.saveAs(new Blob([JSON.stringify(unit)], {type: "text/json;charset=utf-8"}), "unitForCombat.json");
+
+    let unsupportedEffects = "";
+    let special = unitBuild.build
+        .filter(i => i && i.special)
+        .reduce((acc, value) => acc.concat(value.special), [])
+        .filter(special => !["dualWield", "twoHanded", "notStackable"].includes(special)).join('</li><li>');
+    if (special) {
+        unsupportedEffects += '<li>' + special + '</li>';
+    }
+    unit.skills.concat(unit.autoCastedSkills).concat(unit.counterSkills.map(counter => counter.skill)).forEach(skill => {
+        skill.effects.forEach(effect => {
+            if (!effect.effect) {
+                unsupportedEffects += '<li>' + skill.name + ':' + effect.desc + '</li>';
+            } else {
+                let keys = Object.keys(effect.effect);
+                keys = keys
+                    .filter(key => !effectKeysSupported.includes(key));
+                if (keys.length) {
+                    unsupportedEffects += '<li>' + skill.name + ':' + effect.desc + '</li>';
+                }
+            }
+        });
+    });
+
+    if (unsupportedEffects.length == 0) {
+        window.saveAs(new Blob([JSON.stringify(unit)], {type: "text/json;charset=utf-8"}), "unitForCombat.json");
+    } else {
+        Modal.confirm("Some effects are not supported yet", "<ul>" + unsupportedEffects + "</ul><br/>Continue nonetheless?", () => {window.saveAs(new Blob([JSON.stringify(unit)], {type: "text/json;charset=utf-8"}), "unitForCombat.json");});
+    }
+
+
 }
 
 function inventoryLoaded() {

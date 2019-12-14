@@ -803,7 +803,22 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
                 item.autoCastedSkills = [];
             }
             item.autoCastedSkills.push(autoCastedSkill);
-        }    
+        }
+
+    // Auto- abilities
+    } else if (rawEffect[2] == 49) {
+        var skillIn = skills[rawEffect[3][2]];
+        if (skillIn) {
+            var counterSkill = parseActiveSkill(rawEffect[3][2].toString(), skillIn, skills);
+            if (!item.counterSkills) {
+                item.counterSkills = [];
+            }
+            var counter = {counter:'physical', chance:rawEffect[3][0], skill:counterSkill};
+            if (rawEffect[3].length > 3 && rawEffect[3][3]) {
+                counter.maxTime = rawEffect[3][3]
+            }
+            item.counterSkills.push(counter);
+        }
         
     // Element Resist
     } else if (!skill.active && (rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 3) {
@@ -1400,7 +1415,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         result = {"berserk":{"percent":rawEffect[3][1], "duration":rawEffect[3][0]}};
 
     // Cure ailments
-    } else if (rawEffect[2] == 6) {
+    } else if (rawEffect[2] == 5) {
         result = {cureAilments:[]};
         if (rawEffect[3][0]) {
             result.cureAilments.push('poison');
@@ -1473,7 +1488,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
 
         // recover MP
     } else if (rawEffect[2] == 17) {
-        result = {"noUse":true};
+        result = {"restoreMp":rawEffect[3][0]};
 
        //Global mitigation
     } else if (rawEffect[2] == 101) {
@@ -1615,20 +1630,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
             } else {
                 gainedSkillName = gainedSkill.name;
             }
-            result.gainSkills.skills.push({
-                "id":gainedSkillIds[i].toString(),
-                "name":gainedSkillName
-            });
-            
-            if (gainedSkill) {
-                if (!unit.unlockedSkillAdded) {
-                    unit.unlockedSkillAdded = [];
-                }
-                if (!unit.unlockedSkillAdded.includes(gainedSkillIds[i].toString())) {
-                    unit.unlockedSkillAdded.push(gainedSkillIds[i].toString())
-                    addUnlockedSkill(gainedSkillIds[i].toString(), parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit), unit, skillId);
-                }
-            }
+            result.gainSkills.skills.push(parseActiveSkill(gainedSkillIds[i].toString(), gainedSkill, skills, unit));
         }
         
     // Gain Multicast ability
@@ -2004,7 +2006,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {
