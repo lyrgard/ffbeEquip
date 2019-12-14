@@ -3792,7 +3792,7 @@ function updateKillerBuffSummary() {
     $('.unit.panel .killerBuffsSummary .magical').html(killerHtml.magical);
 }
 
-const effectKeysSupported = ["turns", "damage", "statsBuff", "healOverTurn", "imperil", "break", "globalMitigation", "physicalMitigaiton", "magicalMitigation", "imbue", "dispel", "autoReraise", "restoreMp", "inflict", "cureAilments", "area","target","frames","repartition", "multicast"];
+const effectKeysSupported = ["turns", "damage", "statsBuff", "heal", "healOverTurn", "imperil", "break", "globalMitigation", "physicalMitigaiton", "magicalMitigation", "imbue", "dispel", "autoReraise", "restoreMp", "inflict", "cureAilments", "area","target","frames","repartition", "multicast"];
 function exportUnitForCombat() {
     let unitBuild = builds[currentUnitIndex];
     if (unitBuild.unit.id !== '777700004') {
