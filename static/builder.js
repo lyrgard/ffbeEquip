@@ -3819,7 +3819,7 @@ function exportUnitForCombat() {
         accuracy:calculateStatValue(unitBuild.build, "accuracy", unitBuild).total,
         mpRefresh:calculateStatValue(unitBuild.build, "mpRefresh", unitBuild).total,
         dualWielding: unitBuild.build[0] && unitBuild.build[1] && weaponList.includes(unitBuild.build[0].type) && weaponList.includes(unitBuild.build[1].type),
-        guts: unitBuild.build.filter(i => i.guts).map(i => i.guts),
+        guts: unitBuild.build.filter(i => i && i.guts).map(i => i.guts),
         autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), []),
         counterSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.counterSkills).reduce((acc, item) => acc = acc.concat(item.counterSkills), []),
     }
