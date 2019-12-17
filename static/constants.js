@@ -309,6 +309,23 @@ const skillIdByItemEnhancement = {
     "autoShell_5": "417150","autoShell_4": "417140","autoShell_3": "417130","autoShell_2": "417120","autoShell_1": "417110",
 };
 
+const skillByItemEnhancement = {
+    "autoProtect_1": {"id":"30092","name":"Protect (Lvl 1)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":10},"area":"ST","target":"ALLY"},"desc":"Increase DEF by 10% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoProtect_2": {"id":"30093","name":"Protect (Lvl 2)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":20},"area":"ST","target":"ALLY"},"desc":"Increase DEF by 20% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoProtect_3": {"id":"30094","name":"Protect (Lvl 3)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":30},"area":"ST","target":"ALLY"},"desc":"Increase DEF by 30% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoProtect_4": {"id":"30095","name":"Protect (Lvl 4)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":40},"area":"ST","target":"ALLY"},"desc":"Increase DEF by 40% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoProtect_5": {"id":"30096","name":"Protect (Lvl 5)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"def":50},"area":"ST","target":"ALLY"},"desc":"Increase DEF by 50% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoShell_1": {"id":"30142","name":"Shell (Lvl 1)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":10},"area":"ST","target":"ALLY"},"desc":"Increase SPR by 10% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoShell_2": {"id":"30143","name":"Shell (Lvl 2)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":20},"area":"ST","target":"ALLY"},"desc":"Increase SPR by 20% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoShell_3": {"id":"30144","name":"Shell (Lvl 3)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":30},"area":"ST","target":"ALLY"},"desc":"Increase SPR by 30% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoShell_4": {"id":"30145","name":"Shell (Lvl 4)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":40},"area":"ST","target":"ALLY"},"desc":"Increase SPR by 40% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoShell_5": {"id":"30146","name":"Shell (Lvl 5)","icon":"ability_77.png","effects":[{"effect":{"statsBuff":{"spr":50},"area":"ST","target":"ALLY"},"desc":"Increase SPR by 50% for this fight to one ally"}],"magic":"green","type":"ability"},
+    "autoRegen1": {"id":"10126","name":"Regen (Lvl 1)","icon":"ability_4.png","effects":[{"effect":{"healOverTurn":{"base":200,"coef":1},"area":"ST","target":"ALLY"},"desc":"Restore 200 (+1x, Heal) HP per turn to one ally"}],"magic":"green","type":"ability"},
+    "autoRegen2": {"id":"10127","name":"Regen (Lvl 2)","icon":"ability_4.png","effects":[{"effect":{"healOverTurn":{"base":600,"coef":1},"area":"ST","target":"ALLY"},"desc":"Restore 600 (+1x, Heal) HP per turn to one ally"}],"magic":"green","type":"ability"},
+    "autoRegen3": {"id":"10128","name":"Regen (Lvl 3)","icon":"ability_4.png","effects":[{"effect":{"healOverTurn":{"base":1200,"coef":1},"area":"ST","target":"ALLY"},"desc":"Restore 1200 (+1x, Heal) HP per turn to one ally"}],"magic":"green","type":"ability"},
+    "autoRegen4": {"id":"10129","name":"Regen (Lvl 4)","icon":"ability_4.png","effects":[{"effect":{"healOverTurn":{"base":1800,"coef":1},"area":"ST","target":"ALLY"},"desc":"Restore 1800 (+1x, Heal) HP per turn to one ally"}],"magic":"green","type":"ability"}
+}
+
 const typeListLitterals = {
     "dagger": "Dagger",
     "sword": "Sword",

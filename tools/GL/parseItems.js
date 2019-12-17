@@ -1020,6 +1020,15 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // Guts
     } else if (rawEffect[2] == 51) {
         item.guts = {ifHpOver:rawEffect[3][0], chance:rawEffect[3][1], time:rawEffect[3][3]};
+        
+    // Cast at start of turn
+    } else if (rawEffect[2] == 66) {
+        let skill = parseActiveSkill(rawEffect[3][0], skills[rawEffect[3][0]], skills);
+        if (!item.startOfTurnSkills) {
+            item.startOfTurnSkills = [];
+        }
+        item.startOfTurnSkills.push({chance: rawEffect[3][1], skill:skill});
+        
     
         // item sets
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 74) {
@@ -1402,6 +1411,11 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
         if (rawEffect[3][3] > 0) {
             result.turns = rawEffect[3][3];
         }
+        
+    // Healing % HP/MP
+    } else if(rawEffect[2] == 64){
+        result= {"healPercent":{"hp%":rawEffect[3][0], "mp%":rawEffect[3][1]}}
+        
     // Damage increased against a race
     } else if (rawEffect[2] == 22) {
         result = {"damage":{"mecanism":"physical", "damageType":"body", "coef":1, "ifUsedAgain":{"race":raceMap[rawEffect[3][0]], "coef":rawEffect[3][3]/100}}};
@@ -2006,7 +2020,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

@@ -399,6 +399,11 @@ function getSpecialHtml(item) {
             special += '<li>Cast at start of battle or when revived: <img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
         });
     }
+    if (item.startOfTurnSkills) {
+        item.startOfTurnSkills.forEach(skill => {
+            special += '<li>Cast at start of turn: <img class="icon" src="/img/items/' + skill.skill.icon + '">' + toLink(skill.skill.name) + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+        });
+    }
     if (item.special) {
         $(item.special).each(function (index, itemSpecial) {
             if (itemSpecial != "twoHanded" && itemSpecial != "notStackable" && itemSpecial != "dualWield") {
@@ -1458,6 +1463,11 @@ function prepareSearch(data) {
         if (item.autoCastedSkills) {
             item.autoCastedSkills.forEach(skill => {
                 textToSearch += "|Cast at start of battle or when revived:" + skill.name + ': ' + skill.effects.map(effect => effect.desc).join(', ');    
+            });
+        }
+         if (item.startOfTurnSkills) {
+            item.startOfTurnSkills.forEach(skill => {
+                textToSearch += '|Cast at start of turn: ' + skill.skill.name + ': ' + skill.skill.effects.map(effect => effect.desc).join(', ');    
             });
         }
         if (item["tmrUnit"]) {

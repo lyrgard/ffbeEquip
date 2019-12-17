@@ -3822,6 +3822,7 @@ function exportUnitForCombat() {
         guts: unitBuild.build.filter(i => i && i.guts).map(i => i.guts),
         autoCastedSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.autoCastedSkills).reduce((acc, item) => acc = acc.concat(item.autoCastedSkills), []),
         counterSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.counterSkills).reduce((acc, item) => acc = acc.concat(item.counterSkills), []),
+        startOfTurnSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.startOfTurnSkills).reduce((acc, item) => acc.concat(item.startOfTurnSkills), []),
     }
     unit.skills = unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []);
     unit.skills = unit.skills.concat(unitsWithSkills[unitBuild.unit.id].actives).concat(unitsWithSkills[unitBuild.unit.id].magics);
@@ -3832,6 +3833,7 @@ function exportUnitForCombat() {
         unit[stat].passiveIncreasePercent = Math.min(400, value.bonusPercent);
         unit[stat].flatIncrease = value.total - Math.floor(unit[stat].base * (1+unit[stat].passiveIncreasePercent/100));
     });
+    unit.elements = [];
     if (unitBuild.build[0] && weaponList.includes(unitBuild.build[0].type)) {
         unit.atk.rightFlatAtk = unitBuild.build[0].atk || 0;
         if (unitBuild.build[0].element) {
@@ -3842,14 +3844,19 @@ function exportUnitForCombat() {
         } else {
             unit.rightDamageVariance = [weaponBaseDamageVariance[unitBuild.build[0].type].min, weaponBaseDamageVariance[unitBuild.build[0].type].max];
         }
+        if (unitBuild.build[0].enhancements) {
+            unit.autoCastedSkills = unit.autoCastedSkills.concat(unitBuild.build[0].enhancements.filter(enh => skillByItemEnhancement[enh]).map(enh => skillByItemEnhancement[enh]));
+        }
     } else {
         unit.atk.rightFlatAtk = 0;
     }
-    unit.elements = [];
     if (unitBuild.build[1] && weaponList.includes(unitBuild.build[1].type)) {
         unit.atk.leftFlatAtk = unitBuild.build[1].atk || 0;
         if (unitBuild.build[1].element) {
             unit.elements = unit.elements.concat(unitBuild.build[1].element);
+        }
+        if (unitBuild.build[1].enhancements) {
+            unit.autoCastedSkills = unit.autoCastedSkills.concat(unitBuild.build[1].enhancements.filter(enh => skillByItemEnhancement[enh]).map(enh => skillByItemEnhancement[enh]));
         }
     } else {
         unit.atk.leftFlatAtk = 0;
