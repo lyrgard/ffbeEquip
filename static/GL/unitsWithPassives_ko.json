@@ -5553,8 +5553,8 @@
 		]
 	},
 	"100022705": {
-		"name":"Holy Night Amelia & Emilia",
-		"wikiEntry":"聖夜のアメリア&エミリア",
+		"name":"성야의 아멜리아&에밀리아",
+		"wikiEntry":"Holy_Night Amelia & Emilia",
 		"id":"100022705",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5572,14 +5572,14 @@
 			{"atk%":20, "def%":20, "equipedConditions":["gun"]},
 			{"atk%":30, "equipedConditions":["dagger"]},
 			{"atk%":30, "equipedConditions":["gun"]},
-			{"atk%":30, "skillEnhancement":{"230895":5.5,"230901":2.5,"230902":2.5}, "equipedConditions":[["504230834","313005700"]]},
+			{"atk%":30, "skillEnhancement":{"208690":4,"230895":5.5,"230901":2.5,"230902":2.5}, "equipedConditions":[["504230834","313005700"]]},
 			{"hp%":20, "mp%":20, "dualWielding":{"atk":50}, "special":["dualWield"], "levelCondition":110},
 			{"atk%":20, "levelCondition":115},
 			{"atk%":40, "lbPerTurn":{"min":5,"max":5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Holy Night Amelia & Emilia",
-			"wikiEntry":"聖夜のアメリア&エミリア",
+			"name":"성야의 아멜리아&에밀리아",
+			"wikiEntry":"Holy_Night Amelia & Emilia",
 			"id":"100022705",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -12178,7 +12178,9 @@
 		"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
 		"enhancements": [
 			{"name":"Rune Protector","levels":[[{"equipedConditions":["rod"],"mag%":15},{"equipedConditions":["lightShield"],"def%":15},{"equipedConditions":["heavyShield"],"def%":15}],[{"equipedConditions":["rod"],"mag%":25},{"equipedConditions":["lightShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyShield"],"def%":25,"spr%":25}],[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["lightShield"],"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"def%":50,"spr%":50}]]},
-			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]}
+			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]},
+			{"name":"The White Knight","levels":[[],[{"mag%":20,"hp%":20}],[{"mag%":20,"hp%":20,"drawAttacks":50}],[{"mag%":20,"hp%":20,"drawAttacks":50,"resist":[{"name":"stop","percent":100}],"replaceLb":{"name":"Silver Curtain","minEffects":[{"effect":{"statsBuff":{"def":120,"mag":120,"spr":120},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase DEF, MAG and SPR by 120% for 4 turns to all allies"},{"effect":null,"desc":"Restore 25% MP to all allies"},{"effect":{"noUse":true,"globalMitigation":21,"turns":4,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Reduce damage taken by 21% to the rest of the party for 4 turns"}],"maxEffects":[{"effect":{"statsBuff":{"def":150,"mag":150,"spr":150},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase DEF, MAG and SPR by 150% for 4 turns to all allies"},{"effect":null,"desc":"Restore 40% MP to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":4,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Reduce damage taken by 50% to the rest of the party for 4 turns"}]}}]]},
+			{"name":"Mystic Bloodline","levels":[[],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8}}],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8}}],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8},"dualWielding":{"mag":50}}]]}
 		],
 		"skills": [
 			{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}], "drawAttacks":30},
@@ -12212,7 +12214,9 @@
 			"enhancementSkills":["Rune Protector","Bring It On","Tactical Gear","Glacial Wave","Winter Palisade"],
 		"enhancements": [
 			{"name":"Rune Protector","levels":[[{"equipedConditions":["rod"],"mag%":15},{"equipedConditions":["lightShield"],"def%":15},{"equipedConditions":["heavyShield"],"def%":15}],[{"equipedConditions":["rod"],"mag%":25},{"equipedConditions":["lightShield"],"def%":25,"spr%":25},{"equipedConditions":["heavyShield"],"def%":25,"spr%":25}],[{"equipedConditions":["rod"],"mag%":50},{"equipedConditions":["lightShield"],"def%":50,"spr%":50},{"equipedConditions":["heavyShield"],"def%":50,"spr%":50}]]},
-			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]}
+			{"name":"Tactical Gear","levels":[[{"equipedConditions":["lightArmor"],"def%":30},{"equipedConditions":["heavyArmor"],"def%":30},{"equipedConditions":["robe"],"mag%":30}],[{"equipedConditions":["lightArmor"],"def%":30,"spr%":30},{"equipedConditions":["heavyArmor"],"def%":30,"spr%":30},{"equipedConditions":["robe"],"mag%":30,"spr%":30}],[{"equipedConditions":["lightArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["heavyArmor"],"hp%":20,"def%":50,"spr%":50},{"equipedConditions":["robe"],"mp%":20,"mag%":50,"spr%":50}]]},
+			{"name":"The White Knight","levels":[[],[{"mag%":20,"hp%":20}],[{"mag%":20,"hp%":20,"drawAttacks":50}],[{"mag%":20,"hp%":20,"drawAttacks":50,"resist":[{"name":"stop","percent":100}],"replaceLb":{"name":"Silver Curtain","minEffects":[{"effect":{"statsBuff":{"def":120,"mag":120,"spr":120},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase DEF, MAG and SPR by 120% for 4 turns to all allies"},{"effect":null,"desc":"Restore 25% MP to all allies"},{"effect":{"noUse":true,"globalMitigation":21,"turns":4,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Reduce damage taken by 21% to the rest of the party for 4 turns"}],"maxEffects":[{"effect":{"statsBuff":{"def":150,"mag":150,"spr":150},"turns":4,"area":"AOE","target":"ALLY"},"desc":"Increase DEF, MAG and SPR by 150% for 4 turns to all allies"},{"effect":null,"desc":"Restore 40% MP to all allies"},{"effect":{"noUse":true,"globalMitigation":50,"turns":4,"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Reduce damage taken by 50% to the rest of the party for 4 turns"}]}}]]},
+			{"name":"Mystic Bloodline","levels":[[],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8}}],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8}}],[{"skillEnhancement":{"20300":8,"20330":8,"20360":8,"20390":8,"910040":8,"910711":8,"910712":8},"dualWielding":{"mag":50}}]]}
 		],
 			"skills": [
 				{"hp%":30, "mp%":20, "mag%":10, "resist":[{"name":"silence","percent":100},{"name":"petrification","percent":100},{"name":"fire","percent":-50},{"name":"ice","percent":25},{"name":"wind","percent":25}], "drawAttacks":30}
@@ -15341,6 +15345,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Snowbear's Blessings","levels":[[],[{"mag%":30}],[{"mag%":30,"skillEnhancement":{"912854":2,"912855":1,"912860":2}}],[{"mag%":30,"skillEnhancement":{"912854":2,"912855":1,"912860":2},"dualWielding":{"mag":50}}]]}
+		],
 		"skills": [
 			{"hp%":50, "mp%":40, "mag%":100, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5, "special":["dualWield"]},
 			{"hp%":20, "def%":20, "spr%":20, "evade":{"physical":20}, "equipedConditions":[["1100000121","1500000088"]]},
@@ -15364,6 +15371,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","harp","whip","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Snowbear's Blessings","levels":[[],[{"mag%":30}],[{"mag%":30,"skillEnhancement":{"912854":2,"912855":1,"912860":2}}],[{"mag%":30,"skillEnhancement":{"912854":2,"912855":1,"912860":2},"dualWielding":{"mag":50}}]]}
+		],
 			"skills": [
 				{"hp%":50, "mp%":40, "mag%":100, "spr%":30, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"ice","percent":20}], "mpRefresh":5, "special":["dualWield"]}
 			]
@@ -15383,6 +15393,9 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Extended Lifespan","levels":[[],[{"spr%":20,"def%":20,"hp%":20}],[{"spr%":30,"def%":30,"hp%":30,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50}],[{"spr%":30,"def%":30,"hp%":30,"lbPerTurn":{"min":5,"max":5},"lbFillRate":100,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]}
+		],
 		"skills": [
 			{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5},
 			{"mp%":30, "spr%":30, "resist":[{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "equipedConditions":[["1500000034","1100000226"]]},
@@ -15405,6 +15418,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"Extended Lifespan","levels":[[],[{"spr%":20,"def%":20,"hp%":20}],[{"spr%":30,"def%":30,"hp%":30,"lbPerTurn":{"min":2,"max":2},"lbFillRate":50}],[{"spr%":30,"def%":30,"hp%":30,"lbPerTurn":{"min":5,"max":5},"lbFillRate":100,"resist":[{"name":"fire","percent":10},{"name":"ice","percent":10},{"name":"lightning","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10},{"name":"light","percent":10},{"name":"dark","percent":10}]}]]}
+		],
 			"skills": [
 				{"hp%":60, "mp%":30, "def%":20, "spr%":20, "evade":{"physical":30,"magical":20}, "resist":[{"name":"poison","percent":100},{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20},{"name":"disease","percent":100}], "killers":[{"name":"human","magical":50},{"name":"spirit","magical":50}], "mpRefresh":5}
 			]
@@ -16269,6 +16285,50 @@
 			{"atk%":10, "def%":20, "mag%":10, "resist":[{"name":"water","percent":50}]},
 			{"atk%":20, "mag%":20, "equipedConditions":["spear"]}
 		]
+	},
+	"401005705": {
+		"name":"루카스",
+		"wikiEntry":"Lucas",
+		"id":"401005705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":4970,"mp":236,"atk":167,"def":190,"mag":135,"spr":219},
+			"minStats":{"hp":1640,"mp":78,"atk":55,"def":63,"mag":45,"spr":72},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":20, "mp%":30, "def%":20, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":50}], "mpRefresh":7, "drawAttacks":50},
+			{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+			{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]},
+			{"spr%":40, "replaceLb":{"name":"Erratic Barrier","minEffects":[{"effect":{"noUse":true,"globalMitigation":21,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 21% to all allies for 4 turns"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Dodge 2 physical attacks for 4 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 200 MP to all allies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove all debuffs from caster"},{"effect":null,"desc":"Cure all status effects for caster"}],"maxEffects":[{"effect":{"noUse":true,"globalMitigation":50,"turns":4,"area":"AOE","target":"ALLY"},"desc":"Reduce damage taken by 50% to all allies for 4 turns"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Dodge 2 physical attacks for 4 turns to all allies"},{"effect":{"noUse":true,"area":"AOE","target":"ALLY"},"desc":"Restore 200 MP to all allies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Remove all debuffs from caster"},{"effect":null,"desc":"Cure all status effects for caster"}]}, "equipedConditions":[["1100000367","1100000368"]]},
+			{"spr%":20, "levelCondition":115},
+			{"hp%":40, "def%":40, "spr%":40, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"lightning","percent":20},{"name":"water","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"light","percent":20},{"name":"dark","percent":20}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"루카스",
+			"wikiEntry":"Lucas",
+			"id":"401005705",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"other",
+			"stats": {
+				"maxStats":{"hp":3823,"mp":181,"atk":128,"def":146,"mag":103,"spr":168},
+				"minStats":{"hp":1262,"mp":60,"atk":42,"def":48,"mag":34,"spr":55},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":20, "mp%":30, "def%":20, "spr%":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"wind","percent":50}], "mpRefresh":7, "drawAttacks":50},
+				{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["lightShield"]},
+				{"hp%":30, "mp%":30, "def%":30, "spr%":30, "equipedConditions":["heavyShield"]}
+			]
+		}
 	},
 	"401005905": {
 		"name":"릴리스",
@@ -17393,6 +17453,50 @@
 			"skills": [
 				{"mp%":30, "def%":30, "mag%":80, "spr%":30, "singleWielding":{"mag":100}, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"lightning","percent":50},{"name":"dark","percent":50}], "killers":[{"name":"dragon","physical":25,"magical":50}], "mpRefresh":10},
 				{"mp%":20, "mag%":20, "equipedConditions":["robe"]}
+			]
+		}
+	},
+	"401008305": {
+		"name":"레빈슨",
+		"wikiEntry":"Levinson",
+		"id":"401008305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4900,"mp":240,"atk":200,"def":180,"mag":200,"spr":180},
+			"minStats":{"hp":1617,"mp":79,"atk":66,"def":59,"mag":66,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","rod","hammer","harp","throwing","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "atk%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50,"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":10},
+			{"def%":30, "spr%":30, "equipedConditions":["clothes"]},
+			{"atk%":20, "mag%":20, "equipedConditions":["mace"]},
+			{"hp%":30, "mp%":30, "atk%":50, "def%":30, "mag%":50, "spr%":30, "singleWielding":{"mag":50,"accuracy":25,"atk":50}, "replaceLb":{"name":"Toys for Everyone!","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (25x, ATK) to all enemies"},{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":25},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (25x, MAG) to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 150 MP to caster"},{"effect":{"skillEnhancement":{"913590":2,"913592":2,"913593":2},"turn":9999},"desc":"Increase damage of Bag O' Toys skills  [Freeze Ray (913593) / Sparklers (913592) / Toy Soldier (913590)] by 200% for 9999 turns"},{"effect":{"skillEnhancement":{"913589":10,"913591":10},"turn":9999},"desc":"Increase damage of Bag O' Toys skills  [Flurry of Candy (913591) / Toy Army (913589)] by 1000% for 9999 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":30},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (30x, ATK) to all enemies"},{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":30},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (30x, MAG) to all enemies"},{"effect":{"noUse":true,"area":"SELF","target":"SELF"},"desc":"Restore 150 MP to caster"},{"effect":{"skillEnhancement":{"913590":2,"913592":2,"913593":2},"turn":9999},"desc":"Increase damage of Bag O' Toys skills  [Freeze Ray (913593) / Sparklers (913592) / Toy Soldier (913590)] by 200% for 9999 turns"},{"effect":{"skillEnhancement":{"913589":20,"913591":20},"turn":9999},"desc":"Increase damage of Bag O' Toys skills  [Flurry of Candy (913591) / Toy Army (913589)] by 2000% for 9999 turns"}],"frames":[110,130,150,170,190,120,140,160,180,200],"move":"dash"}, "equipedConditions":[["1100000369","1100000370"]]},
+			{"def%":20, "levelCondition":115},
+			{"atk%":60, "mag%":60, "singleWielding":{"mag":100,"accuracy":50,"atk":100}, "killers":[{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"레빈슨",
+			"wikiEntry":"Levinson",
+			"id":"401008305",
+			"sixStarForm":true,
+			"max_rarity":"7",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3769,"mp":184,"atk":153,"def":138,"mag":153,"spr":138},
+				"minStats":{"hp":1244,"mp":61,"atk":50,"def":46,"mag":50,"spr":46},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","rod","hammer","harp","throwing","mace","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":20, "atk%":70, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50,"accuracy":25,"atk":50}, "resist":[{"name":"fire","percent":20},{"name":"ice","percent":20},{"name":"wind","percent":20},{"name":"earth","percent":20},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"human","physical":50,"magical":50},{"name":"spirit","physical":50,"magical":50}], "mpRefresh":10},
+				{"def%":30, "spr%":30, "equipedConditions":["clothes"]},
+				{"atk%":20, "mag%":20, "equipedConditions":["mace"]}
 			]
 		}
 	},

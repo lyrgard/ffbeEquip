@@ -4160,6 +4160,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["チョコダッシュ・風","チョコダッシュ・光","スーパーチョコダッシュ","みんなで日光浴","防御+20%"],
 		"6_form": {
 			"name":"Chocobo Fina",
 			"jpname":"フィーナ&チョコボ",
@@ -4174,7 +4175,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["チョコダッシュ・風","チョコダッシュ・光","スーパーチョコダッシュ","みんなで日光浴","防御+20%"]
 		}
 	},
 	"100022305": {
@@ -4718,6 +4720,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],
 		"6_form": {
 			"name":"Cantilena",
 			"jpname":"シャンティレーナ",
@@ -4732,7 +4735,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"]
+			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"]
 		}
 	},
 	"100024805": {
@@ -5535,6 +5539,67 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","helm","clothes","lightArmor","robe"]
 		}
+	},
+	"100028305": {
+		"name":"Daisy",
+		"jpname":"デイジー",
+		"id":"100028305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5021,"mp":208,"atk":174,"def":217,"mag":130,"spr":200},
+			"minStats":{"hp":1657,"mp":69,"atk":57,"def":72,"mag":43,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Daisy",
+			"jpname":"デイジー",
+			"id":"100028305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3862,"mp":160,"atk":133,"def":166,"mag":100,"spr":153},
+				"minStats":{"hp":1274,"mp":53,"atk":44,"def":55,"mag":33,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100028404": {
+		"name":"Milietta",
+		"jpname":"ミリエッタ",
+		"id":"100028404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3697,"mp":159,"atk":158,"def":130,"mag":110,"spr":120},
+			"minStats":{"hp":1220,"mp":52,"atk":52,"def":43,"mag":36,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","spear","harp","throwing","hat","helm","clothes","lightArmor"]
+	},
+	"100028503": {
+		"name":"Cocotto",
+		"jpname":"ココット",
+		"id":"100028503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2670,"mp":119,"atk":106,"def":97,"mag":92,"spr":93},
+			"minStats":{"hp":881,"mp":39,"atk":35,"def":32,"mag":30,"spr":31},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","harp","whip","mace","hat","clothes","robe"]
 	},
 	"100028605": {
 		"name":"Santa Lotti",
@@ -6946,7 +7011,7 @@
 	},
 	"205000805": {
 		"name":"Gilgamesh",
-		"jpname":"ギルガメッシュ",
+		"jpname":"ギルガメッシュ(FFV)",
 		"id":"205000805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6961,7 +7026,7 @@
 		"enhancementSkills":["雪月花","武器コレクター","三対の剣"],
 		"6_form": {
 			"name":"Gilgamesh",
-			"jpname":"ギルガメッシュ",
+			"jpname":"ギルガメッシュ(FFV)",
 			"id":"205000805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -13462,6 +13527,37 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","hammer","mace","lightShield","hat","clothes","robe"]
+	},
+	"339000105": {
+		"name":"ギルガメッシュ",
+		"jpname":"ギルガメッシュ",
+		"id":"339000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4720,"mp":256,"atk":207,"def":188,"mag":204,"spr":195},
+			"minStats":{"hp":1558,"mp":84,"atk":68,"def":62,"mag":67,"spr":64},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"ギルガメッシュ",
+			"jpname":"ギルガメッシュ",
+			"id":"339000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3630,"mp":196,"atk":159,"def":144,"mag":156,"spr":150},
+				"minStats":{"hp":1198,"mp":65,"atk":52,"def":48,"mag":51,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"]
+		}
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",

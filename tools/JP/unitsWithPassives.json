@@ -5803,16 +5803,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["チョコダッシュ・風","チョコダッシュ・光","スーパーチョコダッシュ","みんなで日光浴","防御+20%"],
 		"enhancements": [
-			{"name":"チョコボとおでかけ","levels":[[],[{"spr%":40,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]}]]}
+			{"name":"チョコボとおでかけ","levels":[[],[{"spr%":40,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]}]]},
+			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":40,"levelCondition":115},{"equipedConditions":["staff"],"def%":25,"levelCondition":115},{"equipedConditions":["bow"],"def%":25,"levelCondition":115}],[{"def%":40,"replaceLb":{"name":"チョコメテオ","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":35.1,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (35.1x, SPR) to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-522329678","name":"Tチョコボ"}]}},"desc":"Gain 3 uses of みんなで日光浴 (230749, 708311, 708312), キュアスパークル (230751), シュート・リジェネ (230742), スーパーチョコダッシュ (230746, 708305, 708306), セイクリッドギフト (230747), チョコグリッター (230744), チョコダッシュ・光 (230745, 708307, 708308), チョコダッシュ・風 (230740, 708309, 708310), チョコボフィーバー！ (800053), チョコリレイズ (230752), バースト・MPリジェネ (230741), メディテーション (230750) and リミットレイ (230743) for 4 turns"},{"effect":{"skillEnhancement":{"230740":9,"230745":9,"230746":9,"230750":9,"509663":9,"708305":9,"708306":9,"708307":9,"708308":9,"708309":9,"708310":9},"turn":4},"desc":"Increase damage of スーパーチョコダッシュ (230746, 708305, 708306), チョコダッシュ・光 (230745, 708307, 708308), チョコダッシュ・風 (230740, 708309, 708310), チョコリレイズ (509663) and メディテーション (230750) by 900% for 4 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":38,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (38x, SPR) to all enemies"},{"effect":{"gainSkills":{"turns":4,"skills":[{"id":"unlocked-522329678","name":"Tチョコボ"}]}},"desc":"Gain 3 uses of みんなで日光浴 (230749, 708311, 708312), キュアスパークル (230751), シュート・リジェネ (230742), スーパーチョコダッシュ (230746, 708305, 708306), セイクリッドギフト (230747), チョコグリッター (230744), チョコダッシュ・光 (230745, 708307, 708308), チョコダッシュ・風 (230740, 708309, 708310), チョコボフィーバー！ (800053), チョコリレイズ (230752), バースト・MPリジェネ (230741), メディテーション (230750) and リミットレイ (230743) for 4 turns"},{"effect":{"skillEnhancement":{"230740":9,"230745":9,"230746":9,"230750":9,"509663":9,"708305":9,"708306":9,"708307":9,"708308":9,"708309":9,"708310":9},"turn":4},"desc":"Increase damage of スーパーチョコダッシュ (230746, 708305, 708306), チョコダッシュ・光 (230745, 708307, 708308), チョコダッシュ・風 (230740, 708309, 708310), チョコリレイズ (509663) and メディテーション (230750) by 900% for 4 turns"}],"frames":[138,144,150,156,162,168,174,180,186,192,198,204,210,216,222,228,234,240,246,252],"move":"none"},"levelCondition":115},{"equipedConditions":["staff"],"def%":50,"levelCondition":115},{"equipedConditions":["bow"],"def%":50,"levelCondition":115}]]}
 		],
 		"skills": [
 			{"hp%":70, "mp%":50, "def%":20, "spr%":50, "resist":[{"name":"wind","percent":50},{"name":"light","percent":50}], "mpRefresh":5, "special":["dualWield"]},
 			{"spr%":50, "equipedConditions":["staff"]},
 			{"spr%":50, "equipedConditions":["bow"]},
 			{"spr%":40, "dualWielding":{"spr":60}, "equipedConditions":[["504230760","409029700"]]},
-			{"def%":20, "levelCondition":115},
-			{"def%":20, "spr%":20, "dualWielding":{"spr":40}, "skillEnhancement":{"230740":2,"230745":2,"230746":2,"230750":2,"509663":2}, "levelCondition":120}
+			{"def%":20, "spr%":20, "dualWielding":{"spr":40}, "skillEnhancement":{"230740":2,"230745":2,"230746":2,"230750":2,"509663":2,"708305":2,"708306":2,"708307":2,"708308":2,"708309":2,"708310":2}, "levelCondition":120}
 		],
 		"6_form": {
 			"name":"Chocobo Fina",
@@ -5829,6 +5830,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["チョコダッシュ・風","チョコダッシュ・光","スーパーチョコダッシュ","みんなで日光浴","防御+20%"],
 		"enhancements": [
 			{"name":"チョコボとおでかけ","levels":[[],[{"spr%":40,"resist":[{"name":"wind","percent":30},{"name":"light","percent":30}]}]]}
 		],
@@ -6609,13 +6611,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],
+		"enhancements": [
+			{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]},
+			{"name":"魔奏の歌姫","levels":[[{"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"spr%":20,"mag%":20,"mp%":30,"hp%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"levelCondition":120}]]}
+		],
 		"skills": [
-			{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}},
+			{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}]},
 			{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
 			{"mag%":30, "equipedConditions":["rod"]},
 			{"equipedConditions":[["504231383","408004900"]]},
-			{"def%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Cantilena",
@@ -6632,8 +6638,12 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["風精に愛されし者","遮光の魔奏","日輪の大魔奏","芽吹きのアリア","魔奏の歌姫"],
+		"enhancements": [
+			{"name":"風精に愛されし者","levels":[[{"esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}}}],[{"esperStatsBonus":{"Tetra Sylphid":{"hp":100,"mp":100,"atk":100,"def":100,"mag":100,"spr":100}},"spr%":30,"mag%":30}]]}
+		],
 			"skills": [
-				{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}], "esperStatsBonus":{"Tetra Sylphid":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}},
+				{"mp%":60, "mag%":90, "resist":[{"name":"water","percent":30},{"name":"wind","percent":30},{"name":"light","percent":30},{"name":"silence","percent":100}]},
 				{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
 				{"mag%":30, "equipedConditions":["rod"]}
 			]
@@ -7776,6 +7786,83 @@
 				{"def%":20, "spr%":20, "equipedConditions":["robe"]}
 			]
 		}
+	},
+	"100028305": {
+		"name":"Daisy",
+		"jpname":"デイジー",
+		"id":"100028305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":5021,"mp":208,"atk":174,"def":217,"mag":130,"spr":200},
+			"minStats":{"hp":1657,"mp":69,"atk":57,"def":72,"mag":43,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":50, "mp%":60, "atk%":70, "def%":60, "spr%":40, "resist":[{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "drawAttacks":50},
+			{"hp%":40, "atk%":40, "def%":40, "equipedConditions":[["504234360","409039700"]]},
+			{"hp%":30, "atk%":30, "def%":30, "lbFillRate":50, "lbPerTurn":{"min":3,"max":3}, "levelCondition":110},
+			{"spr%":20, "levelCondition":115},
+			{"def%":30, "spr%":30, "resist":[{"name":"earth","percent":30},{"name":"light","percent":30}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Daisy",
+			"jpname":"デイジー",
+			"id":"100028305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3862,"mp":160,"atk":133,"def":166,"mag":100,"spr":153},
+				"minStats":{"hp":1274,"mp":53,"atk":44,"def":55,"mag":33,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":50, "mp%":60, "atk%":70, "def%":60, "spr%":40, "resist":[{"name":"earth","percent":50},{"name":"light","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "mpRefresh":10, "drawAttacks":50}
+			]
+		}
+	},
+	"100028404": {
+		"name":"Milietta",
+		"jpname":"ミリエッタ",
+		"id":"100028404",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3697,"mp":159,"atk":158,"def":130,"mag":110,"spr":120},
+			"minStats":{"hp":1220,"mp":52,"atk":52,"def":43,"mag":36,"spr":40},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","spear","harp","throwing","hat","helm","clothes","lightArmor"],
+		"skills": [
+			{"hp%":40, "mp%":20, "atk%":70, "def%":50, "spr%":20, "dualWielding":{"atk":25}, "lbFillRate":50, "resist":[{"name":"fire","percent":20},{"name":"blind","percent":100}], "mpRefresh":5}
+		]
+	},
+	"100028503": {
+		"name":"Cocotto",
+		"jpname":"ココット",
+		"id":"100028503",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":2670,"mp":119,"atk":106,"def":97,"mag":92,"spr":93},
+			"minStats":{"hp":881,"mp":39,"atk":35,"def":32,"mag":30,"spr":31},
+			"pots":{"hp":300,"mp":50,"atk":20,"def":20,"mag":20,"spr":20}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","harp","whip","mace","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":30, "def%":30, "lbFillRate":50, "mpRefresh":3}
+		]
 	},
 	"100028605": {
 		"name":"Santa Lotti",
@@ -9972,7 +10059,7 @@
 	},
 	"205000805": {
 		"name":"Gilgamesh",
-		"jpname":"ギルガメッシュ",
+		"jpname":"ギルガメッシュ(FFV)",
 		"id":"205000805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -10035,7 +10122,7 @@
 		],
 		"6_form": {
 			"name":"Gilgamesh",
-			"jpname":"ギルガメッシュ",
+			"jpname":"ギルガメッシュ(FFV)",
 			"id":"205000805",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -19363,6 +19450,46 @@
 		"skills": [
 			{"hp%":40, "mp%":20, "atk%":20, "def%":20, "spr%":20, "resist":[{"name":"paralysis","percent":100},{"name":"fire","percent":20}]}
 		]
+	},
+	"339000105": {
+		"name":"ギルガメッシュ",
+		"jpname":"ギルガメッシュ",
+		"id":"339000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4720,"mp":256,"atk":207,"def":188,"mag":204,"spr":195},
+			"minStats":{"hp":1558,"mp":84,"atk":68,"def":62,"mag":67,"spr":64},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":40, "mp%":50, "atk%":80, "def%":20, "mag%":70, "spr%":20, "dualWielding":{"atk":100,"mag":100}, "improvedDW":true, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"earth","percent":30},{"name":"stop","percent":100},{"name":"fire","percent":-10},{"name":"wind","percent":20}], "killers":[{"name":"dragon","physical":75,"magical":75}], "mpRefresh":12, "special":["dualWield"]},
+			{"hp%":20, "mp%":20, "atk%":30, "def%":30, "mag%":30, "spr%":30, "killers":[{"name":"dragon","physical":75,"magical":75}], "equipedConditions":[["404004600","504234420"]]},
+			{"atk%":20, "levelCondition":115},
+			{"atk%":40, "mag%":40, "skillEnhancement":{"234430":9,"234434":3.75,"234435":9,"234437":9,"511685":3,"511686":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"ギルガメッシュ",
+			"jpname":"ギルガメッシュ",
+			"id":"339000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3630,"mp":196,"atk":159,"def":144,"mag":156,"spr":150},
+				"minStats":{"hp":1198,"mp":65,"atk":52,"def":48,"mag":51,"spr":50},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":40, "mp%":50, "atk%":80, "def%":20, "mag%":70, "spr%":20, "dualWielding":{"atk":100,"mag":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"earth","percent":30},{"name":"stop","percent":100},{"name":"fire","percent":-10},{"name":"wind","percent":20}], "killers":[{"name":"dragon","physical":75,"magical":75}], "mpRefresh":12, "special":["dualWield"]}
+			]
+		}
 	},
 	"401000104": {
 		"name":"Dangerous Ariana",
