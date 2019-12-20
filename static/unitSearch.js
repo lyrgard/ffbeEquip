@@ -1127,7 +1127,7 @@ function initFilters() {
         baseRarity = state.baseRarity;
         select("baseRarity", baseRarity.map(r => r.toString()));
     }
-    if (state.maxRarity) {
+    if (state.maxRarity) { 
         maxRarity = state.maxRarity;
         select("maxRarity", maxRarity.map(r => r.toString()));
     }
