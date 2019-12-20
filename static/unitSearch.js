@@ -1135,6 +1135,9 @@ function initFilters() {
         types = state.equipmentTypes;
         select("types", types);
     }
+    if (state.fullyDisplayedUnits) {
+        fullyDisplayedUnits = state.fullyDisplayedUnits;
+    }
     for (var i = unitSearchFilters.length; i--;) {
         if (state[unitSearchFilters[i]]) {
             window[unitSearchFilters[i]] = state[unitSearchFilters[i]];
@@ -1224,6 +1227,7 @@ function updateHash() {
     if (skillFilter.chainFamily != 'none') {
         state.skillFilter = skillFilter;
     }
+    state.fullyDisplayedUnits = fullyDisplayedUnits;
     
     window.location.hash = '#' + window.btoa(JSON.stringify(state));
 }
