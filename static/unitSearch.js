@@ -573,7 +573,7 @@ function displayUnitsAsync(units, start, div) {
         
         html += '<div class="lb">';
         if (skillIdToDisplay.includes('lb')) {
-            html += getLbHtml(unitData.unit.lb);
+            html += getLbHtml(unitData.unit.lb, unitData.unit);
         }
         html += '</div>';
         
@@ -643,54 +643,60 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         }
 
         for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
-            if (skill.effects[j].effect && skill.effects[j].effect.randomlyUse) {
-                html += '<span class="effect">Randomly use :</span>';
-                for (var i = 0, len = skill.effects[j].effect.randomlyUse.length; i < len; i++) {
-                    var randomSkill = skill.effects[j].effect.randomlyUse[i];
-                    html += '<div class="subSkill">';
-                    html += '<span class="percent">' + randomSkill.percent + '%</span>'
-                    html += getSkillHtml(randomSkill.skill, unit, false, alreadyDisplayedSkills.concat(skill.id));
-                    html += '</div>';
-                }
-            } else if (skill.effects[j].effect && skill.effects[j].effect.allowUseOf) {
-                html += '<span class="effect">Allow use of ' + skill.effects[j].effect.allowUseOf.map(eq => '<i class="img img-equipment-' + eq + '"></i>').join(", ") + '</span>';
-            } else if (skill.effects[j].effect && skill.effects[j].effect.counterSkill) {
-                html += '<span class="effect">' + skill.effects[j].effect.percent + '% chance to counter ' + skill.effects[j].effect.counterType + ' attacks with :</span>';
-                html += '<div class="subSkill">';
-                html += getSkillHtml(skill.effects[j].effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
-                html += '</div>';
-            } else if (skill.effects[j].effect && skill.effects[j].effect.autoCastedSkill) {
-                html += '<span class="effect">Cast at the start of battle or when revived :</span>';
-                html += '<div class="subSkill">';
-                html += getSkillHtml(skill.effects[j].effect.autoCastedSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
-                html += '</div>';
-            } else if (skill.effects[j].effect && skill.effects[j].effect.gainSkills) {
-                html += '<span class="effect">Gain ';
-                if (typeof skill.effects[j].effect.gainSkills.turns !== 'undefined') {
-                    if (skill.effects[j].effect.gainSkills.turns === 0) {
-                        html += 'for current turn'
-                    } else {
-                        html += 'for ' + skill.effects[j].effect.gainSkills.turns + ' turns';
-                    }
-                }
-                html += ':</span>';
-                let skillId = skill.id;
-                skill.effects[j].effect.gainSkills.skills.forEach(skill => {
-                    let activesAndMagics = unit.actives.concat(unit.magics);
-                    activesAndMagics.filter(gainedSkill => gainedSkill.id === skill.id).forEach(gainedSkill => {
-                        html += '<div class="subSkill">';
-                        html += getSkillHtml(gainedSkill, unit, false, alreadyDisplayedSkills.concat(skillId).concat(gainedSkill.id));
-                        html += '</div>';
-                    });
-                });
-            } else {
-                html += '<span class="effect">' + getEffectDescription(skill.effects[j]) + '</span>';    
-            }
+            const effect = skill.effects[j];
+            html += getEffectHtml(effect, unit, alreadyDisplayedSkills, skill.id);
         }
     } else {
         html += '</span></div></div>';
     }
     html += '</div></div>'; 
+    return html;
+}
+
+function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
+    let html = "";
+    if (effect.effect && effect.effect.randomlyUse) {
+        html += '<span class="effect">Randomly use :</span>';
+        for (var i = 0, len = effect.effect.randomlyUse.length; i < len; i++) {
+            var randomSkill = effect.effect.randomlyUse[i];
+            html += '<div class="subSkill">';
+            html += '<span class="percent">' + randomSkill.percent + '%</span>'
+            html += getSkillHtml(randomSkill.skill, unit, false, alreadyDisplayedSkills.concat(skillId));
+            html += '</div>';
+        }
+    } else if (effect.effect && effect.effect.allowUseOf) {
+        html += '<span class="effect">Allow use of ' + effect.effect.allowUseOf.map(eq => '<i class="img img-equipment-' + eq + '"></i>').join(", ") + '</span>';
+    } else if (effect.effect && effect.effect.counterSkill) {
+        html += '<span class="effect">' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :</span>';
+        html += '<div class="subSkill">';
+        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+        html += '</div>';
+    } else if (effect.effect && effect.effect.autoCastedSkill) {
+        html += '<span class="effect">Cast at the start of battle or when revived :</span>';
+        html += '<div class="subSkill">';
+        html += getSkillHtml(effect.effect.autoCastedSkill, unit, false, alreadyDisplayedSkills.concat(skillId));
+        html += '</div>';
+    } else if (effect.effect && effect.effect.gainSkills) {
+        html += '<span class="effect">Gain ';
+        if (typeof effect.effect.gainSkills.turns !== 'undefined') {
+            if (effect.effect.gainSkills.turns === 0) {
+                html += 'for current turn'
+            } else {
+                html += 'for ' + effect.effect.gainSkills.turns + ' turns';
+            }
+        }
+        html += ':</span>';
+        effect.effect.gainSkills.skills.forEach(skill => {
+            let activesAndMagics = unit.actives.concat(unit.magics);
+            activesAndMagics.filter(gainedSkill => gainedSkill.id === skill.id).forEach(gainedSkill => {
+                html += '<div class="subSkill">';
+                html += getSkillHtml(gainedSkill, unit, false, alreadyDisplayedSkills.concat(skillId).concat(gainedSkill.id));
+                html += '</div>';
+            });
+        });
+    } else {
+        html += '<span class="effect">' + getEffectDescription(effect) + '</span>';
+    }
     return html;
 }
 
@@ -816,7 +822,7 @@ function getWarningStrangeStatsUsed(effects) {
     return "";
 }
 
-function getLbHtml(lb) {
+function getLbHtml(lb, unit) {
     var html = '<div class="skill">';
     html += '<div><img class="skillIcon" src="img/icons/lb.png"/></div>'
     html += '<div class="nameAndEffects"><span class="name">Limit Burst : ' + lb.name;
@@ -829,7 +835,8 @@ function getLbHtml(lb) {
     html += '<span class="case">Min :</span>'
     html += '<div class="skill"><div class="nameAndEffects">';
     for (var j = 0, len = lb.minEffects.length; j < len; j++) {
-        html += '<span class="effect">' + getEffectDescription(lb.minEffects[j]) + '</span>';   
+        html += getEffectHtml(lb.minEffects[j], unit, [], "0");
+        //html += '<span class="effect">' + getEffectDescription(lb.minEffects[j]) + '</span>';
     }
     html += '</div></div>';
     html += '</div>';
@@ -837,7 +844,8 @@ function getLbHtml(lb) {
     html += '<span class="case">Max :</span>'
     html += '<div class="skill"><div class="nameAndEffects">';
     for (var j = 0, len = lb.maxEffects.length; j < len; j++) {
-        html += '<span class="effect">' + getEffectDescription(lb.maxEffects[j]) + '</span>';   
+        html += getEffectHtml(lb.maxEffects[j], unit, [], "0");
+        //html += '<span class="effect">' + getEffectDescription(lb.maxEffects[j]) + '</span>';
     }
     html += '</div></div>';
     html += '</div>';
@@ -1127,7 +1135,7 @@ function initFilters() {
         baseRarity = state.baseRarity;
         select("baseRarity", baseRarity.map(r => r.toString()));
     }
-    if (state.maxRarity) { 
+    if (state.maxRarity) {
         maxRarity = state.maxRarity;
         select("maxRarity", maxRarity.map(r => r.toString()));
     }
