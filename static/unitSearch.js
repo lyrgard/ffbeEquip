@@ -669,7 +669,7 @@ function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
     } else if (effect.effect && effect.effect.counterSkill) {
         html += '<span class="effect">' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :</span>';
         html += '<div class="subSkill">';
-        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skillId));
         html += '</div>';
     } else if (effect.effect && effect.effect.autoCastedSkill) {
         html += '<span class="effect">Cast at the start of battle or when revived :</span>';
