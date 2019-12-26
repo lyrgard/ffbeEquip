@@ -5704,8 +5704,8 @@
 		}
 	},
 	"100023305": {
-		"name":"CG Majin Fina",
-		"wikiEntry":"白百合の魔人フィーナ",
+		"name":"Fina oscura con lirio blanco",
+		"wikiEntry":"White_Lily Dark Fina",
 		"id":"100023305",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -5718,16 +5718,16 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"skills": [
-			{"hp%":20, "mp%":30, "atk%":20, "def%":20, "mag%":70, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
+			{"hp%":20, "mp%":40, "atk%":20, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":150, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
 			{"mag%":30, "equipedConditions":["robe"]},
 			{"mag%":50, "lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["504231201","314002200"]]},
 			{"hp%":30, "mp%":30, "mag%":30, "levelCondition":110},
 			{"mag%":20, "levelCondition":115},
-			{"def%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"231213":1,"231214":1,"231215":1,"231216":1,"231217":1,"231222":0.5,"231223":0.5,"231224":0.5}, "levelCondition":120}
+			{"def%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"231213":1,"231214":1,"231215":1,"231216":1,"231217":1,"231222":3,"231223":3,"231224":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Majin Fina",
-			"wikiEntry":"白百合の魔人フィーナ",
+			"name":"Fina oscura con lirio blanco",
+			"wikiEntry":"White_Lily Dark Fina",
 			"id":"100023305",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -5741,7 +5741,7 @@
 			"stats_pattern":1,
 			"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 			"skills": [
-				{"hp%":20, "mp%":30, "atk%":20, "def%":20, "mag%":70, "spr%":20, "lbFillRate":100, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
+				{"hp%":20, "mp%":40, "atk%":20, "def%":20, "mag%":70, "spr%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":150, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30}], "mpRefresh":12},
 				{"mag%":30, "equipedConditions":["robe"]}
 			]
 		}
@@ -6093,8 +6093,8 @@
 		]
 	},
 	"201000405": {
-		"name":"CG Warrior of Light",
-		"wikiEntry":"ウォーリア_オブ ライト",
+		"name":"Guerrero de la Luz despertado",
+		"wikiEntry":"Awakened_Warrior of Light",
 		"id":"201000405",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6107,15 +6107,15 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"skills": [
-			{"hp%":50, "mp%":60, "def%":80, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}},
+			{"hp%":50, "mp%":60, "def%":100, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}},
 			{"hp%":40, "def%":40, "resist":[{"name":"fire","percent":30},{"name":"ice","percent":30},{"name":"lightning","percent":30},{"name":"light","percent":30}], "equipedConditions":[["302009000","402003900"]]},
 			{"hp%":30, "mp%":30, "spr%":30, "levelCondition":110},
 			{"def%":20, "levelCondition":115},
 			{"mp%":20, "def%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Warrior of Light",
-			"wikiEntry":"ウォーリア_オブ ライト",
+			"name":"Guerrero de la Luz despertado",
+			"wikiEntry":"Awakened_Warrior of Light",
 			"id":"201000405",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6129,13 +6129,13 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 			"skills": [
-				{"hp%":50, "mp%":60, "def%":80, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}}
+				{"hp%":50, "mp%":60, "def%":100, "spr%":50, "lbFillRate":50, "lbPerTurn":{"min":4,"max":4}, "resist":[{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"light","percent":100}], "killers":[{"name":"undead","physical":50}], "mpRefresh":10, "drawAttacks":80, "skillEnhancement":{"10170":2,"10210":2,"10290":2}}
 			]
 		}
 	},
 	"201000505": {
-		"name":"Garland v2",
-		"wikiEntry":"輪廻の騎士ガーランド",
+		"name":"Garland, caballero inmortal",
+		"wikiEntry":"Immortal_Knight Garland",
 		"id":"201000505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -6148,7 +6148,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":50, "mp%":30, "atk%":40, "def%":70, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":30}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+			{"hp%":50, "mp%":30, "atk%":60, "def%":70, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
 			{"atk%":25, "equipedConditions":["greatSword"]},
 			{"atk%":25, "equipedConditions":["helm"]},
 			{"hp%":30, "mp%":30, "atk%":30, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["504231302","407004500"]]},
@@ -6157,8 +6157,8 @@
 			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Garland v2",
-			"wikiEntry":"輪廻の騎士ガーランド",
+			"name":"Garland, caballero inmortal",
+			"wikiEntry":"Immortal_Knight Garland",
 			"id":"201000505",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -6172,7 +6172,7 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":50, "mp%":30, "atk%":40, "def%":70, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":30}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
+				{"hp%":50, "mp%":30, "atk%":60, "def%":70, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":25, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"dark","percent":50}], "killers":[{"name":"human","physical":50}], "mpRefresh":5},
 				{"atk%":25, "equipedConditions":["greatSword"]},
 				{"atk%":25, "equipedConditions":["helm"]}
 			]
