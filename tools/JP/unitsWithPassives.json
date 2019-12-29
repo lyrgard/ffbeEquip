@@ -5691,13 +5691,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["序ノ舞・落瀧","真舞・光神ノ羽衣","華焔ノ楽","白蓉ノ楽","真心からの慶祝"],
+		"enhancements": [
+			{"name":"真心からの慶祝","levels":[[{"mp%":30,"hp%":30,"dualWielding":{"spr":60},"improvedDW":true,"levelCondition":120}],[{"mp%":40,"hp%":40,"dualWielding":{"spr":85},"improvedDW":true,"levelCondition":120}],[{"mp%":50,"hp%":50,"dualWielding":{"spr":110},"improvedDW":true,"replaceLb":{"name":"吉祥煌爛ノ舞","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":43.1,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (43.1x, SPR) to all enemies"},{"effect":{"statsBuff":{"spr":200},"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase SPR by 200% for 5 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked-169294107","name":"T舞踊"}]}},"desc":"Gain 3 uses of 乱れ傘 (230254), 序ノ舞・落瀧 (230259, 708327, 708328), 急ノ舞・緋神楽 (509442), 暴れ傘 (230253), 月光ノ静舞 (230261), 治癒ノ舞 (230255), 烈日ノ踏舞 (230260), 白蓉ノ楽 (230269, 708331, 708332), 真舞・光神ノ羽衣 (230266, 708325, 708326), 破ノ舞・荒魂 (509441), 紅ノ輪舞 (230252), 終舞・越天 (230267) and 華焔ノ楽 (230268, 708329, 708330) for one turn"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"mind","coef":54.7,"use":{"stat":"spr","percent":100,"max":99999}},"area":"AOE","target":"ENEMY"},"desc":"Magic* damage (54.7x, SPR) to all enemies"},{"effect":{"statsBuff":{"spr":200},"turns":5,"area":"AOE","target":"ALLY"},"desc":"Increase SPR by 200% for 5 turns to all allies"},{"effect":{"gainSkills":{"turns":1,"skills":[{"id":"unlocked-169294107","name":"T舞踊"}]}},"desc":"Gain 3 uses of 乱れ傘 (230254), 序ノ舞・落瀧 (230259, 708327, 708328), 急ノ舞・緋神楽 (509442), 暴れ傘 (230253), 月光ノ静舞 (230261), 治癒ノ舞 (230255), 烈日ノ踏舞 (230260), 白蓉ノ楽 (230269, 708331, 708332), 真舞・光神ノ羽衣 (230266, 708325, 708326), 破ノ舞・荒魂 (509441), 紅ノ輪舞 (230252), 終舞・越天 (230267) and 華焔ノ楽 (230268, 708329, 708330) for one turn"}],"frames":[88,93,98,103,108,113,118,123,128,133,138,143,148,153,158,163,168,173,178,183,188,193,198,203,208,213,218,223,228,233],"move":"walk"},"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":70, "dualWielding":{"spr":40}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"fire","percent":40}], "mpRefresh":7, "special":["dualWield"]},
 			{"spr%":20, "equipedConditions":["staff"]},
 			{"spr%":40, "equipedConditions":[["408004400","403048200"]]},
 			{"lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"light","percent":40}], "levelCondition":110},
-			{"spr%":20, "levelCondition":115},
-			{"hp%":30, "mp%":30, "dualWielding":{"spr":60}, "improvedDW":true, "levelCondition":120}
+			{"spr%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Kimono Ayaka",
@@ -5714,6 +5717,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["序ノ舞・落瀧","真舞・光神ノ羽衣","華焔ノ楽","白蓉ノ楽","真心からの慶祝"],
 			"skills": [
 				{"hp%":30, "mp%":30, "atk%":30, "def%":30, "mag%":30, "spr%":70, "dualWielding":{"spr":40}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"stop","percent":100},{"name":"fire","percent":40}], "mpRefresh":7, "special":["dualWield"]},
 				{"spr%":20, "equipedConditions":["staff"]}
@@ -6173,7 +6177,7 @@
 		}
 	},
 	"100023305": {
-		"name":"CG Majin Fina",
+		"name":"White Lily Dark Fina",
 		"jpname":"白百合の魔人フィーナ",
 		"id":"100023305",
 		"max_rarity":"7",
@@ -6198,7 +6202,7 @@
 			{"def%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"231213":1,"231214":1,"231215":1,"231216":1,"231217":1,"231222":0.5,"231223":0.5,"231224":0.5}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Majin Fina",
+			"name":"White Lily Dark Fina",
 			"jpname":"白百合の魔人フィーナ",
 			"id":"100023305",
 			"sixStarForm":true,
@@ -6482,15 +6486,16 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
+		"enhancementSkills":["四光・氷","四光・光","白蓮繚乱","狩り初め","お雑煮パワー！"],
 		"enhancements": [
-			{"name":"心機一転","levels":[[],[{"mag%":30,"lbPerTurn":{"min":2,"max":2},"skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2}}]]}
+			{"name":"心機一転","levels":[[],[{"mag%":30,"lbPerTurn":{"min":2,"max":2},"skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2,"511763":2,"511764":2,"708339":2,"708340":2,"708341":2,"708342":2}}]]},
+			{"name":"お雑煮パワー！","levels":[[{"mag%":40,"singleWielding":{"mag":50},"levelCondition":120}],[{"mag%":70,"singleWielding":{"mag":100},"levelCondition":120}],[{"mag%":100,"singleWielding":{"mag":150},"replaceLb":{"name":"白蓮一矢","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":50},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (50x, MAG) to all enemies"},{"effect":{"imperil":{"ice":91,"light":91},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice and Light by 91% for 5 turns to all enemies"},{"effect":{"lbFill":{"min":25,"max":25},"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Increase LB gauge by 25 to the rest of the party"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":79},"area":"AOE","target":"ENEMY"},"desc":"Magic damage (79x, MAG) to all enemies"},{"effect":{"imperil":{"ice":120,"light":120},"turns":5,"area":"AOE","target":"ENEMY"},"desc":"Reduce resistance to Ice and Light by 120% for 5 turns to all enemies"},{"effect":{"lbFill":{"min":25,"max":25},"area":"AOE","target":"ALLY_BUT_SELF"},"desc":"Increase LB gauge by 25 to the rest of the party"}],"frames":[266],"move":"walk"},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":15, "mp%":20, "mag%":80, "spr%":30, "singleWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10},
 			{"killers":[{"name":"bird","magical":25}], "equipedConditions":["bow"]},
 			{"hp%":30, "mp%":30, "mag%":30, "equipedConditions":[["312002600","405006500"]]},
-			{"mp%":20, "levelCondition":115},
-			{"mag%":40, "singleWielding":{"mag":50}, "levelCondition":120}
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Kimono Fina",
@@ -6507,8 +6512,9 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
+			"enhancementSkills":["四光・氷","四光・光","白蓮繚乱","狩り初め","お雑煮パワー！"],
 		"enhancements": [
-			{"name":"心機一転","levels":[[],[{"mag%":30,"lbPerTurn":{"min":2,"max":2},"skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2}}]]}
+			{"name":"心機一転","levels":[[],[{"mag%":30,"lbPerTurn":{"min":2,"max":2},"skillEnhancement":{"230935":2,"230936":2,"230937":2,"230938":2,"509788":2,"509789":2,"509795":2,"509796":2,"511763":2,"511764":2,"708339":2,"708340":2,"708341":2,"708342":2}}]]}
 		],
 			"skills": [
 				{"hp%":15, "mp%":20, "mag%":80, "spr%":30, "singleWielding":{"mag":50}, "lbFillRate":100, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"ice","percent":30},{"name":"light","percent":30}], "killers":[{"name":"bird","magical":25},{"name":"undead","magical":25}], "mpRefresh":10},
@@ -8090,7 +8096,7 @@
 		]
 	},
 	"201000405": {
-		"name":"CG Warrior of Light",
+		"name":"Awakened Warrior of Light",
 		"jpname":"ウォーリア オブ ライト",
 		"id":"201000405",
 		"max_rarity":"7",
@@ -8114,7 +8120,7 @@
 			{"mp%":20, "def%":30, "lbPerTurn":{"min":2,"max":2}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Warrior of Light",
+			"name":"Awakened Warrior of Light",
 			"jpname":"ウォーリア オブ ライト",
 			"id":"201000405",
 			"sixStarForm":true,
@@ -8137,7 +8143,7 @@
 		}
 	},
 	"201000505": {
-		"name":"Garland v2",
+		"name":"Immortal Knight Garland",
 		"jpname":"輪廻の騎士ガーランド",
 		"id":"201000505",
 		"max_rarity":"7",
@@ -8163,7 +8169,7 @@
 			{"lbDamage":50, "skillEnhancement":{"231340":0.5,"231341":1,"231342":1,"231343":1,"231344":1,"231345":1,"231346":0.5,"231347":0.5,"231348":0.5,"231349":1,"510044":0.5,"510045":1}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Garland v2",
+			"name":"Immortal Knight Garland",
 			"jpname":"輪廻の騎士ガーランド",
 			"id":"201000505",
 			"sixStarForm":true,
@@ -11609,6 +11615,7 @@
 		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 		"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
 		"enhancements": [
+			{"name":"磨かれしガンブレードの技","levels":[[],[{"spr%":30,"atk%":120,"hp%":30,"skillEnhancement":{"226622":13,"226624":27.75,"226625":27.75,"226626":27.75,"226627":27.75,"509341":5,"707666":27.75,"707667":27.75,"707668":13,"707669":13},"replaceLb":{"name":"エンドオブハート","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (25.1x * 2 = 50.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":28,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (28x * 2 = 56x, ATK) to one enemy (ignore cover)"}],"frames":[98,118,146,156,203,225,241,255,263,273,285,293,305,321,333,458,580],"move":"walk"}}]]},
 			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":150},"def%":30,"skillEnhancement":{"226623":0.5,"509341":0.5,"707662":0.5,"707663":0.5}},{"equipedConditions":["greatSword"],"atk%":50}]]},
 			{"name":"G.F.","levels":[[{"esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},"levelCondition":110}],[{"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},"levelCondition":110}],[{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":110}]]},
 			{"name":"防御+20%","levels":[[{"def%":20,"levelCondition":115}],[{"def%":30,"levelCondition":115}],[]]}
@@ -11636,6 +11643,7 @@
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
 			"enhancementSkills":["フレイムバレット","ガンブレードの使い手","ブラスティングゾーン","キーンエッジ","G.F.","防御+20%"],
 		"enhancements": [
+			{"name":"磨かれしガンブレードの技","levels":[[],[{"spr%":30,"atk%":120,"hp%":30,"skillEnhancement":{"226622":13,"226624":27.75,"226625":27.75,"226626":27.75,"226627":27.75,"509341":5,"707666":27.75,"707667":27.75,"707668":13,"707669":13},"replaceLb":{"name":"エンドオブハート","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":25.1,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (25.1x * 2 = 50.2x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":28,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (28x * 2 = 56x, ATK) to one enemy (ignore cover)"}],"frames":[98,118,146,156,203,225,241,255,263,273,285,293,305,321,333,458,580],"move":"walk"}}]]},
 			{"name":"ガンブレードの使い手","levels":[[{"singleWielding":{"accuracy":25,"atk":100}}],[{"singleWielding":{"accuracy":25,"atk":100},"def%":30},{"equipedConditions":["greatSword"],"atk%":50}],[{"singleWielding":{"accuracy":25,"atk":150},"def%":30,"skillEnhancement":{"226623":0.5,"509341":0.5,"707662":0.5,"707663":0.5}},{"equipedConditions":["greatSword"],"atk%":50}]]}
 		],
 			"skills": [
@@ -11661,6 +11669,7 @@
 		"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
 		"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"],
 		"enhancements": [
+			{"name":"魔女の力を継ぐ者","levels":[[],[{"spr%":40,"def%":40,"singleWielding":{"mag":90},"lbDamage":100,"skillEnhancement":{"226644":12,"507205":25,"707652":12,"707653":12}}]]},
 			{"name":"ペット通信","levels":[[{"equipedConditions":["throwing"],"atk%":50,"mag%":50}],[{"equipedConditions":["throwing"],"mp%":30,"atk%":75,"mag%":75}],[{"equipedConditions":["throwing"],"mp%":30,"atk%":100,"mag%":100}]]},
 			{"name":"G.F.","levels":[[{"esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}},"levelCondition":110}],[{"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}},"levelCondition":110}],[{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}},"levelCondition":110}]]},
 			{"name":"MP+20%","levels":[[{"mp%":20,"levelCondition":115}],[{"mp%":30,"levelCondition":115}],[]]}
@@ -11687,10 +11696,58 @@
 			"equip":["dagger","sword","staff","rod","harp","throwing","gun","hat","clothes","robe"],
 			"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"],
 		"enhancements": [
+			{"name":"魔女の力を継ぐ者","levels":[[],[{"spr%":40,"def%":40,"singleWielding":{"mag":90},"lbDamage":100,"skillEnhancement":{"226644":12,"507205":25,"707652":12,"707653":12}}]]},
 			{"name":"ペット通信","levels":[[{"equipedConditions":["throwing"],"atk%":50,"mag%":50}],[{"equipedConditions":["throwing"],"mp%":30,"atk%":75,"mag%":75}],[{"equipedConditions":["throwing"],"mp%":30,"atk%":100,"mag%":100}]]}
 		],
 			"skills": [
 				{"hp%":20, "mag%":30, "lbFillRate":50, "lbPerTurn":{"min":1,"max":1}, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}]}
+			]
+		}
+	},
+	"208000305": {
+		"name":"Quistis",
+		"jpname":"キスティス",
+		"id":"208000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4663,"mp":283,"atk":155,"def":164,"mag":216,"spr":186},
+			"minStats":{"hp":1539,"mp":93,"atk":51,"def":54,"mag":71,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"華麗なる鞭使い・改","levels":[[],[{"improvedDW":true,"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}]}]]}
+		],
+		"skills": [
+			{"hp%":10, "mp%":20, "atk%":20, "def%":20, "mag%":90, "spr%":20, "lbFillRate":50, "killers":[{"name":"bird","magical":75},{"name":"machine","magical":75}], "mpRefresh":5, "special":["dualWield"]},
+			{"hp%":10, "mp%":20, "mag%":40, "dualWielding":{"mag":50}, "equipedConditions":[["504234524","314002500"]]},
+			{"mp%":20, "atk%":30, "spr%":20, "levelCondition":110},
+			{"mag%":20, "levelCondition":115},
+			{"hp%":20, "def%":40, "mag%":20, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Quistis",
+			"jpname":"キスティス",
+			"id":"208000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3586,"mp":217,"atk":119,"def":126,"mag":166,"spr":143},
+				"minStats":{"hp":1183,"mp":72,"atk":39,"def":42,"mag":55,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"華麗なる鞭使い・改","levels":[[],[{"improvedDW":true,"resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}]}]]}
+		],
+			"skills": [
+				{"hp%":10, "mp%":20, "atk%":20, "def%":20, "mag%":90, "spr%":20, "lbFillRate":50, "killers":[{"name":"bird","magical":75},{"name":"machine","magical":75}], "mpRefresh":5, "special":["dualWield"]}
 			]
 		}
 	},
@@ -11710,6 +11767,7 @@
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["弱虫ゼル","格闘王愛読家","G.F."],
 		"enhancements": [
+			{"name":"格闘王を目指して","levels":[[],[{"atk%":50,"hp%":60}]]},
 			{"name":"弱虫ゼル","levels":[[{"evade":{"physical":10}}],[{"evade":{"physical":15}}],[{"evade":{"physical":20},"skillEnhancement":{"507219":1.2,"507220":0.8,"507221":1.6,"507223":2.8}}]]},
 			{"name":"格闘王愛読家","levels":[[{"equipedConditions":["fist"],"atk%":30}],[{"equipedConditions":["fist"],"atk%":50}],[{"equipedConditions":["fist"],"hp%":30,"atk%":70}]]},
 			{"name":"G.F.","levels":[[{"esperStatsBonus":{"all":{"hp":10,"mp":10,"atk":10,"def":10,"mag":10,"spr":10}}}],[{"esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}}],[{"esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}]]}
@@ -11717,6 +11775,123 @@
 		"skills": [
 			{"hp%":20, "atk%":30, "spr%":20, "resist":[{"name":"paralysis","percent":100}], "mpRefresh":5},
 			{"atk%":200, "equipedConditions":["unarmed"]}
+		]
+	},
+	"208001005": {
+		"name":"Seifer",
+		"jpname":"サイファー",
+		"id":"208001005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4828,"mp":240,"atk":209,"def":186,"mag":159,"spr":180},
+			"minStats":{"hp":1593,"mp":79,"atk":69,"def":61,"mag":52,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手・改【サイファー】","levels":[[],[{"spr%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"evade":{"physical":10},"replaceLb":{"name":"雑魚散らし","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}}]]}
+		],
+		"skills": [
+			{"hp%":40, "mp%":20, "atk%":90, "def%":40, "spr%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}},
+			{"hp%":20, "atk%":30, "def%":40, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234576":8}, "equipedConditions":[["504234522","303008000"]]},
+			{"lbFillRate":50, "levelCondition":105},
+			{"lbDamage":25, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":40, "spr%":30, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234574":5,"234575":5,"234576":10}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Seifer",
+			"jpname":"サイファー",
+			"id":"208001005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3713,"mp":184,"atk":160,"def":143,"mag":122,"spr":138},
+				"minStats":{"hp":1225,"mp":61,"atk":53,"def":47,"mag":40,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手・改【サイファー】","levels":[[],[{"spr%":20,"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"evade":{"physical":10},"replaceLb":{"name":"雑魚散らし","minEffects":[{"effect":null,"desc":"Cast Death (61%) or deal physical damage (30x * 1 = 30x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}],"maxEffects":[{"effect":null,"desc":"Cast Death (90%) or deal physical damage (48x * 1 = 48x, ATK) to all enemies"},{"effect":{"break":{"def":70},"turns":3,"area":"AOE","target":"ENEMY"},"desc":"Reduce DEF by 70% for 3 turns to all enemies"}]}}]]}
+		],
+			"skills": [
+				{"hp%":40, "mp%":20, "atk%":90, "def%":40, "spr%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}
+			]
+		}
+	},
+	"208001505": {
+		"name":"Sleeping Lion Squall",
+		"jpname":"孤高の獅子スコール",
+		"id":"208001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4808,"mp":241,"atk":210,"def":184,"mag":161,"spr":182},
+			"minStats":{"hp":1587,"mp":80,"atk":69,"def":61,"mag":53,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手・改【スコール】","levels":[[],[{"atk%":30,"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"beast","physical":25},{"name":"machine","physical":25}]}]]}
+		],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":100, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":60,"mp":60,"atk":60,"def":60,"mag":60,"spr":60}}},
+			{"hp%":20, "atk%":30, "def%":30, "spr%":30, "equipedConditions":[["504234520","303007900"]]},
+			{"lbFillRate":50, "levelCondition":105},
+			{"lbDamage":25, "levelCondition":110},
+			{"atk%":20, "levelCondition":115},
+			{"hp%":20, "mp%":10, "atk%":20, "def%":40, "spr%":40, "singleWielding":{"accuracy":25,"atk":50}, "skillEnhancement":{"234544":4,"234545":4,"234546":4,"234547":9}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sleeping Lion Squall",
+			"jpname":"孤高の獅子スコール",
+			"id":"208001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3698,"mp":185,"atk":161,"def":141,"mag":123,"spr":140},
+				"minStats":{"hp":1220,"mp":61,"atk":53,"def":47,"mag":41,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancements": [
+			{"name":"ガンブレードの使い手・改【スコール】","levels":[[],[{"atk%":30,"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"beast","physical":25},{"name":"machine","physical":25}]}]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":100, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":60,"mp":60,"atk":60,"def":60,"mag":60,"spr":60}}}
+			]
+		}
+	},
+	"208001604": {
+		"name":"Fujin & Raijin",
+		"jpname":"風神&雷神",
+		"id":"208001604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3559,"mp":156,"atk":150,"def":135,"mag":101,"spr":135},
+			"minStats":{"hp":1174,"mp":51,"atk":50,"def":45,"mag":33,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","hammer","throwing","mace","fist","hat","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"ぺらぺらな仲間じゃないもんよ！","levels":[[],[{"spr%":30,"mag%":40,"def%":30,"atk%":40}]]}
+		],
+		"skills": [
+			{"hp%":40, "atk%":80, "def%":30, "mag%":80, "spr%":30, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"wind","percent":25},{"name":"lightning","percent":25},{"name":"silence","percent":100},{"name":"charm","percent":100}], "esperStatsBonus":{"all":{"hp":30,"mp":30,"atk":30,"def":30,"mag":30,"spr":30}}, "special":["dualWield"]}
 		]
 	},
 	"209000103": {

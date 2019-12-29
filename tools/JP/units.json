@@ -4081,6 +4081,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["序ノ舞・落瀧","真舞・光神ノ羽衣","華焔ノ楽","白蓉ノ楽","真心からの慶祝"],
 		"6_form": {
 			"name":"Kimono Ayaka",
 			"jpname":"晴れ着アヤカ",
@@ -4095,7 +4096,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","hat","clothes","lightArmor","robe"]
+			"equip":["staff","rod","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["序ノ舞・落瀧","真舞・光神ノ羽衣","華焔ノ楽","白蓉ノ楽","真心からの慶祝"]
 		}
 	},
 	"100022005": {
@@ -4401,7 +4403,7 @@
 		}
 	},
 	"100023305": {
-		"name":"CG Majin Fina",
+		"name":"White Lily Dark Fina",
 		"jpname":"白百合の魔人フィーナ",
 		"id":"100023305",
 		"max_rarity":"7",
@@ -4415,7 +4417,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","whip","mace","hat","clothes","robe"],
 		"6_form": {
-			"name":"CG Majin Fina",
+			"name":"White Lily Dark Fina",
 			"jpname":"白百合の魔人フィーナ",
 			"id":"100023305",
 			"sixStarForm":true,
@@ -4628,6 +4630,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
+		"enhancementSkills":["四光・氷","四光・光","白蓮繚乱","狩り初め","お雑煮パワー！"],
 		"6_form": {
 			"name":"Kimono Fina",
 			"jpname":"晴れ着フィーナ",
@@ -4642,7 +4645,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"]
+			"equip":["staff","rod","bow","spear","mace","hat","clothes","robe"],
+			"enhancementSkills":["四光・氷","四光・光","白蓮繚乱","狩り初め","お雑煮パワー！"]
 		}
 	},
 	"100024404": {
@@ -5758,7 +5762,7 @@
 		"equip":["spear","harp","whip","hat","clothes","robe"]
 	},
 	"201000405": {
-		"name":"CG Warrior of Light",
+		"name":"Awakened Warrior of Light",
 		"jpname":"ウォーリア オブ ライト",
 		"id":"201000405",
 		"max_rarity":"7",
@@ -5772,7 +5776,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"CG Warrior of Light",
+			"name":"Awakened Warrior of Light",
 			"jpname":"ウォーリア オブ ライト",
 			"id":"201000405",
 			"sixStarForm":true,
@@ -5789,7 +5793,7 @@
 		}
 	},
 	"201000505": {
-		"name":"Garland v2",
+		"name":"Immortal Knight Garland",
 		"jpname":"輪廻の騎士ガーランド",
 		"id":"201000505",
 		"max_rarity":"7",
@@ -5803,7 +5807,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","lightShield","heavyShield","helm","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"Garland v2",
+			"name":"Immortal Knight Garland",
 			"jpname":"輪廻の騎士ガーランド",
 			"id":"201000505",
 			"sixStarForm":true,
@@ -8099,6 +8103,37 @@
 			"enhancementSkills":["アンジェロリカバー","ペット通信","アンジェロタックル","G.F.","MP+20%"]
 		}
 	},
+	"208000305": {
+		"name":"Quistis",
+		"jpname":"キスティス",
+		"id":"208000305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4663,"mp":283,"atk":155,"def":164,"mag":216,"spr":186},
+			"minStats":{"hp":1539,"mp":93,"atk":51,"def":54,"mag":71,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Quistis",
+			"jpname":"キスティス",
+			"id":"208000305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3586,"mp":217,"atk":119,"def":126,"mag":166,"spr":143},
+				"minStats":{"hp":1183,"mp":72,"atk":39,"def":42,"mag":55,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","hat","clothes","lightArmor","robe"]
+		}
+	},
 	"208000404": {
 		"name":"Zell",
 		"jpname":"ゼル",
@@ -8114,6 +8149,83 @@
 		"stats_pattern":1,
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["弱虫ゼル","格闘王愛読家","G.F."]
+	},
+	"208001005": {
+		"name":"Seifer",
+		"jpname":"サイファー",
+		"id":"208001005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4828,"mp":240,"atk":209,"def":186,"mag":159,"spr":180},
+			"minStats":{"hp":1593,"mp":79,"atk":69,"def":61,"mag":52,"spr":59},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Seifer",
+			"jpname":"サイファー",
+			"id":"208001005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3713,"mp":184,"atk":160,"def":143,"mag":122,"spr":138},
+				"minStats":{"hp":1225,"mp":61,"atk":53,"def":47,"mag":40,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"208001505": {
+		"name":"Sleeping Lion Squall",
+		"jpname":"孤高の獅子スコール",
+		"id":"208001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4808,"mp":241,"atk":210,"def":184,"mag":161,"spr":182},
+			"minStats":{"hp":1587,"mp":80,"atk":69,"def":61,"mag":53,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Sleeping Lion Squall",
+			"jpname":"孤高の獅子スコール",
+			"id":"208001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3698,"mp":185,"atk":161,"def":141,"mag":123,"spr":140},
+				"minStats":{"hp":1220,"mp":61,"atk":53,"def":47,"mag":41,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"208001604": {
+		"name":"Fujin & Raijin",
+		"jpname":"風神&雷神",
+		"id":"208001604",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"other",
+		"stats": {
+			"maxStats":{"hp":3559,"mp":156,"atk":150,"def":135,"mag":101,"spr":135},
+			"minStats":{"hp":1174,"mp":51,"atk":50,"def":45,"mag":33,"spr":45},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","hammer","throwing","mace","fist","hat","clothes","lightArmor"]
 	},
 	"209000103": {
 		"name":"Zidane",
