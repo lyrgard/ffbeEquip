@@ -285,12 +285,16 @@ class UnitBuild {
             if (formula.value.mecanism == "physical") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance"]);
                 
-                if (formula.value.use) {
-                    this.addToInvolvedStats([formula.value.use.stat]);
-                } else {
-                    if (formula.value.damageType == "body") {
-                        this.addToInvolvedStats(["atk"]);
-                    } else if (formula.value.damageType == "mind") {
+                
+                if (formula.value.damageType == "body") {
+                    if (formula.value.use) {
+                        this.addToInvolvedStats([formula.value.use.stat]);
+                    }
+                    this.addToInvolvedStats(["atk"]);
+                } else if (formula.value.damageType == "mind") {
+                    if (formula.value.use) {
+                        this.addToInvolvedStats([formula.value.use.stat]);
+                    } else {
                         this.addToInvolvedStats(["mag"]);
                     }
                 }
