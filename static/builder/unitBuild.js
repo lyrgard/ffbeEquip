@@ -289,8 +289,10 @@ class UnitBuild {
                 if (formula.value.damageType == "body") {
                     if (formula.value.use) {
                         this.addToInvolvedStats([formula.value.use.stat]);
+                        this.addToInvolvedStats(["newDamageFormula"]);
+                    } else {
+                        this.addToInvolvedStats(["atk"]);
                     }
-                    this.addToInvolvedStats(["atk"]);
                 } else if (formula.value.damageType == "mind") {
                     if (formula.value.use) {
                         this.addToInvolvedStats([formula.value.use.stat]);
