@@ -3538,7 +3538,9 @@ function showSaveAsPopup() {
         size: 'large',
         onOpen: function($modal) {
             // Focus on input
-            $modal.find('input').focus();
+            if (!isMobile) {
+                $modal.find('input').focus();
+            }
         },
         buttons: [{
             text: 'Save',

@@ -27,6 +27,7 @@ var userSettings;
 var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;
+let isMobile = window.matchMedia("only screen and (max-width: 991px)").matches;
 
 window.requestIdleCallback =
   window.requestIdleCallback ||
