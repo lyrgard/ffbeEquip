@@ -473,6 +473,12 @@ var updateFilterHeadersDisplay = function() {
 var displayUnits = function(units) {
     var resultDiv = $("#results");
     resultDiv.empty();
+//    let htmls = units.map(unitData => getUnitHtml(unitData));
+//    var clusterize = new Clusterize({
+//      rows: htmls,
+//      scrollId: 'scrollArea',
+//      contentId: 'contentArea'
+//    });
     displayUnitsAsync(units, 0, resultDiv);
     $("#resultNumber").html(units.length);
     /*$(elementList).each(function(index, resist) {
@@ -512,94 +518,7 @@ function displayUnitsAsync(units, start, div) {
     var end = Math.min(start + 20, units.length);
     for (var index = start; index < end; index++) {
         var unitData = units[index];
-        html += '<div class="unit">'
-        html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
-        html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
-        html += '<div class="killers">';
-        var killers = [];
-        for (var i = killerList.length; i--;) {
-            if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
-                addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
-            }
-            if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
-                addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
-            }
-        }
-        var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
-        html += killersHtml.physical;
-        html += killersHtml.magical;
-        html += '</div>';
-        
-        html += '<div class="elementalResistances">';
-        if (unitData.searchData.passives.elementalResist) {
-            for (var i = 0, len = elementList.length; i < len; i++) {
-                if (unitData.searchData.passives.elementalResist[elementList[i]]) {
-                    html+= '<span class="elementalResistance ' + elementList[i];
-                    if (elements.values.includes(elementList[i])) {
-                        html+= " selected";
-                    }
-                    html+= '">';
-                    html+= '<i class="img img-element-' + elementList[i] + '"></i>';
-                    html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
-                }
-            }
-        }
-        html += '</div>';
-        
-        html += '<div class="ailmentResistances">';
-        if (unitData.searchData.passives.ailmentResist) {
-            for (var i = 0, len = ailmentList.length; i < len; i++) {
-                if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
-                    html+= '<span class="ailmentResistance ' + ailmentList[i];
-                    if (ailments.values.includes(ailmentList[i])) {
-                        html+= " selected";
-                    }
-                    html+= '">';
-                    html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
-                    html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
-                }
-            }
-        }
-        html += '</div>';
-        html += '<span class="showAllSkills glyphicon '
-        if (fullyDisplayedUnits.includes(unitData.unit.id)) {
-            html += "glyphicon-chevron-up";
-        } else {
-            html += "glyphicon-chevron-down";
-        }
-        html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
-        
-        skillIdToDisplay = getSkillsToDisplay(unitData.unit);
-        
-        html += '<div class="lb">';
-        if (skillIdToDisplay.includes('lb')) {
-            html += getLbHtml(unitData.unit.lb, unitData.unit);
-        }
-        html += '</div>';
-        
-        let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
-        if (passivesToDisplay.length > 0) {
-            html += '<div class="passives skillGroup">';
-            passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
-            html += '</div>';
-        }
-        
-        let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
-        if (activesToDisplay.length > 0) {
-            html += '<div class="actives skillGroup">';
-            activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
-            html += '</div>';
-        }
-        
-        let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
-        if (magicsToDisplay.length > 0) {
-            html += '<div class="magics skillGroup">';
-            magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
-            html += '</div>';
-        }
-        
-        html += '</div>';
-        html += '</div>';
+        html += getUnitHtml(unitData);
     }
     div.append(html);
     if (index < units.length) {
@@ -607,6 +526,98 @@ function displayUnitsAsync(units, start, div) {
     } else {
         setTimeout(afterDisplay, 0);
     }
+}
+
+function getUnitHtml(unitData) {
+    let html = '<div class="unit">';
+    html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
+    html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
+    html += '<div class="killers">';
+    var killers = [];
+    for (var i = killerList.length; i--;) {
+        if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
+            addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
+        }
+        if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
+            addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
+        }
+    }
+    var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
+    html += killersHtml.physical;
+    html += killersHtml.magical;
+    html += '</div>';
+
+    html += '<div class="elementalResistances">';
+    if (unitData.searchData.passives.elementalResist) {
+        for (var i = 0, len = elementList.length; i < len; i++) {
+            if (unitData.searchData.passives.elementalResist[elementList[i]]) {
+                html+= '<span class="elementalResistance ' + elementList[i];
+                if (elements.values.includes(elementList[i])) {
+                    html+= " selected";
+                }
+                html+= '">';
+                html+= '<i class="img img-element-' + elementList[i] + '"></i>';
+                html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+            }
+        }
+    }
+    html += '</div>';
+
+    html += '<div class="ailmentResistances">';
+    if (unitData.searchData.passives.ailmentResist) {
+        for (var i = 0, len = ailmentList.length; i < len; i++) {
+            if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
+                html+= '<span class="ailmentResistance ' + ailmentList[i];
+                if (ailments.values.includes(ailmentList[i])) {
+                    html+= " selected";
+                }
+                html+= '">';
+                html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
+                html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+            }
+        }
+    }
+    html += '</div>';
+    html += '<span class="showAllSkills glyphicon '
+    if (fullyDisplayedUnits.includes(unitData.unit.id)) {
+        html += "glyphicon-chevron-up";
+    } else {
+        html += "glyphicon-chevron-down";
+    }
+    html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
+
+    skillIdToDisplay = getSkillsToDisplay(unitData.unit);
+
+    html += '<div class="lb">';
+    if (skillIdToDisplay.includes('lb')) {
+        html += getLbHtml(unitData.unit.lb, unitData.unit);
+    }
+    html += '</div>';
+
+    let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
+    if (passivesToDisplay.length > 0) {
+        html += '<div class="passives skillGroup">';
+        passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
+        html += '</div>';
+    }
+
+    let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
+    if (activesToDisplay.length > 0) {
+        html += '<div class="actives skillGroup">';
+        activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
+        html += '</div>';
+    }
+
+    let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
+    if (magicsToDisplay.length > 0) {
+        html += '<div class="magics skillGroup">';
+        magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
+        html += '</div>';
+    }
+
+    html += '</div>';
+    html += '</div>';
+    return html;
 }
 
 function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills = []) {
@@ -669,7 +680,7 @@ function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
     } else if (effect.effect && effect.effect.counterSkill) {
         html += '<span class="effect">' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :</span>';
         html += '<div class="subSkill">';
-        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(effect.effect.counterSkill.id));
         html += '</div>';
     } else if (effect.effect && effect.effect.autoCastedSkill) {
         html += '<span class="effect">Cast at the start of battle or when revived :</span>';

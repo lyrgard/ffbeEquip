@@ -20,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="unitSearch.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
     </head>
     <body class="dark">
         <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
@@ -348,7 +349,10 @@
                         </div>
                     </div>
                     <div class="panel-body" style="padding:0;">
-                        <div id="results" class="results">
+                        <div id="results" class="results clusterize-scroll">
+                            <div id="resultsContent" class="clusterize-content">
+                                <div class="clusterize-no-data">No results…</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -379,6 +383,7 @@
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
+        <script src="lib/clusterize.min.js"></script>
         <script src="constants.js"></script>
         <script src="common.js"></script>
         <script src="effectDescriptionBuilder.js"></script>

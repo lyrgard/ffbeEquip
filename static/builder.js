@@ -133,6 +133,8 @@ let buildCounter = 0;
 
 let displayOnly7StarsUnits = true;
 
+let fixItemList;
+
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
         Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
@@ -1889,7 +1891,7 @@ function updateSearchResult() {
     let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
-        $("#fixItemModal .results .tbody").html("");    
+        fixItemList.update([]);
         return;
     }
     var types = searchType;
@@ -1972,9 +1974,15 @@ function displayEquipableItemList() {
     }
 
     $("#searchText").val("");
-    $("#fixItemModal .results .tbody").html("");
+    //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
+    fixItemList = new Clusterize({
+      rows: [],
+      scrollId: 'fixItemResults',
+      contentId: 'resultsContent',
+      rows_in_block: '10'
+    });
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
@@ -2000,10 +2008,15 @@ function displayFixItemModal(slot) {
     
     dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
     $("#searchText").val("");
-    $("#fixItemModal .results .tbody").html("");
+    //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
-
+    fixItemList = new Clusterize({
+      rows: [],
+      scrollId: 'fixItemResults',
+      contentId: 'resultsContent',
+      rows_in_block: '10'
+    });
     let equipmentChoice = $(".equipments select").val();
     $('#onlyOwnedItems input').prop('checked', equipmentChoice == "owned" && equipmentChoice == "ownedAvailableForExpedition");
     $('#excludeNotReleasedYetOption input').prop('checked', dataStorage.excludeNotReleasedYet);
@@ -2230,9 +2243,13 @@ var displaySearchResults = function(items) {
     } else {
         $("#fixItemModal").addClass("notLoggedIn");
     }
-    var div = $("#fixItemModal .results .tbody");
-    div.empty();
-    displaySearchResultsAsync(items, 0, div);
+//    var div = $("#fixItemModal .results .tbody");
+//    div.empty();
+    
+    let htmls = items.map(item => getItemHtml(item));
+    fixItemList.update(htmls);
+    $("#fixItemModal #fixItemResults")[0].scrollTop = 0;
+    //displaySearchResultsAsync(items, 0, div);
     
 }
 
@@ -2251,75 +2268,81 @@ function displaySearchResultsAsync(items, start, div) {
     var html = "";
     for (var index = start; index < end; index++) {
         var item = items[index];
-        if (item) {
-            var enhancementString = "null";
-            if (item.enhancements) {
-                enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
-            }
-            html += '<div class="tr selectable item';
-            if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
-                html += " enhanced";
-            }
-            
-            var excluded = itemsToExclude.includes(item.id);
-
-            $('#fixItemModal').removeClass('exclusion');
-            if(searchClickBehavior == ClickBehaviors.IGNORE) {
-                html += '" >';
-            } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
-                html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
-                $('#fixItemModal').addClass('exclusion');
-            } else {
-                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
-            }
-
-            html += "<div class='td exclude'>";
-            html += getItemExclusionLink(item.id, excluded);
-            html += "</div>";
-
-            html += displayItemLine(item);
-            
-            if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
-                html+= "<div class='td enchantment desktop'>";
-                html+= getItemEnhancementLink(item);
-                html+= "</div>";
-            }
-
-            if (itemInventory) {
-                var notEnoughClass = "";
-                var numbers = dataStorage.getOwnedNumber(item);
-                var owned = "";
-                if (numbers.total > 0) {
-                    owned += numbers.available;
-                    if (numbers.available != numbers.total) {
-                        owned += "/" + numbers.total;   
-                        if (numbers.available == 0) {
-                            notEnoughClass = " notEnough ";
-                        }
-                    }
-                }
-                html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
-                
-                html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
-                html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
-                html+=      '<ul class="dropdown-menu pull-right">';
-                html+=          '<li>' + getAccessHtml(item) + '</li>';               
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
-                if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
-                html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
-                }
-                html+=      '</ul>';
-                html+= '</div></div>';
-            } else {
-                html+= "<div class='td enchantment'/><div class='td inventory'/>"
-            }
-            html += "</div>";
-        }
+        html += getItemHtml(item);
     }
     div.append(html);
     if (end < items.length) {
         setTimeout(displaySearchResultsAsync, 0, items, end, div);
     }
+}
+
+function getItemHtml(item) {
+    let html = "";
+    if (item) {
+        var enhancementString = "null";
+        if (item.enhancements) {
+            enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
+        }
+        html += '<div class="tr selectable item';
+        if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
+            html += " enhanced";
+        }
+
+        var excluded = itemsToExclude.includes(item.id);
+
+        $('#fixItemModal').removeClass('exclusion');
+        if(searchClickBehavior == ClickBehaviors.IGNORE) {
+            html += '" >';
+        } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+            html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
+            $('#fixItemModal').addClass('exclusion');
+        } else {
+            html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+        }
+
+        html += "<div class='td exclude'>";
+        html += getItemExclusionLink(item.id, excluded);
+        html += "</div>";
+
+        html += displayItemLine(item);
+
+        if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+            html+= "<div class='td enchantment desktop'>";
+            html+= getItemEnhancementLink(item);
+            html+= "</div>";
+        }
+
+        if (itemInventory) {
+            var notEnoughClass = "";
+            var numbers = dataStorage.getOwnedNumber(item);
+            var owned = "";
+            if (numbers.total > 0) {
+                owned += numbers.available;
+                if (numbers.available != numbers.total) {
+                    owned += "/" + numbers.total;   
+                    if (numbers.available == 0) {
+                        notEnoughClass = " notEnough ";
+                    }
+                }
+            }
+            html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
+
+            html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
+            html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
+            html+=      '<ul class="dropdown-menu pull-right">';
+            html+=          '<li>' + getAccessHtml(item) + '</li>';               
+            html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+            if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+            html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
+            }
+            html+=      '</ul>';
+            html+= '</div></div>';
+        } else {
+            html+= "<div class='td enchantment'></div><div class='td inventory'></div>"
+        }
+        html += "</div>";
+    }
+    return html;
 }
 
 function getItemEnhancementLink(item) {

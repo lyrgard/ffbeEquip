@@ -111,8 +111,20 @@
     padding: 5px;
 }
 
+#fixItemModal #results {
+    display: block;
+}
+
 #fixItemModal .modal-body {
     padding:0;
+}
+
+#fixItemModal .results {
+    padding: 0;
+}
+
+#fixItemResults {
+    max-height: 100vw;
 }
 
 #fixItemModal .results .tr.selectable:hover {
@@ -1141,6 +1153,11 @@ i.img.img-slot-hand.leftHand {
 
 #killerBuffSwitch i {
     margin-right: 5px;
+}
+
+#fixItemModal .items .tbody {
+    display: block;
+    max-height: 500px;
 }
 
 @media (max-width: 991px) {

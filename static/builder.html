@@ -26,7 +26,7 @@
         <link rel="stylesheet" type="text/css" href="languages.css">
         <!--<link rel="stylesheet" type="text/css" href="lib/dark-bootstrap.min.css">-->
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
-
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
     </head>
     <body class="dark">
         <div class="glassPanel"></div>
@@ -1234,22 +1234,12 @@
                     <div class="modal-body">
                         <ul class="nav nav-tabs type">
                         </ul>
-                        <div id="results" class="table notSorted items results">
-							<div class="thead">
-                                <div class="tr">
-                                    <div class="td exclude">&nbsp;</div>
-                                    <div class="td type">&nbsp;</div>
-                                    <div class="td name">Name</div>
-                                    <div id="statTitle" class="td value sort">Value</div>
-                                    <div class="td special">Special</div>
-									<div class="td access desktop">Access</div>
-                                    <div class="td enchantment desktop"></div>
-                                    <div class="td inventory desktop">Owned</div>
-                                    <div class="td mobile"></div>
+                        <div id="results" class="notSorted items results">
+							
+                            <div id="fixItemResults" class="clusterize-scroll">
+                                <div id="resultsContent" class="tbody clusterize-content">
+                                    <div class="clusterize-no-data">No results…</div>
                                 </div>
-                            </div>
-                            <div class="tbody">
-
                             </div>
                         </div>
                         <a class="link customEnchantment" onclick="selectEnchantement();">
@@ -1661,6 +1651,7 @@
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
+        <script src="lib/clusterize.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="lib/jjv.js"></script>

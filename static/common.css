@@ -608,7 +608,13 @@ i.icon {
 .specialImg {
     display: flex;
     justify-content: center;
+    position: relative;
 }
+
+.td.type {
+    position: relative;
+}
+
 .specialValue {
     text-align: center;
     text-transform: capitalize;
