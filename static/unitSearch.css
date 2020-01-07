@@ -79,6 +79,9 @@
     float: right;
     display: flex;
     align-items: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    height: 41px;
 }
 
 .nameAndEffects {
@@ -308,4 +311,19 @@
 
 .rarityAndLevel .level {
     white-space: nowrap;
+}
+
+.threshold {
+    position: relative;
+}
+
+.threshold input {
+    width: 100px;
+    text-align: right;
+}
+
+.threshold i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
