@@ -690,6 +690,9 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         if (topLevelSkill && skill.unlockedBy) {
             html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
         }
+        if (topLevelSkill && skill.ifUsedLastTurn) {
+            html += getIfUsedLastTurnHtml(skill.id, skill.ifUsedLastTurn, unit);
+        }
 
         for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
             const effect = skill.effects[j];
@@ -772,6 +775,21 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
             });
         }
     });
+    return html;
+}
+
+function getIfUsedLastTurnHtml(skillId, ifUsedLastTurnSkills, unit) {
+    let html = "";
+    html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>If used after ';
+    html += ifUsedLastTurnSkills.map(skill => skill.id).map(id => {
+        let skills = unit.actives.filter(skill => skill.id == id);
+        if (skills.length > 0) {
+            return skills[0].name;
+        } else {
+            return 'unknown skill';
+        }
+    }).join(', ');
+    html += '</div>';
     return html;
 }
 
