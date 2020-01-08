@@ -1886,6 +1886,7 @@ function onEquipmentsChange() {
 }
      
 function updateSearchResult() {
+    fixItemList.clear();
     $("#fixItemModal").removeClass("showEnhancements");
     let onlyOwnedItems = $('#onlyOwnedItems input').prop('checked');
     let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
@@ -1977,12 +1978,14 @@ function displayEquipableItemList() {
     //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
-    fixItemList = new Clusterize({
-      rows: [],
-      scrollId: 'fixItemResults',
-      contentId: 'resultsContent',
-      rows_in_block: '10'
-    });
+    if (!fixItemList) {
+        fixItemList = new Clusterize({
+          rows: [],
+          scrollId: 'fixItemResults',
+          contentId: 'resultsContent',
+          rows_in_block: '10'
+        });
+    }
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
@@ -2011,12 +2014,14 @@ function displayFixItemModal(slot) {
     //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
-    fixItemList = new Clusterize({
-      rows: [],
-      scrollId: 'fixItemResults',
-      contentId: 'resultsContent',
-      rows_in_block: '10'
-    });
+    if (!fixItemList) {
+        fixItemList = new Clusterize({
+          rows: [],
+          scrollId: 'fixItemResults',
+          contentId: 'resultsContent',
+          rows_in_block: '10'
+        });
+    }
     let equipmentChoice = $(".equipments select").val();
     $('#onlyOwnedItems input').prop('checked', equipmentChoice == "owned" && equipmentChoice == "ownedAvailableForExpedition");
     $('#excludeNotReleasedYetOption input').prop('checked', dataStorage.excludeNotReleasedYet);
@@ -2248,8 +2253,10 @@ var displaySearchResults = function(items) {
     
     let htmls = items.map(item => getItemHtml(item));
     fixItemList.update(htmls);
-    $("#fixItemModal #fixItemResults")[0].scrollTop = 0;
+    //$("#fixItemModal #fixItemResults")[0].scrollTop = 0;
     //displaySearchResultsAsync(items, 0, div);
+    
+    setTimeout(() => $("#fixItemModal #fixItemResults")[0].scrollTop = 0, 100);
     
 }
 
