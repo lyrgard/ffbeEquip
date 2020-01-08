@@ -4077,7 +4077,9 @@ function startPage() {
     $('#onlyOwnedItems input').on("input", updateSearchResult);
     $('#excludeNotReleasedYetOption input').on("input", updateSearchResult);
     $('#fixItemModal').on('shown.bs.modal', function () {
-        $('#searchText').focus();
+        if (!isMobile) {
+            $('#searchText').focus();
+        }
     })  
     $("#customFormulaModal").on('shown.bs.modal', function () {
         $("#customFormulaModal #formulaInput").focus();
