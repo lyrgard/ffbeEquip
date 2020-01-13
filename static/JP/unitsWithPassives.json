@@ -6669,9 +6669,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"],
 		"enhancements": [
 			{"name":"こころをひとつに","levels":[[],[{"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50}}]]},
-			{"name":"光闇防護","levels":[[],[{"spr%":30,"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6}}]]}
+			{"name":"光闇防護","levels":[[],[{"spr%":30,"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6,"511820":6,"511822":6,"708345":3,"708346":3,"708347":3,"708348":3,"708349":3,"708350":3}}]]},
+			{"name":"白蓮と白百合の花","levels":[[{"def%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"levelCondition":120}],[{"def%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":100},"levelCondition":120}],[{"def%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":100},"lbDamage":60,"skillEnhancement":{"231490":4,"231491":4,"231492":4,"708345":4,"708346":4,"708347":4,"708348":4,"708349":4,"708350":4},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":50, "def%":20, "mag%":70, "spr%":20, "dualWielding":{"mag":50}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "special":["dualWield"]},
@@ -6679,8 +6681,7 @@
 			{"mag%":30, "equipedConditions":["whip"]},
 			{"mag%":50, "lbDamage":40, "equipedConditions":[["409031400","504231472"]]},
 			{"spr%":40, "lbPerTurn":{"min":4,"max":4}, "levelCondition":110},
-			{"mag%":20, "levelCondition":115},
-			{"hp%":20, "def%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
+			{"mag%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Fina & Dark Fina",
@@ -6697,9 +6698,10 @@
 			},
 			"stats_pattern":1,
 			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"],
 		"enhancements": [
 			{"name":"こころをひとつに","levels":[[],[{"mp%":20,"hp%":20,"singleWielding":{"mag":50},"dualWielding":{"mag":50}}]]},
-			{"name":"光闇防護","levels":[[],[{"spr%":30,"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6}}]]}
+			{"name":"光闇防護","levels":[[],[{"spr%":30,"resist":[{"name":"light","percent":30},{"name":"dark","percent":30}],"skillEnhancement":{"231490":3,"231491":3,"231492":3,"510102":6,"511820":6,"511822":6,"708345":3,"708346":3,"708347":3,"708348":3,"708349":3,"708350":3}}]]}
 		],
 			"skills": [
 				{"hp%":20, "mp%":50, "def%":20, "mag%":70, "spr%":20, "dualWielding":{"mag":50}, "lbFillRate":100, "resist":[{"name":"confuse","percent":100},{"name":"silence","percent":100},{"name":"charm","percent":100}], "mpRefresh":7, "special":["dualWield"]},
@@ -6722,9 +6724,11 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"],
 		"enhancements": [
 			{"name":"支える力","levels":[[],[{"mp%":30,"mpRefresh":5}]]},
-			{"name":"L式ライフサポーター","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"lightning","percent":20},{"name":"light","percent":20}],"lbPerTurn":{"min":4,"max":4}}]]}
+			{"name":"L式ライフサポーター","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"lightning","percent":20},{"name":"light","percent":20}],"lbPerTurn":{"min":4,"max":4}}]]},
+			{"name":"武器に込めた愛","levels":[[{"spr%":20,"def%":20,"skillEnhancement":{"231524":5,"708359":5,"708360":5},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":40,"skillEnhancement":{"231524":5,"708359":5,"708360":5},"lbPerTurn":{"min":4,"max":4},"levelCondition":120}],[{"spr%":20,"def%":20,"atk%":40,"skillEnhancement":{"231524":5,"510114":8,"708359":5,"708360":5},"lbPerTurn":{"min":4,"max":4},"lbDamage":50,"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":40, "atk%":50, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"charm","percent":100}], "killers":[{"name":"machine","physical":100},{"name":"stone","physical":100}], "mpRefresh":7},
@@ -6734,8 +6738,7 @@
 			{"atk%":50, "singleWielding":{"accuracy":25,"atk":50}, "lbDamage":50, "equipedConditions":[["504231473","409031500"]]},
 			{"mp%":20, "atk%":20, "equipedConditions":["gun"], "levelCondition":110},
 			{"def%":20, "spr%":20, "equipedConditions":["hammer"], "levelCondition":110},
-			{"atk%":20, "levelCondition":115},
-			{"def%":20, "spr%":20, "skillEnhancement":{"231524":5}, "levelCondition":120}
+			{"atk%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Lid & Jake",
@@ -6752,6 +6755,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"],
 		"enhancements": [
 			{"name":"支える力","levels":[[],[{"mp%":30,"mpRefresh":5}]]},
 			{"name":"L式ライフサポーター","levels":[[],[{"mp%":30,"hp%":30,"resist":[{"name":"lightning","percent":20},{"name":"light","percent":20}],"lbPerTurn":{"min":4,"max":4}}]]}
@@ -7091,7 +7095,7 @@
 		}
 	},
 	"100026004": {
-		"name":"カランド",
+		"name":"Calland",
 		"jpname":"カランド",
 		"id":"100026004",
 		"max_rarity":"6",
@@ -7252,7 +7256,7 @@
 		}
 	},
 	"100026804": {
-		"name":"夏空のルルカ",
+		"name":"Summertime Luka",
 		"jpname":"夏空のルルカ",
 		"id":"100026804",
 		"max_rarity":"6",
@@ -7910,6 +7914,48 @@
 			]
 		}
 	},
+	"100028705": {
+		"name":"Kalmia",
+		"jpname":"カルミア",
+		"id":"100028705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4595,"mp":256,"atk":138,"def":163,"mag":170,"spr":215},
+			"minStats":{"hp":1516,"mp":84,"atk":46,"def":54,"mag":56,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","mace","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":40, "mp%":30, "def%":40, "mag%":30, "spr%":50, "lbFillRate":100, "resist":[{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "mpRefresh":7},
+			{"mag%":30, "spr%":30, "equipedConditions":["robe"]},
+			{"hp%":20, "def%":20, "spr%":30, "lbPerTurn":{"min":3,"max":3}, "equipedConditions":[["504234680","311005600"]]},
+			{"mp%":40, "spr%":30, "levelCondition":110},
+			{"spr%":20, "levelCondition":115}
+		],
+		"6_form": {
+			"name":"Kalmia",
+			"jpname":"カルミア",
+			"id":"100028705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3534,"mp":196,"atk":106,"def":125,"mag":130,"spr":165},
+				"minStats":{"hp":1166,"mp":65,"atk":35,"def":41,"mag":43,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","mace","lightShield","hat","clothes","robe"],
+			"skills": [
+				{"hp%":40, "mp%":30, "def%":40, "mag%":30, "spr%":50, "lbFillRate":100, "resist":[{"name":"water","percent":40},{"name":"wind","percent":40},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "mpRefresh":7},
+				{"mag%":30, "spr%":30, "equipedConditions":["robe"]}
+			]
+		}
+	},
 	"100028805": {
 		"name":"Christmas Ayaka",
 		"jpname":"クリスマスアヤカ",
@@ -8067,6 +8113,68 @@
 				{"mag%":50, "spr%":50, "equipedConditions":["staff"]}
 			]
 		}
+	},
+	"100029705": {
+		"name":"Audrey",
+		"jpname":"オードリー",
+		"id":"100029705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4872,"mp":217,"atk":205,"def":190,"mag":159,"spr":176},
+			"minStats":{"hp":1608,"mp":72,"atk":68,"def":63,"mag":52,"spr":58},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"skills": [
+			{"hp%":40, "mp%":20, "atk%":60, "def%":40, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"lightning","percent":20},{"name":"earth","percent":20},{"name":"silence","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"stone","physical":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":30, "atk%":30, "equipedConditions":["heavyArmor"]},
+			{"def%":30, "equipedConditions":["heavyShield"]},
+			{"atk%":50, "dualWielding":{"atk":50}, "lbFillRate":50, "resist":[{"name":"stop","percent":100}], "skillEnhancement":{"234730":8.5,"234731":8.5,"234732":8.5,"234733":8.5,"234734":8.5,"234737":8.5,"511812":8.5,"511813":8.5}, "equipedConditions":[["407005200","504234682"]]},
+			{"atk%":20, "levelCondition":115},
+			{"mp%":20, "def%":20, "singleWielding":{"accuracy":25,"atk":50}, "dualWielding":{"atk":50}, "skillEnhancement":{"511817":3}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Audrey",
+			"jpname":"オードリー",
+			"id":"100029705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3747,"mp":166,"atk":157,"def":146,"mag":122,"spr":135},
+				"minStats":{"hp":1237,"mp":55,"atk":52,"def":48,"mag":40,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"skills": [
+				{"hp%":40, "mp%":20, "atk%":60, "def%":40, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"lightning","percent":20},{"name":"earth","percent":20},{"name":"silence","percent":100},{"name":"sleep","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"stone","physical":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"hp%":30, "atk%":30, "equipedConditions":["heavyArmor"]},
+				{"def%":30, "equipedConditions":["heavyShield"]}
+			]
+		}
+	},
+	"100029804": {
+		"name":"Wallner",
+		"jpname":"ウォルナー",
+		"id":"100029804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3403,"mp":177,"atk":132,"def":129,"mag":118,"spr":140},
+			"minStats":{"hp":1123,"mp":58,"atk":44,"def":43,"mag":39,"spr":46},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","spear","lightShield","hat","helm","clothes","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":30, "spr%":70, "resist":[{"name":"sleep","percent":100},{"name":"water","percent":20}], "mpRefresh":5}
+		]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -12933,7 +13041,7 @@
 		]
 	},
 	"210001704": {
-		"name":"イサール",
+		"name":"Isaaru",
 		"jpname":"イサール",
 		"id":"210001704",
 		"max_rarity":"6",
@@ -13996,7 +14104,7 @@
 		}
 	},
 	"213001205": {
-		"name":"宿命の少女ヴァニラ",
+		"name":"Hecatoncheir Vanille",
 		"jpname":"宿命の少女ヴァニラ",
 		"id":"213001205",
 		"max_rarity":"7",
@@ -14021,7 +14129,7 @@
 			{"def%":30, "mag%":30, "spr%":30, "resist":[{"name":"wind","percent":30},{"name":"earth","percent":30}], "skillEnhancement":{"234470":3,"234471":3,"234472":3,"234473":3,"234476":3,"234477":3,"234483":3,"511700":3,"511703":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"宿命の少女ヴァニラ",
+			"name":"Hecatoncheir Vanille",
 			"jpname":"宿命の少女ヴァニラ",
 			"id":"213001205",
 			"sixStarForm":true,
@@ -14046,7 +14154,7 @@
 		}
 	},
 	"213001305": {
-		"name":"麗しき勇士ファング",
+		"name":"Bahamut Fang",
 		"jpname":"麗しき勇士ファング",
 		"id":"213001305",
 		"max_rarity":"7",
@@ -14069,7 +14177,7 @@
 			{"hp%":20, "atk%":20, "lbDamage":50, "skillEnhancement":{"511709":20,"511710":20}, "replaceLb":{"name":"メガフレア","minEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":30.1,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (30.1x * 2 = 60.2x, ATK) to all enemies (ignore cover)"},{"effect":{"skillEnhancement":{"234501":5,"234508":5,"234509":5,"511708":5,"511709":5,"511710":5},"turn":6},"desc":"Increase damage of エアリアルレイヴ (234501), ハイウィンド (511709), ハイウィンド・改 (511710), ブレイクチェーン (234509), ブレイクバースト (234508) and ヘビーストライク (511708) by 500% for 6 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":33,"ignore":{"def":50}},"area":"AOE","target":"ENEMY"},"desc":"Physical damage (33x * 2 = 66x, ATK) to all enemies (ignore cover)"},{"effect":{"skillEnhancement":{"234501":5,"234508":5,"234509":5,"511708":5,"511709":5,"511710":5},"turn":6},"desc":"Increase damage of エアリアルレイヴ (234501), ハイウィンド (511709), ハイウィンド・改 (511710), ブレイクチェーン (234509), ブレイクバースト (234508) and ヘビーストライク (511708) by 500% for 6 turns"}],"frames":[495,501,507,513,519,525,531,537,543,549,555,561,567,573,579,585,591,597,603,609,615],"move":"walk"}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"麗しき勇士ファング",
+			"name":"Bahamut Fang",
 			"jpname":"麗しき勇士ファング",
 			"id":"213001305",
 			"sixStarForm":true,
@@ -18384,7 +18492,7 @@
 		}
 	},
 	"330000904": {
-		"name":"エイミ",
+		"name":"Aelia",
 		"jpname":"エイミ(ヴァルキリープロファイル)",
 		"id":"330000904",
 		"max_rarity":"6",
@@ -19796,7 +19904,7 @@
 		]
 	},
 	"339000105": {
-		"name":"ギルガメッシュ",
+		"name":"Gilgamesh",
 		"jpname":"ギルガメッシュ",
 		"id":"339000105",
 		"max_rarity":"7",
@@ -19816,7 +19924,7 @@
 			{"atk%":40, "mag%":40, "skillEnhancement":{"234430":9,"234434":3.75,"234435":9,"234437":9,"511685":3,"511686":3}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"ギルガメッシュ",
+			"name":"Gilgamesh",
 			"jpname":"ギルガメッシュ",
 			"id":"339000105",
 			"sixStarForm":true,

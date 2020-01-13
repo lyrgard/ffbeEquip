@@ -5,6 +5,9 @@ var PNG = require('pngjs').PNG;
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
 var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
+const shieldList = ["lightShield", "heavyShield"];
+const headList = ["hat", "helm"];
+const bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 
 var typeMap = {
     1: 'dagger',
@@ -466,15 +469,18 @@ function addMasterySkills(item, masterySkills, result) {
     for (var masteryIndex in masterySkills) {
         var lenght = treatedItems.length;
         var copy = JSON.parse(JSON.stringify(item));
-        addMastery(copy, masterySkills[masteryIndex]);
-        result.push(copy);
-        treatedItems.push(copy);
-        for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-            if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
-                var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
-                addMastery(copy, masterySkills[masteryIndex]);
-                result.push(copy);
-                treatedItems.push(copy);
+        
+        if (addMastery(copy, masterySkills[masteryIndex])) {
+            result.push(copy);
+            treatedItems.push(copy);
+            for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+                if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                    var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                    if (addMastery(copy, masterySkills[masteryIndex])) {
+                        result.push(copy);
+                        treatedItems.push(copy);
+                    }
+                }
             }
         }
     }
@@ -846,7 +852,13 @@ function addMastery(item, mastery) {
             addStat(item, "mp%", masteryEffect[2]);
         }
     } else {
-        item.equipedConditions.push(typeMap[mastery[3][0]]);
+        let type = typeMap[mastery[3][0]];
+        if (!item.equipedConditions.includes(type)) {
+            if (shieldList.includes(type) && item.equipedConditions.some(c => shieldList.includes(c))) return false;
+            if (headList.includes(type) && item.equipedConditions.some(c => headList.includes(c))) return false;
+            if (bodyList.includes(type) && item.equipedConditions.some(c => bodyList.includes(c))) return false;
+            item.equipedConditions.push(typeMap[mastery[3][0]]);
+        }
         addStat(item, "atk%", mastery[3][1]);
         addStat(item, "def%", mastery[3][2]);
         addStat(item, "mag%", mastery[3][3]);
@@ -858,6 +870,7 @@ function addMastery(item, mastery) {
             addStat(item, "mp%", mastery[3][6]);
         }
     }
+    return true;
 }
 
 function addExclusiveUnit(item, unitId) {

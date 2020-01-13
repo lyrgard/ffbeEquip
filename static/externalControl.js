@@ -19,6 +19,16 @@ FFBEEquipExternalControl = {
         'excludeSTMR',
         'excludeNotReleasedYet'
     ],
+    'weaponEnhancementList': [
+        "rare_3", "rare_4",
+        "hp_15", "hp_12", "hp_10", "hp_7", "hp_5", "hp_3", "hp_1",
+        "mp_15", "mp_12", "mp_10", "mp_7", "mp_5", "mp_3", "mp_1",
+        "atk_15", "atk_12", "atk_10", "atk_7", "atk_5", "atk_3", "atk_1",
+        "def_15", "def_12", "def_10", "def_7", "def_5", "def_3", "def_1",
+        "mag_15", "mag_12", "mag_10", "mag_7", "mag_5", "mag_3", "mag_1",
+        "spr_15", "spr_12", "spr_10", "spr_7", "spr_5", "spr_3", "spr_1",
+        "autoRefresh_2","autoRefresh_1"  
+    ],
     requestId : 0,
     
     'init': function(iframe, loggedOut = false) {
@@ -111,6 +121,17 @@ FFBEEquipExternalControl = {
             FFBEEquipExternalControl.iframe.contentWindow.postMessage(JSON.stringify({'type':'setMonsterRaces', 'value':races}), '*');
             FFBEEquipExternalControl.listeners.monsterRacesSet = resolve;
         });
+    },
+    
+    'setDefaultEnhancements': function(enhancements) {
+        if (Array.isArray(enhancements) && enhancements.every(e => FFBEEquipExternalControl.weaponEnhancementList.includes(e))) {
+            return new Promise(function(resolve) {
+                FFBEEquipExternalControl.iframe.contentWindow.postMessage(JSON.stringify({'type':'setDefaultEnhancements', 'value':enhancements}), '*');
+                FFBEEquipExternalControl.listeners.defaultEnhancementsSet = resolve;
+            });
+        } else {
+            alert('enhancements must be an array of valid enhancements value.');
+        }
     },
 
     'checkOption': function(optionName) {

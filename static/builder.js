@@ -2467,13 +2467,17 @@ function toggleItemEnhancement(enhancement) {
 
 function pinChosenEnchantment() {
     if (currentEnchantmentItem.type == "fake") {
-        defaultWeaponEnhancement = currentEnchantmentItem.enhancements;
-        dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
-        $("#defaultWeaponEnhancement .display").html(getEnhancements(currentEnchantmentItem));
+        setDefaultEnhancements(currentEnchantmentItem.enhancements);
         $('#modifyEnhancementModal').modal('hide');
     } else {
         fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
     }
+}
+
+function setDefaultEnhancements(enhancements) {
+    defaultWeaponEnhancement = enhancements;
+    dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
+    $("#defaultWeaponEnhancement .display").html(getEnhancements({enhancements:enhancements}));
 }
 
 const stateHashCalculatedValues = {
@@ -4571,6 +4575,10 @@ let handleExternalControl = function(message) {
             unselectAll("races");
             select("races", data.value);
             parent.postMessage(JSON.stringify({'type':'monsterRacesSet', 'value':''}), '*');
+            break;
+        case 'setDefaultEnhancements':
+            setDefaultEnhancements(data.value);
+            parent.postMessage(JSON.stringify({'type':'defaultEnhancementsSet', 'value':''}), '*');
             break;
         case 'selectGoal':
             chooseCustomFormula(data.value);

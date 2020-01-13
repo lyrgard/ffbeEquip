@@ -61,6 +61,7 @@
                     FFBEEquipExternalControl.selectUnit(units[unitIndex][1])
                         .then(() => FFBEEquipExternalControl.selectGoal("HP"))
                         .then(() => FFBEEquipExternalControl.setPot('hp', 1500))
+                        .then(() => FFBEEquipExternalControl.setDefaultEnhancements(["rare_4", "hp_15", "hp_12"]))
                         .then(() => FFBEEquipExternalControl.build())
                         .then((result) => {
                             let canvas = $('<canvas width="730" height="235"></canvas>');
