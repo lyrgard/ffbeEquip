@@ -1025,6 +1025,22 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // Guts
     } else if (rawEffect[2] == 51) {
         item.guts = {ifHpOver:rawEffect[3][0], chance:rawEffect[3][1], time:rawEffect[3][3]};
+    
+    // boost evoke damage
+    } else if (rawEffect[2] == 64) {
+        let esperName;
+        if (rawEffect[3][1] === 0) {
+            esperName = 'all';
+        } else {
+            esperName = espersById[rawEffect[3][1]];
+        }
+        if (!item.evokeDamageBoost) {
+            item.evokeDamageBoost = {};
+        }
+        if (!item.evokeDamageBoost[esperName]) {
+            item.evokeDamageBoost[esperName] = 0;
+        }
+        item.evokeDamageBoost[esperName] += rawEffect[3][0];
         
     // Cast at start of turn
     } else if (rawEffect[2] == 66) {
@@ -2032,7 +2048,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

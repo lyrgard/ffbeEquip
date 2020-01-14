@@ -734,10 +734,11 @@ function logBuild(build, value) {
     displayStat("#resultStats .lbPerTurn", calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
     displayStat("#resultStats .lbFillRate", calculateStatValue(build, "lbFillRate", builds[currentUnitIndex]).total);
     displayStat("#resultStats .evoMag", calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    displayStat("#resultStats .evokeDamageBoost_all", calculateStatValue(build, "evokeDamageBoost.all", builds[currentUnitIndex]).total);    
     displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
     displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total)
+    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total);
 
     
     for (var index in elementList) {

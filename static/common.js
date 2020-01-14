@@ -381,6 +381,15 @@ function getSpecialHtml(item) {
     if (item.guts) {
         special += '<li>' + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)</li>';
     }
+    if (item.evokeDamageBoost) {
+        Object.keys(item.evokeDamageBoost).forEach(e => {
+            if (e === 'all') {
+                special += '<li>+' + item.evokeDamageBoost[e] + '% damage for esper summons and evoke skills</li>';
+            } else {
+                special += '<li>+' + item.evokeDamageBoost[e] + '% ' + e + ' summon damage</li>';
+            }
+        });
+    }
     if (item.counterSkills) {
         item.counterSkills.forEach(counter => {
             special += '<li>Counter ' + counter.counter + ' damage with <img class="icon" src="/img/items/' + counter.skill.icon + '">' + toLink(counter.skill.name) + ': ' + counter.skill.effects.map(effect => effect.desc).join(', ');
@@ -1455,6 +1464,15 @@ function prepareSearch(data) {
         }
         if (item.guts) {
             textToSearch += "|" + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)';
+        }
+        if (item.evokeDamageBoost) {
+            Object.keys(item.evokeDamageBoost).forEach(e => {
+                if (e === 'all') {
+                    textToSearch += "|" + '+' + item.evokeDamageBoost[e] + '% damage for esper summons and evoke skills';
+                } else {
+                    textToSearch += "|" + '+' + item.evokeDamageBoost[e] + '% ' + e + ' summon damage';
+                }
+            });
         }
         if (item.skills) {
             item.skills.forEach(skill => {
