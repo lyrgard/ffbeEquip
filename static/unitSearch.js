@@ -201,7 +201,9 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
             }
             if (containAllKeyPositive(passive, criteria.values, acceptZero)) {
                 if (criteria.threshold) {
-                    return criteria.values.every(value => passive[value] >= criteria.threshold);
+                    if (criteria.values.every(value => passive[value] >= criteria.threshold)) {
+                        return true;
+                    }
                 } else {
                     return true;    
                 }
@@ -221,7 +223,9 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                 } else {
                     if (containAllKeyPositive(dataToCheck, criteria.values, acceptZero)) {
                         if (criteria.threshold) {
-                            return criteria.values.every(value => dataToCheck[value] >= criteria.threshold);
+                            if (criteria.values.every(value => dataToCheck[value] >= criteria.threshold)) {
+                                return true;
+                            }
                         } else {
                             return true;    
                         }

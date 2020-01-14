@@ -679,6 +679,22 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 17) {
         var jumpDamage = rawEffect[3][0];
         addStat(item, "jumpDamage", jumpDamage);
+        
+        // boost evoke damage
+    } else if (rawEffect[2] == 64) {
+        let esperName;
+        if (rawEffect[3][1] === 0) {
+            esperName = 'all';
+        } else {
+            esperName = espersById[rawEffect[3][1]];
+        }
+        if (!item.evokeDamageBoost) {
+            item.evokeDamageBoost = {};
+        }
+        if (!item.evokeDamageBoost[esperName]) {
+            item.evokeDamageBoost[esperName] = 0;
+        }
+        item.evokeDamageBoost[esperName] += rawEffect[3][0];
     
     // +EVO Mag
     } else if ((rawEffect[0] == 0 || rawEffect[0] == 1) && rawEffect[1] == 3 && rawEffect[2] == 21) {
