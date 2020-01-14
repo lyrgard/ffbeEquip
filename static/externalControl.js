@@ -27,7 +27,10 @@ FFBEEquipExternalControl = {
         "def_15", "def_12", "def_10", "def_7", "def_5", "def_3", "def_1",
         "mag_15", "mag_12", "mag_10", "mag_7", "mag_5", "mag_3", "mag_1",
         "spr_15", "spr_12", "spr_10", "spr_7", "spr_5", "spr_3", "spr_1",
-        "autoRefresh_2","autoRefresh_1"  
+        "autoRegen_4", "autoRegen_3","autoRegen_2","autoRegen_1",
+        "autoRefresh_2", "autoRefresh_1",
+        "autoProtect_5", "autoProtect_4","autoProtect_3","autoProtect_2","autoProtect_1",
+        "autoShell_5", "autoShell_4" ,"autoShell_3" ,"autoShell_2" ,"autoShell_1"
     ],
     requestId : 0,
     
