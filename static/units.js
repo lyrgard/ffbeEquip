@@ -1345,6 +1345,42 @@ importValidator.addSchema('units', {
         },
         required: ['hp', 'mp', 'atk', 'def', 'mag', 'spr']
       },
+      doors: {
+        type: 'object',
+        properties: {
+          hp: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          mp: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          atk: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          def: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          mag: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          },
+          spr: {
+            type: 'number',
+            minimum: 0,
+            maximum: 2000
+          }
+        },
+        required: ['hp', 'mp', 'atk', 'def', 'mag', 'spr']
+      },
       enhancements: {
         type: 'array',
         maxItems: 30,
