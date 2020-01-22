@@ -8262,6 +8262,68 @@
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["弱虫ゼル","格闘王愛読家","G.F."]
 	},
+	"208000505": {
+		"name":"Yuffie",
+		"jpname":"セルフィ",
+		"id":"208000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},
+			"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Yuffie",
+			"jpname":"セルフィ",
+			"id":"208000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3510,"mp":207,"atk":77,"def":130,"mag":169,"spr":158},
+				"minStats":{"hp":1158,"mp":68,"atk":25,"def":43,"mag":56,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"208000605": {
+		"name":"Irvine",
+		"jpname":"アーヴァイン",
+		"id":"208000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4627,"mp":244,"atk":208,"def":170,"mag":154,"spr":182},
+			"minStats":{"hp":1527,"mp":81,"atk":69,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Irvine",
+			"jpname":"アーヴァイン",
+			"id":"208000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3559,"mp":187,"atk":160,"def":130,"mag":118,"spr":140},
+				"minStats":{"hp":1174,"mp":62,"atk":53,"def":43,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["bow","throwing","gun","hat","clothes","lightArmor"]
+		}
+	},
 	"208001005": {
 		"name":"Seifer",
 		"jpname":"サイファー",
@@ -8292,6 +8354,21 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"208001304": {
+		"name":"Edea",
+		"jpname":"イデア",
+		"id":"208001304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3777,"mp":190,"atk":110,"def":117,"mag":160,"spr":160},
+			"minStats":{"hp":1246,"mp":63,"atk":36,"def":39,"mag":53,"spr":53},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","whip","hat","clothes","robe"]
 	},
 	"208001505": {
 		"name":"Sleeping Lion Squall",
@@ -12422,7 +12499,7 @@
 	},
 	"313000404": {
 		"name":"Edea",
-		"jpname":"イデア",
+		"jpname":"イデア(BD)",
 		"id":"313000404",
 		"max_rarity":"6",
 		"min_rarity":"4",

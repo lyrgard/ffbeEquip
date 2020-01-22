@@ -351,27 +351,6 @@
     padding-left: 15px;
 }
 
-#exportLinks {
-    position: absolute;
-    top: 16px;
-    left: 320px;
-    z-index: 1;
-    margin-left: 10px;
-    padding: 4px 6px;
-    border: 1px solid #c8c8c8;
-    border-top-color: rgb(200, 200, 200);
-    border-right-color: rgb(200, 200, 200);
-    border-bottom-color: rgb(200, 200, 200);
-    border-left-color: rgb(200, 200, 200);
-    background: #f7f7f7;
-    background-color: rgb(247, 247, 247);
-    border-radius: 4px;
-    white-space: nowrap;
-}
-
-
-
-
 .readOnly #header, .readOnly #loginMessage, .readOnly .navbar, .readOnly #exportLinks, .readOnly .notOwned .numberDiv {
     display: none;
 }
@@ -566,16 +545,27 @@
     cursor: help;
 }
 
-#importLink {
-    position: absolute;
-    top: 20px;
-    left: 530px;
+.linkActions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-#exportDataLink {
-    position: absolute;
-    top: 20px;
-    left: 700px;
+.linkActions .action {
+    margin-right: 15px;
+}
+
+#exportLinks {
+    padding: 4px 6px;
+    border: 1px solid #c8c8c8;
+    border-top-color: rgb(200, 200, 200);
+    border-right-color: rgb(200, 200, 200);
+    border-bottom-color: rgb(200, 200, 200);
+    border-left-color: rgb(200, 200, 200);
+    background: #f7f7f7;
+    background-color: rgb(247, 247, 247);
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 /* For small screen, show stats in line and mode fixed lower right */
@@ -701,13 +691,6 @@
 
     .explanation {
         display: none;
-    }
-    
-    #exportLinks {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin-bottom:10px;
     }
     
     #exportLinks .text {

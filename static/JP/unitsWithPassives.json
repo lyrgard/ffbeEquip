@@ -11928,6 +11928,100 @@
 			{"atk%":200, "equipedConditions":["unarmed"]}
 		]
 	},
+	"208000505": {
+		"name":"Yuffie",
+		"jpname":"セルフィ",
+		"id":"208000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},
+			"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"大胆過激な行動派","levels":[[],[{"mag%":20,"def%":20,"hp%":20,"singleWielding":{"mag":50},"killers":[{"name":"bird","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]}]]}
+		],
+		"skills": [
+			{"hp%":20, "mp%":40, "def%":20, "mag%":100, "spr%":60, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"bird","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}], "mpRefresh":10, "esperStatsBonus":{"all":{"hp":60,"mp":60,"atk":60,"def":60,"mag":60,"spr":60}}},
+			{"hp%":30, "mp%":30, "def%":20, "mag%":20, "lbFillRate":50, "equipedConditions":[["309005000","504234750"]]},
+			{"mag%":30, "levelCondition":110},
+			{"mag%":20, "levelCondition":115},
+			{"singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "skillEnhancement":{"234770":20,"234771":20,"234775":20,"234782":13,"234783":13}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Yuffie",
+			"jpname":"セルフィ",
+			"id":"208000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3510,"mp":207,"atk":77,"def":130,"mag":169,"spr":158},
+				"minStats":{"hp":1158,"mp":68,"atk":25,"def":43,"mag":56,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+		"enhancements": [
+			{"name":"大胆過激な行動派","levels":[[],[{"mag%":20,"def%":20,"hp%":20,"singleWielding":{"mag":50},"killers":[{"name":"bird","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}]}]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":40, "def%":20, "mag%":100, "spr%":60, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbFillRate":50, "resist":[{"name":"silence","percent":100},{"name":"confuse","percent":100},{"name":"stop","percent":100}], "killers":[{"name":"bird","physical":75,"magical":75},{"name":"machine","physical":75,"magical":75}], "mpRefresh":10, "esperStatsBonus":{"all":{"hp":60,"mp":60,"atk":60,"def":60,"mag":60,"spr":60}}}
+			]
+		}
+	},
+	"208000605": {
+		"name":"Irvine",
+		"jpname":"アーヴァイン",
+		"id":"208000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4627,"mp":244,"atk":208,"def":170,"mag":154,"spr":182},
+			"minStats":{"hp":1527,"mp":81,"atk":69,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"狙撃手の集中力","levels":[[],[{"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}]}]]}
+		],
+		"skills": [
+			{"hp%":20, "mp%":40, "atk%":80, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}], "mpRefresh":8},
+			{"mp%":20, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "equipedConditions":[["313006700","504234752"]]},
+			{"atk%":30, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "levelCondition":105},
+			{"spr%":20, "levelCondition":115},
+			{"hp%":30, "atk%":30, "def%":20, "lbDamage":25, "skillEnhancement":{"234803":5,"234804":14,"234805":14,"800428":14}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Irvine",
+			"jpname":"アーヴァイン",
+			"id":"208000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3559,"mp":187,"atk":160,"def":130,"mag":118,"spr":140},
+				"minStats":{"hp":1174,"mp":62,"atk":53,"def":43,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+		"enhancements": [
+			{"name":"狙撃手の集中力","levels":[[],[{"atk%":20,"singleWielding":{"accuracy":25,"atk":50},"killers":[{"name":"beast","physical":50},{"name":"machine","physical":50}]}]]}
+		],
+			"skills": [
+				{"hp%":20, "mp%":40, "atk%":80, "def%":30, "spr%":30, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":50, "resist":[{"name":"blind","percent":100},{"name":"confuse","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"machine","physical":75}], "mpRefresh":8}
+			]
+		}
+	},
 	"208001005": {
 		"name":"Seifer",
 		"jpname":"サイファー",
@@ -11975,6 +12069,27 @@
 				{"hp%":40, "mp%":20, "atk%":90, "def%":40, "spr%":20, "evade":{"physical":20}, "singleWielding":{"accuracy":25,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100}], "killers":[{"name":"beast","physical":75},{"name":"bird","physical":75}], "mpRefresh":7, "esperStatsBonus":{"all":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}}
 			]
 		}
+	},
+	"208001304": {
+		"name":"Edea",
+		"jpname":"イデア",
+		"id":"208001304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3777,"mp":190,"atk":110,"def":117,"mag":160,"spr":160},
+			"minStats":{"hp":1246,"mp":63,"atk":36,"def":39,"mag":53,"spr":53},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","whip","hat","clothes","robe"],
+		"enhancements": [
+			{"name":"魔女の秘術","levels":[[],[{"mag%":20,"mp%":20,"hp%":20,"killers":[{"name":"human","magical":50}]}]]}
+		],
+		"skills": [
+			{"hp%":20, "mp%":20, "def%":10, "mag%":40, "spr%":80, "singleWielding":{"mag":50}, "killers":[{"name":"human","magical":25}], "mpRefresh":3, "esperStatsBonus":{"Alexander":{"hp":50,"mp":50,"atk":50,"def":50,"mag":50,"spr":50}}, "skillEnhancement":{"20290":4,"20300":4,"20310":4}}
+		]
 	},
 	"208001505": {
 		"name":"Sleeping Lion Squall",
@@ -17940,7 +18055,7 @@
 	},
 	"313000404": {
 		"name":"Edea",
-		"jpname":"イデア",
+		"jpname":"イデア(BD)",
 		"id":"313000404",
 		"max_rarity":"6",
 		"min_rarity":"4",

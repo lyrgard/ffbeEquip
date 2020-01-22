@@ -387,18 +387,33 @@
                 </div>
                 <div class="itemsContent">
                     <div id="inventory">
-                        <div id="exportLinks" class="dropdown">
-                            <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-share-alt"></span>
+                        <div class="linkActions">
+                            <div id="exportLinks" class="dropdown action">
+                                <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-share-alt"></span>
+                                    <span class="text">
+                                        Export inventory<span class="caret"></span>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-share-alt"></span>Export as CSV</a></li>
+                                    <li><a class="link" onclick="exportAsJson()"><span class="exportAsJson">{ }</span> Export as json</a></li>
+                                </ul>
+                            </div>
+                            <a id="importLink" class="link action" onclick="importInventory();">
+                                <span class="glyphicon glyphicon-save"></span>
                                 <span class="text hidden-xs hidden-sm">
-                                    Export inventory<span class="caret"></span>
+                                    Import inventory
                                 </span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="link" onclick="exportAsCsv()"><span class="glyphicon glyphicon-share-alt"></span>Export as CSV</a></li>
-                                <li><a class="link" onclick="exportAsJson()"><span class="exportAsJson">{ }</span> Export as json</a></li>
-                            </ul>
+                            <a id="exportLink" class="link action" href="https://new.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/" target="_blank">
+                                <span class="glyphicon glyphicon-export"></span>
+                                <span class="text hidden-xs hidden-sm">
+                                        Export your data from the game
+                                    </span>
+                            </a>
                         </div>
+                        
                         
                         <ul class="nav nav-tabs nav-tabs-img">
                             <li class="equipment"  onclick="showEquipments()" title="Show all equipments">
@@ -423,18 +438,7 @@
                                 <a><i class='img img-tab-settings tab'></i></a>
                             </li>
                         </ul>
-                        <a id="importLink" class="link" onclick="importInventory();">
-                            <span class="glyphicon glyphicon-save"></span>
-                            <span class="text hidden-xs hidden-sm">
-                                Import inventory
-                            </span>
-                        </a>
-                        <a id="exportLink" class="link" href="https://new.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/" target="_blank">
-                            <span class="glyphicon glyphicon-export"></span>
-                            <span class="text hidden-xs hidden-sm">
-                                    Export your data from the game
-                                </span>
-                        </a>
+                        
                         <div id="tabsRightData" class='hidden-xs'>
                             <span id="sortType"></span>
                         </div>
@@ -619,8 +623,7 @@
             </div>
         </div>
         <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
-                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+        <script src="lib/jquery-3.1.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
