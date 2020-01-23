@@ -147,6 +147,7 @@ const partyBuildSchema = Joi.object().keys({
     version: Joi.number().min(0),
     units: Joi.array().items(Joi.object().keys({
         id: idSchema.required(),
+        name: Joi.string().max(100).required(),
         rarity: Joi.number().min(1).max(7),
         enhancementLevels: Joi.array().items(Joi.number().min(0).max(3)).max(30),
         goal: Joi.string().max(200).required(),

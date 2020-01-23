@@ -31,7 +31,7 @@ FFBEEquipBuildAsImage = {
         FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + `/img/units/unit_ills_${iconId}.png`, 52, 52 + unitLine * FFBEEquipBuildAsImage.unitLineHeight, 1, () => {
     
             let x = 105;
-            let y = 20 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+            let y = 35 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
             ctx.fillStyle = 'white';
             ctx.strokeStyle = 'white';
             ctx.textAlign = "start"
@@ -43,11 +43,15 @@ FFBEEquipBuildAsImage = {
             ctx.fillText("MAG", x + 100, y + 40);
             ctx.fillText("DEF", x, y + 60);
             ctx.fillText("SPR", x +100, y + 60);
+            
+            ctx.font = "16px Arial";
+            ctx.fillText(unit.name, 105, 30);
 
             ctx.font = "bold 18px Arial";
-            ctx.textAlign = "end"
+            
             let line = 0;
             let column = 0;
+            ctx.textAlign = "end";
             ["hp", "mp", "atk", "mag", "def", "spr"].forEach(stat => {
                 ctx.fillText(unit.calculatedValues[stat].value, x + 80 + column * 100, y + 21 + line * 20);
                 if (unit.pots[stat]) {
@@ -107,7 +111,7 @@ FFBEEquipBuildAsImage = {
 
             ];
             x = 25;
-            y = 95 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
+            y = 100 + unitLine * FFBEEquipBuildAsImage.unitLineHeight;
             line = 0;
             column = 0;
             additionalValues.forEach(valueData => {
@@ -264,6 +268,16 @@ FFBEEquipBuildAsImage = {
                 callback();
             }
         }
+        image.onerror = () => {
+            if (imageUrl !== FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/items/icon_unknown.png') {
+                // try default unit image
+                FFBEEquipBuildAsImage.drawImage(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/items/icon_unknown.png', x, y, w, h, alpha, rounded, callback);
+            } else {
+                if (callback) {
+                    callback();
+                }
+            }
+        }
         image.src = imageUrl;
     },
     
@@ -276,6 +290,16 @@ FFBEEquipBuildAsImage = {
             ctx.drawImage(image, x - w /2, y - h / 2, w, h);
             if (callback) {
                 callback();
+            }
+        }
+        image.onerror = () => {
+            if (imageUrl !== FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/units/unit_ills_999999999.png' && imageUrl.indexOf('img/units') > 0) {
+                // try default unit image
+                FFBEEquipBuildAsImage.drawImageCentered(ctx, FFBEEquipBuildAsImage.ffbeEquipUrl + '/img/units/unit_ills_999999999.png', x, y, ratio, callback);
+            } else {
+                if (callback) {
+                    callback();
+                }
             }
         }
         image.src = imageUrl;

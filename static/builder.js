@@ -2508,6 +2508,7 @@ function getStateHash(onlyCurrent = true) {
         if (build && build.unit && build.unit.id) {
             var unit = {};
             unit.id = build.unit.id;
+            unit.name = build.unit.name;
             if (build.unit.sixStarForm) {
                 unit.rarity = 6;
             } else {
