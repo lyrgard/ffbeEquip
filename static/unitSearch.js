@@ -636,17 +636,17 @@ function getUnitHtml(unitData) {
     }
     html += '</div>';
 
-    let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
-    if (passivesToDisplay.length > 0) {
-        html += '<div class="passives skillGroup">';
-        passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
-        html += '</div>';
-    }
-
     let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
     if (activesToDisplay.length > 0) {
         html += '<div class="actives skillGroup">';
         activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
+        html += '</div>';
+    }
+    
+    let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
+    if (passivesToDisplay.length > 0) {
+        html += '<div class="passives skillGroup">';
+        passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
         html += '</div>';
     }
 
@@ -684,10 +684,18 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         html += getInnateElementsHtml(skill.effects).join('');
         html += getChainFamilyHtml(skill);
 
-        html += '</span></div>'
-        if (rarity && level) {
-            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>'
+        html += '</span></div><div class="spacer"></div>'
+        
+        if (skill.lbCost) {
+            html += '<div class="lbCost">' + skill.lbCost + '<img class="lbCostImg" src="img/icons/lbShard.png" title="LB cost"/></div>';
         }
+        if (skill.mpCost) {
+            html += '<div class="mpCost">' + skill.mpCost + '<span class="mpCostLabel">MP</span></div>';
+        }
+        if (rarity && level) {
+            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>';
+        }
+        
         html += '</div>';
         html += cooldownHtml;
         html += getWarningStrangeStatsUsed(skill.effects);
@@ -762,11 +770,11 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
         if (id === 'lb') {
             html += addGetUnlockedBySkillHtml(skillId, unit, unit.lb.maxEffects, 'LB');
         } else {
-            unit.actives.filter(skill => skill.id === id || skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+            unit.actives.filter(skill => skill.id === id).forEach(skill => {
                 html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects, skill.name);
             });
             unit.actives.filter(skill => skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
-                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill.effects, skill.effects[0].effect.name);
+                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill.effects, skill.effects[0].effect.cooldownSkill.name);
             });
             unit.passives.filter(skill => skill.id === id).forEach(skill => {
                 skill.effects.forEach(effect => {

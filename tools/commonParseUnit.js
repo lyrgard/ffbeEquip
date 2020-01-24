@@ -223,7 +223,10 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
             }
         }
     } else if (skillIn.type == "MAGIC") {
-        unitOut.magics.push(parseActiveSkill(skillId, skillIn, skills, unitOut));
+        skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
+        skill.rarity = rarity;
+        skill.level = level;
+        unitOut.magics.push(skill);
         if (enhancements && enhancements[skillId]) {
             var enhancementLevel = 0;
             while (enhancements[skillId]) {
@@ -1082,6 +1085,9 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
     if (skillIn.cost && skillIn.cost.MP) {
         skill.mpCost = skillIn.cost.MP;
     }
+    if (skillIn.cost && skillIn.cost.LB) {
+        skill.lbCost = skillIn.cost.LB;
+    }
     return skill;
 }
 
@@ -1579,7 +1585,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 "skills": []
             }
         }
-        if (rawEffect > 1) {
+        if (rawEffect[3][3] > 1) {
            result.gainSkills.turns = rawEffect[3][3] - 1;
         }
         var gainedSkillIds;
