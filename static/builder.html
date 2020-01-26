@@ -26,7 +26,7 @@
         <link rel="stylesheet" type="text/css" href="languages.css">
         <!--<link rel="stylesheet" type="text/css" href="lib/dark-bootstrap.min.css">-->
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
-
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
     </head>
     <body class="dark">
         <div class="glassPanel"></div>
@@ -1000,7 +1000,8 @@
                                 <div class="mpRefresh"><div class="col-xs-5"><div class="col-xs-6 stat">MP/turn</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div></div>
                                 <div class="lbPerTurn"><div class="col-xs-5"><div class="col-xs-6 stat">LB/turn</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div></div>
                                 <div class="lbFillRate"><div class="col-xs-5"><div class="col-xs-7 stat">Lb fill rate</div><div class="col-xs-5 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div></div>
-                                <div class="evoMag"><div class="col-xs-5"><div class="col-xs-6 stat">EVO Mag</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div></div>
+                                <div class="evoMag"><div class="col-xs-5"><div class="col-xs-7 stat">EVO Mag</div><div class="col-xs-5 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div></div>
+                                <div class="evokeDamageBoost_all"><div class="col-xs-5"><div class="col-xs-7 stat">Evoke Dmg</div><div class="col-xs-5 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div></div>
                                 <div class="accuracy"><div class="col-xs-5"><div class="col-xs-7 stat">Accuracy</div><div class="col-xs-5 text-right"><span class="value"></span>%</div></div><div class="col-xs-1"></div></div>
                                 <div class="drawAttacks"><div class="col-xs-5"><div class="col-xs-6 stat">D. Attacks</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div></div>
                                 <div class="jumpDamage"><div class="col-xs-5"><div class="col-xs-6 stat">Jump D.</div><div class="col-xs-6 text-right value"></div></div><div class="col-xs-1"></div></div>
@@ -1234,22 +1235,12 @@
                     <div class="modal-body">
                         <ul class="nav nav-tabs type">
                         </ul>
-                        <div id="results" class="table notSorted items results">
-							<div class="thead">
-                                <div class="tr">
-                                    <div class="td exclude">&nbsp;</div>
-                                    <div class="td type">&nbsp;</div>
-                                    <div class="td name">Name</div>
-                                    <div id="statTitle" class="td value sort">Value</div>
-                                    <div class="td special">Special</div>
-									<div class="td access desktop">Access</div>
-                                    <div class="td enchantment desktop"></div>
-                                    <div class="td inventory desktop">Owned</div>
-                                    <div class="td mobile"></div>
+                        <div id="results" class="notSorted items results">
+							
+                            <div id="fixItemResults" class="clusterize-scroll">
+                                <div id="resultsContent" class="tbody clusterize-content">
+                                    <div class="clusterize-no-data">No results…</div>
                                 </div>
-                            </div>
-                            <div class="tbody">
-
                             </div>
                         </div>
                         <a class="link customEnchantment" onclick="selectEnchantement();">
@@ -1651,8 +1642,7 @@
             </div>
         </div>
         <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
-                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+        <script src="lib/jquery-3.1.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
@@ -1661,6 +1651,7 @@
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
+        <script src="lib/clusterize.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="lib/jjv.js"></script>

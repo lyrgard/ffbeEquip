@@ -5,6 +5,9 @@ var PNG = require('pngjs').PNG;
 var stats = ["HP","MP","ATK","DEF","MAG","SPR"];
 var elements = ["fire", "ice", "lightning", "water", "wind", "earth", "light", "dark"];
 var ailments = ["poison", "blind", "sleep", "silence", "paralysis", "confuse", "disease", "petrification"];
+const shieldList = ["lightShield", "heavyShield"];
+const headList = ["hat", "helm"];
+const bodyList = ["clothes", "robe", "lightArmor", "heavyArmor"];
 
 var typeMap = {
     1: 'dagger',
@@ -681,15 +684,17 @@ function addMasterySkills(item, masterySkills, result) {
     for (var masteryIndex in masterySkills) {
         var lenght = treatedItems.length;
         var copy = JSON.parse(JSON.stringify(item));
-        addMastery(copy, masterySkills[masteryIndex]);
-        result.push(copy);
-        treatedItems.push(copy);
-        for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
-            if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
-                var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
-                addMastery(copy, masterySkills[masteryIndex]);
-                result.push(copy);
-                treatedItems.push(copy);
+        if (addMastery(copy, masterySkills[masteryIndex])) {
+            result.push(copy);
+            treatedItems.push(copy);
+            for (var itemIndex = 0; itemIndex < lenght; itemIndex++) {
+                if (!treatedItems[itemIndex].equipedConditions || treatedItems[itemIndex].equipedConditions.length < 2) {
+                    var copy = JSON.parse(JSON.stringify(treatedItems[itemIndex]));
+                    if (addMastery(copy, masterySkills[masteryIndex])) {
+                        result.push(copy);
+                        treatedItems.push(copy);
+                    }
+                }
             }
         }
     }
@@ -1020,6 +1025,22 @@ function addEffectToItem(item, skill, rawEffectIndex, skills) {
     // Guts
     } else if (rawEffect[2] == 51) {
         item.guts = {ifHpOver:rawEffect[3][0], chance:rawEffect[3][1], time:rawEffect[3][3]};
+    
+    // boost evoke damage
+    } else if (rawEffect[2] == 64) {
+        let esperName;
+        if (rawEffect[3][1] === 0) {
+            esperName = 'all';
+        } else {
+            esperName = espersById[rawEffect[3][1]];
+        }
+        if (!item.evokeDamageBoost) {
+            item.evokeDamageBoost = {};
+        }
+        if (!item.evokeDamageBoost[esperName]) {
+            item.evokeDamageBoost[esperName] = 0;
+        }
+        item.evokeDamageBoost[esperName] += rawEffect[3][0];
         
     // Cast at start of turn
     } else if (rawEffect[2] == 66) {
@@ -1956,7 +1977,13 @@ function addMastery(item, mastery) {
             addStat(item, "mp%", masteryEffect[2]);
         }
     } else {
-        item.equipedConditions.push(typeMap[mastery[3][0]]);
+        let type = typeMap[mastery[3][0]];
+        if (!item.equipedConditions.includes(type)) {
+            if (shieldList.includes(type) && item.equipedConditions.some(c => shieldList.includes(c))) return false;
+            if (headList.includes(type) && item.equipedConditions.some(c => headList.includes(c))) return false;
+            if (bodyList.includes(type) && item.equipedConditions.some(c => bodyList.includes(c))) return false;
+            item.equipedConditions.push(typeMap[mastery[3][0]]);
+        }
         addStat(item, "atk%", mastery[3][1]);
         addStat(item, "def%", mastery[3][2]);
         addStat(item, "mag%", mastery[3][3]);
@@ -1968,6 +1995,7 @@ function addMastery(item, mastery) {
             addStat(item, "mp%", mastery[3][6]);
         }
     }
+    return true;
 }
 
 function addExclusiveUnit(item, unitId) {
@@ -2020,7 +2048,7 @@ function addLbPerTurn(item, min, max) {
 }
 
 function formatOutput(items) {
-    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills"];
+    var properties = ["id","name","wikiEntry","type","hp","hp%","mp","mp%","atk","atk%","def","def%","mag","mag%","spr","spr%","evoMag","evade","singleWieldingOneHanded","singleWielding", "dualWielding", "accuracy","damageVariance", "jumpDamage", "lbFillRate", "lbPerTurn", "element","partialDualWield","resist","ailments","killers","mpRefresh","esperStatsBonus","lbDamage", "drawAttacks", "skillEnhancement","special","allowUseOf","guts", "evokeDamageBoost","exclusiveSex","exclusiveUnits","equipedConditions","tmrUnit", "stmrUnit" ,"access","maxNumber","eventNames","icon","sortId","notStackableSkills", "rarity", "skills", "autoCastedSkills", "counterSkills", "startOfTurnSkills"];
     var result = "[\n";
     var first = true;
     for (var index in items) {

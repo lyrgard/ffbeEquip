@@ -15,7 +15,7 @@ const involvedStatsByValue = {
     "atkDamageWithFixedMecanism":       ["atk","meanDamageVariance"],
     "physicalDamageMultiCast":          ["atk","weaponElement","physicalKiller","meanDamageVariance"],
     "fixedDamageWithPhysicalMecanism":  ["weaponElement", "physicalKiller"],
-    "summonerSkill":                    ["mag","spr","evoMag"]
+    "summonerSkill":                    ["mag","spr","evoMag", 'evokeDamageBoost.all']
 }
 
 const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100];
@@ -285,12 +285,18 @@ class UnitBuild {
             if (formula.value.mecanism == "physical") {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance"]);
                 
-                if (formula.value.use) {
-                    this.addToInvolvedStats([formula.value.use.stat]);
-                } else {
-                    if (formula.value.damageType == "body") {
+                
+                if (formula.value.damageType == "body") {
+                    if (formula.value.use) {
+                        this.addToInvolvedStats([formula.value.use.stat]);
+                        this.addToInvolvedStats(["newDamageFormula"]);
+                    } else {
                         this.addToInvolvedStats(["atk"]);
-                    } else if (formula.value.damageType == "mind") {
+                    }
+                } else if (formula.value.damageType == "mind") {
+                    if (formula.value.use) {
+                        this.addToInvolvedStats([formula.value.use.stat]);
+                    } else {
                         this.addToInvolvedStats(["mag"]);
                     }
                 }
@@ -312,6 +318,7 @@ class UnitBuild {
                 this.addToInvolvedStats(["weaponElement","physicalKiller","meanDamageVariance", "atk", "mag"]);
             } else if (formula.value.mecanism == "summonerSkill"){
                 this.addToInvolvedStats(["evoMag"]);
+                this.addToInvolvedStats(['evokeDamageBoost.all']);
                 if (formula.value.magSplit > 0) {
                     this.addToInvolvedStats(["mag"]);
                 }

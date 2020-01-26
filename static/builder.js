@@ -133,6 +133,8 @@ let buildCounter = 0;
 
 let displayOnly7StarsUnits = true;
 
+let fixItemList;
+
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
         Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
@@ -732,10 +734,11 @@ function logBuild(build, value) {
     displayStat("#resultStats .lbPerTurn", calculateStatValue(build, "lbPerTurn", builds[currentUnitIndex]).total);
     displayStat("#resultStats .lbFillRate", calculateStatValue(build, "lbFillRate", builds[currentUnitIndex]).total);
     displayStat("#resultStats .evoMag", calculateStatValue(build, "evoMag", builds[currentUnitIndex]).total);    
+    displayStat("#resultStats .evokeDamageBoost_all", calculateStatValue(build, "evokeDamageBoost.all", builds[currentUnitIndex]).total);    
     displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
     displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total);
-    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total)
+    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total);
 
     
     for (var index in elementList) {
@@ -1884,12 +1887,13 @@ function onEquipmentsChange() {
 }
      
 function updateSearchResult() {
+    fixItemList.clear();
     $("#fixItemModal").removeClass("showEnhancements");
     let onlyOwnedItems = $('#onlyOwnedItems input').prop('checked');
     let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
-        $("#fixItemModal .results .tbody").html("");    
+        fixItemList.update([]);
         return;
     }
     var types = searchType;
@@ -1972,9 +1976,17 @@ function displayEquipableItemList() {
     }
 
     $("#searchText").val("");
-    $("#fixItemModal .results .tbody").html("");
+    //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
+    if (!fixItemList) {
+        fixItemList = new Clusterize({
+          rows: [],
+          scrollId: 'fixItemResults',
+          contentId: 'resultsContent',
+          rows_in_block: '10'
+        });
+    }
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
@@ -2000,10 +2012,17 @@ function displayFixItemModal(slot) {
     
     dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
     $("#searchText").val("");
-    $("#fixItemModal .results .tbody").html("");
+    //$("#fixItemModal .results .tbody").html("");
     
     $("#fixItemModal").modal();
-
+    if (!fixItemList) {
+        fixItemList = new Clusterize({
+          rows: [],
+          scrollId: 'fixItemResults',
+          contentId: 'resultsContent',
+          rows_in_block: '10'
+        });
+    }
     let equipmentChoice = $(".equipments select").val();
     $('#onlyOwnedItems input').prop('checked', equipmentChoice == "owned" && equipmentChoice == "ownedAvailableForExpedition");
     $('#excludeNotReleasedYetOption input').prop('checked', dataStorage.excludeNotReleasedYet);
@@ -2230,9 +2249,15 @@ var displaySearchResults = function(items) {
     } else {
         $("#fixItemModal").addClass("notLoggedIn");
     }
-    var div = $("#fixItemModal .results .tbody");
-    div.empty();
-    displaySearchResultsAsync(items, 0, div);
+//    var div = $("#fixItemModal .results .tbody");
+//    div.empty();
+    
+    let htmls = items.map(item => getItemHtml(item));
+    fixItemList.update(htmls);
+    //$("#fixItemModal #fixItemResults")[0].scrollTop = 0;
+    //displaySearchResultsAsync(items, 0, div);
+    
+    setTimeout(() => $("#fixItemModal #fixItemResults")[0].scrollTop = 0, 100);
     
 }
 
@@ -2251,75 +2276,81 @@ function displaySearchResultsAsync(items, start, div) {
     var html = "";
     for (var index = start; index < end; index++) {
         var item = items[index];
-        if (item) {
-            var enhancementString = "null";
-            if (item.enhancements) {
-                enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
-            }
-            html += '<div class="tr selectable item';
-            if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
-                html += " enhanced";
-            }
-            
-            var excluded = itemsToExclude.includes(item.id);
-
-            $('#fixItemModal').removeClass('exclusion');
-            if(searchClickBehavior == ClickBehaviors.IGNORE) {
-                html += '" >';
-            } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
-                html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
-                $('#fixItemModal').addClass('exclusion');
-            } else {
-                html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
-            }
-
-            html += "<div class='td exclude'>";
-            html += getItemExclusionLink(item.id, excluded);
-            html += "</div>";
-
-            html += displayItemLine(item);
-            
-            if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
-                html+= "<div class='td enchantment desktop'>";
-                html+= getItemEnhancementLink(item);
-                html+= "</div>";
-            }
-
-            if (itemInventory) {
-                var notEnoughClass = "";
-                var numbers = dataStorage.getOwnedNumber(item);
-                var owned = "";
-                if (numbers.total > 0) {
-                    owned += numbers.available;
-                    if (numbers.available != numbers.total) {
-                        owned += "/" + numbers.total;   
-                        if (numbers.available == 0) {
-                            notEnoughClass = " notEnough ";
-                        }
-                    }
-                }
-                html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
-                
-                html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
-                html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
-                html+=      '<ul class="dropdown-menu pull-right">';
-                html+=          '<li>' + getAccessHtml(item) + '</li>';               
-                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
-                if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
-                html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
-                }
-                html+=      '</ul>';
-                html+= '</div></div>';
-            } else {
-                html+= "<div class='td enchantment'/><div class='td inventory'/>"
-            }
-            html += "</div>";
-        }
+        html += getItemHtml(item);
     }
     div.append(html);
     if (end < items.length) {
         setTimeout(displaySearchResultsAsync, 0, items, end, div);
     }
+}
+
+function getItemHtml(item) {
+    let html = "";
+    if (item) {
+        var enhancementString = "null";
+        if (item.enhancements) {
+            enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
+        }
+        html += '<div class="tr selectable item';
+        if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
+            html += " enhanced";
+        }
+
+        var excluded = itemsToExclude.includes(item.id);
+
+        $('#fixItemModal').removeClass('exclusion');
+        if(searchClickBehavior == ClickBehaviors.IGNORE) {
+            html += '" >';
+        } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+            html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
+            $('#fixItemModal').addClass('exclusion');
+        } else {
+            html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
+        }
+
+        html += "<div class='td exclude'>";
+        html += getItemExclusionLink(item.id, excluded);
+        html += "</div>";
+
+        html += displayItemLine(item);
+
+        if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+            html+= "<div class='td enchantment desktop'>";
+            html+= getItemEnhancementLink(item);
+            html+= "</div>";
+        }
+
+        if (itemInventory) {
+            var notEnoughClass = "";
+            var numbers = dataStorage.getOwnedNumber(item);
+            var owned = "";
+            if (numbers.total > 0) {
+                owned += numbers.available;
+                if (numbers.available != numbers.total) {
+                    owned += "/" + numbers.total;   
+                    if (numbers.available == 0) {
+                        notEnoughClass = " notEnough ";
+                    }
+                }
+            }
+            html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
+
+            html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
+            html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
+            html+=      '<ul class="dropdown-menu pull-right">';
+            html+=          '<li>' + getAccessHtml(item) + '</li>';               
+            html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+            if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+            html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
+            }
+            html+=      '</ul>';
+            html+= '</div></div>';
+        } else {
+            html+= "<div class='td enchantment'></div><div class='td inventory'></div>"
+        }
+        html += "</div>";
+    }
+    return html;
 }
 
 function getItemEnhancementLink(item) {
@@ -2437,13 +2468,17 @@ function toggleItemEnhancement(enhancement) {
 
 function pinChosenEnchantment() {
     if (currentEnchantmentItem.type == "fake") {
-        defaultWeaponEnhancement = currentEnchantmentItem.enhancements;
-        dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
-        $("#defaultWeaponEnhancement .display").html(getEnhancements(currentEnchantmentItem));
+        setDefaultEnhancements(currentEnchantmentItem.enhancements);
         $('#modifyEnhancementModal').modal('hide');
     } else {
         fixItem(applyEnhancements(currentEnchantmentItem, currentEnchantmentItem.enhancements), currentItemSlot);
     }
+}
+
+function setDefaultEnhancements(enhancements) {
+    defaultWeaponEnhancement = enhancements;
+    dataStorage.setDefaultWeaponEnhancement(defaultWeaponEnhancement);
+    $("#defaultWeaponEnhancement .display").html(getEnhancements({enhancements:enhancements}));
 }
 
 const stateHashCalculatedValues = {
@@ -2473,6 +2508,7 @@ function getStateHash(onlyCurrent = true) {
         if (build && build.unit && build.unit.id) {
             var unit = {};
             unit.id = build.unit.id;
+            unit.name = build.unit.name;
             if (build.unit.sixStarForm) {
                 unit.rarity = 6;
             } else {
@@ -3515,7 +3551,9 @@ function showSaveAsPopup() {
         size: 'large',
         onOpen: function($modal) {
             // Focus on input
-            $modal.find('input').focus();
+            if (!isMobile) {
+                $modal.find('input').focus();
+            }
         },
         buttons: [{
             text: 'Save',
@@ -4045,7 +4083,9 @@ function startPage() {
     $('#onlyOwnedItems input').on("input", updateSearchResult);
     $('#excludeNotReleasedYetOption input').on("input", updateSearchResult);
     $('#fixItemModal').on('shown.bs.modal', function () {
-        $('#searchText').focus();
+        if (!isMobile) {
+            $('#searchText').focus();
+        }
     })  
     $("#customFormulaModal").on('shown.bs.modal', function () {
         $("#customFormulaModal #formulaInput").focus();
@@ -4537,6 +4577,10 @@ let handleExternalControl = function(message) {
             unselectAll("races");
             select("races", data.value);
             parent.postMessage(JSON.stringify({'type':'monsterRacesSet', 'value':''}), '*');
+            break;
+        case 'setDefaultEnhancements':
+            setDefaultEnhancements(data.value);
+            parent.postMessage(JSON.stringify({'type':'defaultEnhancementsSet', 'value':''}), '*');
             break;
         case 'selectGoal':
             chooseCustomFormula(data.value);

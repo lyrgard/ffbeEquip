@@ -4341,7 +4341,7 @@
 		"equip":["dagger","sword","katana","spear","throwing","fist","hat","clothes"]
 	},
 	"100023005": {
-		"name":"CG King Lasswell",
+		"name":"Hess King Lasswell",
 		"jpname":"ヘス王ラスウェル",
 		"id":"100023005",
 		"max_rarity":"7",
@@ -4355,7 +4355,7 @@
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"],
 		"6_form": {
-			"name":"CG King Lasswell",
+			"name":"Hess King Lasswell",
 			"jpname":"ヘス王ラスウェル",
 			"id":"100023005",
 			"sixStarForm":true,
@@ -4757,6 +4757,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+		"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"],
 		"6_form": {
 			"name":"Fina & Dark Fina",
 			"jpname":"フィーナ&魔人フィーナ",
@@ -4771,7 +4772,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"]
+			"equip":["staff","rod","bow","whip","mace","hat","clothes","robe"],
+			"enhancementSkills":["アースグレア","シャイニングアロー","アビサルスラッシュ","ルインディザスター","白蓮と白百合の花"]
 		}
 	},
 	"100024905": {
@@ -4788,6 +4790,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+		"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"],
 		"6_form": {
 			"name":"Lid & Jake",
 			"jpname":"リド&ジェイク",
@@ -4802,7 +4805,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"]
+			"equip":["dagger","sword","greatSword","staff","rod","bow","axe","hammer","spear","gun","mace","fist","lightShield","hat","clothes","lightArmor"],
+			"enhancementSkills":["フィジカルディゾルバー","サイコディゾルバー","リンクシュート","ストラクトブレイカー","武器に込めた愛"]
 		}
 	},
 	"100025004": {
@@ -4821,7 +4825,7 @@
 		"equip":["sword","greatSword","katana","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"100025104": {
-		"name":"Skulltio",
+		"name":"Scartio",
 		"jpname":"スカルティオ",
 		"id":"100025104",
 		"max_rarity":"6",
@@ -5036,7 +5040,7 @@
 		}
 	},
 	"100026004": {
-		"name":"カランド",
+		"name":"Calland",
 		"jpname":"カランド",
 		"id":"100026004",
 		"max_rarity":"6",
@@ -5159,7 +5163,7 @@
 		}
 	},
 	"100026804": {
-		"name":"夏空のルルカ",
+		"name":"Summertime Luka",
 		"jpname":"夏空のルルカ",
 		"id":"100026804",
 		"max_rarity":"6",
@@ -5636,6 +5640,37 @@
 			"equip":["dagger","staff","rod","harp","throwing","gun","mace","fist","hat","clothes","robe"]
 		}
 	},
+	"100028705": {
+		"name":"Kalmia",
+		"jpname":"カルミア",
+		"id":"100028705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4595,"mp":256,"atk":138,"def":163,"mag":170,"spr":215},
+			"minStats":{"hp":1516,"mp":84,"atk":46,"def":54,"mag":56,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","mace","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Kalmia",
+			"jpname":"カルミア",
+			"id":"100028705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3534,"mp":196,"atk":106,"def":125,"mag":130,"spr":165},
+				"minStats":{"hp":1166,"mp":65,"atk":35,"def":41,"mag":43,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","mace","lightShield","hat","clothes","robe"]
+		}
+	},
 	"100028805": {
 		"name":"Christmas Ayaka",
 		"jpname":"クリスマスアヤカ",
@@ -5712,6 +5747,83 @@
 		},
 		"stats_pattern":1,
 		"equip":["hammer","spear","harp","mace","hat"]
+	},
+	"100029205": {
+		"name":"Green Mage Marie",
+		"jpname":"招福の緑魔道士マリー",
+		"id":"100029205",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4865,"mp":268,"atk":155,"def":175,"mag":203,"spr":211},
+			"minStats":{"hp":1605,"mp":88,"atk":51,"def":58,"mag":67,"spr":70},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["staff","rod","mace","lightShield","hat","clothes","robe"],
+		"6_form": {
+			"name":"Green Mage Marie",
+			"jpname":"招福の緑魔道士マリー",
+			"id":"100029205",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3742,"mp":206,"atk":119,"def":134,"mag":156,"spr":162},
+				"minStats":{"hp":1235,"mp":68,"atk":39,"def":44,"mag":51,"spr":53},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["staff","rod","mace","lightShield","hat","clothes","robe"]
+		}
+	},
+	"100029705": {
+		"name":"Audrey",
+		"jpname":"オードリー",
+		"id":"100029705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4872,"mp":217,"atk":205,"def":190,"mag":159,"spr":176},
+			"minStats":{"hp":1608,"mp":72,"atk":68,"def":63,"mag":52,"spr":58},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"6_form": {
+			"name":"Audrey",
+			"jpname":"オードリー",
+			"id":"100029705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3747,"mp":166,"atk":157,"def":146,"mag":122,"spr":135},
+				"minStats":{"hp":1237,"mp":55,"atk":52,"def":48,"mag":40,"spr":45},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+		}
+	},
+	"100029804": {
+		"name":"Wallner",
+		"jpname":"ウォルナー",
+		"id":"100029804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3403,"mp":177,"atk":132,"def":129,"mag":118,"spr":140},
+			"minStats":{"hp":1123,"mp":58,"atk":44,"def":43,"mag":39,"spr":46},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","spear","lightShield","hat","helm","clothes","robe"]
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -8150,6 +8262,68 @@
 		"equip":["fist","hat","clothes","lightArmor"],
 		"enhancementSkills":["弱虫ゼル","格闘王愛読家","G.F."]
 	},
+	"208000505": {
+		"name":"Selphie",
+		"jpname":"セルフィ",
+		"id":"208000505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4563,"mp":270,"atk":101,"def":169,"mag":220,"spr":206},
+			"minStats":{"hp":1506,"mp":89,"atk":33,"def":56,"mag":73,"spr":68},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Selphie",
+			"jpname":"セルフィ",
+			"id":"208000505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3510,"mp":207,"atk":77,"def":130,"mag":169,"spr":158},
+				"minStats":{"hp":1158,"mp":68,"atk":25,"def":43,"mag":56,"spr":52},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","harp","whip","mace","fist","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"208000605": {
+		"name":"Irvine",
+		"jpname":"アーヴァイン",
+		"id":"208000605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4627,"mp":244,"atk":208,"def":170,"mag":154,"spr":182},
+			"minStats":{"hp":1527,"mp":81,"atk":69,"def":56,"mag":51,"spr":60},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["bow","throwing","gun","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Irvine",
+			"jpname":"アーヴァイン",
+			"id":"208000605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3559,"mp":187,"atk":160,"def":130,"mag":118,"spr":140},
+				"minStats":{"hp":1174,"mp":62,"atk":53,"def":43,"mag":39,"spr":46},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["bow","throwing","gun","hat","clothes","lightArmor"]
+		}
+	},
 	"208001005": {
 		"name":"Seifer",
 		"jpname":"サイファー",
@@ -8180,6 +8354,21 @@
 			"stats_pattern":1,
 			"equip":["sword","greatSword","gun","mace","hat","helm","clothes","lightArmor","heavyArmor"]
 		}
+	},
+	"208001304": {
+		"name":"Edea",
+		"jpname":"イデア",
+		"id":"208001304",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3777,"mp":190,"atk":110,"def":117,"mag":160,"spr":160},
+			"minStats":{"hp":1246,"mp":63,"atk":36,"def":39,"mag":53,"spr":53},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["staff","rod","whip","hat","clothes","robe"]
 	},
 	"208001505": {
 		"name":"Sleeping Lion Squall",
@@ -8877,7 +9066,7 @@
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
 	},
 	"210001704": {
-		"name":"イサール",
+		"name":"Isaaru",
 		"jpname":"イサール",
 		"id":"210001704",
 		"max_rarity":"6",
@@ -9591,7 +9780,7 @@
 		}
 	},
 	"213001205": {
-		"name":"宿命の少女ヴァニラ",
+		"name":"Hecatoncheir Vanille",
 		"jpname":"宿命の少女ヴァニラ",
 		"id":"213001205",
 		"max_rarity":"7",
@@ -9605,7 +9794,7 @@
 		"stats_pattern":4,
 		"equip":["staff","rod","harp","whip","hat","clothes","robe"],
 		"6_form": {
-			"name":"宿命の少女ヴァニラ",
+			"name":"Hecatoncheir Vanille",
 			"jpname":"宿命の少女ヴァニラ",
 			"id":"213001205",
 			"sixStarForm":true,
@@ -9622,7 +9811,7 @@
 		}
 	},
 	"213001305": {
-		"name":"麗しき勇士ファング",
+		"name":"Bahamut Fang",
 		"jpname":"麗しき勇士ファング",
 		"id":"213001305",
 		"max_rarity":"7",
@@ -9636,7 +9825,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","spear","lightShield","hat","clothes","lightArmor"],
 		"6_form": {
-			"name":"麗しき勇士ファング",
+			"name":"Bahamut Fang",
 			"jpname":"麗しき勇士ファング",
 			"id":"213001305",
 			"sixStarForm":true,
@@ -12310,7 +12499,7 @@
 	},
 	"313000404": {
 		"name":"Edea",
-		"jpname":"イデア",
+		"jpname":"イデア(BD)",
 		"id":"313000404",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -12703,7 +12892,7 @@
 		}
 	},
 	"330000904": {
-		"name":"エイミ",
+		"name":"Aelia",
 		"jpname":"エイミ(ヴァルキリープロファイル)",
 		"id":"330000904",
 		"max_rarity":"6",
@@ -13703,7 +13892,7 @@
 		"equip":["dagger","hammer","mace","lightShield","hat","clothes","robe"]
 	},
 	"339000105": {
-		"name":"ギルガメッシュ",
+		"name":"Gilgamesh",
 		"jpname":"ギルガメッシュ",
 		"id":"339000105",
 		"max_rarity":"7",
@@ -13717,7 +13906,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","rod","helm","lightArmor","heavyArmor","robe"],
 		"6_form": {
-			"name":"ギルガメッシュ",
+			"name":"Gilgamesh",
 			"jpname":"ギルガメッシュ",
 			"id":"339000105",
 			"sixStarForm":true,

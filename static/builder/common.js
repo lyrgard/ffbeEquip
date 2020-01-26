@@ -448,13 +448,17 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
         if (unitBuild.involvedStats.includes("evoMag")) {
             evoMagMultiplier += getStatCalculatedValue(context, itemAndPassives, "evoMag", unitBuild).total/100;
         }
+        var evokeDamageBoostMultiplier = 1;
+        if (unitBuild.involvedStats.includes("evokeDamageBoost.all")) {
+            evokeDamageBoostMultiplier += getStatCalculatedValue(context, itemAndPassives, "evokeDamageBoost.all", unitBuild).total/100;
+        }
         
         var defendingStatValue = ennemyStats[defendingStat];
         if (formula.value.ignore && formula.value.ignore[defendingStat]) {
             defendingStatValue = defendingStatValue * (1 - formula.value.ignore[defendingStat]/100);
         }
         
-        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
+        var baseDamage = coef * (statValueToUse * statValueToUse) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * killerMultiplicator * jumpMultiplier * lbMultiplier * newJpDamageFormulaCoef / (defendingStatValue  * (1 + (ennemyStats.buffs[defendingStat] - ennemyStats.breaks[defendingStat]) / 100));
         if (formula.value.mecanism == "hybrid") {
             var magStat = getStatCalculatedValue(context, itemAndPassives, "mag", unitBuild).total;
             var magDamage = coef * (magStat * magStat) * resistModifier * killerMultiplicator * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
@@ -469,7 +473,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             if (formula.value.sprSplit > 0) {
                 var sprStat = getStatCalculatedValue(context, itemAndPassives, "spr", unitBuild).total;
                 let coefIncrease = coef - formula.value.magCoef;
-                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
+                var sprDamage = (formula.value.sprCoef + coefIncrease) * (sprStat * sprStat) * evoMagMultiplier * evokeDamageBoostMultiplier * resistModifier * newJpDamageFormulaCoef / (ennemyStats.spr * (1 + (ennemyStats.buffs.spr - ennemyStats.breaks.spr) / 100));
             } else {
                 sprDamage = 0;
             }
@@ -487,8 +491,6 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                 "switchWeapons": switchWeapons
             }    
         }
-        
-
         return result
                
     } else if (formula.type == "value") {
@@ -557,6 +559,10 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
             var evoMagMultiplier = 1;
             if (unitBuild.involvedStats.includes("evoMag")) {
                 evoMagMultiplier += calculateStatValue(itemAndPassives, "evoMag", unitBuild).total/100;
+            }
+            var evokeDamageBoostMultiplier = 1;
+            if (unitBuild.involvedStats.includes("evokeDamageBoost.all")) {
+                evokeDamageBoostMultiplier += getStatCalculatedValue(context, itemAndPassives, "evokeDamageBoost.all", unitBuild).total/100;
             }
 
             let lbMultiplier = 1;
@@ -674,7 +680,7 @@ function innerCalculateBuildValueWithFormula(itemAndPassives, unitBuild, ennemyS
                         if (goalValuesCaract[formula.name].type == "physical" && !goalValuesCaract[formula.name].multicast && itemAndPassives[0] && itemAndPassives[1] && weaponList.includes(itemAndPassives[0].type) && weaponList.includes(itemAndPassives[1].type)) {
                             dualWieldCoef = 2;
                         }
-                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * lbMultiplier / ennemyResistanceStat;
+                        var base = (calculatedValue.total * calculatedValue.total) * (1 - resistModifier) * killerMultiplicator * dualWieldCoef * jumpMultiplier * evoMagMultiplier * evokeDamageBoostMultiplier * lbMultiplier / ennemyResistanceStat;
                         total.min += base * damageMultiplier.min;
                         total.avg += base * damageMultiplier.avg;
                         total.max += base * damageMultiplier.max;

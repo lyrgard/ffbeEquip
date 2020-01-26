@@ -27,6 +27,7 @@ var userSettings;
 var lazyLoader = (window.LazyLoad) ? new LazyLoad({
     elements_selector: 'img.lazyload'
 }) : null;
+let isMobile = window.matchMedia("only screen and (max-width: 991px)").matches;
 
 window.requestIdleCallback =
   window.requestIdleCallback ||
@@ -379,6 +380,15 @@ function getSpecialHtml(item) {
     }
     if (item.guts) {
         special += '<li>' + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)</li>';
+    }
+    if (item.evokeDamageBoost) {
+        Object.keys(item.evokeDamageBoost).forEach(e => {
+            if (e === 'all') {
+                special += '<li>+' + item.evokeDamageBoost[e] + '% damage for esper summons and evoke skills</li>';
+            } else {
+                special += '<li>+' + item.evokeDamageBoost[e] + '% ' + e + ' summon damage</li>';
+            }
+        });
     }
     if (item.counterSkills) {
         item.counterSkills.forEach(counter => {
@@ -1454,6 +1464,15 @@ function prepareSearch(data) {
         }
         if (item.guts) {
             textToSearch += "|" + item.guts.chance + '% chance to set HP to 1 upon fatal damage, if HP was above ' + item.guts.ifHpOver + '% (max '+ item.guts.time +' times)';
+        }
+        if (item.evokeDamageBoost) {
+            Object.keys(item.evokeDamageBoost).forEach(e => {
+                if (e === 'all') {
+                    textToSearch += "|" + '+' + item.evokeDamageBoost[e] + '% damage for esper summons and evoke skills';
+                } else {
+                    textToSearch += "|" + '+' + item.evokeDamageBoost[e] + '% ' + e + ' summon damage';
+                }
+            });
         }
         if (item.skills) {
             item.skills.forEach(skill => {

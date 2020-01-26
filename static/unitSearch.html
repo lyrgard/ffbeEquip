@@ -11,6 +11,7 @@
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/elements.css">
+        <link rel="stylesheet" type="text/css" href="css-img/stats.css">
         <link rel="stylesheet" type="text/css" href="css-img/ailments.css">
         <link rel="stylesheet" type="text/css" href="css-img/killers.css">
         <link rel="stylesheet" type="text/css" href="css-img/tankAbilities.css">
@@ -20,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="unitSearch.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
     </head>
     <body class="dark">
         <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
@@ -200,6 +202,10 @@
                         <div class="panel-heading">
                             <span>Elemental resistance</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a>
                             <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
                                 <div class="btn-group choice" id="elementsTargetAreaTypes" data-toggle="buttons">
                                 </div>
                                 <div class="btn-group choice" id="elementsSkillTypes" data-toggle="buttons">
@@ -208,6 +214,26 @@
                         </div>
                         <div class="panel-body">
                             <div class="btn-group elements choice" data-toggle="buttons" id="elements">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default buffs">
+                        <div class="panel-heading">
+                            <span>Stat buffs</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('buffs')">unselect all</a>
+                            <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
+                                <div class="btn-group choice" id="buffsTargetAreaTypes" data-toggle="buttons">
+                                </div>
+                                <div class="btn-group choice" id="buffsSkillTypes" data-toggle="buttons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="btn-group buffs choice" data-toggle="buttons" id="buffs">
                             </div>
                         </div>
                     </div>
@@ -232,6 +258,10 @@
                         <div class="panel-heading">
                             <span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('physicalKillers');unselectAll('magicalKillers');">unselect all</a>
                             <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
                                 <div class="btn-group choice" id="killersTargetAreaTypes" data-toggle="buttons">
                                 </div>
                                 <div class="btn-group choice" id="killersSkillTypes" data-toggle="buttons">
@@ -248,6 +278,10 @@
                         <div class="panel-heading">
                             <span>Imperils</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('imperils')">unselect all</a>
                             <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
                                 <div class="btn-group choice" id="imperilsTargetAreaTypes" data-toggle="buttons">
                                 </div>
                                 <div class="btn-group choice" id="imperilsSkillTypes" data-toggle="buttons">
@@ -264,6 +298,10 @@
                         <div class="panel-heading">
                             <span>Breaks</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('breaks')">unselect all</a>
                             <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
                                 <div class="btn-group choice" id="breaksTargetAreaTypes" data-toggle="buttons">
                                 </div>
                                 <div class="btn-group choice" id="breaksSkillTypes" data-toggle="buttons">
@@ -310,6 +348,10 @@
                         <div class="panel-heading">
                             <span>Mitigation</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('mitigation')">unselect all</a>
                             <div class="filters hidden">
+                                <div class="threshold">
+                                    <i class="fas fa-greater-than-equal"></i>
+                                    <input type="number" min="0" max="300" step="25" class="form-control">
+                                </div>
                                 <div class="btn-group choice" id="mitigationTargetAreaTypes" data-toggle="buttons">
                                 </div>
                                 <div class="btn-group choice" id="mitigationSkillTypes" data-toggle="buttons">
@@ -349,6 +391,9 @@
                     </div>
                     <div class="panel-body" style="padding:0;">
                         <div id="results" class="results">
+                            <div id="resultsContent">
+                                <div class="clusterize-no-data">No results…</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -369,8 +414,7 @@
             </div>
         </div>
         <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
-                integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
+        <script src="lib/jquery-3.1.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/8.9.1/jquery.mark.min.js"
@@ -379,6 +423,7 @@
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
+        <script src="lib/clusterize.min.js"></script>
         <script src="constants.js"></script>
         <script src="common.js"></script>
         <script src="effectDescriptionBuilder.js"></script>

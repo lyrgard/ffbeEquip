@@ -223,7 +223,10 @@ function manageSkill(skills, skillId, unitOut, enhancements, lbs, skillsOut, bas
             }
         }
     } else if (skillIn.type == "MAGIC") {
-        unitOut.magics.push(parseActiveSkill(skillId, skillIn, skills, unitOut));
+        skill = parseActiveSkill(skillId, skillIn, skills, unitOut);
+        skill.rarity = rarity;
+        skill.level = level;
+        unitOut.magics.push(skill);
         if (enhancements && enhancements[skillId]) {
             var enhancementLevel = 0;
             while (enhancements[skillId]) {
@@ -1082,6 +1085,9 @@ function parseActiveSkill(skillId, skillIn, skills, unit, enhancementLevel = 0) 
     if (skillIn.cost && skillIn.cost.MP) {
         skill.mpCost = skillIn.cost.MP;
     }
+    if (skillIn.cost && skillIn.cost.LB) {
+        skill.lbCost = skillIn.cost.LB;
+    }
     return skill;
 }
 
@@ -1579,7 +1585,7 @@ function parseActiveRawEffect(rawEffect, skillIn, skills, unit, skillId, enhance
                 "skills": []
             }
         }
-        if (rawEffect > 1) {
+        if (rawEffect[3][3] > 1) {
            result.gainSkills.turns = rawEffect[3][3] - 1;
         }
         var gainedSkillIds;
@@ -1903,16 +1909,16 @@ function addBreak(item, values) {
         item.break = {};
     }
     if (values[0]) {
-        item.break.atk = -values[0];
+        item.break.atk = Math.abs(values[0]);
     }
     if (values[1]) {
-        item.break.def = -values[1];
+        item.break.def = Math.abs(values[1]);
     }
     if (values[2]) {
-        item.break.mag = -values[2];
+        item.break.mag = Math.abs(values[2]);
     }
     if (values[3]) {
-        item.break.spr = -values[3];
+        item.break.spr = Math.abs(values[3]);
     }
     item.turns = values[4];
 }

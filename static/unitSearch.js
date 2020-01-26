@@ -6,7 +6,7 @@ var unitSearch = [];
 var releasedUnits;
 var dataById;
 
-var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities", "mitigation"];
+var unitSearchFilters = ["imperils","breaks","elements","ailments","imbues","physicalKillers","magicalKillers", "tankAbilities", "mitigation", "buffs"];
 
 var baseRarity;
 var maxRarity;
@@ -27,9 +27,10 @@ var defaultFilter = {
     "baseRarity": [],
     "maxRarity": [],
     "skillFilter": {chainFamily:"none", multicastCount:1, excludeUnlockedMulticast : false,"targetAreaTypes": ["ST", "AOE"], "skillTypes": ["actives", "lb"]},
-    "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
+    "imperils": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"], "threshold":null},
     "breaks": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "elements": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
+    "buffs": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb", "counter"]},
     "ailments": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb", "counter"]},
     "imbues": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "lb"]},
     "physicalKillers": {values: [], "targetAreaTypes": ["SELF", "ST", "AOE"], "skillTypes": ["actives", "passives", "lb"]},
@@ -46,7 +47,7 @@ var update = function() {
     updateHash();
     
 
-    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
+    if (searchText.length == 0 && types.length == 0 && elements.values.length == 0 && buffs.values.length == 0 && ailments.values.length == 0 && physicalKillers.values.length == 0 && magicalKillers.values.length == 0 && imperils.values.length == 0 && breaks.values.length == 0 && imbues.values.length == 0 && tankAbilities.values.length == 0 && mitigation.values.length == 0 && baseRarity.length == 0 && maxRarity.length == 0 && skillFilter.chainFamily == "none") {
 
 		// Empty filters => no results
         $("#results").html("");
@@ -83,19 +84,21 @@ var filterUnits = function(searchUnits, onlyShowOwnedUnits = true, searchText = 
                         if (skillFilter.chainFamily == 'none' || matchesSkill(unit)) {
                             if (types.length == 0 || includeAll(unit.equip, types)) {
                                 if (matchesCriteria(elements, unit, "elementalResist")) {
-                                    if (matchesCriteria(ailments, unit, "ailmentResist")) {
-                                        if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
-                                            if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
-                                                if (matchesCriteria(imperils, unit, "imperil")) {
-                                                    if (matchesCriteria(breaks, unit, "break")) {
-                                                        if (matchesCriteria(imbues, unit, "imbue")) {
-                                                            if (matchesCriteria(tankAbilities, unit, null, true)) {
-                                                                if (matchesCriteria(mitigation, unit, null, true)) {
-                                                                    if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
-                                                                        result.push({
-                                                                            "searchData": unit,
-                                                                            "unit": units[unit.id]
-                                                                        });
+                                    if (matchesCriteria(buffs, unit, "statsBuff")) {
+                                        if (matchesCriteria(ailments, unit, "ailmentResist")) {
+                                            if (matchesCriteria(physicalKillers, unit, "physicalKillers")) {
+                                                if (matchesCriteria(magicalKillers, unit, "magicalKillers")) {
+                                                    if (matchesCriteria(imperils, unit, "imperil")) {
+                                                        if (matchesCriteria(breaks, unit, "break")) {
+                                                            if (matchesCriteria(imbues, unit, "imbue")) {
+                                                                if (matchesCriteria(tankAbilities, unit, null, true)) {
+                                                                    if (matchesCriteria(mitigation, unit, null, true)) {
+                                                                        if (searchText.length == 0 || containsText(searchText, units[unit.id])) {
+                                                                            result.push({
+                                                                                "searchData": unit,
+                                                                                "unit": units[unit.id]
+                                                                            });
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -197,7 +200,13 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                 passive = passive[unitProperty];
             }
             if (containAllKeyPositive(passive, criteria.values, acceptZero)) {
-                return true;
+                if (criteria.threshold) {
+                    if (criteria.values.every(value => passive[value] >= criteria.threshold)) {
+                        return true;
+                    }
+                } else {
+                    return true;    
+                }
             }
         } else {
             for (var j = criteria.targetAreaTypes.length; j--;) {
@@ -213,7 +222,13 @@ function matchesCriteria(criteria, unit, unitProperty, acceptZero = false) {
                     }
                 } else {
                     if (containAllKeyPositive(dataToCheck, criteria.values, acceptZero)) {
-                        return true;
+                        if (criteria.threshold) {
+                            if (criteria.values.every(value => dataToCheck[value] >= criteria.threshold)) {
+                                return true;
+                            }
+                        } else {
+                            return true;    
+                        }
                     }
                 }
             }
@@ -282,6 +297,19 @@ function sortUnits(units) {
             for (var i = elements.values.length; i--;) {
                 value1 += getValue(unit1.searchData,"elementalResist", elements, i);
                 value2 += getValue(unit2.searchData,"elementalResist", elements, i);
+            }
+            if (value1 > value2) {
+                return -1;
+            } else if (value2 > value1) {
+                return 1
+            }
+        }
+        if (buffs.values.length > 0) {
+            var value1 = 0;
+            var value2 = 0;
+            for (var i = buffs.values.length; i--;) {
+                value1 += getValue(unit1.searchData,"statsBuff", buffs, i);
+                value2 += getValue(unit2.searchData,"statsBuff", buffs, i);
             }
             if (value1 > value2) {
                 return -1;
@@ -398,6 +426,12 @@ var readFilterValues = function() {
     elements.values = getSelectedValuesFor("elements");
     elements.targetAreaTypes = getSelectedValuesFor("elementsTargetAreaTypes");
     elements.skillTypes = getSelectedValuesFor("elementsSkillTypes");
+    elements.threshold = parseInt($('.elements .threshold input').val()) || 0;
+    
+    buffs.values = getSelectedValuesFor("buffs");
+    buffs.targetAreaTypes = getSelectedValuesFor("buffsTargetAreaTypes");
+    buffs.skillTypes = getSelectedValuesFor("buffsSkillTypes");
+    buffs.threshold = parseInt($('.buffs .threshold input').val()) || 0;
     
     ailments.values = getSelectedValuesFor("ailments");
     ailments.targetAreaTypes = getSelectedValuesFor("ailmentsTargetAreaTypes");
@@ -406,18 +440,22 @@ var readFilterValues = function() {
     physicalKillers.values = getSelectedValuesFor("physicalKillers");
     physicalKillers.skillTypes = getSelectedValuesFor("killersSkillTypes");
     physicalKillers.targetAreaTypes = getSelectedValuesFor("killersTargetAreaTypes");
+    physicalKillers.threshold = parseInt($('.killers .threshold input').val()) || 0;
     
     magicalKillers.values = getSelectedValuesFor("magicalKillers");
     magicalKillers.skillTypes = physicalKillers.skillTypes;
     magicalKillers.targetAreaTypes = physicalKillers.targetAreaTypes;
+    magicalKillers.threshold = parseInt($('.killers .threshold input').val()) || 0;
     
     imperils.values = getSelectedValuesFor("imperils");
     imperils.targetAreaTypes = getSelectedValuesFor("imperilsTargetAreaTypes");
     imperils.skillTypes = getSelectedValuesFor("imperilsSkillTypes");
+    imperils.threshold = parseInt($('.imperils .threshold input').val()) || 0;
     
     breaks.values = getSelectedValuesFor("breaks").map(function(v){return v.replace('break_','');});
     breaks.targetAreaTypes = getSelectedValuesFor("breaksTargetAreaTypes");
     breaks.skillTypes = getSelectedValuesFor("breaksSkillTypes");
+    breaks.threshold = parseInt($('.breaks .threshold input').val()) || 0;
     
     imbues.values = getSelectedValuesFor("imbues");
     imbues.targetAreaTypes = getSelectedValuesFor("imbuesTargetAreaTypes");
@@ -429,6 +467,7 @@ var readFilterValues = function() {
     mitigation.values = getSelectedValuesFor("mitigation");
     mitigation.targetAreaTypes = getSelectedValuesFor("mitigationTargetAreaTypes");
     mitigation.skillTypes = getSelectedValuesFor("mitigationSkillTypes");
+    mitigation.threshold = parseInt($('.mitigation .threshold input').val()) || 0;
 
     types = getSelectedValuesFor("types");
     
@@ -445,6 +484,7 @@ var updateFilterHeadersDisplay = function() {
     $(".types .unselectAll").toggleClass("hidden", types.length == 0); 
     $(".ailments .unselectAll").toggleClass("hidden", ailments.length == 0); 
     $(".elements .unselectAll").toggleClass("hidden", elements.length == 0); 
+    $(".buffs .unselectAll").toggleClass("hidden", buffs.length == 0); 
     $(".killers .unselectAll").toggleClass("hidden", physicalKillers.length + magicalKillers.length == 0); 
     $(".imperils .unselectAll").toggleClass("hidden", imperils.length == 0); 
     $(".breaks .unselectAll").toggleClass("hidden", breaks.length == 0); 
@@ -452,6 +492,7 @@ var updateFilterHeadersDisplay = function() {
     $(".mitigation .unselectAll").toggleClass("hidden", mitigation.length == 0);
     
     $(".elements .filters").toggleClass("hidden", elements.values.length == 0);
+    $(".buffs .filters").toggleClass("hidden", buffs.values.length == 0);
     $(".ailments .filters").toggleClass("hidden", ailments.values.length == 0);
     $(".killers .filters").toggleClass("hidden", physicalKillers.values.length + magicalKillers.values.length == 0);
     $(".imperils .filters").toggleClass("hidden", imperils.values.length == 0);
@@ -460,6 +501,7 @@ var updateFilterHeadersDisplay = function() {
     $(".tankAbilities .filters").toggleClass("hidden", tankAbilities.values.length == 0);
     $(".mitigation .filters").toggleClass("hidden", mitigation.values.length == 0);
     $("#elementsTargetAreaTypes").toggleClass("hidden", !elements.skillTypes.includes("actives") && !elements.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
+    $("#buffsTargetAreaTypes").toggleClass("hidden", !buffs.skillTypes.includes("actives") && !buffs.skillTypes.includes("lb") && !buffs.skillTypes.includes("counter"));
     $("#ailmentsTargetAreaTypes").toggleClass("hidden", !ailments.skillTypes.includes("actives") && !ailments.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#killersTargetAreaTypes").toggleClass("hidden", !physicalKillers.skillTypes.includes("actives") && !physicalKillers.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
     $("#imperilsTargetAreaTypes").toggleClass("hidden", !imperils.skillTypes.includes("actives") && !imperils.skillTypes.includes("lb") && !elements.skillTypes.includes("counter"));
@@ -473,6 +515,12 @@ var updateFilterHeadersDisplay = function() {
 var displayUnits = function(units) {
     var resultDiv = $("#results");
     resultDiv.empty();
+//    let htmls = units.map(unitData => getUnitHtml(unitData));
+//    var clusterize = new Clusterize({
+//      rows: htmls,
+//      scrollId: 'scrollArea',
+//      contentId: 'contentArea'
+//    });
     displayUnitsAsync(units, 0, resultDiv);
     $("#resultNumber").html(units.length);
     /*$(elementList).each(function(index, resist) {
@@ -512,94 +560,7 @@ function displayUnitsAsync(units, start, div) {
     var end = Math.min(start + 20, units.length);
     for (var index = start; index < end; index++) {
         var unitData = units[index];
-        html += '<div class="unit">'
-        html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
-        html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
-        html += '<div class="killers">';
-        var killers = [];
-        for (var i = killerList.length; i--;) {
-            if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
-                addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
-            }
-            if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
-                addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
-            }
-        }
-        var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
-        html += killersHtml.physical;
-        html += killersHtml.magical;
-        html += '</div>';
-        
-        html += '<div class="elementalResistances">';
-        if (unitData.searchData.passives.elementalResist) {
-            for (var i = 0, len = elementList.length; i < len; i++) {
-                if (unitData.searchData.passives.elementalResist[elementList[i]]) {
-                    html+= '<span class="elementalResistance ' + elementList[i];
-                    if (elements.values.includes(elementList[i])) {
-                        html+= " selected";
-                    }
-                    html+= '">';
-                    html+= '<i class="img img-element-' + elementList[i] + '"></i>';
-                    html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
-                }
-            }
-        }
-        html += '</div>';
-        
-        html += '<div class="ailmentResistances">';
-        if (unitData.searchData.passives.ailmentResist) {
-            for (var i = 0, len = ailmentList.length; i < len; i++) {
-                if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
-                    html+= '<span class="ailmentResistance ' + ailmentList[i];
-                    if (ailments.values.includes(ailmentList[i])) {
-                        html+= " selected";
-                    }
-                    html+= '">';
-                    html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
-                    html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
-                }
-            }
-        }
-        html += '</div>';
-        html += '<span class="showAllSkills glyphicon '
-        if (fullyDisplayedUnits.includes(unitData.unit.id)) {
-            html += "glyphicon-chevron-up";
-        } else {
-            html += "glyphicon-chevron-down";
-        }
-        html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
-        
-        skillIdToDisplay = getSkillsToDisplay(unitData.unit);
-        
-        html += '<div class="lb">';
-        if (skillIdToDisplay.includes('lb')) {
-            html += getLbHtml(unitData.unit.lb, unitData.unit);
-        }
-        html += '</div>';
-        
-        let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
-        if (passivesToDisplay.length > 0) {
-            html += '<div class="passives skillGroup">';
-            passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
-            html += '</div>';
-        }
-        
-        let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
-        if (activesToDisplay.length > 0) {
-            html += '<div class="actives skillGroup">';
-            activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
-            html += '</div>';
-        }
-        
-        let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
-        if (magicsToDisplay.length > 0) {
-            html += '<div class="magics skillGroup">';
-            magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
-            html += '</div>';
-        }
-        
-        html += '</div>';
-        html += '</div>';
+        html += getUnitHtml(unitData);
     }
     div.append(html);
     if (index < units.length) {
@@ -607,6 +568,98 @@ function displayUnitsAsync(units, start, div) {
     } else {
         setTimeout(afterDisplay, 0);
     }
+}
+
+function getUnitHtml(unitData) {
+    let html = '<div class="unit">';
+    html += '<div class="unitImage"><img src="img/units/unit_icon_' + unitData.unit.id.substr(0, unitData.unit.id.length - 1) + unitData.unit.max_rarity + '.png"/></div>';
+    html += '<div class="unitDescriptionLines"><span class="unitName">' + toLink(unitData.unit.name, unitData.unit.name, true) + '</span>';
+    html += '<div class="killers">';
+    var killers = [];
+    for (var i = killerList.length; i--;) {
+        if (unitData.searchData.passives.physicalKillers && unitData.searchData.passives.physicalKillers[killerList[i]]) {
+            addToKiller(killers, {"name":killerList[i], "physical":unitData.searchData.passives.physicalKillers[killerList[i]]});
+        }
+        if (unitData.searchData.passives.magicalKillers && unitData.searchData.passives.magicalKillers[killerList[i]]) {
+            addToKiller(killers, {"name":killerList[i], "magical":unitData.searchData.passives.magicalKillers[killerList[i]]});
+        }
+    }
+    var killersHtml = getKillerHtml(killers, physicalKillers.values, magicalKillers.values);
+    html += killersHtml.physical;
+    html += killersHtml.magical;
+    html += '</div>';
+
+    html += '<div class="elementalResistances">';
+    if (unitData.searchData.passives.elementalResist) {
+        for (var i = 0, len = elementList.length; i < len; i++) {
+            if (unitData.searchData.passives.elementalResist[elementList[i]]) {
+                html+= '<span class="elementalResistance ' + elementList[i];
+                if (elements.values.includes(elementList[i])) {
+                    html+= " selected";
+                }
+                html+= '">';
+                html+= '<i class="img img-element-' + elementList[i] + '"></i>';
+                html+= unitData.searchData.passives.elementalResist[elementList[i]] + '%</span>';
+            }
+        }
+    }
+    html += '</div>';
+
+    html += '<div class="ailmentResistances">';
+    if (unitData.searchData.passives.ailmentResist) {
+        for (var i = 0, len = ailmentList.length; i < len; i++) {
+            if (unitData.searchData.passives.ailmentResist[ailmentList[i]]) {
+                html+= '<span class="ailmentResistance ' + ailmentList[i];
+                if (ailments.values.includes(ailmentList[i])) {
+                    html+= " selected";
+                }
+                html+= '">';
+                html+= '<i class="img img-ailment-' + ailmentList[i] + '"></i>';
+                html+= unitData.searchData.passives.ailmentResist[ailmentList[i]] + '%</span>';
+            }
+        }
+    }
+    html += '</div>';
+    html += '<span class="showAllSkills glyphicon '
+    if (fullyDisplayedUnits.includes(unitData.unit.id)) {
+        html += "glyphicon-chevron-up";
+    } else {
+        html += "glyphicon-chevron-down";
+    }
+    html += '" onclick="toogleAllSkillDisplay(\'' + unitData.unit.id + '\')"></span>';
+
+    skillIdToDisplay = getSkillsToDisplay(unitData.unit);
+
+    html += '<div class="lb">';
+    if (skillIdToDisplay.includes('lb')) {
+        html += getLbHtml(unitData.unit.lb, unitData.unit);
+    }
+    html += '</div>';
+
+    let activesToDisplay = unitData.unit.actives.filter(active => skillIdToDisplay.includes(active.id));
+    if (activesToDisplay.length > 0) {
+        html += '<div class="actives skillGroup">';
+        activesToDisplay.forEach(active => html += getSkillHtml(active, unitData.unit));
+        html += '</div>';
+    }
+    
+    let passivesToDisplay = unitData.unit.passives.filter(passive => skillIdToDisplay.includes(passive.id));
+    if (passivesToDisplay.length > 0) {
+        html += '<div class="passives skillGroup">';
+        passivesToDisplay.forEach(passive => html += getSkillHtml(passive, unitData.unit));
+        html += '</div>';
+    }
+
+    let magicsToDisplay = unitData.unit.magics.filter(magic => skillIdToDisplay.includes(magic.id));
+    if (magicsToDisplay.length > 0) {
+        html += '<div class="magics skillGroup">';
+        magicsToDisplay.forEach(magic => html += getSkillHtml(magic, unitData.unit));
+        html += '</div>';
+    }
+
+    html += '</div>';
+    html += '</div>';
+    return html;
 }
 
 function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills = []) {
@@ -631,15 +684,26 @@ function getSkillHtml(skill, unit, topLevelSkill = true, alreadyDisplayedSkills 
         html += getInnateElementsHtml(skill.effects).join('');
         html += getChainFamilyHtml(skill);
 
-        html += '</span></div>'
-        if (rarity && level) {
-            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>'
+        html += '</span></div><div class="spacer"></div>'
+        
+        if (skill.lbCost) {
+            html += '<div class="lbCost">' + skill.lbCost + '<img class="lbCostImg" src="img/icons/lbShard.png" title="LB cost"/></div>';
         }
+        if (skill.mpCost) {
+            html += '<div class="mpCost">' + skill.mpCost + '<span class="mpCostLabel">MP</span></div>';
+        }
+        if (rarity && level) {
+            html += '<div class="rarityAndLevel"><span class="rarity">' + rarity + '★</span><span class="level">lvl ' + level + '</span></div>';
+        }
+        
         html += '</div>';
         html += cooldownHtml;
         html += getWarningStrangeStatsUsed(skill.effects);
         if (topLevelSkill && skill.unlockedBy) {
             html += getUnlockedByHtml(skill.id, skill.unlockedBy, unit);
+        }
+        if (topLevelSkill && skill.ifUsedLastTurn) {
+            html += getIfUsedLastTurnHtml(skill.id, skill.ifUsedLastTurn, unit);
         }
 
         for (var j = 0, lenj = skill.effects.length; j < lenj; j++) {
@@ -669,7 +733,7 @@ function getEffectHtml(effect, unit, alreadyDisplayedSkills, skillId) {
     } else if (effect.effect && effect.effect.counterSkill) {
         html += '<span class="effect">' + effect.effect.percent + '% chance to counter ' + effect.effect.counterType + ' attacks with :</span>';
         html += '<div class="subSkill">';
-        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills.concat(skill.id));
+        html += getSkillHtml(effect.effect.counterSkill, unit, false, alreadyDisplayedSkills);
         html += '</div>';
     } else if (effect.effect && effect.effect.autoCastedSkill) {
         html += '<span class="effect">Cast at the start of battle or when revived :</span>';
@@ -706,11 +770,11 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
         if (id === 'lb') {
             html += addGetUnlockedBySkillHtml(skillId, unit, unit.lb.maxEffects, 'LB');
         } else {
-            unit.actives.filter(skill => skill.id === id || skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
+            unit.actives.filter(skill => skill.id === id).forEach(skill => {
                 html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects, skill.name);
             });
             unit.actives.filter(skill => skill.effects[0].effect && skill.effects[0].effect.cooldownSkill && skill.effects[0].effect.cooldownSkill.id ===id ).forEach(skill => {
-                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill.effects, skill.effects[0].effect.name);
+                html += addGetUnlockedBySkillHtml(skillId, unit, skill.effects[0].effect.cooldownSkill.effects, skill.effects[0].effect.cooldownSkill.name);
             });
             unit.passives.filter(skill => skill.id === id).forEach(skill => {
                 skill.effects.forEach(effect => {
@@ -723,6 +787,21 @@ function getUnlockedByHtml(skillId, unlockerSkillIds, unit) {
             });
         }
     });
+    return html;
+}
+
+function getIfUsedLastTurnHtml(skillId, ifUsedLastTurnSkills, unit) {
+    let html = "";
+    html += '<div class="unlockedBy"><i class="fas fa-unlock-alt"></i>If used after ';
+    html += ifUsedLastTurnSkills.map(skill => skill.id).map(id => {
+        let skills = unit.actives.filter(skill => skill.id == id);
+        if (skills.length > 0) {
+            return skills[0].name;
+        } else {
+            return 'unknown skill';
+        }
+    }).join(', ');
+    html += '</div>';
     return html;
 }
 
@@ -954,29 +1033,32 @@ function mustDisplaySkill(skill, effects, type, skillName) {
             if (types.length > 0 && effect.effect.equipedConditions && matches(effect.effect.equipedConditions, types)) {
                 return true;
             }
-            if (elements.values.length > 0 && elements.skillTypes.includes(type) && isTargetToBeDispalyed(elements, effect, type) && effect.effect.resist && matches(elements.values, effect.effect.resist.map(function(resist){return resist.name;}))) {
+            if (elements.values.length > 0 && elements.skillTypes.includes(type) && isTargetToBeDispalyed(elements, effect, type) && effect.effect.resist && matches(elements.values, effect.effect.resist.map(function(resist){return resist.name;})) && (!elements.threshold || effect.effect.resist.every(elementData => !elements.values.includes(elementData.name) || elementData.percent >= elements.threshold))) {
+                return true;
+            }
+            if (buffs.values.length > 0 && buffs.skillTypes.includes(type) && isTargetToBeDispalyed(buffs, effect, type) && effect.effect.statsBuff && matches(buffs.values, Object.keys(effect.effect.statsBuff)) && (!buffs.threshold || buffs.values.every(stat => effect.effect.statsBuff[stat] >= buffs.threshold))) {
                 return true;
             }
             if (ailments.values.length > 0 && ailments.skillTypes.includes(type) && isTargetToBeDispalyed(ailments, effect, type) && effect.effect.resist && matches(ailments.values, effect.effect.resist.map(function(resist){return resist.name;}))) {
                 return true;
             }
-            if (physicalKillers.values.length > 0 && physicalKillers.skillTypes.includes(type) && isTargetToBeDispalyed(physicalKillers, effect, type) && effect.effect.killers && matches(physicalKillers.values, effect.effect.killers.map(function(killer){return killer.name;}))) {
+            if (physicalKillers.values.length > 0 && physicalKillers.skillTypes.includes(type) && isTargetToBeDispalyed(physicalKillers, effect, type) && effect.effect.killers && matches(physicalKillers.values, effect.effect.killers.map(function(killer){return killer.name;})) && (!physicalKillers.threshold || effect.effect.killers.every(killerData => !physicalKillers.values.includes(killerData.name) || (killerData.physical && killerData.physical >= physicalKillers.threshold)))) {
                 return true;
             }
-            if (magicalKillers.values.length > 0 && magicalKillers.skillTypes.includes(type) && isTargetToBeDispalyed(magicalKillers, effect, type) && effect.effect.killers && matches(magicalKillers.values, effect.effect.killers.map(function(killer){return killer.name;}))) {
+            if (magicalKillers.values.length > 0 && magicalKillers.skillTypes.includes(type) && isTargetToBeDispalyed(magicalKillers, effect, type) && effect.effect.killers && matches(magicalKillers.values, effect.effect.killers.map(function(killer){return killer.name;})) && (!magicalKillers.threshold || effect.effect.killers.every(killerData => !magicalKillers.values.includes(killerData.name) || (killerData.magical && killerData.magical >= magicalKillers.threshold)))) {
                 return true;
             }
-            if (imperils.values.length > 0 && imperils.skillTypes.includes(type) && isTargetToBeDispalyed(imperils, effect, type) && effect.effect.imperil && matches(imperils.values, Object.keys(effect.effect.imperil))) {
+            if (imperils.values.length > 0 && imperils.skillTypes.includes(type) && isTargetToBeDispalyed(imperils, effect, type) && effect.effect.imperil && matches(imperils.values, Object.keys(effect.effect.imperil)) && (!imperils.threshold || imperils.values.every(element => effect.effect.imperil[element] >= imperils.threshold))) {
                 return true;
             }
-            if (breaks.values.length > 0 && breaks.skillTypes.includes(type) && isTargetToBeDispalyed(breaks, effect, type) && effect.effect.break && matches(breaks.values, Object.keys(effect.effect.break))) {
+            if (breaks.values.length > 0 && breaks.skillTypes.includes(type) && isTargetToBeDispalyed(breaks, effect, type) && effect.effect.break && matches(breaks.values, Object.keys(effect.effect.break)) && (!breaks.threshold || breaks.values.every(stat => effect.effect.break[stat] >= breaks.threshold))) {
                 return true;
             }
             if (imbues.values.length > 0 && imbues.skillTypes.includes(type) && isTargetToBeDispalyed(imbues, effect, type) && effect.effect.imbue && matches(imbues.values, effect.effect.imbue)) {
                 return true;
             }
-            if (mitigation.values.length > 0 && mitigation.skillTypes.includes(type) && isTargetToBeDispalyed(mitigation, effect, type)) {
-                if (matches(mitigation.values, Object.keys(effect.effect))) {
+            if (mitigation.values.length > 0 && mitigation.skillTypes.includes(type) && isTargetToBeDispalyed(mitigation, effect, type) && matches(mitigation.values, Object.keys(effect.effect))) {
+                if ((!mitigation.threshold || mitigation.values.every(mitigationType => effect.effect[mitigationType] >= mitigation.threshold))) {
                     return true;
                 }
             }
@@ -1159,6 +1241,11 @@ function initFilters() {
         }
         select(unitSearchFilters[i] + "SkillTypes", window[unitSearchFilters[i]].skillTypes);
         select(unitSearchFilters[i] + "TargetAreaTypes", window[unitSearchFilters[i]].targetAreaTypes);
+        if (state[unitSearchFilters[i]] && state[unitSearchFilters[i]].threshold) {
+            $('.' + unitSearchFilters[i] + " .threshold input").val(state[unitSearchFilters[i]].threshold);
+        } else {
+            $('.' + unitSearchFilters[i] + " .threshold input").val('');
+        }
     }
     
     select("killersSkillTypes", physicalKillers.skillTypes);
@@ -1278,6 +1365,11 @@ function startPage() {
     addTextChoicesTo("elementsSkillTypes",'checkbox',{'Passive':'passives', 'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
     addTextChoicesTo("elementsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
     
+    // Buffs
+	addIconChoicesTo("buffs", ['atk', 'def', 'mag', 'spr'], "checkbox", "stat", function(v){return ucFirst(v)+" buff"});
+    addTextChoicesTo("buffsSkillTypes",'checkbox',{'Active':'actives', 'LB':'lb', 'Counter': 'counter'});
+    addTextChoicesTo("buffsTargetAreaTypes",'checkbox',{'Self':'SELF', 'ST':'ST', 'AOE':'AOE'});
+    
 	// Ailments
     addIconChoicesTo("ailments", 
                      ailmentList.concat("break_atk", "break_def", "break_mag", "break_spr"), "checkbox", "ailment",
@@ -1326,6 +1418,7 @@ function startPage() {
 	$('.choice input').change($.debounce(300,update));
     $('.chainFamily select').change(update);
     $('.chainFamily input').change(update);
+    $('.threshold input').on('input', $.debounce(300,update));
     
 	
 	// Triggers on search text box change

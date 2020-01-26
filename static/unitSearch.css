@@ -79,6 +79,9 @@
     float: right;
     display: flex;
     align-items: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    height: 41px;
 }
 
 .nameAndEffects {
@@ -92,6 +95,26 @@
 .nameAndEffects .name {
     font-weight: bold;
     font-size: 1.1em;
+}
+
+.mpCostLabel {
+    font-style: italic;
+    opacity: 0.6;
+    margin-left: 2px;
+    font-size: 11px;
+}
+
+.lbCostImg {
+    margin-left: 2px;
+    margin-top: -2px;
+}
+
+.rarityAndLevel, .mpCost {
+    margin-left: 15px;
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 #results .selected {
@@ -134,7 +157,6 @@
 
 .nameLine {
     display: flex;
-    justify-content: space-between;
 }
 
 .unit .rarity {
@@ -308,4 +330,19 @@
 
 .rarityAndLevel .level {
     white-space: nowrap;
+}
+
+.threshold {
+    position: relative;
+}
+
+.threshold input {
+    width: 100px;
+    text-align: right;
+}
+
+.threshold i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
