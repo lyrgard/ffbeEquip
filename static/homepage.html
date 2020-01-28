@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
     </head>
-    <body class="dark notScrollable">
+    <body class="dark">
         <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
         <div id="header" class="headerMogChocobo">
             <div class="headerContent">
@@ -128,7 +128,7 @@
             <div class="bannerPicturePerson"></div>
         </div>
 
-        <div class="scrollable contentColumn">
+        <div>
             <div class="mainmenu">
                 <div class="mainmenu-content">
                     <div class="mainmenu-content-line">
@@ -209,18 +209,24 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footerButtons">
-            <i class="linkCategory fas fa-link"></i>
-            <a class="iconLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Send me a message on reddit"><i class="fab fa-reddit"></i></a>
-            <a class="iconLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Chat on FFBE Equip discord server"><i class="fab fa-discord"></i></a>
-            <a class="iconLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="See the code on GitHub"><i class="fab fa-github"></i></a>
-            <i class="linkCategory fas fa-dollar-sign"></i>
-            <a class="iconLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Buy me a coffee"><i class="fas fa-mug-hot"></i></a>
-            <a class="iconLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Become my patron on Patreon"><i class="fab fa-patreon"></i></a>
+            <div>
+                <div class="footerButtons">
+                    <div>
+                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
+                        <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
+                        <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
+                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
+                    </div>
+                    <div>
+                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
         <script src="lib/jquery-3.1.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

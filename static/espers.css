@@ -91,7 +91,6 @@ table.allEspers > tbody > tr > td.stats .bonus {
     width: 100%;
     max-width: 1300px;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
 #espers .tabsWrapper:before,
@@ -627,14 +626,6 @@ td.killers {
 }
 
 @media (max-width: 960px) {
-    
-    .contentColumn {
-        overflow: hidden;
-    }
-    
-    #esper {
-        overflow: hidden;
-    }
 
     #allEspers .panel {
         margin: 0.85em 0;

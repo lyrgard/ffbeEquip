@@ -2,7 +2,6 @@
 #itemsWrapper {
     display: flex;
     align-items: stretch;
-    flex-direction: row;
 }
 
 .itemsSidebar .itemsSidebarButton {
@@ -32,7 +31,6 @@
     overflow: hidden;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: initial;
     width: 250px;
 }
 
@@ -551,7 +549,6 @@ a#exportLinks:hover {
     
     #itemsWrapper {
         display: block;
-        flex-direction: column;
     }
 
     .itemsSidebar {
