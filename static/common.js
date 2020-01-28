@@ -208,15 +208,39 @@ function getAilmentsHtml(item) {
 }
 
 function getResistHtml(item) {
-    var html = "<div class='specialValueGroup'>";
-    $(item.resist).each(function(index, resist) {
-        var resistType = elementList.includes(resist.name) ? 'element' : 'ailment';
-        html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
-                "<i class='img img-equipment-heavyShield miniIcon'></i>"+
-                "<i class='img img-"+resistType+"-" + resist.name + " imageWithText withMiniIcon'></i>"+
-                "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
+    var html = '<div class="resistGroups">';
+    let groupedByElementResist = item.resist.filter(resist => elementList.includes(resist.name)).reduce((acc, resist) => {
+        (acc[resist.percent] = acc[resist.percent] || []).push(resist.name);
+        return acc;
+    }, {});
+    Object.keys(groupedByElementResist).sort().reverse().forEach(percent => {
+        html += '<div class="resistGroup">';
+        groupedByElementResist[percent].forEach(name => {
+            html += '<i class="img img-equipment-heavyShield miniIcon"></i>';
+            html += '<i class="img img-element-' + name + ' imageWithText withMiniIcon"></i>';
+        })
+        html += percent + '%</div>';
     });
-    html += "</div>";
+    let groupedByAilmentResist = item.resist.filter(resist => ailmentList.includes(resist.name)).reduce((acc, resist) => {
+        (acc[resist.percent] = acc[resist.percent] || []).push(resist.name);
+        return acc;
+    }, {});
+    Object.keys(groupedByAilmentResist).sort().reverse().forEach(percent => {
+        html += '<div class="resistGroup">';
+        groupedByAilmentResist[percent].forEach(name => {
+            html += '<i class="img img-equipment-heavyShield miniIcon"></i>';
+            html += '<i class="img img-ailment-' + name + ' imageWithText withMiniIcon"></i>';
+        })
+        html += percent + '%</div>';
+    });
+    // $(item.resist).each(function(index, resist) {
+    //     var resistType = elementList.includes(resist.name) ? 'element' : 'ailment';
+    //     html += "<div class='specialValueItem'><div class='specialImg noWrap resist-" + resist.name + "'>"+
+    //             "<i class='img img-equipment-heavyShield miniIcon'></i>"+
+    //             "<i class='img img-"+resistType+"-" + resist.name + " imageWithText withMiniIcon'></i>"+
+    //             "</div><div class='specialValue'>" + resist.percent + "%</div></div>";
+    // });
+    html += '</div>';
     return html;
 }
 function getKillersHtml(item) {

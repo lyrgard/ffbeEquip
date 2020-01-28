@@ -379,8 +379,26 @@ ul {
     align-items: center;
 }
 
+.items .special {
+    font-size: 14px;
+}
+
 .item .enhancements img {
     height: 24px;
+    margin-right: 5px;
+}
+
+.items .access .exclusive .img {
+    width: 30px;
+    height: 30px;
+}
+
+.items .resistGroups {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items .resistGroups .resistGroup{
     margin-right: 5px;
 }
 
