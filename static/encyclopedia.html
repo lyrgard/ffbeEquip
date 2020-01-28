@@ -24,6 +24,7 @@
         <link rel="stylesheet" type="text/css" href="encyclopedia.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
     </head>
     <body class="dark">
         <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
@@ -135,8 +136,8 @@
             <div class="bannerPicturePerson"></div>
         </div>
 
-        <div class="container-fluid">
-            <div class="col-xs-12 col-md-6">
+        <div class="content">
+            <div class="contentColumn filters scrollable">
 
                 <div class="panel panel-default search">
                     <div class="panel-heading">
@@ -276,9 +277,9 @@
 
 
             </div>
-            <div  class="col-xs-12 col-md-6">
-                <div id="resultsDiv" class="panel panel-default collapse in">
-                    <div class="panel-heading">
+            <div  class="contentColumn notScrollable">
+                <div id="resultsDiv" class="panel panel-default collapse in notScrollable">
+                    <div class="panel-heading notScrollable">
                         <div>Results : <span id="resultNumber"></span></div>
                         <div class="checkbox-inline userInputedResultsChoice">
                             <label id="onlyShowOwnedItemsDiv" class="checkbox-label hidden">
@@ -291,41 +292,27 @@
                             </label>
                         </div>
                     </div>
-                    <div class="panel-body" style="padding:0;">
-                        <div id="results" class="table notSorted items results">
-							<div class="thead">
-                                <div class="tr">
-                                    <div class="td type">&nbsp;</div>
-                                    <div class="td name">Name</div>
-                                    <div id="statTitle" class="td value sort">Value</div>
-                                    <div class="td special">Special</div>
-									<div class="td access">Access</div>
-                                    <div class="td"></div>
-                                </div>
-                            </div>
-                            <div class="tbody">
-
+                    <div class="panel-body notScrollable items" style="padding:0;">
+                        <div id="results" class="scrollable">
+                            <div id="resultsContent" class="tbody clusterize-content">
+                                <div class="clusterize-no-data">No results…</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="footerButtons">
-                    <div>
-                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                        <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                        <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
-                    </div>
-                </div>
             </div>
         </div>
+        <div class="footerButtons">
+            <i class="linkCategory fas fa-link"></i>
+            <a class="iconLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Send me a message on reddit"><i class="fab fa-reddit"></i></a>
+            <a class="iconLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Chat on FFBE Equip discord server"><i class="fab fa-discord"></i></a>
+            <a class="iconLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="See the code on GitHub"><i class="fab fa-github"></i></a>
+            <i class="linkCategory fas fa-dollar-sign"></i>
+            <a class="iconLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Buy me a coffee"><i class="fas fa-mug-hot"></i></a>
+            <a class="iconLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Become my patron on Patreon"><i class="fab fa-patreon"></i></a>
+        </div>
 
+        <script src="https://kit.fontawesome.com/a68d75f74a.js" crossorigin="anonymous"></script>
         <script src="lib/jquery-3.1.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -335,6 +322,7 @@
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
+        <script src="lib/clusterize.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="constants.js"></script>

@@ -39,6 +39,8 @@ var additionalStat;
 
 var displayId = 0;
 
+var itemList = itemList;
+
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -188,76 +190,73 @@ var modifyFilterSummary = function() {
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
     displayId++;
-    var resultDiv = $("#results .tbody");
-    resultDiv.empty();
-    displayItemsAsync(items, 0, resultDiv, displayId);
+    //var resultDiv = $("#results .tbody");
+    //resultDiv.empty();
+    
+    let htmls = items.map(item => getItemHtml(item));
+    itemList.update(htmls);
+    //$("#fixItemModal #fixItemResults")[0].scrollTop = 0;
+    //displaySearchResultsAsync(items, 0, div);
+    
+    setTimeout(() => $("#results")[0].scrollTop = 0, 100);
+    
+    //displayItemsAsync(items, 0, resultDiv, displayId);
+    
     $("#resultNumber").html(items.length);
-    $(baseStats).each(function(index, currentStat) {
-        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
-            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
-        }
-    });
-    $(elementList).each(function(index, resist) {
-        if (elements.length != 0 && !elements.includes(resist)) {
-            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
-        }
-    });
-    $(ailmentList).each(function(index, resist) {
-        if (ailments.length != 0 && !ailments.includes(resist)) {
-            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
-        }
-    });
-    $(killerList).each(function(index, killer) {
-        if (physicalKillers.length == 0 || !physicalKillers.includes(killer)) {
-            $("#results .tbody .special .killer-physical.killer-" + killer).addClass("notSelected");
-        }
-        if (magicalKillers.length == 0 || !magicalKillers.includes(killer)) {
-            $("#results .tbody .special .killer-magical.killer-" + killer).addClass("notSelected");
-        }
-    });
-    if (itemInventory) {
-        $("#results .thead .inventory").removeClass("hidden");
-    } else {
-        $("#results .thead .inventory").addClass("hidden");
-    }
+//    $(baseStats).each(function(index, currentStat) {
+//        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
+//            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
+//        }
+//    });
+//    $(elementList).each(function(index, resist) {
+//        if (elements.length != 0 && !elements.includes(resist)) {
+//            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+//        }
+//    });
+//    $(ailmentList).each(function(index, resist) {
+//        if (ailments.length != 0 && !ailments.includes(resist)) {
+//            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
+//        }
+//    });
+//    $(killerList).each(function(index, killer) {
+//        if (physicalKillers.length == 0 || !physicalKillers.includes(killer)) {
+//            $("#results .tbody .special .killer-physical.killer-" + killer).addClass("notSelected");
+//        }
+//        if (magicalKillers.length == 0 || !magicalKillers.includes(killer)) {
+//            $("#results .tbody .special .killer-magical.killer-" + killer).addClass("notSelected");
+//        }
+//    });
+//    if (itemInventory) {
+//        $("#results .thead .inventory").removeClass("hidden");
+//    } else {
+//        $("#results .thead .inventory").addClass("hidden");
+//    }
 };
 
-function displayItemsAsync(items, start, div, id) {
+function getItemHtml(item) {
     var html = '';
-    var end = Math.min(start + 20, items.length);
-    for (var index = start; index < end; index++) {
-        var item = items[index];
-        html += '<div class="tr';
-        if (item.temp) {
-            html += ' userInputed';
+    html += '<div class="tr';
+    if (item.temp) {
+        html += ' userInputed';
+    }
+    html += '">';
+    html += displayItemLine(item);
+    if (itemInventory) {
+        html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
+        if (!itemInventory[item.id]) {
+            html+= "notPossessed";
         }
         html += '">';
-        html += displayItemLine(item);
-        if (itemInventory) {
-            html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
-            if (!itemInventory[item.id]) {
-                html+= "notPossessed";
-            }
-            html += '">';
-            html += '<span class="number badge badge-success">';
-            if (itemInventory[item.id]) {
-                html += itemInventory[item.id];
-            }
-            html += '</span>';
-            
-            html += '</div>';
+        html += '<span class="number badge badge-success">';
+        if (itemInventory[item.id]) {
+            html += itemInventory[item.id];
         }
-        html += "</div>";
+        html += '</span>';
+
+        html += '</div>';
     }
-    
-    if (id == displayId) {
-        div.append(html);
-        if (index < items.length) {
-            setTimeout(displayItemsAsync, 0, items, index, div, id);
-        } else {
-            afterDisplay();
-        }
-    }
+    html += "</div>";
+    return html;
 }
 
 function afterDisplay() {
@@ -454,6 +453,13 @@ function startPage() {
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
     
+    itemList = new Clusterize({
+      rows: [],
+      scrollId: 'results',
+      contentId: 'resultsContent',
+      rows_in_block: '10'
+    });
+    
 	// Ajax calls to get the item and units data, then populate unit select, read the url hash and run the first update
     getStaticData("data", true, function(result) {
         data = result;
@@ -490,6 +496,7 @@ function startPage() {
 	tryToLoadHash();
     
     $("#results").addClass(server);
+    
     
 	// Triggers on filter selection
 	$('.choice input').change($.debounce(300,update));

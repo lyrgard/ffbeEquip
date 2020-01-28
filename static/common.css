@@ -458,7 +458,8 @@ ul {
     white-space:nowrap;
 }
 .footerButtons {
-    margin: 15px 0;
+    padding-top: 5px;
+    border-top: 1px solid grey;
 }
 
 .noWrap {
@@ -988,7 +989,93 @@ input.has-error {
     height: 40px;
 }
 
+
+.scrollable::-webkit-scrollbar, .thin-scrollbar::-webkit-scrollbar {
+  width: 11px;
+}
+.scrollable::-webkit-scrollbar-track, .thin-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.scrollable::-webkit-scrollbar-thumb, .thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+.scrollable, .thin-scrollbar {
+    scrollbar-width: thin;
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.notScrollable {
+    display: flex !important;
+    flex-direction: column;
+    overflow: hidden;
+}
+.notScrollable.hidden {
+    display: none !important;
+}
+
+.panel-heading {
+    flex-shrink: 0;
+}
+
+.linkCategory {
+    margin-left: 20px;
+    font-size: 16px;
+}
+.iconLink {
+    margin-left: 5px;
+    font-size: 26px;
+}
+
+/*
+scrollbar tricks
+*/
+body {
+  --scrollbarBG: #FFFFFF;
+  --thumbBG: #2a9fd6;
+}
+body {
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    overflow: hidden;
+}
+
+.contentColumn {
+    overflow: auto;
+    flex: 1;
+    margin-left: 10px;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.contentColumn .panel:last-of-type {
+    margin-bottom: 0;
+}
+
 @media (max-width: 991px) {
+    
+    .content {
+        flex-direction: column;
+        overflow: auto;
+    }
+    
+    .contentColumn {
+        overflow: unset;
+    }
 
     /* Adapt scroll button with button sidebar */
     #scrollToTopButton.withButtonSideBar {

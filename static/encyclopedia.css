@@ -49,6 +49,14 @@
 
 @media (max-width: 991px) {
     
+    .content {
+        flex-direction: column;
+    }
+    
+    .contentColumn.filters {
+        flex: initial;
+    }
+    
 	#results .thead .special{
 		display: none;
 	}

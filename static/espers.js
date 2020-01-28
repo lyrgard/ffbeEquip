@@ -69,8 +69,8 @@ function beforeShow() {
 function showAll() {
     beforeShow();
     $(".nav-tabs li.ALL").addClass("active");
-    var $allEspers = $('#allEspers').show();
-    $("#esper").hide();
+    var $allEspers = $('#allEspers').removeClass('hidden');
+    $("#esper").addClass('hidden');
     $("#toggleGrid").addClass('hidden');
     
     // Reset sorting cols to first one
@@ -124,8 +124,8 @@ function showAll() {
 
 function show(esperName) {
     beforeShow();
-    $('#allEspers').hide();
-    $("#esper").show();
+    $('#allEspers').addClass('hidden');
+    $("#esper").removeClass('hidden');
     $('#toggleGrid').removeClass('hidden');
     
     currentEsper = esperName;

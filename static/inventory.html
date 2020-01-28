@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
     </head>
-    <body class="dark">
+    <body class="dark notScrollable">
         <a href="#" id="scrollToTopButton" style="display: none;" title="Scroll back to the top"><span></span></a>
 
         <div id="header" class="headerJake">
@@ -133,7 +133,7 @@
             <div class="bannerPicturePerson"></div>
         </div>
 
-        <div class="container-fluid">
+        <div class="notScrollable">
             <div id="pleaseWaitMessage" class="alert alert-info alert-inline" role="alert">
                 <span class="glyphicon glyphicon-info-sign"></span>
                 Please wait for your inventory to load
@@ -142,8 +142,8 @@
                 <span class="glyphicon glyphicon-alert"></span>
                 You need to be logged-in to manage your inventory
             </div>
-            <div id="itemsWrapper" class="hidden">
-                <div class="itemsSidebar">
+            <div id="itemsWrapper" class="hidden content notScrollable thin-scrollbar">
+                <div class="itemsSidebar contentColumn">
                     <button class="itemsSidebarButton hidden" title="Toggle sidebar">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                         <span class="collapsedHidden">Toggle stats</span>
@@ -385,8 +385,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="itemsContent">
-                    <div id="inventory">
+                <div class="itemsContent contentColumn notScrollable">
+                    <div id="inventory" class="notScrollable">
                         <div class="linkActions">
                             <div id="exportLinks" class="dropdown action">
                                 <a class="dropdown-toggle link" type="button" data-toggle="dropdown">
@@ -442,9 +442,9 @@
                         <div id="tabsRightData" class='hidden-xs'>
                             <span id="sortType"></span>
                         </div>
-                        <div class="result-tab-pane">
-                            <div class="panel-body" style="padding:0;">
-                                <div class="col-xs-12">
+                        <div class="result-tab-pane notScrollable">
+                            <div class="panel-body notScrollable" style="padding:0;">
+                                <div class="col-xs-12" style="flex-shrink: 0">
                                     <div class="searchHeader">
                                         <input id="searchBox" type="text" class="form-control" placeholder="Enter item name or name of TMR's unit"/>
                                         <div class="stmrMoogleAvailableDiv">
@@ -476,7 +476,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="results" class="">
+                                <div id="results" class="scrollable">
                                 </div>
                                 <div id="loadMore" class="hidden">
                                     <div class="col-xs-12">
@@ -495,22 +495,17 @@
                     </div>
                 </div>
             </div>
-            <div class="footerButtons">
-                <div>
-                    <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                    <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                    <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                </div>
-                <div>
-                    <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                    <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                </div>
-                <div>
-                    <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
-                </div>
-            </div>
         </div>
-
+        <div class="footerButtons">
+            <i class="linkCategory fas fa-link"></i>
+            <a class="iconLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Send me a message on reddit"><i class="fab fa-reddit"></i></a>
+            <a class="iconLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Chat on FFBE Equip discord server"><i class="fab fa-discord"></i></a>
+            <a class="iconLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="See the code on GitHub"><i class="fab fa-github"></i></a>
+            <i class="linkCategory fas fa-dollar-sign"></i>
+            <a class="iconLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Buy me a coffee"><i class="fas fa-mug-hot"></i></a>
+            <a class="iconLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer" data-toggle="tooltip" data-original-title="Become my patron on Patreon"><i class="fab fa-patreon"></i></a>
+        </div>
+        
         <div class="modal fade" id="modifyEnhancementModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
