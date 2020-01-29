@@ -428,7 +428,7 @@ function startPage() {
       rows: [],
       scrollId: 'scrollArea',
       contentId: 'resultsContent',
-      rows_in_block: '10'
+      rows_in_block: '20'
     });
 	
 	// Triggers on search text box change

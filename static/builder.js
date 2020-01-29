@@ -10,7 +10,7 @@ const formulaByGoal = {
     "sprDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "defDamageWithPhysicalMecanism":    {"type":"skill", "id":"0","name":"1x physical DEF damage", "formulaName":"defDamageWithPhysicalMecanism", "value": {"type":"damage", "value":{"mecanism":"physical", "damageType":"body", "coef":1, "use":{"stat":"def"}}}},
     "atkDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical ATK damage", "formulaName":"atkDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"body", "coef":1}}},
-    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x physical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
+    "sprDamageWithMagicalMecanism":     {"type":"skill", "id":"0","name":"1x magical SPR damage", "formulaName":"sprDamageWithMagicalMecanism", "value": {"type":"damage", "value":{"mecanism":"magical", "damageType":"mind", "coef":1, "use":{"stat":"spr"}}}},
     "atkDamageWithFixedMecanism":       {"type":"value","name":"atkDamageWithFixedMecanism"},
     "physicalDamageMultiCast":          {"type":"value","name":"physicalDamageMultiCast"},
     "fixedDamageWithPhysicalMecanism":  {"type":"value","name":"fixedDamageWithPhysicalMecanism"},
