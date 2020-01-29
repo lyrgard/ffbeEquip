@@ -1191,6 +1191,10 @@ input.has-error {
         display: block;
     }
 
+    #header {
+        padding-top: 40px;
+    }
+
     #header .headerContent {
         height: 52px;
     }
@@ -1209,7 +1213,7 @@ input.has-error {
 
     #header .bannerPicture {
         background-size: auto 70px;
-        top: 12px;
+        top: 22px;
     }
 
     #header .bannerPicturePerson {
@@ -1236,7 +1240,7 @@ input.has-error {
     .navigationMenu .menuLogo {
         width: 65px;
         height: 62px;
-        top: 16px;
+        top: 22px;
         left: 16px;
     }
 
@@ -1252,6 +1256,13 @@ input.has-error {
 
     #themeSelector .title {
         display: none;
+    }
+
+    #header #languages {
+        width: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 }
 

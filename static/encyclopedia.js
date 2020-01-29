@@ -195,33 +195,11 @@ var displayItems = function(items) {
     var htmls = getItemsHtmls(items);
     $("#resultNumber").html(htmls.length);
     itemList.update(htmls);
-    $(baseStats).each(function(index, currentStat) {
-        if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
-            $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
-        }
-    });
-    $(elementList).each(function(index, resist) {
-        if (elements.length != 0 && !elements.includes(resist)) {
-            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
-        }
-    });
-    $(ailmentList).each(function(index, resist) {
-        if (ailments.length != 0 && !ailments.includes(resist)) {
-            $("#results .tbody .special .resist-" + resist).addClass("notSelected");
-        }
-    });
-    $(killerList).each(function(index, killer) {
-        if (physicalKillers.length == 0 || !physicalKillers.includes(killer)) {
-            $("#results .tbody .special .killer-physical.killer-" + killer).addClass("notSelected");
-        }
-        if (magicalKillers.length == 0 || !magicalKillers.includes(killer)) {
-            $("#results .tbody .special .killer-magical.killer-" + killer).addClass("notSelected");
-        }
-    });
+
     if (itemInventory) {
-        $("#results .thead .inventory").removeClass("hidden");
+        $("#resultsContent").addClass("logged");
     } else {
-        $("#results .thead .inventory").addClass("hidden");
+        $("#resultsContent").removeClass("logged");
     }
 };
 

@@ -300,14 +300,14 @@ function getSpecialHtml(item) {
     }
     
     if (item.special && item.special.includes("dualWield")) {
-        special += "<li>" + toHtml("[Dual Wield|ability_72.png]") + "</li>";
+        special += '<li><div class="skill">' + toHtml("[Dual Wield|ability_72.png]") + "</div></li>";
     }
     if (item.partialDualWield) {
-        special += "<li>" + toHtml("[Dual Wield|ability_72.png] of ")
+        special += '<li><div class="skill">' + toHtml("[Dual Wield|ability_72.png] of ")
         for (var index in item.partialDualWield) {
             special += "<i class='img img-equipment-" + item.partialDualWield[index] + " inline'></i>";
         }
-        special += "</li>";
+        special += "</div></li>";
     }
     if (item.allowUseOf) {
         if (Array.isArray(item.allowUseOf)) {
@@ -425,7 +425,7 @@ function getSpecialHtml(item) {
     }
     if (item.skills) {
         item.skills.forEach(skill => {
-            special += '<li><img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</li>';    
+            special += '<li><div class="skill"><img class="icon" src="/img/items/' + skill.icon + '">' + toLink(skill.name) + ': ' + skill.effects.map(effect => effect.desc).join(', ') + '</div></li>';
         });
     }
     if (item.autoCastedSkills) {
@@ -587,11 +587,13 @@ function displayItemLine(item, actionOnImage = "") {
     html += "</div>";
 
     // special
-    html += '<div class="td special">';
+    html += '<div class="td special';
 
     let special = getSpecialHtml(item);
     if (special.length != 0) {
-        html += "<ul>" + special + "<ul>";
+        html += '"><ul>' + special + '<ul>';
+    } else {
+        html += ' empty">';
     }
     html += "</div>";
 
@@ -604,24 +606,24 @@ function displayItemLine(item, actionOnImage = "") {
 function getAccessHtml(item) {
     var html = '<div class="td access">';
     $(item.access).each(function(index, itemAccess) {
-        html += "<div";
+        html += '<div class="access';
         if (accessToRemove.length != 0 && !isAccessAllowed(accessToRemove, itemAccess)) {
-            html += " class='notSelected forbiddenAccess'";
+            html += ' notSelected forbiddenAccess';
         }
-        html += ">" + itemAccess + "</div>";
+        html += '">' + itemAccess + "</div>";
     });
     if (item.tmrUnit) {
         if (units[item.tmrUnit]) {
-            html += '<div>' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
+            html += '<div class="unit">' + toLink(units[item.tmrUnit].name, units[item.tmrUnit].wikiEntry) + '</div>';
         } else {
-            html += '<div>TMR of not released yet unit (' + item.tmrUnit + ')</div>';
+            html += '<div class="unit">TMR of not released yet unit (' + item.tmrUnit + ')</div>';
         }
     }
     if (item.stmrUnit) {
         if (units[item.stmrUnit]) {
-            html += '<div>' + toLink(units[item.stmrUnit].name) + '</div>';
+            html += '<div class="unit">' + toLink(units[item.stmrUnit].name) + '</div>';
         } else {
-            html += '<div>STMR of not released yet unit (' + item.stmrUnit + ')</div>';
+            html += '<div class="unit">STMR of not released yet unit (' + item.stmrUnit + ')</div>';
         }
     }
     if (item.exclusiveUnits) {
@@ -646,15 +648,18 @@ var toHtml = function(text) {
         if (token.length == 1) {
             result += toLink(token[0]);
         } else if (token.length == 2) {
-            result += toLink(token[0]);
             result += "<img class='icon' src='/img/items/" + token[1] + "'></img>"
+            result += toLink(token[0]);
         } else if (token.length == 3) {
-            result += toLink(token[1], token[0]);
             result += "<img class='icon' src='/img/items/" + token[2] + "'></img>"
+            result += toLink(token[1], token[0]);
         }
         
         return result;
     });
+    if (textWithAddedAnchors.startsWith('<img')) {
+        return '<span class="skill">' + textWithAddedAnchors +"</span>"
+    }
     return "<span>" + textWithAddedAnchors +"</span>";
 };
 
