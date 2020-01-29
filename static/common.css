@@ -8,6 +8,35 @@
     --contribute-color-background:#ffffff;
 }
 
+/*
+scrollbar tricks
+*/
+body {
+  --scrollbarBG: #FFFFFF;
+  --thumbBG: #2a9fd6;
+}
+body {
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 11px;
+}
+.scrollable::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+.scrollable {
+    scrollbar-width: thin;
+    overflow: auto;
+}
+
+
+
 #header {
     position: relative;
     padding-top: 30px;

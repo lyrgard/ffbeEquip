@@ -39,6 +39,8 @@ var additionalStat;
 
 var displayId = 0;
 
+var itemList;
+
 // Main function, called at every change. Will read all filters and update the state of the page (including the results)
 var update = function() {
 	
@@ -187,11 +189,12 @@ var modifyFilterSummary = function() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
-    displayId++;
-    var resultDiv = $("#results .tbody");
-    resultDiv.empty();
-    displayItemsAsync(items, 0, resultDiv, displayId);
-    $("#resultNumber").html(items.length);
+    //displayId++;
+    //var resultDiv = $("#results .tbody");
+    //resultDiv.empty();
+    var htmls = getItemsHtmls(items);
+    $("#resultNumber").html(htmls.length);
+    itemList.update(htmls);
     $(baseStats).each(function(index, currentStat) {
         if (additionalStat.length != 0 && !additionalStat.includes(currentStat) && currentStat != stat) {
             $("#results .tbody .name .detail ." + currentStat).addClass("notSelected");
@@ -222,12 +225,11 @@ var displayItems = function(items) {
     }
 };
 
-function displayItemsAsync(items, start, div, id) {
-    var html = '';
-    var end = Math.min(start + 20, items.length);
-    for (var index = start; index < end; index++) {
-        var item = items[index];
-        html += '<div class="tr';
+function getItemsHtmls(items) {
+    var htmls = [];
+    
+    items.forEach(item => {
+        html = '<div class="tr';
         if (item.temp) {
             html += ' userInputed';
         }
@@ -248,16 +250,9 @@ function displayItemsAsync(items, start, div, id) {
             html += '</div>';
         }
         html += "</div>";
-    }
-    
-    if (id == displayId) {
-        div.append(html);
-        if (index < items.length) {
-            setTimeout(displayItemsAsync, 0, items, index, div, id);
-        } else {
-            afterDisplay();
-        }
-    }
+        htmls.push(html);
+    });
+    return htmls;
 }
 
 function afterDisplay() {
@@ -449,6 +444,13 @@ function startPage() {
         if (e.keyCode === 27) {
             $("#searchText").val('').trigger('input').focus();
         }
+    });
+    
+    itemList = new Clusterize({
+      rows: [],
+      scrollId: 'scrollArea',
+      contentId: 'resultsContent',
+      rows_in_block: '10'
     });
 	
 	// Triggers on search text box change

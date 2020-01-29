@@ -13,6 +13,7 @@
               integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
               integrity="sha384-gmcw+R0EXbFmHe5f/e/UutiOrxubA/LkUzBVH0Y7uvP+IqhUSNFp7HZKD6ztR12u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="lib/clusterize.css"/>
         <link rel="stylesheet" type="text/css" href="css-img/equipments.css">
         <link rel="stylesheet" type="text/css" href="css-img/elements.css">
         <link rel="stylesheet" type="text/css" href="css-img/ailments.css">
@@ -24,293 +25,294 @@
         <link rel="stylesheet" type="text/css" href="encyclopedia.css">
         <link rel="stylesheet" type="text/css" href="languages.css">
         <link rel="stylesheet" type="text/css" href="dark-mode.css"/>
+        
     </head>
     <body class="dark">
-        <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
-        <div id="header" class="headerSakura">
-            <div class="headerContent">
-                <div class="headerTitle">
-                    Item Encyclopedia
-                </div>
-                <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
-                    <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
-                        <span class="glyphicon glyphicon-off" title="logout"></span>
-                    </button>
-                    <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
-                        Log in
-                    </button>
-                    <button type="button" class="btn btn-default inventoryStatus">
-                        <span class="status loading">Loading inventory</span>
-                        <span class="status loaded">Inventory loaded</span>
-                        <span class="status notLoaded">Inventory not loaded</span>
-                        <div class="loader"></div>
-                        <span class="label label-default unitsNumber">? units</span>
-                        <span class="label label-default itemsNumber">? items</span>
-                    </button>
-                </div>
-            </div>
-            <div class="navigationMenu">
-                <div class="desktop">
-                    <div class="menuLogo" onclick="window.location.href='/'" title="Return to homepage"></div>
-                    <a href="/" data-internal-link="/">Home</a>
-                    <a href="builder.html" data-internal-link="builder.html">Unit builder</a>
-                    <a class="active" href="encyclopedia.html" data-internal-link="encyclopedia.html">Encyclopedia</a>
-                    <a href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
-                    <a href="inventory.html" data-internal-link="inventory.html">My inventory</a>
-                    <a href="units.html" data-internal-link="units.html">My units</a>
-                    <a href="espers.html" data-internal-link="espers.html">My Espers</a>
-                    <a href="contribute.html" data-internal-link="contribute.html">Contribute</a>
-                </div>
-                <div class="mobile">
-                    <div class="menuLogo dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
+        <div id="scrollArea" class="clusterize-scroll scrollable">
+            <a href="#" id="scrollToTopButton" class="withButtonSideBar" style="display: none;" title="Scroll back to the top"><span></span></a>
+            <div id="header" class="headerSakura">
+                <div class="headerContent">
+                    <div class="headerTitle">
+                        Item Encyclopedia
                     </div>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/" data-internal-link="/">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="builder.html" data-internal-link="builder.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Unit builder
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="encyclopedia.html" data-internal-link="encyclopedia.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia
-                            </a>
-                        </li>
-                        <li>
-                            <a href="unitSearch.html" data-internal-link="unitSearch.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Unit Search
-                            </a>
-                        </li>
-                        <li>
-                            <a href="inventory.html" data-internal-link="inventory.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My inventory
-                            </a>
-                        </li>
-                        <li>
-                            <a href="units.html" data-internal-link="units.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My units
-                            </a>
-                        </li>
-                        <li>
-                            <a href="espers.html" data-internal-link="espers.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> My Espers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contribute.html" data-internal-link="contribute.html">
-                                <span class="glyphicon glyphicon-chevron-right"></span> Contribute
-                            </a>
-                        </li>
-                    </ul>
+                    <div id="inventoryDiv" class="btn-group Inventoryloading" role="group">
+                        <button type="button" class="btn btn-default logOut" onclick="location.href='/googleOAuthLogout';">
+                            <span class="glyphicon glyphicon-off" title="logout"></span>
+                        </button>
+                        <button type="button" class="btn btn-default loadInventory" onclick="loadInventory()">
+                            Log in
+                        </button>
+                        <button type="button" class="btn btn-default inventoryStatus">
+                            <span class="status loading">Loading inventory</span>
+                            <span class="status loaded">Inventory loaded</span>
+                            <span class="status notLoaded">Inventory not loaded</span>
+                            <div class="loader"></div>
+                            <span class="label label-default unitsNumber">? units</span>
+                            <span class="label label-default itemsNumber">? items</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="headerTopButtons">
-                <div id="themeSelector">
-                    <span class="title">Theme :</span>
-                    <select class="form-control smallSelect">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                </div>
-                <div id="languages">
-                    <span class="lang lang-sm" lang="en" onclick="switchToLanguage('en')"></span>
-                    <span class="lang lang-sm" lang="zh" onclick="switchToLanguage('zh')"></span>
-                    <span class="lang lang-sm" lang="ko" onclick="switchToLanguage('ko')"></span>
-                    <span class="lang lang-sm" lang="fr" onclick="switchToLanguage('fr')"></span>
-                    <span class="lang lang-sm" lang="de" onclick="switchToLanguage('de')"></span>
-                    <span class="lang lang-sm" lang="es" onclick="switchToLanguage('es')"></span>
-                </div>
-                <div class="switchServer btn-group">
-                    <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
-                    <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
-                </div>
-            </div>
-            <div class="bannerBackground"></div>
-            <div class="bannerPicture"></div>
-            <div class="bannerPicturePerson"></div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="col-xs-12 col-md-6">
-
-                <div class="panel panel-default search">
-                    <div class="panel-heading">
-                        <div class="input-group">
-                            <span class="input-group-addon">Search</span>
-                            <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
+                <div class="navigationMenu">
+                    <div class="desktop">
+                        <div class="menuLogo" onclick="window.location.href='/'" title="Return to homepage"></div>
+                        <a href="/" data-internal-link="/">Home</a>
+                        <a href="builder.html" data-internal-link="builder.html">Unit builder</a>
+                        <a class="active" href="encyclopedia.html" data-internal-link="encyclopedia.html">Encyclopedia</a>
+                        <a href="unitSearch.html" data-internal-link="unitSearch.html">Unit Search</a>
+                        <a href="inventory.html" data-internal-link="inventory.html">My inventory</a>
+                        <a href="units.html" data-internal-link="units.html">My units</a>
+                        <a href="espers.html" data-internal-link="espers.html">My Espers</a>
+                        <a href="contribute.html" data-internal-link="contribute.html">Contribute</a>
+                    </div>
+                    <div class="mobile">
+                        <div class="menuLogo dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-					</div>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/" data-internal-link="/">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="builder.html" data-internal-link="builder.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> Unit builder
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="encyclopedia.html" data-internal-link="encyclopedia.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> Encyclopedia
+                                </a>
+                            </li>
+                            <li>
+                                <a href="unitSearch.html" data-internal-link="unitSearch.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> Unit Search
+                                </a>
+                            </li>
+                            <li>
+                                <a href="inventory.html" data-internal-link="inventory.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> My inventory
+                                </a>
+                            </li>
+                            <li>
+                                <a href="units.html" data-internal-link="units.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> My units
+                                </a>
+                            </li>
+                            <li>
+                                <a href="espers.html" data-internal-link="espers.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> My Espers
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contribute.html" data-internal-link="contribute.html">
+                                    <span class="glyphicon glyphicon-chevron-right"></span> Contribute
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div id="filterSummary" class="hidden-md hidden-lg">
+                <div class="headerTopButtons">
+                    <div id="themeSelector">
+                        <span class="title">Theme :</span>
+                        <select class="form-control smallSelect">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div id="languages">
+                        <span class="lang lang-sm" lang="en" onclick="switchToLanguage('en')"></span>
+                        <span class="lang lang-sm" lang="zh" onclick="switchToLanguage('zh')"></span>
+                        <span class="lang lang-sm" lang="ko" onclick="switchToLanguage('ko')"></span>
+                        <span class="lang lang-sm" lang="fr" onclick="switchToLanguage('fr')"></span>
+                        <span class="lang lang-sm" lang="de" onclick="switchToLanguage('de')"></span>
+                        <span class="lang lang-sm" lang="es" onclick="switchToLanguage('es')"></span>
+                    </div>
+                    <div class="switchServer btn-group">
+                        <button class="GL btn btn-default" onclick="switchTo('GL')">GL</button>
+                        <button class="JP btn btn-default" onclick="switchTo('JP')">JP</button>
+                    </div>
                 </div>
-                <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
-                    <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
-                </button>
+                <div class="bannerBackground"></div>
+                <div class="bannerPicture"></div>
+                <div class="bannerPicturePerson"></div>
+            </div>
 
-                <div id="advancedSearch" class="collapse">
+            <div class="container-fluid">
+                <div class="col-xs-12 col-md-6">
 
-                    <div class="panel panel-default unit">
+                    <div class="panel panel-default search">
                         <div class="panel-heading">
-                            <form class="form-inline">
-                                <div class="form-group flex-form-group">
-                                    <span>Target unit&nbsp;</span>
-                                    <select id="unitsSelect" name="units" class="form-control"></select>
-                                    <div class="unit-rarity"></div>
-                                    <div class="unit-image"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Search</span>
+                                <input type="text" class="form-control" id="searchText" placeholder="Enter search text. Will search in item name, stats, abilities, TMR's unit, ...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="filterSummary" class="hidden-md hidden-lg">
+                    </div>
+                    <button id="hideAdvancedSearchButton" class="hidden-md hidden-lg sideBarButton" type="button" onclick="event.stopPropagation();document.body.scrollTop = 0; document.documentElement.scrollTop = 0; $('#advancedSearch').collapse('toggle');$('#resultsDiv').collapse('toggle');$('#actionButtonIcon').toggleClass('glyphicon-zoom-in glyphicon-eye-open');">
+                        <span id="actionButtonIcon" class="glyphicon glyphicon-zoom-in"></span>&nbsp;
+                    </button>
+
+                    <div id="advancedSearch" class="collapse">
+
+                        <div class="panel panel-default unit">
+                            <div class="panel-heading">
+                                <form class="form-inline">
+                                    <div class="form-group flex-form-group">
+                                        <span>Target unit&nbsp;</span>
+                                        <select id="unitsSelect" name="units" class="form-control"></select>
+                                        <div class="unit-rarity"></div>
+                                        <div class="unit-image"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">HP</span>
+                                        <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">MP</span>
+                                        <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">ATK</span>
+                                        <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">DEF</span>
+                                        <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">MAG</span>
+                                        <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class = "input-group">
+                                        <span class = "input-group-addon">SPR</span>
+                                        <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">HP</span>
-                                    <input id="baseStat_hp" type = "text" class = "form-control" placeholder = "3500" onkeypress="return isNumber(event)">
+
+                        <div class="panel panel-default stat">
+                            <div class="panel-heading">
+                                <span>Desired stat (filter and sort)</span>
+                                <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="btn-group colors choice" data-toggle="buttons" id="stats">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MP</span>
-                                    <input id="baseStat_mp" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        </div>
+
+                        <div class="panel panel-default types">
+                            <div class="panel-heading">
+                                <span>Equipment types</span>
+                                <a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
+                                <a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
+                                <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
+                                <a class="buttonLink forUnit" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
+                                <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="btn-group types choice" data-toggle="buttons" id="types">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">ATK</span>
-                                    <input id="baseStat_atk" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        </div>
+
+                        <div class="panel panel-default elements">
+                            <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                            <div class="panel-body">
+                                <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">DEF</span>
-                                    <input id="baseStat_def" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        </div>
+
+                        <div class="panel panel-default ailments">
+                            <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                            <div class="panel-body">
+                                <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">MAG</span>
-                                    <input id="baseStat_mag" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        </div>
+
+                        <div class="panel panel-default killers">
+                            <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
+                            <div class="panel-body">
+                                <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
+                                <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default accessToRemove">
+                            <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
+                            <div class="panel-body">
+                                <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <div class = "input-group">
-                                    <span class = "input-group-addon">SPR</span>
-                                    <input id="baseStat_spr" type = "text" class = "form-control" placeholder = "180" onkeypress="return isNumber(event)">
+                        </div>
+
+                        <div class="panel panel-default additionalStat">
+                            <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
+                            <div class="panel-body">
+                                <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
-                    <div class="panel panel-default stat">
-                        <div class="panel-heading">
-                            <span>Desired stat (filter and sort)</span>
-                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('stats')">unselect</a>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group colors choice" data-toggle="buttons" id="stats">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="panel panel-default types">
-                        <div class="panel-heading">
-                            <span>Equipment types</span>
-                            <a class="buttonLink" onclick="select('types',['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select all weapons</a>
-                            <a class="buttonLink" onclick="select('types', ['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select all armors</a>
-                            <a class="buttonLink forUnit" onclick="selectForUnit(['dagger', 'sword', 'greatSword', 'katana', 'staff', 'rod', 'bow', 'axe', 'hammer', 'spear', 'harp', 'whip', 'throwing', 'gun', 'mace', 'fist']); update();">Select unit weapons</a>
-                            <a class="buttonLink forUnit" onclick="selectForUnit(['lightShield', 'heavyShield', 'hat', 'helm', 'clothes', 'robe', 'lightArmor', 'heavyArmor']); update();">Select unit armors</a>
-                            <a class="buttonLink hidden unselectAll" onclick="unselectAll('types')">unselect all</a>
-                        </div>
-                        <div class="panel-body">
-                            <div class="btn-group types choice" data-toggle="buttons" id="types">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default elements">
-                        <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="elements">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default ailments">
-                        <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default killers">
-                        <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
-                            <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default accessToRemove">
-                        <div class="panel-heading"><span>Remove Access</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('accessToRemove')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group elements choice" data-toggle="buttons" id="accessToRemove">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default additionalStat">
-                        <div class="panel-heading"><span>Additional stat filter</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('additionalStat')">unselect all</a></div>
-                        <div class="panel-body">
-                            <div class="btn-group colors choice" data-toggle="buttons" id="additionalStat">
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-
-            </div>
-            <div  class="col-xs-12 col-md-6">
-                <div id="resultsDiv" class="panel panel-default collapse in">
-                    <div class="panel-heading">
-                        <div>Results : <span id="resultNumber"></span></div>
-                        <div class="checkbox-inline userInputedResultsChoice">
-                            <label id="onlyShowOwnedItemsDiv" class="checkbox-label hidden">
-                                <input id="onlyShowOwnedItems" type="checkbox" class="checkbox" onchange="update();"><span></span>
-                                Only show owned items
-                            </label>
-                            <label class="checkbox-label">
-                                <input id="showNotReleasedYet" type="checkbox" class="checkbox" onchange="update();"><span></span>
-                                Show unreleased items
-                            </label>
+                <div  class="col-xs-12 col-md-6">
+                    <div id="resultsDiv" class="panel panel-default collapse in">
+                        <div class="panel-heading">
+                            <div>Results : <span id="resultNumber"></span></div>
+                            <div class="checkbox-inline userInputedResultsChoice">
+                                <label id="onlyShowOwnedItemsDiv" class="checkbox-label hidden">
+                                    <input id="onlyShowOwnedItems" type="checkbox" class="checkbox" onchange="update();"><span></span>
+                                    Only show owned items
+                                </label>
+                                <label class="checkbox-label">
+                                    <input id="showNotReleasedYet" type="checkbox" class="checkbox" onchange="update();"><span></span>
+                                    Show unreleased items
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body" style="padding:0;">
-                        <div id="results" class="table notSorted items results">
-                            <div class="tbody">
-
+                        <div class="panel-body items" style="padding:0;">
+                            <div id="resultsContent" class="tbody clusterize-content">
+                                <div class="clusterize-no-data">No results…</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="footerButtons">
-                    <div>
-                        <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
-                        <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
-                        <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
-                        <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
-                    </div>
-                    <div>
-                        <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
+                    <div class="footerButtons">
+                        <div>
+                            <a class="buttonLink" href="https://www.reddit.com/message/compose/?to=lyrgard" target="_blank" rel="noreferrer">Send me a message on reddit</a>
+                            <a class="buttonLink" href="https://discord.gg/rgXnjhP" target="_blank" rel="noreferrer">Chat on FFBE Equip discord server</a>
+                            <a class="buttonLink" href="https://github.com/lyrgard/ffbeEquip" target="_blank" rel="noreferrer">See code on GitHub</a>
+                        </div>
+                        <div>
+                            <a class="buttonLink" href='https://ko-fi.com/Lyrgard' target="_blank" rel="noreferrer">Buy me a coffee</a>
+                            <a class="buttonLink" href='https://www.patreon.com/Lyrgard' target="_blank" rel="noreferrer">Become my patron on Patreon</a>
+                        </div>
+                        <div>
+                            <a class="buttonLink" data-server="JP" href='https://exviusdb.com/' target="_blank" rel="noreferrer">JP units and items images are a courtesy of EXVIUS DB</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -325,6 +327,7 @@
                 integrity="sha384-xMX6VHK1HYyCMM8zHAVkLHgg2rIDhN01+z4rI70RV2dwzzVlHP95uaDOc5ds7Pow" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
                 integrity="sha384-+pWnyi8LtZx+cgXfD2arWgUX7pHIaEL215cEPPk9WrsegNlgvDL9DNjaqsceQq6o" crossorigin="anonymous"></script>
+        <script src="lib/clusterize.min.js"></script>
 		<script src="lib/jquery.ba-throttle-debounce.min.js"></script>
         <script src="lib/notify.min.js"></script>
         <script src="constants.js"></script>
