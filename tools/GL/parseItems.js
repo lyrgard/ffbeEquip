@@ -519,8 +519,9 @@ function readSkills(itemIn, itemOut, skills) {
         for (var skillIndex in itemIn.skills) {
             var skillId = itemIn.skills[skillIndex].toString();
             var skill = skills[skillId];
-            skill.id = skillId;
+
             if (skill) {
+                skill.id = skillId;
                 if (skill.unique && !skill.active) {
                     if (!itemOut.notStackableSkills) {
                         itemOut.notStackableSkills = {};
@@ -572,6 +573,8 @@ function readSkills(itemIn, itemOut, skills) {
                     }
                     addNotTreatedEffects(itemOut, effectsNotTreated, skill, skillId);
                 }
+            } else {
+                console.log('Unknown skill ' + skillId + ' for ' + itemIn.name);
             }
         }
         var emptyItem = isItemEmpty(itemOut);
