@@ -306,7 +306,12 @@ getData('equipment.json', function (items) {
 
                                                                                 result.items.push(item);
                                                                             });
-                                                                            
+
+                                                                            result.items.forEach(item => {
+                                                                                if (item.access.includes("unknown") && !item.access.includes("not released yet")) {
+                                                                                    item.access.push("not released yet")
+                                                                                }
+                                                                            });
                                                                             
                                                                             var filename = 'data.json';
                                                                             if (languageId != 0) {
