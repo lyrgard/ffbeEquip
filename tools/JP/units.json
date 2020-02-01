@@ -6313,6 +6313,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+		"enhancementSkills":["ヒロインズカーレッジ","オニオンシュレッダー","内に秘めた強さ","オニオンメテオ","才色剣美"],
 		"6_form": {
 			"name":"Onion Knight Refia",
 			"jpname":"たまねぎ剣士レフィア",
@@ -6327,7 +6328,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","spear","harp","whip","throwing","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
+			"enhancementSkills":["ヒロインズカーレッジ","オニオンシュレッダー","内に秘めた強さ","オニオンメテオ","才色剣美"]
 		}
 	},
 	"203001405": {
@@ -6344,6 +6346,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor"],
+		"enhancementSkills":["暗黒剣・虎徹","暗黒剣・阿修羅","暗黒剣・魔の冥撃","暗黒の新生","暗黒剣の使い手","深淵の傷痕","魔剣士を極めし者"],
 		"6_form": {
 			"name":"Dark Knight Luneth",
 			"jpname":"魔剣士ルーネス",
@@ -6358,7 +6361,8 @@
 				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor"]
+			"equip":["dagger","sword","greatSword","katana","lightShield","helm","lightArmor","heavyArmor"],
+			"enhancementSkills":["暗黒剣・虎徹","暗黒剣・阿修羅","暗黒剣・魔の冥撃","暗黒の新生","暗黒剣の使い手","深淵の傷痕","魔剣士を極めし者"]
 		}
 	},
 	"203001503": {
@@ -11221,6 +11225,78 @@
 		"stats_pattern":1,
 		"equip":["dagger","axe","spear","hat","clothes"]
 	},
+	"254001505": {
+		"name":"0組の秀才エース",
+		"id":"254001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4400,"mp":270,"atk":169,"def":148,"mag":220,"spr":200},
+			"minStats":{"hp":1452,"mp":89,"atk":56,"def":49,"mag":73,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","rod","harp","whip","throwing","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"0組の秀才エース",
+			"id":"254001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3384,"mp":207,"atk":130,"def":113,"mag":169,"spr":153},
+				"minStats":{"hp":1117,"mp":68,"atk":43,"def":37,"mag":56,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","rod","harp","whip","throwing","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"254001605": {
+		"name":"慈愛の少女レム",
+		"id":"254001605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4490,"mp":272,"atk":153,"def":160,"mag":210,"spr":200},
+			"minStats":{"hp":1482,"mp":90,"atk":50,"def":53,"mag":69,"spr":66},
+			"pots":{"hp":540,"mp":150,"atk":40,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","whip","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"慈愛の少女レム",
+			"id":"254001605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3453,"mp":209,"atk":117,"def":123,"mag":161,"spr":153},
+				"minStats":{"hp":1139,"mp":69,"atk":39,"def":41,"mag":53,"spr":50},
+				"pots":{"hp":390,"mp":85,"atk":26,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","whip","hat","clothes","lightArmor","robe"]
+		}
+	},
+	"254001704": {
+		"name":"ホシヒメ",
+		"id":"254001704",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":3274,"mp":209,"atk":100,"def":117,"mag":166,"spr":160},
+			"minStats":{"hp":1080,"mp":69,"atk":33,"def":39,"mag":55,"spr":53},
+			"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"]
+	},
 	"254001805": {
 		"name":"Machina",
 		"jpname":"マキナ",
@@ -11302,6 +11378,35 @@
 		"stats_pattern":1,
 		"equip":["staff","rod","harp","hat","clothes","robe"],
 		"enhancementSkills":["白のセレナーデ","クレシェンド","不協和音のソナタ"]
+	},
+	"254002105": {
+		"name":"不撓の戦士マキナ",
+		"id":"254002105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4760,"mp":216,"atk":208,"def":198,"mag":169,"spr":169},
+			"minStats":{"hp":1571,"mp":71,"atk":69,"def":65,"mag":56,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"不撓の戦士マキナ",
+			"id":"254002105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3661,"mp":166,"atk":160,"def":152,"mag":130,"spr":130},
+				"minStats":{"hp":1208,"mp":55,"atk":53,"def":50,"mag":43,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","hat","clothes","lightArmor","robe"]
+		}
 	},
 	"255000104": {
 		"name":"Juggler",
