@@ -208,12 +208,16 @@ function getAilmentsHtml(item) {
 }
 
 function getResistHtml(item) {
-    var html = '<div class="resistGroups">';
+    var html = "";
     if (item.resist) {
         let groupedByElementResist = item.resist.filter(resist => elementList.includes(resist.name)).reduce((acc, resist) => {
-            (acc[resist.percent] = acc[resist.percent] || []).push(resist.name);
+            let valueGroup = (acc[resist.percent] = acc[resist.percent] || []);
+            if (!valueGroup.includes(resist.name)) {
+                valueGroup.push(resist.name)
+            }
             return acc;
         }, {});
+        html += '<div class="resistGroups">';
         Object.keys(groupedByElementResist).sort().reverse().forEach(percent => {
             html += '<div class="resistGroup">';
             groupedByElementResist[percent].forEach(name => {
@@ -222,8 +226,12 @@ function getResistHtml(item) {
             })
             html += percent + '%</div>';
         });
+        html += '</div><div class="resistGroups">';
         let groupedByAilmentResist = item.resist.filter(resist => ailmentList.includes(resist.name)).reduce((acc, resist) => {
-            (acc[resist.percent] = acc[resist.percent] || []).push(resist.name);
+            let valueGroup = (acc[resist.percent] = acc[resist.percent] || []);
+            if (!valueGroup.includes(resist.name)) {
+                valueGroup.push(resist.name)
+            }
             return acc;
         }, {});
         Object.keys(groupedByAilmentResist).sort().reverse().forEach(percent => {
@@ -234,8 +242,8 @@ function getResistHtml(item) {
             })
             html += percent + '%</div>';
         });
+        html += '</div>';
     }
-    html += '</div>';
     return html;
 }
 function getKillersHtml(item) {
@@ -947,13 +955,37 @@ function updateLinks() {
     });
 }
 
+class ItemFilter {
+    constructor(values = [], matchAllValues = false) {
+        this.values = values;
+        this.matchAllValues = matchAllValues;
+    }
+}
+
 // Filter the items according to the currently selected filters. Also if sorting is asked, calculate the corresponding value for each item
-var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, 
+function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, searchText = "", selectedUnitId = null, 
                       types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [], 
-                      additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) 
-{
-    var result = [];
-    for (var index = 0, len = data.length; index < len; index++) {
+                      additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
+    var filters = [];
+    if (stat.length > 0) filters.push({type: 'stat', value: stat});
+    if (searchText) filters.push({type: 'text', value: searchText});
+    if (additionalStat.length > 0) filters.push({type: 'stat', value: additionalStat});
+    if (accessToRemove.length > 0) {
+        accessToRemove = accessToRemove.flatMap(a => a.split('/'));
+        let authorizedAccess = accessList.filter(a => !accessToRemove.some(forbiddenAccess => a.startsWith(forbiddenAccess) || a.endsWith(forbiddenAccess)));
+        filters.push(convertValuesToFilter(authorizedAccess, 'access'));
+    }
+    if (magicalKillers.length > 0) filters.push(convertValuesToFilter(magicalKillers, 'magicalKiller'));
+    if (physicalKillers.length > 0) filters.push(convertValuesToFilter(physicalKillers, 'physicalKiller'));
+    if (ailments.length > 0) filters.push(convertValuesToFilter(ailments, 'ailment'));
+    if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element'));
+    if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
+    if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
+    
+    let filter = andFilters(...filters);
+    
+    var result = filterItems(data, filter, showNotReleasedYet);
+    /*for (var index = 0, len = data.length; index < len; index++) {
         var item = data[index];
         if (!onlyShowOwnedItems || itemInventory && itemInventory[item.id]) {
             if (showNotReleasedYet || !item.access.includes("not released yet") || (selectedUnitId && item.tmrUnit == selectedUnitId) || (selectedUnitId && item.stmrUnit == selectedUnitId)) {
@@ -981,9 +1013,98 @@ var filter = function(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, 
                 }
             }
         }
-    }
+    }*/
+    result.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
     return result;
 };
+
+function convertValuesToFilter(values, type, logicalAssociation = 'or') {
+    let filter;
+    values.forEach(v => {
+        if (filter) {
+            filter = {
+                type: logicalAssociation,
+                value1: filter,
+                value2: {
+                    type: type,
+                    value: v
+                }
+            }    
+        } else {
+            filter = {
+                type: type,
+                value: v
+            }
+        }
+        
+    });
+    return filter
+}
+
+function andFilters(...filters) {
+    if (filters.length === 0) {
+        return {type: 'boolean', value: true};
+    } else {
+        let filter;
+        filters.forEach(f => {
+            if (filter) {
+                filter = {
+                    type: 'and',
+                    value1: filter,
+                    value2: f
+                }    
+            } else {
+                filter = f;
+            }
+
+        });
+        return filter
+    }
+}
+
+
+function filterItems(items, filter, showNotReleasedYet) {
+    return items.filter(item => {
+        return (showNotReleasedYet || !item.access.includes("not released yet")) 
+            && itemMatches(item, filter);
+    });
+}
+
+
+function itemMatches(item, filter) {
+    switch(filter.type) {
+        case 'and':
+            return itemMatches(item, filter.value1) && itemMatches(item, filter.value2);
+        case 'or':
+            return itemMatches(item, filter.value1) || itemMatches(item, filter.value2);
+        case 'not':
+            return !itemMatches(item, filter.value);
+        case 'type':
+            return filter.value === item.type;
+        case 'element':
+            return (item.element && item.element.includes(filter.value)) 
+            || (filter.value === 'noElement' && !item.element) 
+            || (item.resist && item.resist.some(r => r.name === filter.value));
+        case 'ailment':
+            return (item.ailments && item.ailments.some(a => a.name === filter.value)) 
+            || (item.resist && item.resist.some(r => r.name === filter.value));
+        case 'physicalKiller':
+            return item.killers && item.killers.some(k => k.name === filter.value && k.physical);
+        case 'magicalKiller':
+            return item.killers && item.killers.some(k => k.name === filter.value && k.magical);
+        case 'access':
+            return item.access && item.access.includes(filter.value);
+        case 'text':
+            return containsText(filter.value, item);
+        case 'stat':
+            return hasStat(filter.value, item);
+        case 'onlyOwned':
+            return itemInventory && itemInventory[item.id];
+        case 'boolean':
+            return filter.value;
+    }
+}
+
 
 function hasKillers(killerType, killers, item)
 {

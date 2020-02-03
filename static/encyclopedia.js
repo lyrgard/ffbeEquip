@@ -36,6 +36,9 @@ var physicalKillers;
 var magicalKillers;
 var accessToRemove;
 var additionalStat;
+var elementsAnd = false;
+var ailmentsAnd = false;
+var killersAnd = false;
 
 var displayId = 0;
 
@@ -65,9 +68,30 @@ var update = function() {
         $("#results").addClass("notSorted");
     }
     
+    
+    var filters = [];
+    if (stat.length > 0) filters.push({type: 'stat', value: stat});
+    if (searchText) filters.push({type: 'text', value: searchText});
+    if (additionalStat.length > 0) filters.push({type: 'stat', value: additionalStat});
+    if (accessToRemove.length > 0) {
+        accessToRemove = accessToRemove.flatMap(a => a.split('/'));
+        let authorizedAccess = accessList.filter(a => !accessToRemove.some(forbiddenAccess => a.startsWith(forbiddenAccess) || a.endsWith(forbiddenAccess)));
+        filters.push(convertValuesToFilter(authorizedAccess, 'access'));
+    }
+    if (magicalKillers.length > 0) filters.push(convertValuesToFilter(magicalKillers, 'magicalKiller', killersAnd ? 'and' : 'or'));
+    if (physicalKillers.length > 0) filters.push(convertValuesToFilter(physicalKillers, 'physicalKiller', killersAnd ? 'and' : 'or'));
+    if (ailments.length > 0) filters.push(convertValuesToFilter(ailments, 'ailment', ailmentsAnd ? 'and' : 'or'));
+    if (elements.length > 0) filters.push(convertValuesToFilter(elements, 'element', elementsAnd ? 'and' : 'or'));
+    if (types.length > 0) filters.push(convertValuesToFilter(types, 'type'));
+    if (onlyShowOwnedItems) filters.push({type: 'onlyOwned'});
+    
+    let filter = andFilters(...filters);
+    
+    let filteredItems = filterItems(data, filter, showNotReleasedYet);
+    filteredItems.forEach(item => calculateValue(item, baseStat, stat, ailments, elements, killers));
+    
 	// filter, sort and display the results
-    displayItems(sort(filter(data, onlyShowOwnedItems, stat, baseStat, searchText, selectedUnitId, 
-                             types, elements, ailments, physicalKillers, magicalKillers, accessToRemove, additionalStat, showNotReleasedYet)));
+    displayItems(sort(filteredItems));
 	
 	// If the text search box was used, highlight the corresponding parts of the results
     $("#results").unmark({
@@ -108,6 +132,9 @@ var readFilterValues = function() {
     magicalKillers = getSelectedValuesFor("magicalKillers");
     accessToRemove = getSelectedValuesFor("accessToRemove");
     additionalStat = getSelectedValuesFor("additionalStat");
+    elementsAnd = getSelectedValuesFor("elementsLogicalConnector")[0] === 'and';
+    ailmentsAnd = getSelectedValuesFor("ailmentsLogicalConnector")[0] === 'and';
+    killersAnd = getSelectedValuesFor("killersLogicalConnector")[0] === 'and';
     if (itemInventory) {
         onlyShowOwnedItems = $("#onlyShowOwnedItems").prop('checked');
     } else {
@@ -159,6 +186,15 @@ var modifyUrl = function() {
     }
     if (showNotReleasedYet) {
         state.showNotReleasedYet = true;
+    }
+    if (elementsAnd) {
+        state.elementsAnd = true;
+    }
+    if (ailmentsAnd) {
+        state.ailmentsAnd = true;
+    }
+    if (killersAnd) {
+        state.killersAnd = true;
     }
     window.location.hash = '#' + window.btoa(unescape(encodeURIComponent(JSON.stringify(state))));
 };
@@ -346,6 +382,27 @@ function loadHash() {
     if (state.showNotReleasedYet) {
         $("#showNotReleasedYet").prop('checked', true);
     }
+    $("input[name='elementsLogicalConnector']").each(function(index, checkbox) {
+        let check = checkbox.value === 'and' && state.elementsAnd || checkbox.value === 'or' && !state.elementsAnd;
+        $(checkbox).prop('checked', check);
+        if (check) {
+            $(checkbox).parent().addClass('active');
+        }
+    });
+    $("input[name='ailmentsLogicalConnector']").each(function(index, checkbox) {
+        let check = checkbox.value === 'and' && state.ailmentsAnd || checkbox.value === 'or' && !state.ailmentsAnd;
+        $(checkbox).prop('checked', check);
+        if (check) {
+            $(checkbox).parent().addClass('active');
+        }
+    });
+    $("input[name='killersLogicalConnector']").each(function(index, checkbox) {
+        let check = checkbox.value === 'and' && state.killersAnd || checkbox.value === 'or' && !state.killersAnd;
+        $(checkbox).prop('checked', check);
+        if (check) {
+            $(checkbox).parent().addClass('active');
+        }
+    });
 };
 
 // Select on the 'types' filter the provided values that match the selected unit equipable item types
@@ -472,7 +529,7 @@ function startPage() {
     $("#results").addClass(server);
     
 	// Triggers on filter selection
-	$('.choice input').change($.debounce(300,update));
+	$('.choice input').change(update);
     
     $(window).on("beforeunload", function () {
         if  (saveNeeded) {

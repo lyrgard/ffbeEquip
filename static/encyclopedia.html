@@ -237,7 +237,15 @@
                         </div>
 
                         <div class="panel panel-default elements">
-                            <div class="panel-heading"><span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a></div>
+                            <div class="panel-heading">
+                                <span>Elements</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('elements')">unselect all</a>
+                                <div class="filters">
+                                    <div class="btn-group choice" id="elementsLogicalConnector" data-toggle="buttons">
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having at least one of the selected elements"><input type="radio" name="elementsLogicalConnector" value="or" autocomplete="off">OR</label>
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having all of the selected elements"><input type="radio" name="elementsLogicalConnector" value="and" autocomplete="off">AND</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="panel-body">
                                 <div class="btn-group elements choice" data-toggle="buttons" id="elements">
                                 </div>
@@ -245,7 +253,15 @@
                         </div>
 
                         <div class="panel panel-default ailments">
-                            <div class="panel-heading"><span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a></div>
+                            <div class="panel-heading">
+                                <span>Status ailment</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('ailments')">unselect all</a>
+                                <div class="filters">
+                                    <div class="btn-group choice" id="ailmentsLogicalConnector" data-toggle="buttons">
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having at least one of the selected ailments"><input type="radio" name="ailmentsLogicalConnector" value="or" autocomplete="off">OR</label>
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having all of the selected ailments"><input type="radio" name="ailmentsLogicalConnector" value="and" autocomplete="off">AND</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="panel-body">
                                 <div class="btn-group ailments choice" data-toggle="buttons" id="ailments">
                                 </div>
@@ -253,7 +269,15 @@
                         </div>
 
                         <div class="panel panel-default killers">
-                            <div class="panel-heading"><span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a></div>
+                            <div class="panel-heading">
+                                <span>Killers</span><a class="buttonLink hidden unselectAll" onclick="unselectAll('killers')">unselect all</a>
+                                <div class="filters">
+                                    <div class="btn-group choice" id="killersLogicalConnector" data-toggle="buttons">
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having at least one of the selected killers"><input type="radio" name="killersLogicalConnector" value="or" autocomplete="off">OR</label>
+                                        <label class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Show items having all of the selected killers"><input type="radio" name="killersLogicalConnector" value="and" autocomplete="off">AND</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="panel-body">
                                 <div class="btn-group elements choice" data-toggle="buttons" id="physicalKillers"></div>
                                 <div class="btn-group elements choice" data-toggle="buttons" id="magicalKillers"></div>
@@ -294,7 +318,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="panel-body items" style="padding:0;">
+                        <div class="panel-body items" style="padding:0;width:100%">
                             <div id="resultsContent" class="tbody clusterize-content">
                                 <div class="clusterize-no-data">No results…</div>
                             </div>

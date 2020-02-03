@@ -1035,6 +1035,16 @@ input.has-error {
     height: 40px;
 }
 
+
+.panel-heading .filters {
+    float: right;
+    display: flex;
+    align-items: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    height: 41px;
+}
+
 @media (max-width: 991px) {
 
     /* Adapt scroll button with button sidebar */
