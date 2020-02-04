@@ -967,7 +967,7 @@ function filter(data, onlyShowOwnedItems = true, stat = "", baseStat = 0, search
                       types = [], elements = [], ailments = [], physicalKillers = [], magicalKillers = [], accessToRemove = [], 
                       additionalStat = "", showNotReleasedYet = false, showItemsWithoutStat = false) {
     var filters = [];
-    if (stat.length > 0) filters.push({type: 'stat', value: stat});
+    if (!showItemsWithoutStat && stat.length > 0) filters.push({type: 'stat', value: stat});
     if (searchText) filters.push({type: 'text', value: searchText});
     if (additionalStat.length > 0) filters.push({type: 'stat', value: additionalStat});
     if (accessToRemove.length > 0) {
