@@ -479,6 +479,23 @@ ul {
 .miniIcon.left.excludeItem.false:hover {
     opacity: 1.0;
 }
+.miniIcon.left.includeItem {
+    position: relative;
+    display: inline;
+    color:grey;
+    opacity: 0.5;
+}
+.miniIcon.left.includeItem.true {
+    color: green;
+    opacity: 1.0;
+}
+.miniIcon.left.includeItem.true:hover {
+    color: green;
+    opacity: 0.7;
+}
+.miniIcon.left.includeItem.false:hover {
+    opacity: 1.0;
+}
 .miniIcon.topRight {
     margin-left: 55px;
     margin-top: 55px;

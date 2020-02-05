@@ -77,7 +77,8 @@ var searchStat = "";
 var ClickBehaviors = {
     EQUIP: 0,
     IGNORE: 1,
-    EXCLUDE: 2
+    EXCLUDE: 2,
+    INCLUDE: 3,
 };
 var searchClickBehavior = ClickBehaviors.EQUIP;
 var currentItemSlot;
@@ -93,7 +94,7 @@ var progress;
 
 var defaultItemsToExclude = ["409009000"];
 var itemsToExclude = defaultItemsToExclude.slice(); // Ring of Dominion
-
+var itemsToInclude = [];
 
 var itemPool;
 
@@ -285,6 +286,7 @@ function optimize() {
 function prepareDataStorage() {
     dataStorage.setUnitBuild(builds[currentUnitIndex]);
     dataStorage.itemsToExclude = itemsToExclude;
+    dataStorage.itemsToInclude = itemsToInclude;
     dataStorage.prepareData(itemsToExclude, ennemyStats);
 }
 
@@ -374,13 +376,11 @@ function readGoal(index = currentUnitIndex) {
     
     $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
         
-    $(".monster").addClass("hidden");
     $(".unitAttackElement").addClass("hidden");
     if (builds[currentUnitIndex].unit && 
         (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
             || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
             || builds[currentUnitIndex].involvedStats.includes("weaponElement"))) {
-        $(".monster").removeClass("hidden");
         $(".unitAttackElement").removeClass("hidden");
     }
     if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
@@ -1952,25 +1952,29 @@ function updateSearchResult() {
     });
 }
 
-function displayEquipableItemList() {
+function displayEquipableItemList(clickBehavior) {
     if (!builds[currentUnitIndex].unit) {
         Modal.showMessage("No unit selected", "Please select an unit");
         return;
     }
     
     builds[currentUnitIndex].prepareEquipable();
+    dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
 
     types = [];
-    for(var index = 0; index < 10; ++index) {
-        var equipableSlot = builds[currentUnitIndex].equipable[index];
-        if (equipableSlot.length == 0) {
-            continue;
-        }
-        
-        dataStorage.calculateAlreadyUsedItems(builds, currentUnitIndex);
-        for(var i = 0; i < equipableSlot.length; ++i) {
-            if(!types.includes(equipableSlot[i])) {
-                types.push(equipableSlot[i]);
+    if (clickBehavior === ClickBehaviors.INCLUDE) {
+        types = typeList;
+    } else {
+        for(var index = 0; index < 10; ++index) {
+            var equipableSlot = builds[currentUnitIndex].equipable[index];
+            if (equipableSlot.length == 0) {
+                continue;
+            }
+
+            for(var i = 0; i < equipableSlot.length; ++i) {
+                if(!types.includes(equipableSlot[i])) {
+                    types.push(equipableSlot[i]);
+                }
             }
         }
     }
@@ -1990,7 +1994,7 @@ function displayEquipableItemList() {
     populateItemType(types);
     selectSearchType(types);
     selectSearchStat(searchStat);
-    selectSearchClickBehavior(ClickBehaviors.EXCLUDE);
+    selectSearchClickBehavior(clickBehavior);
     updateSearchResult();
 }
 
@@ -2204,6 +2208,13 @@ function excludeItem(itemId, slot = -1) {
     $(".excludedItemNumber").html(itemsToExclude.length);
 }
 
+function includeItem(itemId) {
+    if (!itemsToInclude.includes(itemId)) { 
+        itemsToInclude.push(itemId);
+    }
+    $(".includedItemNumber").html(itemsToInclude.length);
+}
+
 function recalculateApplicableSkills() {
     builds[currentUnitIndex].build = builds[currentUnitIndex].build.slice(0,11);
     for (var skillIndex = builds[currentUnitIndex].unit.skills.length; skillIndex--;) {
@@ -2271,6 +2282,16 @@ function toggleExclusionFromSearch(itemId) {
     toggleExclusionIcon(itemId);
 }
 
+function toggleInclusionInSearch(itemId) {
+    if(itemsToInclude.includes(itemId)) {
+        removeItemFromIncludeList(itemId);
+    } else {
+        includeItem(itemId);
+    }
+    
+    toggleInclusionIcon(itemId);
+}
+
 function displaySearchResultsAsync(items, start, div) {
     var end = Math.max(items.length, start + 20);
     var html = "";
@@ -2297,24 +2318,38 @@ function getItemHtml(item) {
         }
 
         var excluded = itemsToExclude.includes(item.id);
+        var included = itemsToInclude.includes(item.id);
 
         $('#fixItemModal').removeClass('exclusion');
+        $('#fixItemModal').removeClass('inclusion');
         if(searchClickBehavior == ClickBehaviors.IGNORE) {
             html += '" >';
         } else if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
             html += '" onclick="toggleExclusionFromSearch(\'' + item.id + '\');">';
             $('#fixItemModal').addClass('exclusion');
+        } else if (searchClickBehavior == ClickBehaviors.INCLUDE) {
+            html += '" onclick="toggleInclusionInSearch(\'' + item.id + '\');">';
+            $('#fixItemModal').addClass('inclusion');
         } else {
             html += '" onclick="fixItem(\'' + item.id + '\', ' + currentItemSlot + ', ' + enhancementString + ')">';
         }
 
-        html += "<div class='td exclude'>";
-        html += getItemExclusionLink(item.id, excluded);
-        html += "</div>";
+        if (searchClickBehavior == ClickBehaviors.INCLUDE) {
+            html += "<div class='td include'>";
+            html += getItemInclusionLink(item.id, included);
+            html += "</div>";
+        } else {
+            html += "<div class='td exclude'>";
+            html += getItemExclusionLink(item.id, excluded);
+            html += "</div>";    
+        }
+        
+
+        
 
         html += displayItemLine(item);
 
-        if (searchClickBehavior != ClickBehaviors.EXCLUDE) {
+        if (searchClickBehavior != ClickBehaviors.EXCLUDE && searchClickBehavior != ClickBehaviors.INCLUDE) {
             html+= "<div class='td enchantment desktop'>";
             html+= getItemEnhancementLink(item);
             html+= "</div>";
@@ -2335,16 +2370,21 @@ function getItemHtml(item) {
             }
             html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
 
-            html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
-            html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
-            html+=      '<ul class="dropdown-menu pull-right">';
-            html+=          '<li>' + getAccessHtml(item) + '</li>';               
-            html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
-            if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
-            html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
+            if (isMobile) {
+                html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
+                html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
+                html+=      '<ul class="dropdown-menu pull-right">';
+                html+=          '<li>' + getAccessHtml(item) + '</li>';               
+                html+=          '<li>' + getItemEnhancementLink(item) + '</li>';
+                if (searchClickBehavior == ClickBehaviors.EXCLUDE) {
+                html+=          '<li>' + getItemExclusionLink(item.id, excluded) + '</li>';
+                }
+                if (searchClickBehavior == ClickBehaviors.INCLUDE) {
+                html+=          '<li>' + getItemInclusionLink(item.id, included) + '</li>';
+                }
+                html+=      '</ul>';
+                html+= '</div></div>';
             }
-            html+=      '</ul>';
-            html+= '</div></div>';
         } else {
             html+= "<div class='td enchantment'></div><div class='td inventory'></div>"
         }
@@ -2374,10 +2414,23 @@ function getItemExclusionLink(itemId, excluded) {
     return html;
 }
 
+function getItemInclusionLink(itemId, included) {
+    var html = "";
+    html += '<i title="Include this item in build calculations" class="miniIcon left includeItem fas fa-plus false itemid' + itemId + '" style="' + (included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Don\'t include this item in build calculation anymore" class="miniIcon left includeItem fas fa-plus true itemid' + itemId + '" style="' + (!included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
+    return html;
+}
+
 function toggleExclusionIcon(itemId) {
     var excluded = itemsToExclude.includes(itemId);
     $('.excludeItem.fas.fa-ban.' + !excluded + '.itemid' + itemId).css('display', 'none');
     $('.excludeItem.fas.fa-ban.' + excluded + '.itemid' + itemId).css('display', 'inline');
+}
+
+function toggleInclusionIcon(itemId) {
+    var included = itemsToInclude.includes(itemId);
+    $('.includeItem.fas.fa-plus.' + !included + '.itemid' + itemId).css('display', 'none');
+    $('.includeItem.fas.fa-plus.' + included + '.itemid' + itemId).css('display', 'inline');
 }
 
 function selectEnchantedItem(itemId) {
@@ -3147,6 +3200,31 @@ function showExcludedItems() {
     });
 }
 
+function showIncludedItems() {
+    var text = "";
+    var idAlreadyTreated = [];
+    var dataToSearch = data.concat(espers);
+    for (var index = 0, len = dataToSearch.length; index < len; index++) {
+        var item = dataToSearch[index];
+        if (itemsToInclude.includes(item.id) && !idAlreadyTreated.includes(item.id)) {
+            text += '<div class="tr id_' + escapeName(item.id) +'">' +
+                '<div class="td actions"><span class="includeItem glyphicon glyphicon-remove" onclick="removeItemFromIncludeList(\'' + item.id +'\')"></span></div>' +
+                getImageHtml(item) + 
+                getNameColumnHtml(item) + 
+                '</div>';
+            idAlreadyTreated.push(item.id);
+        }
+    }
+    
+    Modal.show({
+        title: "Included items",
+        body: '<button class="btn btn-warning" onclick="resetIncludeList();">Reset item inclusion list</button>'+
+              '<div id="showIncludedItemsDialog"><div class="table items">' + text + '</div></div>',
+        size: 'large',
+        withCancelButton: false
+    });
+}
+
 function showMonsterList() {
     var text = '<ul class="nav nav-tabs">';
     let first = true;
@@ -3276,11 +3354,24 @@ function removeItemFromExcludeList(id) {
     $(".excludedItemNumber").html(itemsToExclude.length);
 }
 
+function removeItemFromIncludeList(id) {
+    $("#showIncludedItemsDialog .tr.id_" + escapeName(id)).remove();
+    itemsToInclude.splice(itemsToInclude.indexOf(id),1);
+    $(".includedItemNumber").html(itemsToInclude.length);
+}
+
 function resetExcludeList() {
     itemsToExclude = defaultItemsToExclude.slice();
     $(".excludedItemNumber").html(itemsToExclude.length);
     Modal.hide();
     showExcludedItems();
+}
+
+function resetIncludeList() {
+    itemsToInclude = [];
+    $(".includedItemNumber").html(itemsToInclude.length);
+    Modal.hide();
+    showIncludedItems();
 }
 
 function saveExcludeList() {
@@ -3742,6 +3833,7 @@ function onFeatureSelect(selectedFeature) {
     if (selectedFeature === 'buildAUnit') {
         $('.panel.buildRules').removeClass('hidden');
         $('#addNewUnitButton').removeClass('hidden');
+        $('.panel.monster').removeClass('hidden');
         updateSavedTeamPanelVisibility();
         parameterChallengesMode = false;
     } else {
@@ -4044,6 +4136,7 @@ function startPage() {
         $(".excludedItemNumber").html(itemsToExclude.length);
     }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
     });
+    $(".includedItemNumber").html(itemsToInclude.length);
 
     
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);

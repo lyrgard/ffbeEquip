@@ -794,7 +794,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default monster hidden">
+                <div class="panel panel-default monster">
                     <div class="panel-heading">
                         <span>Monster</span>
                         <a id="monsterListLink" class="buttonLink hidden" onclick="showMonsterList();">Monster list</a>
@@ -947,8 +947,14 @@
                             <label class="checkbox-label"><input id="excludeNotReleasedYet" type="checkbox" checked="true" class="checkbox"><span></span>Exclude unreleased equipment</label>
                             <div id="defaultWeaponEnhancement" class="item">Weapon enhancement : <span class="display"></span><button class="btn btn-default" onclick="modifyDefaultWeaponEnhancement()">Set default</button></div>
 
-                            <div><a class="link" onclick="displayEquipableItemList();">Select items to exclude</a></div>
-                            <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
+                            <div class="itemInclusionDiv">
+                                <div><a class="link" onclick="displayEquipableItemList(ClickBehaviors.INCLUDE);">Select items to include</a></div>
+                                <div><a class="link" onclick="showIncludedItems();"><span class="includedItemNumber"></span> specifically included item(s)</a></div>
+                            </div>
+                            <div class="itemExclusionDiv">
+                                <div><a class="link" onclick="displayEquipableItemList(ClickBehaviors.EXCLUDE);">Select items to exclude</a></div>
+                                <div><a class="link" onclick="showExcludedItems();"><span class="excludedItemNumber"></span> specifically excluded item(s)</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>

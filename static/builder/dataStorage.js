@@ -556,7 +556,14 @@ class DataStorage {
     }
     
     getAvailableNumbers(item) {
-        if (this.onlyUseOwnedItems) {
+        if (this.itemsToInclude && this.itemsToInclude.includes(item.id)) {
+            var numbers = this.getOwnedNumber(item);
+            if (!numbers.available) {
+                numbers.available = 1;
+                numbers.total = numbers.total + 1;
+            }
+            return numbers;
+        } else if (this.onlyUseOwnedItems) {
             var numbers = this.getOwnedNumber(item);
             if (!isStackable(item)) {
                 numbers.available = Math.min(numbers.available,1);

@@ -1160,6 +1160,14 @@ i.img.img-slot-hand.leftHand {
     max-height: 500px;
 }
 
+.itemInclusionDiv, .itemExclusionDiv {
+    display: flex;
+}
+
+.itemInclusionDiv > div, .itemExclusionDiv > div {
+    margin-right: 30px;
+}
+
 @media (max-width: 991px) {
     
     .panel.unit .panel-body {
