@@ -221,8 +221,7 @@ function getResistHtml(item) {
         Object.keys(groupedByElementResist).sort().reverse().forEach(percent => {
             html += '<div class="resistGroup">';
             groupedByElementResist[percent].forEach(name => {
-                html += '<i class="img img-equipment-heavyShield miniIcon"></i>';
-                html += '<i class="img img-element-' + name + ' imageWithText withMiniIcon"></i>';
+                html += '<span class="resistValue"><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-element-' + name + ' imageWithText withMiniIcon"></i></span>';
             })
             html += percent + '%</div>';
         });
@@ -237,8 +236,7 @@ function getResistHtml(item) {
         Object.keys(groupedByAilmentResist).sort().reverse().forEach(percent => {
             html += '<div class="resistGroup">';
             groupedByAilmentResist[percent].forEach(name => {
-                html += '<i class="img img-equipment-heavyShield miniIcon"></i>';
-                html += '<i class="img img-ailment-' + name + ' imageWithText withMiniIcon"></i>';
+                html += '<span class="resistValue"><i class="img img-equipment-heavyShield miniIcon"></i><i class="img img-ailment-' + name + ' imageWithText withMiniIcon"></i></span>';
             })
             html += percent + '%</div>';
         });

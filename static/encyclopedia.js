@@ -54,8 +54,8 @@ var update = function() {
     
     if (!onlyShowOwnedItems && stat.length == 0 && searchText.length == 0 && types.length == 0 && elements.length == 0 && ailments.length == 0 && physicalKillers.length == 0 && magicalKillers.length == 0 && accessToRemove.length == 0 && additionalStat.length == 0) {
 		// Empty filters => no results
-        $("#results .tbody").html("");
-        $("#results").addClass("notSorted");
+        $("#resultsContent").html("");
+        $("#resultsContent").addClass("notSorted");
         $("#resultNumber").html("Add filters to see results");
         return;
     }
@@ -225,12 +225,7 @@ var modifyFilterSummary = function() {
 
 // Construct HTML of the results. String concatenation was chosen for rendering speed.
 var displayItems = function(items) {
-    //displayId++;
-    //var resultDiv = $("#results .tbody");
-    //resultDiv.empty();
-    //var htmls = getItemsHtmls(items);
     $("#resultNumber").html(items.length);
-    //itemList.update(htmls);
     itemList.display(items);
 
     if (itemInventory) {
@@ -485,13 +480,6 @@ function startPage() {
             $("#searchText").val('').trigger('input').focus();
         }
     });
-    
-//    itemList = new Clusterize({
-//      rows: [],
-//      scrollId: 'scrollArea',
-//      contentId: 'resultsContent',
-//      rows_in_block: '20'
-//    });
     itemList = new VirtualScroll($('#resultsContent'), getItemHtml, 64);
 	
 	// Triggers on search text box change

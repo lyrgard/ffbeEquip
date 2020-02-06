@@ -1887,7 +1887,7 @@ function onEquipmentsChange() {
 }
      
 function updateSearchResult() {
-    fixItemList.clear();
+    fixItemList.display([]);
     $("#fixItemModal").removeClass("showEnhancements");
     let onlyOwnedItems = $('#onlyOwnedItems input').prop('checked');
     let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
@@ -1984,12 +1984,13 @@ function displayEquipableItemList(clickBehavior) {
     
     $("#fixItemModal").modal();
     if (!fixItemList) {
-        fixItemList = new Clusterize({
-          rows: [],
-          scrollId: 'fixItemResults',
-          contentId: 'resultsContent',
-          rows_in_block: '10'
-        });
+//        fixItemList = new Clusterize({
+//          rows: [],
+//          scrollId: 'fixItemResults',
+//          contentId: 'resultsContent',
+//          rows_in_block: '10'
+//        });
+        fixItemList = new VirtualScroll($('#fixItemResults'), getItemHtml, 64, false);
     }
     populateItemType(types);
     selectSearchType(types);
@@ -2020,12 +2021,13 @@ function displayFixItemModal(slot) {
     
     $("#fixItemModal").modal();
     if (!fixItemList) {
-        fixItemList = new Clusterize({
-          rows: [],
-          scrollId: 'fixItemResults',
-          contentId: 'resultsContent',
-          rows_in_block: '10'
-        });
+//        fixItemList = new Clusterize({
+//          rows: [],
+//          scrollId: 'fixItemResults',
+//          contentId: 'resultsContent',
+//          rows_in_block: '10'
+//        });
+        fixItemList = new VirtualScroll($('#fixItemResults'), getItemHtml, 64, false);
     }
     let equipmentChoice = $(".equipments select").val();
     $('#onlyOwnedItems input').prop('checked', equipmentChoice == "owned" && equipmentChoice == "ownedAvailableForExpedition");
@@ -2263,8 +2265,8 @@ var displaySearchResults = function(items) {
 //    var div = $("#fixItemModal .results .tbody");
 //    div.empty();
     
-    let htmls = items.map(item => getItemHtml(item));
-    fixItemList.update(htmls);
+    //let htmls = items.map(item => getItemHtml(item));
+    fixItemList.display(items);
     //$("#fixItemModal #fixItemResults")[0].scrollTop = 0;
     //displaySearchResultsAsync(items, 0, div);
     
