@@ -228,9 +228,10 @@ var displayItems = function(items) {
     //displayId++;
     //var resultDiv = $("#results .tbody");
     //resultDiv.empty();
-    var htmls = getItemsHtmls(items);
-    $("#resultNumber").html(htmls.length);
-    itemList.update(htmls);
+    //var htmls = getItemsHtmls(items);
+    $("#resultNumber").html(items.length);
+    //itemList.update(htmls);
+    itemList.display(items);
 
     if (itemInventory) {
         $("#resultsContent").addClass("logged");
@@ -243,30 +244,34 @@ function getItemsHtmls(items) {
     var htmls = [];
     
     items.forEach(item => {
-        html = '<div class="tr';
-        if (item.temp) {
-            html += ' userInputed';
-        }
-        html += '">';
-        html += displayItemLine(item);
-        if (itemInventory) {
-            html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
-            if (!itemInventory[item.id]) {
-                html+= "notPossessed";
-            }
-            html += '">';
-            html += '<span class="number badge badge-success">';
-            if (itemInventory[item.id]) {
-                html += itemInventory[item.id];
-            }
-            html += '</span>';
-            
-            html += '</div>';
-        }
-        html += "</div>";
-        htmls.push(html);
+        htmls.push(getItemHtml(item));
     });
     return htmls;
+}
+
+function getItemHtml(item) {
+    let html = '<div class="tr';
+    if (item.temp) {
+        html += ' userInputed';
+    }
+    html += '">';
+    html += displayItemLine(item);
+    if (itemInventory) {
+        html+= '<div class="td inventory ' + escapeName(item.id) + ' ' ;
+        if (!itemInventory[item.id]) {
+            html+= "notPossessed";
+        }
+        html += '">';
+        html += '<span class="number badge badge-success">';
+        if (itemInventory[item.id]) {
+            html += itemInventory[item.id];
+        }
+        html += '</span>';
+
+        html += '</div>';
+    }
+    html += "</div>";
+    return html;
 }
 
 function afterDisplay() {
@@ -481,12 +486,13 @@ function startPage() {
         }
     });
     
-    itemList = new Clusterize({
-      rows: [],
-      scrollId: 'scrollArea',
-      contentId: 'resultsContent',
-      rows_in_block: '20'
-    });
+//    itemList = new Clusterize({
+//      rows: [],
+//      scrollId: 'scrollArea',
+//      contentId: 'resultsContent',
+//      rows_in_block: '20'
+//    });
+    itemList = new VirtualScroll($('#resultsContent'), getItemHtml, 64);
 	
 	// Triggers on search text box change
     $("#searchText").on("input", $.debounce(300,update));
