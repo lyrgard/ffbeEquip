@@ -2314,7 +2314,7 @@ function getItemHtml(item) {
         if (item.enhancements) {
             enhancementString = JSON.stringify(item.enhancements).split('"').join("'");
         }
-        html += '<div class="tr selectable item';
+        html += '<div class="selectable itemWrapper';
         if (item.enhancements || itemInventory && itemInventory.enchantments && itemInventory.enchantments[item.id]) {
             html += " enhanced";
         }
@@ -2337,11 +2337,11 @@ function getItemHtml(item) {
         }
 
         if (searchClickBehavior == ClickBehaviors.INCLUDE) {
-            html += "<div class='td include'>";
+            html += "<div class='include'>";
             html += getItemInclusionLink(item.id, included);
             html += "</div>";
         } else {
-            html += "<div class='td exclude'>";
+            html += "<div class='exclude'>";
             html += getItemExclusionLink(item.id, excluded);
             html += "</div>";    
         }
@@ -2349,10 +2349,10 @@ function getItemHtml(item) {
 
         
 
-        html += displayItemLine(item);
+        html += '<div class="item">' + displayItemLine(item) + '</div>';
 
         if (searchClickBehavior != ClickBehaviors.EXCLUDE && searchClickBehavior != ClickBehaviors.INCLUDE) {
-            html+= "<div class='td enchantment desktop'>";
+            html+= "<div class='enchantment desktop'>";
             html+= getItemEnhancementLink(item);
             html+= "</div>";
         }
@@ -2370,10 +2370,10 @@ function getItemHtml(item) {
                     }
                 }
             }
-            html+= "<div class='td inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
+            html+= "<div class='inventory desktop text-center'><span class='badge" + notEnoughClass + "'>" + owned + "</span></div>";
 
             if (isMobile) {
-                html+= '<div class="td mobile" onclick="event.stopPropagation();"><div class="menu">';
+                html+= '<div class="mobile" onclick="event.stopPropagation();"><div class="menu">';
                 html+=      '<span class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown" onclick="$(this).parent().toggleClass(\'open\');"></span>'
                 html+=      '<ul class="dropdown-menu pull-right">';
                 html+=          '<li>' + getAccessHtml(item) + '</li>';               
@@ -2388,7 +2388,7 @@ function getItemHtml(item) {
                 html+= '</div></div>';
             }
         } else {
-            html+= "<div class='td enchantment'></div><div class='td inventory'></div>"
+            html+= "<div class='enchantment'></div><div class='inventory'></div>"
         }
         html += "</div>";
     }
@@ -2411,15 +2411,15 @@ function getItemEnhancementLink(item) {
 
 function getItemExclusionLink(itemId, excluded) {
     var html = "";
-    html += '<i title="Exclude this item from builds" class="miniIcon left excludeItem fas fa-ban false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
-    html += '<i title="Include this item in builds again" class="miniIcon left excludeItem fas fa-ban true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Exclude this item from builds" class="excludeItem fas fa-ban false itemid' + itemId + '" style="' + (excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Include this item in builds again" class="excludeItem fas fa-ban true itemid' + itemId + '" style="' + (!excluded ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleExclusionFromSearch(\'' + itemId + '\');"></i>';
     return html;
 }
 
 function getItemInclusionLink(itemId, included) {
     var html = "";
-    html += '<i title="Include this item in build calculations" class="miniIcon left includeItem fas fa-plus false itemid' + itemId + '" style="' + (included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
-    html += '<i title="Don\'t include this item in build calculation anymore" class="miniIcon left includeItem fas fa-plus true itemid' + itemId + '" style="' + (!included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Include this item in build calculations" class="includeItem fas fa-plus false itemid' + itemId + '" style="' + (included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
+    html += '<i title="Don\'t include this item in build calculation anymore" class="includeItem fas fa-plus true itemid' + itemId + '" style="' + (!included ? 'display: none;' : '') + '" onclick="event.stopPropagation(); toggleInclusionInSearch(\'' + itemId + '\');"></i>';
     return html;
 }
 

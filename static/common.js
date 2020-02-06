@@ -196,15 +196,37 @@ function getElementHtml(elements) {
 }
 
 function getAilmentsHtml(item) {
-    var html = "<div class='specialValueGroup'>";
-    $(item.ailments).each(function(index, ailment) {
-        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
-                "<i class='img img-equipment-sword miniIcon'></i>"+
-                "<i class='img img-ailment-" + ailment.name + " imageWithText withMiniIcon'></i>"+
-                "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
-    });
-    html += "</div>";
+    var html = "";
+    if (item.ailments) {
+        let groupedByAilment = item.ailments.reduce((acc, ailment) => {
+            let valueGroup = (acc[ailment.percent] = acc[ailment.percent] || []);
+            if (!valueGroup.includes(ailment.name)) {
+                valueGroup.push(ailment.name)
+            }
+            return acc;
+        }, {});
+        html += '<div class="resistGroups">';
+        Object.keys(groupedByAilment).sort().reverse().forEach(percent => {
+            html += '<div class="resistGroup">';
+            groupedByAilment[percent].forEach(name => {
+                html += '<span class="resistValue"><i class="img img-equipment-sword miniIcon"></i><i class="img img-ailment-' + name + ' imageWithText withMiniIcon"></i></span>';
+            })
+            html += percent + '%</div>';
+        });
+        html += '</div>';
+    }
     return html;
+    
+    
+//    var html = "<div class='specialValueGroup'>";
+//    $(item.ailments).each(function(index, ailment) {
+//        html += "<div class='specialValueItem'><div class='specialImg noWrap ailment-" + ailment + "'>"+
+//                "<i class='img img-equipment-sword miniIcon'></i>"+
+//                "<i class='img img-ailment-" + ailment.name + " imageWithText withMiniIcon'></i>"+
+//                "</div><div class='specialValue'>" + ailment.percent + "%</div></div>";
+//    });
+//    html += "</div>";
+//    return html;
 }
 
 function getResistHtml(item) {

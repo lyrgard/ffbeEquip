@@ -462,38 +462,38 @@ ul {
     margin-top: 30px;
     margin-left: 5px;
 }
-.miniIcon.left.excludeItem {
+.excludeItem {
     position: relative;
     display: inline;
     color:grey;
     opacity: 0.5;
 }
-.miniIcon.left.excludeItem.true {
+.excludeItem.true {
     color: red;
     opacity: 1.0;
 }
-.miniIcon.left.excludeItem.true:hover {
+.excludeItem.true:hover {
     color: red;
     opacity: 0.7;
 }
-.miniIcon.left.excludeItem.false:hover {
+.excludeItem.false:hover {
     opacity: 1.0;
 }
-.miniIcon.left.includeItem {
+.includeItem {
     position: relative;
     display: inline;
     color:grey;
     opacity: 0.5;
 }
-.miniIcon.left.includeItem.true {
+.includeItem.true {
     color: green;
     opacity: 1.0;
 }
-.miniIcon.left.includeItem.true:hover {
+.includeItem.true:hover {
     color: green;
     opacity: 0.7;
 }
-.miniIcon.left.includeItem.false:hover {
+.includeItem.false:hover {
     opacity: 1.0;
 }
 .miniIcon.topRight {

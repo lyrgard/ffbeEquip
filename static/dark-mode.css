@@ -260,8 +260,12 @@ body.dark #inventoryDiv button.inventoryStatus {
     border-color: #464545 !important;
 }
 
-body.dark #fixItemModal .results .tr.selectable:hover {
+body.dark #fixItemModal .selectable:hover {
     background-color: #464545;
+}
+
+body.dark #fixItemModal .selectable.itemWrapper {
+    border-bottom: 1px solid #464545;
 }
 
 body.dark #resultStats .stat {

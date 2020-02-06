@@ -128,7 +128,7 @@
     overflow-y: scroll;
 }
 
-#fixItemModal .results .tr.selectable:hover {
+#fixItemModal .selectable:hover {
     cursor: pointer;
     background-color: antiquewhite;
 }
@@ -707,15 +707,27 @@ i.img.img-slot-hand.leftHand {
     display: none;
 }
 
-.td.enchantment .enchantment {
+#fixItemModal .enchantment .enchantment {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
-#fixItemModal .results .td.enchantment .enchantment .badge {
+#fixItemModal .enchantment .badge {
     margin-top: 5px;
+}
+
+
+#fixItemModal .inventory {
+    width: 30px;
+}
+
+#fixItemModal .exclude, #fixItemModal .include {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #fixItemModal .results .td.mobile .menu {
@@ -1168,6 +1180,114 @@ i.img.img-slot-hand.leftHand {
 .itemInclusionDiv > div, .itemExclusionDiv > div {
     margin-right: 30px;
 }
+
+
+
+
+#fixItemModal .selectable.itemWrapper {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+#fixItemModal .item {
+    display: grid;
+    grid-template-columns: 64px auto 50px;
+    flex-grow: 1;
+}
+
+
+#fixItemModal .item .td.type {
+    padding-top: 0;
+    padding-bottom: 0;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+#fixItemModal .item .td.special {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 2;
+    border-top: none !important;
+    padding-top: 0;
+}
+
+#fixItemModal .item .td.special.empty {
+    display: none;
+}
+
+#fixItemModal .item .td.special li > .skill {
+    padding-left: 30px;
+    display: block;
+    position: relative;
+}
+
+#fixItemModal .item .td.special li > .skill img {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#fixItemModal .item .td.special ul {
+    margin-bottom: 0;
+}
+
+#fixItemModal .item .td.special .img.withMiniIcon, #fixItemModal .item .td.special .killerValueGroup i {
+    width: 32px;
+    height: 32px;
+}
+
+#fixItemModal .item .td.special .img.miniIcon {
+    width: 18px;
+    height: 18px;
+    margin-top: 14px;
+    margin-left: 16px;
+}
+
+#fixItemModal .item .td.special li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+#fixItemModal .item .specialValueItem {
+    margin: 0;
+}
+
+#fixItemModal .item .td.special .icon {
+    margin-bottom: -10px;
+    margin-top: -14px;
+}
+
+#fixItemModal .item .td.access {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 3;
+    border-top: none !important;
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+}
+
+#fixItemModal .item .td.access > div {
+    margin-right: 10px;
+}
+
+#fixItemModal .item .td.access > div.access {
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+
+
 
 @media (max-width: 991px) {
     
