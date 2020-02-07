@@ -1916,12 +1916,10 @@ function updateSearchResult() {
     accessToRemove = [];
     
     var dataWithOnlyOneOccurence = searchableEspers.slice();
-    for (var index = 0, len = dataStorage.data.length; index < len; index++) {
-        var item = dataStorage.data[index];
-        
+    dataStorage.data.forEach(item => {
         if (!isApplicable(item, builds[currentUnitIndex].unit)) {
             // Don't display not applicable items
-            continue;
+            return;
         }
         if (dataWithOnlyOneOccurence.length > 0 && dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1].id == item.id) {
             var previousItem = dataWithOnlyOneOccurence[dataWithOnlyOneOccurence.length - 1];
@@ -1939,7 +1937,8 @@ function updateSearchResult() {
         } else {
             dataWithOnlyOneOccurence.push(item);
         }
-    }
+    });
+
     readItemsExcludeInclude();
     displaySearchResults(sort(filter(dataWithOnlyOneOccurence, onlyOwnedItems, searchStat, baseStat, searchText, builds[currentUnitIndex].unit.id, types, [], [], [], [], [], "", !excludeNotReleasedYetOption, true), builds[currentUnitIndex].unit.id));
     
@@ -4070,7 +4069,7 @@ function ensureInitUnitWithSkills(unitId) {
         if (unitsWithSkills[unitId]) {
             resolve(unitsWithSkills[unitId]);     
         } else {
-            $.get(`/${server}/unit/${unitId}`, function(result) {
+            $.get(`https://ffbeEquip.com/${server}/unit/${unitId}`, function(result) {
                 unitsWithSkills[unitId] = result;
                 resolve(unitsWithSkills[unitId]);
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
