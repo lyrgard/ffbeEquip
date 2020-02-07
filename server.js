@@ -14,6 +14,7 @@ const links = require('./server/routes/links.js');
 const oauth = require('./server/routes/oauth.js');
 const clientConfig = require('./server/routes/clientConfig.js');
 const corrections = require('./server/routes/corrections.js');
+const unitSkills = require('./server/routes/unitSkills.js');
 const errorHandler = require('./server/middlewares/boom.js');
 const authRequired = require('./server/middlewares/oauth.js');
 
@@ -123,7 +124,7 @@ app.use(bodyParser.json({'limit':'1mb'}));
 app.use('/', oauth);
 app.use('/clientConfig', clientConfig);
 app.use('/links', links);
-app.use('/', corrections);
+app.use('/', corrections, unitSkills);
 app.use('/', firebase.unAuthenticatedRoute);
 app.use('/', authRequired, firebase.authenticatedRoute, drive);
 

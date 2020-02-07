@@ -65,7 +65,7 @@ var espersByName = {};
 
 var units;
 var ownedUnits;
-var unitsWithSkills;
+var unitsWithSkills = {};
 
 var ennemyStats;
 
@@ -313,77 +313,79 @@ function readGoal(index = currentUnitIndex) {
     var goal;
     var formula;
     if (customFormula) {
-        builds[currentUnitIndex].goal = "custom";
+        builds[index].goal = "custom";
         formula = customFormula;
     } else {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
-            if (goalValue == "LB" && builds[currentUnitIndex].unit) {
-                builds[currentUnitIndex].goal = "custom";
-                var skill = unitsWithSkills[builds[currentUnitIndex].unit.id].lb;
-                formula = formulaFromSkill(skill);
-            } else if (goalValue == "LB_REPLACED" && builds[currentUnitIndex].unit) {
-                let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
-                skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
-                    var passive = unitWithSkills.passives[skillIndex];
-                    for (var effectIndex = passive.effects.length; effectIndex--;) {
-                        var effect = passive.effects[effectIndex].effect;
-                        if (effect && effect.replaceLb) {
-                            builds[currentUnitIndex].goal = "custom";
-                            var formula = formulaFromSkill(effect.replaceLb);
-                            formula.lb = true;
-                            formula.replacedLb = true;
-                            break skillLoop;
+            if (builds[index].unit) {
+                let unitWithSkills = unitsWithSkills[builds[index].unit.id];
+                if (goalValue == "LB") {
+                    builds[index].goal = "custom";
+                    var skill = unitWithSkills.lb;
+                    formula = formulaFromSkill(skill);
+                } else if (goalValue == "LB_REPLACED") {
+                    skillLoop: for (var skillIndex = unitWithSkills.passives.length; skillIndex--;) {
+                        var passive = unitWithSkills.passives[skillIndex];
+                        for (var effectIndex = passive.effects.length; effectIndex--;) {
+                            var effect = passive.effects[effectIndex].effect;
+                            if (effect && effect.replaceLb) {
+                                builds[index].goal = "custom";
+                                var formula = formulaFromSkill(effect.replaceLb);
+                                formula.lb = true;
+                                formula.replacedLb = true;
+                                break skillLoop;
+                            }
                         }
                     }
-                }
 
-            } else if (goalValue.startsWith("SKILL_") && builds[currentUnitIndex].unit) {
-                builds[currentUnitIndex].goal = "custom";
-                var skillId = goalValue.substr(6);
-                var skill = getSkillFromId(skillId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                formula = formulaFromSkill(skill);
+                } else if (goalValue.startsWith("SKILL_")) {
+                    builds[index].goal = "custom";
+                    var skillId = goalValue.substr(6);
+                    var skill = getSkillFromId(skillId, unitWithSkills);
+                    formula = formulaFromSkill(skill);
 
-            } else if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
-                builds[currentUnitIndex].goal = "custom";
-                var skillId = goalValue.substr(10);
-                var skill = getSkillFromId(skillId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                var multicastEffect;
-                for (var i = skill.effects.length; i--;) {
-                    if (skill.effects[i].effect && skill.effects[i].effect.multicast) {
-                        multicastEffect = skill.effects[i].effect.multicast;
+                } else if (goalValue.startsWith("MULTICAST_")) {
+                    builds[index].goal = "custom";
+                    var skillId = goalValue.substr(10);
+                    var skill = getSkillFromId(skillId, unitWithSkills);
+                    var multicastEffect;
+                    for (var i = skill.effects.length; i--;) {
+                        if (skill.effects[i].effect && skill.effects[i].effect.multicast) {
+                            multicastEffect = skill.effects[i].effect.multicast;
+                        }
                     }
+                    var skillChoiceFormulas = [];
+                    for (var i = 0, len = multicastEffect.time; i < len; i++) {
+                        var skillChoiceValue = $("#multicastSelect" + i).val();
+                        var skillChoiceId = skillChoiceValue.substr(6);
+                        var skillChoice = getSkillFromId(skillChoiceId, unitWithSkills);
+                        skillChoiceFormulas.push(formulaFromSkill(skillChoice, true));
+                    }
+                    formula = {type:"multicast", skills: skillChoiceFormulas};
+                } else {
+                    builds[index].goal = goalValue;
+                    formula = formulaByGoal[goalValue];
                 }
-                var skillChoiceFormulas = [];
-                for (var i = 0, len = multicastEffect.time; i < len; i++) {
-                    var skillChoiceValue = $("#multicastSelect" + i).val();
-                    var skillChoiceId = skillChoiceValue.substr(6);
-                    var skillChoice = getSkillFromId(skillChoiceId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
-                    skillChoiceFormulas.push(formulaFromSkill(skillChoice, true));
-                }
-                formula = {type:"multicast", skills: skillChoiceFormulas};
-            } else {
-                builds[currentUnitIndex].goal = goalValue;
-                formula = formulaByGoal[goalValue];
+                $(".goal .chainMultiplier").removeClass("hidden");
             }
-            $(".goal .chainMultiplier").removeClass("hidden");
         }
     }
     formula = readSimpleConditions(formula);
-    builds[currentUnitIndex].formula = formula;
+    builds[index].formula = formula;
     
     goalVariation = $("#goalVariance").val();
     
-    $(".unitStack").toggleClass("hidden", !hasStack(builds[currentUnitIndex].formula));
+    $(".unitStack").toggleClass("hidden", !hasStack(builds[index].formula));
         
     $(".unitAttackElement").addClass("hidden");
-    if (builds[currentUnitIndex].unit && 
-        (builds[currentUnitIndex].involvedStats.includes("physicalKiller") 
-            || builds[currentUnitIndex].involvedStats.includes("magicalKiller")
-            || builds[currentUnitIndex].involvedStats.includes("weaponElement"))) {
+    if (builds[index].unit && 
+        (builds[index].involvedStats.includes("physicalKiller") 
+            || builds[index].involvedStats.includes("magicalKiller")
+            || builds[index].involvedStats.includes("weaponElement"))) {
         $(".unitAttackElement").removeClass("hidden");
     }
-    if (builds[currentUnitIndex].involvedStats.includes("weaponElement")) {
+    if (builds[index].involvedStats.includes("weaponElement")) {
         $(".unitAttackElement").removeClass("hidden");
     }
 }
@@ -649,7 +651,7 @@ function logCurrentBuild() {
     readStatsValues();
     readGoal();
     readEnnemyStats();
-    logBuild(builds[currentUnitIndex].build);
+    logBuild(builds[currentUnitIndex].build);        
 }
 
 function logBuild(build, value) {
@@ -1026,7 +1028,7 @@ function populateUnitSelect() {
     selector.empty();
     selector.removeData();
     selector.html(getUnitSelectOptions());
-    selector.on("select2:select", onUnitChange);
+    selector.on("select2:select", async () => await onUnitChange());
     selector.on('select2:open', function (e) {
         $('<label class="checkbox-label"><input id="displayOnly7StarsUnits" class="checkbox" type="checkbox" ' + (displayOnly7StarsUnits ? 'checked' : '') + '><span></span>Only 7★ units</label>') 
             .insertAfter(".select2-search")
@@ -1076,15 +1078,15 @@ function selectUnitDropdownWithoutNotify(unitId) {
     $('#unitsSelect').val(unitId).trigger('change.select2');
 }
 
-function selectUnit(unitId) {
+async function selectUnit(unitId) {
     $('#unitsSelect').val(unitId);
     $('#unitsSelect').trigger('change');
-    onUnitChange();
+    await onUnitChange();
 }
 
 function goalSelectTemplate(state) {
     if (!state.id) return state.text;
-    var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+    let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
     var html;
     if (state.id == "LB") {
         html = '<img class="selectIcon" src="img/icons/lb.png"> ' + state.text;
@@ -1114,7 +1116,7 @@ function goalSelectTemplate(state) {
         }
 
     } else if (state.id.startsWith("SKILL_")) {
-        var skill = getSkillFromId(state.id.substr(6), unitsWithSkills[builds[currentUnitIndex].unit.id]);
+        var skill = getSkillFromId(state.id.substr(6), unitWithSkills);
         if (skill) {
             html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text;
             
@@ -1138,7 +1140,7 @@ function goalSelectTemplate(state) {
             html = state.text;
         }
     } else if (state.id.startsWith("MULTICAST_")) {
-        var skill = getSkillFromId(state.id.substr(10), unitsWithSkills[builds[currentUnitIndex].unit.id]);
+        var skill = getSkillFromId(state.id.substr(10), unitWithSkills);
         if (skill) {
             html = '<img class="selectIcon" src="img/items/' + skill.icon + '"> ' + state.text + "<span class='selectTag multicastTag'>multicast</span>";
         } else {
@@ -1184,84 +1186,88 @@ function goalSelectTemplate(state) {
 }
 
 function onUnitChange() {
-    $("#unitsSelect").find(':selected').each(function() {
-        var unitId = $(this).val();
-        if (unitId === '777700004') {
-            $('#exportForBattle').removeClass('hidden');
-        } else {
-            $('#exportForBattle').addClass('hidden');
-        }
-        var selectedUnitData;
-        let iconId;
-        if (unitId.endsWith("-6")) {
-            selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
-            iconId = unitId.substr(0,unitId.length-3) + '6';
-        } else {
-            selectedUnitData = units[unitId];
-            iconId = unitId.substr(0,unitId.length-1) + selectedUnitData.max_rarity;
-        }
-        if (selectedUnitData) {
-            $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
-            var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
-            var oldValues = builds[currentUnitIndex].baseValues;
-            var oldLevel = builds[currentUnitIndex]._level;
-            
-            reinitBuild(currentUnitIndex);
-            var unitData = selectedUnitData;
-            if (unitData.enhancements) {
-                unitData = JSON.parse(JSON.stringify(unitData));
-                unitData.enhancementLevels = [];
-                for (var i = unitData.enhancements.length; i--;) {
-                    var enhancementLevel = unitData.enhancements[i].levels.length - 1;
-                    if (sameUnit) {
-                        enhancementLevel = $("#enhancement_" + i).val();
-                    }
-                    unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
-                    unitData.enhancementLevels[i] = enhancementLevel;
-                }
+    return new Promise(async resolve => {
+        if ($("#unitsSelect").find(':selected').length > 0) {
+            var unitId = $("#unitsSelect").val();
+            if (unitId === '777700004') {
+                $('#exportForBattle').removeClass('hidden');
+            } else {
+                $('#exportForBattle').addClass('hidden');
             }
-            builds[currentUnitIndex].setUnit(unitData);
-            if(sameUnit) {
-                builds[currentUnitIndex].baseValues = oldValues;
-                builds[currentUnitIndex].setLevel(oldLevel);
+            var selectedUnitData;
+            let iconId;
+            if (unitId.endsWith("-6")) {
+                selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
+                iconId = unitId.substr(0,unitId.length-3) + '6';
+            } else {
+                selectedUnitData = units[unitId];
+                iconId = unitId.substr(0,unitId.length-1) + selectedUnitData.max_rarity;
             }
-            updateUnitLevelDisplay();
-            updateUnitStats();
-            dataStorage.setUnitBuild(builds[currentUnitIndex]);
-            $("#help").addClass("hidden");
-            if (unitData.materiaSlots ||  unitData.materiaSlots == 0) {
-                for (var i = 4 - unitData.materiaSlots; i --;) {
-                    fixItem("unavailable", 9 - i);
-                }
-            }
-            
-            $(".panel.unit").removeClass("hidden");
-            $(".panel.goal .goalLine").removeClass("hidden");
-            $(".panel.goal .simpleConditions").removeClass("hidden");
+            if (selectedUnitData) {
+                let unitWithSkills = await ensureInitUnitWithSkills(unitId);
+                $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
+                var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
+                var oldValues = builds[currentUnitIndex].baseValues;
+                var oldLevel = builds[currentUnitIndex]._level;
 
-            builds[currentUnitIndex].goal = null;
-            updateGoal();
-            readGoal();
-        
-            recalculateApplicableSkills();
-            logCurrentBuild();
-            
-            if (itemInventory) {
-                $("#saveTeamButton").removeClass("hidden");
+                reinitBuild(currentUnitIndex);
+                var unitData = selectedUnitData;
+                if (unitData.enhancements) {
+                    unitData = JSON.parse(JSON.stringify(unitData));
+                    unitData.enhancementLevels = [];
+                    for (var i = unitData.enhancements.length; i--;) {
+                        var enhancementLevel = unitData.enhancements[i].levels.length - 1;
+                        if (sameUnit) {
+                            enhancementLevel = $("#enhancement_" + i).val();
+                        }
+                        unitData.skills = unitData.skills.concat(unitData.enhancements[i].levels[enhancementLevel]);
+                        unitData.enhancementLevels[i] = enhancementLevel;
+                    }
+                }
+                builds[currentUnitIndex].setUnit(unitData);
+                if(sameUnit) {
+                    builds[currentUnitIndex].baseValues = oldValues;
+                    builds[currentUnitIndex].setLevel(oldLevel);
+                }
+                updateUnitLevelDisplay();
+                updateUnitStats();
+                dataStorage.setUnitBuild(builds[currentUnitIndex]);
+                $("#help").addClass("hidden");
+                if (unitData.materiaSlots ||  unitData.materiaSlots == 0) {
+                    for (var i = 4 - unitData.materiaSlots; i --;) {
+                        fixItem("unavailable", 9 - i);
+                    }
+                }
+
+                $(".panel.unit").removeClass("hidden");
+                $(".panel.goal .goalLine").removeClass("hidden");
+                $(".panel.goal .simpleConditions").removeClass("hidden");
+
+                builds[currentUnitIndex].goal = null;
+                updateGoal();
+                readGoal();
+
+                recalculateApplicableSkills();
+                logCurrentBuild();
+
+                if (itemInventory) {
+                    $("#saveTeamButton").removeClass("hidden");
+                }
+            } else {
+                builds[currentUnitIndex].setUnit(null);
+                reinitBuild(currentUnitIndex); 
+                updateUnitStats();
+                $(".panel.unit").addClass("hidden");
+                $(".panel.goal .goalLine").addClass("hidden");
+                $(".panel.goal .simpleConditions").addClass("hidden");
             }
-        } else {
-            builds[currentUnitIndex].setUnit(null);
-            reinitBuild(currentUnitIndex); 
-            updateUnitStats();
-            $(".panel.unit").addClass("hidden");
-            $(".panel.goal .goalLine").addClass("hidden");
-            $(".panel.goal .simpleConditions").addClass("hidden");
+            displayUnitRarity(selectedUnitData);
+            displayUnitEnhancements();
+            if (window !== window.parent) {
+                window.parent.postMessage(JSON.stringify({'type':'unitSelected', 'value':''}), '*');
+            }
         }
-        displayUnitRarity(selectedUnitData);
-        displayUnitEnhancements();
-        if (window !== window.parent) {
-            window.parent.postMessage(JSON.stringify({'type':'unitSelected', 'value':''}), '*');
-        }
+        resolve();
     });
 }
 
@@ -1271,7 +1277,7 @@ function updateGoal() {
     updateSkillSelectOptions(choiceSelect);
 
     if (builds[currentUnitIndex].unit) {
-        var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+        let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
 
         var selectedSkill;
         var chainMultiplier;
@@ -1372,7 +1378,7 @@ function updateGoal() {
 function updateSkillSelectOptions(skillSelect) {
     skillSelect.empty();
     if (builds[currentUnitIndex].unit) {
-        var unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+        let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
 
         for (var selectDefaultIndex = goalQuickSelectDefaultValues.length - 1; selectDefaultIndex >= 0; selectDefaultIndex--) {
             skillSelect.append($("<option></option>").attr("value", goalQuickSelectDefaultValues[selectDefaultIndex][0]).text(goalQuickSelectDefaultValues[selectDefaultIndex][1]));
@@ -1444,7 +1450,7 @@ function displayUnitEnhancements() {
         var html = "";
         for (var i = 0, len = builds[currentUnitIndex].unit.enhancements.length; i < len; i++) {
             var enhancement = builds[currentUnitIndex].unit.enhancements[i];
-            html += '<div class="col-xs-6 unitEnhancement"><select class="form-control" onchange="onUnitChange();" id="enhancement_' + i + '">';
+            html += '<div class="col-xs-6 unitEnhancement"><select class="form-control" onchange="onUnitChange().then(() => {});" id="enhancement_' + i + '">';
             for (var j = 0, lenJ = enhancement.levels.length; j < lenJ; j++) {
                 html += '<option value="'+ j + '"';
                 if (builds[currentUnitIndex].unit.enhancementLevels[i] == j) {
@@ -1731,10 +1737,11 @@ function manageMulticast(selectedSkills) {
     if (!customFormula) {
         var goalValue = $(".goal #normalGoalChoice").val();
         if (goalValue) {
+            let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
             if (goalValue.startsWith("MULTICAST_") && builds[currentUnitIndex].unit) {
                 builds[currentUnitIndex].goal = "custom";
                 var skillId = goalValue.substr(10);
-                var skill = getSkillFromId(skillId, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+                var skill = getSkillFromId(skillId, unitWithSkills);
                 var multicastEffect;
                 for (var i = skill.effects.length; i--;) {
                     if (skill.effects[i].effect && skill.effects[i].effect.multicast) {
@@ -1746,10 +1753,10 @@ function manageMulticast(selectedSkills) {
                 if (multicastEffect.type=="skills") {
                     skillSource = multicastEffect.skills;
                 } else {
-                    skillSource = unitsWithSkills[builds[currentUnitIndex].unit.id].magics;
+                    skillSource = unitWithSkills.magics;
                 }
                 for (var j = 0, lenj = skillSource.length; j < lenj; j++) {
-                    var dcSkill = getSkillFromId(skillSource[j].id, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+                    var dcSkill = getSkillFromId(skillSource[j].id, unitWithSkills);
                     if (dcSkill) {
                         if (multicastEffect.type=="whiteMagic" && (!dcSkill.magic || dcSkill.magic != "white")) {
                             continue;
@@ -1802,7 +1809,8 @@ function chooseCustomFormula(optionalCustomFormula) {
     if (formulaConditionString && formulaConditionString.length > 0) {
         formulaString += ";" + formulaConditionString;
     }
-    var formula = parseFormula(formulaString, unitsWithSkills[builds[currentUnitIndex].unit.id]);
+    let unitWithSkills = unitsWithSkills[builds[currentUnitIndex].unit.id];
+    var formula = parseFormula(formulaString, unitWithSkills);
     if (formula) {
         if (!isSimpleFormula(formula)) {
             customFormula = formula;    
@@ -1893,7 +1901,6 @@ function updateSearchResult() {
     let excludeNotReleasedYetOption = $('#excludeNotReleasedYetOption input').prop('checked');
     var searchText = $("#searchText").val();
     if ((searchText == null || searchText == "") && searchType.length == 0 && searchStat == "") {
-        fixItemList.update([]);
         return;
     }
     var types = searchType;
@@ -1984,12 +1991,6 @@ function displayEquipableItemList(clickBehavior) {
     
     $("#fixItemModal").modal();
     if (!fixItemList) {
-//        fixItemList = new Clusterize({
-//          rows: [],
-//          scrollId: 'fixItemResults',
-//          contentId: 'resultsContent',
-//          rows_in_block: '10'
-//        });
         fixItemList = new VirtualScroll($('#fixItemResults'), getItemHtml, 64, false);
     }
     populateItemType(types);
@@ -2021,12 +2022,6 @@ function displayFixItemModal(slot) {
     
     $("#fixItemModal").modal();
     if (!fixItemList) {
-//        fixItemList = new Clusterize({
-//          rows: [],
-//          scrollId: 'fixItemResults',
-//          contentId: 'resultsContent',
-//          rows_in_block: '10'
-//        });
         fixItemList = new VirtualScroll($('#fixItemResults'), getItemHtml, 64, false);
     }
     let equipmentChoice = $(".equipments select").val();
@@ -2262,13 +2257,7 @@ var displaySearchResults = function(items) {
     } else {
         $("#fixItemModal").addClass("notLoggedIn");
     }
-//    var div = $("#fixItemModal .results .tbody");
-//    div.empty();
-    
-    //let htmls = items.map(item => getItemHtml(item));
     fixItemList.display(items);
-    //$("#fixItemModal #fixItemResults")[0].scrollTop = 0;
-    //displaySearchResultsAsync(items, 0, div);
     
     setTimeout(() => $("#fixItemModal #fixItemResults")[0].scrollTop = 0, 100);
     
@@ -2899,7 +2888,7 @@ function shortLinkFormatToData(shortLinkData) {
     return data;
 }
     
-function loadStateHashAndBuild(data, importMode = false) {
+async function loadStateHashAndBuild(data, importMode = false) {
     var dataVersion = data.version ? data.version : 0;
 
     if (data.itemSelector.mainSelector == "owned" && !itemInventory) {
@@ -2983,12 +2972,12 @@ function loadStateHashAndBuild(data, importMode = false) {
             refreshUnitSelect();
         }
         selectUnitDropdownWithoutNotify(unit.id + ((unit.rarity == 6 && units[unit.id]["6_form"]) ? '-6' : ''));
-        onUnitChange();
+        await onUnitChange();
         
         if (unit.enhancementLevels) {
             builds[currentUnitIndex].unit.enhancementLevels = unit.enhancementLevels;
             displayUnitEnhancements();
-            onUnitChange();
+            await onUnitChange();
         }
         
         builds[i].goal = "custom";
@@ -3762,7 +3751,7 @@ function modifyDefaultWeaponEnhancement() {
     selectEnchantement(fakeItem);
 }
 
-function findUnitForParamChallenge() {
+async function findUnitForParamChallenge() {
     runningParamChallenge = true;
     let ids = Object.keys(ownedUnits);
     let goal = $("#paramChallengeSelect").val();
@@ -3791,7 +3780,7 @@ function findUnitForParamChallenge() {
     for (i = currentUnitIdIndexForParamChallenge + 1; i < idsToSearch.length; i++) {
         currentUnitIdIndexForParamChallenge = i;
         selectUnitDropdownWithoutNotify(idsToSearch[i]);
-        onUnitChange();
+        await onUnitChange();
         chooseCustomFormula(tokens[0]);
         currentBestParamChallengeBuild.goal = parseInt(tokens[1]);
         build();
@@ -3806,7 +3795,7 @@ function findUnitForParamChallenge() {
         Modal.showMessage("Impossible to do the challenge", "Best build found has been displayed");    
     }
     selectUnitDropdownWithoutNotify(currentBestParamChallengeBuild.build.unit.id);
-    onUnitChange();
+    await onUnitChange();
     chooseCustomFormula(tokens[0]);
     builds[currentUnitIndex] = currentBestParamChallengeBuild.build;
     logCurrentBuild();
@@ -3935,6 +3924,7 @@ function exportUnitForCombat() {
         Modal.showMessage("Trying to get ahead in time ?", "Your current build includes items that are not yet released in GL. You can't bring them to the challenge.");
         return;
     }
+    let unitWithSkills = unitsWithSkills[unitBuild.unit.id];
 
     let unit = {
         id: unitBuild.unit.id,
@@ -3957,7 +3947,7 @@ function exportUnitForCombat() {
         startOfTurnSkills:unitBuild.build.filter((item, index) => item && index < 11 && item.startOfTurnSkills).reduce((acc, item) => acc.concat(item.startOfTurnSkills), []),
     }
     unit.skills = unitBuild.build.filter((item, index) => item && index < 11 && item.skills).reduce((acc, item) => acc = acc.concat(item.skills), []);
-    unit.skills = unit.skills.concat(unitsWithSkills[unitBuild.unit.id].actives).concat(unitsWithSkills[unitBuild.unit.id].magics);
+    unit.skills = unit.skills.concat(unitWithSkills.actives).concat(unitWithSkills.magics);
     baseStats.forEach(stat => {
         unit[stat] = {};
         unit[stat].base = unitBuild.stats[stat] + unitBuild.baseValues[stat].pots;
@@ -4073,12 +4063,27 @@ function notLoaded() {
     waitingCallbackKeyReady("loginStatus");
 }
 
+function ensureInitUnitWithSkills(unitId) {
+    return new Promise(resolve => {
+        if (unitsWithSkills[unitId]) {
+            resolve(unitsWithSkills[unitId]);     
+        } else {
+            $.get(`/${server}/unit/${unitId}`, function(result) {
+                unitsWithSkills[unitId] = result;
+                resolve(unitsWithSkills[unitId]);
+            }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {
+                Modal.showErrorGet(this.url, errorThrown);
+            });
+        }
+    });
+}
+
 // will be called by common.js at page load
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
     $('#useNewJpDamageFormula').prop('checked', true);
     
-    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill", "defaultBuilderEspers"], () => {
+    registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers"], () => {
         readStateHashData(function(hashData) {
             populateUnitSelect();
             prepareSearch(data);
@@ -4093,7 +4098,7 @@ function startPage() {
         });
     });
     
-    registerWaitingCallback(["data", "unitsWithPassives", "unitsWithSkill", "defaultBuilderEspers", "loginStatus"], () => {
+    registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers", "loginStatus"], () => {
         if (window !== window.parent) {
             window.parent.postMessage(JSON.stringify({'type':'ready'}), '*');
         }
@@ -4108,10 +4113,13 @@ function startPage() {
         units = result;
         waitingCallbackKeyReady("unitsWithPassives");
     });
-    getStaticData("unitsWithSkill", false, function(result) {
-        unitsWithSkills = result;
-        waitingCallbackKeyReady("unitsWithSkill");
-    });
+    
+    // try to read unit skill from cache
+    var unitsWithSkillsData = staticFileCache.retrieve(`${server}/unitsWithSkill.json`);
+    if (unitsWithSkillsData && !$.isEmptyObject(unitsWithSkillsData)) {
+        unitsWithSkills = unitsWithSkillsData;
+    }
+
     getStaticData("defaultBuilderEspers", false, function(result) {
         espers = [];
         for (var index = result.length; index--;) {
