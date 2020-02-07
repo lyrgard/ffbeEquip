@@ -8,11 +8,13 @@ class VirtualScroll {
             this.scrollableElement = $(document.documentElement);
             this.windowHeight = $(window).height();
             $(window).on('scroll', $.throttle(150, () => this.render()));
+            console.log(`VirtualScroll init. Whole page scrolling. containerOffset: ${this.containerOffset}, windowHeight: ${this.windowHeight}`);
         } else {
             this.containerOffset = 0;
             this.scrollableElement = container;
             this.windowHeight = container.height();
             container.on('scroll', $.throttle(150, () => this.render()));
+            console.log(`VirtualScroll init. div scrolling. containerOffset: ${this.containerOffset}, windowHeight: ${this.windowHeight}`);
         }
     }
     
@@ -31,6 +33,7 @@ class VirtualScroll {
         this.totalHeight = position;
         this.firstItemIndex = -1;
         this.lastItemIndex = -1;
+        console.log(`VirtualScroll display. #items: ${items.length}, totalHeight: ${this.totalHeight}`);
         this.render();
     }
     
@@ -68,6 +71,8 @@ class VirtualScroll {
             firstItemIndex = Math.max(firstItemIndex - 4, 0);
             lastItemIndex = Math.min(lastItemIndex + 4, this.items.length - 1);
 
+            console.log(`VirtualScroll render. firstItemIndex: ${firstItemIndex}, lastItemIndex: ${lastItemIndex}`);
+            
             this.container.empty();
             let html = '<div style="height:' + this.itemInfos[firstItemIndex].position + 'px"></div>';
             let itemsHeight = 0;
@@ -103,5 +108,6 @@ class VirtualScroll {
             this.itemInfos[i].position += deviation;
         }
         this.totalHeight += deviation;
+        console.log(`VirtualScroll updateHeights. deviation: ${deviation}`);
     }
 }
