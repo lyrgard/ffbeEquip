@@ -1196,7 +1196,9 @@ function onUnitChange() {
             }
             var selectedUnitData;
             let iconId;
+            let unitWithSkillsId = unitId;
             if (unitId.endsWith("-6")) {
+                unitWithSkillsId = unitId.substr(0,unitId.length-2);
                 selectedUnitData = units[unitId.substr(0,unitId.length-2)]["6_form"];
                 iconId = unitId.substr(0,unitId.length-3) + '6';
             } else {
@@ -1204,7 +1206,7 @@ function onUnitChange() {
                 iconId = unitId.substr(0,unitId.length-1) + selectedUnitData.max_rarity;
             }
             if (selectedUnitData) {
-                let unitWithSkills = await ensureInitUnitWithSkills(unitId);
+                let unitWithSkills = await ensureInitUnitWithSkills(unitWithSkillsId);
                 $("#unitTabs .tab_" + currentUnitIndex + " a").html("<img src=\"img/units/unit_icon_" + iconId + ".png\"/>" + selectedUnitData.name);
                 var sameUnit = (builds[currentUnitIndex].unit && builds[currentUnitIndex].unit.id == selectedUnitData.id && builds[currentUnitIndex].unit.sixStarForm == selectedUnitData.sixStarForm);
                 var oldValues = builds[currentUnitIndex].baseValues;

@@ -15,13 +15,10 @@ route.get('/:server/unit/:unitId', async (req, res) => {
     
   if (data[server]) {
       // check if new data available
-      console.log(`server ${server} unit ${unitId}`);
       if ((data[server].date > now - 300000 || !data[server].data[unitId])) {
-          console.log("refresh dataVersion");
           const dataVersionContent = fs.readFileSync(`./static/${server}/dataVersion.json`, 'utf8');
           const dataVersion = JSON.parse(dataVersionContent).version;
           if (dataVersion > data[server].version) {
-              console.log("refresh data");
               data[server].data = JSON.parse(fs.readFileSync(`./static/${server}/unitsWithSkill.json`, 'utf8'));
           }
           data[server].date = now;
