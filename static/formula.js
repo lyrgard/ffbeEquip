@@ -646,6 +646,10 @@ function innerGetSimpleConditions(formula, simpleConditions) {
                     if (!simpleConditions.various.includes("accuracy")) {
                         simpleConditions.various.push("accuracy")
                     }
+                } else if (formula.value1.name == "drawAttacks" && formula.value2.value == 100) {
+                    if (!simpleConditions.various.includes("drawAttacks")) {
+                        simpleConditions.various.push("drawAttacks")
+                    }
                 }
             }
             break;

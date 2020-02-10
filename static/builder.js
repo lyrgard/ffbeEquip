@@ -4069,7 +4069,7 @@ function ensureInitUnitWithSkills(unitId) {
         if (unitsWithSkills[unitId]) {
             resolve(unitsWithSkills[unitId]);     
         } else {
-            $.get(`https://ffbeEquip.com/${server}/unit/${unitId}`, function(result) {
+            $.get(`/${server}/unit/${unitId}`, function(result) {
                 unitsWithSkills[unitId] = result;
                 resolve(unitsWithSkills[unitId]);
             }, 'json').fail(function(jqXHR, textStatus, errorThrown ) {

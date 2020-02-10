@@ -8114,6 +8114,126 @@
 			]
 		}
 	},
+	"100029305": {
+		"name":"Pone",
+		"jpname":"ポネ",
+		"id":"100029305",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4700,"mp":263,"atk":165,"def":166,"mag":201,"spr":204},
+			"minStats":{"hp":1551,"mp":87,"atk":54,"def":55,"mag":66,"spr":67},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":60, "def%":20, "mag%":40, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"stone","physical":50},{"name":"plant","physical":50}], "mpRefresh":5},
+			{"mag%":40, "spr%":40, "dualWielding":{"spr":25}, "lbFillRate":50, "equipedConditions":[["504235080","311005700"]]},
+			{"mp%":20, "spr%":20, "killers":[{"name":"stone","physical":25},{"name":"plant","physical":25}], "levelCondition":110},
+			{"hp%":30, "levelCondition":115},
+			{"def%":30, "spr%":50, "resist":[{"name":"stop","percent":100}], "skillEnhancement":{"235012":16,"235013":16}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Pone",
+			"jpname":"ポネ",
+			"id":"100029305",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3615,"mp":202,"atk":126,"def":127,"mag":154,"spr":156},
+				"minStats":{"hp":1193,"mp":67,"atk":42,"def":42,"mag":51,"spr":51},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","whip","throwing","hat","clothes","robe"],
+			"skills": [
+				{"hp%":20, "mp%":60, "def%":20, "mag%":40, "spr%":50, "resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100}], "killers":[{"name":"stone","physical":50},{"name":"plant","physical":50}], "mpRefresh":5}
+			]
+		}
+	},
+	"100029405": {
+		"name":"Luciano",
+		"jpname":"ルチアーノ",
+		"id":"100029405",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4431,"mp":283,"atk":111,"def":157,"mag":220,"spr":202},
+			"minStats":{"hp":1462,"mp":93,"atk":37,"def":52,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+		"skills": [
+			{"hp%":10, "mp%":40, "def%":40, "mag%":100, "spr%":40, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "mpRefresh":5, "skillEnhancement":{"235050":10,"235051":10,"235052":10,"235055":14,"235056":14,"235057":14}},
+			{"mag%":50, "singleWielding":{"mag":50}, "dualWielding":{"mag":25}, "equipedConditions":[["504235082","310008400"]]},
+			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "levelCondition":110},
+			{"mag%":20, "levelCondition":115},
+			{"mp%":20, "mag%":30, "singleWielding":{"mag":150}, "dualWielding":{"mag":25}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Luciano",
+			"jpname":"ルチアーノ",
+			"id":"100029405",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3408,"mp":217,"atk":85,"def":120,"mag":169,"spr":155},
+				"minStats":{"hp":1125,"mp":72,"atk":28,"def":40,"mag":56,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","harp","hat","clothes","robe"],
+			"skills": [
+				{"hp%":10, "mp%":40, "def%":40, "mag%":100, "spr%":40, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "mpRefresh":5, "skillEnhancement":{"235050":10,"235051":10,"235052":10,"235055":14,"235056":14,"235057":14}}
+			]
+		}
+	},
+	"100029504": {
+		"name":"Pietro",
+		"jpname":"ピエトロ",
+		"id":"100029504",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3552,"mp":184,"atk":119,"def":130,"mag":145,"spr":149},
+			"minStats":{"hp":1172,"mp":61,"atk":39,"def":43,"mag":48,"spr":49},
+			"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","staff","rod","spear","throwing","lightShield","hat","clothes","robe"],
+		"skills": [
+			{"hp%":20, "mp%":20, "mag%":20, "mpRefresh":5},
+			{"mp%":30, "mag%":30, "equipedConditions":["rod"]},
+			{"spr%":30, "equipedConditions":["robe"]}
+		]
+	},
+	"100029603": {
+		"name":"ダリオ",
+		"jpname":"ダリオ",
+		"id":"100029603",
+		"max_rarity":"5",
+		"min_rarity":"3",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3013,"mp":105,"atk":138,"def":100,"mag":67,"spr":70},
+			"minStats":{"hp":994,"mp":35,"atk":46,"def":33,"mag":22,"spr":23},
+			"pots":{"hp":240,"mp":40,"atk":24,"def":16,"mag":16,"spr":16}
+		},
+		"stats_pattern":1,
+		"equip":["hammer","spear","throwing","mace","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":20, "atk%":40, "def%":20, "lbPerTurn":{"min":2,"max":2}}
+		]
+	},
 	"100029705": {
 		"name":"Audrey",
 		"jpname":"オードリー",
@@ -9023,7 +9143,7 @@
 		"enhancements": [
 			{"name":"尽きせぬ魔剣士の力","levels":[[],[{"hp%":50,"singleWielding":{"accuracy":25,"atk":50}}]]},
 			{"name":"暗黒剣の使い手","levels":[[{"atk%":20,"mp%":20,"resist":[{"name":"light","percent":20},{"name":"dark","percent":20}],"levelCondition":105}],[{"atk%":60,"mp%":20,"resist":[{"name":"light","percent":20},{"name":"dark","percent":20}],"skillEnhancement":{"510267":15},"levelCondition":105}],[{"atk%":60,"mp%":20,"resist":[{"name":"light","percent":20},{"name":"dark","percent":20}],"skillEnhancement":{"510267":15},"dualWielding":{"atk":50},"improvedDW":true,"levelCondition":105}]]},
-			{"name":"魔剣士を極めし者","levels":[[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":1.5,"228572":1.5,"228573":1.5,"228574":1.5,"228575":1.5,"228576":1,"508630":1.5,"708375":1.5,"708376":1.5,"708377":1.5,"708378":1.5,"708379":1,"708380":1},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":3,"228572":3,"228573":3,"228574":3,"228575":3,"228576":3,"508630":47,"708375":3,"708376":3,"708377":3,"708378":3,"708379":3,"708380":3},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":3,"228572":3,"228573":3,"228574":3,"228575":3,"228576":3,"508630":47,"708375":3,"708376":3,"708377":3,"708378":3,"708379":3,"708380":3},"replaceLb":{"name":"魔滅刃","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":23.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (23.2x * 2 = 46.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":33,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (33x * 2 = 66x, ATK) to one enemy (ignore cover)"}],"frames":[90],"move":"walk"},"levelCondition":120}]]}
+			{"name":"魔剣士を極めし者","levels":[[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":1.5,"228572":1.5,"228573":1.5,"228574":1.5,"228575":1.5,"228576":1,"508630":1.5,"708375":1.5,"708376":1.5,"708377":1.5,"708378":1.5,"708379":1,"708380":1},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":4.5,"228572":4.5,"228573":4.5,"228574":4.5,"228575":4.5,"228576":4.5,"508630":48.5,"708375":4.5,"708376":4.5,"708377":4.5,"708378":4.5,"708379":4.5,"708380":4.5},"levelCondition":120}],[{"singleWielding":{"accuracy":25,"atk":50},"dualWielding":{"atk":50},"skillEnhancement":{"228570":4.5,"228572":4.5,"228573":4.5,"228574":4.5,"228575":4.5,"228576":4.5,"508630":48.5,"708375":4.5,"708376":4.5,"708377":4.5,"708378":4.5,"708379":4.5,"708380":4.5},"replaceLb":{"name":"魔滅刃","minEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":23.2,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (23.2x * 2 = 46.4x, ATK) to one enemy (ignore cover)"}],"maxEffects":[{"effect":{"break":{},"turns":0,"area":"ST","target":"ENEMY"},"desc":"No effect"},{"effect":{"killers":[{"name":"aquatic","physical":200},{"name":"demon","physical":200}],"turns":1,"area":"SELF","target":"SELF"},"desc":"Increase physical damage against Aquatics and Demons by 200% to caster for one turn"},{"effect":{"damage":{"mecanism":"physical","damageType":"body","coef":33,"ignore":{"def":50}},"area":"ST","target":"ENEMY"},"desc":"Physical damage (33x * 2 = 66x, ATK) to one enemy (ignore cover)"}],"frames":[90],"move":"walk"},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":20, "mp%":20, "atk%":30, "def%":20, "spr%":30, "singleWielding":{"accuracy":50,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"petrification","percent":100},{"name":"light","percent":30},{"name":"dark","percent":30}], "killers":[{"name":"aquatic","physical":50,"magical":50},{"name":"demon","physical":50,"magical":50}], "mpRefresh":5, "special":["dualWield"]},
@@ -9991,7 +10111,7 @@
 		}
 	},
 	"204002705": {
-		"name":"Theodore",
+		"name":"Ceodore",
 		"jpname":"セオドア",
 		"id":"204002705",
 		"max_rarity":"7",
@@ -10014,7 +10134,7 @@
 			{"mp%":40, "spr%":40, "lbFillRate":150, "resist":[{"name":"paralysis","percent":100},{"name":"confuse","percent":100},{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Theodore",
+			"name":"Ceodore",
 			"jpname":"セオドア",
 			"id":"204002705",
 			"sixStarForm":true,
@@ -16346,7 +16466,8 @@
 		]
 	},
 	"254001505": {
-		"name":"0組の秀才エース",
+		"name":"Class Zero Ace",
+		"jpname":"0組の秀才エース",
 		"id":"254001505",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -16369,7 +16490,8 @@
 			{"evade":{"physical":20,"magical":50}, "skillEnhancement":{"234850":20,"234853":9,"234854":9,"511872":9,"511873":9}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"0組の秀才エース",
+			"name":"Class Zero Ace",
+			"jpname":"0組の秀才エース",
 			"id":"254001505",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -16391,7 +16513,8 @@
 		}
 	},
 	"254001605": {
-		"name":"慈愛の少女レム",
+		"name":"Beloved Girl Rem",
+		"jpname":"慈愛の少女レム",
 		"id":"254001605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -16415,7 +16538,8 @@
 			{"mp%":40, "mag%":40, "spr%":30, "dualWielding":{"mag":50}, "skillEnhancement":{"234891":17,"234892":17,"234893":17,"234894":17,"234895":8,"234896":8,"234897":8,"511920":8,"511921":8}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"慈愛の少女レム",
+			"name":"Beloved Girl Rem",
+			"jpname":"慈愛の少女レム",
 			"id":"254001605",
 			"sixStarForm":true,
 			"max_rarity":"6",
@@ -16437,7 +16561,8 @@
 		}
 	},
 	"254001704": {
-		"name":"ホシヒメ",
+		"name":"Celestia",
+		"jpname":"ホシヒメ",
 		"id":"254001704",
 		"max_rarity":"6",
 		"min_rarity":"4",
@@ -16581,7 +16706,8 @@
 		]
 	},
 	"254002105": {
-		"name":"不撓の戦士マキナ",
+		"name":"Tenacious Warrior Machina",
+		"jpname":"不撓の戦士マキナ",
 		"id":"254002105",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -16605,7 +16731,8 @@
 			{"atk%":40, "def%":40, "skillEnhancement":{"234940":8,"234941":8,"234942":8,"234943":8,"234944":4}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"不撓の戦士マキナ",
+			"name":"Tenacious Warrior Machina",
+			"jpname":"不撓の戦士マキナ",
 			"id":"254002105",
 			"sixStarForm":true,
 			"max_rarity":"6",
