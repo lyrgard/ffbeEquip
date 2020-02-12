@@ -1,5 +1,5 @@
 const skillToken = "SKILL";
-const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY"];
+const baseVariables = ["HP","MP","ATK","DEF","MAG","SPR","MP_REFRESH","P_EVADE","M_EVADE", "EVO_MAG","P_DAMAGE","M_DAMAGE","H_DAMAGE", "F_DAMAGE","P_DAMAGE_MAG", "P_DAMAGE_MULTICAST", "P_DAMAGE_SPR", "P_DAMAGE_DEF", "P_DAMAGE_MAG_MULTICAST", "P_DAMAGE_SPR_MULTICAST", "P_DAMAGE_DEF_MULTICAST", "F_DAMAGE_ATK","M_DAMAGE_ATK","M_DAMAGE_SPR","J_DAMAGE", "S_DAMAGE","R_FIRE","R_ICE","R_THUNDER", "R_LIGHTNING","R_WATER","R_EARTH","R_WIND","R_LIGHT","R_DARK","R_POISON","R_BLIND","R_SLEEP","R_SILENCE","R_PARALYSIS","R_CONFUSION","R_DISEASE","R_PETRIFICATION","R_DEATH","I_DISABLE","LB", "ACCURACY", "LB_DAMAGE", "DRAW_ATTACKS", "ANY", "MONSTER_DAMAGE"];
 const elementVariables = ["E_FIRE", "E_ICE", "E_THUNDER", "E_WATER", "E_EARTH", "E_WIND", "E_LIGHT", "E_DARK", "E_NONE"];
 const operators = ["/","*","+","-",">", "OR", "AND", ";"];
 const booleanResultOperators=[">", "OR", "AND", ";"];
@@ -62,7 +62,8 @@ const attributeByVariable = {
     "LB":"lbPerTurn",
     "ACCURACY": "accuracy",
     "DRAW_ATTACKS": "drawAttacks",
-    "ANY":"any"
+    "ANY":"any",
+    "MONSTER_DAMAGE": "monsterDamage",
 };
 
 const simpleImunityValues = ["resist|poison.percent","resist|blind.percent","resist|sleep.percent","resist|silence.percent","resist|paralysis.percent","resist|confuse.percent","resist|disease.percent","resist|petrification.percent","resist|death.percent"];
@@ -105,6 +106,7 @@ const abbreviations = {
     "I_EARTH" : "R_EARTH > 100",
     "I_LIGHT" : "R_LIGHT > 100",
     "I_DARK" : "R_DARK > 100",
+    "SURVIVING" : "HP > MONSTER_DAMAGE",
 }
 
 var elementVariablesUsed = [];
@@ -334,8 +336,10 @@ function popOperator(operatorStack, outputQueue) {
             return false;
         }
         if (value2.type != "constant") {
-            alert("Error. Right part of a " + operator + " must evaluate to a constant.");
-            return false;
+            if (!(value1.type === 'value' && value1.name === 'hp' && value2.type === 'value' && value2.name === 'monsterDamage')) {
+                alert("Error. Right part of a " + operator + " must evaluate to a constant.");
+                return false;
+            }
         }
     } else {
         if (booleanResultOperators.includes(value1.type)) {

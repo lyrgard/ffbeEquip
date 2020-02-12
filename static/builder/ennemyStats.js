@@ -48,7 +48,8 @@ class EnnemyStats {
                 'wind':ennemyStats.imperils.wind, 
                 'light':ennemyStats.imperils.light, 
                 'dark':ennemyStats.imperils.dark
-            }
+            },
+            ennemyStats.monsterAttack
         );
     }
 }

@@ -21,7 +21,7 @@ const involvedStatsByValue = {
 const statProgression = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100];
 
 class UnitBuild {
-    
+
     constructor(unit, fixedItems, baseValues) {
         this.unit = unit;
         this.fixedItems = fixedItems;
@@ -38,7 +38,7 @@ class UnitBuild {
         }
         this.goal = null;
         this._formula = null;
-        this.involvedStats = [];
+        this._involvedStats = [];
         this.desirableItemIds = [];
         this.freeSlots = 0;
         if (this.unit) {
@@ -48,6 +48,7 @@ class UnitBuild {
         }
         this._tdwCap = null;
         this._bannedEquipableTypes = [];
+        this._monsterAttackFormula = null;
     }
     
     getPartialDualWield() {
@@ -330,13 +331,15 @@ class UnitBuild {
             var name = formula.name;
             if (involvedStatsByValue[name]) {
                 for (var index = involvedStatsByValue[name].length; index--;) {
-                    if (!this.involvedStats.includes(involvedStatsByValue[name][index])) {
-                        this.involvedStats.push(involvedStatsByValue[name][index]);
+                    if (!this._involvedStats.includes(involvedStatsByValue[name][index])) {
+                        this._involvedStats.push(involvedStatsByValue[name][index]);
                     }
                 }
+            } else if (name=="monsterDamage"){
+                this.addToInvolvedStats(this.getMonsterAttackInvolvedStats());
             } else {
-                if (!this.involvedStats.includes(name)) {
-                    this.involvedStats.push(name);
+                if (!this._involvedStats.includes(name)) {
+                    this._involvedStats.push(name);
                 }
             }
             if (formula.lb) {
@@ -344,7 +347,7 @@ class UnitBuild {
             }
         } else if (formula.type == "condition") {
             this.calculateInvolvedStats(formula.condition);
-            this.calculateInvolvedStats(formula.formula);  
+            this.calculateInvolvedStats(formula.formula);
         } else if (this.unit && formula.type == ">" && formula.value1.type == "value" && formula.value2.type == "constant") {
             if (formula.value1.name.startsWith("resist|") && ailmentList.includes(formula.value1.name.substr(7, formula.value1.name.length - 15))) {
                 var applicableSkills = [];
@@ -366,17 +369,58 @@ class UnitBuild {
                 this.calculateInvolvedStats(formula.value1);
             }
         } else if (formula.type=="heal"){
-            this.addToInvolvedStats(["spr","mag"])
+            this.addToInvolvedStats(["spr","mag"]);
         } else if (formula.type != "elementCondition" &&  formula.type != "constant" && formula.type != "chainMultiplier" && formula.type != "imperil" && formula.type != "break" && formula.type != "imbue" && formula.type != "statsBuff" && formula.type != "killers" && formula.type != "skillEnhancement" && formula.type != "lbFill" && formula.type != "berserk") {
             this.calculateInvolvedStats(formula.value1);
             this.calculateInvolvedStats(formula.value2);
         }
     }
+
+    getMonsterAttackInvolvedStats() {
+        if (this._monsterAttackFormula) {
+            let involvedStats = ['hp'];
+            this.innerGetMonsterAttackInvolvedStats(this._monsterAttackFormula, involvedStats);
+            return involvedStats;
+        } else {
+            return [];
+        }
+    }
+
+    innerGetMonsterAttackInvolvedStats(formula, involvedStats) {
+        switch(formula.type) {
+            case "*":
+            case "+":
+                this.innerGetMonsterAttackInvolvedStats(formula.value1, involvedStats);
+                this.innerGetMonsterAttackInvolvedStats(formula.value2, involvedStats);
+            case "skill":
+                switch (formula.formulaName) {
+                    case "physicalDamage":
+                    case 'atkDamageWithFixedMecanism':
+                        if (!involvedStats.includes('def')) {
+                            involvedStats.push('def');
+                        }
+                        break;
+                    case 'magicalDamage':
+                        if (!involvedStats.includes('spr')) {
+                            involvedStats.push('spr');
+                        }
+                        break;
+                    case 'hybridDamage':
+                        if (!involvedStats.includes('def')) {
+                            involvedStats.push('def');
+                        }
+                        if (!involvedStats.includes('spr')) {
+                            involvedStats.push('spr');
+                        }
+                        break;
+                }
+        }
+    }
     
     addToInvolvedStats(stats) {
         for (var i = stats.length; i--;) {
-            if (!this.involvedStats.includes(stats[i])) {
-                this.involvedStats.push(stats[i]);
+            if (!this._involvedStats.includes(stats[i])) {
+                this._involvedStats.push(stats[i]);
             }
         }
     }
@@ -397,9 +441,16 @@ class UnitBuild {
     }
     set formula(formula) {
         this._formula = formula;
-        this.involvedStats = [];
+        this._involvedStats = [];
         if (formula) {
             this.calculateInvolvedStats(formula);
+        }
+    }
+    set monsterAttackFormula(value) {
+        this._monsterAttackFormula = value;
+        this._involvedStats = [];
+        if (this._formula) {
+            this.calculateInvolvedStats(this._formula);
         }
     }
 
@@ -455,5 +506,17 @@ class UnitBuild {
                 }
             }
         }
+    }
+
+    get involvedStats() {
+        if (!this._involvedStats) {
+            this._involvedStats = [];
+            this.calculateInvolvedStats();
+        }
+        return this._involvedStats;
+    }
+
+    set involvedStats(value) {
+        this._involvedStats = value;
     }
 }

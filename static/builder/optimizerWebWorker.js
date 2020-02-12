@@ -26,6 +26,7 @@ onmessage = function(event) {
             server = messageData.server;
             unitBuild.setLevel(messageData.level),
             unitBuild.innateElements = messageData.innateElements,
+            unitBuild.monsterAttackFormula = messageData.monsterAttackFormula,
             unitBuild.formula = messageData.formula;
             optimizer.unitBuild = unitBuild;
             optimizer.dataByType = messageData.dataByType;

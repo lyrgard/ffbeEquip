@@ -136,7 +136,7 @@ let displayOnly7StarsUnits = true;
 
 let fixItemList;
 
-let defaultMonsterAttackFormula = {"type":"*", "value1":{"type":"constant","value":"1"}, "value2":{"type":"value","name":"physicalDamage"}};
+let defaultMonsterAttackFormula = {"type":"*","value1":{"type":"constant","value":1},"value2":{"type":"skill","id":"0","name":"1x physical ATK damage","formulaName":"physicalDamage","value":{"type":"damage","value":{"mecanism":"physical","damageType":"body","coef":1}}}};
 let monsterAttackFormula;
 
 function onBuildClick() {
@@ -251,6 +251,7 @@ function optimize() {
             "baseValues":builds[currentUnitIndex].baseValues,
             "innateElements":builds[currentUnitIndex].innateElements,
             "formula":builds[currentUnitIndex].formula,
+            "monsterAttackFormula": monsterAttackFormula,
             "dataByType":dataStorage.dataByType,
             "dataWithCondition":dataStorage.dataWithCondition,
             "dualWieldSources":dataStorage.dualWieldSources,
@@ -869,6 +870,7 @@ function logBuild(build, value) {
         $("#resultStats .hybridDamageResult").removeClass("secondary");
         $("#resultStats .healingResult").removeClass("secondary");
     }
+    $("#resultStats .damageTaken .calcValue").html(Math.floor(calculateMonsterDamage(monsterAttackFormula, build, builds[currentUnitIndex], ennemyStats).max).toLocaleString());
     $("#resultStats .monsterDefValue").text(" " + ennemyStats.def);
     $("#resultStats .monsterSprValue").text(" " + ennemyStats.spr);
     $("#resultStats .damageCoef").html("1x");
@@ -1618,6 +1620,7 @@ function reinitBuilds() {
         closeTab(i);
     }
     builds[0] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
+    builds[0].monsterAttackFormula = monsterAttackFormula;
     loadBuild(0);
     $(".panel.goal .goalLine").addClass("hidden");
     $(".panel.goal .simpleConditions").addClass("hidden");
@@ -1625,6 +1628,7 @@ function reinitBuilds() {
 
 function reinitBuild(buildIndex) {
     builds[buildIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null,null,null,null], {});
+    builds[buildIndex].monsterAttackFormula = monsterAttackFormula;
     readGoal(buildIndex);
 }
 
@@ -3102,7 +3106,7 @@ async function loadStateHashAndBuild(data, importMode = false) {
         if (unit.lbShardsPerTurn) {
             $(".unitStats .stat.lbShardsPerTurn .buff input").val(unit.lbShardsPerTurn);
         }
-        let mitigation = unit.buffs.mitigataion || unit.mitigation;
+        let mitigation = unit.buffs.mitigation || unit.mitigation;
         if (mitigation) {
             $(".unitStats .stat.pMitigation .buff input").val(mitigation.physical);
             $(".unitStats .stat.mMitigation .buff input").val(mitigation.magical);
@@ -3426,6 +3430,11 @@ function chooseMonsterAttackFormula() {
     
 function setMonsterAttackFormula(attackFormula) {
     monsterAttackFormula = attackFormula;
+    builds.forEach(bu => {
+        if (bu) {
+            bu.monsterAttackFormula = attackFormula;
+        }
+    });
     $('#monsterAttack .monsterAttackFormula').text(formulaToString(monsterAttackFormula, false));
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
         logCurrentBuild();
@@ -4246,9 +4255,10 @@ function startPage() {
     });
     $(".includedItemNumber").html(itemsToInclude.length);
 
-    
+
     builds[currentUnitIndex] = new UnitBuild(null, [null, null, null, null, null, null, null, null, null, null, null], null);
-    
+    builds[currentUnitIndex].monsterAttackFormula = monsterAttackFormula;
+
     $("#normalGoalChoice").on("select2:select", function() {
         customFormula = null;
         manageMulticast();

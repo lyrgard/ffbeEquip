@@ -1039,7 +1039,7 @@ function importUnits() {
         title: "Import unit collection",
         body: '<p class="label label-danger">This feature is a Work in Progress. It will override your unit collection on FFBE Equip</p><br/><br/>' +
               '<input type="file" id="importFile" name="importFile" onchange="treatImportFile"/>'+
-              '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> (require +login to FFBE with Facebook for now. Google login will probably be supported later)</p><br>' +
+              '<p><a class="link" href="https://www.reddit.com/r/FFBraveExvius/comments/dd8ljd/ffbe_sync_is_back/">Instructions to import your data directly from the game</a> ((require login to FFBE with Facebook or Google)</p><br>' +
               '<p id="importSummary"></p>',
         buttons: [{
             text: "Import",
