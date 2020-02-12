@@ -1,6 +1,8 @@
 class EnnemyStats {
-    constructor(races, def, spr, elementalResists, breaks, buffs, breakability, imperils) {
+    constructor(races, atk, mag, def, spr, elementalResists, breaks, buffs, breakability, imperils, monsterAttack) {
         this.races = races;
+        this.atk = atk;
+        this.mag = mag;
         this.def = def;
         this.spr = spr;
         this.elementalResists = elementalResists;
@@ -8,11 +10,14 @@ class EnnemyStats {
         this.buffs = buffs;
         this.breakability = breakability;
         this.imperils = imperils;
+        this.monsterAttack = monsterAttack;
     }
     
     static copy(ennemyStats) {
         return new EnnemyStats(
             ennemyStats.races,
+            ennemyStats.atk,
+            ennemyStats.mag,
             ennemyStats.def,
             ennemyStats.spr,
             ennemyStats.elementalResists,

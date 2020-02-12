@@ -30,11 +30,11 @@
     text-align: right;
 }
 
-#elementalResists input.buff, #monsterDefensiveStats .buff {
+#elementalResists input.buff, #monsterStats .buff {
     color: forestgreen;
 }
 
-#elementalResists input.debuff, #monsterDefensiveStats .break {
+#elementalResists input.debuff, #monsterStats .break {
     color: crimson;
 }
 
@@ -345,23 +345,23 @@
     display: initial;
 }
 
-#monsterDefensiveStats {
+#monsterStats {
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
 }
 
-#monsterDefensiveStats .input-group {
+#monsterStats .input-group {
     display: flex;
     margin-right: 10px;
 }
 
-#monsterDefensiveStats input {
+#monsterStats input {
     width: 70px;
     text-align: right;
 }
 
-#monsterDefensiveStats .input-group-addon {
+#monsterStats .input-group-addon {
     width: 50px;
     line-height: 20px;
 }
@@ -1285,6 +1285,10 @@ i.img.img-slot-hand.leftHand {
     vertical-align: middle;
     background-color: #777;
     border-radius: 10px;
+}
+
+#monsterAttack, #monsterAttackFormulaModal button{
+    margin-top: 10px;
 }
 
 

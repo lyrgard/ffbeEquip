@@ -533,11 +533,16 @@ function formulaFromEffect(effect, multicast = false) {
     return null;
 }
 
-function formulaToString(formula, useParentheses = false) {
+function formulaToString(formula, addPrefix = true) {
     if (!formula) {
         return "EMPTY FORMULA";
     }
-    return "Maximize " + innerFormulaToString(formula);
+    let result = "";
+    if (addPrefix) {
+        result += "Maximize ";
+    }
+    result += innerFormulaToString(formula);
+    return result;
 }
 
 function innerFormulaToString(formula, useParentheses = false) {
@@ -758,7 +763,6 @@ function isSimpleFormula(formula) {
     switch(formula.type) {
         case "condition":
             return isSimpleFormula(formula.formula) && isSimpleFormula(formula.condition);
-            break;
         case "multicast":
         case "elementCondition":
         case "skill" :
@@ -806,6 +810,26 @@ function isSimpleFormula(formula) {
             || formula.name == "physicalDamageMultiCast"
             || formula.name == "fixedDamageWithPhysicalMecanism"
             || formula.name == "summonerSkill");
+        default:
+            return false;
+    }
+}
+
+function isAttackFormula(formula) {
+    switch(formula.type) {
+        case "*":
+        case "+":
+            return isAttackFormula(formula.value1) && isAttackFormula(formula.value2);
+        case "constant":
+            return true;
+        case "skill":
+            return !formula.lb && (
+                formula.formulaName == "physicalDamage"
+            || formula.formulaName == "magicalDamage" 
+            || formula.formulaName == "hybridDamage" 
+            || formula.formulaName == "fixedDamageWithPhysicalMecanism" 
+            || formula.formulaName == "atkDamageWithFixedMecanism" 
+            );
         default:
             return false;
     }

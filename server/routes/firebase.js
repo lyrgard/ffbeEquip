@@ -278,6 +278,8 @@ const partyBuildSchema = Joi.object().keys({
             light:Joi.number().integer(),
             dark:Joi.number().integer()
         }),
+        "atk": Joi.number().integer(),
+        "mag": Joi.number().integer(),
         "def": Joi.number().integer(),
         "spr": Joi.number().integer(),
         "imperils": Joi.object().keys({
@@ -307,7 +309,8 @@ const partyBuildSchema = Joi.object().keys({
             "def":Joi.boolean(),
             "mag":Joi.boolean(),
             "spr":Joi.boolean(),
-        })
+        }),
+        attackFormula: Joi.string().max(200),
     }),
     "useNewJpDamageFormula": Joi.boolean().required(),
     "itemSelector": Joi.object().keys({

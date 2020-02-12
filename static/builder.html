@@ -801,7 +801,21 @@
                     </div>
                     <div class="panel-body">
                         <div id="negativeBreakImperilWarning" class="hidden"><span class="label label-danger"><span class="glyphicon glyphicon-warning-sign"></span> You entered negative breaks or imperils. Break and imperil usually are positive numbers. You are currently buffing the enemy</span></div>
-                        <div id="monsterDefensiveStats">
+                        <div id="monsterStats">
+                            <div class="input-group atk">
+                                <span class="input-group-addon">ATK</span>
+                                <input type="text" class="form-control stat" placeholder="100" data-toggle="tooltip" data-original-title="Base ATK">
+                                <div class="inputWithIcon withPercent">
+                                    <span class="leftIcon glyphicon glyphicon-download breakIcon link" title="break" onclick="toogleMonsterBreakability('atk')"></span>
+                                    <input class="form-control break noRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="ATK Break (positive)"/>
+                                    <span class="rightIcon">%</span>
+                                </div>
+                                <div class="inputWithIcon withPercent">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <input class="form-control buff rightRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="ATK Buff (positive)"/>
+                                    <span class="rightIcon">%</span>
+                                </div>
+                            </div>
                             <div class="input-group def">
                                 <span class="input-group-addon">DEF</span>
                                 <input type="text" class="form-control stat" placeholder="100" data-toggle="tooltip" data-original-title="Base DEF">
@@ -813,6 +827,20 @@
                                 <div class="inputWithIcon withPercent">
                                     <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
                                     <input class="form-control buff rightRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="DEF Buff (positive)"/>
+                                    <span class="rightIcon">%</span>
+                                </div>
+                            </div>
+                            <div class="input-group mag">
+                                <span class="input-group-addon">MAG</span>
+                                <input type="text" class="form-control stat" placeholder="100" data-toggle="tooltip" data-original-title="Base MAG">
+                                <div class="inputWithIcon withPercent">
+                                    <span class="leftIcon glyphicon glyphicon-download breakIcon link" title="break" onclick="toogleMonsterBreakability('mag')"></span>
+                                    <input class="form-control break noRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="MAG Break (positive)"/>
+                                    <span class="rightIcon">%</span>
+                                </div>
+                                <div class="inputWithIcon withPercent">
+                                    <span class="leftIcon glyphicon glyphicon-upload" title="buff"></span>
+                                    <input class="form-control buff rightRadius" type="text" placeholder="0" onkeypress="return isNumberOrMinus(event)" data-toggle="tooltip" data-original-title="MAG Buff (positive)"/>
                                     <span class="rightIcon">%</span>
                                 </div>
                             </div>
@@ -916,6 +944,11 @@
                                     </div>
                                 </div>  
                             </div>
+                        </div>
+                        <div id="monsterAttack">
+                            <span>Monster attack:</span>
+                            <span class="monsterAttackFormula link" onclick="changeMonsterAttack();">1 * P_DAMAGE</span>
+                            <span class="link glyphicon glyphicon-remove reset" onclick="resetMonsterAttack()" ></span>
                         </div>
                     </div>
                 </div>
@@ -1514,6 +1547,20 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="monsterAttackFormulaModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span><b>Monster Attack Formula</b></span>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="monsterAttackInput" placeholder="Enter monster damage formula">
+                        <button class="btn btn-primary" style="margin-left:10px;" onclick="chooseMonsterAttackFormula()">OK</button>
                     </div>
                 </div>
             </div>

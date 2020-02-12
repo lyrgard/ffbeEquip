@@ -136,6 +136,9 @@ let displayOnly7StarsUnits = true;
 
 let fixItemList;
 
+let defaultMonsterAttackFormula = {"type":"*", "value1":{"type":"constant","value":"1"}, "value2":{"type":"value","name":"physicalDamage"}};
+let monsterAttackFormula;
+
 function onBuildClick() {
     if (builds[currentUnitIndex] && builds[currentUnitIndex].unit.id === '777700004') {
         Modal.showMessage("Hum ?", "Are you saying you want me to help you build my foe? I'm afraid not! You're on your own there !");
@@ -552,36 +555,62 @@ function readEnnemyStats() {
         }
     }
     var ennemyRaces = getSelectedValuesFor("races");
+    var monsterAtk = 100;
+    var monsterMag = 100;
     var monsterDef = 100;
     var monsterSpr = 100;
-    if ($("#monsterDefensiveStats .def .stat").val()) {
-        monsterDef = parseInt($("#monsterDefensiveStats .def .stat").val());
+    if ($("#monsterStats .atk .stat").val()) {
+        monsterAtk = parseInt($("#monsterStats .atk .stat").val());
     }
-    if ($("#monsterDefensiveStats .spr .stat").val()) {
-        monsterSpr = parseInt($("#monsterDefensiveStats .spr .stat").val());
+    if ($("#monsterStats .mag .stat").val()) {
+        monsterMag = parseInt($("#monsterStats .mag .stat").val());
+    }
+    if ($("#monsterStats .def .stat").val()) {
+        monsterDef = parseInt($("#monsterStats .def .stat").val());
+    }
+    if ($("#monsterStats .spr .stat").val()) {
+        monsterSpr = parseInt($("#monsterStats .spr .stat").val());
     }
     var ennemyBreaks = {"atk":0, "def":0, "mag":0, "spr":0};
-    if ($("#monsterDefensiveStats .def .break").val()) {
-        ennemyBreaks.def = parseInt($("#monsterDefensiveStats .def .break").val());
+    if ($("#monsterStats .atk .break").val()) {
+        ennemyBreaks.atk = parseInt($("#monsterStats .atk .break").val());
     }
-    if ($("#monsterDefensiveStats .spr .break").val()) {
-        ennemyBreaks.spr = parseInt($("#monsterDefensiveStats .spr .break").val());
+    if ($("#monsterStats .mag .break").val()) {
+        ennemyBreaks.mag = parseInt($("#monsterStats .mag .break").val());
+    }
+    if ($("#monsterStats .def .break").val()) {
+        ennemyBreaks.def = parseInt($("#monsterStats .def .break").val());
+    }
+    if ($("#monsterStats .spr .break").val()) {
+        ennemyBreaks.spr = parseInt($("#monsterStats .spr .break").val());
     }
     var enemyBuffs = {"atk":0, "def":0, "mag":0, "spr":0};
-    if ($("#monsterDefensiveStats .def .buff").val()) {
-        enemyBuffs.def = parseInt($("#monsterDefensiveStats .def .buff").val());
+    if ($("#monsterStats .atk .buff").val()) {
+        enemyBuffs.atk = parseInt($("#monsterStats .atk .buff").val());
     }
-    if ($("#monsterDefensiveStats .spr .buff").val()) {
-        enemyBuffs.spr = parseInt($("#monsterDefensiveStats .spr .buff").val());
+    if ($("#monsterStats .mag .buff").val()) {
+        enemyBuffs.mag = parseInt($("#monsterStats .mag .buff").val());
+    }
+    if ($("#monsterStats .def .buff").val()) {
+        enemyBuffs.def = parseInt($("#monsterStats .def .buff").val());
+    }
+    if ($("#monsterStats .spr .buff").val()) {
+        enemyBuffs.spr = parseInt($("#monsterStats .spr .buff").val());
     }
     var enemyBreakabilities = {"atk":true, "def":true, "mag":true, "spr":true};
-    if ($("#monsterDefensiveStats .def .breakIcon").hasClass("glyphicon-ban-circle")) {
+    if ($("#monsterStats .atk .breakIcon").hasClass("glyphicon-ban-circle")) {
+        enemyBreakabilities.atk = false;
+    }
+    if ($("#monsterStats .mag .breakIcon").hasClass("glyphicon-ban-circle")) {
+        enemyBreakabilities.mag = false;
+    }
+    if ($("#monsterStats .def .breakIcon").hasClass("glyphicon-ban-circle")) {
         enemyBreakabilities.def = false;
     }
-    if ($("#monsterDefensiveStats .spr .breakIcon").hasClass("glyphicon-ban-circle")) {
+    if ($("#monsterStats .spr .breakIcon").hasClass("glyphicon-ban-circle")) {
         enemyBreakabilities.spr = false;
     }
-    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterDef, monsterSpr, ennemyResist, ennemyBreaks, enemyBuffs, enemyBreakabilities, ennemyImperils);
+    ennemyStats = new EnnemyStats(getSelectedValuesFor("races"), monsterAtk, monsterMag, monsterDef, monsterSpr, ennemyResist, ennemyBreaks, enemyBuffs, enemyBreakabilities, ennemyImperils, monsterAttackFormula);
     
     $("#negativeBreakImperilWarning").toggleClass("hidden", ennemyBreaks.atk >= 0 && ennemyBreaks.def >= 0 && ennemyBreaks.mag >= 0 && ennemyBreaks.spr >= 0 && !negativeImperil);
 
@@ -2692,7 +2721,8 @@ function getStateHash(onlyCurrent = true) {
         "breaks" : ennemyStats.breaks,
         "buffs" : ennemyStats.buffs,
         "breakability" : ennemyStats.breakability,
-        "imperils" : ennemyStats.imperils
+        "imperils" : ennemyStats.imperils,
+        "attackFormula": formulaToString(monsterAttackFormula)
     }
     data.itemSelector = {
         "mainSelector": $(".equipments select").val(),
@@ -2917,31 +2947,54 @@ async function loadStateHashAndBuild(data, importMode = false) {
               }
           }
           
+          if (data.monster.atk) {
+              $("#monsterStats .atk .stat").val(data.monster.atk);
+          }
+          if (data.monster.mag) {
+              $("#monsterStats .mag .stat").val(data.monster.mag);
+          }
           if (data.monster.def) {
-              $("#monsterDefensiveStats .def .stat").val(data.monster.def);
+              $("#monsterStats .def .stat").val(data.monster.def);
           }
           if (data.monster.spr) {
-              $("#monsterDefensiveStats .spr .stat").val(data.monster.spr);
+              $("#monsterStats .spr .stat").val(data.monster.spr);
           }
           if (data.monster.breaks) {
+              if (data.monster.breaks.atk) {
+                  $("#monsterStats .atk .break").val(data.monster.breaks.atk);
+              }
+              if (data.monster.breaks.mag) {
+                  $("#monsterStats .mag .break").val(data.monster.breaks.mag);
+              }
               if (data.monster.breaks.def) {
-                  $("#monsterDefensiveStats .def .break").val(data.monster.breaks.def);
+                  $("#monsterStats .def .break").val(data.monster.breaks.def);
               }
               if (data.monster.breaks.spr) {
-                  $("#monsterDefensiveStats .spr .break").val(data.monster.breaks.spr);
+                  $("#monsterStats .spr .break").val(data.monster.breaks.spr);
               }
           }
           if (data.monster.buffs) {
+              if (data.monster.buffs.atk) {
+                  $("#monsterStats .atk .buff").val(data.monster.buffs.atk);
+              }
+              if (data.monster.buffs.mag) {
+                  $("#monsterStats .mag .buff").val(data.monster.buffs.mag);
+              }
               if (data.monster.buffs.def) {
-                  $("#monsterDefensiveStats .def .buff").val(data.monster.buffs.def);
+                  $("#monsterStats .def .buff").val(data.monster.buffs.def);
               }
               if (data.monster.buffs.spr) {
-                  $("#monsterDefensiveStats .spr .buff").val(data.monster.buffs.spr);
+                  $("#monsterStats .spr .buff").val(data.monster.buffs.spr);
               }
           }
           if (data.monster.breakability) {
+              setMonsterStatBreakibility('atk', data.monster.breakability.atk);
+              setMonsterStatBreakibility('mag', data.monster.breakability.mag);
               setMonsterStatBreakibility('def', data.monster.breakability.def);
               setMonsterStatBreakibility('spr', data.monster.breakability.spr);
+          }
+          if (data.monster.attackFormula) {
+              setMonsterAttackFormula(parseFormula(data.monster.attackFormula, null));
           }
           $('.equipments select option[value="' + data.itemSelector.mainSelector + '"]').prop("selected", true);
           for (var i = 0; i < data.itemSelector.additionalFilters.length; i++) {
@@ -3284,10 +3337,16 @@ function selectBestiaryCategory(category) {
 
 function selectMonster(category, monsterIndex) {
     var monster = bestiary.monstersByCategory[category][monsterIndex];
-    $("#monsterDefensiveStats .def .stat").val(monster.def);
-    $("#monsterDefensiveStats .spr .stat").val(monster.spr);
-    $("#monsterDefensiveStats .def .buff").val('');
-    $("#monsterDefensiveStats .spr .buff").val('');
+    $("#monsterStats .atk .stat").val(monster.atk);
+    $("#monsterStats .mag .stat").val(monster.mag);
+    $("#monsterStats .def .stat").val(monster.def);
+    $("#monsterStats .spr .stat").val(monster.spr);
+    $("#monsterStats .atk .buff").val('');
+    $("#monsterStats .mag .buff").val('');
+    $("#monsterStats .def .buff").val('');
+    $("#monsterStats .spr .buff").val('');
+    setMonsterStatBreakibility('atk', false);
+    setMonsterStatBreakibility('mag', false);
     setMonsterStatBreakibility('def', false);
     setMonsterStatBreakibility('spr', false);
     for(var elementIndex = elementList.length; elementIndex--;) {
@@ -3301,14 +3360,22 @@ function selectMonster(category, monsterIndex) {
         }   
     }
     if (monster.breakability) {
+        setMonsterStatBreakibility('atk', monster.breakability.def);
+        setMonsterStatBreakibility('mag', monster.breakability.spr);
         setMonsterStatBreakibility('def', monster.breakability.def);
         setMonsterStatBreakibility('spr', monster.breakability.spr);
     }  
+    if (monster['atk%']) {
+        $("#monsterStats .atk .buff").val(monster['atk%']);
+    }
+    if (monster['mag%']) {
+        $("#monsterStats .mag .buff").val(monster['mag%']);
+    }
     if (monster['def%']) {
-        $("#monsterDefensiveStats .def .buff").val(monster['def%']);
+        $("#monsterStats .def .buff").val(monster['def%']);
     }
     if (monster['spr%']) {
-        $("#monsterDefensiveStats .spr .buff").val(monster['spr%']);
+        $("#monsterStats .spr .buff").val(monster['spr%']);
     }
     unselectAll("races");
     select("races", monster.races);
@@ -3319,15 +3386,15 @@ function selectMonster(category, monsterIndex) {
 }
 
 function toogleMonsterBreakability(stat) {
-    let icon = $("#monsterDefensiveStats ." + stat + " .breakIcon");
+    let icon = $("#monsterStats ." + stat + " .breakIcon");
     setMonsterStatBreakibility(stat, icon.hasClass("glyphicon-ban-circle"), icon);
     readEnnemyStats();
     logCurrentBuild();
 }
 
 function setMonsterStatBreakibility(stat, allow, providedIcon) {
-    let icon = providedIcon || $("#monsterDefensiveStats ." + stat + " .breakIcon");
-    let field = $("#monsterDefensiveStats ." + stat + " .break");
+    let icon = providedIcon || $("#monsterStats ." + stat + " .breakIcon");
+    let field = $("#monsterStats ." + stat + " .break");
     if (allow) {
         icon.removeClass("glyphicon-ban-circle");
         icon.addClass("glyphicon-download");
@@ -3338,6 +3405,35 @@ function setMonsterStatBreakibility(stat, allow, providedIcon) {
         field.prop('disabled', true);
         field.val("");
     }
+}
+
+function changeMonsterAttack() {
+    $("#monsterAttackFormulaModal").modal();
+}
+    
+function chooseMonsterAttackFormula() {
+    var formulaString = $("#monsterAttackFormulaModal #monsterAttackInput").val();
+    var formula = parseFormula(formulaString, null);
+    if (formula) {
+        if (isAttackFormula(formula)) {
+            setMonsterAttackFormula(formula);
+            $('#monsterAttackFormulaModal').modal('hide');    
+        } else {
+            Modal.showMessage("Wrong formula", "The inputed formula is not a valid simple damage formula");
+        }
+    }
+}
+    
+function setMonsterAttackFormula(attackFormula) {
+    monsterAttackFormula = attackFormula;
+    $('#monsterAttack .monsterAttackFormula').text(formulaToString(monsterAttackFormula, false));
+    if (builds[currentUnitIndex] && builds[currentUnitIndex].unit) {
+        logCurrentBuild();
+    }
+}
+
+function resetMonsterAttack() {
+    setMonsterAttackFormula(defaultMonsterAttackFormula);
 }
 
 function removeItemFromExcludeList(id) {
@@ -4083,6 +4179,7 @@ function ensureInitUnitWithSkills(unitId) {
 function startPage() {
     progressElement = $("#buildProgressBar .progressBar");
     $('#useNewJpDamageFormula').prop('checked', true);
+    resetMonsterAttack();
     
     registerWaitingCallback(["data", "unitsWithPassives", "defaultBuilderEspers"], () => {
         readStateHashData(function(hashData) {
@@ -4249,7 +4346,7 @@ function startPage() {
     });
     $("#useNewJpDamageFormula").change(function() {logCurrentBuild();});
     
-    $("#monsterDefensiveStats input").on('input',$.debounce(300,function() {
+    $("#monsterStats input").on('input',$.debounce(300,function() {
         readEnnemyStats();
         logCurrentBuild();
     }));
@@ -4665,12 +4762,18 @@ let handleExternalControl = function(message) {
             parent.postMessage(JSON.stringify({'type':'potSet' + data.requestId, 'value':''}), '*');
             break;
         case 'setMonsterStats':
-            $('#monsterDefensiveStats .def .stat').val(data.value.baseDef);
-            $('#monsterDefensiveStats .spr .stat').val(data.value.baseSpr);
-            $('#monsterDefensiveStats .def .break').val(data.value.defBreak);
-            $('#monsterDefensiveStats .spr .break').val(data.value.sprBreak);
-            $('#monsterDefensiveStats .def .buff').val(data.value.defBuff);
-            $('#monsterDefensiveStats .spr .buff').val(data.value.sprBuff);
+            $('#monsterStats .atk .stat').val(data.value.baseAtk);
+            $('#monsterStats .mag .stat').val(data.value.basemMag);
+            $('#monsterStats .def .stat').val(data.value.baseDef);
+            $('#monsterStats .spr .stat').val(data.value.baseSpr);
+            $('#monsterStats .atk .break').val(data.value.atkBreak);
+            $('#monsterStats .mag .break').val(data.value.magBreak);
+            $('#monsterStats .def .break').val(data.value.defBreak);
+            $('#monsterStats .spr .break').val(data.value.sprBreak);
+            $('#monsterStats .atk .buff').val(data.value.atkBuff);
+            $('#monsterStats .mag .buff').val(data.value.magBuff);
+            $('#monsterStats .def .buff').val(data.value.defBuff);
+            $('#monsterStats .spr .buff').val(data.value.sprBuff);
             parent.postMessage(JSON.stringify({'type':'monsterStatsSet', 'value':''}), '*');
             break;
         case 'setMonsterElementalResist':
