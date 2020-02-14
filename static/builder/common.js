@@ -1,8 +1,4 @@
 const damageFormulaNames = ["physicalDamage","magicalDamage","hybridDamage","jumpDamage","magDamageWithPhysicalMecanism", "sprDamageWithPhysicalMecanism", "defDamageWithPhysicalMecanism", "magDamageWithPhysicalMecanismMultiCast", "sprDamageWithPhysicalMecanismMultiCast", "defDamageWithPhysicalMecanismMultiCast", "atkDamageWithMagicalMecanism", "atkDamageWithMagicalMecanismMulticast", "sprDamageWithMagicalMecanism", "atkDamageWithFixedMecanism", "physicalDamageMultiCast", "fixedDamageWithPhysicalMecanism","summonerSkill"];
-const statsBonusCap = {
-    "GL": 400,
-    "JP": 400
-}
 const operatorsInFormula = ["/","*","+","-","OR","AND",">"];
 const weaponBaseDamageVariance = {
     "dagger" : {"min":0.95,"avg":1,"max":1.05},
@@ -1127,7 +1123,7 @@ function getStatCalculatedValue(context, itemAndPassives, stat, unitBuild) {
 }
     
 
-function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) {
+function getEquipmentStatBonus(itemAndPassives, stat, doCap = true) {
     if ((baseStats.includes(stat) || stat == "accuracy") && itemAndPassives[0] && weaponList.includes(itemAndPassives[0].type)) {
         let normalStack = 0;
         let twoHanded = isTwoHanded(itemAndPassives[0]);
@@ -1143,7 +1139,7 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) 
                 }
                 if (dualWield && item.dualWielding && item.dualWielding[stat]) {
                     if (doCap) {
-                        normalStack = Math.min(normalStack  + item.dualWielding[stat] / 100, tdwCap);
+                        normalStack = Math.min(normalStack  + item.dualWielding[stat] / 100, getStatBonusCap('tdw')/100);
                     } else {
                         normalStack += item.dualWielding[stat] / 100;
                     }
@@ -1151,7 +1147,7 @@ function getEquipmentStatBonus(itemAndPassives, stat, doCap = true, tdwCap = 2) 
             }
         }
         if (doCap) {
-            return 1 + Math.min(3, normalStack);
+            return 1 + Math.min(getStatBonusCap('tdh')/100, normalStack);
         } else {
             return 1 + normalStack;
         }
@@ -1178,7 +1174,7 @@ function getEsperStatBonus(itemAndPassives, stat, esper) {
     return Math.min(3, statsBonus / 100);
 }
 
-function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false) {
+function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false, doCap = true) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
@@ -1243,6 +1239,10 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
     }
     
+    if (doCap && (stat === "lbDamage" || stat === "jumpDamage")) {
+        calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+    }
+    
     if ("atk" == stat) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 
         var right = calculateFlatStateValueForIndex(itemAndPassives[0], 1, stat);
@@ -1290,7 +1290,7 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
             var value = getValue(item, stat, notStackableSkillsAlreadyUsed);
             if (item[percentValues[stat]]) {
                 var itemPercentValue = getValue(item, percentValues[stat], notStackableSkillsAlreadyUsed);
-                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
+                var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(getStatBonusCap(stat) - currentPercentIncrease.value, 0));
                 currentPercentIncrease.value += itemPercentValue;
                 return value * equipmentStatBonus + percentTakenIntoAccount * baseValue / 100;
             } else {
@@ -1300,6 +1300,24 @@ function calculateStateValueForIndex(item, baseValue, currentPercentIncrease, eq
     }
     return 0;
 }
+
+function getStatBonusCap(stat) {
+    switch(stat) {
+        case 'lbDamage':
+            return 300;
+        case 'lbPerTurn':
+            return 12;
+        case 'tdh':
+            return 300;
+        case 'tdw':
+            return 200;
+        case 'jumpDamage':
+            return 800;
+        default:
+            return 400;
+    }
+}
+
 
 function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
     if (item && item[stat]) {
@@ -1311,7 +1329,7 @@ function calculateFlatStateValueForIndex(item, equipmentStatBonus, stat) {
 function calculatePercentStateValueForIndex(item, baseValue, currentPercentIncrease, stat) {
     if (item && item[percentValues[stat]]) {
         var itemPercentValue = item[percentValues[stat]];
-        var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(statsBonusCap[server] - currentPercentIncrease.value, 0));
+        var percentTakenIntoAccount = Math.min(itemPercentValue, Math.max(getStatBonusCap(stat) - currentPercentIncrease.value, 0));
         currentPercentIncrease.value += itemPercentValue;
         return percentTakenIntoAccount * baseValue / 100;
     }
