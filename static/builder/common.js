@@ -1174,7 +1174,7 @@ function getEsperStatBonus(itemAndPassives, stat, esper) {
     return Math.min(3, statsBonus / 100);
 }
 
-function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false, doCap = true) {
+function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignoreBuffs = false) {
     var equipmentStatBonus = getEquipmentStatBonus(itemAndPassives, stat, true);
     var esperStatBonus = 1;
     if (itemAndPassives[10]) {
@@ -1200,8 +1200,6 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         buffValue = unitBuild.baseValues["lbFillRate"].buff * baseValue / 100;
     } else if (stat == 'drawAttacks') {
         baseValue = unitBuild.baseValues["drawAttacks"];
-    } else if (stat == 'lbDamage') {
-        baseValue = unitBuild.baseValues["lbDamage"];
     }
     var calculatedValue = baseValue + buffValue;
     
@@ -1239,9 +1237,14 @@ function calculateStatValue(itemAndPassives, stat, unitBuild, berserk = 0, ignor
         }
     }
     
-    if (doCap && (stat === "lbDamage" || stat === "jumpDamage")) {
+    if (stat === "lbDamage" || stat === "jumpDamage") {
         calculatedValue = Math.min(getStatBonusCap(stat), calculatedValue);
+        if (stat === 'lbDamage') {
+            calculatedValue += unitBuild.baseValues["lbDamage"];
+        }
     }
+    
+    
     
     if ("atk" == stat) {
         var result = {"right":0,"left":0,"total":0,"bonusPercent":currentPercentIncrease.value}; 

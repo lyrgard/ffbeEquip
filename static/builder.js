@@ -769,8 +769,8 @@ function logBuild(build, value) {
     displayStat("#resultStats .evokeDamageBoost_all", calculateStatValue(build, "evokeDamageBoost.all", builds[currentUnitIndex]).total);    
     displayStat("#resultStats .accuracy", calculateStatValue(build, "accuracy", builds[currentUnitIndex]).total);
     displayStat("#resultStats .drawAttacks", calculateStatValue(build, "drawAttacks", builds[currentUnitIndex]).total);
-    displayStatWithCap("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex], 0, false, false).total, 'jumpDamage');
-    displayStatWithCap("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex], 0, false, false).total, 'lbDamage');
+    displayStat("#resultStats .jumpDamage", calculateStatValue(build, "jumpDamage", builds[currentUnitIndex]).total, 'jumpDamage');
+    displayStat("#resultStats .lbDamage", calculateStatValue(build, "lbDamage", builds[currentUnitIndex]).total, 'lbDamage');
 
     
     for (var index in elementList) {
@@ -883,20 +883,6 @@ function displayStat(htmlClass, value) {
         let div = $(htmlClass);
         div.removeClass("hidden");
         div.find('.value').html(value);    
-    }
-}
-
-function displayStatWithCap(htmlClass, value, stat) {
-    if (value === 0 || value === "0") {
-        $(htmlClass).addClass("hidden");
-    } else {
-        let div = $(htmlClass);
-        div.removeClass("hidden");
-        let html = value;
-        if (getStatBonusCap(stat) < value) {
-            html = "<span style='color:red;' title='Only " + getStatBonusCap(stat) + " taken into account'>" + value + "%</span>";
-        }
-        div.find('.value').html(html);    
     }
 }
 
