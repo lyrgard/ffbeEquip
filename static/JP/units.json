@@ -4568,6 +4568,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メルトハート","アイスブルーム","タクティクスラブ","ドラマティックライズ","ナチュラルボーン女殺し"],
 		"6_form": {
 			"name":"Sweet Nichol",
 			"jpname":"スウィートニコル",
@@ -4582,7 +4583,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["メルトハート","アイスブルーム","タクティクスラブ","ドラマティックライズ","ナチュラルボーン女殺し"]
 		}
 	},
 	"100024205": {
@@ -4599,6 +4601,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メルティダウン・水風","メルティダウン・水光","メルティダウン・風光","フォーチュン・チョコクッキー","トリコロール・キャンディコート","チョコに乗せた想い"],
 		"6_form": {
 			"name":"Sweet Luka",
 			"jpname":"スウィートルルカ",
@@ -4613,7 +4616,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"]
+			"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["メルティダウン・水風","メルティダウン・水光","メルティダウン・風光","フォーチュン・チョコクッキー","トリコロール・キャンディコート","チョコに乗せた想い"]
 		}
 	},
 	"100024305": {
@@ -5916,6 +5920,68 @@
 		},
 		"stats_pattern":1,
 		"equip":["staff","rod","spear","lightShield","hat","helm","clothes","robe"]
+	},
+	"100030505": {
+		"name":"Sieghard & Ignacio",
+		"jpname":"ジークハルト&イグニシオ",
+		"id":"100030505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":214,"atk":190,"def":216,"mag":129,"spr":200},
+			"minStats":{"hp":1658,"mp":71,"atk":63,"def":71,"mag":43,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Sieghard & Ignacio",
+			"jpname":"ジークハルト&イグニシオ",
+			"id":"100030505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3863,"mp":164,"atk":146,"def":166,"mag":99,"spr":153},
+				"minStats":{"hp":1275,"mp":54,"atk":48,"def":55,"mag":33,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"100030605": {
+		"name":"Sakura & Ayaka",
+		"jpname":"サクラ&アヤカ",
+		"id":"100030605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4550,"mp":260,"atk":158,"def":169,"mag":170,"spr":215},
+			"minStats":{"hp":1502,"mp":86,"atk":52,"def":56,"mag":56,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"],
+		"6_form": {
+			"name":"Sakura & Ayaka",
+			"jpname":"サクラ&アヤカ",
+			"id":"100030605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3500,"mp":200,"atk":121,"def":130,"mag":130,"spr":165},
+				"minStats":{"hp":1155,"mp":66,"atk":40,"def":43,"mag":43,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"]
+		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -10711,6 +10777,37 @@
 		},
 		"stats_pattern":1,
 		"equip":["dagger","staff","rod","throwing","lightShield","hat","clothes","lightArmor","robe"]
+	},
+	"251000105": {
+		"name":"Tylo",
+		"jpname":"デシ",
+		"id":"251000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4600,"mp":250,"atk":180,"def":180,"mag":180,"spr":180},
+			"minStats":{"hp":1518,"mp":83,"atk":59,"def":59,"mag":59,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Tylo",
+			"jpname":"デシ",
+			"id":"251000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3538,"mp":192,"atk":138,"def":138,"mag":138,"spr":138},
+				"minStats":{"hp":1168,"mp":63,"atk":46,"def":46,"mag":46,"spr":46},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
 	},
 	"253000105": {
 		"name":"Ramza",

@@ -45,7 +45,7 @@ FFBEEquipBuildAsImage = {
             ctx.fillText("SPR", x +100, y + 60);
             
             ctx.font = "16px Arial";
-            ctx.fillText(unit.name, 105, 30);
+            ctx.fillText(unit.name, 105, y - 5);
 
             ctx.font = "bold 18px Arial";
             

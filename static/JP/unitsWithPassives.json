@@ -6396,16 +6396,17 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メルトハート","アイスブルーム","タクティクスラブ","ドラマティックライズ","ナチュラルボーン女殺し"],
 		"enhancements": [
-			{"name":"スウィートな軍師","levels":[[],[{"spr%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}},"lbFillRate":100}]]}
+			{"name":"スウィートな軍師","levels":[[],[{"spr%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}},"lbFillRate":100}]]},
+			{"name":"ナチュラルボーン女殺し","levels":[[{"spr%":30,"mag%":30,"singleWielding":{"mag":50},"dualWielding":{"mag":50},"lbPerTurn":{"min":3,"max":3},"levelCondition":120}],[{"spr%":30,"mag%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"lbPerTurn":{"min":3,"max":3},"levelCondition":120}],[{"spr%":30,"mag%":30,"singleWielding":{"mag":100},"dualWielding":{"mag":100},"lbPerTurn":{"min":3,"max":3},"replaceLb":{"name":"ローゼスイリュージョン","minEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":23.1,"ignore":{"spr":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (23.1x * 2 = 46.2x, MAG) to all enemies (ignore reflect)"},{"effect":{"skillEnhancement":{"231246":2,"231252":2,"708393":2,"708394":2,"708395":2,"708396":2},"turn":6},"desc":"Increase damage of アイスブルーム (231252, 708395, 708396) and メルトハート (231246, 708393, 708394) by 200% for 6 turns"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Charm (30%) on all enemies for 5 turns"}],"maxEffects":[{"effect":{"damage":{"mecanism":"magical","damageType":"mind","coef":26,"ignore":{"spr":50},"elements":["ice"]},"area":"AOE","target":"ENEMY"},"desc":"Magic ice damage (26x * 2 = 52x, MAG) to all enemies (ignore reflect)"},{"effect":{"skillEnhancement":{"231246":2,"231252":2,"708393":2,"708394":2,"708395":2,"708396":2},"turn":6},"desc":"Increase damage of アイスブルーム (231252, 708395, 708396) and メルトハート (231246, 708393, 708394) by 200% for 6 turns"},{"effect":{"noUse":true,"area":"AOE","target":"ENEMY"},"desc":"Inflict Charm (30%) on all enemies for 5 turns"}],"frames":[139,155,171,181,197,205,213,221,229,237,245,253],"move":"walk"},"levelCondition":120}]]}
 		],
 		"skills": [
 			{"hp%":30, "def%":20, "mag%":30, "resist":[{"name":"ice","percent":50},{"name":"water","percent":50},{"name":"poison","percent":100},{"name":"sleep","percent":100},{"name":"petrification","percent":100},{"name":"charm","percent":100}], "mpRefresh":10},
 			{"mag%":50, "equipedConditions":["rod"]},
 			{"mp%":50, "mag%":50, "equipedConditions":["clothes"]},
 			{"equipedConditions":[["405006700","504231203"]]},
-			{"def%":20, "levelCondition":115},
-			{"mag%":30, "spr%":30, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "lbPerTurn":{"min":3,"max":3}, "levelCondition":120}
+			{"def%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Sweet Nichol",
@@ -6422,6 +6423,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["メルトハート","アイスブルーム","タクティクスラブ","ドラマティックライズ","ナチュラルボーン女殺し"],
 		"enhancements": [
 			{"name":"スウィートな軍師","levels":[[],[{"spr%":20,"hp%":20,"esperStatsBonus":{"all":{"hp":20,"mp":20,"atk":20,"def":20,"mag":20,"spr":20}},"lbFillRate":100}]]}
 		],
@@ -6446,11 +6448,14 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+		"enhancementSkills":["メルティダウン・水風","メルティダウン・水光","メルティダウン・風光","フォーチュン・チョコクッキー","トリコロール・キャンディコート","チョコに乗せた想い"],
+		"enhancements": [
+			{"name":"チョコに乗せた想い","levels":[[{"spr%":20,"def%":20,"mp%":20,"hp%":20,"resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}],"levelCondition":120}],[{"spr%":50,"def%":20,"mp%":20,"hp%":20,"resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}],"levelCondition":120}],[{"spr%":50,"def%":20,"mp%":20,"hp%":20,"resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}],"levelCondition":120}]]}
+		],
 		"skills": [
 			{"hp%":50, "mp%":50, "def%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7},
 			{"equipedConditions":[["409030800","504231204"]]},
-			{"mp%":20, "levelCondition":115},
-			{"hp%":20, "mp%":20, "def%":20, "spr%":20, "resist":[{"name":"disease","percent":100},{"name":"petrification","percent":100}], "levelCondition":120}
+			{"mp%":20, "levelCondition":115}
 		],
 		"6_form": {
 			"name":"Sweet Luka",
@@ -6467,6 +6472,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["dagger","staff","rod","harp","mace","hat","clothes","lightArmor","robe"],
+			"enhancementSkills":["メルティダウン・水風","メルティダウン・水光","メルティダウン・風光","フォーチュン・チョコクッキー","トリコロール・キャンディコート","チョコに乗せた想い"],
 			"skills": [
 				{"hp%":50, "mp%":50, "def%":50, "spr%":50, "resist":[{"name":"poison","percent":100},{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7}
 			]
@@ -8295,6 +8301,92 @@
 		"skills": [
 			{"hp%":30, "mp%":30, "def%":30, "spr%":70, "resist":[{"name":"sleep","percent":100},{"name":"water","percent":20}], "mpRefresh":5}
 		]
+	},
+	"100030505": {
+		"name":"Sieghard & Ignacio",
+		"jpname":"ジークハルト&イグニシオ",
+		"id":"100030505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":5023,"mp":214,"atk":190,"def":216,"mag":129,"spr":200},
+			"minStats":{"hp":1658,"mp":71,"atk":63,"def":71,"mag":43,"spr":66},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":65,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":80, "def%":50, "spr%":50, "resist":[{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7, "drawAttacks":65},
+			{"def%":50, "spr%":50, "equipedConditions":["lightShield"]},
+			{"def%":50, "spr%":50, "equipedConditions":["heavyShield"]},
+			{"hp%":20, "mp%":20, "atk%":20, "def%":20, "mag%":20, "spr%":20, "equipedConditions":[["504235122","402004800"]]},
+			{"def%":20, "levelCondition":115},
+			{"hp%":50, "def%":20, "lbFillRate":100, "drawAttacks":20, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sieghard & Ignacio",
+			"jpname":"ジークハルト&イグニシオ",
+			"id":"100030505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3863,"mp":164,"atk":146,"def":166,"mag":99,"spr":153},
+				"minStats":{"hp":1275,"mp":54,"atk":48,"def":55,"mag":33,"spr":50},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":34,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","whip","throwing","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":80, "def%":50, "spr%":50, "resist":[{"name":"petrification","percent":100},{"name":"charm","percent":100},{"name":"fire","percent":50},{"name":"earth","percent":50},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "mpRefresh":7, "drawAttacks":65},
+				{"def%":50, "spr%":50, "equipedConditions":["lightShield"]},
+				{"def%":50, "spr%":50, "equipedConditions":["heavyShield"]}
+			]
+		}
+	},
+	"100030605": {
+		"name":"Sakura & Ayaka",
+		"jpname":"サクラ&アヤカ",
+		"id":"100030605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4550,"mp":260,"atk":158,"def":169,"mag":170,"spr":215},
+			"minStats":{"hp":1502,"mp":86,"atk":52,"def":56,"mag":56,"spr":71},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":40,"spr":65}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":50, "def%":40, "mag%":50, "spr%":100, "resist":[{"name":"lightning","percent":25},{"name":"light","percent":25}], "mpRefresh":7, "skillEnhancement":{"10210":12,"20310":14}, "special":["dualWield"]},
+			{"hp%":20, "spr%":20, "dualWielding":{"spr":50}, "lbFillRate":50, "equipedConditions":[["504235124","409041400"]]},
+			{"resist":[{"name":"silence","percent":100},{"name":"paralysis","percent":100},{"name":"confuse","percent":100}], "levelCondition":105},
+			{"resist":[{"name":"stop","percent":100}], "levelCondition":115},
+			{"def%":20, "levelCondition":115},
+			{"mp%":50, "def%":10, "spr%":50, "resist":[{"name":"lightning","percent":25},{"name":"light","percent":25}], "skillEnhancement":{"235158":5,"235159":5,"235165":10,"235166":10}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Sakura & Ayaka",
+			"jpname":"サクラ&アヤカ",
+			"id":"100030605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3500,"mp":200,"atk":121,"def":130,"mag":130,"spr":165},
+				"minStats":{"hp":1155,"mp":66,"atk":40,"def":43,"mag":43,"spr":54},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":26,"spr":34}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","staff","rod","bow","axe","spear","harp","whip","throwing","mace","fist","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":50, "def%":40, "mag%":50, "spr%":100, "resist":[{"name":"lightning","percent":25},{"name":"light","percent":25}], "mpRefresh":7, "skillEnhancement":{"10210":12,"20310":14}, "special":["dualWield"]}
+			]
+		}
 	},
 	"201000104": {
 		"name":"Warrior of Light",
@@ -15613,6 +15705,126 @@
 		"skills": [
 			{"hp%":30, "mp%":30, "def%":20, "mag%":70, "spr%":40, "mpRefresh":3}
 		]
+	},
+	"251000105": {
+		"name":"Tylo",
+		"jpname":"デシ",
+		"id":"251000105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4600,"mp":250,"atk":180,"def":180,"mag":180,"spr":180},
+			"minStats":{"hp":1518,"mp":83,"atk":59,"def":59,"mag":59,"spr":59},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":50, "atk%":50, "def%":50, "mag%":50, "spr%":50, "singleWielding":{"accuracy":50,"atk":100,"mag":100}, "dualWielding":{"mag":100,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}], "skillEnhancement":{"10160":4.5}, "special":["dualWield"]},
+			{"hp%":10, "atk%":30, "mag%":20, "equipedConditions":["dagger"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["sword"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["greatSword"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["katana"]},
+			{"hp%":10, "atk%":60, "mag%":60, "equipedConditions":["bow"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["axe"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["hammer"]},
+			{"hp%":10, "atk%":40, "mag%":10, "equipedConditions":["spear"]},
+			{"hp%":10, "atk%":30, "mag%":30, "equipedConditions":["throwing"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["gun"]},
+			{"hp%":20, "atk%":20, "mag%":20, "equipedConditions":["mace"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["fist"]},
+			{"hp%":10, "spr%":40, "equipedConditions":["staff"]},
+			{"hp%":10, "mag%":40, "equipedConditions":["rod"]},
+			{"hp%":10, "mag%":30, "spr%":30, "equipedConditions":["harp"]},
+			{"hp%":10, "atk%":40, "mag%":40, "equipedConditions":["whip"]},
+			{"def%":30, "spr%":10, "equipedConditions":["helm"]},
+			{"mp%":10, "def%":30, "spr%":10, "equipedConditions":["heavyArmor"]},
+			{"def%":40, "spr%":20, "equipedConditions":["heavyShield"]},
+			{"def%":10, "spr%":30, "equipedConditions":["hat"]},
+			{"mp%":10, "def%":20, "spr%":20, "equipedConditions":["lightArmor"]},
+			{"mp%":20, "def%":10, "spr%":20, "equipedConditions":["clothes"]},
+			{"mp%":20, "spr%":30, "equipedConditions":["robe"]},
+			{"def%":20, "spr%":40, "equipedConditions":["lightShield"]},
+			{"hp%":10, "atk%":30, "mag%":20, "equipedConditions":["dagger"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["sword"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["greatSword"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["katana"]},
+			{"hp%":10, "atk%":60, "mag%":60, "equipedConditions":["bow"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["axe"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["hammer"]},
+			{"hp%":10, "atk%":40, "mag%":10, "equipedConditions":["spear"]},
+			{"hp%":10, "atk%":30, "mag%":30, "equipedConditions":["throwing"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["gun"]},
+			{"hp%":20, "atk%":20, "mag%":20, "equipedConditions":["mace"]},
+			{"hp%":10, "atk%":40, "equipedConditions":["fist"]},
+			{"hp%":10, "spr%":40, "equipedConditions":["staff"]},
+			{"hp%":10, "mag%":40, "equipedConditions":["rod"]},
+			{"hp%":10, "mag%":30, "spr%":30, "equipedConditions":["harp"]},
+			{"hp%":10, "atk%":40, "mag%":40, "equipedConditions":["whip"]},
+			{"lbPerTurn":{"min":4,"max":4}, "equipedConditions":[["504235120","403050500"]]},
+			{"hp%":20, "levelCondition":115},
+			{"lbFillRate":50, "resist":[{"name":"stop","percent":100}], "mpRefresh":5, "skillEnhancement":{"20390":18,"235090":2,"235091":2,"235093":2,"235094":2,"512030":2,"512031":2,"512032":2,"512033":2}, "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Tylo",
+			"jpname":"デシ",
+			"id":"251000105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3538,"mp":192,"atk":138,"def":138,"mag":138,"spr":138},
+				"minStats":{"hp":1168,"mp":63,"atk":46,"def":46,"mag":46,"spr":46},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":50, "atk%":50, "def%":50, "mag%":50, "spr%":50, "singleWielding":{"accuracy":50,"atk":100,"mag":100}, "dualWielding":{"mag":100,"atk":100}, "resist":[{"name":"blind","percent":100},{"name":"sleep","percent":100},{"name":"silence","percent":100}], "skillEnhancement":{"10160":4.5}, "special":["dualWield"]},
+				{"hp%":10, "atk%":30, "mag%":20, "equipedConditions":["dagger"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["sword"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["greatSword"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["katana"]},
+				{"hp%":10, "atk%":60, "mag%":60, "equipedConditions":["bow"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["axe"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["hammer"]},
+				{"hp%":10, "atk%":40, "mag%":10, "equipedConditions":["spear"]},
+				{"hp%":10, "atk%":30, "mag%":30, "equipedConditions":["throwing"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["gun"]},
+				{"hp%":20, "atk%":20, "mag%":20, "equipedConditions":["mace"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["fist"]},
+				{"hp%":10, "spr%":40, "equipedConditions":["staff"]},
+				{"hp%":10, "mag%":40, "equipedConditions":["rod"]},
+				{"hp%":10, "mag%":30, "spr%":30, "equipedConditions":["harp"]},
+				{"hp%":10, "atk%":40, "mag%":40, "equipedConditions":["whip"]},
+				{"def%":30, "spr%":10, "equipedConditions":["helm"]},
+				{"mp%":10, "def%":30, "spr%":10, "equipedConditions":["heavyArmor"]},
+				{"def%":40, "spr%":20, "equipedConditions":["heavyShield"]},
+				{"def%":10, "spr%":30, "equipedConditions":["hat"]},
+				{"mp%":10, "def%":20, "spr%":20, "equipedConditions":["lightArmor"]},
+				{"mp%":20, "def%":10, "spr%":20, "equipedConditions":["clothes"]},
+				{"mp%":20, "spr%":30, "equipedConditions":["robe"]},
+				{"def%":20, "spr%":40, "equipedConditions":["lightShield"]},
+				{"hp%":10, "atk%":30, "mag%":20, "equipedConditions":["dagger"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["sword"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["greatSword"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["katana"]},
+				{"hp%":10, "atk%":60, "mag%":60, "equipedConditions":["bow"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["axe"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["hammer"]},
+				{"hp%":10, "atk%":40, "mag%":10, "equipedConditions":["spear"]},
+				{"hp%":10, "atk%":30, "mag%":30, "equipedConditions":["throwing"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["gun"]},
+				{"hp%":20, "atk%":20, "mag%":20, "equipedConditions":["mace"]},
+				{"hp%":10, "atk%":40, "equipedConditions":["fist"]},
+				{"hp%":10, "spr%":40, "equipedConditions":["staff"]},
+				{"hp%":10, "mag%":40, "equipedConditions":["rod"]},
+				{"hp%":10, "mag%":30, "spr%":30, "equipedConditions":["harp"]},
+				{"hp%":10, "atk%":40, "mag%":40, "equipedConditions":["whip"]}
+			]
+		}
 	},
 	"253000105": {
 		"name":"Ramza",
