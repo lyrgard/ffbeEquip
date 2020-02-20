@@ -7571,8 +7571,8 @@
 		]
 	},
 	"203001605": {
-		"name":"CG Onion Knight",
-		"wikiEntry":"オニオンナイト",
+		"name":"Caballero Cebolla despertado",
+		"wikiEntry":"Awakened_Onion Knight",
 		"id":"203001605",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7585,7 +7585,7 @@
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 		"skills": [
-			{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "dualWielding":{"atk":70}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+			{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "dualWielding":{"atk":70}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 			{"atk%":50, "equipedConditions":["sword"]},
 			{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "equipedConditions":["sword"]},
 			{"dualWielding":{"atk":30}, "skillEnhancement":{"231581":0.75,"231582":0.75,"231583":0.75,"231584":0.75}, "equipedConditions":[["409031800","504231562"]]},
@@ -7595,8 +7595,8 @@
 			{"atk%":20, "equipedConditions":["sword"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Onion Knight",
-			"wikiEntry":"オニオンナイト",
+			"name":"Caballero Cebolla despertado",
+			"wikiEntry":"Awakened_Onion Knight",
 			"id":"203001605",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7610,7 +7610,7 @@
 			"stats_pattern":1,
 			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","throwing","fist","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor"],
 			"skills": [
-				{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "dualWielding":{"atk":70}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"fire","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
+				{"hp%":30, "mp%":30, "atk%":30, "def%":60, "spr%":30, "dualWielding":{"atk":70}, "improvedDW":true, "lbFillRate":150, "lbPerTurn":{"min":2,"max":2}, "resist":[{"name":"sleep","percent":100},{"name":"confuse","percent":100},{"name":"fire","percent":60},{"name":"water","percent":60},{"name":"wind","percent":60},{"name":"earth","percent":60},{"name":"blind","percent":100},{"name":"paralysis","percent":100},{"name":"petrification","percent":100}], "mpRefresh":7, "special":["dualWield"]},
 				{"atk%":50, "equipedConditions":["sword"]},
 				{"resist":[{"name":"fire","percent":10},{"name":"water","percent":10},{"name":"wind","percent":10},{"name":"earth","percent":10}], "equipedConditions":["sword"]}
 			]
@@ -7659,8 +7659,8 @@
 		}
 	},
 	"203001805": {
-		"name":"Xande",
-		"wikiEntry":"まおうザンデ",
+		"name":"Zande",
+		"wikiEntry":"Xande",
 		"id":"203001805",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7683,8 +7683,8 @@
 			{"mag%":20, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "levelCondition":120}
 		],
 		"6_form": {
-			"name":"Xande",
-			"wikiEntry":"まおうザンデ",
+			"name":"Zande",
+			"wikiEntry":"Xande",
 			"id":"203001805",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -7708,7 +7708,7 @@
 	},
 	"203001905": {
 		"name":"Hein",
-		"wikiEntry":"まどうしハイン",
+		"wikiEntry":"Hein",
 		"id":"203001905",
 		"max_rarity":"7",
 		"min_rarity":"5",
@@ -7729,7 +7729,7 @@
 		],
 		"6_form": {
 			"name":"Hein",
-			"wikiEntry":"まどうしハイン",
+			"wikiEntry":"Hein",
 			"id":"203001905",
 			"sixStarForm":true,
 			"max_rarity":"7",
@@ -11084,7 +11084,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-		"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon","Shadow Lord","SPR +20%","Immortal Justice"],
+		"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon (FFXI: Shadow Lord)","Shadow Lord","SPR +20%","Immortal Justice"],
 		"enhancements": [
 			{"name":"Hatred for the Talekeeper","levels":[[{"hp%":30}],[{"atk%":30,"hp%":30}],[{"atk%":70,"hp%":70}]]},
 			{"name":"Shadow Lord","levels":[[{"singleWielding":{"accuracy":25,"atk":100},"dualWielding":{"atk":30},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":150},"dualWielding":{"atk":50},"levelCondition":110}],[{"singleWielding":{"accuracy":25,"atk":200},"dualWielding":{"atk":50},"levelCondition":110}]]},
@@ -11111,7 +11111,7 @@
 			},
 			"stats_pattern":1,
 			"equip":["sword","greatSword","katana","axe","hammer","mace","helm","lightArmor","heavyArmor"],
-			"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon","Shadow Lord","SPR +20%","Immortal Justice"],
+			"enhancementSkills":["Hatred for the Talekeeper","Cross Smash","Dynamic Implosion","Doom Arc","Blood Weapon (FFXI: Shadow Lord)","Shadow Lord","SPR +20%","Immortal Justice"],
 		"enhancements": [
 			{"name":"Hatred for the Talekeeper","levels":[[{"hp%":30}],[{"atk%":30,"hp%":30}],[{"atk%":70,"hp%":70}]]}
 		],
