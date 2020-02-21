@@ -8302,6 +8302,132 @@
 			{"hp%":30, "mp%":30, "def%":30, "spr%":70, "resist":[{"name":"sleep","percent":100},{"name":"water","percent":20}], "mpRefresh":5}
 		]
 	},
+	"100029905": {
+		"name":"Bahamut Dark Fina",
+		"jpname":"闇竜姫・魔人フィーナ",
+		"id":"100029905",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4631,"mp":287,"atk":161,"def":172,"mag":220,"spr":204},
+			"minStats":{"hp":1528,"mp":95,"atk":53,"def":57,"mag":73,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","staff","rod","bow","whip","throwing","hat","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "def%":30, "mag%":100, "spr%":40, "singleWielding":{"mag":50}, "lbFillRate":100, "mpRefresh":7, "esperStatsBonus":{"Bahamut":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "special":["dualWield"]},
+			{"mag%":50, "singleWielding":{"mag":50}, "dualWielding":{"mag":50}, "equipedConditions":[["504235180","314002600"]]},
+			{"mag%":20, "spr%":20, "killers":[{"name":"beast","magical":50},{"name":"aquatic","magical":50},{"name":"plant","magical":50}], "levelCondition":105},
+			{"def%":20, "spr%":20, "killers":[{"name":"machine","magical":50},{"name":"bug","magical":50},{"name":"undead","magical":50}], "levelCondition":110},
+			{"improvedDW":true, "levelCondition":110},
+			{"hp%":20, "levelCondition":115},
+			{"mp%":30, "mag%":30, "killers":[{"name":"dragon","magical":150}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Bahamut Dark Fina",
+			"jpname":"闇竜姫・魔人フィーナ",
+			"id":"100029905",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3562,"mp":220,"atk":123,"def":132,"mag":169,"spr":156},
+				"minStats":{"hp":1175,"mp":73,"atk":41,"def":44,"mag":56,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","staff","rod","bow","whip","throwing","hat","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "def%":30, "mag%":100, "spr%":40, "singleWielding":{"mag":50}, "lbFillRate":100, "mpRefresh":7, "esperStatsBonus":{"Bahamut":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}, "special":["dualWield"]}
+			]
+		}
+	},
+	"100030005": {
+		"name":"Lakshmi Lid",
+		"jpname":"癒神リド",
+		"id":"100030005",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4708,"mp":259,"atk":182,"def":175,"mag":158,"spr":186},
+			"minStats":{"hp":1554,"mp":85,"atk":60,"def":58,"mag":52,"spr":61},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+		"skills": [
+			{"hp%":30, "mp%":30, "atk%":80, "def%":50, "spr%":30, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"ice","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30},{"name":"silence","percent":100}], "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "mpRefresh":7, "esperStatsBonus":{"Lakshmi":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},
+			{"hp%":20, "equipedConditions":["hammer"]},
+			{"atk%":40, "lbPerTurn":{"min":3,"max":3}, "skillEnhancement":{"235255":10,"235256":10,"235258":5}, "equipedConditions":[["504235184","306002800"]]},
+			{"atk%":20, "levelCondition":115},
+			{"atk%":20, "def%":20, "spr%":20, "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Lakshmi Lid",
+			"jpname":"癒神リド",
+			"id":"100030005",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3621,"mp":199,"atk":140,"def":134,"mag":121,"spr":143},
+				"minStats":{"hp":1195,"mp":66,"atk":46,"def":44,"mag":40,"spr":47},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","katana","staff","rod","bow","axe","hammer","spear","harp","whip","throwing","gun","mace","fist","lightShield","hat","helm","clothes","lightArmor","robe"],
+			"skills": [
+				{"hp%":30, "mp%":30, "atk%":80, "def%":50, "spr%":30, "lbFillRate":100, "lbPerTurn":{"min":3,"max":3}, "resist":[{"name":"confuse","percent":100},{"name":"charm","percent":100},{"name":"ice","percent":30},{"name":"earth","percent":30},{"name":"dark","percent":30},{"name":"silence","percent":100}], "killers":[{"name":"machine","physical":50},{"name":"dragon","physical":50}], "mpRefresh":7, "esperStatsBonus":{"Lakshmi":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},
+				{"hp%":20, "equipedConditions":["hammer"]}
+			]
+		}
+	},
+	"100030105": {
+		"name":"Phoenix Jake",
+		"jpname":"鳳凰ジェイク",
+		"id":"100030105",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4545,"mp":301,"atk":216,"def":170,"mag":159,"spr":170},
+			"minStats":{"hp":1500,"mp":99,"atk":71,"def":56,"mag":52,"spr":56},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"skills": [
+			{"hp%":50, "mp%":30, "atk%":100, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"disease","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"undead","physical":50}], "mpRefresh":7, "lbDamage":50, "esperStatsBonus":{"Phoenix":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}},
+			{"hp%":20, "atk%":50, "singleWielding":{"accuracy":25,"atk":100}, "equipedConditions":[["504235182","313006800"]]},
+			{"hp%":10, "atk%":10, "def%":10, "spr%":10, "levelCondition":105},
+			{"hp%":20, "levelCondition":115},
+			{"mp%":40, "atk%":40, "singleWielding":{"accuracy":25,"atk":50}, "killers":[{"name":"demon","physical":100},{"name":"dragon","physical":100},{"name":"undead","physical":100}], "levelCondition":120}
+		],
+		"6_form": {
+			"name":"Phoenix Jake",
+			"jpname":"鳳凰ジェイク",
+			"id":"100030105",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3496,"mp":231,"atk":166,"def":130,"mag":122,"spr":130},
+				"minStats":{"hp":1154,"mp":76,"atk":55,"def":43,"mag":40,"spr":43},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","throwing","gun","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"skills": [
+				{"hp%":50, "mp%":30, "atk%":100, "def%":20, "spr%":20, "singleWielding":{"accuracy":25,"atk":100}, "lbFillRate":100, "resist":[{"name":"disease","percent":100}], "killers":[{"name":"demon","physical":50},{"name":"dragon","physical":50},{"name":"undead","physical":50}], "mpRefresh":7, "lbDamage":50, "esperStatsBonus":{"Phoenix":{"hp":200,"mp":200,"atk":200,"def":200,"mag":200,"spr":200}}}
+			]
+		}
+	},
 	"100030505": {
 		"name":"Sieghard & Ignacio",
 		"jpname":"ジークハルト&イグニシオ",
@@ -9290,7 +9416,7 @@
 		]
 	},
 	"203001605": {
-		"name":"CG Onion Knight",
+		"name":"Awakened Onion Knight",
 		"jpname":"オニオンナイト",
 		"id":"203001605",
 		"max_rarity":"7",
@@ -9317,7 +9443,7 @@
 			{"atk%":20, "equipedConditions":["sword"], "levelCondition":120}
 		],
 		"6_form": {
-			"name":"CG Onion Knight",
+			"name":"Awakened Onion Knight",
 			"jpname":"オニオンナイト",
 			"id":"203001605",
 			"sixStarForm":true,
