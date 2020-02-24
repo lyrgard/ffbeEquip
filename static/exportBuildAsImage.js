@@ -40,8 +40,8 @@ FFBEEquipBuildAsImage = {
             ctx.fillText("HP", x, y + 20);
             ctx.fillText("MP", x +100, y + 20);
             ctx.fillText("ATK", x, y + 40);
-            ctx.fillText("MAG", x + 100, y + 40);
-            ctx.fillText("DEF", x, y + 60);
+            ctx.fillText("DEF", x + 100, y + 40);
+            ctx.fillText("MAG", x, y + 60);
             ctx.fillText("SPR", x +100, y + 60);
             
             ctx.font = "16px Arial";
@@ -52,7 +52,7 @@ FFBEEquipBuildAsImage = {
             let line = 0;
             let column = 0;
             ctx.textAlign = "end";
-            ["hp", "mp", "atk", "mag", "def", "spr"].forEach(stat => {
+            ["hp", "mp", "atk", "def", "mag", "spr"].forEach(stat => {
                 ctx.fillText(unit.calculatedValues[stat].value, x + 80 + column * 100, y + 21 + line * 20);
                 if (unit.pots[stat]) {
                     ctx.strokeStyle = 'black';
