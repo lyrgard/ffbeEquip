@@ -9861,6 +9861,114 @@
 		"equip":["dagger","sword","greatSword","staff","rod","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
 		"enhancementSkills":["アキレス","第4局最高責任者","フレイムファント"]
 	},
+	"212001505": {
+		"name":"Freedom Seeker Vaan",
+		"jpname":"自由を求めし少年ヴァン",
+		"id":"212001505",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":4800,"mp":245,"atk":209,"def":189,"mag":165,"spr":186},
+			"minStats":{"hp":1584,"mp":81,"atk":69,"def":62,"mag":54,"spr":61},
+			"pots":{"hp":540,"mp":90,"atk":65,"def":40,"mag":40,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Freedom Seeker Vaan",
+			"jpname":"自由を求めし少年ヴァン",
+			"id":"212001505",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"male",
+			"stats": {
+				"maxStats":{"hp":3692,"mp":188,"atk":160,"def":145,"mag":126,"spr":143},
+				"minStats":{"hp":1218,"mp":62,"atk":53,"def":48,"mag":42,"spr":47},
+				"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","katana","throwing","gun","lightShield","heavyShield","hat","clothes","lightArmor"]
+		}
+	},
+	"212001605": {
+		"name":"Dancer Penelo",
+		"jpname":"舞い踊る恋心パンネロ",
+		"id":"212001605",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4620,"mp":284,"atk":107,"def":159,"mag":218,"spr":203},
+			"minStats":{"hp":1525,"mp":94,"atk":35,"def":52,"mag":72,"spr":67},
+			"pots":{"hp":540,"mp":90,"atk":40,"def":40,"mag":65,"spr":40}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"6_form": {
+			"name":"Dancer Penelo",
+			"jpname":"舞い踊る恋心パンネロ",
+			"id":"212001605",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3553,"mp":218,"atk":82,"def":122,"mag":167,"spr":156},
+				"minStats":{"hp":1172,"mp":72,"atk":27,"def":40,"mag":55,"spr":51},
+				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","sword","greatSword","rod","hammer","whip","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+		}
+	},
+	"212001705": {
+		"name":"Forest Beauty Fran",
+		"jpname":"蒼穹の麗人フラン",
+		"id":"212001705",
+		"max_rarity":"7",
+		"min_rarity":"5",
+		"sex":"female",
+		"stats": {
+			"maxStats":{"hp":4912,"mp":239,"atk":205,"def":188,"mag":184,"spr":190},
+			"minStats":{"hp":1621,"mp":79,"atk":68,"def":62,"mag":61,"spr":63},
+			"pots":{"hp":600,"mp":100,"atk":50,"def":50,"mag":50,"spr":50}
+		},
+		"stats_pattern":4,
+		"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"],
+		"6_form": {
+			"name":"Forest Beauty Fran",
+			"jpname":"蒼穹の麗人フラン",
+			"id":"212001705",
+			"sixStarForm":true,
+			"max_rarity":"6",
+			"min_rarity":"5",
+			"sex":"female",
+			"stats": {
+				"maxStats":{"hp":3778,"mp":183,"atk":157,"def":144,"mag":141,"spr":146},
+				"minStats":{"hp":1247,"mp":60,"atk":52,"def":48,"mag":47,"spr":48},
+				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
+			},
+			"stats_pattern":1,
+			"equip":["dagger","bow","axe","spear","hat","clothes","lightArmor"]
+		}
+	},
+	"212001804": {
+		"name":"Reks",
+		"jpname":"レックス",
+		"id":"212001804",
+		"max_rarity":"6",
+		"min_rarity":"4",
+		"sex":"male",
+		"stats": {
+			"maxStats":{"hp":3705,"mp":154,"atk":160,"def":131,"mag":103,"spr":123},
+			"minStats":{"hp":1223,"mp":51,"atk":53,"def":43,"mag":34,"spr":41},
+			"pots":{"hp":390,"mp":65,"atk":34,"def":26,"mag":26,"spr":26}
+		},
+		"stats_pattern":1,
+		"equip":["dagger","sword","katana","spear","lightShield","hat","helm","clothes","lightArmor"]
+	},
 	"213000105": {
 		"name":"Lightning",
 		"jpname":"ライトニング",
@@ -11175,6 +11283,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+		"enhancementSkills":["元ライオネル聖印騎士団団長","ゾンビー","フルンティング","ネイリング","異端者の烙印","セイバー","メルティ"],
 		"6_form": {
 			"name":"Beowulf",
 			"jpname":"ベイオウーフ",
@@ -11189,7 +11298,8 @@
 				"pots":{"hp":450,"mp":75,"atk":30,"def":30,"mag":30,"spr":30}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"]
+			"equip":["dagger","sword","greatSword","katana","rod","mace","lightShield","heavyShield","hat","helm","clothes","lightArmor","heavyArmor","robe"],
+			"enhancementSkills":["元ライオネル聖印騎士団団長","ゾンビー","フルンティング","ネイリング","異端者の烙印","セイバー","メルティ"]
 		}
 	},
 	"253001103": {
@@ -11237,6 +11347,7 @@
 		},
 		"stats_pattern":4,
 		"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
+		"enhancementSkills":["ハリケーン","アルマゲスト","究極魔法・アルテマ","グランドクロス","聖アジョラの御力"],
 		"6_form": {
 			"name":"High Seraph Ultima",
 			"jpname":"聖天使アルテマ",
@@ -11251,7 +11362,8 @@
 				"pots":{"hp":390,"mp":65,"atk":26,"def":26,"mag":34,"spr":26}
 			},
 			"stats_pattern":1,
-			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"]
+			"equip":["dagger","sword","staff","rod","harp","whip","throwing","mace","hat","clothes","robe"],
+			"enhancementSkills":["ハリケーン","アルマゲスト","究極魔法・アルテマ","グランドクロス","聖アジョラの御力"]
 		}
 	},
 	"253001403": {
