@@ -2344,7 +2344,7 @@ function bin2hex(bin) {
     for (let i = 0; i < zeroToAdd; i++) {
         bin += '0';
     }
-    return parseInt(bin, 2).toString(16);
+    return bin.match(/.{4}/g).map(bin4Char => parseInt(bin4Char, 2).toString(16)).join('');
 }
 
 $(function() {
